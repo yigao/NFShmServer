@@ -180,7 +180,9 @@ enum EAttrGroup
   EAttrGroup_Pet	 	= 9;		//宠物属性组
   EAttrGroup_DEITY 	= 10; 		//天神属性组
   EAttrGroup_Armor	= 11;		//玄功真甲
-  EAttrGroup_Title  = 12;  //title标题
+  EAttrGroup_Title	= 12;		//title标题
+  EAttrGroup_GodEvil	= 13;		//神魔
+  EAttrGroup_BestEQ	= 14;		//神机装备
 }
 
 enum GrowType
@@ -393,6 +395,7 @@ enum ECreatureAttr
   A_TEAM_ID = 212;			//队伍ID
   A_TEAM_LEADER = 213;		//队长CID(服务器用,不同步客户端)
   A_ARENA_COIN	= 214;		//竞技币
+  A_TITLE_ID = 215; 	//称号
 
   A_FRIEND_COUNT = 220;		//好友数量
   A_HANGUP_TIME = 221;		//挂机时长
@@ -408,8 +411,11 @@ enum ECreatureAttr
   A_CONTRI = 232;				//贡献
   A_ESCORT_ID	= 233;			//镖车ID
   A_GODEVIL_EXP = 234;		//神魔经验
-  A_GODEVIL_LEV = 235;		//神魔等级
 
+  A_GODEVIL_LEV = 235;		//神魔等级
+  A_TEMP_CAMP_ID=236;			//临时阵营ID,给场景玩法用，如神谷战场
+  A_BEST_AQ = 237;			//神机暗器精华
+  A_BEST_LJ = 238;			//神机灵甲精华
   //常规属性结束ID
   A_COMMON_END = 400;			//常规属性结束ID
 }
@@ -477,7 +483,14 @@ message StoneSlotInfo
   optional int32 stone_pos = 1; //1-5 个槽位
   optional int64 stoneid = 2;	//镶嵌的宝石ID
 }
-
+message WashSlotInfo
+{
+  optional int32 slot = 1;		//槽位0-3
+  optional int32 quality = 2;    //品质从1开始
+  optional int32 lock = 3;		//0为解锁 1解锁
+  optional int32 id = 4;			//属性id
+  optional int32 value = 5;		//属性值
+}
 //槽位信息
 message EquipSlotInfo
 {
@@ -487,6 +500,8 @@ message EquipSlotInfo
   optional int32 stronglv = 3;			//槽位强化等级
   repeated StoneSlotInfo stones = 4;		//宝石槽位信息
   optional int32 stone_pay_slot_open = 5;  //付费宝石槽位是否开放 0：为开放，1开放
+  repeated WashSlotInfo  washs = 6;		 //洗练信息
+  optional int32 suitlv=7;				 //套装等级
 }
 
 //穿戴的装备信息 (本身的装备+槽位信息)
@@ -730,7 +745,7 @@ message BuffProto
   required uint64 buff_index = 1;			//buff索引
   required uint64 buff_id = 2;			//buff配置表的ID
   optional uint64 recver_cid = 3;			//
-  optional int32 left_msec = 4;			//剩余时间,单位：毫秒
+  optional int64 left_msec = 4;			//剩余时间,单位：毫秒
   optional uint64 skill_id = 5;			//技能ID(哪个技能产生的该BUFF)
   optional int32 skill_lev = 6;			//技能等级
   optional int32 is_effect = 7;			//是否生效 0-否，1-是
@@ -791,8 +806,11 @@ message GodEvilProto
 {
   optional int32 fetch = 1;				//是否已领取预告奖励，0-否，1-是
   optional GodEvilStageProto stage = 2;	//神魔阶段信息
-  optional int32 type = 3;				//激活类型，1-化神，2-入魔
+  optional int32 type = 3;				//激活类型，0-未激活, 1-化神，2-入魔
   optional int32 cd = 4;					//神魔变身cd
+  optional int32 vessel_lev = 5;			//神魔鼎特权等级
+  optional int32 mirror_lev = 6;			//轮回镜权等级
+  required int64 extra_exp = 7;			//额外存储额神魔之息
 }
 
 /////////////////////////////////外观系统(包过 翅膀，宝具， 剑灵， 神器系统)//////////////////////////////////////////////
@@ -1039,6 +1057,26 @@ message CharacterDBDyMissionInfo
   optional CharacterDBDyMissionBountyParam bounty_param = 4;
 }
 
+message GuildPrestigeMissionDBData
+{
+  optional int64 prestige_id = 1;
+  optional int64 task_id = 2;
+  optional int32 task_state = 3; //0:可领取 1:已领取 2:已完成 3:已领取奖励
+  optional int32 index = 4;
+  optional CharacterDBMissionTrack track = 5;
+}
+
+//公会声望任务
+message GuildPrestigeMissionDB
+{
+  optional int32 refresh_num = 1; //剩余刷新次数
+  optional int32 all_refresh_num = 2; //总的刷新次数
+  optional int32 accept_num = 3; //剩余领取任务次数
+  optional int32 all_accept_num = 4; //总的领取任务次数
+  repeated GuildPrestigeMissionDBData task_pool = 5;
+  optional int64 last_refresh_time = 7; //服务器用
+}
+
 //任务数据总和
 message CharacterDBTaskData
 {
@@ -1046,6 +1084,7 @@ message CharacterDBTaskData
   repeated CharacterDBDyMissionInfo dyinfo = 2;	//动态任务次数信息
   repeated uint64 already_submit = 3;			//已经提交的任务列表
   repeated CharacterDBRecentSubmitMission recent_submit = 4; //最近提交的任务列表
+  optional GuildPrestigeMissionDB prestige_mission = 5; //公会声望任务
 }
 
 //===================================================================================
@@ -1209,6 +1248,8 @@ message ArmorInfo
 {
   optional int32 id = 1;
   repeated ArmorSuitState suits = 2;
+  optional int32 allstate = 3; //0 : 未激活。1已全部激活
+  repeated int32 pos = 4;		//达成的部位
 }
 
 enum ETitleStatus
@@ -1227,3 +1268,67 @@ message TitleInfo
   optional int64 end_time = 4;
   optional int32 star = 5;
 }
+
+message OccupationMissionSoulData
+{
+  optional int32 soul_type = 1;
+  optional int32 soul_pos = 2;
+  optional int32 status = 3;
+}
+
+message OccupationMissionStageData
+{
+  optional int32 stage = 1;
+  optional int32 status = 2;
+  repeated OccupationMissionSoulData soul_data = 3;
+}
+
+message OccupationMissionGradeData
+{
+  optional int32 grade = 1;
+  optional int32 status = 2;
+  repeated OccupationMissionStageData stage_data = 3;
+}
+
+message OccupationMissionData
+{
+  repeated OccupationMissionGradeData grade_data = 1;
+}
+
+//=====================================神机装备数据=================================
+//神机装备信息
+message BestEQEquipInfo
+{
+  optional int32 instId = 1;			 //实体id(服务器生成的唯一id)
+  optional int32 cfgId = 2;			 //配置ID
+  optional int32 makeId = 3;			 //打造id(对应starUp表ID,里面有品质和星级) 为0读取装备表里的品质和星级
+  repeated ComPair skills = 4;		 //解锁的技能(id,level) 专属技能默认解锁的。不在这里。专属技能不能升级
+}
+
+//铭刻
+message BestEQBreak
+{
+  optional int32 lv = 1;	//当前铭刻ID
+  repeated int32 exps = 2;//7条属性进度值
+  repeated ComPair genAttr = 3;	//生成的属性。key = 索引 从0开始的 代表属性索引 ，value ：该条属性最终值
+}
+
+//神机槽位信息
+message BestEQSlotInfo
+{
+  optional int32 slot = 1;			 	//槽位类型(1暗器,2灵甲)
+  optional int32 instId = 2;			 	//当前装备的实体ID
+  optional int32 pourId = 3;			 	//当前注灵等级(里面有等级，默认1级)
+  optional int32 pourExp = 4;		 		//当前注灵经验
+  optional int32 pourUnLock =5; 			//当前注灵是否解锁。0 没解锁，1解锁
+  optional BestEQBreak breakInfo = 6;	 	//铭刻
+  optional int32 awakenLv = 7;		 	//觉醒技能等级
+}
+
+//神机前置任务
+message BestEQTask
+{
+  optional int32 id = 1;
+  optional int32 state = 2;		//0:未达成，1可领取，2 已领取
+}
+

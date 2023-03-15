@@ -66,7 +66,7 @@ message EnterDupReq
 	optional int32 mergeNum =2; //副本合并次数
 }
 //1-1:进入副本返回 ENTER_DUP_RSP
-message EnterDupRsp
+message EnterDupRsp 
 {
 	optional int32 ret = 1;
 	optional uint64 dupId = 2;
@@ -75,8 +75,8 @@ message EnterDupRsp
 
 //2-1: 请求副本结果 DUP_RESULT_REQ
 message DupResultReq
-{
-
+{	
+	
 }
 //2-2: 副本结果返回 DUP_RESULT_RSP
 message DupResultRsp
@@ -118,11 +118,11 @@ message NotifyDupRunRsp
 	optional int32 max_wave = 5;			//最大波次
 	optional int64 cur_hp = 6;				//当前目标血量
 	optional int64 max_hp = 7;				//最大目标血量
-	repeated ComPair64 items = 8;			//掉落物品
+ 	repeated ComPair64 items = 8;			//掉落物品
 	optional int32 kill_boss_num = 9;
 	optional int32 boss_num = 10;
-	optional int64 add_exp = 11;
-
+	optional int64 add_exp = 11;			
+	
 }
 
 
@@ -208,7 +208,7 @@ message DupTeamOptReq
 	optional uint32 mergeNum = 2;
 }
 
-//13-2：组队副本同意拒绝操作返回 DUP_TEAM_OPT_RSP
+//13-2：组队副本同意拒绝操作返回 DUP_TEAM_OPT_RSP 
 message DupTeamOptRsp
 {
 	optional int32 ret = 1;
@@ -341,7 +341,7 @@ message NotifyRebotEnterDup
 	optional uint64 sceneid = 3; //副本场景ID
 	optional int32 bornid = 4;	 //出生点索引
 	optional int32 teamid = 5;	 //机器人队伍ID
-
+	
 }
 //14-1: 逻辑服队伍同意或拒绝给社交服 L2S_DUP_TEAM_OPT_REQ
 message L2SDupTeamOptReq
@@ -367,7 +367,7 @@ message C2LRoleRobotEnterDupReq
 	optional uint64 dupid = 2;   //副本ID
 	optional uint64 sceneid = 3; //副本场景ID
 	optional int32  bornid = 4;	 //出生点ID
-	repeated RoleMirrorData mirrors = 5;	//中心服玩家机器人进入副本
+	repeated RoleMirrorData mirrors = 5;	//中心服玩家机器人进入副本 
 }
 
 //17-1:逻辑服通知中心服副本结果 L2C_DUP_RESULT_RSP

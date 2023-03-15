@@ -189,7 +189,7 @@ message SkillChgPosRsp
 //请求技能升级 SKILL_UPGRADE_REQ
 message SkillUpgradeReq
 {
-	optional uint64 skill_id = 1;           //技能ID
+	optional uint64 skill_id = 1;           //技能ID	
 	optional int32 type = 2;				//是否一键升级 0-否，1-是
 }
 //返回技能升级 SKILL_UPGRADE_RSP
@@ -201,7 +201,7 @@ message SkillUpgradeRsp
 //请求设置技能自动释放 SKILL_SET_AUTO_USE_REQ
 message SkillSetAutoUseReq
 {
-	optional uint64 skill_id = 1;           //技能ID
+	optional uint64 skill_id = 1;           //技能ID	
 	optional int32 is_auto = 2;				//是否自动，1-自动，0-否
 }
 
@@ -216,7 +216,7 @@ message SkillSetAutoUseRsp
 message SkillAdvanceReq
 {
 	required uint32 advance = 1;  //进阶类型 1-火，2-雷，3-冰
-}
+} 
 //返回进阶结果 SKILL_ADVANCE_RSP
 message SkillAdvanceRsp
 {
@@ -253,10 +253,10 @@ message SkillAdvanceUpdateRsp
 //解锁 进阶位置 SKILL_ADVANCE_UNLOCK_POS_REQ
 message SkillAdvanceUnlockPosReq
 {
-	//空
+  //空
 }
-//返回  解锁 进阶位置 结果 SKILL_ADVANCE_UNLOCK_POS_RSP
-message SkillAdvanceUnlockPosRsp
-{
+ //返回  解锁 进阶位置 结果 SKILL_ADVANCE_UNLOCK_POS_RSP
+ message SkillAdvanceUnlockPosRsp
+ {
 	required int32 ret = 1;	 //返回码
-}
+ }

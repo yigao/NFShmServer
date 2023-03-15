@@ -47,6 +47,8 @@ class FactionMemSimpleListProto;
 class FactionSimpleProto;
 class FactionRecordProto;
 class FactionRecordListProto;
+class FactionSalaryProto;
+class FactionSalaryListProto;
 class Faction_SyncLoginRsp;
 class Faction_SyncInfoRsp;
 class Faction_InfoReq;
@@ -85,11 +87,20 @@ class Faction_InviteJoinRsp;
 class Faction_IviteJoinNotify;
 class Faction_RecordListReq;
 class Faction_RecordListRsp;
+class Faction_DonateReq;
+class Faction_DonateRsp;
+class Faction_DonateNotify;
+class Faction_SalaryReq;
+class Faction_SalaryRsp;
+class Faction_SalaryNotify;
+class Faction_SalaryFetchReq;
+class Faction_SalaryFetchRsp;
 class CL_FactionRoleUpdateRsp;
 class LC_FactionCreate;
 class CL_FactionCreateResult;
 class LC_FactionChgName;
 class CL_FactionChgNameResult;
+class CL_FactionDismissNotify;
 
 // ===================================================================
 
@@ -441,6 +452,13 @@ class FactionProto : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 apply_fight() const;
   inline void set_apply_fight(::google::protobuf::uint64 value);
 
+  // optional int32 online_num = 16;
+  inline bool has_online_num() const;
+  inline void clear_online_num();
+  static const int kOnlineNumFieldNumber = 16;
+  inline ::google::protobuf::int32 online_num() const;
+  inline void set_online_num(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.FactionProto)
  private:
   inline void set_has_faction_id();
@@ -473,6 +491,8 @@ class FactionProto : public ::google::protobuf::Message {
   inline void clear_has_apply_minlev();
   inline void set_has_apply_fight();
   inline void clear_has_apply_fight();
+  inline void set_has_online_num();
+  inline void clear_has_online_num();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -491,9 +511,10 @@ class FactionProto : public ::google::protobuf::Message {
   ::proto_ff::RoleFacadeProto* facade_;
   ::google::protobuf::uint64 apply_fight_;
   ::google::protobuf::int32 apply_minlev_;
+  ::google::protobuf::int32 online_num_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(15 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(16 + 31) / 32];
 
   friend void  protobuf_AddDesc_Faction_2eproto();
   friend void protobuf_AssignDesc_Faction_2eproto();
@@ -1583,6 +1604,193 @@ class FactionRecordListProto : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static FactionRecordListProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FactionSalaryProto : public ::google::protobuf::Message {
+ public:
+  FactionSalaryProto();
+  virtual ~FactionSalaryProto();
+
+  FactionSalaryProto(const FactionSalaryProto& from);
+
+  inline FactionSalaryProto& operator=(const FactionSalaryProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FactionSalaryProto& default_instance();
+
+  void Swap(FactionSalaryProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FactionSalaryProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FactionSalaryProto& from);
+  void MergeFrom(const FactionSalaryProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 cur = 2;
+  inline bool has_cur() const;
+  inline void clear_cur();
+  static const int kCurFieldNumber = 2;
+  inline ::google::protobuf::int32 cur() const;
+  inline void set_cur(::google::protobuf::int32 value);
+
+  // optional int32 fetch = 3;
+  inline bool has_fetch() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 3;
+  inline ::google::protobuf::int32 fetch() const;
+  inline void set_fetch(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FactionSalaryProto)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_cur();
+  inline void clear_has_cur();
+  inline void set_has_fetch();
+  inline void clear_has_fetch();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 cur_;
+  ::google::protobuf::int32 fetch_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static FactionSalaryProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FactionSalaryListProto : public ::google::protobuf::Message {
+ public:
+  FactionSalaryListProto();
+  virtual ~FactionSalaryListProto();
+
+  FactionSalaryListProto(const FactionSalaryListProto& from);
+
+  inline FactionSalaryListProto& operator=(const FactionSalaryListProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FactionSalaryListProto& default_instance();
+
+  void Swap(FactionSalaryListProto* other);
+
+  // implements Message ----------------------------------------------
+
+  FactionSalaryListProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FactionSalaryListProto& from);
+  void MergeFrom(const FactionSalaryListProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.FactionSalaryProto info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::FactionSalaryProto& info(int index) const;
+  inline ::proto_ff::FactionSalaryProto* mutable_info(int index);
+  inline ::proto_ff::FactionSalaryProto* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionSalaryProto >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionSalaryProto >*
+      mutable_info();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FactionSalaryListProto)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionSalaryProto > info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static FactionSalaryListProto* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -5005,6 +5213,656 @@ class Faction_RecordListRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class Faction_DonateReq : public ::google::protobuf::Message {
+ public:
+  Faction_DonateReq();
+  virtual ~Faction_DonateReq();
+
+  Faction_DonateReq(const Faction_DonateReq& from);
+
+  inline Faction_DonateReq& operator=(const Faction_DonateReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_DonateReq& default_instance();
+
+  void Swap(Faction_DonateReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_DonateReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_DonateReq& from);
+  void MergeFrom(const Faction_DonateReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_DonateReq)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_DonateReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_DonateRsp : public ::google::protobuf::Message {
+ public:
+  Faction_DonateRsp();
+  virtual ~Faction_DonateRsp();
+
+  Faction_DonateRsp(const Faction_DonateRsp& from);
+
+  inline Faction_DonateRsp& operator=(const Faction_DonateRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_DonateRsp& default_instance();
+
+  void Swap(Faction_DonateRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_DonateRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_DonateRsp& from);
+  void MergeFrom(const Faction_DonateRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_DonateRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_DonateRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_DonateNotify : public ::google::protobuf::Message {
+ public:
+  Faction_DonateNotify();
+  virtual ~Faction_DonateNotify();
+
+  Faction_DonateNotify(const Faction_DonateNotify& from);
+
+  inline Faction_DonateNotify& operator=(const Faction_DonateNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_DonateNotify& default_instance();
+
+  void Swap(Faction_DonateNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_DonateNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_DonateNotify& from);
+  void MergeFrom(const Faction_DonateNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 donate = 1;
+  inline bool has_donate() const;
+  inline void clear_donate();
+  static const int kDonateFieldNumber = 1;
+  inline ::google::protobuf::int32 donate() const;
+  inline void set_donate(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_DonateNotify)
+ private:
+  inline void set_has_donate();
+  inline void clear_has_donate();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 donate_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_DonateNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_SalaryReq : public ::google::protobuf::Message {
+ public:
+  Faction_SalaryReq();
+  virtual ~Faction_SalaryReq();
+
+  Faction_SalaryReq(const Faction_SalaryReq& from);
+
+  inline Faction_SalaryReq& operator=(const Faction_SalaryReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_SalaryReq& default_instance();
+
+  void Swap(Faction_SalaryReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_SalaryReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_SalaryReq& from);
+  void MergeFrom(const Faction_SalaryReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_SalaryReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_SalaryReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_SalaryRsp : public ::google::protobuf::Message {
+ public:
+  Faction_SalaryRsp();
+  virtual ~Faction_SalaryRsp();
+
+  Faction_SalaryRsp(const Faction_SalaryRsp& from);
+
+  inline Faction_SalaryRsp& operator=(const Faction_SalaryRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_SalaryRsp& default_instance();
+
+  void Swap(Faction_SalaryRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_SalaryRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_SalaryRsp& from);
+  void MergeFrom(const Faction_SalaryRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.FactionSalaryListProto salary = 1;
+  inline bool has_salary() const;
+  inline void clear_salary();
+  static const int kSalaryFieldNumber = 1;
+  inline const ::proto_ff::FactionSalaryListProto& salary() const;
+  inline ::proto_ff::FactionSalaryListProto* mutable_salary();
+  inline ::proto_ff::FactionSalaryListProto* release_salary();
+  inline void set_allocated_salary(::proto_ff::FactionSalaryListProto* salary);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_SalaryRsp)
+ private:
+  inline void set_has_salary();
+  inline void clear_has_salary();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::FactionSalaryListProto* salary_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_SalaryRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_SalaryNotify : public ::google::protobuf::Message {
+ public:
+  Faction_SalaryNotify();
+  virtual ~Faction_SalaryNotify();
+
+  Faction_SalaryNotify(const Faction_SalaryNotify& from);
+
+  inline Faction_SalaryNotify& operator=(const Faction_SalaryNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_SalaryNotify& default_instance();
+
+  void Swap(Faction_SalaryNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_SalaryNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_SalaryNotify& from);
+  void MergeFrom(const Faction_SalaryNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .proto_ff.FactionSalaryListProto salary = 1;
+  inline bool has_salary() const;
+  inline void clear_salary();
+  static const int kSalaryFieldNumber = 1;
+  inline const ::proto_ff::FactionSalaryListProto& salary() const;
+  inline ::proto_ff::FactionSalaryListProto* mutable_salary();
+  inline ::proto_ff::FactionSalaryListProto* release_salary();
+  inline void set_allocated_salary(::proto_ff::FactionSalaryListProto* salary);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_SalaryNotify)
+ private:
+  inline void set_has_salary();
+  inline void clear_has_salary();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::FactionSalaryListProto* salary_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_SalaryNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_SalaryFetchReq : public ::google::protobuf::Message {
+ public:
+  Faction_SalaryFetchReq();
+  virtual ~Faction_SalaryFetchReq();
+
+  Faction_SalaryFetchReq(const Faction_SalaryFetchReq& from);
+
+  inline Faction_SalaryFetchReq& operator=(const Faction_SalaryFetchReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_SalaryFetchReq& default_instance();
+
+  void Swap(Faction_SalaryFetchReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_SalaryFetchReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_SalaryFetchReq& from);
+  void MergeFrom(const Faction_SalaryFetchReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_SalaryFetchReq)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_SalaryFetchReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Faction_SalaryFetchRsp : public ::google::protobuf::Message {
+ public:
+  Faction_SalaryFetchRsp();
+  virtual ~Faction_SalaryFetchRsp();
+
+  Faction_SalaryFetchRsp(const Faction_SalaryFetchRsp& from);
+
+  inline Faction_SalaryFetchRsp& operator=(const Faction_SalaryFetchRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Faction_SalaryFetchRsp& default_instance();
+
+  void Swap(Faction_SalaryFetchRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Faction_SalaryFetchRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Faction_SalaryFetchRsp& from);
+  void MergeFrom(const Faction_SalaryFetchRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Faction_SalaryFetchRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static Faction_SalaryFetchRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CL_FactionRoleUpdateRsp : public ::google::protobuf::Message {
  public:
   CL_FactionRoleUpdateRsp();
@@ -5522,6 +6380,88 @@ class CL_FactionChgNameResult : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static CL_FactionChgNameResult* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CL_FactionDismissNotify : public ::google::protobuf::Message {
+ public:
+  CL_FactionDismissNotify();
+  virtual ~CL_FactionDismissNotify();
+
+  CL_FactionDismissNotify(const CL_FactionDismissNotify& from);
+
+  inline CL_FactionDismissNotify& operator=(const CL_FactionDismissNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CL_FactionDismissNotify& default_instance();
+
+  void Swap(CL_FactionDismissNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  CL_FactionDismissNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CL_FactionDismissNotify& from);
+  void MergeFrom(const CL_FactionDismissNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 faction_id = 1;
+  inline bool has_faction_id() const;
+  inline void clear_faction_id();
+  static const int kFactionIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 faction_id() const;
+  inline void set_faction_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CL_FactionDismissNotify)
+ private:
+  inline void set_has_faction_id();
+  inline void clear_has_faction_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 faction_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Faction_2eproto();
+  friend void protobuf_AssignDesc_Faction_2eproto();
+  friend void protobuf_ShutdownFile_Faction_2eproto();
+
+  void InitAsDefaultInstance();
+  static CL_FactionDismissNotify* default_instance_;
 };
 // ===================================================================
 
@@ -6316,6 +7256,28 @@ inline ::google::protobuf::uint64 FactionProto::apply_fight() const {
 inline void FactionProto::set_apply_fight(::google::protobuf::uint64 value) {
   set_has_apply_fight();
   apply_fight_ = value;
+}
+
+// optional int32 online_num = 16;
+inline bool FactionProto::has_online_num() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void FactionProto::set_has_online_num() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void FactionProto::clear_has_online_num() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void FactionProto::clear_online_num() {
+  online_num_ = 0;
+  clear_has_online_num();
+}
+inline ::google::protobuf::int32 FactionProto::online_num() const {
+  return online_num_;
+}
+inline void FactionProto::set_online_num(::google::protobuf::int32 value) {
+  set_has_online_num();
+  online_num_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -7526,6 +8488,105 @@ FactionRecordListProto::record_lst() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionRecordProto >*
 FactionRecordListProto::mutable_record_lst() {
   return &record_lst_;
+}
+
+// -------------------------------------------------------------------
+
+// FactionSalaryProto
+
+// optional int32 id = 1;
+inline bool FactionSalaryProto::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FactionSalaryProto::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FactionSalaryProto::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FactionSalaryProto::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 FactionSalaryProto::id() const {
+  return id_;
+}
+inline void FactionSalaryProto::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 cur = 2;
+inline bool FactionSalaryProto::has_cur() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FactionSalaryProto::set_has_cur() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FactionSalaryProto::clear_has_cur() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FactionSalaryProto::clear_cur() {
+  cur_ = 0;
+  clear_has_cur();
+}
+inline ::google::protobuf::int32 FactionSalaryProto::cur() const {
+  return cur_;
+}
+inline void FactionSalaryProto::set_cur(::google::protobuf::int32 value) {
+  set_has_cur();
+  cur_ = value;
+}
+
+// optional int32 fetch = 3;
+inline bool FactionSalaryProto::has_fetch() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FactionSalaryProto::set_has_fetch() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FactionSalaryProto::clear_has_fetch() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FactionSalaryProto::clear_fetch() {
+  fetch_ = 0;
+  clear_has_fetch();
+}
+inline ::google::protobuf::int32 FactionSalaryProto::fetch() const {
+  return fetch_;
+}
+inline void FactionSalaryProto::set_fetch(::google::protobuf::int32 value) {
+  set_has_fetch();
+  fetch_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FactionSalaryListProto
+
+// repeated .proto_ff.FactionSalaryProto info = 1;
+inline int FactionSalaryListProto::info_size() const {
+  return info_.size();
+}
+inline void FactionSalaryListProto::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::FactionSalaryProto& FactionSalaryListProto::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::FactionSalaryProto* FactionSalaryListProto::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::FactionSalaryProto* FactionSalaryListProto::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionSalaryProto >&
+FactionSalaryListProto::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionSalaryProto >*
+FactionSalaryListProto::mutable_info() {
+  return &info_;
 }
 
 // -------------------------------------------------------------------
@@ -9596,6 +10657,224 @@ inline void Faction_RecordListRsp::set_allocated_lst(::proto_ff::FactionRecordLi
 
 // -------------------------------------------------------------------
 
+// Faction_DonateReq
+
+// optional int32 id = 1;
+inline bool Faction_DonateReq::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_DonateReq::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_DonateReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_DonateReq::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Faction_DonateReq::id() const {
+  return id_;
+}
+inline void Faction_DonateReq::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Faction_DonateRsp
+
+// required int32 ret = 1;
+inline bool Faction_DonateRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_DonateRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_DonateRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_DonateRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Faction_DonateRsp::ret() const {
+  return ret_;
+}
+inline void Faction_DonateRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Faction_DonateNotify
+
+// required int32 donate = 1;
+inline bool Faction_DonateNotify::has_donate() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_DonateNotify::set_has_donate() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_DonateNotify::clear_has_donate() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_DonateNotify::clear_donate() {
+  donate_ = 0;
+  clear_has_donate();
+}
+inline ::google::protobuf::int32 Faction_DonateNotify::donate() const {
+  return donate_;
+}
+inline void Faction_DonateNotify::set_donate(::google::protobuf::int32 value) {
+  set_has_donate();
+  donate_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Faction_SalaryReq
+
+// -------------------------------------------------------------------
+
+// Faction_SalaryRsp
+
+// optional .proto_ff.FactionSalaryListProto salary = 1;
+inline bool Faction_SalaryRsp::has_salary() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_SalaryRsp::set_has_salary() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_SalaryRsp::clear_has_salary() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_SalaryRsp::clear_salary() {
+  if (salary_ != NULL) salary_->::proto_ff::FactionSalaryListProto::Clear();
+  clear_has_salary();
+}
+inline const ::proto_ff::FactionSalaryListProto& Faction_SalaryRsp::salary() const {
+  return salary_ != NULL ? *salary_ : *default_instance_->salary_;
+}
+inline ::proto_ff::FactionSalaryListProto* Faction_SalaryRsp::mutable_salary() {
+  set_has_salary();
+  if (salary_ == NULL) salary_ = new ::proto_ff::FactionSalaryListProto;
+  return salary_;
+}
+inline ::proto_ff::FactionSalaryListProto* Faction_SalaryRsp::release_salary() {
+  clear_has_salary();
+  ::proto_ff::FactionSalaryListProto* temp = salary_;
+  salary_ = NULL;
+  return temp;
+}
+inline void Faction_SalaryRsp::set_allocated_salary(::proto_ff::FactionSalaryListProto* salary) {
+  delete salary_;
+  salary_ = salary;
+  if (salary) {
+    set_has_salary();
+  } else {
+    clear_has_salary();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Faction_SalaryNotify
+
+// optional .proto_ff.FactionSalaryListProto salary = 1;
+inline bool Faction_SalaryNotify::has_salary() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_SalaryNotify::set_has_salary() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_SalaryNotify::clear_has_salary() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_SalaryNotify::clear_salary() {
+  if (salary_ != NULL) salary_->::proto_ff::FactionSalaryListProto::Clear();
+  clear_has_salary();
+}
+inline const ::proto_ff::FactionSalaryListProto& Faction_SalaryNotify::salary() const {
+  return salary_ != NULL ? *salary_ : *default_instance_->salary_;
+}
+inline ::proto_ff::FactionSalaryListProto* Faction_SalaryNotify::mutable_salary() {
+  set_has_salary();
+  if (salary_ == NULL) salary_ = new ::proto_ff::FactionSalaryListProto;
+  return salary_;
+}
+inline ::proto_ff::FactionSalaryListProto* Faction_SalaryNotify::release_salary() {
+  clear_has_salary();
+  ::proto_ff::FactionSalaryListProto* temp = salary_;
+  salary_ = NULL;
+  return temp;
+}
+inline void Faction_SalaryNotify::set_allocated_salary(::proto_ff::FactionSalaryListProto* salary) {
+  delete salary_;
+  salary_ = salary;
+  if (salary) {
+    set_has_salary();
+  } else {
+    clear_has_salary();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Faction_SalaryFetchReq
+
+// optional int32 id = 1;
+inline bool Faction_SalaryFetchReq::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_SalaryFetchReq::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_SalaryFetchReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_SalaryFetchReq::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 Faction_SalaryFetchReq::id() const {
+  return id_;
+}
+inline void Faction_SalaryFetchReq::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Faction_SalaryFetchRsp
+
+// required int32 ret = 1;
+inline bool Faction_SalaryFetchRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Faction_SalaryFetchRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Faction_SalaryFetchRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Faction_SalaryFetchRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 Faction_SalaryFetchRsp::ret() const {
+  return ret_;
+}
+inline void Faction_SalaryFetchRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // CL_FactionRoleUpdateRsp
 
 // required uint64 cid = 1;
@@ -10112,6 +11391,32 @@ inline ::google::protobuf::uint64 CL_FactionChgNameResult::cid() const {
 inline void CL_FactionChgNameResult::set_cid(::google::protobuf::uint64 value) {
   set_has_cid();
   cid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CL_FactionDismissNotify
+
+// required uint32 faction_id = 1;
+inline bool CL_FactionDismissNotify::has_faction_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CL_FactionDismissNotify::set_has_faction_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CL_FactionDismissNotify::clear_has_faction_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CL_FactionDismissNotify::clear_faction_id() {
+  faction_id_ = 0u;
+  clear_has_faction_id();
+}
+inline ::google::protobuf::uint32 CL_FactionDismissNotify::faction_id() const {
+  return faction_id_;
+}
+inline void CL_FactionDismissNotify::set_faction_id(::google::protobuf::uint32 value) {
+  set_has_faction_id();
+  faction_id_ = value;
 }
 
 

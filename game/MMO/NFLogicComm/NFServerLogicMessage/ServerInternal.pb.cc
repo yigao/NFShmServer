@@ -109,6 +109,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* NotifyLogicReconnect_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   NotifyLogicReconnect_reflection_ = NULL;
+const ::google::protobuf::Descriptor* NotifyCenterReconnectSuccessRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  NotifyCenterReconnectSuccessRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* SocialRoleInfoReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SocialRoleInfoReq_reflection_ = NULL;
@@ -630,7 +633,22 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyLogicReconnect));
-  SocialRoleInfoReq_descriptor_ = file->message_type(29);
+  NotifyCenterReconnectSuccessRsp_descriptor_ = file->message_type(29);
+  static const int NotifyCenterReconnectSuccessRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyCenterReconnectSuccessRsp, cid_),
+  };
+  NotifyCenterReconnectSuccessRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      NotifyCenterReconnectSuccessRsp_descriptor_,
+      NotifyCenterReconnectSuccessRsp::default_instance_,
+      NotifyCenterReconnectSuccessRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyCenterReconnectSuccessRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyCenterReconnectSuccessRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(NotifyCenterReconnectSuccessRsp));
+  SocialRoleInfoReq_descriptor_ = file->message_type(30);
   static const int SocialRoleInfoReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SocialRoleInfoReq, cid_list_),
   };
@@ -645,7 +663,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SocialRoleInfoReq));
-  SocialRoleInfoRsp_descriptor_ = file->message_type(30);
+  SocialRoleInfoRsp_descriptor_ = file->message_type(31);
   static const int SocialRoleInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SocialRoleInfoRsp, info_list_),
   };
@@ -660,7 +678,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SocialRoleInfoRsp));
-  SocialRoleEventRsp_descriptor_ = file->message_type(31);
+  SocialRoleEventRsp_descriptor_ = file->message_type(32);
   static const int SocialRoleEventRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SocialRoleEventRsp, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SocialRoleEventRsp, event_type_),
@@ -676,7 +694,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SocialRoleEventRsp));
-  SynAttrToCenterRsp_descriptor_ = file->message_type(32);
+  SynAttrToCenterRsp_descriptor_ = file->message_type(33);
   static const int SynAttrToCenterRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SynAttrToCenterRsp, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SynAttrToCenterRsp, info_),
@@ -692,7 +710,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SynAttrToCenterRsp));
-  CenterToLogicVirForbidRsp_descriptor_ = file->message_type(33);
+  CenterToLogicVirForbidRsp_descriptor_ = file->message_type(34);
   static const int CenterToLogicVirForbidRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CenterToLogicVirForbidRsp, zid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CenterToLogicVirForbidRsp, vir_lst_),
@@ -708,7 +726,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CenterToLogicVirForbidRsp));
-  NotifyGateRetRoleList_descriptor_ = file->message_type(34);
+  NotifyGateRetRoleList_descriptor_ = file->message_type(35);
   static const int NotifyGateRetRoleList_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateRetRoleList, clientid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(NotifyGateRetRoleList, uid_),
@@ -795,6 +813,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     NotifyLogicReconnect_descriptor_, &NotifyLogicReconnect::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    NotifyCenterReconnectSuccessRsp_descriptor_, &NotifyCenterReconnectSuccessRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SocialRoleInfoReq_descriptor_, &SocialRoleInfoReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SocialRoleInfoRsp_descriptor_, &SocialRoleInfoRsp::default_instance());
@@ -869,6 +889,8 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete NotifyLogicDisconnect_reflection_;
   delete NotifyLogicReconnect::default_instance_;
   delete NotifyLogicReconnect_reflection_;
+  delete NotifyCenterReconnectSuccessRsp::default_instance_;
+  delete NotifyCenterReconnectSuccessRsp_reflection_;
   delete SocialRoleInfoReq::default_instance_;
   delete SocialRoleInfoReq_reflection_;
   delete SocialRoleInfoRsp::default_instance_;
@@ -955,16 +977,17 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "ag\030\003 \001(\005\"6\n\025NotifyLogicDisconnect\022\020\n\010cli"
     "entId\030\001 \001(\r\022\013\n\003cid\030\002 \001(\004\"E\n\024NotifyLogicR"
     "econnect\022\013\n\003cid\030\001 \002(\004\022\020\n\010clientId\030\002 \002(\r\022"
-    "\016\n\006gateId\030\003 \002(\r\"%\n\021SocialRoleInfoReq\022\020\n\010"
-    "cid_list\030\001 \003(\004\"A\n\021SocialRoleInfoRsp\022,\n\ti"
-    "nfo_list\030\001 \003(\0132\031.proto_ff.SocialRoleProt"
-    "o\"5\n\022SocialRoleEventRsp\022\013\n\003cid\030\001 \002(\004\022\022\n\n"
-    "event_type\030\002 \003(\r\"J\n\022SynAttrToCenterRsp\022\013"
-    "\n\003cid\030\001 \002(\004\022\'\n\004info\030\002 \001(\0132\031.proto_ff.Cen"
-    "terRoleProto\"9\n\031CenterToLogicVirForbidRs"
-    "p\022\013\n\003zid\030\001 \001(\r\022\017\n\007vir_lst\030\002 \003(\004\"6\n\025Notif"
-    "yGateRetRoleList\022\020\n\010clientid\030\001 \002(\r\022\013\n\003ui"
-    "d\030\002 \002(\r", 2807);
+    "\016\n\006gateId\030\003 \002(\r\".\n\037NotifyCenterReconnect"
+    "SuccessRsp\022\013\n\003cid\030\001 \002(\004\"%\n\021SocialRoleInf"
+    "oReq\022\020\n\010cid_list\030\001 \003(\004\"A\n\021SocialRoleInfo"
+    "Rsp\022,\n\tinfo_list\030\001 \003(\0132\031.proto_ff.Social"
+    "RoleProto\"5\n\022SocialRoleEventRsp\022\013\n\003cid\030\001"
+    " \002(\004\022\022\n\nevent_type\030\002 \003(\r\"J\n\022SynAttrToCen"
+    "terRsp\022\013\n\003cid\030\001 \002(\004\022\'\n\004info\030\002 \001(\0132\031.prot"
+    "o_ff.CenterRoleProto\"9\n\031CenterToLogicVir"
+    "ForbidRsp\022\013\n\003zid\030\001 \001(\r\022\017\n\007vir_lst\030\002 \003(\004\""
+    "6\n\025NotifyGateRetRoleList\022\020\n\010clientid\030\001 \002"
+    "(\r\022\013\n\003uid\030\002 \002(\r", 2855);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   NotifyCloseServer::default_instance_ = new NotifyCloseServer();
@@ -996,6 +1019,7 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   NotifyCenterDisConnect::default_instance_ = new NotifyCenterDisConnect();
   NotifyLogicDisconnect::default_instance_ = new NotifyLogicDisconnect();
   NotifyLogicReconnect::default_instance_ = new NotifyLogicReconnect();
+  NotifyCenterReconnectSuccessRsp::default_instance_ = new NotifyCenterReconnectSuccessRsp();
   SocialRoleInfoReq::default_instance_ = new SocialRoleInfoReq();
   SocialRoleInfoRsp::default_instance_ = new SocialRoleInfoRsp();
   SocialRoleEventRsp::default_instance_ = new SocialRoleEventRsp();
@@ -1031,6 +1055,7 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   NotifyCenterDisConnect::default_instance_->InitAsDefaultInstance();
   NotifyLogicDisconnect::default_instance_->InitAsDefaultInstance();
   NotifyLogicReconnect::default_instance_->InitAsDefaultInstance();
+  NotifyCenterReconnectSuccessRsp::default_instance_->InitAsDefaultInstance();
   SocialRoleInfoReq::default_instance_->InitAsDefaultInstance();
   SocialRoleInfoRsp::default_instance_->InitAsDefaultInstance();
   SocialRoleEventRsp::default_instance_->InitAsDefaultInstance();
@@ -9525,6 +9550,215 @@ void NotifyLogicReconnect::Swap(NotifyLogicReconnect* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = NotifyLogicReconnect_descriptor_;
   metadata.reflection = NotifyLogicReconnect_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int NotifyCenterReconnectSuccessRsp::kCidFieldNumber;
+#endif  // !_MSC_VER
+
+NotifyCenterReconnectSuccessRsp::NotifyCenterReconnectSuccessRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void NotifyCenterReconnectSuccessRsp::InitAsDefaultInstance() {
+}
+
+NotifyCenterReconnectSuccessRsp::NotifyCenterReconnectSuccessRsp(const NotifyCenterReconnectSuccessRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void NotifyCenterReconnectSuccessRsp::SharedCtor() {
+  _cached_size_ = 0;
+  cid_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+NotifyCenterReconnectSuccessRsp::~NotifyCenterReconnectSuccessRsp() {
+  SharedDtor();
+}
+
+void NotifyCenterReconnectSuccessRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void NotifyCenterReconnectSuccessRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* NotifyCenterReconnectSuccessRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return NotifyCenterReconnectSuccessRsp_descriptor_;
+}
+
+const NotifyCenterReconnectSuccessRsp& NotifyCenterReconnectSuccessRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+NotifyCenterReconnectSuccessRsp* NotifyCenterReconnectSuccessRsp::default_instance_ = NULL;
+
+NotifyCenterReconnectSuccessRsp* NotifyCenterReconnectSuccessRsp::New() const {
+  return new NotifyCenterReconnectSuccessRsp;
+}
+
+void NotifyCenterReconnectSuccessRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    cid_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool NotifyCenterReconnectSuccessRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 cid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &cid_)));
+          set_has_cid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void NotifyCenterReconnectSuccessRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint64 cid = 1;
+  if (has_cid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->cid(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* NotifyCenterReconnectSuccessRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint64 cid = 1;
+  if (has_cid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->cid(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int NotifyCenterReconnectSuccessRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint64 cid = 1;
+    if (has_cid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->cid());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void NotifyCenterReconnectSuccessRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const NotifyCenterReconnectSuccessRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const NotifyCenterReconnectSuccessRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void NotifyCenterReconnectSuccessRsp::MergeFrom(const NotifyCenterReconnectSuccessRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_cid()) {
+      set_cid(from.cid());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void NotifyCenterReconnectSuccessRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void NotifyCenterReconnectSuccessRsp::CopyFrom(const NotifyCenterReconnectSuccessRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool NotifyCenterReconnectSuccessRsp::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void NotifyCenterReconnectSuccessRsp::Swap(NotifyCenterReconnectSuccessRsp* other) {
+  if (other != this) {
+    std::swap(cid_, other->cid_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata NotifyCenterReconnectSuccessRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = NotifyCenterReconnectSuccessRsp_descriptor_;
+  metadata.reflection = NotifyCenterReconnectSuccessRsp_reflection_;
   return metadata;
 }
 

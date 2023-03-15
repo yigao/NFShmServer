@@ -155,4 +155,54 @@ message EquipStoveSmeltRsp
 }
 
 
-//================================================================================//
+//=========================洗练相关===================
+//解锁槽位 EQUIP_WASH_UNLOCK_REQ
+message EquipWashUnlockReq
+{
+	optional int32 equip_slot = 1;  //装备槽位
+	optional int32 wash_slot = 2;  	//从0开始 0-3
+	optional int32 useItem = 3; 	//使用物品解锁 >0 使用物品解锁
+}
+
+//解锁槽位返回 EQUIP_WASH_UNLOCK_RSP
+message EquipWashUnlockRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_slot = 2;
+	optional int32 wash_slot = 3;
+	optional int32 useItem = 4;
+}
+
+//洗练请求 EQUIP_WASH_REQ
+message EquipWashReq
+{
+	optional int32 equip_slot = 1;
+	repeated int32 lock_wash_slot = 2;  //锁定的槽位
+	optional int64 useItem = 3; 		//使用高级物品ID
+}
+
+//洗练返回 EQUIP_WASH_RSP
+message EquipWashRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_slot = 2;
+	repeated int32 lockslot = 3; //锁定的槽位
+	optional int64 useItem = 4;  //使用高级物品ID
+}
+
+
+//===================================套装操作=============================================//
+//1-1:套装操作(升级) EQUIP_SUIT_LV_REQ
+message EquipSuitLvReq
+{
+	optional int32 equip_pos = 1;		// 位置
+}
+
+//1-2:套装操作返 EQUIP_SUIT_LV_RSP
+message EquipSuitLvRsp
+{
+	optional int32 ret =1;				// 返回码
+	optional int32 equip_pos = 2;		// 位置
+	optional int32 suitlv	= 3;		// 升级后槽位套装等级
+}
+

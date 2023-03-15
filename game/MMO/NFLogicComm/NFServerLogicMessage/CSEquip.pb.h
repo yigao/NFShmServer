@@ -57,6 +57,12 @@ class EquipStoveInfoReq;
 class EquipStoveInfoRsp;
 class EquipStoveSmeltReq;
 class EquipStoveSmeltRsp;
+class EquipWashUnlockReq;
+class EquipWashUnlockRsp;
+class EquipWashReq;
+class EquipWashRsp;
+class EquipSuitLvReq;
+class EquipSuitLvRsp;
 
 // ===================================================================
 
@@ -2008,6 +2014,624 @@ class EquipStoveSmeltRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static EquipStoveSmeltRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class EquipWashUnlockReq : public ::google::protobuf::Message {
+ public:
+  EquipWashUnlockReq();
+  virtual ~EquipWashUnlockReq();
+
+  EquipWashUnlockReq(const EquipWashUnlockReq& from);
+
+  inline EquipWashUnlockReq& operator=(const EquipWashUnlockReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipWashUnlockReq& default_instance();
+
+  void Swap(EquipWashUnlockReq* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipWashUnlockReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipWashUnlockReq& from);
+  void MergeFrom(const EquipWashUnlockReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 equip_slot = 1;
+  inline bool has_equip_slot() const;
+  inline void clear_equip_slot();
+  static const int kEquipSlotFieldNumber = 1;
+  inline ::google::protobuf::int32 equip_slot() const;
+  inline void set_equip_slot(::google::protobuf::int32 value);
+
+  // optional int32 wash_slot = 2;
+  inline bool has_wash_slot() const;
+  inline void clear_wash_slot();
+  static const int kWashSlotFieldNumber = 2;
+  inline ::google::protobuf::int32 wash_slot() const;
+  inline void set_wash_slot(::google::protobuf::int32 value);
+
+  // optional int32 useItem = 3;
+  inline bool has_useitem() const;
+  inline void clear_useitem();
+  static const int kUseItemFieldNumber = 3;
+  inline ::google::protobuf::int32 useitem() const;
+  inline void set_useitem(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipWashUnlockReq)
+ private:
+  inline void set_has_equip_slot();
+  inline void clear_has_equip_slot();
+  inline void set_has_wash_slot();
+  inline void clear_has_wash_slot();
+  inline void set_has_useitem();
+  inline void clear_has_useitem();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 equip_slot_;
+  ::google::protobuf::int32 wash_slot_;
+  ::google::protobuf::int32 useitem_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipWashUnlockReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipWashUnlockRsp : public ::google::protobuf::Message {
+ public:
+  EquipWashUnlockRsp();
+  virtual ~EquipWashUnlockRsp();
+
+  EquipWashUnlockRsp(const EquipWashUnlockRsp& from);
+
+  inline EquipWashUnlockRsp& operator=(const EquipWashUnlockRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipWashUnlockRsp& default_instance();
+
+  void Swap(EquipWashUnlockRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipWashUnlockRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipWashUnlockRsp& from);
+  void MergeFrom(const EquipWashUnlockRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 equip_slot = 2;
+  inline bool has_equip_slot() const;
+  inline void clear_equip_slot();
+  static const int kEquipSlotFieldNumber = 2;
+  inline ::google::protobuf::int32 equip_slot() const;
+  inline void set_equip_slot(::google::protobuf::int32 value);
+
+  // optional int32 wash_slot = 3;
+  inline bool has_wash_slot() const;
+  inline void clear_wash_slot();
+  static const int kWashSlotFieldNumber = 3;
+  inline ::google::protobuf::int32 wash_slot() const;
+  inline void set_wash_slot(::google::protobuf::int32 value);
+
+  // optional int32 useItem = 4;
+  inline bool has_useitem() const;
+  inline void clear_useitem();
+  static const int kUseItemFieldNumber = 4;
+  inline ::google::protobuf::int32 useitem() const;
+  inline void set_useitem(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipWashUnlockRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_equip_slot();
+  inline void clear_has_equip_slot();
+  inline void set_has_wash_slot();
+  inline void clear_has_wash_slot();
+  inline void set_has_useitem();
+  inline void clear_has_useitem();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 equip_slot_;
+  ::google::protobuf::int32 wash_slot_;
+  ::google::protobuf::int32 useitem_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipWashUnlockRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipWashReq : public ::google::protobuf::Message {
+ public:
+  EquipWashReq();
+  virtual ~EquipWashReq();
+
+  EquipWashReq(const EquipWashReq& from);
+
+  inline EquipWashReq& operator=(const EquipWashReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipWashReq& default_instance();
+
+  void Swap(EquipWashReq* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipWashReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipWashReq& from);
+  void MergeFrom(const EquipWashReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 equip_slot = 1;
+  inline bool has_equip_slot() const;
+  inline void clear_equip_slot();
+  static const int kEquipSlotFieldNumber = 1;
+  inline ::google::protobuf::int32 equip_slot() const;
+  inline void set_equip_slot(::google::protobuf::int32 value);
+
+  // repeated int32 lock_wash_slot = 2;
+  inline int lock_wash_slot_size() const;
+  inline void clear_lock_wash_slot();
+  static const int kLockWashSlotFieldNumber = 2;
+  inline ::google::protobuf::int32 lock_wash_slot(int index) const;
+  inline void set_lock_wash_slot(int index, ::google::protobuf::int32 value);
+  inline void add_lock_wash_slot(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      lock_wash_slot() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_lock_wash_slot();
+
+  // optional int64 useItem = 3;
+  inline bool has_useitem() const;
+  inline void clear_useitem();
+  static const int kUseItemFieldNumber = 3;
+  inline ::google::protobuf::int64 useitem() const;
+  inline void set_useitem(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipWashReq)
+ private:
+  inline void set_has_equip_slot();
+  inline void clear_has_equip_slot();
+  inline void set_has_useitem();
+  inline void clear_has_useitem();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > lock_wash_slot_;
+  ::google::protobuf::int64 useitem_;
+  ::google::protobuf::int32 equip_slot_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipWashReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipWashRsp : public ::google::protobuf::Message {
+ public:
+  EquipWashRsp();
+  virtual ~EquipWashRsp();
+
+  EquipWashRsp(const EquipWashRsp& from);
+
+  inline EquipWashRsp& operator=(const EquipWashRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipWashRsp& default_instance();
+
+  void Swap(EquipWashRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipWashRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipWashRsp& from);
+  void MergeFrom(const EquipWashRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 equip_slot = 2;
+  inline bool has_equip_slot() const;
+  inline void clear_equip_slot();
+  static const int kEquipSlotFieldNumber = 2;
+  inline ::google::protobuf::int32 equip_slot() const;
+  inline void set_equip_slot(::google::protobuf::int32 value);
+
+  // repeated int32 lockslot = 3;
+  inline int lockslot_size() const;
+  inline void clear_lockslot();
+  static const int kLockslotFieldNumber = 3;
+  inline ::google::protobuf::int32 lockslot(int index) const;
+  inline void set_lockslot(int index, ::google::protobuf::int32 value);
+  inline void add_lockslot(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      lockslot() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_lockslot();
+
+  // optional int64 useItem = 4;
+  inline bool has_useitem() const;
+  inline void clear_useitem();
+  static const int kUseItemFieldNumber = 4;
+  inline ::google::protobuf::int64 useitem() const;
+  inline void set_useitem(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipWashRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_equip_slot();
+  inline void clear_has_equip_slot();
+  inline void set_has_useitem();
+  inline void clear_has_useitem();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 equip_slot_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > lockslot_;
+  ::google::protobuf::int64 useitem_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipWashRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipSuitLvReq : public ::google::protobuf::Message {
+ public:
+  EquipSuitLvReq();
+  virtual ~EquipSuitLvReq();
+
+  EquipSuitLvReq(const EquipSuitLvReq& from);
+
+  inline EquipSuitLvReq& operator=(const EquipSuitLvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipSuitLvReq& default_instance();
+
+  void Swap(EquipSuitLvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipSuitLvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipSuitLvReq& from);
+  void MergeFrom(const EquipSuitLvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 equip_pos = 1;
+  inline bool has_equip_pos() const;
+  inline void clear_equip_pos();
+  static const int kEquipPosFieldNumber = 1;
+  inline ::google::protobuf::int32 equip_pos() const;
+  inline void set_equip_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipSuitLvReq)
+ private:
+  inline void set_has_equip_pos();
+  inline void clear_has_equip_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 equip_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipSuitLvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EquipSuitLvRsp : public ::google::protobuf::Message {
+ public:
+  EquipSuitLvRsp();
+  virtual ~EquipSuitLvRsp();
+
+  EquipSuitLvRsp(const EquipSuitLvRsp& from);
+
+  inline EquipSuitLvRsp& operator=(const EquipSuitLvRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EquipSuitLvRsp& default_instance();
+
+  void Swap(EquipSuitLvRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  EquipSuitLvRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EquipSuitLvRsp& from);
+  void MergeFrom(const EquipSuitLvRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 equip_pos = 2;
+  inline bool has_equip_pos() const;
+  inline void clear_equip_pos();
+  static const int kEquipPosFieldNumber = 2;
+  inline ::google::protobuf::int32 equip_pos() const;
+  inline void set_equip_pos(::google::protobuf::int32 value);
+
+  // optional int32 suitlv = 3;
+  inline bool has_suitlv() const;
+  inline void clear_suitlv();
+  static const int kSuitlvFieldNumber = 3;
+  inline ::google::protobuf::int32 suitlv() const;
+  inline void set_suitlv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EquipSuitLvRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_equip_pos();
+  inline void clear_has_equip_pos();
+  inline void set_has_suitlv();
+  inline void clear_has_suitlv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 equip_pos_;
+  ::google::protobuf::int32 suitlv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_CSEquip_2eproto();
+  friend void protobuf_AssignDesc_CSEquip_2eproto();
+  friend void protobuf_ShutdownFile_CSEquip_2eproto();
+
+  void InitAsDefaultInstance();
+  static EquipSuitLvRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -3035,6 +3659,432 @@ inline ::google::protobuf::uint32 EquipStoveSmeltRsp::all_num() const {
 inline void EquipStoveSmeltRsp::set_all_num(::google::protobuf::uint32 value) {
   set_has_all_num();
   all_num_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipWashUnlockReq
+
+// optional int32 equip_slot = 1;
+inline bool EquipWashUnlockReq::has_equip_slot() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipWashUnlockReq::set_has_equip_slot() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipWashUnlockReq::clear_has_equip_slot() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipWashUnlockReq::clear_equip_slot() {
+  equip_slot_ = 0;
+  clear_has_equip_slot();
+}
+inline ::google::protobuf::int32 EquipWashUnlockReq::equip_slot() const {
+  return equip_slot_;
+}
+inline void EquipWashUnlockReq::set_equip_slot(::google::protobuf::int32 value) {
+  set_has_equip_slot();
+  equip_slot_ = value;
+}
+
+// optional int32 wash_slot = 2;
+inline bool EquipWashUnlockReq::has_wash_slot() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EquipWashUnlockReq::set_has_wash_slot() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EquipWashUnlockReq::clear_has_wash_slot() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EquipWashUnlockReq::clear_wash_slot() {
+  wash_slot_ = 0;
+  clear_has_wash_slot();
+}
+inline ::google::protobuf::int32 EquipWashUnlockReq::wash_slot() const {
+  return wash_slot_;
+}
+inline void EquipWashUnlockReq::set_wash_slot(::google::protobuf::int32 value) {
+  set_has_wash_slot();
+  wash_slot_ = value;
+}
+
+// optional int32 useItem = 3;
+inline bool EquipWashUnlockReq::has_useitem() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EquipWashUnlockReq::set_has_useitem() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EquipWashUnlockReq::clear_has_useitem() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EquipWashUnlockReq::clear_useitem() {
+  useitem_ = 0;
+  clear_has_useitem();
+}
+inline ::google::protobuf::int32 EquipWashUnlockReq::useitem() const {
+  return useitem_;
+}
+inline void EquipWashUnlockReq::set_useitem(::google::protobuf::int32 value) {
+  set_has_useitem();
+  useitem_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipWashUnlockRsp
+
+// optional int32 ret = 1;
+inline bool EquipWashUnlockRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipWashUnlockRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipWashUnlockRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipWashUnlockRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 EquipWashUnlockRsp::ret() const {
+  return ret_;
+}
+inline void EquipWashUnlockRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 equip_slot = 2;
+inline bool EquipWashUnlockRsp::has_equip_slot() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EquipWashUnlockRsp::set_has_equip_slot() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EquipWashUnlockRsp::clear_has_equip_slot() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EquipWashUnlockRsp::clear_equip_slot() {
+  equip_slot_ = 0;
+  clear_has_equip_slot();
+}
+inline ::google::protobuf::int32 EquipWashUnlockRsp::equip_slot() const {
+  return equip_slot_;
+}
+inline void EquipWashUnlockRsp::set_equip_slot(::google::protobuf::int32 value) {
+  set_has_equip_slot();
+  equip_slot_ = value;
+}
+
+// optional int32 wash_slot = 3;
+inline bool EquipWashUnlockRsp::has_wash_slot() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EquipWashUnlockRsp::set_has_wash_slot() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EquipWashUnlockRsp::clear_has_wash_slot() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EquipWashUnlockRsp::clear_wash_slot() {
+  wash_slot_ = 0;
+  clear_has_wash_slot();
+}
+inline ::google::protobuf::int32 EquipWashUnlockRsp::wash_slot() const {
+  return wash_slot_;
+}
+inline void EquipWashUnlockRsp::set_wash_slot(::google::protobuf::int32 value) {
+  set_has_wash_slot();
+  wash_slot_ = value;
+}
+
+// optional int32 useItem = 4;
+inline bool EquipWashUnlockRsp::has_useitem() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void EquipWashUnlockRsp::set_has_useitem() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void EquipWashUnlockRsp::clear_has_useitem() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void EquipWashUnlockRsp::clear_useitem() {
+  useitem_ = 0;
+  clear_has_useitem();
+}
+inline ::google::protobuf::int32 EquipWashUnlockRsp::useitem() const {
+  return useitem_;
+}
+inline void EquipWashUnlockRsp::set_useitem(::google::protobuf::int32 value) {
+  set_has_useitem();
+  useitem_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipWashReq
+
+// optional int32 equip_slot = 1;
+inline bool EquipWashReq::has_equip_slot() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipWashReq::set_has_equip_slot() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipWashReq::clear_has_equip_slot() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipWashReq::clear_equip_slot() {
+  equip_slot_ = 0;
+  clear_has_equip_slot();
+}
+inline ::google::protobuf::int32 EquipWashReq::equip_slot() const {
+  return equip_slot_;
+}
+inline void EquipWashReq::set_equip_slot(::google::protobuf::int32 value) {
+  set_has_equip_slot();
+  equip_slot_ = value;
+}
+
+// repeated int32 lock_wash_slot = 2;
+inline int EquipWashReq::lock_wash_slot_size() const {
+  return lock_wash_slot_.size();
+}
+inline void EquipWashReq::clear_lock_wash_slot() {
+  lock_wash_slot_.Clear();
+}
+inline ::google::protobuf::int32 EquipWashReq::lock_wash_slot(int index) const {
+  return lock_wash_slot_.Get(index);
+}
+inline void EquipWashReq::set_lock_wash_slot(int index, ::google::protobuf::int32 value) {
+  lock_wash_slot_.Set(index, value);
+}
+inline void EquipWashReq::add_lock_wash_slot(::google::protobuf::int32 value) {
+  lock_wash_slot_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+EquipWashReq::lock_wash_slot() const {
+  return lock_wash_slot_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+EquipWashReq::mutable_lock_wash_slot() {
+  return &lock_wash_slot_;
+}
+
+// optional int64 useItem = 3;
+inline bool EquipWashReq::has_useitem() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EquipWashReq::set_has_useitem() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EquipWashReq::clear_has_useitem() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EquipWashReq::clear_useitem() {
+  useitem_ = GOOGLE_LONGLONG(0);
+  clear_has_useitem();
+}
+inline ::google::protobuf::int64 EquipWashReq::useitem() const {
+  return useitem_;
+}
+inline void EquipWashReq::set_useitem(::google::protobuf::int64 value) {
+  set_has_useitem();
+  useitem_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipWashRsp
+
+// optional int32 ret = 1;
+inline bool EquipWashRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipWashRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipWashRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipWashRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 EquipWashRsp::ret() const {
+  return ret_;
+}
+inline void EquipWashRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 equip_slot = 2;
+inline bool EquipWashRsp::has_equip_slot() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EquipWashRsp::set_has_equip_slot() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EquipWashRsp::clear_has_equip_slot() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EquipWashRsp::clear_equip_slot() {
+  equip_slot_ = 0;
+  clear_has_equip_slot();
+}
+inline ::google::protobuf::int32 EquipWashRsp::equip_slot() const {
+  return equip_slot_;
+}
+inline void EquipWashRsp::set_equip_slot(::google::protobuf::int32 value) {
+  set_has_equip_slot();
+  equip_slot_ = value;
+}
+
+// repeated int32 lockslot = 3;
+inline int EquipWashRsp::lockslot_size() const {
+  return lockslot_.size();
+}
+inline void EquipWashRsp::clear_lockslot() {
+  lockslot_.Clear();
+}
+inline ::google::protobuf::int32 EquipWashRsp::lockslot(int index) const {
+  return lockslot_.Get(index);
+}
+inline void EquipWashRsp::set_lockslot(int index, ::google::protobuf::int32 value) {
+  lockslot_.Set(index, value);
+}
+inline void EquipWashRsp::add_lockslot(::google::protobuf::int32 value) {
+  lockslot_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+EquipWashRsp::lockslot() const {
+  return lockslot_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+EquipWashRsp::mutable_lockslot() {
+  return &lockslot_;
+}
+
+// optional int64 useItem = 4;
+inline bool EquipWashRsp::has_useitem() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void EquipWashRsp::set_has_useitem() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void EquipWashRsp::clear_has_useitem() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void EquipWashRsp::clear_useitem() {
+  useitem_ = GOOGLE_LONGLONG(0);
+  clear_has_useitem();
+}
+inline ::google::protobuf::int64 EquipWashRsp::useitem() const {
+  return useitem_;
+}
+inline void EquipWashRsp::set_useitem(::google::protobuf::int64 value) {
+  set_has_useitem();
+  useitem_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipSuitLvReq
+
+// optional int32 equip_pos = 1;
+inline bool EquipSuitLvReq::has_equip_pos() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipSuitLvReq::set_has_equip_pos() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipSuitLvReq::clear_has_equip_pos() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipSuitLvReq::clear_equip_pos() {
+  equip_pos_ = 0;
+  clear_has_equip_pos();
+}
+inline ::google::protobuf::int32 EquipSuitLvReq::equip_pos() const {
+  return equip_pos_;
+}
+inline void EquipSuitLvReq::set_equip_pos(::google::protobuf::int32 value) {
+  set_has_equip_pos();
+  equip_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EquipSuitLvRsp
+
+// optional int32 ret = 1;
+inline bool EquipSuitLvRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EquipSuitLvRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EquipSuitLvRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EquipSuitLvRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 EquipSuitLvRsp::ret() const {
+  return ret_;
+}
+inline void EquipSuitLvRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 equip_pos = 2;
+inline bool EquipSuitLvRsp::has_equip_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EquipSuitLvRsp::set_has_equip_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EquipSuitLvRsp::clear_has_equip_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EquipSuitLvRsp::clear_equip_pos() {
+  equip_pos_ = 0;
+  clear_has_equip_pos();
+}
+inline ::google::protobuf::int32 EquipSuitLvRsp::equip_pos() const {
+  return equip_pos_;
+}
+inline void EquipSuitLvRsp::set_equip_pos(::google::protobuf::int32 value) {
+  set_has_equip_pos();
+  equip_pos_ = value;
+}
+
+// optional int32 suitlv = 3;
+inline bool EquipSuitLvRsp::has_suitlv() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EquipSuitLvRsp::set_has_suitlv() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EquipSuitLvRsp::clear_has_suitlv() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EquipSuitLvRsp::clear_suitlv() {
+  suitlv_ = 0;
+  clear_has_suitlv();
+}
+inline ::google::protobuf::int32 EquipSuitLvRsp::suitlv() const {
+  return suitlv_;
+}
+inline void EquipSuitLvRsp::set_suitlv(::google::protobuf::int32 value) {
+  set_has_suitlv();
+  suitlv_ = value;
 }
 
 

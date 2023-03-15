@@ -369,6 +369,11 @@ enum EConst {
   EConst_SkillAdvanceUnlockCost = 240,
   EConst_SkillAdvanceResetCost = 241,
   EConst_TeamMemCountExpAdd = 242,
+  EConst_GodEvilNoticeReward = 252,
+  EConst_GodEvilActiveReward = 253,
+  EConst_GodEvilChgFacadeCd = 254,
+  EConst_GodEvilGodChgSkill = 269,
+  EConst_GodEvilEvilChgSkill = 270,
   EConst_OneKeyFinishGuildMissionCost = 1000,
   EConst_OnceFinishTaskCost = 1001
 };
@@ -427,6 +432,8 @@ enum ERetCode {
   RET_MATERIAL_LACK = 37,
   RET_MAGIC_LACK = 38,
   RET_PRESTIGE_LACK = 39,
+  RET_FUNC_NOT_OPEN = 40,
+  RET_LLLEGAL_OPT = 41,
   RET_LOGIN_BAD_USER_NAME_LEN = 100,
   RET_LOGIN_CHARACTER_NOT_EXITS = 101,
   RET_LOGIN_ACCOUNT_OTHER_LOGIN = 102,
@@ -523,6 +530,12 @@ enum ERetCode {
   RET_EQUIP_STONE_LV_MAX = 628,
   RET_EQUIP_TOTAL_LACK = 629,
   RET_STONE_TYPE_ERR = 630,
+  RET_WASH_POS_IS_ACTIVE = 631,
+  RET_WASH_LOCK_MAX = 632,
+  RET_EQUIP_SUIT_LV_MAX = 633,
+  RET_EQUIP_SUIT_LV_LACK = 634,
+  RET_EQUIP_SUIT_NOT_QUALITY_ENOUGH = 635,
+  RET_EQUIP_SUIT_LV_NOT_OTHER_FULL = 636,
   RET_MISSION_HAVE_ACCEPT = 700,
   RET_MISSION_CAN_NOT_ACCEPT = 701,
   RET_MISSION_LEVEL_ERROR = 702,
@@ -542,6 +555,11 @@ enum ERetCode {
   RET_MISSION_NOT_ACCEPT_UNION = 716,
   RET_MISSION_CAN_NOT_ONCE_FINISH = 717,
   RET_MISSION_ALREADY_SUBMIT = 718,
+  RET_MISSION_GUILD_PRESTIGE_ACCEPT_NUM = 719,
+  RET_MISSION_GUILD_PRESTIGE_FRESH_NUM = 720,
+  RET_MISSION_GUILD_PRESTIGE_STATE_ERROR = 721,
+  RET_MISSION_GUILD_PRESTIGE_REFRESH_NOT_FINISH = 723,
+  RET_MISSION_FUNCTION_UNLOCK_LIMIT = 724,
   RET_RELATION_HAVE_APPLY = 800,
   RET_RELATION_NOT_AGREE = 801,
   RET_RELATION_CAN_NOT_APPLY_SELF = 802,
@@ -722,6 +740,9 @@ enum ERetCode {
   RET_FACTION_CHG_NAME_LACK_ITEM = 1923,
   RET_FACTION_FORBID_JOIN = 1924,
   RET_FACTION_NAME_NO_CHG = 1925,
+  RET_FACTION_DONATE_NUM_LIMIT = 1926,
+  RET_FACTION_ALREADY_FETCH_SALARY = 1927,
+  RET_FACTION_CAN_NOT_FETCH_SALARY = 1928,
   RET_ARENA_CAN_NOT_CHALL_MYSELF = 2000,
   RET_ARENA_CAN_NOT_CHALL_TYPE_ERROR = 2001,
   RET_ARENA_CAN_NOT_CHALL_DST = 2002,
@@ -778,11 +799,58 @@ enum ERetCode {
   RET_ESCORT_TASK_EXIST = 2701,
   RET_ESCORT_TASK_TIMES_LIMIT = 2702,
   RET_ESCORT_UP_QUALITY_FAILED = 2703,
-  RET_ESCORT_MAX = 2704
+  RET_ESCORT_MAX = 2704,
+  RET_ASSIST_NOT_HELP = 2720,
+  RET_NO_FACTION_NOT_SEND_HELP = 2721,
+  RET_HAS_ASSIST_NOT_SEND = 2722,
+  RET_IS_HELPING_THIS = 2723,
+  RET_HELPER_GIFT_NUM_LIMIT = 2724,
+  RET_IS_RECV = 2725,
+  RET_IS_HELPER_NUM_LACK = 2726,
+  RET_GODEVIL_ALREADY_FETCH = 2800,
+  RET_GODEVIL_CAN_NOT_FETCH = 2801,
+  RET_GODEVIL_NOT_ACTIVE = 2802,
+  RET_GODEVIL_UPGRADE_FULL_LEVEL = 2803,
+  RET_GODEVIL_UPGRADE_EXP_LACK = 2804,
+  RET_GODEVIL_IN_CD = 2805,
+  RET_GODEVIL_NOT_CHG_FACADE = 2806,
+  RET_GODEVIL_IN_CHG_STATE = 2807,
+  RET_GODEVIL_ALREADY_ACTIVE = 2808,
+  RET_GVB_MATCH_END = 2820,
+  RET_RED_NOT_EXIST = 2900,
+  RET_RED_FETCH_FINISH = 2901,
+  RET_RED_FETCH_ALREADY = 2902,
+  RET_RED_CAN_NOT_FETCH = 2903,
+  RET_RED_WAI_SEND_NOT_EXIST = 2904,
+  RET_RED_WAI_SEND_CAN_NOT_SEND = 2905,
+  RET_RED_SEND_NUM_LIMIT = 2906,
+  RET_RED_FETCH_VAL_LIMIT = 2907,
+  RET_RED_WORD_LEN_LIMIT = 2908,
+  RET_PAY_USED_PAYMENT = 3800,
+  RET_PAY_INVALID_PAYMENT = 3801,
+  RET_PAY_INVALID_MONEY = 3802,
+  RET_PAY_REQ_ODER_CONF_ERR = 3803,
+  RET_PAY_REQ_ODER_NOT_OPEN = 3804,
+  RET_PAY_WEB_ORDER_RETCODE = 3850,
+  RET_PAY_WEB_PAY_RETCODE = 3851,
+  RET_SJ_NOT_DECOMPOSE = 3900,
+  RET_SJ_IN_DRESS_NOT_DECOMPOSE = 3901,
+  RET_SJ_AQ_BAG_FULL = 3902,
+  RET_SJ_LJ_BAG_FULL = 3903,
+  RET_SJ_NOT_RETURN_IN_DRESS = 3904,
+  RET_SJ_NOT_RETURN = 3905,
+  RET_SJ_NOT_STRONG = 3906,
+  RET_SJ_METERIAL_DRESS_ERR = 3907,
+  RET_SJ_METERIAL_LACK = 3908,
+  RET_SJ_LEVEL_MAX = 3909,
+  RET_SJ_NOT_POUR = 3910,
+  RET_SJ_POUR_MAX = 3911,
+  RET_SJ_BREAK_MAX = 3912,
+  RET_SJ_AWAKEN_MAX = 3913
 };
 bool ERetCode_IsValid(int value);
 const ERetCode ERetCode_MIN = RET_SUCCESS;
-const ERetCode ERetCode_MAX = RET_ESCORT_MAX;
+const ERetCode ERetCode_MAX = RET_SJ_AWAKEN_MAX;
 const int ERetCode_ARRAYSIZE = ERetCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ERetCode_descriptor();
@@ -922,6 +990,8 @@ enum FunctionUnlock_ID_TYPE {
   FunctionUnlock_ID_TYPE_TREASURE = 2026,
   FunctionUnlock_ID_TYPE_ARTIFACT = 2030,
   FunctionUnlock_ID_TYPE_PARTNER = 2036,
+  FunctionUnlock_ID_TYPE_GodEvilNotice = 2063,
+  FunctionUnlock_ID_TYPE_GodEvilTask = 2064,
   FunctionUnlock_ID_TYPE_ARENA_MIAOSHANG = 3053
 };
 bool FunctionUnlock_ID_TYPE_IsValid(int value);
@@ -1084,11 +1154,13 @@ inline bool ArenaChallType_Parse(
     ArenaChallType_descriptor(), name, value);
 }
 enum VIP_PRIVILEGE_TYPE {
-  VIP_PRIVILEGE_EQUIP_STOVE = 12
+  VIP_PRIVILEGE_EQUIP_STOVE = 12,
+  VIP_PRIVILEGE_GUILD_PRESTIGE_MISSION_REFRESH_S = 14,
+  VIP_PRIVILEGE_GUILD_PRESTIGE_MISSION_REFRESH_ADD_NUM = 15
 };
 bool VIP_PRIVILEGE_TYPE_IsValid(int value);
 const VIP_PRIVILEGE_TYPE VIP_PRIVILEGE_TYPE_MIN = VIP_PRIVILEGE_EQUIP_STOVE;
-const VIP_PRIVILEGE_TYPE VIP_PRIVILEGE_TYPE_MAX = VIP_PRIVILEGE_EQUIP_STOVE;
+const VIP_PRIVILEGE_TYPE VIP_PRIVILEGE_TYPE_MAX = VIP_PRIVILEGE_GUILD_PRESTIGE_MISSION_REFRESH_ADD_NUM;
 const int VIP_PRIVILEGE_TYPE_ARRAYSIZE = VIP_PRIVILEGE_TYPE_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* VIP_PRIVILEGE_TYPE_descriptor();
@@ -1160,6 +1232,49 @@ inline bool EMoneyRewardTaskReward_Parse(
     const ::std::string& name, EMoneyRewardTaskReward* value) {
   return ::google::protobuf::internal::ParseNamedEnum<EMoneyRewardTaskReward>(
     EMoneyRewardTaskReward_descriptor(), name, value);
+}
+enum ETitleSubType {
+  E_TITLE_SUB_TYPE_VIP = 1,
+  E_TITLE_SUB_TYPE_DRAGON_OF_CHAOS = 2,
+  E_TITLE_SUB_TYPE_GUILD_RANKING = 3,
+  E_TITLE_SUB_TYPE_KILL_MONSTER = 6,
+  E_TITLE_SUB_TYPE_USE_ITEM = 10
+};
+bool ETitleSubType_IsValid(int value);
+const ETitleSubType ETitleSubType_MIN = E_TITLE_SUB_TYPE_VIP;
+const ETitleSubType ETitleSubType_MAX = E_TITLE_SUB_TYPE_USE_ITEM;
+const int ETitleSubType_ARRAYSIZE = ETitleSubType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ETitleSubType_descriptor();
+inline const ::std::string& ETitleSubType_Name(ETitleSubType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ETitleSubType_descriptor(), value);
+}
+inline bool ETitleSubType_Parse(
+    const ::std::string& name, ETitleSubType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ETitleSubType>(
+    ETitleSubType_descriptor(), name, value);
+}
+enum ETitleTimeType {
+  E_TITLE_TIME_TYPE_HOUR = 0,
+  E_TITLE_TIME_TYPE_COMPETITION_SEASON = 1,
+  E_TITLE_TIME_TYPE_NEXT_ACTIVITY_INVALID = 2,
+  E_TITLE_TIME_TYPE_LOST_RANKING = 3
+};
+bool ETitleTimeType_IsValid(int value);
+const ETitleTimeType ETitleTimeType_MIN = E_TITLE_TIME_TYPE_HOUR;
+const ETitleTimeType ETitleTimeType_MAX = E_TITLE_TIME_TYPE_LOST_RANKING;
+const int ETitleTimeType_ARRAYSIZE = ETitleTimeType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* ETitleTimeType_descriptor();
+inline const ::std::string& ETitleTimeType_Name(ETitleTimeType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    ETitleTimeType_descriptor(), value);
+}
+inline bool ETitleTimeType_Parse(
+    const ::std::string& name, ETitleTimeType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<ETitleTimeType>(
+    ETitleTimeType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -1305,6 +1420,14 @@ inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EDeityEquipPos>() {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::EMoneyRewardTaskReward>() {
   return ::proto_ff::EMoneyRewardTaskReward_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ETitleSubType>() {
+  return ::proto_ff::ETitleSubType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::ETitleTimeType>() {
+  return ::proto_ff::ETitleTimeType_descriptor();
 }
 
 }  // namespace google

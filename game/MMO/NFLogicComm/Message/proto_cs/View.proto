@@ -31,7 +31,7 @@ message CreatureCreateData
 		required Vector3PB pos					= 4;	//坐标
 		required uint32 curstate				= 5;	//怪物状态
 		optional bool	isNewCreate				= 6;	//是否是刚创建的
-
+		
 		optional uint32 func_type				= 7;	//功能类型 对应怪物配置表中的functionType字段
 		required Vector2PB	dir					= 8;	//生物朝向
 		optional int32 left_live_sec			= 9;	//剩余生存时间，大于0时前端显示倒计时，其他不显示

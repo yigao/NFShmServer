@@ -102,13 +102,13 @@ public:
     bool IsBroadClient(uint32_t ANum);
 
     //获取玩家视野数据中用到的属性ID
-    const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &PlayerViewAttr();
+    const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &PlayerViewAttr();
 
     //获取怪物视野数据中用到的属性ID
-    const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &MonViewAttr();
+    const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &MonViewAttr();
 
     //伙伴视野数据中用到的属性ID
-    const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &PartnerViewAttr();
+    const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &PartnerViewAttr();
 
 public:
     //初始化战斗属性和索引之间的映射
@@ -122,11 +122,11 @@ protected:
     //需要广播到客户端的属性
     int8_t m_aryBroadClient[proto_ff::A_COMMON_END];
     //玩家视野数据中用到的 属性ID
-    NFShmHashSet<int8_t, proto_ff::A_COMMON_END> m_setPlayerViewAttr;
+    NFShmHashSet<int32_t, proto_ff::A_COMMON_END> m_setPlayerViewAttr;
     //怪物视野数据中用到的 属性ID
-    NFShmHashSet<int8_t, proto_ff::A_COMMON_END> m_setMonsViewAttr;
+    NFShmHashSet<int32_t, proto_ff::A_COMMON_END> m_setMonsViewAttr;
     //伙伴视野数据中用到的 属性ID
-    NFShmHashSet<int8_t, proto_ff::A_COMMON_END> m_setPartnerViewAttr;
+    NFShmHashSet<int32_t, proto_ff::A_COMMON_END> m_setPartnerViewAttr;
 
     //通用的 配置表中的 战斗属性ID 和 程序中使用的 通用战斗属性数组的索引 之间的映射
     uint8_t m_comIdToIndex[proto_ff::A_FIGHT_END];

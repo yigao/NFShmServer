@@ -21,6 +21,7 @@
 #define DEFINE_ITEMPROTOINFO_GOD_MAX_NUM 1
 #define DEFINE_ITEMPROTOINFO_SPECIAL_MAX_NUM 1
 #define DEFINE_EQUIPSLOTINFO_STONES_MAX_NUM 1
+#define DEFINE_EQUIPSLOTINFO_WASHS_MAX_NUM 1
 #define DEFINE_MULTITEMSIMPLEPROTO_INFO_MAX_NUM 1
 #define DEFINE_MAILPARAMPROTO_INT_PARAM_MAX_NUM 1
 #define DEFINE_MAILATTACHMENTLIST_ITEMINFO_MAX_NUM 1
@@ -43,6 +44,7 @@
 #define DEFINE_DAILYTASKALLDATA_BACK_DATA_MAX_NUM 1
 #define DEFINE_DAILYTASKALLDATA_REWARD_DATA_MAX_NUM 1
 #define DEFINE_CHARACTERDBMISSIONTRACK_ITEMINFO_MAX_NUM 1
+#define DEFINE_GUILDPRESTIGEMISSIONDB_TASK_POOL_MAX_NUM 1
 #define DEFINE_CHARACTERDBTASKDATA_MISSIONTRACK_MAX_NUM 1
 #define DEFINE_CHARACTERDBTASKDATA_DYINFO_MAX_NUM 1
 #define DEFINE_CHARACTERDBTASKDATA_ALREADY_SUBMIT_MAX_NUM 1
@@ -56,6 +58,13 @@
 #define DEFINE_DEITYFANTASYDATA_SKILL_DATA_MAX_NUM 1
 #define DEFINE_DEITYFANTASYDATA_EQUIP_SUIT_DATA_MAX_NUM 1
 #define DEFINE_ARMORINFO_SUITS_MAX_NUM 1
+#define DEFINE_ARMORINFO_POS_MAX_NUM 1
+#define DEFINE_OCCUPATIONMISSIONSTAGEDATA_SOUL_DATA_MAX_NUM 1
+#define DEFINE_OCCUPATIONMISSIONGRADEDATA_STAGE_DATA_MAX_NUM 1
+#define DEFINE_OCCUPATIONMISSIONDATA_GRADE_DATA_MAX_NUM 1
+#define DEFINE_BESTEQEQUIPINFO_SKILLS_MAX_NUM 1
+#define DEFINE_BESTEQBREAK_EXPS_MAX_NUM 1
+#define DEFINE_BESTEQBREAK_GENATTR_MAX_NUM 1
 namespace proto_ff_s {
 
 	struct EmptyMessage_s : public NFDescStoreSeqOP {
@@ -441,6 +450,24 @@ namespace proto_ff_s {
 	};
 	typedef struct StoneSlotInfo_s StoneSlotInfo_t;
 
+	struct WashSlotInfo_s : public NFDescStoreSeqOP {
+		WashSlotInfo_s();
+		virtual ~WashSlotInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t slot;
+		int32_t quality;
+		int32_t lock;
+		int32_t id;
+		int32_t value;
+
+		virtual void write_to_pbmsg(::proto_ff::WashSlotInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::WashSlotInfo & msg);
+		static ::proto_ff::WashSlotInfo* new_pbmsg(){ return new ::proto_ff::WashSlotInfo(); }
+		static ::proto_ff::WashSlotInfo make_pbmsg(){ return ::proto_ff::WashSlotInfo(); }
+	};
+	typedef struct WashSlotInfo_s WashSlotInfo_t;
+
 	struct EquipSlotInfo_s : public NFDescStoreSeqOP {
 		EquipSlotInfo_s();
 		virtual ~EquipSlotInfo_s(){}
@@ -451,6 +478,8 @@ namespace proto_ff_s {
 		int32_t stronglv;
 		NFShmVector<struct StoneSlotInfo_s, DEFINE_EQUIPSLOTINFO_STONES_MAX_NUM> stones;
 		int32_t stone_pay_slot_open;
+		NFShmVector<struct WashSlotInfo_s, DEFINE_EQUIPSLOTINFO_WASHS_MAX_NUM> washs;
+		int32_t suitlv;
 
 		virtual void write_to_pbmsg(::proto_ff::EquipSlotInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::EquipSlotInfo & msg);
@@ -849,7 +878,7 @@ namespace proto_ff_s {
 		uint64_t buff_index;
 		uint64_t buff_id;
 		uint64_t recver_cid;
-		int32_t left_msec;
+		int64_t left_msec;
 		uint64_t skill_id;
 		int32_t skill_lev;
 		int32_t is_effect;
@@ -978,6 +1007,9 @@ namespace proto_ff_s {
 		struct GodEvilStageProto_s stage;
 		int32_t type;
 		int32_t cd;
+		int32_t vessel_lev;
+		int32_t mirror_lev;
+		int64_t extra_exp;
 
 		virtual void write_to_pbmsg(::proto_ff::GodEvilProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GodEvilProto & msg);
@@ -1374,6 +1406,43 @@ namespace proto_ff_s {
 	};
 	typedef struct CharacterDBDyMissionInfo_s CharacterDBDyMissionInfo_t;
 
+	struct GuildPrestigeMissionDBData_s : public NFDescStoreSeqOP {
+		GuildPrestigeMissionDBData_s();
+		virtual ~GuildPrestigeMissionDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int64_t prestige_id;
+		int64_t task_id;
+		int32_t task_state;
+		int32_t index;
+		struct CharacterDBMissionTrack_s track;
+
+		virtual void write_to_pbmsg(::proto_ff::GuildPrestigeMissionDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GuildPrestigeMissionDBData & msg);
+		static ::proto_ff::GuildPrestigeMissionDBData* new_pbmsg(){ return new ::proto_ff::GuildPrestigeMissionDBData(); }
+		static ::proto_ff::GuildPrestigeMissionDBData make_pbmsg(){ return ::proto_ff::GuildPrestigeMissionDBData(); }
+	};
+	typedef struct GuildPrestigeMissionDBData_s GuildPrestigeMissionDBData_t;
+
+	struct GuildPrestigeMissionDB_s : public NFDescStoreSeqOP {
+		GuildPrestigeMissionDB_s();
+		virtual ~GuildPrestigeMissionDB_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t refresh_num;
+		int32_t all_refresh_num;
+		int32_t accept_num;
+		int32_t all_accept_num;
+		NFShmVector<struct GuildPrestigeMissionDBData_s, DEFINE_GUILDPRESTIGEMISSIONDB_TASK_POOL_MAX_NUM> task_pool;
+		int64_t last_refresh_time;
+
+		virtual void write_to_pbmsg(::proto_ff::GuildPrestigeMissionDB & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GuildPrestigeMissionDB & msg);
+		static ::proto_ff::GuildPrestigeMissionDB* new_pbmsg(){ return new ::proto_ff::GuildPrestigeMissionDB(); }
+		static ::proto_ff::GuildPrestigeMissionDB make_pbmsg(){ return ::proto_ff::GuildPrestigeMissionDB(); }
+	};
+	typedef struct GuildPrestigeMissionDB_s GuildPrestigeMissionDB_t;
+
 	struct CharacterDBTaskData_s : public NFDescStoreSeqOP {
 		CharacterDBTaskData_s();
 		virtual ~CharacterDBTaskData_s(){}
@@ -1383,6 +1452,7 @@ namespace proto_ff_s {
 		NFShmVector<struct CharacterDBDyMissionInfo_s, DEFINE_CHARACTERDBTASKDATA_DYINFO_MAX_NUM> dyinfo;
 		NFShmVector<uint64_t, DEFINE_CHARACTERDBTASKDATA_ALREADY_SUBMIT_MAX_NUM> already_submit;
 		NFShmVector<struct CharacterDBRecentSubmitMission_s, DEFINE_CHARACTERDBTASKDATA_RECENT_SUBMIT_MAX_NUM> recent_submit;
+		struct GuildPrestigeMissionDB_s prestige_mission;
 
 		virtual void write_to_pbmsg(::proto_ff::CharacterDBTaskData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::CharacterDBTaskData & msg);
@@ -1669,6 +1739,8 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t id;
 		NFShmVector<struct ArmorSuitState_s, DEFINE_ARMORINFO_SUITS_MAX_NUM> suits;
+		int32_t allstate;
+		NFShmVector<int32_t, DEFINE_ARMORINFO_POS_MAX_NUM> pos;
 
 		virtual void write_to_pbmsg(::proto_ff::ArmorInfo & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ArmorInfo & msg);
@@ -1694,6 +1766,136 @@ namespace proto_ff_s {
 		static ::proto_ff::TitleInfo make_pbmsg(){ return ::proto_ff::TitleInfo(); }
 	};
 	typedef struct TitleInfo_s TitleInfo_t;
+
+	struct OccupationMissionSoulData_s : public NFDescStoreSeqOP {
+		OccupationMissionSoulData_s();
+		virtual ~OccupationMissionSoulData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t soul_type;
+		int32_t soul_pos;
+		int32_t status;
+
+		virtual void write_to_pbmsg(::proto_ff::OccupationMissionSoulData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::OccupationMissionSoulData & msg);
+		static ::proto_ff::OccupationMissionSoulData* new_pbmsg(){ return new ::proto_ff::OccupationMissionSoulData(); }
+		static ::proto_ff::OccupationMissionSoulData make_pbmsg(){ return ::proto_ff::OccupationMissionSoulData(); }
+	};
+	typedef struct OccupationMissionSoulData_s OccupationMissionSoulData_t;
+
+	struct OccupationMissionStageData_s : public NFDescStoreSeqOP {
+		OccupationMissionStageData_s();
+		virtual ~OccupationMissionStageData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t stage;
+		int32_t status;
+		NFShmVector<struct OccupationMissionSoulData_s, DEFINE_OCCUPATIONMISSIONSTAGEDATA_SOUL_DATA_MAX_NUM> soul_data;
+
+		virtual void write_to_pbmsg(::proto_ff::OccupationMissionStageData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::OccupationMissionStageData & msg);
+		static ::proto_ff::OccupationMissionStageData* new_pbmsg(){ return new ::proto_ff::OccupationMissionStageData(); }
+		static ::proto_ff::OccupationMissionStageData make_pbmsg(){ return ::proto_ff::OccupationMissionStageData(); }
+	};
+	typedef struct OccupationMissionStageData_s OccupationMissionStageData_t;
+
+	struct OccupationMissionGradeData_s : public NFDescStoreSeqOP {
+		OccupationMissionGradeData_s();
+		virtual ~OccupationMissionGradeData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t grade;
+		int32_t status;
+		NFShmVector<struct OccupationMissionStageData_s, DEFINE_OCCUPATIONMISSIONGRADEDATA_STAGE_DATA_MAX_NUM> stage_data;
+
+		virtual void write_to_pbmsg(::proto_ff::OccupationMissionGradeData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::OccupationMissionGradeData & msg);
+		static ::proto_ff::OccupationMissionGradeData* new_pbmsg(){ return new ::proto_ff::OccupationMissionGradeData(); }
+		static ::proto_ff::OccupationMissionGradeData make_pbmsg(){ return ::proto_ff::OccupationMissionGradeData(); }
+	};
+	typedef struct OccupationMissionGradeData_s OccupationMissionGradeData_t;
+
+	struct OccupationMissionData_s : public NFDescStoreSeqOP {
+		OccupationMissionData_s();
+		virtual ~OccupationMissionData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct OccupationMissionGradeData_s, DEFINE_OCCUPATIONMISSIONDATA_GRADE_DATA_MAX_NUM> grade_data;
+
+		virtual void write_to_pbmsg(::proto_ff::OccupationMissionData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::OccupationMissionData & msg);
+		static ::proto_ff::OccupationMissionData* new_pbmsg(){ return new ::proto_ff::OccupationMissionData(); }
+		static ::proto_ff::OccupationMissionData make_pbmsg(){ return ::proto_ff::OccupationMissionData(); }
+	};
+	typedef struct OccupationMissionData_s OccupationMissionData_t;
+
+	struct BestEQEquipInfo_s : public NFDescStoreSeqOP {
+		BestEQEquipInfo_s();
+		virtual ~BestEQEquipInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t instId;
+		int32_t cfgId;
+		int32_t makeId;
+		NFShmVector<struct ComPair_s, DEFINE_BESTEQEQUIPINFO_SKILLS_MAX_NUM> skills;
+
+		virtual void write_to_pbmsg(::proto_ff::BestEQEquipInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::BestEQEquipInfo & msg);
+		static ::proto_ff::BestEQEquipInfo* new_pbmsg(){ return new ::proto_ff::BestEQEquipInfo(); }
+		static ::proto_ff::BestEQEquipInfo make_pbmsg(){ return ::proto_ff::BestEQEquipInfo(); }
+	};
+	typedef struct BestEQEquipInfo_s BestEQEquipInfo_t;
+
+	struct BestEQBreak_s : public NFDescStoreSeqOP {
+		BestEQBreak_s();
+		virtual ~BestEQBreak_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t lv;
+		NFShmVector<int32_t, DEFINE_BESTEQBREAK_EXPS_MAX_NUM> exps;
+		NFShmVector<struct ComPair_s, DEFINE_BESTEQBREAK_GENATTR_MAX_NUM> genAttr;
+
+		virtual void write_to_pbmsg(::proto_ff::BestEQBreak & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::BestEQBreak & msg);
+		static ::proto_ff::BestEQBreak* new_pbmsg(){ return new ::proto_ff::BestEQBreak(); }
+		static ::proto_ff::BestEQBreak make_pbmsg(){ return ::proto_ff::BestEQBreak(); }
+	};
+	typedef struct BestEQBreak_s BestEQBreak_t;
+
+	struct BestEQSlotInfo_s : public NFDescStoreSeqOP {
+		BestEQSlotInfo_s();
+		virtual ~BestEQSlotInfo_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t slot;
+		int32_t instId;
+		int32_t pourId;
+		int32_t pourExp;
+		int32_t pourUnLock;
+		struct BestEQBreak_s breakInfo;
+		int32_t awakenLv;
+
+		virtual void write_to_pbmsg(::proto_ff::BestEQSlotInfo & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::BestEQSlotInfo & msg);
+		static ::proto_ff::BestEQSlotInfo* new_pbmsg(){ return new ::proto_ff::BestEQSlotInfo(); }
+		static ::proto_ff::BestEQSlotInfo make_pbmsg(){ return ::proto_ff::BestEQSlotInfo(); }
+	};
+	typedef struct BestEQSlotInfo_s BestEQSlotInfo_t;
+
+	struct BestEQTask_s : public NFDescStoreSeqOP {
+		BestEQTask_s();
+		virtual ~BestEQTask_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t id;
+		int32_t state;
+
+		virtual void write_to_pbmsg(::proto_ff::BestEQTask & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::BestEQTask & msg);
+		static ::proto_ff::BestEQTask* new_pbmsg(){ return new ::proto_ff::BestEQTask(); }
+		static ::proto_ff::BestEQTask make_pbmsg(){ return ::proto_ff::BestEQTask(); }
+	};
+	typedef struct BestEQTask_s BestEQTask_t;
 
 }
 

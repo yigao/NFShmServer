@@ -216,4 +216,18 @@ message PetQuickHatchEggRsp
 	optional int32 slot = 2;
 }
 
+//13-1:宠物重生预览 CLIENT_PET_REVIEW_REQ
+message PetRestReViewReq
+{
+	optional int32 instId = 1;
+}
+//13-2:宠物重生预览返回 CLIENT_PET_REVIEW_RSP
+message PetRestReViewRsp
+{
+	optional int32 ret = 1;
+	optional int32 instId = 2;		//宠物id
+	repeated ComPair64 items =3;
+	repeated ComPair64 pets = 4;
+}
+
 //================================================================================//

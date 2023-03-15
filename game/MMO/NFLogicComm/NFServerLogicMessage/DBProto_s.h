@@ -63,8 +63,22 @@
 #define DEFINE_MALLDBDATA_WEEK_MAX_NUM 1
 #define DEFINE_MALLDBDATA_FOREVER_MAX_NUM 1
 #define DEFINE_ARMORDBDATA_INFOS_MAX_NUM 1
+#define DEFINE_ASSISTDBDATA_REWARDIDS_MAX_NUM 1
+#define DEFINE_ASSISTDBDATA_THANKSINFO_MAX_NUM 1
 #define DEFINE_TITLEDBDATA_DATA_MAX_NUM 1
 #define DEFINE_GODEVILMULTCONDDBPROTO_LST_MAX_NUM 1
+#define DEFINE_PAYDBDATA_DB_ID_MAX_NUM 1
+#define DEFINE_ROLEFACTIONDBDATA_SALARY_MAX_NUM 1
+#define DEFINE_ROLEBESTEQDBDATA_EQUIPS_MAX_NUM 1
+#define DEFINE_ROLEBESTEQDBDATA_SLOTS_MAX_NUM 1
+#define DEFINE_ROLEBESTEQDBDATA_TASKS_MAX_NUM 1
+#define DEFINE_ROLEREDDBDATA_SEND_LST_MAX_NUM 1
+#define DEFINE_ROLEREDDBDATA_WAIT_LST_MAX_NUM 1
+#define DEFINE_ROLEREDDBDATA_TRIGGER_LST_MAX_NUM 1
+#define DEFINE_REDFETCHLISTDBPROTO_INFO_MAX_NUM 1
+#define DEFINE_REDDBDATA_WAIT_MAX_NUM 1
+#define DEFINE_REDDBDATA_TRIGGER_LST_MAX_NUM 1
+#define DEFINE_REDDBDATA_SEND_MAX_NUM 1
 #define DEFINE_FACTIONMULTMEMDBPROTO_MEM_LST_MAX_NUM 1
 #define DEFINE_FACTIONMULTAPPLYDBPROTO_APPLY_LST_MAX_NUM 1
 #define DEFINE_FACTIONMUTRECORDDBPROTO_RECORD_LST_MAX_NUM 1
@@ -90,6 +104,8 @@
 #define DEFINE_ALLARENADBRESPONSE_INFO_MAX_NUM 1
 #define DEFINE_SAVEARENADBREQUEST_INFO_MAX_NUM 1
 #define DEFINE_FACTIONDATADBRSP_DATA_LST_MAX_NUM 1
+#define DEFINE_FACTIONREDDBRSP_DATA_LST_MAX_NUM 1
+#define DEFINE_ROLEREDDBRSP_DATA_LST_MAX_NUM 1
 namespace proto_ff_s {
 
 	struct RoleReliveProto_s : public NFDescStoreSeqOP {
@@ -148,6 +164,10 @@ namespace proto_ff_s {
 		int64_t arenacoin;
 		int64_t godevil_exp;
 		int32_t godevil_level;
+		uint32_t login_day;
+		uint64_t login_day_time;
+		int64_t best_aq;
+		int64_t best_lj;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg);
@@ -896,6 +916,10 @@ namespace proto_ff_s {
 		int32_t helpNum;
 		int32_t allSendNum;
 		int32_t allHelpNum;
+		int32_t recvSendGiftNum;
+		int32_t recvHelpGiftNum;
+		NFShmVector<int32_t, DEFINE_ASSISTDBDATA_REWARDIDS_MAX_NUM> rewardIds;
+		NFShmVector<struct ComPair64_s, DEFINE_ASSISTDBDATA_THANKSINFO_MAX_NUM> thanksInfo;
 
 		virtual void write_to_pbmsg(::proto_ff::AssistDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::AssistDBData & msg);
@@ -957,6 +981,7 @@ namespace proto_ff_s {
 		int32_t stage;
 		struct GodEvilMultCondDBProto_s cond;
 		int32_t finish;
+		int32_t accept;
 
 		virtual void write_to_pbmsg(::proto_ff::GodEvilTaskDBProto & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GodEvilTaskDBProto & msg);
@@ -974,6 +999,9 @@ namespace proto_ff_s {
 		struct GodEvilTaskDBProto_s task;
 		int32_t type;
 		uint64_t last_time;
+		int32_t vessel_lev;
+		int32_t mirror_lev;
+		int64_t extra_exp;
 
 		virtual void write_to_pbmsg(::proto_ff::GodEvilDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GodEvilDBData & msg);
@@ -981,6 +1009,75 @@ namespace proto_ff_s {
 		static ::proto_ff::GodEvilDBData make_pbmsg(){ return ::proto_ff::GodEvilDBData(); }
 	};
 	typedef struct GodEvilDBData_s GodEvilDBData_t;
+
+	struct PayDBData_s : public NFDescStoreSeqOP {
+		PayDBData_s();
+		virtual ~PayDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<uint32_t, DEFINE_PAYDBDATA_DB_ID_MAX_NUM> db_id;
+		NFShmVector<NFShmString<32>, 1> product;
+		uint32_t relrmb;
+		uint32_t rmb;
+		uint32_t fakermb;
+		uint32_t todayrmb;
+		uint64_t todaytime;
+
+		virtual void write_to_pbmsg(::proto_ff::PayDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::PayDBData & msg);
+		static ::proto_ff::PayDBData* new_pbmsg(){ return new ::proto_ff::PayDBData(); }
+		static ::proto_ff::PayDBData make_pbmsg(){ return ::proto_ff::PayDBData(); }
+	};
+	typedef struct PayDBData_s PayDBData_t;
+
+	struct FactionDBSalary_s : public NFDescStoreSeqOP {
+		FactionDBSalary_s();
+		virtual ~FactionDBSalary_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t id;
+		int32_t cur;
+		int32_t fetch;
+
+		virtual void write_to_pbmsg(::proto_ff::FactionDBSalary & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FactionDBSalary & msg);
+		static ::proto_ff::FactionDBSalary* new_pbmsg(){ return new ::proto_ff::FactionDBSalary(); }
+		static ::proto_ff::FactionDBSalary make_pbmsg(){ return ::proto_ff::FactionDBSalary(); }
+	};
+	typedef struct FactionDBSalary_s FactionDBSalary_t;
+
+	struct RoleFactionDBData_s : public NFDescStoreSeqOP {
+		RoleFactionDBData_s();
+		virtual ~RoleFactionDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t donate_num;
+		uint64_t donate_fresh;
+		NFShmVector<struct FactionDBSalary_s, DEFINE_ROLEFACTIONDBDATA_SALARY_MAX_NUM> salary;
+		uint64_t salary_fresh;
+
+		virtual void write_to_pbmsg(::proto_ff::RoleFactionDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RoleFactionDBData & msg);
+		static ::proto_ff::RoleFactionDBData* new_pbmsg(){ return new ::proto_ff::RoleFactionDBData(); }
+		static ::proto_ff::RoleFactionDBData make_pbmsg(){ return ::proto_ff::RoleFactionDBData(); }
+	};
+	typedef struct RoleFactionDBData_s RoleFactionDBData_t;
+
+	struct RoleBestEQDBData_s : public NFDescStoreSeqOP {
+		RoleBestEQDBData_s();
+		virtual ~RoleBestEQDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct BestEQEquipInfo_s, DEFINE_ROLEBESTEQDBDATA_EQUIPS_MAX_NUM> equips;
+		NFShmVector<struct BestEQSlotInfo_s, DEFINE_ROLEBESTEQDBDATA_SLOTS_MAX_NUM> slots;
+		NFShmVector<struct BestEQTask_s, DEFINE_ROLEBESTEQDBDATA_TASKS_MAX_NUM> tasks;
+
+		virtual void write_to_pbmsg(::proto_ff::RoleBestEQDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RoleBestEQDBData & msg);
+		static ::proto_ff::RoleBestEQDBData* new_pbmsg(){ return new ::proto_ff::RoleBestEQDBData(); }
+		static ::proto_ff::RoleBestEQDBData make_pbmsg(){ return ::proto_ff::RoleBestEQDBData(); }
+	};
+	typedef struct RoleBestEQDBData_s RoleBestEQDBData_t;
 
 	struct RoleDBData_s : public NFDescStoreSeqOP {
 		RoleDBData_s();
@@ -1013,6 +1110,11 @@ namespace proto_ff_s {
 		struct ArmorDBData_s armor;
 		struct AssistDBData_s assist;
 		struct TitleDBData_s title;
+		struct GodEvilDBData_s godevil;
+		struct OccupationMissionData_s occupatoin;
+		struct PayDBData_s pay;
+		struct RoleFactionDBData_s role_faction;
+		struct RoleBestEQDBData_s best_equip;
 
 		virtual void write_to_pbmsg(::proto_ff::RoleDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::RoleDBData & msg);
@@ -1020,6 +1122,128 @@ namespace proto_ff_s {
 		static ::proto_ff::RoleDBData make_pbmsg(){ return ::proto_ff::RoleDBData(); }
 	};
 	typedef struct RoleDBData_s RoleDBData_t;
+
+	struct RedWaitDBProto_s : public NFDescStoreSeqOP {
+		RedWaitDBProto_s();
+		virtual ~RedWaitDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t idx;
+		int32_t cfgid;
+		uint64_t time;
+
+		virtual void write_to_pbmsg(::proto_ff::RedWaitDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RedWaitDBProto & msg);
+		static ::proto_ff::RedWaitDBProto* new_pbmsg(){ return new ::proto_ff::RedWaitDBProto(); }
+		static ::proto_ff::RedWaitDBProto make_pbmsg(){ return ::proto_ff::RedWaitDBProto(); }
+	};
+	typedef struct RedWaitDBProto_s RedWaitDBProto_t;
+
+	struct RedTriggerDBProto_s : public NFDescStoreSeqOP {
+		RedTriggerDBProto_s();
+		virtual ~RedTriggerDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t cfgid;
+		int32_t count;
+
+		virtual void write_to_pbmsg(::proto_ff::RedTriggerDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RedTriggerDBProto & msg);
+		static ::proto_ff::RedTriggerDBProto* new_pbmsg(){ return new ::proto_ff::RedTriggerDBProto(); }
+		static ::proto_ff::RedTriggerDBProto make_pbmsg(){ return ::proto_ff::RedTriggerDBProto(); }
+	};
+	typedef struct RedTriggerDBProto_s RedTriggerDBProto_t;
+
+	struct RoleRedDBData_s : public NFDescStoreSeqOP {
+		RoleRedDBData_s();
+		virtual ~RoleRedDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t bdia;
+		uint32_t magic;
+		uint32_t todaynum;
+		uint32_t todaymagic;
+		uint32_t todaybdia;
+		uint64_t freshtime;
+		NFShmVector<int32_t, DEFINE_ROLEREDDBDATA_SEND_LST_MAX_NUM> send_lst;
+		NFShmVector<struct RedWaitDBProto_s, DEFINE_ROLEREDDBDATA_WAIT_LST_MAX_NUM> wait_lst;
+		uint64_t cid;
+		NFShmVector<struct RedTriggerDBProto_s, DEFINE_ROLEREDDBDATA_TRIGGER_LST_MAX_NUM> trigger_lst;
+
+		virtual void write_to_pbmsg(::proto_ff::RoleRedDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RoleRedDBData & msg);
+		static ::proto_ff::RoleRedDBData* new_pbmsg(){ return new ::proto_ff::RoleRedDBData(); }
+		static ::proto_ff::RoleRedDBData make_pbmsg(){ return ::proto_ff::RoleRedDBData(); }
+	};
+	typedef struct RoleRedDBData_s RoleRedDBData_t;
+
+	struct RedFetchDBProto_s : public NFDescStoreSeqOP {
+		RedFetchDBProto_s();
+		virtual ~RedFetchDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cid;
+		uint32_t val;
+		uint64_t time;
+
+		virtual void write_to_pbmsg(::proto_ff::RedFetchDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RedFetchDBProto & msg);
+		static ::proto_ff::RedFetchDBProto* new_pbmsg(){ return new ::proto_ff::RedFetchDBProto(); }
+		static ::proto_ff::RedFetchDBProto make_pbmsg(){ return ::proto_ff::RedFetchDBProto(); }
+	};
+	typedef struct RedFetchDBProto_s RedFetchDBProto_t;
+
+	struct RedFetchListDBProto_s : public NFDescStoreSeqOP {
+		RedFetchListDBProto_s();
+		virtual ~RedFetchListDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct RedFetchDBProto_s, DEFINE_REDFETCHLISTDBPROTO_INFO_MAX_NUM> info;
+
+		virtual void write_to_pbmsg(::proto_ff::RedFetchListDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RedFetchListDBProto & msg);
+		static ::proto_ff::RedFetchListDBProto* new_pbmsg(){ return new ::proto_ff::RedFetchListDBProto(); }
+		static ::proto_ff::RedFetchListDBProto make_pbmsg(){ return ::proto_ff::RedFetchListDBProto(); }
+	};
+	typedef struct RedFetchListDBProto_s RedFetchListDBProto_t;
+
+	struct RedSendDBProto_s : public NFDescStoreSeqOP {
+		RedSendDBProto_s();
+		virtual ~RedSendDBProto_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t idx;
+		int32_t cfgid;
+		uint64_t sender;
+		uint64_t sendtime;
+		NFShmString<32> word;
+		int32_t finish;
+		struct RedFetchListDBProto_s fetch;
+
+		virtual void write_to_pbmsg(::proto_ff::RedSendDBProto & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RedSendDBProto & msg);
+		static ::proto_ff::RedSendDBProto* new_pbmsg(){ return new ::proto_ff::RedSendDBProto(); }
+		static ::proto_ff::RedSendDBProto make_pbmsg(){ return ::proto_ff::RedSendDBProto(); }
+	};
+	typedef struct RedSendDBProto_s RedSendDBProto_t;
+
+	struct RedDBData_s : public NFDescStoreSeqOP {
+		RedDBData_s();
+		virtual ~RedDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct RedWaitDBProto_s, DEFINE_REDDBDATA_WAIT_MAX_NUM> wait;
+		NFShmVector<struct RedTriggerDBProto_s, DEFINE_REDDBDATA_TRIGGER_LST_MAX_NUM> trigger_lst;
+		uint64_t freshtime;
+		NFShmVector<struct RedSendDBProto_s, DEFINE_REDDBDATA_SEND_MAX_NUM> send;
+		uint32_t faction_id;
+
+		virtual void write_to_pbmsg(::proto_ff::RedDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RedDBData & msg);
+		static ::proto_ff::RedDBData* new_pbmsg(){ return new ::proto_ff::RedDBData(); }
+		static ::proto_ff::RedDBData make_pbmsg(){ return ::proto_ff::RedDBData(); }
+	};
+	typedef struct RedDBData_s RedDBData_t;
 
 	struct RoleMirrorData_s : public NFDescStoreSeqOP {
 		RoleMirrorData_s();
@@ -2070,6 +2294,140 @@ namespace proto_ff_s {
 		static ::proto_ff::FactionDelDBReq make_pbmsg(){ return ::proto_ff::FactionDelDBReq(); }
 	};
 	typedef struct FactionDelDBReq_s FactionDelDBReq_t;
+
+	struct FactionRedDBReq_s : public NFDescStoreSeqOP {
+		FactionRedDBReq_s();
+		virtual ~FactionRedDBReq_s(){}
+		int CreateInit();
+		int ResumeInit();
+
+		virtual void write_to_pbmsg(::proto_ff::FactionRedDBReq & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FactionRedDBReq & msg);
+		static ::proto_ff::FactionRedDBReq* new_pbmsg(){ return new ::proto_ff::FactionRedDBReq(); }
+		static ::proto_ff::FactionRedDBReq make_pbmsg(){ return ::proto_ff::FactionRedDBReq(); }
+	};
+	typedef struct FactionRedDBReq_s FactionRedDBReq_t;
+
+	struct FactionRedDBRsp_s : public NFDescStoreSeqOP {
+		FactionRedDBRsp_s();
+		virtual ~FactionRedDBRsp_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct RedDBData_s, DEFINE_FACTIONREDDBRSP_DATA_LST_MAX_NUM> data_lst;
+		int32_t finish;
+
+		virtual void write_to_pbmsg(::proto_ff::FactionRedDBRsp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FactionRedDBRsp & msg);
+		static ::proto_ff::FactionRedDBRsp* new_pbmsg(){ return new ::proto_ff::FactionRedDBRsp(); }
+		static ::proto_ff::FactionRedDBRsp make_pbmsg(){ return ::proto_ff::FactionRedDBRsp(); }
+	};
+	typedef struct FactionRedDBRsp_s FactionRedDBRsp_t;
+
+	struct FactionRedSaveDBReq_s : public NFDescStoreSeqOP {
+		FactionRedSaveDBReq_s();
+		virtual ~FactionRedSaveDBReq_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t faction_id;
+		struct RedDBData_s data0;
+		struct RedDBData_s data1;
+		struct RedDBData_s data2;
+
+		virtual void write_to_pbmsg(::proto_ff::FactionRedSaveDBReq & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FactionRedSaveDBReq & msg);
+		static ::proto_ff::FactionRedSaveDBReq* new_pbmsg(){ return new ::proto_ff::FactionRedSaveDBReq(); }
+		static ::proto_ff::FactionRedSaveDBReq make_pbmsg(){ return ::proto_ff::FactionRedSaveDBReq(); }
+	};
+	typedef struct FactionRedSaveDBReq_s FactionRedSaveDBReq_t;
+
+	struct FactionRedDelDBReq_s : public NFDescStoreSeqOP {
+		FactionRedDelDBReq_s();
+		virtual ~FactionRedDelDBReq_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t faction_id;
+
+		virtual void write_to_pbmsg(::proto_ff::FactionRedDelDBReq & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FactionRedDelDBReq & msg);
+		static ::proto_ff::FactionRedDelDBReq* new_pbmsg(){ return new ::proto_ff::FactionRedDelDBReq(); }
+		static ::proto_ff::FactionRedDelDBReq make_pbmsg(){ return ::proto_ff::FactionRedDelDBReq(); }
+	};
+	typedef struct FactionRedDelDBReq_s FactionRedDelDBReq_t;
+
+	struct RoleRedDBReq_s : public NFDescStoreSeqOP {
+		RoleRedDBReq_s();
+		virtual ~RoleRedDBReq_s(){}
+		int CreateInit();
+		int ResumeInit();
+
+		virtual void write_to_pbmsg(::proto_ff::RoleRedDBReq & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RoleRedDBReq & msg);
+		static ::proto_ff::RoleRedDBReq* new_pbmsg(){ return new ::proto_ff::RoleRedDBReq(); }
+		static ::proto_ff::RoleRedDBReq make_pbmsg(){ return ::proto_ff::RoleRedDBReq(); }
+	};
+	typedef struct RoleRedDBReq_s RoleRedDBReq_t;
+
+	struct RoleRedDBRsp_s : public NFDescStoreSeqOP {
+		RoleRedDBRsp_s();
+		virtual ~RoleRedDBRsp_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct RoleRedDBData_s, DEFINE_ROLEREDDBRSP_DATA_LST_MAX_NUM> data_lst;
+		int32_t finish;
+
+		virtual void write_to_pbmsg(::proto_ff::RoleRedDBRsp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RoleRedDBRsp & msg);
+		static ::proto_ff::RoleRedDBRsp* new_pbmsg(){ return new ::proto_ff::RoleRedDBRsp(); }
+		static ::proto_ff::RoleRedDBRsp make_pbmsg(){ return ::proto_ff::RoleRedDBRsp(); }
+	};
+	typedef struct RoleRedDBRsp_s RoleRedDBRsp_t;
+
+	struct CenterLoadRoleDBReq_s : public NFDescStoreSeqOP {
+		CenterLoadRoleDBReq_s();
+		virtual ~CenterLoadRoleDBReq_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cid;
+		NFShmString<32> table_name;
+		uint32_t cmd;
+
+		virtual void write_to_pbmsg(::proto_ff::CenterLoadRoleDBReq & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::CenterLoadRoleDBReq & msg);
+		static ::proto_ff::CenterLoadRoleDBReq* new_pbmsg(){ return new ::proto_ff::CenterLoadRoleDBReq(); }
+		static ::proto_ff::CenterLoadRoleDBReq make_pbmsg(){ return ::proto_ff::CenterLoadRoleDBReq(); }
+	};
+	typedef struct CenterLoadRoleDBReq_s CenterLoadRoleDBReq_t;
+
+	struct CenterLoadRoleDBRsp_s : public NFDescStoreSeqOP {
+		CenterLoadRoleDBRsp_s();
+		virtual ~CenterLoadRoleDBRsp_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cid;
+		NFShmString<32> data;
+
+		virtual void write_to_pbmsg(::proto_ff::CenterLoadRoleDBRsp & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::CenterLoadRoleDBRsp & msg);
+		static ::proto_ff::CenterLoadRoleDBRsp* new_pbmsg(){ return new ::proto_ff::CenterLoadRoleDBRsp(); }
+		static ::proto_ff::CenterLoadRoleDBRsp make_pbmsg(){ return ::proto_ff::CenterLoadRoleDBRsp(); }
+	};
+	typedef struct CenterLoadRoleDBRsp_s CenterLoadRoleDBRsp_t;
+
+	struct CenterSaveRoleDBReq_s : public NFDescStoreSeqOP {
+		CenterSaveRoleDBReq_s();
+		virtual ~CenterSaveRoleDBReq_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cid;
+		NFShmString<32> data;
+		NFShmString<32> table_name;
+
+		virtual void write_to_pbmsg(::proto_ff::CenterSaveRoleDBReq & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::CenterSaveRoleDBReq & msg);
+		static ::proto_ff::CenterSaveRoleDBReq* new_pbmsg(){ return new ::proto_ff::CenterSaveRoleDBReq(); }
+		static ::proto_ff::CenterSaveRoleDBReq make_pbmsg(){ return ::proto_ff::CenterSaveRoleDBReq(); }
+	};
+	typedef struct CenterSaveRoleDBReq_s CenterSaveRoleDBReq_t;
 
 }
 

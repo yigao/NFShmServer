@@ -67,6 +67,7 @@ class NotifyGateReconnectGame;
 class NotifyCenterDisConnect;
 class NotifyLogicDisconnect;
 class NotifyLogicReconnect;
+class NotifyCenterReconnectSuccessRsp;
 class SocialRoleInfoReq;
 class SocialRoleInfoRsp;
 class SocialRoleEventRsp;
@@ -3142,6 +3143,88 @@ class NotifyLogicReconnect : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class NotifyCenterReconnectSuccessRsp : public ::google::protobuf::Message {
+ public:
+  NotifyCenterReconnectSuccessRsp();
+  virtual ~NotifyCenterReconnectSuccessRsp();
+
+  NotifyCenterReconnectSuccessRsp(const NotifyCenterReconnectSuccessRsp& from);
+
+  inline NotifyCenterReconnectSuccessRsp& operator=(const NotifyCenterReconnectSuccessRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyCenterReconnectSuccessRsp& default_instance();
+
+  void Swap(NotifyCenterReconnectSuccessRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyCenterReconnectSuccessRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyCenterReconnectSuccessRsp& from);
+  void MergeFrom(const NotifyCenterReconnectSuccessRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyCenterReconnectSuccessRsp)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyCenterReconnectSuccessRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class SocialRoleInfoReq : public ::google::protobuf::Message {
  public:
   SocialRoleInfoReq();
@@ -5900,6 +5983,32 @@ inline ::google::protobuf::uint32 NotifyLogicReconnect::gateid() const {
 inline void NotifyLogicReconnect::set_gateid(::google::protobuf::uint32 value) {
   set_has_gateid();
   gateid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyCenterReconnectSuccessRsp
+
+// required uint64 cid = 1;
+inline bool NotifyCenterReconnectSuccessRsp::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyCenterReconnectSuccessRsp::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyCenterReconnectSuccessRsp::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyCenterReconnectSuccessRsp::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 NotifyCenterReconnectSuccessRsp::cid() const {
+  return cid_;
+}
+inline void NotifyCenterReconnectSuccessRsp::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
 }
 
 // -------------------------------------------------------------------

@@ -858,6 +858,44 @@ void StoneSlotInfo_s::read_from_pbmsg(const ::proto_ff::StoneSlotInfo & msg) {
 	stoneid = msg.stoneid();
 }
 
+WashSlotInfo_s::WashSlotInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int WashSlotInfo_s::CreateInit() {
+	slot = (int32_t)0;
+	quality = (int32_t)0;
+	lock = (int32_t)0;
+	id = (int32_t)0;
+	value = (int32_t)0;
+	return 0;
+}
+
+int WashSlotInfo_s::ResumeInit() {
+	return 0;
+}
+
+void WashSlotInfo_s::write_to_pbmsg(::proto_ff::WashSlotInfo & msg) const {
+	msg.set_slot((int32_t)slot);
+	msg.set_quality((int32_t)quality);
+	msg.set_lock((int32_t)lock);
+	msg.set_id((int32_t)id);
+	msg.set_value((int32_t)value);
+}
+
+void WashSlotInfo_s::read_from_pbmsg(const ::proto_ff::WashSlotInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct WashSlotInfo_s));
+	slot = msg.slot();
+	quality = msg.quality();
+	lock = msg.lock();
+	id = msg.id();
+	value = msg.value();
+}
+
 EquipSlotInfo_s::EquipSlotInfo_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -871,6 +909,7 @@ int EquipSlotInfo_s::CreateInit() {
 	total_score = (int64_t)0;
 	stronglv = (int32_t)0;
 	stone_pay_slot_open = (int32_t)0;
+	suitlv = (int32_t)0;
 	return 0;
 }
 
@@ -887,6 +926,11 @@ void EquipSlotInfo_s::write_to_pbmsg(::proto_ff::EquipSlotInfo & msg) const {
 		stones[i].write_to_pbmsg(*temp_stones);
 	}
 	msg.set_stone_pay_slot_open((int32_t)stone_pay_slot_open);
+	for(int32_t i = 0; i < (int32_t)washs.size(); ++i) {
+		::proto_ff::WashSlotInfo* temp_washs = msg.add_washs();
+		washs[i].write_to_pbmsg(*temp_washs);
+	}
+	msg.set_suitlv((int32_t)suitlv);
 }
 
 void EquipSlotInfo_s::read_from_pbmsg(const ::proto_ff::EquipSlotInfo & msg) {
@@ -900,6 +944,12 @@ void EquipSlotInfo_s::read_from_pbmsg(const ::proto_ff::EquipSlotInfo & msg) {
 		stones[i].read_from_pbmsg(temp_stones);
 	}
 	stone_pay_slot_open = msg.stone_pay_slot_open();
+	washs.resize(msg.washs_size());
+	for(int32_t i = 0; i < (int32_t)washs.size(); ++i) {
+		const ::proto_ff::WashSlotInfo & temp_washs = msg.washs(i);
+		washs[i].read_from_pbmsg(temp_washs);
+	}
+	suitlv = msg.suitlv();
 }
 
 EquipInfo_s::EquipInfo_s() {
@@ -1773,7 +1823,7 @@ int BuffProto_s::CreateInit() {
 	buff_index = (uint64_t)0;
 	buff_id = (uint64_t)0;
 	recver_cid = (uint64_t)0;
-	left_msec = (int32_t)0;
+	left_msec = (int64_t)0;
 	skill_id = (uint64_t)0;
 	skill_lev = (int32_t)0;
 	is_effect = (int32_t)0;
@@ -1788,7 +1838,7 @@ void BuffProto_s::write_to_pbmsg(::proto_ff::BuffProto & msg) const {
 	msg.set_buff_index((uint64_t)buff_index);
 	msg.set_buff_id((uint64_t)buff_id);
 	msg.set_recver_cid((uint64_t)recver_cid);
-	msg.set_left_msec((int32_t)left_msec);
+	msg.set_left_msec((int64_t)left_msec);
 	msg.set_skill_id((uint64_t)skill_id);
 	msg.set_skill_lev((int32_t)skill_lev);
 	msg.set_is_effect((int32_t)is_effect);
@@ -2054,6 +2104,9 @@ int GodEvilProto_s::CreateInit() {
 	fetch = (int32_t)0;
 	type = (int32_t)0;
 	cd = (int32_t)0;
+	vessel_lev = (int32_t)0;
+	mirror_lev = (int32_t)0;
+	extra_exp = (int64_t)0;
 	return 0;
 }
 
@@ -2067,6 +2120,9 @@ void GodEvilProto_s::write_to_pbmsg(::proto_ff::GodEvilProto & msg) const {
 	stage.write_to_pbmsg(*temp_stage);
 	msg.set_type((int32_t)type);
 	msg.set_cd((int32_t)cd);
+	msg.set_vessel_lev((int32_t)vessel_lev);
+	msg.set_mirror_lev((int32_t)mirror_lev);
+	msg.set_extra_exp((int64_t)extra_exp);
 }
 
 void GodEvilProto_s::read_from_pbmsg(const ::proto_ff::GodEvilProto & msg) {
@@ -2076,6 +2132,9 @@ void GodEvilProto_s::read_from_pbmsg(const ::proto_ff::GodEvilProto & msg) {
 	stage.read_from_pbmsg(temp_stage);
 	type = msg.type();
 	cd = msg.cd();
+	vessel_lev = msg.vessel_lev();
+	mirror_lev = msg.mirror_lev();
+	extra_exp = msg.extra_exp();
 }
 
 FacadeFantasyData_s::FacadeFantasyData_s() {
@@ -2917,6 +2976,92 @@ void CharacterDBDyMissionInfo_s::read_from_pbmsg(const ::proto_ff::CharacterDBDy
 	bounty_param.read_from_pbmsg(temp_bounty_param);
 }
 
+GuildPrestigeMissionDBData_s::GuildPrestigeMissionDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GuildPrestigeMissionDBData_s::CreateInit() {
+	prestige_id = (int64_t)0;
+	task_id = (int64_t)0;
+	task_state = (int32_t)0;
+	index = (int32_t)0;
+	return 0;
+}
+
+int GuildPrestigeMissionDBData_s::ResumeInit() {
+	return 0;
+}
+
+void GuildPrestigeMissionDBData_s::write_to_pbmsg(::proto_ff::GuildPrestigeMissionDBData & msg) const {
+	msg.set_prestige_id((int64_t)prestige_id);
+	msg.set_task_id((int64_t)task_id);
+	msg.set_task_state((int32_t)task_state);
+	msg.set_index((int32_t)index);
+	::proto_ff::CharacterDBMissionTrack* temp_track = msg.mutable_track();
+	track.write_to_pbmsg(*temp_track);
+}
+
+void GuildPrestigeMissionDBData_s::read_from_pbmsg(const ::proto_ff::GuildPrestigeMissionDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GuildPrestigeMissionDBData_s));
+	prestige_id = msg.prestige_id();
+	task_id = msg.task_id();
+	task_state = msg.task_state();
+	index = msg.index();
+	const ::proto_ff::CharacterDBMissionTrack & temp_track = msg.track();
+	track.read_from_pbmsg(temp_track);
+}
+
+GuildPrestigeMissionDB_s::GuildPrestigeMissionDB_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GuildPrestigeMissionDB_s::CreateInit() {
+	refresh_num = (int32_t)0;
+	all_refresh_num = (int32_t)0;
+	accept_num = (int32_t)0;
+	all_accept_num = (int32_t)0;
+	last_refresh_time = (int64_t)0;
+	return 0;
+}
+
+int GuildPrestigeMissionDB_s::ResumeInit() {
+	return 0;
+}
+
+void GuildPrestigeMissionDB_s::write_to_pbmsg(::proto_ff::GuildPrestigeMissionDB & msg) const {
+	msg.set_refresh_num((int32_t)refresh_num);
+	msg.set_all_refresh_num((int32_t)all_refresh_num);
+	msg.set_accept_num((int32_t)accept_num);
+	msg.set_all_accept_num((int32_t)all_accept_num);
+	for(int32_t i = 0; i < (int32_t)task_pool.size(); ++i) {
+		::proto_ff::GuildPrestigeMissionDBData* temp_task_pool = msg.add_task_pool();
+		task_pool[i].write_to_pbmsg(*temp_task_pool);
+	}
+	msg.set_last_refresh_time((int64_t)last_refresh_time);
+}
+
+void GuildPrestigeMissionDB_s::read_from_pbmsg(const ::proto_ff::GuildPrestigeMissionDB & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GuildPrestigeMissionDB_s));
+	refresh_num = msg.refresh_num();
+	all_refresh_num = msg.all_refresh_num();
+	accept_num = msg.accept_num();
+	all_accept_num = msg.all_accept_num();
+	task_pool.resize(msg.task_pool_size());
+	for(int32_t i = 0; i < (int32_t)task_pool.size(); ++i) {
+		const ::proto_ff::GuildPrestigeMissionDBData & temp_task_pool = msg.task_pool(i);
+		task_pool[i].read_from_pbmsg(temp_task_pool);
+	}
+	last_refresh_time = msg.last_refresh_time();
+}
+
 CharacterDBTaskData_s::CharacterDBTaskData_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -2949,6 +3094,8 @@ void CharacterDBTaskData_s::write_to_pbmsg(::proto_ff::CharacterDBTaskData & msg
 		::proto_ff::CharacterDBRecentSubmitMission* temp_recent_submit = msg.add_recent_submit();
 		recent_submit[i].write_to_pbmsg(*temp_recent_submit);
 	}
+	::proto_ff::GuildPrestigeMissionDB* temp_prestige_mission = msg.mutable_prestige_mission();
+	prestige_mission.write_to_pbmsg(*temp_prestige_mission);
 }
 
 void CharacterDBTaskData_s::read_from_pbmsg(const ::proto_ff::CharacterDBTaskData & msg) {
@@ -2972,6 +3119,8 @@ void CharacterDBTaskData_s::read_from_pbmsg(const ::proto_ff::CharacterDBTaskDat
 		const ::proto_ff::CharacterDBRecentSubmitMission & temp_recent_submit = msg.recent_submit(i);
 		recent_submit[i].read_from_pbmsg(temp_recent_submit);
 	}
+	const ::proto_ff::GuildPrestigeMissionDB & temp_prestige_mission = msg.prestige_mission();
+	prestige_mission.read_from_pbmsg(temp_prestige_mission);
 }
 
 NotifyVipDataRsp_s::NotifyVipDataRsp_s() {
@@ -3571,6 +3720,7 @@ ArmorInfo_s::ArmorInfo_s() {
 
 int ArmorInfo_s::CreateInit() {
 	id = (int32_t)0;
+	allstate = (int32_t)0;
 	return 0;
 }
 
@@ -3584,6 +3734,10 @@ void ArmorInfo_s::write_to_pbmsg(::proto_ff::ArmorInfo & msg) const {
 		::proto_ff::ArmorSuitState* temp_suits = msg.add_suits();
 		suits[i].write_to_pbmsg(*temp_suits);
 	}
+	msg.set_allstate((int32_t)allstate);
+	for(int32_t i = 0; i < (int32_t)pos.size(); ++i) {
+		msg.add_pos((int32_t)pos[i]);
+	}
 }
 
 void ArmorInfo_s::read_from_pbmsg(const ::proto_ff::ArmorInfo & msg) {
@@ -3593,6 +3747,11 @@ void ArmorInfo_s::read_from_pbmsg(const ::proto_ff::ArmorInfo & msg) {
 	for(int32_t i = 0; i < (int32_t)suits.size(); ++i) {
 		const ::proto_ff::ArmorSuitState & temp_suits = msg.suits(i);
 		suits[i].read_from_pbmsg(temp_suits);
+	}
+	allstate = msg.allstate();
+	pos.resize(msg.pos_size());
+	for(int32_t i = 0; i < (int32_t)pos.size(); ++i) {
+		pos[i] = msg.pos(i);
 	}
 }
 
@@ -3632,6 +3791,303 @@ void TitleInfo_s::read_from_pbmsg(const ::proto_ff::TitleInfo & msg) {
 	start_time = msg.start_time();
 	end_time = msg.end_time();
 	star = msg.star();
+}
+
+OccupationMissionSoulData_s::OccupationMissionSoulData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int OccupationMissionSoulData_s::CreateInit() {
+	soul_type = (int32_t)0;
+	soul_pos = (int32_t)0;
+	status = (int32_t)0;
+	return 0;
+}
+
+int OccupationMissionSoulData_s::ResumeInit() {
+	return 0;
+}
+
+void OccupationMissionSoulData_s::write_to_pbmsg(::proto_ff::OccupationMissionSoulData & msg) const {
+	msg.set_soul_type((int32_t)soul_type);
+	msg.set_soul_pos((int32_t)soul_pos);
+	msg.set_status((int32_t)status);
+}
+
+void OccupationMissionSoulData_s::read_from_pbmsg(const ::proto_ff::OccupationMissionSoulData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct OccupationMissionSoulData_s));
+	soul_type = msg.soul_type();
+	soul_pos = msg.soul_pos();
+	status = msg.status();
+}
+
+OccupationMissionStageData_s::OccupationMissionStageData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int OccupationMissionStageData_s::CreateInit() {
+	stage = (int32_t)0;
+	status = (int32_t)0;
+	return 0;
+}
+
+int OccupationMissionStageData_s::ResumeInit() {
+	return 0;
+}
+
+void OccupationMissionStageData_s::write_to_pbmsg(::proto_ff::OccupationMissionStageData & msg) const {
+	msg.set_stage((int32_t)stage);
+	msg.set_status((int32_t)status);
+	for(int32_t i = 0; i < (int32_t)soul_data.size(); ++i) {
+		::proto_ff::OccupationMissionSoulData* temp_soul_data = msg.add_soul_data();
+		soul_data[i].write_to_pbmsg(*temp_soul_data);
+	}
+}
+
+void OccupationMissionStageData_s::read_from_pbmsg(const ::proto_ff::OccupationMissionStageData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct OccupationMissionStageData_s));
+	stage = msg.stage();
+	status = msg.status();
+	soul_data.resize(msg.soul_data_size());
+	for(int32_t i = 0; i < (int32_t)soul_data.size(); ++i) {
+		const ::proto_ff::OccupationMissionSoulData & temp_soul_data = msg.soul_data(i);
+		soul_data[i].read_from_pbmsg(temp_soul_data);
+	}
+}
+
+OccupationMissionGradeData_s::OccupationMissionGradeData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int OccupationMissionGradeData_s::CreateInit() {
+	grade = (int32_t)0;
+	status = (int32_t)0;
+	return 0;
+}
+
+int OccupationMissionGradeData_s::ResumeInit() {
+	return 0;
+}
+
+void OccupationMissionGradeData_s::write_to_pbmsg(::proto_ff::OccupationMissionGradeData & msg) const {
+	msg.set_grade((int32_t)grade);
+	msg.set_status((int32_t)status);
+	for(int32_t i = 0; i < (int32_t)stage_data.size(); ++i) {
+		::proto_ff::OccupationMissionStageData* temp_stage_data = msg.add_stage_data();
+		stage_data[i].write_to_pbmsg(*temp_stage_data);
+	}
+}
+
+void OccupationMissionGradeData_s::read_from_pbmsg(const ::proto_ff::OccupationMissionGradeData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct OccupationMissionGradeData_s));
+	grade = msg.grade();
+	status = msg.status();
+	stage_data.resize(msg.stage_data_size());
+	for(int32_t i = 0; i < (int32_t)stage_data.size(); ++i) {
+		const ::proto_ff::OccupationMissionStageData & temp_stage_data = msg.stage_data(i);
+		stage_data[i].read_from_pbmsg(temp_stage_data);
+	}
+}
+
+OccupationMissionData_s::OccupationMissionData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int OccupationMissionData_s::CreateInit() {
+	return 0;
+}
+
+int OccupationMissionData_s::ResumeInit() {
+	return 0;
+}
+
+void OccupationMissionData_s::write_to_pbmsg(::proto_ff::OccupationMissionData & msg) const {
+	for(int32_t i = 0; i < (int32_t)grade_data.size(); ++i) {
+		::proto_ff::OccupationMissionGradeData* temp_grade_data = msg.add_grade_data();
+		grade_data[i].write_to_pbmsg(*temp_grade_data);
+	}
+}
+
+void OccupationMissionData_s::read_from_pbmsg(const ::proto_ff::OccupationMissionData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct OccupationMissionData_s));
+	grade_data.resize(msg.grade_data_size());
+	for(int32_t i = 0; i < (int32_t)grade_data.size(); ++i) {
+		const ::proto_ff::OccupationMissionGradeData & temp_grade_data = msg.grade_data(i);
+		grade_data[i].read_from_pbmsg(temp_grade_data);
+	}
+}
+
+BestEQEquipInfo_s::BestEQEquipInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int BestEQEquipInfo_s::CreateInit() {
+	instId = (int32_t)0;
+	cfgId = (int32_t)0;
+	makeId = (int32_t)0;
+	return 0;
+}
+
+int BestEQEquipInfo_s::ResumeInit() {
+	return 0;
+}
+
+void BestEQEquipInfo_s::write_to_pbmsg(::proto_ff::BestEQEquipInfo & msg) const {
+	msg.set_instid((int32_t)instId);
+	msg.set_cfgid((int32_t)cfgId);
+	msg.set_makeid((int32_t)makeId);
+	for(int32_t i = 0; i < (int32_t)skills.size(); ++i) {
+		::proto_ff::ComPair* temp_skills = msg.add_skills();
+		skills[i].write_to_pbmsg(*temp_skills);
+	}
+}
+
+void BestEQEquipInfo_s::read_from_pbmsg(const ::proto_ff::BestEQEquipInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BestEQEquipInfo_s));
+	instId = msg.instid();
+	cfgId = msg.cfgid();
+	makeId = msg.makeid();
+	skills.resize(msg.skills_size());
+	for(int32_t i = 0; i < (int32_t)skills.size(); ++i) {
+		const ::proto_ff::ComPair & temp_skills = msg.skills(i);
+		skills[i].read_from_pbmsg(temp_skills);
+	}
+}
+
+BestEQBreak_s::BestEQBreak_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int BestEQBreak_s::CreateInit() {
+	lv = (int32_t)0;
+	return 0;
+}
+
+int BestEQBreak_s::ResumeInit() {
+	return 0;
+}
+
+void BestEQBreak_s::write_to_pbmsg(::proto_ff::BestEQBreak & msg) const {
+	msg.set_lv((int32_t)lv);
+	for(int32_t i = 0; i < (int32_t)exps.size(); ++i) {
+		msg.add_exps((int32_t)exps[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)genAttr.size(); ++i) {
+		::proto_ff::ComPair* temp_genattr = msg.add_genattr();
+		genAttr[i].write_to_pbmsg(*temp_genattr);
+	}
+}
+
+void BestEQBreak_s::read_from_pbmsg(const ::proto_ff::BestEQBreak & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BestEQBreak_s));
+	lv = msg.lv();
+	exps.resize(msg.exps_size());
+	for(int32_t i = 0; i < (int32_t)exps.size(); ++i) {
+		exps[i] = msg.exps(i);
+	}
+	genAttr.resize(msg.genattr_size());
+	for(int32_t i = 0; i < (int32_t)genAttr.size(); ++i) {
+		const ::proto_ff::ComPair & temp_genattr = msg.genattr(i);
+		genAttr[i].read_from_pbmsg(temp_genattr);
+	}
+}
+
+BestEQSlotInfo_s::BestEQSlotInfo_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int BestEQSlotInfo_s::CreateInit() {
+	slot = (int32_t)0;
+	instId = (int32_t)0;
+	pourId = (int32_t)0;
+	pourExp = (int32_t)0;
+	pourUnLock = (int32_t)0;
+	awakenLv = (int32_t)0;
+	return 0;
+}
+
+int BestEQSlotInfo_s::ResumeInit() {
+	return 0;
+}
+
+void BestEQSlotInfo_s::write_to_pbmsg(::proto_ff::BestEQSlotInfo & msg) const {
+	msg.set_slot((int32_t)slot);
+	msg.set_instid((int32_t)instId);
+	msg.set_pourid((int32_t)pourId);
+	msg.set_pourexp((int32_t)pourExp);
+	msg.set_pourunlock((int32_t)pourUnLock);
+	::proto_ff::BestEQBreak* temp_breakinfo = msg.mutable_breakinfo();
+	breakInfo.write_to_pbmsg(*temp_breakinfo);
+	msg.set_awakenlv((int32_t)awakenLv);
+}
+
+void BestEQSlotInfo_s::read_from_pbmsg(const ::proto_ff::BestEQSlotInfo & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BestEQSlotInfo_s));
+	slot = msg.slot();
+	instId = msg.instid();
+	pourId = msg.pourid();
+	pourExp = msg.pourexp();
+	pourUnLock = msg.pourunlock();
+	const ::proto_ff::BestEQBreak & temp_breakinfo = msg.breakinfo();
+	breakInfo.read_from_pbmsg(temp_breakinfo);
+	awakenLv = msg.awakenlv();
+}
+
+BestEQTask_s::BestEQTask_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int BestEQTask_s::CreateInit() {
+	id = (int32_t)0;
+	state = (int32_t)0;
+	return 0;
+}
+
+int BestEQTask_s::ResumeInit() {
+	return 0;
+}
+
+void BestEQTask_s::write_to_pbmsg(::proto_ff::BestEQTask & msg) const {
+	msg.set_id((int32_t)id);
+	msg.set_state((int32_t)state);
+}
+
+void BestEQTask_s::read_from_pbmsg(const ::proto_ff::BestEQTask & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct BestEQTask_s));
+	id = msg.id();
+	state = msg.state();
 }
 
 }

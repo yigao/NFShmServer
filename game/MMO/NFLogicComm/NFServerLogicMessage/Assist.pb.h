@@ -53,6 +53,18 @@ class NotifyHelpHurtRank;
 class NotifyBossHurtRank;
 class SendBossHelpReq;
 class SendBossHelpRsp;
+class AssistRecvGiftReq;
+class AssistRecvGiftRsp;
+class AssistRecvThankReq;
+class AssistRecvThankRsp;
+class NotifySendHelpState;
+class AssistRecord;
+class L2CSynAssistReq;
+class L2CAssistHelpReq;
+class C2LAssistCancelReq;
+class C2LAssistAckReq;
+class C2LAssistRmvReq;
+class L2CAssistThankReq;
 
 // ===================================================================
 
@@ -214,24 +226,17 @@ class HurtRankInfo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 rank = 1;
-  inline bool has_rank() const;
-  inline void clear_rank();
-  static const int kRankFieldNumber = 1;
-  inline ::google::protobuf::int32 rank() const;
-  inline void set_rank(::google::protobuf::int32 value);
-
-  // optional int64 cid = 2;
+  // optional int64 cid = 1;
   inline bool has_cid() const;
   inline void clear_cid();
-  static const int kCidFieldNumber = 2;
+  static const int kCidFieldNumber = 1;
   inline ::google::protobuf::int64 cid() const;
   inline void set_cid(::google::protobuf::int64 value);
 
-  // optional string name = 3;
+  // optional string name = 2;
   inline bool has_name() const;
   inline void clear_name();
-  static const int kNameFieldNumber = 3;
+  static const int kNameFieldNumber = 2;
   inline const ::std::string& name() const;
   inline void set_name(const ::std::string& value);
   inline void set_name(const char* value);
@@ -240,24 +245,22 @@ class HurtRankInfo : public ::google::protobuf::Message {
   inline ::std::string* release_name();
   inline void set_allocated_name(::std::string* name);
 
-  // optional int64 val = 4;
+  // optional int64 val = 3;
   inline bool has_val() const;
   inline void clear_val();
-  static const int kValFieldNumber = 4;
+  static const int kValFieldNumber = 3;
   inline ::google::protobuf::int64 val() const;
   inline void set_val(::google::protobuf::int64 value);
 
-  // optional int32 teamid = 5;
+  // optional int32 teamid = 4;
   inline bool has_teamid() const;
   inline void clear_teamid();
-  static const int kTeamidFieldNumber = 5;
+  static const int kTeamidFieldNumber = 4;
   inline ::google::protobuf::int32 teamid() const;
   inline void set_teamid(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.HurtRankInfo)
  private:
-  inline void set_has_rank();
-  inline void clear_has_rank();
   inline void set_has_cid();
   inline void clear_has_cid();
   inline void set_has_name();
@@ -271,12 +274,11 @@ class HurtRankInfo : public ::google::protobuf::Message {
 
   ::google::protobuf::int64 cid_;
   ::std::string* name_;
-  ::google::protobuf::int32 rank_;
-  ::google::protobuf::int32 teamid_;
   ::google::protobuf::int64 val_;
+  ::google::protobuf::int32 teamid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_Assist_2eproto();
   friend void protobuf_AssignDesc_Assist_2eproto();
@@ -457,10 +459,24 @@ class NotifyRoleAssist : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 sendnum() const;
   inline void set_sendnum(::google::protobuf::int32 value);
 
-  // repeated int32 rewardIds = 4;
+  // optional int32 recvSendGiftNum = 4;
+  inline bool has_recvsendgiftnum() const;
+  inline void clear_recvsendgiftnum();
+  static const int kRecvSendGiftNumFieldNumber = 4;
+  inline ::google::protobuf::int32 recvsendgiftnum() const;
+  inline void set_recvsendgiftnum(::google::protobuf::int32 value);
+
+  // optional int32 recvHelpGiftNum = 5;
+  inline bool has_recvhelpgiftnum() const;
+  inline void clear_recvhelpgiftnum();
+  static const int kRecvHelpGiftNumFieldNumber = 5;
+  inline ::google::protobuf::int32 recvhelpgiftnum() const;
+  inline void set_recvhelpgiftnum(::google::protobuf::int32 value);
+
+  // repeated int32 rewardIds = 6;
   inline int rewardids_size() const;
   inline void clear_rewardids();
-  static const int kRewardIdsFieldNumber = 4;
+  static const int kRewardIdsFieldNumber = 6;
   inline ::google::protobuf::int32 rewardids(int index) const;
   inline void set_rewardids(int index, ::google::protobuf::int32 value);
   inline void add_rewardids(::google::protobuf::int32 value);
@@ -477,16 +493,22 @@ class NotifyRoleAssist : public ::google::protobuf::Message {
   inline void clear_has_helpnum();
   inline void set_has_sendnum();
   inline void clear_has_sendnum();
+  inline void set_has_recvsendgiftnum();
+  inline void clear_has_recvsendgiftnum();
+  inline void set_has_recvhelpgiftnum();
+  inline void clear_has_recvhelpgiftnum();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 prestige_;
   ::google::protobuf::int32 helpnum_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > rewardids_;
   ::google::protobuf::int32 sendnum_;
+  ::google::protobuf::int32 recvsendgiftnum_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > rewardids_;
+  ::google::protobuf::int32 recvhelpgiftnum_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_Assist_2eproto();
   friend void protobuf_AssignDesc_Assist_2eproto();
@@ -741,20 +763,30 @@ class NotifyHelpDst : public ::google::protobuf::Message {
   inline ::google::protobuf::int64 bossid() const;
   inline void set_bossid(::google::protobuf::int64 value);
 
+  // optional int32 reason = 3;
+  inline bool has_reason() const;
+  inline void clear_reason();
+  static const int kReasonFieldNumber = 3;
+  inline ::google::protobuf::int32 reason() const;
+  inline void set_reason(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.NotifyHelpDst)
  private:
   inline void set_has_role();
   inline void clear_has_role();
   inline void set_has_bossid();
   inline void clear_has_bossid();
+  inline void set_has_reason();
+  inline void clear_has_reason();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::proto_ff::RolePlayerMiniInfo* role_;
   ::google::protobuf::int64 bossid_;
+  ::google::protobuf::int32 reason_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_Assist_2eproto();
   friend void protobuf_AssignDesc_Assist_2eproto();
@@ -973,27 +1005,37 @@ class NotifyAssistCmpt : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated .proto_ff.RolePlayerMiniInfo role = 1;
-  inline int role_size() const;
-  inline void clear_role();
-  static const int kRoleFieldNumber = 1;
-  inline const ::proto_ff::RolePlayerMiniInfo& role(int index) const;
-  inline ::proto_ff::RolePlayerMiniInfo* mutable_role(int index);
-  inline ::proto_ff::RolePlayerMiniInfo* add_role();
+  // repeated .proto_ff.RolePlayerMiniInfo roles = 1;
+  inline int roles_size() const;
+  inline void clear_roles();
+  static const int kRolesFieldNumber = 1;
+  inline const ::proto_ff::RolePlayerMiniInfo& roles(int index) const;
+  inline ::proto_ff::RolePlayerMiniInfo* mutable_roles(int index);
+  inline ::proto_ff::RolePlayerMiniInfo* add_roles();
   inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RolePlayerMiniInfo >&
-      role() const;
+      roles() const;
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RolePlayerMiniInfo >*
-      mutable_role();
+      mutable_roles();
+
+  // optional int64 bossId = 2;
+  inline bool has_bossid() const;
+  inline void clear_bossid();
+  static const int kBossIdFieldNumber = 2;
+  inline ::google::protobuf::int64 bossid() const;
+  inline void set_bossid(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.NotifyAssistCmpt)
  private:
+  inline void set_has_bossid();
+  inline void clear_has_bossid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::RolePlayerMiniInfo > role_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RolePlayerMiniInfo > roles_;
+  ::google::protobuf::int64 bossid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_Assist_2eproto();
   friend void protobuf_AssignDesc_Assist_2eproto();
@@ -1246,20 +1288,32 @@ class NotifyAssistThank : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 giftid() const;
   inline void set_giftid(::google::protobuf::int32 value);
 
+  // optional .proto_ff.RolePlayerMiniInfo role = 3;
+  inline bool has_role() const;
+  inline void clear_role();
+  static const int kRoleFieldNumber = 3;
+  inline const ::proto_ff::RolePlayerMiniInfo& role() const;
+  inline ::proto_ff::RolePlayerMiniInfo* mutable_role();
+  inline ::proto_ff::RolePlayerMiniInfo* release_role();
+  inline void set_allocated_role(::proto_ff::RolePlayerMiniInfo* role);
+
   // @@protoc_insertion_point(class_scope:proto_ff.NotifyAssistThank)
  private:
   inline void set_has_id();
   inline void clear_has_id();
   inline void set_has_giftid();
   inline void clear_has_giftid();
+  inline void set_has_role();
+  inline void clear_has_role();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int32 id_;
   ::google::protobuf::int32 giftid_;
+  ::proto_ff::RolePlayerMiniInfo* role_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_Assist_2eproto();
   friend void protobuf_AssignDesc_Assist_2eproto();
@@ -1324,26 +1378,37 @@ class NotifyHelpHurtRank : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .proto_ff.HurtRankInfo infos = 1;
-  inline bool has_infos() const;
+  // repeated .proto_ff.HurtRankInfo infos = 1;
+  inline int infos_size() const;
   inline void clear_infos();
   static const int kInfosFieldNumber = 1;
-  inline const ::proto_ff::HurtRankInfo& infos() const;
-  inline ::proto_ff::HurtRankInfo* mutable_infos();
-  inline ::proto_ff::HurtRankInfo* release_infos();
-  inline void set_allocated_infos(::proto_ff::HurtRankInfo* infos);
+  inline const ::proto_ff::HurtRankInfo& infos(int index) const;
+  inline ::proto_ff::HurtRankInfo* mutable_infos(int index);
+  inline ::proto_ff::HurtRankInfo* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo >*
+      mutable_infos();
+
+  // optional int64 bossId = 2;
+  inline bool has_bossid() const;
+  inline void clear_bossid();
+  static const int kBossIdFieldNumber = 2;
+  inline ::google::protobuf::int64 bossid() const;
+  inline void set_bossid(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.NotifyHelpHurtRank)
  private:
-  inline void set_has_infos();
-  inline void clear_has_infos();
+  inline void set_has_bossid();
+  inline void clear_has_bossid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::proto_ff::HurtRankInfo* infos_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo > infos_;
+  ::google::protobuf::int64 bossid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_Assist_2eproto();
   friend void protobuf_AssignDesc_Assist_2eproto();
@@ -1408,26 +1473,47 @@ class NotifyBossHurtRank : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .proto_ff.HurtRankInfo infos = 1;
-  inline bool has_infos() const;
+  // repeated .proto_ff.HurtRankInfo infos = 1;
+  inline int infos_size() const;
   inline void clear_infos();
   static const int kInfosFieldNumber = 1;
-  inline const ::proto_ff::HurtRankInfo& infos() const;
-  inline ::proto_ff::HurtRankInfo* mutable_infos();
-  inline ::proto_ff::HurtRankInfo* release_infos();
-  inline void set_allocated_infos(::proto_ff::HurtRankInfo* infos);
+  inline const ::proto_ff::HurtRankInfo& infos(int index) const;
+  inline ::proto_ff::HurtRankInfo* mutable_infos(int index);
+  inline ::proto_ff::HurtRankInfo* add_infos();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo >&
+      infos() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo >*
+      mutable_infos();
+
+  // optional int64 bossId = 2;
+  inline bool has_bossid() const;
+  inline void clear_bossid();
+  static const int kBossIdFieldNumber = 2;
+  inline ::google::protobuf::int64 bossid() const;
+  inline void set_bossid(::google::protobuf::int64 value);
+
+  // optional int64 myhurt = 3;
+  inline bool has_myhurt() const;
+  inline void clear_myhurt();
+  static const int kMyhurtFieldNumber = 3;
+  inline ::google::protobuf::int64 myhurt() const;
+  inline void set_myhurt(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.NotifyBossHurtRank)
  private:
-  inline void set_has_infos();
-  inline void clear_has_infos();
+  inline void set_has_bossid();
+  inline void clear_has_bossid();
+  inline void set_has_myhurt();
+  inline void clear_has_myhurt();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::proto_ff::HurtRankInfo* infos_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo > infos_;
+  ::google::protobuf::int64 bossid_;
+  ::google::protobuf::int64 myhurt_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_Assist_2eproto();
   friend void protobuf_AssignDesc_Assist_2eproto();
@@ -1610,6 +1696,1118 @@ class SendBossHelpRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static SendBossHelpRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class AssistRecvGiftReq : public ::google::protobuf::Message {
+ public:
+  AssistRecvGiftReq();
+  virtual ~AssistRecvGiftReq();
+
+  AssistRecvGiftReq(const AssistRecvGiftReq& from);
+
+  inline AssistRecvGiftReq& operator=(const AssistRecvGiftReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AssistRecvGiftReq& default_instance();
+
+  void Swap(AssistRecvGiftReq* other);
+
+  // implements Message ----------------------------------------------
+
+  AssistRecvGiftReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AssistRecvGiftReq& from);
+  void MergeFrom(const AssistRecvGiftReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.AssistRecvGiftReq)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static AssistRecvGiftReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class AssistRecvGiftRsp : public ::google::protobuf::Message {
+ public:
+  AssistRecvGiftRsp();
+  virtual ~AssistRecvGiftRsp();
+
+  AssistRecvGiftRsp(const AssistRecvGiftRsp& from);
+
+  inline AssistRecvGiftRsp& operator=(const AssistRecvGiftRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AssistRecvGiftRsp& default_instance();
+
+  void Swap(AssistRecvGiftRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  AssistRecvGiftRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AssistRecvGiftRsp& from);
+  void MergeFrom(const AssistRecvGiftRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 id = 2;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 2;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.AssistRecvGiftRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_id();
+  inline void clear_has_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static AssistRecvGiftRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class AssistRecvThankReq : public ::google::protobuf::Message {
+ public:
+  AssistRecvThankReq();
+  virtual ~AssistRecvThankReq();
+
+  AssistRecvThankReq(const AssistRecvThankReq& from);
+
+  inline AssistRecvThankReq& operator=(const AssistRecvThankReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AssistRecvThankReq& default_instance();
+
+  void Swap(AssistRecvThankReq* other);
+
+  // implements Message ----------------------------------------------
+
+  AssistRecvThankReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AssistRecvThankReq& from);
+  void MergeFrom(const AssistRecvThankReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.AssistRecvThankReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static AssistRecvThankReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class AssistRecvThankRsp : public ::google::protobuf::Message {
+ public:
+  AssistRecvThankRsp();
+  virtual ~AssistRecvThankRsp();
+
+  AssistRecvThankRsp(const AssistRecvThankRsp& from);
+
+  inline AssistRecvThankRsp& operator=(const AssistRecvThankRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AssistRecvThankRsp& default_instance();
+
+  void Swap(AssistRecvThankRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  AssistRecvThankRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AssistRecvThankRsp& from);
+  void MergeFrom(const AssistRecvThankRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.AssistRecvThankRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static AssistRecvThankRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifySendHelpState : public ::google::protobuf::Message {
+ public:
+  NotifySendHelpState();
+  virtual ~NotifySendHelpState();
+
+  NotifySendHelpState(const NotifySendHelpState& from);
+
+  inline NotifySendHelpState& operator=(const NotifySendHelpState& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifySendHelpState& default_instance();
+
+  void Swap(NotifySendHelpState* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifySendHelpState* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifySendHelpState& from);
+  void MergeFrom(const NotifySendHelpState& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 HelpNum = 1;
+  inline bool has_helpnum() const;
+  inline void clear_helpnum();
+  static const int kHelpNumFieldNumber = 1;
+  inline ::google::protobuf::int32 helpnum() const;
+  inline void set_helpnum(::google::protobuf::int32 value);
+
+  // optional int32 SendHelpState = 2;
+  inline bool has_sendhelpstate() const;
+  inline void clear_sendhelpstate();
+  static const int kSendHelpStateFieldNumber = 2;
+  inline ::google::protobuf::int32 sendhelpstate() const;
+  inline void set_sendhelpstate(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifySendHelpState)
+ private:
+  inline void set_has_helpnum();
+  inline void clear_has_helpnum();
+  inline void set_has_sendhelpstate();
+  inline void clear_has_sendhelpstate();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 helpnum_;
+  ::google::protobuf::int32 sendhelpstate_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifySendHelpState* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class AssistRecord : public ::google::protobuf::Message {
+ public:
+  AssistRecord();
+  virtual ~AssistRecord();
+
+  AssistRecord(const AssistRecord& from);
+
+  inline AssistRecord& operator=(const AssistRecord& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const AssistRecord& default_instance();
+
+  void Swap(AssistRecord* other);
+
+  // implements Message ----------------------------------------------
+
+  AssistRecord* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const AssistRecord& from);
+  void MergeFrom(const AssistRecord& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::int64 cid() const;
+  inline void set_cid(::google::protobuf::int64 value);
+
+  // optional int64 bossId = 2;
+  inline bool has_bossid() const;
+  inline void clear_bossid();
+  static const int kBossIdFieldNumber = 2;
+  inline ::google::protobuf::int64 bossid() const;
+  inline void set_bossid(::google::protobuf::int64 value);
+
+  // optional int64 time = 3;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 3;
+  inline ::google::protobuf::int64 time() const;
+  inline void set_time(::google::protobuf::int64 value);
+
+  // repeated int64 helpers = 4;
+  inline int helpers_size() const;
+  inline void clear_helpers();
+  static const int kHelpersFieldNumber = 4;
+  inline ::google::protobuf::int64 helpers(int index) const;
+  inline void set_helpers(int index, ::google::protobuf::int64 value);
+  inline void add_helpers(::google::protobuf::int64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+      helpers() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+      mutable_helpers();
+
+  // optional int32 logicId = 5;
+  inline bool has_logicid() const;
+  inline void clear_logicid();
+  static const int kLogicIdFieldNumber = 5;
+  inline ::google::protobuf::int32 logicid() const;
+  inline void set_logicid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.AssistRecord)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_bossid();
+  inline void clear_has_bossid();
+  inline void set_has_time();
+  inline void clear_has_time();
+  inline void set_has_logicid();
+  inline void clear_has_logicid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 cid_;
+  ::google::protobuf::int64 bossid_;
+  ::google::protobuf::int64 time_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int64 > helpers_;
+  ::google::protobuf::int32 logicid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static AssistRecord* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class L2CSynAssistReq : public ::google::protobuf::Message {
+ public:
+  L2CSynAssistReq();
+  virtual ~L2CSynAssistReq();
+
+  L2CSynAssistReq(const L2CSynAssistReq& from);
+
+  inline L2CSynAssistReq& operator=(const L2CSynAssistReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const L2CSynAssistReq& default_instance();
+
+  void Swap(L2CSynAssistReq* other);
+
+  // implements Message ----------------------------------------------
+
+  L2CSynAssistReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const L2CSynAssistReq& from);
+  void MergeFrom(const L2CSynAssistReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 type = 1;
+  inline bool has_type() const;
+  inline void clear_type();
+  static const int kTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 type() const;
+  inline void set_type(::google::protobuf::int32 value);
+
+  // optional int32 reason = 2;
+  inline bool has_reason() const;
+  inline void clear_reason();
+  static const int kReasonFieldNumber = 2;
+  inline ::google::protobuf::int32 reason() const;
+  inline void set_reason(::google::protobuf::int32 value);
+
+  // optional .proto_ff.AssistRecord record = 3;
+  inline bool has_record() const;
+  inline void clear_record();
+  static const int kRecordFieldNumber = 3;
+  inline const ::proto_ff::AssistRecord& record() const;
+  inline ::proto_ff::AssistRecord* mutable_record();
+  inline ::proto_ff::AssistRecord* release_record();
+  inline void set_allocated_record(::proto_ff::AssistRecord* record);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.L2CSynAssistReq)
+ private:
+  inline void set_has_type();
+  inline void clear_has_type();
+  inline void set_has_reason();
+  inline void clear_has_reason();
+  inline void set_has_record();
+  inline void clear_has_record();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 type_;
+  ::google::protobuf::int32 reason_;
+  ::proto_ff::AssistRecord* record_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static L2CSynAssistReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class L2CAssistHelpReq : public ::google::protobuf::Message {
+ public:
+  L2CAssistHelpReq();
+  virtual ~L2CAssistHelpReq();
+
+  L2CAssistHelpReq(const L2CAssistHelpReq& from);
+
+  inline L2CAssistHelpReq& operator=(const L2CAssistHelpReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const L2CAssistHelpReq& default_instance();
+
+  void Swap(L2CAssistHelpReq* other);
+
+  // implements Message ----------------------------------------------
+
+  L2CAssistHelpReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const L2CAssistHelpReq& from);
+  void MergeFrom(const L2CAssistHelpReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 helpCid = 1;
+  inline bool has_helpcid() const;
+  inline void clear_helpcid();
+  static const int kHelpCidFieldNumber = 1;
+  inline ::google::protobuf::int64 helpcid() const;
+  inline void set_helpcid(::google::protobuf::int64 value);
+
+  // optional int64 sendHelpCid = 2;
+  inline bool has_sendhelpcid() const;
+  inline void clear_sendhelpcid();
+  static const int kSendHelpCidFieldNumber = 2;
+  inline ::google::protobuf::int64 sendhelpcid() const;
+  inline void set_sendhelpcid(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.L2CAssistHelpReq)
+ private:
+  inline void set_has_helpcid();
+  inline void clear_has_helpcid();
+  inline void set_has_sendhelpcid();
+  inline void clear_has_sendhelpcid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 helpcid_;
+  ::google::protobuf::int64 sendhelpcid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static L2CAssistHelpReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class C2LAssistCancelReq : public ::google::protobuf::Message {
+ public:
+  C2LAssistCancelReq();
+  virtual ~C2LAssistCancelReq();
+
+  C2LAssistCancelReq(const C2LAssistCancelReq& from);
+
+  inline C2LAssistCancelReq& operator=(const C2LAssistCancelReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const C2LAssistCancelReq& default_instance();
+
+  void Swap(C2LAssistCancelReq* other);
+
+  // implements Message ----------------------------------------------
+
+  C2LAssistCancelReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const C2LAssistCancelReq& from);
+  void MergeFrom(const C2LAssistCancelReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 helpCid = 1;
+  inline bool has_helpcid() const;
+  inline void clear_helpcid();
+  static const int kHelpCidFieldNumber = 1;
+  inline ::google::protobuf::int64 helpcid() const;
+  inline void set_helpcid(::google::protobuf::int64 value);
+
+  // optional int64 sendHelpCid = 2;
+  inline bool has_sendhelpcid() const;
+  inline void clear_sendhelpcid();
+  static const int kSendHelpCidFieldNumber = 2;
+  inline ::google::protobuf::int64 sendhelpcid() const;
+  inline void set_sendhelpcid(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.C2LAssistCancelReq)
+ private:
+  inline void set_has_helpcid();
+  inline void clear_has_helpcid();
+  inline void set_has_sendhelpcid();
+  inline void clear_has_sendhelpcid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 helpcid_;
+  ::google::protobuf::int64 sendhelpcid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static C2LAssistCancelReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class C2LAssistAckReq : public ::google::protobuf::Message {
+ public:
+  C2LAssistAckReq();
+  virtual ~C2LAssistAckReq();
+
+  C2LAssistAckReq(const C2LAssistAckReq& from);
+
+  inline C2LAssistAckReq& operator=(const C2LAssistAckReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const C2LAssistAckReq& default_instance();
+
+  void Swap(C2LAssistAckReq* other);
+
+  // implements Message ----------------------------------------------
+
+  C2LAssistAckReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const C2LAssistAckReq& from);
+  void MergeFrom(const C2LAssistAckReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 helpCid = 1;
+  inline bool has_helpcid() const;
+  inline void clear_helpcid();
+  static const int kHelpCidFieldNumber = 1;
+  inline ::google::protobuf::int64 helpcid() const;
+  inline void set_helpcid(::google::protobuf::int64 value);
+
+  // optional int64 sendHelpCid = 2;
+  inline bool has_sendhelpcid() const;
+  inline void clear_sendhelpcid();
+  static const int kSendHelpCidFieldNumber = 2;
+  inline ::google::protobuf::int64 sendhelpcid() const;
+  inline void set_sendhelpcid(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.C2LAssistAckReq)
+ private:
+  inline void set_has_helpcid();
+  inline void clear_has_helpcid();
+  inline void set_has_sendhelpcid();
+  inline void clear_has_sendhelpcid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 helpcid_;
+  ::google::protobuf::int64 sendhelpcid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static C2LAssistAckReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class C2LAssistRmvReq : public ::google::protobuf::Message {
+ public:
+  C2LAssistRmvReq();
+  virtual ~C2LAssistRmvReq();
+
+  C2LAssistRmvReq(const C2LAssistRmvReq& from);
+
+  inline C2LAssistRmvReq& operator=(const C2LAssistRmvReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const C2LAssistRmvReq& default_instance();
+
+  void Swap(C2LAssistRmvReq* other);
+
+  // implements Message ----------------------------------------------
+
+  C2LAssistRmvReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const C2LAssistRmvReq& from);
+  void MergeFrom(const C2LAssistRmvReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 sendHelpCid = 1;
+  inline bool has_sendhelpcid() const;
+  inline void clear_sendhelpcid();
+  static const int kSendHelpCidFieldNumber = 1;
+  inline ::google::protobuf::int64 sendhelpcid() const;
+  inline void set_sendhelpcid(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.C2LAssistRmvReq)
+ private:
+  inline void set_has_sendhelpcid();
+  inline void clear_has_sendhelpcid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 sendhelpcid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static C2LAssistRmvReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class L2CAssistThankReq : public ::google::protobuf::Message {
+ public:
+  L2CAssistThankReq();
+  virtual ~L2CAssistThankReq();
+
+  L2CAssistThankReq(const L2CAssistThankReq& from);
+
+  inline L2CAssistThankReq& operator=(const L2CAssistThankReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const L2CAssistThankReq& default_instance();
+
+  void Swap(L2CAssistThankReq* other);
+
+  // implements Message ----------------------------------------------
+
+  L2CAssistThankReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const L2CAssistThankReq& from);
+  void MergeFrom(const L2CAssistThankReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ComPair64 pair = 2;
+  inline int pair_size() const;
+  inline void clear_pair();
+  static const int kPairFieldNumber = 2;
+  inline const ::proto_ff::ComPair64& pair(int index) const;
+  inline ::proto_ff::ComPair64* mutable_pair(int index);
+  inline ::proto_ff::ComPair64* add_pair();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+      pair() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+      mutable_pair();
+
+  // optional int64 src = 3;
+  inline bool has_src() const;
+  inline void clear_src();
+  static const int kSrcFieldNumber = 3;
+  inline ::google::protobuf::int64 src() const;
+  inline void set_src(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.L2CAssistThankReq)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_src();
+  inline void clear_has_src();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 > pair_;
+  ::google::protobuf::int64 src_;
+  ::google::protobuf::int32 id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Assist_2eproto();
+  friend void protobuf_AssignDesc_Assist_2eproto();
+  friend void protobuf_ShutdownFile_Assist_2eproto();
+
+  void InitAsDefaultInstance();
+  static L2CAssistThankReq* default_instance_;
+};
 // ===================================================================
 
 
@@ -1703,37 +2901,15 @@ inline void AssistInfo::set_time(::google::protobuf::int32 value) {
 
 // HurtRankInfo
 
-// optional int32 rank = 1;
-inline bool HurtRankInfo::has_rank() const {
+// optional int64 cid = 1;
+inline bool HurtRankInfo::has_cid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void HurtRankInfo::set_has_rank() {
+inline void HurtRankInfo::set_has_cid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void HurtRankInfo::clear_has_rank() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void HurtRankInfo::clear_rank() {
-  rank_ = 0;
-  clear_has_rank();
-}
-inline ::google::protobuf::int32 HurtRankInfo::rank() const {
-  return rank_;
-}
-inline void HurtRankInfo::set_rank(::google::protobuf::int32 value) {
-  set_has_rank();
-  rank_ = value;
-}
-
-// optional int64 cid = 2;
-inline bool HurtRankInfo::has_cid() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void HurtRankInfo::set_has_cid() {
-  _has_bits_[0] |= 0x00000002u;
-}
 inline void HurtRankInfo::clear_has_cid() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void HurtRankInfo::clear_cid() {
   cid_ = GOOGLE_LONGLONG(0);
@@ -1747,15 +2923,15 @@ inline void HurtRankInfo::set_cid(::google::protobuf::int64 value) {
   cid_ = value;
 }
 
-// optional string name = 3;
+// optional string name = 2;
 inline bool HurtRankInfo::has_name() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void HurtRankInfo::set_has_name() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void HurtRankInfo::clear_has_name() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void HurtRankInfo::clear_name() {
   if (name_ != &::google::protobuf::internal::kEmptyString) {
@@ -1817,15 +2993,15 @@ inline void HurtRankInfo::set_allocated_name(::std::string* name) {
   }
 }
 
-// optional int64 val = 4;
+// optional int64 val = 3;
 inline bool HurtRankInfo::has_val() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void HurtRankInfo::set_has_val() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void HurtRankInfo::clear_has_val() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void HurtRankInfo::clear_val() {
   val_ = GOOGLE_LONGLONG(0);
@@ -1839,15 +3015,15 @@ inline void HurtRankInfo::set_val(::google::protobuf::int64 value) {
   val_ = value;
 }
 
-// optional int32 teamid = 5;
+// optional int32 teamid = 4;
 inline bool HurtRankInfo::has_teamid() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void HurtRankInfo::set_has_teamid() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void HurtRankInfo::clear_has_teamid() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void HurtRankInfo::clear_teamid() {
   teamid_ = 0;
@@ -1982,7 +3158,51 @@ inline void NotifyRoleAssist::set_sendnum(::google::protobuf::int32 value) {
   sendnum_ = value;
 }
 
-// repeated int32 rewardIds = 4;
+// optional int32 recvSendGiftNum = 4;
+inline bool NotifyRoleAssist::has_recvsendgiftnum() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NotifyRoleAssist::set_has_recvsendgiftnum() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NotifyRoleAssist::clear_has_recvsendgiftnum() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NotifyRoleAssist::clear_recvsendgiftnum() {
+  recvsendgiftnum_ = 0;
+  clear_has_recvsendgiftnum();
+}
+inline ::google::protobuf::int32 NotifyRoleAssist::recvsendgiftnum() const {
+  return recvsendgiftnum_;
+}
+inline void NotifyRoleAssist::set_recvsendgiftnum(::google::protobuf::int32 value) {
+  set_has_recvsendgiftnum();
+  recvsendgiftnum_ = value;
+}
+
+// optional int32 recvHelpGiftNum = 5;
+inline bool NotifyRoleAssist::has_recvhelpgiftnum() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void NotifyRoleAssist::set_has_recvhelpgiftnum() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void NotifyRoleAssist::clear_has_recvhelpgiftnum() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void NotifyRoleAssist::clear_recvhelpgiftnum() {
+  recvhelpgiftnum_ = 0;
+  clear_has_recvhelpgiftnum();
+}
+inline ::google::protobuf::int32 NotifyRoleAssist::recvhelpgiftnum() const {
+  return recvhelpgiftnum_;
+}
+inline void NotifyRoleAssist::set_recvhelpgiftnum(::google::protobuf::int32 value) {
+  set_has_recvhelpgiftnum();
+  recvhelpgiftnum_ = value;
+}
+
+// repeated int32 rewardIds = 6;
 inline int NotifyRoleAssist::rewardids_size() const {
   return rewardids_.size();
 }
@@ -2145,6 +3365,28 @@ inline void NotifyHelpDst::set_bossid(::google::protobuf::int64 value) {
   bossid_ = value;
 }
 
+// optional int32 reason = 3;
+inline bool NotifyHelpDst::has_reason() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyHelpDst::set_has_reason() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyHelpDst::clear_has_reason() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyHelpDst::clear_reason() {
+  reason_ = 0;
+  clear_has_reason();
+}
+inline ::google::protobuf::int32 NotifyHelpDst::reason() const {
+  return reason_;
+}
+inline void NotifyHelpDst::set_reason(::google::protobuf::int32 value) {
+  set_has_reason();
+  reason_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // AssistExitHelpReq
@@ -2179,29 +3421,51 @@ inline void AssistExitHelpRsp::set_ret(::google::protobuf::int32 value) {
 
 // NotifyAssistCmpt
 
-// repeated .proto_ff.RolePlayerMiniInfo role = 1;
-inline int NotifyAssistCmpt::role_size() const {
-  return role_.size();
+// repeated .proto_ff.RolePlayerMiniInfo roles = 1;
+inline int NotifyAssistCmpt::roles_size() const {
+  return roles_.size();
 }
-inline void NotifyAssistCmpt::clear_role() {
-  role_.Clear();
+inline void NotifyAssistCmpt::clear_roles() {
+  roles_.Clear();
 }
-inline const ::proto_ff::RolePlayerMiniInfo& NotifyAssistCmpt::role(int index) const {
-  return role_.Get(index);
+inline const ::proto_ff::RolePlayerMiniInfo& NotifyAssistCmpt::roles(int index) const {
+  return roles_.Get(index);
 }
-inline ::proto_ff::RolePlayerMiniInfo* NotifyAssistCmpt::mutable_role(int index) {
-  return role_.Mutable(index);
+inline ::proto_ff::RolePlayerMiniInfo* NotifyAssistCmpt::mutable_roles(int index) {
+  return roles_.Mutable(index);
 }
-inline ::proto_ff::RolePlayerMiniInfo* NotifyAssistCmpt::add_role() {
-  return role_.Add();
+inline ::proto_ff::RolePlayerMiniInfo* NotifyAssistCmpt::add_roles() {
+  return roles_.Add();
 }
 inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RolePlayerMiniInfo >&
-NotifyAssistCmpt::role() const {
-  return role_;
+NotifyAssistCmpt::roles() const {
+  return roles_;
 }
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RolePlayerMiniInfo >*
-NotifyAssistCmpt::mutable_role() {
-  return &role_;
+NotifyAssistCmpt::mutable_roles() {
+  return &roles_;
+}
+
+// optional int64 bossId = 2;
+inline bool NotifyAssistCmpt::has_bossid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyAssistCmpt::set_has_bossid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyAssistCmpt::clear_has_bossid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyAssistCmpt::clear_bossid() {
+  bossid_ = GOOGLE_LONGLONG(0);
+  clear_has_bossid();
+}
+inline ::google::protobuf::int64 NotifyAssistCmpt::bossid() const {
+  return bossid_;
+}
+inline void NotifyAssistCmpt::set_bossid(::google::protobuf::int64 value) {
+  set_has_bossid();
+  bossid_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -2326,88 +3590,166 @@ inline void NotifyAssistThank::set_giftid(::google::protobuf::int32 value) {
   giftid_ = value;
 }
 
+// optional .proto_ff.RolePlayerMiniInfo role = 3;
+inline bool NotifyAssistThank::has_role() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyAssistThank::set_has_role() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyAssistThank::clear_has_role() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyAssistThank::clear_role() {
+  if (role_ != NULL) role_->::proto_ff::RolePlayerMiniInfo::Clear();
+  clear_has_role();
+}
+inline const ::proto_ff::RolePlayerMiniInfo& NotifyAssistThank::role() const {
+  return role_ != NULL ? *role_ : *default_instance_->role_;
+}
+inline ::proto_ff::RolePlayerMiniInfo* NotifyAssistThank::mutable_role() {
+  set_has_role();
+  if (role_ == NULL) role_ = new ::proto_ff::RolePlayerMiniInfo;
+  return role_;
+}
+inline ::proto_ff::RolePlayerMiniInfo* NotifyAssistThank::release_role() {
+  clear_has_role();
+  ::proto_ff::RolePlayerMiniInfo* temp = role_;
+  role_ = NULL;
+  return temp;
+}
+inline void NotifyAssistThank::set_allocated_role(::proto_ff::RolePlayerMiniInfo* role) {
+  delete role_;
+  role_ = role;
+  if (role) {
+    set_has_role();
+  } else {
+    clear_has_role();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // NotifyHelpHurtRank
 
-// optional .proto_ff.HurtRankInfo infos = 1;
-inline bool NotifyHelpHurtRank::has_infos() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void NotifyHelpHurtRank::set_has_infos() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void NotifyHelpHurtRank::clear_has_infos() {
-  _has_bits_[0] &= ~0x00000001u;
+// repeated .proto_ff.HurtRankInfo infos = 1;
+inline int NotifyHelpHurtRank::infos_size() const {
+  return infos_.size();
 }
 inline void NotifyHelpHurtRank::clear_infos() {
-  if (infos_ != NULL) infos_->::proto_ff::HurtRankInfo::Clear();
-  clear_has_infos();
+  infos_.Clear();
 }
-inline const ::proto_ff::HurtRankInfo& NotifyHelpHurtRank::infos() const {
-  return infos_ != NULL ? *infos_ : *default_instance_->infos_;
+inline const ::proto_ff::HurtRankInfo& NotifyHelpHurtRank::infos(int index) const {
+  return infos_.Get(index);
 }
-inline ::proto_ff::HurtRankInfo* NotifyHelpHurtRank::mutable_infos() {
-  set_has_infos();
-  if (infos_ == NULL) infos_ = new ::proto_ff::HurtRankInfo;
+inline ::proto_ff::HurtRankInfo* NotifyHelpHurtRank::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::HurtRankInfo* NotifyHelpHurtRank::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo >&
+NotifyHelpHurtRank::infos() const {
   return infos_;
 }
-inline ::proto_ff::HurtRankInfo* NotifyHelpHurtRank::release_infos() {
-  clear_has_infos();
-  ::proto_ff::HurtRankInfo* temp = infos_;
-  infos_ = NULL;
-  return temp;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo >*
+NotifyHelpHurtRank::mutable_infos() {
+  return &infos_;
 }
-inline void NotifyHelpHurtRank::set_allocated_infos(::proto_ff::HurtRankInfo* infos) {
-  delete infos_;
-  infos_ = infos;
-  if (infos) {
-    set_has_infos();
-  } else {
-    clear_has_infos();
-  }
+
+// optional int64 bossId = 2;
+inline bool NotifyHelpHurtRank::has_bossid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyHelpHurtRank::set_has_bossid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyHelpHurtRank::clear_has_bossid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyHelpHurtRank::clear_bossid() {
+  bossid_ = GOOGLE_LONGLONG(0);
+  clear_has_bossid();
+}
+inline ::google::protobuf::int64 NotifyHelpHurtRank::bossid() const {
+  return bossid_;
+}
+inline void NotifyHelpHurtRank::set_bossid(::google::protobuf::int64 value) {
+  set_has_bossid();
+  bossid_ = value;
 }
 
 // -------------------------------------------------------------------
 
 // NotifyBossHurtRank
 
-// optional .proto_ff.HurtRankInfo infos = 1;
-inline bool NotifyBossHurtRank::has_infos() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void NotifyBossHurtRank::set_has_infos() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void NotifyBossHurtRank::clear_has_infos() {
-  _has_bits_[0] &= ~0x00000001u;
+// repeated .proto_ff.HurtRankInfo infos = 1;
+inline int NotifyBossHurtRank::infos_size() const {
+  return infos_.size();
 }
 inline void NotifyBossHurtRank::clear_infos() {
-  if (infos_ != NULL) infos_->::proto_ff::HurtRankInfo::Clear();
-  clear_has_infos();
+  infos_.Clear();
 }
-inline const ::proto_ff::HurtRankInfo& NotifyBossHurtRank::infos() const {
-  return infos_ != NULL ? *infos_ : *default_instance_->infos_;
+inline const ::proto_ff::HurtRankInfo& NotifyBossHurtRank::infos(int index) const {
+  return infos_.Get(index);
 }
-inline ::proto_ff::HurtRankInfo* NotifyBossHurtRank::mutable_infos() {
-  set_has_infos();
-  if (infos_ == NULL) infos_ = new ::proto_ff::HurtRankInfo;
+inline ::proto_ff::HurtRankInfo* NotifyBossHurtRank::mutable_infos(int index) {
+  return infos_.Mutable(index);
+}
+inline ::proto_ff::HurtRankInfo* NotifyBossHurtRank::add_infos() {
+  return infos_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo >&
+NotifyBossHurtRank::infos() const {
   return infos_;
 }
-inline ::proto_ff::HurtRankInfo* NotifyBossHurtRank::release_infos() {
-  clear_has_infos();
-  ::proto_ff::HurtRankInfo* temp = infos_;
-  infos_ = NULL;
-  return temp;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::HurtRankInfo >*
+NotifyBossHurtRank::mutable_infos() {
+  return &infos_;
 }
-inline void NotifyBossHurtRank::set_allocated_infos(::proto_ff::HurtRankInfo* infos) {
-  delete infos_;
-  infos_ = infos;
-  if (infos) {
-    set_has_infos();
-  } else {
-    clear_has_infos();
-  }
+
+// optional int64 bossId = 2;
+inline bool NotifyBossHurtRank::has_bossid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyBossHurtRank::set_has_bossid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyBossHurtRank::clear_has_bossid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyBossHurtRank::clear_bossid() {
+  bossid_ = GOOGLE_LONGLONG(0);
+  clear_has_bossid();
+}
+inline ::google::protobuf::int64 NotifyBossHurtRank::bossid() const {
+  return bossid_;
+}
+inline void NotifyBossHurtRank::set_bossid(::google::protobuf::int64 value) {
+  set_has_bossid();
+  bossid_ = value;
+}
+
+// optional int64 myhurt = 3;
+inline bool NotifyBossHurtRank::has_myhurt() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyBossHurtRank::set_has_myhurt() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyBossHurtRank::clear_has_myhurt() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyBossHurtRank::clear_myhurt() {
+  myhurt_ = GOOGLE_LONGLONG(0);
+  clear_has_myhurt();
+}
+inline ::google::protobuf::int64 NotifyBossHurtRank::myhurt() const {
+  return myhurt_;
+}
+inline void NotifyBossHurtRank::set_myhurt(::google::protobuf::int64 value) {
+  set_has_myhurt();
+  myhurt_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -2482,6 +3824,604 @@ inline ::google::protobuf::int64 SendBossHelpRsp::bossid() const {
 inline void SendBossHelpRsp::set_bossid(::google::protobuf::int64 value) {
   set_has_bossid();
   bossid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AssistRecvGiftReq
+
+// optional int32 id = 1;
+inline bool AssistRecvGiftReq::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AssistRecvGiftReq::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AssistRecvGiftReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AssistRecvGiftReq::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 AssistRecvGiftReq::id() const {
+  return id_;
+}
+inline void AssistRecvGiftReq::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AssistRecvGiftRsp
+
+// optional int32 ret = 1;
+inline bool AssistRecvGiftRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AssistRecvGiftRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AssistRecvGiftRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AssistRecvGiftRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 AssistRecvGiftRsp::ret() const {
+  return ret_;
+}
+inline void AssistRecvGiftRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 id = 2;
+inline bool AssistRecvGiftRsp::has_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AssistRecvGiftRsp::set_has_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AssistRecvGiftRsp::clear_has_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void AssistRecvGiftRsp::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 AssistRecvGiftRsp::id() const {
+  return id_;
+}
+inline void AssistRecvGiftRsp::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AssistRecvThankReq
+
+// -------------------------------------------------------------------
+
+// AssistRecvThankRsp
+
+// optional int32 ret = 1;
+inline bool AssistRecvThankRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AssistRecvThankRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AssistRecvThankRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AssistRecvThankRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 AssistRecvThankRsp::ret() const {
+  return ret_;
+}
+inline void AssistRecvThankRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifySendHelpState
+
+// optional int32 HelpNum = 1;
+inline bool NotifySendHelpState::has_helpnum() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifySendHelpState::set_has_helpnum() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifySendHelpState::clear_has_helpnum() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifySendHelpState::clear_helpnum() {
+  helpnum_ = 0;
+  clear_has_helpnum();
+}
+inline ::google::protobuf::int32 NotifySendHelpState::helpnum() const {
+  return helpnum_;
+}
+inline void NotifySendHelpState::set_helpnum(::google::protobuf::int32 value) {
+  set_has_helpnum();
+  helpnum_ = value;
+}
+
+// optional int32 SendHelpState = 2;
+inline bool NotifySendHelpState::has_sendhelpstate() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifySendHelpState::set_has_sendhelpstate() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifySendHelpState::clear_has_sendhelpstate() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifySendHelpState::clear_sendhelpstate() {
+  sendhelpstate_ = 0;
+  clear_has_sendhelpstate();
+}
+inline ::google::protobuf::int32 NotifySendHelpState::sendhelpstate() const {
+  return sendhelpstate_;
+}
+inline void NotifySendHelpState::set_sendhelpstate(::google::protobuf::int32 value) {
+  set_has_sendhelpstate();
+  sendhelpstate_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// AssistRecord
+
+// optional int64 cid = 1;
+inline bool AssistRecord::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void AssistRecord::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void AssistRecord::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void AssistRecord::clear_cid() {
+  cid_ = GOOGLE_LONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::int64 AssistRecord::cid() const {
+  return cid_;
+}
+inline void AssistRecord::set_cid(::google::protobuf::int64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional int64 bossId = 2;
+inline bool AssistRecord::has_bossid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AssistRecord::set_has_bossid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AssistRecord::clear_has_bossid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void AssistRecord::clear_bossid() {
+  bossid_ = GOOGLE_LONGLONG(0);
+  clear_has_bossid();
+}
+inline ::google::protobuf::int64 AssistRecord::bossid() const {
+  return bossid_;
+}
+inline void AssistRecord::set_bossid(::google::protobuf::int64 value) {
+  set_has_bossid();
+  bossid_ = value;
+}
+
+// optional int64 time = 3;
+inline bool AssistRecord::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void AssistRecord::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void AssistRecord::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void AssistRecord::clear_time() {
+  time_ = GOOGLE_LONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::int64 AssistRecord::time() const {
+  return time_;
+}
+inline void AssistRecord::set_time(::google::protobuf::int64 value) {
+  set_has_time();
+  time_ = value;
+}
+
+// repeated int64 helpers = 4;
+inline int AssistRecord::helpers_size() const {
+  return helpers_.size();
+}
+inline void AssistRecord::clear_helpers() {
+  helpers_.Clear();
+}
+inline ::google::protobuf::int64 AssistRecord::helpers(int index) const {
+  return helpers_.Get(index);
+}
+inline void AssistRecord::set_helpers(int index, ::google::protobuf::int64 value) {
+  helpers_.Set(index, value);
+}
+inline void AssistRecord::add_helpers(::google::protobuf::int64 value) {
+  helpers_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int64 >&
+AssistRecord::helpers() const {
+  return helpers_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int64 >*
+AssistRecord::mutable_helpers() {
+  return &helpers_;
+}
+
+// optional int32 logicId = 5;
+inline bool AssistRecord::has_logicid() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void AssistRecord::set_has_logicid() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void AssistRecord::clear_has_logicid() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void AssistRecord::clear_logicid() {
+  logicid_ = 0;
+  clear_has_logicid();
+}
+inline ::google::protobuf::int32 AssistRecord::logicid() const {
+  return logicid_;
+}
+inline void AssistRecord::set_logicid(::google::protobuf::int32 value) {
+  set_has_logicid();
+  logicid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// L2CSynAssistReq
+
+// optional int32 type = 1;
+inline bool L2CSynAssistReq::has_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void L2CSynAssistReq::set_has_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void L2CSynAssistReq::clear_has_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void L2CSynAssistReq::clear_type() {
+  type_ = 0;
+  clear_has_type();
+}
+inline ::google::protobuf::int32 L2CSynAssistReq::type() const {
+  return type_;
+}
+inline void L2CSynAssistReq::set_type(::google::protobuf::int32 value) {
+  set_has_type();
+  type_ = value;
+}
+
+// optional int32 reason = 2;
+inline bool L2CSynAssistReq::has_reason() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void L2CSynAssistReq::set_has_reason() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void L2CSynAssistReq::clear_has_reason() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void L2CSynAssistReq::clear_reason() {
+  reason_ = 0;
+  clear_has_reason();
+}
+inline ::google::protobuf::int32 L2CSynAssistReq::reason() const {
+  return reason_;
+}
+inline void L2CSynAssistReq::set_reason(::google::protobuf::int32 value) {
+  set_has_reason();
+  reason_ = value;
+}
+
+// optional .proto_ff.AssistRecord record = 3;
+inline bool L2CSynAssistReq::has_record() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void L2CSynAssistReq::set_has_record() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void L2CSynAssistReq::clear_has_record() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void L2CSynAssistReq::clear_record() {
+  if (record_ != NULL) record_->::proto_ff::AssistRecord::Clear();
+  clear_has_record();
+}
+inline const ::proto_ff::AssistRecord& L2CSynAssistReq::record() const {
+  return record_ != NULL ? *record_ : *default_instance_->record_;
+}
+inline ::proto_ff::AssistRecord* L2CSynAssistReq::mutable_record() {
+  set_has_record();
+  if (record_ == NULL) record_ = new ::proto_ff::AssistRecord;
+  return record_;
+}
+inline ::proto_ff::AssistRecord* L2CSynAssistReq::release_record() {
+  clear_has_record();
+  ::proto_ff::AssistRecord* temp = record_;
+  record_ = NULL;
+  return temp;
+}
+inline void L2CSynAssistReq::set_allocated_record(::proto_ff::AssistRecord* record) {
+  delete record_;
+  record_ = record;
+  if (record) {
+    set_has_record();
+  } else {
+    clear_has_record();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// L2CAssistHelpReq
+
+// optional int64 helpCid = 1;
+inline bool L2CAssistHelpReq::has_helpcid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void L2CAssistHelpReq::set_has_helpcid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void L2CAssistHelpReq::clear_has_helpcid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void L2CAssistHelpReq::clear_helpcid() {
+  helpcid_ = GOOGLE_LONGLONG(0);
+  clear_has_helpcid();
+}
+inline ::google::protobuf::int64 L2CAssistHelpReq::helpcid() const {
+  return helpcid_;
+}
+inline void L2CAssistHelpReq::set_helpcid(::google::protobuf::int64 value) {
+  set_has_helpcid();
+  helpcid_ = value;
+}
+
+// optional int64 sendHelpCid = 2;
+inline bool L2CAssistHelpReq::has_sendhelpcid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void L2CAssistHelpReq::set_has_sendhelpcid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void L2CAssistHelpReq::clear_has_sendhelpcid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void L2CAssistHelpReq::clear_sendhelpcid() {
+  sendhelpcid_ = GOOGLE_LONGLONG(0);
+  clear_has_sendhelpcid();
+}
+inline ::google::protobuf::int64 L2CAssistHelpReq::sendhelpcid() const {
+  return sendhelpcid_;
+}
+inline void L2CAssistHelpReq::set_sendhelpcid(::google::protobuf::int64 value) {
+  set_has_sendhelpcid();
+  sendhelpcid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// C2LAssistCancelReq
+
+// optional int64 helpCid = 1;
+inline bool C2LAssistCancelReq::has_helpcid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void C2LAssistCancelReq::set_has_helpcid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void C2LAssistCancelReq::clear_has_helpcid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void C2LAssistCancelReq::clear_helpcid() {
+  helpcid_ = GOOGLE_LONGLONG(0);
+  clear_has_helpcid();
+}
+inline ::google::protobuf::int64 C2LAssistCancelReq::helpcid() const {
+  return helpcid_;
+}
+inline void C2LAssistCancelReq::set_helpcid(::google::protobuf::int64 value) {
+  set_has_helpcid();
+  helpcid_ = value;
+}
+
+// optional int64 sendHelpCid = 2;
+inline bool C2LAssistCancelReq::has_sendhelpcid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void C2LAssistCancelReq::set_has_sendhelpcid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void C2LAssistCancelReq::clear_has_sendhelpcid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void C2LAssistCancelReq::clear_sendhelpcid() {
+  sendhelpcid_ = GOOGLE_LONGLONG(0);
+  clear_has_sendhelpcid();
+}
+inline ::google::protobuf::int64 C2LAssistCancelReq::sendhelpcid() const {
+  return sendhelpcid_;
+}
+inline void C2LAssistCancelReq::set_sendhelpcid(::google::protobuf::int64 value) {
+  set_has_sendhelpcid();
+  sendhelpcid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// C2LAssistAckReq
+
+// optional int64 helpCid = 1;
+inline bool C2LAssistAckReq::has_helpcid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void C2LAssistAckReq::set_has_helpcid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void C2LAssistAckReq::clear_has_helpcid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void C2LAssistAckReq::clear_helpcid() {
+  helpcid_ = GOOGLE_LONGLONG(0);
+  clear_has_helpcid();
+}
+inline ::google::protobuf::int64 C2LAssistAckReq::helpcid() const {
+  return helpcid_;
+}
+inline void C2LAssistAckReq::set_helpcid(::google::protobuf::int64 value) {
+  set_has_helpcid();
+  helpcid_ = value;
+}
+
+// optional int64 sendHelpCid = 2;
+inline bool C2LAssistAckReq::has_sendhelpcid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void C2LAssistAckReq::set_has_sendhelpcid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void C2LAssistAckReq::clear_has_sendhelpcid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void C2LAssistAckReq::clear_sendhelpcid() {
+  sendhelpcid_ = GOOGLE_LONGLONG(0);
+  clear_has_sendhelpcid();
+}
+inline ::google::protobuf::int64 C2LAssistAckReq::sendhelpcid() const {
+  return sendhelpcid_;
+}
+inline void C2LAssistAckReq::set_sendhelpcid(::google::protobuf::int64 value) {
+  set_has_sendhelpcid();
+  sendhelpcid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// C2LAssistRmvReq
+
+// optional int64 sendHelpCid = 1;
+inline bool C2LAssistRmvReq::has_sendhelpcid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void C2LAssistRmvReq::set_has_sendhelpcid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void C2LAssistRmvReq::clear_has_sendhelpcid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void C2LAssistRmvReq::clear_sendhelpcid() {
+  sendhelpcid_ = GOOGLE_LONGLONG(0);
+  clear_has_sendhelpcid();
+}
+inline ::google::protobuf::int64 C2LAssistRmvReq::sendhelpcid() const {
+  return sendhelpcid_;
+}
+inline void C2LAssistRmvReq::set_sendhelpcid(::google::protobuf::int64 value) {
+  set_has_sendhelpcid();
+  sendhelpcid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// L2CAssistThankReq
+
+// optional int32 id = 1;
+inline bool L2CAssistThankReq::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void L2CAssistThankReq::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void L2CAssistThankReq::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void L2CAssistThankReq::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 L2CAssistThankReq::id() const {
+  return id_;
+}
+inline void L2CAssistThankReq::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// repeated .proto_ff.ComPair64 pair = 2;
+inline int L2CAssistThankReq::pair_size() const {
+  return pair_.size();
+}
+inline void L2CAssistThankReq::clear_pair() {
+  pair_.Clear();
+}
+inline const ::proto_ff::ComPair64& L2CAssistThankReq::pair(int index) const {
+  return pair_.Get(index);
+}
+inline ::proto_ff::ComPair64* L2CAssistThankReq::mutable_pair(int index) {
+  return pair_.Mutable(index);
+}
+inline ::proto_ff::ComPair64* L2CAssistThankReq::add_pair() {
+  return pair_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+L2CAssistThankReq::pair() const {
+  return pair_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+L2CAssistThankReq::mutable_pair() {
+  return &pair_;
+}
+
+// optional int64 src = 3;
+inline bool L2CAssistThankReq::has_src() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void L2CAssistThankReq::set_has_src() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void L2CAssistThankReq::clear_has_src() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void L2CAssistThankReq::clear_src() {
+  src_ = GOOGLE_LONGLONG(0);
+  clear_has_src();
+}
+inline ::google::protobuf::int64 L2CAssistThankReq::src() const {
+  return src_;
+}
+inline void L2CAssistThankReq::set_src(::google::protobuf::int64 value) {
+  set_has_src();
+  src_ = value;
 }
 
 

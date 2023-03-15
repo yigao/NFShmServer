@@ -41,6 +41,7 @@ message FactionProto
 	optional int32 apply_type = 13;			//申请类型 1-需要审核，2-禁止申请，3-满足条件自动加入
 	optional int32 apply_minlev = 14;		//申请的最小等级
 	optional uint64 apply_fight = 15;		//申请的最小战力
+	optional int32 online_num = 16;			//在线数量 
 }
 
 
@@ -123,6 +124,18 @@ message FactionRecordListProto
 	repeated FactionRecordProto record_lst = 1;
 }
 
+//帮派工资信息
+message FactionSalaryProto
+{
+	optional int32 id = 1;	  //guild.xlsx->salary  ID 字段
+	optional int32 cur = 2;   //当前进度
+	optional int32 fetch = 3; //是否领取 0-未领取，1-已领取
+}
+//帮派工资列表
+message FactionSalaryListProto
+{
+	repeated FactionSalaryProto info = 1;
+}
 
 //-------------------------------------------------------------------------------
 
@@ -362,6 +375,50 @@ message Faction_RecordListRsp
 	optional FactionRecordListProto lst = 2;
 }
 
+//请求捐献 FACTION_DONATE_REQ
+message Faction_DonateReq
+{
+	optional int32 id = 1; //
+}
+//返回捐献的结果 FACTION_DONATE_RSP
+message Faction_DonateRsp
+{
+	required int32 ret = 1;
+}
+//捐献信息通知 FACTION_DONATE_NOTIFY
+message Faction_DonateNotify
+{
+	required int32 donate = 1;  //已经捐献的次数
+}
+
+
+//请求帮派工资 FACTION_SALARY_REQ
+message Faction_SalaryReq
+{
+	//空
+}
+//返回帮派工资 FACTION_SALARY_RSP
+message Faction_SalaryRsp
+{
+	optional FactionSalaryListProto salary = 1;
+}
+//帮派工资更新通知 FACTION_SALARY_NOTIFY
+message Faction_SalaryNotify
+{
+	optional FactionSalaryListProto salary = 1;
+}
+//请求 领取帮派工资奖励 FACTION_SALARY_FETCH_REQ
+message Faction_SalaryFetchReq
+{
+	optional int32 id = 1;
+}
+//返回 领取帮派工资奖励 FACTION_SALARY_FETCH_RSP
+message Faction_SalaryFetchRsp
+{
+	required int32 ret = 1;
+}
+
+
 //----------------------------------------------------------
 
 
@@ -398,4 +455,10 @@ message CL_FactionChgNameResult
 {
 	required int32 ret = 1;
 	required uint64 cid = 2;
+}
+
+//中心服通知逻辑服帮派解散  FACTION_CL_DISMISS_NOTIFY
+message CL_FactionDismissNotify
+{
+	required uint32 faction_id = 1;		//帮派ID
 }

@@ -201,6 +201,12 @@ class CGTitleDressReq;
 class GCTitleDressRsp;
 class CGTitleUnDressReq;
 class GCTitleUnDressRsp;
+class CGOccupationSoulInfoReq;
+class GCOccupationSoulInfoRsp;
+class CGOccupationLightSoulReq;
+class GCOccupationLightSoulRsp;
+class CGUnlockFlyUpwardReq;
+class GCUnlockFlyUpwardRsp;
 
 // ===================================================================
 
@@ -15551,6 +15557,563 @@ class GCTitleUnDressRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static GCTitleUnDressRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class CGOccupationSoulInfoReq : public ::google::protobuf::Message {
+ public:
+  CGOccupationSoulInfoReq();
+  virtual ~CGOccupationSoulInfoReq();
+
+  CGOccupationSoulInfoReq(const CGOccupationSoulInfoReq& from);
+
+  inline CGOccupationSoulInfoReq& operator=(const CGOccupationSoulInfoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CGOccupationSoulInfoReq& default_instance();
+
+  void Swap(CGOccupationSoulInfoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CGOccupationSoulInfoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CGOccupationSoulInfoReq& from);
+  void MergeFrom(const CGOccupationSoulInfoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CGOccupationSoulInfoReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static CGOccupationSoulInfoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GCOccupationSoulInfoRsp : public ::google::protobuf::Message {
+ public:
+  GCOccupationSoulInfoRsp();
+  virtual ~GCOccupationSoulInfoRsp();
+
+  GCOccupationSoulInfoRsp(const GCOccupationSoulInfoRsp& from);
+
+  inline GCOccupationSoulInfoRsp& operator=(const GCOccupationSoulInfoRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GCOccupationSoulInfoRsp& default_instance();
+
+  void Swap(GCOccupationSoulInfoRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GCOccupationSoulInfoRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GCOccupationSoulInfoRsp& from);
+  void MergeFrom(const GCOccupationSoulInfoRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.OccupationMissionGradeData grade_data = 1;
+  inline int grade_data_size() const;
+  inline void clear_grade_data();
+  static const int kGradeDataFieldNumber = 1;
+  inline const ::proto_ff::OccupationMissionGradeData& grade_data(int index) const;
+  inline ::proto_ff::OccupationMissionGradeData* mutable_grade_data(int index);
+  inline ::proto_ff::OccupationMissionGradeData* add_grade_data();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData >&
+      grade_data() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData >*
+      mutable_grade_data();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GCOccupationSoulInfoRsp)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData > grade_data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static GCOccupationSoulInfoRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CGOccupationLightSoulReq : public ::google::protobuf::Message {
+ public:
+  CGOccupationLightSoulReq();
+  virtual ~CGOccupationLightSoulReq();
+
+  CGOccupationLightSoulReq(const CGOccupationLightSoulReq& from);
+
+  inline CGOccupationLightSoulReq& operator=(const CGOccupationLightSoulReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CGOccupationLightSoulReq& default_instance();
+
+  void Swap(CGOccupationLightSoulReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CGOccupationLightSoulReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CGOccupationLightSoulReq& from);
+  void MergeFrom(const CGOccupationLightSoulReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 grade = 1;
+  inline bool has_grade() const;
+  inline void clear_grade();
+  static const int kGradeFieldNumber = 1;
+  inline ::google::protobuf::int32 grade() const;
+  inline void set_grade(::google::protobuf::int32 value);
+
+  // optional int32 stage = 2;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 2;
+  inline ::google::protobuf::int32 stage() const;
+  inline void set_stage(::google::protobuf::int32 value);
+
+  // optional int32 soul_type = 3;
+  inline bool has_soul_type() const;
+  inline void clear_soul_type();
+  static const int kSoulTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 soul_type() const;
+  inline void set_soul_type(::google::protobuf::int32 value);
+
+  // optional int32 soul_pos = 4;
+  inline bool has_soul_pos() const;
+  inline void clear_soul_pos();
+  static const int kSoulPosFieldNumber = 4;
+  inline ::google::protobuf::int32 soul_pos() const;
+  inline void set_soul_pos(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CGOccupationLightSoulReq)
+ private:
+  inline void set_has_grade();
+  inline void clear_has_grade();
+  inline void set_has_stage();
+  inline void clear_has_stage();
+  inline void set_has_soul_type();
+  inline void clear_has_soul_type();
+  inline void set_has_soul_pos();
+  inline void clear_has_soul_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 grade_;
+  ::google::protobuf::int32 stage_;
+  ::google::protobuf::int32 soul_type_;
+  ::google::protobuf::int32 soul_pos_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static CGOccupationLightSoulReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GCOccupationLightSoulRsp : public ::google::protobuf::Message {
+ public:
+  GCOccupationLightSoulRsp();
+  virtual ~GCOccupationLightSoulRsp();
+
+  GCOccupationLightSoulRsp(const GCOccupationLightSoulRsp& from);
+
+  inline GCOccupationLightSoulRsp& operator=(const GCOccupationLightSoulRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GCOccupationLightSoulRsp& default_instance();
+
+  void Swap(GCOccupationLightSoulRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GCOccupationLightSoulRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GCOccupationLightSoulRsp& from);
+  void MergeFrom(const GCOccupationLightSoulRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional int32 grade = 2;
+  inline bool has_grade() const;
+  inline void clear_grade();
+  static const int kGradeFieldNumber = 2;
+  inline ::google::protobuf::int32 grade() const;
+  inline void set_grade(::google::protobuf::int32 value);
+
+  // optional int32 stage = 3;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 3;
+  inline ::google::protobuf::int32 stage() const;
+  inline void set_stage(::google::protobuf::int32 value);
+
+  // optional .proto_ff.OccupationMissionSoulData soul_data = 4;
+  inline bool has_soul_data() const;
+  inline void clear_soul_data();
+  static const int kSoulDataFieldNumber = 4;
+  inline const ::proto_ff::OccupationMissionSoulData& soul_data() const;
+  inline ::proto_ff::OccupationMissionSoulData* mutable_soul_data();
+  inline ::proto_ff::OccupationMissionSoulData* release_soul_data();
+  inline void set_allocated_soul_data(::proto_ff::OccupationMissionSoulData* soul_data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GCOccupationLightSoulRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_grade();
+  inline void clear_has_grade();
+  inline void set_has_stage();
+  inline void clear_has_stage();
+  inline void set_has_soul_data();
+  inline void clear_has_soul_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::int32 grade_;
+  ::proto_ff::OccupationMissionSoulData* soul_data_;
+  ::google::protobuf::int32 stage_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static GCOccupationLightSoulRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CGUnlockFlyUpwardReq : public ::google::protobuf::Message {
+ public:
+  CGUnlockFlyUpwardReq();
+  virtual ~CGUnlockFlyUpwardReq();
+
+  CGUnlockFlyUpwardReq(const CGUnlockFlyUpwardReq& from);
+
+  inline CGUnlockFlyUpwardReq& operator=(const CGUnlockFlyUpwardReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CGUnlockFlyUpwardReq& default_instance();
+
+  void Swap(CGUnlockFlyUpwardReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CGUnlockFlyUpwardReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CGUnlockFlyUpwardReq& from);
+  void MergeFrom(const CGUnlockFlyUpwardReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 stage = 1;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 1;
+  inline ::google::protobuf::int32 stage() const;
+  inline void set_stage(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CGUnlockFlyUpwardReq)
+ private:
+  inline void set_has_stage();
+  inline void clear_has_stage();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 stage_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static CGUnlockFlyUpwardReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GCUnlockFlyUpwardRsp : public ::google::protobuf::Message {
+ public:
+  GCUnlockFlyUpwardRsp();
+  virtual ~GCUnlockFlyUpwardRsp();
+
+  GCUnlockFlyUpwardRsp(const GCUnlockFlyUpwardRsp& from);
+
+  inline GCUnlockFlyUpwardRsp& operator=(const GCUnlockFlyUpwardRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GCUnlockFlyUpwardRsp& default_instance();
+
+  void Swap(GCUnlockFlyUpwardRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GCUnlockFlyUpwardRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GCUnlockFlyUpwardRsp& from);
+  void MergeFrom(const GCUnlockFlyUpwardRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional int32 stage = 2;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 2;
+  inline ::google::protobuf::int32 stage() const;
+  inline void set_stage(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GCUnlockFlyUpwardRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_stage();
+  inline void clear_has_stage();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::int32 stage_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ClientServer_2eproto();
+  friend void protobuf_AssignDesc_ClientServer_2eproto();
+  friend void protobuf_ShutdownFile_ClientServer_2eproto();
+
+  void InitAsDefaultInstance();
+  static GCUnlockFlyUpwardRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -24121,6 +24684,313 @@ inline void GCTitleUnDressRsp::set_allocated_data(::proto_ff::TitleInfo* data) {
   } else {
     clear_has_data();
   }
+}
+
+// -------------------------------------------------------------------
+
+// CGOccupationSoulInfoReq
+
+// -------------------------------------------------------------------
+
+// GCOccupationSoulInfoRsp
+
+// repeated .proto_ff.OccupationMissionGradeData grade_data = 1;
+inline int GCOccupationSoulInfoRsp::grade_data_size() const {
+  return grade_data_.size();
+}
+inline void GCOccupationSoulInfoRsp::clear_grade_data() {
+  grade_data_.Clear();
+}
+inline const ::proto_ff::OccupationMissionGradeData& GCOccupationSoulInfoRsp::grade_data(int index) const {
+  return grade_data_.Get(index);
+}
+inline ::proto_ff::OccupationMissionGradeData* GCOccupationSoulInfoRsp::mutable_grade_data(int index) {
+  return grade_data_.Mutable(index);
+}
+inline ::proto_ff::OccupationMissionGradeData* GCOccupationSoulInfoRsp::add_grade_data() {
+  return grade_data_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData >&
+GCOccupationSoulInfoRsp::grade_data() const {
+  return grade_data_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData >*
+GCOccupationSoulInfoRsp::mutable_grade_data() {
+  return &grade_data_;
+}
+
+// -------------------------------------------------------------------
+
+// CGOccupationLightSoulReq
+
+// optional int32 grade = 1;
+inline bool CGOccupationLightSoulReq::has_grade() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CGOccupationLightSoulReq::set_has_grade() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CGOccupationLightSoulReq::clear_has_grade() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CGOccupationLightSoulReq::clear_grade() {
+  grade_ = 0;
+  clear_has_grade();
+}
+inline ::google::protobuf::int32 CGOccupationLightSoulReq::grade() const {
+  return grade_;
+}
+inline void CGOccupationLightSoulReq::set_grade(::google::protobuf::int32 value) {
+  set_has_grade();
+  grade_ = value;
+}
+
+// optional int32 stage = 2;
+inline bool CGOccupationLightSoulReq::has_stage() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CGOccupationLightSoulReq::set_has_stage() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CGOccupationLightSoulReq::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CGOccupationLightSoulReq::clear_stage() {
+  stage_ = 0;
+  clear_has_stage();
+}
+inline ::google::protobuf::int32 CGOccupationLightSoulReq::stage() const {
+  return stage_;
+}
+inline void CGOccupationLightSoulReq::set_stage(::google::protobuf::int32 value) {
+  set_has_stage();
+  stage_ = value;
+}
+
+// optional int32 soul_type = 3;
+inline bool CGOccupationLightSoulReq::has_soul_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CGOccupationLightSoulReq::set_has_soul_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CGOccupationLightSoulReq::clear_has_soul_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CGOccupationLightSoulReq::clear_soul_type() {
+  soul_type_ = 0;
+  clear_has_soul_type();
+}
+inline ::google::protobuf::int32 CGOccupationLightSoulReq::soul_type() const {
+  return soul_type_;
+}
+inline void CGOccupationLightSoulReq::set_soul_type(::google::protobuf::int32 value) {
+  set_has_soul_type();
+  soul_type_ = value;
+}
+
+// optional int32 soul_pos = 4;
+inline bool CGOccupationLightSoulReq::has_soul_pos() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void CGOccupationLightSoulReq::set_has_soul_pos() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void CGOccupationLightSoulReq::clear_has_soul_pos() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void CGOccupationLightSoulReq::clear_soul_pos() {
+  soul_pos_ = 0;
+  clear_has_soul_pos();
+}
+inline ::google::protobuf::int32 CGOccupationLightSoulReq::soul_pos() const {
+  return soul_pos_;
+}
+inline void CGOccupationLightSoulReq::set_soul_pos(::google::protobuf::int32 value) {
+  set_has_soul_pos();
+  soul_pos_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GCOccupationLightSoulRsp
+
+// optional int32 ret_code = 1;
+inline bool GCOccupationLightSoulRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GCOccupationLightSoulRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GCOccupationLightSoulRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GCOccupationLightSoulRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 GCOccupationLightSoulRsp::ret_code() const {
+  return ret_code_;
+}
+inline void GCOccupationLightSoulRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional int32 grade = 2;
+inline bool GCOccupationLightSoulRsp::has_grade() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GCOccupationLightSoulRsp::set_has_grade() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GCOccupationLightSoulRsp::clear_has_grade() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GCOccupationLightSoulRsp::clear_grade() {
+  grade_ = 0;
+  clear_has_grade();
+}
+inline ::google::protobuf::int32 GCOccupationLightSoulRsp::grade() const {
+  return grade_;
+}
+inline void GCOccupationLightSoulRsp::set_grade(::google::protobuf::int32 value) {
+  set_has_grade();
+  grade_ = value;
+}
+
+// optional int32 stage = 3;
+inline bool GCOccupationLightSoulRsp::has_stage() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GCOccupationLightSoulRsp::set_has_stage() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GCOccupationLightSoulRsp::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GCOccupationLightSoulRsp::clear_stage() {
+  stage_ = 0;
+  clear_has_stage();
+}
+inline ::google::protobuf::int32 GCOccupationLightSoulRsp::stage() const {
+  return stage_;
+}
+inline void GCOccupationLightSoulRsp::set_stage(::google::protobuf::int32 value) {
+  set_has_stage();
+  stage_ = value;
+}
+
+// optional .proto_ff.OccupationMissionSoulData soul_data = 4;
+inline bool GCOccupationLightSoulRsp::has_soul_data() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GCOccupationLightSoulRsp::set_has_soul_data() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GCOccupationLightSoulRsp::clear_has_soul_data() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GCOccupationLightSoulRsp::clear_soul_data() {
+  if (soul_data_ != NULL) soul_data_->::proto_ff::OccupationMissionSoulData::Clear();
+  clear_has_soul_data();
+}
+inline const ::proto_ff::OccupationMissionSoulData& GCOccupationLightSoulRsp::soul_data() const {
+  return soul_data_ != NULL ? *soul_data_ : *default_instance_->soul_data_;
+}
+inline ::proto_ff::OccupationMissionSoulData* GCOccupationLightSoulRsp::mutable_soul_data() {
+  set_has_soul_data();
+  if (soul_data_ == NULL) soul_data_ = new ::proto_ff::OccupationMissionSoulData;
+  return soul_data_;
+}
+inline ::proto_ff::OccupationMissionSoulData* GCOccupationLightSoulRsp::release_soul_data() {
+  clear_has_soul_data();
+  ::proto_ff::OccupationMissionSoulData* temp = soul_data_;
+  soul_data_ = NULL;
+  return temp;
+}
+inline void GCOccupationLightSoulRsp::set_allocated_soul_data(::proto_ff::OccupationMissionSoulData* soul_data) {
+  delete soul_data_;
+  soul_data_ = soul_data;
+  if (soul_data) {
+    set_has_soul_data();
+  } else {
+    clear_has_soul_data();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CGUnlockFlyUpwardReq
+
+// optional int32 stage = 1;
+inline bool CGUnlockFlyUpwardReq::has_stage() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CGUnlockFlyUpwardReq::set_has_stage() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CGUnlockFlyUpwardReq::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CGUnlockFlyUpwardReq::clear_stage() {
+  stage_ = 0;
+  clear_has_stage();
+}
+inline ::google::protobuf::int32 CGUnlockFlyUpwardReq::stage() const {
+  return stage_;
+}
+inline void CGUnlockFlyUpwardReq::set_stage(::google::protobuf::int32 value) {
+  set_has_stage();
+  stage_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GCUnlockFlyUpwardRsp
+
+// optional int32 ret_code = 1;
+inline bool GCUnlockFlyUpwardRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GCUnlockFlyUpwardRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GCUnlockFlyUpwardRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GCUnlockFlyUpwardRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 GCUnlockFlyUpwardRsp::ret_code() const {
+  return ret_code_;
+}
+inline void GCUnlockFlyUpwardRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional int32 stage = 2;
+inline bool GCUnlockFlyUpwardRsp::has_stage() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GCUnlockFlyUpwardRsp::set_has_stage() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GCUnlockFlyUpwardRsp::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GCUnlockFlyUpwardRsp::clear_stage() {
+  stage_ = 0;
+  clear_has_stage();
+}
+inline ::google::protobuf::int32 GCUnlockFlyUpwardRsp::stage() const {
+  return stage_;
+}
+inline void GCUnlockFlyUpwardRsp::set_stage(::google::protobuf::int32 value) {
+  set_has_stage();
+  stage_ = value;
 }
 
 

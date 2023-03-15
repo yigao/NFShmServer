@@ -205,6 +205,22 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   inline ::proto_ff::SkillGroupListProto* release_skill_group();
   inline void set_allocated_skill_group(::proto_ff::SkillGroupListProto* skill_group);
 
+  // optional .proto_ff.GodEvilProto godevil = 13;
+  inline bool has_godevil() const;
+  inline void clear_godevil();
+  static const int kGodevilFieldNumber = 13;
+  inline const ::proto_ff::GodEvilProto& godevil() const;
+  inline ::proto_ff::GodEvilProto* mutable_godevil();
+  inline ::proto_ff::GodEvilProto* release_godevil();
+  inline void set_allocated_godevil(::proto_ff::GodEvilProto* godevil);
+
+  // optional int32 donate = 14;
+  inline bool has_donate() const;
+  inline void clear_donate();
+  static const int kDonateFieldNumber = 14;
+  inline ::google::protobuf::int32 donate() const;
+  inline void set_donate(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.PlayerInfoRsp)
  private:
   inline void set_has_cid();
@@ -229,6 +245,10 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   inline void clear_has_state();
   inline void set_has_skill_group();
   inline void clear_has_skill_group();
+  inline void set_has_godevil();
+  inline void clear_has_godevil();
+  inline void set_has_donate();
+  inline void clear_has_donate();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -244,9 +264,11 @@ class PlayerInfoRsp : public ::google::protobuf::Message {
   ::proto_ff::Vector3PB* pos_;
   ::proto_ff::FunctionUnlockInfo* unlockinfo_;
   ::proto_ff::SkillGroupListProto* skill_group_;
+  ::proto_ff::GodEvilProto* godevil_;
+  ::google::protobuf::int32 donate_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(14 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSPlayer_2eproto();
   friend void protobuf_AssignDesc_CSPlayer_2eproto();
@@ -1510,6 +1532,66 @@ inline void PlayerInfoRsp::set_allocated_skill_group(::proto_ff::SkillGroupListP
   } else {
     clear_has_skill_group();
   }
+}
+
+// optional .proto_ff.GodEvilProto godevil = 13;
+inline bool PlayerInfoRsp::has_godevil() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void PlayerInfoRsp::set_has_godevil() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void PlayerInfoRsp::clear_has_godevil() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void PlayerInfoRsp::clear_godevil() {
+  if (godevil_ != NULL) godevil_->::proto_ff::GodEvilProto::Clear();
+  clear_has_godevil();
+}
+inline const ::proto_ff::GodEvilProto& PlayerInfoRsp::godevil() const {
+  return godevil_ != NULL ? *godevil_ : *default_instance_->godevil_;
+}
+inline ::proto_ff::GodEvilProto* PlayerInfoRsp::mutable_godevil() {
+  set_has_godevil();
+  if (godevil_ == NULL) godevil_ = new ::proto_ff::GodEvilProto;
+  return godevil_;
+}
+inline ::proto_ff::GodEvilProto* PlayerInfoRsp::release_godevil() {
+  clear_has_godevil();
+  ::proto_ff::GodEvilProto* temp = godevil_;
+  godevil_ = NULL;
+  return temp;
+}
+inline void PlayerInfoRsp::set_allocated_godevil(::proto_ff::GodEvilProto* godevil) {
+  delete godevil_;
+  godevil_ = godevil;
+  if (godevil) {
+    set_has_godevil();
+  } else {
+    clear_has_godevil();
+  }
+}
+
+// optional int32 donate = 14;
+inline bool PlayerInfoRsp::has_donate() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void PlayerInfoRsp::set_has_donate() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void PlayerInfoRsp::clear_has_donate() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void PlayerInfoRsp::clear_donate() {
+  donate_ = 0;
+  clear_has_donate();
+}
+inline ::google::protobuf::int32 PlayerInfoRsp::donate() const {
+  return donate_;
+}
+inline void PlayerInfoRsp::set_donate(::google::protobuf::int32 value) {
+  set_has_donate();
+  donate_ = value;
 }
 
 // -------------------------------------------------------------------

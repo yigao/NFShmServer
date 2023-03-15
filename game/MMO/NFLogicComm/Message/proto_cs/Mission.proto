@@ -68,6 +68,34 @@ message SubmitMissionInfo
 	optional uint32 goodsNum = 2;
 }
 
+enum EGuildPrestigeMissionState
+{
+	E_GUILD_PRESTIGE_MISSION_STATE_CAN_ACCEPT = 0; //可领取
+	E_GUILD_PRESTIGE_MISSION_STATE_ALREADY_ACCEPT = 1; //已领取
+	E_GUILD_PRESTIGE_MISSION_STATE_FINISH = 2; //已完成
+	E_GUILD_PRESTIGE_MISSION_STATE_RECV_REWARD = 3; //已领取奖励
+}
+
+message GuildPrestigeMissionData
+{
+	optional int64 prestige_id = 1;
+	optional int64 task_id = 2;
+	optional int32 task_state = 3; //0:可领取 1:已领取 2:已完成 3:已领取奖励
+	optional CMissionTrack task_info = 4;
+	optional int32 index = 5;
+}
+
+//公会声望任务
+message GuildPrestigeMission
+{
+	optional int32 refresh_num = 1; //剩余刷新次数
+	optional int32 all_refresh_num = 2; //总的刷新次数
+	optional int32 accept_num = 3; //剩余领取任务次数
+	optional int32 all_accept_num = 4; //总的领取任务次数
+	repeated GuildPrestigeMissionData task_pool = 5;
+	optional int64 last_refresh_time = 7; //服务器用
+}
+
 // -------------------------------------------------------------------------------- 
 
 
@@ -191,4 +219,74 @@ message GCMissionRecvSpecialReward
 {
 	required int32 retcode = 1;					//返回码
 	optional int32 type = 2;
+}
+
+////////////////////////////公会声望任务////////////////////////////
+////////////////////////////公会声望任务////////////////////////////
+
+//CLIENT_TO_LOGIC_GUILD_PRESTIGE_MISSION_REQ = 2430; //公会声望任务数据
+message CGGuildPrestigeMissionReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_GUILD_PRESTIGE_MISSION_RSP = 2431; //公会声望任务数据
+message GCGuildPrestigeMissionRsp
+{
+	optional GuildPrestigeMission data = 1;
+}
+
+//CLIENT_TO_LOGIC_GUILD_PRESTIGE_MISSION_ACCEPT_REQ = 2432; //公会声望任务接取任务
+message CGGuildPrestigeMissisonAcceptReq
+{
+	optional int64 mission_id = 1;
+	optional int32 index = 2;
+}
+
+//LOGIC_TO_CLIENT_GUILD_PRESTIGE_MISSION_ACCEPT_RSP = 2433; //公会声望任务接取任务
+message GCGuildPrestigeMissisonAcceptRsp
+{
+	optional int32 ret_code = 1;
+	optional int64 mission_id = 2;
+	optional int32 index = 3;
+}
+
+//CLIENT_TO_LOGIC_GUILD_PRESTIGE_MISSION_REFRESH_REQ = 2434; //公会声望任务刷新
+message CGGuildPrestigeMissisonRefreshReq
+{
+}
+
+//LOGIC_TO_CLIENT_GUILD_PRESTIGE_MISSION_REFRESH_RSP = 2435; //公会声望任务刷新
+message GCGuildPrestigeMissisonRefreshRsp
+{
+	optional int32 ret_code = 1;
+}
+
+//CLIENT_TO_LOGIC_GUILD_PRESTIGE_MISSION_ONE_FINISH_REQ = 2436; //公会声望任务一键完成
+message CGGuildPrestigeMissisonOneFinishReq
+{
+	optional int64 mission_id = 1;
+	optional int32 index = 2;
+}
+//LOGIC_TO_CLIENT_GUILD_PRESTIGE_MISSION_ONE_FINISH_RSP = 2437; //公会声望任务一键完成
+message GCGuildPrestigeMissisonOneFinishRsp
+{
+	optional int32 ret_code = 1;
+	optional int64 mission_id = 2;
+	optional int32 index = 3;
+}
+
+//CLIENT_TO_LOGIC_GUILD_PRESTIGE_MISSION_RECV_REWARD_REQ = 2438; //公会声望任务领取奖励
+message CGGuildPrestigeMissionRecvRewardReq
+{
+	optional int64 mission_id = 1;
+	optional int32 index = 2;
+}
+
+//LOGIC_TO_CLIENT_GUILD_PRESTIGE_MISSION_RECV_REWARD_RSP = 2439; //公会声望任务领取奖励
+message GCGuildPRestigeMissionRecvRewardRsp
+{
+	optional int32 ret_code = 1;
+	optional int64 mission_id = 2;
+	optional int32 index = 3;
 }

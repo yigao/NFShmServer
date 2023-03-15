@@ -58,6 +58,7 @@ class PetInfo;
 class PetHatchInfo;
 class ItemProtoInfo;
 class StoneSlotInfo;
+class WashSlotInfo;
 class EquipSlotInfo;
 class EquipInfo;
 class EquipLvAttrInfo;
@@ -113,6 +114,8 @@ class CharacterDBMissionItemInfo;
 class CharacterDBMissionTrack;
 class CharacterDBDyMissionBountyParam;
 class CharacterDBDyMissionInfo;
+class GuildPrestigeMissionDBData;
+class GuildPrestigeMissionDB;
 class CharacterDBTaskData;
 class NotifyVipDataRsp;
 class ArenaChallResult;
@@ -133,6 +136,14 @@ class DeityBattleSlotData;
 class ArmorSuitState;
 class ArmorInfo;
 class TitleInfo;
+class OccupationMissionSoulData;
+class OccupationMissionStageData;
+class OccupationMissionGradeData;
+class OccupationMissionData;
+class BestEQEquipInfo;
+class BestEQBreak;
+class BestEQSlotInfo;
+class BestEQTask;
 
 enum ECState {
   state_init = 0,
@@ -168,11 +179,13 @@ enum EAttrGroup {
   EAttrGroup_Pet = 9,
   EAttrGroup_DEITY = 10,
   EAttrGroup_Armor = 11,
-  EAttrGroup_Title = 12
+  EAttrGroup_Title = 12,
+  EAttrGroup_GodEvil = 13,
+  EAttrGroup_BestEQ = 14
 };
 bool EAttrGroup_IsValid(int value);
 const EAttrGroup EAttrGroup_MIN = EAttrGroup_Level;
-const EAttrGroup EAttrGroup_MAX = EAttrGroup_Title;
+const EAttrGroup EAttrGroup_MAX = EAttrGroup_BestEQ;
 const int EAttrGroup_ARRAYSIZE = EAttrGroup_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* EAttrGroup_descriptor();
@@ -373,6 +386,7 @@ enum ECreatureAttr {
   A_TEAM_ID = 212,
   A_TEAM_LEADER = 213,
   A_ARENA_COIN = 214,
+  A_TITLE_ID = 215,
   A_FRIEND_COUNT = 220,
   A_HANGUP_TIME = 221,
   A_WORLD_EXP_ADD = 222,
@@ -388,6 +402,9 @@ enum ECreatureAttr {
   A_ESCORT_ID = 233,
   A_GODEVIL_EXP = 234,
   A_GODEVIL_LEV = 235,
+  A_TEMP_CAMP_ID = 236,
+  A_BEST_AQ = 237,
+  A_BEST_LJ = 238,
   A_COMMON_END = 400
 };
 bool ECreatureAttr_IsValid(int value);
@@ -3339,6 +3356,128 @@ class StoneSlotInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class WashSlotInfo : public ::google::protobuf::Message {
+ public:
+  WashSlotInfo();
+  virtual ~WashSlotInfo();
+
+  WashSlotInfo(const WashSlotInfo& from);
+
+  inline WashSlotInfo& operator=(const WashSlotInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WashSlotInfo& default_instance();
+
+  void Swap(WashSlotInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  WashSlotInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WashSlotInfo& from);
+  void MergeFrom(const WashSlotInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot = 1;
+  inline bool has_slot() const;
+  inline void clear_slot();
+  static const int kSlotFieldNumber = 1;
+  inline ::google::protobuf::int32 slot() const;
+  inline void set_slot(::google::protobuf::int32 value);
+
+  // optional int32 quality = 2;
+  inline bool has_quality() const;
+  inline void clear_quality();
+  static const int kQualityFieldNumber = 2;
+  inline ::google::protobuf::int32 quality() const;
+  inline void set_quality(::google::protobuf::int32 value);
+
+  // optional int32 lock = 3;
+  inline bool has_lock() const;
+  inline void clear_lock();
+  static const int kLockFieldNumber = 3;
+  inline ::google::protobuf::int32 lock() const;
+  inline void set_lock(::google::protobuf::int32 value);
+
+  // optional int32 id = 4;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 4;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 value = 5;
+  inline bool has_value() const;
+  inline void clear_value();
+  static const int kValueFieldNumber = 5;
+  inline ::google::protobuf::int32 value() const;
+  inline void set_value(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WashSlotInfo)
+ private:
+  inline void set_has_slot();
+  inline void clear_has_slot();
+  inline void set_has_quality();
+  inline void clear_has_quality();
+  inline void set_has_lock();
+  inline void clear_has_lock();
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_value();
+  inline void clear_has_value();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_;
+  ::google::protobuf::int32 quality_;
+  ::google::protobuf::int32 lock_;
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 value_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static WashSlotInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class EquipSlotInfo : public ::google::protobuf::Message {
  public:
   EquipSlotInfo();
@@ -3433,6 +3572,25 @@ class EquipSlotInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 stone_pay_slot_open() const;
   inline void set_stone_pay_slot_open(::google::protobuf::int32 value);
 
+  // repeated .proto_ff.WashSlotInfo washs = 6;
+  inline int washs_size() const;
+  inline void clear_washs();
+  static const int kWashsFieldNumber = 6;
+  inline const ::proto_ff::WashSlotInfo& washs(int index) const;
+  inline ::proto_ff::WashSlotInfo* mutable_washs(int index);
+  inline ::proto_ff::WashSlotInfo* add_washs();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::WashSlotInfo >&
+      washs() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::WashSlotInfo >*
+      mutable_washs();
+
+  // optional int32 suitlv = 7;
+  inline bool has_suitlv() const;
+  inline void clear_suitlv();
+  static const int kSuitlvFieldNumber = 7;
+  inline ::google::protobuf::int32 suitlv() const;
+  inline void set_suitlv(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.EquipSlotInfo)
  private:
   inline void set_has_slot_pos();
@@ -3443,6 +3601,8 @@ class EquipSlotInfo : public ::google::protobuf::Message {
   inline void clear_has_stronglv();
   inline void set_has_stone_pay_slot_open();
   inline void clear_has_stone_pay_slot_open();
+  inline void set_has_suitlv();
+  inline void clear_has_suitlv();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -3450,10 +3610,12 @@ class EquipSlotInfo : public ::google::protobuf::Message {
   ::google::protobuf::int32 slot_pos_;
   ::google::protobuf::int32 stronglv_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::StoneSlotInfo > stones_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::WashSlotInfo > washs_;
   ::google::protobuf::int32 stone_pay_slot_open_;
+  ::google::protobuf::int32 suitlv_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -6175,12 +6337,12 @@ class BuffProto : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 recver_cid() const;
   inline void set_recver_cid(::google::protobuf::uint64 value);
 
-  // optional int32 left_msec = 4;
+  // optional int64 left_msec = 4;
   inline bool has_left_msec() const;
   inline void clear_left_msec();
   static const int kLeftMsecFieldNumber = 4;
-  inline ::google::protobuf::int32 left_msec() const;
-  inline void set_left_msec(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 left_msec() const;
+  inline void set_left_msec(::google::protobuf::int64 value);
 
   // optional uint64 skill_id = 5;
   inline bool has_skill_id() const;
@@ -6225,8 +6387,8 @@ class BuffProto : public ::google::protobuf::Message {
   ::google::protobuf::uint64 buff_index_;
   ::google::protobuf::uint64 buff_id_;
   ::google::protobuf::uint64 recver_cid_;
+  ::google::protobuf::int64 left_msec_;
   ::google::protobuf::uint64 skill_id_;
-  ::google::protobuf::int32 left_msec_;
   ::google::protobuf::int32 skill_lev_;
   ::google::protobuf::int32 is_effect_;
 
@@ -7014,6 +7176,27 @@ class GodEvilProto : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 cd() const;
   inline void set_cd(::google::protobuf::int32 value);
 
+  // optional int32 vessel_lev = 5;
+  inline bool has_vessel_lev() const;
+  inline void clear_vessel_lev();
+  static const int kVesselLevFieldNumber = 5;
+  inline ::google::protobuf::int32 vessel_lev() const;
+  inline void set_vessel_lev(::google::protobuf::int32 value);
+
+  // optional int32 mirror_lev = 6;
+  inline bool has_mirror_lev() const;
+  inline void clear_mirror_lev();
+  static const int kMirrorLevFieldNumber = 6;
+  inline ::google::protobuf::int32 mirror_lev() const;
+  inline void set_mirror_lev(::google::protobuf::int32 value);
+
+  // required int64 extra_exp = 7;
+  inline bool has_extra_exp() const;
+  inline void clear_extra_exp();
+  static const int kExtraExpFieldNumber = 7;
+  inline ::google::protobuf::int64 extra_exp() const;
+  inline void set_extra_exp(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.GodEvilProto)
  private:
   inline void set_has_fetch();
@@ -7024,6 +7207,12 @@ class GodEvilProto : public ::google::protobuf::Message {
   inline void clear_has_type();
   inline void set_has_cd();
   inline void clear_has_cd();
+  inline void set_has_vessel_lev();
+  inline void clear_has_vessel_lev();
+  inline void set_has_mirror_lev();
+  inline void clear_has_mirror_lev();
+  inline void set_has_extra_exp();
+  inline void clear_has_extra_exp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -7031,9 +7220,12 @@ class GodEvilProto : public ::google::protobuf::Message {
   ::google::protobuf::int32 fetch_;
   ::google::protobuf::int32 type_;
   ::google::protobuf::int32 cd_;
+  ::google::protobuf::int32 vessel_lev_;
+  ::google::protobuf::int64 extra_exp_;
+  ::google::protobuf::int32 mirror_lev_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -9613,6 +9805,265 @@ class CharacterDBDyMissionInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class GuildPrestigeMissionDBData : public ::google::protobuf::Message {
+ public:
+  GuildPrestigeMissionDBData();
+  virtual ~GuildPrestigeMissionDBData();
+
+  GuildPrestigeMissionDBData(const GuildPrestigeMissionDBData& from);
+
+  inline GuildPrestigeMissionDBData& operator=(const GuildPrestigeMissionDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GuildPrestigeMissionDBData& default_instance();
+
+  void Swap(GuildPrestigeMissionDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  GuildPrestigeMissionDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GuildPrestigeMissionDBData& from);
+  void MergeFrom(const GuildPrestigeMissionDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int64 prestige_id = 1;
+  inline bool has_prestige_id() const;
+  inline void clear_prestige_id();
+  static const int kPrestigeIdFieldNumber = 1;
+  inline ::google::protobuf::int64 prestige_id() const;
+  inline void set_prestige_id(::google::protobuf::int64 value);
+
+  // optional int64 task_id = 2;
+  inline bool has_task_id() const;
+  inline void clear_task_id();
+  static const int kTaskIdFieldNumber = 2;
+  inline ::google::protobuf::int64 task_id() const;
+  inline void set_task_id(::google::protobuf::int64 value);
+
+  // optional int32 task_state = 3;
+  inline bool has_task_state() const;
+  inline void clear_task_state();
+  static const int kTaskStateFieldNumber = 3;
+  inline ::google::protobuf::int32 task_state() const;
+  inline void set_task_state(::google::protobuf::int32 value);
+
+  // optional int32 index = 4;
+  inline bool has_index() const;
+  inline void clear_index();
+  static const int kIndexFieldNumber = 4;
+  inline ::google::protobuf::int32 index() const;
+  inline void set_index(::google::protobuf::int32 value);
+
+  // optional .proto_ff.CharacterDBMissionTrack track = 5;
+  inline bool has_track() const;
+  inline void clear_track();
+  static const int kTrackFieldNumber = 5;
+  inline const ::proto_ff::CharacterDBMissionTrack& track() const;
+  inline ::proto_ff::CharacterDBMissionTrack* mutable_track();
+  inline ::proto_ff::CharacterDBMissionTrack* release_track();
+  inline void set_allocated_track(::proto_ff::CharacterDBMissionTrack* track);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GuildPrestigeMissionDBData)
+ private:
+  inline void set_has_prestige_id();
+  inline void clear_has_prestige_id();
+  inline void set_has_task_id();
+  inline void clear_has_task_id();
+  inline void set_has_task_state();
+  inline void clear_has_task_state();
+  inline void set_has_index();
+  inline void clear_has_index();
+  inline void set_has_track();
+  inline void clear_has_track();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int64 prestige_id_;
+  ::google::protobuf::int64 task_id_;
+  ::google::protobuf::int32 task_state_;
+  ::google::protobuf::int32 index_;
+  ::proto_ff::CharacterDBMissionTrack* track_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GuildPrestigeMissionDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GuildPrestigeMissionDB : public ::google::protobuf::Message {
+ public:
+  GuildPrestigeMissionDB();
+  virtual ~GuildPrestigeMissionDB();
+
+  GuildPrestigeMissionDB(const GuildPrestigeMissionDB& from);
+
+  inline GuildPrestigeMissionDB& operator=(const GuildPrestigeMissionDB& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GuildPrestigeMissionDB& default_instance();
+
+  void Swap(GuildPrestigeMissionDB* other);
+
+  // implements Message ----------------------------------------------
+
+  GuildPrestigeMissionDB* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GuildPrestigeMissionDB& from);
+  void MergeFrom(const GuildPrestigeMissionDB& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 refresh_num = 1;
+  inline bool has_refresh_num() const;
+  inline void clear_refresh_num();
+  static const int kRefreshNumFieldNumber = 1;
+  inline ::google::protobuf::int32 refresh_num() const;
+  inline void set_refresh_num(::google::protobuf::int32 value);
+
+  // optional int32 all_refresh_num = 2;
+  inline bool has_all_refresh_num() const;
+  inline void clear_all_refresh_num();
+  static const int kAllRefreshNumFieldNumber = 2;
+  inline ::google::protobuf::int32 all_refresh_num() const;
+  inline void set_all_refresh_num(::google::protobuf::int32 value);
+
+  // optional int32 accept_num = 3;
+  inline bool has_accept_num() const;
+  inline void clear_accept_num();
+  static const int kAcceptNumFieldNumber = 3;
+  inline ::google::protobuf::int32 accept_num() const;
+  inline void set_accept_num(::google::protobuf::int32 value);
+
+  // optional int32 all_accept_num = 4;
+  inline bool has_all_accept_num() const;
+  inline void clear_all_accept_num();
+  static const int kAllAcceptNumFieldNumber = 4;
+  inline ::google::protobuf::int32 all_accept_num() const;
+  inline void set_all_accept_num(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.GuildPrestigeMissionDBData task_pool = 5;
+  inline int task_pool_size() const;
+  inline void clear_task_pool();
+  static const int kTaskPoolFieldNumber = 5;
+  inline const ::proto_ff::GuildPrestigeMissionDBData& task_pool(int index) const;
+  inline ::proto_ff::GuildPrestigeMissionDBData* mutable_task_pool(int index);
+  inline ::proto_ff::GuildPrestigeMissionDBData* add_task_pool();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GuildPrestigeMissionDBData >&
+      task_pool() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GuildPrestigeMissionDBData >*
+      mutable_task_pool();
+
+  // optional int64 last_refresh_time = 7;
+  inline bool has_last_refresh_time() const;
+  inline void clear_last_refresh_time();
+  static const int kLastRefreshTimeFieldNumber = 7;
+  inline ::google::protobuf::int64 last_refresh_time() const;
+  inline void set_last_refresh_time(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GuildPrestigeMissionDB)
+ private:
+  inline void set_has_refresh_num();
+  inline void clear_has_refresh_num();
+  inline void set_has_all_refresh_num();
+  inline void clear_has_all_refresh_num();
+  inline void set_has_accept_num();
+  inline void clear_has_accept_num();
+  inline void set_has_all_accept_num();
+  inline void clear_has_all_accept_num();
+  inline void set_has_last_refresh_time();
+  inline void clear_has_last_refresh_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 refresh_num_;
+  ::google::protobuf::int32 all_refresh_num_;
+  ::google::protobuf::int32 accept_num_;
+  ::google::protobuf::int32 all_accept_num_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::GuildPrestigeMissionDBData > task_pool_;
+  ::google::protobuf::int64 last_refresh_time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GuildPrestigeMissionDB* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class CharacterDBTaskData : public ::google::protobuf::Message {
  public:
   CharacterDBTaskData();
@@ -9715,8 +10166,19 @@ class CharacterDBTaskData : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBRecentSubmitMission >*
       mutable_recent_submit();
 
+  // optional .proto_ff.GuildPrestigeMissionDB prestige_mission = 5;
+  inline bool has_prestige_mission() const;
+  inline void clear_prestige_mission();
+  static const int kPrestigeMissionFieldNumber = 5;
+  inline const ::proto_ff::GuildPrestigeMissionDB& prestige_mission() const;
+  inline ::proto_ff::GuildPrestigeMissionDB* mutable_prestige_mission();
+  inline ::proto_ff::GuildPrestigeMissionDB* release_prestige_mission();
+  inline void set_allocated_prestige_mission(::proto_ff::GuildPrestigeMissionDB* prestige_mission);
+
   // @@protoc_insertion_point(class_scope:proto_ff.CharacterDBTaskData)
  private:
+  inline void set_has_prestige_mission();
+  inline void clear_has_prestige_mission();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -9724,9 +10186,10 @@ class CharacterDBTaskData : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBDyMissionInfo > dyinfo_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > already_submit_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBRecentSubmitMission > recent_submit_;
+  ::proto_ff::GuildPrestigeMissionDB* prestige_mission_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -11565,18 +12028,41 @@ class ArmorInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ArmorSuitState >*
       mutable_suits();
 
+  // optional int32 allstate = 3;
+  inline bool has_allstate() const;
+  inline void clear_allstate();
+  static const int kAllstateFieldNumber = 3;
+  inline ::google::protobuf::int32 allstate() const;
+  inline void set_allstate(::google::protobuf::int32 value);
+
+  // repeated int32 pos = 4;
+  inline int pos_size() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 4;
+  inline ::google::protobuf::int32 pos(int index) const;
+  inline void set_pos(int index, ::google::protobuf::int32 value);
+  inline void add_pos(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      pos() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_pos();
+
   // @@protoc_insertion_point(class_scope:proto_ff.ArmorInfo)
  private:
   inline void set_has_id();
   inline void clear_has_id();
+  inline void set_has_allstate();
+  inline void clear_has_allstate();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::proto_ff::ArmorSuitState > suits_;
   ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 allstate_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > pos_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -11706,6 +12192,862 @@ class TitleInfo : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static TitleInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class OccupationMissionSoulData : public ::google::protobuf::Message {
+ public:
+  OccupationMissionSoulData();
+  virtual ~OccupationMissionSoulData();
+
+  OccupationMissionSoulData(const OccupationMissionSoulData& from);
+
+  inline OccupationMissionSoulData& operator=(const OccupationMissionSoulData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OccupationMissionSoulData& default_instance();
+
+  void Swap(OccupationMissionSoulData* other);
+
+  // implements Message ----------------------------------------------
+
+  OccupationMissionSoulData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OccupationMissionSoulData& from);
+  void MergeFrom(const OccupationMissionSoulData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 soul_type = 1;
+  inline bool has_soul_type() const;
+  inline void clear_soul_type();
+  static const int kSoulTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 soul_type() const;
+  inline void set_soul_type(::google::protobuf::int32 value);
+
+  // optional int32 soul_pos = 2;
+  inline bool has_soul_pos() const;
+  inline void clear_soul_pos();
+  static const int kSoulPosFieldNumber = 2;
+  inline ::google::protobuf::int32 soul_pos() const;
+  inline void set_soul_pos(::google::protobuf::int32 value);
+
+  // optional int32 status = 3;
+  inline bool has_status() const;
+  inline void clear_status();
+  static const int kStatusFieldNumber = 3;
+  inline ::google::protobuf::int32 status() const;
+  inline void set_status(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.OccupationMissionSoulData)
+ private:
+  inline void set_has_soul_type();
+  inline void clear_has_soul_type();
+  inline void set_has_soul_pos();
+  inline void clear_has_soul_pos();
+  inline void set_has_status();
+  inline void clear_has_status();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 soul_type_;
+  ::google::protobuf::int32 soul_pos_;
+  ::google::protobuf::int32 status_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static OccupationMissionSoulData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class OccupationMissionStageData : public ::google::protobuf::Message {
+ public:
+  OccupationMissionStageData();
+  virtual ~OccupationMissionStageData();
+
+  OccupationMissionStageData(const OccupationMissionStageData& from);
+
+  inline OccupationMissionStageData& operator=(const OccupationMissionStageData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OccupationMissionStageData& default_instance();
+
+  void Swap(OccupationMissionStageData* other);
+
+  // implements Message ----------------------------------------------
+
+  OccupationMissionStageData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OccupationMissionStageData& from);
+  void MergeFrom(const OccupationMissionStageData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 stage = 1;
+  inline bool has_stage() const;
+  inline void clear_stage();
+  static const int kStageFieldNumber = 1;
+  inline ::google::protobuf::int32 stage() const;
+  inline void set_stage(::google::protobuf::int32 value);
+
+  // optional int32 status = 2;
+  inline bool has_status() const;
+  inline void clear_status();
+  static const int kStatusFieldNumber = 2;
+  inline ::google::protobuf::int32 status() const;
+  inline void set_status(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.OccupationMissionSoulData soul_data = 3;
+  inline int soul_data_size() const;
+  inline void clear_soul_data();
+  static const int kSoulDataFieldNumber = 3;
+  inline const ::proto_ff::OccupationMissionSoulData& soul_data(int index) const;
+  inline ::proto_ff::OccupationMissionSoulData* mutable_soul_data(int index);
+  inline ::proto_ff::OccupationMissionSoulData* add_soul_data();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionSoulData >&
+      soul_data() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionSoulData >*
+      mutable_soul_data();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.OccupationMissionStageData)
+ private:
+  inline void set_has_stage();
+  inline void clear_has_stage();
+  inline void set_has_status();
+  inline void clear_has_status();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 stage_;
+  ::google::protobuf::int32 status_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionSoulData > soul_data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static OccupationMissionStageData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class OccupationMissionGradeData : public ::google::protobuf::Message {
+ public:
+  OccupationMissionGradeData();
+  virtual ~OccupationMissionGradeData();
+
+  OccupationMissionGradeData(const OccupationMissionGradeData& from);
+
+  inline OccupationMissionGradeData& operator=(const OccupationMissionGradeData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OccupationMissionGradeData& default_instance();
+
+  void Swap(OccupationMissionGradeData* other);
+
+  // implements Message ----------------------------------------------
+
+  OccupationMissionGradeData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OccupationMissionGradeData& from);
+  void MergeFrom(const OccupationMissionGradeData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 grade = 1;
+  inline bool has_grade() const;
+  inline void clear_grade();
+  static const int kGradeFieldNumber = 1;
+  inline ::google::protobuf::int32 grade() const;
+  inline void set_grade(::google::protobuf::int32 value);
+
+  // optional int32 status = 2;
+  inline bool has_status() const;
+  inline void clear_status();
+  static const int kStatusFieldNumber = 2;
+  inline ::google::protobuf::int32 status() const;
+  inline void set_status(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.OccupationMissionStageData stage_data = 3;
+  inline int stage_data_size() const;
+  inline void clear_stage_data();
+  static const int kStageDataFieldNumber = 3;
+  inline const ::proto_ff::OccupationMissionStageData& stage_data(int index) const;
+  inline ::proto_ff::OccupationMissionStageData* mutable_stage_data(int index);
+  inline ::proto_ff::OccupationMissionStageData* add_stage_data();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionStageData >&
+      stage_data() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionStageData >*
+      mutable_stage_data();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.OccupationMissionGradeData)
+ private:
+  inline void set_has_grade();
+  inline void clear_has_grade();
+  inline void set_has_status();
+  inline void clear_has_status();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 grade_;
+  ::google::protobuf::int32 status_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionStageData > stage_data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static OccupationMissionGradeData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class OccupationMissionData : public ::google::protobuf::Message {
+ public:
+  OccupationMissionData();
+  virtual ~OccupationMissionData();
+
+  OccupationMissionData(const OccupationMissionData& from);
+
+  inline OccupationMissionData& operator=(const OccupationMissionData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const OccupationMissionData& default_instance();
+
+  void Swap(OccupationMissionData* other);
+
+  // implements Message ----------------------------------------------
+
+  OccupationMissionData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const OccupationMissionData& from);
+  void MergeFrom(const OccupationMissionData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.OccupationMissionGradeData grade_data = 1;
+  inline int grade_data_size() const;
+  inline void clear_grade_data();
+  static const int kGradeDataFieldNumber = 1;
+  inline const ::proto_ff::OccupationMissionGradeData& grade_data(int index) const;
+  inline ::proto_ff::OccupationMissionGradeData* mutable_grade_data(int index);
+  inline ::proto_ff::OccupationMissionGradeData* add_grade_data();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData >&
+      grade_data() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData >*
+      mutable_grade_data();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.OccupationMissionData)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData > grade_data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static OccupationMissionData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BestEQEquipInfo : public ::google::protobuf::Message {
+ public:
+  BestEQEquipInfo();
+  virtual ~BestEQEquipInfo();
+
+  BestEQEquipInfo(const BestEQEquipInfo& from);
+
+  inline BestEQEquipInfo& operator=(const BestEQEquipInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BestEQEquipInfo& default_instance();
+
+  void Swap(BestEQEquipInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  BestEQEquipInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BestEQEquipInfo& from);
+  void MergeFrom(const BestEQEquipInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 instId = 1;
+  inline bool has_instid() const;
+  inline void clear_instid();
+  static const int kInstIdFieldNumber = 1;
+  inline ::google::protobuf::int32 instid() const;
+  inline void set_instid(::google::protobuf::int32 value);
+
+  // optional int32 cfgId = 2;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgIdFieldNumber = 2;
+  inline ::google::protobuf::int32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::int32 value);
+
+  // optional int32 makeId = 3;
+  inline bool has_makeid() const;
+  inline void clear_makeid();
+  static const int kMakeIdFieldNumber = 3;
+  inline ::google::protobuf::int32 makeid() const;
+  inline void set_makeid(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ComPair skills = 4;
+  inline int skills_size() const;
+  inline void clear_skills();
+  static const int kSkillsFieldNumber = 4;
+  inline const ::proto_ff::ComPair& skills(int index) const;
+  inline ::proto_ff::ComPair* mutable_skills(int index);
+  inline ::proto_ff::ComPair* add_skills();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      skills() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_skills();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BestEQEquipInfo)
+ private:
+  inline void set_has_instid();
+  inline void clear_has_instid();
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+  inline void set_has_makeid();
+  inline void clear_has_makeid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 instid_;
+  ::google::protobuf::int32 cfgid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > skills_;
+  ::google::protobuf::int32 makeid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static BestEQEquipInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BestEQBreak : public ::google::protobuf::Message {
+ public:
+  BestEQBreak();
+  virtual ~BestEQBreak();
+
+  BestEQBreak(const BestEQBreak& from);
+
+  inline BestEQBreak& operator=(const BestEQBreak& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BestEQBreak& default_instance();
+
+  void Swap(BestEQBreak* other);
+
+  // implements Message ----------------------------------------------
+
+  BestEQBreak* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BestEQBreak& from);
+  void MergeFrom(const BestEQBreak& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 lv = 1;
+  inline bool has_lv() const;
+  inline void clear_lv();
+  static const int kLvFieldNumber = 1;
+  inline ::google::protobuf::int32 lv() const;
+  inline void set_lv(::google::protobuf::int32 value);
+
+  // repeated int32 exps = 2;
+  inline int exps_size() const;
+  inline void clear_exps();
+  static const int kExpsFieldNumber = 2;
+  inline ::google::protobuf::int32 exps(int index) const;
+  inline void set_exps(int index, ::google::protobuf::int32 value);
+  inline void add_exps(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      exps() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_exps();
+
+  // repeated .proto_ff.ComPair genAttr = 3;
+  inline int genattr_size() const;
+  inline void clear_genattr();
+  static const int kGenAttrFieldNumber = 3;
+  inline const ::proto_ff::ComPair& genattr(int index) const;
+  inline ::proto_ff::ComPair* mutable_genattr(int index);
+  inline ::proto_ff::ComPair* add_genattr();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+      genattr() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+      mutable_genattr();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BestEQBreak)
+ private:
+  inline void set_has_lv();
+  inline void clear_has_lv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > exps_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair > genattr_;
+  ::google::protobuf::int32 lv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static BestEQBreak* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BestEQSlotInfo : public ::google::protobuf::Message {
+ public:
+  BestEQSlotInfo();
+  virtual ~BestEQSlotInfo();
+
+  BestEQSlotInfo(const BestEQSlotInfo& from);
+
+  inline BestEQSlotInfo& operator=(const BestEQSlotInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BestEQSlotInfo& default_instance();
+
+  void Swap(BestEQSlotInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  BestEQSlotInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BestEQSlotInfo& from);
+  void MergeFrom(const BestEQSlotInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 slot = 1;
+  inline bool has_slot() const;
+  inline void clear_slot();
+  static const int kSlotFieldNumber = 1;
+  inline ::google::protobuf::int32 slot() const;
+  inline void set_slot(::google::protobuf::int32 value);
+
+  // optional int32 instId = 2;
+  inline bool has_instid() const;
+  inline void clear_instid();
+  static const int kInstIdFieldNumber = 2;
+  inline ::google::protobuf::int32 instid() const;
+  inline void set_instid(::google::protobuf::int32 value);
+
+  // optional int32 pourId = 3;
+  inline bool has_pourid() const;
+  inline void clear_pourid();
+  static const int kPourIdFieldNumber = 3;
+  inline ::google::protobuf::int32 pourid() const;
+  inline void set_pourid(::google::protobuf::int32 value);
+
+  // optional int32 pourExp = 4;
+  inline bool has_pourexp() const;
+  inline void clear_pourexp();
+  static const int kPourExpFieldNumber = 4;
+  inline ::google::protobuf::int32 pourexp() const;
+  inline void set_pourexp(::google::protobuf::int32 value);
+
+  // optional int32 pourUnLock = 5;
+  inline bool has_pourunlock() const;
+  inline void clear_pourunlock();
+  static const int kPourUnLockFieldNumber = 5;
+  inline ::google::protobuf::int32 pourunlock() const;
+  inline void set_pourunlock(::google::protobuf::int32 value);
+
+  // optional .proto_ff.BestEQBreak breakInfo = 6;
+  inline bool has_breakinfo() const;
+  inline void clear_breakinfo();
+  static const int kBreakInfoFieldNumber = 6;
+  inline const ::proto_ff::BestEQBreak& breakinfo() const;
+  inline ::proto_ff::BestEQBreak* mutable_breakinfo();
+  inline ::proto_ff::BestEQBreak* release_breakinfo();
+  inline void set_allocated_breakinfo(::proto_ff::BestEQBreak* breakinfo);
+
+  // optional int32 awakenLv = 7;
+  inline bool has_awakenlv() const;
+  inline void clear_awakenlv();
+  static const int kAwakenLvFieldNumber = 7;
+  inline ::google::protobuf::int32 awakenlv() const;
+  inline void set_awakenlv(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BestEQSlotInfo)
+ private:
+  inline void set_has_slot();
+  inline void clear_has_slot();
+  inline void set_has_instid();
+  inline void clear_has_instid();
+  inline void set_has_pourid();
+  inline void clear_has_pourid();
+  inline void set_has_pourexp();
+  inline void clear_has_pourexp();
+  inline void set_has_pourunlock();
+  inline void clear_has_pourunlock();
+  inline void set_has_breakinfo();
+  inline void clear_has_breakinfo();
+  inline void set_has_awakenlv();
+  inline void clear_has_awakenlv();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 slot_;
+  ::google::protobuf::int32 instid_;
+  ::google::protobuf::int32 pourid_;
+  ::google::protobuf::int32 pourexp_;
+  ::proto_ff::BestEQBreak* breakinfo_;
+  ::google::protobuf::int32 pourunlock_;
+  ::google::protobuf::int32 awakenlv_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static BestEQSlotInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class BestEQTask : public ::google::protobuf::Message {
+ public:
+  BestEQTask();
+  virtual ~BestEQTask();
+
+  BestEQTask(const BestEQTask& from);
+
+  inline BestEQTask& operator=(const BestEQTask& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const BestEQTask& default_instance();
+
+  void Swap(BestEQTask* other);
+
+  // implements Message ----------------------------------------------
+
+  BestEQTask* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const BestEQTask& from);
+  void MergeFrom(const BestEQTask& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 state = 2;
+  inline bool has_state() const;
+  inline void clear_state();
+  static const int kStateFieldNumber = 2;
+  inline ::google::protobuf::int32 state() const;
+  inline void set_state(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.BestEQTask)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_state();
+  inline void clear_has_state();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 state_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static BestEQTask* default_instance_;
 };
 // ===================================================================
 
@@ -14576,6 +15918,120 @@ inline void StoneSlotInfo::set_stoneid(::google::protobuf::int64 value) {
 
 // -------------------------------------------------------------------
 
+// WashSlotInfo
+
+// optional int32 slot = 1;
+inline bool WashSlotInfo::has_slot() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WashSlotInfo::set_has_slot() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WashSlotInfo::clear_has_slot() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WashSlotInfo::clear_slot() {
+  slot_ = 0;
+  clear_has_slot();
+}
+inline ::google::protobuf::int32 WashSlotInfo::slot() const {
+  return slot_;
+}
+inline void WashSlotInfo::set_slot(::google::protobuf::int32 value) {
+  set_has_slot();
+  slot_ = value;
+}
+
+// optional int32 quality = 2;
+inline bool WashSlotInfo::has_quality() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WashSlotInfo::set_has_quality() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WashSlotInfo::clear_has_quality() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WashSlotInfo::clear_quality() {
+  quality_ = 0;
+  clear_has_quality();
+}
+inline ::google::protobuf::int32 WashSlotInfo::quality() const {
+  return quality_;
+}
+inline void WashSlotInfo::set_quality(::google::protobuf::int32 value) {
+  set_has_quality();
+  quality_ = value;
+}
+
+// optional int32 lock = 3;
+inline bool WashSlotInfo::has_lock() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WashSlotInfo::set_has_lock() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WashSlotInfo::clear_has_lock() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WashSlotInfo::clear_lock() {
+  lock_ = 0;
+  clear_has_lock();
+}
+inline ::google::protobuf::int32 WashSlotInfo::lock() const {
+  return lock_;
+}
+inline void WashSlotInfo::set_lock(::google::protobuf::int32 value) {
+  set_has_lock();
+  lock_ = value;
+}
+
+// optional int32 id = 4;
+inline bool WashSlotInfo::has_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WashSlotInfo::set_has_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WashSlotInfo::clear_has_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WashSlotInfo::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 WashSlotInfo::id() const {
+  return id_;
+}
+inline void WashSlotInfo::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 value = 5;
+inline bool WashSlotInfo::has_value() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WashSlotInfo::set_has_value() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WashSlotInfo::clear_has_value() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WashSlotInfo::clear_value() {
+  value_ = 0;
+  clear_has_value();
+}
+inline ::google::protobuf::int32 WashSlotInfo::value() const {
+  return value_;
+}
+inline void WashSlotInfo::set_value(::google::protobuf::int32 value) {
+  set_has_value();
+  value_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // EquipSlotInfo
 
 // optional int32 slot_pos = 1;
@@ -14689,6 +16145,53 @@ inline ::google::protobuf::int32 EquipSlotInfo::stone_pay_slot_open() const {
 inline void EquipSlotInfo::set_stone_pay_slot_open(::google::protobuf::int32 value) {
   set_has_stone_pay_slot_open();
   stone_pay_slot_open_ = value;
+}
+
+// repeated .proto_ff.WashSlotInfo washs = 6;
+inline int EquipSlotInfo::washs_size() const {
+  return washs_.size();
+}
+inline void EquipSlotInfo::clear_washs() {
+  washs_.Clear();
+}
+inline const ::proto_ff::WashSlotInfo& EquipSlotInfo::washs(int index) const {
+  return washs_.Get(index);
+}
+inline ::proto_ff::WashSlotInfo* EquipSlotInfo::mutable_washs(int index) {
+  return washs_.Mutable(index);
+}
+inline ::proto_ff::WashSlotInfo* EquipSlotInfo::add_washs() {
+  return washs_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::WashSlotInfo >&
+EquipSlotInfo::washs() const {
+  return washs_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::WashSlotInfo >*
+EquipSlotInfo::mutable_washs() {
+  return &washs_;
+}
+
+// optional int32 suitlv = 7;
+inline bool EquipSlotInfo::has_suitlv() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void EquipSlotInfo::set_has_suitlv() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void EquipSlotInfo::clear_has_suitlv() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void EquipSlotInfo::clear_suitlv() {
+  suitlv_ = 0;
+  clear_has_suitlv();
+}
+inline ::google::protobuf::int32 EquipSlotInfo::suitlv() const {
+  return suitlv_;
+}
+inline void EquipSlotInfo::set_suitlv(::google::protobuf::int32 value) {
+  set_has_suitlv();
+  suitlv_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -17480,7 +18983,7 @@ inline void BuffProto::set_recver_cid(::google::protobuf::uint64 value) {
   recver_cid_ = value;
 }
 
-// optional int32 left_msec = 4;
+// optional int64 left_msec = 4;
 inline bool BuffProto::has_left_msec() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -17491,13 +18994,13 @@ inline void BuffProto::clear_has_left_msec() {
   _has_bits_[0] &= ~0x00000008u;
 }
 inline void BuffProto::clear_left_msec() {
-  left_msec_ = 0;
+  left_msec_ = GOOGLE_LONGLONG(0);
   clear_has_left_msec();
 }
-inline ::google::protobuf::int32 BuffProto::left_msec() const {
+inline ::google::protobuf::int64 BuffProto::left_msec() const {
   return left_msec_;
 }
-inline void BuffProto::set_left_msec(::google::protobuf::int32 value) {
+inline void BuffProto::set_left_msec(::google::protobuf::int64 value) {
   set_has_left_msec();
   left_msec_ = value;
 }
@@ -18104,6 +19607,72 @@ inline ::google::protobuf::int32 GodEvilProto::cd() const {
 inline void GodEvilProto::set_cd(::google::protobuf::int32 value) {
   set_has_cd();
   cd_ = value;
+}
+
+// optional int32 vessel_lev = 5;
+inline bool GodEvilProto::has_vessel_lev() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GodEvilProto::set_has_vessel_lev() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GodEvilProto::clear_has_vessel_lev() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GodEvilProto::clear_vessel_lev() {
+  vessel_lev_ = 0;
+  clear_has_vessel_lev();
+}
+inline ::google::protobuf::int32 GodEvilProto::vessel_lev() const {
+  return vessel_lev_;
+}
+inline void GodEvilProto::set_vessel_lev(::google::protobuf::int32 value) {
+  set_has_vessel_lev();
+  vessel_lev_ = value;
+}
+
+// optional int32 mirror_lev = 6;
+inline bool GodEvilProto::has_mirror_lev() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void GodEvilProto::set_has_mirror_lev() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void GodEvilProto::clear_has_mirror_lev() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void GodEvilProto::clear_mirror_lev() {
+  mirror_lev_ = 0;
+  clear_has_mirror_lev();
+}
+inline ::google::protobuf::int32 GodEvilProto::mirror_lev() const {
+  return mirror_lev_;
+}
+inline void GodEvilProto::set_mirror_lev(::google::protobuf::int32 value) {
+  set_has_mirror_lev();
+  mirror_lev_ = value;
+}
+
+// required int64 extra_exp = 7;
+inline bool GodEvilProto::has_extra_exp() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void GodEvilProto::set_has_extra_exp() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void GodEvilProto::clear_has_extra_exp() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void GodEvilProto::clear_extra_exp() {
+  extra_exp_ = GOOGLE_LONGLONG(0);
+  clear_has_extra_exp();
+}
+inline ::google::protobuf::int64 GodEvilProto::extra_exp() const {
+  return extra_exp_;
+}
+inline void GodEvilProto::set_extra_exp(::google::protobuf::int64 value) {
+  set_has_extra_exp();
+  extra_exp_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -20195,6 +21764,275 @@ inline void CharacterDBDyMissionInfo::set_allocated_bounty_param(::proto_ff::Cha
 
 // -------------------------------------------------------------------
 
+// GuildPrestigeMissionDBData
+
+// optional int64 prestige_id = 1;
+inline bool GuildPrestigeMissionDBData::has_prestige_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GuildPrestigeMissionDBData::set_has_prestige_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GuildPrestigeMissionDBData::clear_has_prestige_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GuildPrestigeMissionDBData::clear_prestige_id() {
+  prestige_id_ = GOOGLE_LONGLONG(0);
+  clear_has_prestige_id();
+}
+inline ::google::protobuf::int64 GuildPrestigeMissionDBData::prestige_id() const {
+  return prestige_id_;
+}
+inline void GuildPrestigeMissionDBData::set_prestige_id(::google::protobuf::int64 value) {
+  set_has_prestige_id();
+  prestige_id_ = value;
+}
+
+// optional int64 task_id = 2;
+inline bool GuildPrestigeMissionDBData::has_task_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GuildPrestigeMissionDBData::set_has_task_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GuildPrestigeMissionDBData::clear_has_task_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GuildPrestigeMissionDBData::clear_task_id() {
+  task_id_ = GOOGLE_LONGLONG(0);
+  clear_has_task_id();
+}
+inline ::google::protobuf::int64 GuildPrestigeMissionDBData::task_id() const {
+  return task_id_;
+}
+inline void GuildPrestigeMissionDBData::set_task_id(::google::protobuf::int64 value) {
+  set_has_task_id();
+  task_id_ = value;
+}
+
+// optional int32 task_state = 3;
+inline bool GuildPrestigeMissionDBData::has_task_state() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GuildPrestigeMissionDBData::set_has_task_state() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GuildPrestigeMissionDBData::clear_has_task_state() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GuildPrestigeMissionDBData::clear_task_state() {
+  task_state_ = 0;
+  clear_has_task_state();
+}
+inline ::google::protobuf::int32 GuildPrestigeMissionDBData::task_state() const {
+  return task_state_;
+}
+inline void GuildPrestigeMissionDBData::set_task_state(::google::protobuf::int32 value) {
+  set_has_task_state();
+  task_state_ = value;
+}
+
+// optional int32 index = 4;
+inline bool GuildPrestigeMissionDBData::has_index() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GuildPrestigeMissionDBData::set_has_index() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GuildPrestigeMissionDBData::clear_has_index() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GuildPrestigeMissionDBData::clear_index() {
+  index_ = 0;
+  clear_has_index();
+}
+inline ::google::protobuf::int32 GuildPrestigeMissionDBData::index() const {
+  return index_;
+}
+inline void GuildPrestigeMissionDBData::set_index(::google::protobuf::int32 value) {
+  set_has_index();
+  index_ = value;
+}
+
+// optional .proto_ff.CharacterDBMissionTrack track = 5;
+inline bool GuildPrestigeMissionDBData::has_track() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GuildPrestigeMissionDBData::set_has_track() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GuildPrestigeMissionDBData::clear_has_track() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GuildPrestigeMissionDBData::clear_track() {
+  if (track_ != NULL) track_->::proto_ff::CharacterDBMissionTrack::Clear();
+  clear_has_track();
+}
+inline const ::proto_ff::CharacterDBMissionTrack& GuildPrestigeMissionDBData::track() const {
+  return track_ != NULL ? *track_ : *default_instance_->track_;
+}
+inline ::proto_ff::CharacterDBMissionTrack* GuildPrestigeMissionDBData::mutable_track() {
+  set_has_track();
+  if (track_ == NULL) track_ = new ::proto_ff::CharacterDBMissionTrack;
+  return track_;
+}
+inline ::proto_ff::CharacterDBMissionTrack* GuildPrestigeMissionDBData::release_track() {
+  clear_has_track();
+  ::proto_ff::CharacterDBMissionTrack* temp = track_;
+  track_ = NULL;
+  return temp;
+}
+inline void GuildPrestigeMissionDBData::set_allocated_track(::proto_ff::CharacterDBMissionTrack* track) {
+  delete track_;
+  track_ = track;
+  if (track) {
+    set_has_track();
+  } else {
+    clear_has_track();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// GuildPrestigeMissionDB
+
+// optional int32 refresh_num = 1;
+inline bool GuildPrestigeMissionDB::has_refresh_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GuildPrestigeMissionDB::set_has_refresh_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GuildPrestigeMissionDB::clear_has_refresh_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GuildPrestigeMissionDB::clear_refresh_num() {
+  refresh_num_ = 0;
+  clear_has_refresh_num();
+}
+inline ::google::protobuf::int32 GuildPrestigeMissionDB::refresh_num() const {
+  return refresh_num_;
+}
+inline void GuildPrestigeMissionDB::set_refresh_num(::google::protobuf::int32 value) {
+  set_has_refresh_num();
+  refresh_num_ = value;
+}
+
+// optional int32 all_refresh_num = 2;
+inline bool GuildPrestigeMissionDB::has_all_refresh_num() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GuildPrestigeMissionDB::set_has_all_refresh_num() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GuildPrestigeMissionDB::clear_has_all_refresh_num() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GuildPrestigeMissionDB::clear_all_refresh_num() {
+  all_refresh_num_ = 0;
+  clear_has_all_refresh_num();
+}
+inline ::google::protobuf::int32 GuildPrestigeMissionDB::all_refresh_num() const {
+  return all_refresh_num_;
+}
+inline void GuildPrestigeMissionDB::set_all_refresh_num(::google::protobuf::int32 value) {
+  set_has_all_refresh_num();
+  all_refresh_num_ = value;
+}
+
+// optional int32 accept_num = 3;
+inline bool GuildPrestigeMissionDB::has_accept_num() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GuildPrestigeMissionDB::set_has_accept_num() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GuildPrestigeMissionDB::clear_has_accept_num() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GuildPrestigeMissionDB::clear_accept_num() {
+  accept_num_ = 0;
+  clear_has_accept_num();
+}
+inline ::google::protobuf::int32 GuildPrestigeMissionDB::accept_num() const {
+  return accept_num_;
+}
+inline void GuildPrestigeMissionDB::set_accept_num(::google::protobuf::int32 value) {
+  set_has_accept_num();
+  accept_num_ = value;
+}
+
+// optional int32 all_accept_num = 4;
+inline bool GuildPrestigeMissionDB::has_all_accept_num() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GuildPrestigeMissionDB::set_has_all_accept_num() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GuildPrestigeMissionDB::clear_has_all_accept_num() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GuildPrestigeMissionDB::clear_all_accept_num() {
+  all_accept_num_ = 0;
+  clear_has_all_accept_num();
+}
+inline ::google::protobuf::int32 GuildPrestigeMissionDB::all_accept_num() const {
+  return all_accept_num_;
+}
+inline void GuildPrestigeMissionDB::set_all_accept_num(::google::protobuf::int32 value) {
+  set_has_all_accept_num();
+  all_accept_num_ = value;
+}
+
+// repeated .proto_ff.GuildPrestigeMissionDBData task_pool = 5;
+inline int GuildPrestigeMissionDB::task_pool_size() const {
+  return task_pool_.size();
+}
+inline void GuildPrestigeMissionDB::clear_task_pool() {
+  task_pool_.Clear();
+}
+inline const ::proto_ff::GuildPrestigeMissionDBData& GuildPrestigeMissionDB::task_pool(int index) const {
+  return task_pool_.Get(index);
+}
+inline ::proto_ff::GuildPrestigeMissionDBData* GuildPrestigeMissionDB::mutable_task_pool(int index) {
+  return task_pool_.Mutable(index);
+}
+inline ::proto_ff::GuildPrestigeMissionDBData* GuildPrestigeMissionDB::add_task_pool() {
+  return task_pool_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GuildPrestigeMissionDBData >&
+GuildPrestigeMissionDB::task_pool() const {
+  return task_pool_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GuildPrestigeMissionDBData >*
+GuildPrestigeMissionDB::mutable_task_pool() {
+  return &task_pool_;
+}
+
+// optional int64 last_refresh_time = 7;
+inline bool GuildPrestigeMissionDB::has_last_refresh_time() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void GuildPrestigeMissionDB::set_has_last_refresh_time() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void GuildPrestigeMissionDB::clear_has_last_refresh_time() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void GuildPrestigeMissionDB::clear_last_refresh_time() {
+  last_refresh_time_ = GOOGLE_LONGLONG(0);
+  clear_has_last_refresh_time();
+}
+inline ::google::protobuf::int64 GuildPrestigeMissionDB::last_refresh_time() const {
+  return last_refresh_time_;
+}
+inline void GuildPrestigeMissionDB::set_last_refresh_time(::google::protobuf::int64 value) {
+  set_has_last_refresh_time();
+  last_refresh_time_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // CharacterDBTaskData
 
 // repeated .proto_ff.CharacterDBMissionTrack missionTrack = 1;
@@ -20295,6 +22133,44 @@ CharacterDBTaskData::recent_submit() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::CharacterDBRecentSubmitMission >*
 CharacterDBTaskData::mutable_recent_submit() {
   return &recent_submit_;
+}
+
+// optional .proto_ff.GuildPrestigeMissionDB prestige_mission = 5;
+inline bool CharacterDBTaskData::has_prestige_mission() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void CharacterDBTaskData::set_has_prestige_mission() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void CharacterDBTaskData::clear_has_prestige_mission() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void CharacterDBTaskData::clear_prestige_mission() {
+  if (prestige_mission_ != NULL) prestige_mission_->::proto_ff::GuildPrestigeMissionDB::Clear();
+  clear_has_prestige_mission();
+}
+inline const ::proto_ff::GuildPrestigeMissionDB& CharacterDBTaskData::prestige_mission() const {
+  return prestige_mission_ != NULL ? *prestige_mission_ : *default_instance_->prestige_mission_;
+}
+inline ::proto_ff::GuildPrestigeMissionDB* CharacterDBTaskData::mutable_prestige_mission() {
+  set_has_prestige_mission();
+  if (prestige_mission_ == NULL) prestige_mission_ = new ::proto_ff::GuildPrestigeMissionDB;
+  return prestige_mission_;
+}
+inline ::proto_ff::GuildPrestigeMissionDB* CharacterDBTaskData::release_prestige_mission() {
+  clear_has_prestige_mission();
+  ::proto_ff::GuildPrestigeMissionDB* temp = prestige_mission_;
+  prestige_mission_ = NULL;
+  return temp;
+}
+inline void CharacterDBTaskData::set_allocated_prestige_mission(::proto_ff::GuildPrestigeMissionDB* prestige_mission) {
+  delete prestige_mission_;
+  prestige_mission_ = prestige_mission;
+  if (prestige_mission) {
+    set_has_prestige_mission();
+  } else {
+    clear_has_prestige_mission();
+  }
 }
 
 // -------------------------------------------------------------------
@@ -21604,6 +23480,53 @@ ArmorInfo::mutable_suits() {
   return &suits_;
 }
 
+// optional int32 allstate = 3;
+inline bool ArmorInfo::has_allstate() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ArmorInfo::set_has_allstate() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ArmorInfo::clear_has_allstate() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ArmorInfo::clear_allstate() {
+  allstate_ = 0;
+  clear_has_allstate();
+}
+inline ::google::protobuf::int32 ArmorInfo::allstate() const {
+  return allstate_;
+}
+inline void ArmorInfo::set_allstate(::google::protobuf::int32 value) {
+  set_has_allstate();
+  allstate_ = value;
+}
+
+// repeated int32 pos = 4;
+inline int ArmorInfo::pos_size() const {
+  return pos_.size();
+}
+inline void ArmorInfo::clear_pos() {
+  pos_.Clear();
+}
+inline ::google::protobuf::int32 ArmorInfo::pos(int index) const {
+  return pos_.Get(index);
+}
+inline void ArmorInfo::set_pos(int index, ::google::protobuf::int32 value) {
+  pos_.Set(index, value);
+}
+inline void ArmorInfo::add_pos(::google::protobuf::int32 value) {
+  pos_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+ArmorInfo::pos() const {
+  return pos_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+ArmorInfo::mutable_pos() {
+  return &pos_;
+}
+
 // -------------------------------------------------------------------
 
 // TitleInfo
@@ -21716,6 +23639,644 @@ inline ::google::protobuf::int32 TitleInfo::star() const {
 inline void TitleInfo::set_star(::google::protobuf::int32 value) {
   set_has_star();
   star_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// OccupationMissionSoulData
+
+// optional int32 soul_type = 1;
+inline bool OccupationMissionSoulData::has_soul_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void OccupationMissionSoulData::set_has_soul_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void OccupationMissionSoulData::clear_has_soul_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void OccupationMissionSoulData::clear_soul_type() {
+  soul_type_ = 0;
+  clear_has_soul_type();
+}
+inline ::google::protobuf::int32 OccupationMissionSoulData::soul_type() const {
+  return soul_type_;
+}
+inline void OccupationMissionSoulData::set_soul_type(::google::protobuf::int32 value) {
+  set_has_soul_type();
+  soul_type_ = value;
+}
+
+// optional int32 soul_pos = 2;
+inline bool OccupationMissionSoulData::has_soul_pos() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void OccupationMissionSoulData::set_has_soul_pos() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void OccupationMissionSoulData::clear_has_soul_pos() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void OccupationMissionSoulData::clear_soul_pos() {
+  soul_pos_ = 0;
+  clear_has_soul_pos();
+}
+inline ::google::protobuf::int32 OccupationMissionSoulData::soul_pos() const {
+  return soul_pos_;
+}
+inline void OccupationMissionSoulData::set_soul_pos(::google::protobuf::int32 value) {
+  set_has_soul_pos();
+  soul_pos_ = value;
+}
+
+// optional int32 status = 3;
+inline bool OccupationMissionSoulData::has_status() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void OccupationMissionSoulData::set_has_status() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void OccupationMissionSoulData::clear_has_status() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void OccupationMissionSoulData::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 OccupationMissionSoulData::status() const {
+  return status_;
+}
+inline void OccupationMissionSoulData::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// OccupationMissionStageData
+
+// optional int32 stage = 1;
+inline bool OccupationMissionStageData::has_stage() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void OccupationMissionStageData::set_has_stage() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void OccupationMissionStageData::clear_has_stage() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void OccupationMissionStageData::clear_stage() {
+  stage_ = 0;
+  clear_has_stage();
+}
+inline ::google::protobuf::int32 OccupationMissionStageData::stage() const {
+  return stage_;
+}
+inline void OccupationMissionStageData::set_stage(::google::protobuf::int32 value) {
+  set_has_stage();
+  stage_ = value;
+}
+
+// optional int32 status = 2;
+inline bool OccupationMissionStageData::has_status() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void OccupationMissionStageData::set_has_status() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void OccupationMissionStageData::clear_has_status() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void OccupationMissionStageData::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 OccupationMissionStageData::status() const {
+  return status_;
+}
+inline void OccupationMissionStageData::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+}
+
+// repeated .proto_ff.OccupationMissionSoulData soul_data = 3;
+inline int OccupationMissionStageData::soul_data_size() const {
+  return soul_data_.size();
+}
+inline void OccupationMissionStageData::clear_soul_data() {
+  soul_data_.Clear();
+}
+inline const ::proto_ff::OccupationMissionSoulData& OccupationMissionStageData::soul_data(int index) const {
+  return soul_data_.Get(index);
+}
+inline ::proto_ff::OccupationMissionSoulData* OccupationMissionStageData::mutable_soul_data(int index) {
+  return soul_data_.Mutable(index);
+}
+inline ::proto_ff::OccupationMissionSoulData* OccupationMissionStageData::add_soul_data() {
+  return soul_data_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionSoulData >&
+OccupationMissionStageData::soul_data() const {
+  return soul_data_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionSoulData >*
+OccupationMissionStageData::mutable_soul_data() {
+  return &soul_data_;
+}
+
+// -------------------------------------------------------------------
+
+// OccupationMissionGradeData
+
+// optional int32 grade = 1;
+inline bool OccupationMissionGradeData::has_grade() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void OccupationMissionGradeData::set_has_grade() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void OccupationMissionGradeData::clear_has_grade() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void OccupationMissionGradeData::clear_grade() {
+  grade_ = 0;
+  clear_has_grade();
+}
+inline ::google::protobuf::int32 OccupationMissionGradeData::grade() const {
+  return grade_;
+}
+inline void OccupationMissionGradeData::set_grade(::google::protobuf::int32 value) {
+  set_has_grade();
+  grade_ = value;
+}
+
+// optional int32 status = 2;
+inline bool OccupationMissionGradeData::has_status() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void OccupationMissionGradeData::set_has_status() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void OccupationMissionGradeData::clear_has_status() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void OccupationMissionGradeData::clear_status() {
+  status_ = 0;
+  clear_has_status();
+}
+inline ::google::protobuf::int32 OccupationMissionGradeData::status() const {
+  return status_;
+}
+inline void OccupationMissionGradeData::set_status(::google::protobuf::int32 value) {
+  set_has_status();
+  status_ = value;
+}
+
+// repeated .proto_ff.OccupationMissionStageData stage_data = 3;
+inline int OccupationMissionGradeData::stage_data_size() const {
+  return stage_data_.size();
+}
+inline void OccupationMissionGradeData::clear_stage_data() {
+  stage_data_.Clear();
+}
+inline const ::proto_ff::OccupationMissionStageData& OccupationMissionGradeData::stage_data(int index) const {
+  return stage_data_.Get(index);
+}
+inline ::proto_ff::OccupationMissionStageData* OccupationMissionGradeData::mutable_stage_data(int index) {
+  return stage_data_.Mutable(index);
+}
+inline ::proto_ff::OccupationMissionStageData* OccupationMissionGradeData::add_stage_data() {
+  return stage_data_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionStageData >&
+OccupationMissionGradeData::stage_data() const {
+  return stage_data_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionStageData >*
+OccupationMissionGradeData::mutable_stage_data() {
+  return &stage_data_;
+}
+
+// -------------------------------------------------------------------
+
+// OccupationMissionData
+
+// repeated .proto_ff.OccupationMissionGradeData grade_data = 1;
+inline int OccupationMissionData::grade_data_size() const {
+  return grade_data_.size();
+}
+inline void OccupationMissionData::clear_grade_data() {
+  grade_data_.Clear();
+}
+inline const ::proto_ff::OccupationMissionGradeData& OccupationMissionData::grade_data(int index) const {
+  return grade_data_.Get(index);
+}
+inline ::proto_ff::OccupationMissionGradeData* OccupationMissionData::mutable_grade_data(int index) {
+  return grade_data_.Mutable(index);
+}
+inline ::proto_ff::OccupationMissionGradeData* OccupationMissionData::add_grade_data() {
+  return grade_data_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData >&
+OccupationMissionData::grade_data() const {
+  return grade_data_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::OccupationMissionGradeData >*
+OccupationMissionData::mutable_grade_data() {
+  return &grade_data_;
+}
+
+// -------------------------------------------------------------------
+
+// BestEQEquipInfo
+
+// optional int32 instId = 1;
+inline bool BestEQEquipInfo::has_instid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BestEQEquipInfo::set_has_instid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BestEQEquipInfo::clear_has_instid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BestEQEquipInfo::clear_instid() {
+  instid_ = 0;
+  clear_has_instid();
+}
+inline ::google::protobuf::int32 BestEQEquipInfo::instid() const {
+  return instid_;
+}
+inline void BestEQEquipInfo::set_instid(::google::protobuf::int32 value) {
+  set_has_instid();
+  instid_ = value;
+}
+
+// optional int32 cfgId = 2;
+inline bool BestEQEquipInfo::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BestEQEquipInfo::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BestEQEquipInfo::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BestEQEquipInfo::clear_cfgid() {
+  cfgid_ = 0;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::int32 BestEQEquipInfo::cfgid() const {
+  return cfgid_;
+}
+inline void BestEQEquipInfo::set_cfgid(::google::protobuf::int32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// optional int32 makeId = 3;
+inline bool BestEQEquipInfo::has_makeid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BestEQEquipInfo::set_has_makeid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BestEQEquipInfo::clear_has_makeid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BestEQEquipInfo::clear_makeid() {
+  makeid_ = 0;
+  clear_has_makeid();
+}
+inline ::google::protobuf::int32 BestEQEquipInfo::makeid() const {
+  return makeid_;
+}
+inline void BestEQEquipInfo::set_makeid(::google::protobuf::int32 value) {
+  set_has_makeid();
+  makeid_ = value;
+}
+
+// repeated .proto_ff.ComPair skills = 4;
+inline int BestEQEquipInfo::skills_size() const {
+  return skills_.size();
+}
+inline void BestEQEquipInfo::clear_skills() {
+  skills_.Clear();
+}
+inline const ::proto_ff::ComPair& BestEQEquipInfo::skills(int index) const {
+  return skills_.Get(index);
+}
+inline ::proto_ff::ComPair* BestEQEquipInfo::mutable_skills(int index) {
+  return skills_.Mutable(index);
+}
+inline ::proto_ff::ComPair* BestEQEquipInfo::add_skills() {
+  return skills_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+BestEQEquipInfo::skills() const {
+  return skills_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+BestEQEquipInfo::mutable_skills() {
+  return &skills_;
+}
+
+// -------------------------------------------------------------------
+
+// BestEQBreak
+
+// optional int32 lv = 1;
+inline bool BestEQBreak::has_lv() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BestEQBreak::set_has_lv() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BestEQBreak::clear_has_lv() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BestEQBreak::clear_lv() {
+  lv_ = 0;
+  clear_has_lv();
+}
+inline ::google::protobuf::int32 BestEQBreak::lv() const {
+  return lv_;
+}
+inline void BestEQBreak::set_lv(::google::protobuf::int32 value) {
+  set_has_lv();
+  lv_ = value;
+}
+
+// repeated int32 exps = 2;
+inline int BestEQBreak::exps_size() const {
+  return exps_.size();
+}
+inline void BestEQBreak::clear_exps() {
+  exps_.Clear();
+}
+inline ::google::protobuf::int32 BestEQBreak::exps(int index) const {
+  return exps_.Get(index);
+}
+inline void BestEQBreak::set_exps(int index, ::google::protobuf::int32 value) {
+  exps_.Set(index, value);
+}
+inline void BestEQBreak::add_exps(::google::protobuf::int32 value) {
+  exps_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+BestEQBreak::exps() const {
+  return exps_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+BestEQBreak::mutable_exps() {
+  return &exps_;
+}
+
+// repeated .proto_ff.ComPair genAttr = 3;
+inline int BestEQBreak::genattr_size() const {
+  return genattr_.size();
+}
+inline void BestEQBreak::clear_genattr() {
+  genattr_.Clear();
+}
+inline const ::proto_ff::ComPair& BestEQBreak::genattr(int index) const {
+  return genattr_.Get(index);
+}
+inline ::proto_ff::ComPair* BestEQBreak::mutable_genattr(int index) {
+  return genattr_.Mutable(index);
+}
+inline ::proto_ff::ComPair* BestEQBreak::add_genattr() {
+  return genattr_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >&
+BestEQBreak::genattr() const {
+  return genattr_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair >*
+BestEQBreak::mutable_genattr() {
+  return &genattr_;
+}
+
+// -------------------------------------------------------------------
+
+// BestEQSlotInfo
+
+// optional int32 slot = 1;
+inline bool BestEQSlotInfo::has_slot() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BestEQSlotInfo::set_has_slot() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BestEQSlotInfo::clear_has_slot() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BestEQSlotInfo::clear_slot() {
+  slot_ = 0;
+  clear_has_slot();
+}
+inline ::google::protobuf::int32 BestEQSlotInfo::slot() const {
+  return slot_;
+}
+inline void BestEQSlotInfo::set_slot(::google::protobuf::int32 value) {
+  set_has_slot();
+  slot_ = value;
+}
+
+// optional int32 instId = 2;
+inline bool BestEQSlotInfo::has_instid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BestEQSlotInfo::set_has_instid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BestEQSlotInfo::clear_has_instid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BestEQSlotInfo::clear_instid() {
+  instid_ = 0;
+  clear_has_instid();
+}
+inline ::google::protobuf::int32 BestEQSlotInfo::instid() const {
+  return instid_;
+}
+inline void BestEQSlotInfo::set_instid(::google::protobuf::int32 value) {
+  set_has_instid();
+  instid_ = value;
+}
+
+// optional int32 pourId = 3;
+inline bool BestEQSlotInfo::has_pourid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void BestEQSlotInfo::set_has_pourid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void BestEQSlotInfo::clear_has_pourid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void BestEQSlotInfo::clear_pourid() {
+  pourid_ = 0;
+  clear_has_pourid();
+}
+inline ::google::protobuf::int32 BestEQSlotInfo::pourid() const {
+  return pourid_;
+}
+inline void BestEQSlotInfo::set_pourid(::google::protobuf::int32 value) {
+  set_has_pourid();
+  pourid_ = value;
+}
+
+// optional int32 pourExp = 4;
+inline bool BestEQSlotInfo::has_pourexp() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void BestEQSlotInfo::set_has_pourexp() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void BestEQSlotInfo::clear_has_pourexp() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void BestEQSlotInfo::clear_pourexp() {
+  pourexp_ = 0;
+  clear_has_pourexp();
+}
+inline ::google::protobuf::int32 BestEQSlotInfo::pourexp() const {
+  return pourexp_;
+}
+inline void BestEQSlotInfo::set_pourexp(::google::protobuf::int32 value) {
+  set_has_pourexp();
+  pourexp_ = value;
+}
+
+// optional int32 pourUnLock = 5;
+inline bool BestEQSlotInfo::has_pourunlock() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void BestEQSlotInfo::set_has_pourunlock() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void BestEQSlotInfo::clear_has_pourunlock() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void BestEQSlotInfo::clear_pourunlock() {
+  pourunlock_ = 0;
+  clear_has_pourunlock();
+}
+inline ::google::protobuf::int32 BestEQSlotInfo::pourunlock() const {
+  return pourunlock_;
+}
+inline void BestEQSlotInfo::set_pourunlock(::google::protobuf::int32 value) {
+  set_has_pourunlock();
+  pourunlock_ = value;
+}
+
+// optional .proto_ff.BestEQBreak breakInfo = 6;
+inline bool BestEQSlotInfo::has_breakinfo() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void BestEQSlotInfo::set_has_breakinfo() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void BestEQSlotInfo::clear_has_breakinfo() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void BestEQSlotInfo::clear_breakinfo() {
+  if (breakinfo_ != NULL) breakinfo_->::proto_ff::BestEQBreak::Clear();
+  clear_has_breakinfo();
+}
+inline const ::proto_ff::BestEQBreak& BestEQSlotInfo::breakinfo() const {
+  return breakinfo_ != NULL ? *breakinfo_ : *default_instance_->breakinfo_;
+}
+inline ::proto_ff::BestEQBreak* BestEQSlotInfo::mutable_breakinfo() {
+  set_has_breakinfo();
+  if (breakinfo_ == NULL) breakinfo_ = new ::proto_ff::BestEQBreak;
+  return breakinfo_;
+}
+inline ::proto_ff::BestEQBreak* BestEQSlotInfo::release_breakinfo() {
+  clear_has_breakinfo();
+  ::proto_ff::BestEQBreak* temp = breakinfo_;
+  breakinfo_ = NULL;
+  return temp;
+}
+inline void BestEQSlotInfo::set_allocated_breakinfo(::proto_ff::BestEQBreak* breakinfo) {
+  delete breakinfo_;
+  breakinfo_ = breakinfo;
+  if (breakinfo) {
+    set_has_breakinfo();
+  } else {
+    clear_has_breakinfo();
+  }
+}
+
+// optional int32 awakenLv = 7;
+inline bool BestEQSlotInfo::has_awakenlv() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void BestEQSlotInfo::set_has_awakenlv() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void BestEQSlotInfo::clear_has_awakenlv() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void BestEQSlotInfo::clear_awakenlv() {
+  awakenlv_ = 0;
+  clear_has_awakenlv();
+}
+inline ::google::protobuf::int32 BestEQSlotInfo::awakenlv() const {
+  return awakenlv_;
+}
+inline void BestEQSlotInfo::set_awakenlv(::google::protobuf::int32 value) {
+  set_has_awakenlv();
+  awakenlv_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// BestEQTask
+
+// optional int32 id = 1;
+inline bool BestEQTask::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void BestEQTask::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void BestEQTask::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void BestEQTask::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 BestEQTask::id() const {
+  return id_;
+}
+inline void BestEQTask::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 state = 2;
+inline bool BestEQTask::has_state() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void BestEQTask::set_has_state() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void BestEQTask::clear_has_state() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void BestEQTask::clear_state() {
+  state_ = 0;
+  clear_has_state();
+}
+inline ::google::protobuf::int32 BestEQTask::state() const {
+  return state_;
+}
+inline void BestEQTask::set_state(::google::protobuf::int32 value) {
+  set_has_state();
+  state_ = value;
 }
 
 

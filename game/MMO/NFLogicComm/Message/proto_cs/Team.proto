@@ -26,7 +26,7 @@ message TeamMemProto
 	optional uint64 mapid = 10;				//所在场景id
 	optional uint64 hp = 11;				//当前血量
 	optional uint64 maxhp = 12;				//最大血量
-	optional int32 robotflag=13;			//是否是机器人的标记，1：是，0：不是
+	optional int32 robotflag=13;			//是否是机器人的标记，1：是，0：不是 
 	optional uint32 unionid = 14;			//工会ID
 	optional int32 palace_layer=15;			//工会地宫层数
 	optional int32 break_count = 16;		//工会地宫突破次数
@@ -89,11 +89,11 @@ message CenterTeamMemProto
 	optional bytes name = 2;		//名字
 	optional int32 prof = 3;		//职业
 	optional uint32 level = 4;		//角色等级
-	optional int32 robotflag=5;		//是否是机器人的标记，1：是，0：不是
+	optional int32 robotflag=5;		//是否是机器人的标记，1：是，0：不是 
 	optional uint32 unionid = 6;	//工会ID
 	optional int32 palace_layer=7;	//工会地宫层数
 	optional int32 palace_breakcount = 8;	//工会地宫突破次数
-
+	
 }
 //中心服多个队伍成员信息
 message CenterMultiTeamMemProto
@@ -147,7 +147,7 @@ message TeamUpdateMemNotify
 {
 	repeated uint64 del_mem = 1;		//需要移除队伍成员的 cid 列表
 	optional int32 reason = 2;			//移除原因 1 主动退出，2 被踢出
-	optional TeamMultMemProto mems = 3;	//更新的队伍成员
+	optional TeamMultMemProto mems = 3;	//更新的队伍成员 
 }
 
 //更新队伍成员简要信息( 队员 血量、 都是通过这条消息更新)
@@ -190,7 +190,7 @@ message TeamUpdateApplyNotify
 	optional TeamMultApplyProto apply = 2;	//新的申请信息
 }
 
-//申请加入队伍
+//申请加入队伍 
 message ApplyJoinTeamReq
 {
 	required uint32 teamid = 1; //队伍ID
@@ -273,12 +273,12 @@ message TeamAutoMatchRsp
 	optional int32 retcode = 1;  //返回码
 }
 
-//请离队员
+//请离队员   
 message TeamKickMemReq
 {
 	required uint64 kick_cid = 1; //被请离队员的cid
 }
-//返回请离队员
+//返回请离队员   
 message TeamKickMemRsp
 {
 	optional int32 retcode = 1;  //返回码

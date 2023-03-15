@@ -65,7 +65,7 @@ message CWAgreeFriendApplyReq
 }
 
 //同意好友申请     返回消息
-message WCAgreeFriendApplyRsp
+message WCAgreeFriendApplyRsp 
 {
 	required uint32 ret = 1;		//状态码
 }

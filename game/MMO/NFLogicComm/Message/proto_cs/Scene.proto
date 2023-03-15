@@ -36,7 +36,7 @@ message SceneTransParam
 message PlayerTransParam
 {
 	required uint32 client_id = 1;						//连接ID
-	required uint64 enter_scene_id = 2;
+	required uint64 enter_scene_id = 2;					
 	required uint64 enter_map_id = 3;
 	required float enterposx = 4;
 	required float enterposy = 5;
@@ -102,7 +102,7 @@ message CorpseInfo
 	optional uint64 aliveTime = 2;  //存活时间
 	optional Vector3PB pos = 3; 	//坐标
 	optional uint64  cid = 4;		//唯一ID
-
+	
 }
 
 //场景尸体信息 NOTIFY_SCENE_CORPSE_INFO_RSP
@@ -194,7 +194,7 @@ message NotifyRoleEnterScene
 	required uint64 scene_id = 2;	//场景ID
 	required uint64 map_id = 3;		//地图ID
 	optional Vector3PB pos = 4;		//坐标
-
+	
 }
 
 //逻辑服通知中心服玩家切换逻辑服成功 NOTIFY_ROLE_CHANGE_LOGIC

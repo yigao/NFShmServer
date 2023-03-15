@@ -79,6 +79,10 @@ int RoleDBBaseData_s::CreateInit() {
 	arenacoin = (int64_t)0;
 	godevil_exp = (int64_t)0;
 	godevil_level = (int32_t)0;
+	login_day = (uint32_t)0;
+	login_day_time = (uint64_t)0;
+	best_aq = (int64_t)0;
+	best_lj = (int64_t)0;
 	return 0;
 }
 
@@ -122,6 +126,10 @@ void RoleDBBaseData_s::write_to_pbmsg(::proto_ff::RoleDBBaseData & msg) const {
 	msg.set_arenacoin((int64_t)arenacoin);
 	msg.set_godevil_exp((int64_t)godevil_exp);
 	msg.set_godevil_level((int32_t)godevil_level);
+	msg.set_login_day((uint32_t)login_day);
+	msg.set_login_day_time((uint64_t)login_day_time);
+	msg.set_best_aq((int64_t)best_aq);
+	msg.set_best_lj((int64_t)best_lj);
 }
 
 void RoleDBBaseData_s::read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg) {
@@ -161,6 +169,10 @@ void RoleDBBaseData_s::read_from_pbmsg(const ::proto_ff::RoleDBBaseData & msg) {
 	arenacoin = msg.arenacoin();
 	godevil_exp = msg.godevil_exp();
 	godevil_level = msg.godevil_level();
+	login_day = msg.login_day();
+	login_day_time = msg.login_day_time();
+	best_aq = msg.best_aq();
+	best_lj = msg.best_lj();
 }
 
 BagItemsDBData_s::BagItemsDBData_s() {
@@ -1964,6 +1976,8 @@ int AssistDBData_s::CreateInit() {
 	helpNum = (int32_t)0;
 	allSendNum = (int32_t)0;
 	allHelpNum = (int32_t)0;
+	recvSendGiftNum = (int32_t)0;
+	recvHelpGiftNum = (int32_t)0;
 	return 0;
 }
 
@@ -1978,6 +1992,15 @@ void AssistDBData_s::write_to_pbmsg(::proto_ff::AssistDBData & msg) const {
 	msg.set_helpnum((int32_t)helpNum);
 	msg.set_allsendnum((int32_t)allSendNum);
 	msg.set_allhelpnum((int32_t)allHelpNum);
+	msg.set_recvsendgiftnum((int32_t)recvSendGiftNum);
+	msg.set_recvhelpgiftnum((int32_t)recvHelpGiftNum);
+	for(int32_t i = 0; i < (int32_t)rewardIds.size(); ++i) {
+		msg.add_rewardids((int32_t)rewardIds[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)thanksInfo.size(); ++i) {
+		::proto_ff::ComPair64* temp_thanksinfo = msg.add_thanksinfo();
+		thanksInfo[i].write_to_pbmsg(*temp_thanksinfo);
+	}
 }
 
 void AssistDBData_s::read_from_pbmsg(const ::proto_ff::AssistDBData & msg) {
@@ -1988,6 +2011,17 @@ void AssistDBData_s::read_from_pbmsg(const ::proto_ff::AssistDBData & msg) {
 	helpNum = msg.helpnum();
 	allSendNum = msg.allsendnum();
 	allHelpNum = msg.allhelpnum();
+	recvSendGiftNum = msg.recvsendgiftnum();
+	recvHelpGiftNum = msg.recvhelpgiftnum();
+	rewardIds.resize(msg.rewardids_size());
+	for(int32_t i = 0; i < (int32_t)rewardIds.size(); ++i) {
+		rewardIds[i] = msg.rewardids(i);
+	}
+	thanksInfo.resize(msg.thanksinfo_size());
+	for(int32_t i = 0; i < (int32_t)thanksInfo.size(); ++i) {
+		const ::proto_ff::ComPair64 & temp_thanksinfo = msg.thanksinfo(i);
+		thanksInfo[i].read_from_pbmsg(temp_thanksinfo);
+	}
 }
 
 TitleDBData_s::TitleDBData_s() {
@@ -2100,6 +2134,7 @@ GodEvilTaskDBProto_s::GodEvilTaskDBProto_s() {
 int GodEvilTaskDBProto_s::CreateInit() {
 	stage = (int32_t)0;
 	finish = (int32_t)0;
+	accept = (int32_t)0;
 	return 0;
 }
 
@@ -2112,6 +2147,7 @@ void GodEvilTaskDBProto_s::write_to_pbmsg(::proto_ff::GodEvilTaskDBProto & msg) 
 	::proto_ff::GodEvilMultCondDBProto* temp_cond = msg.mutable_cond();
 	cond.write_to_pbmsg(*temp_cond);
 	msg.set_finish((int32_t)finish);
+	msg.set_accept((int32_t)accept);
 }
 
 void GodEvilTaskDBProto_s::read_from_pbmsg(const ::proto_ff::GodEvilTaskDBProto & msg) {
@@ -2120,6 +2156,7 @@ void GodEvilTaskDBProto_s::read_from_pbmsg(const ::proto_ff::GodEvilTaskDBProto 
 	const ::proto_ff::GodEvilMultCondDBProto & temp_cond = msg.cond();
 	cond.read_from_pbmsg(temp_cond);
 	finish = msg.finish();
+	accept = msg.accept();
 }
 
 GodEvilDBData_s::GodEvilDBData_s() {
@@ -2134,6 +2171,9 @@ int GodEvilDBData_s::CreateInit() {
 	fetch = (int32_t)0;
 	type = (int32_t)0;
 	last_time = (uint64_t)0;
+	vessel_lev = (int32_t)0;
+	mirror_lev = (int32_t)0;
+	extra_exp = (int64_t)0;
 	return 0;
 }
 
@@ -2147,6 +2187,9 @@ void GodEvilDBData_s::write_to_pbmsg(::proto_ff::GodEvilDBData & msg) const {
 	task.write_to_pbmsg(*temp_task);
 	msg.set_type((int32_t)type);
 	msg.set_last_time((uint64_t)last_time);
+	msg.set_vessel_lev((int32_t)vessel_lev);
+	msg.set_mirror_lev((int32_t)mirror_lev);
+	msg.set_extra_exp((int64_t)extra_exp);
 }
 
 void GodEvilDBData_s::read_from_pbmsg(const ::proto_ff::GodEvilDBData & msg) {
@@ -2156,6 +2199,183 @@ void GodEvilDBData_s::read_from_pbmsg(const ::proto_ff::GodEvilDBData & msg) {
 	task.read_from_pbmsg(temp_task);
 	type = msg.type();
 	last_time = msg.last_time();
+	vessel_lev = msg.vessel_lev();
+	mirror_lev = msg.mirror_lev();
+	extra_exp = msg.extra_exp();
+}
+
+PayDBData_s::PayDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int PayDBData_s::CreateInit() {
+	relrmb = (uint32_t)0;
+	rmb = (uint32_t)0;
+	fakermb = (uint32_t)0;
+	todayrmb = (uint32_t)0;
+	todaytime = (uint64_t)0;
+	return 0;
+}
+
+int PayDBData_s::ResumeInit() {
+	return 0;
+}
+
+void PayDBData_s::write_to_pbmsg(::proto_ff::PayDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)db_id.size(); ++i) {
+		msg.add_db_id((uint32_t)db_id[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)product.size(); ++i) {
+		msg.add_product((const char*)product[i].data());
+	}
+	msg.set_relrmb((uint32_t)relrmb);
+	msg.set_rmb((uint32_t)rmb);
+	msg.set_fakermb((uint32_t)fakermb);
+	msg.set_todayrmb((uint32_t)todayrmb);
+	msg.set_todaytime((uint64_t)todaytime);
+}
+
+void PayDBData_s::read_from_pbmsg(const ::proto_ff::PayDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct PayDBData_s));
+	db_id.resize(msg.db_id_size());
+	for(int32_t i = 0; i < (int32_t)db_id.size(); ++i) {
+		db_id[i] = msg.db_id(i);
+	}
+	product.resize(msg.product_size());
+	for(int32_t i = 0; i < (int32_t)product.size(); ++i) {
+	}
+	relrmb = msg.relrmb();
+	rmb = msg.rmb();
+	fakermb = msg.fakermb();
+	todayrmb = msg.todayrmb();
+	todaytime = msg.todaytime();
+}
+
+FactionDBSalary_s::FactionDBSalary_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionDBSalary_s::CreateInit() {
+	id = (int32_t)0;
+	cur = (int32_t)0;
+	fetch = (int32_t)0;
+	return 0;
+}
+
+int FactionDBSalary_s::ResumeInit() {
+	return 0;
+}
+
+void FactionDBSalary_s::write_to_pbmsg(::proto_ff::FactionDBSalary & msg) const {
+	msg.set_id((int32_t)id);
+	msg.set_cur((int32_t)cur);
+	msg.set_fetch((int32_t)fetch);
+}
+
+void FactionDBSalary_s::read_from_pbmsg(const ::proto_ff::FactionDBSalary & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionDBSalary_s));
+	id = msg.id();
+	cur = msg.cur();
+	fetch = msg.fetch();
+}
+
+RoleFactionDBData_s::RoleFactionDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleFactionDBData_s::CreateInit() {
+	donate_num = (int32_t)0;
+	donate_fresh = (uint64_t)0;
+	salary_fresh = (uint64_t)0;
+	return 0;
+}
+
+int RoleFactionDBData_s::ResumeInit() {
+	return 0;
+}
+
+void RoleFactionDBData_s::write_to_pbmsg(::proto_ff::RoleFactionDBData & msg) const {
+	msg.set_donate_num((int32_t)donate_num);
+	msg.set_donate_fresh((uint64_t)donate_fresh);
+	for(int32_t i = 0; i < (int32_t)salary.size(); ++i) {
+		::proto_ff::FactionDBSalary* temp_salary = msg.add_salary();
+		salary[i].write_to_pbmsg(*temp_salary);
+	}
+	msg.set_salary_fresh((uint64_t)salary_fresh);
+}
+
+void RoleFactionDBData_s::read_from_pbmsg(const ::proto_ff::RoleFactionDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleFactionDBData_s));
+	donate_num = msg.donate_num();
+	donate_fresh = msg.donate_fresh();
+	salary.resize(msg.salary_size());
+	for(int32_t i = 0; i < (int32_t)salary.size(); ++i) {
+		const ::proto_ff::FactionDBSalary & temp_salary = msg.salary(i);
+		salary[i].read_from_pbmsg(temp_salary);
+	}
+	salary_fresh = msg.salary_fresh();
+}
+
+RoleBestEQDBData_s::RoleBestEQDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleBestEQDBData_s::CreateInit() {
+	return 0;
+}
+
+int RoleBestEQDBData_s::ResumeInit() {
+	return 0;
+}
+
+void RoleBestEQDBData_s::write_to_pbmsg(::proto_ff::RoleBestEQDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)equips.size(); ++i) {
+		::proto_ff::BestEQEquipInfo* temp_equips = msg.add_equips();
+		equips[i].write_to_pbmsg(*temp_equips);
+	}
+	for(int32_t i = 0; i < (int32_t)slots.size(); ++i) {
+		::proto_ff::BestEQSlotInfo* temp_slots = msg.add_slots();
+		slots[i].write_to_pbmsg(*temp_slots);
+	}
+	for(int32_t i = 0; i < (int32_t)tasks.size(); ++i) {
+		::proto_ff::BestEQTask* temp_tasks = msg.add_tasks();
+		tasks[i].write_to_pbmsg(*temp_tasks);
+	}
+}
+
+void RoleBestEQDBData_s::read_from_pbmsg(const ::proto_ff::RoleBestEQDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleBestEQDBData_s));
+	equips.resize(msg.equips_size());
+	for(int32_t i = 0; i < (int32_t)equips.size(); ++i) {
+		const ::proto_ff::BestEQEquipInfo & temp_equips = msg.equips(i);
+		equips[i].read_from_pbmsg(temp_equips);
+	}
+	slots.resize(msg.slots_size());
+	for(int32_t i = 0; i < (int32_t)slots.size(); ++i) {
+		const ::proto_ff::BestEQSlotInfo & temp_slots = msg.slots(i);
+		slots[i].read_from_pbmsg(temp_slots);
+	}
+	tasks.resize(msg.tasks_size());
+	for(int32_t i = 0; i < (int32_t)tasks.size(); ++i) {
+		const ::proto_ff::BestEQTask & temp_tasks = msg.tasks(i);
+		tasks[i].read_from_pbmsg(temp_tasks);
+	}
 }
 
 RoleDBData_s::RoleDBData_s() {
@@ -2227,6 +2447,16 @@ void RoleDBData_s::write_to_pbmsg(::proto_ff::RoleDBData & msg) const {
 	assist.write_to_pbmsg(*temp_assist);
 	::proto_ff::TitleDBData* temp_title = msg.mutable_title();
 	title.write_to_pbmsg(*temp_title);
+	::proto_ff::GodEvilDBData* temp_godevil = msg.mutable_godevil();
+	godevil.write_to_pbmsg(*temp_godevil);
+	::proto_ff::OccupationMissionData* temp_occupatoin = msg.mutable_occupatoin();
+	occupatoin.write_to_pbmsg(*temp_occupatoin);
+	::proto_ff::PayDBData* temp_pay = msg.mutable_pay();
+	pay.write_to_pbmsg(*temp_pay);
+	::proto_ff::RoleFactionDBData* temp_role_faction = msg.mutable_role_faction();
+	role_faction.write_to_pbmsg(*temp_role_faction);
+	::proto_ff::RoleBestEQDBData* temp_best_equip = msg.mutable_best_equip();
+	best_equip.write_to_pbmsg(*temp_best_equip);
 }
 
 void RoleDBData_s::read_from_pbmsg(const ::proto_ff::RoleDBData & msg) {
@@ -2280,6 +2510,309 @@ void RoleDBData_s::read_from_pbmsg(const ::proto_ff::RoleDBData & msg) {
 	assist.read_from_pbmsg(temp_assist);
 	const ::proto_ff::TitleDBData & temp_title = msg.title();
 	title.read_from_pbmsg(temp_title);
+	const ::proto_ff::GodEvilDBData & temp_godevil = msg.godevil();
+	godevil.read_from_pbmsg(temp_godevil);
+	const ::proto_ff::OccupationMissionData & temp_occupatoin = msg.occupatoin();
+	occupatoin.read_from_pbmsg(temp_occupatoin);
+	const ::proto_ff::PayDBData & temp_pay = msg.pay();
+	pay.read_from_pbmsg(temp_pay);
+	const ::proto_ff::RoleFactionDBData & temp_role_faction = msg.role_faction();
+	role_faction.read_from_pbmsg(temp_role_faction);
+	const ::proto_ff::RoleBestEQDBData & temp_best_equip = msg.best_equip();
+	best_equip.read_from_pbmsg(temp_best_equip);
+}
+
+RedWaitDBProto_s::RedWaitDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RedWaitDBProto_s::CreateInit() {
+	idx = (uint32_t)0;
+	cfgid = (int32_t)0;
+	time = (uint64_t)0;
+	return 0;
+}
+
+int RedWaitDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void RedWaitDBProto_s::write_to_pbmsg(::proto_ff::RedWaitDBProto & msg) const {
+	msg.set_idx((uint32_t)idx);
+	msg.set_cfgid((int32_t)cfgid);
+	msg.set_time((uint64_t)time);
+}
+
+void RedWaitDBProto_s::read_from_pbmsg(const ::proto_ff::RedWaitDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RedWaitDBProto_s));
+	idx = msg.idx();
+	cfgid = msg.cfgid();
+	time = msg.time();
+}
+
+RedTriggerDBProto_s::RedTriggerDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RedTriggerDBProto_s::CreateInit() {
+	cfgid = (int32_t)0;
+	count = (int32_t)0;
+	return 0;
+}
+
+int RedTriggerDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void RedTriggerDBProto_s::write_to_pbmsg(::proto_ff::RedTriggerDBProto & msg) const {
+	msg.set_cfgid((int32_t)cfgid);
+	msg.set_count((int32_t)count);
+}
+
+void RedTriggerDBProto_s::read_from_pbmsg(const ::proto_ff::RedTriggerDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RedTriggerDBProto_s));
+	cfgid = msg.cfgid();
+	count = msg.count();
+}
+
+RoleRedDBData_s::RoleRedDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleRedDBData_s::CreateInit() {
+	bdia = (uint32_t)0;
+	magic = (uint32_t)0;
+	todaynum = (uint32_t)0;
+	todaymagic = (uint32_t)0;
+	todaybdia = (uint32_t)0;
+	freshtime = (uint64_t)0;
+	cid = (uint64_t)0;
+	return 0;
+}
+
+int RoleRedDBData_s::ResumeInit() {
+	return 0;
+}
+
+void RoleRedDBData_s::write_to_pbmsg(::proto_ff::RoleRedDBData & msg) const {
+	msg.set_bdia((uint32_t)bdia);
+	msg.set_magic((uint32_t)magic);
+	msg.set_todaynum((uint32_t)todaynum);
+	msg.set_todaymagic((uint32_t)todaymagic);
+	msg.set_todaybdia((uint32_t)todaybdia);
+	msg.set_freshtime((uint64_t)freshtime);
+	for(int32_t i = 0; i < (int32_t)send_lst.size(); ++i) {
+		msg.add_send_lst((int32_t)send_lst[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)wait_lst.size(); ++i) {
+		::proto_ff::RedWaitDBProto* temp_wait_lst = msg.add_wait_lst();
+		wait_lst[i].write_to_pbmsg(*temp_wait_lst);
+	}
+	msg.set_cid((uint64_t)cid);
+	for(int32_t i = 0; i < (int32_t)trigger_lst.size(); ++i) {
+		::proto_ff::RedTriggerDBProto* temp_trigger_lst = msg.add_trigger_lst();
+		trigger_lst[i].write_to_pbmsg(*temp_trigger_lst);
+	}
+}
+
+void RoleRedDBData_s::read_from_pbmsg(const ::proto_ff::RoleRedDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleRedDBData_s));
+	bdia = msg.bdia();
+	magic = msg.magic();
+	todaynum = msg.todaynum();
+	todaymagic = msg.todaymagic();
+	todaybdia = msg.todaybdia();
+	freshtime = msg.freshtime();
+	send_lst.resize(msg.send_lst_size());
+	for(int32_t i = 0; i < (int32_t)send_lst.size(); ++i) {
+		send_lst[i] = msg.send_lst(i);
+	}
+	wait_lst.resize(msg.wait_lst_size());
+	for(int32_t i = 0; i < (int32_t)wait_lst.size(); ++i) {
+		const ::proto_ff::RedWaitDBProto & temp_wait_lst = msg.wait_lst(i);
+		wait_lst[i].read_from_pbmsg(temp_wait_lst);
+	}
+	cid = msg.cid();
+	trigger_lst.resize(msg.trigger_lst_size());
+	for(int32_t i = 0; i < (int32_t)trigger_lst.size(); ++i) {
+		const ::proto_ff::RedTriggerDBProto & temp_trigger_lst = msg.trigger_lst(i);
+		trigger_lst[i].read_from_pbmsg(temp_trigger_lst);
+	}
+}
+
+RedFetchDBProto_s::RedFetchDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RedFetchDBProto_s::CreateInit() {
+	cid = (uint64_t)0;
+	val = (uint32_t)0;
+	time = (uint64_t)0;
+	return 0;
+}
+
+int RedFetchDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void RedFetchDBProto_s::write_to_pbmsg(::proto_ff::RedFetchDBProto & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_val((uint32_t)val);
+	msg.set_time((uint64_t)time);
+}
+
+void RedFetchDBProto_s::read_from_pbmsg(const ::proto_ff::RedFetchDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RedFetchDBProto_s));
+	cid = msg.cid();
+	val = msg.val();
+	time = msg.time();
+}
+
+RedFetchListDBProto_s::RedFetchListDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RedFetchListDBProto_s::CreateInit() {
+	return 0;
+}
+
+int RedFetchListDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void RedFetchListDBProto_s::write_to_pbmsg(::proto_ff::RedFetchListDBProto & msg) const {
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
+		::proto_ff::RedFetchDBProto* temp_info = msg.add_info();
+		info[i].write_to_pbmsg(*temp_info);
+	}
+}
+
+void RedFetchListDBProto_s::read_from_pbmsg(const ::proto_ff::RedFetchListDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RedFetchListDBProto_s));
+	info.resize(msg.info_size());
+	for(int32_t i = 0; i < (int32_t)info.size(); ++i) {
+		const ::proto_ff::RedFetchDBProto & temp_info = msg.info(i);
+		info[i].read_from_pbmsg(temp_info);
+	}
+}
+
+RedSendDBProto_s::RedSendDBProto_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RedSendDBProto_s::CreateInit() {
+	idx = (uint32_t)0;
+	cfgid = (int32_t)0;
+	sender = (uint64_t)0;
+	sendtime = (uint64_t)0;
+	finish = (int32_t)0;
+	return 0;
+}
+
+int RedSendDBProto_s::ResumeInit() {
+	return 0;
+}
+
+void RedSendDBProto_s::write_to_pbmsg(::proto_ff::RedSendDBProto & msg) const {
+	msg.set_idx((uint32_t)idx);
+	msg.set_cfgid((int32_t)cfgid);
+	msg.set_sender((uint64_t)sender);
+	msg.set_sendtime((uint64_t)sendtime);
+	msg.set_finish((int32_t)finish);
+	::proto_ff::RedFetchListDBProto* temp_fetch = msg.mutable_fetch();
+	fetch.write_to_pbmsg(*temp_fetch);
+}
+
+void RedSendDBProto_s::read_from_pbmsg(const ::proto_ff::RedSendDBProto & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RedSendDBProto_s));
+	idx = msg.idx();
+	cfgid = msg.cfgid();
+	sender = msg.sender();
+	sendtime = msg.sendtime();
+	word = msg.word();
+	finish = msg.finish();
+	const ::proto_ff::RedFetchListDBProto & temp_fetch = msg.fetch();
+	fetch.read_from_pbmsg(temp_fetch);
+}
+
+RedDBData_s::RedDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RedDBData_s::CreateInit() {
+	freshtime = (uint64_t)0;
+	faction_id = (uint32_t)0;
+	return 0;
+}
+
+int RedDBData_s::ResumeInit() {
+	return 0;
+}
+
+void RedDBData_s::write_to_pbmsg(::proto_ff::RedDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)wait.size(); ++i) {
+		::proto_ff::RedWaitDBProto* temp_wait = msg.add_wait();
+		wait[i].write_to_pbmsg(*temp_wait);
+	}
+	for(int32_t i = 0; i < (int32_t)trigger_lst.size(); ++i) {
+		::proto_ff::RedTriggerDBProto* temp_trigger_lst = msg.add_trigger_lst();
+		trigger_lst[i].write_to_pbmsg(*temp_trigger_lst);
+	}
+	msg.set_freshtime((uint64_t)freshtime);
+	for(int32_t i = 0; i < (int32_t)send.size(); ++i) {
+		::proto_ff::RedSendDBProto* temp_send = msg.add_send();
+		send[i].write_to_pbmsg(*temp_send);
+	}
+	msg.set_faction_id((uint32_t)faction_id);
+}
+
+void RedDBData_s::read_from_pbmsg(const ::proto_ff::RedDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RedDBData_s));
+	wait.resize(msg.wait_size());
+	for(int32_t i = 0; i < (int32_t)wait.size(); ++i) {
+		const ::proto_ff::RedWaitDBProto & temp_wait = msg.wait(i);
+		wait[i].read_from_pbmsg(temp_wait);
+	}
+	trigger_lst.resize(msg.trigger_lst_size());
+	for(int32_t i = 0; i < (int32_t)trigger_lst.size(); ++i) {
+		const ::proto_ff::RedTriggerDBProto & temp_trigger_lst = msg.trigger_lst(i);
+		trigger_lst[i].read_from_pbmsg(temp_trigger_lst);
+	}
+	freshtime = msg.freshtime();
+	send.resize(msg.send_size());
+	for(int32_t i = 0; i < (int32_t)send.size(); ++i) {
+		const ::proto_ff::RedSendDBProto & temp_send = msg.send(i);
+		send[i].read_from_pbmsg(temp_send);
+	}
+	faction_id = msg.faction_id();
 }
 
 RoleMirrorData_s::RoleMirrorData_s() {
@@ -4519,6 +5052,273 @@ void FactionDelDBReq_s::write_to_pbmsg(::proto_ff::FactionDelDBReq & msg) const 
 void FactionDelDBReq_s::read_from_pbmsg(const ::proto_ff::FactionDelDBReq & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionDelDBReq_s));
 	faction_id = msg.faction_id();
+}
+
+FactionRedDBReq_s::FactionRedDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionRedDBReq_s::CreateInit() {
+	return 0;
+}
+
+int FactionRedDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void FactionRedDBReq_s::write_to_pbmsg(::proto_ff::FactionRedDBReq & msg) const {
+}
+
+void FactionRedDBReq_s::read_from_pbmsg(const ::proto_ff::FactionRedDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionRedDBReq_s));
+}
+
+FactionRedDBRsp_s::FactionRedDBRsp_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionRedDBRsp_s::CreateInit() {
+	finish = (int32_t)0;
+	return 0;
+}
+
+int FactionRedDBRsp_s::ResumeInit() {
+	return 0;
+}
+
+void FactionRedDBRsp_s::write_to_pbmsg(::proto_ff::FactionRedDBRsp & msg) const {
+	for(int32_t i = 0; i < (int32_t)data_lst.size(); ++i) {
+		::proto_ff::RedDBData* temp_data_lst = msg.add_data_lst();
+		data_lst[i].write_to_pbmsg(*temp_data_lst);
+	}
+	msg.set_finish((int32_t)finish);
+}
+
+void FactionRedDBRsp_s::read_from_pbmsg(const ::proto_ff::FactionRedDBRsp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionRedDBRsp_s));
+	data_lst.resize(msg.data_lst_size());
+	for(int32_t i = 0; i < (int32_t)data_lst.size(); ++i) {
+		const ::proto_ff::RedDBData & temp_data_lst = msg.data_lst(i);
+		data_lst[i].read_from_pbmsg(temp_data_lst);
+	}
+	finish = msg.finish();
+}
+
+FactionRedSaveDBReq_s::FactionRedSaveDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionRedSaveDBReq_s::CreateInit() {
+	faction_id = (uint32_t)0;
+	return 0;
+}
+
+int FactionRedSaveDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void FactionRedSaveDBReq_s::write_to_pbmsg(::proto_ff::FactionRedSaveDBReq & msg) const {
+	msg.set_faction_id((uint32_t)faction_id);
+	::proto_ff::RedDBData* temp_data0 = msg.mutable_data0();
+	data0.write_to_pbmsg(*temp_data0);
+	::proto_ff::RedDBData* temp_data1 = msg.mutable_data1();
+	data1.write_to_pbmsg(*temp_data1);
+	::proto_ff::RedDBData* temp_data2 = msg.mutable_data2();
+	data2.write_to_pbmsg(*temp_data2);
+}
+
+void FactionRedSaveDBReq_s::read_from_pbmsg(const ::proto_ff::FactionRedSaveDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionRedSaveDBReq_s));
+	faction_id = msg.faction_id();
+	const ::proto_ff::RedDBData & temp_data0 = msg.data0();
+	data0.read_from_pbmsg(temp_data0);
+	const ::proto_ff::RedDBData & temp_data1 = msg.data1();
+	data1.read_from_pbmsg(temp_data1);
+	const ::proto_ff::RedDBData & temp_data2 = msg.data2();
+	data2.read_from_pbmsg(temp_data2);
+}
+
+FactionRedDelDBReq_s::FactionRedDelDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FactionRedDelDBReq_s::CreateInit() {
+	faction_id = (uint32_t)0;
+	return 0;
+}
+
+int FactionRedDelDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void FactionRedDelDBReq_s::write_to_pbmsg(::proto_ff::FactionRedDelDBReq & msg) const {
+	msg.set_faction_id((uint32_t)faction_id);
+}
+
+void FactionRedDelDBReq_s::read_from_pbmsg(const ::proto_ff::FactionRedDelDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct FactionRedDelDBReq_s));
+	faction_id = msg.faction_id();
+}
+
+RoleRedDBReq_s::RoleRedDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleRedDBReq_s::CreateInit() {
+	return 0;
+}
+
+int RoleRedDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void RoleRedDBReq_s::write_to_pbmsg(::proto_ff::RoleRedDBReq & msg) const {
+}
+
+void RoleRedDBReq_s::read_from_pbmsg(const ::proto_ff::RoleRedDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleRedDBReq_s));
+}
+
+RoleRedDBRsp_s::RoleRedDBRsp_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleRedDBRsp_s::CreateInit() {
+	finish = (int32_t)0;
+	return 0;
+}
+
+int RoleRedDBRsp_s::ResumeInit() {
+	return 0;
+}
+
+void RoleRedDBRsp_s::write_to_pbmsg(::proto_ff::RoleRedDBRsp & msg) const {
+	for(int32_t i = 0; i < (int32_t)data_lst.size(); ++i) {
+		::proto_ff::RoleRedDBData* temp_data_lst = msg.add_data_lst();
+		data_lst[i].write_to_pbmsg(*temp_data_lst);
+	}
+	msg.set_finish((int32_t)finish);
+}
+
+void RoleRedDBRsp_s::read_from_pbmsg(const ::proto_ff::RoleRedDBRsp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct RoleRedDBRsp_s));
+	data_lst.resize(msg.data_lst_size());
+	for(int32_t i = 0; i < (int32_t)data_lst.size(); ++i) {
+		const ::proto_ff::RoleRedDBData & temp_data_lst = msg.data_lst(i);
+		data_lst[i].read_from_pbmsg(temp_data_lst);
+	}
+	finish = msg.finish();
+}
+
+CenterLoadRoleDBReq_s::CenterLoadRoleDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int CenterLoadRoleDBReq_s::CreateInit() {
+	cid = (uint64_t)0;
+	cmd = (uint32_t)0;
+	return 0;
+}
+
+int CenterLoadRoleDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void CenterLoadRoleDBReq_s::write_to_pbmsg(::proto_ff::CenterLoadRoleDBReq & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_table_name((const char*)table_name.data());
+	msg.set_cmd((uint32_t)cmd);
+}
+
+void CenterLoadRoleDBReq_s::read_from_pbmsg(const ::proto_ff::CenterLoadRoleDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CenterLoadRoleDBReq_s));
+	cid = msg.cid();
+	table_name = msg.table_name();
+	cmd = msg.cmd();
+}
+
+CenterLoadRoleDBRsp_s::CenterLoadRoleDBRsp_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int CenterLoadRoleDBRsp_s::CreateInit() {
+	cid = (uint64_t)0;
+	return 0;
+}
+
+int CenterLoadRoleDBRsp_s::ResumeInit() {
+	return 0;
+}
+
+void CenterLoadRoleDBRsp_s::write_to_pbmsg(::proto_ff::CenterLoadRoleDBRsp & msg) const {
+	msg.set_cid((uint64_t)cid);
+}
+
+void CenterLoadRoleDBRsp_s::read_from_pbmsg(const ::proto_ff::CenterLoadRoleDBRsp & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CenterLoadRoleDBRsp_s));
+	cid = msg.cid();
+	data = msg.data();
+}
+
+CenterSaveRoleDBReq_s::CenterSaveRoleDBReq_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int CenterSaveRoleDBReq_s::CreateInit() {
+	cid = (uint64_t)0;
+	return 0;
+}
+
+int CenterSaveRoleDBReq_s::ResumeInit() {
+	return 0;
+}
+
+void CenterSaveRoleDBReq_s::write_to_pbmsg(::proto_ff::CenterSaveRoleDBReq & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_table_name((const char*)table_name.data());
+}
+
+void CenterSaveRoleDBReq_s::read_from_pbmsg(const ::proto_ff::CenterSaveRoleDBReq & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct CenterSaveRoleDBReq_s));
+	cid = msg.cid();
+	data = msg.data();
+	table_name = msg.table_name();
 }
 
 }

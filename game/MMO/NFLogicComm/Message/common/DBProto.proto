@@ -59,6 +59,13 @@ message RoleDBBaseData
   optional int64 arenacoin		= 31;	//竞技币
   optional int64 godevil_exp	= 32;	//神魔经验
   optional int32 godevil_level  = 33;	//神魔等级
+  optional uint32 login_day		= 34;   //登录天数
+  optional uint64 login_day_time = 35;	//上一次计算登录天数的时间
+  optional int64  best_aq		= 36;	//神机装备暗器精华
+  optional int64  best_lj		= 37;	//神机装备灵甲精华
+
+
+
 }
 
 
@@ -427,10 +434,14 @@ message AssistDBData
 {
   optional uint64 resetTime 	= 1; 	//上次重置次数时间
   optional int32 dayPrestige = 2;		//今日获得声望
-  optional int32 sendNum = 3;			//当日发起
-  optional int32 helpNum = 4;			//当日帮助者领取的礼包数
+  optional int32 sendNum = 3;			//当日发起求援次数（完成）
+  optional int32 helpNum = 4;			//当日应援次数（完成)
   optional int32 allSendNum = 5;		//完成求助总次数
   optional int32 allHelpNum = 6;		//完成援助总次数
+  optional int32 recvSendGiftNum = 7; //今日领取求援礼包数量
+  optional int32 recvHelpGiftNum = 8; //今日领取援助礼包数量
+  repeated int32 rewardIds = 9;		//已经领取过的id
+  repeated ComPair64 thanksInfo = 10;	//感谢时信息
 }
 
 message TitleDBData
@@ -456,7 +467,8 @@ message GodEvilTaskDBProto
 {
   optional int32 stage = 1;					//当前阶段
   optional GodEvilMultCondDBProto cond = 2;	//条件
-  optional int32 finish = 3;					//是否完成所有的神魔任务
+  optional int32 finish = 3;					//是否完成所有的神魔任务(主界面的任务)
+  optional int32 accept = 4;					//是否接取过第一个任务(主界面的任务)
 }
 
 //神魔 DB数据
@@ -465,8 +477,49 @@ message GodEvilDBData
   optional int32 fetch = 1;				//是否已领取预告奖励
   optional GodEvilTaskDBProto task = 2;	//神魔任务
   optional int32 type = 3;				//激活的神魔类型
-  optional uint64 last_time = 5;			//最近一次神魔变身的时间
+  optional uint64 last_time = 4;			//最近一次神魔变身的时间
+  optional int32 vessel_lev = 5;			//神魔鼎特权等级
+  optional int32 mirror_lev = 6;			//轮回境特权等级
+  optional int64 extra_exp = 7;			//额外存储的神魔经验
 }
+
+//充值 DB数据
+message PayDBData
+{
+  repeated uint32 db_id = 1;		//已发货的离线充值的dbid
+  repeated string product = 2;	//已充值过的计费点
+  optional uint32 relrmb = 3;		//累计充值人名币
+  optional uint32 rmb = 4;		//累计充值人名币(运营活动)
+  optional uint32 fakermb = 5;	//web后台模拟充值的人名币
+  optional uint32 todayrmb = 6;	//今日充值人名币
+  optional uint64 todaytime = 7;	//今日最近一次充值时间
+}
+
+//帮派工资
+message FactionDBSalary
+{
+  optional int32 id = 1;
+  optional int32 cur = 2;
+  optional int32 fetch = 3;
+}
+
+//角色帮派DB数据
+message RoleFactionDBData
+{
+  optional int32 donate_num = 1;		//已经捐献的次数
+  optional uint64 donate_fresh = 2;	//最近一次刷新捐献次数的时间
+  repeated FactionDBSalary salary = 3;//工资
+  optional uint64 salary_fresh = 4;	//最近一次刷新工资的时间
+}
+
+//角色神机装备数据
+message RoleBestEQDBData
+{
+  repeated BestEQEquipInfo equips = 1;	//所有的神机装备
+  repeated BestEQSlotInfo	 slots = 2;		//神机装备槽位
+  repeated BestEQTask	tasks = 3;			//神机装备前置任务
+}
+
 
 // 角色DB数据
 message RoleDBData
@@ -496,8 +549,80 @@ message RoleDBData
   optional ConvoyData				convoy				= 23;	//护送
   optional ArmorDBData			armor				= 24;	//玄功真甲
   optional AssistDBData			assist				= 25;	//boss助战
-  optional TitleDBData      title       = 26;
+  optional TitleDBData			title				= 26;
+  optional GodEvilDBData			godevil				= 27;   //神魔数据
+  optional OccupationMissionData occupatoin = 28; //转职数据
+  optional PayDBData				pay					= 29;	//充值数据
+  optional RoleFactionDBData      role_faction        = 30;   //角色帮派数据
+  optional RoleBestEQDBData		best_equip			= 31;	//神机装备
 }
+
+//待发送红包信息
+message RedWaitDBProto
+{
+  optional uint32 idx = 1;			//唯一索引
+  optional int32 cfgid = 2;			//配置ID
+  optional uint64 time = 3;			//时间
+}
+
+//红包触发次数信息
+message RedTriggerDBProto
+{
+  optional int32 cfgid = 1;			//配置ID
+  optional int32 count = 2;			//已触发次数
+}
+
+//角色红包DB数据
+message RoleRedDBData
+{
+  optional uint32 bdia = 1;						//可额外领取帮派红包的绑钻
+  optional uint32 magic = 2;						//可额外领取帮派红包的魔晶
+  optional uint32 todaynum = 3;					//今日已发送红包的次数
+  optional uint32 todaymagic = 4;					//今日已领取魔晶
+  optional uint32 todaybdia = 5;					//今日已领取绑钻
+  optional uint64 freshtime = 6;					//最近刷新今日次数的时间
+  repeated int32 send_lst = 7;					//已发送红包配置ID列表
+  repeated RedWaitDBProto wait_lst = 8;			//待发送红包
+  optional uint64 cid = 9;						//角色cid
+  repeated RedTriggerDBProto trigger_lst = 10;	//今日触发次数
+}
+
+//已领取红包
+message RedFetchDBProto
+{
+  optional uint64 cid = 1;		//角色cid
+  optional uint32 val = 2;		//领取金额
+  optional uint64 time = 3;		//领取时间
+};
+//已领取红包列表
+message RedFetchListDBProto
+{
+  repeated RedFetchDBProto info = 1;
+}
+
+//已发送红包信息
+message RedSendDBProto
+{
+  optional uint32 idx = 1;				//唯一索引
+  optional int32 cfgid = 2;				//配置ID
+  optional uint64 sender = 3;				//发送者
+  optional uint64 sendtime = 4;			//红包产生的时间
+  optional bytes word = 5;				//红包寄语
+  optional int32 finish = 6;				//是否领取完了
+  optional RedFetchListDBProto fetch = 7; //已领取的金额
+};
+
+//红包DB数据
+message RedDBData
+{
+  repeated RedWaitDBProto wait = 1;			//等待发送红包
+  repeated RedTriggerDBProto trigger_lst = 2;	//今日触发次数
+  optional uint64 freshtime = 3;				//最近刷新今日次数的时间
+  repeated RedSendDBProto send = 4;			//已发送红包
+  optional uint32 faction_id = 5;				//帮派ID，非帮派红包数据为0
+}
+
+
 
 //--------------------------- 角色镜像数据  ------------------------------
 //角色镜像数据
@@ -662,7 +787,7 @@ message RoleInfoDBRsp
   optional RoleDBData info = 5;
 }
 
-//更新角色信息  DB_ROLE_INFO_UPDATE_REQ
+//更新角色信息  DB_ROLE_INFO_UPDATE_REQ	
 message RoleInfoUpdateDBReq
 {
   required uint64 cid = 1;
@@ -930,7 +1055,7 @@ message ActDBRsp
 {
   repeated ActDBProto lst = 1;
 }
-//保存活动数据 DB_ACT_SAVE_DATA_REQ
+//保存活动数据 DB_ACT_SAVE_DATA_REQ	
 message ActSaveDBReq
 {
   repeated ActDBProto lst = 1;
@@ -999,11 +1124,11 @@ message RoleMirrorDBRsp
 }
 
 // ---------------------------------------  帮派  --------------------------------
-//获取帮派数据 DB_FACTION_GET_DATA_REQ
+//获取帮派数据 DB_FACTION_GET_DATA_REQ	
 message FactionDataDBReq
 {
 }
-//DB返回帮派数据 DB_FACTION_GET_DATA_RSP
+//DB返回帮派数据 DB_FACTION_GET_DATA_RSP	
 message FactionDataDBRsp
 {
   repeated FactionAllDBData data_lst = 1;
@@ -1018,4 +1143,61 @@ message FactionSaveDBReq
 message FactionDelDBReq
 {
   optional uint32 faction_id = 1;
+}
+
+//---------------------------------- 帮派红包---------------------------------------------
+//获取帮派红包数据 DB_RED_REQ
+message FactionRedDBReq
+{
+}
+//DB返回帮派红包数据  DB_RED_RSP
+message FactionRedDBRsp
+{
+  repeated RedDBData data_lst = 1;
+  optional int32 finish = 2;
+}
+//保存帮派数据  DB_RED_SAVE_REQ
+message FactionRedSaveDBReq
+{
+  required uint32 faction_id = 1;
+  required RedDBData data0 = 2;
+  required RedDBData data1 = 3;
+  required RedDBData data2 = 4;
+}
+//删除帮派红包数据  DB_RED_DEL_REQ
+message FactionRedDelDBReq
+{
+  required uint32 faction_id = 1;
+}
+//获取所有玩家红包数据 DB_RED_ROLE_REQ
+message RoleRedDBReq
+{
+}
+//DB返回帮派红包数据  DB_RED_ROLE_RSP
+message RoleRedDBRsp
+{
+  repeated RoleRedDBData data_lst = 1;
+  optional int32 finish = 2;
+}
+
+//---------------------------------- 中心服 角色 DB数据表 ---------------------------------
+//中心服加载角色数据(用于玩家数据存放在中心服，通用的DB请求) DB_CENTER_LOAD_ROLE_REQ
+message CenterLoadRoleDBReq
+{
+  required uint64 cid = 1;		//角色cid
+  required string table_name = 2;	//表名
+  required uint32 cmd = 3;		//DB数据通过哪个命令id返回
+}
+//返回中心服 角色DB数据
+message CenterLoadRoleDBRsp
+{
+  required uint64 cid = 1;		//角色cid
+  required bytes data = 2;		//DB数据
+}
+//保存中心服 角色DB数据  DB_CENTER_SAVE_ROLE_REQ
+message CenterSaveRoleDBReq
+{
+  required uint64 cid = 1;		//角色cid
+  required bytes data = 2;		//数据
+  required string table_name = 3;	//表名
 }

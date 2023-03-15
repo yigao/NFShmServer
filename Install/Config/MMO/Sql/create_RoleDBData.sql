@@ -25,6 +25,11 @@ CREATE TABLE IF NOT EXISTS RoleDBData (
  armor BLOB /*!99104 COMPRESSED */ ,
  assist BLOB /*!99104 COMPRESSED */ ,
  title BLOB /*!99104 COMPRESSED */ ,
+ godevil BLOB /*!99104 COMPRESSED */ ,
+ occupatoin BLOB /*!99104 COMPRESSED */ ,
+ pay BLOB /*!99104 COMPRESSED */ ,
+ role_faction BLOB /*!99104 COMPRESSED */ ,
+ best_equip BLOB /*!99104 COMPRESSED */ ,
  INDEX(zid),
  INDEX(uid),
  PRIMARY KEY(cid))  ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -55,4 +60,9 @@ alter table RoleDBData add column convoy BLOB ;
 alter table RoleDBData add column armor BLOB ;
 alter table RoleDBData add column assist BLOB ;
 alter table RoleDBData add column title BLOB ;
+alter table RoleDBData add column godevil BLOB ;
+alter table RoleDBData add column occupatoin BLOB ;
+alter table RoleDBData add column pay BLOB ;
+alter table RoleDBData add column role_faction BLOB ;
+alter table RoleDBData add column best_equip BLOB ;
 */

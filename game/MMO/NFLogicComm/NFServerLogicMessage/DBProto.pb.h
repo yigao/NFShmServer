@@ -89,7 +89,18 @@ class GodEvilCondDBProto;
 class GodEvilMultCondDBProto;
 class GodEvilTaskDBProto;
 class GodEvilDBData;
+class PayDBData;
+class FactionDBSalary;
+class RoleFactionDBData;
+class RoleBestEQDBData;
 class RoleDBData;
+class RedWaitDBProto;
+class RedTriggerDBProto;
+class RoleRedDBData;
+class RedFetchDBProto;
+class RedFetchListDBProto;
+class RedSendDBProto;
+class RedDBData;
 class RoleMirrorData;
 class FactionMemDBProto;
 class FactionMultMemDBProto;
@@ -156,6 +167,15 @@ class FactionDataDBReq;
 class FactionDataDBRsp;
 class FactionSaveDBReq;
 class FactionDelDBReq;
+class FactionRedDBReq;
+class FactionRedDBRsp;
+class FactionRedSaveDBReq;
+class FactionRedDelDBReq;
+class RoleRedDBReq;
+class RoleRedDBRsp;
+class CenterLoadRoleDBReq;
+class CenterLoadRoleDBRsp;
+class CenterSaveRoleDBReq;
 
 enum RoleMirrorData_Type {
   RoleMirrorData_Type_Role = 1,
@@ -596,6 +616,34 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 godevil_level() const;
   inline void set_godevil_level(::google::protobuf::int32 value);
 
+  // optional uint32 login_day = 34;
+  inline bool has_login_day() const;
+  inline void clear_login_day();
+  static const int kLoginDayFieldNumber = 34;
+  inline ::google::protobuf::uint32 login_day() const;
+  inline void set_login_day(::google::protobuf::uint32 value);
+
+  // optional uint64 login_day_time = 35;
+  inline bool has_login_day_time() const;
+  inline void clear_login_day_time();
+  static const int kLoginDayTimeFieldNumber = 35;
+  inline ::google::protobuf::uint64 login_day_time() const;
+  inline void set_login_day_time(::google::protobuf::uint64 value);
+
+  // optional int64 best_aq = 36;
+  inline bool has_best_aq() const;
+  inline void clear_best_aq();
+  static const int kBestAqFieldNumber = 36;
+  inline ::google::protobuf::int64 best_aq() const;
+  inline void set_best_aq(::google::protobuf::int64 value);
+
+  // optional int64 best_lj = 37;
+  inline bool has_best_lj() const;
+  inline void clear_best_lj();
+  static const int kBestLjFieldNumber = 37;
+  inline ::google::protobuf::int64 best_lj() const;
+  inline void set_best_lj(::google::protobuf::int64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RoleDBBaseData)
  private:
   inline void set_has_name();
@@ -664,6 +712,14 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   inline void clear_has_godevil_exp();
   inline void set_has_godevil_level();
   inline void clear_has_godevil_level();
+  inline void set_has_login_day();
+  inline void clear_has_login_day();
+  inline void set_has_login_day_time();
+  inline void clear_has_login_day_time();
+  inline void set_has_best_aq();
+  inline void clear_has_best_aq();
+  inline void set_has_best_lj();
+  inline void clear_has_best_lj();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -700,9 +756,13 @@ class RoleDBBaseData : public ::google::protobuf::Message {
   ::google::protobuf::int32 viplv_;
   ::google::protobuf::int32 godevil_level_;
   ::google::protobuf::int64 godevil_exp_;
+  ::google::protobuf::uint64 login_day_time_;
+  ::google::protobuf::int64 best_aq_;
+  ::google::protobuf::int64 best_lj_;
+  ::google::protobuf::uint32 login_day_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(37 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProto_2eproto();
   friend void protobuf_AssignDesc_DBProto_2eproto();
@@ -5724,6 +5784,44 @@ class AssistDBData : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 allhelpnum() const;
   inline void set_allhelpnum(::google::protobuf::int32 value);
 
+  // optional int32 recvSendGiftNum = 7;
+  inline bool has_recvsendgiftnum() const;
+  inline void clear_recvsendgiftnum();
+  static const int kRecvSendGiftNumFieldNumber = 7;
+  inline ::google::protobuf::int32 recvsendgiftnum() const;
+  inline void set_recvsendgiftnum(::google::protobuf::int32 value);
+
+  // optional int32 recvHelpGiftNum = 8;
+  inline bool has_recvhelpgiftnum() const;
+  inline void clear_recvhelpgiftnum();
+  static const int kRecvHelpGiftNumFieldNumber = 8;
+  inline ::google::protobuf::int32 recvhelpgiftnum() const;
+  inline void set_recvhelpgiftnum(::google::protobuf::int32 value);
+
+  // repeated int32 rewardIds = 9;
+  inline int rewardids_size() const;
+  inline void clear_rewardids();
+  static const int kRewardIdsFieldNumber = 9;
+  inline ::google::protobuf::int32 rewardids(int index) const;
+  inline void set_rewardids(int index, ::google::protobuf::int32 value);
+  inline void add_rewardids(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      rewardids() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_rewardids();
+
+  // repeated .proto_ff.ComPair64 thanksInfo = 10;
+  inline int thanksinfo_size() const;
+  inline void clear_thanksinfo();
+  static const int kThanksInfoFieldNumber = 10;
+  inline const ::proto_ff::ComPair64& thanksinfo(int index) const;
+  inline ::proto_ff::ComPair64* mutable_thanksinfo(int index);
+  inline ::proto_ff::ComPair64* add_thanksinfo();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+      thanksinfo() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+      mutable_thanksinfo();
+
   // @@protoc_insertion_point(class_scope:proto_ff.AssistDBData)
  private:
   inline void set_has_resettime();
@@ -5738,6 +5836,10 @@ class AssistDBData : public ::google::protobuf::Message {
   inline void clear_has_allsendnum();
   inline void set_has_allhelpnum();
   inline void clear_has_allhelpnum();
+  inline void set_has_recvsendgiftnum();
+  inline void clear_has_recvsendgiftnum();
+  inline void set_has_recvhelpgiftnum();
+  inline void clear_has_recvhelpgiftnum();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -5747,9 +5849,13 @@ class AssistDBData : public ::google::protobuf::Message {
   ::google::protobuf::int32 helpnum_;
   ::google::protobuf::int32 allsendnum_;
   ::google::protobuf::int32 allhelpnum_;
+  ::google::protobuf::int32 recvsendgiftnum_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > rewardids_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 > thanksinfo_;
+  ::google::protobuf::int32 recvhelpgiftnum_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProto_2eproto();
   friend void protobuf_AssignDesc_DBProto_2eproto();
@@ -6119,6 +6225,13 @@ class GodEvilTaskDBProto : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 finish() const;
   inline void set_finish(::google::protobuf::int32 value);
 
+  // optional int32 accept = 4;
+  inline bool has_accept() const;
+  inline void clear_accept();
+  static const int kAcceptFieldNumber = 4;
+  inline ::google::protobuf::int32 accept() const;
+  inline void set_accept(::google::protobuf::int32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.GodEvilTaskDBProto)
  private:
   inline void set_has_stage();
@@ -6127,15 +6240,18 @@ class GodEvilTaskDBProto : public ::google::protobuf::Message {
   inline void clear_has_cond();
   inline void set_has_finish();
   inline void clear_has_finish();
+  inline void set_has_accept();
+  inline void clear_has_accept();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::proto_ff::GodEvilMultCondDBProto* cond_;
   ::google::protobuf::int32 stage_;
   ::google::protobuf::int32 finish_;
+  ::google::protobuf::int32 accept_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProto_2eproto();
   friend void protobuf_AssignDesc_DBProto_2eproto();
@@ -6223,12 +6339,33 @@ class GodEvilDBData : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 type() const;
   inline void set_type(::google::protobuf::int32 value);
 
-  // optional uint64 last_time = 5;
+  // optional uint64 last_time = 4;
   inline bool has_last_time() const;
   inline void clear_last_time();
-  static const int kLastTimeFieldNumber = 5;
+  static const int kLastTimeFieldNumber = 4;
   inline ::google::protobuf::uint64 last_time() const;
   inline void set_last_time(::google::protobuf::uint64 value);
+
+  // optional int32 vessel_lev = 5;
+  inline bool has_vessel_lev() const;
+  inline void clear_vessel_lev();
+  static const int kVesselLevFieldNumber = 5;
+  inline ::google::protobuf::int32 vessel_lev() const;
+  inline void set_vessel_lev(::google::protobuf::int32 value);
+
+  // optional int32 mirror_lev = 6;
+  inline bool has_mirror_lev() const;
+  inline void clear_mirror_lev();
+  static const int kMirrorLevFieldNumber = 6;
+  inline ::google::protobuf::int32 mirror_lev() const;
+  inline void set_mirror_lev(::google::protobuf::int32 value);
+
+  // optional int64 extra_exp = 7;
+  inline bool has_extra_exp() const;
+  inline void clear_extra_exp();
+  static const int kExtraExpFieldNumber = 7;
+  inline ::google::protobuf::int64 extra_exp() const;
+  inline void set_extra_exp(::google::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.GodEvilDBData)
  private:
@@ -6240,6 +6377,12 @@ class GodEvilDBData : public ::google::protobuf::Message {
   inline void clear_has_type();
   inline void set_has_last_time();
   inline void clear_has_last_time();
+  inline void set_has_vessel_lev();
+  inline void clear_has_vessel_lev();
+  inline void set_has_mirror_lev();
+  inline void clear_has_mirror_lev();
+  inline void set_has_extra_exp();
+  inline void clear_has_extra_exp();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -6247,6 +6390,378 @@ class GodEvilDBData : public ::google::protobuf::Message {
   ::google::protobuf::int32 fetch_;
   ::google::protobuf::int32 type_;
   ::google::protobuf::uint64 last_time_;
+  ::google::protobuf::int32 vessel_lev_;
+  ::google::protobuf::int32 mirror_lev_;
+  ::google::protobuf::int64 extra_exp_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static GodEvilDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PayDBData : public ::google::protobuf::Message {
+ public:
+  PayDBData();
+  virtual ~PayDBData();
+
+  PayDBData(const PayDBData& from);
+
+  inline PayDBData& operator=(const PayDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PayDBData& default_instance();
+
+  void Swap(PayDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  PayDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PayDBData& from);
+  void MergeFrom(const PayDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint32 db_id = 1;
+  inline int db_id_size() const;
+  inline void clear_db_id();
+  static const int kDbIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 db_id(int index) const;
+  inline void set_db_id(int index, ::google::protobuf::uint32 value);
+  inline void add_db_id(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      db_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_db_id();
+
+  // repeated string product = 2;
+  inline int product_size() const;
+  inline void clear_product();
+  static const int kProductFieldNumber = 2;
+  inline const ::std::string& product(int index) const;
+  inline ::std::string* mutable_product(int index);
+  inline void set_product(int index, const ::std::string& value);
+  inline void set_product(int index, const char* value);
+  inline void set_product(int index, const char* value, size_t size);
+  inline ::std::string* add_product();
+  inline void add_product(const ::std::string& value);
+  inline void add_product(const char* value);
+  inline void add_product(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& product() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_product();
+
+  // optional uint32 relrmb = 3;
+  inline bool has_relrmb() const;
+  inline void clear_relrmb();
+  static const int kRelrmbFieldNumber = 3;
+  inline ::google::protobuf::uint32 relrmb() const;
+  inline void set_relrmb(::google::protobuf::uint32 value);
+
+  // optional uint32 rmb = 4;
+  inline bool has_rmb() const;
+  inline void clear_rmb();
+  static const int kRmbFieldNumber = 4;
+  inline ::google::protobuf::uint32 rmb() const;
+  inline void set_rmb(::google::protobuf::uint32 value);
+
+  // optional uint32 fakermb = 5;
+  inline bool has_fakermb() const;
+  inline void clear_fakermb();
+  static const int kFakermbFieldNumber = 5;
+  inline ::google::protobuf::uint32 fakermb() const;
+  inline void set_fakermb(::google::protobuf::uint32 value);
+
+  // optional uint32 todayrmb = 6;
+  inline bool has_todayrmb() const;
+  inline void clear_todayrmb();
+  static const int kTodayrmbFieldNumber = 6;
+  inline ::google::protobuf::uint32 todayrmb() const;
+  inline void set_todayrmb(::google::protobuf::uint32 value);
+
+  // optional uint64 todaytime = 7;
+  inline bool has_todaytime() const;
+  inline void clear_todaytime();
+  static const int kTodaytimeFieldNumber = 7;
+  inline ::google::protobuf::uint64 todaytime() const;
+  inline void set_todaytime(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PayDBData)
+ private:
+  inline void set_has_relrmb();
+  inline void clear_has_relrmb();
+  inline void set_has_rmb();
+  inline void clear_has_rmb();
+  inline void set_has_fakermb();
+  inline void clear_has_fakermb();
+  inline void set_has_todayrmb();
+  inline void clear_has_todayrmb();
+  inline void set_has_todaytime();
+  inline void clear_has_todaytime();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > db_id_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> product_;
+  ::google::protobuf::uint32 relrmb_;
+  ::google::protobuf::uint32 rmb_;
+  ::google::protobuf::uint32 fakermb_;
+  ::google::protobuf::uint32 todayrmb_;
+  ::google::protobuf::uint64 todaytime_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static PayDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FactionDBSalary : public ::google::protobuf::Message {
+ public:
+  FactionDBSalary();
+  virtual ~FactionDBSalary();
+
+  FactionDBSalary(const FactionDBSalary& from);
+
+  inline FactionDBSalary& operator=(const FactionDBSalary& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FactionDBSalary& default_instance();
+
+  void Swap(FactionDBSalary* other);
+
+  // implements Message ----------------------------------------------
+
+  FactionDBSalary* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FactionDBSalary& from);
+  void MergeFrom(const FactionDBSalary& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::int32 id() const;
+  inline void set_id(::google::protobuf::int32 value);
+
+  // optional int32 cur = 2;
+  inline bool has_cur() const;
+  inline void clear_cur();
+  static const int kCurFieldNumber = 2;
+  inline ::google::protobuf::int32 cur() const;
+  inline void set_cur(::google::protobuf::int32 value);
+
+  // optional int32 fetch = 3;
+  inline bool has_fetch() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 3;
+  inline ::google::protobuf::int32 fetch() const;
+  inline void set_fetch(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FactionDBSalary)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_cur();
+  inline void clear_has_cur();
+  inline void set_has_fetch();
+  inline void clear_has_fetch();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 id_;
+  ::google::protobuf::int32 cur_;
+  ::google::protobuf::int32 fetch_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static FactionDBSalary* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RoleFactionDBData : public ::google::protobuf::Message {
+ public:
+  RoleFactionDBData();
+  virtual ~RoleFactionDBData();
+
+  RoleFactionDBData(const RoleFactionDBData& from);
+
+  inline RoleFactionDBData& operator=(const RoleFactionDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RoleFactionDBData& default_instance();
+
+  void Swap(RoleFactionDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  RoleFactionDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RoleFactionDBData& from);
+  void MergeFrom(const RoleFactionDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 donate_num = 1;
+  inline bool has_donate_num() const;
+  inline void clear_donate_num();
+  static const int kDonateNumFieldNumber = 1;
+  inline ::google::protobuf::int32 donate_num() const;
+  inline void set_donate_num(::google::protobuf::int32 value);
+
+  // optional uint64 donate_fresh = 2;
+  inline bool has_donate_fresh() const;
+  inline void clear_donate_fresh();
+  static const int kDonateFreshFieldNumber = 2;
+  inline ::google::protobuf::uint64 donate_fresh() const;
+  inline void set_donate_fresh(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.FactionDBSalary salary = 3;
+  inline int salary_size() const;
+  inline void clear_salary();
+  static const int kSalaryFieldNumber = 3;
+  inline const ::proto_ff::FactionDBSalary& salary(int index) const;
+  inline ::proto_ff::FactionDBSalary* mutable_salary(int index);
+  inline ::proto_ff::FactionDBSalary* add_salary();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionDBSalary >&
+      salary() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionDBSalary >*
+      mutable_salary();
+
+  // optional uint64 salary_fresh = 4;
+  inline bool has_salary_fresh() const;
+  inline void clear_salary_fresh();
+  static const int kSalaryFreshFieldNumber = 4;
+  inline ::google::protobuf::uint64 salary_fresh() const;
+  inline void set_salary_fresh(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RoleFactionDBData)
+ private:
+  inline void set_has_donate_num();
+  inline void clear_has_donate_num();
+  inline void set_has_donate_fresh();
+  inline void clear_has_donate_fresh();
+  inline void set_has_salary_fresh();
+  inline void clear_has_salary_fresh();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 donate_fresh_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionDBSalary > salary_;
+  ::google::protobuf::uint64 salary_fresh_;
+  ::google::protobuf::int32 donate_num_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -6256,7 +6771,118 @@ class GodEvilDBData : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_DBProto_2eproto();
 
   void InitAsDefaultInstance();
-  static GodEvilDBData* default_instance_;
+  static RoleFactionDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RoleBestEQDBData : public ::google::protobuf::Message {
+ public:
+  RoleBestEQDBData();
+  virtual ~RoleBestEQDBData();
+
+  RoleBestEQDBData(const RoleBestEQDBData& from);
+
+  inline RoleBestEQDBData& operator=(const RoleBestEQDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RoleBestEQDBData& default_instance();
+
+  void Swap(RoleBestEQDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  RoleBestEQDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RoleBestEQDBData& from);
+  void MergeFrom(const RoleBestEQDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.BestEQEquipInfo equips = 1;
+  inline int equips_size() const;
+  inline void clear_equips();
+  static const int kEquipsFieldNumber = 1;
+  inline const ::proto_ff::BestEQEquipInfo& equips(int index) const;
+  inline ::proto_ff::BestEQEquipInfo* mutable_equips(int index);
+  inline ::proto_ff::BestEQEquipInfo* add_equips();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQEquipInfo >&
+      equips() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQEquipInfo >*
+      mutable_equips();
+
+  // repeated .proto_ff.BestEQSlotInfo slots = 2;
+  inline int slots_size() const;
+  inline void clear_slots();
+  static const int kSlotsFieldNumber = 2;
+  inline const ::proto_ff::BestEQSlotInfo& slots(int index) const;
+  inline ::proto_ff::BestEQSlotInfo* mutable_slots(int index);
+  inline ::proto_ff::BestEQSlotInfo* add_slots();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQSlotInfo >&
+      slots() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQSlotInfo >*
+      mutable_slots();
+
+  // repeated .proto_ff.BestEQTask tasks = 3;
+  inline int tasks_size() const;
+  inline void clear_tasks();
+  static const int kTasksFieldNumber = 3;
+  inline const ::proto_ff::BestEQTask& tasks(int index) const;
+  inline ::proto_ff::BestEQTask* mutable_tasks(int index);
+  inline ::proto_ff::BestEQTask* add_tasks();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQTask >&
+      tasks() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQTask >*
+      mutable_tasks();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RoleBestEQDBData)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQEquipInfo > equips_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQSlotInfo > slots_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQTask > tasks_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RoleBestEQDBData* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -6542,6 +7168,51 @@ class RoleDBData : public ::google::protobuf::Message {
   inline ::proto_ff::TitleDBData* release_title();
   inline void set_allocated_title(::proto_ff::TitleDBData* title);
 
+  // optional .proto_ff.GodEvilDBData godevil = 27;
+  inline bool has_godevil() const;
+  inline void clear_godevil();
+  static const int kGodevilFieldNumber = 27;
+  inline const ::proto_ff::GodEvilDBData& godevil() const;
+  inline ::proto_ff::GodEvilDBData* mutable_godevil();
+  inline ::proto_ff::GodEvilDBData* release_godevil();
+  inline void set_allocated_godevil(::proto_ff::GodEvilDBData* godevil);
+
+  // optional .proto_ff.OccupationMissionData occupatoin = 28;
+  inline bool has_occupatoin() const;
+  inline void clear_occupatoin();
+  static const int kOccupatoinFieldNumber = 28;
+  inline const ::proto_ff::OccupationMissionData& occupatoin() const;
+  inline ::proto_ff::OccupationMissionData* mutable_occupatoin();
+  inline ::proto_ff::OccupationMissionData* release_occupatoin();
+  inline void set_allocated_occupatoin(::proto_ff::OccupationMissionData* occupatoin);
+
+  // optional .proto_ff.PayDBData pay = 29;
+  inline bool has_pay() const;
+  inline void clear_pay();
+  static const int kPayFieldNumber = 29;
+  inline const ::proto_ff::PayDBData& pay() const;
+  inline ::proto_ff::PayDBData* mutable_pay();
+  inline ::proto_ff::PayDBData* release_pay();
+  inline void set_allocated_pay(::proto_ff::PayDBData* pay);
+
+  // optional .proto_ff.RoleFactionDBData role_faction = 30;
+  inline bool has_role_faction() const;
+  inline void clear_role_faction();
+  static const int kRoleFactionFieldNumber = 30;
+  inline const ::proto_ff::RoleFactionDBData& role_faction() const;
+  inline ::proto_ff::RoleFactionDBData* mutable_role_faction();
+  inline ::proto_ff::RoleFactionDBData* release_role_faction();
+  inline void set_allocated_role_faction(::proto_ff::RoleFactionDBData* role_faction);
+
+  // optional .proto_ff.RoleBestEQDBData best_equip = 31;
+  inline bool has_best_equip() const;
+  inline void clear_best_equip();
+  static const int kBestEquipFieldNumber = 31;
+  inline const ::proto_ff::RoleBestEQDBData& best_equip() const;
+  inline ::proto_ff::RoleBestEQDBData* mutable_best_equip();
+  inline ::proto_ff::RoleBestEQDBData* release_best_equip();
+  inline void set_allocated_best_equip(::proto_ff::RoleBestEQDBData* best_equip);
+
   // @@protoc_insertion_point(class_scope:proto_ff.RoleDBData)
  private:
   inline void set_has_cid();
@@ -6596,6 +7267,16 @@ class RoleDBData : public ::google::protobuf::Message {
   inline void clear_has_assist();
   inline void set_has_title();
   inline void clear_has_title();
+  inline void set_has_godevil();
+  inline void clear_has_godevil();
+  inline void set_has_occupatoin();
+  inline void clear_has_occupatoin();
+  inline void set_has_pay();
+  inline void clear_has_pay();
+  inline void set_has_role_faction();
+  inline void clear_has_role_faction();
+  inline void set_has_best_equip();
+  inline void clear_has_best_equip();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -6625,9 +7306,14 @@ class RoleDBData : public ::google::protobuf::Message {
   ::proto_ff::ArmorDBData* armor_;
   ::proto_ff::AssistDBData* assist_;
   ::proto_ff::TitleDBData* title_;
+  ::proto_ff::GodEvilDBData* godevil_;
+  ::proto_ff::OccupationMissionData* occupatoin_;
+  ::proto_ff::PayDBData* pay_;
+  ::proto_ff::RoleFactionDBData* role_faction_;
+  ::proto_ff::RoleBestEQDBData* best_equip_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(26 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(31 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProto_2eproto();
   friend void protobuf_AssignDesc_DBProto_2eproto();
@@ -6635,6 +7321,848 @@ class RoleDBData : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static RoleDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RedWaitDBProto : public ::google::protobuf::Message {
+ public:
+  RedWaitDBProto();
+  virtual ~RedWaitDBProto();
+
+  RedWaitDBProto(const RedWaitDBProto& from);
+
+  inline RedWaitDBProto& operator=(const RedWaitDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RedWaitDBProto& default_instance();
+
+  void Swap(RedWaitDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  RedWaitDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RedWaitDBProto& from);
+  void MergeFrom(const RedWaitDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 idx = 1;
+  inline bool has_idx() const;
+  inline void clear_idx();
+  static const int kIdxFieldNumber = 1;
+  inline ::google::protobuf::uint32 idx() const;
+  inline void set_idx(::google::protobuf::uint32 value);
+
+  // optional int32 cfgid = 2;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgidFieldNumber = 2;
+  inline ::google::protobuf::int32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::int32 value);
+
+  // optional uint64 time = 3;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 time() const;
+  inline void set_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RedWaitDBProto)
+ private:
+  inline void set_has_idx();
+  inline void clear_has_idx();
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+  inline void set_has_time();
+  inline void clear_has_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 idx_;
+  ::google::protobuf::int32 cfgid_;
+  ::google::protobuf::uint64 time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RedWaitDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RedTriggerDBProto : public ::google::protobuf::Message {
+ public:
+  RedTriggerDBProto();
+  virtual ~RedTriggerDBProto();
+
+  RedTriggerDBProto(const RedTriggerDBProto& from);
+
+  inline RedTriggerDBProto& operator=(const RedTriggerDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RedTriggerDBProto& default_instance();
+
+  void Swap(RedTriggerDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  RedTriggerDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RedTriggerDBProto& from);
+  void MergeFrom(const RedTriggerDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 cfgid = 1;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgidFieldNumber = 1;
+  inline ::google::protobuf::int32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::int32 value);
+
+  // optional int32 count = 2;
+  inline bool has_count() const;
+  inline void clear_count();
+  static const int kCountFieldNumber = 2;
+  inline ::google::protobuf::int32 count() const;
+  inline void set_count(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RedTriggerDBProto)
+ private:
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+  inline void set_has_count();
+  inline void clear_has_count();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 cfgid_;
+  ::google::protobuf::int32 count_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RedTriggerDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RoleRedDBData : public ::google::protobuf::Message {
+ public:
+  RoleRedDBData();
+  virtual ~RoleRedDBData();
+
+  RoleRedDBData(const RoleRedDBData& from);
+
+  inline RoleRedDBData& operator=(const RoleRedDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RoleRedDBData& default_instance();
+
+  void Swap(RoleRedDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  RoleRedDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RoleRedDBData& from);
+  void MergeFrom(const RoleRedDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 bdia = 1;
+  inline bool has_bdia() const;
+  inline void clear_bdia();
+  static const int kBdiaFieldNumber = 1;
+  inline ::google::protobuf::uint32 bdia() const;
+  inline void set_bdia(::google::protobuf::uint32 value);
+
+  // optional uint32 magic = 2;
+  inline bool has_magic() const;
+  inline void clear_magic();
+  static const int kMagicFieldNumber = 2;
+  inline ::google::protobuf::uint32 magic() const;
+  inline void set_magic(::google::protobuf::uint32 value);
+
+  // optional uint32 todaynum = 3;
+  inline bool has_todaynum() const;
+  inline void clear_todaynum();
+  static const int kTodaynumFieldNumber = 3;
+  inline ::google::protobuf::uint32 todaynum() const;
+  inline void set_todaynum(::google::protobuf::uint32 value);
+
+  // optional uint32 todaymagic = 4;
+  inline bool has_todaymagic() const;
+  inline void clear_todaymagic();
+  static const int kTodaymagicFieldNumber = 4;
+  inline ::google::protobuf::uint32 todaymagic() const;
+  inline void set_todaymagic(::google::protobuf::uint32 value);
+
+  // optional uint32 todaybdia = 5;
+  inline bool has_todaybdia() const;
+  inline void clear_todaybdia();
+  static const int kTodaybdiaFieldNumber = 5;
+  inline ::google::protobuf::uint32 todaybdia() const;
+  inline void set_todaybdia(::google::protobuf::uint32 value);
+
+  // optional uint64 freshtime = 6;
+  inline bool has_freshtime() const;
+  inline void clear_freshtime();
+  static const int kFreshtimeFieldNumber = 6;
+  inline ::google::protobuf::uint64 freshtime() const;
+  inline void set_freshtime(::google::protobuf::uint64 value);
+
+  // repeated int32 send_lst = 7;
+  inline int send_lst_size() const;
+  inline void clear_send_lst();
+  static const int kSendLstFieldNumber = 7;
+  inline ::google::protobuf::int32 send_lst(int index) const;
+  inline void set_send_lst(int index, ::google::protobuf::int32 value);
+  inline void add_send_lst(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      send_lst() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_send_lst();
+
+  // repeated .proto_ff.RedWaitDBProto wait_lst = 8;
+  inline int wait_lst_size() const;
+  inline void clear_wait_lst();
+  static const int kWaitLstFieldNumber = 8;
+  inline const ::proto_ff::RedWaitDBProto& wait_lst(int index) const;
+  inline ::proto_ff::RedWaitDBProto* mutable_wait_lst(int index);
+  inline ::proto_ff::RedWaitDBProto* add_wait_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto >&
+      wait_lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto >*
+      mutable_wait_lst();
+
+  // optional uint64 cid = 9;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 9;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.RedTriggerDBProto trigger_lst = 10;
+  inline int trigger_lst_size() const;
+  inline void clear_trigger_lst();
+  static const int kTriggerLstFieldNumber = 10;
+  inline const ::proto_ff::RedTriggerDBProto& trigger_lst(int index) const;
+  inline ::proto_ff::RedTriggerDBProto* mutable_trigger_lst(int index);
+  inline ::proto_ff::RedTriggerDBProto* add_trigger_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto >&
+      trigger_lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto >*
+      mutable_trigger_lst();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RoleRedDBData)
+ private:
+  inline void set_has_bdia();
+  inline void clear_has_bdia();
+  inline void set_has_magic();
+  inline void clear_has_magic();
+  inline void set_has_todaynum();
+  inline void clear_has_todaynum();
+  inline void set_has_todaymagic();
+  inline void clear_has_todaymagic();
+  inline void set_has_todaybdia();
+  inline void clear_has_todaybdia();
+  inline void set_has_freshtime();
+  inline void clear_has_freshtime();
+  inline void set_has_cid();
+  inline void clear_has_cid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 bdia_;
+  ::google::protobuf::uint32 magic_;
+  ::google::protobuf::uint32 todaynum_;
+  ::google::protobuf::uint32 todaymagic_;
+  ::google::protobuf::uint64 freshtime_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > send_lst_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto > wait_lst_;
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto > trigger_lst_;
+  ::google::protobuf::uint32 todaybdia_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RoleRedDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RedFetchDBProto : public ::google::protobuf::Message {
+ public:
+  RedFetchDBProto();
+  virtual ~RedFetchDBProto();
+
+  RedFetchDBProto(const RedFetchDBProto& from);
+
+  inline RedFetchDBProto& operator=(const RedFetchDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RedFetchDBProto& default_instance();
+
+  void Swap(RedFetchDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  RedFetchDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RedFetchDBProto& from);
+  void MergeFrom(const RedFetchDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 val = 2;
+  inline bool has_val() const;
+  inline void clear_val();
+  static const int kValFieldNumber = 2;
+  inline ::google::protobuf::uint32 val() const;
+  inline void set_val(::google::protobuf::uint32 value);
+
+  // optional uint64 time = 3;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 time() const;
+  inline void set_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RedFetchDBProto)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_val();
+  inline void clear_has_val();
+  inline void set_has_time();
+  inline void clear_has_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 time_;
+  ::google::protobuf::uint32 val_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RedFetchDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RedFetchListDBProto : public ::google::protobuf::Message {
+ public:
+  RedFetchListDBProto();
+  virtual ~RedFetchListDBProto();
+
+  RedFetchListDBProto(const RedFetchListDBProto& from);
+
+  inline RedFetchListDBProto& operator=(const RedFetchListDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RedFetchListDBProto& default_instance();
+
+  void Swap(RedFetchListDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  RedFetchListDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RedFetchListDBProto& from);
+  void MergeFrom(const RedFetchListDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.RedFetchDBProto info = 1;
+  inline int info_size() const;
+  inline void clear_info();
+  static const int kInfoFieldNumber = 1;
+  inline const ::proto_ff::RedFetchDBProto& info(int index) const;
+  inline ::proto_ff::RedFetchDBProto* mutable_info(int index);
+  inline ::proto_ff::RedFetchDBProto* add_info();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedFetchDBProto >&
+      info() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedFetchDBProto >*
+      mutable_info();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RedFetchListDBProto)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RedFetchDBProto > info_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RedFetchListDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RedSendDBProto : public ::google::protobuf::Message {
+ public:
+  RedSendDBProto();
+  virtual ~RedSendDBProto();
+
+  RedSendDBProto(const RedSendDBProto& from);
+
+  inline RedSendDBProto& operator=(const RedSendDBProto& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RedSendDBProto& default_instance();
+
+  void Swap(RedSendDBProto* other);
+
+  // implements Message ----------------------------------------------
+
+  RedSendDBProto* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RedSendDBProto& from);
+  void MergeFrom(const RedSendDBProto& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 idx = 1;
+  inline bool has_idx() const;
+  inline void clear_idx();
+  static const int kIdxFieldNumber = 1;
+  inline ::google::protobuf::uint32 idx() const;
+  inline void set_idx(::google::protobuf::uint32 value);
+
+  // optional int32 cfgid = 2;
+  inline bool has_cfgid() const;
+  inline void clear_cfgid();
+  static const int kCfgidFieldNumber = 2;
+  inline ::google::protobuf::int32 cfgid() const;
+  inline void set_cfgid(::google::protobuf::int32 value);
+
+  // optional uint64 sender = 3;
+  inline bool has_sender() const;
+  inline void clear_sender();
+  static const int kSenderFieldNumber = 3;
+  inline ::google::protobuf::uint64 sender() const;
+  inline void set_sender(::google::protobuf::uint64 value);
+
+  // optional uint64 sendtime = 4;
+  inline bool has_sendtime() const;
+  inline void clear_sendtime();
+  static const int kSendtimeFieldNumber = 4;
+  inline ::google::protobuf::uint64 sendtime() const;
+  inline void set_sendtime(::google::protobuf::uint64 value);
+
+  // optional bytes word = 5;
+  inline bool has_word() const;
+  inline void clear_word();
+  static const int kWordFieldNumber = 5;
+  inline const ::std::string& word() const;
+  inline void set_word(const ::std::string& value);
+  inline void set_word(const char* value);
+  inline void set_word(const void* value, size_t size);
+  inline ::std::string* mutable_word();
+  inline ::std::string* release_word();
+  inline void set_allocated_word(::std::string* word);
+
+  // optional int32 finish = 6;
+  inline bool has_finish() const;
+  inline void clear_finish();
+  static const int kFinishFieldNumber = 6;
+  inline ::google::protobuf::int32 finish() const;
+  inline void set_finish(::google::protobuf::int32 value);
+
+  // optional .proto_ff.RedFetchListDBProto fetch = 7;
+  inline bool has_fetch() const;
+  inline void clear_fetch();
+  static const int kFetchFieldNumber = 7;
+  inline const ::proto_ff::RedFetchListDBProto& fetch() const;
+  inline ::proto_ff::RedFetchListDBProto* mutable_fetch();
+  inline ::proto_ff::RedFetchListDBProto* release_fetch();
+  inline void set_allocated_fetch(::proto_ff::RedFetchListDBProto* fetch);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RedSendDBProto)
+ private:
+  inline void set_has_idx();
+  inline void clear_has_idx();
+  inline void set_has_cfgid();
+  inline void clear_has_cfgid();
+  inline void set_has_sender();
+  inline void clear_has_sender();
+  inline void set_has_sendtime();
+  inline void clear_has_sendtime();
+  inline void set_has_word();
+  inline void clear_has_word();
+  inline void set_has_finish();
+  inline void clear_has_finish();
+  inline void set_has_fetch();
+  inline void clear_has_fetch();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 idx_;
+  ::google::protobuf::int32 cfgid_;
+  ::google::protobuf::uint64 sender_;
+  ::google::protobuf::uint64 sendtime_;
+  ::std::string* word_;
+  ::proto_ff::RedFetchListDBProto* fetch_;
+  ::google::protobuf::int32 finish_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RedSendDBProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RedDBData : public ::google::protobuf::Message {
+ public:
+  RedDBData();
+  virtual ~RedDBData();
+
+  RedDBData(const RedDBData& from);
+
+  inline RedDBData& operator=(const RedDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RedDBData& default_instance();
+
+  void Swap(RedDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  RedDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RedDBData& from);
+  void MergeFrom(const RedDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.RedWaitDBProto wait = 1;
+  inline int wait_size() const;
+  inline void clear_wait();
+  static const int kWaitFieldNumber = 1;
+  inline const ::proto_ff::RedWaitDBProto& wait(int index) const;
+  inline ::proto_ff::RedWaitDBProto* mutable_wait(int index);
+  inline ::proto_ff::RedWaitDBProto* add_wait();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto >&
+      wait() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto >*
+      mutable_wait();
+
+  // repeated .proto_ff.RedTriggerDBProto trigger_lst = 2;
+  inline int trigger_lst_size() const;
+  inline void clear_trigger_lst();
+  static const int kTriggerLstFieldNumber = 2;
+  inline const ::proto_ff::RedTriggerDBProto& trigger_lst(int index) const;
+  inline ::proto_ff::RedTriggerDBProto* mutable_trigger_lst(int index);
+  inline ::proto_ff::RedTriggerDBProto* add_trigger_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto >&
+      trigger_lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto >*
+      mutable_trigger_lst();
+
+  // optional uint64 freshtime = 3;
+  inline bool has_freshtime() const;
+  inline void clear_freshtime();
+  static const int kFreshtimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 freshtime() const;
+  inline void set_freshtime(::google::protobuf::uint64 value);
+
+  // repeated .proto_ff.RedSendDBProto send = 4;
+  inline int send_size() const;
+  inline void clear_send();
+  static const int kSendFieldNumber = 4;
+  inline const ::proto_ff::RedSendDBProto& send(int index) const;
+  inline ::proto_ff::RedSendDBProto* mutable_send(int index);
+  inline ::proto_ff::RedSendDBProto* add_send();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedSendDBProto >&
+      send() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedSendDBProto >*
+      mutable_send();
+
+  // optional uint32 faction_id = 5;
+  inline bool has_faction_id() const;
+  inline void clear_faction_id();
+  static const int kFactionIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 faction_id() const;
+  inline void set_faction_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RedDBData)
+ private:
+  inline void set_has_freshtime();
+  inline void clear_has_freshtime();
+  inline void set_has_faction_id();
+  inline void clear_has_faction_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto > wait_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto > trigger_lst_;
+  ::google::protobuf::uint64 freshtime_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RedSendDBProto > send_;
+  ::google::protobuf::uint32 faction_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RedDBData* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -13522,6 +15050,856 @@ class FactionDelDBReq : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static FactionDelDBReq* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class FactionRedDBReq : public ::google::protobuf::Message {
+ public:
+  FactionRedDBReq();
+  virtual ~FactionRedDBReq();
+
+  FactionRedDBReq(const FactionRedDBReq& from);
+
+  inline FactionRedDBReq& operator=(const FactionRedDBReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FactionRedDBReq& default_instance();
+
+  void Swap(FactionRedDBReq* other);
+
+  // implements Message ----------------------------------------------
+
+  FactionRedDBReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FactionRedDBReq& from);
+  void MergeFrom(const FactionRedDBReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FactionRedDBReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static FactionRedDBReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FactionRedDBRsp : public ::google::protobuf::Message {
+ public:
+  FactionRedDBRsp();
+  virtual ~FactionRedDBRsp();
+
+  FactionRedDBRsp(const FactionRedDBRsp& from);
+
+  inline FactionRedDBRsp& operator=(const FactionRedDBRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FactionRedDBRsp& default_instance();
+
+  void Swap(FactionRedDBRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  FactionRedDBRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FactionRedDBRsp& from);
+  void MergeFrom(const FactionRedDBRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.RedDBData data_lst = 1;
+  inline int data_lst_size() const;
+  inline void clear_data_lst();
+  static const int kDataLstFieldNumber = 1;
+  inline const ::proto_ff::RedDBData& data_lst(int index) const;
+  inline ::proto_ff::RedDBData* mutable_data_lst(int index);
+  inline ::proto_ff::RedDBData* add_data_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedDBData >&
+      data_lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedDBData >*
+      mutable_data_lst();
+
+  // optional int32 finish = 2;
+  inline bool has_finish() const;
+  inline void clear_finish();
+  static const int kFinishFieldNumber = 2;
+  inline ::google::protobuf::int32 finish() const;
+  inline void set_finish(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FactionRedDBRsp)
+ private:
+  inline void set_has_finish();
+  inline void clear_has_finish();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RedDBData > data_lst_;
+  ::google::protobuf::int32 finish_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static FactionRedDBRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FactionRedSaveDBReq : public ::google::protobuf::Message {
+ public:
+  FactionRedSaveDBReq();
+  virtual ~FactionRedSaveDBReq();
+
+  FactionRedSaveDBReq(const FactionRedSaveDBReq& from);
+
+  inline FactionRedSaveDBReq& operator=(const FactionRedSaveDBReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FactionRedSaveDBReq& default_instance();
+
+  void Swap(FactionRedSaveDBReq* other);
+
+  // implements Message ----------------------------------------------
+
+  FactionRedSaveDBReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FactionRedSaveDBReq& from);
+  void MergeFrom(const FactionRedSaveDBReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 faction_id = 1;
+  inline bool has_faction_id() const;
+  inline void clear_faction_id();
+  static const int kFactionIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 faction_id() const;
+  inline void set_faction_id(::google::protobuf::uint32 value);
+
+  // required .proto_ff.RedDBData data0 = 2;
+  inline bool has_data0() const;
+  inline void clear_data0();
+  static const int kData0FieldNumber = 2;
+  inline const ::proto_ff::RedDBData& data0() const;
+  inline ::proto_ff::RedDBData* mutable_data0();
+  inline ::proto_ff::RedDBData* release_data0();
+  inline void set_allocated_data0(::proto_ff::RedDBData* data0);
+
+  // required .proto_ff.RedDBData data1 = 3;
+  inline bool has_data1() const;
+  inline void clear_data1();
+  static const int kData1FieldNumber = 3;
+  inline const ::proto_ff::RedDBData& data1() const;
+  inline ::proto_ff::RedDBData* mutable_data1();
+  inline ::proto_ff::RedDBData* release_data1();
+  inline void set_allocated_data1(::proto_ff::RedDBData* data1);
+
+  // required .proto_ff.RedDBData data2 = 4;
+  inline bool has_data2() const;
+  inline void clear_data2();
+  static const int kData2FieldNumber = 4;
+  inline const ::proto_ff::RedDBData& data2() const;
+  inline ::proto_ff::RedDBData* mutable_data2();
+  inline ::proto_ff::RedDBData* release_data2();
+  inline void set_allocated_data2(::proto_ff::RedDBData* data2);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FactionRedSaveDBReq)
+ private:
+  inline void set_has_faction_id();
+  inline void clear_has_faction_id();
+  inline void set_has_data0();
+  inline void clear_has_data0();
+  inline void set_has_data1();
+  inline void clear_has_data1();
+  inline void set_has_data2();
+  inline void clear_has_data2();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::RedDBData* data0_;
+  ::proto_ff::RedDBData* data1_;
+  ::proto_ff::RedDBData* data2_;
+  ::google::protobuf::uint32 faction_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static FactionRedSaveDBReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FactionRedDelDBReq : public ::google::protobuf::Message {
+ public:
+  FactionRedDelDBReq();
+  virtual ~FactionRedDelDBReq();
+
+  FactionRedDelDBReq(const FactionRedDelDBReq& from);
+
+  inline FactionRedDelDBReq& operator=(const FactionRedDelDBReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FactionRedDelDBReq& default_instance();
+
+  void Swap(FactionRedDelDBReq* other);
+
+  // implements Message ----------------------------------------------
+
+  FactionRedDelDBReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FactionRedDelDBReq& from);
+  void MergeFrom(const FactionRedDelDBReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 faction_id = 1;
+  inline bool has_faction_id() const;
+  inline void clear_faction_id();
+  static const int kFactionIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 faction_id() const;
+  inline void set_faction_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FactionRedDelDBReq)
+ private:
+  inline void set_has_faction_id();
+  inline void clear_has_faction_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 faction_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static FactionRedDelDBReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RoleRedDBReq : public ::google::protobuf::Message {
+ public:
+  RoleRedDBReq();
+  virtual ~RoleRedDBReq();
+
+  RoleRedDBReq(const RoleRedDBReq& from);
+
+  inline RoleRedDBReq& operator=(const RoleRedDBReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RoleRedDBReq& default_instance();
+
+  void Swap(RoleRedDBReq* other);
+
+  // implements Message ----------------------------------------------
+
+  RoleRedDBReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RoleRedDBReq& from);
+  void MergeFrom(const RoleRedDBReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RoleRedDBReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RoleRedDBReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RoleRedDBRsp : public ::google::protobuf::Message {
+ public:
+  RoleRedDBRsp();
+  virtual ~RoleRedDBRsp();
+
+  RoleRedDBRsp(const RoleRedDBRsp& from);
+
+  inline RoleRedDBRsp& operator=(const RoleRedDBRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RoleRedDBRsp& default_instance();
+
+  void Swap(RoleRedDBRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  RoleRedDBRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RoleRedDBRsp& from);
+  void MergeFrom(const RoleRedDBRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.RoleRedDBData data_lst = 1;
+  inline int data_lst_size() const;
+  inline void clear_data_lst();
+  static const int kDataLstFieldNumber = 1;
+  inline const ::proto_ff::RoleRedDBData& data_lst(int index) const;
+  inline ::proto_ff::RoleRedDBData* mutable_data_lst(int index);
+  inline ::proto_ff::RoleRedDBData* add_data_lst();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleRedDBData >&
+      data_lst() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleRedDBData >*
+      mutable_data_lst();
+
+  // optional int32 finish = 2;
+  inline bool has_finish() const;
+  inline void clear_finish();
+  static const int kFinishFieldNumber = 2;
+  inline ::google::protobuf::int32 finish() const;
+  inline void set_finish(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RoleRedDBRsp)
+ private:
+  inline void set_has_finish();
+  inline void clear_has_finish();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleRedDBData > data_lst_;
+  ::google::protobuf::int32 finish_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static RoleRedDBRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CenterLoadRoleDBReq : public ::google::protobuf::Message {
+ public:
+  CenterLoadRoleDBReq();
+  virtual ~CenterLoadRoleDBReq();
+
+  CenterLoadRoleDBReq(const CenterLoadRoleDBReq& from);
+
+  inline CenterLoadRoleDBReq& operator=(const CenterLoadRoleDBReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CenterLoadRoleDBReq& default_instance();
+
+  void Swap(CenterLoadRoleDBReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CenterLoadRoleDBReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CenterLoadRoleDBReq& from);
+  void MergeFrom(const CenterLoadRoleDBReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required string table_name = 2;
+  inline bool has_table_name() const;
+  inline void clear_table_name();
+  static const int kTableNameFieldNumber = 2;
+  inline const ::std::string& table_name() const;
+  inline void set_table_name(const ::std::string& value);
+  inline void set_table_name(const char* value);
+  inline void set_table_name(const char* value, size_t size);
+  inline ::std::string* mutable_table_name();
+  inline ::std::string* release_table_name();
+  inline void set_allocated_table_name(::std::string* table_name);
+
+  // required uint32 cmd = 3;
+  inline bool has_cmd() const;
+  inline void clear_cmd();
+  static const int kCmdFieldNumber = 3;
+  inline ::google::protobuf::uint32 cmd() const;
+  inline void set_cmd(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CenterLoadRoleDBReq)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_table_name();
+  inline void clear_has_table_name();
+  inline void set_has_cmd();
+  inline void clear_has_cmd();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::std::string* table_name_;
+  ::google::protobuf::uint32 cmd_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static CenterLoadRoleDBReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CenterLoadRoleDBRsp : public ::google::protobuf::Message {
+ public:
+  CenterLoadRoleDBRsp();
+  virtual ~CenterLoadRoleDBRsp();
+
+  CenterLoadRoleDBRsp(const CenterLoadRoleDBRsp& from);
+
+  inline CenterLoadRoleDBRsp& operator=(const CenterLoadRoleDBRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CenterLoadRoleDBRsp& default_instance();
+
+  void Swap(CenterLoadRoleDBRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  CenterLoadRoleDBRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CenterLoadRoleDBRsp& from);
+  void MergeFrom(const CenterLoadRoleDBRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required bytes data = 2;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::std::string& data() const;
+  inline void set_data(const ::std::string& value);
+  inline void set_data(const char* value);
+  inline void set_data(const void* value, size_t size);
+  inline ::std::string* mutable_data();
+  inline ::std::string* release_data();
+  inline void set_allocated_data(::std::string* data);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CenterLoadRoleDBRsp)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_data();
+  inline void clear_has_data();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::std::string* data_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static CenterLoadRoleDBRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class CenterSaveRoleDBReq : public ::google::protobuf::Message {
+ public:
+  CenterSaveRoleDBReq();
+  virtual ~CenterSaveRoleDBReq();
+
+  CenterSaveRoleDBReq(const CenterSaveRoleDBReq& from);
+
+  inline CenterSaveRoleDBReq& operator=(const CenterSaveRoleDBReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const CenterSaveRoleDBReq& default_instance();
+
+  void Swap(CenterSaveRoleDBReq* other);
+
+  // implements Message ----------------------------------------------
+
+  CenterSaveRoleDBReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const CenterSaveRoleDBReq& from);
+  void MergeFrom(const CenterSaveRoleDBReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // required bytes data = 2;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 2;
+  inline const ::std::string& data() const;
+  inline void set_data(const ::std::string& value);
+  inline void set_data(const char* value);
+  inline void set_data(const void* value, size_t size);
+  inline ::std::string* mutable_data();
+  inline ::std::string* release_data();
+  inline void set_allocated_data(::std::string* data);
+
+  // required string table_name = 3;
+  inline bool has_table_name() const;
+  inline void clear_table_name();
+  static const int kTableNameFieldNumber = 3;
+  inline const ::std::string& table_name() const;
+  inline void set_table_name(const ::std::string& value);
+  inline void set_table_name(const char* value);
+  inline void set_table_name(const char* value, size_t size);
+  inline ::std::string* mutable_table_name();
+  inline ::std::string* release_table_name();
+  inline void set_allocated_table_name(::std::string* table_name);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.CenterSaveRoleDBReq)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_data();
+  inline void clear_has_data();
+  inline void set_has_table_name();
+  inline void clear_has_table_name();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::std::string* data_;
+  ::std::string* table_name_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static CenterSaveRoleDBReq* default_instance_;
+};
 // ===================================================================
 
 
@@ -14447,6 +16825,94 @@ inline ::google::protobuf::int32 RoleDBBaseData::godevil_level() const {
 inline void RoleDBBaseData::set_godevil_level(::google::protobuf::int32 value) {
   set_has_godevil_level();
   godevil_level_ = value;
+}
+
+// optional uint32 login_day = 34;
+inline bool RoleDBBaseData::has_login_day() const {
+  return (_has_bits_[1] & 0x00000002u) != 0;
+}
+inline void RoleDBBaseData::set_has_login_day() {
+  _has_bits_[1] |= 0x00000002u;
+}
+inline void RoleDBBaseData::clear_has_login_day() {
+  _has_bits_[1] &= ~0x00000002u;
+}
+inline void RoleDBBaseData::clear_login_day() {
+  login_day_ = 0u;
+  clear_has_login_day();
+}
+inline ::google::protobuf::uint32 RoleDBBaseData::login_day() const {
+  return login_day_;
+}
+inline void RoleDBBaseData::set_login_day(::google::protobuf::uint32 value) {
+  set_has_login_day();
+  login_day_ = value;
+}
+
+// optional uint64 login_day_time = 35;
+inline bool RoleDBBaseData::has_login_day_time() const {
+  return (_has_bits_[1] & 0x00000004u) != 0;
+}
+inline void RoleDBBaseData::set_has_login_day_time() {
+  _has_bits_[1] |= 0x00000004u;
+}
+inline void RoleDBBaseData::clear_has_login_day_time() {
+  _has_bits_[1] &= ~0x00000004u;
+}
+inline void RoleDBBaseData::clear_login_day_time() {
+  login_day_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_login_day_time();
+}
+inline ::google::protobuf::uint64 RoleDBBaseData::login_day_time() const {
+  return login_day_time_;
+}
+inline void RoleDBBaseData::set_login_day_time(::google::protobuf::uint64 value) {
+  set_has_login_day_time();
+  login_day_time_ = value;
+}
+
+// optional int64 best_aq = 36;
+inline bool RoleDBBaseData::has_best_aq() const {
+  return (_has_bits_[1] & 0x00000008u) != 0;
+}
+inline void RoleDBBaseData::set_has_best_aq() {
+  _has_bits_[1] |= 0x00000008u;
+}
+inline void RoleDBBaseData::clear_has_best_aq() {
+  _has_bits_[1] &= ~0x00000008u;
+}
+inline void RoleDBBaseData::clear_best_aq() {
+  best_aq_ = GOOGLE_LONGLONG(0);
+  clear_has_best_aq();
+}
+inline ::google::protobuf::int64 RoleDBBaseData::best_aq() const {
+  return best_aq_;
+}
+inline void RoleDBBaseData::set_best_aq(::google::protobuf::int64 value) {
+  set_has_best_aq();
+  best_aq_ = value;
+}
+
+// optional int64 best_lj = 37;
+inline bool RoleDBBaseData::has_best_lj() const {
+  return (_has_bits_[1] & 0x00000010u) != 0;
+}
+inline void RoleDBBaseData::set_has_best_lj() {
+  _has_bits_[1] |= 0x00000010u;
+}
+inline void RoleDBBaseData::clear_has_best_lj() {
+  _has_bits_[1] &= ~0x00000010u;
+}
+inline void RoleDBBaseData::clear_best_lj() {
+  best_lj_ = GOOGLE_LONGLONG(0);
+  clear_has_best_lj();
+}
+inline ::google::protobuf::int64 RoleDBBaseData::best_lj() const {
+  return best_lj_;
+}
+inline void RoleDBBaseData::set_best_lj(::google::protobuf::int64 value) {
+  set_has_best_lj();
+  best_lj_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -18576,6 +21042,100 @@ inline void AssistDBData::set_allhelpnum(::google::protobuf::int32 value) {
   allhelpnum_ = value;
 }
 
+// optional int32 recvSendGiftNum = 7;
+inline bool AssistDBData::has_recvsendgiftnum() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void AssistDBData::set_has_recvsendgiftnum() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void AssistDBData::clear_has_recvsendgiftnum() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void AssistDBData::clear_recvsendgiftnum() {
+  recvsendgiftnum_ = 0;
+  clear_has_recvsendgiftnum();
+}
+inline ::google::protobuf::int32 AssistDBData::recvsendgiftnum() const {
+  return recvsendgiftnum_;
+}
+inline void AssistDBData::set_recvsendgiftnum(::google::protobuf::int32 value) {
+  set_has_recvsendgiftnum();
+  recvsendgiftnum_ = value;
+}
+
+// optional int32 recvHelpGiftNum = 8;
+inline bool AssistDBData::has_recvhelpgiftnum() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void AssistDBData::set_has_recvhelpgiftnum() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void AssistDBData::clear_has_recvhelpgiftnum() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void AssistDBData::clear_recvhelpgiftnum() {
+  recvhelpgiftnum_ = 0;
+  clear_has_recvhelpgiftnum();
+}
+inline ::google::protobuf::int32 AssistDBData::recvhelpgiftnum() const {
+  return recvhelpgiftnum_;
+}
+inline void AssistDBData::set_recvhelpgiftnum(::google::protobuf::int32 value) {
+  set_has_recvhelpgiftnum();
+  recvhelpgiftnum_ = value;
+}
+
+// repeated int32 rewardIds = 9;
+inline int AssistDBData::rewardids_size() const {
+  return rewardids_.size();
+}
+inline void AssistDBData::clear_rewardids() {
+  rewardids_.Clear();
+}
+inline ::google::protobuf::int32 AssistDBData::rewardids(int index) const {
+  return rewardids_.Get(index);
+}
+inline void AssistDBData::set_rewardids(int index, ::google::protobuf::int32 value) {
+  rewardids_.Set(index, value);
+}
+inline void AssistDBData::add_rewardids(::google::protobuf::int32 value) {
+  rewardids_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+AssistDBData::rewardids() const {
+  return rewardids_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+AssistDBData::mutable_rewardids() {
+  return &rewardids_;
+}
+
+// repeated .proto_ff.ComPair64 thanksInfo = 10;
+inline int AssistDBData::thanksinfo_size() const {
+  return thanksinfo_.size();
+}
+inline void AssistDBData::clear_thanksinfo() {
+  thanksinfo_.Clear();
+}
+inline const ::proto_ff::ComPair64& AssistDBData::thanksinfo(int index) const {
+  return thanksinfo_.Get(index);
+}
+inline ::proto_ff::ComPair64* AssistDBData::mutable_thanksinfo(int index) {
+  return thanksinfo_.Mutable(index);
+}
+inline ::proto_ff::ComPair64* AssistDBData::add_thanksinfo() {
+  return thanksinfo_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+AssistDBData::thanksinfo() const {
+  return thanksinfo_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+AssistDBData::mutable_thanksinfo() {
+  return &thanksinfo_;
+}
+
 // -------------------------------------------------------------------
 
 // TitleDBData
@@ -18812,6 +21372,28 @@ inline void GodEvilTaskDBProto::set_finish(::google::protobuf::int32 value) {
   finish_ = value;
 }
 
+// optional int32 accept = 4;
+inline bool GodEvilTaskDBProto::has_accept() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GodEvilTaskDBProto::set_has_accept() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GodEvilTaskDBProto::clear_has_accept() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GodEvilTaskDBProto::clear_accept() {
+  accept_ = 0;
+  clear_has_accept();
+}
+inline ::google::protobuf::int32 GodEvilTaskDBProto::accept() const {
+  return accept_;
+}
+inline void GodEvilTaskDBProto::set_accept(::google::protobuf::int32 value) {
+  set_has_accept();
+  accept_ = value;
+}
+
 // -------------------------------------------------------------------
 
 // GodEvilDBData
@@ -18898,7 +21480,7 @@ inline void GodEvilDBData::set_type(::google::protobuf::int32 value) {
   type_ = value;
 }
 
-// optional uint64 last_time = 5;
+// optional uint64 last_time = 4;
 inline bool GodEvilDBData::has_last_time() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -18918,6 +21500,499 @@ inline ::google::protobuf::uint64 GodEvilDBData::last_time() const {
 inline void GodEvilDBData::set_last_time(::google::protobuf::uint64 value) {
   set_has_last_time();
   last_time_ = value;
+}
+
+// optional int32 vessel_lev = 5;
+inline bool GodEvilDBData::has_vessel_lev() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GodEvilDBData::set_has_vessel_lev() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GodEvilDBData::clear_has_vessel_lev() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GodEvilDBData::clear_vessel_lev() {
+  vessel_lev_ = 0;
+  clear_has_vessel_lev();
+}
+inline ::google::protobuf::int32 GodEvilDBData::vessel_lev() const {
+  return vessel_lev_;
+}
+inline void GodEvilDBData::set_vessel_lev(::google::protobuf::int32 value) {
+  set_has_vessel_lev();
+  vessel_lev_ = value;
+}
+
+// optional int32 mirror_lev = 6;
+inline bool GodEvilDBData::has_mirror_lev() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void GodEvilDBData::set_has_mirror_lev() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void GodEvilDBData::clear_has_mirror_lev() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void GodEvilDBData::clear_mirror_lev() {
+  mirror_lev_ = 0;
+  clear_has_mirror_lev();
+}
+inline ::google::protobuf::int32 GodEvilDBData::mirror_lev() const {
+  return mirror_lev_;
+}
+inline void GodEvilDBData::set_mirror_lev(::google::protobuf::int32 value) {
+  set_has_mirror_lev();
+  mirror_lev_ = value;
+}
+
+// optional int64 extra_exp = 7;
+inline bool GodEvilDBData::has_extra_exp() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void GodEvilDBData::set_has_extra_exp() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void GodEvilDBData::clear_has_extra_exp() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void GodEvilDBData::clear_extra_exp() {
+  extra_exp_ = GOOGLE_LONGLONG(0);
+  clear_has_extra_exp();
+}
+inline ::google::protobuf::int64 GodEvilDBData::extra_exp() const {
+  return extra_exp_;
+}
+inline void GodEvilDBData::set_extra_exp(::google::protobuf::int64 value) {
+  set_has_extra_exp();
+  extra_exp_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PayDBData
+
+// repeated uint32 db_id = 1;
+inline int PayDBData::db_id_size() const {
+  return db_id_.size();
+}
+inline void PayDBData::clear_db_id() {
+  db_id_.Clear();
+}
+inline ::google::protobuf::uint32 PayDBData::db_id(int index) const {
+  return db_id_.Get(index);
+}
+inline void PayDBData::set_db_id(int index, ::google::protobuf::uint32 value) {
+  db_id_.Set(index, value);
+}
+inline void PayDBData::add_db_id(::google::protobuf::uint32 value) {
+  db_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+PayDBData::db_id() const {
+  return db_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+PayDBData::mutable_db_id() {
+  return &db_id_;
+}
+
+// repeated string product = 2;
+inline int PayDBData::product_size() const {
+  return product_.size();
+}
+inline void PayDBData::clear_product() {
+  product_.Clear();
+}
+inline const ::std::string& PayDBData::product(int index) const {
+  return product_.Get(index);
+}
+inline ::std::string* PayDBData::mutable_product(int index) {
+  return product_.Mutable(index);
+}
+inline void PayDBData::set_product(int index, const ::std::string& value) {
+  product_.Mutable(index)->assign(value);
+}
+inline void PayDBData::set_product(int index, const char* value) {
+  product_.Mutable(index)->assign(value);
+}
+inline void PayDBData::set_product(int index, const char* value, size_t size) {
+  product_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* PayDBData::add_product() {
+  return product_.Add();
+}
+inline void PayDBData::add_product(const ::std::string& value) {
+  product_.Add()->assign(value);
+}
+inline void PayDBData::add_product(const char* value) {
+  product_.Add()->assign(value);
+}
+inline void PayDBData::add_product(const char* value, size_t size) {
+  product_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+PayDBData::product() const {
+  return product_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+PayDBData::mutable_product() {
+  return &product_;
+}
+
+// optional uint32 relrmb = 3;
+inline bool PayDBData::has_relrmb() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void PayDBData::set_has_relrmb() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void PayDBData::clear_has_relrmb() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void PayDBData::clear_relrmb() {
+  relrmb_ = 0u;
+  clear_has_relrmb();
+}
+inline ::google::protobuf::uint32 PayDBData::relrmb() const {
+  return relrmb_;
+}
+inline void PayDBData::set_relrmb(::google::protobuf::uint32 value) {
+  set_has_relrmb();
+  relrmb_ = value;
+}
+
+// optional uint32 rmb = 4;
+inline bool PayDBData::has_rmb() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void PayDBData::set_has_rmb() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void PayDBData::clear_has_rmb() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void PayDBData::clear_rmb() {
+  rmb_ = 0u;
+  clear_has_rmb();
+}
+inline ::google::protobuf::uint32 PayDBData::rmb() const {
+  return rmb_;
+}
+inline void PayDBData::set_rmb(::google::protobuf::uint32 value) {
+  set_has_rmb();
+  rmb_ = value;
+}
+
+// optional uint32 fakermb = 5;
+inline bool PayDBData::has_fakermb() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void PayDBData::set_has_fakermb() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void PayDBData::clear_has_fakermb() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void PayDBData::clear_fakermb() {
+  fakermb_ = 0u;
+  clear_has_fakermb();
+}
+inline ::google::protobuf::uint32 PayDBData::fakermb() const {
+  return fakermb_;
+}
+inline void PayDBData::set_fakermb(::google::protobuf::uint32 value) {
+  set_has_fakermb();
+  fakermb_ = value;
+}
+
+// optional uint32 todayrmb = 6;
+inline bool PayDBData::has_todayrmb() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void PayDBData::set_has_todayrmb() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void PayDBData::clear_has_todayrmb() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void PayDBData::clear_todayrmb() {
+  todayrmb_ = 0u;
+  clear_has_todayrmb();
+}
+inline ::google::protobuf::uint32 PayDBData::todayrmb() const {
+  return todayrmb_;
+}
+inline void PayDBData::set_todayrmb(::google::protobuf::uint32 value) {
+  set_has_todayrmb();
+  todayrmb_ = value;
+}
+
+// optional uint64 todaytime = 7;
+inline bool PayDBData::has_todaytime() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void PayDBData::set_has_todaytime() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void PayDBData::clear_has_todaytime() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void PayDBData::clear_todaytime() {
+  todaytime_ = GOOGLE_ULONGLONG(0);
+  clear_has_todaytime();
+}
+inline ::google::protobuf::uint64 PayDBData::todaytime() const {
+  return todaytime_;
+}
+inline void PayDBData::set_todaytime(::google::protobuf::uint64 value) {
+  set_has_todaytime();
+  todaytime_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FactionDBSalary
+
+// optional int32 id = 1;
+inline bool FactionDBSalary::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FactionDBSalary::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FactionDBSalary::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FactionDBSalary::clear_id() {
+  id_ = 0;
+  clear_has_id();
+}
+inline ::google::protobuf::int32 FactionDBSalary::id() const {
+  return id_;
+}
+inline void FactionDBSalary::set_id(::google::protobuf::int32 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional int32 cur = 2;
+inline bool FactionDBSalary::has_cur() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FactionDBSalary::set_has_cur() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FactionDBSalary::clear_has_cur() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FactionDBSalary::clear_cur() {
+  cur_ = 0;
+  clear_has_cur();
+}
+inline ::google::protobuf::int32 FactionDBSalary::cur() const {
+  return cur_;
+}
+inline void FactionDBSalary::set_cur(::google::protobuf::int32 value) {
+  set_has_cur();
+  cur_ = value;
+}
+
+// optional int32 fetch = 3;
+inline bool FactionDBSalary::has_fetch() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FactionDBSalary::set_has_fetch() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FactionDBSalary::clear_has_fetch() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FactionDBSalary::clear_fetch() {
+  fetch_ = 0;
+  clear_has_fetch();
+}
+inline ::google::protobuf::int32 FactionDBSalary::fetch() const {
+  return fetch_;
+}
+inline void FactionDBSalary::set_fetch(::google::protobuf::int32 value) {
+  set_has_fetch();
+  fetch_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RoleFactionDBData
+
+// optional int32 donate_num = 1;
+inline bool RoleFactionDBData::has_donate_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RoleFactionDBData::set_has_donate_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RoleFactionDBData::clear_has_donate_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RoleFactionDBData::clear_donate_num() {
+  donate_num_ = 0;
+  clear_has_donate_num();
+}
+inline ::google::protobuf::int32 RoleFactionDBData::donate_num() const {
+  return donate_num_;
+}
+inline void RoleFactionDBData::set_donate_num(::google::protobuf::int32 value) {
+  set_has_donate_num();
+  donate_num_ = value;
+}
+
+// optional uint64 donate_fresh = 2;
+inline bool RoleFactionDBData::has_donate_fresh() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RoleFactionDBData::set_has_donate_fresh() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RoleFactionDBData::clear_has_donate_fresh() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RoleFactionDBData::clear_donate_fresh() {
+  donate_fresh_ = GOOGLE_ULONGLONG(0);
+  clear_has_donate_fresh();
+}
+inline ::google::protobuf::uint64 RoleFactionDBData::donate_fresh() const {
+  return donate_fresh_;
+}
+inline void RoleFactionDBData::set_donate_fresh(::google::protobuf::uint64 value) {
+  set_has_donate_fresh();
+  donate_fresh_ = value;
+}
+
+// repeated .proto_ff.FactionDBSalary salary = 3;
+inline int RoleFactionDBData::salary_size() const {
+  return salary_.size();
+}
+inline void RoleFactionDBData::clear_salary() {
+  salary_.Clear();
+}
+inline const ::proto_ff::FactionDBSalary& RoleFactionDBData::salary(int index) const {
+  return salary_.Get(index);
+}
+inline ::proto_ff::FactionDBSalary* RoleFactionDBData::mutable_salary(int index) {
+  return salary_.Mutable(index);
+}
+inline ::proto_ff::FactionDBSalary* RoleFactionDBData::add_salary() {
+  return salary_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionDBSalary >&
+RoleFactionDBData::salary() const {
+  return salary_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FactionDBSalary >*
+RoleFactionDBData::mutable_salary() {
+  return &salary_;
+}
+
+// optional uint64 salary_fresh = 4;
+inline bool RoleFactionDBData::has_salary_fresh() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void RoleFactionDBData::set_has_salary_fresh() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void RoleFactionDBData::clear_has_salary_fresh() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void RoleFactionDBData::clear_salary_fresh() {
+  salary_fresh_ = GOOGLE_ULONGLONG(0);
+  clear_has_salary_fresh();
+}
+inline ::google::protobuf::uint64 RoleFactionDBData::salary_fresh() const {
+  return salary_fresh_;
+}
+inline void RoleFactionDBData::set_salary_fresh(::google::protobuf::uint64 value) {
+  set_has_salary_fresh();
+  salary_fresh_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RoleBestEQDBData
+
+// repeated .proto_ff.BestEQEquipInfo equips = 1;
+inline int RoleBestEQDBData::equips_size() const {
+  return equips_.size();
+}
+inline void RoleBestEQDBData::clear_equips() {
+  equips_.Clear();
+}
+inline const ::proto_ff::BestEQEquipInfo& RoleBestEQDBData::equips(int index) const {
+  return equips_.Get(index);
+}
+inline ::proto_ff::BestEQEquipInfo* RoleBestEQDBData::mutable_equips(int index) {
+  return equips_.Mutable(index);
+}
+inline ::proto_ff::BestEQEquipInfo* RoleBestEQDBData::add_equips() {
+  return equips_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQEquipInfo >&
+RoleBestEQDBData::equips() const {
+  return equips_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQEquipInfo >*
+RoleBestEQDBData::mutable_equips() {
+  return &equips_;
+}
+
+// repeated .proto_ff.BestEQSlotInfo slots = 2;
+inline int RoleBestEQDBData::slots_size() const {
+  return slots_.size();
+}
+inline void RoleBestEQDBData::clear_slots() {
+  slots_.Clear();
+}
+inline const ::proto_ff::BestEQSlotInfo& RoleBestEQDBData::slots(int index) const {
+  return slots_.Get(index);
+}
+inline ::proto_ff::BestEQSlotInfo* RoleBestEQDBData::mutable_slots(int index) {
+  return slots_.Mutable(index);
+}
+inline ::proto_ff::BestEQSlotInfo* RoleBestEQDBData::add_slots() {
+  return slots_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQSlotInfo >&
+RoleBestEQDBData::slots() const {
+  return slots_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQSlotInfo >*
+RoleBestEQDBData::mutable_slots() {
+  return &slots_;
+}
+
+// repeated .proto_ff.BestEQTask tasks = 3;
+inline int RoleBestEQDBData::tasks_size() const {
+  return tasks_.size();
+}
+inline void RoleBestEQDBData::clear_tasks() {
+  tasks_.Clear();
+}
+inline const ::proto_ff::BestEQTask& RoleBestEQDBData::tasks(int index) const {
+  return tasks_.Get(index);
+}
+inline ::proto_ff::BestEQTask* RoleBestEQDBData::mutable_tasks(int index) {
+  return tasks_.Mutable(index);
+}
+inline ::proto_ff::BestEQTask* RoleBestEQDBData::add_tasks() {
+  return tasks_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQTask >&
+RoleBestEQDBData::tasks() const {
+  return tasks_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BestEQTask >*
+RoleBestEQDBData::mutable_tasks() {
+  return &tasks_;
 }
 
 // -------------------------------------------------------------------
@@ -19862,6 +22937,991 @@ inline void RoleDBData::set_allocated_title(::proto_ff::TitleDBData* title) {
   } else {
     clear_has_title();
   }
+}
+
+// optional .proto_ff.GodEvilDBData godevil = 27;
+inline bool RoleDBData::has_godevil() const {
+  return (_has_bits_[0] & 0x04000000u) != 0;
+}
+inline void RoleDBData::set_has_godevil() {
+  _has_bits_[0] |= 0x04000000u;
+}
+inline void RoleDBData::clear_has_godevil() {
+  _has_bits_[0] &= ~0x04000000u;
+}
+inline void RoleDBData::clear_godevil() {
+  if (godevil_ != NULL) godevil_->::proto_ff::GodEvilDBData::Clear();
+  clear_has_godevil();
+}
+inline const ::proto_ff::GodEvilDBData& RoleDBData::godevil() const {
+  return godevil_ != NULL ? *godevil_ : *default_instance_->godevil_;
+}
+inline ::proto_ff::GodEvilDBData* RoleDBData::mutable_godevil() {
+  set_has_godevil();
+  if (godevil_ == NULL) godevil_ = new ::proto_ff::GodEvilDBData;
+  return godevil_;
+}
+inline ::proto_ff::GodEvilDBData* RoleDBData::release_godevil() {
+  clear_has_godevil();
+  ::proto_ff::GodEvilDBData* temp = godevil_;
+  godevil_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_godevil(::proto_ff::GodEvilDBData* godevil) {
+  delete godevil_;
+  godevil_ = godevil;
+  if (godevil) {
+    set_has_godevil();
+  } else {
+    clear_has_godevil();
+  }
+}
+
+// optional .proto_ff.OccupationMissionData occupatoin = 28;
+inline bool RoleDBData::has_occupatoin() const {
+  return (_has_bits_[0] & 0x08000000u) != 0;
+}
+inline void RoleDBData::set_has_occupatoin() {
+  _has_bits_[0] |= 0x08000000u;
+}
+inline void RoleDBData::clear_has_occupatoin() {
+  _has_bits_[0] &= ~0x08000000u;
+}
+inline void RoleDBData::clear_occupatoin() {
+  if (occupatoin_ != NULL) occupatoin_->::proto_ff::OccupationMissionData::Clear();
+  clear_has_occupatoin();
+}
+inline const ::proto_ff::OccupationMissionData& RoleDBData::occupatoin() const {
+  return occupatoin_ != NULL ? *occupatoin_ : *default_instance_->occupatoin_;
+}
+inline ::proto_ff::OccupationMissionData* RoleDBData::mutable_occupatoin() {
+  set_has_occupatoin();
+  if (occupatoin_ == NULL) occupatoin_ = new ::proto_ff::OccupationMissionData;
+  return occupatoin_;
+}
+inline ::proto_ff::OccupationMissionData* RoleDBData::release_occupatoin() {
+  clear_has_occupatoin();
+  ::proto_ff::OccupationMissionData* temp = occupatoin_;
+  occupatoin_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_occupatoin(::proto_ff::OccupationMissionData* occupatoin) {
+  delete occupatoin_;
+  occupatoin_ = occupatoin;
+  if (occupatoin) {
+    set_has_occupatoin();
+  } else {
+    clear_has_occupatoin();
+  }
+}
+
+// optional .proto_ff.PayDBData pay = 29;
+inline bool RoleDBData::has_pay() const {
+  return (_has_bits_[0] & 0x10000000u) != 0;
+}
+inline void RoleDBData::set_has_pay() {
+  _has_bits_[0] |= 0x10000000u;
+}
+inline void RoleDBData::clear_has_pay() {
+  _has_bits_[0] &= ~0x10000000u;
+}
+inline void RoleDBData::clear_pay() {
+  if (pay_ != NULL) pay_->::proto_ff::PayDBData::Clear();
+  clear_has_pay();
+}
+inline const ::proto_ff::PayDBData& RoleDBData::pay() const {
+  return pay_ != NULL ? *pay_ : *default_instance_->pay_;
+}
+inline ::proto_ff::PayDBData* RoleDBData::mutable_pay() {
+  set_has_pay();
+  if (pay_ == NULL) pay_ = new ::proto_ff::PayDBData;
+  return pay_;
+}
+inline ::proto_ff::PayDBData* RoleDBData::release_pay() {
+  clear_has_pay();
+  ::proto_ff::PayDBData* temp = pay_;
+  pay_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_pay(::proto_ff::PayDBData* pay) {
+  delete pay_;
+  pay_ = pay;
+  if (pay) {
+    set_has_pay();
+  } else {
+    clear_has_pay();
+  }
+}
+
+// optional .proto_ff.RoleFactionDBData role_faction = 30;
+inline bool RoleDBData::has_role_faction() const {
+  return (_has_bits_[0] & 0x20000000u) != 0;
+}
+inline void RoleDBData::set_has_role_faction() {
+  _has_bits_[0] |= 0x20000000u;
+}
+inline void RoleDBData::clear_has_role_faction() {
+  _has_bits_[0] &= ~0x20000000u;
+}
+inline void RoleDBData::clear_role_faction() {
+  if (role_faction_ != NULL) role_faction_->::proto_ff::RoleFactionDBData::Clear();
+  clear_has_role_faction();
+}
+inline const ::proto_ff::RoleFactionDBData& RoleDBData::role_faction() const {
+  return role_faction_ != NULL ? *role_faction_ : *default_instance_->role_faction_;
+}
+inline ::proto_ff::RoleFactionDBData* RoleDBData::mutable_role_faction() {
+  set_has_role_faction();
+  if (role_faction_ == NULL) role_faction_ = new ::proto_ff::RoleFactionDBData;
+  return role_faction_;
+}
+inline ::proto_ff::RoleFactionDBData* RoleDBData::release_role_faction() {
+  clear_has_role_faction();
+  ::proto_ff::RoleFactionDBData* temp = role_faction_;
+  role_faction_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_role_faction(::proto_ff::RoleFactionDBData* role_faction) {
+  delete role_faction_;
+  role_faction_ = role_faction;
+  if (role_faction) {
+    set_has_role_faction();
+  } else {
+    clear_has_role_faction();
+  }
+}
+
+// optional .proto_ff.RoleBestEQDBData best_equip = 31;
+inline bool RoleDBData::has_best_equip() const {
+  return (_has_bits_[0] & 0x40000000u) != 0;
+}
+inline void RoleDBData::set_has_best_equip() {
+  _has_bits_[0] |= 0x40000000u;
+}
+inline void RoleDBData::clear_has_best_equip() {
+  _has_bits_[0] &= ~0x40000000u;
+}
+inline void RoleDBData::clear_best_equip() {
+  if (best_equip_ != NULL) best_equip_->::proto_ff::RoleBestEQDBData::Clear();
+  clear_has_best_equip();
+}
+inline const ::proto_ff::RoleBestEQDBData& RoleDBData::best_equip() const {
+  return best_equip_ != NULL ? *best_equip_ : *default_instance_->best_equip_;
+}
+inline ::proto_ff::RoleBestEQDBData* RoleDBData::mutable_best_equip() {
+  set_has_best_equip();
+  if (best_equip_ == NULL) best_equip_ = new ::proto_ff::RoleBestEQDBData;
+  return best_equip_;
+}
+inline ::proto_ff::RoleBestEQDBData* RoleDBData::release_best_equip() {
+  clear_has_best_equip();
+  ::proto_ff::RoleBestEQDBData* temp = best_equip_;
+  best_equip_ = NULL;
+  return temp;
+}
+inline void RoleDBData::set_allocated_best_equip(::proto_ff::RoleBestEQDBData* best_equip) {
+  delete best_equip_;
+  best_equip_ = best_equip;
+  if (best_equip) {
+    set_has_best_equip();
+  } else {
+    clear_has_best_equip();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// RedWaitDBProto
+
+// optional uint32 idx = 1;
+inline bool RedWaitDBProto::has_idx() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RedWaitDBProto::set_has_idx() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RedWaitDBProto::clear_has_idx() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RedWaitDBProto::clear_idx() {
+  idx_ = 0u;
+  clear_has_idx();
+}
+inline ::google::protobuf::uint32 RedWaitDBProto::idx() const {
+  return idx_;
+}
+inline void RedWaitDBProto::set_idx(::google::protobuf::uint32 value) {
+  set_has_idx();
+  idx_ = value;
+}
+
+// optional int32 cfgid = 2;
+inline bool RedWaitDBProto::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RedWaitDBProto::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RedWaitDBProto::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RedWaitDBProto::clear_cfgid() {
+  cfgid_ = 0;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::int32 RedWaitDBProto::cfgid() const {
+  return cfgid_;
+}
+inline void RedWaitDBProto::set_cfgid(::google::protobuf::int32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// optional uint64 time = 3;
+inline bool RedWaitDBProto::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RedWaitDBProto::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RedWaitDBProto::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RedWaitDBProto::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::uint64 RedWaitDBProto::time() const {
+  return time_;
+}
+inline void RedWaitDBProto::set_time(::google::protobuf::uint64 value) {
+  set_has_time();
+  time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RedTriggerDBProto
+
+// optional int32 cfgid = 1;
+inline bool RedTriggerDBProto::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RedTriggerDBProto::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RedTriggerDBProto::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RedTriggerDBProto::clear_cfgid() {
+  cfgid_ = 0;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::int32 RedTriggerDBProto::cfgid() const {
+  return cfgid_;
+}
+inline void RedTriggerDBProto::set_cfgid(::google::protobuf::int32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// optional int32 count = 2;
+inline bool RedTriggerDBProto::has_count() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RedTriggerDBProto::set_has_count() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RedTriggerDBProto::clear_has_count() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RedTriggerDBProto::clear_count() {
+  count_ = 0;
+  clear_has_count();
+}
+inline ::google::protobuf::int32 RedTriggerDBProto::count() const {
+  return count_;
+}
+inline void RedTriggerDBProto::set_count(::google::protobuf::int32 value) {
+  set_has_count();
+  count_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RoleRedDBData
+
+// optional uint32 bdia = 1;
+inline bool RoleRedDBData::has_bdia() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RoleRedDBData::set_has_bdia() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RoleRedDBData::clear_has_bdia() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RoleRedDBData::clear_bdia() {
+  bdia_ = 0u;
+  clear_has_bdia();
+}
+inline ::google::protobuf::uint32 RoleRedDBData::bdia() const {
+  return bdia_;
+}
+inline void RoleRedDBData::set_bdia(::google::protobuf::uint32 value) {
+  set_has_bdia();
+  bdia_ = value;
+}
+
+// optional uint32 magic = 2;
+inline bool RoleRedDBData::has_magic() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RoleRedDBData::set_has_magic() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RoleRedDBData::clear_has_magic() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RoleRedDBData::clear_magic() {
+  magic_ = 0u;
+  clear_has_magic();
+}
+inline ::google::protobuf::uint32 RoleRedDBData::magic() const {
+  return magic_;
+}
+inline void RoleRedDBData::set_magic(::google::protobuf::uint32 value) {
+  set_has_magic();
+  magic_ = value;
+}
+
+// optional uint32 todaynum = 3;
+inline bool RoleRedDBData::has_todaynum() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RoleRedDBData::set_has_todaynum() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RoleRedDBData::clear_has_todaynum() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RoleRedDBData::clear_todaynum() {
+  todaynum_ = 0u;
+  clear_has_todaynum();
+}
+inline ::google::protobuf::uint32 RoleRedDBData::todaynum() const {
+  return todaynum_;
+}
+inline void RoleRedDBData::set_todaynum(::google::protobuf::uint32 value) {
+  set_has_todaynum();
+  todaynum_ = value;
+}
+
+// optional uint32 todaymagic = 4;
+inline bool RoleRedDBData::has_todaymagic() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void RoleRedDBData::set_has_todaymagic() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void RoleRedDBData::clear_has_todaymagic() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void RoleRedDBData::clear_todaymagic() {
+  todaymagic_ = 0u;
+  clear_has_todaymagic();
+}
+inline ::google::protobuf::uint32 RoleRedDBData::todaymagic() const {
+  return todaymagic_;
+}
+inline void RoleRedDBData::set_todaymagic(::google::protobuf::uint32 value) {
+  set_has_todaymagic();
+  todaymagic_ = value;
+}
+
+// optional uint32 todaybdia = 5;
+inline bool RoleRedDBData::has_todaybdia() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void RoleRedDBData::set_has_todaybdia() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void RoleRedDBData::clear_has_todaybdia() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void RoleRedDBData::clear_todaybdia() {
+  todaybdia_ = 0u;
+  clear_has_todaybdia();
+}
+inline ::google::protobuf::uint32 RoleRedDBData::todaybdia() const {
+  return todaybdia_;
+}
+inline void RoleRedDBData::set_todaybdia(::google::protobuf::uint32 value) {
+  set_has_todaybdia();
+  todaybdia_ = value;
+}
+
+// optional uint64 freshtime = 6;
+inline bool RoleRedDBData::has_freshtime() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void RoleRedDBData::set_has_freshtime() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void RoleRedDBData::clear_has_freshtime() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void RoleRedDBData::clear_freshtime() {
+  freshtime_ = GOOGLE_ULONGLONG(0);
+  clear_has_freshtime();
+}
+inline ::google::protobuf::uint64 RoleRedDBData::freshtime() const {
+  return freshtime_;
+}
+inline void RoleRedDBData::set_freshtime(::google::protobuf::uint64 value) {
+  set_has_freshtime();
+  freshtime_ = value;
+}
+
+// repeated int32 send_lst = 7;
+inline int RoleRedDBData::send_lst_size() const {
+  return send_lst_.size();
+}
+inline void RoleRedDBData::clear_send_lst() {
+  send_lst_.Clear();
+}
+inline ::google::protobuf::int32 RoleRedDBData::send_lst(int index) const {
+  return send_lst_.Get(index);
+}
+inline void RoleRedDBData::set_send_lst(int index, ::google::protobuf::int32 value) {
+  send_lst_.Set(index, value);
+}
+inline void RoleRedDBData::add_send_lst(::google::protobuf::int32 value) {
+  send_lst_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+RoleRedDBData::send_lst() const {
+  return send_lst_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+RoleRedDBData::mutable_send_lst() {
+  return &send_lst_;
+}
+
+// repeated .proto_ff.RedWaitDBProto wait_lst = 8;
+inline int RoleRedDBData::wait_lst_size() const {
+  return wait_lst_.size();
+}
+inline void RoleRedDBData::clear_wait_lst() {
+  wait_lst_.Clear();
+}
+inline const ::proto_ff::RedWaitDBProto& RoleRedDBData::wait_lst(int index) const {
+  return wait_lst_.Get(index);
+}
+inline ::proto_ff::RedWaitDBProto* RoleRedDBData::mutable_wait_lst(int index) {
+  return wait_lst_.Mutable(index);
+}
+inline ::proto_ff::RedWaitDBProto* RoleRedDBData::add_wait_lst() {
+  return wait_lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto >&
+RoleRedDBData::wait_lst() const {
+  return wait_lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto >*
+RoleRedDBData::mutable_wait_lst() {
+  return &wait_lst_;
+}
+
+// optional uint64 cid = 9;
+inline bool RoleRedDBData::has_cid() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void RoleRedDBData::set_has_cid() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void RoleRedDBData::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void RoleRedDBData::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 RoleRedDBData::cid() const {
+  return cid_;
+}
+inline void RoleRedDBData::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// repeated .proto_ff.RedTriggerDBProto trigger_lst = 10;
+inline int RoleRedDBData::trigger_lst_size() const {
+  return trigger_lst_.size();
+}
+inline void RoleRedDBData::clear_trigger_lst() {
+  trigger_lst_.Clear();
+}
+inline const ::proto_ff::RedTriggerDBProto& RoleRedDBData::trigger_lst(int index) const {
+  return trigger_lst_.Get(index);
+}
+inline ::proto_ff::RedTriggerDBProto* RoleRedDBData::mutable_trigger_lst(int index) {
+  return trigger_lst_.Mutable(index);
+}
+inline ::proto_ff::RedTriggerDBProto* RoleRedDBData::add_trigger_lst() {
+  return trigger_lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto >&
+RoleRedDBData::trigger_lst() const {
+  return trigger_lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto >*
+RoleRedDBData::mutable_trigger_lst() {
+  return &trigger_lst_;
+}
+
+// -------------------------------------------------------------------
+
+// RedFetchDBProto
+
+// optional uint64 cid = 1;
+inline bool RedFetchDBProto::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RedFetchDBProto::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RedFetchDBProto::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RedFetchDBProto::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 RedFetchDBProto::cid() const {
+  return cid_;
+}
+inline void RedFetchDBProto::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 val = 2;
+inline bool RedFetchDBProto::has_val() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RedFetchDBProto::set_has_val() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RedFetchDBProto::clear_has_val() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RedFetchDBProto::clear_val() {
+  val_ = 0u;
+  clear_has_val();
+}
+inline ::google::protobuf::uint32 RedFetchDBProto::val() const {
+  return val_;
+}
+inline void RedFetchDBProto::set_val(::google::protobuf::uint32 value) {
+  set_has_val();
+  val_ = value;
+}
+
+// optional uint64 time = 3;
+inline bool RedFetchDBProto::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RedFetchDBProto::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RedFetchDBProto::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RedFetchDBProto::clear_time() {
+  time_ = GOOGLE_ULONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::uint64 RedFetchDBProto::time() const {
+  return time_;
+}
+inline void RedFetchDBProto::set_time(::google::protobuf::uint64 value) {
+  set_has_time();
+  time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RedFetchListDBProto
+
+// repeated .proto_ff.RedFetchDBProto info = 1;
+inline int RedFetchListDBProto::info_size() const {
+  return info_.size();
+}
+inline void RedFetchListDBProto::clear_info() {
+  info_.Clear();
+}
+inline const ::proto_ff::RedFetchDBProto& RedFetchListDBProto::info(int index) const {
+  return info_.Get(index);
+}
+inline ::proto_ff::RedFetchDBProto* RedFetchListDBProto::mutable_info(int index) {
+  return info_.Mutable(index);
+}
+inline ::proto_ff::RedFetchDBProto* RedFetchListDBProto::add_info() {
+  return info_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedFetchDBProto >&
+RedFetchListDBProto::info() const {
+  return info_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedFetchDBProto >*
+RedFetchListDBProto::mutable_info() {
+  return &info_;
+}
+
+// -------------------------------------------------------------------
+
+// RedSendDBProto
+
+// optional uint32 idx = 1;
+inline bool RedSendDBProto::has_idx() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RedSendDBProto::set_has_idx() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RedSendDBProto::clear_has_idx() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RedSendDBProto::clear_idx() {
+  idx_ = 0u;
+  clear_has_idx();
+}
+inline ::google::protobuf::uint32 RedSendDBProto::idx() const {
+  return idx_;
+}
+inline void RedSendDBProto::set_idx(::google::protobuf::uint32 value) {
+  set_has_idx();
+  idx_ = value;
+}
+
+// optional int32 cfgid = 2;
+inline bool RedSendDBProto::has_cfgid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RedSendDBProto::set_has_cfgid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RedSendDBProto::clear_has_cfgid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RedSendDBProto::clear_cfgid() {
+  cfgid_ = 0;
+  clear_has_cfgid();
+}
+inline ::google::protobuf::int32 RedSendDBProto::cfgid() const {
+  return cfgid_;
+}
+inline void RedSendDBProto::set_cfgid(::google::protobuf::int32 value) {
+  set_has_cfgid();
+  cfgid_ = value;
+}
+
+// optional uint64 sender = 3;
+inline bool RedSendDBProto::has_sender() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RedSendDBProto::set_has_sender() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RedSendDBProto::clear_has_sender() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RedSendDBProto::clear_sender() {
+  sender_ = GOOGLE_ULONGLONG(0);
+  clear_has_sender();
+}
+inline ::google::protobuf::uint64 RedSendDBProto::sender() const {
+  return sender_;
+}
+inline void RedSendDBProto::set_sender(::google::protobuf::uint64 value) {
+  set_has_sender();
+  sender_ = value;
+}
+
+// optional uint64 sendtime = 4;
+inline bool RedSendDBProto::has_sendtime() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void RedSendDBProto::set_has_sendtime() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void RedSendDBProto::clear_has_sendtime() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void RedSendDBProto::clear_sendtime() {
+  sendtime_ = GOOGLE_ULONGLONG(0);
+  clear_has_sendtime();
+}
+inline ::google::protobuf::uint64 RedSendDBProto::sendtime() const {
+  return sendtime_;
+}
+inline void RedSendDBProto::set_sendtime(::google::protobuf::uint64 value) {
+  set_has_sendtime();
+  sendtime_ = value;
+}
+
+// optional bytes word = 5;
+inline bool RedSendDBProto::has_word() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void RedSendDBProto::set_has_word() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void RedSendDBProto::clear_has_word() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void RedSendDBProto::clear_word() {
+  if (word_ != &::google::protobuf::internal::kEmptyString) {
+    word_->clear();
+  }
+  clear_has_word();
+}
+inline const ::std::string& RedSendDBProto::word() const {
+  return *word_;
+}
+inline void RedSendDBProto::set_word(const ::std::string& value) {
+  set_has_word();
+  if (word_ == &::google::protobuf::internal::kEmptyString) {
+    word_ = new ::std::string;
+  }
+  word_->assign(value);
+}
+inline void RedSendDBProto::set_word(const char* value) {
+  set_has_word();
+  if (word_ == &::google::protobuf::internal::kEmptyString) {
+    word_ = new ::std::string;
+  }
+  word_->assign(value);
+}
+inline void RedSendDBProto::set_word(const void* value, size_t size) {
+  set_has_word();
+  if (word_ == &::google::protobuf::internal::kEmptyString) {
+    word_ = new ::std::string;
+  }
+  word_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* RedSendDBProto::mutable_word() {
+  set_has_word();
+  if (word_ == &::google::protobuf::internal::kEmptyString) {
+    word_ = new ::std::string;
+  }
+  return word_;
+}
+inline ::std::string* RedSendDBProto::release_word() {
+  clear_has_word();
+  if (word_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = word_;
+    word_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void RedSendDBProto::set_allocated_word(::std::string* word) {
+  if (word_ != &::google::protobuf::internal::kEmptyString) {
+    delete word_;
+  }
+  if (word) {
+    set_has_word();
+    word_ = word;
+  } else {
+    clear_has_word();
+    word_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 finish = 6;
+inline bool RedSendDBProto::has_finish() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void RedSendDBProto::set_has_finish() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void RedSendDBProto::clear_has_finish() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void RedSendDBProto::clear_finish() {
+  finish_ = 0;
+  clear_has_finish();
+}
+inline ::google::protobuf::int32 RedSendDBProto::finish() const {
+  return finish_;
+}
+inline void RedSendDBProto::set_finish(::google::protobuf::int32 value) {
+  set_has_finish();
+  finish_ = value;
+}
+
+// optional .proto_ff.RedFetchListDBProto fetch = 7;
+inline bool RedSendDBProto::has_fetch() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void RedSendDBProto::set_has_fetch() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void RedSendDBProto::clear_has_fetch() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void RedSendDBProto::clear_fetch() {
+  if (fetch_ != NULL) fetch_->::proto_ff::RedFetchListDBProto::Clear();
+  clear_has_fetch();
+}
+inline const ::proto_ff::RedFetchListDBProto& RedSendDBProto::fetch() const {
+  return fetch_ != NULL ? *fetch_ : *default_instance_->fetch_;
+}
+inline ::proto_ff::RedFetchListDBProto* RedSendDBProto::mutable_fetch() {
+  set_has_fetch();
+  if (fetch_ == NULL) fetch_ = new ::proto_ff::RedFetchListDBProto;
+  return fetch_;
+}
+inline ::proto_ff::RedFetchListDBProto* RedSendDBProto::release_fetch() {
+  clear_has_fetch();
+  ::proto_ff::RedFetchListDBProto* temp = fetch_;
+  fetch_ = NULL;
+  return temp;
+}
+inline void RedSendDBProto::set_allocated_fetch(::proto_ff::RedFetchListDBProto* fetch) {
+  delete fetch_;
+  fetch_ = fetch;
+  if (fetch) {
+    set_has_fetch();
+  } else {
+    clear_has_fetch();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// RedDBData
+
+// repeated .proto_ff.RedWaitDBProto wait = 1;
+inline int RedDBData::wait_size() const {
+  return wait_.size();
+}
+inline void RedDBData::clear_wait() {
+  wait_.Clear();
+}
+inline const ::proto_ff::RedWaitDBProto& RedDBData::wait(int index) const {
+  return wait_.Get(index);
+}
+inline ::proto_ff::RedWaitDBProto* RedDBData::mutable_wait(int index) {
+  return wait_.Mutable(index);
+}
+inline ::proto_ff::RedWaitDBProto* RedDBData::add_wait() {
+  return wait_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto >&
+RedDBData::wait() const {
+  return wait_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedWaitDBProto >*
+RedDBData::mutable_wait() {
+  return &wait_;
+}
+
+// repeated .proto_ff.RedTriggerDBProto trigger_lst = 2;
+inline int RedDBData::trigger_lst_size() const {
+  return trigger_lst_.size();
+}
+inline void RedDBData::clear_trigger_lst() {
+  trigger_lst_.Clear();
+}
+inline const ::proto_ff::RedTriggerDBProto& RedDBData::trigger_lst(int index) const {
+  return trigger_lst_.Get(index);
+}
+inline ::proto_ff::RedTriggerDBProto* RedDBData::mutable_trigger_lst(int index) {
+  return trigger_lst_.Mutable(index);
+}
+inline ::proto_ff::RedTriggerDBProto* RedDBData::add_trigger_lst() {
+  return trigger_lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto >&
+RedDBData::trigger_lst() const {
+  return trigger_lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedTriggerDBProto >*
+RedDBData::mutable_trigger_lst() {
+  return &trigger_lst_;
+}
+
+// optional uint64 freshtime = 3;
+inline bool RedDBData::has_freshtime() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RedDBData::set_has_freshtime() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RedDBData::clear_has_freshtime() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RedDBData::clear_freshtime() {
+  freshtime_ = GOOGLE_ULONGLONG(0);
+  clear_has_freshtime();
+}
+inline ::google::protobuf::uint64 RedDBData::freshtime() const {
+  return freshtime_;
+}
+inline void RedDBData::set_freshtime(::google::protobuf::uint64 value) {
+  set_has_freshtime();
+  freshtime_ = value;
+}
+
+// repeated .proto_ff.RedSendDBProto send = 4;
+inline int RedDBData::send_size() const {
+  return send_.size();
+}
+inline void RedDBData::clear_send() {
+  send_.Clear();
+}
+inline const ::proto_ff::RedSendDBProto& RedDBData::send(int index) const {
+  return send_.Get(index);
+}
+inline ::proto_ff::RedSendDBProto* RedDBData::mutable_send(int index) {
+  return send_.Mutable(index);
+}
+inline ::proto_ff::RedSendDBProto* RedDBData::add_send() {
+  return send_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedSendDBProto >&
+RedDBData::send() const {
+  return send_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedSendDBProto >*
+RedDBData::mutable_send() {
+  return &send_;
+}
+
+// optional uint32 faction_id = 5;
+inline bool RedDBData::has_faction_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void RedDBData::set_has_faction_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void RedDBData::clear_has_faction_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void RedDBData::clear_faction_id() {
+  faction_id_ = 0u;
+  clear_has_faction_id();
+}
+inline ::google::protobuf::uint32 RedDBData::faction_id() const {
+  return faction_id_;
+}
+inline void RedDBData::set_faction_id(::google::protobuf::uint32 value) {
+  set_has_faction_id();
+  faction_id_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -25433,6 +29493,662 @@ inline ::google::protobuf::uint32 FactionDelDBReq::faction_id() const {
 inline void FactionDelDBReq::set_faction_id(::google::protobuf::uint32 value) {
   set_has_faction_id();
   faction_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FactionRedDBReq
+
+// -------------------------------------------------------------------
+
+// FactionRedDBRsp
+
+// repeated .proto_ff.RedDBData data_lst = 1;
+inline int FactionRedDBRsp::data_lst_size() const {
+  return data_lst_.size();
+}
+inline void FactionRedDBRsp::clear_data_lst() {
+  data_lst_.Clear();
+}
+inline const ::proto_ff::RedDBData& FactionRedDBRsp::data_lst(int index) const {
+  return data_lst_.Get(index);
+}
+inline ::proto_ff::RedDBData* FactionRedDBRsp::mutable_data_lst(int index) {
+  return data_lst_.Mutable(index);
+}
+inline ::proto_ff::RedDBData* FactionRedDBRsp::add_data_lst() {
+  return data_lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RedDBData >&
+FactionRedDBRsp::data_lst() const {
+  return data_lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RedDBData >*
+FactionRedDBRsp::mutable_data_lst() {
+  return &data_lst_;
+}
+
+// optional int32 finish = 2;
+inline bool FactionRedDBRsp::has_finish() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FactionRedDBRsp::set_has_finish() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FactionRedDBRsp::clear_has_finish() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FactionRedDBRsp::clear_finish() {
+  finish_ = 0;
+  clear_has_finish();
+}
+inline ::google::protobuf::int32 FactionRedDBRsp::finish() const {
+  return finish_;
+}
+inline void FactionRedDBRsp::set_finish(::google::protobuf::int32 value) {
+  set_has_finish();
+  finish_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FactionRedSaveDBReq
+
+// required uint32 faction_id = 1;
+inline bool FactionRedSaveDBReq::has_faction_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FactionRedSaveDBReq::set_has_faction_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FactionRedSaveDBReq::clear_has_faction_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FactionRedSaveDBReq::clear_faction_id() {
+  faction_id_ = 0u;
+  clear_has_faction_id();
+}
+inline ::google::protobuf::uint32 FactionRedSaveDBReq::faction_id() const {
+  return faction_id_;
+}
+inline void FactionRedSaveDBReq::set_faction_id(::google::protobuf::uint32 value) {
+  set_has_faction_id();
+  faction_id_ = value;
+}
+
+// required .proto_ff.RedDBData data0 = 2;
+inline bool FactionRedSaveDBReq::has_data0() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FactionRedSaveDBReq::set_has_data0() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FactionRedSaveDBReq::clear_has_data0() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FactionRedSaveDBReq::clear_data0() {
+  if (data0_ != NULL) data0_->::proto_ff::RedDBData::Clear();
+  clear_has_data0();
+}
+inline const ::proto_ff::RedDBData& FactionRedSaveDBReq::data0() const {
+  return data0_ != NULL ? *data0_ : *default_instance_->data0_;
+}
+inline ::proto_ff::RedDBData* FactionRedSaveDBReq::mutable_data0() {
+  set_has_data0();
+  if (data0_ == NULL) data0_ = new ::proto_ff::RedDBData;
+  return data0_;
+}
+inline ::proto_ff::RedDBData* FactionRedSaveDBReq::release_data0() {
+  clear_has_data0();
+  ::proto_ff::RedDBData* temp = data0_;
+  data0_ = NULL;
+  return temp;
+}
+inline void FactionRedSaveDBReq::set_allocated_data0(::proto_ff::RedDBData* data0) {
+  delete data0_;
+  data0_ = data0;
+  if (data0) {
+    set_has_data0();
+  } else {
+    clear_has_data0();
+  }
+}
+
+// required .proto_ff.RedDBData data1 = 3;
+inline bool FactionRedSaveDBReq::has_data1() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void FactionRedSaveDBReq::set_has_data1() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void FactionRedSaveDBReq::clear_has_data1() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void FactionRedSaveDBReq::clear_data1() {
+  if (data1_ != NULL) data1_->::proto_ff::RedDBData::Clear();
+  clear_has_data1();
+}
+inline const ::proto_ff::RedDBData& FactionRedSaveDBReq::data1() const {
+  return data1_ != NULL ? *data1_ : *default_instance_->data1_;
+}
+inline ::proto_ff::RedDBData* FactionRedSaveDBReq::mutable_data1() {
+  set_has_data1();
+  if (data1_ == NULL) data1_ = new ::proto_ff::RedDBData;
+  return data1_;
+}
+inline ::proto_ff::RedDBData* FactionRedSaveDBReq::release_data1() {
+  clear_has_data1();
+  ::proto_ff::RedDBData* temp = data1_;
+  data1_ = NULL;
+  return temp;
+}
+inline void FactionRedSaveDBReq::set_allocated_data1(::proto_ff::RedDBData* data1) {
+  delete data1_;
+  data1_ = data1;
+  if (data1) {
+    set_has_data1();
+  } else {
+    clear_has_data1();
+  }
+}
+
+// required .proto_ff.RedDBData data2 = 4;
+inline bool FactionRedSaveDBReq::has_data2() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void FactionRedSaveDBReq::set_has_data2() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void FactionRedSaveDBReq::clear_has_data2() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void FactionRedSaveDBReq::clear_data2() {
+  if (data2_ != NULL) data2_->::proto_ff::RedDBData::Clear();
+  clear_has_data2();
+}
+inline const ::proto_ff::RedDBData& FactionRedSaveDBReq::data2() const {
+  return data2_ != NULL ? *data2_ : *default_instance_->data2_;
+}
+inline ::proto_ff::RedDBData* FactionRedSaveDBReq::mutable_data2() {
+  set_has_data2();
+  if (data2_ == NULL) data2_ = new ::proto_ff::RedDBData;
+  return data2_;
+}
+inline ::proto_ff::RedDBData* FactionRedSaveDBReq::release_data2() {
+  clear_has_data2();
+  ::proto_ff::RedDBData* temp = data2_;
+  data2_ = NULL;
+  return temp;
+}
+inline void FactionRedSaveDBReq::set_allocated_data2(::proto_ff::RedDBData* data2) {
+  delete data2_;
+  data2_ = data2;
+  if (data2) {
+    set_has_data2();
+  } else {
+    clear_has_data2();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// FactionRedDelDBReq
+
+// required uint32 faction_id = 1;
+inline bool FactionRedDelDBReq::has_faction_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FactionRedDelDBReq::set_has_faction_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FactionRedDelDBReq::clear_has_faction_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FactionRedDelDBReq::clear_faction_id() {
+  faction_id_ = 0u;
+  clear_has_faction_id();
+}
+inline ::google::protobuf::uint32 FactionRedDelDBReq::faction_id() const {
+  return faction_id_;
+}
+inline void FactionRedDelDBReq::set_faction_id(::google::protobuf::uint32 value) {
+  set_has_faction_id();
+  faction_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RoleRedDBReq
+
+// -------------------------------------------------------------------
+
+// RoleRedDBRsp
+
+// repeated .proto_ff.RoleRedDBData data_lst = 1;
+inline int RoleRedDBRsp::data_lst_size() const {
+  return data_lst_.size();
+}
+inline void RoleRedDBRsp::clear_data_lst() {
+  data_lst_.Clear();
+}
+inline const ::proto_ff::RoleRedDBData& RoleRedDBRsp::data_lst(int index) const {
+  return data_lst_.Get(index);
+}
+inline ::proto_ff::RoleRedDBData* RoleRedDBRsp::mutable_data_lst(int index) {
+  return data_lst_.Mutable(index);
+}
+inline ::proto_ff::RoleRedDBData* RoleRedDBRsp::add_data_lst() {
+  return data_lst_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleRedDBData >&
+RoleRedDBRsp::data_lst() const {
+  return data_lst_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::RoleRedDBData >*
+RoleRedDBRsp::mutable_data_lst() {
+  return &data_lst_;
+}
+
+// optional int32 finish = 2;
+inline bool RoleRedDBRsp::has_finish() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RoleRedDBRsp::set_has_finish() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RoleRedDBRsp::clear_has_finish() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RoleRedDBRsp::clear_finish() {
+  finish_ = 0;
+  clear_has_finish();
+}
+inline ::google::protobuf::int32 RoleRedDBRsp::finish() const {
+  return finish_;
+}
+inline void RoleRedDBRsp::set_finish(::google::protobuf::int32 value) {
+  set_has_finish();
+  finish_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CenterLoadRoleDBReq
+
+// required uint64 cid = 1;
+inline bool CenterLoadRoleDBReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CenterLoadRoleDBReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CenterLoadRoleDBReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CenterLoadRoleDBReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 CenterLoadRoleDBReq::cid() const {
+  return cid_;
+}
+inline void CenterLoadRoleDBReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required string table_name = 2;
+inline bool CenterLoadRoleDBReq::has_table_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CenterLoadRoleDBReq::set_has_table_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CenterLoadRoleDBReq::clear_has_table_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CenterLoadRoleDBReq::clear_table_name() {
+  if (table_name_ != &::google::protobuf::internal::kEmptyString) {
+    table_name_->clear();
+  }
+  clear_has_table_name();
+}
+inline const ::std::string& CenterLoadRoleDBReq::table_name() const {
+  return *table_name_;
+}
+inline void CenterLoadRoleDBReq::set_table_name(const ::std::string& value) {
+  set_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    table_name_ = new ::std::string;
+  }
+  table_name_->assign(value);
+}
+inline void CenterLoadRoleDBReq::set_table_name(const char* value) {
+  set_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    table_name_ = new ::std::string;
+  }
+  table_name_->assign(value);
+}
+inline void CenterLoadRoleDBReq::set_table_name(const char* value, size_t size) {
+  set_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    table_name_ = new ::std::string;
+  }
+  table_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CenterLoadRoleDBReq::mutable_table_name() {
+  set_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    table_name_ = new ::std::string;
+  }
+  return table_name_;
+}
+inline ::std::string* CenterLoadRoleDBReq::release_table_name() {
+  clear_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = table_name_;
+    table_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CenterLoadRoleDBReq::set_allocated_table_name(::std::string* table_name) {
+  if (table_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete table_name_;
+  }
+  if (table_name) {
+    set_has_table_name();
+    table_name_ = table_name;
+  } else {
+    clear_has_table_name();
+    table_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required uint32 cmd = 3;
+inline bool CenterLoadRoleDBReq::has_cmd() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CenterLoadRoleDBReq::set_has_cmd() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CenterLoadRoleDBReq::clear_has_cmd() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CenterLoadRoleDBReq::clear_cmd() {
+  cmd_ = 0u;
+  clear_has_cmd();
+}
+inline ::google::protobuf::uint32 CenterLoadRoleDBReq::cmd() const {
+  return cmd_;
+}
+inline void CenterLoadRoleDBReq::set_cmd(::google::protobuf::uint32 value) {
+  set_has_cmd();
+  cmd_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// CenterLoadRoleDBRsp
+
+// required uint64 cid = 1;
+inline bool CenterLoadRoleDBRsp::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CenterLoadRoleDBRsp::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CenterLoadRoleDBRsp::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CenterLoadRoleDBRsp::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 CenterLoadRoleDBRsp::cid() const {
+  return cid_;
+}
+inline void CenterLoadRoleDBRsp::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required bytes data = 2;
+inline bool CenterLoadRoleDBRsp::has_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CenterLoadRoleDBRsp::set_has_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CenterLoadRoleDBRsp::clear_has_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CenterLoadRoleDBRsp::clear_data() {
+  if (data_ != &::google::protobuf::internal::kEmptyString) {
+    data_->clear();
+  }
+  clear_has_data();
+}
+inline const ::std::string& CenterLoadRoleDBRsp::data() const {
+  return *data_;
+}
+inline void CenterLoadRoleDBRsp::set_data(const ::std::string& value) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(value);
+}
+inline void CenterLoadRoleDBRsp::set_data(const char* value) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(value);
+}
+inline void CenterLoadRoleDBRsp::set_data(const void* value, size_t size) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CenterLoadRoleDBRsp::mutable_data() {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  return data_;
+}
+inline ::std::string* CenterLoadRoleDBRsp::release_data() {
+  clear_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = data_;
+    data_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CenterLoadRoleDBRsp::set_allocated_data(::std::string* data) {
+  if (data_ != &::google::protobuf::internal::kEmptyString) {
+    delete data_;
+  }
+  if (data) {
+    set_has_data();
+    data_ = data;
+  } else {
+    clear_has_data();
+    data_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// CenterSaveRoleDBReq
+
+// required uint64 cid = 1;
+inline bool CenterSaveRoleDBReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void CenterSaveRoleDBReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void CenterSaveRoleDBReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void CenterSaveRoleDBReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 CenterSaveRoleDBReq::cid() const {
+  return cid_;
+}
+inline void CenterSaveRoleDBReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// required bytes data = 2;
+inline bool CenterSaveRoleDBReq::has_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CenterSaveRoleDBReq::set_has_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CenterSaveRoleDBReq::clear_has_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CenterSaveRoleDBReq::clear_data() {
+  if (data_ != &::google::protobuf::internal::kEmptyString) {
+    data_->clear();
+  }
+  clear_has_data();
+}
+inline const ::std::string& CenterSaveRoleDBReq::data() const {
+  return *data_;
+}
+inline void CenterSaveRoleDBReq::set_data(const ::std::string& value) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(value);
+}
+inline void CenterSaveRoleDBReq::set_data(const char* value) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(value);
+}
+inline void CenterSaveRoleDBReq::set_data(const void* value, size_t size) {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  data_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CenterSaveRoleDBReq::mutable_data() {
+  set_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    data_ = new ::std::string;
+  }
+  return data_;
+}
+inline ::std::string* CenterSaveRoleDBReq::release_data() {
+  clear_has_data();
+  if (data_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = data_;
+    data_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CenterSaveRoleDBReq::set_allocated_data(::std::string* data) {
+  if (data_ != &::google::protobuf::internal::kEmptyString) {
+    delete data_;
+  }
+  if (data) {
+    set_has_data();
+    data_ = data;
+  } else {
+    clear_has_data();
+    data_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// required string table_name = 3;
+inline bool CenterSaveRoleDBReq::has_table_name() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void CenterSaveRoleDBReq::set_has_table_name() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void CenterSaveRoleDBReq::clear_has_table_name() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void CenterSaveRoleDBReq::clear_table_name() {
+  if (table_name_ != &::google::protobuf::internal::kEmptyString) {
+    table_name_->clear();
+  }
+  clear_has_table_name();
+}
+inline const ::std::string& CenterSaveRoleDBReq::table_name() const {
+  return *table_name_;
+}
+inline void CenterSaveRoleDBReq::set_table_name(const ::std::string& value) {
+  set_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    table_name_ = new ::std::string;
+  }
+  table_name_->assign(value);
+}
+inline void CenterSaveRoleDBReq::set_table_name(const char* value) {
+  set_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    table_name_ = new ::std::string;
+  }
+  table_name_->assign(value);
+}
+inline void CenterSaveRoleDBReq::set_table_name(const char* value, size_t size) {
+  set_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    table_name_ = new ::std::string;
+  }
+  table_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* CenterSaveRoleDBReq::mutable_table_name() {
+  set_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    table_name_ = new ::std::string;
+  }
+  return table_name_;
+}
+inline ::std::string* CenterSaveRoleDBReq::release_table_name() {
+  clear_has_table_name();
+  if (table_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = table_name_;
+    table_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void CenterSaveRoleDBReq::set_allocated_table_name(::std::string* table_name) {
+  if (table_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete table_name_;
+  }
+  if (table_name) {
+    set_has_table_name();
+    table_name_ = table_name;
+  } else {
+    clear_has_table_name();
+    table_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 

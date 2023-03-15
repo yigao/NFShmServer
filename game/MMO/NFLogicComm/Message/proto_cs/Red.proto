@@ -1,0 +1,220 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+
+//已领取红包信息
+message RedFetchProto
+{
+	optional uint64 cid = 1;
+	optional bytes name = 2;
+	optional int32 prof = 3;
+	optional uint32 val = 4;	//领取红包金额
+	optional uint64 time = 5;   //领取时间
+}
+//已领取红包列表
+message RedFetchListProto
+{
+	repeated RedFetchProto info = 1;
+}
+//红包详细信息
+message RedDetailProto
+{
+	optional uint32 idx = 1;					//红包唯一索引
+	optional uint32 cfgid = 2;					//配置ID
+	optional uint64 sendcid = 3;				//发送者cid
+	optional bytes sendname = 4;				//发送者名字
+	optional int32 prof = 5;					//发送者的职业
+	optional uint64 sendtime = 6;				//发送时间
+	optional bytes word = 7;					//红包寄语
+	optional RedFetchListProto fetch = 8;		//已领取的红包
+}
+//红包详细信息列表
+message RedListProto
+{
+	repeated RedDetailProto info = 1;
+}
+
+//红包简要信息
+message RedSimpleProto
+{
+	optional uint32 idx = 1;					//红包唯一索引
+	optional uint32 cfgid = 2;					//配置ID
+	optional uint64 sendcid = 3;				//发送者cid
+	optional bytes sendname = 4;				//发送者名字
+	optional int32 prof = 5;					//发送者的职业
+	optional uint64 sendtime = 6;				//发送时间
+	optional bytes word = 7;					//红包寄语
+	optional int32 state = 8;					//状态，1-可领取，2-已领取，3-错过
+}
+//红包简要信息列表
+message RedSimpleListProto
+{
+	repeated RedSimpleProto info = 1;
+}
+//待发送的红包信息
+message RedWaitProto
+{
+	optional uint32 idx = 1;		//红包唯一索引
+	optional uint32 cfgid = 2;		//配置ID
+}
+//待发送的红包列表
+message RedWaitListProto
+{
+	repeated RedWaitProto info = 1;
+}
+//新的可领取红包信息
+message RedNewProto
+{
+	optional uint32 idx = 1;		//红包唯一索引
+	optional uint32 cfgid = 2;		//配置ID
+}
+//新的可领取红包列表
+message RedNewListProto
+{
+	repeated RedNewProto info = 1;
+}
+
+
+//登录同步角色红包信息  RED_LOGIN_SYNC_INFO
+message Red_LoginSyncInfoRsp
+{
+	optional uint32 bdia = 1;					//可额外领取红包的绑钻
+	optional uint32 magic = 2;					//可额外领取红包的魔晶
+	optional uint32 today_num = 3;				//今日已发送红包的次数
+	optional uint32 today_magic = 4;			//今日已领取魔晶
+	optional uint32 today_bdia = 5;				//今日已领取绑钻
+	optional RedWaitListProto wait = 6;			//等待发送的红包
+	optional RedNewListProto fetch = 7;			//可领取红包列表
+	repeated int32 cfgid_lst = 8;				//已发送红包配置ID列表
+}
+
+//更新角色红包信息 RED_UPDATE_ROLE_RSP
+message Red_UpdateRoleRsp
+{
+	optional uint32 bdia = 1;					//可额外领取红包的绑钻
+	optional uint32 magic = 2;					//可额外领取红包的魔晶
+	optional uint32 today_num = 3;				//今日已发送红包的次数
+	optional uint32 today_magic = 4;			//今日已领取魔晶
+	optional uint32 today_bdia = 5;				//今日已领取绑钻
+}
+
+//更新角色等待发送红包信息 RED_UPDATE_ROLE_WAIT_RSP
+message Red_UpdateRoleWaitRsp
+{
+	optional RedWaitListProto wait = 1;			//等待发送的红包
+	repeated uint32 del_lst = 2;				//移除待发送红包索引列表
+}
+
+
+//通知新的可领取红包 RED_NEW_RED_NOTIFY
+message Red_NewRedNotify
+{
+	optional RedNewListProto fetch  = 1;		//可领取红包列表
+	repeated uint32 del_lst = 2;				//移除的红包索引列表		
+}
+
+//请求红包简要信息列表 RED_SIMPLE_LIST_REQ
+message Red_SimpleListReq
+{
+	optional int32 type = 1; //1-帮派，2-世界
+}
+//返回红包简要信息列表 RED_SIMPLE_LIST_RSP
+message Red_SimpleListRsp
+{
+	required int32 ret = 1;
+	optional int32 type = 2;					//1-帮派，2-世界
+	optional RedSimpleListProto simple = 3;		//
+}
+
+//请求红包详细信息 RED_DETAIL_REQ
+message Red_DetailReq
+{
+	optional uint32 idx = 1; //红包唯一索引
+}
+//返回红包详细信息 RED_DETAIL_RSP
+message Red_DetailRsp
+{
+	required int32 ret = 1;
+	optional RedDetailProto detail = 2;
+}
+
+//请求领取红包 RED_FETCH_REQ
+message Red_FetchReq
+{
+	optional uint32 idx = 1; //红包唯一索引
+}
+//返回领取红包结果 RED_FETCH_RSP
+message Red_FetchRsp
+{
+	required int32 ret = 1;
+	optional RedDetailProto detail = 2;
+}
+//请求发送红包 RED_SEND_REQ
+message Red_SendReq
+{
+	optional uint32 idx = 1;	//红包唯一索引(大于0表示发送的是待发送列表中的红包，否则是自费红包)
+	optional uint32 cfgid = 2;	//配置ID
+	optional int32 type = 3;	//1-帮派，2-世界
+	optional bytes word = 4;	//红包寄语
+}
+//发送红包结果 RED_SEND_RSP
+message Red_SendRsp
+{
+	required int32 ret = 1;
+	optional RedDetailProto detail = 2;
+}
+
+//请求领取额外奖励 RED_FETCH_EXTRA_REQ	
+message Red_FetchExtraReq
+{
+}
+//返回领取额外奖励结果 RED_FETCH_EXTRA_RSP
+message Red_FetchExtraRsp
+{
+	required int32 ret = 1;
+}
+
+//更新已发送红包列表 RED_UPDATE_SEND_LIST_RSP
+message Red_UpdateSendListRsp
+{
+	repeated int32 cfgid_lst = 1;
+}
+
+//////////////////////////////////// logic and  center ///////////////////////////////////////////
+
+ //逻辑服通知中心服发红包 RED_LC_SEND_REQ
+ message Red_LCSendReq
+ {
+	optional uint64 cid = 1;	//
+	optional uint32 idx = 2;	//红包唯一索引(大于0表示发送的是待发送列表中的红包，否则是自费红包)
+	optional uint32 cfgid = 3;	//配置ID
+	optional bytes word = 4;	//红包寄语
+ }
+
+ //中心服通知逻辑服领取红包 RED_CL_FETCH_RSP	
+ message Red_CLFetchRsp
+ {
+	  optional uint64 cid = 1;
+	  optional int64 bdia = 2;	//绑钻
+	  optional int64 magic = 3;	//魔晶
+ }
+
+ //中心服通知逻辑服发送红包失败 RED_CL_SEND_FAIL_RSP
+ message Red_CLSendFailRsp
+ {
+	optional uint64 cid = 1;
+	optional uint32 cfgid = 2;	//配置ID
+ }
+
+ //逻辑服通知中心服充值触发红包 RED_LC_RECHARGE
+ message Red_LCRechargeRsp
+ {
+	optional uint64 cid = 1;
+	repeated uint32 cfgid_lst = 2;
+ }

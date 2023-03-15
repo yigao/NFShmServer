@@ -32,9 +32,6 @@ int NFAttrMgr::CreateInit()
 {
     memset(m_arySynClient, 0, sizeof(m_arySynClient));
     memset(m_aryBroadClient, 0, sizeof(m_aryBroadClient));
-    m_setPlayerViewAttr.CreateInit();
-    m_setMonsViewAttr.CreateInit();
-    m_setPartnerViewAttr.CreateInit();
 
     memset(m_comIdToIndex, 0, sizeof(m_comIdToIndex));
     memset(m_comIndexToId, 0, sizeof(m_comIndexToId));
@@ -125,9 +122,9 @@ bool NFAttrMgr::UnInit()
 {
     memset(m_arySynClient, 0, sizeof(m_arySynClient[0]) * proto_ff::A_COMMON_END);
     memset(m_aryBroadClient, 0, sizeof(m_aryBroadClient[0]) * proto_ff::A_COMMON_END);
-    m_setPlayerViewAttr.CreateInit();
-    m_setMonsViewAttr.CreateInit();
-    m_setPartnerViewAttr.CreateInit();
+    m_setPlayerViewAttr.clear();
+    m_setMonsViewAttr.clear();
+    m_setPartnerViewAttr.clear();
 
     memset(m_comIdToIndex, 0, sizeof(m_comIdToIndex));
     memset(m_comIndexToId, 0, sizeof(m_comIndexToId));
@@ -316,19 +313,19 @@ bool NFAttrMgr::IsBroadClient(uint32_t ANum)
 }
 
 //获取玩家视野数据中用到的属性ID
-const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::PlayerViewAttr()
+const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &NFAttrMgr::PlayerViewAttr()
 {
     return m_setPlayerViewAttr;
 }
 
 //获取怪物视野数据中用到的属性ID
-const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::MonViewAttr()
+const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &NFAttrMgr::MonViewAttr()
 {
     return m_setMonsViewAttr;
 }
 
 //获取怪物视野数据中用到的属性ID
-const NFShmHashSet<int8_t, proto_ff::A_COMMON_END> &NFAttrMgr::PartnerViewAttr()
+const NFShmHashSet<int32_t, proto_ff::A_COMMON_END> &NFAttrMgr::PartnerViewAttr()
 {
     return m_setPartnerViewAttr;
 }
@@ -361,7 +358,10 @@ bool NFAttrMgr::InitFightAttrToIndex()
     m_comIdToIndex[proto_ff::A_SPEED] = comfightindex;
     m_comIndexToId[comfightindex] = i++;
     ++comfightindex;
-
+    //
+    m_comIdToIndex[proto_ff::A_COM_SHIELD] = comfightindex;
+    m_comIndexToId[comfightindex] = i++;
+    ++comfightindex;
 
 
     //角色属性ID 范围 1-117, 如果后续有新增或调整，这里需要跟着变动
@@ -394,6 +394,13 @@ bool NFAttrMgr::InitFightAttrToIndex()
     //
     m_comNormal_IdToIndex[proto_ff::A_LEVEL] = comnormal_index;
     m_comNormal_IndexToId[comnormal_index++] = proto_ff::A_LEVEL;
+
+    m_comNormal_IdToIndex[proto_ff::A_CAMP_ID] = comnormal_index;
+    m_comNormal_IndexToId[comnormal_index++] = proto_ff::A_CAMP_ID;
+
+    m_comNormal_IdToIndex[proto_ff::A_TEMP_CAMP_ID] = comnormal_index;
+    m_comNormal_IndexToId[comnormal_index++] = proto_ff::A_TEMP_CAMP_ID;
+
     //
     if (comnormal_index > COMMON_ATTR_END)
     {

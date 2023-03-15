@@ -1180,3 +1180,49 @@ message GCTitleUnDressRsp
   optional uint64 cur_wearing_title = 2;
   optional TitleInfo data = 3;
 }
+
+//CLIENT_TO_LOGIC_OCCUPATION_SOUL_INFO_REQ = 2418; //转职任务龙魂信息
+message CGOccupationSoulInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_OCCUPATION_SOUL_INFO_RSP = 2419; //转职任务龙魂信息
+message GCOccupationSoulInfoRsp
+{
+  repeated OccupationMissionGradeData grade_data = 1;
+}
+
+//转职任务点亮龙魂
+//CLIENT_TO_LOGIC_OCCUPATION_LIGHT_SOUL_REQ = 2420;
+message CGOccupationLightSoulReq
+{
+  optional int32 grade = 1; //大阶段
+  optional int32 stage = 2; //小阶段
+  optional int32 soul_type = 3; //龙魂类型
+  optional int32 soul_pos = 4; //龙魂位置
+}
+
+//转职任务点亮龙魂
+//LOGIC_TO_CLIENT_OCCUPATION_LIGHT_SOUL_RSP = 2421;
+message GCOccupationLightSoulRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 grade = 2; //大阶段
+  optional int32 stage = 3; //小阶段
+  optional OccupationMissionSoulData soul_data = 4;
+}
+
+//CLIENT_TO_LOGIC_UNLOCK_FLY_UPWARD_REQ = 2422; //解锁飞升
+message CGUnlockFlyUpwardReq
+{
+  optional int32 stage = 1;
+}
+
+//LOGIC_TO_CLIENT_UNLOCK_FLY_UPWARD_RSP = 2423; //解锁飞升
+message GCUnlockFlyUpwardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 stage = 2;
+}
+

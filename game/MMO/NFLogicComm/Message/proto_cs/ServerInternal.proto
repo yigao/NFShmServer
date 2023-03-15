@@ -10,83 +10,83 @@ import "ComDefine.proto";
 //关闭服务器 SYS_CLOSE_SERVER
 message NotifyCloseServer
 {
-  optional string who = 1;
-  optional string reason = 2;
+	optional string who = 1;
+	optional string reason = 2;
 }
 
 //web返回合服标记 WEB_TO_CENTER_MERGE_FLAG_RSP
 message WebToCenterMergeFlagRsp
 {
-  required uint32 zid = 1;	//当前区服ID
-  required uint32 merge = 2;	//区服 是否是合服了的 0-没有合服，1-合服了的   此字段废弃
-  //合服之后的区服列表，如果区服没有合服，列表只返回自身区服ID
-  //如果合服了，需要返回 哪些区服合并在一起的列表
-  //比如：1，2，3 服合并到1服，那么，web给1，2，3服返回的列表都是 1，2，3
-  repeated uint32 zidLst = 3;
+	required uint32 zid = 1;	//当前区服ID
+	required uint32 merge = 2;	//区服 是否是合服了的 0-没有合服，1-合服了的   此字段废弃
+	//合服之后的区服列表，如果区服没有合服，列表只返回自身区服ID
+	//如果合服了，需要返回 哪些区服合并在一起的列表
+	//比如：1，2，3 服合并到1服，那么，web给1，2，3服返回的列表都是 1，2，3
+	repeated uint32 zidLst = 3;
 }
 
 
 //社交服向中心服注册	SOCIAL_REGISTER_CENTER
 message SocialRegisterCenterReq
 {
-  required uint32 crossid = 1;
+	required uint32 crossid = 1;
 }
 //社交服向中心服注册返回	 SOCIAL_REGISTER_CENTER_RSP
 message SocialRegisterCenterRsp
 {
-  required uint32 zid = 1;
-  required int32 result = 2;
-  required uint64 opentime = 3;
-  repeated uint32  logic_lst = 4;
+	required uint32 zid = 1;
+	required int32 result = 2;
+	required uint64 opentime = 3;
+	repeated uint32  logic_lst = 4;
 }
 
 //逻辑服向网关注册  LOGIC_REGISTER_GATE
 message LogicRegisterGateReq
 {
-  required uint32 logicid = 1;
-  repeated uint32 cmd_lst = 2;
+	required uint32 logicid = 1;
+	repeated uint32 cmd_lst = 2;
 }
 
 //网关回复逻辑服注册  LOGIC_REGISTER_GATE_RSP
 message LogicRegisterGateRsp
 {
-  required uint32 zid = 1;
-  required uint32 gateid = 2;
-  required int32  result = 3;
+	required uint32 zid = 1;
+	required uint32 gateid = 2;
+	required int32  result = 3;
 }
 //逻辑服向中心服注册 LOGIC_REGISTER_CENTER
 message LogicRegisterCenterReq
 {
-  required uint32 logicid = 1;
-  repeated uint64 mapid_list = 2;
+	required uint32 logicid = 1;
+	repeated uint64 mapid_list = 2;
 }
 //中心服返回逻辑服 注册结果 LOGIC_REGISTER_CENTER_RSP
 message LogicRegisterCenterRsp
 {
-  required int32  result = 1;
-  required uint32 zid = 2;
-  optional uint64 open_time = 3;
+	required int32  result = 1;
+	required uint32 zid = 2;
+	optional uint64 open_time = 3;	
 }
 
 //中心服向网关注册 CENTER_REGISTE_GATE
 message CenterRegisterGateReq
 {
-  required uint32 zid = 1;
-  repeated uint32 cmd_lst = 2;
+	required uint32 zid = 1;
+	repeated uint32 cmd_lst = 2;
 }
 
 //网关返回中心服注册结果 CENTER_REGISTE_GATE_RSP
 message CenterRegisterGateRsp
 {
-  required uint32 zid = 1;
-  required uint32 gateid = 2;
-  required int32  result = 3;
+	required uint32 zid = 1;
+	required uint32 gateid = 2;
+	required int32  result = 3;
 }
 
 //中心服向DB服注册 CENTER_REGISTER_DB
 message CenterRegisterDBReq
 {
-  required uint32 zid = 1;
+	required uint32 zid = 1;
 }
 
 
@@ -94,56 +94,56 @@ message CenterRegisterDBReq
 //网关通知中心服客户端掉线 NOTIFY_CENTER_DISCONNECT
 message GateNotifyDisconnect
 {
-  required uint32 clientid = 1;
-  required int32 reason = 2;
+	required uint32 clientid = 1;
+	required int32 reason = 2;
 }
 
 //内部日志请求 INNER_LOG_REQ
 message InnerLogReq
 {
-  required int32 type = 1;		//日志类型
-  required string content = 2;	//日志内容
+	required int32 type = 1;		//日志类型
+	required string content = 2;	//日志内容
 }
 
 
 //通知逻辑服数据更新  NOTIFY_LOGIC_DATA_UPDATE
 message NotifyLogicDataUpdate
 {
-  enum Type
-  {
-    daily = 1;			//每日更新
-    week = 2;			//每周更新
-    daily_zero = 3;		//每日零点更新
-    week_zero = 4;		//每周一零点更新
-  }
-  required Type update_type = 1;
-  required uint64 update_time = 2;
+	enum Type
+	{
+		daily = 1;			//每日更新
+		week = 2;			//每周更新
+		daily_zero = 3;		//每日零点更新
+		week_zero = 4;		//每周一零点更新
+	}
+	required Type update_type = 1;
+	required uint64 update_time = 2;
 }
 
 // 社交服查询中心服信息(开服时间，是否加载完成，是否合服) SOCIAL_QUERY_CENTER_INFO
 message QueryCenterInfoReq
 {
-  //空
+	//空
 }
-// 中心服返回社交服 服务器信息 SOCIAL_QUERY_CENTER_INFO_RSP
+// 中心服返回社交服 服务器信息 SOCIAL_QUERY_CENTER_INFO_RSP		
 message QueryCenterInfoRsp
 {
-  required uint32 zid = 1;			//区服ID
-  required int32 merge = 2;			//是否已合服
-  required int32 loadfinish = 3;		//是否已经加载完成
+	required uint32 zid = 1;			//区服ID
+	required int32 merge = 2;			//是否已合服
+	required int32 loadfinish = 3;		//是否已经加载完成
 }
 
-// 中心服通知社交服，各个逻辑服的状态  NOTIFY_SOCIAL_LOGIC_STATE
+// 中心服通知社交服，各个逻辑服的状态  NOTIFY_SOCIAL_LOGIC_STATE 
 message NotifyLogicState
 {
-  enum Type
-  {
-    conect = 1;		//逻辑服 连接 中心服成功
-    crash = 2;		//逻辑服 崩溃
-  }
-  required uint32 zid = 1;
-  required Type itype = 2;
-  required uint32 logic_id = 3;
+	enum Type
+	{
+		conect = 1;		//逻辑服 连接 中心服成功
+		crash = 2;		//逻辑服 崩溃
+	}
+	required uint32 zid = 1;
+	required Type itype = 2;
+	required uint32 logic_id = 3;
 }
 
 
@@ -151,142 +151,148 @@ message NotifyLogicState
 //中心服通知逻辑服进入游戏 NOTIFY_LOGIC_ENTER_GAME_REQ
 message NotifyLogicEnterGameReq
 {
-  required uint32 uid = 1;
-  required uint64 cid = 2;
-  required uint64 sceneid = 3;
-  required uint64 mapid = 4;
-  required Vector3PB pos = 5;
-  required uint32 clientId = 6;
-  required uint32 gateId = 7;
-  required uint32 channelId = 8;
-  required uint32 zid = 9;			//玩家区服ID
-  optional LoginSyncProto sync = 10;  //玩家登录中心服这边玩家属性数据（工会,队伍，房间等）
+	required uint32 uid = 1;
+	required uint64 cid = 2;
+	required uint64 sceneid = 3;
+	required uint64 mapid = 4;
+	required Vector3PB pos = 5;
+	required uint32 clientId = 6;
+	required uint32 gateId = 7;
+	required uint32 channelId = 8;
+	required uint32 zid = 9;			//玩家区服ID
+	optional LoginSyncProto sync = 10;  //玩家登录中心服这边玩家属性数据（工会,队伍，房间等）
 }
 
 //逻辑服返回中心服进入游戏结果 NOTIFY_LOGIC_ENTER_GAME_RSP
 message NotifyLogicEnterGameRsp
 {
-  required uint32 uid = 1;
-  required uint64 cid = 2;
-  required uint32 clientId = 3;
-  required uint32 gateId = 4;
-  required CenterRoleProto proto = 5;
+	required uint32 uid = 1;
+	required uint64 cid = 2;
+	required uint32 clientId = 3;
+	required uint32 gateId = 4;
+	required CenterRoleProto proto = 5;
 
-  //后面加入各个模块的登入信息
+	//后面加入各个模块的登入信息
 }
 
-//中心服通知逻辑服退出游戏      NOTIFY_LOGIC_LEAVE_GAME_REQ
+//中心服通知逻辑服退出游戏      NOTIFY_LOGIC_LEAVE_GAME_REQ 
 message NotifyLogicLeaveGameReq
 {
-  required uint64 cid = 1;
-  required uint32 uid = 2;
-  required uint32 clientId = 3;
-  optional LOGOUT_TYPE  type = 4;
+	required uint64 cid = 1;
+	required uint32 uid = 2;
+	required uint32 clientId = 3;
+	optional LOGOUT_TYPE  type = 4;
 }
-//逻辑服返回中心服退出游戏结果   NOTIFY_LOGIC_LEAVE_GAME_RSP
+//逻辑服返回中心服退出游戏结果   NOTIFY_LOGIC_LEAVE_GAME_RSP	
 message NotifyLogicLeaveGameRsp
 {
-  required uint64 cid = 1;
-  required uint32 uid = 2;
-  required uint32 clientId = 3;
-  optional int32 logout_type = 4;	//登出类型
-  optional RoleListDBProto info = 5;
+	required uint64 cid = 1;
+	required uint32 uid = 2;
+	required uint32 clientId = 3;
+	optional int32 logout_type = 4;	//登出类型
+	optional RoleListDBProto info = 5;	
 }
 
 //逻辑服通知中心服踢人  NOTIFY_CENTER_KICK_REQ
 message NotifyCenterKickReq
 {
-  required uint64	cid = 1;	//玩家cid
-  required uint32 uid = 2;	//玩家账号id
+	required uint64	cid = 1;	//玩家cid
+	required uint32 uid = 2;	//玩家账号id
 }
 
 
 //中心服通知网关进入游戏 NOTIFY_GATE_ENTER_GAME
 message NotifyGateEnterGame
 {
-  required uint64 cid = 1;
-  required uint32 uid = 2;
-  required uint32 clientId = 3;
-  required uint32 logicId = 4;
+	required uint64 cid = 1;
+	required uint32 uid = 2;
+	required uint32 clientId = 3;
+	required uint32 logicId = 4;
 }
 //中心服通知网关切换逻辑服 NOTIFY_GATE_CHANGE_LOGIC
 message NotifyGateChangeLogic
 {
-  required uint64 cid = 1;
-  required uint32 clientId = 2;
-  required uint32 logicId = 3;
+	required uint64 cid = 1;
+	required uint32 clientId = 2;
+	required uint32 logicId = 3;
 }
 //中心服通知网关退出游戏  NOTIFY_GATE_LEAVE_GAME
 message NotifyGateLeaveGame
 {
-  required uint32 clientid = 1;
-  required LOGOUT_TYPE leave_flag = 2;
+	required uint32 clientid = 1;
+	required LOGOUT_TYPE leave_flag = 2;
 }
 //中心服通知网关重连游戏  NOTIFY_GATE_RECONNECT_GAME
 message NotifyGateReconnectGame
 {
-  required uint32 clientid = 1;
-  required uint64 cid = 2;
-  required uint32 uid = 3;
-  required uint32 logicid = 4;
+	required uint32 clientid = 1;
+	required uint64 cid = 2;
+	required uint32 uid = 3;
+	required uint32 logicid = 4;
 }
 
-//网关通知中心服客户端掉线 NOTIFY_CENTER_DISCONNECT
+//网关通知中心服客户端掉线 NOTIFY_CENTER_DISCONNECT	
 message NotifyCenterDisConnect
 {
-  required uint32 clientId = 1;
-  optional uint64 cid =2;
-  optional int32	errflag=3;
+	required uint32 clientId = 1;
+	optional uint64 cid =2;	
+	optional int32	errflag=3;
 }
 //中心服通知逻辑服断开连接  NOTIFY_LOGIC_DISCONNECT
 message NotifyLogicDisconnect
 {
-  optional uint32 clientId = 1;	//连接ID
-  optional uint64 cid = 2;		//玩家ID
+	optional uint32 clientId = 1;	//连接ID
+	optional uint64 cid = 2;		//玩家ID
 }
 
 //中心服通知逻辑服 重连 NOTIFY_LOGIC_RECONNECT
 message NotifyLogicReconnect
 {
-  required uint64 cid = 1;
-  required uint32 clientId = 2;
-  required uint32 gateId = 3;
+	required uint64 cid = 1;	
+	required uint32 clientId = 2;
+	required uint32 gateId = 3;
 }
 
-//社交服向中心服请求角色信息 SOCIAL_ROLE_INFO_REQ
+//逻辑服通知中心服玩家重连成功 NOTIFY_CENTER_RECONNECT_SUCCESS
+message NotifyCenterReconnectSuccessRsp
+{
+	required uint64 cid = 1;
+}
+
+//社交服向中心服请求角色信息 SOCIAL_ROLE_INFO_REQ	
 message SocialRoleInfoReq
 {
-  repeated uint64 cid_list = 1; //cid列表
+	repeated uint64 cid_list = 1; //cid列表
 }
 //中心服返回 社交服角色信息 SOCIAL_ROLE_INFO_RSP
 message SocialRoleInfoRsp
 {
-  repeated SocialRoleProto info_list = 1;
+	repeated SocialRoleProto info_list = 1;
 }
 //中心服通知社交服，角色信息更新事件 SOCIAL_ROLE_INFO_EVENT
 message SocialRoleEventRsp
 {
-  required uint64 cid = 1;			//角色CID
-  repeated uint32 event_type = 2;		//事件类型
+	required uint64 cid = 1;			//角色CID
+	repeated uint32 event_type = 2;		//事件类型
 }
 
 //逻辑服同步角色属性到中心服 SYN_ATTR_TO_CENTER_RSP
 message SynAttrToCenterRsp
 {
-  required uint64 cid = 1;
-  optional CenterRoleProto info = 2;
+	required uint64 cid = 1;
+	optional CenterRoleProto info = 2;
 }
 
 //中心服返回逻辑服 虚拟禁言玩家列表  CENTER_TO_LOGCI_VIR_FORBID_RSP
 message CenterToLogicVirForbidRsp
 {
-  optional uint32 zid = 1;		//区服ID
-  repeated uint64 vir_lst = 2;	//虚拟禁言cid列表
+	optional uint32 zid = 1;		//区服ID
+	repeated uint64 vir_lst = 2;	//虚拟禁言cid列表
 }
 
 //中心服通知网关返回角色列表界面 NOTIFY_GATE_RETURN_ROLE_LIST
 message NotifyGateRetRoleList
-{
-  required uint32 clientid = 1;
-  required uint32 uid = 2;
+{	
+	required uint32 clientid = 1;
+	required uint32 uid = 2;
 }

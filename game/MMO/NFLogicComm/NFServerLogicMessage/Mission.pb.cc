@@ -44,6 +44,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* SubmitMissionInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SubmitMissionInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GuildPrestigeMissionData_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GuildPrestigeMissionData_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GuildPrestigeMission_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GuildPrestigeMission_reflection_ = NULL;
 const ::google::protobuf::Descriptor* CGQueryMissionListReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   CGQueryMissionListReq_reflection_ = NULL;
@@ -98,6 +104,37 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* GCMissionRecvSpecialReward_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GCMissionRecvSpecialReward_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissionReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CGGuildPrestigeMissionReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GCGuildPrestigeMissionRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GCGuildPrestigeMissionRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissisonAcceptReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CGGuildPrestigeMissisonAcceptReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GCGuildPrestigeMissisonAcceptRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GCGuildPrestigeMissisonAcceptRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissisonRefreshReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CGGuildPrestigeMissisonRefreshReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GCGuildPrestigeMissisonRefreshRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GCGuildPrestigeMissisonRefreshRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissisonOneFinishReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CGGuildPrestigeMissisonOneFinishReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GCGuildPrestigeMissisonOneFinishRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GCGuildPrestigeMissisonOneFinishRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissionRecvRewardReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  CGGuildPrestigeMissionRecvRewardReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GCGuildPRestigeMissionRecvRewardRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GCGuildPRestigeMissionRecvRewardRsp_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* EGuildPrestigeMissionState_descriptor_ = NULL;
 
 }  // namespace
 
@@ -245,7 +282,46 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SubmitMissionInfo));
-  CGQueryMissionListReq_descriptor_ = file->message_type(8);
+  GuildPrestigeMissionData_descriptor_ = file->message_type(8);
+  static const int GuildPrestigeMissionData_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMissionData, prestige_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMissionData, task_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMissionData, task_state_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMissionData, task_info_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMissionData, index_),
+  };
+  GuildPrestigeMissionData_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GuildPrestigeMissionData_descriptor_,
+      GuildPrestigeMissionData::default_instance_,
+      GuildPrestigeMissionData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMissionData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMissionData, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GuildPrestigeMissionData));
+  GuildPrestigeMission_descriptor_ = file->message_type(9);
+  static const int GuildPrestigeMission_offsets_[6] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMission, refresh_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMission, all_refresh_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMission, accept_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMission, all_accept_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMission, task_pool_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMission, last_refresh_time_),
+  };
+  GuildPrestigeMission_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GuildPrestigeMission_descriptor_,
+      GuildPrestigeMission::default_instance_,
+      GuildPrestigeMission_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMission, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GuildPrestigeMission, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GuildPrestigeMission));
+  CGQueryMissionListReq_descriptor_ = file->message_type(10);
   static const int CGQueryMissionListReq_offsets_[1] = {
   };
   CGQueryMissionListReq_reflection_ =
@@ -259,7 +335,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGQueryMissionListReq));
-  GCQueryMissionListRsp_descriptor_ = file->message_type(9);
+  GCQueryMissionListRsp_descriptor_ = file->message_type(11);
   static const int GCQueryMissionListRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCQueryMissionListRsp, acceptedlist_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCQueryMissionListRsp, dy_count_),
@@ -275,7 +351,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCQueryMissionListRsp));
-  CGNpcAcceptMissionReq_descriptor_ = file->message_type(10);
+  CGNpcAcceptMissionReq_descriptor_ = file->message_type(12);
   static const int CGNpcAcceptMissionReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGNpcAcceptMissionReq, missiontype_),
   };
@@ -290,7 +366,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGNpcAcceptMissionReq));
-  CGNpcAcceptMissionRsp_descriptor_ = file->message_type(11);
+  CGNpcAcceptMissionRsp_descriptor_ = file->message_type(13);
   static const int CGNpcAcceptMissionRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGNpcAcceptMissionRsp, retcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGNpcAcceptMissionRsp, missiontype_),
@@ -306,7 +382,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGNpcAcceptMissionRsp));
-  CGSubmitMissionReq_descriptor_ = file->message_type(12);
+  CGSubmitMissionReq_descriptor_ = file->message_type(14);
   static const int CGSubmitMissionReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGSubmitMissionReq, dynamicid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGSubmitMissionReq, index_),
@@ -322,7 +398,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGSubmitMissionReq));
-  GCSubmitMissionRsp_descriptor_ = file->message_type(13);
+  GCSubmitMissionRsp_descriptor_ = file->message_type(15);
   static const int GCSubmitMissionRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCSubmitMissionRsp, ret_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCSubmitMissionRsp, dynamicid_),
@@ -338,7 +414,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCSubmitMissionRsp));
-  GCUpdateMissionStatusNotify_descriptor_ = file->message_type(14);
+  GCUpdateMissionStatusNotify_descriptor_ = file->message_type(16);
   static const int GCUpdateMissionStatusNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCUpdateMissionStatusNotify, updatelist_),
   };
@@ -353,7 +429,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCUpdateMissionStatusNotify));
-  GCDeleteMissionNotify_descriptor_ = file->message_type(15);
+  GCDeleteMissionNotify_descriptor_ = file->message_type(17);
   static const int GCDeleteMissionNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCDeleteMissionNotify, dynamicid_),
   };
@@ -368,7 +444,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCDeleteMissionNotify));
-  GCUpdateDyAcceptCount_descriptor_ = file->message_type(16);
+  GCUpdateDyAcceptCount_descriptor_ = file->message_type(18);
   static const int GCUpdateDyAcceptCount_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCUpdateDyAcceptCount, dy_count_),
   };
@@ -383,7 +459,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCUpdateDyAcceptCount));
-  CGTalkWithNpcReq_descriptor_ = file->message_type(17);
+  CGTalkWithNpcReq_descriptor_ = file->message_type(19);
   static const int CGTalkWithNpcReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTalkWithNpcReq, npcid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGTalkWithNpcReq, dynamicid_),
@@ -401,7 +477,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGTalkWithNpcReq));
-  CGSubmitMissionGoodsReq_descriptor_ = file->message_type(18);
+  CGSubmitMissionGoodsReq_descriptor_ = file->message_type(20);
   static const int CGSubmitMissionGoodsReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGSubmitMissionGoodsReq, infolist_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGSubmitMissionGoodsReq, dynamicid_),
@@ -417,7 +493,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGSubmitMissionGoodsReq));
-  GCSubmitMissionGoodsRsp_descriptor_ = file->message_type(19);
+  GCSubmitMissionGoodsRsp_descriptor_ = file->message_type(21);
   static const int GCSubmitMissionGoodsRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCSubmitMissionGoodsRsp, ret_),
   };
@@ -432,7 +508,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCSubmitMissionGoodsRsp));
-  CGOnekeyMissionReq_descriptor_ = file->message_type(20);
+  CGOnekeyMissionReq_descriptor_ = file->message_type(22);
   static const int CGOnekeyMissionReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOnekeyMissionReq, type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOnekeyMissionReq, num_),
@@ -448,7 +524,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGOnekeyMissionReq));
-  CGOnekeyMissionRsp_descriptor_ = file->message_type(21);
+  CGOnekeyMissionRsp_descriptor_ = file->message_type(23);
   static const int CGOnekeyMissionRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOnekeyMissionRsp, retcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOnekeyMissionRsp, accept_num_),
@@ -467,7 +543,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGOnekeyMissionRsp));
-  CGOnceMissionReq_descriptor_ = file->message_type(22);
+  CGOnceMissionReq_descriptor_ = file->message_type(24);
   static const int CGOnceMissionReq_offsets_[1] = {
   };
   CGOnceMissionReq_reflection_ =
@@ -481,7 +557,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGOnceMissionReq));
-  CGOnceMissionRsp_descriptor_ = file->message_type(23);
+  CGOnceMissionRsp_descriptor_ = file->message_type(25);
   static const int CGOnceMissionRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGOnceMissionRsp, retcode_),
   };
@@ -496,7 +572,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGOnceMissionRsp));
-  CGMissionRecvSpecialReward_descriptor_ = file->message_type(24);
+  CGMissionRecvSpecialReward_descriptor_ = file->message_type(26);
   static const int CGMissionRecvSpecialReward_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGMissionRecvSpecialReward, type_),
   };
@@ -511,7 +587,7 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CGMissionRecvSpecialReward));
-  GCMissionRecvSpecialReward_descriptor_ = file->message_type(25);
+  GCMissionRecvSpecialReward_descriptor_ = file->message_type(27);
   static const int GCMissionRecvSpecialReward_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCMissionRecvSpecialReward, retcode_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCMissionRecvSpecialReward, type_),
@@ -527,6 +603,164 @@ void protobuf_AssignDesc_Mission_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GCMissionRecvSpecialReward));
+  CGGuildPrestigeMissionReq_descriptor_ = file->message_type(28);
+  static const int CGGuildPrestigeMissionReq_offsets_[1] = {
+  };
+  CGGuildPrestigeMissionReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CGGuildPrestigeMissionReq_descriptor_,
+      CGGuildPrestigeMissionReq::default_instance_,
+      CGGuildPrestigeMissionReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissionReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissionReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CGGuildPrestigeMissionReq));
+  GCGuildPrestigeMissionRsp_descriptor_ = file->message_type(29);
+  static const int GCGuildPrestigeMissionRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissionRsp, data_),
+  };
+  GCGuildPrestigeMissionRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GCGuildPrestigeMissionRsp_descriptor_,
+      GCGuildPrestigeMissionRsp::default_instance_,
+      GCGuildPrestigeMissionRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissionRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissionRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GCGuildPrestigeMissionRsp));
+  CGGuildPrestigeMissisonAcceptReq_descriptor_ = file->message_type(30);
+  static const int CGGuildPrestigeMissisonAcceptReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonAcceptReq, mission_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonAcceptReq, index_),
+  };
+  CGGuildPrestigeMissisonAcceptReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CGGuildPrestigeMissisonAcceptReq_descriptor_,
+      CGGuildPrestigeMissisonAcceptReq::default_instance_,
+      CGGuildPrestigeMissisonAcceptReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonAcceptReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonAcceptReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CGGuildPrestigeMissisonAcceptReq));
+  GCGuildPrestigeMissisonAcceptRsp_descriptor_ = file->message_type(31);
+  static const int GCGuildPrestigeMissisonAcceptRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonAcceptRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonAcceptRsp, mission_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonAcceptRsp, index_),
+  };
+  GCGuildPrestigeMissisonAcceptRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GCGuildPrestigeMissisonAcceptRsp_descriptor_,
+      GCGuildPrestigeMissisonAcceptRsp::default_instance_,
+      GCGuildPrestigeMissisonAcceptRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonAcceptRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonAcceptRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GCGuildPrestigeMissisonAcceptRsp));
+  CGGuildPrestigeMissisonRefreshReq_descriptor_ = file->message_type(32);
+  static const int CGGuildPrestigeMissisonRefreshReq_offsets_[1] = {
+  };
+  CGGuildPrestigeMissisonRefreshReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CGGuildPrestigeMissisonRefreshReq_descriptor_,
+      CGGuildPrestigeMissisonRefreshReq::default_instance_,
+      CGGuildPrestigeMissisonRefreshReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonRefreshReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonRefreshReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CGGuildPrestigeMissisonRefreshReq));
+  GCGuildPrestigeMissisonRefreshRsp_descriptor_ = file->message_type(33);
+  static const int GCGuildPrestigeMissisonRefreshRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonRefreshRsp, ret_code_),
+  };
+  GCGuildPrestigeMissisonRefreshRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GCGuildPrestigeMissisonRefreshRsp_descriptor_,
+      GCGuildPrestigeMissisonRefreshRsp::default_instance_,
+      GCGuildPrestigeMissisonRefreshRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonRefreshRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonRefreshRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GCGuildPrestigeMissisonRefreshRsp));
+  CGGuildPrestigeMissisonOneFinishReq_descriptor_ = file->message_type(34);
+  static const int CGGuildPrestigeMissisonOneFinishReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonOneFinishReq, mission_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonOneFinishReq, index_),
+  };
+  CGGuildPrestigeMissisonOneFinishReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CGGuildPrestigeMissisonOneFinishReq_descriptor_,
+      CGGuildPrestigeMissisonOneFinishReq::default_instance_,
+      CGGuildPrestigeMissisonOneFinishReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonOneFinishReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissisonOneFinishReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CGGuildPrestigeMissisonOneFinishReq));
+  GCGuildPrestigeMissisonOneFinishRsp_descriptor_ = file->message_type(35);
+  static const int GCGuildPrestigeMissisonOneFinishRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonOneFinishRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonOneFinishRsp, mission_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonOneFinishRsp, index_),
+  };
+  GCGuildPrestigeMissisonOneFinishRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GCGuildPrestigeMissisonOneFinishRsp_descriptor_,
+      GCGuildPrestigeMissisonOneFinishRsp::default_instance_,
+      GCGuildPrestigeMissisonOneFinishRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonOneFinishRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPrestigeMissisonOneFinishRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GCGuildPrestigeMissisonOneFinishRsp));
+  CGGuildPrestigeMissionRecvRewardReq_descriptor_ = file->message_type(36);
+  static const int CGGuildPrestigeMissionRecvRewardReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissionRecvRewardReq, mission_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissionRecvRewardReq, index_),
+  };
+  CGGuildPrestigeMissionRecvRewardReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      CGGuildPrestigeMissionRecvRewardReq_descriptor_,
+      CGGuildPrestigeMissionRecvRewardReq::default_instance_,
+      CGGuildPrestigeMissionRecvRewardReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissionRecvRewardReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CGGuildPrestigeMissionRecvRewardReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(CGGuildPrestigeMissionRecvRewardReq));
+  GCGuildPRestigeMissionRecvRewardRsp_descriptor_ = file->message_type(37);
+  static const int GCGuildPRestigeMissionRecvRewardRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPRestigeMissionRecvRewardRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPRestigeMissionRecvRewardRsp, mission_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPRestigeMissionRecvRewardRsp, index_),
+  };
+  GCGuildPRestigeMissionRecvRewardRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GCGuildPRestigeMissionRecvRewardRsp_descriptor_,
+      GCGuildPRestigeMissionRecvRewardRsp::default_instance_,
+      GCGuildPRestigeMissionRecvRewardRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPRestigeMissionRecvRewardRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GCGuildPRestigeMissionRecvRewardRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GCGuildPRestigeMissionRecvRewardRsp));
+  EGuildPrestigeMissionState_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -555,6 +789,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     CMissionTrack_descriptor_, &CMissionTrack::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SubmitMissionInfo_descriptor_, &SubmitMissionInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GuildPrestigeMissionData_descriptor_, &GuildPrestigeMissionData::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GuildPrestigeMission_descriptor_, &GuildPrestigeMission::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     CGQueryMissionListReq_descriptor_, &CGQueryMissionListReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -591,6 +829,26 @@ void protobuf_RegisterTypes(const ::std::string&) {
     CGMissionRecvSpecialReward_descriptor_, &CGMissionRecvSpecialReward::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     GCMissionRecvSpecialReward_descriptor_, &GCMissionRecvSpecialReward::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CGGuildPrestigeMissionReq_descriptor_, &CGGuildPrestigeMissionReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GCGuildPrestigeMissionRsp_descriptor_, &GCGuildPrestigeMissionRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CGGuildPrestigeMissisonAcceptReq_descriptor_, &CGGuildPrestigeMissisonAcceptReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GCGuildPrestigeMissisonAcceptRsp_descriptor_, &GCGuildPrestigeMissisonAcceptRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CGGuildPrestigeMissisonRefreshReq_descriptor_, &CGGuildPrestigeMissisonRefreshReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GCGuildPrestigeMissisonRefreshRsp_descriptor_, &GCGuildPrestigeMissisonRefreshRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CGGuildPrestigeMissisonOneFinishReq_descriptor_, &CGGuildPrestigeMissisonOneFinishReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GCGuildPrestigeMissisonOneFinishRsp_descriptor_, &GCGuildPrestigeMissisonOneFinishRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    CGGuildPrestigeMissionRecvRewardReq_descriptor_, &CGGuildPrestigeMissionRecvRewardReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GCGuildPRestigeMissionRecvRewardRsp_descriptor_, &GCGuildPRestigeMissionRecvRewardRsp::default_instance());
 }
 
 }  // namespace
@@ -612,6 +870,10 @@ void protobuf_ShutdownFile_Mission_2eproto() {
   delete CMissionTrack_reflection_;
   delete SubmitMissionInfo::default_instance_;
   delete SubmitMissionInfo_reflection_;
+  delete GuildPrestigeMissionData::default_instance_;
+  delete GuildPrestigeMissionData_reflection_;
+  delete GuildPrestigeMission::default_instance_;
+  delete GuildPrestigeMission_reflection_;
   delete CGQueryMissionListReq::default_instance_;
   delete CGQueryMissionListReq_reflection_;
   delete GCQueryMissionListRsp::default_instance_;
@@ -648,6 +910,26 @@ void protobuf_ShutdownFile_Mission_2eproto() {
   delete CGMissionRecvSpecialReward_reflection_;
   delete GCMissionRecvSpecialReward::default_instance_;
   delete GCMissionRecvSpecialReward_reflection_;
+  delete CGGuildPrestigeMissionReq::default_instance_;
+  delete CGGuildPrestigeMissionReq_reflection_;
+  delete GCGuildPrestigeMissionRsp::default_instance_;
+  delete GCGuildPrestigeMissionRsp_reflection_;
+  delete CGGuildPrestigeMissisonAcceptReq::default_instance_;
+  delete CGGuildPrestigeMissisonAcceptReq_reflection_;
+  delete GCGuildPrestigeMissisonAcceptRsp::default_instance_;
+  delete GCGuildPrestigeMissisonAcceptRsp_reflection_;
+  delete CGGuildPrestigeMissisonRefreshReq::default_instance_;
+  delete CGGuildPrestigeMissisonRefreshReq_reflection_;
+  delete GCGuildPrestigeMissisonRefreshRsp::default_instance_;
+  delete GCGuildPrestigeMissisonRefreshRsp_reflection_;
+  delete CGGuildPrestigeMissisonOneFinishReq::default_instance_;
+  delete CGGuildPrestigeMissisonOneFinishReq_reflection_;
+  delete GCGuildPrestigeMissisonOneFinishRsp::default_instance_;
+  delete GCGuildPrestigeMissisonOneFinishRsp_reflection_;
+  delete CGGuildPrestigeMissionRecvRewardReq::default_instance_;
+  delete CGGuildPrestigeMissionRecvRewardReq_reflection_;
+  delete GCGuildPRestigeMissionRecvRewardRsp::default_instance_;
+  delete GCGuildPRestigeMissionRecvRewardRsp_reflection_;
 }
 
 void protobuf_AddDesc_Mission_2eproto() {
@@ -679,35 +961,66 @@ void protobuf_AddDesc_Mission_2eproto() {
     "fo\022\021\n\tmissionId\030\002 \001(\004\022\021\n\tdynamicid\030\003 \001(\004"
     "\022\016\n\006status\030\004 \001(\r\022\022\n\naccepttime\030\005 \001(\004\022\016\n\006"
     "textid\030\006 \001(\004\"4\n\021SubmitMissionInfo\022\r\n\005ind"
-    "ex\030\001 \001(\r\022\020\n\010goodsNum\030\002 \001(\r\"\027\n\025CGQueryMis"
-    "sionListReq\"x\n\025GCQueryMissionListRsp\022-\n\014"
-    "acceptedList\030\001 \003(\0132\027.proto_ff.CMissionTr"
-    "ack\0220\n\010dy_count\030\002 \001(\0132\036.proto_ff.DyMissi"
-    "onCntAllProto\",\n\025CGNpcAcceptMissionReq\022\023"
-    "\n\013missiontype\030\001 \001(\005\"=\n\025CGNpcAcceptMissio"
-    "nRsp\022\017\n\007retcode\030\001 \001(\r\022\023\n\013missiontype\030\003 \001"
-    "(\005\"6\n\022CGSubmitMissionReq\022\021\n\tdynamicid\030\001 "
-    "\001(\004\022\r\n\005index\030\002 \001(\r\"4\n\022GCSubmitMissionRsp"
-    "\022\013\n\003ret\030\001 \001(\r\022\021\n\tdynamicid\030\002 \001(\004\"J\n\033GCUp"
-    "dateMissionStatusNotify\022+\n\nupdateList\030\001 "
-    "\003(\0132\027.proto_ff.CMissionTrack\"*\n\025GCDelete"
-    "MissionNotify\022\021\n\tdynamicid\030\001 \003(\004\"I\n\025GCUp"
-    "dateDyAcceptCount\0220\n\010dy_count\030\001 \001(\0132\036.pr"
-    "oto_ff.DyMissionCntAllProto\"d\n\020CGTalkWit"
-    "hNpcReq\022\r\n\005npcId\030\001 \001(\004\022\021\n\tdynamicid\030\002 \001("
-    "\004\022 \n\003pos\030\003 \001(\0132\023.proto_ff.Vector3PB\022\014\n\004t"
-    "ype\030\004 \001(\r\"[\n\027CGSubmitMissionGoodsReq\022-\n\010"
-    "infoList\030\001 \003(\0132\033.proto_ff.SubmitMissionI"
-    "nfo\022\021\n\tdynamicid\030\002 \001(\004\"&\n\027GCSubmitMissio"
-    "nGoodsRsp\022\013\n\003ret\030\001 \001(\005\"/\n\022CGOnekeyMissio"
-    "nReq\022\014\n\004type\030\001 \001(\005\022\013\n\003num\030\002 \001(\005\"j\n\022CGOne"
-    "keyMissionRsp\022\017\n\007retcode\030\001 \002(\005\022\022\n\naccept"
-    "_num\030\002 \001(\005\022\020\n\010gold_lst\030\003 \003(\003\022\017\n\007exp_lst\030"
-    "\004 \003(\003\022\014\n\004type\030\005 \001(\005\"\022\n\020CGOnceMissionReq\""
-    "#\n\020CGOnceMissionRsp\022\017\n\007retcode\030\001 \002(\005\"*\n\032"
-    "CGMissionRecvSpecialReward\022\014\n\004type\030\001 \001(\005"
-    "\";\n\032GCMissionRecvSpecialReward\022\017\n\007retcod"
-    "e\030\001 \002(\005\022\014\n\004type\030\002 \001(\005", 1901);
+    "ex\030\001 \001(\r\022\020\n\010goodsNum\030\002 \001(\r\"\217\001\n\030GuildPres"
+    "tigeMissionData\022\023\n\013prestige_id\030\001 \001(\003\022\017\n\007"
+    "task_id\030\002 \001(\003\022\022\n\ntask_state\030\003 \001(\005\022*\n\ttas"
+    "k_info\030\004 \001(\0132\027.proto_ff.CMissionTrack\022\r\n"
+    "\005index\030\005 \001(\005\"\302\001\n\024GuildPrestigeMission\022\023\n"
+    "\013refresh_num\030\001 \001(\005\022\027\n\017all_refresh_num\030\002 "
+    "\001(\005\022\022\n\naccept_num\030\003 \001(\005\022\026\n\016all_accept_nu"
+    "m\030\004 \001(\005\0225\n\ttask_pool\030\005 \003(\0132\".proto_ff.Gu"
+    "ildPrestigeMissionData\022\031\n\021last_refresh_t"
+    "ime\030\007 \001(\003\"\027\n\025CGQueryMissionListReq\"x\n\025GC"
+    "QueryMissionListRsp\022-\n\014acceptedList\030\001 \003("
+    "\0132\027.proto_ff.CMissionTrack\0220\n\010dy_count\030\002"
+    " \001(\0132\036.proto_ff.DyMissionCntAllProto\",\n\025"
+    "CGNpcAcceptMissionReq\022\023\n\013missiontype\030\001 \001"
+    "(\005\"=\n\025CGNpcAcceptMissionRsp\022\017\n\007retcode\030\001"
+    " \001(\r\022\023\n\013missiontype\030\003 \001(\005\"6\n\022CGSubmitMis"
+    "sionReq\022\021\n\tdynamicid\030\001 \001(\004\022\r\n\005index\030\002 \001("
+    "\r\"4\n\022GCSubmitMissionRsp\022\013\n\003ret\030\001 \001(\r\022\021\n\t"
+    "dynamicid\030\002 \001(\004\"J\n\033GCUpdateMissionStatus"
+    "Notify\022+\n\nupdateList\030\001 \003(\0132\027.proto_ff.CM"
+    "issionTrack\"*\n\025GCDeleteMissionNotify\022\021\n\t"
+    "dynamicid\030\001 \003(\004\"I\n\025GCUpdateDyAcceptCount"
+    "\0220\n\010dy_count\030\001 \001(\0132\036.proto_ff.DyMissionC"
+    "ntAllProto\"d\n\020CGTalkWithNpcReq\022\r\n\005npcId\030"
+    "\001 \001(\004\022\021\n\tdynamicid\030\002 \001(\004\022 \n\003pos\030\003 \001(\0132\023."
+    "proto_ff.Vector3PB\022\014\n\004type\030\004 \001(\r\"[\n\027CGSu"
+    "bmitMissionGoodsReq\022-\n\010infoList\030\001 \003(\0132\033."
+    "proto_ff.SubmitMissionInfo\022\021\n\tdynamicid\030"
+    "\002 \001(\004\"&\n\027GCSubmitMissionGoodsRsp\022\013\n\003ret\030"
+    "\001 \001(\005\"/\n\022CGOnekeyMissionReq\022\014\n\004type\030\001 \001("
+    "\005\022\013\n\003num\030\002 \001(\005\"j\n\022CGOnekeyMissionRsp\022\017\n\007"
+    "retcode\030\001 \002(\005\022\022\n\naccept_num\030\002 \001(\005\022\020\n\010gol"
+    "d_lst\030\003 \003(\003\022\017\n\007exp_lst\030\004 \003(\003\022\014\n\004type\030\005 \001"
+    "(\005\"\022\n\020CGOnceMissionReq\"#\n\020CGOnceMissionR"
+    "sp\022\017\n\007retcode\030\001 \002(\005\"*\n\032CGMissionRecvSpec"
+    "ialReward\022\014\n\004type\030\001 \001(\005\";\n\032GCMissionRecv"
+    "SpecialReward\022\017\n\007retcode\030\001 \002(\005\022\014\n\004type\030\002"
+    " \001(\005\"\033\n\031CGGuildPrestigeMissionReq\"I\n\031GCG"
+    "uildPrestigeMissionRsp\022,\n\004data\030\001 \001(\0132\036.p"
+    "roto_ff.GuildPrestigeMission\"E\n CGGuildP"
+    "restigeMissisonAcceptReq\022\022\n\nmission_id\030\001"
+    " \001(\003\022\r\n\005index\030\002 \001(\005\"W\n GCGuildPrestigeMi"
+    "ssisonAcceptRsp\022\020\n\010ret_code\030\001 \001(\005\022\022\n\nmis"
+    "sion_id\030\002 \001(\003\022\r\n\005index\030\003 \001(\005\"#\n!CGGuildP"
+    "restigeMissisonRefreshReq\"5\n!GCGuildPres"
+    "tigeMissisonRefreshRsp\022\020\n\010ret_code\030\001 \001(\005"
+    "\"H\n#CGGuildPrestigeMissisonOneFinishReq\022"
+    "\022\n\nmission_id\030\001 \001(\003\022\r\n\005index\030\002 \001(\005\"Z\n#GC"
+    "GuildPrestigeMissisonOneFinishRsp\022\020\n\010ret"
+    "_code\030\001 \001(\005\022\022\n\nmission_id\030\002 \001(\003\022\r\n\005index"
+    "\030\003 \001(\005\"H\n#CGGuildPrestigeMissionRecvRewa"
+    "rdReq\022\022\n\nmission_id\030\001 \001(\003\022\r\n\005index\030\002 \001(\005"
+    "\"Z\n#GCGuildPRestigeMissionRecvRewardRsp\022"
+    "\020\n\010ret_code\030\001 \001(\005\022\022\n\nmission_id\030\002 \001(\003\022\r\n"
+    "\005index\030\003 \001(\005*\331\001\n\032EGuildPrestigeMissionSt"
+    "ate\022-\n)E_GUILD_PRESTIGE_MISSION_STATE_CA"
+    "N_ACCEPT\020\000\0221\n-E_GUILD_PRESTIGE_MISSION_S"
+    "TATE_ALREADY_ACCEPT\020\001\022)\n%E_GUILD_PRESTIG"
+    "E_MISSION_STATE_FINISH\020\002\022.\n*E_GUILD_PRES"
+    "TIGE_MISSION_STATE_RECV_REWARD\020\003", 3152);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Mission.proto", &protobuf_RegisterTypes);
   CItemInfo::default_instance_ = new CItemInfo();
@@ -718,6 +1031,8 @@ void protobuf_AddDesc_Mission_2eproto() {
   DyMissionCntAllProto::default_instance_ = new DyMissionCntAllProto();
   CMissionTrack::default_instance_ = new CMissionTrack();
   SubmitMissionInfo::default_instance_ = new SubmitMissionInfo();
+  GuildPrestigeMissionData::default_instance_ = new GuildPrestigeMissionData();
+  GuildPrestigeMission::default_instance_ = new GuildPrestigeMission();
   CGQueryMissionListReq::default_instance_ = new CGQueryMissionListReq();
   GCQueryMissionListRsp::default_instance_ = new GCQueryMissionListRsp();
   CGNpcAcceptMissionReq::default_instance_ = new CGNpcAcceptMissionReq();
@@ -736,6 +1051,16 @@ void protobuf_AddDesc_Mission_2eproto() {
   CGOnceMissionRsp::default_instance_ = new CGOnceMissionRsp();
   CGMissionRecvSpecialReward::default_instance_ = new CGMissionRecvSpecialReward();
   GCMissionRecvSpecialReward::default_instance_ = new GCMissionRecvSpecialReward();
+  CGGuildPrestigeMissionReq::default_instance_ = new CGGuildPrestigeMissionReq();
+  GCGuildPrestigeMissionRsp::default_instance_ = new GCGuildPrestigeMissionRsp();
+  CGGuildPrestigeMissisonAcceptReq::default_instance_ = new CGGuildPrestigeMissisonAcceptReq();
+  GCGuildPrestigeMissisonAcceptRsp::default_instance_ = new GCGuildPrestigeMissisonAcceptRsp();
+  CGGuildPrestigeMissisonRefreshReq::default_instance_ = new CGGuildPrestigeMissisonRefreshReq();
+  GCGuildPrestigeMissisonRefreshRsp::default_instance_ = new GCGuildPrestigeMissisonRefreshRsp();
+  CGGuildPrestigeMissisonOneFinishReq::default_instance_ = new CGGuildPrestigeMissisonOneFinishReq();
+  GCGuildPrestigeMissisonOneFinishRsp::default_instance_ = new GCGuildPrestigeMissisonOneFinishRsp();
+  CGGuildPrestigeMissionRecvRewardReq::default_instance_ = new CGGuildPrestigeMissionRecvRewardReq();
+  GCGuildPRestigeMissionRecvRewardRsp::default_instance_ = new GCGuildPRestigeMissionRecvRewardRsp();
   CItemInfo::default_instance_->InitAsDefaultInstance();
   MissionAttrProto::default_instance_->InitAsDefaultInstance();
   MissionAllAttrProto::default_instance_->InitAsDefaultInstance();
@@ -744,6 +1069,8 @@ void protobuf_AddDesc_Mission_2eproto() {
   DyMissionCntAllProto::default_instance_->InitAsDefaultInstance();
   CMissionTrack::default_instance_->InitAsDefaultInstance();
   SubmitMissionInfo::default_instance_->InitAsDefaultInstance();
+  GuildPrestigeMissionData::default_instance_->InitAsDefaultInstance();
+  GuildPrestigeMission::default_instance_->InitAsDefaultInstance();
   CGQueryMissionListReq::default_instance_->InitAsDefaultInstance();
   GCQueryMissionListRsp::default_instance_->InitAsDefaultInstance();
   CGNpcAcceptMissionReq::default_instance_->InitAsDefaultInstance();
@@ -762,6 +1089,16 @@ void protobuf_AddDesc_Mission_2eproto() {
   CGOnceMissionRsp::default_instance_->InitAsDefaultInstance();
   CGMissionRecvSpecialReward::default_instance_->InitAsDefaultInstance();
   GCMissionRecvSpecialReward::default_instance_->InitAsDefaultInstance();
+  CGGuildPrestigeMissionReq::default_instance_->InitAsDefaultInstance();
+  GCGuildPrestigeMissionRsp::default_instance_->InitAsDefaultInstance();
+  CGGuildPrestigeMissisonAcceptReq::default_instance_->InitAsDefaultInstance();
+  GCGuildPrestigeMissisonAcceptRsp::default_instance_->InitAsDefaultInstance();
+  CGGuildPrestigeMissisonRefreshReq::default_instance_->InitAsDefaultInstance();
+  GCGuildPrestigeMissisonRefreshRsp::default_instance_->InitAsDefaultInstance();
+  CGGuildPrestigeMissisonOneFinishReq::default_instance_->InitAsDefaultInstance();
+  GCGuildPrestigeMissisonOneFinishRsp::default_instance_->InitAsDefaultInstance();
+  CGGuildPrestigeMissionRecvRewardReq::default_instance_->InitAsDefaultInstance();
+  GCGuildPRestigeMissionRecvRewardRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Mission_2eproto);
 }
 
@@ -771,6 +1108,22 @@ struct StaticDescriptorInitializer_Mission_2eproto {
     protobuf_AddDesc_Mission_2eproto();
   }
 } static_descriptor_initializer_Mission_2eproto_;
+const ::google::protobuf::EnumDescriptor* EGuildPrestigeMissionState_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return EGuildPrestigeMissionState_descriptor_;
+}
+bool EGuildPrestigeMissionState_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -3108,6 +3461,787 @@ void SubmitMissionInfo::Swap(SubmitMissionInfo* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = SubmitMissionInfo_descriptor_;
   metadata.reflection = SubmitMissionInfo_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GuildPrestigeMissionData::kPrestigeIdFieldNumber;
+const int GuildPrestigeMissionData::kTaskIdFieldNumber;
+const int GuildPrestigeMissionData::kTaskStateFieldNumber;
+const int GuildPrestigeMissionData::kTaskInfoFieldNumber;
+const int GuildPrestigeMissionData::kIndexFieldNumber;
+#endif  // !_MSC_VER
+
+GuildPrestigeMissionData::GuildPrestigeMissionData()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GuildPrestigeMissionData::InitAsDefaultInstance() {
+  task_info_ = const_cast< ::proto_ff::CMissionTrack*>(&::proto_ff::CMissionTrack::default_instance());
+}
+
+GuildPrestigeMissionData::GuildPrestigeMissionData(const GuildPrestigeMissionData& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GuildPrestigeMissionData::SharedCtor() {
+  _cached_size_ = 0;
+  prestige_id_ = GOOGLE_LONGLONG(0);
+  task_id_ = GOOGLE_LONGLONG(0);
+  task_state_ = 0;
+  task_info_ = NULL;
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GuildPrestigeMissionData::~GuildPrestigeMissionData() {
+  SharedDtor();
+}
+
+void GuildPrestigeMissionData::SharedDtor() {
+  if (this != default_instance_) {
+    delete task_info_;
+  }
+}
+
+void GuildPrestigeMissionData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GuildPrestigeMissionData::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GuildPrestigeMissionData_descriptor_;
+}
+
+const GuildPrestigeMissionData& GuildPrestigeMissionData::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+GuildPrestigeMissionData* GuildPrestigeMissionData::default_instance_ = NULL;
+
+GuildPrestigeMissionData* GuildPrestigeMissionData::New() const {
+  return new GuildPrestigeMissionData;
+}
+
+void GuildPrestigeMissionData::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    prestige_id_ = GOOGLE_LONGLONG(0);
+    task_id_ = GOOGLE_LONGLONG(0);
+    task_state_ = 0;
+    if (has_task_info()) {
+      if (task_info_ != NULL) task_info_->::proto_ff::CMissionTrack::Clear();
+    }
+    index_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GuildPrestigeMissionData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 prestige_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &prestige_id_)));
+          set_has_prestige_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_task_id;
+        break;
+      }
+
+      // optional int64 task_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_task_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &task_id_)));
+          set_has_task_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_task_state;
+        break;
+      }
+
+      // optional int32 task_state = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_task_state:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &task_state_)));
+          set_has_task_state();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_task_info;
+        break;
+      }
+
+      // optional .proto_ff.CMissionTrack task_info = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_task_info:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_task_info()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(40)) goto parse_index;
+        break;
+      }
+
+      // optional int32 index = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_index:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GuildPrestigeMissionData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 prestige_id = 1;
+  if (has_prestige_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->prestige_id(), output);
+  }
+
+  // optional int64 task_id = 2;
+  if (has_task_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->task_id(), output);
+  }
+
+  // optional int32 task_state = 3;
+  if (has_task_state()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->task_state(), output);
+  }
+
+  // optional .proto_ff.CMissionTrack task_info = 4;
+  if (has_task_info()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->task_info(), output);
+  }
+
+  // optional int32 index = 5;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->index(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GuildPrestigeMissionData::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 prestige_id = 1;
+  if (has_prestige_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->prestige_id(), target);
+  }
+
+  // optional int64 task_id = 2;
+  if (has_task_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->task_id(), target);
+  }
+
+  // optional int32 task_state = 3;
+  if (has_task_state()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->task_state(), target);
+  }
+
+  // optional .proto_ff.CMissionTrack task_info = 4;
+  if (has_task_info()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->task_info(), target);
+  }
+
+  // optional int32 index = 5;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->index(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GuildPrestigeMissionData::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 prestige_id = 1;
+    if (has_prestige_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->prestige_id());
+    }
+
+    // optional int64 task_id = 2;
+    if (has_task_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->task_id());
+    }
+
+    // optional int32 task_state = 3;
+    if (has_task_state()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->task_state());
+    }
+
+    // optional .proto_ff.CMissionTrack task_info = 4;
+    if (has_task_info()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->task_info());
+    }
+
+    // optional int32 index = 5;
+    if (has_index()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->index());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GuildPrestigeMissionData::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GuildPrestigeMissionData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GuildPrestigeMissionData*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GuildPrestigeMissionData::MergeFrom(const GuildPrestigeMissionData& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_prestige_id()) {
+      set_prestige_id(from.prestige_id());
+    }
+    if (from.has_task_id()) {
+      set_task_id(from.task_id());
+    }
+    if (from.has_task_state()) {
+      set_task_state(from.task_state());
+    }
+    if (from.has_task_info()) {
+      mutable_task_info()->::proto_ff::CMissionTrack::MergeFrom(from.task_info());
+    }
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GuildPrestigeMissionData::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GuildPrestigeMissionData::CopyFrom(const GuildPrestigeMissionData& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GuildPrestigeMissionData::IsInitialized() const {
+
+  return true;
+}
+
+void GuildPrestigeMissionData::Swap(GuildPrestigeMissionData* other) {
+  if (other != this) {
+    std::swap(prestige_id_, other->prestige_id_);
+    std::swap(task_id_, other->task_id_);
+    std::swap(task_state_, other->task_state_);
+    std::swap(task_info_, other->task_info_);
+    std::swap(index_, other->index_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GuildPrestigeMissionData::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GuildPrestigeMissionData_descriptor_;
+  metadata.reflection = GuildPrestigeMissionData_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GuildPrestigeMission::kRefreshNumFieldNumber;
+const int GuildPrestigeMission::kAllRefreshNumFieldNumber;
+const int GuildPrestigeMission::kAcceptNumFieldNumber;
+const int GuildPrestigeMission::kAllAcceptNumFieldNumber;
+const int GuildPrestigeMission::kTaskPoolFieldNumber;
+const int GuildPrestigeMission::kLastRefreshTimeFieldNumber;
+#endif  // !_MSC_VER
+
+GuildPrestigeMission::GuildPrestigeMission()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GuildPrestigeMission::InitAsDefaultInstance() {
+}
+
+GuildPrestigeMission::GuildPrestigeMission(const GuildPrestigeMission& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GuildPrestigeMission::SharedCtor() {
+  _cached_size_ = 0;
+  refresh_num_ = 0;
+  all_refresh_num_ = 0;
+  accept_num_ = 0;
+  all_accept_num_ = 0;
+  last_refresh_time_ = GOOGLE_LONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GuildPrestigeMission::~GuildPrestigeMission() {
+  SharedDtor();
+}
+
+void GuildPrestigeMission::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GuildPrestigeMission::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GuildPrestigeMission::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GuildPrestigeMission_descriptor_;
+}
+
+const GuildPrestigeMission& GuildPrestigeMission::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+GuildPrestigeMission* GuildPrestigeMission::default_instance_ = NULL;
+
+GuildPrestigeMission* GuildPrestigeMission::New() const {
+  return new GuildPrestigeMission;
+}
+
+void GuildPrestigeMission::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    refresh_num_ = 0;
+    all_refresh_num_ = 0;
+    accept_num_ = 0;
+    all_accept_num_ = 0;
+    last_refresh_time_ = GOOGLE_LONGLONG(0);
+  }
+  task_pool_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GuildPrestigeMission::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 refresh_num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &refresh_num_)));
+          set_has_refresh_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_all_refresh_num;
+        break;
+      }
+
+      // optional int32 all_refresh_num = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_all_refresh_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &all_refresh_num_)));
+          set_has_all_refresh_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_accept_num;
+        break;
+      }
+
+      // optional int32 accept_num = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_accept_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &accept_num_)));
+          set_has_accept_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_all_accept_num;
+        break;
+      }
+
+      // optional int32 all_accept_num = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_all_accept_num:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &all_accept_num_)));
+          set_has_all_accept_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_task_pool;
+        break;
+      }
+
+      // repeated .proto_ff.GuildPrestigeMissionData task_pool = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_task_pool:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_task_pool()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_task_pool;
+        if (input->ExpectTag(56)) goto parse_last_refresh_time;
+        break;
+      }
+
+      // optional int64 last_refresh_time = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_last_refresh_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &last_refresh_time_)));
+          set_has_last_refresh_time();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GuildPrestigeMission::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 refresh_num = 1;
+  if (has_refresh_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->refresh_num(), output);
+  }
+
+  // optional int32 all_refresh_num = 2;
+  if (has_all_refresh_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->all_refresh_num(), output);
+  }
+
+  // optional int32 accept_num = 3;
+  if (has_accept_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->accept_num(), output);
+  }
+
+  // optional int32 all_accept_num = 4;
+  if (has_all_accept_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->all_accept_num(), output);
+  }
+
+  // repeated .proto_ff.GuildPrestigeMissionData task_pool = 5;
+  for (int i = 0; i < this->task_pool_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->task_pool(i), output);
+  }
+
+  // optional int64 last_refresh_time = 7;
+  if (has_last_refresh_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(7, this->last_refresh_time(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GuildPrestigeMission::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 refresh_num = 1;
+  if (has_refresh_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->refresh_num(), target);
+  }
+
+  // optional int32 all_refresh_num = 2;
+  if (has_all_refresh_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->all_refresh_num(), target);
+  }
+
+  // optional int32 accept_num = 3;
+  if (has_accept_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->accept_num(), target);
+  }
+
+  // optional int32 all_accept_num = 4;
+  if (has_all_accept_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->all_accept_num(), target);
+  }
+
+  // repeated .proto_ff.GuildPrestigeMissionData task_pool = 5;
+  for (int i = 0; i < this->task_pool_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->task_pool(i), target);
+  }
+
+  // optional int64 last_refresh_time = 7;
+  if (has_last_refresh_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(7, this->last_refresh_time(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GuildPrestigeMission::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 refresh_num = 1;
+    if (has_refresh_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->refresh_num());
+    }
+
+    // optional int32 all_refresh_num = 2;
+    if (has_all_refresh_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->all_refresh_num());
+    }
+
+    // optional int32 accept_num = 3;
+    if (has_accept_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->accept_num());
+    }
+
+    // optional int32 all_accept_num = 4;
+    if (has_all_accept_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->all_accept_num());
+    }
+
+    // optional int64 last_refresh_time = 7;
+    if (has_last_refresh_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->last_refresh_time());
+    }
+
+  }
+  // repeated .proto_ff.GuildPrestigeMissionData task_pool = 5;
+  total_size += 1 * this->task_pool_size();
+  for (int i = 0; i < this->task_pool_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->task_pool(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GuildPrestigeMission::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GuildPrestigeMission* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GuildPrestigeMission*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GuildPrestigeMission::MergeFrom(const GuildPrestigeMission& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  task_pool_.MergeFrom(from.task_pool_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_refresh_num()) {
+      set_refresh_num(from.refresh_num());
+    }
+    if (from.has_all_refresh_num()) {
+      set_all_refresh_num(from.all_refresh_num());
+    }
+    if (from.has_accept_num()) {
+      set_accept_num(from.accept_num());
+    }
+    if (from.has_all_accept_num()) {
+      set_all_accept_num(from.all_accept_num());
+    }
+    if (from.has_last_refresh_time()) {
+      set_last_refresh_time(from.last_refresh_time());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GuildPrestigeMission::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GuildPrestigeMission::CopyFrom(const GuildPrestigeMission& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GuildPrestigeMission::IsInitialized() const {
+
+  return true;
+}
+
+void GuildPrestigeMission::Swap(GuildPrestigeMission* other) {
+  if (other != this) {
+    std::swap(refresh_num_, other->refresh_num_);
+    std::swap(all_refresh_num_, other->all_refresh_num_);
+    std::swap(accept_num_, other->accept_num_);
+    std::swap(all_accept_num_, other->all_accept_num_);
+    task_pool_.Swap(&other->task_pool_);
+    std::swap(last_refresh_time_, other->last_refresh_time_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GuildPrestigeMission::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GuildPrestigeMission_descriptor_;
+  metadata.reflection = GuildPrestigeMission_reflection_;
   return metadata;
 }
 
@@ -7345,6 +8479,2347 @@ void GCMissionRecvSpecialReward::Swap(GCMissionRecvSpecialReward* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = GCMissionRecvSpecialReward_descriptor_;
   metadata.reflection = GCMissionRecvSpecialReward_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+CGGuildPrestigeMissionReq::CGGuildPrestigeMissionReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CGGuildPrestigeMissionReq::InitAsDefaultInstance() {
+}
+
+CGGuildPrestigeMissionReq::CGGuildPrestigeMissionReq(const CGGuildPrestigeMissionReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissionReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CGGuildPrestigeMissionReq::~CGGuildPrestigeMissionReq() {
+  SharedDtor();
+}
+
+void CGGuildPrestigeMissionReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CGGuildPrestigeMissionReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissionReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CGGuildPrestigeMissionReq_descriptor_;
+}
+
+const CGGuildPrestigeMissionReq& CGGuildPrestigeMissionReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+CGGuildPrestigeMissionReq* CGGuildPrestigeMissionReq::default_instance_ = NULL;
+
+CGGuildPrestigeMissionReq* CGGuildPrestigeMissionReq::New() const {
+  return new CGGuildPrestigeMissionReq;
+}
+
+void CGGuildPrestigeMissionReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CGGuildPrestigeMissionReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void CGGuildPrestigeMissionReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CGGuildPrestigeMissionReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CGGuildPrestigeMissionReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CGGuildPrestigeMissionReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CGGuildPrestigeMissionReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CGGuildPrestigeMissionReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CGGuildPrestigeMissionReq::MergeFrom(const CGGuildPrestigeMissionReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CGGuildPrestigeMissionReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissionReq::CopyFrom(const CGGuildPrestigeMissionReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGGuildPrestigeMissionReq::IsInitialized() const {
+
+  return true;
+}
+
+void CGGuildPrestigeMissionReq::Swap(CGGuildPrestigeMissionReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CGGuildPrestigeMissionReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CGGuildPrestigeMissionReq_descriptor_;
+  metadata.reflection = CGGuildPrestigeMissionReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GCGuildPrestigeMissionRsp::kDataFieldNumber;
+#endif  // !_MSC_VER
+
+GCGuildPrestigeMissionRsp::GCGuildPrestigeMissionRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GCGuildPrestigeMissionRsp::InitAsDefaultInstance() {
+  data_ = const_cast< ::proto_ff::GuildPrestigeMission*>(&::proto_ff::GuildPrestigeMission::default_instance());
+}
+
+GCGuildPrestigeMissionRsp::GCGuildPrestigeMissionRsp(const GCGuildPrestigeMissionRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GCGuildPrestigeMissionRsp::SharedCtor() {
+  _cached_size_ = 0;
+  data_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GCGuildPrestigeMissionRsp::~GCGuildPrestigeMissionRsp() {
+  SharedDtor();
+}
+
+void GCGuildPrestigeMissionRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete data_;
+  }
+}
+
+void GCGuildPrestigeMissionRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GCGuildPrestigeMissionRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GCGuildPrestigeMissionRsp_descriptor_;
+}
+
+const GCGuildPrestigeMissionRsp& GCGuildPrestigeMissionRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+GCGuildPrestigeMissionRsp* GCGuildPrestigeMissionRsp::default_instance_ = NULL;
+
+GCGuildPrestigeMissionRsp* GCGuildPrestigeMissionRsp::New() const {
+  return new GCGuildPrestigeMissionRsp;
+}
+
+void GCGuildPrestigeMissionRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (has_data()) {
+      if (data_ != NULL) data_->::proto_ff::GuildPrestigeMission::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GCGuildPrestigeMissionRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional .proto_ff.GuildPrestigeMission data = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GCGuildPrestigeMissionRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional .proto_ff.GuildPrestigeMission data = 1;
+  if (has_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->data(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GCGuildPrestigeMissionRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional .proto_ff.GuildPrestigeMission data = 1;
+  if (has_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->data(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GCGuildPrestigeMissionRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional .proto_ff.GuildPrestigeMission data = 1;
+    if (has_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->data());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GCGuildPrestigeMissionRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GCGuildPrestigeMissionRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GCGuildPrestigeMissionRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GCGuildPrestigeMissionRsp::MergeFrom(const GCGuildPrestigeMissionRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_data()) {
+      mutable_data()->::proto_ff::GuildPrestigeMission::MergeFrom(from.data());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GCGuildPrestigeMissionRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GCGuildPrestigeMissionRsp::CopyFrom(const GCGuildPrestigeMissionRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GCGuildPrestigeMissionRsp::IsInitialized() const {
+
+  return true;
+}
+
+void GCGuildPrestigeMissionRsp::Swap(GCGuildPrestigeMissionRsp* other) {
+  if (other != this) {
+    std::swap(data_, other->data_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GCGuildPrestigeMissionRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GCGuildPrestigeMissionRsp_descriptor_;
+  metadata.reflection = GCGuildPrestigeMissionRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CGGuildPrestigeMissisonAcceptReq::kMissionIdFieldNumber;
+const int CGGuildPrestigeMissisonAcceptReq::kIndexFieldNumber;
+#endif  // !_MSC_VER
+
+CGGuildPrestigeMissisonAcceptReq::CGGuildPrestigeMissisonAcceptReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CGGuildPrestigeMissisonAcceptReq::InitAsDefaultInstance() {
+}
+
+CGGuildPrestigeMissisonAcceptReq::CGGuildPrestigeMissisonAcceptReq(const CGGuildPrestigeMissisonAcceptReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissisonAcceptReq::SharedCtor() {
+  _cached_size_ = 0;
+  mission_id_ = GOOGLE_LONGLONG(0);
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CGGuildPrestigeMissisonAcceptReq::~CGGuildPrestigeMissisonAcceptReq() {
+  SharedDtor();
+}
+
+void CGGuildPrestigeMissisonAcceptReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CGGuildPrestigeMissisonAcceptReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissisonAcceptReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CGGuildPrestigeMissisonAcceptReq_descriptor_;
+}
+
+const CGGuildPrestigeMissisonAcceptReq& CGGuildPrestigeMissisonAcceptReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+CGGuildPrestigeMissisonAcceptReq* CGGuildPrestigeMissisonAcceptReq::default_instance_ = NULL;
+
+CGGuildPrestigeMissisonAcceptReq* CGGuildPrestigeMissisonAcceptReq::New() const {
+  return new CGGuildPrestigeMissisonAcceptReq;
+}
+
+void CGGuildPrestigeMissisonAcceptReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    mission_id_ = GOOGLE_LONGLONG(0);
+    index_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CGGuildPrestigeMissisonAcceptReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 mission_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &mission_id_)));
+          set_has_mission_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_index;
+        break;
+      }
+
+      // optional int32 index = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_index:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CGGuildPrestigeMissisonAcceptReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 mission_id = 1;
+  if (has_mission_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->mission_id(), output);
+  }
+
+  // optional int32 index = 2;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->index(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CGGuildPrestigeMissisonAcceptReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 mission_id = 1;
+  if (has_mission_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->mission_id(), target);
+  }
+
+  // optional int32 index = 2;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->index(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CGGuildPrestigeMissisonAcceptReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 mission_id = 1;
+    if (has_mission_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->mission_id());
+    }
+
+    // optional int32 index = 2;
+    if (has_index()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->index());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CGGuildPrestigeMissisonAcceptReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CGGuildPrestigeMissisonAcceptReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CGGuildPrestigeMissisonAcceptReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CGGuildPrestigeMissisonAcceptReq::MergeFrom(const CGGuildPrestigeMissisonAcceptReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_mission_id()) {
+      set_mission_id(from.mission_id());
+    }
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CGGuildPrestigeMissisonAcceptReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissisonAcceptReq::CopyFrom(const CGGuildPrestigeMissisonAcceptReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGGuildPrestigeMissisonAcceptReq::IsInitialized() const {
+
+  return true;
+}
+
+void CGGuildPrestigeMissisonAcceptReq::Swap(CGGuildPrestigeMissisonAcceptReq* other) {
+  if (other != this) {
+    std::swap(mission_id_, other->mission_id_);
+    std::swap(index_, other->index_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CGGuildPrestigeMissisonAcceptReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CGGuildPrestigeMissisonAcceptReq_descriptor_;
+  metadata.reflection = CGGuildPrestigeMissisonAcceptReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GCGuildPrestigeMissisonAcceptRsp::kRetCodeFieldNumber;
+const int GCGuildPrestigeMissisonAcceptRsp::kMissionIdFieldNumber;
+const int GCGuildPrestigeMissisonAcceptRsp::kIndexFieldNumber;
+#endif  // !_MSC_VER
+
+GCGuildPrestigeMissisonAcceptRsp::GCGuildPrestigeMissisonAcceptRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::InitAsDefaultInstance() {
+}
+
+GCGuildPrestigeMissisonAcceptRsp::GCGuildPrestigeMissisonAcceptRsp(const GCGuildPrestigeMissisonAcceptRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  mission_id_ = GOOGLE_LONGLONG(0);
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GCGuildPrestigeMissisonAcceptRsp::~GCGuildPrestigeMissisonAcceptRsp() {
+  SharedDtor();
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GCGuildPrestigeMissisonAcceptRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GCGuildPrestigeMissisonAcceptRsp_descriptor_;
+}
+
+const GCGuildPrestigeMissisonAcceptRsp& GCGuildPrestigeMissisonAcceptRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+GCGuildPrestigeMissisonAcceptRsp* GCGuildPrestigeMissisonAcceptRsp::default_instance_ = NULL;
+
+GCGuildPrestigeMissisonAcceptRsp* GCGuildPrestigeMissisonAcceptRsp::New() const {
+  return new GCGuildPrestigeMissisonAcceptRsp;
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    mission_id_ = GOOGLE_LONGLONG(0);
+    index_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GCGuildPrestigeMissisonAcceptRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_mission_id;
+        break;
+      }
+
+      // optional int64 mission_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mission_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &mission_id_)));
+          set_has_mission_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_index;
+        break;
+      }
+
+      // optional int32 index = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_index:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional int64 mission_id = 2;
+  if (has_mission_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->mission_id(), output);
+  }
+
+  // optional int32 index = 3;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->index(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GCGuildPrestigeMissisonAcceptRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional int64 mission_id = 2;
+  if (has_mission_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->mission_id(), target);
+  }
+
+  // optional int32 index = 3;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->index(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GCGuildPrestigeMissisonAcceptRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional int64 mission_id = 2;
+    if (has_mission_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->mission_id());
+    }
+
+    // optional int32 index = 3;
+    if (has_index()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->index());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GCGuildPrestigeMissisonAcceptRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GCGuildPrestigeMissisonAcceptRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::MergeFrom(const GCGuildPrestigeMissisonAcceptRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_mission_id()) {
+      set_mission_id(from.mission_id());
+    }
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::CopyFrom(const GCGuildPrestigeMissisonAcceptRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GCGuildPrestigeMissisonAcceptRsp::IsInitialized() const {
+
+  return true;
+}
+
+void GCGuildPrestigeMissisonAcceptRsp::Swap(GCGuildPrestigeMissisonAcceptRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(mission_id_, other->mission_id_);
+    std::swap(index_, other->index_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GCGuildPrestigeMissisonAcceptRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GCGuildPrestigeMissisonAcceptRsp_descriptor_;
+  metadata.reflection = GCGuildPrestigeMissisonAcceptRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+CGGuildPrestigeMissisonRefreshReq::CGGuildPrestigeMissisonRefreshReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CGGuildPrestigeMissisonRefreshReq::InitAsDefaultInstance() {
+}
+
+CGGuildPrestigeMissisonRefreshReq::CGGuildPrestigeMissisonRefreshReq(const CGGuildPrestigeMissisonRefreshReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissisonRefreshReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CGGuildPrestigeMissisonRefreshReq::~CGGuildPrestigeMissisonRefreshReq() {
+  SharedDtor();
+}
+
+void CGGuildPrestigeMissisonRefreshReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CGGuildPrestigeMissisonRefreshReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissisonRefreshReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CGGuildPrestigeMissisonRefreshReq_descriptor_;
+}
+
+const CGGuildPrestigeMissisonRefreshReq& CGGuildPrestigeMissisonRefreshReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+CGGuildPrestigeMissisonRefreshReq* CGGuildPrestigeMissisonRefreshReq::default_instance_ = NULL;
+
+CGGuildPrestigeMissisonRefreshReq* CGGuildPrestigeMissisonRefreshReq::New() const {
+  return new CGGuildPrestigeMissisonRefreshReq;
+}
+
+void CGGuildPrestigeMissisonRefreshReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CGGuildPrestigeMissisonRefreshReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void CGGuildPrestigeMissisonRefreshReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CGGuildPrestigeMissisonRefreshReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CGGuildPrestigeMissisonRefreshReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CGGuildPrestigeMissisonRefreshReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CGGuildPrestigeMissisonRefreshReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CGGuildPrestigeMissisonRefreshReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CGGuildPrestigeMissisonRefreshReq::MergeFrom(const CGGuildPrestigeMissisonRefreshReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CGGuildPrestigeMissisonRefreshReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissisonRefreshReq::CopyFrom(const CGGuildPrestigeMissisonRefreshReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGGuildPrestigeMissisonRefreshReq::IsInitialized() const {
+
+  return true;
+}
+
+void CGGuildPrestigeMissisonRefreshReq::Swap(CGGuildPrestigeMissisonRefreshReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CGGuildPrestigeMissisonRefreshReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CGGuildPrestigeMissisonRefreshReq_descriptor_;
+  metadata.reflection = CGGuildPrestigeMissisonRefreshReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GCGuildPrestigeMissisonRefreshRsp::kRetCodeFieldNumber;
+#endif  // !_MSC_VER
+
+GCGuildPrestigeMissisonRefreshRsp::GCGuildPrestigeMissisonRefreshRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::InitAsDefaultInstance() {
+}
+
+GCGuildPrestigeMissisonRefreshRsp::GCGuildPrestigeMissisonRefreshRsp(const GCGuildPrestigeMissisonRefreshRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GCGuildPrestigeMissisonRefreshRsp::~GCGuildPrestigeMissisonRefreshRsp() {
+  SharedDtor();
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GCGuildPrestigeMissisonRefreshRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GCGuildPrestigeMissisonRefreshRsp_descriptor_;
+}
+
+const GCGuildPrestigeMissisonRefreshRsp& GCGuildPrestigeMissisonRefreshRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+GCGuildPrestigeMissisonRefreshRsp* GCGuildPrestigeMissisonRefreshRsp::default_instance_ = NULL;
+
+GCGuildPrestigeMissisonRefreshRsp* GCGuildPrestigeMissisonRefreshRsp::New() const {
+  return new GCGuildPrestigeMissisonRefreshRsp;
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GCGuildPrestigeMissisonRefreshRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GCGuildPrestigeMissisonRefreshRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GCGuildPrestigeMissisonRefreshRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GCGuildPrestigeMissisonRefreshRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GCGuildPrestigeMissisonRefreshRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::MergeFrom(const GCGuildPrestigeMissisonRefreshRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::CopyFrom(const GCGuildPrestigeMissisonRefreshRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GCGuildPrestigeMissisonRefreshRsp::IsInitialized() const {
+
+  return true;
+}
+
+void GCGuildPrestigeMissisonRefreshRsp::Swap(GCGuildPrestigeMissisonRefreshRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GCGuildPrestigeMissisonRefreshRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GCGuildPrestigeMissisonRefreshRsp_descriptor_;
+  metadata.reflection = GCGuildPrestigeMissisonRefreshRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CGGuildPrestigeMissisonOneFinishReq::kMissionIdFieldNumber;
+const int CGGuildPrestigeMissisonOneFinishReq::kIndexFieldNumber;
+#endif  // !_MSC_VER
+
+CGGuildPrestigeMissisonOneFinishReq::CGGuildPrestigeMissisonOneFinishReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::InitAsDefaultInstance() {
+}
+
+CGGuildPrestigeMissisonOneFinishReq::CGGuildPrestigeMissisonOneFinishReq(const CGGuildPrestigeMissisonOneFinishReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::SharedCtor() {
+  _cached_size_ = 0;
+  mission_id_ = GOOGLE_LONGLONG(0);
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CGGuildPrestigeMissisonOneFinishReq::~CGGuildPrestigeMissisonOneFinishReq() {
+  SharedDtor();
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissisonOneFinishReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CGGuildPrestigeMissisonOneFinishReq_descriptor_;
+}
+
+const CGGuildPrestigeMissisonOneFinishReq& CGGuildPrestigeMissisonOneFinishReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+CGGuildPrestigeMissisonOneFinishReq* CGGuildPrestigeMissisonOneFinishReq::default_instance_ = NULL;
+
+CGGuildPrestigeMissisonOneFinishReq* CGGuildPrestigeMissisonOneFinishReq::New() const {
+  return new CGGuildPrestigeMissisonOneFinishReq;
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    mission_id_ = GOOGLE_LONGLONG(0);
+    index_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CGGuildPrestigeMissisonOneFinishReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 mission_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &mission_id_)));
+          set_has_mission_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_index;
+        break;
+      }
+
+      // optional int32 index = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_index:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 mission_id = 1;
+  if (has_mission_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->mission_id(), output);
+  }
+
+  // optional int32 index = 2;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->index(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CGGuildPrestigeMissisonOneFinishReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 mission_id = 1;
+  if (has_mission_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->mission_id(), target);
+  }
+
+  // optional int32 index = 2;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->index(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CGGuildPrestigeMissisonOneFinishReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 mission_id = 1;
+    if (has_mission_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->mission_id());
+    }
+
+    // optional int32 index = 2;
+    if (has_index()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->index());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CGGuildPrestigeMissisonOneFinishReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CGGuildPrestigeMissisonOneFinishReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::MergeFrom(const CGGuildPrestigeMissisonOneFinishReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_mission_id()) {
+      set_mission_id(from.mission_id());
+    }
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::CopyFrom(const CGGuildPrestigeMissisonOneFinishReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGGuildPrestigeMissisonOneFinishReq::IsInitialized() const {
+
+  return true;
+}
+
+void CGGuildPrestigeMissisonOneFinishReq::Swap(CGGuildPrestigeMissisonOneFinishReq* other) {
+  if (other != this) {
+    std::swap(mission_id_, other->mission_id_);
+    std::swap(index_, other->index_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CGGuildPrestigeMissisonOneFinishReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CGGuildPrestigeMissisonOneFinishReq_descriptor_;
+  metadata.reflection = CGGuildPrestigeMissisonOneFinishReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GCGuildPrestigeMissisonOneFinishRsp::kRetCodeFieldNumber;
+const int GCGuildPrestigeMissisonOneFinishRsp::kMissionIdFieldNumber;
+const int GCGuildPrestigeMissisonOneFinishRsp::kIndexFieldNumber;
+#endif  // !_MSC_VER
+
+GCGuildPrestigeMissisonOneFinishRsp::GCGuildPrestigeMissisonOneFinishRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::InitAsDefaultInstance() {
+}
+
+GCGuildPrestigeMissisonOneFinishRsp::GCGuildPrestigeMissisonOneFinishRsp(const GCGuildPrestigeMissisonOneFinishRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  mission_id_ = GOOGLE_LONGLONG(0);
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GCGuildPrestigeMissisonOneFinishRsp::~GCGuildPrestigeMissisonOneFinishRsp() {
+  SharedDtor();
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GCGuildPrestigeMissisonOneFinishRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GCGuildPrestigeMissisonOneFinishRsp_descriptor_;
+}
+
+const GCGuildPrestigeMissisonOneFinishRsp& GCGuildPrestigeMissisonOneFinishRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+GCGuildPrestigeMissisonOneFinishRsp* GCGuildPrestigeMissisonOneFinishRsp::default_instance_ = NULL;
+
+GCGuildPrestigeMissisonOneFinishRsp* GCGuildPrestigeMissisonOneFinishRsp::New() const {
+  return new GCGuildPrestigeMissisonOneFinishRsp;
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    mission_id_ = GOOGLE_LONGLONG(0);
+    index_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GCGuildPrestigeMissisonOneFinishRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_mission_id;
+        break;
+      }
+
+      // optional int64 mission_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mission_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &mission_id_)));
+          set_has_mission_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_index;
+        break;
+      }
+
+      // optional int32 index = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_index:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional int64 mission_id = 2;
+  if (has_mission_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->mission_id(), output);
+  }
+
+  // optional int32 index = 3;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->index(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GCGuildPrestigeMissisonOneFinishRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional int64 mission_id = 2;
+  if (has_mission_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->mission_id(), target);
+  }
+
+  // optional int32 index = 3;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->index(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GCGuildPrestigeMissisonOneFinishRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional int64 mission_id = 2;
+    if (has_mission_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->mission_id());
+    }
+
+    // optional int32 index = 3;
+    if (has_index()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->index());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GCGuildPrestigeMissisonOneFinishRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GCGuildPrestigeMissisonOneFinishRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::MergeFrom(const GCGuildPrestigeMissisonOneFinishRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_mission_id()) {
+      set_mission_id(from.mission_id());
+    }
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::CopyFrom(const GCGuildPrestigeMissisonOneFinishRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GCGuildPrestigeMissisonOneFinishRsp::IsInitialized() const {
+
+  return true;
+}
+
+void GCGuildPrestigeMissisonOneFinishRsp::Swap(GCGuildPrestigeMissisonOneFinishRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(mission_id_, other->mission_id_);
+    std::swap(index_, other->index_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GCGuildPrestigeMissisonOneFinishRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GCGuildPrestigeMissisonOneFinishRsp_descriptor_;
+  metadata.reflection = GCGuildPrestigeMissisonOneFinishRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int CGGuildPrestigeMissionRecvRewardReq::kMissionIdFieldNumber;
+const int CGGuildPrestigeMissionRecvRewardReq::kIndexFieldNumber;
+#endif  // !_MSC_VER
+
+CGGuildPrestigeMissionRecvRewardReq::CGGuildPrestigeMissionRecvRewardReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::InitAsDefaultInstance() {
+}
+
+CGGuildPrestigeMissionRecvRewardReq::CGGuildPrestigeMissionRecvRewardReq(const CGGuildPrestigeMissionRecvRewardReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::SharedCtor() {
+  _cached_size_ = 0;
+  mission_id_ = GOOGLE_LONGLONG(0);
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+CGGuildPrestigeMissionRecvRewardReq::~CGGuildPrestigeMissionRecvRewardReq() {
+  SharedDtor();
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* CGGuildPrestigeMissionRecvRewardReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return CGGuildPrestigeMissionRecvRewardReq_descriptor_;
+}
+
+const CGGuildPrestigeMissionRecvRewardReq& CGGuildPrestigeMissionRecvRewardReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+CGGuildPrestigeMissionRecvRewardReq* CGGuildPrestigeMissionRecvRewardReq::default_instance_ = NULL;
+
+CGGuildPrestigeMissionRecvRewardReq* CGGuildPrestigeMissionRecvRewardReq::New() const {
+  return new CGGuildPrestigeMissionRecvRewardReq;
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    mission_id_ = GOOGLE_LONGLONG(0);
+    index_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool CGGuildPrestigeMissionRecvRewardReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int64 mission_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &mission_id_)));
+          set_has_mission_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_index;
+        break;
+      }
+
+      // optional int32 index = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_index:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int64 mission_id = 1;
+  if (has_mission_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(1, this->mission_id(), output);
+  }
+
+  // optional int32 index = 2;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->index(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* CGGuildPrestigeMissionRecvRewardReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int64 mission_id = 1;
+  if (has_mission_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->mission_id(), target);
+  }
+
+  // optional int32 index = 2;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->index(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int CGGuildPrestigeMissionRecvRewardReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int64 mission_id = 1;
+    if (has_mission_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->mission_id());
+    }
+
+    // optional int32 index = 2;
+    if (has_index()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->index());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const CGGuildPrestigeMissionRecvRewardReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const CGGuildPrestigeMissionRecvRewardReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::MergeFrom(const CGGuildPrestigeMissionRecvRewardReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_mission_id()) {
+      set_mission_id(from.mission_id());
+    }
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::CopyFrom(const CGGuildPrestigeMissionRecvRewardReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CGGuildPrestigeMissionRecvRewardReq::IsInitialized() const {
+
+  return true;
+}
+
+void CGGuildPrestigeMissionRecvRewardReq::Swap(CGGuildPrestigeMissionRecvRewardReq* other) {
+  if (other != this) {
+    std::swap(mission_id_, other->mission_id_);
+    std::swap(index_, other->index_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata CGGuildPrestigeMissionRecvRewardReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = CGGuildPrestigeMissionRecvRewardReq_descriptor_;
+  metadata.reflection = CGGuildPrestigeMissionRecvRewardReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int GCGuildPRestigeMissionRecvRewardRsp::kRetCodeFieldNumber;
+const int GCGuildPRestigeMissionRecvRewardRsp::kMissionIdFieldNumber;
+const int GCGuildPRestigeMissionRecvRewardRsp::kIndexFieldNumber;
+#endif  // !_MSC_VER
+
+GCGuildPRestigeMissionRecvRewardRsp::GCGuildPRestigeMissionRecvRewardRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::InitAsDefaultInstance() {
+}
+
+GCGuildPRestigeMissionRecvRewardRsp::GCGuildPRestigeMissionRecvRewardRsp(const GCGuildPRestigeMissionRecvRewardRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  mission_id_ = GOOGLE_LONGLONG(0);
+  index_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GCGuildPRestigeMissionRecvRewardRsp::~GCGuildPRestigeMissionRecvRewardRsp() {
+  SharedDtor();
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GCGuildPRestigeMissionRecvRewardRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GCGuildPRestigeMissionRecvRewardRsp_descriptor_;
+}
+
+const GCGuildPRestigeMissionRecvRewardRsp& GCGuildPRestigeMissionRecvRewardRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Mission_2eproto();
+  return *default_instance_;
+}
+
+GCGuildPRestigeMissionRecvRewardRsp* GCGuildPRestigeMissionRecvRewardRsp::default_instance_ = NULL;
+
+GCGuildPRestigeMissionRecvRewardRsp* GCGuildPRestigeMissionRecvRewardRsp::New() const {
+  return new GCGuildPRestigeMissionRecvRewardRsp;
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    mission_id_ = GOOGLE_LONGLONG(0);
+    index_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GCGuildPRestigeMissionRecvRewardRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_mission_id;
+        break;
+      }
+
+      // optional int64 mission_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mission_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int64, ::google::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &mission_id_)));
+          set_has_mission_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_index;
+        break;
+      }
+
+      // optional int32 index = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_index:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &index_)));
+          set_has_index();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional int64 mission_id = 2;
+  if (has_mission_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt64(2, this->mission_id(), output);
+  }
+
+  // optional int32 index = 3;
+  if (has_index()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->index(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GCGuildPRestigeMissionRecvRewardRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional int64 mission_id = 2;
+  if (has_mission_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->mission_id(), target);
+  }
+
+  // optional int32 index = 3;
+  if (has_index()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->index(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GCGuildPRestigeMissionRecvRewardRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional int64 mission_id = 2;
+    if (has_mission_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int64Size(
+          this->mission_id());
+    }
+
+    // optional int32 index = 3;
+    if (has_index()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->index());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GCGuildPRestigeMissionRecvRewardRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GCGuildPRestigeMissionRecvRewardRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::MergeFrom(const GCGuildPRestigeMissionRecvRewardRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_mission_id()) {
+      set_mission_id(from.mission_id());
+    }
+    if (from.has_index()) {
+      set_index(from.index());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::CopyFrom(const GCGuildPRestigeMissionRecvRewardRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GCGuildPRestigeMissionRecvRewardRsp::IsInitialized() const {
+
+  return true;
+}
+
+void GCGuildPRestigeMissionRecvRewardRsp::Swap(GCGuildPRestigeMissionRecvRewardRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(mission_id_, other->mission_id_);
+    std::swap(index_, other->index_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GCGuildPRestigeMissionRecvRewardRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GCGuildPRestigeMissionRecvRewardRsp_descriptor_;
+  metadata.reflection = GCGuildPRestigeMissionRecvRewardRsp_reflection_;
   return metadata;
 }
 

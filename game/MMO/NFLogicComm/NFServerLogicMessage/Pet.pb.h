@@ -65,6 +65,8 @@ class PetDecomposeReq;
 class PetDecomposeRsp;
 class PetQuickHatchEggReq;
 class PetQuickHatchEggRsp;
+class PetRestReViewReq;
+class PetRestReViewRsp;
 
 // ===================================================================
 
@@ -2795,6 +2797,206 @@ class PetQuickHatchEggRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static PetQuickHatchEggRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class PetRestReViewReq : public ::google::protobuf::Message {
+ public:
+  PetRestReViewReq();
+  virtual ~PetRestReViewReq();
+
+  PetRestReViewReq(const PetRestReViewReq& from);
+
+  inline PetRestReViewReq& operator=(const PetRestReViewReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetRestReViewReq& default_instance();
+
+  void Swap(PetRestReViewReq* other);
+
+  // implements Message ----------------------------------------------
+
+  PetRestReViewReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetRestReViewReq& from);
+  void MergeFrom(const PetRestReViewReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 instId = 1;
+  inline bool has_instid() const;
+  inline void clear_instid();
+  static const int kInstIdFieldNumber = 1;
+  inline ::google::protobuf::int32 instid() const;
+  inline void set_instid(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetRestReViewReq)
+ private:
+  inline void set_has_instid();
+  inline void clear_has_instid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 instid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetRestReViewReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PetRestReViewRsp : public ::google::protobuf::Message {
+ public:
+  PetRestReViewRsp();
+  virtual ~PetRestReViewRsp();
+
+  PetRestReViewRsp(const PetRestReViewRsp& from);
+
+  inline PetRestReViewRsp& operator=(const PetRestReViewRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const PetRestReViewRsp& default_instance();
+
+  void Swap(PetRestReViewRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  PetRestReViewRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const PetRestReViewRsp& from);
+  void MergeFrom(const PetRestReViewRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // optional int32 instId = 2;
+  inline bool has_instid() const;
+  inline void clear_instid();
+  static const int kInstIdFieldNumber = 2;
+  inline ::google::protobuf::int32 instid() const;
+  inline void set_instid(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ComPair64 items = 3;
+  inline int items_size() const;
+  inline void clear_items();
+  static const int kItemsFieldNumber = 3;
+  inline const ::proto_ff::ComPair64& items(int index) const;
+  inline ::proto_ff::ComPair64* mutable_items(int index);
+  inline ::proto_ff::ComPair64* add_items();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+      items() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+      mutable_items();
+
+  // repeated .proto_ff.ComPair64 pets = 4;
+  inline int pets_size() const;
+  inline void clear_pets();
+  static const int kPetsFieldNumber = 4;
+  inline const ::proto_ff::ComPair64& pets(int index) const;
+  inline ::proto_ff::ComPair64* mutable_pets(int index);
+  inline ::proto_ff::ComPair64* add_pets();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+      pets() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+      mutable_pets();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.PetRestReViewRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+  inline void set_has_instid();
+  inline void clear_has_instid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+  ::google::protobuf::int32 instid_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 > items_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 > pets_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Pet_2eproto();
+  friend void protobuf_AssignDesc_Pet_2eproto();
+  friend void protobuf_ShutdownFile_Pet_2eproto();
+
+  void InitAsDefaultInstance();
+  static PetRestReViewRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -4261,6 +4463,130 @@ inline ::google::protobuf::int32 PetQuickHatchEggRsp::slot() const {
 inline void PetQuickHatchEggRsp::set_slot(::google::protobuf::int32 value) {
   set_has_slot();
   slot_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetRestReViewReq
+
+// optional int32 instId = 1;
+inline bool PetRestReViewReq::has_instid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetRestReViewReq::set_has_instid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetRestReViewReq::clear_has_instid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetRestReViewReq::clear_instid() {
+  instid_ = 0;
+  clear_has_instid();
+}
+inline ::google::protobuf::int32 PetRestReViewReq::instid() const {
+  return instid_;
+}
+inline void PetRestReViewReq::set_instid(::google::protobuf::int32 value) {
+  set_has_instid();
+  instid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// PetRestReViewRsp
+
+// optional int32 ret = 1;
+inline bool PetRestReViewRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PetRestReViewRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PetRestReViewRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PetRestReViewRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 PetRestReViewRsp::ret() const {
+  return ret_;
+}
+inline void PetRestReViewRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
+}
+
+// optional int32 instId = 2;
+inline bool PetRestReViewRsp::has_instid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void PetRestReViewRsp::set_has_instid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void PetRestReViewRsp::clear_has_instid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void PetRestReViewRsp::clear_instid() {
+  instid_ = 0;
+  clear_has_instid();
+}
+inline ::google::protobuf::int32 PetRestReViewRsp::instid() const {
+  return instid_;
+}
+inline void PetRestReViewRsp::set_instid(::google::protobuf::int32 value) {
+  set_has_instid();
+  instid_ = value;
+}
+
+// repeated .proto_ff.ComPair64 items = 3;
+inline int PetRestReViewRsp::items_size() const {
+  return items_.size();
+}
+inline void PetRestReViewRsp::clear_items() {
+  items_.Clear();
+}
+inline const ::proto_ff::ComPair64& PetRestReViewRsp::items(int index) const {
+  return items_.Get(index);
+}
+inline ::proto_ff::ComPair64* PetRestReViewRsp::mutable_items(int index) {
+  return items_.Mutable(index);
+}
+inline ::proto_ff::ComPair64* PetRestReViewRsp::add_items() {
+  return items_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+PetRestReViewRsp::items() const {
+  return items_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+PetRestReViewRsp::mutable_items() {
+  return &items_;
+}
+
+// repeated .proto_ff.ComPair64 pets = 4;
+inline int PetRestReViewRsp::pets_size() const {
+  return pets_.size();
+}
+inline void PetRestReViewRsp::clear_pets() {
+  pets_.Clear();
+}
+inline const ::proto_ff::ComPair64& PetRestReViewRsp::pets(int index) const {
+  return pets_.Get(index);
+}
+inline ::proto_ff::ComPair64* PetRestReViewRsp::mutable_pets(int index) {
+  return pets_.Mutable(index);
+}
+inline ::proto_ff::ComPair64* PetRestReViewRsp::add_pets() {
+  return pets_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >&
+PetRestReViewRsp::pets() const {
+  return pets_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComPair64 >*
+PetRestReViewRsp::mutable_pets() {
+  return &pets_;
 }
 
 
