@@ -2,6 +2,7 @@ package proto_ff;
 
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
+import "Com.proto";
 
 enum    enBagPageType    // InvenrotySlotData.类型
 {
@@ -31,11 +32,13 @@ message GridItemBase
 
 message EquipExt
 {
-  repeated int32 base_attr = 1[(yd_fieldoptions.field_arysize)=10]; //基础属性
-  repeated int32 star_attr = 2[(yd_fieldoptions.field_arysize)=10]; //星级属性
-  repeated int32 blue_attr = 3[(yd_fieldoptions.field_arysize)=10]; //蓝星属性
-  repeated int32 god_attr = 4[(yd_fieldoptions.field_arysize)=10];  //仙尊属性
-  repeated int32 special_attr = 5[(yd_fieldoptions.field_arysize)=10]; //特殊属性
+  repeated Attr base = 1[(yd_fieldoptions.field_arysize)=10]; //基础属性
+  repeated Attr refine = 2[(yd_fieldoptions.field_arysize)=10]; //星级属性(仙品属性 带★)
+  repeated BlueStarAttr blue = 3[(yd_fieldoptions.field_arysize)=10]; //蓝星属性
+  repeated Attr god = 4[(yd_fieldoptions.field_arysize)=10];  //仙尊属性
+  repeated Attr special = 5[(yd_fieldoptions.field_arysize)=10]; //特殊属性
+  optional int32 strong_lv = 6;										//强化等级(给天神神饰装备用)
+  optional int32 strong_wear_quality = 7;         //强化阶级(给天神神饰装备用)
 }
 
 message ItemGridCSData

@@ -51,6 +51,49 @@ int NFGridItem::read_from_pbmsg(const proto_ff::ItemProtoInfo &protoItem)
     base.bind = protoItem.bind();
     base.level = protoItem.level();
     base.expireTime = protoItem.expiretime();
+    NF_ASSERT((int)protoItem.base_size() <= (int)equip_ext.base.max_size());
+    for(int i = 0; i < (int)protoItem.base_size(); i++)
+    {
+        const ::proto_ff::Attr& attr = protoItem.base(i);
+        equip_ext.base.push_back();
+        equip_ext.base.back().read_from_pbmsg(attr);
+    }
+
+    NF_ASSERT((int)protoItem.refine_size() <= (int)equip_ext.refine.max_size());
+    for(int i = 0; i < (int)protoItem.refine_size(); i++)
+    {
+        const ::proto_ff::Attr& attr = protoItem.refine(i);
+        equip_ext.refine.push_back();
+        equip_ext.refine.back().read_from_pbmsg(attr);
+    }
+
+    NF_ASSERT((int)protoItem.blue_size() <= (int)equip_ext.blue.max_size());
+    for(int i = 0; i < (int)protoItem.blue_size(); i++)
+    {
+        const ::proto_ff::BlueStarAttr& attr = protoItem.blue(i);
+        equip_ext.blue.push_back();
+        equip_ext.blue.back().read_from_pbmsg(attr);
+    }
+
+    NF_ASSERT((int)protoItem.god_size() <= (int)equip_ext.god.max_size());
+    for(int i = 0; i < (int)protoItem.god_size(); i++)
+    {
+        const ::proto_ff::Attr& attr = protoItem.god(i);
+        equip_ext.god.push_back();
+        equip_ext.god.back().read_from_pbmsg(attr);
+    }
+
+    NF_ASSERT((int)protoItem.special_size() <= (int)equip_ext.special.max_size());
+    for(int i = 0; i < (int)protoItem.special_size(); i++)
+    {
+        const ::proto_ff::Attr& attr = protoItem.special(i);
+        equip_ext.special.push_back();
+        equip_ext.special.back().read_from_pbmsg(attr);
+    }
+
+    equip_ext.strong_lv = protoItem.strong_lv();
+    equip_ext.strong_wear_quality = protoItem.strong_wear_quality();
+
     return 0;
 }
 
@@ -62,6 +105,34 @@ int NFGridItem::write_to_pbmsg(proto_ff::ItemProtoInfo &protoItem)
     protoItem.set_bind(base.bind);
     protoItem.set_level(base.level);
     protoItem.set_expiretime(base.expireTime);
+
+    for(int i = 0; i < (int)equip_ext.base.size(); i++)
+    {
+        equip_ext.base[i].write_to_pbmsg(*protoItem.add_base());
+    }
+
+    for(int i = 0; i < (int)equip_ext.refine.size(); i++)
+    {
+        equip_ext.refine[i].write_to_pbmsg(*protoItem.add_refine());
+    }
+
+    for(int i = 0; i < (int)equip_ext.blue.size(); i++)
+    {
+        equip_ext.blue[i].write_to_pbmsg(*protoItem.add_blue());
+    }
+
+    for(int i = 0; i < (int)equip_ext.god.size(); i++)
+    {
+        equip_ext.god[i].write_to_pbmsg(*protoItem.add_god());
+    }
+
+    for(int i = 0; i < (int)equip_ext.special.size(); i++)
+    {
+        equip_ext.special[i].write_to_pbmsg(*protoItem.add_special());
+    }
+
+    protoItem.set_strong_lv(equip_ext.strong_lv);
+    protoItem.set_strong_wear_quality(equip_ext.strong_wear_quality);
     return 0;
 }
 
@@ -134,7 +205,7 @@ bool NFGridItem::AddNum(int64_t nAddNum)
 {
     if (nAddNum > 0)
     {
-        if (UINT64_MAX - base.item_num < (uint64_t)nAddNum)
+        if (UINT32_MAX - base.item_num < (uint64_t)nAddNum)
         {
             base.item_num = UINT32_MAX;
             //数量超过 需要打印警告日志

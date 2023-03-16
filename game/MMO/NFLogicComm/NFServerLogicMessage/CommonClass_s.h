@@ -7,12 +7,14 @@
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "CommonClass.pb.h"
 #include "CommonClass_s.h"
+#include "Com.pb.h"
+#include "Com_s.h"
 
-#define DEFINE_EQUIPEXT_BASE_ATTR_MAX_NUM 10
-#define DEFINE_EQUIPEXT_STAR_ATTR_MAX_NUM 10
-#define DEFINE_EQUIPEXT_BLUE_ATTR_MAX_NUM 10
-#define DEFINE_EQUIPEXT_GOD_ATTR_MAX_NUM 10
-#define DEFINE_EQUIPEXT_SPECIAL_ATTR_MAX_NUM 10
+#define DEFINE_EQUIPEXT_BASE_MAX_NUM 10
+#define DEFINE_EQUIPEXT_REFINE_MAX_NUM 10
+#define DEFINE_EQUIPEXT_BLUE_MAX_NUM 10
+#define DEFINE_EQUIPEXT_GOD_MAX_NUM 10
+#define DEFINE_EQUIPEXT_SPECIAL_MAX_NUM 10
 namespace proto_ff_s {
 
 	struct GridItemBase_s : public NFDescStoreSeqOP {
@@ -40,11 +42,13 @@ namespace proto_ff_s {
 		virtual ~EquipExt_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<int32_t, DEFINE_EQUIPEXT_BASE_ATTR_MAX_NUM> base_attr;
-		NFShmVector<int32_t, DEFINE_EQUIPEXT_STAR_ATTR_MAX_NUM> star_attr;
-		NFShmVector<int32_t, DEFINE_EQUIPEXT_BLUE_ATTR_MAX_NUM> blue_attr;
-		NFShmVector<int32_t, DEFINE_EQUIPEXT_GOD_ATTR_MAX_NUM> god_attr;
-		NFShmVector<int32_t, DEFINE_EQUIPEXT_SPECIAL_ATTR_MAX_NUM> special_attr;
+		NFShmVector<struct Attr_s, DEFINE_EQUIPEXT_BASE_MAX_NUM> base;
+		NFShmVector<struct Attr_s, DEFINE_EQUIPEXT_REFINE_MAX_NUM> refine;
+		NFShmVector<struct BlueStarAttr_s, DEFINE_EQUIPEXT_BLUE_MAX_NUM> blue;
+		NFShmVector<struct Attr_s, DEFINE_EQUIPEXT_GOD_MAX_NUM> god;
+		NFShmVector<struct Attr_s, DEFINE_EQUIPEXT_SPECIAL_MAX_NUM> special;
+		int32_t strong_lv;
+		int32_t strong_wear_quality;
 
 		virtual void write_to_pbmsg(::proto_ff::EquipExt & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::EquipExt & msg);

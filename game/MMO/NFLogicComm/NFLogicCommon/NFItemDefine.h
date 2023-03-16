@@ -47,6 +47,7 @@ public:
     bool AddNum(int64_t nAddNum);
 
     proto_ff_s::GridItemBase_s base;
+    proto_ff_s::EquipExt_s equip_ext;
 };
 
 //背包物品

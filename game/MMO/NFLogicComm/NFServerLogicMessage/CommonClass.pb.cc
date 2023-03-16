@@ -62,12 +62,14 @@ void protobuf_AssignDesc_CommonClass_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GridItemBase));
   EquipExt_descriptor_ = file->message_type(1);
-  static const int EquipExt_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, base_attr_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, star_attr_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, blue_attr_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, god_attr_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, special_attr_),
+  static const int EquipExt_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, base_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, refine_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, blue_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, god_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, special_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, strong_lv_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EquipExt, strong_wear_quality_),
   };
   EquipExt_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -135,24 +137,28 @@ void protobuf_AddDesc_CommonClass_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
+  ::proto_ff::protobuf_AddDesc_Com_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\021CommonClass.proto\022\010proto_ff\032\025yd_fieldo"
-    "ptions.proto\"\177\n\014GridItemBase\022\r\n\005index\030\001 "
-    "\001(\004\022\017\n\007item_id\030\002 \001(\004\022\020\n\010item_num\030\003 \001(\004\022\014"
-    "\n\004bind\030\004 \001(\010\022\r\n\005level\030\006 \001(\r\022\022\n\nexpireTim"
-    "e\030\007 \001(\004\022\014\n\004type\030\010 \001(\r\"\211\001\n\010EquipExt\022\027\n\tba"
-    "se_attr\030\001 \003(\005B\004\210\301\024\n\022\027\n\tstar_attr\030\002 \003(\005B\004"
-    "\210\301\024\n\022\027\n\tblue_attr\030\003 \003(\005B\004\210\301\024\n\022\026\n\010god_att"
-    "r\030\004 \003(\005B\004\210\301\024\n\022\032\n\014special_attr\030\005 \003(\005B\004\210\301\024"
-    "\n\"^\n\016ItemGridCSData\022$\n\004base\030\001 \002(\0132\026.prot"
-    "o_ff.GridItemBase\022&\n\nequip_data\030\002 \001(\0132\022."
-    "proto_ff.EquipExt*\370\001\n\renBagPageType\022\020\n\014E"
-    "N_BPT_EQUIP\020\001\022\022\n\016EN_BPT_STORAGE\020\002\022\022\n\016EN_"
-    "BPT_MATRIAL\020\003\022\017\n\013EN_BPT_PROP\020\004\022\017\n\013EN_BPT"
-    "_SKIN\020\005\022\020\n\014EN_BPT_TITLE\020\006\022\016\n\nEN_BPT_GEM\020"
-    "\007\022\030\n\024EN_BPT_PARTNER_EQUIP\020\010\022\036\n\032EN_BPT_PA"
-    "RTNER_EQUIP_STONE\020\t\022\030\n\024EN_BPT_PARTNER_TO"
-    "KEN\020\n\022\025\n\021EN_BPT_BUFF_EQUIP\020\013", 668);
+    "ptions.proto\032\tCom.proto\"\177\n\014GridItemBase\022"
+    "\r\n\005index\030\001 \001(\004\022\017\n\007item_id\030\002 \001(\004\022\020\n\010item_"
+    "num\030\003 \001(\004\022\014\n\004bind\030\004 \001(\010\022\r\n\005level\030\006 \001(\r\022\022"
+    "\n\nexpireTime\030\007 \001(\004\022\014\n\004type\030\010 \001(\r\"\372\001\n\010Equ"
+    "ipExt\022\"\n\004base\030\001 \003(\0132\016.proto_ff.AttrB\004\210\301\024"
+    "\n\022$\n\006refine\030\002 \003(\0132\016.proto_ff.AttrB\004\210\301\024\n\022"
+    "*\n\004blue\030\003 \003(\0132\026.proto_ff.BlueStarAttrB\004\210"
+    "\301\024\n\022!\n\003god\030\004 \003(\0132\016.proto_ff.AttrB\004\210\301\024\n\022%"
+    "\n\007special\030\005 \003(\0132\016.proto_ff.AttrB\004\210\301\024\n\022\021\n"
+    "\tstrong_lv\030\006 \001(\005\022\033\n\023strong_wear_quality\030"
+    "\007 \001(\005\"^\n\016ItemGridCSData\022$\n\004base\030\001 \002(\0132\026."
+    "proto_ff.GridItemBase\022&\n\nequip_data\030\002 \001("
+    "\0132\022.proto_ff.EquipExt*\370\001\n\renBagPageType\022"
+    "\020\n\014EN_BPT_EQUIP\020\001\022\022\n\016EN_BPT_STORAGE\020\002\022\022\n"
+    "\016EN_BPT_MATRIAL\020\003\022\017\n\013EN_BPT_PROP\020\004\022\017\n\013EN"
+    "_BPT_SKIN\020\005\022\020\n\014EN_BPT_TITLE\020\006\022\016\n\nEN_BPT_"
+    "GEM\020\007\022\030\n\024EN_BPT_PARTNER_EQUIP\020\010\022\036\n\032EN_BP"
+    "T_PARTNER_EQUIP_STONE\020\t\022\030\n\024EN_BPT_PARTNE"
+    "R_TOKEN\020\n\022\025\n\021EN_BPT_BUFF_EQUIP\020\013", 792);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CommonClass.proto", &protobuf_RegisterTypes);
   GridItemBase::default_instance_ = new GridItemBase();
@@ -643,11 +649,13 @@ void GridItemBase::Swap(GridItemBase* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int EquipExt::kBaseAttrFieldNumber;
-const int EquipExt::kStarAttrFieldNumber;
-const int EquipExt::kBlueAttrFieldNumber;
-const int EquipExt::kGodAttrFieldNumber;
-const int EquipExt::kSpecialAttrFieldNumber;
+const int EquipExt::kBaseFieldNumber;
+const int EquipExt::kRefineFieldNumber;
+const int EquipExt::kBlueFieldNumber;
+const int EquipExt::kGodFieldNumber;
+const int EquipExt::kSpecialFieldNumber;
+const int EquipExt::kStrongLvFieldNumber;
+const int EquipExt::kStrongWearQualityFieldNumber;
 #endif  // !_MSC_VER
 
 EquipExt::EquipExt()
@@ -666,6 +674,8 @@ EquipExt::EquipExt(const EquipExt& from)
 
 void EquipExt::SharedCtor() {
   _cached_size_ = 0;
+  strong_lv_ = 0;
+  strong_wear_quality_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -700,11 +710,15 @@ EquipExt* EquipExt::New() const {
 }
 
 void EquipExt::Clear() {
-  base_attr_.Clear();
-  star_attr_.Clear();
-  blue_attr_.Clear();
-  god_attr_.Clear();
-  special_attr_.Clear();
+  if (_has_bits_[5 / 32] & (0xffu << (5 % 32))) {
+    strong_lv_ = 0;
+    strong_wear_quality_ = 0;
+  }
+  base_.Clear();
+  refine_.Clear();
+  blue_.Clear();
+  god_.Clear();
+  special_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -715,112 +729,109 @@ bool EquipExt::MergePartialFromCodedStream(
   ::google::protobuf::uint32 tag;
   while ((tag = input->ReadTag()) != 0) {
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // repeated int32 base_attr = 1;
+      // repeated .proto_ff.Attr base = 1;
       case 1: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_base_attr:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 8, input, this->mutable_base_attr())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_base_attr())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_base:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_base()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(8)) goto parse_base_attr;
-        if (input->ExpectTag(16)) goto parse_star_attr;
+        if (input->ExpectTag(10)) goto parse_base;
+        if (input->ExpectTag(18)) goto parse_refine;
         break;
       }
 
-      // repeated int32 star_attr = 2;
+      // repeated .proto_ff.Attr refine = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_star_attr:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 16, input, this->mutable_star_attr())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_star_attr())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_refine:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_refine()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(16)) goto parse_star_attr;
-        if (input->ExpectTag(24)) goto parse_blue_attr;
+        if (input->ExpectTag(18)) goto parse_refine;
+        if (input->ExpectTag(26)) goto parse_blue;
         break;
       }
 
-      // repeated int32 blue_attr = 3;
+      // repeated .proto_ff.BlueStarAttr blue = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_blue_attr:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 24, input, this->mutable_blue_attr())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_blue_attr())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_blue:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_blue()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_blue_attr;
-        if (input->ExpectTag(32)) goto parse_god_attr;
+        if (input->ExpectTag(26)) goto parse_blue;
+        if (input->ExpectTag(34)) goto parse_god;
         break;
       }
 
-      // repeated int32 god_attr = 4;
+      // repeated .proto_ff.Attr god = 4;
       case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_god_attr:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 32, input, this->mutable_god_attr())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_god_attr())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_god:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_god()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_god_attr;
-        if (input->ExpectTag(40)) goto parse_special_attr;
+        if (input->ExpectTag(34)) goto parse_god;
+        if (input->ExpectTag(42)) goto parse_special;
         break;
       }
 
-      // repeated int32 special_attr = 5;
+      // repeated .proto_ff.Attr special = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_special_attr:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 1, 40, input, this->mutable_special_attr())));
-        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
-                   == ::google::protobuf::internal::WireFormatLite::
-                      WIRETYPE_LENGTH_DELIMITED) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
-                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, this->mutable_special_attr())));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_special:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_special()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(40)) goto parse_special_attr;
+        if (input->ExpectTag(42)) goto parse_special;
+        if (input->ExpectTag(48)) goto parse_strong_lv;
+        break;
+      }
+
+      // optional int32 strong_lv = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_strong_lv:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &strong_lv_)));
+          set_has_strong_lv();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_strong_wear_quality;
+        break;
+      }
+
+      // optional int32 strong_wear_quality = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_strong_wear_quality:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &strong_wear_quality_)));
+          set_has_strong_wear_quality();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -843,34 +854,44 @@ bool EquipExt::MergePartialFromCodedStream(
 
 void EquipExt::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // repeated int32 base_attr = 1;
-  for (int i = 0; i < this->base_attr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      1, this->base_attr(i), output);
+  // repeated .proto_ff.Attr base = 1;
+  for (int i = 0; i < this->base_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->base(i), output);
   }
 
-  // repeated int32 star_attr = 2;
-  for (int i = 0; i < this->star_attr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      2, this->star_attr(i), output);
+  // repeated .proto_ff.Attr refine = 2;
+  for (int i = 0; i < this->refine_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->refine(i), output);
   }
 
-  // repeated int32 blue_attr = 3;
-  for (int i = 0; i < this->blue_attr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      3, this->blue_attr(i), output);
+  // repeated .proto_ff.BlueStarAttr blue = 3;
+  for (int i = 0; i < this->blue_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->blue(i), output);
   }
 
-  // repeated int32 god_attr = 4;
-  for (int i = 0; i < this->god_attr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      4, this->god_attr(i), output);
+  // repeated .proto_ff.Attr god = 4;
+  for (int i = 0; i < this->god_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->god(i), output);
   }
 
-  // repeated int32 special_attr = 5;
-  for (int i = 0; i < this->special_attr_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(
-      5, this->special_attr(i), output);
+  // repeated .proto_ff.Attr special = 5;
+  for (int i = 0; i < this->special_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->special(i), output);
+  }
+
+  // optional int32 strong_lv = 6;
+  if (has_strong_lv()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->strong_lv(), output);
+  }
+
+  // optional int32 strong_wear_quality = 7;
+  if (has_strong_wear_quality()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(7, this->strong_wear_quality(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -881,34 +902,49 @@ void EquipExt::SerializeWithCachedSizes(
 
 ::google::protobuf::uint8* EquipExt::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
-  // repeated int32 base_attr = 1;
-  for (int i = 0; i < this->base_attr_size(); i++) {
+  // repeated .proto_ff.Attr base = 1;
+  for (int i = 0; i < this->base_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(1, this->base_attr(i), target);
+      WriteMessageNoVirtualToArray(
+        1, this->base(i), target);
   }
 
-  // repeated int32 star_attr = 2;
-  for (int i = 0; i < this->star_attr_size(); i++) {
+  // repeated .proto_ff.Attr refine = 2;
+  for (int i = 0; i < this->refine_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(2, this->star_attr(i), target);
+      WriteMessageNoVirtualToArray(
+        2, this->refine(i), target);
   }
 
-  // repeated int32 blue_attr = 3;
-  for (int i = 0; i < this->blue_attr_size(); i++) {
+  // repeated .proto_ff.BlueStarAttr blue = 3;
+  for (int i = 0; i < this->blue_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(3, this->blue_attr(i), target);
+      WriteMessageNoVirtualToArray(
+        3, this->blue(i), target);
   }
 
-  // repeated int32 god_attr = 4;
-  for (int i = 0; i < this->god_attr_size(); i++) {
+  // repeated .proto_ff.Attr god = 4;
+  for (int i = 0; i < this->god_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(4, this->god_attr(i), target);
+      WriteMessageNoVirtualToArray(
+        4, this->god(i), target);
   }
 
-  // repeated int32 special_attr = 5;
-  for (int i = 0; i < this->special_attr_size(); i++) {
+  // repeated .proto_ff.Attr special = 5;
+  for (int i = 0; i < this->special_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteInt32ToArray(5, this->special_attr(i), target);
+      WriteMessageNoVirtualToArray(
+        5, this->special(i), target);
+  }
+
+  // optional int32 strong_lv = 6;
+  if (has_strong_lv()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->strong_lv(), target);
+  }
+
+  // optional int32 strong_wear_quality = 7;
+  if (has_strong_wear_quality()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(7, this->strong_wear_quality(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -921,54 +957,60 @@ void EquipExt::SerializeWithCachedSizes(
 int EquipExt::ByteSize() const {
   int total_size = 0;
 
-  // repeated int32 base_attr = 1;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->base_attr_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->base_attr(i));
+  if (_has_bits_[5 / 32] & (0xffu << (5 % 32))) {
+    // optional int32 strong_lv = 6;
+    if (has_strong_lv()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->strong_lv());
     }
-    total_size += 1 * this->base_attr_size() + data_size;
+
+    // optional int32 strong_wear_quality = 7;
+    if (has_strong_wear_quality()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->strong_wear_quality());
+    }
+
+  }
+  // repeated .proto_ff.Attr base = 1;
+  total_size += 1 * this->base_size();
+  for (int i = 0; i < this->base_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->base(i));
   }
 
-  // repeated int32 star_attr = 2;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->star_attr_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->star_attr(i));
-    }
-    total_size += 1 * this->star_attr_size() + data_size;
+  // repeated .proto_ff.Attr refine = 2;
+  total_size += 1 * this->refine_size();
+  for (int i = 0; i < this->refine_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->refine(i));
   }
 
-  // repeated int32 blue_attr = 3;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->blue_attr_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->blue_attr(i));
-    }
-    total_size += 1 * this->blue_attr_size() + data_size;
+  // repeated .proto_ff.BlueStarAttr blue = 3;
+  total_size += 1 * this->blue_size();
+  for (int i = 0; i < this->blue_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->blue(i));
   }
 
-  // repeated int32 god_attr = 4;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->god_attr_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->god_attr(i));
-    }
-    total_size += 1 * this->god_attr_size() + data_size;
+  // repeated .proto_ff.Attr god = 4;
+  total_size += 1 * this->god_size();
+  for (int i = 0; i < this->god_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->god(i));
   }
 
-  // repeated int32 special_attr = 5;
-  {
-    int data_size = 0;
-    for (int i = 0; i < this->special_attr_size(); i++) {
-      data_size += ::google::protobuf::internal::WireFormatLite::
-        Int32Size(this->special_attr(i));
-    }
-    total_size += 1 * this->special_attr_size() + data_size;
+  // repeated .proto_ff.Attr special = 5;
+  total_size += 1 * this->special_size();
+  for (int i = 0; i < this->special_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->special(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -996,11 +1038,19 @@ void EquipExt::MergeFrom(const ::google::protobuf::Message& from) {
 
 void EquipExt::MergeFrom(const EquipExt& from) {
   GOOGLE_CHECK_NE(&from, this);
-  base_attr_.MergeFrom(from.base_attr_);
-  star_attr_.MergeFrom(from.star_attr_);
-  blue_attr_.MergeFrom(from.blue_attr_);
-  god_attr_.MergeFrom(from.god_attr_);
-  special_attr_.MergeFrom(from.special_attr_);
+  base_.MergeFrom(from.base_);
+  refine_.MergeFrom(from.refine_);
+  blue_.MergeFrom(from.blue_);
+  god_.MergeFrom(from.god_);
+  special_.MergeFrom(from.special_);
+  if (from._has_bits_[5 / 32] & (0xffu << (5 % 32))) {
+    if (from.has_strong_lv()) {
+      set_strong_lv(from.strong_lv());
+    }
+    if (from.has_strong_wear_quality()) {
+      set_strong_wear_quality(from.strong_wear_quality());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -1018,16 +1068,30 @@ void EquipExt::CopyFrom(const EquipExt& from) {
 
 bool EquipExt::IsInitialized() const {
 
+  for (int i = 0; i < base_size(); i++) {
+    if (!this->base(i).IsInitialized()) return false;
+  }
+  for (int i = 0; i < refine_size(); i++) {
+    if (!this->refine(i).IsInitialized()) return false;
+  }
+  for (int i = 0; i < god_size(); i++) {
+    if (!this->god(i).IsInitialized()) return false;
+  }
+  for (int i = 0; i < special_size(); i++) {
+    if (!this->special(i).IsInitialized()) return false;
+  }
   return true;
 }
 
 void EquipExt::Swap(EquipExt* other) {
   if (other != this) {
-    base_attr_.Swap(&other->base_attr_);
-    star_attr_.Swap(&other->star_attr_);
-    blue_attr_.Swap(&other->blue_attr_);
-    god_attr_.Swap(&other->god_attr_);
-    special_attr_.Swap(&other->special_attr_);
+    base_.Swap(&other->base_);
+    refine_.Swap(&other->refine_);
+    blue_.Swap(&other->blue_);
+    god_.Swap(&other->god_);
+    special_.Swap(&other->special_);
+    std::swap(strong_lv_, other->strong_lv_);
+    std::swap(strong_wear_quality_, other->strong_wear_quality_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -1280,6 +1344,9 @@ void ItemGridCSData::CopyFrom(const ItemGridCSData& from) {
 bool ItemGridCSData::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
+  if (has_equip_data()) {
+    if (!this->equip_data().IsInitialized()) return false;
+  }
   return true;
 }
 

@@ -55,6 +55,8 @@ EquipExt_s::EquipExt_s() {
 }
 
 int EquipExt_s::CreateInit() {
+	strong_lv = (int32_t)0;
+	strong_wear_quality = (int32_t)0;
 	return 0;
 }
 
@@ -63,45 +65,59 @@ int EquipExt_s::ResumeInit() {
 }
 
 void EquipExt_s::write_to_pbmsg(::proto_ff::EquipExt & msg) const {
-	for(int32_t i = 0; i < (int32_t)base_attr.size(); ++i) {
-		msg.add_base_attr((int32_t)base_attr[i]);
+	for(int32_t i = 0; i < (int32_t)base.size(); ++i) {
+		::proto_ff::Attr* temp_base = msg.add_base();
+		base[i].write_to_pbmsg(*temp_base);
 	}
-	for(int32_t i = 0; i < (int32_t)star_attr.size(); ++i) {
-		msg.add_star_attr((int32_t)star_attr[i]);
+	for(int32_t i = 0; i < (int32_t)refine.size(); ++i) {
+		::proto_ff::Attr* temp_refine = msg.add_refine();
+		refine[i].write_to_pbmsg(*temp_refine);
 	}
-	for(int32_t i = 0; i < (int32_t)blue_attr.size(); ++i) {
-		msg.add_blue_attr((int32_t)blue_attr[i]);
+	for(int32_t i = 0; i < (int32_t)blue.size(); ++i) {
+		::proto_ff::BlueStarAttr* temp_blue = msg.add_blue();
+		blue[i].write_to_pbmsg(*temp_blue);
 	}
-	for(int32_t i = 0; i < (int32_t)god_attr.size(); ++i) {
-		msg.add_god_attr((int32_t)god_attr[i]);
+	for(int32_t i = 0; i < (int32_t)god.size(); ++i) {
+		::proto_ff::Attr* temp_god = msg.add_god();
+		god[i].write_to_pbmsg(*temp_god);
 	}
-	for(int32_t i = 0; i < (int32_t)special_attr.size(); ++i) {
-		msg.add_special_attr((int32_t)special_attr[i]);
+	for(int32_t i = 0; i < (int32_t)special.size(); ++i) {
+		::proto_ff::Attr* temp_special = msg.add_special();
+		special[i].write_to_pbmsg(*temp_special);
 	}
+	msg.set_strong_lv((int32_t)strong_lv);
+	msg.set_strong_wear_quality((int32_t)strong_wear_quality);
 }
 
 void EquipExt_s::read_from_pbmsg(const ::proto_ff::EquipExt & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct EquipExt_s));
-	base_attr.resize((int)msg.base_attr_size() > (int)base_attr.max_size() ? base_attr.max_size() : msg.base_attr_size());
-	for(int32_t i = 0; i < (int32_t)base_attr.size(); ++i) {
-		base_attr[i] = msg.base_attr(i);
+	base.resize((int)msg.base_size() > (int)base.max_size() ? base.max_size() : msg.base_size());
+	for(int32_t i = 0; i < (int32_t)base.size(); ++i) {
+		const ::proto_ff::Attr & temp_base = msg.base(i);
+		base[i].read_from_pbmsg(temp_base);
 	}
-	star_attr.resize((int)msg.star_attr_size() > (int)star_attr.max_size() ? star_attr.max_size() : msg.star_attr_size());
-	for(int32_t i = 0; i < (int32_t)star_attr.size(); ++i) {
-		star_attr[i] = msg.star_attr(i);
+	refine.resize((int)msg.refine_size() > (int)refine.max_size() ? refine.max_size() : msg.refine_size());
+	for(int32_t i = 0; i < (int32_t)refine.size(); ++i) {
+		const ::proto_ff::Attr & temp_refine = msg.refine(i);
+		refine[i].read_from_pbmsg(temp_refine);
 	}
-	blue_attr.resize((int)msg.blue_attr_size() > (int)blue_attr.max_size() ? blue_attr.max_size() : msg.blue_attr_size());
-	for(int32_t i = 0; i < (int32_t)blue_attr.size(); ++i) {
-		blue_attr[i] = msg.blue_attr(i);
+	blue.resize((int)msg.blue_size() > (int)blue.max_size() ? blue.max_size() : msg.blue_size());
+	for(int32_t i = 0; i < (int32_t)blue.size(); ++i) {
+		const ::proto_ff::BlueStarAttr & temp_blue = msg.blue(i);
+		blue[i].read_from_pbmsg(temp_blue);
 	}
-	god_attr.resize((int)msg.god_attr_size() > (int)god_attr.max_size() ? god_attr.max_size() : msg.god_attr_size());
-	for(int32_t i = 0; i < (int32_t)god_attr.size(); ++i) {
-		god_attr[i] = msg.god_attr(i);
+	god.resize((int)msg.god_size() > (int)god.max_size() ? god.max_size() : msg.god_size());
+	for(int32_t i = 0; i < (int32_t)god.size(); ++i) {
+		const ::proto_ff::Attr & temp_god = msg.god(i);
+		god[i].read_from_pbmsg(temp_god);
 	}
-	special_attr.resize((int)msg.special_attr_size() > (int)special_attr.max_size() ? special_attr.max_size() : msg.special_attr_size());
-	for(int32_t i = 0; i < (int32_t)special_attr.size(); ++i) {
-		special_attr[i] = msg.special_attr(i);
+	special.resize((int)msg.special_size() > (int)special.max_size() ? special.max_size() : msg.special_size());
+	for(int32_t i = 0; i < (int32_t)special.size(); ++i) {
+		const ::proto_ff::Attr & temp_special = msg.special(i);
+		special[i].read_from_pbmsg(temp_special);
 	}
+	strong_lv = msg.strong_lv();
+	strong_wear_quality = msg.strong_wear_quality();
 }
 
 ItemGridCSData_s::ItemGridCSData_s() {

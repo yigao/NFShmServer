@@ -26,6 +26,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "yd_fieldoptions.pb.h"
+#include "Com.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace proto_ff {
@@ -265,79 +266,99 @@ class EquipExt : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated int32 base_attr = 1;
-  inline int base_attr_size() const;
-  inline void clear_base_attr();
-  static const int kBaseAttrFieldNumber = 1;
-  inline ::google::protobuf::int32 base_attr(int index) const;
-  inline void set_base_attr(int index, ::google::protobuf::int32 value);
-  inline void add_base_attr(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      base_attr() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_base_attr();
+  // repeated .proto_ff.Attr base = 1;
+  inline int base_size() const;
+  inline void clear_base();
+  static const int kBaseFieldNumber = 1;
+  inline const ::proto_ff::Attr& base(int index) const;
+  inline ::proto_ff::Attr* mutable_base(int index);
+  inline ::proto_ff::Attr* add_base();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      base() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_base();
 
-  // repeated int32 star_attr = 2;
-  inline int star_attr_size() const;
-  inline void clear_star_attr();
-  static const int kStarAttrFieldNumber = 2;
-  inline ::google::protobuf::int32 star_attr(int index) const;
-  inline void set_star_attr(int index, ::google::protobuf::int32 value);
-  inline void add_star_attr(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      star_attr() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_star_attr();
+  // repeated .proto_ff.Attr refine = 2;
+  inline int refine_size() const;
+  inline void clear_refine();
+  static const int kRefineFieldNumber = 2;
+  inline const ::proto_ff::Attr& refine(int index) const;
+  inline ::proto_ff::Attr* mutable_refine(int index);
+  inline ::proto_ff::Attr* add_refine();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      refine() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_refine();
 
-  // repeated int32 blue_attr = 3;
-  inline int blue_attr_size() const;
-  inline void clear_blue_attr();
-  static const int kBlueAttrFieldNumber = 3;
-  inline ::google::protobuf::int32 blue_attr(int index) const;
-  inline void set_blue_attr(int index, ::google::protobuf::int32 value);
-  inline void add_blue_attr(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      blue_attr() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_blue_attr();
+  // repeated .proto_ff.BlueStarAttr blue = 3;
+  inline int blue_size() const;
+  inline void clear_blue();
+  static const int kBlueFieldNumber = 3;
+  inline const ::proto_ff::BlueStarAttr& blue(int index) const;
+  inline ::proto_ff::BlueStarAttr* mutable_blue(int index);
+  inline ::proto_ff::BlueStarAttr* add_blue();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr >&
+      blue() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr >*
+      mutable_blue();
 
-  // repeated int32 god_attr = 4;
-  inline int god_attr_size() const;
-  inline void clear_god_attr();
-  static const int kGodAttrFieldNumber = 4;
-  inline ::google::protobuf::int32 god_attr(int index) const;
-  inline void set_god_attr(int index, ::google::protobuf::int32 value);
-  inline void add_god_attr(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      god_attr() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_god_attr();
+  // repeated .proto_ff.Attr god = 4;
+  inline int god_size() const;
+  inline void clear_god();
+  static const int kGodFieldNumber = 4;
+  inline const ::proto_ff::Attr& god(int index) const;
+  inline ::proto_ff::Attr* mutable_god(int index);
+  inline ::proto_ff::Attr* add_god();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      god() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_god();
 
-  // repeated int32 special_attr = 5;
-  inline int special_attr_size() const;
-  inline void clear_special_attr();
-  static const int kSpecialAttrFieldNumber = 5;
-  inline ::google::protobuf::int32 special_attr(int index) const;
-  inline void set_special_attr(int index, ::google::protobuf::int32 value);
-  inline void add_special_attr(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      special_attr() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_special_attr();
+  // repeated .proto_ff.Attr special = 5;
+  inline int special_size() const;
+  inline void clear_special();
+  static const int kSpecialFieldNumber = 5;
+  inline const ::proto_ff::Attr& special(int index) const;
+  inline ::proto_ff::Attr* mutable_special(int index);
+  inline ::proto_ff::Attr* add_special();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+      special() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+      mutable_special();
+
+  // optional int32 strong_lv = 6;
+  inline bool has_strong_lv() const;
+  inline void clear_strong_lv();
+  static const int kStrongLvFieldNumber = 6;
+  inline ::google::protobuf::int32 strong_lv() const;
+  inline void set_strong_lv(::google::protobuf::int32 value);
+
+  // optional int32 strong_wear_quality = 7;
+  inline bool has_strong_wear_quality() const;
+  inline void clear_strong_wear_quality();
+  static const int kStrongWearQualityFieldNumber = 7;
+  inline ::google::protobuf::int32 strong_wear_quality() const;
+  inline void set_strong_wear_quality(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.EquipExt)
  private:
+  inline void set_has_strong_lv();
+  inline void clear_has_strong_lv();
+  inline void set_has_strong_wear_quality();
+  inline void clear_has_strong_wear_quality();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > base_attr_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > star_attr_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > blue_attr_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > god_attr_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > special_attr_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > base_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > refine_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr > blue_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > god_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr > special_;
+  ::google::protobuf::int32 strong_lv_;
+  ::google::protobuf::int32 strong_wear_quality_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_CommonClass_2eproto();
   friend void protobuf_AssignDesc_CommonClass_2eproto();
@@ -607,129 +628,173 @@ inline void GridItemBase::set_type(::google::protobuf::uint32 value) {
 
 // EquipExt
 
-// repeated int32 base_attr = 1;
-inline int EquipExt::base_attr_size() const {
-  return base_attr_.size();
+// repeated .proto_ff.Attr base = 1;
+inline int EquipExt::base_size() const {
+  return base_.size();
 }
-inline void EquipExt::clear_base_attr() {
-  base_attr_.Clear();
+inline void EquipExt::clear_base() {
+  base_.Clear();
 }
-inline ::google::protobuf::int32 EquipExt::base_attr(int index) const {
-  return base_attr_.Get(index);
+inline const ::proto_ff::Attr& EquipExt::base(int index) const {
+  return base_.Get(index);
 }
-inline void EquipExt::set_base_attr(int index, ::google::protobuf::int32 value) {
-  base_attr_.Set(index, value);
+inline ::proto_ff::Attr* EquipExt::mutable_base(int index) {
+  return base_.Mutable(index);
 }
-inline void EquipExt::add_base_attr(::google::protobuf::int32 value) {
-  base_attr_.Add(value);
+inline ::proto_ff::Attr* EquipExt::add_base() {
+  return base_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-EquipExt::base_attr() const {
-  return base_attr_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+EquipExt::base() const {
+  return base_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-EquipExt::mutable_base_attr() {
-  return &base_attr_;
-}
-
-// repeated int32 star_attr = 2;
-inline int EquipExt::star_attr_size() const {
-  return star_attr_.size();
-}
-inline void EquipExt::clear_star_attr() {
-  star_attr_.Clear();
-}
-inline ::google::protobuf::int32 EquipExt::star_attr(int index) const {
-  return star_attr_.Get(index);
-}
-inline void EquipExt::set_star_attr(int index, ::google::protobuf::int32 value) {
-  star_attr_.Set(index, value);
-}
-inline void EquipExt::add_star_attr(::google::protobuf::int32 value) {
-  star_attr_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-EquipExt::star_attr() const {
-  return star_attr_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-EquipExt::mutable_star_attr() {
-  return &star_attr_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+EquipExt::mutable_base() {
+  return &base_;
 }
 
-// repeated int32 blue_attr = 3;
-inline int EquipExt::blue_attr_size() const {
-  return blue_attr_.size();
+// repeated .proto_ff.Attr refine = 2;
+inline int EquipExt::refine_size() const {
+  return refine_.size();
 }
-inline void EquipExt::clear_blue_attr() {
-  blue_attr_.Clear();
+inline void EquipExt::clear_refine() {
+  refine_.Clear();
 }
-inline ::google::protobuf::int32 EquipExt::blue_attr(int index) const {
-  return blue_attr_.Get(index);
+inline const ::proto_ff::Attr& EquipExt::refine(int index) const {
+  return refine_.Get(index);
 }
-inline void EquipExt::set_blue_attr(int index, ::google::protobuf::int32 value) {
-  blue_attr_.Set(index, value);
+inline ::proto_ff::Attr* EquipExt::mutable_refine(int index) {
+  return refine_.Mutable(index);
 }
-inline void EquipExt::add_blue_attr(::google::protobuf::int32 value) {
-  blue_attr_.Add(value);
+inline ::proto_ff::Attr* EquipExt::add_refine() {
+  return refine_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-EquipExt::blue_attr() const {
-  return blue_attr_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+EquipExt::refine() const {
+  return refine_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-EquipExt::mutable_blue_attr() {
-  return &blue_attr_;
-}
-
-// repeated int32 god_attr = 4;
-inline int EquipExt::god_attr_size() const {
-  return god_attr_.size();
-}
-inline void EquipExt::clear_god_attr() {
-  god_attr_.Clear();
-}
-inline ::google::protobuf::int32 EquipExt::god_attr(int index) const {
-  return god_attr_.Get(index);
-}
-inline void EquipExt::set_god_attr(int index, ::google::protobuf::int32 value) {
-  god_attr_.Set(index, value);
-}
-inline void EquipExt::add_god_attr(::google::protobuf::int32 value) {
-  god_attr_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-EquipExt::god_attr() const {
-  return god_attr_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-EquipExt::mutable_god_attr() {
-  return &god_attr_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+EquipExt::mutable_refine() {
+  return &refine_;
 }
 
-// repeated int32 special_attr = 5;
-inline int EquipExt::special_attr_size() const {
-  return special_attr_.size();
+// repeated .proto_ff.BlueStarAttr blue = 3;
+inline int EquipExt::blue_size() const {
+  return blue_.size();
 }
-inline void EquipExt::clear_special_attr() {
-  special_attr_.Clear();
+inline void EquipExt::clear_blue() {
+  blue_.Clear();
 }
-inline ::google::protobuf::int32 EquipExt::special_attr(int index) const {
-  return special_attr_.Get(index);
+inline const ::proto_ff::BlueStarAttr& EquipExt::blue(int index) const {
+  return blue_.Get(index);
 }
-inline void EquipExt::set_special_attr(int index, ::google::protobuf::int32 value) {
-  special_attr_.Set(index, value);
+inline ::proto_ff::BlueStarAttr* EquipExt::mutable_blue(int index) {
+  return blue_.Mutable(index);
 }
-inline void EquipExt::add_special_attr(::google::protobuf::int32 value) {
-  special_attr_.Add(value);
+inline ::proto_ff::BlueStarAttr* EquipExt::add_blue() {
+  return blue_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-EquipExt::special_attr() const {
-  return special_attr_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr >&
+EquipExt::blue() const {
+  return blue_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-EquipExt::mutable_special_attr() {
-  return &special_attr_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::BlueStarAttr >*
+EquipExt::mutable_blue() {
+  return &blue_;
+}
+
+// repeated .proto_ff.Attr god = 4;
+inline int EquipExt::god_size() const {
+  return god_.size();
+}
+inline void EquipExt::clear_god() {
+  god_.Clear();
+}
+inline const ::proto_ff::Attr& EquipExt::god(int index) const {
+  return god_.Get(index);
+}
+inline ::proto_ff::Attr* EquipExt::mutable_god(int index) {
+  return god_.Mutable(index);
+}
+inline ::proto_ff::Attr* EquipExt::add_god() {
+  return god_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+EquipExt::god() const {
+  return god_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+EquipExt::mutable_god() {
+  return &god_;
+}
+
+// repeated .proto_ff.Attr special = 5;
+inline int EquipExt::special_size() const {
+  return special_.size();
+}
+inline void EquipExt::clear_special() {
+  special_.Clear();
+}
+inline const ::proto_ff::Attr& EquipExt::special(int index) const {
+  return special_.Get(index);
+}
+inline ::proto_ff::Attr* EquipExt::mutable_special(int index) {
+  return special_.Mutable(index);
+}
+inline ::proto_ff::Attr* EquipExt::add_special() {
+  return special_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >&
+EquipExt::special() const {
+  return special_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Attr >*
+EquipExt::mutable_special() {
+  return &special_;
+}
+
+// optional int32 strong_lv = 6;
+inline bool EquipExt::has_strong_lv() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void EquipExt::set_has_strong_lv() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void EquipExt::clear_has_strong_lv() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void EquipExt::clear_strong_lv() {
+  strong_lv_ = 0;
+  clear_has_strong_lv();
+}
+inline ::google::protobuf::int32 EquipExt::strong_lv() const {
+  return strong_lv_;
+}
+inline void EquipExt::set_strong_lv(::google::protobuf::int32 value) {
+  set_has_strong_lv();
+  strong_lv_ = value;
+}
+
+// optional int32 strong_wear_quality = 7;
+inline bool EquipExt::has_strong_wear_quality() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void EquipExt::set_has_strong_wear_quality() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void EquipExt::clear_has_strong_wear_quality() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void EquipExt::clear_strong_wear_quality() {
+  strong_wear_quality_ = 0;
+  clear_has_strong_wear_quality();
+}
+inline ::google::protobuf::int32 EquipExt::strong_wear_quality() const {
+  return strong_wear_quality_;
+}
+inline void EquipExt::set_strong_wear_quality(::google::protobuf::int32 value) {
+  set_has_strong_wear_quality();
+  strong_wear_quality_ = value;
 }
 
 // -------------------------------------------------------------------
