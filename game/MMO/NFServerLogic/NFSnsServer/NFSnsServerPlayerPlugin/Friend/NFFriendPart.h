@@ -48,10 +48,11 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
-    static int RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+    static int RegisterClientMessage(NFIPluginManager *pPluginManager);
 
-    static int RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
-
+    static int RetisterServerMessage(NFIPluginManager *pPluginManager);
+public:
+    int OnHandleRelationDataReq(uint32_t msgId, NFDataPackage &packet);
 public:
     /**
      * @brief 登陆入口

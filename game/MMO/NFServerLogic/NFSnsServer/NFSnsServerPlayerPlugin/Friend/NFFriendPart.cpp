@@ -8,6 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include "NFFriendPart.h"
+#include "ClientServerCmd.pb.h"
+#include "NFLogicCommon/NFRoleDefine.h"
+#include "Relation.pb.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFFriendPart, EOT_SNS_FriendPart_ID, NFShmObj
 )
@@ -50,7 +54,18 @@ int NFFriendPart::UnInit()
 
 int NFFriendPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    return NFSnsPart::OnHandleClientMessage(msgId, packet);
+    switch (msgId)
+    {
+        case proto_ff::CLIENT_TO_CENTER_RELATION_DATA_REQ:
+        {
+            OnHandleRelationDataReq(msgId, packet);
+            break;
+        }
+        default:
+            break;
+    }
+
+    return 0;
 }
 
 int NFFriendPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
@@ -58,12 +73,46 @@ int NFFriendPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
     return NFSnsPart::OnHandleServerMessage(msgId, packet);
 }
 
-int NFFriendPart::RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType)
+int NFFriendPart::RegisterClientMessage(NFIPluginManager *pPluginManager)
+{
+    RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_TO_CENTER_RELATION_DATA_REQ, SNS_PART_FRIEND);
+    return 0;
+}
+
+int NFFriendPart::RetisterServerMessage(NFIPluginManager *pPluginManager)
 {
     return 0;
 }
 
-int NFFriendPart::RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType)
+int NFFriendPart::OnHandleRelationDataReq(uint32_t msgId, NFDataPackage &packet)
 {
+    proto_ff::CWRelationDataReq relationInfoReq;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, relationInfoReq);
+
+    //检查分组索引
+/*
+    uint32_t groupIndex = relationInfoReq.groupindex();
+    if (groupIndex < 0 || groupIndex >= GROUP_MAX)
+    {
+        MMOLOG_FMT_ERROR("[center] CWRelationInfoReq groupIndex is error. groupIndex:%u, CharID:%llu ", groupIndex, charID);
+        return false;
+    }
+    //检查离线数据
+    auto pOfflineCharacterData = g_GetCacheMgr()->GetRoleSimple(charID);
+    if (nullptr == pOfflineCharacterData)
+    {
+        MMOLOG_FMT_ERROR("[center] CWRelationInfoReq  pOfflineCharacterData is nil. CharID:%llu ", charID);
+        return false;
+    }
+    //好友数据
+    Relation* pRelation = findRelation(charID);
+    if (nullptr == pRelation)
+    {
+        MMOLOG_FMT_ERROR("[center] CWRelationInfoReq pRelation is nil,CharID:%llu ", charID);
+        return false;
+    }
+
+    return HandleRelationInfoReq(charID, relationInfoReq);
+*/
     return 0;
 }
