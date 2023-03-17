@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFSnsPart.h
+//    @FileName         :    NFFriendPart.h
 //    @Author           :    gaoyi
 //    @Date             :    23-3-17
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFSnsPart
+//    @Module           :    NFFriendPart
 //
 // -------------------------------------------------------------------------
 
@@ -15,29 +15,22 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFComm/NFShmCore/NFShmPtr.h"
-#include "DBProto2.pb.h"
-#include "NFComm/NFShmCore/NFSeqOP.h"
+#include "Part/NFSnsPart.h"
 
-class NFRoleDetail;
-class NFRoleSimple;
-class NFSnsPart : public NFShmObj, public NFSeqOP
+class NFFriendPart : public NFSnsPart
 {
 public:
-    NFSnsPart();
+    NFFriendPart();
 
-    virtual ~NFSnsPart();
+    virtual ~NFFriendPart();
 
     int CreateInit();
 
     int ResumeInit();
 public:
-    int InitBase(NFRoleDetail *pMaster, uint32_t partType);
-public:
     virtual int Init(const proto_ff::RoleDBSnsDetail &data);
 
     virtual int UnInit();
-
 public:
     /**
      * @brief 处理客户端消息
@@ -120,26 +113,6 @@ public:
      * @param tick
      */
     virtual int Update(uint64_t tick) { return 0; }
-
-public:
-    virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
-
-    virtual int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-
-    virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-
-    virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-public:
-    //部件类型
-    uint32_t PartType() { return m_partType; }
-public:
-    virtual uint32_t GetCurRoleDetailSeq() const;
-public:
-    NFRoleDetail* GetRoleDetail() const;
-    NFRoleSimple* GetRoleSimple() const;
-protected:
-    uint64_t m_roleId;
-    uint32_t m_partType;
 private:
-DECLARE_IDCREATE(NFSnsPart)
+DECLARE_IDCREATE(NFFriendPart)
 };
