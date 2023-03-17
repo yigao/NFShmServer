@@ -232,6 +232,16 @@ int NFGridItem::write_to_pbmsg(proto_ff::ItemProtoInfo &protoItem)
     return 0;
 }
 
+bool NFGridItem::IsItem() const
+{
+    return base.type != proto_ff::EItemType_Equip && base.type != proto_ff::EItemType_None;
+}
+
+bool NFGridItem::IsEquip() const
+{
+    return base.type == proto_ff::EItemType_Equip;
+}
+
 uint16_t NFGridItem::GetIndex() const
 {
     return base.index;

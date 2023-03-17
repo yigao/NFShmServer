@@ -98,6 +98,8 @@ public:
 
     bool AddNum(int64_t nAddNum);
 public:
+    bool IsItem() const;
+    bool IsEquip() const;
 public:
     virtual EquipExtBaseMap* GetBaseAttr() { return &equip_ext.base; }
     virtual EquipExtStarVec* GetStarAttr() { return &equip_ext.star; }

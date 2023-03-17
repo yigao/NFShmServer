@@ -15,6 +15,7 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFPart.h"
 #include "NFLogicCommon/NFItemDefine.h"
+#include "NFLogicCommon/NFEquipDefine.h"
 
 class NFEquipPart : public NFPart
 {
@@ -47,6 +48,7 @@ class NFEquipPart : public NFPart
         int32_t type;
         int32_t id;
     };
+
 public:
     NFEquipPart();
 
@@ -55,6 +57,7 @@ public:
     int CreateInit();
 
     int ResumeInit();
+
 public:
     //******************part调用生物接口******************
     //生物init调用
@@ -149,6 +152,7 @@ public:
      * @param tick
      */
     virtual int Update(uint64_t tick) { return 0; }
+
 public:
     /**
      * @brief 处理客户端消息
@@ -170,12 +174,37 @@ public:
     static int RegisterClientMessage(NFIPluginManager *pPluginManager);
 
     static int RegisterServerMessage(NFIPluginManager *pPluginManager);
+
+public:
+public:
+    bool ValidPos(int32_t pos);
+
+    stDressEquipInfo *GetEquip(int32_t pos);
+
+    int ProcessStoveAttr(int32_t level, bool bAdd, bool bSync = true);
+
+public:
+    int SendAllEquip();                                                //发送所有装备
+    int SendLvAttr();
+
+    int SendEquip(int32_t pos);                                        //更新单个装备
+    int SendEquip(VEC_INT16 vec_pos);                                    //更新某些装备
+    int calcEquipScore(int32_t pos);                                    //计算评分
+    int calcAttr(bool sync);                                            //计算属性
+    int calcDressAttr(MAP_INT32_INT64 &outAttr);                        //计算身上穿戴的属性
+    int calcStrongAttr(MAP_INT32_INT64 &outAttr);                        //计算强化属性加成
+    int calcStoneAttr(MAP_INT32_INT64 &outAttr);                        //计算宝石属性加成
+    int calcTotalAttr(MAP_INT32_INT64 &outAttr);                        //计算总等级加成
+    int calcStoveAttr(MAP_INT32_INT64 &outAttr);                        //计算熔炉等级加成
+    int calcWashAttr(MAP_INT32_INT64 &outAttr);                        //计算洗练属性
+    int calcSuitAttr(MAP_INT32_INT64 &outAttr);                        //计算套装属性
+    int CalcSuitAttrEx(MAP_INT32_INT64 &outAttr, const VEC_INT32 &vecPos, int32_t type);                            //计算套装属性
 private:
-    NFShmVector<NFGridItem, 20>			m_equips;									//已穿戴的装备
-    std::map<int32_t, stEquipLvAttrInfo> m_lvAttr;						//type->等级加成属性
-    uint32_t                m_stoveLevel;                               //熔炉等级
-    uint64_t                m_stoveExp;                               //熔炉经验
-    NFShmHashMap<uint32_t, uint64_t, 10>	m_mapStoveAttr;//熔炉带来的属性
+    VecDressEquip m_equips;                                    //已穿戴的装备
+    NFShmHashMap<int32_t, stEquipLvAttrInfo, 5> m_lvAttr;                        //type->等级加成属性
+    uint32_t m_stoveLevel;                               //熔炉等级
+    uint64_t m_stoveExp;                               //熔炉经验
+    NFShmHashMap<uint32_t, uint64_t, DEFINE_E_EQUIPSTOVEATT_M_ATTRIBUTE_MAX_NUM> m_mapStoveAttr;//熔炉带来的属性
 private:
 DECLARE_IDCREATE(NFEquipPart)
 };

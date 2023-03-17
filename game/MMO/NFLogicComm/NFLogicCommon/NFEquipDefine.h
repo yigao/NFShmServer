@@ -165,3 +165,6 @@ struct stDressEquipInfo
 
     int pack(proto_ff::EquipInfo *pProto, bool clientFalg = false);
 };
+
+//背包物品
+typedef NFShmVector<stDressEquipInfo, proto_ff::EEquipPos_limit> VecDressEquip;
