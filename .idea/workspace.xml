@@ -56,11 +56,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="item">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEquipDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEquipDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFItemDefine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFItemDefine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFItemDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFItemDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFEquipPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFEquipPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFEquipPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFEquipPart.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFServerFrameTypeDefines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFISharedMemModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFISharedMemModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -651,14 +649,7 @@
       <workItem from="1678669760792" duration="29634000" />
       <workItem from="1678753919750" duration="50064000" />
       <workItem from="1678927795516" duration="14918000" />
-      <workItem from="1679014162204" duration="20363000" />
-    </task>
-    <task id="LOCAL-00459" summary="scene">
-      <created>1677748059884</created>
-      <option name="number" value="00459" />
-      <option name="presentableId" value="LOCAL-00459" />
-      <option name="project" value="LOCAL" />
-      <updated>1677748059885</updated>
+      <workItem from="1679014162204" duration="26121000" />
     </task>
     <task id="LOCAL-00460" summary="scene">
       <created>1677756347504</created>
@@ -996,7 +987,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679034613931</updated>
     </task>
-    <option name="localTasksCounter" value="508" />
+    <task id="LOCAL-00508" summary="item">
+      <created>1679042027252</created>
+      <option name="number" value="00508" />
+      <option name="presentableId" value="LOCAL-00508" />
+      <option name="project" value="LOCAL" />
+      <updated>1679042027252</updated>
+    </task>
+    <option name="localTasksCounter" value="509" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1248,13 +1246,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFEquipPart.cpp</url>
-          <line>140</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

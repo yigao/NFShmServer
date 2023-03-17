@@ -59,6 +59,13 @@ enum BattlePartType
     BATTLE_PART_MAX,
 };
 
+enum SnsPartType
+{
+    SNS_PART_NONE = 0,
+    SNS_PART_FRIEND,
+    SNS_PART_MAX,
+};
+
 enum
 {
     ROLE_DISCONN_FROM_CLIENT =1,         //client close connection

@@ -8,6 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFRoleDetail.h"
+#include "Part/NFSnsPart.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFRoleDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
 
@@ -29,7 +30,7 @@ NFRoleDetail::~NFRoleDetail()
 
 int NFRoleDetail::CreateInit()
 {
-    m_roleId = 0;
+    m_cid = 0;
     return 0;
 }
 
@@ -40,12 +41,12 @@ int NFRoleDetail::ResumeInit()
 
 uint64_t NFRoleDetail::GetRoleId() const
 {
-    return m_roleId;
+    return m_cid;
 }
 
 void NFRoleDetail::SetRoleId(uint64_t roleId)
 {
-    m_roleId = roleId;
+    m_cid = roleId;
 }
 
 bool NFRoleDetail::CanDelete()
@@ -66,5 +67,71 @@ void NFRoleDetail::SetIsInited(bool isInited)
 int NFRoleDetail::Init(const proto_ff::RoleDBSnsDetail &data)
 {
     m_isInited = true;
+    m_cid = data.cid();
+
+    ResetCurSeq();
+    m_isInited = true;
+
+    for (uint32_t i = BATTLE_PART_NONE + 1; i < BATTLE_PART_MAX; ++i)
+    {
+        NFSnsPart *pPart = CreatePart(i, data);
+        if (nullptr == pPart)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Player Init, Create Part Failed, roleId:{} part:{}", m_cid, i);
+            return -1;
+        }
+
+        m_pPart[i] = pPart->GetGlobalID();
+    }
+
     return 0;
+}
+
+NFSnsPart *NFRoleDetail::CreatePart(uint32_t partType, const proto_ff::RoleDBSnsDetail &data)
+{
+    NFSnsPart *pPart = NULL;
+    switch (partType)
+    {
+        case SNS_PART_FRIEND:
+        {
+            pPart = dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->CreateObj(SNS_PART_FRIEND));
+            break;
+        }
+        default:
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Create Part Failed, partType Not Handle:{}", partType);
+            break;
+        }
+    }
+
+    if (pPart)
+    {
+        pPart->InitBase(this, partType);
+        int iRet = pPart->Init(data);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "{}::Init Failed", pPart->GetClassName());
+            FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+            return NULL;
+        }
+    }
+    return pPart;
+}
+
+int NFRoleDetail::RecylePart(NFSnsPart *pPart)
+{
+    CHECK_NULL(pPart);
+    pPart->UnInit();
+    FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+    return 0;
+}
+
+NFSnsPart *NFRoleDetail::GetPart(uint32_t partType)
+{
+    if (partType <= 0 || partType >= m_pPart.size())
+    {
+        return nullptr;
+    }
+
+    return dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(m_pPart[partType], EOT_SNS_PART_ID, 0));
 }

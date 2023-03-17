@@ -165,6 +165,12 @@ public:
 
     virtual NFShmObj *GetObjFromGlobalID(int iGlobalID, int iType, int iStrongType = 1) = 0;
 
+    template<typename ShmObjType>
+    ShmObjType *GetObjFromGlobalID(int iGlobalID, int iStrongType = 1)
+    {
+        return dynamic_cast<ShmObjType*>(GetObjFromGlobalID(iGlobalID, ShmObjType::GetClassType(m_pObjPluginManager), iStrongType));
+    }
+
     virtual NFShmObj *GetObjFromGlobalIDWithNoCheck(int iGlobalID) = 0;
 
     // 根据混合ID获得对象

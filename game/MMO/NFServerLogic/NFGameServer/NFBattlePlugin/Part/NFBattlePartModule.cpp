@@ -78,6 +78,9 @@ int NFBattlePartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
             }
         }
     }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, roleId, "can't find player by roleId:{}, drop the msg:{}", roleId, packet.ToString());
+    }
     return 0;
 }
 

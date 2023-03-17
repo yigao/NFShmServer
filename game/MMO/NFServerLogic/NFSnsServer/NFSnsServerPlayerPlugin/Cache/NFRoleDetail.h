@@ -16,8 +16,12 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFRoleDefine.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFComm/NFShmCore/NFSeqOP.h"
 
-class NFRoleDetail : public NFShmObj
+class NFSnsPart;
+class NFRoleDetail : public NFShmObj, public NFSeqOP
 {
 public:
     NFRoleDetail();
@@ -43,7 +47,11 @@ public:
 
 public:
     int Init(const proto_ff::RoleDBSnsDetail &data);
-
+public:
+    NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBSnsDetail &data);
+    int RecylePart(NFSnsPart *pPart);
+    //获取对应部件指针
+    virtual NFSnsPart *GetPart(uint32_t partType);
 private:
     /**
      * @brief
@@ -53,6 +61,8 @@ private:
     /**
      * @brief
      */
-    uint64_t m_roleId;
+    uint64_t m_cid;
+public:
+    NFShmVector<int, SNS_PART_MAX> m_pPart;
 DECLARE_IDCREATE(NFRoleDetail)
 };

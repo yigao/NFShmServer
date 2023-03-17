@@ -21,6 +21,8 @@
 #include "LoadCache/NFLoadCacheMgr.h"
 #include "Trans/NFTransRoleLogin.h"
 #include "Trans/NFTransGetRoleDetail.h"
+#include "Part/NFSnsPart.h"
+#include "Part/NFSnsPartModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -53,11 +55,13 @@ std::string NFSnsServerPlayerPlugin::GetPluginName()
 void NFSnsServerPlayerPlugin::Install()
 {
 	REGISTER_MODULE(m_pObjPluginManager, NFCOnlineModule, NFCOnlineModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
 }
 
 void NFSnsServerPlayerPlugin::Uninstall()
 {
 	UNREGISTER_MODULE(m_pObjPluginManager, NFCOnlineModule, NFCOnlineModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
 }
 
 bool NFSnsServerPlayerPlugin::InitShmObjectRegister()
@@ -75,5 +79,7 @@ bool NFSnsServerPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFTransGetRoleDetail, SNS_GETTING_ROLE_SIZE*1.2);
     REGISTER_SINGLETON_SHM_OBJ(NFLoadCacheMgr);
     REGISTER_SHM_OBJ(NFTransRoleLogin, maxOnlinePlayerNum/10);
+
+    REGISTER_SHM_OBJ(NFSnsPart, 1);
     return true;
 }
