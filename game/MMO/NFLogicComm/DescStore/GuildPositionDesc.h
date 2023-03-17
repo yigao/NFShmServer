@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GuildPosition_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GuildPosition_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GuildPosition_s, E_GuildPosition, MAX_GUILD_POSITION_NUM);
+IMPL_RES_HASH_DESC(GuildPositionDesc, proto_ff_s::E_GuildPosition_s, E_GuildPosition, MAX_GUILD_POSITION_NUM);
 DECLARE_IDCREATE(GuildPositionDesc);
 };

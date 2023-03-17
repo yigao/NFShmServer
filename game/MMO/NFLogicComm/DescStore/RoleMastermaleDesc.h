@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_RoleMastermale_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_RoleMastermale_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_RoleMastermale_s, E_RoleMastermale, MAX_ROLE_MASTERMALE_NUM);
+IMPL_RES_HASH_DESC(RoleMastermaleDesc, proto_ff_s::E_RoleMastermale_s, E_RoleMastermale, MAX_ROLE_MASTERMALE_NUM);
 DECLARE_IDCREATE(RoleMastermaleDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_RandomnameWomanthird_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_RandomnameWomanthird_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_RandomnameWomanthird_s, E_RandomnameWomanthird, MAX_RANDOMNAME_WOMANTHIRD_NUM);
+IMPL_RES_HASH_DESC(RandomnameWomanthirdDesc, proto_ff_s::E_RandomnameWomanthird_s, E_RandomnameWomanthird, MAX_RANDOMNAME_WOMANTHIRD_NUM);
 DECLARE_IDCREATE(RandomnameWomanthirdDesc);
 };

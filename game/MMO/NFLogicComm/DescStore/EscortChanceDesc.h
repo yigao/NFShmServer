@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_EscortChance_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_EscortChance_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_EscortChance_s, E_EscortChance, MAX_ESCORT_CHANCE_NUM);
+IMPL_RES_HASH_DESC(EscortChanceDesc, proto_ff_s::E_EscortChance_s, E_EscortChance, MAX_ESCORT_CHANCE_NUM);
 DECLARE_IDCREATE(EscortChanceDesc);
 };

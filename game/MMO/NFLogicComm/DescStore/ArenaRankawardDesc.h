@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_ArenaRankaward_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_ArenaRankaward_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ArenaRankaward_s, E_ArenaRankaward, MAX_ARENA_RANKAWARD_NUM);
+IMPL_RES_HASH_DESC(ArenaRankawardDesc, proto_ff_s::E_ArenaRankaward_s, E_ArenaRankaward, MAX_ARENA_RANKAWARD_NUM);
 DECLARE_IDCREATE(ArenaRankawardDesc);
 };

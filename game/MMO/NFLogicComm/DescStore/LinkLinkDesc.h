@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_LinkLink_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_LinkLink_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_LinkLink_s, E_LinkLink, MAX_LINK_LINK_NUM);
+IMPL_RES_HASH_DESC(LinkLinkDesc, proto_ff_s::E_LinkLink_s, E_LinkLink, MAX_LINK_LINK_NUM);
 DECLARE_IDCREATE(LinkLinkDesc);
 };

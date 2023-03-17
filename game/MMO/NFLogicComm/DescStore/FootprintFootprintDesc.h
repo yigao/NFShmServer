@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_FootprintFootprint_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_FootprintFootprint_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_FootprintFootprint_s, E_FootprintFootprint, MAX_FOOTPRINT_FOOTPRINT_NUM);
+IMPL_RES_HASH_DESC(FootprintFootprintDesc, proto_ff_s::E_FootprintFootprint_s, E_FootprintFootprint, MAX_FOOTPRINT_FOOTPRINT_NUM);
 DECLARE_IDCREATE(FootprintFootprintDesc);
 };

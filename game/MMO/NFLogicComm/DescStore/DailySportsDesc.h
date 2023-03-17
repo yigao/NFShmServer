@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_DailySports_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_DailySports_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_DailySports_s, E_DailySports, MAX_DAILY_SPORTS_NUM);
+IMPL_RES_HASH_DESC(DailySportsDesc, proto_ff_s::E_DailySports_s, E_DailySports, MAX_DAILY_SPORTS_NUM);
 DECLARE_IDCREATE(DailySportsDesc);
 };

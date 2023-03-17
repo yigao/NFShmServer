@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_RoleSkilltype_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_RoleSkilltype_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_RoleSkilltype_s, E_RoleSkilltype, MAX_ROLE_SKILLTYPE_NUM);
+IMPL_RES_HASH_DESC(RoleSkilltypeDesc, proto_ff_s::E_RoleSkilltype_s, E_RoleSkilltype, MAX_ROLE_SKILLTYPE_NUM);
 DECLARE_IDCREATE(RoleSkilltypeDesc);
 };

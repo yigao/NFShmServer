@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_MountUnlock_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_MountUnlock_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MountUnlock_s, E_MountUnlock, MAX_MOUNT_UNLOCK_NUM);
+IMPL_RES_HASH_DESC(MountUnlockDesc, proto_ff_s::E_MountUnlock_s, E_MountUnlock, MAX_MOUNT_UNLOCK_NUM);
 DECLARE_IDCREATE(MountUnlockDesc);
 };

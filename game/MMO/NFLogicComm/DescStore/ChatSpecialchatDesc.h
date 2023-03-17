@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_ChatSpecialchat_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_ChatSpecialchat_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ChatSpecialchat_s, E_ChatSpecialchat, MAX_CHAT_SPECIALCHAT_NUM);
+IMPL_RES_HASH_DESC(ChatSpecialchatDesc, proto_ff_s::E_ChatSpecialchat_s, E_ChatSpecialchat, MAX_CHAT_SPECIALCHAT_NUM);
 DECLARE_IDCREATE(ChatSpecialchatDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GodevilPreposetask_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GodevilPreposetask_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GodevilPreposetask_s, E_GodevilPreposetask, MAX_GODEVIL_PREPOSETASK_NUM);
+IMPL_RES_HASH_DESC(GodevilPreposetaskDesc, proto_ff_s::E_GodevilPreposetask_s, E_GodevilPreposetask, MAX_GODEVIL_PREPOSETASK_NUM);
 DECLARE_IDCREATE(GodevilPreposetaskDesc);
 };

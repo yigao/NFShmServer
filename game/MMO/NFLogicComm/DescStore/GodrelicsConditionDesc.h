@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GodrelicsCondition_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GodrelicsCondition_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GodrelicsCondition_s, E_GodrelicsCondition, MAX_GODRELICS_CONDITION_NUM);
+IMPL_RES_HASH_DESC(GodrelicsConditionDesc, proto_ff_s::E_GodrelicsCondition_s, E_GodrelicsCondition, MAX_GODRELICS_CONDITION_NUM);
 DECLARE_IDCREATE(GodrelicsConditionDesc);
 };

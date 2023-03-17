@@ -9,6 +9,7 @@
 #include "perActivity_s.h"
 
 #define DEFINE_SHEET_PERACTIVITYPERACTIVITY_E_PERACTIVITYPERACTIVITY_LIST_MAX_NUM 20
+#define DEFINE_E_PERACTIVITYWEEK_M_WEEK_MAX_NUM 7
 #define DEFINE_SHEET_PERACTIVITYWEEK_E_PERACTIVITYWEEK_LIST_MAX_NUM 20
 namespace proto_ff_s {
 
@@ -58,7 +59,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;
 		NFShmString<60> m_time;
-		NFShmVector<NFShmString<60>, 7> m_week;
+		NFShmVector<NFShmString<60>, DEFINE_E_PERACTIVITYWEEK_M_WEEK_MAX_NUM> m_week;
 
 		virtual void write_to_pbmsg(::proto_ff::E_PeractivityWeek & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_PeractivityWeek & msg);

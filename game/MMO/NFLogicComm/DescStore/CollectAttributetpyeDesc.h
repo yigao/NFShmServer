@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_CollectAttributetpye_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_CollectAttributetpye_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_CollectAttributetpye_s, E_CollectAttributetpye, MAX_COLLECT_ATTRIBUTETPYE_NUM);
+IMPL_RES_HASH_DESC(CollectAttributetpyeDesc, proto_ff_s::E_CollectAttributetpye_s, E_CollectAttributetpye, MAX_COLLECT_ATTRIBUTETPYE_NUM);
 DECLARE_IDCREATE(CollectAttributetpyeDesc);
 };

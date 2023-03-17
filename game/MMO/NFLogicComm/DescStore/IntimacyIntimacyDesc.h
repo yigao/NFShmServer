@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_IntimacyIntimacy_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_IntimacyIntimacy_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_IntimacyIntimacy_s, E_IntimacyIntimacy, MAX_INTIMACY_INTIMACY_NUM);
+IMPL_RES_HASH_DESC(IntimacyIntimacyDesc, proto_ff_s::E_IntimacyIntimacy_s, E_IntimacyIntimacy, MAX_INTIMACY_INTIMACY_NUM);
 DECLARE_IDCREATE(IntimacyIntimacyDesc);
 };

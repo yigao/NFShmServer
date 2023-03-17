@@ -85,7 +85,7 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescByIndex(int index) const;\n");
 	desc_file.write("\tproto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescByIndex(int index);\n");
 	desc_file.write("public:\n")
-	desc_file.write("IMPL_RES_HASH_DESC(proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s, E_" + excel_name.capitalize() + sheet_name.capitalize() + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
+	desc_file.write("IMPL_RES_HASH_DESC(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc, proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s, E_" + excel_name.capitalize() + sheet_name.capitalize() + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
 	desc_file.write("DECLARE_IDCREATE(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc);\n")
 	desc_file.write("};\n")
 	desc_file.close()

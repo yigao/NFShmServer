@@ -8,6 +8,7 @@
 #include "task.pb.h"
 #include "task_s.h"
 
+#define DEFINE_E_TASKTASK_M_SUBMSG_MAX_NUM 4
 #define DEFINE_SHEET_TASKTASK_E_TASKTASK_LIST_MAX_NUM 200
 namespace proto_ff_s {
 
@@ -32,7 +33,7 @@ namespace proto_ff_s {
 		int32_t m_subnpc;
 		NFShmString<200> m_subdesc;
 		int32_t m_subaward;
-		NFShmVector<NFShmString<300>, 4> m_submsg;
+		NFShmVector<NFShmString<300>, DEFINE_E_TASKTASK_M_SUBMSG_MAX_NUM> m_submsg;
 
 		virtual void write_to_pbmsg(::proto_ff::E_TaskTask & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_TaskTask & msg);

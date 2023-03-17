@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_BossRareitem_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_BossRareitem_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_BossRareitem_s, E_BossRareitem, MAX_BOSS_RAREITEM_NUM);
+IMPL_RES_HASH_DESC(BossRareitemDesc, proto_ff_s::E_BossRareitem_s, E_BossRareitem, MAX_BOSS_RAREITEM_NUM);
 DECLARE_IDCREATE(BossRareitemDesc);
 };

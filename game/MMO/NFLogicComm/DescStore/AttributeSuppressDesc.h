@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AttributeSuppress_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AttributeSuppress_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AttributeSuppress_s, E_AttributeSuppress, MAX_ATTRIBUTE_SUPPRESS_NUM);
+IMPL_RES_HASH_DESC(AttributeSuppressDesc, proto_ff_s::E_AttributeSuppress_s, E_AttributeSuppress, MAX_ATTRIBUTE_SUPPRESS_NUM);
 DECLARE_IDCREATE(AttributeSuppressDesc);
 };

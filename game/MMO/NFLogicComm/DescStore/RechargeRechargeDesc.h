@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_RechargeRecharge_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_RechargeRecharge_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_RechargeRecharge_s, E_RechargeRecharge, MAX_RECHARGE_RECHARGE_NUM);
+IMPL_RES_HASH_DESC(RechargeRechargeDesc, proto_ff_s::E_RechargeRecharge_s, E_RechargeRecharge, MAX_RECHARGE_RECHARGE_NUM);
 DECLARE_IDCREATE(RechargeRechargeDesc);
 };

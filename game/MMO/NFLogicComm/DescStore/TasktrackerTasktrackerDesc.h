@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_TasktrackerTasktracker_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_TasktrackerTasktracker_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_TasktrackerTasktracker_s, E_TasktrackerTasktracker, MAX_TASKTRACKER_TASKTRACKER_NUM);
+IMPL_RES_HASH_DESC(TasktrackerTasktrackerDesc, proto_ff_s::E_TasktrackerTasktracker_s, E_TasktrackerTasktracker, MAX_TASKTRACKER_TASKTRACKER_NUM);
 DECLARE_IDCREATE(TasktrackerTasktrackerDesc);
 };

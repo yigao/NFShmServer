@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_TaskrewardTasktype_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_TaskrewardTasktype_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_TaskrewardTasktype_s, E_TaskrewardTasktype, MAX_TASKREWARD_TASKTYPE_NUM);
+IMPL_RES_HASH_DESC(TaskrewardTasktypeDesc, proto_ff_s::E_TaskrewardTasktype_s, E_TaskrewardTasktype, MAX_TASKREWARD_TASKTYPE_NUM);
 DECLARE_IDCREATE(TaskrewardTasktypeDesc);
 };

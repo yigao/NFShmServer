@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AvatarDisplay_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AvatarDisplay_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AvatarDisplay_s, E_AvatarDisplay, MAX_AVATAR_DISPLAY_NUM);
+IMPL_RES_HASH_DESC(AvatarDisplayDesc, proto_ff_s::E_AvatarDisplay_s, E_AvatarDisplay, MAX_AVATAR_DISPLAY_NUM);
 DECLARE_IDCREATE(AvatarDisplayDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GodrelicsGodrelics_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GodrelicsGodrelics_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GodrelicsGodrelics_s, E_GodrelicsGodrelics, MAX_GODRELICS_GODRELICS_NUM);
+IMPL_RES_HASH_DESC(GodrelicsGodrelicsDesc, proto_ff_s::E_GodrelicsGodrelics_s, E_GodrelicsGodrelics, MAX_GODRELICS_GODRELICS_NUM);
 DECLARE_IDCREATE(GodrelicsGodrelicsDesc);
 };

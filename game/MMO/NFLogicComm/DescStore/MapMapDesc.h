@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_MapMap_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_MapMap_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MapMap_s, E_MapMap, MAX_MAP_MAP_NUM);
+IMPL_RES_HASH_DESC(MapMapDesc, proto_ff_s::E_MapMap_s, E_MapMap, MAX_MAP_MAP_NUM);
 DECLARE_IDCREATE(MapMapDesc);
 };

@@ -35,6 +35,10 @@
 #define MAX_COMPOSE_COST_EQUIP_NUM 5
 //一次保存背包物品数
 #define UNIT_SAVE_BAG_ITEM_SIZE  200
+//最大宝石槽位数
+#define MAX_STONE_SLOT 5
+//洗练最大槽位数
+#define MAX_WASH_SLOT 4
 
 enum EBindState
 {

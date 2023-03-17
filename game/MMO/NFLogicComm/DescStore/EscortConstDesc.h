@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_EscortConst_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_EscortConst_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_EscortConst_s, E_EscortConst, MAX_ESCORT_CONST_NUM);
+IMPL_RES_HASH_DESC(EscortConstDesc, proto_ff_s::E_EscortConst_s, E_EscortConst, MAX_ESCORT_CONST_NUM);
 DECLARE_IDCREATE(EscortConstDesc);
 };

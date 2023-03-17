@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GuildConstant_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GuildConstant_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GuildConstant_s, E_GuildConstant, MAX_GUILD_CONSTANT_NUM);
+IMPL_RES_HASH_DESC(GuildConstantDesc, proto_ff_s::E_GuildConstant_s, E_GuildConstant, MAX_GUILD_CONSTANT_NUM);
 DECLARE_IDCREATE(GuildConstantDesc);
 };

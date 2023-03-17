@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_TaskdynamicTasktext_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_TaskdynamicTasktext_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_TaskdynamicTasktext_s, E_TaskdynamicTasktext, MAX_TASKDYNAMIC_TASKTEXT_NUM);
+IMPL_RES_HASH_DESC(TaskdynamicTasktextDesc, proto_ff_s::E_TaskdynamicTasktext_s, E_TaskdynamicTasktext, MAX_TASKDYNAMIC_TASKTEXT_NUM);
 DECLARE_IDCREATE(TaskdynamicTasktextDesc);
 };

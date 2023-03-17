@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_MountBaby_egg_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_MountBaby_egg_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MountBaby_egg_s, E_MountBaby_egg, MAX_MOUNT_BABY_EGG_NUM);
+IMPL_RES_HASH_DESC(MountBaby_eggDesc, proto_ff_s::E_MountBaby_egg_s, E_MountBaby_egg, MAX_MOUNT_BABY_EGG_NUM);
 DECLARE_IDCREATE(MountBaby_eggDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GodevilGodevilprivilege_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GodevilGodevilprivilege_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GodevilGodevilprivilege_s, E_GodevilGodevilprivilege, MAX_GODEVIL_GODEVILPRIVILEGE_NUM);
+IMPL_RES_HASH_DESC(GodevilGodevilprivilegeDesc, proto_ff_s::E_GodevilGodevilprivilege_s, E_GodevilGodevilprivilege, MAX_GODEVIL_GODEVILPRIVILEGE_NUM);
 DECLARE_IDCREATE(GodevilGodevilprivilegeDesc);
 };

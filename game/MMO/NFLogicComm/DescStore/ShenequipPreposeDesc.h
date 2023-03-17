@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_ShenequipPrepose_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_ShenequipPrepose_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ShenequipPrepose_s, E_ShenequipPrepose, MAX_SHENEQUIP_PREPOSE_NUM);
+IMPL_RES_HASH_DESC(ShenequipPreposeDesc, proto_ff_s::E_ShenequipPrepose_s, E_ShenequipPrepose, MAX_SHENEQUIP_PREPOSE_NUM);
 DECLARE_IDCREATE(ShenequipPreposeDesc);
 };

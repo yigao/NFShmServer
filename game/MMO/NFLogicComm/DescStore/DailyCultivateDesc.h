@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_DailyCultivate_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_DailyCultivate_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_DailyCultivate_s, E_DailyCultivate, MAX_DAILY_CULTIVATE_NUM);
+IMPL_RES_HASH_DESC(DailyCultivateDesc, proto_ff_s::E_DailyCultivate_s, E_DailyCultivate, MAX_DAILY_CULTIVATE_NUM);
 DECLARE_IDCREATE(DailyCultivateDesc);
 };

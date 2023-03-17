@@ -19,68 +19,7 @@
 
 #define CHECK_DESC_RELOADING(DESCSTORENAME) if (DESCSTORENAME::Instance(m_pObjPluginManager)->IsReloading()) return true;
 
-//proto_ff_s::RoleInitInfoDesc_s, RoleInitInfoDesc, MAX_ROLE_INIT_INFO_RECORD_NUM
-#define IMPL_RES_ARRAY_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
-    private:\
-    NFShmVector<DESCCLASSNAME, DESCNUM> m_astDesc;                     \
-    NFShmVector<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
-    public:\
-    int GetResNum() const override { return m_astDesc.size();}\
-    NFShmVector<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
-    int Initialize() override\
-    {\
-        return 0;\
-    }\
-    int Reload(NFResDB *pDB) override\
-    {\
-        PrepareReload();\
-        int iRetCode = Load( pDB );\
-        return iRetCode;\
-    }\
-    virtual std::string GetFileName() override\
-    {\
-        return std::string(#DESCSTORENAME);\
-    }\
-    int Load(NFResDB* pDB) override;\
-    int CheckWhenAllDataLoaded() override;\
-    int CalcUseRatio() override\
-    {\
-        return m_astDesc.GetSize() * 100 / m_astDesc.GetMaxSize();\
-    }\
-    int SaveDescStore() override\
-    {\
-        if (!IsLoaded()) return 0;\
-        for(int i = 0; i < (int)m_astDesc.size(); i++)\
-        {\
-            if (m_astDesc[i].IsUrgentNeedSave())\
-            {\
-                auto pb = DESCCLASSNAME::make_pbmsg();\
-                m_astDesc[i].write_to_pbmsg(pb);\
-                SaveDescStoreToDB(&pb);\
-                m_astDesc[i].ClearUrgent();\
-            }\
-        }\
-        return 0;\
-    }\
-    int InsertDescStore(const DESCCLASSNAME& desc)\
-    {\
-        auto pb = DESCCLASSNAME::make_pbmsg();\
-        desc.write_to_pbmsg(pb);\
-        InsertDescStoreToDB(&pb);\
-        return 0;\
-    }                                                        \
-    int DeleteDescStore(const DESCCLASSNAME& desc)\
-    {\
-        auto pb = DESCCLASSNAME::make_pbmsg();\
-        desc.write_to_pbmsg(pb);\
-        DeleteDescStoreToDB(&pb);\
-        return 0;\
-    }\
-
-
-
-
-#define IMPL_RES_HASH_DESC(DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
+#define IMPL_RES_HASH_DESC(class_name, DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
     NFShmVector<DESCCLASSNAME, DESCNUM> m_astDesc;\
     NFShmHashMap<uint64_t, int, DESCNUM> m_astDescMap;\
@@ -145,10 +84,17 @@
         DeleteDescStoreToDB(&pb);\
         return 0;\
     }\
-
+	static class_name* DescStore()\
+    {\
+        return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
+    }\
+    static class_name* GetDescStore()\
+    {\
+        return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
+    }\
 
 #define IMPL_RES_SIMPLE_DESC(DESCSTORENAME) \
-    private:\
+    public:\
 	virtual int GetResNum() const  override {return 0;}  \
     virtual int Initialize() override\
     {\
@@ -174,6 +120,16 @@
     {\
         return 0;\
     }\
+	static DESCSTORENAME* DescStore()\
+    {\
+        return (DESCSTORENAME *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<DESCSTORENAME>();\
+    }\
+    static DESCSTORENAME* GetDescStore()\
+    {\
+        return (DESCSTORENAME *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<DESCSTORENAME>();\
+    }\
+
+
 
 #define MAX_MD5_STR_LEN  33
 #define MAX_DESC_FILE_PATH_STR_LEN  512

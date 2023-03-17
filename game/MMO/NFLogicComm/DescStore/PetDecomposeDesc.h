@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_PetDecompose_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_PetDecompose_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_PetDecompose_s, E_PetDecompose, MAX_PET_DECOMPOSE_NUM);
+IMPL_RES_HASH_DESC(PetDecomposeDesc, proto_ff_s::E_PetDecompose_s, E_PetDecompose, MAX_PET_DECOMPOSE_NUM);
 DECLARE_IDCREATE(PetDecomposeDesc);
 };

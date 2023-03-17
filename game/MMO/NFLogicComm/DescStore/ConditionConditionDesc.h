@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_ConditionCondition_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_ConditionCondition_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ConditionCondition_s, E_ConditionCondition, MAX_CONDITION_CONDITION_NUM);
+IMPL_RES_HASH_DESC(ConditionConditionDesc, proto_ff_s::E_ConditionCondition_s, E_ConditionCondition, MAX_CONDITION_CONDITION_NUM);
 DECLARE_IDCREATE(ConditionConditionDesc);
 };

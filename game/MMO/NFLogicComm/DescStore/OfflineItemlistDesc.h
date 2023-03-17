@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_OfflineItemlist_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_OfflineItemlist_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_OfflineItemlist_s, E_OfflineItemlist, MAX_OFFLINE_ITEMLIST_NUM);
+IMPL_RES_HASH_DESC(OfflineItemlistDesc, proto_ff_s::E_OfflineItemlist_s, E_OfflineItemlist, MAX_OFFLINE_ITEMLIST_NUM);
 DECLARE_IDCREATE(OfflineItemlistDesc);
 };

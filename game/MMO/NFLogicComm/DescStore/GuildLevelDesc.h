@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GuildLevel_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GuildLevel_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GuildLevel_s, E_GuildLevel, MAX_GUILD_LEVEL_NUM);
+IMPL_RES_HASH_DESC(GuildLevelDesc, proto_ff_s::E_GuildLevel_s, E_GuildLevel, MAX_GUILD_LEVEL_NUM);
 DECLARE_IDCREATE(GuildLevelDesc);
 };

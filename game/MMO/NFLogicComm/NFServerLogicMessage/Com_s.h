@@ -23,6 +23,7 @@
 #define DEFINE_EQUIPSLOTINFO_STONES_MAX_NUM 1
 #define DEFINE_EQUIPSLOTINFO_WASHS_MAX_NUM 1
 #define DEFINE_MULTITEMSIMPLEPROTO_INFO_MAX_NUM 1
+#define DEFINE_MAILPARAMPROTO_STR_PARAM_MAX_NUM 1
 #define DEFINE_MAILPARAMPROTO_INT_PARAM_MAX_NUM 1
 #define DEFINE_MAILATTACHMENTLIST_ITEMINFO_MAX_NUM 1
 #define DEFINE_WEBMAILDATAPROTO_ITEMLIST_MAX_NUM 1
@@ -555,7 +556,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cfgid;
-		NFShmVector<NFShmString<32>, 1> str_param;
+		NFShmVector<NFShmString<32>, DEFINE_MAILPARAMPROTO_STR_PARAM_MAX_NUM> str_param;
 		NFShmVector<uint64_t, DEFINE_MAILPARAMPROTO_INT_PARAM_MAX_NUM> int_param;
 
 		virtual void write_to_pbmsg(::proto_ff::MailParamProto & msg) const;

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AreaArea_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AreaArea_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AreaArea_s, E_AreaArea, MAX_AREA_AREA_NUM);
+IMPL_RES_HASH_DESC(AreaAreaDesc, proto_ff_s::E_AreaArea_s, E_AreaArea, MAX_AREA_AREA_NUM);
 DECLARE_IDCREATE(AreaAreaDesc);
 };

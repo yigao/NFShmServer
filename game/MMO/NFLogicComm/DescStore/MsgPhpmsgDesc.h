@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_MsgPhpmsg_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_MsgPhpmsg_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MsgPhpmsg_s, E_MsgPhpmsg, MAX_MSG_PHPMSG_NUM);
+IMPL_RES_HASH_DESC(MsgPhpmsgDesc, proto_ff_s::E_MsgPhpmsg_s, E_MsgPhpmsg, MAX_MSG_PHPMSG_NUM);
 DECLARE_IDCREATE(MsgPhpmsgDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_MallMalltype_tab_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_MallMalltype_tab_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MallMalltype_tab_s, E_MallMalltype_tab, MAX_MALL_MALLTYPE_TAB_NUM);
+IMPL_RES_HASH_DESC(MallMalltype_tabDesc, proto_ff_s::E_MallMalltype_tab_s, E_MallMalltype_tab, MAX_MALL_MALLTYPE_TAB_NUM);
 DECLARE_IDCREATE(MallMalltype_tabDesc);
 };

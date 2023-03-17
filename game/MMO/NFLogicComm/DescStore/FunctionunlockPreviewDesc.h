@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_FunctionunlockPreview_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_FunctionunlockPreview_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_FunctionunlockPreview_s, E_FunctionunlockPreview, MAX_FUNCTIONUNLOCK_PREVIEW_NUM);
+IMPL_RES_HASH_DESC(FunctionunlockPreviewDesc, proto_ff_s::E_FunctionunlockPreview_s, E_FunctionunlockPreview, MAX_FUNCTIONUNLOCK_PREVIEW_NUM);
 DECLARE_IDCREATE(FunctionunlockPreviewDesc);
 };

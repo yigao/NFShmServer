@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_FacadeSoullv_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_FacadeSoullv_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_FacadeSoullv_s, E_FacadeSoullv, MAX_FACADE_SOULLV_NUM);
+IMPL_RES_HASH_DESC(FacadeSoullvDesc, proto_ff_s::E_FacadeSoullv_s, E_FacadeSoullv, MAX_FACADE_SOULLV_NUM);
 DECLARE_IDCREATE(FacadeSoullvDesc);
 };

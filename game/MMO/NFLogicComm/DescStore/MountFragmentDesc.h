@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_MountFragment_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_MountFragment_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MountFragment_s, E_MountFragment, MAX_MOUNT_FRAGMENT_NUM);
+IMPL_RES_HASH_DESC(MountFragmentDesc, proto_ff_s::E_MountFragment_s, E_MountFragment, MAX_MOUNT_FRAGMENT_NUM);
 DECLARE_IDCREATE(MountFragmentDesc);
 };

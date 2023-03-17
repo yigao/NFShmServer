@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_BoxBoxdata_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_BoxBoxdata_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_BoxBoxdata_s, E_BoxBoxdata, MAX_BOX_BOXDATA_NUM);
+IMPL_RES_HASH_DESC(BoxBoxdataDesc, proto_ff_s::E_BoxBoxdata_s, E_BoxBoxdata, MAX_BOX_BOXDATA_NUM);
 DECLARE_IDCREATE(BoxBoxdataDesc);
 };

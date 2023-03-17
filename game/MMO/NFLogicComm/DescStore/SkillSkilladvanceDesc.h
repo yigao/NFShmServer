@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_SkillSkilladvance_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_SkillSkilladvance_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_SkillSkilladvance_s, E_SkillSkilladvance, MAX_SKILL_SKILLADVANCE_NUM);
+IMPL_RES_HASH_DESC(SkillSkilladvanceDesc, proto_ff_s::E_SkillSkilladvance_s, E_SkillSkilladvance, MAX_SKILL_SKILLADVANCE_NUM);
 DECLARE_IDCREATE(SkillSkilladvanceDesc);
 };

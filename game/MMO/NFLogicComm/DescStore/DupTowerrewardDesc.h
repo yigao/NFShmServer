@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_DupTowerreward_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_DupTowerreward_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_DupTowerreward_s, E_DupTowerreward, MAX_DUP_TOWERREWARD_NUM);
+IMPL_RES_HASH_DESC(DupTowerrewardDesc, proto_ff_s::E_DupTowerreward_s, E_DupTowerreward, MAX_DUP_TOWERREWARD_NUM);
 DECLARE_IDCREATE(DupTowerrewardDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AvatarChangetab_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AvatarChangetab_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AvatarChangetab_s, E_AvatarChangetab, MAX_AVATAR_CHANGETAB_NUM);
+IMPL_RES_HASH_DESC(AvatarChangetabDesc, proto_ff_s::E_AvatarChangetab_s, E_AvatarChangetab, MAX_AVATAR_CHANGETAB_NUM);
 DECLARE_IDCREATE(AvatarChangetabDesc);
 };

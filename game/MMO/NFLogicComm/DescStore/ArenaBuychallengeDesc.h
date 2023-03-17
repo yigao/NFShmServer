@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_ArenaBuychallenge_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_ArenaBuychallenge_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ArenaBuychallenge_s, E_ArenaBuychallenge, MAX_ARENA_BUYCHALLENGE_NUM);
+IMPL_RES_HASH_DESC(ArenaBuychallengeDesc, proto_ff_s::E_ArenaBuychallenge_s, E_ArenaBuychallenge, MAX_ARENA_BUYCHALLENGE_NUM);
 DECLARE_IDCREATE(ArenaBuychallengeDesc);
 };

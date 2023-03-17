@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_EquipAttribute_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_EquipAttribute_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_EquipAttribute_s, E_EquipAttribute, MAX_EQUIP_ATTRIBUTE_NUM);
+IMPL_RES_HASH_DESC(EquipAttributeDesc, proto_ff_s::E_EquipAttribute_s, E_EquipAttribute, MAX_EQUIP_ATTRIBUTE_NUM);
 DECLARE_IDCREATE(EquipAttributeDesc);
 };

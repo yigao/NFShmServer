@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_MountDisplay_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_MountDisplay_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MountDisplay_s, E_MountDisplay, MAX_MOUNT_DISPLAY_NUM);
+IMPL_RES_HASH_DESC(MountDisplayDesc, proto_ff_s::E_MountDisplay_s, E_MountDisplay, MAX_MOUNT_DISPLAY_NUM);
 DECLARE_IDCREATE(MountDisplayDesc);
 };

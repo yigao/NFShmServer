@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_DupGroup_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_DupGroup_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_DupGroup_s, E_DupGroup, MAX_DUP_GROUP_NUM);
+IMPL_RES_HASH_DESC(DupGroupDesc, proto_ff_s::E_DupGroup_s, E_DupGroup, MAX_DUP_GROUP_NUM);
 DECLARE_IDCREATE(DupGroupDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_TeamTeam_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_TeamTeam_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_TeamTeam_s, E_TeamTeam, MAX_TEAM_TEAM_NUM);
+IMPL_RES_HASH_DESC(TeamTeamDesc, proto_ff_s::E_TeamTeam_s, E_TeamTeam, MAX_TEAM_TEAM_NUM);
 DECLARE_IDCREATE(TeamTeamDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_BossLayer_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_BossLayer_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_BossLayer_s, E_BossLayer, MAX_BOSS_LAYER_NUM);
+IMPL_RES_HASH_DESC(BossLayerDesc, proto_ff_s::E_BossLayer_s, E_BossLayer, MAX_BOSS_LAYER_NUM);
 DECLARE_IDCREATE(BossLayerDesc);
 };

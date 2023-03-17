@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_DupBplevel_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_DupBplevel_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_DupBplevel_s, E_DupBplevel, MAX_DUP_BPLEVEL_NUM);
+IMPL_RES_HASH_DESC(DupBplevelDesc, proto_ff_s::E_DupBplevel_s, E_DupBplevel, MAX_DUP_BPLEVEL_NUM);
 DECLARE_IDCREATE(DupBplevelDesc);
 };

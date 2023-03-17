@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_MoneyrewardMoneyreward_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_MoneyrewardMoneyreward_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_MoneyrewardMoneyreward_s, E_MoneyrewardMoneyreward, MAX_MONEYREWARD_MONEYREWARD_NUM);
+IMPL_RES_HASH_DESC(MoneyrewardMoneyrewardDesc, proto_ff_s::E_MoneyrewardMoneyreward_s, E_MoneyrewardMoneyreward, MAX_MONEYREWARD_MONEYREWARD_NUM);
 DECLARE_IDCREATE(MoneyrewardMoneyrewardDesc);
 };

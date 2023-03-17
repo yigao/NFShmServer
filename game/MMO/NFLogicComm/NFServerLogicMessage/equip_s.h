@@ -10,10 +10,12 @@
 
 #define DEFINE_SHEET_EQUIPEQUIP_E_EQUIPEQUIP_LIST_MAX_NUM 11000
 #define DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_E_EQUIPATTRIBUTE_M_STAR_LIBRARY_MAX_NUM 7
 #define DEFINE_SHEET_EQUIPATTRIBUTE_E_EQUIPATTRIBUTE_LIST_MAX_NUM 11000
 #define DEFINE_E_EQUIPSTRONG_M_TYPE_MAX_NUM 2
 #define DEFINE_SHEET_EQUIPSTRONG_E_EQUIPSTRONG_LIST_MAX_NUM 500
 #define DEFINE_E_EQUIPSTRONGEXP_M_COST_MAX_NUM 3
+#define DEFINE_E_EQUIPSTRONGEXP_M_POSITIONTYPE_MAX_NUM 3
 #define DEFINE_SHEET_EQUIPSTRONGEXP_E_EQUIPSTRONGEXP_LIST_MAX_NUM 800
 #define DEFINE_E_EQUIPSTRONGTOTAL_M_ATTRIBUTE_MAX_NUM 4
 #define DEFINE_SHEET_EQUIPSTRONGTOTAL_E_EQUIPSTRONGTOTAL_LIST_MAX_NUM 200
@@ -28,6 +30,8 @@
 #define DEFINE_E_EQUIPCLEAR_M_SECTION_MAX_NUM 6
 #define DEFINE_SHEET_EQUIPCLEAR_E_EQUIPCLEAR_LIST_MAX_NUM 20
 #define DEFINE_E_EQUIPSUIT_M_ATTRIBUTE_MAX_NUM 3
+#define DEFINE_E_EQUIPSUIT_M_MALEPOSITION_MAX_NUM 10
+#define DEFINE_E_EQUIPSUIT_M_FEMALEPOSITION_MAX_NUM 10
 #define DEFINE_SHEET_EQUIPSUIT_E_EQUIPSUIT_LIST_MAX_NUM 80
 #define DEFINE_E_EQUIPBREAK_M_BREAK_MAX_NUM 2
 #define DEFINE_SHEET_EQUIPBREAK_E_EQUIPBREAK_LIST_MAX_NUM 60
@@ -114,7 +118,7 @@ namespace proto_ff_s {
 		NFShmString<60> m_godattribute_valuemin;
 		NFShmString<60> m_godattribute_valuemax;
 		NFShmVector<struct E_EquipAttributeAttributeDesc_s, DEFINE_E_EQUIPATTRIBUTE_M_ATTRIBUTE_MAX_NUM> m_attribute;
-		NFShmVector<NFShmString<60>, 7> m_star_library;
+		NFShmVector<NFShmString<60>, DEFINE_E_EQUIPATTRIBUTE_M_STAR_LIBRARY_MAX_NUM> m_star_library;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipAttribute & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipAttribute & msg);
@@ -207,7 +211,7 @@ namespace proto_ff_s {
 		int32_t m_lv;
 		int32_t m_gold;
 		NFShmVector<struct E_EquipStrongexpCostDesc_s, DEFINE_E_EQUIPSTRONGEXP_M_COST_MAX_NUM> m_cost;
-		NFShmVector<NFShmString<60>, 3> m_positiontype;
+		NFShmVector<NFShmString<60>, DEFINE_E_EQUIPSTRONGEXP_M_POSITIONTYPE_MAX_NUM> m_positiontype;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipStrongexp & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipStrongexp & msg);
@@ -544,8 +548,8 @@ namespace proto_ff_s {
 		NFShmString<60> m_aftername;
 		int32_t m_suitevalue;
 		NFShmVector<struct E_EquipSuitAttributeDesc_s, DEFINE_E_EQUIPSUIT_M_ATTRIBUTE_MAX_NUM> m_attribute;
-		NFShmVector<NFShmString<60>, 10> m_maleposition;
-		NFShmVector<NFShmString<60>, 10> m_femaleposition;
+		NFShmVector<NFShmString<60>, DEFINE_E_EQUIPSUIT_M_MALEPOSITION_MAX_NUM> m_maleposition;
+		NFShmVector<NFShmString<60>, DEFINE_E_EQUIPSUIT_M_FEMALEPOSITION_MAX_NUM> m_femaleposition;
 
 		virtual void write_to_pbmsg(::proto_ff::E_EquipSuit & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_EquipSuit & msg);

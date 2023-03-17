@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AvatarEquipsuit_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AvatarEquipsuit_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AvatarEquipsuit_s, E_AvatarEquipsuit, MAX_AVATAR_EQUIPSUIT_NUM);
+IMPL_RES_HASH_DESC(AvatarEquipsuitDesc, proto_ff_s::E_AvatarEquipsuit_s, E_AvatarEquipsuit, MAX_AVATAR_EQUIPSUIT_NUM);
 DECLARE_IDCREATE(AvatarEquipsuitDesc);
 };

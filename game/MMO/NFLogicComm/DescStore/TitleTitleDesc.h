@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_TitleTitle_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_TitleTitle_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_TitleTitle_s, E_TitleTitle, MAX_TITLE_TITLE_NUM);
+IMPL_RES_HASH_DESC(TitleTitleDesc, proto_ff_s::E_TitleTitle_s, E_TitleTitle, MAX_TITLE_TITLE_NUM);
 DECLARE_IDCREATE(TitleTitleDesc);
 };

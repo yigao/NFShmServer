@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_SensitivewordSensitive_word_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_SensitivewordSensitive_word_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_SensitivewordSensitive_word_s, E_SensitivewordSensitive_word, MAX_SENSITIVEWORD_SENSITIVE_WORD_NUM);
+IMPL_RES_HASH_DESC(SensitivewordSensitive_wordDesc, proto_ff_s::E_SensitivewordSensitive_word_s, E_SensitivewordSensitive_word, MAX_SENSITIVEWORD_SENSITIVE_WORD_NUM);
 DECLARE_IDCREATE(SensitivewordSensitive_wordDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_FlashFlash_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_FlashFlash_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_FlashFlash_s, E_FlashFlash, MAX_FLASH_FLASH_NUM);
+IMPL_RES_HASH_DESC(FlashFlashDesc, proto_ff_s::E_FlashFlash_s, E_FlashFlash, MAX_FLASH_FLASH_NUM);
 DECLARE_IDCREATE(FlashFlashDesc);
 };

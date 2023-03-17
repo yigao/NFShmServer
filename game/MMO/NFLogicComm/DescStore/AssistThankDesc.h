@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AssistThank_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AssistThank_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AssistThank_s, E_AssistThank, MAX_ASSIST_THANK_NUM);
+IMPL_RES_HASH_DESC(AssistThankDesc, proto_ff_s::E_AssistThank_s, E_AssistThank, MAX_ASSIST_THANK_NUM);
 DECLARE_IDCREATE(AssistThankDesc);
 };

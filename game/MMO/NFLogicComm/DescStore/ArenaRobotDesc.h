@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_ArenaRobot_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_ArenaRobot_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_ArenaRobot_s, E_ArenaRobot, MAX_ARENA_ROBOT_NUM);
+IMPL_RES_HASH_DESC(ArenaRobotDesc, proto_ff_s::E_ArenaRobot_s, E_ArenaRobot, MAX_ARENA_ROBOT_NUM);
 DECLARE_IDCREATE(ArenaRobotDesc);
 };

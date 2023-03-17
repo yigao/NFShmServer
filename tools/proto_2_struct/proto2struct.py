@@ -201,7 +201,8 @@ def write_hfile():
 								line += "\t\tstd::vector<std::string> %s" % (msg_field.name)
 								line += ";\n"
 							else:
-								line += "\t\tNFShmVector<NFSizeBuffer<%d>, %d> %s" % (msg_field.buffer_size,  msg_field.array_size, msg_field.name)
+								define_max_num += "#define DEFINE_%s_MAX_NUM %d\n" % (message_desc.name.upper() + "_" + msg_field.name.upper(),  msg_field.array_size)
+								line += "\t\tNFShmVector<NFSizeBuffer<%d>, DEFINE_%s_MAX_NUM> %s" % (msg_field.buffer_size,  message_desc.name.upper() + "_" + msg_field.name.upper(), msg_field.name)
 								line += ";\n"
 						else:
 							#数组有效长度
@@ -209,7 +210,8 @@ def write_hfile():
 								line += "\t\tstd::vector<std::string> %s" % (msg_field.name)
 								line += ";\n"
 							else:
-								line += "\t\tNFShmVector<NFShmString<%d>, %d> %s" % (msg_field.buffer_size,  msg_field.array_size, msg_field.name)
+								define_max_num += "#define DEFINE_%s_MAX_NUM %d\n" % (message_desc.name.upper() + "_" + msg_field.name.upper(),  msg_field.array_size)
+								line += "\t\tNFShmVector<NFShmString<%d>, DEFINE_%s_MAX_NUM> %s" % (msg_field.buffer_size,  message_desc.name.upper() + "_" + msg_field.name.upper(), msg_field.name)
 								line += ";\n"
 					else:
 						if 'bytes' == msg_field.pb_type:
@@ -218,7 +220,8 @@ def write_hfile():
 								line += "\t\tstd::vector<std::string> %s" % (msg_field.name)
 								line += ";\n"
 							else:
-								line += "\t\tNFShmVector<NFShmString<%d>, %d> %s" % (32,  1, msg_field.name)
+								define_max_num += "#define DEFINE_%s_MAX_NUM %d\n" % (message_desc.name.upper() + "_" + msg_field.name.upper(),  1)
+								line += "\t\tNFShmVector<NFShmString<%d>, DEFINE_%s_MAX_NUM> %s" % (32,  message_desc.name.upper() + "_" + msg_field.name.upper(), msg_field.name)
 								line += ";\n"
 						else:
 							#数组有效长度
@@ -226,7 +229,8 @@ def write_hfile():
 								line += "\t\tstd::vector<std::string> %s" % (msg_field.name)
 								line += ";\n"
 							else:
-								line += "\t\tNFShmVector<NFShmString<%d>, %d> %s" % (32,  1, msg_field.name)
+								define_max_num += "#define DEFINE_%s_MAX_NUM %d\n" % (message_desc.name.upper() + "_" + msg_field.name.upper(),  1)
+								line += "\t\tNFShmVector<NFShmString<%d>, DEFINE_%s_MAX_NUM> %s" % (32,  message_desc.name.upper() + "_" + msg_field.name.upper(), msg_field.name)
 								line += ";\n"
 
 			else:

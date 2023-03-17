@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AttributePowersup_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AttributePowersup_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AttributePowersup_s, E_AttributePowersup, MAX_ATTRIBUTE_POWERSUP_NUM);
+IMPL_RES_HASH_DESC(AttributePowersupDesc, proto_ff_s::E_AttributePowersup_s, E_AttributePowersup, MAX_ATTRIBUTE_POWERSUP_NUM);
 DECLARE_IDCREATE(AttributePowersupDesc);
 };

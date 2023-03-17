@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_PetEgg_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_PetEgg_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_PetEgg_s, E_PetEgg, MAX_PET_EGG_NUM);
+IMPL_RES_HASH_DESC(PetEggDesc, proto_ff_s::E_PetEgg_s, E_PetEgg, MAX_PET_EGG_NUM);
 DECLARE_IDCREATE(PetEggDesc);
 };

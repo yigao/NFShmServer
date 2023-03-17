@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GuildDonate_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GuildDonate_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GuildDonate_s, E_GuildDonate, MAX_GUILD_DONATE_NUM);
+IMPL_RES_HASH_DESC(GuildDonateDesc, proto_ff_s::E_GuildDonate_s, E_GuildDonate, MAX_GUILD_DONATE_NUM);
 DECLARE_IDCREATE(GuildDonateDesc);
 };

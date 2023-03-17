@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GuildSalary_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GuildSalary_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GuildSalary_s, E_GuildSalary, MAX_GUILD_SALARY_NUM);
+IMPL_RES_HASH_DESC(GuildSalaryDesc, proto_ff_s::E_GuildSalary_s, E_GuildSalary, MAX_GUILD_SALARY_NUM);
 DECLARE_IDCREATE(GuildSalaryDesc);
 };

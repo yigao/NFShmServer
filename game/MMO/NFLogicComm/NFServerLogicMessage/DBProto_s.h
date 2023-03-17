@@ -68,6 +68,7 @@
 #define DEFINE_TITLEDBDATA_DATA_MAX_NUM 1
 #define DEFINE_GODEVILMULTCONDDBPROTO_LST_MAX_NUM 1
 #define DEFINE_PAYDBDATA_DB_ID_MAX_NUM 1
+#define DEFINE_PAYDBDATA_PRODUCT_MAX_NUM 1
 #define DEFINE_ROLEFACTIONDBDATA_SALARY_MAX_NUM 1
 #define DEFINE_ROLEBESTEQDBDATA_EQUIPS_MAX_NUM 1
 #define DEFINE_ROLEBESTEQDBDATA_SLOTS_MAX_NUM 1
@@ -1016,7 +1017,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		NFShmVector<uint32_t, DEFINE_PAYDBDATA_DB_ID_MAX_NUM> db_id;
-		NFShmVector<NFShmString<32>, 1> product;
+		NFShmVector<NFShmString<32>, DEFINE_PAYDBDATA_PRODUCT_MAX_NUM> product;
 		uint32_t relrmb;
 		uint32_t rmb;
 		uint32_t fakermb;

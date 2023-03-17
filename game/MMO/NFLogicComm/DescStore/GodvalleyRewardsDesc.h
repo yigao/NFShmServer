@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_GodvalleyRewards_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GodvalleyRewards_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_GodvalleyRewards_s, E_GodvalleyRewards, MAX_GODVALLEY_REWARDS_NUM);
+IMPL_RES_HASH_DESC(GodvalleyRewardsDesc, proto_ff_s::E_GodvalleyRewards_s, E_GodvalleyRewards, MAX_GODVALLEY_REWARDS_NUM);
 DECLARE_IDCREATE(GodvalleyRewardsDesc);
 };

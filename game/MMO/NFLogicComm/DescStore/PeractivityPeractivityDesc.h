@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_PeractivityPeractivity_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_PeractivityPeractivity_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_PeractivityPeractivity_s, E_PeractivityPeractivity, MAX_PERACTIVITY_PERACTIVITY_NUM);
+IMPL_RES_HASH_DESC(PeractivityPeractivityDesc, proto_ff_s::E_PeractivityPeractivity_s, E_PeractivityPeractivity, MAX_PERACTIVITY_PERACTIVITY_NUM);
 DECLARE_IDCREATE(PeractivityPeractivityDesc);
 };

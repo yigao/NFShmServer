@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AvatarAdvance_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AvatarAdvance_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AvatarAdvance_s, E_AvatarAdvance, MAX_AVATAR_ADVANCE_NUM);
+IMPL_RES_HASH_DESC(AvatarAdvanceDesc, proto_ff_s::E_AvatarAdvance_s, E_AvatarAdvance, MAX_AVATAR_ADVANCE_NUM);
 DECLARE_IDCREATE(AvatarAdvanceDesc);
 };

@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_PointPoint_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_PointPoint_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_PointPoint_s, E_PointPoint, MAX_POINT_POINT_NUM);
+IMPL_RES_HASH_DESC(PointPointDesc, proto_ff_s::E_PointPoint_s, E_PointPoint, MAX_POINT_POINT_NUM);
 DECLARE_IDCREATE(PointPointDesc);
 };

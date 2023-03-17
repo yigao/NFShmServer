@@ -20,6 +20,6 @@ public:
 	const proto_ff_s::E_AssistConst_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_AssistConst_s* GetDescByIndex(int index);
 public:
-IMPL_RES_HASH_DESC(proto_ff_s::E_AssistConst_s, E_AssistConst, MAX_ASSIST_CONST_NUM);
+IMPL_RES_HASH_DESC(AssistConstDesc, proto_ff_s::E_AssistConst_s, E_AssistConst, MAX_ASSIST_CONST_NUM);
 DECLARE_IDCREATE(AssistConstDesc);
 };
