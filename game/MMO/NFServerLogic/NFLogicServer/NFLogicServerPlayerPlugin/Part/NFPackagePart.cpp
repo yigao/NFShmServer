@@ -319,6 +319,16 @@ int NFPackagePart::SaveDB(proto_ff::RoleDBData &dbData)
     return 0;
 }
 
+int NFPackagePart::OnLogin()
+{
+    NFBagPage *pBag = GetPackageByType(proto_ff::EPackageType_Common);
+    if (pBag)
+    {
+        pBag->SendPackageInfoToClient();
+    }
+    return 0;
+}
+
 int NFPackagePart::OnLogin(proto_ff::PlayerInfoRsp &playerInfo)
 {
     return NFPart::OnLogin(playerInfo);

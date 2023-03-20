@@ -159,6 +159,7 @@ public: //消息回调接口
      */
     int SendMissionList(uint32_t msgId, NFDataPackage &packet);
 
+    void SendMissionInfo();
 public:
     /**
      * @brief 接取任务
@@ -605,4 +606,5 @@ private:
     NFShmVector<bool, MISSION_MAX_DYNAMIC_ALLOC + 1> _aryDyIdAlloc; //动态任务ID分配
 private:
 DECLARE_IDCREATE(NFMissionPart)
+
 };

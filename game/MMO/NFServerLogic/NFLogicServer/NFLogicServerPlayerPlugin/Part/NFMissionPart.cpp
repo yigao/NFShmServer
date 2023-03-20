@@ -288,6 +288,8 @@ int NFMissionPart::SaveDB(proto_ff::RoleDBData &dbData)
 int NFMissionPart::OnLogin()
 {
     CheckTrunkMission();
+
+    SendMissionInfo();
     return 0;
 }
 
@@ -1730,6 +1732,14 @@ int NFMissionPart::SendMissionList(uint32_t msgId, NFDataPackage &packet)
     proto_ff::CGQueryMissionListReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
+    SendMissionInfo();
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+void NFMissionPart::SendMissionInfo()
+{
     proto_ff::GCQueryMissionListRsp rsp;
 
     //已接任务列表
@@ -1768,8 +1778,6 @@ int NFMissionPart::SendMissionList(uint32_t msgId, NFDataPackage &packet)
     }
 
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_QUERY_MiSSIONLIST, rsp);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
 }
 
 int32_t NFMissionPart::AcceptMissionByType(int32_t missionType, bool notify)

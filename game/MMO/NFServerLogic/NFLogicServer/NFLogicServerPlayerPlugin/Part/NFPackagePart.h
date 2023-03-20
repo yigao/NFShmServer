@@ -53,7 +53,7 @@ public:
      * @brief 登陆入口
      * @return
      */
-    virtual int OnLogin() { return 0; }
+    virtual int OnLogin();
 
     /**
      * @brief  登陆入口

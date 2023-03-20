@@ -398,6 +398,9 @@ int NFEquipPart::calcStoneAttr(MAP_INT32_INT64 &outAttr)
 {
     for (auto &e: m_equips)
     {
+        if (e.m_equip.GetItemID() <= 0)
+            continue;
+
         auto pEquipCfg = e.m_equip.GetEquipCfg();
         CHECK_EXPR_CONTINUE(pEquipCfg, "");
 

@@ -56,10 +56,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="friend">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEquipDefine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEquipDefine.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFRoleDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFRoleDetail.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Friend/NFFriendPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Friend/NFFriendPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Part/NFSnsPartModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Part/NFSnsPartModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +101,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFLogicServerPlayerPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFSnsServerPlayerPlugin" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -647,14 +643,7 @@
       <workItem from="1678927795516" duration="14918000" />
       <workItem from="1679014162204" duration="30604000" />
       <workItem from="1679054253578" duration="28000" />
-      <workItem from="1679287244120" duration="2575000" />
-    </task>
-    <task id="LOCAL-00463" summary="login">
-      <created>1677826949179</created>
-      <option name="number" value="00463" />
-      <option name="presentableId" value="LOCAL-00463" />
-      <option name="project" value="LOCAL" />
-      <updated>1677826949179</updated>
+      <workItem from="1679287244120" duration="6374000" />
     </task>
     <task id="LOCAL-00464" summary="login">
       <created>1677837737191</created>
@@ -992,7 +981,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679053648338</updated>
     </task>
-    <option name="localTasksCounter" value="512" />
+    <task id="LOCAL-00512" summary="friend">
+      <created>1679291260945</created>
+      <option name="number" value="00512" />
+      <option name="presentableId" value="LOCAL-00512" />
+      <option name="project" value="LOCAL" />
+      <updated>1679291260946</updated>
+    </task>
+    <option name="localTasksCounter" value="513" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1254,11 +1250,6 @@
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.cpp</url>
           <line>380</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Part/NFSnsPartModule.cpp</url>
-          <line>43</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
