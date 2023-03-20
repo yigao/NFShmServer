@@ -51,6 +51,9 @@ int NFSnsPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet
             {
                 return pPart->OnHandleClientMessage(msgId, packet);
             }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, roleId, "can't find part, msgId:{} partId:{}, drop the msg:{}", msgId, m_clientMsgToPartMap[msgId], packet.ToString());
+            }
         }
     }
     else {
@@ -81,11 +84,17 @@ int NFSnsPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet
 
 int NFSnsPartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType)
 {
+    CHECK_EXPR_ASSERT(nMsgID < m_clientMsgToPartMap.size(), -1, "");
+    RegisterClientMessage(NF_ST_SNS_SERVER, nMsgID);
+    m_clientMsgToPartMap[nMsgID] = partType;
     return 0;
 }
 
 int NFSnsPartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType)
 {
+    CHECK_EXPR_ASSERT(nMsgID < m_serverMsgToPartMap.size(), -1, "");
+    RegisterServerMessage(NF_ST_SNS_SERVER, nMsgID);
+    m_serverMsgToPartMap[nMsgID] = partType;
     return 0;
 }
 

@@ -9,6 +9,7 @@
 
 #include "NFRoleDetail.h"
 #include "Part/NFSnsPart.h"
+#include "NFCacheMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFRoleDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
 
@@ -31,6 +32,7 @@ NFRoleDetail::~NFRoleDetail()
 int NFRoleDetail::CreateInit()
 {
     m_cid = 0;
+    m_pPart.resize(SNS_PART_MAX);
     return 0;
 }
 
@@ -72,7 +74,7 @@ int NFRoleDetail::Init(const proto_ff::RoleDBSnsDetail &data)
     ResetCurSeq();
     m_isInited = true;
 
-    for (uint32_t i = BATTLE_PART_NONE + 1; i < BATTLE_PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         NFSnsPart *pPart = CreatePart(i, data);
         if (nullptr == pPart)
@@ -134,4 +136,9 @@ NFSnsPart *NFRoleDetail::GetPart(uint32_t partType)
     }
 
     return dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(m_pPart[partType], EOT_SNS_PART_ID, 0));
+}
+
+NFRoleSimple *NFRoleDetail::GetRoleSimple() const
+{
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleSimple(m_cid);
 }

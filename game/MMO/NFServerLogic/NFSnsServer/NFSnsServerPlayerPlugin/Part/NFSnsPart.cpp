@@ -33,7 +33,7 @@ NFSnsPart::~NFSnsPart()
 
 int NFSnsPart::CreateInit()
 {
-    m_roleId = 0;
+    m_cid = 0;
     return 0;
 }
 
@@ -45,7 +45,7 @@ int NFSnsPart::ResumeInit()
 int NFSnsPart::InitBase(NFRoleDetail *pMaster, uint32_t partType)
 {
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
-    m_roleId = pMaster->GetRoleId();
+    m_cid = pMaster->GetRoleId();
     m_partType = partType;
     return 0;
 }
@@ -67,13 +67,13 @@ uint32_t NFSnsPart::GetCurRoleDetailSeq() const
 
 int NFSnsPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "client part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_cid, "client part package not handle:{}", packet.ToString());
     return 0;
 }
 
 int NFSnsPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "server part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_cid, "server part package not handle:{}", packet.ToString());
     return 0;
 }
 
@@ -121,12 +121,12 @@ int NFSnsPart::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Mes
 
 NFRoleDetail *NFSnsPart::GetRoleDetail() const
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleDetail(m_roleId);
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleDetail(m_cid);
 }
 
 NFRoleSimple *NFSnsPart::GetRoleSimple() const
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleSimple(m_roleId);
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleSimple(m_cid);
 }
 
 

@@ -138,7 +138,7 @@ public:
     NFRoleDetail* GetRoleDetail() const;
     NFRoleSimple* GetRoleSimple() const;
 protected:
-    uint64_t m_roleId;
+    uint64_t m_cid;
     uint32_t m_partType;
 private:
 DECLARE_IDCREATE(NFSnsPart)

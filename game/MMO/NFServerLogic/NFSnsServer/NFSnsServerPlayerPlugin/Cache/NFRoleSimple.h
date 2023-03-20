@@ -42,9 +42,9 @@ public:
 
     void SetProxyId(uint32_t proxyId);
 
-    uint32_t GetClientId() const;
+    uint64_t GetClientId() const;
 
-    void SetClientId(uint32_t clientId);
+    void SetClientId(uint64_t clientId);
 
     bool IsOnline() const;
 

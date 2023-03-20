@@ -85,12 +85,12 @@ void NFRoleSimple::SetProxyId(uint32_t proxyId)
     m_proxyId = proxyId;
 }
 
-uint32_t NFRoleSimple::GetClientId() const
+uint64_t NFRoleSimple::GetClientId() const
 {
     return m_clientId;
 }
 
-void NFRoleSimple::SetClientId(uint32_t clientId)
+void NFRoleSimple::SetClientId(uint64_t clientId)
 {
     m_clientId = clientId;
 }

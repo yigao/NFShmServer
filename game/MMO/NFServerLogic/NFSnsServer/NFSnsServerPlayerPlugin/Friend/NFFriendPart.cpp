@@ -12,9 +12,10 @@
 #include "NFLogicCommon/NFRoleDefine.h"
 #include "Relation.pb.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFLogicCommon/RelationDefine.h"
+#include "Cache/NFRoleSimple.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFriendPart, EOT_SNS_FriendPart_ID, NFShmObj
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFriendPart, EOT_SNS_FriendPart_ID, NFSnsPart)
 
 NFFriendPart::NFFriendPart()
 {
@@ -90,29 +91,25 @@ int NFFriendPart::OnHandleRelationDataReq(uint32_t msgId, NFDataPackage &packet)
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, relationInfoReq);
 
     //检查分组索引
-/*
+
     uint32_t groupIndex = relationInfoReq.groupindex();
-    if (groupIndex < 0 || groupIndex >= GROUP_MAX)
+    if (groupIndex >= GROUP_MAX)
     {
-        MMOLOG_FMT_ERROR("[center] CWRelationInfoReq groupIndex is error. groupIndex:%u, CharID:%llu ", groupIndex, charID);
-        return false;
-    }
-    //检查离线数据
-    auto pOfflineCharacterData = g_GetCacheMgr()->GetRoleSimple(charID);
-    if (nullptr == pOfflineCharacterData)
-    {
-        MMOLOG_FMT_ERROR("[center] CWRelationInfoReq  pOfflineCharacterData is nil. CharID:%llu ", charID);
-        return false;
-    }
-    //好友数据
-    Relation* pRelation = findRelation(charID);
-    if (nullptr == pRelation)
-    {
-        MMOLOG_FMT_ERROR("[center] CWRelationInfoReq pRelation is nil,CharID:%llu ", charID);
-        return false;
+        NFLogError(NF_LOG_SYSTEMLOG, m_cid, "CWRelationInfoReq groupIndex is error. groupIndex:{}, CharID:{} ", groupIndex, m_cid);
+        return -1;
     }
 
-    return HandleRelationInfoReq(charID, relationInfoReq);
-*/
+    auto pRoleSimple = GetRoleSimple();
+    if (pRoleSimple == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_cid, "CWRelationInfoReq  pRoleSimple is nil. m_cid:{} ", m_cid);
+        return -1;
+    }
+
+    proto_ff::WCRelationDataRsp relationInfoRsp;
+
+    //发送数据到看客户端
+    relationInfoRsp.set_groupindex(groupIndex);
+    pRoleSimple->SendMsgToClient(proto_ff::CENTER_TO_CLIENT_RELATION_DATA_RSP, relationInfoRsp);
     return 0;
 }

@@ -120,8 +120,13 @@ int stDressEquipInfo::unpack(const proto_ff::EquipInfo &proto)
     pos = proto.pos();
     const proto_ff::ItemProtoInfo& protoItem = proto.equip();
 
-    int ret = m_equip.read_from_pbmsg(protoItem);
-    CHECK_EXPR(ret == 0, ret, "stDressEquipInfo::unpack item_id:{} SetItemProto failed", protoItem.item_id());
+    int ret = 0;
+    if (protoItem.item_id() > 0)
+    {
+        ret = m_equip.read_from_pbmsg(protoItem);
+        CHECK_EXPR(ret == 0, ret, "stDressEquipInfo::unpack item_id:{} SetItemProto failed", protoItem.item_id());
+    }
+
     ret = slot.unpack(proto.slot());
     CHECK_EXPR(ret == 0, ret, "slot::unpack item_id:{} SetItemProto failed", protoItem.item_id());
 
@@ -132,7 +137,10 @@ int stDressEquipInfo::pack(proto_ff::EquipInfo *pProto, bool clientFalg)
 {
     CHECK_NULL(pProto);
     pProto->set_pos(pos);
-    m_equip.write_to_pbmsg(*pProto->mutable_equip());
+    if (m_equip.GetItemID() > 0)
+    {
+        m_equip.write_to_pbmsg(*pProto->mutable_equip());
+    }
     slot.pack(pProto->mutable_slot(),clientFalg);
     return 0;
 }

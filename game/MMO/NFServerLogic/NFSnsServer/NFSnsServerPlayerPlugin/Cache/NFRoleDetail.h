@@ -21,6 +21,7 @@
 #include "NFComm/NFShmCore/NFSeqOP.h"
 
 class NFSnsPart;
+class NFRoleSimple;
 class NFRoleDetail : public NFShmObj, public NFSeqOP
 {
 public:
@@ -52,6 +53,8 @@ public:
     int RecylePart(NFSnsPart *pPart);
     //获取对应部件指针
     virtual NFSnsPart *GetPart(uint32_t partType);
+public:
+    NFRoleSimple* GetRoleSimple() const;
 private:
     /**
      * @brief
