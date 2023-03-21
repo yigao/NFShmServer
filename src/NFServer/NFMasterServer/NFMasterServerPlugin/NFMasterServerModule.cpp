@@ -123,7 +123,7 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
 		}
 		else
 		{
-			if (pServerData->mServerInfo.server_type() != xData.server_type() || pServerData->mUnlinkId != unLinkId)
+			if (pServerData->mServerInfo.server_type() != xData.server_type() || (pServerData->mUnlinkId > 0 && pServerData->mUnlinkId != unLinkId))
 			{
 				//该服务器ID已经注册过, 又被别的服务器使用了
 				//服务器连接还在没有崩溃
