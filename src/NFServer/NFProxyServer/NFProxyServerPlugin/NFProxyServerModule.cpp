@@ -51,8 +51,6 @@ bool NFCProxyServerModule::Init()
 {
     ConnectMasterServer();
 
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
-    CHECK_NULL(pConfig);
     return true;
 }
 
