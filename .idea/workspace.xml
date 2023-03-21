@@ -56,8 +56,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="proxy client">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/ProxyServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/ProxyServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -650,14 +650,7 @@
       <workItem from="1678927795516" duration="14918000" />
       <workItem from="1679014162204" duration="30604000" />
       <workItem from="1679054253578" duration="28000" />
-      <workItem from="1679287244120" duration="14503000" />
-    </task>
-    <task id="LOCAL-00472" summary="login">
-      <created>1678103265262</created>
-      <option name="number" value="00472" />
-      <option name="presentableId" value="LOCAL-00472" />
-      <option name="project" value="LOCAL" />
-      <updated>1678103265262</updated>
+      <workItem from="1679287244120" duration="15070000" />
     </task>
     <task id="LOCAL-00473" summary="login">
       <created>1678103635187</created>
@@ -995,7 +988,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679364100915</updated>
     </task>
-    <option name="localTasksCounter" value="521" />
+    <task id="LOCAL-00521" summary="proxy client">
+      <created>1679364668332</created>
+      <option name="number" value="00521" />
+      <option name="presentableId" value="LOCAL-00521" />
+      <option name="project" value="LOCAL" />
+      <updated>1679364668332</updated>
+    </task>
+    <option name="localTasksCounter" value="522" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -694,11 +694,12 @@ int NFCMasterServerModule::OnGlobalSocketEvent(eMsgType nEvent, uint64_t unLinkI
 
     if (nEvent == eMsgType_CONNECTED)
     {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "connect global server..........");
         RegisterGlobalServer();
     }
     else if (nEvent == eMsgType_DISCONNECTED)
     {
-
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "disconnect global server..........");
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
