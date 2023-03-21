@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFBattlePlayer.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "DescStoreEx/NFAttrMgr.h"
 #include "Part/NFMovePart.h"
 #include "Map/NFMapMgr.h"
 #include "Map/NFMap.h"

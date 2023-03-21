@@ -7,12 +7,10 @@
 //
 // -------------------------------------------------------------------------
 
-#include <NFComm/NFPluginModule/NFCheck.h>
-#include <NFComm/NFCore/NFTime.h>
+#include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFCore/NFTime.h"
 #include "NFPackageMng.h"
-#include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFPackageConfig.h"
+#include "NFLogicCommon/NFPackageConfig.h"
 
 NFPackageMng::NFPackageMng()
 {

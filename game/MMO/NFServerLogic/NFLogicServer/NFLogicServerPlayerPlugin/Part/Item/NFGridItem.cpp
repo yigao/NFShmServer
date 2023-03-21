@@ -7,12 +7,12 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFItemDefine.h"
+#include "NFGridItem.h"
 #include "DescStore/ItemItemDesc.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "DescStore/EquipEquipDesc.h"
 #include "DescStore/EquipAttributeDesc.h"
-#include "NFComTypeDefine.h"
+#include "NFLogicCommon/NFComTypeDefine.h"
 #include "NFComm/NFCore/NFCommonApi.h"
 
 NFGridItem::NFGridItem()

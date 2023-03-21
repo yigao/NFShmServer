@@ -16,7 +16,7 @@
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Com.pb.h"
-#include "NFComTypeDefine.h"
+#include "NFLogicCommon/NFComTypeDefine.h"
 #include <unordered_map>
 
 #pragma pack(push)

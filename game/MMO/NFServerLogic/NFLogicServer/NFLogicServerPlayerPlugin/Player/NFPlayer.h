@@ -22,7 +22,7 @@
 #include "NFLogicCommon/NFRoleDefine.h"
 #include "NFLogicCommon/NFLogicCommonDefine.h"
 #include "NFPlayerBase.h"
-#include "NFLogicCommon/NFAttr.h"
+#include "DescStoreEx/NFAttr.h"
 #include "DBProto2.pb.h"
 
 enum

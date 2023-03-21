@@ -9,7 +9,7 @@
 
 #include "NFPlayerBase.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "DescStoreEx/NFAttrMgr.h"
 
 NFPlayerBase::NFPlayerBase()
 {

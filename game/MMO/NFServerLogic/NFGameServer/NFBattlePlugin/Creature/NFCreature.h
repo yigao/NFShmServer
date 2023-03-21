@@ -19,7 +19,7 @@
 #include "NFComm/NFShmCore/NFShmNodeList.h"
 #include "NFLogicCommon/NFPoint3.h"
 #include "NFLogicCommon/NFPoint2.h"
-#include "NFLogicCommon/NFAttr.h"
+#include "DescStoreEx/NFAttr.h"
 #include "NFLogicCommon/NFRoleDefine.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "NFLogicCommon/NFLogDefine.h"

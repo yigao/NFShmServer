@@ -19,7 +19,7 @@
 #include "Scene/NFSceneMgr.h"
 #include "Scene/NFScene.h"
 #include "NFGameConfig.h"
-#include "NFLogicCommon/NFAttr.h"
+#include "DescStoreEx/NFAttr.h"
 #include "Creature/NFCreature.h"
 #include "Creature/NFBattlePlayer.h"
 #include "Creature/NFCreatureMgr.h"

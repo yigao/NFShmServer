@@ -14,7 +14,7 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFItemDefine.h"
+#include "NFGridItem.h"
 
 struct stStoneSlotInfo
 {

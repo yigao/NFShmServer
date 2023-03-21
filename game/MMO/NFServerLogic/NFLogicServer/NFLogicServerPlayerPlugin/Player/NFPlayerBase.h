@@ -24,7 +24,7 @@
 #include "NFLogicCommon/NFLogicCommonDefine.h"
 #include "NFPlayerBase.h"
 #include "DBProto_s.h"
-#include "NFLogicCommon/NFAttr.h"
+#include "DescStoreEx/NFAttr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "DBProto2.pb.h"
 

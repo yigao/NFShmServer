@@ -20,7 +20,7 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "DescStoreEx/NFMissionDescStoreEx.h"
-#include "NFLogicCommon/NFItemDefine.h"
+#include "Part/Item/NFGridItem.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 
 #define PLAYER_TRACK_MISSION_MAX_MISSION_COUNT MISSION_MAX_ACCEPT_NUM*2

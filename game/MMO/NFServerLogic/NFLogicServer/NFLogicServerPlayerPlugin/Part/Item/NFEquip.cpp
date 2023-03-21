@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFEquipDefine.h"
+#include "NFEquip.h"
 
 
 int stEquipSlotInfo::unpack(const proto_ff::EquipSlotInfo &proto)

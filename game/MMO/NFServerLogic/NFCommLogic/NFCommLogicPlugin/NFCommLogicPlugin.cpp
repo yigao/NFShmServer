@@ -17,7 +17,7 @@
 #include "DescStore/NFDescStoreDefine.h"
 
 #include "DescStoreEx/NFMapDescStoreEx.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "DescStoreEx/NFAttrMgr.h"
 #include "DescStoreEx/NFRoleDescStoreEx.h"
 #include "DescStoreEx/NFFuncUnLockDescStoreEx.h"
 #include "DescStoreEx/NFItemDescStoreEx.h"

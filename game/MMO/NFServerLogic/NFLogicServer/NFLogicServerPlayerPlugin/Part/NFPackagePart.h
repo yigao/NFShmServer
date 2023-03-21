@@ -15,7 +15,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/PackageDefine.h"
 #include "NFLogicCommon/NFLogDefine.h"
-#include "NFLogicCommon/NFItemDefine.h"
+#include "Part/Item/NFGridItem.h"
 #include "NFPart.h"
 #include "Part/Package/NFBagPage.h"
 

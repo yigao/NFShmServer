@@ -15,7 +15,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFLogicCommon/NFItemDefine.h"
+#include "NFGridItem.h"
 #include "NFLogicCommon/PackageDefine.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "item_s.h"

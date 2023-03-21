@@ -18,7 +18,7 @@
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "ClientServerCmd.pb.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "DescStoreEx/NFAttrMgr.h"
 #include "DescStoreEx/NFRoleDescStoreEx.h"
 #include "DescStore/RoleExpDesc.h"
 #include "NFLogicCommon/NFEventDefine.h"

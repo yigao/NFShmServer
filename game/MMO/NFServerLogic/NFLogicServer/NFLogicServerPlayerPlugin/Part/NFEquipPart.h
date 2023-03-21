@@ -14,8 +14,8 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFPart.h"
-#include "NFLogicCommon/NFItemDefine.h"
-#include "NFLogicCommon/NFEquipDefine.h"
+#include "Part/Item/NFGridItem.h"
+#include "Part/Item/NFEquip.h"
 
 class NFEquipPart : public NFPart
 {

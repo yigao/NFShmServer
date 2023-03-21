@@ -13,7 +13,7 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "CSPlayer.pb.h"
 #include "ClientServerCmd.pb.h"
-#include "NFLogicCommon/NFAttrMgr.h"
+#include "DescStoreEx/NFAttrMgr.h"
 #include "NFLogicCommon/NFEventDefine.h"
 #include "NFLogicCommon/NFGameMath.h"
 #include "Scene/NFSceneMgr.h"
