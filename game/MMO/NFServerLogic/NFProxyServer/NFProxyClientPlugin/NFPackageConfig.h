@@ -12,8 +12,10 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFILuaLoader.h"
-#include <common_logic.pb.h>
+#include "NFServerLogicMessage/common_logic.pb.h"
 #include "NFServerLogicMessage/ClientServerCmd.pb.h"
+
+#define CLIENT_MAX_CMD_ID_VALUE 10000
 
 class NFPackageConfig : public NFILuaLoader
 {

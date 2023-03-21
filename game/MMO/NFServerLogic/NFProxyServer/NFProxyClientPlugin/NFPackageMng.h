@@ -10,10 +10,10 @@
 #pragma once
 
 
-#include <common_logic.pb.h>
+#include "NFServerLogicMessage/common_logic.pb.h"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFServerLogicMessage/ClientServerCmd.pb.h"
-#include "NFLogicCommonDefine.h"
+#include "NFPackageConfig.h"
 
 
 enum PKG_RATE_ERROR

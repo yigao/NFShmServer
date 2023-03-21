@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include <NFLogicCommon/NFPackageConfig.h>
+#include "NFPackageConfig.h"
 #include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMap.hpp"

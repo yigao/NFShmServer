@@ -8,10 +8,9 @@
 // -------------------------------------------------------------------------
 
 #include "NFPackageConfig.h"
-#include "NFLogicCommonDefine.h"
-#include <NFComm/NFCore/NFFileUtility.h>
-#include <NFComm/NFPluginModule/NFProtobufCommon.h>
-#include <NFComm/NFPluginModule/NFCheck.h>
+#include "NFComm/NFCore/NFFileUtility.h"
+#include "NFComm/NFPluginModule/NFProtobufCommon.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 NFPackageConfig::NFPackageConfig()
 {

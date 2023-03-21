@@ -10,7 +10,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFPackageMng.h"
-#include "NFLogicCommon/NFPackageConfig.h"
+#include "NFPackageConfig.h"
 
 NFPackageMng::NFPackageMng()
 {

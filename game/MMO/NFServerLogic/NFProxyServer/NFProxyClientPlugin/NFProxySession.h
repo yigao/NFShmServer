@@ -10,7 +10,7 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFLogicCommon/NFPackageMng.h"
+#include "NFPackageMng.h"
 
 //�ѵ�½�ɹ��ͻ��� session 2���ӳ�ʱ
 #define MAX_GATE_TIME_MSEC 120000

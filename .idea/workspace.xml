@@ -54,32 +54,17 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="friend">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="proxy client">
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item/NFGridItem.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAttr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFAttr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAttr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFAttr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAttrMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFAttrMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAttrMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx/NFAttrMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEquipDefine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item/NFEquip.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFEquipDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item/NFEquip.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFItemDefine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item/NFGridItem.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFItemDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item/NFGridItem.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFMissionDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFMissionDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFPackageMng.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFPackageMng.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCommLogic/NFCommLogicPlugin/NFCommLogicPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCommLogic/NFCommLogicPlugin/NFCommLogicPlugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFBattlePlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFCreature.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFCreature.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFCreature.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Creature/NFCreature.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFBattlePlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFBattlePlugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item/NFItemMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item/NFItemMgr.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFEquipPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFEquipPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFMissionPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFMissionPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Package/NFBagPage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicCommonDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicCommonDefine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFPackageConfig.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFPackageConfig.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFPackageConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFPackageConfig.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFPackageMng.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFPackageMng.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFPackageMng.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFPackageMng.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxyClientModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxySession.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/NFProxySession.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,11 +151,11 @@
       <recent name="$PROJECT_DIR$/Install/Config/MMO/map" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin" />
+      <recent name="$PROJECT_DIR$/src/NFComm/NFPluginModule" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStoreEx" />
       <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerCommon" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage" />
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
@@ -672,14 +657,7 @@
       <workItem from="1678927795516" duration="14918000" />
       <workItem from="1679014162204" duration="30604000" />
       <workItem from="1679054253578" duration="28000" />
-      <workItem from="1679287244120" duration="12000000" />
-    </task>
-    <task id="LOCAL-00468" summary="login">
-      <created>1677911905362</created>
-      <option name="number" value="00468" />
-      <option name="presentableId" value="LOCAL-00468" />
-      <option name="project" value="LOCAL" />
-      <updated>1677911905362</updated>
+      <workItem from="1679287244120" duration="12968000" />
     </task>
     <task id="LOCAL-00469" summary="login">
       <created>1677922198883</created>
@@ -1017,7 +995,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679312282521</updated>
     </task>
-    <option name="localTasksCounter" value="517" />
+    <task id="LOCAL-00517" summary="proxy client">
+      <created>1679361360821</created>
+      <option name="number" value="00517" />
+      <option name="presentableId" value="LOCAL-00517" />
+      <option name="project" value="LOCAL" />
+      <updated>1679361360821</updated>
+    </task>
+    <option name="localTasksCounter" value="518" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1240,7 +1225,6 @@
       <path value="$PROJECT_DIR$/game/oldMMO" />
       <path value="$PROJECT_DIR$/game/MMO" />
     </ignored-roots>
-    <MESSAGE value="event" />
     <MESSAGE value="nfshmstring" />
     <MESSAGE value="attr gm" />
     <MESSAGE value="package" />
@@ -1265,7 +1249,8 @@
     <MESSAGE value="attr" />
     <MESSAGE value="item" />
     <MESSAGE value="friend" />
-    <option name="LAST_COMMIT_MESSAGE" value="friend" />
+    <MESSAGE value="proxy client" />
+    <option name="LAST_COMMIT_MESSAGE" value="proxy client" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
