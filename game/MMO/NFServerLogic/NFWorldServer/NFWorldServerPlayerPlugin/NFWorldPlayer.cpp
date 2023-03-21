@@ -350,7 +350,7 @@ void NFWorldPlayer::SendTransToSnsServer(uint32_t msgId, const google::protobuf:
 
 void NFWorldPlayer::SendMsgToClient(uint32_t msgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, NF_MODULE_CLIENT, msgId, xData, m_uid, m_roleId);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, m_proxyId, NF_MODULE_CLIENT, msgId, xData, m_uid, m_clientId);
 }
 
 uint32_t NFWorldPlayer::GetCharNum() const

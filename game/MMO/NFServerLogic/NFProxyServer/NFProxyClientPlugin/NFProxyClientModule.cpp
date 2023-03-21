@@ -739,6 +739,12 @@ int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDa
             return -1;
         }
 
+        uint32_t srcBusId = packet.nSrcId;
+        auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, srcBusId);
+        if (pServerData)
+        {
+            NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "trans {} msg to client, packet:{}", pServerData->mServerInfo.server_name(), packet.ToString());
+        }
         FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), NF_MODULE_CLIENT, packet.nMsgId, packet.GetBuffer(), packet.GetSize());
     }
     else

@@ -153,7 +153,6 @@ int NFCProxyServerModule::OnHandleServerRegisterFromProxyAgentServer(uint64_t un
 
 int NFCProxyServerModule::OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     uint32_t srcBusId = packet.nSrcId;
     auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, srcBusId);
     if (pServerData)
@@ -162,13 +161,15 @@ int NFCProxyServerModule::OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPa
         {
             m_otherServerMsgHandle(unLinkId, packet);
         }
+        else {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "packet:{} not handle", packet.ToString());
+        }
     }
     else
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Can't find busId:{} busName:{} packet:{}", srcBusId, NFServerIDUtil::GetBusNameFromBusID(srcBusId), packet.ToString());
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 

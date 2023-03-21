@@ -40,6 +40,7 @@
 #include "NFEmailSenderTest.h"
 
 #include "NFShmStlTest/NFShmStlTest.h"
+#include <map>
 
 NFCTestModule::NFCTestModule(NFIPluginManager* p): NFIDynamicModule(p)
 {
@@ -69,6 +70,13 @@ int NFCTestModule::OnTimer(uint32_t nTimerID)
 
 bool NFCTestModule::Execute()
 {
+/*    std::vector<int> vec = {10, 2, 5, 3, 1, 8, 9, 7, 4};
+    std::set<int,  std::greater<int>> map(vec.begin(), vec.end());
+    auto iter = map.lower_bound(6);
+    for(;iter != map.end(); iter++)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", *iter);
+    }*/
 	return true;
 }
 
