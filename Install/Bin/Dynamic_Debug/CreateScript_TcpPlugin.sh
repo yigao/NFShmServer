@@ -70,6 +70,7 @@ do_work RouteAgentServer 1.10.3.2 ../../Config/MMO ../../TcpPlugin
 do_work ProxyServer 1.10.4.1 ../../Config/MMO ../../TcpPlugin
 do_work ProxyAgentServer 1.10.5.1 ../../Config/MMO ../../TcpPlugin
 do_work StoreServer 1.10.6.1 ../../Config/MMO ../../TcpPlugin
+do_work StoreServer 1.10.6.2 ../../Config/MMO ../../TcpPlugin
 do_work LoginServer 1.10.7.1 ../../Config/MMO ../../TcpPlugin
 do_work WorldServer 1.10.8.1 ../../Config/MMO ../../TcpPlugin
 do_work LogicServer 1.10.9.1 ../../Config/MMO ../../TcpPlugin
