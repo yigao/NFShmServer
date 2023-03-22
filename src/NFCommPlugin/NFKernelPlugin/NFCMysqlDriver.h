@@ -53,6 +53,7 @@
 #include <string>
 #include "mysqlpp/connection.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFProtobufCommon.h"
 
 #define  NFMYSQLTRYBEGIN try {
 
@@ -89,6 +90,8 @@
 * @brief mysql驱动， 里面有一个myql连接
 ** 实现了通过protobuf的反射来存取数据，使用方法如下：
 *****************************保存数据到db方案*******************************/
+
+
 
 class NFCMysqlDriver {
 public:
@@ -560,6 +563,63 @@ public:
     int Exists(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
                bool &bExit);
 
+    /**
+     * @brief 是否存在数据库
+     * @param dbName
+     * @return
+     */
+    int ExistsDB(const std::string& dbName, bool &bExit);
+
+    /**
+     * @brief 创建数据库
+     * @param dbName
+     * @return
+     */
+    int CreateDB(const std::string& dbName);
+
+    /**
+     * @brief 选择数据库
+     * @param dbName
+     * @return
+     */
+    int SelectDB(const std::string& dbName);
+
+     /**
+      * @brief 是否存在表格
+      * @param dbName
+      * @param tableName
+      * @param bExit
+      * @return
+      */
+    int ExistTable(const std::string& dbName, const std::string& tableName, bool &bExit);
+
+    /**
+     * @brief 获取表列信息
+     * @param dbName
+     * @param tableName
+     * @param col
+     * @return
+     */
+    int GetTableColInfo(const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo>& col);
+
+    /**
+     * @brief 查询表格信息
+     * @param tableName
+     * @param pTableMessage
+     * @param needCreateColumn
+     * @return
+     */
+    int QueryTableInfo(const std::string& dbName, const std::string& tableName, bool &bExit, std::map<std::string, DBTableColInfo>& primaryKey, std::multimap<uint32_t, std::string>& needCreateColumn);
+
+    /**
+     * @brief 创建table
+     * @param serverID
+     * @param dbName
+     * @param tableName
+     * @param needCreateColumn
+     * @return
+     */
+    int CreateTable(const std::string& tableName, std::map<std::string, DBTableColInfo>& primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn);
 protected:
     /**
      * @brief 是否需要重连

@@ -1245,6 +1245,11 @@ int NFProtobufCommon::LoadProtoDsFile(const std::string &ds)
     return 0;
 }
 
+const google::protobuf::Descriptor *NFProtobufCommon::FindDynamicMessageTypeByName(const std::string &full_name)
+{
+    return m_pDescriptorPool->FindMessageTypeByName(full_name);
+}
+
 ::google::protobuf::Message *NFProtobufCommon::CreateDynamicMessageByName(const std::string &full_name)
 {
     const google::protobuf::Descriptor *pDescriptor = m_pDescriptorPool->FindMessageTypeByName(
@@ -1259,4 +1264,291 @@ int NFProtobufCommon::LoadProtoDsFile(const std::string &ds)
     }
 
     return NULL;
+}
+
+int NFProtobufCommon::GetDbFieldsInfoFromMessage(const google::protobuf::Descriptor *pDesc, std::map<std::string, DBTableColInfo> &primaryKeyMap, std::map<std::string, DBTableColInfo> &mapFileds)
+{
+    CHECK_NULL(pDesc);
+
+    for (int i = 0; i < pDesc->field_count(); i++)
+    {
+        const google::protobuf::FieldDescriptor *pFieldDesc = pDesc->field(i);
+        if (pFieldDesc == NULL) continue;
+        if (pFieldDesc->options().HasExtension(yd_fieldoptions::no_db_field)) continue;
+
+        //如果不是repeated, 只是简单信息，就直接给
+        if (pFieldDesc->is_repeated() == false)
+        {
+            DBTableColInfo colInfo;
+            colInfo.m_colType = pFieldDesc->cpp_type();
+            colInfo.m_fieldIndex = i;
+            if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_type))
+            {
+                if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) ==
+                    ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_PRIMARYKEY)
+                {
+                    colInfo.m_primaryKey = true;
+                    colInfo.m_notNull = true;
+                }
+                else if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) ==
+                         ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_UNIQUE_INDEX)
+                {
+                    colInfo.m_unionKey = true;
+                }
+                else if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) ==
+                         ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_INDEX)
+                {
+                    colInfo.m_indexKey = true;
+                }
+            }
+
+            if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING)
+            {
+                if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_bufsize))
+                {
+                    colInfo.m_bufsize = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_bufsize);
+                }
+            }
+            else {
+                if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
+                {
+                    colInfo.m_notNull = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
+                }
+
+                if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment))
+                {
+                    colInfo.m_autoIncrement = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment);
+                    if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment_value))
+                    {
+                        colInfo.m_autoIncrementValue = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment_value);
+                    }
+                }
+            }
+
+            if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_comment))
+            {
+                colInfo.m_comment = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_comment);
+            }
+
+            if (colInfo.m_primaryKey)
+            {
+                primaryKeyMap.emplace(pFieldDesc->name(), colInfo);
+            }
+            else {
+                mapFileds.emplace(pFieldDesc->name(), colInfo);
+            }
+        }
+        else
+        {
+            //如果只是简单的repeated, 比如:repeated string child_fish_ids = 7
+            //把数据库里的多行，搞成数组的形式
+            if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+            {
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
+                    {
+                        DBTableColInfo colInfo;
+                        colInfo.m_colType = pFieldDesc->cpp_type();
+                        colInfo.m_fieldIndex = i;
+                        std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
+
+                        if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING)
+                        {
+                            if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_bufsize))
+                            {
+                                colInfo.m_bufsize = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_bufsize);
+                            }
+                        }
+                        else {
+                            if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
+                            {
+                                colInfo.m_notNull = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
+                            }
+
+                            if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment))
+                            {
+                                colInfo.m_autoIncrement = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment);
+                                if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment_value))
+                                {
+                                    colInfo.m_autoIncrementValue = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment_value);
+                                }
+                            }
+                        }
+
+                        mapFileds.emplace(pFieldDesc->name(), colInfo);
+                    }
+                }
+            }
+            else
+            {
+                //如果只是复杂的repeated, 比如:
+                //message AttrValue
+                //{
+                //	optional int32 attr = 1 [(yd_fieldoptions.field_cname) = "attr"];
+                //	optional int32 value = 2 [(yd_fieldoptions.field_cname) = "value"];
+                //	optional string value2 = 3 [(yd_fieldoptions.field_cname) = "value2", (yd_fieldoptions.db_field_bufsize)=128];
+                //}
+                //repeated AttrValue attr_values = 8 [(yd_fieldoptions.field_cname) = "attr_values", (yd_fieldoptions.field_arysize)=2];
+                //把数据库里的多行，配合结构转成repeated数组
+                const google::protobuf::Descriptor *pSubDescriptor = pFieldDesc->message_type();
+                if (pSubDescriptor == NULL) continue;
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
+                    {
+                        for (int field_i = 0; field_i < pSubDescriptor->field_count(); field_i++)
+                        {
+                            const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDescriptor->field(field_i);
+                            if (pSubFieldDesc == NULL) continue;
+                            if (pSubFieldDesc->is_repeated() == false)
+                            {
+                                DBTableColInfo colInfo;
+                                colInfo.m_colType = pSubFieldDesc->cpp_type();
+                                colInfo.m_fieldIndex = i;
+
+                                std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" + pSubFieldDesc->name();
+
+                                if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING)
+                                {
+                                    if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_bufsize))
+                                    {
+                                        colInfo.m_bufsize = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_bufsize);
+                                    }
+                                }
+                                else {
+                                    if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
+                                    {
+                                        colInfo.m_notNull = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
+                                    }
+
+                                    if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment))
+                                    {
+                                        colInfo.m_autoIncrement = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment);
+                                        if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment_value))
+                                        {
+                                            colInfo.m_autoIncrementValue = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment_value);
+                                        }
+                                    }
+                                }
+
+                                mapFileds.emplace(pFieldDesc->name(), colInfo);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    return 0;
+}
+
+uint32_t NFProtobufCommon::GetPBDataTypeFromDBDataType(const std::string& dbDataType, const std::string& strColumnType)
+{
+    if (dbDataType == "varchar" || dbDataType == "char" || dbDataType == "tinytext" || dbDataType == "text" || dbDataType == "mediumtext" || dbDataType == "longtext")
+    {
+        return google::protobuf::FieldDescriptor::CPPTYPE_STRING;
+    }
+    else if (dbDataType == "int" || dbDataType == "tinyint" || dbDataType == "smallint" || dbDataType == "mediumint")
+    {
+        if (strColumnType.find("unsigned") != std::string::npos)
+        {
+            return google::protobuf::FieldDescriptor::CPPTYPE_UINT32;
+        }
+        else {
+            return google::protobuf::FieldDescriptor::CPPTYPE_INT32;
+        }
+    }
+    else if (dbDataType == "float")
+    {
+        return google::protobuf::FieldDescriptor::CPPTYPE_FLOAT;
+    }
+    else if (dbDataType == "double")
+    {
+        return google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE;
+    }
+    else if (dbDataType == "enum")
+    {
+        return google::protobuf::FieldDescriptor::CPPTYPE_INT32;
+    }
+    else if (dbDataType == "bigint" || dbDataType == "datetime")
+    {
+        if (strColumnType.find("unsigned") != std::string::npos)
+        {
+            return google::protobuf::FieldDescriptor::CPPTYPE_UINT64;
+        }
+        else {
+            return google::protobuf::FieldDescriptor::CPPTYPE_INT64;
+        }
+    }
+    else if (dbDataType == "blob" || dbDataType == "varbinary" || dbDataType == "tinyblob" || dbDataType == "mediumblob" || dbDataType == "longblob")
+    {
+        return google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE;
+    }
+
+    return google::protobuf::FieldDescriptor::CPPTYPE_STRING;
+}
+
+std::string NFProtobufCommon::GetDBDataTypeFromPBDataType(uint32_t pbDataType, uint32_t textMax)
+{
+    switch(pbDataType)
+    {
+        case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+        {
+            return "int";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+        {
+            return "bigint";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+        {
+            return "int unsigned";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+        {
+            return "bigint unsigned";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+        {
+            return "double";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+        {
+            return "float";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+        {
+            return "int";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
+        {
+            return "int";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
+        {
+            return "varchar(" + NFCommon::tostr(textMax), ")";
+        }
+            break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
+        {
+            return "blob";
+        }
+    }
+
+    return "int";
 }

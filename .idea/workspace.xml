@@ -57,7 +57,10 @@
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="store server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFKernelPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFKernelPlugin.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +104,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="OCResolveContextSettings">
+    <option name="configuration" value="0-DynamicDebug-NFDescStorePlugin" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -148,7 +154,7 @@
       <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/Item" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake 应用程序.NFStoreServerPlugin">
+  <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -648,14 +654,7 @@
       <workItem from="1679014162204" duration="30604000" />
       <workItem from="1679054253578" duration="28000" />
       <workItem from="1679287244120" duration="31170000" />
-      <workItem from="1679446064457" duration="9296000" />
-    </task>
-    <task id="LOCAL-00480" summary="login">
-      <created>1678352766254</created>
-      <option name="number" value="00480" />
-      <option name="presentableId" value="LOCAL-00480" />
-      <option name="project" value="LOCAL" />
-      <updated>1678352766254</updated>
+      <workItem from="1679446064457" duration="27413000" />
     </task>
     <task id="LOCAL-00481" summary="login">
       <created>1678358994194</created>
@@ -993,7 +992,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679454341277</updated>
     </task>
-    <option name="localTasksCounter" value="529" />
+    <task id="LOCAL-00529" summary="store server">
+      <created>1679455804892</created>
+      <option name="number" value="00529" />
+      <option name="presentableId" value="LOCAL-00529" />
+      <option name="project" value="LOCAL" />
+      <updated>1679455804892</updated>
+    </task>
+    <option name="localTasksCounter" value="530" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

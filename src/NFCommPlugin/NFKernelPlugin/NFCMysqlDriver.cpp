@@ -80,7 +80,7 @@ int NFCMysqlDriver::Query(const std::string &qstr, mysqlpp::StoreQueryResult &qu
 int NFCMysqlDriver::ExecuteOne(const std::string &qstr, std::map<std::string, std::string> &valueVec,
                                std::string &errormsg)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", qstr);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ExecuteOne:{}", qstr);
 
     mysqlpp::StoreQueryResult queryResult;
     if (NFCMysqlDriver::Query(qstr, queryResult, errormsg) == 0)
@@ -2018,4 +2018,398 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modinsobj &select, st
     delete pMessageObject;
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
+}
+
+int NFCMysqlDriver::ExistsDB(const std::string &dbName, bool &bExit)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    int iRet = Exists("information_schema.SCHEMATA", "SCHEMA_NAME", dbName, bExit);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "ExistsDB Error, dbName:{}", dbName);
+    }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+/**
+ * @brief 创建数据库
+ * @param dbName
+ * @return
+ */
+int NFCMysqlDriver::CreateDB(const std::string &dbName)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    std::string errormsg;
+    int iRet = 0;
+    NFMYSQLTRYBEGIN
+        mysqlpp::Connection *pConnection = GetConnection();
+        if (nullptr == pConnection)
+        {
+            iRet = -1;
+        }
+        else
+        {
+            if (pConnection->create_db(dbName) == false)
+            {
+                iRet = -1;
+            }
+        }
+    NFMYSQLTRYEND("error")
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "create db failed, dbName:{} errMsg:{}", dbName, errormsg);
+    }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+/**
+ * @brief 选择数据库
+ * @param dbName
+ * @return
+ */
+int NFCMysqlDriver::SelectDB(const std::string &dbName)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    std::string errormsg;
+    int iRet = 0;
+    NFMYSQLTRYBEGIN
+        mysqlpp::Connection *pConnection = GetConnection();
+        if (nullptr == pConnection)
+        {
+            iRet = -1;
+        }
+        else
+        {
+            if (pConnection->select_db(dbName) == false)
+            {
+                iRet = -1;
+            }
+        }
+    NFMYSQLTRYEND("error")
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "create db failed, dbName:{} errMsg:{}", dbName, errormsg);
+    }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+/**
+ * @brief 是否存在表格
+ * @param tableName
+ * @return
+ */
+int NFCMysqlDriver::ExistTable(const std::string &dbName, const std::string &tableName, bool &bExit)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    std::map<std::string, std::string> keyMap;
+    keyMap.emplace("TABLE_SCHEMA", dbName);
+    keyMap.emplace("TABLE_NAME", tableName);
+    int iRet = Exists("information_schema.TABLES", keyMap, bExit);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "ExistTable Error, dbName:{}, tableName:{}", dbName, tableName);
+    }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+
+int NFCMysqlDriver::GetTableColInfo(const std::string &dbName, const std::string &tableName, std::map<std::string, DBTableColInfo> &col)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    std::map<std::string, std::string> keyMap;
+    keyMap.emplace("table_schema", dbName);
+    keyMap.emplace("TABLE_NAME", tableName);
+    std::vector<std::string> fieldVec;
+    fieldVec.push_back("column_name");
+    fieldVec.push_back("data_type");
+    fieldVec.push_back("column_type");
+    fieldVec.push_back("character_maximum");
+    fieldVec.push_back("column_key");
+    std::vector<std::map<std::string, std::string>> valueVec;
+    std::string errorMsg;
+    int iRet = QueryMore("information_schema.COLUMNS", keyMap, fieldVec, valueVec, errorMsg);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "QueryMore Error, dbName:{}, tableName:{} errorMsg:{]", dbName, tableName, errorMsg);
+        return iRet;
+    }
+
+    for (int i = 0; i < (int) valueVec.size(); i++)
+    {
+        std::map<std::string, std::string> &colData = valueVec[i];
+        std::string fields = colData["column_name"];
+        std::string strDataType = colData["data_type"];
+        std::string strColumnType = colData["column_type"];
+        std::string charMax = colData["character_maximum"];
+        std::string columnKey = colData["column_key"];
+        DBTableColInfo colInfo;
+        colInfo.m_colType = NFProtobufCommon::GetPBDataTypeFromDBDataType(strDataType, strColumnType);
+        if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING)
+        {
+            colInfo.m_bufsize = NFCommon::strto<uint32_t>(charMax);
+            if (colInfo.m_bufsize >= 1024)
+            {
+                colInfo.m_bufsize = 1024;
+            }
+        }
+
+        if (columnKey == "PRI")
+        {
+            colInfo.m_primaryKey = true;
+        }
+        else if (columnKey == "MUL")
+        {
+            colInfo.m_indexKey = true;
+        }
+
+
+        col[fields] = colInfo;
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+/**
+ * @brief 查询表格信息
+ * @param tableName
+ * @param pTableMessage
+ * @param needCreateColumn
+ * @return
+ */
+int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string &tableName, bool &bExit,
+                                   std::map<std::string, DBTableColInfo> &primaryKey, std::multimap<uint32_t, std::string> &needCreateColumn)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    int iRet = ExistTable(dbName, tableName, bExit);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "QueryTableInfo Error, dbName:{}, tableName:{}", dbName, tableName);
+        return iRet;
+    }
+
+    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    const google::protobuf::Descriptor *pDescriptor = NFProtobufCommon::Instance()->FindDynamicMessageTypeByName(full_name);
+    CHECK_EXPR(pDescriptor, -1, "NFProtobufCommon::FindDynamicMessageTypeByName:{} Failed", full_name);
+
+    std::map<std::string, DBTableColInfo> mapFields;
+    iRet = NFProtobufCommon::Instance()->GetDbFieldsInfoFromMessage(pDescriptor, primaryKey, mapFields);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetDbFieldsInfoFromMessage Error, dbName:{}, tableName:{}", dbName, tableName);
+        return iRet;
+    }
+
+    std::map<std::string, DBTableColInfo> colData;
+    if (bExit)
+    {
+        iRet = GetTableColInfo(dbName, tableName, colData);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetTableColInfo Error, dbName:{}, tableName:{}", dbName, tableName);
+            return iRet;
+        }
+
+        for (auto iter = primaryKey.begin(); iter != primaryKey.end(); iter++)
+        {
+            auto findIter = colData.find(iter->first);
+            if (findIter != colData.end())
+            {
+                if (findIter->second.m_colType != iter->second.m_colType)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0,
+                               "dbName:{}, tableName:{} Exist Col:{}, but the db col data type:{} is not equal protobuf data type:{}, please check",
+                               dbName, tableName, iter->first, findIter->second.m_colType, iter->second.m_colType);
+                }
+            }
+            else
+            {
+                std::string otherInfo;
+                if (iter->second.m_notNull)
+                {
+                    otherInfo += " NOT NULL ";
+                }
+
+                if (iter->second.m_autoIncrement)
+                {
+                    otherInfo += " AUTO_INCREMENT ";
+                    if (iter->second.m_autoIncrementValue > 0)
+                    {
+                        otherInfo += " = " + NFCommon::tostr(iter->second.m_autoIncrementValue);
+                    }
+                }
+
+                if (iter->second.m_isDefaultValue)
+                {
+                    otherInfo += " Default = " + NFCommon::tostr(iter->second.m_defaultValue);
+                }
+
+                if (iter->second.m_comment.size() > 0)
+                {
+                    otherInfo += " COMMENT = \"" + iter->second.m_comment + "\"";
+                }
+
+                std::string sql;
+                NF_FORMAT_EXPR(sql, "alter table {} add column {} {} {};", tableName, iter->first,
+                               NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo);
+
+                if (sql.size() > 0)
+                    needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+
+                if (findIter->second.m_primaryKey)
+                {
+                    sql.clear();
+                    NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY {};", tableName, iter->first);
+                    if (sql.size() > 0)
+                        needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                }
+            }
+        }
+    }
+
+    for (auto iter = mapFields.begin(); iter != mapFields.end(); iter++)
+    {
+        auto findIter = colData.find(iter->first);
+        if (findIter != colData.end())
+        {
+            if (findIter->second.m_colType != iter->second.m_colType)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0,
+                           "dbName:{}, tableName:{} Exist Col:{}, but the db col data type:{} is not equal protobuf data type:{}, please check",
+                           dbName, tableName, iter->first, findIter->second.m_colType, iter->second.m_colType);
+            }
+        }
+        else
+        {
+
+            std::string otherInfo;
+            if (iter->second.m_notNull)
+            {
+                otherInfo += " NOT NULL ";
+            }
+
+            if (iter->second.m_autoIncrement)
+            {
+                otherInfo += " AUTO_INCREMENT ";
+                if (iter->second.m_autoIncrementValue > 0)
+                {
+                    otherInfo += " = " + NFCommon::tostr(iter->second.m_autoIncrementValue);
+                }
+            }
+
+            if (iter->second.m_isDefaultValue)
+            {
+                otherInfo += " Default = " + NFCommon::tostr(iter->second.m_defaultValue);
+            }
+
+            if (iter->second.m_comment.size() > 0)
+            {
+                otherInfo += " COMMENT = \"" + iter->second.m_comment + "\"";
+            }
+
+            std::string sql;
+            NF_FORMAT_EXPR(sql, "alter table {} add column {} {} {};", tableName, iter->first,
+                           NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo);
+
+            if (sql.size() > 0)
+                needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+
+            if (findIter->second.m_primaryKey)
+            {
+                sql.clear();
+                NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY {};", tableName, iter->first);
+                if (sql.size() > 0)
+                    needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+            }
+
+            if (findIter->second.m_unionKey)
+            {
+                sql.clear();
+                NF_FORMAT_EXPR(sql, "alter table {} add UNIQUE index_name {};", tableName, iter->first);
+                if (sql.size() > 0)
+                    needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+            }
+
+            if (findIter->second.m_indexKey)
+            {
+                sql.clear();
+                NF_FORMAT_EXPR(sql, "alter table {} add INDEX index_name {};", tableName, iter->first);
+                if (sql.size() > 0)
+                    needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+            }
+        }
+    }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCMysqlDriver::CreateTable(const std::string &tableName, std::map<std::string, DBTableColInfo>& primaryKey, const std::multimap<uint32_t, std::string> &needCreateColumn)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    int iRet = 0;
+    std::string sql;
+    std::string colSql;
+    std::string privateKey = "PRIMARY KEY(";
+
+    for(auto iter = primaryKey.begin(); iter != primaryKey.end(); iter++)
+    {
+        if (iter == primaryKey.begin())
+        {
+            privateKey += iter->first;
+        }
+        else {
+            privateKey += ","+iter->first;
+        }
+
+        std::string col;
+        std::string otherInfo;
+        if (iter->second.m_notNull)
+        {
+            otherInfo += " NOT NULL ";
+        }
+
+        if (iter->second.m_autoIncrement)
+        {
+            otherInfo += " AUTO_INCREMENT ";
+            if (iter->second.m_autoIncrementValue > 0)
+            {
+                otherInfo += " = " + NFCommon::tostr(iter->second.m_autoIncrementValue);
+            }
+        }
+
+        if (iter->second.m_isDefaultValue)
+        {
+            otherInfo += " Default = " + NFCommon::tostr(iter->second.m_defaultValue);
+        }
+
+        if (iter->second.m_comment.size() > 0)
+        {
+            otherInfo += " COMMENT = \"" + iter->second.m_comment + "\"";
+        }
+        NF_FORMAT_EXPR(col, " {} {} {},", iter->first, NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo)
+        colSql += col;
+    }
+    privateKey += ")";
+
+    NF_FORMAT_EXPR(sql, "CREATE TABLE IF NOT EXISTS {} ({} {}) ENGINE=InnoDB DEFAULT CHARSET=utf8;", tableName, colSql, privateKey);
+
+    std::map<std::string, std::string> mapValue;
+    std::string errMsg;
+    iRet = ExecuteOne(sql, mapValue, errMsg);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "executeone sql:{} fail, err:{}", sql, errMsg);
+    }
+    else {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Create Table Success! sql:{}", sql);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
 }

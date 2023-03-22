@@ -260,3 +260,113 @@ int NFCMysqlModule::Exists(const std::string& nServerID, const std::string& strT
 	return pDriver->Exists(strTableName, strKeyColName, strKey, bExit);
 }
 
+/**
+ * @brief 是否存在数据库
+ * @param dbName
+ * @return
+ */
+int NFCMysqlModule::ExistsDB(const std::string& serverID, const std::string& dbName, bool &bExit)
+{
+    NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", dbName);
+
+    return pDriver->ExistsDB(dbName, bExit);
+}
+
+/**
+ * @brief 创建数据库
+ * @param dbName
+ * @return
+ */
+int NFCMysqlModule::CreateDB(const std::string& serverID, const std::string& dbName)
+{
+    NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", dbName);
+
+    return pDriver->CreateDB(dbName);
+}
+
+/**
+ * @brief 选择数据库
+ * @param dbName
+ * @return
+ */
+int NFCMysqlModule::SelectDB(const std::string& serverID, const std::string& dbName)
+{
+    NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", dbName);
+
+    return pDriver->SelectDB(dbName);
+}
+
+/**
+ * @brief 是否存在表格
+ * @param dbName
+ * @param tableName
+ * @param bExit
+ * @return
+ */
+int NFCMysqlModule::ExistTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, bool &bExit)
+{
+    NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", dbName);
+
+    return pDriver->ExistTable(dbName, tableName, bExit);
+}
+
+/**
+ * @brief 获取表列信息
+ * @param dbName
+ * @param tableName
+ * @param col
+ * @return
+ */
+int NFCMysqlModule::GetTableColInfo(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo>& col)
+{
+    NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", dbName);
+
+    return pDriver->GetTableColInfo(dbName, tableName, col);
+}
+
+/**
+ * @brief 查询表格信息
+ * @param tableName
+ * @param pTableMessage
+ * @param needCreateColumn
+ * @return
+ */
+int NFCMysqlModule::QueryTableInfo(const std::string& serverID, const std::string& dbName, const std::string& tableName, bool &bExit, std::map<std::string, DBTableColInfo> &primaryKey, std::multimap<uint32_t, std::string>& needCreateColumn)
+{
+    NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", dbName);
+
+    return pDriver->QueryTableInfo(dbName, tableName, bExit, primaryKey, needCreateColumn);
+}
+
+int NFCMysqlModule::CreateTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn)
+{
+    NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", dbName);
+
+    int iRet = pDriver->SelectDB(dbName);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SELECT DB:{} Failed", dbName);
+        return iRet;
+    }
+
+    iRet = pDriver->CreateTable(tableName, primaryKey, needCreateColumn);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateTable Failed! dbName:{}, tableName:{}", dbName, tableName);
+        return iRet;
+    }
+
+    iRet = pDriver->SelectDB(serverID);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SELECT DB:{} Failed", serverID);
+        return iRet;
+    }
+}

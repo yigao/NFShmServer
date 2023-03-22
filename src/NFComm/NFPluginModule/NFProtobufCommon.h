@@ -22,6 +22,36 @@
 #define DEFINE_DEFAULT_PROTO_PACKAGE "proto_ff"
 #define DEFINE_DEFAULT_PROTO_PACKAGE_ADD "proto_ff."
 
+struct DBTableColInfo
+{
+    DBTableColInfo()
+    {
+        m_colType = 0;
+        m_primaryKey = false;
+        m_unionKey = false;
+        m_indexKey = false;
+        m_bufsize = 32;
+        m_fieldIndex = 0;
+        m_autoIncrement = false;
+        m_autoIncrementValue = 0;
+        m_defaultValue = 0;
+        m_isDefaultValue = false;
+    }
+
+    uint32_t m_colType;
+    bool m_primaryKey;
+    bool m_unionKey;
+    bool m_indexKey;
+    bool m_autoIncrement;
+    bool m_notNull;
+    bool m_isDefaultValue;
+    uint32_t m_defaultValue;
+    int64_t m_autoIncrementValue;
+    uint32_t m_bufsize;
+    uint32_t m_fieldIndex;
+    std::string m_comment;
+};
+
 class _NFExport NFProtobufCommon : public NFSingleton<NFProtobufCommon>
 {
 public:
@@ -87,18 +117,45 @@ public:
     static int CopyMessageByFields(google::protobuf::Message *pSrcMessage, const google::protobuf::Message *pDescMessage);
 
     static int GetMessageFromGetHttp(google::protobuf::Message *pSrcMessage, const NFIHttpHandle &req);
+
+    /**
+     * @brief 通过message的protobuf反射， 查找出数据库表的列信息
+     * @param message
+     * @param privaryKeyMap
+     * @param IndexMap
+     * @param mapFileds
+     */
+    static int GetDbFieldsInfoFromMessage(const google::protobuf::Descriptor *pDesc, std::map<std::string, DBTableColInfo> &primaryKeyMap, std::map<std::string, DBTableColInfo> &mapFileds);
+
+    static uint32_t GetPBDataTypeFromDBDataType(const std::string& dbDataType, const std::string& strColumnType);
+    static std::string GetDBDataTypeFromPBDataType(uint32_t pbDataType, uint32_t textMax);
 public:
     NFProtobufCommon();
+
     virtual ~NFProtobufCommon();
+
 public:
+    /**
+     * @brief 加载pb文件 protoc 通过--descriptor_set_out生存的文件
+     * @param ds
+     * @return
+     */
     int LoadProtoDsFile(const std::string &ds);
+
+    /**
+     * @brief
+     * @param full_name
+     * @return
+     */
+    const google::protobuf::Descriptor *FindDynamicMessageTypeByName(const std::string &full_name);
 
     /*
     ** 通过在Protobuf里的message名字创建出一个Message
     */
     ::google::protobuf::Message *CreateDynamicMessageByName(const std::string &full_name);
+
 private:
-    google::protobuf::DescriptorPool* m_pDescriptorPool;
-    google::protobuf::DynamicMessageFactory* m_pDynamicMessageFactory;
+    google::protobuf::DescriptorPool *m_pDescriptorPool;
+    google::protobuf::DynamicMessageFactory *m_pDynamicMessageFactory;
 };
 

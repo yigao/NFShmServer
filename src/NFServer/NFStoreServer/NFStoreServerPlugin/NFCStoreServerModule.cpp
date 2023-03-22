@@ -18,6 +18,7 @@
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
+#include "NFComm/NFPluginModule/NFIMysqlModule.h"
 
 NFCStoreServerModule::NFCStoreServerModule(NFIPluginManager* p):NFIStoreServerModule(p)
 {
@@ -47,6 +48,53 @@ bool NFCStoreServerModule::Awake() {
     else {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds fail:{}", pConfig->LoadProtoDs);
         return false;
+    }
+
+    iRet = FindModule<NFIMysqlModule>()->AddMysqlServer(INFORMATION_SCHEMA, pConfig->MysqlConfig.MysqlIp,
+                                                        pConfig->MysqlConfig.MysqlPort, INFORMATION_SCHEMA,
+                                                        pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server connect mysql failed");
+        return false;
+    }
+
+    bool bExistDB;
+    iRet = FindModule<NFIMysqlModule>()->ExistsDB(INFORMATION_SCHEMA, "proto_ff_cgzone9", bExistDB);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server ExistsDB failed");
+        return false;
+    }
+
+    if (!bExistDB)
+    {
+        iRet = FindModule<NFIMysqlModule>()->CreateDB(INFORMATION_SCHEMA, "proto_ff_cgzone9");
+        if (iRet != 0)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateDB failed");
+            return false;
+        }
+    }
+
+    bool bExistTable = false;
+    std::map<std::string, DBTableColInfo> primaryKey;
+    std::multimap<uint32_t, std::string> needCreateColumn;
+    iRet = FindModule<NFIMysqlModule>()->QueryTableInfo(INFORMATION_SCHEMA, "proto_ff_cgzone9", "RoleDBData", bExistTable, primaryKey, needCreateColumn);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateDB failed");
+        return false;
+    }
+
+    if (!bExistTable)
+    {
+        iRet = FindModule<NFIMysqlModule>()->CreateTable(INFORMATION_SCHEMA, "proto_ff_cgzone9", "RoleDBData", primaryKey, needCreateColumn);
+        if (iRet != 0)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateTable failed");
+            return false;
+        }
     }
 
     FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);

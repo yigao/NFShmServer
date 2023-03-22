@@ -279,6 +279,63 @@ public:
                        std::string strDBUser, std::string strDBPwd, int nRconnectTime = 10,
                        int nRconneCount = -1) override;
 
+    /**
+     * @brief 是否存在数据库
+     * @param dbName
+     * @return
+     */
+    int ExistsDB(const std::string& serverID, const std::string& dbName, bool &bExit) override;
+
+    /**
+     * @brief 创建数据库
+     * @param dbName
+     * @return
+     */
+    int CreateDB(const std::string& serverID, const std::string& dbName) override;
+
+    /**
+     * @brief 选择数据库
+     * @param dbName
+     * @return
+     */
+    int SelectDB(const std::string& serverID, const std::string& dbName) override;
+
+    /**
+     * @brief 是否存在表格
+     * @param dbName
+     * @param tableName
+     * @param bExit
+     * @return
+     */
+    int ExistTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, bool &bExit) override;
+
+    /**
+     * @brief 获取表列信息
+     * @param dbName
+     * @param tableName
+     * @param col
+     * @return
+     */
+    int GetTableColInfo(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo>& col) override;
+
+    /**
+     * @brief 查询表格信息
+     * @param tableName
+     * @param pTableMessage
+     * @param needCreateColumn
+     * @return
+     */
+    int QueryTableInfo(const std::string& serverID, const std::string& dbName, const std::string& tableName, bool &bExit, std::map<std::string, DBTableColInfo> &primaryKey, std::multimap<uint32_t, std::string>& needCreateColumn) override;
+
+    /**
+     * @brief 创建table
+     * @param serverID
+     * @param dbName
+     * @param tableName
+     * @param needCreateColumn
+     * @return
+     */
+    int CreateTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) override;
 private:
     NFCMysqlDriverManager *m_pMysqlDriverManager;
 

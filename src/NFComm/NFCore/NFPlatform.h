@@ -179,6 +179,7 @@ inline int64_t NFGetNanoSeccondTime()
 #endif
 #define NF_FORMAT(my_fmt, ...)             fmt::format(my_fmt, ##__VA_ARGS__)
 #define NF_FORMAT_FUNCTION(my_fmt, ...)    fmt::format(std::string("[{}:{}]") + my_fmt, NF_FUNCTION_LINE, ##__VA_ARGS__)
+#define NF_FORMAT_EXPR(str, my_fmt, ...)   try { str = fmt::format(my_fmt, ##__VA_ARGS__); } catch (fmt::v5::format_error& error) { NFLogError(NF_LOG_SYSTEMLOG, 0, "fmt:{} err:{}{}", my_fmt, error.what()); }
 
 #define MMO_LOWORD(l)           ((uint16_t)(l))
 #define MMO_HIWORD(l)           ((uint16_t)(((uint32_t)(l) >> 16) & 0xFFFF))

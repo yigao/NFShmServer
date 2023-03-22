@@ -13,6 +13,9 @@
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFIDynamicModule.h"
+#include "NFProtobufCommon.h"
+
+#define INFORMATION_SCHEMA "information_schema"
 
 class NFIMysqlModule
 	: public NFIDynamicModule
@@ -281,4 +284,62 @@ public:
      */
     virtual int UpdateOne(const std::string& serverID, const std::string &strTableName, std::map<std::string, std::string> &keyMap,
                           const std::map<std::string, std::string> &keyvalueMap, std::string &errormsg) = 0;
+
+    /**
+     * @brief 是否存在数据库
+     * @param dbName
+     * @return
+     */
+    virtual int ExistsDB(const std::string& serverID, const std::string& dbName, bool &bExit) = 0;
+
+    /**
+     * @brief 创建数据库
+     * @param dbName
+     * @return
+     */
+    virtual int CreateDB(const std::string& serverID, const std::string& dbName) = 0;
+
+    /**
+     * @brief 选择数据库
+     * @param dbName
+     * @return
+     */
+    virtual int SelectDB(const std::string& serverID, const std::string& dbName) = 0;
+
+    /**
+     * @brief 是否存在表格
+     * @param dbName
+     * @param tableName
+     * @param bExit
+     * @return
+     */
+    virtual int ExistTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, bool &bExit) = 0;
+
+    /**
+     * @brief 获取表列信息
+     * @param dbName
+     * @param tableName
+     * @param col
+     * @return
+     */
+    virtual int GetTableColInfo(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo>& col) = 0;
+
+    /**
+     * @brief 查询表格信息
+     * @param tableName
+     * @param pTableMessage
+     * @param needCreateColumn
+     * @return
+     */
+    virtual int QueryTableInfo(const std::string& serverID, const std::string& dbName, const std::string& tableName, bool &bExit, std::map<std::string, DBTableColInfo> &primaryKey, std::multimap<uint32_t, std::string>& needCreateColumn) = 0;
+
+    /**
+     * @brief 创建table
+     * @param serverID
+     * @param dbName
+     * @param tableName
+     * @param needCreateColumn
+     * @return
+     */
+    virtual int CreateTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) = 0;
 };

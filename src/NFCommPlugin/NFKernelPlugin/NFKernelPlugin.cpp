@@ -67,7 +67,7 @@ void NFKernelPlugin::Install()
 	REGISTER_MODULE(m_pObjPluginManager, NFIConsoleModule, NFCConsoleModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFIMessageModule, NFCMessageModule);
     REGISTER_MODULE(m_pObjPluginManager, NFICoroutineModule, NFCCoroutineModule);
-    //REGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
     REGISTER_MODULE(m_pObjPluginManager, NFINamingModule, NFCNamingModule);
@@ -76,7 +76,7 @@ void NFKernelPlugin::Install()
 void NFKernelPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFICoroutineModule, NFCCoroutineModule);
-    //UNREGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
 	UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
     //UNREGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
 	UNREGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
