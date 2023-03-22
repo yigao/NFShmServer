@@ -37,7 +37,7 @@ LoadPlugin =
 			"NFCommLogicPlugin",
 
 			--"NFMasterServerPlugin",
-			"NFRouteServerPlugin",
+			--"NFRouteServerPlugin",
 			"NFRouteAgentServerPlugin",
 
 			--"NFStoreServerPlugin",
