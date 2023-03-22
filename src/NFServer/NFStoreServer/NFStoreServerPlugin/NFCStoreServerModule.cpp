@@ -39,10 +39,18 @@ bool NFCStoreServerModule::Awake() {
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     CHECK_EXPR_ASSERT(pConfig, -1, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
 
-    NFProtobufCommon::Instance()->LoadProtoDsFile(m_pObjPluginManager->GetConfigPath() + "/" + pConfig->LoadProtoDs);
+    int iRet = NFProtobufCommon::Instance()->LoadProtoDsFile(m_pObjPluginManager->GetConfigPath() + "/" + pConfig->LoadProtoDs);
+    if (iRet == 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds success:{}", pConfig->LoadProtoDs);
+    }
+    else {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds fail:{}", pConfig->LoadProtoDs);
+        return false;
+    }
 
     FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
-    int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
+    iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
         pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
         pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
     if (iRet != 0) {
@@ -72,6 +80,22 @@ bool NFCStoreServerModule::OnDynamicPlugin()
 {
 	FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_STORE_SERVER);
 	return true;
+}
+
+bool NFCStoreServerModule::OnReloadConfig()
+{
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    CHECK_EXPR_ASSERT(pConfig, false, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
+    int iRet = NFProtobufCommon::Instance()->LoadProtoDsFile(m_pObjPluginManager->GetConfigPath() + "/" + pConfig->LoadProtoDs);
+    if (iRet == 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds success:{}", pConfig->LoadProtoDs);
+    }
+    else {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds fail:{}", pConfig->LoadProtoDs);
+        return false;
+    }
+    return true;
 }
 
 int NFCStoreServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet)

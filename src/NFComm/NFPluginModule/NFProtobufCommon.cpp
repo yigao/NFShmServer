@@ -1238,7 +1238,8 @@ int NFProtobufCommon::LoadProtoDsFile(const std::string &ds)
 
     for (int i = 0; i < file_descriptor_set.file_size(); ++i)
     {
-        m_pDescriptorPool->BuildFile(file_descriptor_set.file(i));
+        auto pResult = m_pDescriptorPool->BuildFile(file_descriptor_set.file(i));
+        CHECK_EXPR(pResult, -1, "pResult == NULL, load file:{} failed", ds);
     }
 
     return 0;

@@ -28,6 +28,8 @@ public:
 
 	virtual bool OnDynamicPlugin() override;
 
+    virtual bool OnReloadConfig() override;
+
     /**
      * @brief 处理来自服务器的信息
      * @param unLinkId
