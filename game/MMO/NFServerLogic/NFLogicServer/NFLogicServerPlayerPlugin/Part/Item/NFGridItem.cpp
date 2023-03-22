@@ -14,6 +14,7 @@
 #include "DescStore/EquipAttributeDesc.h"
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "NFComm/NFCore/NFCommonApi.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 NFGridItem::NFGridItem()
 {

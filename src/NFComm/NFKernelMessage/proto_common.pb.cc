@@ -192,7 +192,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbTableConfig));
   pbNFServerConfig_descriptor_ = file->message_type(7);
-  static const int pbNFServerConfig_offsets_[36] = {
+  static const int pbNFServerConfig_offsets_[37] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servertype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, servername_),
@@ -203,6 +203,7 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, idlesleepus_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, handlemsgnumperframe_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serveropentime_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, loadprotods_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, serverport_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbNFServerConfig, externalserverip_),
@@ -370,43 +371,43 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "\024\001\022\025\n\rServerPlugins\030\002 \003(\t\022/\n\nServerList\030"
     "\003 \003(\0132\033.proto_ff.pbAllServerConfig\"<\n\rpb"
     "TableConfig\022\027\n\tTableName\030\001 \001(\tB\004\240\301\024\001\022\022\n\n"
-    "TableCount\030\002 \001(\r\"\353\006\n\020pbNFServerConfig\022\026\n"
+    "TableCount\030\002 \001(\r\"\200\007\n\020pbNFServerConfig\022\026\n"
     "\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022\n\nServerType\030\002 \001("
     "\r\022\022\n\nServerName\030\003 \001(\t\022\r\n\005BusId\030\004 \001(\r\022\021\n\t"
     "BusLength\030\005 \001(\r\022\020\n\010LinkMode\030\007 \001(\t\022\013\n\003Url"
     "\030\010 \001(\t\022\023\n\013IdleSleepUS\030\t \001(\r\022\034\n\024HandleMsg"
     "NumPerFrame\030\n \001(\r\022\026\n\016ServerOpenTime\030\013 \001("
-    "\004\022\020\n\010ServerIp\030\024 \001(\t\022\022\n\nServerPort\030\025 \001(\r\022"
-    "\030\n\020ExternalServerIp\030\026 \001(\t\022\032\n\022ExternalSer"
-    "verPort\030\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022\025\n\rMaxCo"
-    "nnectNum\030\031 \001(\r\022\025\n\rWorkThreadNum\030\032 \001(\r\022\024\n"
-    "\014NetThreadNum\030\033 \001(\r\022\020\n\010Security\030\034 \001(\010\022\021\n"
-    "\tWebSocket\030\035 \001(\010\022\021\n\tParseType\030\036 \001(\r\022,\n\013R"
-    "outeConfig\0302 \001(\0132\027.proto_ff.pbRouteConfi"
-    "g\022,\n\013MysqlConfig\030F \001(\0132\027.proto_ff.pbMysq"
-    "lConfig\022\025\n\rDefaultDBName\030K \001(\t\022\023\n\013CrossD"
-    "BName\030L \001(\t\022,\n\013RedisConfig\030P \001(\0132\027.proto"
-    "_ff.pbRedisConfig\022\021\n\tsendEmail\030[ \001(\t\022\025\n\r"
-    "sendEmailPass\030\\ \001(\t\022\024\n\014sendEmailUrl\030] \001("
-    "\t\022\025\n\rsendEmailPort\030^ \001(\t\022\021\n\trecvEmail\030_ "
-    "\001(\t\022\024\n\014wxWorkdRobot\030` \001(\t\022\032\n\022MaxOnlinePl"
-    "ayerNum\030d \001(\r\022\030\n\020HeartBeatTimeout\030e \001(\r\022"
-    "\036\n\026ClientKeepAliveTimeout\030f \001(\r\022\025\n\rClien"
-    "tVersion\030g \001(\r\"_\n\017wxWorkRobotText\022\025\n\007con"
-    "tent\030\001 \001(\tB\004\240\301\024\001\022\026\n\016mentioned_list\030\002 \003(\t"
-    "\022\035\n\025mentioned_mobile_list\030\003 \003(\t\"U\n\023wxWor"
-    "kRobotHttpPost\022\025\n\007msgtype\030\001 \001(\tB\004\240\301\024\001\022\'\n"
-    "\004text\030\002 \001(\0132\031.proto_ff.wxWorkRobotText*\361"
-    "\002\n\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_"
-    "ST_MASTER_SERVER\020\001\022\026\n\022NF_ST_ROUTE_SERVER"
-    "\020\002\022\034\n\030NF_ST_ROUTE_AGENT_SERVER\020\003\022\026\n\022NF_S"
-    "T_PROXY_SERVER\020\004\022\034\n\030NF_ST_PROXY_AGENT_SE"
-    "RVER\020\005\022\026\n\022NF_ST_STORE_SERVER\020\006\022\026\n\022NF_ST_"
-    "LOGIN_SERVER\020\007\022\026\n\022NF_ST_WORLD_SERVER\020\010\022\026"
-    "\n\022NF_ST_LOGIC_SERVER\020\t\022\025\n\021NF_ST_GAME_SER"
-    "VER\020\n\022\024\n\020NF_ST_SNS_SERVER\020\013\022\024\n\020NF_ST_WEB"
-    "_SERVER\020\014\022\030\n\024NF_ST_MONITOR_SERVER\020\022\022\r\n\tN"
-    "F_ST_MAX\020\024", 2570);
+    "\004\022\023\n\013LoadProtoDs\030\014 \001(\t\022\020\n\010ServerIp\030\024 \001(\t"
+    "\022\022\n\nServerPort\030\025 \001(\r\022\030\n\020ExternalServerIp"
+    "\030\026 \001(\t\022\032\n\022ExternalServerPort\030\027 \001(\r\022\020\n\010Ht"
+    "tpPort\030\030 \001(\r\022\025\n\rMaxConnectNum\030\031 \001(\r\022\025\n\rW"
+    "orkThreadNum\030\032 \001(\r\022\024\n\014NetThreadNum\030\033 \001(\r"
+    "\022\020\n\010Security\030\034 \001(\010\022\021\n\tWebSocket\030\035 \001(\010\022\021\n"
+    "\tParseType\030\036 \001(\r\022,\n\013RouteConfig\0302 \001(\0132\027."
+    "proto_ff.pbRouteConfig\022,\n\013MysqlConfig\030F "
+    "\001(\0132\027.proto_ff.pbMysqlConfig\022\025\n\rDefaultD"
+    "BName\030K \001(\t\022\023\n\013CrossDBName\030L \001(\t\022,\n\013Redi"
+    "sConfig\030P \001(\0132\027.proto_ff.pbRedisConfig\022\021"
+    "\n\tsendEmail\030[ \001(\t\022\025\n\rsendEmailPass\030\\ \001(\t"
+    "\022\024\n\014sendEmailUrl\030] \001(\t\022\025\n\rsendEmailPort\030"
+    "^ \001(\t\022\021\n\trecvEmail\030_ \001(\t\022\024\n\014wxWorkdRobot"
+    "\030` \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030\n\020He"
+    "artBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAliveT"
+    "imeout\030f \001(\r\022\025\n\rClientVersion\030g \001(\r\"_\n\017w"
+    "xWorkRobotText\022\025\n\007content\030\001 \001(\tB\004\240\301\024\001\022\026\n"
+    "\016mentioned_list\030\002 \003(\t\022\035\n\025mentioned_mobil"
+    "e_list\030\003 \003(\t\"U\n\023wxWorkRobotHttpPost\022\025\n\007m"
+    "sgtype\030\001 \001(\tB\004\240\301\024\001\022\'\n\004text\030\002 \001(\0132\031.proto"
+    "_ff.wxWorkRobotText*\361\002\n\016NF_SERVER_TYPE\022\016"
+    "\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001\022"
+    "\026\n\022NF_ST_ROUTE_SERVER\020\002\022\034\n\030NF_ST_ROUTE_A"
+    "GENT_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022\034\n"
+    "\030NF_ST_PROXY_AGENT_SERVER\020\005\022\026\n\022NF_ST_STO"
+    "RE_SERVER\020\006\022\026\n\022NF_ST_LOGIN_SERVER\020\007\022\026\n\022N"
+    "F_ST_WORLD_SERVER\020\010\022\026\n\022NF_ST_LOGIC_SERVE"
+    "R\020\t\022\025\n\021NF_ST_GAME_SERVER\020\n\022\024\n\020NF_ST_SNS_"
+    "SERVER\020\013\022\024\n\020NF_ST_WEB_SERVER\020\014\022\030\n\024NF_ST_"
+    "MONITOR_SERVER\020\022\022\r\n\tNF_ST_MAX\020\024", 2591);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -3255,6 +3256,7 @@ const int pbNFServerConfig::kUrlFieldNumber;
 const int pbNFServerConfig::kIdleSleepUSFieldNumber;
 const int pbNFServerConfig::kHandleMsgNumPerFrameFieldNumber;
 const int pbNFServerConfig::kServerOpenTimeFieldNumber;
+const int pbNFServerConfig::kLoadProtoDsFieldNumber;
 const int pbNFServerConfig::kServerIpFieldNumber;
 const int pbNFServerConfig::kServerPortFieldNumber;
 const int pbNFServerConfig::kExternalServerIpFieldNumber;
@@ -3312,6 +3314,7 @@ void pbNFServerConfig::SharedCtor() {
   idlesleepus_ = 0u;
   handlemsgnumperframe_ = 0u;
   serveropentime_ = GOOGLE_ULONGLONG(0);
+  loadprotods_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   serverip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   serverport_ = 0u;
   externalserverip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -3357,6 +3360,9 @@ void pbNFServerConfig::SharedDtor() {
   }
   if (url_ != &::google::protobuf::internal::kEmptyString) {
     delete url_;
+  }
+  if (loadprotods_ != &::google::protobuf::internal::kEmptyString) {
+    delete loadprotods_;
   }
   if (serverip_ != &::google::protobuf::internal::kEmptyString) {
     delete serverip_;
@@ -3446,6 +3452,11 @@ void pbNFServerConfig::Clear() {
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     handlemsgnumperframe_ = 0u;
     serveropentime_ = GOOGLE_ULONGLONG(0);
+    if (has_loadprotods()) {
+      if (loadprotods_ != &::google::protobuf::internal::kEmptyString) {
+        loadprotods_->clear();
+      }
+    }
     if (has_serverip()) {
       if (serverip_ != &::google::protobuf::internal::kEmptyString) {
         serverip_->clear();
@@ -3459,9 +3470,9 @@ void pbNFServerConfig::Clear() {
     }
     externalserverport_ = 0u;
     httpport_ = 0u;
-    maxconnectnum_ = 0u;
   }
   if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
+    maxconnectnum_ = 0u;
     workthreadnum_ = 0u;
     netthreadnum_ = 0u;
     security_ = false;
@@ -3473,13 +3484,13 @@ void pbNFServerConfig::Clear() {
     if (has_mysqlconfig()) {
       if (mysqlconfig_ != NULL) mysqlconfig_->::proto_ff::pbMysqlConfig::Clear();
     }
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (has_defaultdbname()) {
       if (defaultdbname_ != &::google::protobuf::internal::kEmptyString) {
         defaultdbname_->clear();
       }
     }
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (has_crossdbname()) {
       if (crossdbname_ != &::google::protobuf::internal::kEmptyString) {
         crossdbname_->clear();
@@ -3513,13 +3524,13 @@ void pbNFServerConfig::Clear() {
         recvemail_->clear();
       }
     }
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (has_wxworkdrobot()) {
       if (wxworkdrobot_ != &::google::protobuf::internal::kEmptyString) {
         wxworkdrobot_->clear();
       }
     }
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     maxonlineplayernum_ = 0u;
     heartbeattimeout_ = 0u;
     clientkeepalivetimeout_ = 0u;
@@ -3691,6 +3702,23 @@ bool pbNFServerConfig::MergePartialFromCodedStream(
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &serveropentime_)));
           set_has_serveropentime();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(98)) goto parse_LoadProtoDs;
+        break;
+      }
+
+      // optional string LoadProtoDs = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_LoadProtoDs:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_loadprotods()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->loadprotods().data(), this->loadprotods().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -4202,6 +4230,15 @@ void pbNFServerConfig::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(11, this->serveropentime(), output);
   }
 
+  // optional string LoadProtoDs = 12;
+  if (has_loadprotods()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->loadprotods().data(), this->loadprotods().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      12, this->loadprotods(), output);
+  }
+
   // optional string ServerIp = 20;
   if (has_serverip()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
@@ -4451,6 +4488,16 @@ void pbNFServerConfig::SerializeWithCachedSizes(
   // optional uint64 ServerOpenTime = 11;
   if (has_serveropentime()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(11, this->serveropentime(), target);
+  }
+
+  // optional string LoadProtoDs = 12;
+  if (has_loadprotods()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->loadprotods().data(), this->loadprotods().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        12, this->loadprotods(), target);
   }
 
   // optional string ServerIp = 20;
@@ -4722,6 +4769,13 @@ int pbNFServerConfig::ByteSize() const {
           this->serveropentime());
     }
 
+    // optional string LoadProtoDs = 12;
+    if (has_loadprotods()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->loadprotods());
+    }
+
     // optional string ServerIp = 20;
     if (has_serverip()) {
       total_size += 2 +
@@ -4757,6 +4811,8 @@ int pbNFServerConfig::ByteSize() const {
           this->httpport());
     }
 
+  }
+  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     // optional uint32 MaxConnectNum = 25;
     if (has_maxconnectnum()) {
       total_size += 2 +
@@ -4764,8 +4820,6 @@ int pbNFServerConfig::ByteSize() const {
           this->maxconnectnum());
     }
 
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     // optional uint32 WorkThreadNum = 26;
     if (has_workthreadnum()) {
       total_size += 2 +
@@ -4811,6 +4865,8 @@ int pbNFServerConfig::ByteSize() const {
           this->mysqlconfig());
     }
 
+  }
+  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     // optional string DefaultDBName = 75;
     if (has_defaultdbname()) {
       total_size += 2 +
@@ -4818,8 +4874,6 @@ int pbNFServerConfig::ByteSize() const {
           this->defaultdbname());
     }
 
-  }
-  if (_has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     // optional string CrossDBName = 76;
     if (has_crossdbname()) {
       total_size += 2 +
@@ -4869,6 +4923,8 @@ int pbNFServerConfig::ByteSize() const {
           this->recvemail());
     }
 
+  }
+  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     // optional string wxWorkdRobot = 96;
     if (has_wxworkdrobot()) {
       total_size += 2 +
@@ -4876,8 +4932,6 @@ int pbNFServerConfig::ByteSize() const {
           this->wxworkdrobot());
     }
 
-  }
-  if (_has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     // optional uint32 MaxOnlinePlayerNum = 100;
     if (has_maxonlineplayernum()) {
       total_size += 2 +
@@ -4965,6 +5019,9 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_serveropentime()) {
       set_serveropentime(from.serveropentime());
     }
+    if (from.has_loadprotods()) {
+      set_loadprotods(from.loadprotods());
+    }
     if (from.has_serverip()) {
       set_serverip(from.serverip());
     }
@@ -4980,11 +5037,11 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_httpport()) {
       set_httpport(from.httpport());
     }
+  }
+  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_maxconnectnum()) {
       set_maxconnectnum(from.maxconnectnum());
     }
-  }
-  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
     if (from.has_workthreadnum()) {
       set_workthreadnum(from.workthreadnum());
     }
@@ -5006,11 +5063,11 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_mysqlconfig()) {
       mutable_mysqlconfig()->::proto_ff::pbMysqlConfig::MergeFrom(from.mysqlconfig());
     }
+  }
+  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_defaultdbname()) {
       set_defaultdbname(from.defaultdbname());
     }
-  }
-  if (from._has_bits_[24 / 32] & (0xffu << (24 % 32))) {
     if (from.has_crossdbname()) {
       set_crossdbname(from.crossdbname());
     }
@@ -5032,11 +5089,11 @@ void pbNFServerConfig::MergeFrom(const pbNFServerConfig& from) {
     if (from.has_recvemail()) {
       set_recvemail(from.recvemail());
     }
+  }
+  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (from.has_wxworkdrobot()) {
       set_wxworkdrobot(from.wxworkdrobot());
     }
-  }
-  if (from._has_bits_[32 / 32] & (0xffu << (32 % 32))) {
     if (from.has_maxonlineplayernum()) {
       set_maxonlineplayernum(from.maxonlineplayernum());
     }
@@ -5082,6 +5139,7 @@ void pbNFServerConfig::Swap(pbNFServerConfig* other) {
     std::swap(idlesleepus_, other->idlesleepus_);
     std::swap(handlemsgnumperframe_, other->handlemsgnumperframe_);
     std::swap(serveropentime_, other->serveropentime_);
+    std::swap(loadprotods_, other->loadprotods_);
     std::swap(serverip_, other->serverip_);
     std::swap(serverport_, other->serverport_);
     std::swap(externalserverip_, other->externalserverip_);

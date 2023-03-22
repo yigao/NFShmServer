@@ -21,6 +21,7 @@
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "DescStore/EquipEquipDesc.h"
 #include "DescStore/ItemItemDesc.h"
+#include "NFComm/NFShmCore/NFArray.h"
 
 typedef NFShmOldHashMap<uint64_t, NFArray<int64_t, 10>, MAX_ITEM_ITEM_NUM>  ITEM_FUNC_MAP;
 typedef NFShmOldHashMap<uint64_t, NFShmOldHashMap<int32_t, bool, 10>, MAX_EQUIP_EQUIP_NUM>  ITEM_PROF_LIMIT_MAP;

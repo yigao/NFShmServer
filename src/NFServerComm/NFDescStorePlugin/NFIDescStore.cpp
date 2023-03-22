@@ -10,6 +10,7 @@
 #include "NFIDescStore.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFIDescStoreModule.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 NFIDescStore::NFIDescStore():NFShmObj()
 {

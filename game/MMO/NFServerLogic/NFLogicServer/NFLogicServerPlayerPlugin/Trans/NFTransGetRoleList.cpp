@@ -129,6 +129,8 @@ int NFTransGetRoleList::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRe
         if (err_code != 0)
         {
             m_registerNum = 0;
+            SetFinished(proto_ff::RET_FAIL);
+            return 0;
         }
         else {
             proto_ff::GetRegisterNum_RoleDBData xMsg;

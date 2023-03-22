@@ -25,11 +25,11 @@ int tbServerMgr_s::ResumeInit() {
 
 void tbServerMgr_s::write_to_pbmsg(::proto_ff::tbServerMgr & msg) const {
 	msg.set_id((uint64_t)id);
-	msg.set_contract((const char*)contract.Get());
-	msg.set_machine_addr((const char*)machine_addr.Get());
-	msg.set_ip((const char*)ip.Get());
-	msg.set_bus_name((const char*)bus_name.Get());
-	msg.set_server_desc((const char*)server_desc.Get());
+	msg.set_contract((const char*)contract.data());
+	msg.set_machine_addr((const char*)machine_addr.data());
+	msg.set_ip((const char*)ip.data());
+	msg.set_bus_name((const char*)bus_name.data());
+	msg.set_server_desc((const char*)server_desc.data());
 	msg.set_cur_count((uint32_t)cur_count);
 	msg.set_last_login_time((uint64_t)last_login_time);
 	msg.set_last_logout_time((uint64_t)last_logout_time);
@@ -39,11 +39,11 @@ void tbServerMgr_s::write_to_pbmsg(::proto_ff::tbServerMgr & msg) const {
 void tbServerMgr_s::read_from_pbmsg(const ::proto_ff::tbServerMgr & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbServerMgr_s));
 	id = msg.id();
-	contract.Copy(msg.contract());
-	machine_addr.Copy(msg.machine_addr());
-	ip.Copy(msg.ip());
-	bus_name.Copy(msg.bus_name());
-	server_desc.Copy(msg.server_desc());
+	contract = msg.contract();
+	machine_addr = msg.machine_addr();
+	ip = msg.ip();
+	bus_name = msg.bus_name();
+	server_desc = msg.server_desc();
 	cur_count = msg.cur_count();
 	last_login_time = msg.last_login_time();
 	last_logout_time = msg.last_logout_time();
@@ -269,6 +269,7 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_idlesleepus((uint32_t)IdleSleepUS);
 	msg.set_handlemsgnumperframe((uint32_t)HandleMsgNumPerFrame);
 	msg.set_serveropentime((uint64_t)ServerOpenTime);
+	msg.set_loadprotods(LoadProtoDs);
 	msg.set_serverip(ServerIp);
 	msg.set_serverport((uint32_t)ServerPort);
 	msg.set_externalserverip(ExternalServerIp);
@@ -311,6 +312,7 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	IdleSleepUS = msg.idlesleepus();
 	HandleMsgNumPerFrame = msg.handlemsgnumperframe();
 	ServerOpenTime = msg.serveropentime();
+	LoadProtoDs = msg.loadprotods();
 	ServerIp = msg.serverip();
 	ServerPort = msg.serverport();
 	ExternalServerIp = msg.externalserverip();

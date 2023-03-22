@@ -16,6 +16,7 @@
 #include "ClientServerCmd.pb.h"
 #include "Event.pb.h"
 #include "NFLogicCommon/NFEventDefine.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMissionPart, EOT_LOGIC_MISSION_PART_ID, NFShmObj)
 

@@ -21,6 +21,7 @@
 
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFComm/NFShmCore/NFArray.h"
 
 #define NF_MAP_DESC_BORN_MAX_SIZE 40
 #define NF_MAP_DESC_AREA_MAX_POS_SIZE 10

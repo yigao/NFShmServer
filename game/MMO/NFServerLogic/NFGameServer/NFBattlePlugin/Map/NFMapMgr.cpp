@@ -11,6 +11,7 @@
 #include "DescStore/MapMapDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFMap.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMapMgr, EOT_GAME_MAP_MGR_ID, NFShmObj)
 

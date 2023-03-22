@@ -6,41 +6,41 @@
 
 NFRedisDriver::NFRedisDriver()
 {
-	mnPort = 0;
-	mbBusy = false;
-	mbAuthed = false;
+    mnPort = 0;
+    mbBusy = false;
+    mbAuthed = false;
     m_pRedisClientSocket = new NFRedisClientSocket();
 }
 
 bool NFRedisDriver::Enable()
 {
-	return m_pRedisClientSocket->IsConnect();
+    return m_pRedisClientSocket->IsConnect();
 }
 
 bool NFRedisDriver::Authed()
 {
-	return mbAuthed;
+    return mbAuthed;
 }
 
 bool NFRedisDriver::Busy()
 {
-	return mbBusy;
+    return mbBusy;
 }
 
 bool NFRedisDriver::Connect(const std::string &ip, const int port, const std::string &auth)
 {
     int64_t nFD = m_pRedisClientSocket->Connect(ip, port);
-	if (nFD > 0)
-	{
-		mstrIP = ip;
-		mnPort = port;
-		mstrAuthKey = auth;
-		while(m_pRedisClientSocket->IsNone())
+    if (nFD > 0)
+    {
+        mstrIP = ip;
+        mnPort = port;
+        mstrAuthKey = auth;
+        while (m_pRedisClientSocket->IsNone())
         {
             Execute();
             NFSLEEP(1000);
         }
-		if (!auth.empty())
+        if (!auth.empty())
         {
             if (Enable() && !Authed())
             {
@@ -52,8 +52,8 @@ bool NFRedisDriver::Connect(const std::string &ip, const int port, const std::st
             }
         }
 
-		return true;
-	}
+        return true;
+    }
 
     return false;
 }
@@ -96,12 +96,12 @@ bool NFRedisDriver::ReConnect()
 
 bool NFRedisDriver::IsConnect()
 {
-	if (m_pRedisClientSocket)
-	{
-		return m_pRedisClientSocket->IsConnect();
-	}
+    if (m_pRedisClientSocket)
+    {
+        return m_pRedisClientSocket->IsConnect();
+    }
 
-	return false;
+    return false;
 }
 
 bool NFRedisDriver::Execute()
@@ -112,7 +112,8 @@ bool NFRedisDriver::Execute()
 }
 
 int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
-                              storesvr_sqldata::storesvr_selobj_res &select_res) {
+                             storesvr_sqldata::storesvr_selobj_res &select_res)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
@@ -123,7 +124,8 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}");
     if (keyMap.size() != 1)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap), select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap),
+                   select.baseinfo().tbname(), select.mod_key());
         return -1;
     }
 
@@ -147,23 +149,20 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
         return 1;
     }
 
-    std::string proto_fullname = "proto_ff." + select.baseinfo().tbname();
+    std::string proto_fullname = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + select.baseinfo().tbname();
 
-    const ::google::protobuf::Message *pDefaultMessage = NFProtobufCommon::FindMessageTypeByName(proto_fullname);
-
-    CHECK_EXPR(pDefaultMessage, -1,
-               "NFProtobufCommon::FindMessageTypeByName:{} Failed", proto_fullname);
-
-    //ͨ��protobufĬ�ϱ���new����һ���µ�proto_fullname����
-    ::google::protobuf::Message *pMessageObject = pDefaultMessage->New();
+    ::google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(proto_fullname);
     CHECK_EXPR(pMessageObject, -1, "{} New Failed", proto_fullname);
 
     bRet = pMessageObject->ParsePartialFromString(value);
 
-    if (bRet && pMessageObject != NULL) {
+    if (bRet && pMessageObject != NULL)
+    {
         select_res.set_sel_record(pMessageObject->SerializeAsString());
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessageObject->Utf8DebugString());
-    } else {
+    }
+    else
+    {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "ParsePartialFromString Failed, tableName:{}, key:{}",
                    select.baseinfo().tbname(), db_key);
     }
@@ -175,7 +174,8 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     return 0;
 }
 
-int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_modobj &select) {
+int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_modobj &select)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
@@ -186,7 +186,8 @@ int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_modobj &select) {
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}");
     if (keyMap.size() != 1)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap), select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap),
+                   select.baseinfo().tbname(), select.mod_key());
         return -1;
     };
 
@@ -209,7 +210,8 @@ int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_modobj &select) {
     return 0;
 }
 
-int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select) {
+int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
@@ -220,7 +222,8 @@ int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select) {
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}");
     if (keyMap.size() != 1)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap), select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap),
+                   select.baseinfo().tbname(), select.mod_key());
         return -1;
     };
 
@@ -244,13 +247,14 @@ int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select) {
 }
 
 int
-NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::map<std::string, std::string> &keyMap) {
+NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::map<std::string, std::string> &keyMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    std::string full_name = "proto_ff." + tableName;
-    google::protobuf::Message *pMessageObject = NFProtobufCommon::CreateMessageByName(full_name);
+    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.sel_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
@@ -260,7 +264,8 @@ NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::m
     return 0;
 }
 
-int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select) {
+int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
     std::map<std::string, std::string> keyMap;
@@ -268,7 +273,8 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select) {
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed");
     if (keyMap.size() != 1)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap), select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap),
+                   select.baseinfo().tbname(), select.mod_key());
         return -1;
     }
 
@@ -283,7 +289,8 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select) {
 
     std::string errmsg;
     bRet = HDEL(db_key, db_field);
-    if (iRet == false) {
+    if (iRet == false)
+    {
         return -1;
     }
 
@@ -300,7 +307,8 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_ins &select)
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed");
     if (keyMap.size() != 1)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap), select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap),
+                   select.baseinfo().tbname(), select.mod_key());
         return -1;
     }
 
@@ -315,7 +323,8 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_ins &select)
 
     std::string errmsg;
     bRet = HDEL(db_key, db_field);
-    if (iRet == false) {
+    if (iRet == false)
+    {
         return -1;
     }
 
@@ -332,7 +341,8 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed");
     if (keyMap.size() != 1)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap), select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateSql Failed!, field not right:{} -- dbName:{} modkey:{}", NFCommon::tostr(keyMap),
+                   select.baseinfo().tbname(), select.mod_key());
         return -1;
     }
 
@@ -347,7 +357,8 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
 
     std::string errmsg;
     bRet = HDEL(db_key, db_field);
-    if (iRet == false) {
+    if (iRet == false)
+    {
         return -1;
     }
 
@@ -355,13 +366,14 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
     return 0;
 }
 
-int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap) {
+int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    std::string full_name = "proto_ff." + tableName;
-    google::protobuf::Message *pMessageObject = NFProtobufCommon::CreateMessageByName(full_name);
+    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.del_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
@@ -371,13 +383,14 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, st
     return 0;
 }
 
-int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &keyMap) {
+int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &keyMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    std::string full_name = "proto_ff." + tableName;
-    google::protobuf::Message *pMessageObject = NFProtobufCommon::CreateMessageByName(full_name);
+    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.ins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
@@ -387,13 +400,14 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::
     return 0;
 }
 
-int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap) {
+int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    std::string full_name = "proto_ff." + tableName;
-    google::protobuf::Message *pMessageObject = NFProtobufCommon::CreateMessageByName(full_name);
+    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
@@ -403,99 +417,99 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, st
     return 0;
 }
 
-NF_SHARE_PTR<redisReply> NFRedisDriver::BuildSendCmd(const NFRedisCommand& cmd)
+NF_SHARE_PTR<redisReply> NFRedisDriver::BuildSendCmd(const NFRedisCommand &cmd)
 {
-	mbBusy = true;
+    mbBusy = true;
 
-	if (!IsConnect())
-	{
-		mbBusy = false;
+    if (!IsConnect())
+    {
+        mbBusy = false;
 
-		ReConnect();
-		return nullptr;
-	}
-	else
-	{
-		std::string msg = cmd.Serialize();
-		if (msg.empty())
-		{
-			mbBusy = false;
-			return nullptr;
-		}
-		int nRet = m_pRedisClientSocket->Write(msg.data(), msg.length());
-		if (nRet != 0)
-		{
-			mbBusy = false;
-			return nullptr;
-		}
-	}
-	
+        ReConnect();
+        return nullptr;
+    }
+    else
+    {
+        std::string msg = cmd.Serialize();
+        if (msg.empty())
+        {
+            mbBusy = false;
+            return nullptr;
+        }
+        int nRet = m_pRedisClientSocket->Write(msg.data(), msg.length());
+        if (nRet != 0)
+        {
+            mbBusy = false;
+            return nullptr;
+        }
+    }
 
-	return ParseForReply();
+
+    return ParseForReply();
 }
 
 NF_SHARE_PTR<redisReply> NFRedisDriver::ParseForReply()
 {
-	struct redisReply* reply = nullptr;
-	while (true)
-	{
-		//std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    struct redisReply *reply = nullptr;
+    while (true)
+    {
+        //std::this_thread::sleep_for(std::chrono::milliseconds(1));
 
-		// When the buffer is empty, reply will be null
-		int ret = redisReaderGetReply(m_pRedisClientSocket->GetRedisReader(), (void**)&reply);
-		if (ret == REDIS_OK && reply != nullptr)
-		{
-			break;
-		}
+        // When the buffer is empty, reply will be null
+        int ret = redisReaderGetReply(m_pRedisClientSocket->GetRedisReader(), (void **) &reply);
+        if (ret == REDIS_OK && reply != nullptr)
+        {
+            break;
+        }
 
-		Execute();
+        Execute();
 
-		if (!IsConnect())
-		{
-			ReConnect();
-			break;
-		}
-	}
+        if (!IsConnect())
+        {
+            ReConnect();
+            break;
+        }
+    }
 
-	mbBusy = false;
+    mbBusy = false;
 
-	if (reply == nullptr)
-	{
-		return nullptr;
-	}
+    if (reply == nullptr)
+    {
+        return nullptr;
+    }
 
-	if (REDIS_REPLY_ERROR == reply->type)
-	{
-		// write log
-		freeReplyObject(reply);
-		return nullptr;
-	}
+    if (REDIS_REPLY_ERROR == reply->type)
+    {
+        // write log
+        freeReplyObject(reply);
+        return nullptr;
+    }
 
-	return NF_SHARE_PTR<redisReply>(reply, [](redisReply* r) { if (r) freeReplyObject(r); });
+    return NF_SHARE_PTR<redisReply>(reply, [](redisReply *r) { if (r) freeReplyObject(r); });
 }
 
-bool NFRedisDriver::AUTH(const std::string& auth)
+bool NFRedisDriver::AUTH(const std::string &auth)
 {
-	NFRedisCommand cmd(GET_NAME(AUTH));
-	cmd << auth;
+    NFRedisCommand cmd(GET_NAME(AUTH));
+    cmd << auth;
 
-	// if password error, redis will return REDIS_REPLY_ERROR
-	// pReply will be null
-	NF_SHARE_PTR<redisReply> pReply = BuildSendCmd(cmd);
-	if (pReply == nullptr)
-	{
-		return false;
-	}
+    // if password error, redis will return REDIS_REPLY_ERROR
+    // pReply will be null
+    NF_SHARE_PTR<redisReply> pReply = BuildSendCmd(cmd);
+    if (pReply == nullptr)
+    {
+        return false;
+    }
 
-	if (pReply->type == REDIS_REPLY_STATUS)
-	{
-		if (std::string("OK") == std::string(pReply->str, pReply->len) ||
-			std::string("ok") == std::string(pReply->str, pReply->len))
-		{
-			mbAuthed = true;
-			return true;
-		}
-	}
-	
-	return false;
+    if (pReply->type == REDIS_REPLY_STATUS)
+    {
+        if (std::string("OK") == std::string(pReply->str, pReply->len) ||
+            std::string("ok") == std::string(pReply->str, pReply->len))
+        {
+            mbAuthed = true;
+            return true;
+        }
+    }
+
+    return false;
 }

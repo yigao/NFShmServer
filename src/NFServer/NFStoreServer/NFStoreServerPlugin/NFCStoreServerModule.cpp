@@ -17,6 +17,7 @@
 #include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFPluginModule/NFProtobufCommon.h"
 
 NFCStoreServerModule::NFCStoreServerModule(NFIPluginManager* p):NFIStoreServerModule(p)
 {
@@ -37,6 +38,8 @@ bool NFCStoreServerModule::Awake() {
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     CHECK_EXPR_ASSERT(pConfig, -1, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
+
+    NFProtobufCommon::Instance()->LoadProtoDsFile(m_pObjPluginManager->GetConfigPath() + "/" + pConfig->LoadProtoDs);
 
     FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
     int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,

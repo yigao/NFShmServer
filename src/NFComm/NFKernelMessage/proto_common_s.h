@@ -2,7 +2,7 @@
 
 #include <stdint.h>
 #include <NFComm/NFShmCore/NFShmString.h>
-#include <NFComm/NFShmCore/NFArray.h>
+#include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
 #include "proto_common.pb.h"
@@ -148,6 +148,7 @@ namespace proto_ff_s {
 		uint32_t IdleSleepUS;
 		uint32_t HandleMsgNumPerFrame;
 		uint64_t ServerOpenTime;
+		std::string LoadProtoDs;
 		std::string ServerIp;
 		uint32_t ServerPort;
 		std::string ExternalServerIp;

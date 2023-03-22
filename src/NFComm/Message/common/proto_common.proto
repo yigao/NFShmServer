@@ -93,6 +93,7 @@ message pbNFServerConfig
 	optional uint32 IdleSleepUS = 9; //服务器类型
 	optional uint32 HandleMsgNumPerFrame = 10; //服务器每一帧处理的消息数
 	optional uint64 ServerOpenTime = 11; //服务器开服世界
+	optional string LoadProtoDs = 12; //需要加载的pb文件
 
 ////////////////////////////////////////net//////////////////////////////////////////////////////////
 	optional string ServerIp = 20; //服务器监听IP

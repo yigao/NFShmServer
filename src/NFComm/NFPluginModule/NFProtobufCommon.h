@@ -13,10 +13,17 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFIHttpHandle.h"
 #include "NFComm/NFPluginModule/NFILuaLoader.h"
+#include "NFComm/NFCore/NFSingleton.hpp"
+#include "google/protobuf/dynamic_message.h"
+#include "NFComm/NFCore/NFMutex.h"
 #include <vector>
 #include <map>
 
-class _NFExport NFProtobufCommon {
+#define DEFINE_DEFAULT_PROTO_PACKAGE "proto_ff"
+#define DEFINE_DEFAULT_PROTO_PACKAGE_ADD "proto_ff."
+
+class _NFExport NFProtobufCommon : public NFSingleton<NFProtobufCommon>
+{
 public:
     static std::string
     GetFieldsString(const google::protobuf::Message &message, const google::protobuf::FieldDescriptor *pFieldDesc);
@@ -54,10 +61,10 @@ public:
     static int GetMapFieldsStringFromMessage(const google::protobuf::Message &message, std::string &msg);
 
     static bool ProtoMessageToXml(const google::protobuf::Message &message,
-                                   std::string *json);
+                                  std::string *json);
 
     static bool XmlToProtoMessage(const std::string &json,
-                                   google::protobuf::Message *message);
+                                  google::protobuf::Message *message);
 
     static bool ProtoMessageToJson(const google::protobuf::Message &message,
                                    std::string *json,
@@ -80,7 +87,18 @@ public:
     static int CopyMessageByFields(google::protobuf::Message *pSrcMessage, const google::protobuf::Message *pDescMessage);
 
     static int GetMessageFromGetHttp(google::protobuf::Message *pSrcMessage, const NFIHttpHandle &req);
+public:
+    NFProtobufCommon();
+    virtual ~NFProtobufCommon();
+public:
+    int LoadProtoDsFile(const std::string &ds);
+
+    /*
+    ** 通过在Protobuf里的message名字创建出一个Message
+    */
+    ::google::protobuf::Message *CreateDynamicMessageByName(const std::string &full_name);
+private:
+    google::protobuf::DescriptorPool* m_pDescriptorPool;
+    google::protobuf::DynamicMessageFactory* m_pDynamicMessageFactory;
 };
-
-
 

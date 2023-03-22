@@ -31,6 +31,7 @@
 #include "NFLogicCommon/NFComTypeDefine.h"
 #include "DescStore/TaskdynamicTasktextDesc.h"
 #include "DescStore/TaskrewardTasktypeDesc.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMissionDescStoreEx, EOT_MISSION_CONFIG_DESCEX_ID, NFShmObj)
 
