@@ -63,20 +63,20 @@ rm Alllog.sh
 echo "main()" >> Alllog.sh
 echo "{" >> Alllog.sh
 
-do_work MasterServer 1.10.1.1 ../../Config/MMO ../../TcpPlugin
-do_work RouteServer 1.10.2.1 ../../Config/MMO ../../TcpPlugin
-do_work RouteAgentServer 1.10.3.1 ../../Config/MMO ../../TcpPlugin
-do_work RouteAgentServer 1.10.3.2 ../../Config/MMO ../../TcpPlugin
-do_work ProxyServer 1.10.4.1 ../../Config/MMO ../../TcpPlugin
-do_work ProxyAgentServer 1.10.5.1 ../../Config/MMO ../../TcpPlugin
-do_work StoreServer 1.10.6.1 ../../Config/MMO ../../TcpPlugin
-do_work StoreServer 1.10.6.2 ../../Config/MMO ../../TcpPlugin
-do_work LoginServer 1.10.7.1 ../../Config/MMO ../../TcpPlugin
-do_work WorldServer 1.10.8.1 ../../Config/MMO ../../TcpPlugin
-do_work LogicServer 1.10.9.1 ../../Config/MMO ../../TcpPlugin
-do_work GameServer 1.10.10.1 ../../Config/MMO ../../TcpPlugin
-do_work SnsServer 1.10.11.1 ../../Config/MMO ../../TcpPlugin
-do_work WebServer 1.10.12.1 ../../Config/MMO ../../TcpPlugin
+do_work MasterServer 1.13.1.1 ../../Config/MMO ../../TcpPlugin
+do_work RouteServer 1.13.2.1 ../../Config/MMO ../../TcpPlugin
+do_work RouteAgentServer 1.13.3.1 ../../Config/MMO ../../TcpPlugin
+do_work RouteAgentServer 1.13.3.2 ../../Config/MMO ../../TcpPlugin
+do_work ProxyServer 1.13.4.1 ../../Config/MMO ../../TcpPlugin
+do_work ProxyAgentServer 1.13.5.1 ../../Config/MMO ../../TcpPlugin
+do_work StoreServer 1.13.6.1 ../../Config/MMO ../../TcpPlugin
+do_work StoreServer 1.13.6.2 ../../Config/MMO ../../TcpPlugin
+do_work LoginServer 1.13.7.1 ../../Config/MMO ../../TcpPlugin
+do_work WorldServer 1.13.8.1 ../../Config/MMO ../../TcpPlugin
+do_work LogicServer 1.13.9.1 ../../Config/MMO ../../TcpPlugin
+do_work GameServer 1.13.10.1 ../../Config/MMO ../../TcpPlugin
+do_work SnsServer 1.13.11.1 ../../Config/MMO ../../TcpPlugin
+do_work WebServer 1.13.12.1 ../../Config/MMO ../../TcpPlugin
 
 echo	"tail --follow=name --retry $log_str --max-unchanged-stats=4 -n 5 -q | awk '"'/INFO/ {print "\033[32m" $0 "\033[39m"} /DEBUG/ {print  $0 }  /WARNING/ {print "\033[33m" $0 "\033[39m"} /TRACE/ {print "\033[33m" $0 "\033[39m"} /ERROR/ {print "\033[31m" $0 "\033[39m"} '"'" >> Alllog.sh
 
