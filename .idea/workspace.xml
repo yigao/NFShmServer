@@ -55,13 +55,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="store server">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Sql/CommonLogic.proto.ds" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Sql/CommonLogic.proto.ds" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Sql/create_dbServerMgr.sql" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Sql/create_dbServerMgr.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/DBProto2.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/DBProto2.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProto2.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProto2.pb.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -652,21 +648,7 @@
       <workItem from="1679014162204" duration="30604000" />
       <workItem from="1679054253578" duration="28000" />
       <workItem from="1679287244120" duration="31170000" />
-      <workItem from="1679446064457" duration="55296000" />
-    </task>
-    <task id="LOCAL-00487" summary="leave scene">
-      <created>1678496285412</created>
-      <option name="number" value="00487" />
-      <option name="presentableId" value="LOCAL-00487" />
-      <option name="project" value="LOCAL" />
-      <updated>1678496285412</updated>
-    </task>
-    <task id="LOCAL-00488" summary="leave scene">
-      <created>1678497223310</created>
-      <option name="number" value="00488" />
-      <option name="presentableId" value="LOCAL-00488" />
-      <option name="project" value="LOCAL" />
-      <updated>1678497223310</updated>
+      <workItem from="1679446064457" duration="55899000" />
     </task>
     <task id="LOCAL-00489" summary="trans scene">
       <created>1678520873730</created>
@@ -997,7 +979,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679555394356</updated>
     </task>
-    <option name="localTasksCounter" value="536" />
+    <task id="LOCAL-00536" summary="store server">
+      <created>1679557299763</created>
+      <option name="number" value="00536" />
+      <option name="presentableId" value="LOCAL-00536" />
+      <option name="project" value="LOCAL" />
+      <updated>1679557299763</updated>
+    </task>
+    <task id="LOCAL-00537" summary="store server">
+      <created>1679557676240</created>
+      <option name="number" value="00537" />
+      <option name="presentableId" value="LOCAL-00537" />
+      <option name="project" value="LOCAL" />
+      <updated>1679557676241</updated>
+    </task>
+    <option name="localTasksCounter" value="538" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1252,7 +1248,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp</url>
-          <line>1232</line>
+          <line>1238</line>
           <option name="timeStamp" value="77" />
         </line-breakpoint>
       </breakpoints>

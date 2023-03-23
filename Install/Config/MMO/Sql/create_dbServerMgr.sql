@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS dbServerMgr (
  last_logout_time BIGINT UNSIGNED COMMENT "上一次下线时间" ,
  logout_time_1 BIGINT UNSIGNED ,
  logout_time_2 BIGINT UNSIGNED ,
+ logout_time_3 BIGINT UNSIGNED ,
  desc_1 VARCHAR(128) ,
  desc_2 VARCHAR(128) ,
  pair_1_key INT UNSIGNED ,
@@ -47,6 +48,7 @@ alter table dbServerMgr add column last_login_time BIGINT UNSIGNED COMMENT "上�
 alter table dbServerMgr add column last_logout_time BIGINT UNSIGNED COMMENT "上一次下线时间";
 alter table dbServerMgr add column logout_time_1 BIGINT UNSIGNED;
 alter table dbServerMgr add column logout_time_2 BIGINT UNSIGNED;
+alter table dbServerMgr add column logout_time_3 BIGINT UNSIGNED;
 alter table dbServerMgr add column desc_1 VARCHAR(128);
 alter table dbServerMgr add column desc_2 VARCHAR(128);
 alter table dbServerMgr add column pair_1_key INT UNSIGNED;
