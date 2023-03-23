@@ -2,6 +2,82 @@
 
 namespace proto_ff_s {
 
+dbServerMgr_s::dbServerMgr_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int dbServerMgr_s::CreateInit() {
+	id = (uint64_t)0;
+	cur_count = (uint32_t)0;
+	last_login_time = (uint64_t)0;
+	last_logout_time = (uint64_t)0;
+	return 0;
+}
+
+int dbServerMgr_s::ResumeInit() {
+	return 0;
+}
+
+void dbServerMgr_s::write_to_pbmsg(::proto_ff::dbServerMgr & msg) const {
+	msg.set_id((uint64_t)id);
+	msg.set_contract((const char*)contract.data());
+	msg.set_machine_addr((const char*)machine_addr.data());
+	msg.set_ip((const char*)ip.data());
+	msg.set_bus_name((const char*)bus_name.data());
+	msg.set_server_desc((const char*)server_desc.data());
+	msg.set_cur_count((uint32_t)cur_count);
+	msg.set_last_login_time((uint64_t)last_login_time);
+	msg.set_last_logout_time((uint64_t)last_logout_time);
+	for(int32_t i = 0; i < (int32_t)logout_time.size(); ++i) {
+		msg.add_logout_time((uint64_t)logout_time[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)desc.size(); ++i) {
+		msg.add_desc((const char*)desc[i].data());
+	}
+	for(int32_t i = 0; i < (int32_t)pair.size(); ++i) {
+		::proto_ff::ComPair* temp_pair = msg.add_pair();
+		pair[i].write_to_pbmsg(*temp_pair);
+	}
+	for(int32_t i = 0; i < (int32_t)facade.size(); ++i) {
+		::proto_ff::BestEQSlotInfo* temp_facade = msg.add_facade();
+		facade[i].write_to_pbmsg(*temp_facade);
+	}
+}
+
+void dbServerMgr_s::read_from_pbmsg(const ::proto_ff::dbServerMgr & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct dbServerMgr_s));
+	id = msg.id();
+	contract = msg.contract();
+	machine_addr = msg.machine_addr();
+	ip = msg.ip();
+	bus_name = msg.bus_name();
+	server_desc = msg.server_desc();
+	cur_count = msg.cur_count();
+	last_login_time = msg.last_login_time();
+	last_logout_time = msg.last_logout_time();
+	logout_time.resize(msg.logout_time_size());
+	for(int32_t i = 0; i < (int32_t)logout_time.size(); ++i) {
+		logout_time[i] = msg.logout_time(i);
+	}
+	desc.resize(msg.desc_size());
+	for(int32_t i = 0; i < (int32_t)desc.size(); ++i) {
+	}
+	pair.resize(msg.pair_size());
+	for(int32_t i = 0; i < (int32_t)pair.size(); ++i) {
+		const ::proto_ff::ComPair & temp_pair = msg.pair(i);
+		pair[i].read_from_pbmsg(temp_pair);
+	}
+	facade.resize(msg.facade_size());
+	for(int32_t i = 0; i < (int32_t)facade.size(); ++i) {
+		const ::proto_ff::BestEQSlotInfo & temp_facade = msg.facade(i);
+		facade[i].read_from_pbmsg(temp_facade);
+	}
+}
+
 GetRegisterNum_RoleDBData_s::GetRegisterNum_RoleDBData_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();

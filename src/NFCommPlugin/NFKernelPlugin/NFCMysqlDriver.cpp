@@ -2172,6 +2172,10 @@ int NFCMysqlDriver::GetTableColInfo(const std::string &dbName, const std::string
         {
             colInfo.m_primaryKey = true;
         }
+        else if (columnKey == "UNI")
+        {
+            colInfo.m_unionKey = true;
+        }
         else if (columnKey == "MUL")
         {
             colInfo.m_indexKey = true;
@@ -2236,6 +2240,25 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
                                "dbName:{}, tableName:{} Exist Col:{}, but the db col data type:{} is not equal protobuf data type:{}, please check",
                                dbName, tableName, iter->first, findIter->second.m_colType, iter->second.m_colType);
                 }
+                else {
+                    std::string sql;
+
+                    if (findIter->second.m_primaryKey == true && iter->second.m_primaryKey == false)
+                    {
+                        sql.clear();
+                        NF_FORMAT_EXPR(sql, "alter table {} DROP PRIMARY KEY;", tableName);
+                        if (sql.size() > 0)
+                            needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                    }
+
+                    if (findIter->second.m_primaryKey == false && iter->second.m_primaryKey == true)
+                    {
+                        sql.clear();
+                        NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY ({});", tableName, iter->first);
+                        if (sql.size() > 0)
+                            needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                    }
+                }
             }
             else
             {
@@ -2257,7 +2280,7 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
 
                 if (iter->second.m_comment.size() > 0)
                 {
-                    otherInfo += " COMMENT = \"" + iter->second.m_comment + "\"";
+                    otherInfo += " COMMENT \"" + iter->second.m_comment + "\"";
                 }
 
                 std::string sql;
@@ -2289,6 +2312,58 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
                            "dbName:{}, tableName:{} Exist Col:{}, but the db col data type:{} is not equal protobuf data type:{}, please check",
                            dbName, tableName, iter->first, findIter->second.m_colType, iter->second.m_colType);
             }
+            else
+            {
+                std::string sql;
+
+                if (findIter->second.m_primaryKey == true && iter->second.m_primaryKey == false)
+                {
+                    sql.clear();
+                    NF_FORMAT_EXPR(sql, "alter table {} DROP PRIMARY KEY;", tableName);
+                    if (sql.size() > 0)
+                        needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                }
+
+                if (findIter->second.m_unionKey == true && iter->second.m_unionKey == false)
+                {
+                    sql.clear();
+                    NF_FORMAT_EXPR(sql, "alter table {} DROP INDEX {};", tableName, iter->first);
+                    if (sql.size() > 0)
+                        needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                }
+
+                if (findIter->second.m_indexKey == true && iter->second.m_indexKey == false)
+                {
+                    sql.clear();
+                    NF_FORMAT_EXPR(sql, "alter table {} DROP INDEX {};", tableName, iter->first);
+                    if (sql.size() > 0)
+                        needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                }
+
+                if (findIter->second.m_primaryKey == false && iter->second.m_primaryKey == true)
+                {
+                    sql.clear();
+                    NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY ({});", tableName, iter->first);
+                    if (sql.size() > 0)
+                        needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                }
+
+                if (findIter->second.m_unionKey == false && iter->second.m_unionKey == true)
+                {
+                    sql.clear();
+                    NF_FORMAT_EXPR(sql, "alter table {} add UNIQUE {} ({});", tableName, iter->first, iter->first);
+                    if (sql.size() > 0)
+                        needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                }
+
+                if (findIter->second.m_indexKey == false && iter->second.m_indexKey == true)
+                {
+                    sql.clear();
+                    NF_FORMAT_EXPR(sql, "alter table {} add INDEX {} ({});", tableName, iter->first, iter->first);
+                    if (sql.size() > 0)
+                        needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+                }
+            }
         }
         else
         {
@@ -2306,7 +2381,7 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
 
             if (iter->second.m_comment.size() > 0)
             {
-                otherInfo += " COMMENT = \"" + iter->second.m_comment + "\"";
+                otherInfo += " COMMENT \"" + iter->second.m_comment + "\"";
             }
 
             std::string sql;
@@ -2384,7 +2459,7 @@ int NFCMysqlDriver::CreateTable(const std::string &tableName, const std::map<std
 
         if (iter->second.m_comment.size() > 0)
         {
-            otherInfo += " COMMENT = \"" + iter->second.m_comment + "\"";
+            otherInfo += " COMMENT \"" + iter->second.m_comment + "\"";
         }
         NF_FORMAT_EXPR(col, " {} {} {},", iter->first, NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo)
         colSql += col;

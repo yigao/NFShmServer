@@ -377,7 +377,7 @@ int NFCMysqlModule::AddTableRow(const std::string& serverID, const std::string& 
     int iRet = pDriver->AddTableRow(tableName, needCreateColumn);
     if (iRet != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "AddTableRow Failed! dbName:{} tableName:{}", tableName);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "AddTableRow Failed! tableName:{}", tableName);
         return iRet;
     }
 

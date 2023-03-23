@@ -7,6 +7,8 @@ import "yd_fieldoptions.proto";
 import "common_logic.proto";
 import "ComDefine.proto";
 
+
+
 // 空消息
 message EmptyMessage
 {}
@@ -17,6 +19,9 @@ message ComPair
   optional uint32 key = 1;
   optional uint32 value = 2;
 }
+
+
+
 
 message ComPair64
 {

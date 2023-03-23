@@ -30,6 +30,7 @@ StoreServer = {
              TBConfList = {
                   {TableName="RoleDBData", TableCount=1},
                   {TableName="RoleDBSnsDetail", TableCount=1},
+                  {TableName="dbServerMgr", TableCount=1},
              },
         },
         RouteConfig = {

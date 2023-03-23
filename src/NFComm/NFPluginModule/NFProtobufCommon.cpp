@@ -1368,7 +1368,7 @@ int NFProtobufCommon::GetDbFieldsInfoFromMessage(const google::protobuf::Descrip
                             colInfo.m_notNull = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
                         }
 
-                        mapFileds.emplace(pFieldDesc->name(), colInfo);
+                        mapFileds.emplace(field, colInfo);
                     }
                 }
             }
@@ -1417,7 +1417,7 @@ int NFProtobufCommon::GetDbFieldsInfoFromMessage(const google::protobuf::Descrip
                                     colInfo.m_notNull = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
                                 }
 
-                                mapFileds.emplace(pFieldDesc->name(), colInfo);
+                                mapFileds.emplace(field, colInfo);
                             }
                         }
                     }
@@ -1521,7 +1521,7 @@ std::string NFProtobufCommon::GetDBDataTypeFromPBDataType(uint32_t pbDataType, u
             break;
         case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
         {
-            return "varchar(" + NFCommon::tostr(textMax), ")";
+            return "varchar(" + NFCommon::tostr(textMax) + ")";
         }
             break;
         case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:

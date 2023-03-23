@@ -14,7 +14,37 @@
 #include "DBProto.pb.h"
 #include "DBProto_s.h"
 
+#define DEFINE_DBSERVERMGR_LOGOUT_TIME_MAX_NUM 1
+#define DEFINE_DBSERVERMGR_DESC_MAX_NUM 1
+#define DEFINE_DBSERVERMGR_PAIR_MAX_NUM 1
+#define DEFINE_DBSERVERMGR_FACADE_MAX_NUM 1
 namespace proto_ff_s {
+
+	struct dbServerMgr_s : public NFDescStoreSeqOP {
+		dbServerMgr_s();
+		virtual ~dbServerMgr_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t id;
+		NFShmString<32> contract;
+		NFShmString<32> machine_addr;
+		NFShmString<32> ip;
+		NFShmString<32> bus_name;
+		NFShmString<32> server_desc;
+		uint32_t cur_count;
+		uint64_t last_login_time;
+		uint64_t last_logout_time;
+		NFShmVector<uint64_t, DEFINE_DBSERVERMGR_LOGOUT_TIME_MAX_NUM> logout_time;
+		NFShmVector<NFShmString<32>, DEFINE_DBSERVERMGR_DESC_MAX_NUM> desc;
+		NFShmVector<struct ComPair_s, DEFINE_DBSERVERMGR_PAIR_MAX_NUM> pair;
+		NFShmVector<struct BestEQSlotInfo_s, DEFINE_DBSERVERMGR_FACADE_MAX_NUM> facade;
+
+		virtual void write_to_pbmsg(::proto_ff::dbServerMgr & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::dbServerMgr & msg);
+		static ::proto_ff::dbServerMgr* new_pbmsg(){ return new ::proto_ff::dbServerMgr(); }
+		static ::proto_ff::dbServerMgr make_pbmsg(){ return ::proto_ff::dbServerMgr(); }
+	};
+	typedef struct dbServerMgr_s dbServerMgr_t;
 
 	struct GetRegisterNum_RoleDBData_s : public NFDescStoreSeqOP {
 		GetRegisterNum_RoleDBData_s();
