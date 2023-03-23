@@ -2316,10 +2316,10 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
             if (sql.size() > 0)
                 needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
 
-/*            if (iter->second.m_primaryKey)
+            if (iter->second.m_primaryKey)
             {
                 sql.clear();
-                NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY ('{}');", tableName, iter->first);
+                NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY ({});", tableName, iter->first);
                 if (sql.size() > 0)
                     needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
             }
@@ -2327,7 +2327,7 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
             if (iter->second.m_unionKey)
             {
                 sql.clear();
-                NF_FORMAT_EXPR(sql, "alter table {} add UNIQUE index_name ('{}');", tableName, iter->first);
+                NF_FORMAT_EXPR(sql, "alter table {} add UNIQUE {} ({});", tableName, iter->first, iter->first);
                 if (sql.size() > 0)
                     needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
             }
@@ -2335,10 +2335,10 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
             if (iter->second.m_indexKey)
             {
                 sql.clear();
-                NF_FORMAT_EXPR(sql, "alter table {} add INDEX index_name ('{}');", tableName, iter->first);
+                NF_FORMAT_EXPR(sql, "alter table {} add INDEX {} ({});", tableName, iter->first, iter->first);
                 if (sql.size() > 0)
                     needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
-            }*/
+            }
         }
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");

@@ -172,6 +172,13 @@ bool NFCStoreServerModule::LoadPbAndCheckDB()
         }
     }
 
+    iRet = FindModule<NFIMysqlModule>()->SelectDB(INFORMATION_SCHEMA, INFORMATION_SCHEMA);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server SelectDB failed");
+        return false;
+    }
+
     SetTimer(STORE_SERVER_TIMER_CLOSE_MYSQL, 60000, 0);
     return true;
 }
@@ -277,7 +284,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             if (iter != pConfig->mTBConfMap.end())
             {
                 uint32_t count = iter->second;
-                if (count > 0)
+                if (count > 1)
                 {
                     uint32_t index = select.mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
@@ -313,7 +320,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             if (iter != pConfig->mTBConfMap.end())
             {
                 uint32_t count = iter->second;
-                if (count > 0)
+                if (count > 1)
                 {
                     uint32_t index = select.mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
@@ -345,7 +352,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             if (iter != pConfig->mTBConfMap.end())
             {
                 uint32_t count = iter->second;
-                if (count > 0)
+                if (count > 1)
                 {
                     uint32_t index = select.del_cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
@@ -377,7 +384,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             if (iter != pConfig->mTBConfMap.end())
             {
                 uint32_t count = iter->second;
-                if (count > 0)
+                if (count > 1)
                 {
                     uint32_t index = select.mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
@@ -408,7 +415,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end()) {
                 uint32_t count = iter->second;
-                if (count > 0) {
+                if (count > 1) {
                     uint32_t index = select.mod_cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
@@ -438,7 +445,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end()) {
                 uint32_t count = iter->second;
-                if (count > 0) {
+                if (count > 1) {
                     uint32_t index = select.mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
@@ -468,7 +475,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end()) {
                 uint32_t count = iter->second;
-                if (count > 0) {
+                if (count > 1) {
                     uint32_t index = select.mod_cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
@@ -498,7 +505,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end()) {
                 uint32_t count = iter->second;
-                if (count > 0) {
+                if (count > 1) {
                     uint32_t index = select.mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
