@@ -47,7 +47,12 @@ public:
 	 *
 	 * @return void 
 	 */
-	void CheckMysql() ;
+	void CheckMysql();
+
+    /**
+     * @brief
+     */
+    int CloseMysql(const std::string& serverID);
 protected:
 	NFMap<std::string, NFCMysqlDriver> mvMysql;
 	NFMap<std::string, NFCMysqlDriver> mvInvalidMsyql;

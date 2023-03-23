@@ -36,6 +36,7 @@ struct DBTableColInfo
         m_autoIncrementValue = 0;
         m_defaultValue = 0;
         m_isDefaultValue = false;
+        m_notNull = false;
     }
 
     uint32_t m_colType;

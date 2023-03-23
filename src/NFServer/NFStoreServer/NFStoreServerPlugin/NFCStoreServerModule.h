@@ -30,6 +30,8 @@ public:
 
     virtual bool OnReloadConfig() override;
 
+    virtual int OnTimer(uint32_t nTimerID) override;
+
     /**
      * @brief 处理来自服务器的信息
      * @param unLinkId
@@ -37,6 +39,12 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
+
+    /**
+     * @brief 动态加载protobuf信息，并检查数据库，可能的话建立数据库，表格，列
+     * @return
+     */
+    virtual bool LoadPbAndCheckDB();
 public:
     /**
      * @brief 处理数据库请求

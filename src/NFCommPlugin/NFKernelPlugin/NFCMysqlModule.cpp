@@ -243,6 +243,16 @@ int NFCMysqlModule::AddMysqlServer(const std::string& nServerID, const std::stri
 	                                             nRconneCount);
 }
 
+int NFCMysqlModule::CloseMysql(const std::string& serverID)
+{
+    if (!m_pMysqlDriverManager)
+    {
+        return -1;
+    }
+
+    return m_pMysqlDriverManager->CloseMysql(serverID);
+}
+
 int NFCMysqlModule::Delete(const std::string& nServerID, const std::string &strTableName, const std::string &strKeyColName,
                            const std::string &strKey, std::string &errormsg) {
     NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(nServerID);
@@ -344,29 +354,32 @@ int NFCMysqlModule::QueryTableInfo(const std::string& serverID, const std::strin
     return pDriver->QueryTableInfo(dbName, tableName, bExit, primaryKey, needCreateColumn);
 }
 
-int NFCMysqlModule::CreateTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn)
+int NFCMysqlModule::CreateTable(const std::string& serverID, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn)
 {
     NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
-    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", dbName);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", serverID);
 
-    int iRet = pDriver->SelectDB(dbName);
+    int iRet = pDriver->CreateTable(tableName, primaryKey, needCreateColumn);
     if (iRet != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "SELECT DB:{} Failed", dbName);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateTable Failed! tableName:{}",tableName);
         return iRet;
     }
 
-    iRet = pDriver->CreateTable(tableName, primaryKey, needCreateColumn);
+    return iRet;
+}
+
+int NFCMysqlModule::AddTableRow(const std::string& serverID, const std::string& tableName, const std::multimap<uint32_t, std::string>& needCreateColumn)
+{
+    NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", serverID);
+
+    int iRet = pDriver->AddTableRow(tableName, needCreateColumn);
     if (iRet != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateTable Failed! dbName:{}, tableName:{}", dbName, tableName);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "AddTableRow Failed! dbName:{} tableName:{}", tableName);
         return iRet;
     }
 
-    iRet = pDriver->SelectDB(serverID);
-    if (iRet != 0)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "SELECT DB:{} Failed", serverID);
-        return iRet;
-    }
+    return iRet;
 }

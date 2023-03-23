@@ -1289,6 +1289,15 @@ int NFProtobufCommon::GetDbFieldsInfoFromMessage(const google::protobuf::Descrip
                 {
                     colInfo.m_primaryKey = true;
                     colInfo.m_notNull = true;
+
+                    if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment))
+                    {
+                        colInfo.m_autoIncrement = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment);
+                        if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment_value))
+                        {
+                            colInfo.m_autoIncrementValue = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment_value);
+                        }
+                    }
                 }
                 else if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) ==
                          ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_UNIQUE_INDEX)
@@ -1302,28 +1311,19 @@ int NFProtobufCommon::GetDbFieldsInfoFromMessage(const google::protobuf::Descrip
                 }
             }
 
-            if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING)
+            if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING || colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
             {
                 if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_bufsize))
                 {
                     colInfo.m_bufsize = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_bufsize);
                 }
             }
-            else {
-                if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
-                {
-                    colInfo.m_notNull = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
-                }
 
-                if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment))
-                {
-                    colInfo.m_autoIncrement = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment);
-                    if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment_value))
-                    {
-                        colInfo.m_autoIncrementValue = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment_value);
-                    }
-                }
+            if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
+            {
+                colInfo.m_notNull = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
             }
+
 
             if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_comment))
             {
@@ -1355,27 +1355,17 @@ int NFProtobufCommon::GetDbFieldsInfoFromMessage(const google::protobuf::Descrip
                         colInfo.m_fieldIndex = i;
                         std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
 
-                        if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING)
+                        if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING || colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
                         {
                             if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_bufsize))
                             {
                                 colInfo.m_bufsize = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_bufsize);
                             }
                         }
-                        else {
-                            if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
-                            {
-                                colInfo.m_notNull = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
-                            }
 
-                            if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment))
-                            {
-                                colInfo.m_autoIncrement = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment);
-                                if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment_value))
-                                {
-                                    colInfo.m_autoIncrementValue = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment_value);
-                                }
-                            }
+                        if (pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
+                        {
+                            colInfo.m_notNull = pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
                         }
 
                         mapFileds.emplace(pFieldDesc->name(), colInfo);
@@ -1414,27 +1404,17 @@ int NFProtobufCommon::GetDbFieldsInfoFromMessage(const google::protobuf::Descrip
 
                                 std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" + pSubFieldDesc->name();
 
-                                if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING)
+                                if (colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_STRING || colInfo.m_colType == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
                                 {
                                     if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_bufsize))
                                     {
                                         colInfo.m_bufsize = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_bufsize);
                                     }
                                 }
-                                else {
-                                    if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
-                                    {
-                                        colInfo.m_notNull = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
-                                    }
 
-                                    if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment))
-                                    {
-                                        colInfo.m_autoIncrement = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment);
-                                        if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_auto_increment_value))
-                                        {
-                                            colInfo.m_autoIncrementValue = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_auto_increment_value);
-                                        }
-                                    }
+                                if (pSubFieldDesc->options().HasExtension(yd_fieldoptions::db_field_not_null))
+                                {
+                                    colInfo.m_notNull = pSubFieldDesc->options().GetExtension(yd_fieldoptions::db_field_not_null);
                                 }
 
                                 mapFileds.emplace(pFieldDesc->name(), colInfo);
@@ -1546,7 +1526,17 @@ std::string NFProtobufCommon::GetDBDataTypeFromPBDataType(uint32_t pbDataType, u
             break;
         case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
         {
-            return "blob";
+            if (textMax > 16777216)
+            {
+                return "LONGBLOB";
+            }
+            else if (textMax > 65535)
+            {
+                return "MEDIUMBLOB";
+            }
+            else {
+                return "blob";
+            }
         }
     }
 

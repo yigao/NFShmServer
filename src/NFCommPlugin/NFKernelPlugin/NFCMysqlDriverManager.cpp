@@ -36,6 +36,22 @@ NFCMysqlDriver* NFCMysqlDriverManager::GetMysqlDriver(const std::string& serverI
 	return mvMysql.GetElement(serverID);
 }
 
+int NFCMysqlDriverManager::CloseMysql(const std::string& serverID)
+{
+    NFCMysqlDriver* pMysqlDriver = mvMysql.GetElement(serverID);
+    if (pMysqlDriver == NULL)
+    {
+        pMysqlDriver = mvInvalidMsyql.GetElement(serverID);
+    }
+    CHECK_EXPR(pMysqlDriver , -1, "nServerID:{} not exist", serverID);
+
+    pMysqlDriver->Disconnect();
+    NF_SAFE_DELETE(pMysqlDriver);
+    mvMysql.RemoveElement(serverID);
+    mvInvalidMsyql.RemoveElement(serverID);
+    return 0;
+}
+
 void NFCMysqlDriverManager::CheckMysql()
 {
     if (NFGetSecondTime() - mnLastCheckTime <= 10) return;
@@ -90,8 +106,8 @@ int NFCMysqlDriverManager::AddMysqlServer(const std::string& serverID, const std
     NFCMysqlDriver* pMysqlDriver = mvMysql.GetElement(serverID);
 	CHECK_EXPR(pMysqlDriver == NULL, 0, "pMysqlDriver == NULL, nServerID:{} exist", serverID);
 
-    NFCMysqlDriver* pInvalidRedisDriver = mvInvalidMsyql.GetElement(serverID);
-	CHECK_EXPR(pInvalidRedisDriver == NULL, -1, "pInvalidRedisDriver == NULL, nServerID:{} exist", serverID);
+    NFCMysqlDriver* pInvalidMysqlDriver = mvInvalidMsyql.GetElement(serverID);
+	CHECK_EXPR(pInvalidMysqlDriver == NULL, -1, "pInvalidRedisDriver == NULL, nServerID:{} exist", serverID);
 
 
 	pMysqlDriver = NF_NEW NFCMysqlDriver(nRconnectTime, nRconneCount);

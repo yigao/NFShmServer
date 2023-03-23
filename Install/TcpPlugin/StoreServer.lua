@@ -27,6 +27,10 @@ StoreServer = {
              MysqlDbName = NF_MYSQL_DB_NAME,
              MysqlUser = NF_MYSQL_USER,
              MysqlPassword = NF_MYSQL_PASSWORD,
+             TBConfList = {
+                  {TableName="RoleDBData", TableCount=1},
+                  {TableName="RoleDBSnsDetail", TableCount=1},
+             },
         },
         RouteConfig = {
              RouteAgent = NF_ROUTE_AGENT_ID,

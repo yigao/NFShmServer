@@ -20,6 +20,8 @@
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
 
+#define STORE_SERVER_TIMER_CLOSE_MYSQL 200
+
 NFCStoreServerModule::NFCStoreServerModule(NFIPluginManager* p):NFIStoreServerModule(p)
 {
 }
@@ -37,8 +39,53 @@ bool NFCStoreServerModule::Awake() {
     //////other server///////////////////////////////////
     RegisterServerMessage(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD);
 
+    if (!LoadPbAndCheckDB())
+    {
+        return false;
+    }
+
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-    CHECK_EXPR_ASSERT(pConfig, -1, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
+    CHECK_EXPR_ASSERT(pConfig, false, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
+
+    FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
+    int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
+        pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
+        pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
+    if (iRet != 0) {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server connect mysql failed");
+        return false;
+    }
+
+    FindModule<NFINamingModule>()->RegisterDBInfo(NF_ST_STORE_SERVER, pConfig->MysqlConfig.MysqlDbName);
+
+    BindServer();
+
+	return true;
+}
+
+int NFCStoreServerModule::OnTimer(uint32_t nTimerID)
+{
+    NFIStoreServerModule::OnTimer(nTimerID);
+    if (nTimerID == STORE_SERVER_TIMER_CLOSE_MYSQL)
+    {
+        FindModule<NFIMysqlModule>()->CloseMysql(INFORMATION_SCHEMA);
+        KillTimer(STORE_SERVER_TIMER_CLOSE_MYSQL);
+    }
+
+    return 0;
+}
+
+struct DBTableColCreateInfo
+{
+    bool bExistTable = false;
+    std::map<std::string, DBTableColInfo> primaryKey;
+    std::multimap<uint32_t, std::string> needCreateColumn;
+};
+
+bool NFCStoreServerModule::LoadPbAndCheckDB()
+{
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    CHECK_EXPR_ASSERT(pConfig, false, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
 
     int iRet = NFProtobufCommon::Instance()->LoadProtoDsFile(m_pObjPluginManager->GetConfigPath() + "/" + pConfig->LoadProtoDs);
     if (iRet == 0)
@@ -50,6 +97,8 @@ bool NFCStoreServerModule::Awake() {
         return false;
     }
 
+    KillTimer(STORE_SERVER_TIMER_CLOSE_MYSQL);
+
     iRet = FindModule<NFIMysqlModule>()->AddMysqlServer(INFORMATION_SCHEMA, pConfig->MysqlConfig.MysqlIp,
                                                         pConfig->MysqlConfig.MysqlPort, INFORMATION_SCHEMA,
                                                         pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
@@ -60,7 +109,7 @@ bool NFCStoreServerModule::Awake() {
     }
 
     bool bExistDB;
-    iRet = FindModule<NFIMysqlModule>()->ExistsDB(INFORMATION_SCHEMA, "proto_ff_cgzone9", bExistDB);
+    iRet = FindModule<NFIMysqlModule>()->ExistsDB(INFORMATION_SCHEMA, pConfig->MysqlConfig.MysqlDbName, bExistDB);
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server ExistsDB failed");
@@ -69,7 +118,7 @@ bool NFCStoreServerModule::Awake() {
 
     if (!bExistDB)
     {
-        iRet = FindModule<NFIMysqlModule>()->CreateDB(INFORMATION_SCHEMA, "proto_ff_cgzone9");
+        iRet = FindModule<NFIMysqlModule>()->CreateDB(INFORMATION_SCHEMA, pConfig->MysqlConfig.MysqlDbName);
         if (iRet != 0)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateDB failed");
@@ -77,40 +126,54 @@ bool NFCStoreServerModule::Awake() {
         }
     }
 
-    bool bExistTable = false;
-    std::map<std::string, DBTableColInfo> primaryKey;
-    std::multimap<uint32_t, std::string> needCreateColumn;
-    iRet = FindModule<NFIMysqlModule>()->QueryTableInfo(INFORMATION_SCHEMA, "proto_ff_cgzone9", "RoleDBData", bExistTable, primaryKey, needCreateColumn);
-    if (iRet != 0)
+    std::map<std::string, DBTableColCreateInfo> tbCreateInfo;
+    for(int i = 0; i < (int)pConfig->MysqlConfig.TBConfList.size(); i++)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateDB failed");
-        return false;
-    }
+        struct proto_ff_s::pbTableConfig_s& tableConfig = pConfig->MysqlConfig.TBConfList[i];
+        if (tableConfig.TableName.empty()) continue;
 
-    if (!bExistTable)
-    {
-        iRet = FindModule<NFIMysqlModule>()->CreateTable(INFORMATION_SCHEMA, "proto_ff_cgzone9", "RoleDBData", primaryKey, needCreateColumn);
+        DBTableColCreateInfo& createInfo = tbCreateInfo[tableConfig.TableName];
+
+        iRet = FindModule<NFIMysqlModule>()->QueryTableInfo(INFORMATION_SCHEMA, pConfig->MysqlConfig.MysqlDbName, tableConfig.TableName, createInfo.bExistTable, createInfo.primaryKey, createInfo.needCreateColumn);
         if (iRet != 0)
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateTable failed");
+            NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateDB failed");
             return false;
         }
     }
 
-    FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
-    iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
-        pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
-        pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
-    if (iRet != 0) {
-        NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server connect mysql failed");
+    iRet = FindModule<NFIMysqlModule>()->SelectDB(INFORMATION_SCHEMA, pConfig->MysqlConfig.MysqlDbName);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server SelectDB failed");
         return false;
     }
 
-    FindModule<NFINamingModule>()->RegisterDBInfo(NF_ST_STORE_SERVER, pConfig->MysqlConfig.MysqlDbName);
+    for(auto iter = tbCreateInfo.begin(); iter != tbCreateInfo.end(); iter++)
+    {
+        std::string tableName = iter->first;
+        DBTableColCreateInfo& createInfo = iter->second;
+        if (!createInfo.bExistTable)
+        {
+            iRet = FindModule<NFIMysqlModule>()->CreateTable(INFORMATION_SCHEMA, tableName, createInfo.primaryKey, createInfo.needCreateColumn);
+            if (iRet != 0)
+            {
+                NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateTable failed");
+                return false;
+            }
+        }
+        else {
+            iRet = FindModule<NFIMysqlModule>()->AddTableRow(INFORMATION_SCHEMA, tableName, createInfo.needCreateColumn);
+            if (iRet != 0)
+            {
+                NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateTable failed");
+                return false;
+            }
+        }
+    }
 
-    BindServer();
-
-	return true;
+    SetTimer(STORE_SERVER_TIMER_CLOSE_MYSQL, 60000, 0);
+    return true;
 }
 
 bool NFCStoreServerModule::Init()
@@ -132,18 +195,7 @@ bool NFCStoreServerModule::OnDynamicPlugin()
 
 bool NFCStoreServerModule::OnReloadConfig()
 {
-    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
-    CHECK_EXPR_ASSERT(pConfig, false, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
-    int iRet = NFProtobufCommon::Instance()->LoadProtoDsFile(m_pObjPluginManager->GetConfigPath() + "/" + pConfig->LoadProtoDs);
-    if (iRet == 0)
-    {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds success:{}", pConfig->LoadProtoDs);
-    }
-    else {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds fail:{}", pConfig->LoadProtoDs);
-        return false;
-    }
-    return true;
+    return LoadPbAndCheckDB();
 }
 
 int NFCStoreServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet)
@@ -193,7 +245,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             if (iter != pConfig->mTBConfMap.end())
             {
                 uint32_t count = iter->second;
-                if (count > 0)
+                if (count > 1)
                 {
                     uint32_t index = select.sel_cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);

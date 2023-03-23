@@ -620,7 +620,15 @@ public:
      * @return
      */
     int CreateTable(const std::string& tableName, std::map<std::string, DBTableColInfo>& primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn);
-protected:
+
+    /**
+     * @brief 比较老的表列，看是否需要增加新的列
+     * @param tableName
+     * @param needCreateColumn
+     * @return
+     */
+    int AddTableRow(const std::string& tableName, const std::multimap<uint32_t, std::string>& needCreateColumn);
+public:
     /**
      * @brief 是否需要重连
      *
@@ -635,6 +643,10 @@ protected:
      */
     int Connect();
 
+    /**
+     * @brief 不在链接
+     */
+     int Disconnect();
 private:
     std::string mstrDBName;
     std::string mstrDBHost;

@@ -280,6 +280,13 @@ public:
                        int nRconneCount = -1) override;
 
     /**
+     * @brief
+     * @param serverID
+     * @return
+     */
+    int CloseMysql(const std::string& serverID) override;
+
+    /**
      * @brief 是否存在数据库
      * @param dbName
      * @return
@@ -335,7 +342,15 @@ public:
      * @param needCreateColumn
      * @return
      */
-    int CreateTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) override;
+    int CreateTable(const std::string& serverID, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) override;
+
+    /**
+     * @brief 比较老的表列，看是否需要增加新的列
+     * @param tableName
+     * @param needCreateColumn
+     * @return
+     */
+    int AddTableRow(const std::string& serverID, const std::string& tableName, const std::multimap<uint32_t, std::string>& needCreateColumn) override;
 private:
     NFCMysqlDriverManager *m_pMysqlDriverManager;
 

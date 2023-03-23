@@ -49,6 +49,13 @@ public:
                                int nRconneCount = -1) = 0;
 
     /**
+     * @brief
+     * @param serverID
+     * @return
+     */
+    virtual int CloseMysql(const std::string& serverID) = 0;
+
+    /**
      * @brief 查询数据
     *
     * @param  qstr			执行sql语句
@@ -341,5 +348,13 @@ public:
      * @param needCreateColumn
      * @return
      */
-    virtual int CreateTable(const std::string& serverID, const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) = 0;
+    virtual int CreateTable(const std::string& serverID, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) = 0;
+
+    /**
+     * @brief 比较老的表列，看是否需要增加新的列
+     * @param tableName
+     * @param needCreateColumn
+     * @return
+     */
+    virtual int AddTableRow(const std::string& serverID, const std::string& tableName, const std::multimap<uint32_t, std::string>& needCreateColumn) = 0;
 };

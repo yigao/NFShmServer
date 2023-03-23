@@ -1166,6 +1166,12 @@ int NFCMysqlDriver::Connect()
     return 0;
 }
 
+int NFCMysqlDriver::Disconnect()
+{
+    CloseConnection();
+    return 0;
+}
+
 int NFCMysqlDriver::Update(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
                            const std::map<std::string, std::string> &keyvalueMap,
                            std::string &errormsg)
@@ -2061,6 +2067,9 @@ int NFCMysqlDriver::CreateDB(const std::string &dbName)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "create db failed, dbName:{} errMsg:{}", dbName, errormsg);
     }
+    else {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Create Database:{} Success", dbName);
+    }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return iRet;
 }
@@ -2129,7 +2138,7 @@ int NFCMysqlDriver::GetTableColInfo(const std::string &dbName, const std::string
     fieldVec.push_back("column_name");
     fieldVec.push_back("data_type");
     fieldVec.push_back("column_type");
-    fieldVec.push_back("character_maximum");
+    fieldVec.push_back("CHARACTER_MAXIMUM_LENGTH");
     fieldVec.push_back("column_key");
     std::vector<std::map<std::string, std::string>> valueVec;
     std::string errorMsg;
@@ -2146,7 +2155,7 @@ int NFCMysqlDriver::GetTableColInfo(const std::string &dbName, const std::string
         std::string fields = colData["column_name"];
         std::string strDataType = colData["data_type"];
         std::string strColumnType = colData["column_type"];
-        std::string charMax = colData["character_maximum"];
+        std::string charMax = colData["CHARACTER_MAXIMUM_LENGTH"];
         std::string columnKey = colData["column_key"];
         DBTableColInfo colInfo;
         colInfo.m_colType = NFProtobufCommon::GetPBDataTypeFromDBDataType(strDataType, strColumnType);
@@ -2239,10 +2248,6 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
                 if (iter->second.m_autoIncrement)
                 {
                     otherInfo += " AUTO_INCREMENT ";
-                    if (iter->second.m_autoIncrementValue > 0)
-                    {
-                        otherInfo += " = " + NFCommon::tostr(iter->second.m_autoIncrementValue);
-                    }
                 }
 
                 if (iter->second.m_isDefaultValue)
@@ -2294,15 +2299,6 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
                 otherInfo += " NOT NULL ";
             }
 
-            if (iter->second.m_autoIncrement)
-            {
-                otherInfo += " AUTO_INCREMENT ";
-                if (iter->second.m_autoIncrementValue > 0)
-                {
-                    otherInfo += " = " + NFCommon::tostr(iter->second.m_autoIncrementValue);
-                }
-            }
-
             if (iter->second.m_isDefaultValue)
             {
                 otherInfo += " Default = " + NFCommon::tostr(iter->second.m_defaultValue);
@@ -2320,29 +2316,29 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
             if (sql.size() > 0)
                 needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
 
-            if (findIter->second.m_primaryKey)
+/*            if (iter->second.m_primaryKey)
             {
                 sql.clear();
-                NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY {};", tableName, iter->first);
+                NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY ('{}');", tableName, iter->first);
                 if (sql.size() > 0)
                     needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
             }
 
-            if (findIter->second.m_unionKey)
+            if (iter->second.m_unionKey)
             {
                 sql.clear();
-                NF_FORMAT_EXPR(sql, "alter table {} add UNIQUE index_name {};", tableName, iter->first);
+                NF_FORMAT_EXPR(sql, "alter table {} add UNIQUE index_name ('{}');", tableName, iter->first);
                 if (sql.size() > 0)
                     needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
             }
 
-            if (findIter->second.m_indexKey)
+            if (iter->second.m_indexKey)
             {
                 sql.clear();
-                NF_FORMAT_EXPR(sql, "alter table {} add INDEX index_name {};", tableName, iter->first);
+                NF_FORMAT_EXPR(sql, "alter table {} add INDEX index_name ('{}');", tableName, iter->first);
                 if (sql.size() > 0)
                     needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
-            }
+            }*/
         }
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
@@ -2356,6 +2352,7 @@ int NFCMysqlDriver::CreateTable(const std::string &tableName, std::map<std::stri
     std::string sql;
     std::string colSql;
     std::string privateKey = "PRIMARY KEY(";
+    std::string auto_increment;
 
     for(auto iter = primaryKey.begin(); iter != primaryKey.end(); iter++)
     {
@@ -2377,10 +2374,7 @@ int NFCMysqlDriver::CreateTable(const std::string &tableName, std::map<std::stri
         if (iter->second.m_autoIncrement)
         {
             otherInfo += " AUTO_INCREMENT ";
-            if (iter->second.m_autoIncrementValue > 0)
-            {
-                otherInfo += " = " + NFCommon::tostr(iter->second.m_autoIncrementValue);
-            }
+            auto_increment = "AUTO_INCREMENT = " + NFCommon::tostr(iter->second.m_autoIncrementValue);
         }
 
         if (iter->second.m_isDefaultValue)
@@ -2397,7 +2391,7 @@ int NFCMysqlDriver::CreateTable(const std::string &tableName, std::map<std::stri
     }
     privateKey += ")";
 
-    NF_FORMAT_EXPR(sql, "CREATE TABLE IF NOT EXISTS {} ({} {}) ENGINE=InnoDB DEFAULT CHARSET=utf8;", tableName, colSql, privateKey);
+    NF_FORMAT_EXPR(sql, "CREATE TABLE IF NOT EXISTS {} ({} {}) ENGINE=InnoDB {} DEFAULT CHARSET=utf8;", tableName, colSql, privateKey, auto_increment);
 
     std::map<std::string, std::string> mapValue;
     std::string errMsg;
@@ -2408,6 +2402,43 @@ int NFCMysqlDriver::CreateTable(const std::string &tableName, std::map<std::stri
     }
     else {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Create Table Success! sql:{}", sql);
+    }
+
+   for(auto iter = needCreateColumn.begin(); iter != needCreateColumn.end(); iter++)
+   {
+       iRet = ExecuteOne(iter->second, mapValue, errMsg);
+       if (iRet != 0)
+       {
+           NFLogError(NF_LOG_SYSTEMLOG, 0, "executeone sql:{} fail, err:{}", iter->second, errMsg);
+           return iRet;
+       }
+       else {
+           NFLogInfo(NF_LOG_SYSTEMLOG, 0, "add Table Col Success! sql:{}", iter->second);
+       }
+   }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCMysqlDriver::AddTableRow(const std::string& tableName, const std::multimap<uint32_t, std::string>& needCreateColumn)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    int iRet = 0;
+
+    std::map<std::string, std::string> mapValue;
+    std::string errMsg;
+    for(auto iter = needCreateColumn.begin(); iter != needCreateColumn.end(); iter++)
+    {
+        iRet = ExecuteOne(iter->second, mapValue, errMsg);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "executeone sql:{} fail, err:{}", iter->second, errMsg);
+            return iRet;
+        }
+        else {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "add Table Col Success! sql:{}", iter->second);
+        }
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
