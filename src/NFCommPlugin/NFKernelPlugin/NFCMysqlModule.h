@@ -342,7 +342,7 @@ public:
      * @param needCreateColumn
      * @return
      */
-    int CreateTable(const std::string& serverID, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) override;
+    int CreateTable(const std::string& serverID, const std::string& tableName, const std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) override;
 
     /**
      * @brief 比较老的表列，看是否需要增加新的列

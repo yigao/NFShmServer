@@ -354,7 +354,7 @@ int NFCMysqlModule::QueryTableInfo(const std::string& serverID, const std::strin
     return pDriver->QueryTableInfo(dbName, tableName, bExit, primaryKey, needCreateColumn);
 }
 
-int NFCMysqlModule::CreateTable(const std::string& serverID, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn)
+int NFCMysqlModule::CreateTable(const std::string& serverID, const std::string& tableName, const std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn)
 {
     NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(serverID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, dbName:{} ", serverID);

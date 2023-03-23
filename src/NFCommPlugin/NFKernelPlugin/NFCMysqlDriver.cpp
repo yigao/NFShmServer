@@ -2345,7 +2345,7 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
     return iRet;
 }
 
-int NFCMysqlDriver::CreateTable(const std::string &tableName, std::map<std::string, DBTableColInfo>& primaryKey, const std::multimap<uint32_t, std::string> &needCreateColumn)
+int NFCMysqlDriver::CreateTable(const std::string &tableName, const std::map<std::string, DBTableColInfo>& primaryKey, const std::multimap<uint32_t, std::string> &needCreateColumn)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;

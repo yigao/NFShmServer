@@ -348,7 +348,7 @@ public:
      * @param needCreateColumn
      * @return
      */
-    virtual int CreateTable(const std::string& serverID, const std::string& tableName, std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) = 0;
+    virtual int CreateTable(const std::string& serverID, const std::string& tableName, const std::map<std::string, DBTableColInfo> &primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn) = 0;
 
     /**
      * @brief 比较老的表列，看是否需要增加新的列
