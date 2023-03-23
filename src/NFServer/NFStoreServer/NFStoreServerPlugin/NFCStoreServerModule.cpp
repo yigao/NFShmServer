@@ -70,6 +70,11 @@ int NFCStoreServerModule::OnTimer(uint32_t nTimerID)
     {
         FindModule<NFIMysqlModule>()->CloseMysql(INFORMATION_SCHEMA);
         KillTimer(STORE_SERVER_TIMER_CLOSE_MYSQL);
+        for(int i = 0; i < (int)NFProtobufCommon::Instance()->m_pOldPoolVec.size(); i++)
+        {
+            NF_SAFE_DELETE(NFProtobufCommon::Instance()->m_pOldPoolVec[i]);
+        }
+        NFProtobufCommon::Instance()->m_pOldPoolVec.clear();
     }
 
     return 0;

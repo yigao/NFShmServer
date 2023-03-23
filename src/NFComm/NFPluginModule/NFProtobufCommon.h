@@ -155,7 +155,7 @@ public:
     */
     ::google::protobuf::Message *CreateDynamicMessageByName(const std::string &full_name);
 
-private:
+public:
     std::string m_fileMd5;
     google::protobuf::DescriptorPool *m_pDescriptorPool;
     std::vector<google::protobuf::DescriptorPool *> m_pOldPoolVec;

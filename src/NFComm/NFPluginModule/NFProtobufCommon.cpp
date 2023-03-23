@@ -1218,7 +1218,13 @@ NFProtobufCommon::NFProtobufCommon()
 
 NFProtobufCommon::~NFProtobufCommon()
 {
-
+    NF_SAFE_DELETE(m_pDynamicMessageFactory);
+    NF_SAFE_DELETE(m_pDescriptorPool);
+    for(int i = 0; i < (int)m_pOldPoolVec.size(); i++)
+    {
+        NF_SAFE_DELETE(m_pOldPoolVec[i]);
+    }
+    m_pOldPoolVec.clear();
 }
 
 
