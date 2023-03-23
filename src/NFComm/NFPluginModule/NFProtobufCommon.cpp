@@ -1236,10 +1236,31 @@ int NFProtobufCommon::LoadProtoDsFile(const std::string &ds)
         return -1;
     }
 
-    for (int i = 0; i < file_descriptor_set.file_size(); ++i)
+    if (m_fileMd5.empty())
     {
-        auto pResult = m_pDescriptorPool->BuildFile(file_descriptor_set.file(i));
-        CHECK_EXPR(pResult, -1, "pResult == NULL, load file:{} failed", ds);
+        for (int i = 0; i < file_descriptor_set.file_size(); ++i)
+        {
+            auto pResult = m_pDescriptorPool->BuildFile(file_descriptor_set.file(i));
+            CHECK_EXPR(pResult, -1, "pResult == NULL, load file:{} failed", ds);
+        }
+
+        NFFileUtility::GetFileContainMD5(ds, m_fileMd5);
+    }
+    else
+    {
+        std::string md5;
+        NFFileUtility::GetFileContainMD5(ds, md5);
+        if (m_fileMd5 != md5)
+        {
+            m_fileMd5 = md5;
+            m_pOldPoolVec.push_back(m_pDescriptorPool);
+            m_pDescriptorPool = new google::protobuf::DescriptorPool();
+            for (int i = 0; i < file_descriptor_set.file_size(); ++i)
+            {
+                auto pResult = m_pDescriptorPool->BuildFile(file_descriptor_set.file(i));
+                CHECK_EXPR(pResult, -1, "pResult == NULL, load file:{} failed", ds);
+            }
+        }
     }
 
     return 0;
