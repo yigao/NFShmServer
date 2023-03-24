@@ -10,6 +10,7 @@
 #include "NFSchedule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
+#include "NFComm/NFPluginModule/NFIKernelModule.h"
 
 #if NF_PLATFORM == NF_PLATFORM_LINUX
 static void mainfunc(uint32_t low32, uint32_t hi32) {
@@ -128,9 +129,8 @@ NFCoroutine *NFSchedule::NewCoroutine(NFCoroutineFunc func, void *ud)
 int64_t NFSchedule::CreateCoroutine(const std::function<void()>& std_func)
 {
     NFCoroutine *co = NewCoroutine(std_func);
-    int64_t id = nco;
+    int64_t id = NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFIKernelModule>()->Get64UUID();
     co_hash_map[id] = co;
-    nco++;
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "coroutine {} is created.", id);
     return id;
@@ -147,9 +147,8 @@ int64_t NFSchedule::CreateCoroutine(NFCoroutineFunc func, void *ud)
         return -1;
     }
     NFCoroutine *co = NewCoroutine(func, ud);
-    int64_t id = nco;
+    int64_t id = NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFIKernelModule>()->Get64UUID();
     co_hash_map[id] = co;
-    nco++;
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "coroutine {} is created.", id);
     return id;
@@ -245,7 +244,7 @@ int32_t NFSchedule::CoroutineResume(int64_t id, int32_t result)
 /// @return 返回协程运行状态
 int NFSchedule::CoroutineStatus(int64_t id)
 {
-    if (id < 0 || id > nco) {
+    if (id < 0) {
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "coroutine {} not exist", id);
         return NF_COROUTINE_DEAD;
     }

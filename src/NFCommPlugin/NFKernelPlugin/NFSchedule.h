@@ -35,7 +35,6 @@ class NFSchedule {
 public:
 	NFSchedule(uint32_t stackSize)
 	{
-	    nco = 1;
 	    running = -1;
 	    co_free_num = 0;
 	    stack_size = stackSize;
@@ -117,7 +116,6 @@ public:
 #else
 	void *main;
 #endif
-    int64_t nco;                // 下一个要创建的协程ID
     int64_t running;            // 当前正在运行的协程ID
     std::unordered_map<int64_t, NFCoroutine*> co_hash_map;
     std::list<NFCoroutine*> co_free_list;

@@ -101,11 +101,8 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
     }
 #endif
 
-    static bool flag = false;
-
-    if (flag == false)
+    for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
-        flag = true;
         FindModule<NFICoroutineModule>()->MakeCoroutine([this](){
             NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
             proto_ff::RpcRequestGetServerInfo request;
@@ -121,7 +118,6 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcService respone:{}", respone.DebugString());
         });
     }
-
 
     return 0;
 }
