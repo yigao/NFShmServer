@@ -18,6 +18,7 @@
 #include "NFICoroutineModule.h"
 #include "NFIRpcService.h"
 #include "NFComm/NFCore/NFCommon.h"
+#include "proto_svr_msg.pb.h"
 
 #include <map>
 #include <unordered_map>
