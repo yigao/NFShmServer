@@ -861,9 +861,20 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                 if (svrPkg.rpc_info().rsp_rpc_id() > 0)
                 {
                     google::protobuf::Message* pRespone = FindModule<NFICoroutineModule>()->GetRpcService(svrPkg.rpc_info().rsp_rpc_id());
-                    if (pRespone)
+                    if (pRespone && svrPkg.rpc_info().rpc_ret_code() == 0)
                     {
-                        pRespone->ParseFromString(svrPkg.msg_data());
+                        if (svrPkg.rpc_info().rsp_rpc_hash() == std::hash<std::string>()(pRespone->GetTypeName()))
+                        {
+                            pRespone->ParseFromString(svrPkg.msg_data());
+                        }
+                        else {
+                            int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(), proto_ff::ERR_RPC_DECODE_FAILED);
+                            if (iRet != 0)
+                            {
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}", svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
+                            }
+                            return 0;
+                        }
                     }
 
                     int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(), svrPkg.rpc_info().rpc_ret_code());
@@ -884,7 +895,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                     rpcPacket.nMsgId = svrPkg.msg_id();
                     rpcPacket.nBuffer = (char *) svrPkg.msg_data().data();
                     rpcPacket.nMsgLen = svrPkg.msg_data().length();
-                    OnHandleRpcService(connectionLink, objectLinkId, rpcPacket);
+                    OnHandleRpcService(svrPkg.rpc_info().req_rpc_hash(), svrPkg.rpc_info().rsp_rpc_hash(), connectionLink, objectLinkId, rpcPacket);
                     uint64_t useTime = NFGetMicroSecondTime() - startTime;
                     if (useTime / 1000 > 33)
                     {
@@ -904,53 +915,63 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
     return 0;
 }
 
-int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet)
+int NFCMessageModule::OnHandleRpcService(uint64_t reqHash, uint64_t rspHash, uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet)
 {
+    int iRet = 0;
     uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
     if (eServerType < mxCallBack.size())
     {
         uint64_t startTime = NFGetMicroSecondTime();
         CallBack &callBack = mxCallBack[eServerType];
 
-        CHECK_EXPR(packet.nMsgId < NF_NET_MAX_MSG_ID, -1, "nMsgID:{} >= NF_NET_MAX_MSG_ID", packet.nMsgId);
-        NetRpcService &netRpcService = callBack.mxRpcCallBack[packet.nMsgId];
-        if (netRpcService.m_pTarget != NULL && netRpcService.m_pRpcService != NULL)
+        if (packet.nMsgId < NF_NET_MAX_MSG_ID)
         {
-            int iRet = netRpcService.m_pRpcService->run(objectLinkId, packet);
-            netRpcService.m_iCount++;
-            uint64_t useTime = NFGetMicroSecondTime() - startTime;
-            netRpcService.m_iAllUseTime += useTime;
-            if (useTime > netRpcService.m_iMaxTime)
+            NetRpcService &netRpcService = callBack.mxRpcCallBack[packet.nMsgId];
+            if (netRpcService.m_pTarget != NULL && netRpcService.m_pRpcService != NULL)
             {
-                netRpcService.m_iMaxTime = useTime;
+                iRet = netRpcService.m_pRpcService->run(reqHash, rspHash, objectLinkId, packet);
+                netRpcService.m_iCount++;
+                uint64_t useTime = NFGetMicroSecondTime() - startTime;
+                netRpcService.m_iAllUseTime += useTime;
+                if (useTime > netRpcService.m_iMaxTime)
+                {
+                    netRpcService.m_iMaxTime = useTime;
+                }
+                if (useTime < netRpcService.m_iMinTime)
+                {
+                    netRpcService.m_iMinTime = useTime;
+                }
+                if (useTime / 1000 > 33)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "RpcService nMsgId:{} use time:{} ms, too long", packet.nMsgId,
+                               useTime / 1000);
+                }
             }
-            if (useTime < netRpcService.m_iMinTime)
-            {
-                netRpcService.m_iMinTime = useTime;
+            else {
+                iRet = proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED;
             }
-            if (useTime / 1000 > 33)
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "RpcService nMsgId:{} use time:{} ms, too long", packet.nMsgId,
-                           useTime / 1000);
-            }
-
-            CHECK_RET(iRet, "packet:{}", packet.ToString());
-            return 0;
         }
         else {
+            iRet = proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED;
+            NFLogErrorIf(packet.nMsgId >= NF_NET_MAX_MSG_ID, NF_LOG_SYSTEMLOG, 0, "nMsgID:{} >= NF_NET_MAX_MSG_ID", packet.nMsgId);
+        }
+
+        if (iRet != 0)
+        {
             uint32_t busId = packet.nSrcId;
 
             proto_ff::Proto_SvrPkg svrPkg;
             svrPkg.set_msg_id(packet.nMsgId);
             svrPkg.mutable_rpc_info()->set_req_rpc_id(0);
             svrPkg.mutable_rpc_info()->set_rsp_rpc_id(packet.nParam1);
+            svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqHash);
+            svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(rspHash);
             svrPkg.mutable_rpc_info()->set_rpc_ret_code(proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED);
 
             FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, NF_ST_NONE, 0, busId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
         }
-
-        return 0;
     }
+
     return 0;
 }
 

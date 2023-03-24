@@ -26,5 +26,5 @@ public:
 
     }
 
-    virtual int run(uint64_t unLinkId, NFDataPackage &packet) = 0;
+    virtual int run(uint64_t reqHash, uint64_t rspHash, uint64_t unLinkId, NFDataPackage &packet) = 0;
 };

@@ -930,6 +930,20 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 rpc_ret_code() const;
   inline void set_rpc_ret_code(::google::protobuf::int32 value);
 
+  // optional uint64 req_rpc_hash = 4;
+  inline bool has_req_rpc_hash() const;
+  inline void clear_req_rpc_hash();
+  static const int kReqRpcHashFieldNumber = 4;
+  inline ::google::protobuf::uint64 req_rpc_hash() const;
+  inline void set_req_rpc_hash(::google::protobuf::uint64 value);
+
+  // optional uint64 rsp_rpc_hash = 5;
+  inline bool has_rsp_rpc_hash() const;
+  inline void clear_rsp_rpc_hash();
+  static const int kRspRpcHashFieldNumber = 5;
+  inline ::google::protobuf::uint64 rsp_rpc_hash() const;
+  inline void set_rsp_rpc_hash(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_RpcInfo)
  private:
   inline void set_has_req_rpc_id();
@@ -938,15 +952,21 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
   inline void clear_has_rsp_rpc_id();
   inline void set_has_rpc_ret_code();
   inline void clear_has_rpc_ret_code();
+  inline void set_has_req_rpc_hash();
+  inline void clear_has_req_rpc_hash();
+  inline void set_has_rsp_rpc_hash();
+  inline void clear_has_rsp_rpc_hash();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 req_rpc_id_;
   ::google::protobuf::int64 rsp_rpc_id_;
+  ::google::protobuf::uint64 req_rpc_hash_;
+  ::google::protobuf::uint64 rsp_rpc_hash_;
   ::google::protobuf::int32 rpc_ret_code_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -3267,6 +3287,50 @@ inline ::google::protobuf::int32 Proto_RpcInfo::rpc_ret_code() const {
 inline void Proto_RpcInfo::set_rpc_ret_code(::google::protobuf::int32 value) {
   set_has_rpc_ret_code();
   rpc_ret_code_ = value;
+}
+
+// optional uint64 req_rpc_hash = 4;
+inline bool Proto_RpcInfo::has_req_rpc_hash() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_RpcInfo::set_has_req_rpc_hash() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_RpcInfo::clear_has_req_rpc_hash() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Proto_RpcInfo::clear_req_rpc_hash() {
+  req_rpc_hash_ = GOOGLE_ULONGLONG(0);
+  clear_has_req_rpc_hash();
+}
+inline ::google::protobuf::uint64 Proto_RpcInfo::req_rpc_hash() const {
+  return req_rpc_hash_;
+}
+inline void Proto_RpcInfo::set_req_rpc_hash(::google::protobuf::uint64 value) {
+  set_has_req_rpc_hash();
+  req_rpc_hash_ = value;
+}
+
+// optional uint64 rsp_rpc_hash = 5;
+inline bool Proto_RpcInfo::has_rsp_rpc_hash() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_RpcInfo::set_has_rsp_rpc_hash() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_RpcInfo::clear_has_rsp_rpc_hash() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_RpcInfo::clear_rsp_rpc_hash() {
+  rsp_rpc_hash_ = GOOGLE_ULONGLONG(0);
+  clear_has_rsp_rpc_hash();
+}
+inline ::google::protobuf::uint64 Proto_RpcInfo::rsp_rpc_hash() const {
+  return rsp_rpc_hash_;
+}
+inline void Proto_RpcInfo::set_rsp_rpc_hash(::google::protobuf::uint64 value) {
+  set_has_rsp_rpc_hash();
+  rsp_rpc_hash_ = value;
 }
 
 // -------------------------------------------------------------------

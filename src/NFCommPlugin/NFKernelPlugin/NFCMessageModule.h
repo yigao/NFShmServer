@@ -208,7 +208,7 @@ public:
 
     int OnSocketNetEvent(eMsgType nEvent, uint64_t connectionLink, uint64_t objectLinkId);
 
-    int OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet);
+    int OnHandleRpcService(uint64_t reqHash, uint64_t rspHash, uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet);
 public:
     virtual bool ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const std::string &strMsg,
                                  NFWebStatus code = NFWebStatus::WEB_OK, const std::string &reason = "OK");

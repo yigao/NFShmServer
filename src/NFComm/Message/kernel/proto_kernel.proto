@@ -162,6 +162,8 @@ message Proto_RpcInfo
   optional int64 req_rpc_id = 1;
   optional int64 rsp_rpc_id = 2;
   optional int32 rpc_ret_code = 3;
+  optional uint64 req_rpc_hash = 4;
+  optional uint64 rsp_rpc_hash = 5;
 }
 
 //粘包
