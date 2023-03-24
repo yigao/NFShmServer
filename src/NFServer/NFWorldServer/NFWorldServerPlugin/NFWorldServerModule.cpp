@@ -33,6 +33,7 @@ bool NFCWorldServerModule::Awake()
     /////////////////test other server msg///////////////////////////////////////
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ);
 
+    FindModule<NFIMessageModule>()->AddRpcService(NF_ST_WORLD_SERVER, proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ, this, &NFCWorldServerModule::OnRpcServiceGetServerInfo);
     BindServer();
     return true;
 }
@@ -139,5 +140,17 @@ int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPa
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCWorldServerModule::OnRpcServiceGetServerInfo(proto_ff::RpcRequestGetServerInfo& request, proto_ff::ServerInfoReport& respone)
+{
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "OnRpcServiceGetServerInfo request:{}", request.DebugString());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+    if (pConfig)
+    {
+        NFServerCommon::WriteServerInfo(&respone, pConfig);
+    }
     return 0;
 }

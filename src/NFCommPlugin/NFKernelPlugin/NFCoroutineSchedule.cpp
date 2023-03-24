@@ -140,6 +140,15 @@ int64_t NFCoroutineSchedule::CurrentTaskId() const {
     return schedule_->CoroutineRunning();
 }
 
+/**
+ * @brief 当前是否在携程中
+ * @return
+ */
+bool NFCoroutineSchedule::IsInCoroutine() const
+{
+    return CurrentTaskId() != INVALID_CO_ID;
+}
+
 int NFCoroutineSchedule::AddTaskToSchedule(NFCoroutineTask *task) {
     pre_start_task_.insert(task);
     return 0;

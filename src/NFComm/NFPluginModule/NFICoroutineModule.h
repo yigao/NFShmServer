@@ -10,12 +10,15 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIModule.h"
+#include "NFIRpcService.h"
 
 class NFCoroutineTask;
 
 #ifdef Yield
 #undef Yield
 #endif
+
+
 
 class NFICoroutineModule : public NFIModule {
 public:
@@ -28,6 +31,12 @@ public:
     }
 
     virtual int MakeCoroutine(const std::function<void()> &func) = 0;
+
+    virtual int AddRpcService(google::protobuf::Message* pMessage) = 0;
+
+    virtual google::protobuf::Message* GetRpcService(int64_t coId) = 0;
+
+    virtual int DelRpcService(google::protobuf::Message* pMessage) = 0;
 
     /// @brief 启动该协程任务, 执行Run方法
     /// @param is_immediately 是否立即执行
@@ -51,6 +60,12 @@ public:
     /// @reurn 正在运行的协程ID
     /// @note 此函数必须在协程中调用
     virtual int64_t CurrentTaskId() const = 0;
+
+    /**
+     * @brief 当前是否在携程中
+     * @return
+     */
+    virtual bool IsInCoroutine() const = 0;
 
     /// @brief 挂起当前协程
     /// @param timeout_ms 超时时间，单位为毫秒，默认-1，<=0时表示不进行超时处理

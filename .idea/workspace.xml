@@ -56,16 +56,21 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="store server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/Message/kernel/proto_kernel.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/kernel/proto_kernel.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/Message/storesvr/storesvr_sqldata.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/storesvr/storesvr_sqldata.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_kernel.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_kernel.pb.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_kernel.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_kernel.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFICoroutineModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFICoroutineModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFServerLinkData.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFServerLinkData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_msg.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/Message/proto_svr/proto_svr_msg.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_msg.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_msg.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_msg.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/proto_svr_msg.pb.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -656,14 +661,7 @@
       <workItem from="1679014162204" duration="30604000" />
       <workItem from="1679054253578" duration="28000" />
       <workItem from="1679287244120" duration="31170000" />
-      <workItem from="1679446064457" duration="65263000" />
-    </task>
-    <task id="LOCAL-00490" summary="trans scene">
-      <created>1678528008430</created>
-      <option name="number" value="00490" />
-      <option name="presentableId" value="LOCAL-00490" />
-      <option name="project" value="LOCAL" />
-      <updated>1678528008430</updated>
+      <workItem from="1679446064457" duration="79971000" />
     </task>
     <task id="LOCAL-00491" summary="trans scene">
       <created>1678528838969</created>
@@ -1001,7 +999,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679557982900</updated>
     </task>
-    <option name="localTasksCounter" value="539" />
+    <task id="LOCAL-00539" summary="store server">
+      <created>1679617964884</created>
+      <option name="number" value="00539" />
+      <option name="presentableId" value="LOCAL-00539" />
+      <option name="project" value="LOCAL" />
+      <updated>1679617964884</updated>
+    </task>
+    <option name="localTasksCounter" value="540" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1253,6 +1258,43 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp</url>
+          <line>857</line>
+          <option name="timeStamp" value="81" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp</url>
+          <line>107</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp</url>
+          <line>110</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h</url>
+          <line>258</line>
+          <option name="timeStamp" value="86" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h</url>
+          <line>272</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp</url>
+          <line>154</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp</url>
+          <line>114</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

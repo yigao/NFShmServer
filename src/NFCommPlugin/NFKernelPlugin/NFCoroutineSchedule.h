@@ -90,6 +90,12 @@ public:
     /// @note 此函数必须在协程中调用
     int64_t CurrentTaskId() const;
 
+    /**
+     * @brief 当前是否在携程中
+     * @return
+     */
+    bool IsInCoroutine() const;
+
     /// @brief 挂起当前协程
     /// @param timeout_ms 超时时间，单位为毫秒，默认-1，<=0时表示不进行超时处理
     /// @return 处理结果，@see CoroutineErrorCode

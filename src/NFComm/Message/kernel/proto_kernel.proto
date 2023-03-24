@@ -159,8 +159,9 @@ message Proto_EventInfo
 
 message Proto_RpcInfo
 {
-  optional int32 req_rpc_id = 1;
-  optional int32 rsp_rpc_id = 2;
+  optional int64 req_rpc_id = 1;
+  optional int64 rsp_rpc_id = 2;
+  optional int32 rpc_ret_code = 3;
 }
 
 //粘包
@@ -325,6 +326,23 @@ enum Proto_Kernel_ErrorCode {
   ERR_CODE_SVR_OK = 0;
 
   ERR_CODE_MSG_RPC_BASE = -100;
+  ERR_RPC_INVALID_PARAM = -101;   // 参数错误
+  ERR_RPC_ENCODE_FAILED = -102;   // 编码错误
+  ERR_RPC_DECODE_FAILED = -103;   // 解码错误
+  ERR_RPC_RECV_EXCEPTION_MSG = -104;   // 收到EXCEPTION消息
+  ERR_RPC_UNKNOWN_TYPE = -105;   // 消息类型错误
+  ERR_RPC_UNSUPPORT_FUNCTION_NAME = -106;  // 不支持的函数名
+  ERR_RPC_SESSION_NOT_FOUND = -107;   // session已过期
+  ERR_RPC_SEND_FAILED = -108;   // 发送失败
+  ERR_RPC_REQUEST_TIMEOUT = -109;   // 请求超时
+  ERR_RPC_FUNCTION_NAME_EXISTED = -110; // 服务名已存在
+  ERR_RPC_SYSTEM_ERROR = -111;  // 系统错误
+  ERR_RPC_PROCESS_TIMEOUT = -112;  // 服务处理超时
+  ERR_RPC_FUNCTION_NAME_UNEXISTED = -113;  // 服务名不存在
+  ERR_RPC_SYSTEM_OVERLOAD_BASE = -114; // 系统过载BASE
+  ERR_RPC_MESSAGE_EXPIRED = -115; // 系统过载-消息过期
+  ERR_RPC_TASK_OVERLOAD = -116; // 系统过载-并发任务过载
+  ERR_RPC_CO_USED = -117; //rpc所在的携程已经被使用了
   ERR_CODE_SESSION_BASE = -200;
   ERR_CODE_MESSAGE_BASE = -300;
   ////////////////////////////////////////////////////////////////////

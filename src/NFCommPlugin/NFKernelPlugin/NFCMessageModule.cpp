@@ -22,6 +22,8 @@
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"
 #include "NFComm/NFPluginModule/NFIEventModule.h"
 
+
+
 NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p)
 {
     m_pObjPluginManager = p;
@@ -853,37 +855,21 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
             }
             else if (packet.mModuleId == 0 && packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_RPC_CMD)
             {
-                proto_ff::Proto_SvrPkg svrPkg;
+               proto_ff::Proto_SvrPkg svrPkg;
                 CLIENT_MSG_PROCESS_WITH_PRINTF(packet, svrPkg);
 
                 if (svrPkg.rpc_info().rsp_rpc_id() > 0)
                 {
-                    NFTransBase *pTrans = FindModule<NFISharedMemModule>()->GetTrans(svrPkg.disp_info().rsp_trans_id());
-                    if (pTrans && !pTrans->IsFinished())
+                    google::protobuf::Message* pRespone = FindModule<NFICoroutineModule>()->GetRpcService(svrPkg.rpc_info().rsp_rpc_id());
+                    if (pRespone)
                     {
-                        NFDataPackage transPacket;
-                        transPacket.nParam1 = svrPkg.disp_info().req_trans_id();
-                        transPacket.nParam2 = svrPkg.disp_info().rsp_trans_id();
-                        transPacket.mModuleId = 0;
-                        transPacket.nMsgId = svrPkg.msg_id();
-                        transPacket.nBuffer = (char *) svrPkg.msg_data().data();
-                        transPacket.nMsgLen = svrPkg.msg_data().length();
-
-                        pTrans->ProcessDispSvrRes(svrPkg.msg_id(), transPacket, svrPkg.disp_info().req_trans_id(), svrPkg.disp_info().rsp_trans_id());
-                        uint64_t useTime = NFGetMicroSecondTime() - startTime;
-                        if (useTime / 1000 > 33)
-                        {
-                            NFLogError(NF_LOG_SYSTEMLOG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} use time:{} ms, too long", pTrans->ClassTypeInfo(),
-                                       svrPkg.msg_id(), useTime / 1000);
-                        }
-                        NFLogTrace(NF_LOG_RECV_MSG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} packet:{} use time:{} us", pTrans->ClassTypeInfo(),
-                                   svrPkg.msg_id(), packet.ToString(), useTime);
+                        pRespone->ParseFromString(svrPkg.msg_data());
                     }
-                    else
+
+                    int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(), svrPkg.rpc_info().rpc_ret_code());
+                    if (iRet != 0)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                   "can't find trans, trans maybe timeout, msgId:{} req_transid:{} rsp_transid:{}",
-                                   svrPkg.msg_id(), svrPkg.disp_info().req_trans_id(), svrPkg.disp_info().rsp_trans_id());
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}", svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
                     }
                     return 0;
                 }
@@ -950,6 +936,17 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
 
             CHECK_RET(iRet, "packet:{}", packet.ToString());
             return 0;
+        }
+        else {
+            uint32_t busId = packet.nSrcId;
+
+            proto_ff::Proto_SvrPkg svrPkg;
+            svrPkg.set_msg_id(packet.nMsgId);
+            svrPkg.mutable_rpc_info()->set_req_rpc_id(0);
+            svrPkg.mutable_rpc_info()->set_rsp_rpc_id(packet.nParam1);
+            svrPkg.mutable_rpc_info()->set_rpc_ret_code(proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED);
+
+            FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, NF_ST_NONE, 0, busId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
         }
 
         return 0;

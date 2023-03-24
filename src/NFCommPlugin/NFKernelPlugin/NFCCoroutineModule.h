@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include <unordered_map>
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 
 class NFCoroutineSchedule;
@@ -46,6 +47,12 @@ public:
     /// @note 此函数必须在协程中调用
     virtual int64_t CurrentTaskId() const override;
 
+    /**
+     * @brief 当前是否在携程中
+     * @return
+     */
+    virtual bool IsInCoroutine() const override;
+
     /// @brief 挂起当前协程
     /// @param timeout_ms 超时时间，单位为毫秒，默认-1，<=0时表示不进行超时处理
     /// @return 处理结果，@see CoroutineErrorCode
@@ -79,6 +86,13 @@ public:
     }
 
     virtual int MakeCoroutine(const std::function<void()> &func) override;
+
+    virtual int AddRpcService(google::protobuf::Message* pMessage) override;
+
+    virtual google::protobuf::Message* GetRpcService(int64_t coId) override;
+
+    virtual int DelRpcService(google::protobuf::Message* pMessage) override;
 private:
     NFCoroutineSchedule *m_pCorSched;
+    std::unordered_map<int64_t, google::protobuf::Message*> m_rpcCoMap;
 };

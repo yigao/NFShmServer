@@ -289,6 +289,23 @@ enum Proto_Kernel_ErrorCode {
   ERR_CODE_SVR_SYSTEM_ERROR = -1,
   ERR_CODE_SVR_OK = 0,
   ERR_CODE_MSG_RPC_BASE = -100,
+  ERR_RPC_INVALID_PARAM = -101,
+  ERR_RPC_ENCODE_FAILED = -102,
+  ERR_RPC_DECODE_FAILED = -103,
+  ERR_RPC_RECV_EXCEPTION_MSG = -104,
+  ERR_RPC_UNKNOWN_TYPE = -105,
+  ERR_RPC_UNSUPPORT_FUNCTION_NAME = -106,
+  ERR_RPC_SESSION_NOT_FOUND = -107,
+  ERR_RPC_SEND_FAILED = -108,
+  ERR_RPC_REQUEST_TIMEOUT = -109,
+  ERR_RPC_FUNCTION_NAME_EXISTED = -110,
+  ERR_RPC_SYSTEM_ERROR = -111,
+  ERR_RPC_PROCESS_TIMEOUT = -112,
+  ERR_RPC_FUNCTION_NAME_UNEXISTED = -113,
+  ERR_RPC_SYSTEM_OVERLOAD_BASE = -114,
+  ERR_RPC_MESSAGE_EXPIRED = -115,
+  ERR_RPC_TASK_OVERLOAD = -116,
+  ERR_RPC_CO_USED = -117,
   ERR_CODE_SESSION_BASE = -200,
   ERR_CODE_MESSAGE_BASE = -300,
   ERR_CODE_NAMING_BASE = -400,
@@ -892,19 +909,26 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional int32 req_rpc_id = 1;
+  // optional int64 req_rpc_id = 1;
   inline bool has_req_rpc_id() const;
   inline void clear_req_rpc_id();
   static const int kReqRpcIdFieldNumber = 1;
-  inline ::google::protobuf::int32 req_rpc_id() const;
-  inline void set_req_rpc_id(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 req_rpc_id() const;
+  inline void set_req_rpc_id(::google::protobuf::int64 value);
 
-  // optional int32 rsp_rpc_id = 2;
+  // optional int64 rsp_rpc_id = 2;
   inline bool has_rsp_rpc_id() const;
   inline void clear_rsp_rpc_id();
   static const int kRspRpcIdFieldNumber = 2;
-  inline ::google::protobuf::int32 rsp_rpc_id() const;
-  inline void set_rsp_rpc_id(::google::protobuf::int32 value);
+  inline ::google::protobuf::int64 rsp_rpc_id() const;
+  inline void set_rsp_rpc_id(::google::protobuf::int64 value);
+
+  // optional int32 rpc_ret_code = 3;
+  inline bool has_rpc_ret_code() const;
+  inline void clear_rpc_ret_code();
+  static const int kRpcRetCodeFieldNumber = 3;
+  inline ::google::protobuf::int32 rpc_ret_code() const;
+  inline void set_rpc_ret_code(::google::protobuf::int32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_RpcInfo)
  private:
@@ -912,14 +936,17 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
   inline void clear_has_req_rpc_id();
   inline void set_has_rsp_rpc_id();
   inline void clear_has_rsp_rpc_id();
+  inline void set_has_rpc_ret_code();
+  inline void clear_has_rpc_ret_code();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::int32 req_rpc_id_;
-  ::google::protobuf::int32 rsp_rpc_id_;
+  ::google::protobuf::int64 req_rpc_id_;
+  ::google::protobuf::int64 rsp_rpc_id_;
+  ::google::protobuf::int32 rpc_ret_code_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -3176,7 +3203,7 @@ inline void Proto_EventInfo::set_allocated_full_message_name(::std::string* full
 
 // Proto_RpcInfo
 
-// optional int32 req_rpc_id = 1;
+// optional int64 req_rpc_id = 1;
 inline bool Proto_RpcInfo::has_req_rpc_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3187,18 +3214,18 @@ inline void Proto_RpcInfo::clear_has_req_rpc_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void Proto_RpcInfo::clear_req_rpc_id() {
-  req_rpc_id_ = 0;
+  req_rpc_id_ = GOOGLE_LONGLONG(0);
   clear_has_req_rpc_id();
 }
-inline ::google::protobuf::int32 Proto_RpcInfo::req_rpc_id() const {
+inline ::google::protobuf::int64 Proto_RpcInfo::req_rpc_id() const {
   return req_rpc_id_;
 }
-inline void Proto_RpcInfo::set_req_rpc_id(::google::protobuf::int32 value) {
+inline void Proto_RpcInfo::set_req_rpc_id(::google::protobuf::int64 value) {
   set_has_req_rpc_id();
   req_rpc_id_ = value;
 }
 
-// optional int32 rsp_rpc_id = 2;
+// optional int64 rsp_rpc_id = 2;
 inline bool Proto_RpcInfo::has_rsp_rpc_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3209,15 +3236,37 @@ inline void Proto_RpcInfo::clear_has_rsp_rpc_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void Proto_RpcInfo::clear_rsp_rpc_id() {
-  rsp_rpc_id_ = 0;
+  rsp_rpc_id_ = GOOGLE_LONGLONG(0);
   clear_has_rsp_rpc_id();
 }
-inline ::google::protobuf::int32 Proto_RpcInfo::rsp_rpc_id() const {
+inline ::google::protobuf::int64 Proto_RpcInfo::rsp_rpc_id() const {
   return rsp_rpc_id_;
 }
-inline void Proto_RpcInfo::set_rsp_rpc_id(::google::protobuf::int32 value) {
+inline void Proto_RpcInfo::set_rsp_rpc_id(::google::protobuf::int64 value) {
   set_has_rsp_rpc_id();
   rsp_rpc_id_ = value;
+}
+
+// optional int32 rpc_ret_code = 3;
+inline bool Proto_RpcInfo::has_rpc_ret_code() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_RpcInfo::set_has_rpc_ret_code() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_RpcInfo::clear_has_rpc_ret_code() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_RpcInfo::clear_rpc_ret_code() {
+  rpc_ret_code_ = 0;
+  clear_has_rpc_ret_code();
+}
+inline ::google::protobuf::int32 Proto_RpcInfo::rpc_ret_code() const {
+  return rpc_ret_code_;
+}
+inline void Proto_RpcInfo::set_rpc_ret_code(::google::protobuf::int32 value) {
+  set_has_rpc_ret_code();
+  rpc_ret_code_ = value;
 }
 
 // -------------------------------------------------------------------

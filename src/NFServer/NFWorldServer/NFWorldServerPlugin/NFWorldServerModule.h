@@ -13,6 +13,7 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFServerComm/NFServerCommon/NFIWorldServerModule.h"
+#include "proto_svr_msg.pb.h"
 
 class NFCWorldServerModule : public NFIWorldServerModule
 {
@@ -54,4 +55,5 @@ public:
 public:
     ////////////test server msg///////////////////////////////////////
     int OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage &packet);
+    int OnRpcServiceGetServerInfo(proto_ff::RpcRequestGetServerInfo& request, proto_ff::ServerInfoReport& respone);
 };

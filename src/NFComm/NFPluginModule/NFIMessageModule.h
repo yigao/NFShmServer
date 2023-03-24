@@ -15,6 +15,9 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
+#include "NFICoroutineModule.h"
+#include "NFIRpcService.h"
+#include "NFComm/NFCore/NFCommon.h"
 
 #include <map>
 #include <unordered_map>
@@ -92,25 +95,14 @@
 
 
 class NFIDynamicModule;
-
-class NFIRpcService : public NFObject
-{
-public:
-    NFIRpcService(NFIPluginManager* p):NFObject(p)
-    {
-
-    }
-
-    virtual int run(uint64_t unLinkId, NFDataPackage &packet) = 0;
-};
+class NFIMessageModule;
 
 template<typename BaseType, typename RequestType, typename ResponeType>
 class NFCRpcService : public NFIRpcService
 {
     static_assert((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
-    static_assert((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
-    static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class recvData must is google::protobuf::Message");
-    static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class returnDataType must is google::protobuf::Message");
+    static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class RequestType must is google::protobuf::Message");
+    static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class ResponeType must is google::protobuf::Message");
 public:
     NFCRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone)): NFIRpcService(p)
     {
@@ -122,23 +114,35 @@ public:
         RequestType req;
         CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
+        uint32_t eServerType = GetServerTypeFromUnlinkId(unLinkId);
         uint32_t busId = packet.nSrcId;
         ResponeType rsp;
 
+        int iRet = 0;
+        proto_ff::Proto_SvrPkg svrPkg;
+        svrPkg.set_msg_id(packet.nMsgId);
+        svrPkg.mutable_rpc_info()->set_req_rpc_id(0);
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_id(packet.nParam1);
         if (m_function)
         {
-            int iRet = m_function(req, rsp);
-            proto_ff::NF_SERVER_TO_SERVER_RPC_CMD;
-            proto_ff::Proto_SvrPkg svrPkg;
-            svrPkg.set_msg_id(packet.nMsgId);
+            iRet = m_function(req, rsp);
             svrPkg.set_msg_data(rsp.SerializeAsString());
+            svrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
+        }
+        else {
+            svrPkg.mutable_rpc_info()->set_rpc_ret_code(proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED);
         }
 
-        return -1;
+        FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, NF_ST_NONE, 0, busId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
+
+        return 0;
     }
 
     std::function<int(RequestType& request, ResponeType &respone)> m_function;
 };
+
+
+
 
 /// @brief 基于消息的通讯接口类
 class NFIMessageModule : public NFIModule
@@ -247,6 +251,31 @@ public:
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
         NFIRpcService* pRpcService = new NFCRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
         return AddRpcService(serverType, nMsgID, pBase, pRpcService);
+    }
+
+    template<typename RequestType, typename ResponeType>
+    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, ResponeType& rspone)
+    {
+        static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class RequestType must is google::protobuf::Message");
+        static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class ResponeType must is google::protobuf::Message");
+        NF_ASSERT_MSG(FindModule<NFICoroutineModule>()->IsInCoroutine(), "Call GetRpcService Must Int the Coroutine");
+
+        proto_ff::Proto_SvrPkg svrPkg;
+        svrPkg.set_msg_id(nMsgId);
+        svrPkg.set_msg_data(request.SerializeAsString());
+        svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
+
+        SendMsgToServer(serverType, dstServerType, 0, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
+
+        int32_t iRet = FindModule<NFICoroutineModule>()->AddRpcService(&rspone);
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
+
+        iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
+
+        FindModule<NFICoroutineModule>()->DelRpcService(&rspone);
+
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
+        return iRet;
     }
 
     /**

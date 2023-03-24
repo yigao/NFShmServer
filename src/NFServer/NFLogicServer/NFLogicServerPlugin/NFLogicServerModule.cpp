@@ -79,12 +79,12 @@ bool NFCLogicServerModule::OnDynamicPlugin()
 
 int NFCLogicServerModule::TestOtherServerToWorldServer()
 {
-#ifdef TEST_SERVER_SEND_MSG
     if (!m_pObjPluginManager->IsInited())
     {
         return 0;
     }
 
+#ifdef TEST_SERVER_SEND_MSG
     static int req = 0;
     for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
@@ -100,6 +100,28 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     }
 #endif
+
+    static bool flag = false;
+
+    if (flag == false)
+    {
+        flag = true;
+        FindModule<NFICoroutineModule>()->MakeCoroutine([this](){
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+            proto_ff::RpcRequestGetServerInfo request;
+            request.set_server_id(pConfig->ServerId);
+            proto_ff::ServerInfoReport respone;
+            int iRet = FindModule<NFIMessageModule>()->GetRpcService(NF_ST_LOGIC_SERVER, NF_ST_WORLD_SERVER, 0, proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ, request, respone);
+            if (iRet != 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ Failed!");
+                return;
+            }
+
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcService respone:{}", respone.DebugString());
+        });
+    }
+
 
     return 0;
 }

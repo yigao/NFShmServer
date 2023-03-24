@@ -14,6 +14,7 @@ enum Proto_SvrMsgID
   NF_TEST_OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER = 43; //test send proxy msg to other server rsp
   NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ = 44; //test send other server to world server
   NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ = 45; //test send world msg to other server
+  NF_RPC_SERVICE_GET_SERVER_INFO_REQ = 46; //
 }
 
 message CommonMsgRsp
@@ -111,4 +112,9 @@ message Proto_TestOtherServerToWorldServer
   optional string server_id = 1;
   optional string server_name = 2;
   optional int32 seq = 3;
+}
+
+message RpcRequestGetServerInfo
+{
+  optional string server_id = 1;
 }
