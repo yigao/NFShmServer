@@ -258,6 +258,18 @@ public:
         return AddRpcService(serverType, nMsgID, pBase, pRpcService);
     }
 
+    /**
+     * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
+     * @tparam RequestType
+     * @tparam ResponeType
+     * @param serverType
+     * @param dstServerType
+     * @param dstBusId
+     * @param nMsgId
+     * @param request
+     * @param respone
+     * @return
+     */
     template<typename RequestType, typename ResponeType>
     int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, ResponeType& respone)
     {
@@ -283,6 +295,31 @@ public:
 
         CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
         return iRet;
+    }
+
+    /**
+     * @brief 这个函数会先创建一个协程， 获取远程服务器的rpc服务，不能在别的协程里调用这个函数
+     * @tparam RequestType
+     * @tparam ResponeType
+     * @param serverType
+     * @param dstServerType
+     * @param dstBusId
+     * @param nMsgId
+     * @param request
+     * @param rpcCb
+     * @return
+     */
+    template<typename ResponeType, typename RequestType>
+    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, const std::function<void(int rpcRetCode, ResponeType& respone)>& rpcCb)
+    {
+        return FindModule<NFICoroutineModule>()->MakeCoroutine([=](){
+            ResponeType respone;
+            int iRet = FindModule<NFIMessageModule>()->GetRpcService(serverType, dstServerType, dstBusId, nMsgId, request, respone);
+            if (rpcCb)
+            {
+                rpcCb(iRet, respone);
+            }
+        });
     }
 
     /**
