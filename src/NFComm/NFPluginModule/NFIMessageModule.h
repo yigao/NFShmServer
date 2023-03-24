@@ -135,7 +135,7 @@ public:
             svrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
         }
         else {
-            svrPkg.mutable_rpc_info()->set_rpc_ret_code(proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED);
+            svrPkg.mutable_rpc_info()->set_rpc_ret_code(proto_ff::ERR_RPC_MSG_FUNCTION_UNEXISTED);
         }
 
         FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, NF_ST_NONE, 0, busId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);

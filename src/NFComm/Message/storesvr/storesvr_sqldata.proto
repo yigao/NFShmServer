@@ -1,8 +1,5 @@
 package storesvr_sqldata;
 
-//定义下面的选项，表示生成service服务类和rpc方法描述，默认不生成
-option cc_generic_services = true;
-
 // 关于运算符的定义 http://msdn.microsoft.com/zh-cn/library/ms174986.aspx
 
 // 逻辑运算
@@ -70,11 +67,6 @@ message storesvr_sel_res {
 	optional int32  row_count				= 4;	// 查询返回行数
 	repeated bytes  sel_records				= 5;	// 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
 };
-
-service StoreSvrSelRpc
-{
-	rpc Request(storesvr_sel) returns(storesvr_sel_res);
-}
 
 //--------------------------------------------------------------------------------------------------
 // 对象查询

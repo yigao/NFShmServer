@@ -948,11 +948,11 @@ int NFCMessageModule::OnHandleRpcService(uint64_t reqHash, uint64_t rspHash, uin
                 }
             }
             else {
-                iRet = proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED;
+                iRet = proto_ff::ERR_RPC_MSG_FUNCTION_UNEXISTED;
             }
         }
         else {
-            iRet = proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED;
+            iRet = proto_ff::ERR_RPC_MSG_FUNCTION_UNEXISTED;
             NFLogErrorIf(packet.nMsgId >= NF_NET_MAX_MSG_ID, NF_LOG_SYSTEMLOG, 0, "nMsgID:{} >= NF_NET_MAX_MSG_ID", packet.nMsgId);
         }
 
@@ -966,7 +966,7 @@ int NFCMessageModule::OnHandleRpcService(uint64_t reqHash, uint64_t rspHash, uin
             svrPkg.mutable_rpc_info()->set_rsp_rpc_id(packet.nParam1);
             svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqHash);
             svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(rspHash);
-            svrPkg.mutable_rpc_info()->set_rpc_ret_code(proto_ff::ERR_RPC_FUNCTION_NAME_UNEXISTED);
+            svrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
 
             FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, NF_ST_NONE, 0, busId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
         }

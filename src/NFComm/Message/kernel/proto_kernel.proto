@@ -292,38 +292,6 @@ message BehaviorLogHeader
 enum Proto_Kernel_ErrorCode {
   option allow_alias = true;
   //0------10000
-  /////////////////////////zk调用返回码/////////////////////////////////////
-  ERR_CODE_ZOOKEEPER_BASE = 0;
-  ERR_CODE_ZK_SYSTEMERROR = -1;///< System and server-side errors.
-  ERR_CODE_ZK_RUNTIMEINCONSISTENCY = -2;///< A runtime inconsistency was found
-  ERR_CODE_ZK_DATAINCONSISTENCY = -3;  ///< A data inconsistency was found
-  ERR_CODE_ZK_CONNECTIONLOSS = -4; ///< Connection to the server has been lost
-  ERR_CODE_ZK_MARSHALLINGERROR = -5; ///< Error while marshalling or unmarshalling data
-  ERR_CODE_ZK_UNIMPLEMENTED = -6; ///< Operation is unimplemented
-  ERR_CODE_ZK_OPERATIONTIMEOUT = -7; ///< Operation timeout
-  ERR_CODE_ZK_BADARGUMENTS = -8; ///< Invalid arguments
-  ERR_CODE_ZK_INVALIDSTATE = -9; ///< Invliad zhandle state
-  ERR_CODE_kSM_DNSFAILURE = -10; ///< Error occurs when dns lookup
-
-  ERR_CODE_ZK_APIERROR = -100;
-  ERR_CODE_ZK_NONODE = -101; ///< Node does not exist
-  ERR_CODE_ZK_NOAUTH = -102; ///< Not authenticated
-  ERR_CODE_ZK_BADVERSION = -103; ///< Version conflict
-  ERR_CODE_ZK_NOCHILDRENFOREPHEMERALS = -108;  ///< Ephemeral nodes may not have children
-  ERR_CODE_ZK_NODEEXISTS = -110;  ///< The node already exists
-  ERR_CODE_ZK_NOTEMPTY = -111; ///< The node has children
-  ERR_CODE_ZK_SESSIONEXPIRED = -112; ///< The session has been expired by the server
-  ERR_CODE_ZK_INVALIDCALLBACK = -113;  ///< Invalid callback specified
-  ERR_CODE_ZK_INVALIDACL = -114;  ///< Invalid ACL specified
-  ERR_CODE_ZK_AUTHFAILED = -115;  ///< Client authentication failed
-  ERR_CODE_ZK_CLOSING = -116;  ///< ZooKeeper is closing
-  ERR_CODE_ZK_NOTHING = -117; ///< (not error) no server responses to process
-  ERR_CODE_ZK_SESSIONMOVED = -118;  ///< session moved to another server, so operation is ignored
-  ERR_CODE_ZK_NOQUOTA = -119;  ///< quota is not enough.
-  ERR_CODE_ZK_SERVEROVERLOAD = -120;  ///< server overload.
-  ERR_CODE_ZK_NOT_SET_APPKEY = -200;  ///< 未设置appkey
-  /////////////////////////zk调用返回码/////////////////////////////////////
-
   ERR_CODE_SVR_SYSTEM_ERROR = -1;
   ERR_CODE_SVR_OK = 0;
 
@@ -340,12 +308,44 @@ enum Proto_Kernel_ErrorCode {
   ERR_RPC_FUNCTION_NAME_EXISTED = -110; // 服务名已存在
   ERR_RPC_SYSTEM_ERROR = -111;  // 系统错误
   ERR_RPC_PROCESS_TIMEOUT = -112;  // 服务处理超时
-  ERR_RPC_FUNCTION_NAME_UNEXISTED = -113;  // 服务名不存在
+  ERR_RPC_MSG_FUNCTION_UNEXISTED = -113;  // 服务名不存在
   ERR_RPC_SYSTEM_OVERLOAD_BASE = -114; // 系统过载BASE
   ERR_RPC_MESSAGE_EXPIRED = -115; // 系统过载-消息过期
   ERR_RPC_TASK_OVERLOAD = -116; // 系统过载-并发任务过载
   ERR_RPC_CO_USED = -117; //rpc所在的携程已经被使用了
-  ERR_CODE_SESSION_BASE = -200;
+
+  /////////////////////////zk调用返回码/////////////////////////////////////
+  ERR_CODE_ZOOKEEPER_BASE = 0;
+  ERR_CODE_ZK_SYSTEMERROR = -200;///< System and server-side errors.
+  ERR_CODE_ZK_RUNTIMEINCONSISTENCY = -201;///< A runtime inconsistency was found
+  ERR_CODE_ZK_DATAINCONSISTENCY = -203;  ///< A data inconsistency was found
+  ERR_CODE_ZK_CONNECTIONLOSS = -204; ///< Connection to the server has been lost
+  ERR_CODE_ZK_MARSHALLINGERROR = -205; ///< Error while marshalling or unmarshalling data
+  ERR_CODE_ZK_UNIMPLEMENTED = -206; ///< Operation is unimplemented
+  ERR_CODE_ZK_OPERATIONTIMEOUT = -207; ///< Operation timeout
+  ERR_CODE_ZK_BADARGUMENTS = -208; ///< Invalid arguments
+  ERR_CODE_ZK_INVALIDSTATE = -209; ///< Invliad zhandle state
+  ERR_CODE_kSM_DNSFAILURE = -210; ///< Error occurs when dns lookup
+
+  ERR_CODE_ZK_APIERROR = -211;
+  ERR_CODE_ZK_NONODE = -212; ///< Node does not exist
+  ERR_CODE_ZK_NOAUTH = -213; ///< Not authenticated
+  ERR_CODE_ZK_BADVERSION = -214; ///< Version conflict
+  ERR_CODE_ZK_NOCHILDRENFOREPHEMERALS = -215;  ///< Ephemeral nodes may not have children
+  ERR_CODE_ZK_NODEEXISTS = -216;  ///< The node already exists
+  ERR_CODE_ZK_NOTEMPTY = -217; ///< The node has children
+  ERR_CODE_ZK_SESSIONEXPIRED = -218; ///< The session has been expired by the server
+  ERR_CODE_ZK_INVALIDCALLBACK = -219;  ///< Invalid callback specified
+  ERR_CODE_ZK_INVALIDACL = -220;  ///< Invalid ACL specified
+  ERR_CODE_ZK_AUTHFAILED = -221;  ///< Client authentication failed
+  ERR_CODE_ZK_CLOSING = -222;  ///< ZooKeeper is closing
+  ERR_CODE_ZK_NOTHING = -223; ///< (not error) no server responses to process
+  ERR_CODE_ZK_SESSIONMOVED = -224;  ///< session moved to another server, so operation is ignored
+  ERR_CODE_ZK_NOQUOTA = -225;  ///< quota is not enough.
+  ERR_CODE_ZK_SERVEROVERLOAD = -226;  ///< server overload.
+  ERR_CODE_ZK_NOT_SET_APPKEY = -227;  ///< 未设置appkey
+  /////////////////////////zk调用返回码/////////////////////////////////////
+
   ERR_CODE_MESSAGE_BASE = -300;
   ////////////////////////////////////////////////////////////////////
   ERR_CODE_NAMING_BASE = -400;

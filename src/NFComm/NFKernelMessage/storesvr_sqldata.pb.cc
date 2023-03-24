@@ -101,7 +101,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::EnumDescriptor* storesvr_logic_operator_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* storesvr_cmp_operator_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* storesvr_column_type_descriptor_ = NULL;
-const ::google::protobuf::ServiceDescriptor* StoreSvrSelRpc_descriptor_ = NULL;
 
 }  // namespace
 
@@ -555,7 +554,6 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_logic_operator_descriptor_ = file->enum_type(0);
   storesvr_cmp_operator_descriptor_ = file->enum_type(1);
   storesvr_column_type_descriptor_ = file->enum_type(2);
-  StoreSvrSelRpc_descriptor_ = file->service(0);
 }
 
 namespace {
@@ -783,9 +781,7 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
     "ATEREQUAL\020\004\022\025\n\021E_CMPOP_LESSEQUAL\020\005\022\024\n\020E_"
     "CMPOP_NOTEQUAL\020\006*E\n\024storesvr_column_type"
     "\022\027\n\023E_COLUMNTYPE_STRING\020\001\022\024\n\020E_COLUMNTYP"
-    "E_NUM\020\0022_\n\016StoreSvrSelRpc\022M\n\007Request\022\036.s"
-    "toresvr_sqldata.storesvr_sel\032\".storesvr_"
-    "sqldata.storesvr_sel_resB\003\200\001\001", 3989);
+    "E_NUM\020\002", 3887);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "storesvr_sqldata.proto", &protobuf_RegisterTypes);
   storesvr_vk::default_instance_ = new storesvr_vk();
@@ -8714,90 +8710,6 @@ void storesvr_execute_more_res::Swap(storesvr_execute_more_res* other) {
   return metadata;
 }
 
-
-// ===================================================================
-
-StoreSvrSelRpc::~StoreSvrSelRpc() {}
-
-const ::google::protobuf::ServiceDescriptor* StoreSvrSelRpc::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return StoreSvrSelRpc_descriptor_;
-}
-
-const ::google::protobuf::ServiceDescriptor* StoreSvrSelRpc::GetDescriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return StoreSvrSelRpc_descriptor_;
-}
-
-void StoreSvrSelRpc::Request(::google::protobuf::RpcController* controller,
-                         const ::storesvr_sqldata::storesvr_sel*,
-                         ::storesvr_sqldata::storesvr_sel_res*,
-                         ::google::protobuf::Closure* done) {
-  controller->SetFailed("Method Request() not implemented.");
-  done->Run();
-}
-
-void StoreSvrSelRpc::CallMethod(const ::google::protobuf::MethodDescriptor* method,
-                             ::google::protobuf::RpcController* controller,
-                             const ::google::protobuf::Message* request,
-                             ::google::protobuf::Message* response,
-                             ::google::protobuf::Closure* done) {
-  GOOGLE_DCHECK_EQ(method->service(), StoreSvrSelRpc_descriptor_);
-  switch(method->index()) {
-    case 0:
-      Request(controller,
-             ::google::protobuf::down_cast<const ::storesvr_sqldata::storesvr_sel*>(request),
-             ::google::protobuf::down_cast< ::storesvr_sqldata::storesvr_sel_res*>(response),
-             done);
-      break;
-    default:
-      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
-      break;
-  }
-}
-
-const ::google::protobuf::Message& StoreSvrSelRpc::GetRequestPrototype(
-    const ::google::protobuf::MethodDescriptor* method) const {
-  GOOGLE_DCHECK_EQ(method->service(), descriptor());
-  switch(method->index()) {
-    case 0:
-      return ::storesvr_sqldata::storesvr_sel::default_instance();
-    default:
-      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
-      return *reinterpret_cast< ::google::protobuf::Message*>(NULL);
-  }
-}
-
-const ::google::protobuf::Message& StoreSvrSelRpc::GetResponsePrototype(
-    const ::google::protobuf::MethodDescriptor* method) const {
-  GOOGLE_DCHECK_EQ(method->service(), descriptor());
-  switch(method->index()) {
-    case 0:
-      return ::storesvr_sqldata::storesvr_sel_res::default_instance();
-    default:
-      GOOGLE_LOG(FATAL) << "Bad method index; this should never happen.";
-      return *reinterpret_cast< ::google::protobuf::Message*>(NULL);
-  }
-}
-
-StoreSvrSelRpc_Stub::StoreSvrSelRpc_Stub(::google::protobuf::RpcChannel* channel)
-  : channel_(channel), owns_channel_(false) {}
-StoreSvrSelRpc_Stub::StoreSvrSelRpc_Stub(
-    ::google::protobuf::RpcChannel* channel,
-    ::google::protobuf::Service::ChannelOwnership ownership)
-  : channel_(channel),
-    owns_channel_(ownership == ::google::protobuf::Service::STUB_OWNS_CHANNEL) {}
-StoreSvrSelRpc_Stub::~StoreSvrSelRpc_Stub() {
-  if (owns_channel_) delete channel_;
-}
-
-void StoreSvrSelRpc_Stub::Request(::google::protobuf::RpcController* controller,
-                              const ::storesvr_sqldata::storesvr_sel* request,
-                              ::storesvr_sqldata::storesvr_sel_res* response,
-                              ::google::protobuf::Closure* done) {
-  channel_->CallMethod(descriptor()->method(0),
-                       controller, request, response, done);
-}
 
 // @@protoc_insertion_point(namespace_scope)
 
