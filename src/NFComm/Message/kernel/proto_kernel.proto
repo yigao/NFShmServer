@@ -49,6 +49,7 @@ enum Proto_Kernel_CMD {
   NF_ROUTER_CMD_INTERNAL_R2C_DISPATCHFAILED = 115; // routersvr到client，转发失败回应
   NF_ROUTER_CMD_INTERNAL_C2R_REG_RAASSOCAPPSVS = 116; // routeragent和appsvr的对应关系注册到routersvr
 
+  NF_SERVER_TO_SERVER_RPC_CMD = 119; //rpc协议
   NF_SERVER_TO_SERVER_TRANS_CMD = 120; //trans msg
   NF_SERVER_TO_STORE_SERVER_DB_CMD = 121; //send db msg
   NF_STORE_SERVER_TO_SERVER_DB_CMD = 122; //send db msg
@@ -156,6 +157,12 @@ message Proto_EventInfo
   optional string full_message_name = 5;
 }
 
+message Proto_RpcInfo
+{
+  optional int32 req_rpc_id = 1;
+  optional int32 rsp_rpc_id = 2;
+}
+
 //粘包
 message Proto_RedirectInfo
 {
@@ -170,6 +177,7 @@ message Proto_SvrPkg
   optional Proto_StoreInfo store_info = 4;
   optional Proto_EventInfo event_info = 5; //
   optional Proto_RedirectInfo redirect_info = 6;
+  optional Proto_RpcInfo rpc_info = 7;
 }
 
 enum EServerState

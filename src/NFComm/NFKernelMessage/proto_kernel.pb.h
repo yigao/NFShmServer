@@ -39,6 +39,7 @@ class Proto_DispInfo;
 class Proto_StoreInfo_CB;
 class Proto_StoreInfo;
 class Proto_EventInfo;
+class Proto_RpcInfo;
 class Proto_RedirectInfo;
 class Proto_SvrPkg;
 class ServerInfoReport;
@@ -91,6 +92,7 @@ enum Proto_Kernel_CMD {
   NF_ROUTER_CMD_DISPATCH_DIRECT = 114,
   NF_ROUTER_CMD_INTERNAL_R2C_DISPATCHFAILED = 115,
   NF_ROUTER_CMD_INTERNAL_C2R_REG_RAASSOCAPPSVS = 116,
+  NF_SERVER_TO_SERVER_RPC_CMD = 119,
   NF_SERVER_TO_SERVER_TRANS_CMD = 120,
   NF_SERVER_TO_STORE_SERVER_DB_CMD = 121,
   NF_STORE_SERVER_TO_SERVER_DB_CMD = 122,
@@ -836,6 +838,98 @@ class Proto_EventInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class Proto_RpcInfo : public ::google::protobuf::Message {
+ public:
+  Proto_RpcInfo();
+  virtual ~Proto_RpcInfo();
+
+  Proto_RpcInfo(const Proto_RpcInfo& from);
+
+  inline Proto_RpcInfo& operator=(const Proto_RpcInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_RpcInfo& default_instance();
+
+  void Swap(Proto_RpcInfo* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_RpcInfo* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_RpcInfo& from);
+  void MergeFrom(const Proto_RpcInfo& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 req_rpc_id = 1;
+  inline bool has_req_rpc_id() const;
+  inline void clear_req_rpc_id();
+  static const int kReqRpcIdFieldNumber = 1;
+  inline ::google::protobuf::int32 req_rpc_id() const;
+  inline void set_req_rpc_id(::google::protobuf::int32 value);
+
+  // optional int32 rsp_rpc_id = 2;
+  inline bool has_rsp_rpc_id() const;
+  inline void clear_rsp_rpc_id();
+  static const int kRspRpcIdFieldNumber = 2;
+  inline ::google::protobuf::int32 rsp_rpc_id() const;
+  inline void set_rsp_rpc_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_RpcInfo)
+ private:
+  inline void set_has_req_rpc_id();
+  inline void clear_has_req_rpc_id();
+  inline void set_has_rsp_rpc_id();
+  inline void clear_has_rsp_rpc_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 req_rpc_id_;
+  ::google::protobuf::int32 rsp_rpc_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
+  friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fkernel_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_RpcInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class Proto_RedirectInfo : public ::google::protobuf::Message {
  public:
   Proto_RedirectInfo();
@@ -1030,6 +1124,15 @@ class Proto_SvrPkg : public ::google::protobuf::Message {
   inline ::proto_ff::Proto_RedirectInfo* release_redirect_info();
   inline void set_allocated_redirect_info(::proto_ff::Proto_RedirectInfo* redirect_info);
 
+  // optional .proto_ff.Proto_RpcInfo rpc_info = 7;
+  inline bool has_rpc_info() const;
+  inline void clear_rpc_info();
+  static const int kRpcInfoFieldNumber = 7;
+  inline const ::proto_ff::Proto_RpcInfo& rpc_info() const;
+  inline ::proto_ff::Proto_RpcInfo* mutable_rpc_info();
+  inline ::proto_ff::Proto_RpcInfo* release_rpc_info();
+  inline void set_allocated_rpc_info(::proto_ff::Proto_RpcInfo* rpc_info);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_SvrPkg)
  private:
   inline void set_has_msg_id();
@@ -1044,6 +1147,8 @@ class Proto_SvrPkg : public ::google::protobuf::Message {
   inline void clear_has_event_info();
   inline void set_has_redirect_info();
   inline void clear_has_redirect_info();
+  inline void set_has_rpc_info();
+  inline void clear_has_rpc_info();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1052,10 +1157,11 @@ class Proto_SvrPkg : public ::google::protobuf::Message {
   ::proto_ff::Proto_StoreInfo* store_info_;
   ::proto_ff::Proto_EventInfo* event_info_;
   ::proto_ff::Proto_RedirectInfo* redirect_info_;
+  ::proto_ff::Proto_RpcInfo* rpc_info_;
   ::google::protobuf::int32 msg_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -3068,6 +3174,54 @@ inline void Proto_EventInfo::set_allocated_full_message_name(::std::string* full
 
 // -------------------------------------------------------------------
 
+// Proto_RpcInfo
+
+// optional int32 req_rpc_id = 1;
+inline bool Proto_RpcInfo::has_req_rpc_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_RpcInfo::set_has_req_rpc_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_RpcInfo::clear_has_req_rpc_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_RpcInfo::clear_req_rpc_id() {
+  req_rpc_id_ = 0;
+  clear_has_req_rpc_id();
+}
+inline ::google::protobuf::int32 Proto_RpcInfo::req_rpc_id() const {
+  return req_rpc_id_;
+}
+inline void Proto_RpcInfo::set_req_rpc_id(::google::protobuf::int32 value) {
+  set_has_req_rpc_id();
+  req_rpc_id_ = value;
+}
+
+// optional int32 rsp_rpc_id = 2;
+inline bool Proto_RpcInfo::has_rsp_rpc_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_RpcInfo::set_has_rsp_rpc_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_RpcInfo::clear_has_rsp_rpc_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_RpcInfo::clear_rsp_rpc_id() {
+  rsp_rpc_id_ = 0;
+  clear_has_rsp_rpc_id();
+}
+inline ::google::protobuf::int32 Proto_RpcInfo::rsp_rpc_id() const {
+  return rsp_rpc_id_;
+}
+inline void Proto_RpcInfo::set_rsp_rpc_id(::google::protobuf::int32 value) {
+  set_has_rsp_rpc_id();
+  rsp_rpc_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // Proto_RedirectInfo
 
 // repeated uint64 id = 1;
@@ -3340,6 +3494,44 @@ inline void Proto_SvrPkg::set_allocated_redirect_info(::proto_ff::Proto_Redirect
     set_has_redirect_info();
   } else {
     clear_has_redirect_info();
+  }
+}
+
+// optional .proto_ff.Proto_RpcInfo rpc_info = 7;
+inline bool Proto_SvrPkg::has_rpc_info() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void Proto_SvrPkg::set_has_rpc_info() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Proto_SvrPkg::clear_has_rpc_info() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void Proto_SvrPkg::clear_rpc_info() {
+  if (rpc_info_ != NULL) rpc_info_->::proto_ff::Proto_RpcInfo::Clear();
+  clear_has_rpc_info();
+}
+inline const ::proto_ff::Proto_RpcInfo& Proto_SvrPkg::rpc_info() const {
+  return rpc_info_ != NULL ? *rpc_info_ : *default_instance_->rpc_info_;
+}
+inline ::proto_ff::Proto_RpcInfo* Proto_SvrPkg::mutable_rpc_info() {
+  set_has_rpc_info();
+  if (rpc_info_ == NULL) rpc_info_ = new ::proto_ff::Proto_RpcInfo;
+  return rpc_info_;
+}
+inline ::proto_ff::Proto_RpcInfo* Proto_SvrPkg::release_rpc_info() {
+  clear_has_rpc_info();
+  ::proto_ff::Proto_RpcInfo* temp = rpc_info_;
+  rpc_info_ = NULL;
+  return temp;
+}
+inline void Proto_SvrPkg::set_allocated_rpc_info(::proto_ff::Proto_RpcInfo* rpc_info) {
+  delete rpc_info_;
+  rpc_info_ = rpc_info;
+  if (rpc_info) {
+    set_has_rpc_info();
+  } else {
+    clear_has_rpc_info();
   }
 }
 

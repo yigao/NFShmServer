@@ -195,6 +195,8 @@ bool NFRedisDriver::KEYS(const std::string& key, std::vector<std::string>& value
             values.emplace_back(std::move(std::string(pReply->element[k]->str, pReply->element[k]->len)));
         }
     }
+
+    return true;
 }
 
 bool NFRedisDriver::HLEN(const std::string &key, int& number)
@@ -220,7 +222,7 @@ bool NFRedisDriver::HMGET(const std::string &key, const string_vector &fields, s
 {
     NFRedisCommand cmd(GET_NAME(HMGET));
     cmd << key;
-    for (int i = 0; i < fields.size(); ++i)
+    for (int i = 0; i < (int)fields.size(); ++i)
     {
         cmd << fields[i];
     }
@@ -249,7 +251,7 @@ bool NFRedisDriver::HMSET(const std::string &key, const std::vector<string_pair>
 {
     NFRedisCommand cmd(GET_NAME(HMSET));
     cmd << key;
-    for (int i = 0; i < values.size(); ++i)
+    for (int i = 0; i < (int)values.size(); ++i)
     {
         cmd << values[i].first;
         cmd << values[i].second;
@@ -273,7 +275,7 @@ bool NFRedisDriver::HMSET(const std::string & key, const string_vector & fields,
 
 	NFRedisCommand cmd(GET_NAME(HMSET));
 	cmd << key;
-	for (int i = 0; i < values.size(); ++i)
+	for (int i = 0; i < (int)values.size(); ++i)
 	{
 		cmd << fields[i];
 		cmd << values[i];

@@ -93,6 +93,53 @@
 
 class NFIDynamicModule;
 
+class NFIRpcService : public NFObject
+{
+public:
+    NFIRpcService(NFIPluginManager* p):NFObject(p)
+    {
+
+    }
+
+    virtual int run(uint64_t unLinkId, NFDataPackage &packet) = 0;
+};
+
+template<typename BaseType, typename RequestType, typename ResponeType>
+class NFCRpcService : public NFIRpcService
+{
+    static_assert((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
+    static_assert((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
+    static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class recvData must is google::protobuf::Message");
+    static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class returnDataType must is google::protobuf::Message");
+public:
+    NFCRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone)): NFIRpcService(p)
+    {
+        m_function = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
+    }
+
+    int run(uint64_t unLinkId, NFDataPackage &packet)
+    {
+        RequestType req;
+        CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+
+        uint32_t busId = packet.nSrcId;
+        ResponeType rsp;
+
+        if (m_function)
+        {
+            int iRet = m_function(req, rsp);
+            proto_ff::NF_SERVER_TO_SERVER_RPC_CMD;
+            proto_ff::Proto_SvrPkg svrPkg;
+            svrPkg.set_msg_id(packet.nMsgId);
+            svrPkg.set_msg_data(rsp.SerializeAsString());
+        }
+
+        return -1;
+    }
+
+    std::function<int(RequestType& request, ResponeType &respone)> m_function;
+};
+
 /// @brief 基于消息的通讯接口类
 class NFIMessageModule : public NFIModule
 {
@@ -184,6 +231,32 @@ public:
         return AddAllMsgCallBack(eType, pBase, functor);
     }
 
+public:
+    /**
+     * @brief 添加rpc服务
+     * @tparam BaseType
+     * @tparam recvDataType
+     * @tparam returnDataType
+     * @param serverType
+     * @param handleRecieve
+     * @return
+     */
+    template<typename BaseType, typename RequestType, typename ResponeType>
+    bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone))
+    {
+        NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
+        NFIRpcService* pRpcService = new NFCRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
+        return AddRpcService(serverType, nMsgID, pBase, pRpcService);
+    }
+
+    /**
+     * @brief 添加rpc服务
+     * @param serverType
+     * @param pBase
+     * @param pRpcService
+     * @return
+     */
+    virtual bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, NFIDynamicModule *pBase, NFIRpcService* pRpcService) = 0;
 public:
     /**
      * @brief 添加服务器
@@ -358,7 +431,7 @@ public:
     /*
      * 删除目标的所有注册的回调
      * */
-    virtual bool DelAllCallBack(void *pTarget) = 0;
+    virtual bool DelAllCallBack(NFIDynamicModule *pTarget) = 0;
 
     /*
      * 删除一个连接的所有回调
@@ -368,26 +441,26 @@ public:
     /*
      * 添加模块0, 消息ID的回调, 一个消息只能有一个处理函数
      * */
-    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, void *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
+    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
 
     /*
      * 添加模块moduleId, 消息ID的回调, 一个消息只能有一个处理函数
      * */
-    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void *pTarget,
+    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget,
                                     const NET_RECEIVE_FUNCTOR &cb) = 0;
 
     /*
      * 未没有注册过的消息，添加一个统一处理的回调函数
      * */
-    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
+    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
 
     /*
     * 对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
     * */
-    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, void *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
+    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
 
     /*
      * 添加连接事件，掉线事件的处理函数
      * */
-    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget, const NET_EVENT_FUNCTOR &cb) = 0;
+    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb) = 0;
 };

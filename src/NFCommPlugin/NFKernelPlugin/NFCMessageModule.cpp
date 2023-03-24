@@ -442,7 +442,7 @@ bool NFCMessageModule::DelAllCallBack(NF_SERVER_TYPES eType, uint64_t unLinkId)
     return true;
 }
 
-bool NFCMessageModule::DelAllCallBack(void *pTarget)
+bool NFCMessageModule::DelAllCallBack(NFIDynamicModule *pTarget)
 {
     for (size_t i = 0; i < mxCallBack.size(); i++)
     {
@@ -455,6 +455,15 @@ bool NFCMessageModule::DelAllCallBack(void *pTarget)
                 {
                     callBack.mxReceiveCallBack[i][j] = NetReceiveFunctor();
                 }
+            }
+        }
+
+        for (int j = 0; j < (int) callBack.mxRpcCallBack.size(); j++)
+        {
+            if (callBack.mxRpcCallBack[j].m_pTarget != NULL)
+            {
+                NF_SAFE_DELETE(callBack.mxRpcCallBack[j].m_pRpcService);
+                callBack.mxRpcCallBack[j] = NetRpcService();
             }
         }
 
@@ -490,7 +499,7 @@ bool NFCMessageModule::DelAllCallBack(void *pTarget)
     return true;
 }
 
-bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, void *pTarget,
+bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, NFIDynamicModule *pTarget,
                                           const NET_RECEIVE_FUNCTOR &cb)
 {
     if (eType < mxCallBack.size())
@@ -502,7 +511,7 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID
     return false;
 }
 
-bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void *pTarget, const NET_RECEIVE_FUNCTOR &cb)
+bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb)
 {
     if (eType < mxCallBack.size())
     {
@@ -531,7 +540,7 @@ std::set<uint32_t> NFCMessageModule::GetAllMsg(NF_SERVER_TYPES eType, uint32_t n
     return vec;
 }
 
-bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget,
+bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget,
                                         const NET_RECEIVE_FUNCTOR &cb)
 {
     if (eType < mxCallBack.size())
@@ -542,7 +551,7 @@ bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, 
     return false;
 }
 
-bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, void *pTarget, const NET_RECEIVE_FUNCTOR &cb)
+bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb)
 {
     if (eType < mxCallBack.size())
     {
@@ -552,7 +561,18 @@ bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, void *pTarget, c
     return false;
 }
 
-bool NFCMessageModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget, const NET_EVENT_FUNCTOR &cb)
+bool NFCMessageModule::AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, NFIDynamicModule *pTarget, NFIRpcService* pRpcService)
+{
+    if (serverType < mxCallBack.size())
+    {
+        CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
+        mxCallBack[serverType].mxRpcCallBack[nMsgID] = NetRpcService(pTarget, pRpcService);
+        return true;
+    }
+    return false;
+}
+
+bool NFCMessageModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb)
 {
     if (eType < mxCallBack.size())
     {
@@ -831,10 +851,108 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                     return 0;
                 }
             }
+            else if (packet.mModuleId == 0 && packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_RPC_CMD)
+            {
+                proto_ff::Proto_SvrPkg svrPkg;
+                CLIENT_MSG_PROCESS_WITH_PRINTF(packet, svrPkg);
+
+                if (svrPkg.rpc_info().rsp_rpc_id() > 0)
+                {
+                    NFTransBase *pTrans = FindModule<NFISharedMemModule>()->GetTrans(svrPkg.disp_info().rsp_trans_id());
+                    if (pTrans && !pTrans->IsFinished())
+                    {
+                        NFDataPackage transPacket;
+                        transPacket.nParam1 = svrPkg.disp_info().req_trans_id();
+                        transPacket.nParam2 = svrPkg.disp_info().rsp_trans_id();
+                        transPacket.mModuleId = 0;
+                        transPacket.nMsgId = svrPkg.msg_id();
+                        transPacket.nBuffer = (char *) svrPkg.msg_data().data();
+                        transPacket.nMsgLen = svrPkg.msg_data().length();
+
+                        pTrans->ProcessDispSvrRes(svrPkg.msg_id(), transPacket, svrPkg.disp_info().req_trans_id(), svrPkg.disp_info().rsp_trans_id());
+                        uint64_t useTime = NFGetMicroSecondTime() - startTime;
+                        if (useTime / 1000 > 33)
+                        {
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} use time:{} ms, too long", pTrans->ClassTypeInfo(),
+                                       svrPkg.msg_id(), useTime / 1000);
+                        }
+                        NFLogTrace(NF_LOG_RECV_MSG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} packet:{} use time:{} us", pTrans->ClassTypeInfo(),
+                                   svrPkg.msg_id(), packet.ToString(), useTime);
+                    }
+                    else
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0,
+                                   "can't find trans, trans maybe timeout, msgId:{} req_transid:{} rsp_transid:{}",
+                                   svrPkg.msg_id(), svrPkg.disp_info().req_trans_id(), svrPkg.disp_info().rsp_trans_id());
+                    }
+                    return 0;
+                }
+                else
+                {
+                    NFDataPackage rpcPacket;
+                    rpcPacket.nParam1 = svrPkg.rpc_info().req_rpc_id();
+                    rpcPacket.nParam2 = svrPkg.rpc_info().rsp_rpc_id();
+                    rpcPacket.nSrcId = packet.nSrcId;
+                    rpcPacket.nDstId = packet.nDstId;
+                    rpcPacket.mModuleId = 0;
+                    rpcPacket.nMsgId = svrPkg.msg_id();
+                    rpcPacket.nBuffer = (char *) svrPkg.msg_data().data();
+                    rpcPacket.nMsgLen = svrPkg.msg_data().length();
+                    OnHandleRpcService(connectionLink, objectLinkId, rpcPacket);
+                    uint64_t useTime = NFGetMicroSecondTime() - startTime;
+                    if (useTime / 1000 > 33)
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "RpcServiec nMsgId:{} use time:{} ms, too long", svrPkg.msg_id(), useTime / 1000);
+                    }
+                    NFLogTrace(NF_LOG_RECV_MSG, 0, "RpcServiec:{} nMsgId:{} packet:{} use time:{} us",
+                               svrPkg.msg_id(), packet.ToString(), useTime);
+
+                    return 0;
+                }
+            }
         }
 
 
         OnHandleReceiveNetPack(connectionLink, objectLinkId, packet);
+    }
+    return 0;
+}
+
+int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet)
+{
+    uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
+    if (eServerType < mxCallBack.size())
+    {
+        uint64_t startTime = NFGetMicroSecondTime();
+        CallBack &callBack = mxCallBack[eServerType];
+
+        CHECK_EXPR(packet.nMsgId < NF_NET_MAX_MSG_ID, -1, "nMsgID:{} >= NF_NET_MAX_MSG_ID", packet.nMsgId);
+        NetRpcService &netRpcService = callBack.mxRpcCallBack[packet.nMsgId];
+        if (netRpcService.m_pTarget != NULL && netRpcService.m_pRpcService != NULL)
+        {
+            int iRet = netRpcService.m_pRpcService->run(objectLinkId, packet);
+            netRpcService.m_iCount++;
+            uint64_t useTime = NFGetMicroSecondTime() - startTime;
+            netRpcService.m_iAllUseTime += useTime;
+            if (useTime > netRpcService.m_iMaxTime)
+            {
+                netRpcService.m_iMaxTime = useTime;
+            }
+            if (useTime < netRpcService.m_iMinTime)
+            {
+                netRpcService.m_iMinTime = useTime;
+            }
+            if (useTime / 1000 > 33)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "RpcService nMsgId:{} use time:{} ms, too long", packet.nMsgId,
+                           useTime / 1000);
+            }
+
+            CHECK_RET(iRet, "packet:{}", packet.ToString());
+            return 0;
+        }
+
+        return 0;
     }
     return 0;
 }

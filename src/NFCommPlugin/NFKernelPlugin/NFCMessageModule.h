@@ -159,7 +159,7 @@ public:
     /*
      * 删除目标的所有注册的回调
      * */
-    virtual bool DelAllCallBack(void *pTarget) override;
+    virtual bool DelAllCallBack(NFIDynamicModule *pTarget) override;
 
     /*
      * 删除一个连接的所有回调
@@ -169,29 +169,38 @@ public:
     /*
      * 添加模块0, 消息ID的回调, 一个消息只能有一个处理函数
      * */
-    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, void *pTarget,
+    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, NFIDynamicModule *pTarget,
                                     const NET_RECEIVE_FUNCTOR &cb) override;
 
     /*
      * 添加模块moduleId, 消息ID的回调, 一个消息只能有一个处理函数
      * */
     virtual bool
-    AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, void *pTarget, const NET_RECEIVE_FUNCTOR &cb) override;
+    AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) override;
 
     /*
      * 未没有注册过的消息，添加一个统一处理的回调函数
      * */
-    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget, const NET_RECEIVE_FUNCTOR &cb) override;
+    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) override;
 
     /*
      * 添加连接事件，掉线事件的处理函数
      * */
-    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, void *pTarget, const NET_EVENT_FUNCTOR &cb) override;
+    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb) override;
 
     /*
     * 对所有的消息添加一个统一的回调， 同过判断返回true表示将处理这个消息，false将不处理这个消息
     * */
-    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, void *pTaraget, const NET_RECEIVE_FUNCTOR &cb) override;
+    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTaraget, const NET_RECEIVE_FUNCTOR &cb) override;
+
+    /**
+     * @brief 添加rpc服务
+     * @param serverType
+     * @param pBase
+     * @param pRpcService
+     * @return
+     */
+    virtual bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, NFIDynamicModule *pBase, NFIRpcService* pRpcService) override;
 
     int OnReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet);
 
@@ -199,6 +208,7 @@ public:
 
     int OnSocketNetEvent(eMsgType nEvent, uint64_t connectionLink, uint64_t objectLinkId);
 
+    int OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet);
 public:
     virtual bool ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const std::string &strMsg,
                                  NFWebStatus code = NFWebStatus::WEB_OK, const std::string &reason = "OK");
@@ -231,6 +241,8 @@ protected:
     virtual bool OnHttpReceiveNetPack(uint32_t serverType, const NFIHttpHandle &req);
 
     virtual NFWebStatus OnHttpFilterPack(uint32_t serverType, const NFIHttpHandle &req);
+
+public:
 
 protected:
     NFINetModule *m_netModule;

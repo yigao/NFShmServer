@@ -15,6 +15,62 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include <stdint.h>
 
+struct NetRpcService
+{
+    NetRpcService()
+    {
+        m_pTarget = NULL;
+        m_pRpcService = NULL;
+        m_iCount = 0;
+        m_iAllUseTime = 0;
+        m_iMinTime = 1000000000;
+        m_iMaxTime = 0;
+    }
+
+    NetRpcService(NFIDynamicModule *pTarget, NFIRpcService* pRpcService):m_pTarget(pTarget),m_pRpcService(pRpcService)
+    {
+        m_iCount = 0;
+        m_iAllUseTime = 0;
+        m_iMinTime = 1000000000;
+        m_iMaxTime = 0;
+    }
+
+    NetRpcService(const NetRpcService& functor)
+    {
+        if (this != &functor)
+        {
+            m_pTarget = functor.m_pTarget;
+            m_pRpcService = functor.m_pRpcService;
+            m_iCount = functor.m_iCount;;
+            m_iAllUseTime = functor.m_iAllUseTime;
+            m_iMinTime = functor.m_iMinTime;
+            m_iMaxTime = functor.m_iMaxTime;
+        }
+    }
+
+    NetRpcService& operator=(const NetRpcService& functor)
+    {
+        if (this != &functor)
+        {
+            m_pTarget = functor.m_pTarget;
+            m_pRpcService = functor.m_pRpcService;
+            m_iCount = functor.m_iCount;;
+            m_iAllUseTime = functor.m_iAllUseTime;
+            m_iMinTime = functor.m_iMinTime;
+            m_iMaxTime = functor.m_iMaxTime;
+        }
+
+        return *this;
+    }
+
+    NFIDynamicModule *m_pTarget;
+    NFIRpcService* m_pRpcService;
+    uint64_t m_iCount;
+    uint64_t m_iAllUseTime;
+    uint64_t m_iMinTime;
+    uint64_t m_iMaxTime;
+};
+
 struct NetReceiveFunctor
 {
     NetReceiveFunctor()
@@ -27,7 +83,7 @@ struct NetReceiveFunctor
         m_iMaxTime = 0;
     }
 
-    NetReceiveFunctor(void *pTarget, const NET_RECEIVE_FUNCTOR& functor):m_pTarget(pTarget),m_pFunctor(functor)
+    NetReceiveFunctor(NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR& functor):m_pTarget(pTarget),m_pFunctor(functor)
     {
         m_iCount = 0;
         m_iAllUseTime = 0;
@@ -63,7 +119,7 @@ struct NetReceiveFunctor
         return *this;
     }
 
-    void* m_pTarget;
+    NFIDynamicModule* m_pTarget;
     NET_RECEIVE_FUNCTOR m_pFunctor;
     uint64_t m_iCount;
     uint64_t m_iAllUseTime;
@@ -79,7 +135,7 @@ struct NetEventFunctor
         m_pFunctor = NULL;
     }
 
-    NetEventFunctor(void *pTarget, const NET_EVENT_FUNCTOR& functor):m_pTarget(pTarget),m_pFunctor(functor)
+    NetEventFunctor(NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR& functor):m_pTarget(pTarget),m_pFunctor(functor)
     {
     }
 
@@ -103,7 +159,7 @@ struct NetEventFunctor
         return *this;
     }
 
-    void* m_pTarget;
+    NFIDynamicModule* m_pTarget;
     NET_EVENT_FUNCTOR m_pFunctor;
 };
 
@@ -116,6 +172,8 @@ struct CallBack {
         {
             mxReceiveCallBack[i].resize(NF_NET_MAX_MSG_ID);
         }
+
+        mxRpcCallBack.resize(NF_NET_MAX_MSG_ID);
     }
 
     virtual ~CallBack()
@@ -130,6 +188,7 @@ struct CallBack {
     std::unordered_map<uint32_t, std::unordered_map<std::string, HTTP_RECEIVE_FUNCTOR>> mxHttpMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<uint32_t, std::vector<HTTP_RECEIVE_FUNCTOR>> mxHttpOtherMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<std::string, HTTP_FILTER_FUNCTOR> mxHttpMsgFliterMap;
+    std::vector<NetRpcService> mxRpcCallBack;
 };
 
 struct ServerLinkData {
