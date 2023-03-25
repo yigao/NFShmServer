@@ -253,12 +253,13 @@ public:
      * @param handleRecieve
      * @return
      */
-    template<typename BaseType, typename RequestType, typename ResponeType>
-    bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone), bool createCo = false)
+    template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
+    bool AddRpcService(NF_SERVER_TYPES serverType, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone), bool createCo = false)
     {
+        STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
         NFIRpcService* pRpcService = new NFCRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
-        return AddRpcService(serverType, nMsgID, pBase, pRpcService, createCo);
+        return AddRpcService(serverType, msgId, pBase, pRpcService, createCo);
     }
 
     /**
@@ -273,9 +274,10 @@ public:
      * @param respone
      * @return
      */
-    template<typename RequestType, typename ResponeType>
-    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, ResponeType& respone)
+    template<size_t msgId, typename RequestType, typename ResponeType>
+    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType& respone)
     {
+        STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);
         static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class RequestType must is google::protobuf::Message");
         static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class ResponeType must is google::protobuf::Message");
         NF_ASSERT_MSG(FindModule<NFICoroutineModule>()->IsInCoroutine(), "Call GetRpcService Must Int the Coroutine");
@@ -283,7 +285,7 @@ public:
         CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(serverType));
 
         proto_ff::Proto_SvrPkg svrPkg;
-        svrPkg.set_msg_id(nMsgId);
+        svrPkg.set_msg_id(msgId);
         svrPkg.set_msg_data(request.SerializeAsString());
         svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
         svrPkg.mutable_rpc_info()->set_req_rpc_hash(std::hash<std::string>()(request.GetTypeName()));
@@ -316,12 +318,12 @@ public:
      * @param rpcCb
      * @return
      */
-    template<typename RequestType, typename ResponFunc, typename ResponeType>
-    int GetRpcServiceInner(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, const ResponFunc& responFunc, void (ResponFunc::*pf)(int rpcRetCode, ResponeType& respone) const)
+    template<size_t msgId, typename RequestType, typename ResponFunc, typename ResponeType>
+    int GetRpcServiceInner(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, const ResponFunc& responFunc, void (ResponFunc::*pf)(int rpcRetCode, ResponeType& respone) const)
     {
         return FindModule<NFICoroutineModule>()->MakeCoroutine([=](){
             ResponeType respone;
-            int iRet = FindModule<NFIMessageModule>()->GetRpcService(serverType, dstServerType, dstBusId, nMsgId, request, respone);
+            int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(serverType, dstServerType, dstBusId, request, respone);
             if (responFunc)
             {
                 (responFunc.*pf)(iRet, respone);
@@ -329,10 +331,10 @@ public:
         });
     }
 
-    template<typename RequestType, typename ResponFunc>
-    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, const ResponFunc& rpcCb)
+    template<size_t msgId, typename RequestType, typename ResponFunc>
+    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, const ResponFunc& rpcCb)
     {
-        return GetRpcServiceInner(serverType, dstServerType, dstBusId, nMsgId, request, rpcCb, &ResponFunc::operator());
+        return GetRpcServiceInner<msgId>(serverType, dstServerType, dstBusId, request, rpcCb, &ResponFunc::operator());
     }
 
     /**

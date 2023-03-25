@@ -28,3 +28,30 @@ public:
 
     virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg) = 0;
 };
+
+/**
+ * @brief 定义RPC绑定宏 将RPC服务协议号，请求类型，返回类型在编译期间就固定好，防止程序运行的时候才发现RPC服务区有问题
+ *        服务器架构层定义在NFServerComm/NFServerCommon/NFServerBindRpcService.h
+ *
+ */
+#define DEFINE_BIND_RPC_SERVICE(msgId, RequestType, ResponeType) \
+template<>                                                      \
+struct NFBindRpcService<msgId, RequestType, ResponeType>\
+{                                                               \
+    enum { value = 1 };\
+    typedef std::true_type type;\
+};                                                               \
+
+
+/**
+ * @brief 如果你没有定义RPC绑定宏，那么就会导致这一个宏在编译期间，编译失败，确保rpc服务在注册rpc以及调用rpc服务的编译期间就报错，方便告诉程序员rpc服务有问题
+ */
+#define STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType) static_assert(NFBindRpcService<msgId, RequestType, ResponeType>::value, \
+    "You Must First Define DEFINE_BIND_RPC_SERVICE("#msgId", "#RequestType", "#ResponeType")")\
+
+template<size_t msgId, class RequestType, class ResponeType>
+struct NFBindRpcService
+{
+    enum { value = 0 };
+    typedef std::false_type type;
+};

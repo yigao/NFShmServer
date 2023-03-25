@@ -10,6 +10,7 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
+#include "NFServerBindRpcService.h"
 
 /**
  * @brief 业务服务器类似NFLogicServer,NFWorldServer,NFSnsServer，实现类似连接NFMasterServer,NFProxyAgentServer,NFRouteAgentServer等功能
