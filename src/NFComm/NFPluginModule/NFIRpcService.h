@@ -32,7 +32,7 @@ public:
 /**
  * @brief 定义RPC绑定宏 将RPC服务协议号，请求类型，返回类型在编译期间就固定好，防止程序运行的时候才发现RPC服务区有问题
  *        服务器架构层定义在NFServerComm/NFServerCommon/NFServerBindRpcService.h
- *
+ *        游戏逻辑层定义在游戏的NFLogicBindRpcService.h
  */
 #define DEFINE_BIND_RPC_SERVICE(msgId, RequestType, ResponeType) \
 template<>                                                      \
