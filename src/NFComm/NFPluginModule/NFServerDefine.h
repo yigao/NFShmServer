@@ -17,6 +17,74 @@
 #include "NFComm/NFCore/NFBuffer.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 
+
+
+#define MAX_CLIENT_INDEX 1000000                  //客户端掩码 一百万
+#define MAX_CLIENT_MASK 0xfffff                   //0x000 00000000 fffff 后20位，5个f，给客户端索引用, 客户端掩码20位, 最大1048576 > 一百万 1000000
+#define MAX_BUS_ID_MASK 0xffffffff00000           //0x0 00 ffffffff 00000 中间32位， 从21位到52位，给服务器的唯一ID，busId用， 需要左移位20
+#define MAX_SERVER_TYPE_MASK 0x0ff0000000000000   //0x0 ff 00000000 00000从53到60位， 给服务器类型用，需要左移位52
+#define MAX_IS_SERVER_MASK 0xf000000000000000     //0xf 00 00000000 00000从61到64位， 是什么类型的， 网络net, 共享内存bus
+
+#define NF_IS_NONE 0
+#define NF_IS_NET 1
+#define NF_IS_BUS 2
+
+#define GetUnLinkId(linkMode, serverType, busId, serverIndex)    ((((uint64_t)serverIndex) & MAX_CLIENT_MASK) | ((((uint64_t)busId) << 20) & MAX_BUS_ID_MASK)  | ((((uint64_t)serverType) << 52) & MAX_SERVER_TYPE_MASK) | ((((uint64_t)linkMode << 60) & MAX_IS_SERVER_MASK)));
+#define GetServerTypeFromUnlinkId(UnlinkId)        ((((uint64_t)UnlinkId) & MAX_SERVER_TYPE_MASK) >> 52);
+#define GetServerLinkModeFromUnlinkId(UnlinkId)        ((((uint64_t)UnlinkId) & MAX_IS_SERVER_MASK) >> 60);
+#define GetServerIndexFromUnlinkId(UnlinkId)    (((uint64_t)UnlinkId) & MAX_CLIENT_MASK);
+#define GetBusIdFromUnlinkId(UnlinkId)    ((((uint64_t)UnlinkId) & MAX_BUS_ID_MASK) >> 20);
+
+#define CLIENT_MSG_PROCESS_NO_PRINTF(xPacket, xMsg)                 \
+    if (!xMsg.ParseFromArray(xPacket.GetBuffer(), xPacket.GetSize()))                \
+    {                                                    \
+        NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
+        return -1;                                        \
+    }
+
+#define CLIENT_MSG_PROCESS_WITH_PRINTF(xPacket, xMsg)                 \
+    if (!xMsg.ParseFromArray(xPacket.GetBuffer(), xPacket.GetSize()))                \
+    {                                                    \
+        NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
+        return -1;                                        \
+    }\
+    if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, xPacket.nParam1))\
+    {\
+        NFLogTrace(NF_LOG_RECV_MSG_JSON_PRINTF, xPacket.nParam1, "recv packet:{}, json:{}", xPacket.ToString(), xMsg.Utf8DebugString()); \
+    }\
+
+#define WEB_MSG_PROCESS_WITH_PRINTF(xMsg, reqHandle) \
+            \
+    if (reqHandle.GetType() == NF_HTTP_REQ_GET)      \
+    {                                                \
+        if (NFProtobufCommon::GetMessageFromGetHttp(&xMsg, reqHandle) != 0)\
+        {                                            \
+            data.set_request_id(req.GetRequestId());                                          \
+            NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed Fromn Http Get, get uri:{}", req.GetOriginalUri()); \
+            return false;                               \
+        }                                            \
+        data.set_request_id(req.GetRequestId());                                              \
+        if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, 0))\
+        {\
+            NFLogInfo(NF_LOG_RECV_MSG_JSON_PRINTF, 0, "url:{}", reqHandle.GetOriginalUri()); \
+        }\
+    }                                                \
+    else                                             \
+    {                                                \
+        std::string error;                                                 \
+        if (!NFProtobufCommon::JsonToProtoMessage(reqHandle.GetBody(), &xMsg, &error))                \
+        {                                            \
+            data.set_request_id(req.GetRequestId());                                          \
+            NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed Fromn Http Post Json, json:{}, error:{}", reqHandle.GetBody(), error); \
+            return false;                                        \
+        }                                            \
+        data.set_request_id(req.GetRequestId());                                              \
+        if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, 0))\
+        {\
+            NFLogInfo(NF_LOG_RECV_MSG_JSON_PRINTF, 0, "json:{}", reqHandle.GetBody()); \
+        }                                                        \
+    }\
+
 // (uint16) 如果修改增加此处大小，需要修改接受缓冲区大小，与客户端 NetDefine.cs 中的定义一直
 const uint16_t MAX_CLIENT_NET_PACK_LENGTH = 1024 * 48;
 const uint32_t MAX_SERVER_NET_PACK_LENGTH = 1024 * 512;

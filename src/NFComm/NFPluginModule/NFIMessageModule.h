@@ -16,7 +16,8 @@
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFICoroutineModule.h"
-#include "NFIRpcService.h"
+#include "NFServerDefine.h"
+#include "NFCRpcService.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "proto_svr_msg.pb.h"
 #include "NFIConfigModule.h"
@@ -27,128 +28,6 @@
 #include <string>
 #include <set>
 #include <functional>
-
-
-#define MAX_CLIENT_INDEX 1000000                  //客户端掩码 一百万
-#define MAX_CLIENT_MASK 0xfffff                   //0x000 00000000 fffff 后20位，5个f，给客户端索引用, 客户端掩码20位, 最大1048576 > 一百万 1000000
-#define MAX_BUS_ID_MASK 0xffffffff00000           //0x0 00 ffffffff 00000 中间32位， 从21位到52位，给服务器的唯一ID，busId用， 需要左移位20
-#define MAX_SERVER_TYPE_MASK 0x0ff0000000000000   //0x0 ff 00000000 00000从53到60位， 给服务器类型用，需要左移位52
-#define MAX_IS_SERVER_MASK 0xf000000000000000     //0xf 00 00000000 00000从61到64位， 是什么类型的， 网络net, 共享内存bus
-
-#define NF_IS_NONE 0
-#define NF_IS_NET 1
-#define NF_IS_BUS 2
-
-#define GetUnLinkId(linkMode, serverType, busId, serverIndex)    ((((uint64_t)serverIndex) & MAX_CLIENT_MASK) | ((((uint64_t)busId) << 20) & MAX_BUS_ID_MASK)  | ((((uint64_t)serverType) << 52) & MAX_SERVER_TYPE_MASK) | ((((uint64_t)linkMode << 60) & MAX_IS_SERVER_MASK)));
-#define GetServerTypeFromUnlinkId(UnlinkId)        ((((uint64_t)UnlinkId) & MAX_SERVER_TYPE_MASK) >> 52);
-#define GetServerLinkModeFromUnlinkId(UnlinkId)        ((((uint64_t)UnlinkId) & MAX_IS_SERVER_MASK) >> 60);
-#define GetServerIndexFromUnlinkId(UnlinkId)    (((uint64_t)UnlinkId) & MAX_CLIENT_MASK);
-#define GetBusIdFromUnlinkId(UnlinkId)    ((((uint64_t)UnlinkId) & MAX_BUS_ID_MASK) >> 20);
-
-#define CLIENT_MSG_PROCESS_NO_PRINTF(xPacket, xMsg)                 \
-    if (!xMsg.ParseFromArray(xPacket.GetBuffer(), xPacket.GetSize()))                \
-    {                                                    \
-        NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
-        return -1;                                        \
-    }
-
-#define CLIENT_MSG_PROCESS_WITH_PRINTF(xPacket, xMsg)                 \
-    if (!xMsg.ParseFromArray(xPacket.GetBuffer(), xPacket.GetSize()))                \
-    {                                                    \
-        NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, packet:{}", xPacket.ToString()); \
-        return -1;                                        \
-    }\
-    if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, xPacket.nParam1))\
-    {\
-        NFLogTrace(NF_LOG_RECV_MSG_JSON_PRINTF, xPacket.nParam1, "recv packet:{}, json:{}", xPacket.ToString(), xMsg.Utf8DebugString()); \
-    }\
-
-#define WEB_MSG_PROCESS_WITH_PRINTF(xMsg, reqHandle) \
-            \
-    if (reqHandle.GetType() == NF_HTTP_REQ_GET)      \
-    {                                                \
-        if (NFProtobufCommon::GetMessageFromGetHttp(&xMsg, reqHandle) != 0)\
-        {                                            \
-            data.set_request_id(req.GetRequestId());                                          \
-            NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed Fromn Http Get, get uri:{}", req.GetOriginalUri()); \
-            return false;                               \
-        }                                            \
-        data.set_request_id(req.GetRequestId());                                              \
-        if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, 0))\
-        {\
-            NFLogInfo(NF_LOG_RECV_MSG_JSON_PRINTF, 0, "url:{}", reqHandle.GetOriginalUri()); \
-        }\
-    }                                                \
-    else                                             \
-    {                                                \
-        std::string error;                                                 \
-        if (!NFProtobufCommon::JsonToProtoMessage(reqHandle.GetBody(), &xMsg, &error))                \
-        {                                            \
-            data.set_request_id(req.GetRequestId());                                          \
-            NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed Fromn Http Post Json, json:{}, error:{}", reqHandle.GetBody(), error); \
-            return false;                                        \
-        }                                            \
-        data.set_request_id(req.GetRequestId());                                              \
-        if (NFLogTraceEnable(NF_LOG_RECV_MSG_JSON_PRINTF, 0))\
-        {\
-            NFLogInfo(NF_LOG_RECV_MSG_JSON_PRINTF, 0, "json:{}", reqHandle.GetBody()); \
-        }                                                        \
-    }\
-
-
-class NFIDynamicModule;
-class NFIMessageModule;
-
-template<typename BaseType, typename RequestType, typename ResponeType>
-class NFCRpcService : public NFIRpcService
-{
-    static_assert((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
-    static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class RequestType must is google::protobuf::Message");
-    static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class ResponeType must is google::protobuf::Message");
-public:
-    NFCRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone)): NFIRpcService(p)
-    {
-        m_function = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
-    }
-
-    virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg) override
-    {
-        RequestType req;
-        ResponeType rsp;
-        CHECK_EXPR(std::hash<std::string>()(req.GetTypeName()) == reqSvrPkg.rpc_info().req_rpc_hash(), proto_ff::ERR_RPC_DECODE_FAILED, "NFCRpcService reqHash Not Equal:{}, nMsgId:{}", req.GetTypeName(), reqSvrPkg.msg_id());
-        CHECK_EXPR(std::hash<std::string>()(rsp.GetTypeName()) == reqSvrPkg.rpc_info().rsp_rpc_hash(), proto_ff::ERR_RPC_DECODE_FAILED, "NFCRpcService rspHash Not Equal:{}, nMsgId:{}", rsp.GetTypeName(), reqSvrPkg.msg_id());
-
-        req.ParseFromString(reqSvrPkg.msg_data());
-
-        uint32_t eServerType = GetServerTypeFromUnlinkId(unLinkId);
-        uint32_t reqBusId = reqSvrPkg.rpc_info().req_bus_id();
-        uint32_t reqServerType = reqSvrPkg.rpc_info().req_server_type();
-
-        int iRet = 0;
-        proto_ff::Proto_SvrPkg svrPkg;
-        svrPkg.set_msg_id(reqSvrPkg.msg_id());
-        svrPkg.mutable_rpc_info()->set_req_rpc_id(0);
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
-        svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
-        if (m_function)
-        {
-            iRet = m_function(req, rsp);
-            svrPkg.set_msg_data(rsp.SerializeAsString());
-            svrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
-        }
-        else {
-            svrPkg.mutable_rpc_info()->set_rpc_ret_code(proto_ff::ERR_RPC_MSG_FUNCTION_UNEXISTED);
-        }
-
-        FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, (NF_SERVER_TYPES)reqServerType, 0, reqBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
-
-        return 0;
-    }
-
-    std::function<int(RequestType& request, ResponeType &respone)> m_function;
-};
-
 
 
 

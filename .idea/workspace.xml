@@ -54,10 +54,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="rpc service">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIRpcService.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIRpcService.h" afterDir="false" />
-    </list>
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="rpc service" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -647,14 +644,7 @@
       <workItem from="1679287244120" duration="31170000" />
       <workItem from="1679446064457" duration="98914000" />
       <workItem from="1679704166075" duration="13742000" />
-      <workItem from="1679722414436" duration="10736000" />
-    </task>
-    <task id="LOCAL-00507" summary="item">
-      <created>1679034613930</created>
-      <option name="number" value="00507" />
-      <option name="presentableId" value="LOCAL-00507" />
-      <option name="project" value="LOCAL" />
-      <updated>1679034613931</updated>
+      <workItem from="1679722414436" duration="11550000" />
     </task>
     <task id="LOCAL-00508" summary="item">
       <created>1679042027252</created>
@@ -992,7 +982,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679736713333</updated>
     </task>
-    <option name="localTasksCounter" value="556" />
+    <task id="LOCAL-00556" summary="rpc service">
+      <created>1679737764824</created>
+      <option name="number" value="00556" />
+      <option name="presentableId" value="LOCAL-00556" />
+      <option name="project" value="LOCAL" />
+      <updated>1679737764825</updated>
+    </task>
+    <option name="localTasksCounter" value="557" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
