@@ -21,13 +21,14 @@ struct NetRpcService
     {
         m_pTarget = NULL;
         m_pRpcService = NULL;
+        m_createCo = false;
         m_iCount = 0;
         m_iAllUseTime = 0;
         m_iMinTime = 1000000000;
         m_iMaxTime = 0;
     }
 
-    NetRpcService(NFIDynamicModule *pTarget, NFIRpcService* pRpcService):m_pTarget(pTarget),m_pRpcService(pRpcService)
+    NetRpcService(NFIDynamicModule *pTarget, NFIRpcService* pRpcService, bool createCo):m_pTarget(pTarget),m_pRpcService(pRpcService),m_createCo(createCo)
     {
         m_iCount = 0;
         m_iAllUseTime = 0;
@@ -41,6 +42,7 @@ struct NetRpcService
         {
             m_pTarget = functor.m_pTarget;
             m_pRpcService = functor.m_pRpcService;
+            m_createCo = functor.m_createCo;
             m_iCount = functor.m_iCount;;
             m_iAllUseTime = functor.m_iAllUseTime;
             m_iMinTime = functor.m_iMinTime;
@@ -54,6 +56,7 @@ struct NetRpcService
         {
             m_pTarget = functor.m_pTarget;
             m_pRpcService = functor.m_pRpcService;
+            m_createCo = functor.m_createCo;
             m_iCount = functor.m_iCount;;
             m_iAllUseTime = functor.m_iAllUseTime;
             m_iMinTime = functor.m_iMinTime;
@@ -65,6 +68,7 @@ struct NetRpcService
 
     NFIDynamicModule *m_pTarget;
     NFIRpcService* m_pRpcService;
+    bool m_createCo;
     uint64_t m_iCount;
     uint64_t m_iAllUseTime;
     uint64_t m_iMinTime;

@@ -19,6 +19,7 @@
 #include "NFIRpcService.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "proto_svr_msg.pb.h"
+#include "NFIConfigModule.h"
 
 #include <map>
 #include <unordered_map>
@@ -110,25 +111,26 @@ public:
         m_function = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
     }
 
-    int run(uint64_t reqHash, uint64_t rspHash, uint64_t unLinkId, NFDataPackage &packet)
+    virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg) override
     {
         RequestType req;
         ResponeType rsp;
-        CHECK_EXPR(std::hash<std::string>()(req.GetTypeName()) == reqHash, proto_ff::ERR_RPC_DECODE_FAILED, "NFCRpcService reqHash Not Equal:{}, package:{}", req.GetTypeName(), packet.ToString());
-        CHECK_EXPR(std::hash<std::string>()(rsp.GetTypeName()) == rspHash, proto_ff::ERR_RPC_DECODE_FAILED, "NFCRpcService rspHash Not Equal:{}, package:{}", rsp.GetTypeName(), packet.ToString());
+        CHECK_EXPR(std::hash<std::string>()(req.GetTypeName()) == reqSvrPkg.rpc_info().req_rpc_hash(), proto_ff::ERR_RPC_DECODE_FAILED, "NFCRpcService reqHash Not Equal:{}, nMsgId:{}", req.GetTypeName(), reqSvrPkg.msg_id());
+        CHECK_EXPR(std::hash<std::string>()(rsp.GetTypeName()) == reqSvrPkg.rpc_info().rsp_rpc_hash(), proto_ff::ERR_RPC_DECODE_FAILED, "NFCRpcService rspHash Not Equal:{}, nMsgId:{}", rsp.GetTypeName(), reqSvrPkg.msg_id());
 
-        CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
+        req.ParseFromString(reqSvrPkg.msg_data());
 
         uint32_t eServerType = GetServerTypeFromUnlinkId(unLinkId);
-        uint32_t busId = packet.nSrcId;
+        uint32_t reqBusId = reqSvrPkg.rpc_info().req_bus_id();
+        uint32_t reqServerType = reqSvrPkg.rpc_info().req_server_type();
 
         int iRet = 0;
         proto_ff::Proto_SvrPkg svrPkg;
-        svrPkg.set_msg_id(packet.nMsgId);
+        svrPkg.set_msg_id(reqSvrPkg.msg_id());
         svrPkg.mutable_rpc_info()->set_req_rpc_id(0);
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_id(packet.nParam1);
-        svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqHash);
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(rspHash);
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
         if (m_function)
         {
             iRet = m_function(req, rsp);
@@ -139,7 +141,7 @@ public:
             svrPkg.mutable_rpc_info()->set_rpc_ret_code(proto_ff::ERR_RPC_MSG_FUNCTION_UNEXISTED);
         }
 
-        FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, NF_ST_NONE, 0, busId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
+        FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, (NF_SERVER_TYPES)reqServerType, 0, reqBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
 
         return 0;
     }
@@ -252,11 +254,11 @@ public:
      * @return
      */
     template<typename BaseType, typename RequestType, typename ResponeType>
-    bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone))
+    bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
         NFIRpcService* pRpcService = new NFCRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
-        return AddRpcService(serverType, nMsgID, pBase, pRpcService);
+        return AddRpcService(serverType, nMsgID, pBase, pRpcService, createCo);
     }
 
     /**
@@ -277,6 +279,8 @@ public:
         static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class RequestType must is google::protobuf::Message");
         static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class ResponeType must is google::protobuf::Message");
         NF_ASSERT_MSG(FindModule<NFICoroutineModule>()->IsInCoroutine(), "Call GetRpcService Must Int the Coroutine");
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(serverType);
+        CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(serverType));
 
         proto_ff::Proto_SvrPkg svrPkg;
         svrPkg.set_msg_id(nMsgId);
@@ -284,8 +288,10 @@ public:
         svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
         svrPkg.mutable_rpc_info()->set_req_rpc_hash(std::hash<std::string>()(request.GetTypeName()));
         svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(std::hash<std::string>()(respone.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_req_server_type(serverType);
+        svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
 
-        SendMsgToServer(serverType, dstServerType, 0, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
+        SendMsgToServer(serverType, dstServerType, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
 
         int32_t iRet = FindModule<NFICoroutineModule>()->AddRpcService(&respone);
         CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
@@ -336,7 +342,7 @@ public:
      * @param pRpcService
      * @return
      */
-    virtual bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, NFIDynamicModule *pBase, NFIRpcService* pRpcService) = 0;
+    virtual bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, NFIDynamicModule *pBase, NFIRpcService* pRpcService, bool createCo = false) = 0;
 public:
     /**
      * @brief 添加服务器

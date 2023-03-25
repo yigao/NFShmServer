@@ -943,6 +943,20 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 rsp_rpc_hash() const;
   inline void set_rsp_rpc_hash(::google::protobuf::uint64 value);
 
+  // optional uint32 req_bus_id = 6;
+  inline bool has_req_bus_id() const;
+  inline void clear_req_bus_id();
+  static const int kReqBusIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 req_bus_id() const;
+  inline void set_req_bus_id(::google::protobuf::uint32 value);
+
+  // optional uint64 req_server_type = 7;
+  inline bool has_req_server_type() const;
+  inline void clear_req_server_type();
+  static const int kReqServerTypeFieldNumber = 7;
+  inline ::google::protobuf::uint64 req_server_type() const;
+  inline void set_req_server_type(::google::protobuf::uint64 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_RpcInfo)
  private:
   inline void set_has_req_rpc_id();
@@ -955,17 +969,23 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
   inline void clear_has_req_rpc_hash();
   inline void set_has_rsp_rpc_hash();
   inline void clear_has_rsp_rpc_hash();
+  inline void set_has_req_bus_id();
+  inline void clear_has_req_bus_id();
+  inline void set_has_req_server_type();
+  inline void clear_has_req_server_type();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::int64 req_rpc_id_;
   ::google::protobuf::int64 rsp_rpc_id_;
   ::google::protobuf::uint64 req_rpc_hash_;
-  ::google::protobuf::uint64 rsp_rpc_hash_;
   ::google::protobuf::int32 rpc_ret_code_;
+  ::google::protobuf::uint32 req_bus_id_;
+  ::google::protobuf::uint64 rsp_rpc_hash_;
+  ::google::protobuf::uint64 req_server_type_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -3330,6 +3350,50 @@ inline ::google::protobuf::uint64 Proto_RpcInfo::rsp_rpc_hash() const {
 inline void Proto_RpcInfo::set_rsp_rpc_hash(::google::protobuf::uint64 value) {
   set_has_rsp_rpc_hash();
   rsp_rpc_hash_ = value;
+}
+
+// optional uint32 req_bus_id = 6;
+inline bool Proto_RpcInfo::has_req_bus_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Proto_RpcInfo::set_has_req_bus_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Proto_RpcInfo::clear_has_req_bus_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Proto_RpcInfo::clear_req_bus_id() {
+  req_bus_id_ = 0u;
+  clear_has_req_bus_id();
+}
+inline ::google::protobuf::uint32 Proto_RpcInfo::req_bus_id() const {
+  return req_bus_id_;
+}
+inline void Proto_RpcInfo::set_req_bus_id(::google::protobuf::uint32 value) {
+  set_has_req_bus_id();
+  req_bus_id_ = value;
+}
+
+// optional uint64 req_server_type = 7;
+inline bool Proto_RpcInfo::has_req_server_type() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void Proto_RpcInfo::set_has_req_server_type() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Proto_RpcInfo::clear_has_req_server_type() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void Proto_RpcInfo::clear_req_server_type() {
+  req_server_type_ = GOOGLE_ULONGLONG(0);
+  clear_has_req_server_type();
+}
+inline ::google::protobuf::uint64 Proto_RpcInfo::req_server_type() const {
+  return req_server_type_;
+}
+inline void Proto_RpcInfo::set_req_server_type(::google::protobuf::uint64 value) {
+  set_has_req_server_type();
+  req_server_type_ = value;
 }
 
 // -------------------------------------------------------------------
