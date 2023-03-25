@@ -1286,7 +1286,7 @@ void HandleSignal(int signo)
     switch (signo)
     {
         /*
-         * kill server, quit server， 杀掉当前的服务器进程，不会保存数据，如果是共享内存服务器，数据仍然在。不会等待协程退出，以及异步操作退出
+         * kill server, quit server， 杀掉当前的服务器进程，不会保存数据，如果是共享内存服务器，数据仍然在。
          * */
         case SIGUNUSED:
             NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "HandleSignal SetServerKilling(true)................");

@@ -1265,7 +1265,7 @@ bool NFCPluginManager::SaveDB()
 
 bool NFCPluginManager::OnStopServer()
 {
-    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager CheckStopServer................");
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager OnStopServer................");
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {

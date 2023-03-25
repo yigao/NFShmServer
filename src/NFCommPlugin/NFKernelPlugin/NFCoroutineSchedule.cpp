@@ -61,6 +61,12 @@ NFCoroutineSchedule::~NFCoroutineSchedule() {
 
 bool NFCoroutineSchedule::OnStopServer()
 {
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFCoroutineSchedule OnStopServer.................");
+    if (!m_taskTimer.empty())
+    {
+        return false;
+    }
+
     if (schedule_)
     {
         return schedule_->OnStopServer();

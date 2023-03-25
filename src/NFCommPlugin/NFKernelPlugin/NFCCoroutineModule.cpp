@@ -34,6 +34,7 @@ NFCCoroutineModule::~NFCCoroutineModule() {
 
 bool NFCCoroutineModule::OnStopServer()
 {
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFCCoroutineModule OnStopServer, m_rpcCoMap:{}", m_rpcCoMap.size());
     if (!m_rpcCoMap.empty())
     {
         return false;
