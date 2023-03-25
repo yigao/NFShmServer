@@ -1190,8 +1190,6 @@ void FailureSignalHandler(int signal_number,
         std::vector<NFIPluginManager*> vecPluginManager = NFGlobalSystem::Instance()->GetPluginManagerList();
         for(int i = 0; i < (int)vecPluginManager.size(); i++)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "FailureSignalHandler--the server crash, HotfixServer before kill the server");
-            vecPluginManager[i]->HotfixServer();
             NFLogError(NF_LOG_SYSTEMLOG, 0, "FailureSignalHandler--the server crash, Save DB before kill the server");
             vecPluginManager[i]->SaveDB();
         }
