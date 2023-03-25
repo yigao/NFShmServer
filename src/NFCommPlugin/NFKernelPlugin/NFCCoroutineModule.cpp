@@ -34,16 +34,17 @@ NFCCoroutineModule::~NFCCoroutineModule() {
 
 bool NFCCoroutineModule::OnStopServer()
 {
+    if (m_pCorSched)
+    {
+        return m_pCorSched->OnStopServer();
+    }
+
     NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFCCoroutineModule OnStopServer, m_rpcCoMap:{}", m_rpcCoMap.size());
     if (!m_rpcCoMap.empty())
     {
         return false;
     }
 
-    if (m_pCorSched)
-    {
-        return m_pCorSched->OnStopServer();
-    }
     return true;
 }
 
