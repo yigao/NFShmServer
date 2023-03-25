@@ -347,7 +347,7 @@ public:
 
     virtual int KillPreApp() = 0;
 
-    virtual void KillApp() = 0;
+    virtual void StopApp() = 0;
 
     virtual void ReloadApp() = 0;
 

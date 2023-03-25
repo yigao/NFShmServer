@@ -271,6 +271,7 @@ int NFCConsoleModule::OnTimer(uint32_t nTimerID)
 
 		if (msg.mMsgType == NFConsoleMsg_Exit)
 		{
+            NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFCConsoleModule SetServerStopping(true)................");
             NFGlobalSystem::Instance()->SetServerStopping(true);
 		}
 		else if (msg.mMsgType == NFConsoleMsg_Profiler)

@@ -70,8 +70,10 @@ int main(int argc, char* argv[])
         /*
          * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
          * */
-        if (NFGlobalSystem::Instance()->IsServerStopping())
+        if (NFGlobalSystem::Instance()->IsServerStopping() || NFGlobalSystem::Instance()->IsServerKilling())
         {
+            NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "Main Stop Server................");
+
             bool bExit = true;
             for(int i = 0; i < (int)vecPluginManager.size(); i++)
             {
@@ -85,7 +87,24 @@ int main(int argc, char* argv[])
 
             if (bExit)
             {
-                break;
+                NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "Main Stop Server To Stop Server................");
+                if (NFGlobalSystem::Instance()->IsServerStopping() && !NFGlobalSystem::Instance()->IsServerKilling())
+                {
+                    for(int i = 0; i < (int)vecPluginManager.size(); i++)
+                    {
+                        NFIPluginManager *pPluginManager = vecPluginManager[i];
+                        if (pPluginManager->SaveDB() == false)
+                        {
+                            bExit = false;
+                        }
+                    }
+                }
+
+                if (bExit)
+                {
+                    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "Main Stop Server To Save DB................");
+                    break;
+                }
             }
         }
 
@@ -94,20 +113,22 @@ int main(int argc, char* argv[])
          * */
         if (NFGlobalSystem::Instance()->IsHotfixServer())
         {
-            bool bExit = true;
+            NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "Main Hotfix Server................");
+            bool bHotFail = false;
             for(int i = 0; i < (int)vecPluginManager.size(); i++)
             {
                 NFIPluginManager *pPluginManager = vecPluginManager[i];
                 pPluginManager->SetHotfixServer(true);
                 if (pPluginManager->HotfixServer() == false)
                 {
-                    bExit = false;
+                    bHotFail = true;
                 }
             }
 
-            if (bExit)
+            if (bHotFail)
             {
-                break;
+                NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "Main Hotfix Fail To Stop Server................");
+                NFGlobalSystem::Instance()->SetServerStopping(true);
             }
         }
 	}

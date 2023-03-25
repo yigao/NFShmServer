@@ -1102,7 +1102,7 @@ int NFCPluginManager::KillPreApp()
 #endif
 
 #if NF_PLATFORM == NF_PLATFORM_LINUX
-void NFCPluginManager::KillApp()
+void NFCPluginManager::StopApp()
 {
 	bool exist = false;
 	exist = NFFileUtility::IsFileExist(m_strPidFileName);
@@ -1250,6 +1250,7 @@ bool NFCPluginManager::LoadKernelPlugin()
 
 bool NFCPluginManager::SaveDB()
 {
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager SaveDB................");
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {
@@ -1264,6 +1265,7 @@ bool NFCPluginManager::SaveDB()
 
 bool NFCPluginManager::OnStopServer()
 {
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager CheckStopServer................");
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {
@@ -1278,6 +1280,7 @@ bool NFCPluginManager::OnStopServer()
 
 bool NFCPluginManager::CheckStopServer()
 {
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager CheckStopServer................");
     bool ret = true;
     for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
     {
@@ -1292,6 +1295,7 @@ bool NFCPluginManager::CheckStopServer()
 
 bool NFCPluginManager::StopServer()
 {
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager StopServer................");
     bool ret = CheckStopServer();
     if (ret == false)
     {

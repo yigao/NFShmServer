@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 
-NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m_serverStopping(false), m_hotfixServer(false)
+NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m_serverStopping(false), m_serverKilling(false), m_hotfixServer(false)
 {
 }
 
@@ -77,6 +77,22 @@ void NFGlobalSystem::SetServerStopping(bool exitApp)
     m_serverStopping = exitApp;
 }
 
+/*
+ * kill server
+ * */
+bool NFGlobalSystem::IsServerKilling() const
+{
+    return m_serverKilling;
+}
+
+/*
+ * kill server
+ * */
+void NFGlobalSystem::SetServerKilling(bool exitApp)
+{
+    m_serverKilling = exitApp;
+}
+
 bool NFGlobalSystem::IsHotfixServer() const
 {
     return m_hotfixServer;
@@ -97,6 +113,7 @@ void NFGlobalSystem::ReleaseSingleton()
     NFServerTime::Instance()->ReleaseInstance();
     NFLogMgr::Instance()->ReleaseInstance();
     NFShmMgr::Instance()->ReleaseInstance();
+    NFProtobufCommon::Instance()->ReleaseInstance();
     //最后释放
     NFGlobalSystem::Instance()->ReleaseInstance();
 }

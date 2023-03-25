@@ -1286,9 +1286,19 @@ void HandleSignal(int signo)
     switch (signo)
     {
         /*
-         * stop server，停服，意味着需要保存该保存的数据，共享内存可能后面会被清理，服务器会走正常的停服流程
+         * kill server, quit server， 杀掉当前的服务器进程，不会保存数据，如果是共享内存服务器，数据仍然在。不会等待协程退出，以及异步操作退出
          * */
+        case SIGUNUSED:
+            NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "HandleSignal SetServerKilling(true)................");
+            NFGlobalSystem::Instance()->SetServerStopping(true);
+            NFGlobalSystem::Instance()->SetServerKilling(true);
+            break;
+        /*
+         * stop server，停服，意味着需要保存该保存的数据，服务器会走正常的停服流程
+         * */
+        case SIGTERM:
         case SIGUSR1:
+            NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "HandleSignal SetServerStopping(true)................");
             NFGlobalSystem::Instance()->SetServerStopping(true);
             break;
 
@@ -1301,11 +1311,10 @@ void HandleSignal(int signo)
         /*
          * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
          * */
-        case SIGUNUSED:
-        case SIGTERM:
-        {
+
+/*        {
             NFGlobalSystem::Instance()->SetHotfixServer(true);
-        }
+        }*/
             break;
         default:
             break;

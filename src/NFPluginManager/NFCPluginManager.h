@@ -175,7 +175,7 @@ public:
 
     virtual int KillPreApp() override;
 
-    virtual void KillApp() override;
+    virtual void StopApp() override;
 
     virtual void ReloadApp() override;
 

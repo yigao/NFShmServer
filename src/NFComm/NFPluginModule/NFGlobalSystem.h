@@ -26,32 +26,42 @@ public:
     bool LoadConfig(const std::string &path);
 public:
     /*
-     * reload server ���¼��ط���������������
+     * reload server
      * */
     bool IsReloadApp() const;
 
     /*
-     * reload server ���¼��ط���������������
+     * reload server
      * */
     void SetReloadServer(bool reloadApp);
 
     /*
-     * stop server��ͣ������ζ����Ҫ����ñ�������ݣ������ڴ���ܺ���ᱻ��������������������ͣ������
+     * stop server
      * */
     bool IsServerStopping() const;
 
     /*
-     * stop server��ͣ������ζ����Ҫ����ñ�������ݣ������ڴ���ܺ���ᱻ��������������������ͣ������
+     * stop server
      * */
     void SetServerStopping(bool exitApp);
 
     /*
-     * �ȸ��˳�app, ���ڷ�������Ҫ�ȸ�app������������ʱ���ɱ���������еĵĵ�app,�����µķ�����app
+     * kill server
+     * */
+    bool IsServerKilling() const;
+
+    /*
+     * kill server
+     * */
+    void SetServerKilling(bool exitApp);
+
+    /*
+     *
      * */
     bool IsHotfixServer() const;
 
     /*
-     * �ȸ��˳�app, ���ڷ�������Ҫ�ȸ�app������������ʱ���ɱ���������еĵĵ�app,�����µķ�����app
+     *
      * */
     void SetHotfixServer(bool hotfixExitApp);
 public:
@@ -66,6 +76,7 @@ private:
     proto_ff::pbPluginConfig m_gAllMoreServerConfig;
     bool m_reloadApp;
     bool m_serverStopping;
+    bool m_serverKilling;
     bool m_hotfixServer;
 public:
     bool IsMoreServer() const

@@ -130,6 +130,7 @@ bool NFSchedule::OnStopServer()
 {
     if (co_hash_map.size() > 0)
     {
+        NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFSchedule OnStopServer, co size:{}", co_hash_map.size());
         return false;
     }
     return true;

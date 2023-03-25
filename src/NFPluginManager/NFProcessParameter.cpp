@@ -232,7 +232,7 @@ void ProcessParameter(NFIPluginManager* pPluginManager, const std::vector<std::s
 
         if (cmdParser.Exist("Stop"))
         {
-            pPluginManager->KillApp();
+            pPluginManager->StopApp();
             exit(0);
         }
         else if (cmdParser.Exist("Reload"))
@@ -240,7 +240,6 @@ void ProcessParameter(NFIPluginManager* pPluginManager, const std::vector<std::s
             pPluginManager->ReloadApp();
             exit(0);
         }
-
         else if (cmdParser.Exist("Quit"))
         {
             pPluginManager->QuitApp();
