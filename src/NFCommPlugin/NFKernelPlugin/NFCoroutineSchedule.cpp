@@ -59,6 +59,15 @@ NFCoroutineSchedule::~NFCoroutineSchedule() {
     }
 }
 
+bool NFCoroutineSchedule::OnStopServer()
+{
+    if (schedule_)
+    {
+        return schedule_->OnStopServer();
+    }
+    return true;
+}
+
 int NFCoroutineSchedule::OnTimer(uint32_t nTimerID)
 {
 	ClearTimer();

@@ -55,6 +55,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="rpc service">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCoroutineSchedule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCoroutineSchedule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCoroutineSchedule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCoroutineSchedule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFSchedule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFSchedule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFSchedule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFSchedule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -323,11 +331,6 @@
       </method>
     </configuration>
     <configuration name="Sqlite3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="Sqlite3" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -646,21 +649,8 @@
       <workItem from="1679014162204" duration="30604000" />
       <workItem from="1679054253578" duration="28000" />
       <workItem from="1679287244120" duration="31170000" />
-      <workItem from="1679446064457" duration="96994000" />
-    </task>
-    <task id="LOCAL-00496" summary="trans scene">
-      <created>1678761928417</created>
-      <option name="number" value="00496" />
-      <option name="presentableId" value="LOCAL-00496" />
-      <option name="project" value="LOCAL" />
-      <updated>1678761928417</updated>
-    </task>
-    <task id="LOCAL-00497" summary="grow">
-      <created>1678779380211</created>
-      <option name="number" value="00497" />
-      <option name="presentableId" value="LOCAL-00497" />
-      <option name="project" value="LOCAL" />
-      <updated>1678779380211</updated>
+      <workItem from="1679446064457" duration="98914000" />
+      <workItem from="1679704166075" duration="2768000" />
     </task>
     <task id="LOCAL-00498" summary="grow">
       <created>1678781603395</created>
@@ -991,7 +981,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679650937382</updated>
     </task>
-    <option name="localTasksCounter" value="545" />
+    <task id="LOCAL-00545" summary="rpc service">
+      <created>1679652439898</created>
+      <option name="number" value="00545" />
+      <option name="presentableId" value="LOCAL-00545" />
+      <option name="project" value="LOCAL" />
+      <updated>1679652439898</updated>
+    </task>
+    <task id="LOCAL-00546" summary="rpc service">
+      <created>1679653067905</created>
+      <option name="number" value="00546" />
+      <option name="presentableId" value="LOCAL-00546" />
+      <option name="project" value="LOCAL" />
+      <updated>1679653067905</updated>
+    </task>
+    <option name="localTasksCounter" value="547" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1243,6 +1247,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFSchedule.cpp</url>
+          <line>130</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp</url>
+          <line>88</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

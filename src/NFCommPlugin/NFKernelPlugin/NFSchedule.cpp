@@ -126,6 +126,15 @@ NFCoroutine *NFSchedule::NewCoroutine(NFCoroutineFunc func, void *ud)
 	return co;
 }
 
+bool NFSchedule::OnStopServer()
+{
+    if (co_hash_map.size() > 0)
+    {
+        return false;
+    }
+    return true;
+}
+
 int64_t NFSchedule::CreateCoroutine(const std::function<void()>& std_func)
 {
     NFCoroutine *co = NewCoroutine(std_func);

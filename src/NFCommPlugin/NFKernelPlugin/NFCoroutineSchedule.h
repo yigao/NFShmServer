@@ -65,6 +65,11 @@ public:
 	virtual int OnTimer(uint32_t nTimerID);
 
 	virtual void ClearTimer();
+
+    /*
+     * 停服之前，做一些操作，满足停服条件
+     * */
+    virtual bool OnStopServer();
 public:
     /// @brief 初始化工作, new了一个新的schedule
     /// @param stack_size 协程的栈大小，默认是256k

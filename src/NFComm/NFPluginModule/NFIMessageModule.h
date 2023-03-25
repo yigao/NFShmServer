@@ -310,17 +310,23 @@ public:
      * @param rpcCb
      * @return
      */
-    template<typename ResponeType, typename RequestType>
-    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, const std::function<void(int rpcRetCode, ResponeType& respone)>& rpcCb)
+    template<typename RequestType, typename ResponFunc, typename ResponeType>
+    int GetRpcServiceInner(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, const ResponFunc& responFunc, void (ResponFunc::*pf)(int rpcRetCode, ResponeType& respone) const)
     {
         return FindModule<NFICoroutineModule>()->MakeCoroutine([=](){
             ResponeType respone;
             int iRet = FindModule<NFIMessageModule>()->GetRpcService(serverType, dstServerType, dstBusId, nMsgId, request, respone);
-            if (rpcCb)
+            if (responFunc)
             {
-                rpcCb(iRet, respone);
+                (responFunc.*pf)(iRet, respone);
             }
         });
+    }
+
+    template<typename RequestType, typename ResponFunc>
+    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t nMsgId, const RequestType &request, const ResponFunc& rpcCb)
+    {
+        return GetRpcServiceInner(serverType, dstServerType, dstBusId, nMsgId, request, rpcCb, &ResponFunc::operator());
     }
 
     /**

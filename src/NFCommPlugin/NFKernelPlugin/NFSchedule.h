@@ -67,6 +67,8 @@ public:
 #endif
 	}
 
+    bool OnStopServer();
+
 	/// @brief 创建一个协程
 	/// @param 协程执行体的函数指针
 	/// @note 只能够在主线程调用

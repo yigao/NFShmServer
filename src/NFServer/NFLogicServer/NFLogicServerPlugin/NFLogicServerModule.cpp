@@ -84,6 +84,11 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
         return 0;
     }
 
+    if (m_pObjPluginManager->IsServerStopping())
+    {
+        return 0;
+    }
+
 #ifdef TEST_SERVER_SEND_MSG
     static int req = 0;
     for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
@@ -127,7 +132,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
             NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
             proto_ff::RpcRequestGetServerInfo request;
             request.set_server_id(pConfig->ServerId);
-            FindModule<NFIMessageModule>()->GetRpcService<proto_ff::ServerInfoReport>(NF_ST_LOGIC_SERVER, NF_ST_WORLD_SERVER, 0, proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ, request, [](int rpcRetCode, proto_ff::ServerInfoReport& respone){
+            FindModule<NFIMessageModule>()->GetRpcService(NF_ST_LOGIC_SERVER, NF_ST_WORLD_SERVER, 0, proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ, request, [](int rpcRetCode, proto_ff::ServerInfoReport& respone){
                 if (rpcRetCode != 0)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ Failed!");

@@ -32,8 +32,28 @@ NFCCoroutineModule::~NFCCoroutineModule() {
 
 }
 
+bool NFCCoroutineModule::OnStopServer()
+{
+    if (!m_rpcCoMap.empty())
+    {
+        return false;
+    }
+
+    if (m_pCorSched)
+    {
+        return m_pCorSched->OnStopServer();
+    }
+    return true;
+}
+
 bool NFCCoroutineModule::Shut() {
+    return true;
+}
+
+bool NFCCoroutineModule::Finalize()
+{
     NF_SAFE_DELETE(m_pCorSched);
+    m_rpcCoMap.clear();
     return true;
 }
 

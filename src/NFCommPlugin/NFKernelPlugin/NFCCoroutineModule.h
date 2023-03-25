@@ -20,7 +20,14 @@ public:
 
     virtual ~NFCCoroutineModule();
 
+    /*
+     * 停服之前，做一些操作，满足停服条件
+     * */
+    virtual bool OnStopServer() override;
+
     virtual bool Shut() override;
+
+    virtual bool Finalize() override;
 
     virtual bool Execute() override;
 
