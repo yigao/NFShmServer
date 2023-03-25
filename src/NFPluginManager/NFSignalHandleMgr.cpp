@@ -1307,7 +1307,7 @@ void HandleSignal(int signo)
             NFGlobalSystem::Instance()->SetReloadServer(true);
             break;
         /*
-         * 热更退出app, 用于服务器需要热更app代码的情况，这时候会杀掉正在运行的的的app,重启新的服务器app
+         * 用来热更lua,python脚本
          * */
 
 /*        {
