@@ -235,6 +235,11 @@ message ServerInfoReportList
   repeated ServerInfoReport server_list = 1;
 }
 
+message ServerInfoReportListRespne
+{
+  optional int32 ret_code = 1;
+}
+
 message ZkServerInfo
 {
   optional string   bus_url = 1;

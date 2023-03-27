@@ -118,3 +118,17 @@ message RpcRequestGetServerInfo
 {
   optional string server_id = 1;
 }
+
+message RpcWatchServerReqeust
+{
+  optional int32 src_server_type = 1;
+  optional int32 src_bus_id = 2;
+  optional int32 dst_server_type = 3;
+  optional int32 dst_bus_id = 4;
+}
+
+message RpcWatchServerRespone
+{
+  optional int32 ret_code = 1;
+}
+

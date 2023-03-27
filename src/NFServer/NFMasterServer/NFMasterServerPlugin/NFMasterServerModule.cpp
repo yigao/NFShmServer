@@ -24,6 +24,7 @@
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 #include "NFServerComm/NFServerMessage/proto_svr_common.pb.h"
+#include "NFServerComm/NFServerCommon/NFServerBindRpcService.h"
 
 
 #define NF_MASTER_TIMER_SAVE_SERVER_DATA 0
@@ -43,6 +44,12 @@ bool NFCMasterServerModule::Awake()
 {
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_MASTER_SERVER);
     FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_MASTER_SERVER);
+
+    /**
+     * @brief Master Rpc Service
+     */
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_SERVER_TO_SERVER_REGISTER>(NF_ST_MASTER_SERVER, this, &NFCMasterServerModule::OnServerRegisterRpcService);
+
 
 	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this, &NFCMasterServerModule::OnServerRegisterProcess);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT, this, &NFCMasterServerModule::OnServerReportProcess);
@@ -105,6 +112,54 @@ bool NFCMasterServerModule::Awake()
     Subscribe(NF_ST_MASTER_SERVER, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     Subscribe(NF_ST_MASTER_SERVER, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
 	return true;
+}
+
+int NFCMasterServerModule::OnServerRegisterRpcService(uint64_t unLinkId, proto_ff::ServerInfoReportList& reqeust, proto_ff::ServerInfoReportListRespne& respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+
+    for (int i = 0; i < reqeust.server_list_size(); ++i)
+    {
+        const proto_ff::ServerInfoReport& xData = reqeust.server_list(i);
+        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, xData.bus_id());
+        if (!pServerData)
+        {
+            pServerData = FindModule<NFIMessageModule>()->CreateServerByServerId(NF_ST_MASTER_SERVER, xData.bus_id(), (NF_SERVER_TYPES)xData.server_type(), xData);
+        }
+        else
+        {
+            if (pServerData->mServerInfo.server_type() != xData.server_type())
+            {
+                //该服务器ID已经注册过, 又被别的服务器使用了
+                respone.set_ret_code(-1);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} connect some wrong, old server:{}", xData.server_name(), pServerData->mServerInfo.server_name());
+                return -1;
+            }
+            else if (pServerData->mUnlinkId > 0 && pServerData->mUnlinkId != unLinkId)
+            {
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "server:{} new link, old link will close......", pServerData->mServerInfo.server_name());
+                //服务器连接还在没有崩溃
+                FindModule<NFIMessageModule>()->CloseLinkId(pServerData->mUnlinkId);
+            }
+        }
+
+        pServerData->mUnlinkId = unLinkId;
+        pServerData->mServerInfo = xData;
+        FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_MASTER_SERVER, xData.bus_id(), pServerData->mUnlinkId);
+/*        if (xData.server_state() == proto_ff::EST_INIT)
+        {
+            SynOtherServerToServer(pServerData);
+        }
+        else {
+            SynServerToOthers(pServerData);
+            SynOtherServerToServer(pServerData);
+        }*/
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
+    }
+
+    respone.set_ret_code(0);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
 }
 
 int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet)

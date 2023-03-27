@@ -105,7 +105,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
         return 0;
     }
 
-    static bool flag = false;
+/*    static bool flag = false;
     if (flag == false)
     {
         flag = true;
@@ -141,7 +141,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
             });
         }
         return 0;
-    }
+    }*/
 
     return 0;
 }

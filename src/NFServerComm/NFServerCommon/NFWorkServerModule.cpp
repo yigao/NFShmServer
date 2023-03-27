@@ -167,7 +167,7 @@ int NFWorkServerModule::BindServer()
         }
     }
 
-    Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(m_serverType, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     Subscribe(m_serverType, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
 
     SetTimer(SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID, 10000);
@@ -318,6 +318,7 @@ int NFWorkServerModule::RegisterMasterServer(uint32_t serverState)
         return 0;
     }
 
+
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
     if (pConfig)
     {
@@ -326,7 +327,21 @@ int NFWorkServerModule::RegisterMasterServer(uint32_t serverState)
         NFServerCommon::WriteServerInfo(pData, pConfig);
 
         pData->set_server_state(serverState);
-        FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(m_serverType, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
+        FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_SERVER_TO_SERVER_REGISTER>(m_serverType, NF_ST_MASTER_SERVER, 0, xMsg, [this](int rpcRetCode, proto_ff::ServerInfoReportListRespne& respone){
+            if (rpcRetCode != 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Register Master Failed......, kill the exe");
+                proto_ff::NFEventNoneData event;
+                FireExecute(m_serverType, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                return;
+            }
+
+            //完成服务器启动任务
+            if (!m_pObjPluginManager->IsInited())
+            {
+                m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
+            }
+        });
     }
     return 0;
 }
@@ -351,12 +366,6 @@ int NFWorkServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
         else
         {
             RegisterMasterServer(proto_ff::EST_NARMAL);
-        }
-
-        //完成服务器启动任务
-        if (!m_pObjPluginManager->IsInited())
-        {
-            m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
         }
     }
     else if (nEvent == eMsgType_DISCONNECTED)

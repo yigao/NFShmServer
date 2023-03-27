@@ -133,6 +133,15 @@ public:
      * @return
      */
     template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
+    bool AddRpcService(NF_SERVER_TYPES serverType, BaseType *pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, RequestType& request, ResponeType &respone), bool createCo = false)
+    {
+        STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);
+        NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
+        NFIRpcService* pRpcService = new NFCRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
+        return AddRpcService(serverType, msgId, pBase, pRpcService, createCo);
+    }
+
+    template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
     bool AddRpcService(NF_SERVER_TYPES serverType, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone), bool createCo = false)
     {
         STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);
@@ -197,25 +206,36 @@ public:
      * @param rpcCb
      * @return
      */
+    template<size_t msgId, typename RequestType, typename ResponFunc>
+    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, const ResponFunc& rpcCb)
+    {
+        return GetRpcServiceInner<msgId>(serverType, dstServerType, dstBusId, request, rpcCb, &ResponFunc::operator());
+    }
+private:
+
+    /**
+     * @brief 这个函数会先创建一个协程， 获取远程服务器的rpc服务，不能在别的协程里调用这个函数
+     * @tparam RequestType
+     * @tparam ResponeType
+     * @param serverType
+     * @param dstServerType
+     * @param dstBusId
+     * @param nMsgId
+     * @param request
+     * @param rpcCb
+     * @return
+     */
     template<size_t msgId, typename RequestType, typename ResponFunc, typename ResponeType>
     int GetRpcServiceInner(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, const ResponFunc& responFunc, void (ResponFunc::*pf)(int rpcRetCode, ResponeType& respone) const)
     {
         return FindModule<NFICoroutineModule>()->MakeCoroutine([=](){
             ResponeType respone;
             int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(serverType, dstServerType, dstBusId, request, respone);
-            if (responFunc)
-            {
-                (responFunc.*pf)(iRet, respone);
-            }
+            (responFunc.*pf)(iRet, respone);
         });
     }
 
-    template<size_t msgId, typename RequestType, typename ResponFunc>
-    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, const ResponFunc& rpcCb)
-    {
-        return GetRpcServiceInner<msgId>(serverType, dstServerType, dstBusId, request, rpcCb, &ResponFunc::operator());
-    }
-
+public:
     /**
      * @brief 添加rpc服务
      * @param serverType

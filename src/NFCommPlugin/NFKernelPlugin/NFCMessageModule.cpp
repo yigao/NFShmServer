@@ -1030,7 +1030,21 @@ NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES rec
         sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->BusId, 0);
     }
 
-    Send(linkData.m_routeData.mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
+    if (recvType == NF_ST_MASTER_SERVER)
+    {
+        Send(linkData.m_masterServerData.mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
+    }
+    else if (eSendType == NF_ST_MASTER_SERVER)
+    {
+        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, dstBusId);
+        if (pServerData)
+        {
+            Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
+        }
+    }
+    else {
+        Send(linkData.m_routeData.mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
+    }
     return 0;
 }
 
@@ -1055,8 +1069,21 @@ int NFCMessageModule::SendTrans(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvT
     {
         sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->BusId, 0);
     }
-
-    Send(linkData.m_routeData.mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
+    if (recvType == NF_ST_MASTER_SERVER)
+    {
+        Send(linkData.m_masterServerData.mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
+    }
+    else if (eSendType == NF_ST_MASTER_SERVER)
+    {
+        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, dstBusId);
+        if (pServerData)
+        {
+            Send(pServerData->mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
+        }
+    }
+    else {
+        Send(linkData.m_routeData.mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
+    }
     return 0;
 }
 

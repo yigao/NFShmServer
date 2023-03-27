@@ -39,6 +39,8 @@ public:
 	int SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerData);
     int SynOtherServerToServer(NF_SHARE_PTR<NFServerData> pServerData);
 	int OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet);
+    int OnServerRegisterRpcService(uint64_t unLinkId, proto_ff::ServerInfoReportList& reqeust, proto_ff::ServerInfoReportListRespne& respone);
+    int OnServerWatchRpcService(uint64_t unLinkId, proto_ff::ServerInfoReportList& reqeust, proto_ff::ServerInfoReportListRespne& respone);
 	int OnServerReportProcess(uint64_t unLinkId, NFDataPackage& packet);
 
 	int OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPackage& packet);

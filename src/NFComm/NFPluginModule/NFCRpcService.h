@@ -22,6 +22,11 @@ class NFCRpcService : public NFIRpcService
     static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class RequestType must is google::protobuf::Message");
     static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class ResponeType must is google::protobuf::Message");
 public:
+    NFCRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, RequestType& request, ResponeType &respone)): NFIRpcService(p)
+    {
+        m_functionWithLink = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    }
+
     NFCRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone)): NFIRpcService(p)
     {
         m_function = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
@@ -47,9 +52,16 @@ public:
         svrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
         svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
         svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
-        if (m_function)
+        if (m_function || m_functionWithLink)
         {
-            iRet = m_function(req, rsp);
+            if (m_function)
+            {
+                iRet = m_function(req, rsp);
+            }
+            else if (m_functionWithLink)
+            {
+                iRet = m_functionWithLink(unLinkId, req, rsp);
+            }
             svrPkg.set_msg_data(rsp.SerializeAsString());
             svrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
         }
@@ -63,4 +75,5 @@ public:
     }
 
     std::function<int(RequestType& request, ResponeType &respone)> m_function;
+    std::function<int(uint64_t unLinkId, RequestType& request, ResponeType &respone)> m_functionWithLink;
 };
