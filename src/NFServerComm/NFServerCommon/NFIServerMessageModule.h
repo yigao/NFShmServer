@@ -153,5 +153,5 @@ public:
                            uint64_t mod_key = 0, const std::string &cls_name = "", uint8_t packet_type = proto_ff::E_DISP_TYPE_BY_TRANSACTION) = 0;
 
 public:
-    virtual int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t dstBusId = 0, const std::string &dbname = "") = 0;
+    virtual int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0, const std::string &dbname = "") = 0;
 };

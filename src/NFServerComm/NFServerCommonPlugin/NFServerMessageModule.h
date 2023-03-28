@@ -141,5 +141,5 @@ public:
 
 public:
     virtual int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key,
-                                       google::protobuf::Message &data, uint32_t dstBusId = 0, const std::string &dbname = "") override;
+                                       google::protobuf::Message &data, const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0, const std::string &dbname = "") override;
 };

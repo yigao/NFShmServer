@@ -692,7 +692,7 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
                                                            proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
-int NFServerMessageModule::GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t dstBusId, const std::string &dbname)
+int NFServerMessageModule::GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, const std::vector<std::string> &vecFields, uint32_t dstBusId, const std::string &dbname)
 {
     std::string tempDBName = dbname;
     if (dbname.empty())
