@@ -214,13 +214,13 @@ private:
                                     const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
                                     const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
-                ([=]()
-                 {
-                     DataType respone = data;
-                     int rpcRetCode = GetRpcSelectObjService(eType, mod_key, respone, vecFields, dstBusId, dbname);
-                     (responFunc.*pf)(rpcRetCode, respone);
-                 });
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine([=]()
+        {
+           DataType respone = data;
+           int rpcRetCode = GetRpcSelectObjService(eType, mod_key, respone, vecFields,
+                                                   dstBusId, dbname);
+           (responFunc.*pf)(rpcRetCode, respone);
+        });
         return iRet;
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
