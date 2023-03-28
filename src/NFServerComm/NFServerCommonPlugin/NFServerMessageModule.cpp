@@ -188,272 +188,7 @@ int NFServerMessageModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
 
-std::string storesvr_selectbycond(const std::string &dbname, const std::string &tbname,
-                                  uint64_t mod_key, const std::vector<std::string> &fields, const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
-                                  const std::string &additional_conds = "", int maxRecords = 100, const std::string &cls_name = "")
-{
-    storesvr_sqldata::storesvr_sel select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    for (int i = 0; i < (int) fields.size(); i++)
-    {
-        select.mutable_baseinfo()->add_sel_fields(fields[i]);
-    }
-    select.mutable_baseinfo()->set_max_records(maxRecords);
 
-    select.mutable_sel_cond()->set_mod_key(mod_key);
-
-    select.mutable_sel_cond()->set_where_additional_conds(additional_conds);
-    for (size_t i = 0; i < vk_list.size(); i++)
-    {
-        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_sel_cond()->add_where_conds();
-        *pvk = vk_list[i];
-    }
-    return select.SerializeAsString();
-}
-
-
-void storesvr_selectobj(storesvr_sqldata::storesvr_selobj& select, const std::string &dbname, const std::string &tbname,
-                        uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "", const std::string& package_name = "")
-{
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    select.mutable_baseinfo()->set_package_name(package_name);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    select.set_mod_key(mod_key);
-    select.set_sel_record(msg_obj.SerializeAsString());
-}
-
-// select对象查询，返回打包数据，该数据可直接网络发送
-std::string storesvr_selectobj(const std::string &dbname, const std::string &tbname,
-                               uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "", const std::string& package_name = "")
-{
-    storesvr_sqldata::storesvr_selobj select;
-    storesvr_selectobj(select, dbname, tbname, mod_key, msg_obj, cls_name, package_name);
-    return select.SerializeAsString();
-}
-
-
-// insert对象插入，返回打包数据
-std::string storesvr_insert(const std::string &dbname, const std::string &tbname,
-                            uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "")
-{
-    storesvr_sqldata::storesvr_ins select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    select.set_mod_key(mod_key);
-    select.set_ins_record(msg_obj.SerializeAsString());
-    return select.SerializeAsString();
-}
-
-// 按条件删除
-std::string storesvr_deletebycond(const std::string &dbname, const std::string &tbname,
-                                  uint64_t mod_key, const std::vector<storesvr_sqldata::storesvr_vk> &vk_list, const std::string &cls_name = "")
-{
-    storesvr_sqldata::storesvr_del select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    select.mutable_del_cond()->set_mod_key(mod_key);
-    for (size_t i = 0; i < vk_list.size(); i++)
-    {
-        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_del_cond()->add_where_conds();
-        *pvk = vk_list[i];
-    }
-    return select.SerializeAsString();
-}
-
-// 按对象删除
-std::string storesvr_delete(const std::string &dbname, const std::string &tbname,
-                            uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "")
-{
-    storesvr_sqldata::storesvr_delobj select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    select.set_mod_key(mod_key);
-    select.set_del_record(msg_obj.SerializeAsString());
-    return select.SerializeAsString();
-}
-
-std::string storesvr_modifybycond(const std::string &dbname, const std::string &tbname,
-                                  uint64_t mod_key, const ::google::protobuf::Message &msg_obj,
-                                  const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
-                                  const std::string &additional_conds = "", const std::string &cls_name = "")
-{
-    storesvr_sqldata::storesvr_mod select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-
-    select.mutable_mod_cond()->set_mod_key(mod_key);
-
-    select.mutable_mod_cond()->set_where_additional_conds(additional_conds);
-    for (size_t i = 0; i < vk_list.size(); i++)
-    {
-        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_mod_cond()->add_where_conds();
-        *pvk = vk_list[i];
-    }
-
-    select.set_mod_record(msg_obj.SerializeAsString());
-    return select.SerializeAsString();
-}
-
-// 按对象修改
-std::string storesvr_modifyobj(const std::string &dbname, const std::string &tbname,
-                               uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "")
-{
-    storesvr_sqldata::storesvr_modobj select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    select.set_mod_key(mod_key);
-    select.set_mod_record(msg_obj.SerializeAsString());
-    return select.SerializeAsString();
-}
-
-
-std::string storesvr_modinsbycond(const std::string &dbname, const std::string &tbname,
-                                  uint64_t mod_key, const ::google::protobuf::Message &msg_obj,
-                                  const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
-                                  const std::string &additional_conds = "", const std::string &cls_name = "")
-{
-    storesvr_sqldata::storesvr_modins select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-
-    select.mutable_mod_cond()->set_mod_key(mod_key);
-
-    select.mutable_mod_cond()->set_where_additional_conds(additional_conds);
-    for (size_t i = 0; i < vk_list.size(); i++)
-    {
-        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_mod_cond()->add_where_conds();
-        *pvk = vk_list[i];
-    }
-
-    select.set_mod_record(msg_obj.SerializeAsString());
-    return select.SerializeAsString();
-}
-
-// 修改插入
-std::string storesvr_modinsobj(const std::string &dbname, const std::string &tbname,
-                               uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "")
-{
-    storesvr_sqldata::storesvr_modinsobj select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    select.set_mod_key(mod_key);
-    select.set_modins_record(msg_obj.SerializeAsString());
-    return select.SerializeAsString();
-}
-
-// 按对象修改
-std::string storesvr_execute(const std::string &dbname, const std::string &tbname,
-                             uint64_t mod_key, const std::string &msg, const std::string &cls_name)
-{
-    storesvr_sqldata::storesvr_execute select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    select.set_mod_key(mod_key);
-    select.set_execute_record(msg + ";");
-    return select.SerializeAsString();
-}
-
-// 按对象修改
-std::string storesvr_execute_more(const std::string &dbname, const std::string &tbname,
-                                  uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name)
-{
-    storesvr_sqldata::storesvr_execute_more select;
-    select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
-    if (cls_name.empty())
-    {
-        select.mutable_baseinfo()->set_clname(tbname);
-    }
-    else
-    {
-        select.mutable_baseinfo()->set_clname(cls_name);
-    }
-    select.mutable_baseinfo()->set_max_records(max_records);
-    select.set_mod_key(mod_key);
-    select.set_execute_record(msg + ";");
-    return select.SerializeAsString();
-}
 
 int
 NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname,
@@ -480,12 +215,12 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
     {
         case proto_ff::E_STORESVR_C2S_MODIFY:
         {
-            svrPkg.set_msg_data(storesvr_modifybycond(dbname, table_name, mod_key, xData, vk_list, where_addtional_conds, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_modifybycond(dbname, table_name, mod_key, xData, vk_list, where_addtional_conds, cls_name));
             break;
         }
         case proto_ff::E_STORESVR_C2S_MODINS:
         {
-            svrPkg.set_msg_data(storesvr_modinsbycond(dbname, table_name, mod_key, xData, vk_list, where_addtional_conds, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_modinsbycond(dbname, table_name, mod_key, xData, vk_list, where_addtional_conds, cls_name));
             break;
         }
         default:
@@ -524,12 +259,12 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
         case proto_ff::E_STORESVR_C2S_SELECT:
         {
             svrPkg.set_msg_data(
-                    storesvr_selectbycond(dbname, table_name, mod_key, vecFields, vk_list, where_addtional_conds, max_records, cls_name));
+                    NFStoreProtoCommon::storesvr_selectbycond(dbname, table_name, mod_key, vecFields, vk_list, where_addtional_conds, max_records, cls_name));
             break;
         }
         case proto_ff::E_STORESVR_C2S_DELETE:
         {
-            svrPkg.set_msg_data(storesvr_deletebycond(dbname, table_name, mod_key, vk_list, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_deletebycond(dbname, table_name, mod_key, vk_list, cls_name));
             break;
         }
         default:
@@ -567,7 +302,7 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
     {
         case proto_ff::E_STORESVR_C2S_EXECUTE_MORE:
         {
-            svrPkg.set_msg_data(storesvr_execute_more(dbname, table_name, mod_key, xData, max_records, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_execute_more(dbname, table_name, mod_key, xData, max_records, cls_name));
         }
             break;
         default:
@@ -606,7 +341,7 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
     {
         case proto_ff::E_STORESVR_C2S_EXECUTE:
         {
-            svrPkg.set_msg_data(storesvr_execute(dbname, table_name, mod_key, xData, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_execute(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
         default:
@@ -647,38 +382,38 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
         case proto_ff::E_STORESVR_C2S_SELECT:
         {
             std::vector<storesvr_sqldata::storesvr_vk> vk_list;
-            svrPkg.set_msg_data(storesvr_selectbycond(dbname, table_name, mod_key, std::vector<std::string>(), vk_list, "", 100, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_selectbycond(dbname, table_name, mod_key, std::vector<std::string>(), vk_list, "", 100, cls_name));
         }
             break;
         case proto_ff::E_STORESVR_C2S_SELECTOBJ:
         {
-            svrPkg.set_msg_data(storesvr_selectobj(dbname, table_name, mod_key, xData, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_selectobj(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
         case proto_ff::E_STORESVR_C2S_INSERT:
         {
-            svrPkg.set_msg_data(storesvr_insert(dbname, table_name, mod_key, xData, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_insert(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
         case proto_ff::E_STORESVR_C2S_DELETE:
         {
             std::vector<storesvr_sqldata::storesvr_vk> vk_list;
-            svrPkg.set_msg_data(storesvr_deletebycond(dbname, table_name, mod_key, vk_list, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_deletebycond(dbname, table_name, mod_key, vk_list, cls_name));
         }
             break;
         case proto_ff::E_STORESVR_C2S_DELETEOBJ:
         {
-            svrPkg.set_msg_data(storesvr_delete(dbname, table_name, mod_key, xData, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_delete(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
         case proto_ff::E_STORESVR_C2S_MODIFYOBJ:
         {
-            svrPkg.set_msg_data(storesvr_modifyobj(dbname, table_name, mod_key, xData, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_modifyobj(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
         case proto_ff::E_STORESVR_C2S_MODINSOBJ:
         {
-            svrPkg.set_msg_data(storesvr_modinsobj(dbname, table_name, mod_key, xData, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_modinsobj(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
         default:
@@ -692,7 +427,9 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
                                                            proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }
 
-int NFServerMessageModule::GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, const std::vector<std::string> &vecFields, uint32_t dstBusId, const std::string &dbname)
+int NFServerMessageModule::SendSelectObjTrans(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t table_id/* = 0*/, int trans_id/* = 0*/, uint32_t seq/* = 0*/,
+                       const std::vector<std::string> &vecFields/* = std::vector<std::string>()*/, uint32_t dstBusId/* = 0*/,
+                       const std::string &dbname/* = ""*/)
 {
     std::string tempDBName = dbname;
     if (dbname.empty())
@@ -710,16 +447,20 @@ int NFServerMessageModule::GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_
     std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
     std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
     CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
-    storesvr_selectobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
+    NFStoreProtoCommon::storesvr_selectobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName, vecFields);
 
-    storesvr_sqldata::storesvr_selobj_res selobjRes;
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::E_STORESVR_C2S_SELECTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj, selobjRes);
-    if (iRet == 0)
-    {
-        data.ParseFromString(selobjRes.sel_record());
-    }
-    else {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", iRet, selobjRes.sel_opres().errmsg());
-    }
-    return iRet;
+    proto_ff::Proto_SvrPkg svrPkg;
+    svrPkg.set_msg_id(0);
+    svrPkg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_C2S_SELECTOBJ);
+    svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
+    svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
+    svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);
+
+    svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_selectobj(tempDBName, tbname, mod_key, data, tbname, packageName, vecFields));
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cmd:proto_ff::E_STORESVR_C2S_SELECTOBJ table_id:{} table_name:{} trans_id:{} seq:{} mod_key:{}",
+               table_id, tempDBName, trans_id, seq, mod_key);
+
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_SERVER,
+                                                           proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
 }

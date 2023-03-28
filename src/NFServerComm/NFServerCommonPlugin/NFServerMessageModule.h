@@ -140,6 +140,8 @@ public:
                            uint8_t packet_type = proto_ff::E_DISP_TYPE_BY_TRANSACTION) override;
 
 public:
-    virtual int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key,
-                                       google::protobuf::Message &data, const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0, const std::string &dbname = "") override;
+    ///////////////////////store server select obj////////////////////////////////////////////////////////////////////////////////////////////
+    virtual int SendSelectObjTrans(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t table_id = 0, int trans_id = 0, uint32_t seq = 0,
+                                   const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                                   const std::string &dbname = "") override;
 };

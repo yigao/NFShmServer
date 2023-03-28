@@ -20,7 +20,7 @@
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 
 
-NFCLogicServerModule::NFCLogicServerModule(NFIPluginManager* p):NFILogicServerModule(p)
+NFCLogicServerModule::NFCLogicServerModule(NFIPluginManager *p) : NFILogicServerModule(p)
 {
 }
 
@@ -39,7 +39,7 @@ bool NFCLogicServerModule::Awake()
     return true;
 }
 
-int NFCLogicServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFCLogicServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
     int retCode = 0;
     switch (packet.nMsgId)
@@ -109,16 +109,22 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
     if (flag == false)
     {
         flag = true;
-        FindModule<NFICoroutineModule>()->MakeCoroutine([this](){
-            proto_ff::tbServerMgr data;
-            data.set_id(2);
-            int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIC_SERVER, 0, data);
-            if (iRet != 0)
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService Failed!");
-                return;
-            }
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService respone:{}", data.DebugString());
+        FindModule<NFICoroutineModule>()->MakeCoroutine([this]()
+                                                        {
+                                                            proto_ff::tbServerMgr data;
+                                                            data.set_id(1);
+                                                            std::vector<std::string> vecField;
+                                                            vecField.push_back("contract");
+                                                            vecField.push_back("machine_addr");
+                                                            int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(
+                                                                    NF_ST_LOGIC_SERVER, 0, data, vecField);
+                                                            if (iRet != 0)
+                                                            {
+                                                                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService Failed!");
+                                                                return;
+                                                            }
+                                                            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService respone:{}", data.DebugString()
+                                                            );
 /*             NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
            proto_ff::RpcRequestGetServerInfo request;
             request.set_server_id(pConfig->ServerId);
@@ -133,7 +139,23 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
                 }
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcService respone:{}", respone.DebugString());
             }*/
-        });
+                                                        });
+
+        proto_ff::tbServerMgr data;
+        data.set_id(1);
+        std::vector<std::string> vecField;
+        vecField.push_back("contract");
+        vecField.push_back("machine_addr");
+        FindModule<NFIServerMessageModule>()->GetRpcSelectObjService
+                (NF_ST_LOGIC_SERVER, 0, data, [](int rspRetCode, proto_ff::tbServerMgr &respone)
+                {
+                    if (rspRetCode != 0)
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService Failed!");
+                        return;
+                    }
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService respone:{}", respone.DebugString());
+                }, vecField);
 
 /*        for(int i = 0; i < 1; i++)
         {
@@ -155,7 +177,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
     return 0;
 }
 
-int NFCLogicServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet)
+int NFCLogicServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
@@ -168,7 +190,8 @@ int NFCLogicServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPa
     {
         last_seq = xMsg.seq();
     }
-    else {
+    else
+    {
         NFLogErrorIf(last_seq + 1 != xMsg.seq(), NF_LOG_SYSTEMLOG, 0, "world server send seq error, last_seq:{} seq:{}", last_seq, xMsg.seq());
         last_seq = xMsg.seq();
     }

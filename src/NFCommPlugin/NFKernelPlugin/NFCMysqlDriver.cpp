@@ -125,7 +125,7 @@ int NFCMysqlDriver::Execute(const storesvr_sqldata::storesvr_execute &select, st
         const std::map<std::string, std::string> &result = resultVec[i];
 
         google::protobuf::Message *pMessage = NULL;
-        iRet = TransTableRowToMessage(result, select.baseinfo().clname(), &pMessage);
+        iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
         if (iRet == 0 && pMessage != NULL)
         {
             select_res.set_sel_records(pMessage->SerializeAsString());
@@ -298,11 +298,18 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
     return 0;
 }
 
-int NFCMysqlDriver::TransTableRowToMessage(const std::map<std::string, std::string> &result, const std::string &table,
+int NFCMysqlDriver::TransTableRowToMessage(const std::map<std::string, std::string> &result, const std::string& packageName, const std::string &table,
                                            google::protobuf::Message **pMessage)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --table:{}", table);
-    std::string proto_fullname = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + table;
+    std::string proto_fullname;
+    if (packageName.empty())
+    {
+        proto_fullname = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + table;
+    }
+    else {
+        proto_fullname =  packageName + "." + table;
+    }
 
     //通过protobuf默认便利new出来一个新的proto_fullname变量
     ::google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(proto_fullname);
@@ -349,7 +356,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
         const std::map<std::string, std::string> &result = resultVec[i];
 
         google::protobuf::Message *pMessage = NULL;
-        iRet = TransTableRowToMessage(result, select.baseinfo().clname(), &pMessage);
+        iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
         if (iRet == 0 && pMessage != NULL)
         {
             select_res->add_sel_records(pMessage->SerializeAsString());
@@ -414,7 +421,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
         const std::map<std::string, std::string> &result = resultVec[i];
 
         google::protobuf::Message *pMessage = NULL;
-        iRet = TransTableRowToMessage(result, select.baseinfo().clname(), &pMessage);
+        iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
         if (iRet == 0 && pMessage != NULL)
         {
             count++;
@@ -474,9 +481,16 @@ int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
 
     *select_res.mutable_baseinfo() = select.baseinfo();
     select_res.mutable_sel_opres()->set_mod_key(select.mod_key());
+
+    std::vector<std::string> vecFields;
+    for(int i = 0; i < (int)select.baseinfo().sel_fields_size(); i++)
+    {
+        vecFields.push_back(select.baseinfo().sel_fields(i));
+    }
+
     std::map<std::string, std::string> result;
     std::string errmsg;
-    iRet = QueryOne(select.baseinfo().tbname(), keyMap, result, errmsg);
+    iRet = QueryOne(select.baseinfo().tbname(), keyMap, vecFields, result, errmsg);
     if (iRet != 0)
     {
         select_res.mutable_sel_opres()->set_errmsg(errmsg);
@@ -484,7 +498,7 @@ int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     }
 
     google::protobuf::Message *pMessage = NULL;
-    iRet = TransTableRowToMessage(result, select.baseinfo().clname(), &pMessage);
+    iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
     if (iRet == 0 && pMessage != NULL)
     {
         select_res.set_sel_record(pMessage->SerializeAsString());

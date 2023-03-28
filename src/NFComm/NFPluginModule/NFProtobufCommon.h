@@ -134,6 +134,9 @@ public:
     static std::string GetProtoBaseName(const google::protobuf::Message& message);
     static std::string GetProtoPackageName(const google::protobuf::Message& message);
 public:
+    ////////////////////////////////////////store pb//////////////////////////////////////////////////////////////////
+
+public:
     NFProtobufCommon();
 
     virtual ~NFProtobufCommon();

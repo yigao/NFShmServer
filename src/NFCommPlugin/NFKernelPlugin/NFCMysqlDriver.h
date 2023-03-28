@@ -409,7 +409,7 @@ public:
      * @param  pMessage 转化后的mesage
      * @return int =0执行成功, != 0失败
      */
-    int TransTableRowToMessage(const std::map<std::string, std::string> &result, const std::string &table,
+    int TransTableRowToMessage(const std::map<std::string, std::string> &result, const std::string& packageName, const std::string &table,
                                google::protobuf::Message **pMessage);
 
     /**

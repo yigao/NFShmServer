@@ -14,7 +14,9 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
+#include "NFComm/NFPluginModule/NFStoreProtoCommon.h"
 #include "NFServerBindRpcService.h"
+#include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include <map>
 #include <unordered_map>
 #include <list>
@@ -153,5 +155,74 @@ public:
                            uint64_t mod_key = 0, const std::string &cls_name = "", uint8_t packet_type = proto_ff::E_DISP_TYPE_BY_TRANSACTION) = 0;
 
 public:
-    virtual int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0, const std::string &dbname = "") = 0;
+    ///////////////////////store server select obj////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data,
+                               const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                               const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_selobj selobj;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_selectobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName, vecFields);
+
+        storesvr_sqldata::storesvr_selobj_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::E_STORESVR_C2S_SELECTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                     selobjRes);
+        if (iRet == 0)
+        {
+            data.ParseFromString(selobjRes.sel_record());
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", iRet,
+                       selobjRes.sel_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType, typename ResponFunc>
+    int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &func,
+                               const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                               const std::string &dbname = "")
+    {
+        return GetRpcSelectObjServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields, dstBusId, dbname);
+    }
+
+    virtual int SendSelectObjTrans(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t table_id = 0, int trans_id = 0,
+                                   uint32_t seq = 0,
+                                   const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                                   const std::string &dbname = "") = 0;
+
+private:
+    template<class DataType, typename ResponFunc>
+    int GetRpcSelectObjServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &responFunc,
+                                    void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
+                                    const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                                    const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     DataType respone = data;
+                     int rpcRetCode = GetRpcSelectObjService(eType, mod_key, respone, vecFields, dstBusId, dbname);
+                     (responFunc.*pf)(rpcRetCode, respone);
+                 });
+        return iRet;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+public:
 };
