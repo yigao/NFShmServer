@@ -56,19 +56,22 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="rpc service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/Message/kernel/proto_kernel.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/kernel/proto_kernel.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_kernel.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_kernel.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_kernel.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/proto_kernel.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCRpcService.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCRpcService.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/StoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/StoreServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/Message/storesvr/storesvr_sqldata.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/storesvr/storesvr_sqldata.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFServerBindRpcService.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFServerBindRpcService.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/NFServerMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/NFServerMessageModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/NFServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/NFServerMessageModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -660,14 +663,7 @@
       <workItem from="1679446064457" duration="98914000" />
       <workItem from="1679704166075" duration="13742000" />
       <workItem from="1679722414436" duration="11975000" />
-      <workItem from="1679893898145" duration="14516000" />
-    </task>
-    <task id="LOCAL-00509" summary="item">
-      <created>1679046612684</created>
-      <option name="number" value="00509" />
-      <option name="presentableId" value="LOCAL-00509" />
-      <option name="project" value="LOCAL" />
-      <updated>1679046612684</updated>
+      <workItem from="1679893898145" duration="26839000" />
     </task>
     <task id="LOCAL-00510" summary="friend">
       <created>1679050898596</created>
@@ -1005,7 +1001,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679738634724</updated>
     </task>
-    <option name="localTasksCounter" value="558" />
+    <task id="LOCAL-00558" summary="rpc service">
+      <created>1679914769948</created>
+      <option name="number" value="00558" />
+      <option name="presentableId" value="LOCAL-00558" />
+      <option name="project" value="LOCAL" />
+      <updated>1679914769948</updated>
+    </task>
+    <option name="localTasksCounter" value="559" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1259,14 +1262,19 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp</url>
-          <line>118</line>
-          <option name="timeStamp" value="1" />
+          <url>file://$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp</url>
+          <line>112</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp</url>
-          <line>910</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp</url>
+          <line>117</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp</url>
+          <line>120</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

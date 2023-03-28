@@ -53,4 +53,12 @@ public:
      * @return
      */
 	int OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet);
+public:
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj& request, storesvr_sqldata::storesvr_selobj_res& respone);
 };

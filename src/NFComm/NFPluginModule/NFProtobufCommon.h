@@ -130,6 +130,9 @@ public:
 
     static uint32_t GetPBDataTypeFromDBDataType(const std::string& dbDataType, const std::string& strColumnType);
     static std::string GetDBDataTypeFromPBDataType(uint32_t pbDataType, uint32_t textMax);
+
+    static std::string GetProtoBaseName(const google::protobuf::Message& message);
+    static std::string GetProtoPackageName(const google::protobuf::Message& message);
 public:
     NFProtobufCommon();
 

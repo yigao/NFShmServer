@@ -36,6 +36,8 @@ bool NFCStoreServerModule::Awake() {
 
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_STORE_SERVER);
 
+    //////rpc service//////////////////////
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::E_STORESVR_C2S_SELECTOBJ>(NF_ST_STORE_SERVER, this, &NFCStoreServerModule::OnHandleSelectObjRpc, true);
     //////other server///////////////////////////////////
     RegisterServerMessage(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD);
 
@@ -300,7 +302,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
             FindModule<NFIAsyMysqlModule>()->SelectObj(select.baseinfo().dbname(), select,
                     [=](int iRet, storesvr_sqldata::storesvr_selobj_res& select_res) mutable {
                 if (iRet != 0) {
-                    if (iRet == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY && select_res.sel_opres().zdb_errmsg().empty()) {
+                    if (iRet == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY && select_res.sel_opres().errmsg().empty()) {
                         retMsg.mutable_store_info()->set_err_code(proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY);
                     } else {
                         retMsg.mutable_store_info()->set_err_code(proto_ff::E_STORESVR_ERRCODE_UNKNOWN);
@@ -559,4 +561,54 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
+}
+
+int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj& request, storesvr_sqldata::storesvr_selobj_res& respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->SelectObj(request.baseinfo().dbname(), request,
+       [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_selobj_res& select_res) mutable {
+           if (iRet != 0) {
+               if (iRet == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY && select_res.sel_opres().errmsg().empty()) {
+                   iRet = proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
+               } else {
+                   iRet = proto_ff::E_STORESVR_ERRCODE_UNKNOWN;
+               }
+
+               NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", iRet);
+           } else {
+               respone.CopyFrom(select_res);
+               NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SelectObj Success select_res:{}", select_res.Utf8DebugString());
+           }
+
+           FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+       });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->SelectObj Failed, iRet:{}", iRet);
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS/2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
 }

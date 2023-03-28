@@ -113,7 +113,7 @@ int NFCMysqlDriver::Execute(const storesvr_sqldata::storesvr_execute &select, st
     int iRet = ExecuteMore(select.execute_record(), resultVec, errormsg);
     if (iRet != 0)
     {
-        select_res.mutable_exe_opres()->set_zdb_errmsg(errormsg);
+        select_res.mutable_exe_opres()->set_errmsg(errormsg);
         return -1;
     }
 
@@ -333,7 +333,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
     if (iRet != 0)
     {
         storesvr_sqldata::storesvr_sel_res *select_res = vecSelectRes.Add();
-        select_res->mutable_sel_opres()->set_zdb_errmsg(errmsg);
+        select_res->mutable_sel_opres()->set_errmsg(errmsg);
         return -1;
     }
 
@@ -402,7 +402,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
     iRet = ExecuteMore(selectSql, resultVec, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_sel_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_sel_opres()->set_errmsg(errmsg);
         return -1;
     }
 
@@ -456,7 +456,7 @@ int NFCMysqlDriver::SelectObj(const std::string &tbName, google::protobuf::Messa
     }
     else
     {
-        errMsg = select_res.sel_opres().zdb_errmsg();
+        errMsg = select_res.sel_opres().errmsg();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
@@ -479,7 +479,7 @@ int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     iRet = QueryOne(select.baseinfo().tbname(), keyMap, result, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_sel_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_sel_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -520,7 +520,7 @@ int NFCMysqlDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select,
     iRet = Delete(selectSql, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_del_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_del_opres()->set_errmsg(errmsg);
         return -1;
     }
 
@@ -543,7 +543,7 @@ int NFCMysqlDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select,
     iRet = Delete(select.baseinfo().tbname(), keyMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_del_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_del_opres()->set_errmsg(errmsg);
         return -1;
     }
 
@@ -1759,7 +1759,7 @@ int NFCMysqlDriver::InsertObj(const std::string &tbName, const google::protobuf:
     int iRet = InsertObj(select, select_res);
     if (iRet != 0)
     {
-        errMsg = select_res.ins_opres().zdb_errmsg();
+        errMsg = select_res.ins_opres().errmsg();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
@@ -1781,7 +1781,7 @@ int NFCMysqlDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select,
     iRet = Insert(select.baseinfo().tbname(), resultMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_ins_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_ins_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -1820,7 +1820,7 @@ int NFCMysqlDriver::ModifyObj(const std::string &tbName, const google::protobuf:
     int iRet = ModifyObj(select, select_res);
     if (iRet != 0)
     {
-        errMsg = select_res.mod_opres().zdb_errmsg();
+        errMsg = select_res.mod_opres().errmsg();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
@@ -1845,7 +1845,7 @@ int NFCMysqlDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, s
     iRet = Modify(select.baseinfo().tbname(), where, keyValueMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_mod_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_mod_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -1870,7 +1870,7 @@ int NFCMysqlDriver::ModifyObj(const storesvr_sqldata::storesvr_modobj &select,
     iRet = Modify(select.baseinfo().tbname(), keyMap, keyValueMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_mod_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_mod_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -1950,7 +1950,7 @@ int NFCMysqlDriver::UpdateObj(const std::string &tbName, const google::protobuf:
     int iRet = UpdateObj(select, select_res);
     if (iRet != 0)
     {
-        errMsg = select_res.modins_opres().zdb_errmsg();
+        errMsg = select_res.modins_opres().errmsg();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
@@ -1975,7 +1975,7 @@ int NFCMysqlDriver::UpdateByCond(const storesvr_sqldata::storesvr_modins &select
     iRet = Modify(select.baseinfo().tbname(), where, keyValueMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_mod_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_mod_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -1999,7 +1999,7 @@ int NFCMysqlDriver::UpdateObj(const storesvr_sqldata::storesvr_modinsobj &select
     iRet = Update(select.baseinfo().tbname(), keyMap, keyValueMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_modins_opres()->set_zdb_errmsg(errmsg);
+        select_res.mutable_modins_opres()->set_errmsg(errmsg);
         return iRet;
     }
 

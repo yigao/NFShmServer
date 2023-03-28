@@ -44,11 +44,12 @@ message storesvr_baseinfo {
 	optional string clname        = 3; //class name
 	repeated string sel_fields		= 4;
 	optional uint32 max_records		= 5;
+	optional string package_name	= 6; //protobuf package
 };
 
 message storesvr_opres {
 	optional uint64 mod_key				= 1;
-	optional string zdb_errmsg			= 2; // libzdb失败的错误原因
+	optional string errmsg			= 2; // 失败的错误原因
 };
 
 //--------------------------------------------------------------------------------------------------

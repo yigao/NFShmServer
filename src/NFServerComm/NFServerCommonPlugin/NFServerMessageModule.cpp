@@ -12,6 +12,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
+#include "NFComm/NFPluginModule/NFProtobufCommon.h"
 
 NFServerMessageModule::NFServerMessageModule(NFIPluginManager *pPluginManager) : NFIServerMessageModule(pPluginManager)
 {
@@ -219,13 +220,13 @@ std::string storesvr_selectbycond(const std::string &dbname, const std::string &
     return select.SerializeAsString();
 }
 
-// select对象查询，返回打包数据，该数据可直接网络发送
-std::string storesvr_selectobj(const std::string &dbname, const std::string &tbname,
-                               uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "")
+
+void storesvr_selectobj(storesvr_sqldata::storesvr_selobj& select, const std::string &dbname, const std::string &tbname,
+                        uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "", const std::string& package_name = "")
 {
-    storesvr_sqldata::storesvr_selobj select;
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_tbname(tbname);
+    select.mutable_baseinfo()->set_package_name(package_name);
     if (cls_name.empty())
     {
         select.mutable_baseinfo()->set_clname(tbname);
@@ -236,8 +237,17 @@ std::string storesvr_selectobj(const std::string &dbname, const std::string &tbn
     }
     select.set_mod_key(mod_key);
     select.set_sel_record(msg_obj.SerializeAsString());
+}
+
+// select对象查询，返回打包数据，该数据可直接网络发送
+std::string storesvr_selectobj(const std::string &dbname, const std::string &tbname,
+                               uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "", const std::string& package_name = "")
+{
+    storesvr_sqldata::storesvr_selobj select;
+    storesvr_selectobj(select, dbname, tbname, mod_key, msg_obj, cls_name, package_name);
     return select.SerializeAsString();
 }
+
 
 // insert对象插入，返回打包数据
 std::string storesvr_insert(const std::string &dbname, const std::string &tbname,
@@ -680,4 +690,36 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
 
     return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, 0, dstBusId, NF_MODULE_SERVER,
                                                            proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD, svrPkg);
+}
+
+int NFServerMessageModule::GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t dstBusId, const std::string &dbname)
+{
+    std::string tempDBName = dbname;
+    if (dbname.empty())
+    {
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+        if (pConfig)
+        {
+            tempDBName = pConfig->DefaultDBName;
+        }
+    }
+    CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+    storesvr_sqldata::storesvr_selobj selobj;
+    std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+    std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+    CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+    storesvr_selectobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
+
+    storesvr_sqldata::storesvr_selobj_res selobjRes;
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::E_STORESVR_C2S_SELECTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj, selobjRes);
+    if (iRet == 0)
+    {
+        data.ParseFromString(selobjRes.sel_record());
+    }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", iRet, selobjRes.sel_opres().errmsg());
+    }
+    return iRet;
 }

@@ -480,6 +480,18 @@ class storesvr_baseinfo : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 max_records() const;
   inline void set_max_records(::google::protobuf::uint32 value);
 
+  // optional string package_name = 6;
+  inline bool has_package_name() const;
+  inline void clear_package_name();
+  static const int kPackageNameFieldNumber = 6;
+  inline const ::std::string& package_name() const;
+  inline void set_package_name(const ::std::string& value);
+  inline void set_package_name(const char* value);
+  inline void set_package_name(const char* value, size_t size);
+  inline ::std::string* mutable_package_name();
+  inline ::std::string* release_package_name();
+  inline void set_allocated_package_name(::std::string* package_name);
+
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_baseinfo)
  private:
   inline void set_has_dbname();
@@ -490,6 +502,8 @@ class storesvr_baseinfo : public ::google::protobuf::Message {
   inline void clear_has_clname();
   inline void set_has_max_records();
   inline void clear_has_max_records();
+  inline void set_has_package_name();
+  inline void clear_has_package_name();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -497,10 +511,11 @@ class storesvr_baseinfo : public ::google::protobuf::Message {
   ::std::string* tbname_;
   ::std::string* clname_;
   ::google::protobuf::RepeatedPtrField< ::std::string> sel_fields_;
+  ::std::string* package_name_;
   ::google::protobuf::uint32 max_records_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
 
   friend void  protobuf_AddDesc_storesvr_5fsqldata_2eproto();
   friend void protobuf_AssignDesc_storesvr_5fsqldata_2eproto();
@@ -572,29 +587,29 @@ class storesvr_opres : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 mod_key() const;
   inline void set_mod_key(::google::protobuf::uint64 value);
 
-  // optional string zdb_errmsg = 2;
-  inline bool has_zdb_errmsg() const;
-  inline void clear_zdb_errmsg();
-  static const int kZdbErrmsgFieldNumber = 2;
-  inline const ::std::string& zdb_errmsg() const;
-  inline void set_zdb_errmsg(const ::std::string& value);
-  inline void set_zdb_errmsg(const char* value);
-  inline void set_zdb_errmsg(const char* value, size_t size);
-  inline ::std::string* mutable_zdb_errmsg();
-  inline ::std::string* release_zdb_errmsg();
-  inline void set_allocated_zdb_errmsg(::std::string* zdb_errmsg);
+  // optional string errmsg = 2;
+  inline bool has_errmsg() const;
+  inline void clear_errmsg();
+  static const int kErrmsgFieldNumber = 2;
+  inline const ::std::string& errmsg() const;
+  inline void set_errmsg(const ::std::string& value);
+  inline void set_errmsg(const char* value);
+  inline void set_errmsg(const char* value, size_t size);
+  inline ::std::string* mutable_errmsg();
+  inline ::std::string* release_errmsg();
+  inline void set_allocated_errmsg(::std::string* errmsg);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_opres)
  private:
   inline void set_has_mod_key();
   inline void clear_has_mod_key();
-  inline void set_has_zdb_errmsg();
-  inline void clear_has_zdb_errmsg();
+  inline void set_has_errmsg();
+  inline void clear_has_errmsg();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 mod_key_;
-  ::std::string* zdb_errmsg_;
+  ::std::string* errmsg_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -3560,6 +3575,76 @@ inline void storesvr_baseinfo::set_max_records(::google::protobuf::uint32 value)
   max_records_ = value;
 }
 
+// optional string package_name = 6;
+inline bool storesvr_baseinfo::has_package_name() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void storesvr_baseinfo::set_has_package_name() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void storesvr_baseinfo::clear_has_package_name() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void storesvr_baseinfo::clear_package_name() {
+  if (package_name_ != &::google::protobuf::internal::kEmptyString) {
+    package_name_->clear();
+  }
+  clear_has_package_name();
+}
+inline const ::std::string& storesvr_baseinfo::package_name() const {
+  return *package_name_;
+}
+inline void storesvr_baseinfo::set_package_name(const ::std::string& value) {
+  set_has_package_name();
+  if (package_name_ == &::google::protobuf::internal::kEmptyString) {
+    package_name_ = new ::std::string;
+  }
+  package_name_->assign(value);
+}
+inline void storesvr_baseinfo::set_package_name(const char* value) {
+  set_has_package_name();
+  if (package_name_ == &::google::protobuf::internal::kEmptyString) {
+    package_name_ = new ::std::string;
+  }
+  package_name_->assign(value);
+}
+inline void storesvr_baseinfo::set_package_name(const char* value, size_t size) {
+  set_has_package_name();
+  if (package_name_ == &::google::protobuf::internal::kEmptyString) {
+    package_name_ = new ::std::string;
+  }
+  package_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* storesvr_baseinfo::mutable_package_name() {
+  set_has_package_name();
+  if (package_name_ == &::google::protobuf::internal::kEmptyString) {
+    package_name_ = new ::std::string;
+  }
+  return package_name_;
+}
+inline ::std::string* storesvr_baseinfo::release_package_name() {
+  clear_has_package_name();
+  if (package_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = package_name_;
+    package_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void storesvr_baseinfo::set_allocated_package_name(::std::string* package_name) {
+  if (package_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete package_name_;
+  }
+  if (package_name) {
+    set_has_package_name();
+    package_name_ = package_name;
+  } else {
+    clear_has_package_name();
+    package_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
 // -------------------------------------------------------------------
 
 // storesvr_opres
@@ -3586,73 +3671,73 @@ inline void storesvr_opres::set_mod_key(::google::protobuf::uint64 value) {
   mod_key_ = value;
 }
 
-// optional string zdb_errmsg = 2;
-inline bool storesvr_opres::has_zdb_errmsg() const {
+// optional string errmsg = 2;
+inline bool storesvr_opres::has_errmsg() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_opres::set_has_zdb_errmsg() {
+inline void storesvr_opres::set_has_errmsg() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_opres::clear_has_zdb_errmsg() {
+inline void storesvr_opres::clear_has_errmsg() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_opres::clear_zdb_errmsg() {
-  if (zdb_errmsg_ != &::google::protobuf::internal::kEmptyString) {
-    zdb_errmsg_->clear();
+inline void storesvr_opres::clear_errmsg() {
+  if (errmsg_ != &::google::protobuf::internal::kEmptyString) {
+    errmsg_->clear();
   }
-  clear_has_zdb_errmsg();
+  clear_has_errmsg();
 }
-inline const ::std::string& storesvr_opres::zdb_errmsg() const {
-  return *zdb_errmsg_;
+inline const ::std::string& storesvr_opres::errmsg() const {
+  return *errmsg_;
 }
-inline void storesvr_opres::set_zdb_errmsg(const ::std::string& value) {
-  set_has_zdb_errmsg();
-  if (zdb_errmsg_ == &::google::protobuf::internal::kEmptyString) {
-    zdb_errmsg_ = new ::std::string;
+inline void storesvr_opres::set_errmsg(const ::std::string& value) {
+  set_has_errmsg();
+  if (errmsg_ == &::google::protobuf::internal::kEmptyString) {
+    errmsg_ = new ::std::string;
   }
-  zdb_errmsg_->assign(value);
+  errmsg_->assign(value);
 }
-inline void storesvr_opres::set_zdb_errmsg(const char* value) {
-  set_has_zdb_errmsg();
-  if (zdb_errmsg_ == &::google::protobuf::internal::kEmptyString) {
-    zdb_errmsg_ = new ::std::string;
+inline void storesvr_opres::set_errmsg(const char* value) {
+  set_has_errmsg();
+  if (errmsg_ == &::google::protobuf::internal::kEmptyString) {
+    errmsg_ = new ::std::string;
   }
-  zdb_errmsg_->assign(value);
+  errmsg_->assign(value);
 }
-inline void storesvr_opres::set_zdb_errmsg(const char* value, size_t size) {
-  set_has_zdb_errmsg();
-  if (zdb_errmsg_ == &::google::protobuf::internal::kEmptyString) {
-    zdb_errmsg_ = new ::std::string;
+inline void storesvr_opres::set_errmsg(const char* value, size_t size) {
+  set_has_errmsg();
+  if (errmsg_ == &::google::protobuf::internal::kEmptyString) {
+    errmsg_ = new ::std::string;
   }
-  zdb_errmsg_->assign(reinterpret_cast<const char*>(value), size);
+  errmsg_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* storesvr_opres::mutable_zdb_errmsg() {
-  set_has_zdb_errmsg();
-  if (zdb_errmsg_ == &::google::protobuf::internal::kEmptyString) {
-    zdb_errmsg_ = new ::std::string;
+inline ::std::string* storesvr_opres::mutable_errmsg() {
+  set_has_errmsg();
+  if (errmsg_ == &::google::protobuf::internal::kEmptyString) {
+    errmsg_ = new ::std::string;
   }
-  return zdb_errmsg_;
+  return errmsg_;
 }
-inline ::std::string* storesvr_opres::release_zdb_errmsg() {
-  clear_has_zdb_errmsg();
-  if (zdb_errmsg_ == &::google::protobuf::internal::kEmptyString) {
+inline ::std::string* storesvr_opres::release_errmsg() {
+  clear_has_errmsg();
+  if (errmsg_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
   } else {
-    ::std::string* temp = zdb_errmsg_;
-    zdb_errmsg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    ::std::string* temp = errmsg_;
+    errmsg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
     return temp;
   }
 }
-inline void storesvr_opres::set_allocated_zdb_errmsg(::std::string* zdb_errmsg) {
-  if (zdb_errmsg_ != &::google::protobuf::internal::kEmptyString) {
-    delete zdb_errmsg_;
+inline void storesvr_opres::set_allocated_errmsg(::std::string* errmsg) {
+  if (errmsg_ != &::google::protobuf::internal::kEmptyString) {
+    delete errmsg_;
   }
-  if (zdb_errmsg) {
-    set_has_zdb_errmsg();
-    zdb_errmsg_ = zdb_errmsg;
+  if (errmsg) {
+    set_has_errmsg();
+    errmsg_ = errmsg;
   } else {
-    clear_has_zdb_errmsg();
-    zdb_errmsg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    clear_has_errmsg();
+    errmsg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
 }
 

@@ -18,3 +18,8 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ, proto_ff::
  * @brief 服务器与服务器直接的注册返回RPC
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_SERVER_TO_SERVER_REGISTER, proto_ff::ServerInfoReportList, proto_ff::ServerInfoReportListRespne)
+
+/**
+ * @brief StoreServer Rpc Service
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::E_STORESVR_C2S_SELECTOBJ, storesvr_sqldata::storesvr_selobj, storesvr_sqldata::storesvr_selobj_res)

@@ -1569,3 +1569,32 @@ std::string NFProtobufCommon::GetDBDataTypeFromPBDataType(uint32_t pbDataType, u
 
     return "int";
 }
+
+std::string NFProtobufCommon::GetProtoBaseName(const google::protobuf::Message& message)
+{
+    std::string fullName = message.GetTypeName();
+    std::string::size_type pos;
+    if ((pos = fullName.rfind('.')) == std::string::npos)
+    {
+        return fullName;
+    }
+
+    if (pos < fullName.length() - 1)
+    {
+        return fullName.substr(pos + 1);
+    }
+
+    return fullName;
+}
+
+std::string NFProtobufCommon::GetProtoPackageName(const google::protobuf::Message& message)
+{
+    std::string fullName = message.GetTypeName();
+    std::string::size_type pos;
+    if ((pos = fullName.rfind('.')) == std::string::npos)
+    {
+        return fullName;
+    }
+
+    return fullName.substr(0, pos);
+}

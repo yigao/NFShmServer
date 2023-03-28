@@ -146,14 +146,14 @@ int NFCMasterServerModule::OnServerRegisterRpcService(uint64_t unLinkId, proto_f
         pServerData->mUnlinkId = unLinkId;
         pServerData->mServerInfo = xData;
         FindModule<NFIMessageModule>()->CreateLinkToServer(NF_ST_MASTER_SERVER, xData.bus_id(), pServerData->mUnlinkId);
-/*        if (xData.server_state() == proto_ff::EST_INIT)
+        if (xData.server_state() == proto_ff::EST_INIT)
         {
             SynOtherServerToServer(pServerData);
         }
         else {
             SynServerToOthers(pServerData);
             SynOtherServerToServer(pServerData);
-        }*/
+        }
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
     }
 
