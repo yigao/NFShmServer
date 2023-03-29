@@ -19,6 +19,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
+#include "NFCommPlugin/NFKernelPlugin/NFCoroutine.h"
 
 #define STORE_SERVER_TIMER_CLOSE_MYSQL 200
 
@@ -38,6 +39,7 @@ bool NFCStoreServerModule::Awake() {
 
     //////rpc service//////////////////////
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::E_STORESVR_C2S_SELECTOBJ>(NF_ST_STORE_SERVER, this, &NFCStoreServerModule::OnHandleSelectObjRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::E_STORESVR_C2S_SELECT>(NF_ST_STORE_SERVER, this, &NFCStoreServerModule::OnHandleSelectRpc, true);
     //////other server///////////////////////////////////
     RegisterServerMessage(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD);
 
@@ -586,6 +588,12 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->SelectObj(request.baseinfo().dbname(), request,
        [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_selobj_res& select_res) mutable {
+           if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+           {
+               NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectByCond, But Coroutine Status Error..........Not Yielding");
+               return;
+           }
+
            if (iRet != 0) {
                if (iRet == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY && select_res.sel_opres().errmsg().empty()) {
                    iRet = proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
@@ -609,6 +617,76 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS/2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel& request, storesvr_sqldata::storesvr_sel_res& respone, const std::function<void()>& cb)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.sel_cond().mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+
+    int iRet = FindModule<NFIAsyMysqlModule>()->SelectByCond(request.baseinfo().dbname(), request,
+        [this, coId, &respone] (int iRet, storesvr_sqldata::storesvr_sel_res& select_res) mutable
+        {
+            if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectByCond, But Coroutine Status Error..........Not Yielding");
+                return;
+            }
+
+            if (iRet != 0) {
+              iRet = proto_ff::E_STORESVR_ERRCODE_BUSY;
+              NFLogError(NF_LOG_SYSTEMLOG, 0, "Select Failed, iRet:{}", iRet);
+            } else {
+              respone.CopyFrom(select_res);
+              NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Select Success select_res:{}", select_res.Utf8DebugString());
+            }
+
+            FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+        });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->SelectByCond Failed, iRet:{}", iRet);
+        return iRet;
+    }
+
+    do {
+        iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS/2);
+        if (iRet != 0)
+        {
+            break;
+        }
+
+        if (respone.is_lastbatch())
+        {
+            break;
+        }
+        else {
+            if (cb)
+            {
+                cb();
+            }
+        }
+    } while(true);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return iRet;
 }

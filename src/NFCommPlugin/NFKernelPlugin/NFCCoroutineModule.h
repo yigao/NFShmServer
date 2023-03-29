@@ -77,6 +77,24 @@ public:
     /// @return 协程状态
     virtual int Status(int64_t id) override;
 
+    /**
+     * @brief 协程是否存在，是否已经死亡
+     * @return
+     */
+    virtual bool IsDead(int64_t id) override;
+
+    /**
+     * @brief 是否正在运行
+     * @return
+     */
+    virtual bool IsRunning(int64_t id) override;
+
+    /**
+     * @brief 是否协程正在挂起
+     * @return
+     */
+    virtual bool IsYielding(int64_t id) override;
+
     /// @brief 模版方法, 新建一个协程任务
     /// @note 使用此种方法生成的task对象指针会在协程结束后自动delete掉
     template<typename TASK>

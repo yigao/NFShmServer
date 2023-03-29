@@ -110,21 +110,23 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
     {
         flag = true;
         FindModule<NFICoroutineModule>()->MakeCoroutine([this]()
-                                                        {
-                                                            proto_ff::tbServerMgr data;
-                                                            data.set_id(1);
-                                                            std::vector<std::string> vecField;
-                                                            vecField.push_back("contract");
-                                                            vecField.push_back("machine_addr");
-                                                            int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(
-                                                                    NF_ST_LOGIC_SERVER, 0, data, vecField);
-                                                            if (iRet != 0)
-                                                            {
-                                                                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService Failed!");
-                                                                return;
-                                                            }
-                                                            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService respone:{}", data.DebugString()
-                                                            );
+        {
+            proto_ff::tbServerMgr data;
+            data.set_id(1);
+            std::vector<std::string> vecField;
+            vecField.push_back("contract");
+            vecField.push_back("machine_addr");
+
+            std::vector<proto_ff::tbServerMgr> result;
+            int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectService(
+                    NF_ST_LOGIC_SERVER, 0, data, result, vecField);
+            if (iRet != 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService Failed!");
+                return;
+            }
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService respone:{}", data.DebugString()
+            );
 /*             NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
            proto_ff::RpcRequestGetServerInfo request;
             request.set_server_id(pConfig->ServerId);
@@ -141,7 +143,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
             }*/
                                                         });
 
-        proto_ff::tbServerMgr data;
+/*        proto_ff::tbServerMgr data;
         data.set_id(1);
         std::vector<std::string> vecField;
         vecField.push_back("contract");
@@ -155,7 +157,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
                         return;
                     }
                     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService respone:{}", respone.DebugString());
-                }, vecField);
+                }, vecField);*/
 
 /*        for(int i = 0; i < 1; i++)
         {

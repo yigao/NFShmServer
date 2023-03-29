@@ -132,14 +132,14 @@ public:
     virtual int
     SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id,
                            const std::string &dbname, const std::string &table_name, const std::vector<std::string> &vecFileds,
-                           std::vector<storesvr_sqldata::storesvr_vk> vk_list,
+                           const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
                            const std::string &where_addtional_conds, int max_records = 100, int trans_id = 0, uint32_t seq = 0,
                            uint64_t mod_key = 0, const std::string &cls_name = "", uint8_t packet_type = proto_ff::E_DISP_TYPE_BY_TRANSACTION) = 0;
 
     virtual int
     SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id,
                            const std::string &dbname, const std::string &table_name, const google::protobuf::Message &xData,
-                           std::vector<storesvr_sqldata::storesvr_vk> vk_list,
+                           const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
                            const std::string &where_addtional_conds, int trans_id = 0, uint32_t seq = 0,
                            uint64_t mod_key = 0, const std::string &cls_name = "", uint8_t packet_type = proto_ff::E_DISP_TYPE_BY_TRANSACTION) = 0;
 
@@ -215,14 +215,95 @@ private:
                                     const std::string &dbname = "")
     {
         int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine([=]()
-        {
-           DataType respone = data;
-           int rpcRetCode = GetRpcSelectObjService(eType, mod_key, respone, vecFields,
-                                                   dstBusId, dbname);
-           (responFunc.*pf)(rpcRetCode, respone);
-        });
+                                                                   {
+                                                                       DataType respone = data;
+                                                                       int rpcRetCode = GetRpcSelectObjService(eType, mod_key, respone, vecFields,
+                                                                                                               dstBusId, dbname);
+                                                                       (responFunc.*pf)(rpcRetCode, respone);
+                                                                   });
         return iRet;
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public:
+    ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, std::vector<DataType>& respone,
+                            const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
+                            int max_records = 100, uint32_t dstBusId = 0,
+                            const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_sel sel;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+
+        std::vector<storesvr_sqldata::storesvr_vk> vk_list;
+        NFStoreProtoCommon::get_vk_list_from_proto(data, vk_list);
+
+        NFStoreProtoCommon::storesvr_selectbycond(sel, tempDBName, tbname, mod_key, vecFields, vk_list, where_addtional_conds, max_records,
+                                                  tbname, packageName);
+
+        storesvr_sqldata::storesvr_sel_res selRes;
+        STATIC_ASSERT_BIND_RPC_SERVICE(proto_ff::E_STORESVR_C2S_SELECT, storesvr_sqldata::storesvr_sel, storesvr_sqldata::storesvr_sel_res);
+        NF_ASSERT_MSG(FindModule<NFICoroutineModule>()->IsInCoroutine(), "Call GetRpcService Must Int the Coroutine");
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+        CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eType));
+
+        proto_ff::Proto_SvrPkg svrPkg;
+        svrPkg.set_msg_id(proto_ff::E_STORESVR_C2S_SELECT);
+        svrPkg.set_msg_data(sel.SerializeAsString());
+        svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(std::hash<std::string>()(sel.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(std::hash<std::string>()(selRes.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_req_server_type(eType);
+        svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
+
+        FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
+
+        int iRet = FindModule<NFICoroutineModule>()->AddRpcService(&selRes);
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
+
+        do {
+            iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
+            CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
+            if (iRet == 0)
+            {
+                for(int i = 0; i < (int)selRes.sel_records_size(); i++)
+                {
+                    DataType result;
+                    result.ParseFromString(selRes.sel_records(i));
+                    respone.push_back(result);
+                }
+
+                if (selRes.is_lastbatch())
+                {
+                    break;
+                }
+            }
+            else
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", iRet,
+                           selRes.sel_opres().errmsg());
+                break;
+            }
+        } while(true);
+
+
+        FindModule<NFICoroutineModule>()->DelRpcService(&selRes);
+
+        return iRet;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 };

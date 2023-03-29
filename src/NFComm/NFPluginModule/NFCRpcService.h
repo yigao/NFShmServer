@@ -32,6 +32,11 @@ public:
         m_function = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
     }
 
+    NFCRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone, const std::function<void()>& cb)): NFIRpcService(p)
+    {
+        m_functionWithCallBack = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3);
+    }
+
     virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg) override
     {
         RequestType req;
@@ -52,7 +57,7 @@ public:
         svrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
         svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
         svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
-        if (m_function || m_functionWithLink)
+        if (m_function || m_functionWithLink || m_functionWithCallBack)
         {
             if (m_function)
             {
@@ -61,6 +66,14 @@ public:
             else if (m_functionWithLink)
             {
                 iRet = m_functionWithLink(unLinkId, req, rsp);
+            }
+            else if (m_functionWithCallBack)
+            {
+                iRet = m_functionWithCallBack(req, rsp, [eServerType, reqServerType, reqBusId, &svrPkg, &rsp, this](){
+                    svrPkg.set_msg_data(rsp.SerializeAsString());
+                    svrPkg.mutable_rpc_info()->set_rpc_ret_code(0);
+                    FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, (NF_SERVER_TYPES)reqServerType, 0, reqBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
+                });
             }
             svrPkg.set_msg_data(rsp.SerializeAsString());
             svrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
@@ -76,4 +89,5 @@ public:
 
     std::function<int(RequestType& request, ResponeType &respone)> m_function;
     std::function<int(uint64_t unLinkId, RequestType& request, ResponeType &respone)> m_functionWithLink;
+    std::function<int(RequestType& request, ResponeType &respone, const std::function<void()>& cb)> m_functionWithCallBack;
 };

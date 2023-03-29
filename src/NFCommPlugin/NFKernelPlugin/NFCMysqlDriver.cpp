@@ -363,7 +363,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
 
             count++;
             select_res->set_row_count(count);
-            if (select_res->sel_records_size() >= 100)
+            if (select_res->sel_records_size() >= select.baseinfo().max_records())
             {
                 count = 0;
                 select_res = vecSelectRes.Add();

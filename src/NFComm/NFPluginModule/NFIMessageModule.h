@@ -150,6 +150,15 @@ public:
         return AddRpcService(serverType, msgId, pBase, pRpcService, createCo);
     }
 
+    template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
+    bool AddRpcService(NF_SERVER_TYPES serverType, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone, const std::function<void()>& cb), bool createCo = false)
+    {
+        STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);
+        NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
+        NFIRpcService* pRpcService = new NFCRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
+        return AddRpcService(serverType, msgId, pBase, pRpcService, createCo);
+    }
+
     /**
      * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
      * @tparam RequestType

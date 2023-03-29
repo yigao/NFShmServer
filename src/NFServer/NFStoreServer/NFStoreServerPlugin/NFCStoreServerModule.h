@@ -55,10 +55,18 @@ public:
 	int OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet);
 public:
     /**
-     * @brief
+     * @brief Select Obj Rpc Service
      * @param request
      * @param respone
      * @return
      */
     int OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj& request, storesvr_sqldata::storesvr_selobj_res& respone);
+
+    /**
+     * @brief Select Rpc Service
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleSelectRpc(storesvr_sqldata::storesvr_sel& request, storesvr_sqldata::storesvr_sel_res& respone, const std::function<void()>& cb);
 };

@@ -193,7 +193,7 @@ int NFServerMessageModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_
 int
 NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname,
                                               const std::string &table_name, const google::protobuf::Message &xData,
-                                              std::vector<storesvr_sqldata::storesvr_vk> vk_list,
+                                              const std::vector<storesvr_sqldata::storesvr_vk>& vk_list,
                                               const std::string &where_addtional_conds, int trans_id, uint32_t seq,
                                               uint64_t mod_key, const std::string &cls_name, uint8_t packet_type)
 {
@@ -236,7 +236,7 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
 int
 NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t dstBusId, uint32_t cmd, uint32_t table_id, const std::string &dbname,
                                               const std::string &table_name, const std::vector<std::string> &vecFields,
-                                              std::vector<storesvr_sqldata::storesvr_vk> vk_list,
+                                              const std::vector<storesvr_sqldata::storesvr_vk>& vk_list,
                                               const std::string &where_addtional_conds, int max_records, int trans_id, uint32_t seq,
                                               uint64_t mod_key, const std::string &cls_name, uint8_t packet_type)
 {

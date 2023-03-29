@@ -8,14 +8,26 @@
 // -------------------------------------------------------------------------
 
 #include "NFStoreProtoCommon.h"
+#include "NFProtobufCommon.h"
+#include "NFCheck.h"
 
 std::string NFStoreProtoCommon::storesvr_selectbycond(const std::string &dbname, const std::string &tbname,
                                                       uint64_t mod_key, const std::vector<std::string> &fields,
                                                       const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
                                                       const std::string &additional_conds/* = ""*/, int maxRecords/* = 100*/,
-                                                      const std::string &cls_name/* = ""*/)
+                                                      const std::string &cls_name/* = ""*/, const std::string& package_name/* = ""*/)
 {
     storesvr_sqldata::storesvr_sel select;
+    storesvr_selectbycond(select, dbname, tbname, mod_key, fields, vk_list, additional_conds, maxRecords, cls_name, package_name);
+    return select.SerializeAsString();
+}
+
+void NFStoreProtoCommon::storesvr_selectbycond(storesvr_sqldata::storesvr_sel &select, const std::string &dbname, const std::string &tbname,
+                                                      uint64_t mod_key, const std::vector<std::string> &fields,
+                                                      const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
+                                                      const std::string &additional_conds/* = ""*/, int maxRecords/* = 100*/,
+                                                      const std::string &cls_name/* = ""*/, const std::string& package_name/* = ""*/)
+{
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_tbname(tbname);
     if (cls_name.empty())
@@ -26,6 +38,7 @@ std::string NFStoreProtoCommon::storesvr_selectbycond(const std::string &dbname,
     {
         select.mutable_baseinfo()->set_clname(cls_name);
     }
+    select.mutable_baseinfo()->set_package_name(package_name);
     for (int i = 0; i < (int) fields.size(); i++)
     {
         select.mutable_baseinfo()->add_sel_fields(fields[i]);
@@ -40,7 +53,6 @@ std::string NFStoreProtoCommon::storesvr_selectbycond(const std::string &dbname,
         ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_sel_cond()->add_where_conds();
         *pvk = vk_list[i];
     }
-    return select.SerializeAsString();
 }
 
 
@@ -288,4 +300,76 @@ std::string NFStoreProtoCommon::storesvr_execute_more(const std::string &dbname,
     select.set_mod_key(mod_key);
     select.set_execute_record(msg + ";");
     return select.SerializeAsString();
+}
+
+int NFStoreProtoCommon::get_proto_field_type(const google::protobuf::FieldDescriptor& fieldDesc)
+{
+    switch (fieldDesc.cpp_type())
+    {
+        case google::protobuf::FieldDescriptor::CPPTYPE_INT32:
+        case google::protobuf::FieldDescriptor::CPPTYPE_INT64:
+        case google::protobuf::FieldDescriptor::CPPTYPE_UINT32:
+        case google::protobuf::FieldDescriptor::CPPTYPE_UINT64:
+        case google::protobuf::FieldDescriptor::CPPTYPE_DOUBLE:
+        case google::protobuf::FieldDescriptor::CPPTYPE_FLOAT:
+        case google::protobuf::FieldDescriptor::CPPTYPE_BOOL:
+        case google::protobuf::FieldDescriptor::CPPTYPE_ENUM:
+        {
+            return storesvr_sqldata::E_COLUMNTYPE_NUM;
+        }
+        break;
+        case google::protobuf::FieldDescriptor::CPPTYPE_STRING:
+        case google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE:
+        {
+            return storesvr_sqldata::E_COLUMNTYPE_STRING;
+        }
+        break;
+        default:
+            break;
+    }
+    return storesvr_sqldata::E_COLUMNTYPE_NUM;
+}
+
+int NFStoreProtoCommon::get_vk_list_from_proto(const google::protobuf::Message &message, std::vector<storesvr_sqldata::storesvr_vk>& vk_list)
+{
+    std::map<std::string, std::pair<int, std::string>> keyMap;
+
+    const google::protobuf::Descriptor *pDesc = message.GetDescriptor();
+    CHECK_NULL(pDesc);
+
+    const google::protobuf::Reflection *pReflect = message.GetReflection();
+    CHECK_NULL(pReflect);
+
+    for (int i = 0; i < pDesc->field_count(); i++)
+    {
+        const google::protobuf::FieldDescriptor *pFieldDesc = pDesc->field(i);
+        if (pFieldDesc == NULL) continue;
+        if (pFieldDesc->options().HasExtension(yd_fieldoptions::no_db_field)) continue;
+        if (!pFieldDesc->is_repeated() && pReflect->HasField(message, pFieldDesc) == false) continue;
+        if (pFieldDesc->is_repeated() && pReflect->FieldSize(message, pFieldDesc) == 0) continue;
+
+        if (pFieldDesc->is_repeated() == false)
+        {
+            keyMap.emplace(pFieldDesc->name(), std::make_pair((int)get_proto_field_type(*pFieldDesc), NFProtobufCommon::GetFieldsString(message, pFieldDesc)));
+        }
+    }
+
+    for(auto iter = keyMap.begin(); iter != keyMap.end(); ++iter)
+    {
+        storesvr_sqldata::storesvr_vk cmd1;
+        cmd1.set_column_name(iter->first);
+        cmd1.set_column_value(iter->second.second);
+        cmd1.set_column_type((storesvr_sqldata::storesvr_column_type)iter->second.first);
+        cmd1.set_cmp_operator(storesvr_sqldata::E_CMPOP_EQUAL);
+
+        auto temp_iter = iter;
+        temp_iter++;
+        if (temp_iter != keyMap.end())
+        {
+            cmd1.set_logic_operator(storesvr_sqldata::E_LOGICOP_AND);
+        }
+
+        vk_list.push_back(cmd1);
+    }
+    return 0;
 }

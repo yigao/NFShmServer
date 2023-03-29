@@ -151,6 +151,33 @@ int NFCCoroutineModule::Status(int64_t id)
     return m_pCorSched->Status(id);
 }
 
+/**
+ * @brief 协程是否存在，是否已经死亡
+ * @return
+ */
+bool NFCCoroutineModule::IsDead(int64_t id)
+{
+    return Status(id) == NF_COROUTINE_DEAD;
+}
+
+/**
+ * @brief 是否正在运行
+ * @return
+ */
+bool NFCCoroutineModule::IsRunning(int64_t id)
+{
+    return Status(id) == NF_COROUTINE_RUNNING;
+}
+
+/**
+ * @brief 是否协程正在挂起
+ * @return
+ */
+bool NFCCoroutineModule::IsYielding(int64_t id)
+{
+    return Status(id) == NF_COROUTINE_SUSPEND;
+}
+
 int NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func)
 {
     NFCommonCoroutineTask *pTask = NewTask<NFCommonCoroutineTask>();

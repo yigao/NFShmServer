@@ -83,4 +83,22 @@ public:
     /// @param id 协程ID
     /// @return 协程状态
     virtual int Status(int64_t id) = 0;
+
+    /**
+     * @brief 协程是否存在，是否已经死亡
+     * @return
+     */
+    virtual bool IsDead(int64_t id) = 0;
+
+    /**
+     * @brief 是否正在运行
+     * @return
+     */
+    virtual bool IsRunning(int64_t id) = 0;
+
+    /**
+     * @brief 是否协程正在挂起
+     * @return
+     */
+    virtual bool IsYielding(int64_t id) = 0;
 };
