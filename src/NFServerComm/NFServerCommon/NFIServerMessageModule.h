@@ -397,6 +397,112 @@ public:
                                    const std::string &dbname = "") = 0;*/
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server modifyobj////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcModifyObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_modobj selobj;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_insertobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
+
+        storesvr_sqldata::storesvr_modobj_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_MODIFYOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                      selobjRes);
+        if (iRet == 0)
+        {
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_MODIFYOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
+                       selobjRes.mod_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType>
+    int GetRpcModifyObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+                               uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     int rpcRetCode = GetRpcModifyObjService(eType, mod_key, data, dstBusId, dbname);
+                     if (func)
+                     {
+                         func(rpcRetCode);
+                     }
+                 });
+        return iRet;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server UpdateObj////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcUpdateObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_modinsobj selobj;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_insertobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
+
+        storesvr_sqldata::storesvr_modinsobj_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_MODINSOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                      selobjRes);
+        if (iRet == 0)
+        {
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_MODINSOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
+                       selobjRes.modins_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType>
+    int GetRpcModInsObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+                               uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     int rpcRetCode = GetRpcModInsObjService(eType, mod_key, data, dstBusId, dbname);
+                     if (func)
+                     {
+                         func(rpcRetCode);
+                     }
+                 });
+        return iRet;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////

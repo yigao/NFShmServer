@@ -77,4 +77,60 @@ public:
      * @return
      */
     int OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insertobj& request, storesvr_sqldata::storesvr_insertobj_res& respone);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj& request, storesvr_sqldata::storesvr_modobj_res& respone);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleModifyRpc(storesvr_sqldata::storesvr_mod& request, storesvr_sqldata::storesvr_mod_res& respone);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleModInsRpc(storesvr_sqldata::storesvr_modins& request, storesvr_sqldata::storesvr_modins_res& respone);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleModInsObjRpc(storesvr_sqldata::storesvr_modinsobj& request, storesvr_sqldata::storesvr_modinsobj_res& respone);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute& request, storesvr_sqldata::storesvr_execute_res& respone);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleDeleteRpc(storesvr_sqldata::storesvr_del& request, storesvr_sqldata::storesvr_del_res& respone);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj& request, storesvr_sqldata::storesvr_delobj_res& respone);
 };

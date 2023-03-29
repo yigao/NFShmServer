@@ -44,6 +44,20 @@ bool NFCStoreServerModule::Awake()
                                                                                     &NFCStoreServerModule::OnHandleSelectRpc, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_INSERTOBJ>(NF_ST_STORE_SERVER, this,
                                                                                     &NFCStoreServerModule::OnHandleInsertObjRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_MODIFYOBJ>(NF_ST_STORE_SERVER, this,
+                                                                                       &NFCStoreServerModule::OnHandleModifyObjRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_MODIFY>(NF_ST_STORE_SERVER, this,
+                                                                                       &NFCStoreServerModule::OnHandleModifyRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_MODINS>(NF_ST_STORE_SERVER, this,
+                                                                                    &NFCStoreServerModule::OnHandleModInsRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_MODINSOBJ>(NF_ST_STORE_SERVER, this,
+                                                                                    &NFCStoreServerModule::OnHandleModInsObjRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_EXECUTE>(NF_ST_STORE_SERVER, this,
+                                                                                       &NFCStoreServerModule::OnHandleExecuteRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_DELETE>(NF_ST_STORE_SERVER, this,
+                                                                                     &NFCStoreServerModule::OnHandleDeleteRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_DELETEOBJ>(NF_ST_STORE_SERVER, this,
+                                                                                    &NFCStoreServerModule::OnHandleDeleteObjRpc, true);
     //////other server///////////////////////////////////
     RegisterServerMessage(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD);
 
@@ -782,12 +796,12 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &requ
                  if (iRet != 0)
                  {
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY;
-                     NFLogError(NF_LOG_SYSTEMLOG, 0, "Select Failed, iRet:{}", iRet);
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectByCond Failed, iRet:{}", iRet);
                  }
                  else
                  {
                      respone.CopyFrom(select_res);
-                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Select Success select_res:{}",
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SelectByCond Success select_res:{}",
                                 select_res.Utf8DebugString());
                  }
 
@@ -872,6 +886,398 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
     if (iRet != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->SelectObj Failed, iRet:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj &request, storesvr_sqldata::storesvr_modobj_res &respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->ModifyObj
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_modobj_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "ModifyObj, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "ModifyObj Failed, iRet:{}", GetErrorStr(iRet));
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED;
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ModifyObj Success select_res:{}", select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->ModifyObj Failed, iRet:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &request, storesvr_sqldata::storesvr_mod_res &respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.mod_cond().mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->ModifyByCond
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_mod_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "ModifyByCond, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "ModifyByCond Failed, iRet:{}", GetErrorStr(iRet));
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED;
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ModifyByCond Success select_res:{}", select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->ModifyByCond Failed, iRet:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleModInsRpc(storesvr_sqldata::storesvr_modins &request, storesvr_sqldata::storesvr_modins_res &respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.mod_cond().mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->UpdateByCond
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_modins_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "UpdateByCond, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "UpdateByCond Failed, iRet:{}", GetErrorStr(iRet));
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "UpdateByCond Success select_res:{}", select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->UpdateByCond Failed, iRet:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleModInsObjRpc(storesvr_sqldata::storesvr_modinsobj &request, storesvr_sqldata::storesvr_modinsobj_res &respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->UpdateObj
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_modinsobj_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "UpdateObj, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "UpdateObj Failed, iRet:{}", GetErrorStr(iRet));
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "UpdateObj Success select_res:{}", select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->UpdateObj Failed, iRet:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute &request, storesvr_sqldata::storesvr_execute_res &respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->Execute
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_execute_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "Execute, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "Execute Failed, iRet:{}", GetErrorStr(iRet));
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN;
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Execute Success select_res:{}", select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->DeleteByCond Failed, iRet:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleDeleteRpc(storesvr_sqldata::storesvr_del &request, storesvr_sqldata::storesvr_del_res &respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.del_cond().mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->DeleteByCond
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_del_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteByCond, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteByCond Failed, iRet:{}", GetErrorStr(iRet));
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DeleteByCond Success select_res:{}", select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->DeleteByCond Failed, iRet:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj &request, storesvr_sqldata::storesvr_delobj_res &respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->DeleteObj
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_delobj_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteObj, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteObj Failed, iRet:{}", GetErrorStr(iRet));
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DeleteObj Success select_res:{}", select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->DeleteObj Failed, iRet:{}", GetErrorStr(iRet));
         return iRet;
     }
 
