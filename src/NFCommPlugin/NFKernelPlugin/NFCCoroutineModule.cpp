@@ -16,19 +16,22 @@
 #include "NFSchedule.h"
 #include "NFComm/NFPluginModule/NFCoroutineTask.h"
 
-void DoTask(NFSchedule *, void *ud) {
+void DoTask(NFSchedule *, void *ud)
+{
     NFCoroutineTask *task = static_cast<NFCoroutineTask *>(ud);
     assert(task != NULL);
     task->Run();
     delete task;
 }
 
-NFCCoroutineModule::NFCCoroutineModule(NFIPluginManager *p) : NFICoroutineModule(p) {
+NFCCoroutineModule::NFCCoroutineModule(NFIPluginManager *p) : NFICoroutineModule(p)
+{
     m_pCorSched = NF_NEW NFCoroutineSchedule(p);
     m_pCorSched->Init();
 }
 
-NFCCoroutineModule::~NFCCoroutineModule() {
+NFCCoroutineModule::~NFCCoroutineModule()
+{
 
 }
 
@@ -48,7 +51,8 @@ bool NFCCoroutineModule::OnStopServer()
     return true;
 }
 
-bool NFCCoroutineModule::Shut() {
+bool NFCCoroutineModule::Shut()
+{
     return true;
 }
 
@@ -59,7 +63,8 @@ bool NFCCoroutineModule::Finalize()
     return true;
 }
 
-bool NFCCoroutineModule::Execute() {
+bool NFCCoroutineModule::Execute()
+{
     return true;
 }
 
@@ -68,7 +73,8 @@ int64_t NFCCoroutineModule::Start(NFCoroutineTask *pTask, bool is_immediately)
     CHECK_EXPR(pTask, -1, "pTask == NULL");
     CHECK_EXPR(m_pCorSched, -1, "m_pCorSched == NULL");
 
-    if (is_immediately && m_pCorSched->CurrentTaskId() != INVALID_CO_ID) {
+    if (is_immediately && m_pCorSched->CurrentTaskId() != INVALID_CO_ID)
+    {
         delete pTask;
         return -1;
     }
@@ -77,9 +83,11 @@ int64_t NFCCoroutineModule::Start(NFCoroutineTask *pTask, bool is_immediately)
     int64_t id = pTask->id_;
     m_pCorSched->task_map_[pTask->id_] = pTask;
     m_pCorSched->pre_start_task_.erase(pTask);
-    if (is_immediately) {
+    if (is_immediately)
+    {
         int32_t ret = m_pCorSched->schedule_->CoroutineResume(pTask->id_);
-        if (ret != 0) {
+        if (ret != 0)
+        {
             id = -1;
         }
     }
@@ -92,10 +100,14 @@ int NFCCoroutineModule::DeleteTask(NFCoroutineTask *pTask)
     CHECK_EXPR(pTask, -1, "pTask == NULL");
     CHECK_EXPR(m_pCorSched, -1, "m_pCorSched == NULL");
 
-    if (m_pCorSched->schedule_ != NULL) {
-        if (pTask->id_ == -1) {
+    if (m_pCorSched->schedule_ != NULL)
+    {
+        if (pTask->id_ == -1)
+        {
             m_pCorSched->pre_start_task_.erase(pTask);
-        } else {
+        }
+        else
+        {
             m_pCorSched->task_map_.erase(pTask->id_);
         }
     }
@@ -181,9 +193,10 @@ bool NFCCoroutineModule::IsYielding(int64_t id)
 int NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func)
 {
     NFCommonCoroutineTask *pTask = NewTask<NFCommonCoroutineTask>();
-    if (pTask == NULL) {
-    NFLogError(NF_LOG_SYSTEMLOG, 0, "new co task failed!");
-    return -1;
+    if (pTask == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "new co task failed!");
+        return -1;
     }
 
     pTask->Init(func);
@@ -191,10 +204,11 @@ int NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func)
     return coid < 0 ? -1 : 0;
 }
 
-int NFCCoroutineModule::AddRpcService(google::protobuf::Message* pMessage)
+int NFCCoroutineModule::AddRpcService(google::protobuf::Message *pMessage)
 {
     int64_t coId = CurrentTaskId();
-    if (INVALID_CO_ID == coId) {
+    if (INVALID_CO_ID == coId)
+    {
         return proto_ff::ERR_CODE_CO_NOT_IN_COROUTINE;
     }
 
@@ -207,7 +221,7 @@ int NFCCoroutineModule::AddRpcService(google::protobuf::Message* pMessage)
     return 0;
 }
 
-google::protobuf::Message* NFCCoroutineModule::GetRpcService(int64_t coId)
+google::protobuf::Message *NFCCoroutineModule::GetRpcService(int64_t coId)
 {
     auto iter = m_rpcCoMap.find(coId);
     if (iter != m_rpcCoMap.end())
@@ -218,10 +232,11 @@ google::protobuf::Message* NFCCoroutineModule::GetRpcService(int64_t coId)
     return NULL;
 }
 
-int NFCCoroutineModule::DelRpcService(google::protobuf::Message* pMessage)
+int NFCCoroutineModule::DelRpcService(google::protobuf::Message *pMessage)
 {
     int64_t coId = CurrentTaskId();
-    if (INVALID_CO_ID == coId) {
+    if (INVALID_CO_ID == coId)
+    {
         return proto_ff::ERR_CODE_CO_NOT_IN_COROUTINE;
     }
 

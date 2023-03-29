@@ -188,7 +188,7 @@ public:
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}",  GetErrorStr(iRet),
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
                        selobjRes.sel_opres().errmsg());
         }
         return iRet;
@@ -228,7 +228,7 @@ private:
 public:
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
     template<typename DataType>
-    int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, std::vector<DataType> &respone,
+    int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, std::vector<DataType> &respone,
                             const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
                             int max_records = 100, uint32_t dstBusId = 0,
                             const std::string &dbname = "")
@@ -309,6 +309,35 @@ public:
         return iRet;
     }
 
+    template<class DataType, typename ResponFunc>
+    int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &func,
+                             const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
+                             int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        return GetRpcSelectServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields,where_addtional_conds, max_records, dstBusId, dbname);
+    }
+
+private:
+    template<class DataType, typename ResponFunc>
+    int GetRpcSelectServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &responFunc,
+                                 void (ResponFunc::*pf)(int rpcRetCode, std::vector<DataType> &respone) const,
+                                 const std::vector<std::string> &vecFields = std::vector<std::string>(),
+                                 const std::string &where_addtional_conds = "", int max_records = 100, uint32_t dstBusId = 0,
+                                 const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     std::vector<DataType> respone;
+                     int rpcRetCode = GetRpcSelectService(eType, mod_key, data, respone, vecFields, where_addtional_conds, max_records,
+                                                          dstBusId, dbname);
+
+                     (responFunc.*pf)(rpcRetCode, respone);
+                 });
+        return iRet;
+    }
+
+public:
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server insert////////////////////////////////////////////////////////////////////////////
     template<typename DataType>
@@ -347,9 +376,8 @@ public:
     }
 
     template<class DataType>
-    int
-    GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func, uint32_t dstBusId = 0,
-                           const std::string &dbname = "")
+    int GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+                               uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
