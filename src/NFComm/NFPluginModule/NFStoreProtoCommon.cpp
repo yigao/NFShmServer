@@ -94,13 +94,10 @@ std::string NFStoreProtoCommon::storesvr_selectobj(const std::string &dbname, co
     return select.SerializeAsString();
 }
 
-
-// insert对象插入，返回打包数据
-std::string NFStoreProtoCommon::storesvr_insertobj(const std::string &dbname, const std::string &tbname,
-                                                uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name/* = ""*/,
-                                                const std::string &package_name/* = ""*/)
+void NFStoreProtoCommon::storesvr_insertobj(storesvr_sqldata::storesvr_insertobj& select, const std::string &dbname, const std::string &tbname, uint64_t mod_key,
+                        const ::google::protobuf::Message &msg_obj, const std::string &cls_name/* = ""*/,
+                        const std::string &package_name/* = ""*/)
 {
-    storesvr_sqldata::storesvr_insertobj select;
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_tbname(tbname);
     select.mutable_baseinfo()->set_package_name(package_name);
@@ -114,6 +111,15 @@ std::string NFStoreProtoCommon::storesvr_insertobj(const std::string &dbname, co
     }
     select.set_mod_key(mod_key);
     select.set_ins_record(msg_obj.SerializeAsString());
+}
+
+// insert对象插入，返回打包数据
+std::string NFStoreProtoCommon::storesvr_insertobj(const std::string &dbname, const std::string &tbname,
+                                                uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name/* = ""*/,
+                                                const std::string &package_name/* = ""*/)
+{
+    storesvr_sqldata::storesvr_insertobj select;
+    storesvr_insertobj(select, dbname, tbname, mod_key, msg_obj, cls_name, package_name);
     return select.SerializeAsString();
 }
 

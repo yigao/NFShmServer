@@ -188,7 +188,7 @@ public:
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", iRet,
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}",  GetErrorStr(iRet),
                        selobjRes.sel_opres().errmsg());
         }
         return iRet;
@@ -214,20 +214,21 @@ private:
                                     const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
                                     const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine([=]()
-                                                                   {
-                                                                       DataType respone = data;
-                                                                       int rpcRetCode = GetRpcSelectObjService(eType, mod_key, respone, vecFields,
-                                                                                                               dstBusId, dbname);
-                                                                       (responFunc.*pf)(rpcRetCode, respone);
-                                                                   });
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     DataType respone = data;
+                     int rpcRetCode = GetRpcSelectObjService(eType, mod_key, respone, vecFields,
+                                                             dstBusId, dbname);
+                     (responFunc.*pf)(rpcRetCode, respone);
+                 });
         return iRet;
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public:
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
     template<typename DataType>
-    int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, std::vector<DataType>& respone,
+    int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, std::vector<DataType> &respone,
                             const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
                             int max_records = 100, uint32_t dstBusId = 0,
                             const std::string &dbname = "")
@@ -270,17 +271,19 @@ public:
         svrPkg.mutable_rpc_info()->set_req_server_type(eType);
         svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
 
-        FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
+        FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD,
+                                                        svrPkg);
 
         int iRet = FindModule<NFICoroutineModule>()->AddRpcService(&selRes);
-        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
 
-        do {
+        do
+        {
             iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
-            CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
+            CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
             if (iRet == 0)
             {
-                for(int i = 0; i < (int)selRes.sel_records_size(); i++)
+                for (int i = 0; i < (int) selRes.sel_records_size(); i++)
                 {
                     DataType result;
                     result.ParseFromString(selRes.sel_records(i));
@@ -294,21 +297,22 @@ public:
             }
             else
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", iRet,
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selRes.sel_opres().errmsg());
                 break;
             }
-        } while(true);
+        } while (true);
 
 
         FindModule<NFICoroutineModule>()->DelRpcService(&selRes);
 
         return iRet;
     }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server insert////////////////////////////////////////////////////////////////////////////
     template<typename DataType>
-    int GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, uint32_t dstBusId = 0, const std::string &dbname = "")
+    int GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         std::string tempDBName = dbname;
         if (dbname.empty())
@@ -322,7 +326,7 @@ public:
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
 
 
-        storesvr_sqldata::storesvr_selobj selobj;
+        storesvr_sqldata::storesvr_insertobj selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
         CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
@@ -342,11 +346,21 @@ public:
         return iRet;
     }
 
-    template<class DataType, typename ResponFunc>
-    int GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &func, uint32_t dstBusId = 0,
-                               const std::string &dbname = "")
+    template<class DataType>
+    int
+    GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func, uint32_t dstBusId = 0,
+                           const std::string &dbname = "")
     {
-        return GetRpcInsertObjServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), dstBusId, dbname);
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     int rpcRetCode = GetRpcInsertObjService(eType, mod_key, data, dstBusId, dbname);
+                     if (func)
+                     {
+                         func(rpcRetCode);
+                     }
+                 });
+        return iRet;
     }
 
 /*    virtual int SendInsertObjTrans(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t table_id = 0, int trans_id = 0,
@@ -354,19 +368,6 @@ public:
                                    const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
                                    const std::string &dbname = "") = 0;*/
 
-private:
-    template<class DataType, typename ResponFunc>
-    int GetRpcInsertObjServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &responFunc,
-                                    void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const, uint32_t dstBusId = 0,
-                                    const std::string &dbname = "")
-    {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine([=]()
-        {
-           int rpcRetCode = GetRpcInsertObjService(eType, mod_key, data, dstBusId, dbname);
-           (responFunc.*pf)(rpcRetCode, data);
-        });
-        return iRet;
-    }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

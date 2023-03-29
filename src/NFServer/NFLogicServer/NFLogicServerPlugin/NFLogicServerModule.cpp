@@ -111,22 +111,36 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
         flag = true;
         FindModule<NFICoroutineModule>()->MakeCoroutine([this]()
         {
-            proto_ff::tbServerMgr data;
-            data.set_id(1);
-            std::vector<std::string> vecField;
-            vecField.push_back("contract");
-            vecField.push_back("machine_addr");
-
-            std::vector<proto_ff::tbServerMgr> result;
-            int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectService(
-                    NF_ST_LOGIC_SERVER, 0, data, result, vecField);
-            if (iRet != 0)
+/*            for(int i = 0; i < 1000; i++)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService Failed!");
-                return;
-            }
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService respone:{}", data.DebugString()
-            );
+                proto_ff::tbServerMgr data;
+                data.set_id(i);
+                data.set_contract(NFCommon::tostr(i));
+                data.set_machine_addr(NFCommon::tostr(i));
+
+                int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_LOGIC_SERVER, 0, data);
+                if (iRet != 0)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcInsertObjService Failed!");
+                    return;
+                }
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcInsertObjService respone:{}", data.DebugString());
+            }*/
+
+                proto_ff::tbServerMgr data;
+                std::vector<std::string> vecField;
+                vecField.push_back("id");
+                vecField.push_back("contract");
+                vecField.push_back("machine_addr");
+                std::vector<proto_ff::tbServerMgr> result;
+                int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectService(
+                        NF_ST_LOGIC_SERVER, 0, data, result, vecField);
+                if (iRet != 0)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService Failed!");
+                    return;
+                }
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcSelectObjService result size:{}", result.size());
 /*             NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
            proto_ff::RpcRequestGetServerInfo request;
             request.set_server_id(pConfig->ServerId);

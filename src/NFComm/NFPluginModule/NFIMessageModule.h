@@ -21,6 +21,7 @@
 #include "NFComm/NFCore/NFCommon.h"
 #include "proto_svr_msg.pb.h"
 #include "NFIConfigModule.h"
+#include "NFError.h"
 
 #include <map>
 #include <unordered_map>
@@ -193,13 +194,13 @@ public:
         SendMsgToServer(serverType, dstServerType, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
 
         int32_t iRet = FindModule<NFICoroutineModule>()->AddRpcService(&respone);
-        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
 
         iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
 
         FindModule<NFICoroutineModule>()->DelRpcService(&respone);
 
-        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", proto_ff::Proto_Kernel_ErrorCode_IsValid(iRet) ? proto_ff::Proto_Kernel_ErrorCode_Name((proto_ff::Proto_Kernel_ErrorCode)iRet) : NFCommon::tostr(iRet));
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}",  GetErrorStr(iRet));
         return iRet;
     }
 

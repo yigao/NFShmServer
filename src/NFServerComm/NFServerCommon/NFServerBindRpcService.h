@@ -24,3 +24,4 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_SERVER_TO_SERVER_REGISTER, proto_ff::Server
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_SELECTOBJ, storesvr_sqldata::storesvr_selobj, storesvr_sqldata::storesvr_selobj_res)
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_SELECT, storesvr_sqldata::storesvr_sel, storesvr_sqldata::storesvr_sel_res)
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_INSERTOBJ, storesvr_sqldata::storesvr_insertobj, storesvr_sqldata::storesvr_insertobj_res)

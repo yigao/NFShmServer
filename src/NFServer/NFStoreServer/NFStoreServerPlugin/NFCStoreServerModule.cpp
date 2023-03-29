@@ -12,8 +12,6 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-#include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
@@ -24,7 +22,7 @@
 
 #define STORE_SERVER_TIMER_CLOSE_MYSQL 200
 
-NFCStoreServerModule::NFCStoreServerModule(NFIPluginManager* p):NFIStoreServerModule(p)
+NFCStoreServerModule::NFCStoreServerModule(NFIPluginManager *p) : NFIStoreServerModule(p)
 {
 }
 
@@ -32,15 +30,20 @@ NFCStoreServerModule::~NFCStoreServerModule()
 {
 }
 
-bool NFCStoreServerModule::Awake() {
+bool NFCStoreServerModule::Awake()
+{
     SetConnectProxyAgentServer(false);
     SetCheckStoreServer(false);
 
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_STORE_SERVER);
 
     //////rpc service//////////////////////
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_SELECTOBJ>(NF_ST_STORE_SERVER, this, &NFCStoreServerModule::OnHandleSelectObjRpc, true);
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_SELECT>(NF_ST_STORE_SERVER, this, &NFCStoreServerModule::OnHandleSelectRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_SELECTOBJ>(NF_ST_STORE_SERVER, this,
+                                                                                       &NFCStoreServerModule::OnHandleSelectObjRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_SELECT>(NF_ST_STORE_SERVER, this,
+                                                                                    &NFCStoreServerModule::OnHandleSelectRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_INSERTOBJ>(NF_ST_STORE_SERVER, this,
+                                                                                    &NFCStoreServerModule::OnHandleInsertObjRpc, true);
     //////other server///////////////////////////////////
     RegisterServerMessage(NF_ST_STORE_SERVER, proto_ff::NF_SERVER_TO_STORE_SERVER_DB_CMD);
 
@@ -54,9 +57,10 @@ bool NFCStoreServerModule::Awake() {
 
     FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
     int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
-        pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
-        pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
-    if (iRet != 0) {
+                                                               pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
+                                                               pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
+    if (iRet != 0)
+    {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server connect mysql failed");
         return false;
     }
@@ -65,7 +69,7 @@ bool NFCStoreServerModule::Awake() {
 
     BindServer();
 
-	return true;
+    return true;
 }
 
 int NFCStoreServerModule::OnTimer(uint32_t nTimerID)
@@ -75,7 +79,7 @@ int NFCStoreServerModule::OnTimer(uint32_t nTimerID)
     {
         FindModule<NFIMysqlModule>()->CloseMysql(INFORMATION_SCHEMA);
         KillTimer(STORE_SERVER_TIMER_CLOSE_MYSQL);
-        for(int i = 0; i < (int)NFProtobufCommon::Instance()->m_pOldPoolVec.size(); i++)
+        for (int i = 0; i < (int) NFProtobufCommon::Instance()->m_pOldPoolVec.size(); i++)
         {
             NF_SAFE_DELETE(NFProtobufCommon::Instance()->m_pOldPoolVec[i]);
         }
@@ -102,7 +106,8 @@ bool NFCStoreServerModule::LoadPbAndCheckDB()
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds success:{}", pConfig->LoadProtoDs);
     }
-    else {
+    else
+    {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Reload proto ds fail:{}", pConfig->LoadProtoDs);
         return false;
     }
@@ -137,14 +142,15 @@ bool NFCStoreServerModule::LoadPbAndCheckDB()
     }
 
     std::map<std::string, DBTableColCreateInfo> tbCreateInfo;
-    for(int i = 0; i < (int)pConfig->MysqlConfig.TBConfList.size(); i++)
+    for (int i = 0; i < (int) pConfig->MysqlConfig.TBConfList.size(); i++)
     {
-        struct proto_ff_s::pbTableConfig_s& tableConfig = pConfig->MysqlConfig.TBConfList[i];
+        struct proto_ff_s::pbTableConfig_s &tableConfig = pConfig->MysqlConfig.TBConfList[i];
         if (tableConfig.TableName.empty()) continue;
 
-        DBTableColCreateInfo& createInfo = tbCreateInfo[tableConfig.TableName];
+        DBTableColCreateInfo &createInfo = tbCreateInfo[tableConfig.TableName];
 
-        iRet = FindModule<NFIMysqlModule>()->QueryTableInfo(INFORMATION_SCHEMA, pConfig->MysqlConfig.MysqlDbName, tableConfig.TableName, createInfo.bExistTable, createInfo.primaryKey, createInfo.needCreateColumn);
+        iRet = FindModule<NFIMysqlModule>()->QueryTableInfo(INFORMATION_SCHEMA, pConfig->MysqlConfig.MysqlDbName, tableConfig.TableName,
+                                                            createInfo.bExistTable, createInfo.primaryKey, createInfo.needCreateColumn);
         if (iRet != 0)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, -1, "store server CreateDB failed");
@@ -159,10 +165,10 @@ bool NFCStoreServerModule::LoadPbAndCheckDB()
         return false;
     }
 
-    for(auto iter = tbCreateInfo.begin(); iter != tbCreateInfo.end(); iter++)
+    for (auto iter = tbCreateInfo.begin(); iter != tbCreateInfo.end(); iter++)
     {
         std::string tableName = iter->first;
-        DBTableColCreateInfo& createInfo = iter->second;
+        DBTableColCreateInfo &createInfo = iter->second;
         if (!createInfo.bExistTable)
         {
             iRet = FindModule<NFIMysqlModule>()->CreateTable(INFORMATION_SCHEMA, tableName, createInfo.primaryKey, createInfo.needCreateColumn);
@@ -172,7 +178,8 @@ bool NFCStoreServerModule::LoadPbAndCheckDB()
                 return false;
             }
         }
-        else {
+        else
+        {
             iRet = FindModule<NFIMysqlModule>()->AddTableRow(INFORMATION_SCHEMA, tableName, createInfo.needCreateColumn);
             if (iRet != 0)
             {
@@ -201,13 +208,13 @@ bool NFCStoreServerModule::Init()
 
 bool NFCStoreServerModule::Execute()
 {
-	return true;
+    return true;
 }
 
 bool NFCStoreServerModule::OnDynamicPlugin()
 {
-	FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_STORE_SERVER);
-	return true;
+    FindModule<NFIMessageModule>()->CloseAllLink(NF_ST_STORE_SERVER);
+    return true;
 }
 
 bool NFCStoreServerModule::OnReloadConfig()
@@ -215,7 +222,7 @@ bool NFCStoreServerModule::OnReloadConfig()
     return LoadPbAndCheckDB();
 }
 
-int NFCStoreServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet)
+int NFCStoreServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
     int retCode = 0;
     switch (packet.nMsgId)
@@ -236,10 +243,11 @@ int NFCStoreServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 }
 
 int
-NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet) {
+NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
+{
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
     proto_ff::Proto_SvrPkg xMsg;
@@ -251,8 +259,10 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
     retMsg.set_msg_id(xMsg.msg_id());
     *retMsg.mutable_store_info()->mutable_cb_data() = xMsg.store_info().cb_data();
 
-    switch (xMsg.store_info().cmd()) {
-        case proto_ff::NF_STORESVR_C2S_SELECT: {
+    switch (xMsg.store_info().cmd())
+    {
+        case proto_ff::NF_STORESVR_C2S_SELECT:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_SELECT);
 
             storesvr_sqldata::storesvr_sel select;
@@ -270,21 +280,29 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->SelectByCond(select.baseinfo().dbname(), select,
-                    [=] (int iRet, storesvr_sqldata::storesvr_sel_res& select_res) mutable {
-                if (iRet != 0) {
-                    retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY);
-                } else {
-                    retMsg.set_msg_data(select_res.SerializeAsString());
-                }
+            FindModule<NFIAsyMysqlModule>()->SelectByCond
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_sel_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-            });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_SELECTOBJ: {
+        case proto_ff::NF_STORESVR_C2S_SELECTOBJ:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_SELECTOBJ);
 
             storesvr_sqldata::storesvr_selobj select;
@@ -302,26 +320,40 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->SelectObj(select.baseinfo().dbname(), select,
-                    [=](int iRet, storesvr_sqldata::storesvr_selobj_res& select_res) mutable {
-                if (iRet != 0) {
-                    if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY && select_res.sel_opres().errmsg().empty()) {
-                        retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY);
-                    } else {
-                        retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN);
-                    }
-                } else {
-                    retMsg.set_msg_data(select_res.SerializeAsString());
-                }
+            FindModule<NFIAsyMysqlModule>()->SelectObj
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_selobj_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY &&
+                                 select_res.sel_opres().errmsg().empty())
+                             {
+                                 retMsg.mutable_store_info()->set_err_code(
+                                         proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY);
+                             }
+                             else
+                             {
+                                 retMsg.mutable_store_info()->set_err_code(
+                                         proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN);
+                             }
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-            });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_INSERT: {
-            retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_INSERT);
+        case proto_ff::NF_STORESVR_C2S_INSERTOBJ:
+        {
+            retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_INSERTOBJ);
 
             storesvr_sqldata::storesvr_insertobj select;
             select.ParsePartialFromString(xMsg.msg_data());
@@ -338,21 +370,30 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->InsertObj(select.baseinfo().dbname(), select,
-                    [=](int iRet, storesvr_sqldata::storesvr_insertobj_res& select_res) mutable {
-                if (iRet != 0) {
-                    retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_INSERTFAILED);
-                } else {
-                    retMsg.set_msg_data(select_res.SerializeAsString());
-                }
+            FindModule<NFIAsyMysqlModule>()->InsertObj
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(
+                                     proto_ff::ERR_CODE_STORESVR_ERRCODE_INSERTFAILED);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-            });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_DELETE: {
+        case proto_ff::NF_STORESVR_C2S_DELETE:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_DELETE);
 
             storesvr_sqldata::storesvr_del select;
@@ -370,21 +411,30 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->DeleteByCond(select.baseinfo().dbname(), select,
-                    [=](int iRet, storesvr_sqldata::storesvr_del_res& select_res) mutable {
-                if (iRet != 0) {
-                    retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN);
-                } else {
-                    retMsg.set_msg_data(select_res.SerializeAsString());
-                }
+            FindModule<NFIAsyMysqlModule>()->DeleteByCond
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_del_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(
+                                     proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-            });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_DELETEOBJ: {
+        case proto_ff::NF_STORESVR_C2S_DELETEOBJ:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_DELETEOBJ);
 
             storesvr_sqldata::storesvr_delobj select;
@@ -402,161 +452,223 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->DeleteObj(select.baseinfo().dbname(), select,
-                    [=](int iRet, storesvr_sqldata::storesvr_delobj_res& select_res) mutable {
-                if (iRet != 0) {
-                    retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_DELETEFAILED);
-                } else {
-                    retMsg.set_msg_data(select_res.SerializeAsString());
-                }
+            FindModule<NFIAsyMysqlModule>()->DeleteObj
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_delobj_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(
+                                     proto_ff::ERR_CODE_STORESVR_ERRCODE_DELETEFAILED);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-            });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_MODIFY: {
+        case proto_ff::NF_STORESVR_C2S_MODIFY:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_MODIFY);
 
             storesvr_sqldata::storesvr_mod select;
             select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
-            if (iter != pConfig->mTBConfMap.end()) {
+            if (iter != pConfig->mTBConfMap.end())
+            {
                 uint32_t count = iter->second;
-                if (count > 1) {
+                if (count > 1)
+                {
                     uint32_t index = select.mod_cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->ModifyByCond(select.baseinfo().dbname(), select,
-           [=] (int iRet, storesvr_sqldata::storesvr_mod_res& select_res) mutable {
-               if (iRet != 0) {
-                   retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED);
-               } else {
-                   retMsg.set_msg_data(select_res.SerializeAsString());
-               }
+            FindModule<NFIAsyMysqlModule>()->ModifyByCond
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_mod_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(
+                                     proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-               NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-               if (retMsg.store_info().cb_data().id() > 0)
-                   FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-           });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
-        break;
-        case proto_ff::NF_STORESVR_C2S_MODIFYOBJ: {
+            break;
+        case proto_ff::NF_STORESVR_C2S_MODIFYOBJ:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_MODIFYOBJ);
 
             storesvr_sqldata::storesvr_modobj select;
             select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
-            if (iter != pConfig->mTBConfMap.end()) {
+            if (iter != pConfig->mTBConfMap.end())
+            {
                 uint32_t count = iter->second;
-                if (count > 1) {
+                if (count > 1)
+                {
                     uint32_t index = select.mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->ModifyObj(select.baseinfo().dbname(), select,
-                    [=] (int iRet, storesvr_sqldata::storesvr_modobj_res& select_res) mutable {
-                if (iRet != 0) {
-                    retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED);
-                } else {
-                    retMsg.set_msg_data(select_res.SerializeAsString());
-                }
+            FindModule<NFIAsyMysqlModule>()->ModifyObj
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_modobj_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(
+                                     proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-            });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_MODINS: {
+        case proto_ff::NF_STORESVR_C2S_MODINS:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_MODINS);
 
             storesvr_sqldata::storesvr_modins select;
             select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
-            if (iter != pConfig->mTBConfMap.end()) {
+            if (iter != pConfig->mTBConfMap.end())
+            {
                 uint32_t count = iter->second;
-                if (count > 1) {
+                if (count > 1)
+                {
                     uint32_t index = select.mod_cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->UpdateByCond(select.baseinfo().dbname(), select,
-                   [=](int iRet, storesvr_sqldata::storesvr_modins_res& select_res) mutable {
-                       if (iRet != 0) {
-                           retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED);
-                       } else {
-                           retMsg.set_msg_data(select_res.SerializeAsString());
-                       }
+            FindModule<NFIAsyMysqlModule>()->UpdateByCond
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_modins_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(
+                                     proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                       NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                       if (retMsg.store_info().cb_data().id() > 0)
-                           FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-                   });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
-        break;
-        case proto_ff::NF_STORESVR_C2S_MODINSOBJ: {
+            break;
+        case proto_ff::NF_STORESVR_C2S_MODINSOBJ:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_MODINSOBJ);
 
             storesvr_sqldata::storesvr_modinsobj select;
             select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
-            if (iter != pConfig->mTBConfMap.end()) {
+            if (iter != pConfig->mTBConfMap.end())
+            {
                 uint32_t count = iter->second;
-                if (count > 1) {
+                if (count > 1)
+                {
                     uint32_t index = select.mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->UpdateObj(select.baseinfo().dbname(), select,
-                    [=](int iRet, storesvr_sqldata::storesvr_modinsobj_res& select_res) mutable {
-                if (iRet != 0) {
-                    retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED);
-                } else {
-                    retMsg.set_msg_data(select_res.SerializeAsString());
-                }
+            FindModule<NFIAsyMysqlModule>()->UpdateObj
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_modinsobj_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(
+                                     proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                if (retMsg.store_info().cb_data().id() > 0)
-                    FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-            });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD,
+                                                                  retMsg, 0, 0, sendLinkId, destLinkId);
+                     });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_EXECUTE: {
+        case proto_ff::NF_STORESVR_C2S_EXECUTE:
+        {
             retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_EXECUTE);
 
             storesvr_sqldata::storesvr_execute select;
             select.ParsePartialFromString(xMsg.msg_data());
 
-            FindModule<NFIAsyMysqlModule>()->Execute(select.baseinfo().dbname(), select,
-               [=] (int iRet, storesvr_sqldata::storesvr_execute_res& select_res) mutable {
-                   if (iRet != 0) {
-                       retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED);
-                   } else {
-                       retMsg.set_msg_data(select_res.SerializeAsString());
-                   }
+            FindModule<NFIAsyMysqlModule>()->Execute
+                    (select.baseinfo().dbname(), select,
+                     [=](int iRet, storesvr_sqldata::storesvr_execute_res &select_res) mutable
+                     {
+                         if (iRet != 0)
+                         {
+                             retMsg.mutable_store_info()->set_err_code(
+                                     proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED);
+                         }
+                         else
+                         {
+                             retMsg.set_msg_data(select_res.SerializeAsString());
+                         }
 
-                   NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
-                   if (retMsg.store_info().cb_data().id() > 0)
-                       FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER, proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg, 0, 0, sendLinkId, destLinkId);
-               });
+                         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ret msg:{}", retMsg.Utf8DebugString());
+                         if (retMsg.store_info().cb_data().id() > 0)
+                             FindModule<NFIMessageModule>()->Send(unLinkId, NF_MODULE_SERVER,
+                                                                  proto_ff::NF_STORE_SERVER_TO_SERVER_DB_CMD, retMsg,
+                                                                  0, 0, sendLinkId, destLinkId);
+                     });
         }
             break;
-        default: {
+        default:
+        {
 
         }
             break;
@@ -566,12 +678,12 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage& packet)
     return 0;
 }
 
-int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj& request, storesvr_sqldata::storesvr_selobj_res& respone)
+int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj &request, storesvr_sqldata::storesvr_selobj_res &respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
@@ -587,29 +699,40 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->SelectObj(request.baseinfo().dbname(), request,
-       [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_selobj_res& select_res) mutable {
-           if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
-           {
-               NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectByCond, But Coroutine Status Error..........Not Yielding");
-               return;
-           }
+    int iRet = FindModule<NFIAsyMysqlModule>()->SelectObj
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_selobj_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0,
+                                "SelectByCond, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
 
-           if (iRet != 0) {
-               if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY && select_res.sel_opres().errmsg().empty()) {
-                   iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
-               } else {
-                   iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN;
-               }
+                 if (iRet != 0)
+                 {
+                     if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY &&
+                         select_res.sel_opres().errmsg().empty())
+                     {
+                         iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
+                     }
+                     else
+                     {
+                         iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN;
+                     }
 
-               NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", iRet);
-           } else {
-               respone.CopyFrom(select_res);
-               NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SelectObj Success select_res:{}", select_res.Utf8DebugString());
-           }
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", iRet);
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SelectObj Success select_res:{}",
+                                select_res.Utf8DebugString());
+                 }
 
-           FindModule<NFICoroutineModule>()->Resume(coId, iRet);
-       });
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
 
     if (iRet != 0)
     {
@@ -617,17 +740,18 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
         return iRet;
     }
 
-    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS/2);
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return iRet;
 }
 
-int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel& request, storesvr_sqldata::storesvr_sel_res& respone, const std::function<void()>& cb)
+int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &request, storesvr_sqldata::storesvr_sel_res &respone,
+                                            const std::function<void()> &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
@@ -644,25 +768,31 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel& requ
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
 
-    int iRet = FindModule<NFIAsyMysqlModule>()->SelectByCond(request.baseinfo().dbname(), request,
-        [this, coId, &respone] (int iRet, storesvr_sqldata::storesvr_sel_res& select_res) mutable
-        {
-            if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectByCond, But Coroutine Status Error..........Not Yielding");
-                return;
-            }
+    int iRet = FindModule<NFIAsyMysqlModule>()->SelectByCond
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_sel_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0,
+                                "SelectByCond, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
 
-            if (iRet != 0) {
-              iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY;
-              NFLogError(NF_LOG_SYSTEMLOG, 0, "Select Failed, iRet:{}", iRet);
-            } else {
-              respone.CopyFrom(select_res);
-              NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Select Success select_res:{}", select_res.Utf8DebugString());
-            }
+                 if (iRet != 0)
+                 {
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY;
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "Select Failed, iRet:{}", iRet);
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Select Success select_res:{}",
+                                select_res.Utf8DebugString());
+                 }
 
-            FindModule<NFICoroutineModule>()->Resume(coId, iRet);
-        });
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
 
     if (iRet != 0)
     {
@@ -670,8 +800,9 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel& requ
         return iRet;
     }
 
-    do {
-        iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS/2);
+    do
+    {
+        iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
         if (iRet != 0)
         {
             break;
@@ -681,13 +812,70 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel& requ
         {
             break;
         }
-        else {
+        else
+        {
             if (cb)
             {
                 cb();
             }
         }
-    } while(true);
+    } while (true);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insertobj &request, storesvr_sqldata::storesvr_insertobj_res &respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
+    if (iter != pConfig->mTBConfMap.end())
+    {
+        uint32_t count = iter->second;
+        if (count > 1)
+        {
+            uint32_t index = request.mod_key() % count;
+            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
+            request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+    }
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+    int iRet = FindModule<NFIAsyMysqlModule>()->InsertObj
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "InsertObj, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", GetErrorStr(iRet));
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_INSERTFAILED;
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SelectObj Success select_res:{}", select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->SelectObj Failed, iRet:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+
+    iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return iRet;
 }

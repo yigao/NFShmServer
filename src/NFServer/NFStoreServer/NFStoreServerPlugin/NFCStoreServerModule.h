@@ -69,4 +69,12 @@ public:
      * @return
      */
     int OnHandleSelectRpc(storesvr_sqldata::storesvr_sel& request, storesvr_sqldata::storesvr_sel_res& respone, const std::function<void()>& cb);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insertobj& request, storesvr_sqldata::storesvr_insertobj_res& respone);
 };

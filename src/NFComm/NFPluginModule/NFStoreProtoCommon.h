@@ -43,6 +43,10 @@ public:
                                           const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "",
                                           const std::string &package_name = "");
 
+    static void storesvr_insertobj(storesvr_sqldata::storesvr_insertobj& select, const std::string &dbname, const std::string &tbname, uint64_t mod_key,
+                                          const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "",
+                                          const std::string &package_name = "");
+
     // 按条件删除
     static std::string storesvr_deletebycond(const std::string &dbname, const std::string &tbname,
                                              uint64_t mod_key, const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
