@@ -53,11 +53,11 @@ int NFTransGetRoleSimple::HandleCSMsgReq(const google::protobuf::Message *pCSMsg
 
 int NFTransGetRoleSimple::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
                                             uint32_t seq,
-                                            uint32_t err_code) {
+                                            int32_t err_code) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     int iRetCode = 0;
-    if (cmd == proto_ff::E_STORESVR_S2C_SELECTOBJ) {
+    if (cmd == proto_ff::NF_STORESVR_S2C_SELECTOBJ) {
         iRetCode = ProQueryRoleRes((const storesvr_sqldata::storesvr_selobj_res *)pSSMsgRes, err_code, seq);
     }
     else
@@ -85,21 +85,21 @@ int NFTransGetRoleSimple::QueryRole(uint64_t roleId) {
     xData.set_cid(m_roleId);
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
-                                                                 proto_ff::E_STORESVR_C2S_SELECTOBJ, 0, pServerConfig->DefaultDBName,
-                                                                 "RoleDBData", xData,GetGlobalID(), 0, m_roleId, "RoleDBSimpleData");
+                                                                 proto_ff::NF_STORESVR_C2S_SELECTOBJ, 0, pServerConfig->DefaultDBName,
+                                                                 "RoleDBData", xData, GetGlobalID(), 0, m_roleId, "RoleDBSimpleData");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
-int NFTransGetRoleSimple::ProQueryRoleRes(const storesvr_sqldata::storesvr_selobj_res *pSelectRsp, uint32_t err_code,
+int NFTransGetRoleSimple::ProQueryRoleRes(const storesvr_sqldata::storesvr_selobj_res *pSelectRsp, int32_t err_code,
                                              int iTransID) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
-    if (err_code == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY) {
-        return proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
+    if (err_code == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY) {
+        return proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
     }
 
-    if (err_code == proto_ff::E_STORESVR_ERRCODE_OK)
+    if (err_code == proto_ff::ERR_CODE_SVR_OK)
     {
         proto_ff::RoleDBSimpleData simpleData;
         bool ok = simpleData.ParsePartialFromString(pSelectRsp->sel_record());

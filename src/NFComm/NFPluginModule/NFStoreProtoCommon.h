@@ -39,8 +39,9 @@ public:
                                           const std::vector<std::string> &vecFields = std::vector<std::string>());
 
     // insert对象插入，返回打包数据
-    static std::string storesvr_insert(const std::string &dbname, const std::string &tbname,
-                                       uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "");
+    static std::string storesvr_insertobj(const std::string &dbname, const std::string &tbname, uint64_t mod_key,
+                                          const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "",
+                                          const std::string &package_name = "");
 
     // 按条件删除
     static std::string storesvr_deletebycond(const std::string &dbname, const std::string &tbname,
@@ -76,7 +77,9 @@ public:
     // 按对象修改
     static std::string storesvr_execute_more(const std::string &dbname, const std::string &tbname,
                                              uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name);
+
 public:
-    static int get_proto_field_type(const google::protobuf::FieldDescriptor& fieldDesc);
-    static int get_vk_list_from_proto(const google::protobuf::Message &message, std::vector<storesvr_sqldata::storesvr_vk>& vk_list);
+    static int get_proto_field_type(const google::protobuf::FieldDescriptor &fieldDesc);
+
+    static int get_vk_list_from_proto(const google::protobuf::Message &message, std::vector<storesvr_sqldata::storesvr_vk> &vk_list);
 };

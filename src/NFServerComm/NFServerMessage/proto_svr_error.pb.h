@@ -34,12 +34,11 @@ void protobuf_ShutdownFile_proto_5fsvr_5ferror_2eproto();
 
 
 enum Proto_SVR_ErrorCode {
-  ERR_CODE_SERVER_SYSTEM_ERROR = -1,
-  ERR_CODE_SERVER_OK = 0
+  ERR_CODE_SERVER_SYSTEM_ERROR = -1
 };
 bool Proto_SVR_ErrorCode_IsValid(int value);
 const Proto_SVR_ErrorCode Proto_SVR_ErrorCode_MIN = ERR_CODE_SERVER_SYSTEM_ERROR;
-const Proto_SVR_ErrorCode Proto_SVR_ErrorCode_MAX = ERR_CODE_SERVER_OK;
+const Proto_SVR_ErrorCode Proto_SVR_ErrorCode_MAX = ERR_CODE_SERVER_SYSTEM_ERROR;
 const int Proto_SVR_ErrorCode_ARRAYSIZE = Proto_SVR_ErrorCode_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Proto_SVR_ErrorCode_descriptor();

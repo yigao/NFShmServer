@@ -217,7 +217,7 @@ int NFBindPhoneTrans::ProGetBaseInfoRes(const storesvr_sqldata::storesvr_selobj_
 
     if (err_code != 0)
     {
-        if (err_code == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY)
+        if (err_code == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
         {
             NFPhoneAutoCode* pLogin = NFPhoneAutoCodeMgr::Instance()->FindPhone(m_phoneNum);
             if (pLogin)

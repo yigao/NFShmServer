@@ -124,12 +124,12 @@ int NFDescStoreTrans::HandleDescStoreData(const storesvr_sqldata::storesvr_sel_r
 }
 
 
-int NFDescStoreTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, uint32_t err_code)
+int NFDescStoreTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, int32_t err_code)
 {
     int iRetCode = 0;
     switch(cmd)
     {
-        case proto_ff::E_STORESVR_S2C_SELECT:
+        case proto_ff::NF_STORESVR_S2C_SELECT:
         {
             iRetCode = HandleDescStoreData((const storesvr_sqldata::storesvr_sel_res*)pSSMsgRes, err_code);
             break;
@@ -166,9 +166,9 @@ int NFDescStoreTrans::OnTimer(int timeId, int callcount)
         std::vector<storesvr_sqldata::storesvr_vk> vk_list;
 
         FindModule<NFIServerMessageModule>()->SendTransToStoreServer(m_eType, 0,
-                                                         proto_ff::E_STORESVR_C2S_SELECT, 0, m_dbName,
-                                                         m_tableName, std::vector<std::string>(), vk_list, "", 100,
-                                                         GetGlobalID(), 0, std::hash<std::string>()(m_tableName), GetDescStoreClsName());
+                                                                     proto_ff::NF_STORESVR_C2S_SELECT, 0, m_dbName,
+                                                                     m_tableName, std::vector<std::string>(), vk_list, "", 100,
+                                                                     GetGlobalID(), 0, std::hash<std::string>()(m_tableName), GetDescStoreClsName());
     }
     return 0;
 }
@@ -196,9 +196,9 @@ int NFDescStoreTrans::SendGetDescStoreReq(NF_SERVER_TYPES eType, const std::stri
     std::vector<storesvr_sqldata::storesvr_vk> vk_list;
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(eType, 0,
-                                                           proto_ff::E_STORESVR_C2S_SELECT, 0, m_dbName,
-                                                           table_name, std::vector<std::string>(), vk_list, "", 100,
-                                                           GetGlobalID(), 0, std::hash<std::string>()(table_name), GetDescStoreClsName());
+                                                                 proto_ff::NF_STORESVR_C2S_SELECT, 0, m_dbName,
+                                                                 table_name, std::vector<std::string>(), vk_list, "", 100,
+                                                                 GetGlobalID(), 0, std::hash<std::string>()(table_name), GetDescStoreClsName());
 
     return 0;
 }

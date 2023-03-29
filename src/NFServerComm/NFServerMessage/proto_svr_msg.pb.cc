@@ -68,6 +68,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* RpcRequestGetServerInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   RpcRequestGetServerInfo_reflection_ = NULL;
+const ::google::protobuf::Descriptor* RpcWatchServerReqeust_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  RpcWatchServerReqeust_reflection_ = NULL;
+const ::google::protobuf::Descriptor* RpcWatchServerRespone_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  RpcWatchServerRespone_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_SvrMsgID_descriptor_ = NULL;
 
 }  // namespace
@@ -337,6 +343,39 @@ void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(RpcRequestGetServerInfo));
+  RpcWatchServerReqeust_descriptor_ = file->message_type(16);
+  static const int RpcWatchServerReqeust_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerReqeust, src_server_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerReqeust, src_bus_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerReqeust, dst_server_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerReqeust, dst_bus_id_),
+  };
+  RpcWatchServerReqeust_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      RpcWatchServerReqeust_descriptor_,
+      RpcWatchServerReqeust::default_instance_,
+      RpcWatchServerReqeust_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerReqeust, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerReqeust, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(RpcWatchServerReqeust));
+  RpcWatchServerRespone_descriptor_ = file->message_type(17);
+  static const int RpcWatchServerRespone_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerRespone, ret_code_),
+  };
+  RpcWatchServerRespone_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      RpcWatchServerRespone_descriptor_,
+      RpcWatchServerRespone::default_instance_,
+      RpcWatchServerRespone_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerRespone, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RpcWatchServerRespone, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(RpcWatchServerRespone));
   Proto_SvrMsgID_descriptor_ = file->enum_type(0);
 }
 
@@ -382,6 +421,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Proto_TestOtherServerToWorldServer_descriptor_, &Proto_TestOtherServerToWorldServer::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     RpcRequestGetServerInfo_descriptor_, &RpcRequestGetServerInfo::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    RpcWatchServerReqeust_descriptor_, &RpcWatchServerReqeust::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    RpcWatchServerRespone_descriptor_, &RpcWatchServerRespone::default_instance());
 }
 
 }  // namespace
@@ -419,6 +462,10 @@ void protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto() {
   delete Proto_TestOtherServerToWorldServer_reflection_;
   delete RpcRequestGetServerInfo::default_instance_;
   delete RpcRequestGetServerInfo_reflection_;
+  delete RpcWatchServerReqeust::default_instance_;
+  delete RpcWatchServerReqeust_reflection_;
+  delete RpcWatchServerRespone::default_instance_;
+  delete RpcWatchServerRespone_reflection_;
 }
 
 void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
@@ -462,15 +509,19 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
     "OtherServerToWorldServer\022\021\n\tserver_id\030\001 "
     "\001(\t\022\023\n\013server_name\030\002 \001(\t\022\013\n\003seq\030\003 \001(\005\",\n"
     "\027RpcRequestGetServerInfo\022\021\n\tserver_id\030\001 "
-    "\001(\t*\315\002\n\016Proto_SvrMsgID\022%\n!NF_STSTORE_CHE"
-    "CK_STORE_SERVER_REQ\020(\022%\n!NF_STORETS_CHEC"
-    "K_STORE_SERVER_RSP\020)\022.\n*NF_TEST_SEND_PRO"
-    "XY_MSG_TO_OTHER_SERVER_REQ\020*\0221\n-NF_TEST_"
-    "OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER\020+\022"
-    "0\n,NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SER"
-    "VER_REQ\020,\0220\n,NF_TEST_WORLD_SERVER_MSG_TO"
-    "_OTHER_SERVER_REQ\020-\022&\n\"NF_RPC_SERVICE_GE"
-    "T_SERVER_INFO_REQ\020.", 1579);
+    "\001(\t\"q\n\025RpcWatchServerReqeust\022\027\n\017src_serv"
+    "er_type\030\001 \001(\005\022\022\n\nsrc_bus_id\030\002 \001(\005\022\027\n\017dst"
+    "_server_type\030\003 \001(\005\022\022\n\ndst_bus_id\030\004 \001(\005\")"
+    "\n\025RpcWatchServerRespone\022\020\n\010ret_code\030\001 \001("
+    "\005*\315\002\n\016Proto_SvrMsgID\022%\n!NF_STSTORE_CHECK"
+    "_STORE_SERVER_REQ\020(\022%\n!NF_STORETS_CHECK_"
+    "STORE_SERVER_RSP\020)\022.\n*NF_TEST_SEND_PROXY"
+    "_MSG_TO_OTHER_SERVER_REQ\020*\0221\n-NF_TEST_OT"
+    "HER_SERVER_SEND_MSG_TO_PROXY_SERVER\020+\0220\n"
+    ",NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVE"
+    "R_REQ\020,\0220\n,NF_TEST_WORLD_SERVER_MSG_TO_O"
+    "THER_SERVER_REQ\020-\022&\n\"NF_RPC_SERVICE_GET_"
+    "SERVER_INFO_REQ\020.", 1737);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_msg.proto", &protobuf_RegisterTypes);
   CommonMsgRsp::default_instance_ = new CommonMsgRsp();
@@ -489,6 +540,8 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
   Proto_TestSendWorldMsgToOtherServer::default_instance_ = new Proto_TestSendWorldMsgToOtherServer();
   Proto_TestOtherServerToWorldServer::default_instance_ = new Proto_TestOtherServerToWorldServer();
   RpcRequestGetServerInfo::default_instance_ = new RpcRequestGetServerInfo();
+  RpcWatchServerReqeust::default_instance_ = new RpcWatchServerReqeust();
+  RpcWatchServerRespone::default_instance_ = new RpcWatchServerRespone();
   CommonMsgRsp::default_instance_->InitAsDefaultInstance();
   Proto_MasterTMonitorReloadReq::default_instance_->InitAsDefaultInstance();
   Proto_MasterTMonitorRestartReq::default_instance_->InitAsDefaultInstance();
@@ -505,6 +558,8 @@ void protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto() {
   Proto_TestSendWorldMsgToOtherServer::default_instance_->InitAsDefaultInstance();
   Proto_TestOtherServerToWorldServer::default_instance_->InitAsDefaultInstance();
   RpcRequestGetServerInfo::default_instance_->InitAsDefaultInstance();
+  RpcWatchServerReqeust::default_instance_->InitAsDefaultInstance();
+  RpcWatchServerRespone::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto);
 }
 
@@ -4979,6 +5034,542 @@ void RpcRequestGetServerInfo::Swap(RpcRequestGetServerInfo* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = RpcRequestGetServerInfo_descriptor_;
   metadata.reflection = RpcRequestGetServerInfo_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int RpcWatchServerReqeust::kSrcServerTypeFieldNumber;
+const int RpcWatchServerReqeust::kSrcBusIdFieldNumber;
+const int RpcWatchServerReqeust::kDstServerTypeFieldNumber;
+const int RpcWatchServerReqeust::kDstBusIdFieldNumber;
+#endif  // !_MSC_VER
+
+RpcWatchServerReqeust::RpcWatchServerReqeust()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void RpcWatchServerReqeust::InitAsDefaultInstance() {
+}
+
+RpcWatchServerReqeust::RpcWatchServerReqeust(const RpcWatchServerReqeust& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void RpcWatchServerReqeust::SharedCtor() {
+  _cached_size_ = 0;
+  src_server_type_ = 0;
+  src_bus_id_ = 0;
+  dst_server_type_ = 0;
+  dst_bus_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+RpcWatchServerReqeust::~RpcWatchServerReqeust() {
+  SharedDtor();
+}
+
+void RpcWatchServerReqeust::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void RpcWatchServerReqeust::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* RpcWatchServerReqeust::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RpcWatchServerReqeust_descriptor_;
+}
+
+const RpcWatchServerReqeust& RpcWatchServerReqeust::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
+  return *default_instance_;
+}
+
+RpcWatchServerReqeust* RpcWatchServerReqeust::default_instance_ = NULL;
+
+RpcWatchServerReqeust* RpcWatchServerReqeust::New() const {
+  return new RpcWatchServerReqeust;
+}
+
+void RpcWatchServerReqeust::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    src_server_type_ = 0;
+    src_bus_id_ = 0;
+    dst_server_type_ = 0;
+    dst_bus_id_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool RpcWatchServerReqeust::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 src_server_type = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &src_server_type_)));
+          set_has_src_server_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_src_bus_id;
+        break;
+      }
+
+      // optional int32 src_bus_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_src_bus_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &src_bus_id_)));
+          set_has_src_bus_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_dst_server_type;
+        break;
+      }
+
+      // optional int32 dst_server_type = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dst_server_type:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &dst_server_type_)));
+          set_has_dst_server_type();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_dst_bus_id;
+        break;
+      }
+
+      // optional int32 dst_bus_id = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_dst_bus_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &dst_bus_id_)));
+          set_has_dst_bus_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void RpcWatchServerReqeust::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 src_server_type = 1;
+  if (has_src_server_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->src_server_type(), output);
+  }
+
+  // optional int32 src_bus_id = 2;
+  if (has_src_bus_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->src_bus_id(), output);
+  }
+
+  // optional int32 dst_server_type = 3;
+  if (has_dst_server_type()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->dst_server_type(), output);
+  }
+
+  // optional int32 dst_bus_id = 4;
+  if (has_dst_bus_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->dst_bus_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* RpcWatchServerReqeust::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 src_server_type = 1;
+  if (has_src_server_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->src_server_type(), target);
+  }
+
+  // optional int32 src_bus_id = 2;
+  if (has_src_bus_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->src_bus_id(), target);
+  }
+
+  // optional int32 dst_server_type = 3;
+  if (has_dst_server_type()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->dst_server_type(), target);
+  }
+
+  // optional int32 dst_bus_id = 4;
+  if (has_dst_bus_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->dst_bus_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int RpcWatchServerReqeust::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 src_server_type = 1;
+    if (has_src_server_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->src_server_type());
+    }
+
+    // optional int32 src_bus_id = 2;
+    if (has_src_bus_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->src_bus_id());
+    }
+
+    // optional int32 dst_server_type = 3;
+    if (has_dst_server_type()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->dst_server_type());
+    }
+
+    // optional int32 dst_bus_id = 4;
+    if (has_dst_bus_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->dst_bus_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void RpcWatchServerReqeust::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const RpcWatchServerReqeust* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const RpcWatchServerReqeust*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void RpcWatchServerReqeust::MergeFrom(const RpcWatchServerReqeust& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_src_server_type()) {
+      set_src_server_type(from.src_server_type());
+    }
+    if (from.has_src_bus_id()) {
+      set_src_bus_id(from.src_bus_id());
+    }
+    if (from.has_dst_server_type()) {
+      set_dst_server_type(from.dst_server_type());
+    }
+    if (from.has_dst_bus_id()) {
+      set_dst_bus_id(from.dst_bus_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void RpcWatchServerReqeust::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RpcWatchServerReqeust::CopyFrom(const RpcWatchServerReqeust& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RpcWatchServerReqeust::IsInitialized() const {
+
+  return true;
+}
+
+void RpcWatchServerReqeust::Swap(RpcWatchServerReqeust* other) {
+  if (other != this) {
+    std::swap(src_server_type_, other->src_server_type_);
+    std::swap(src_bus_id_, other->src_bus_id_);
+    std::swap(dst_server_type_, other->dst_server_type_);
+    std::swap(dst_bus_id_, other->dst_bus_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata RpcWatchServerReqeust::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = RpcWatchServerReqeust_descriptor_;
+  metadata.reflection = RpcWatchServerReqeust_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int RpcWatchServerRespone::kRetCodeFieldNumber;
+#endif  // !_MSC_VER
+
+RpcWatchServerRespone::RpcWatchServerRespone()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void RpcWatchServerRespone::InitAsDefaultInstance() {
+}
+
+RpcWatchServerRespone::RpcWatchServerRespone(const RpcWatchServerRespone& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void RpcWatchServerRespone::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+RpcWatchServerRespone::~RpcWatchServerRespone() {
+  SharedDtor();
+}
+
+void RpcWatchServerRespone::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void RpcWatchServerRespone::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* RpcWatchServerRespone::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RpcWatchServerRespone_descriptor_;
+}
+
+const RpcWatchServerRespone& RpcWatchServerRespone::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
+  return *default_instance_;
+}
+
+RpcWatchServerRespone* RpcWatchServerRespone::default_instance_ = NULL;
+
+RpcWatchServerRespone* RpcWatchServerRespone::New() const {
+  return new RpcWatchServerRespone;
+}
+
+void RpcWatchServerRespone::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool RpcWatchServerRespone::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void RpcWatchServerRespone::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* RpcWatchServerRespone::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int RpcWatchServerRespone::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void RpcWatchServerRespone::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const RpcWatchServerRespone* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const RpcWatchServerRespone*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void RpcWatchServerRespone::MergeFrom(const RpcWatchServerRespone& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void RpcWatchServerRespone::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RpcWatchServerRespone::CopyFrom(const RpcWatchServerRespone& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RpcWatchServerRespone::IsInitialized() const {
+
+  return true;
+}
+
+void RpcWatchServerRespone::Swap(RpcWatchServerRespone* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata RpcWatchServerRespone::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = RpcWatchServerRespone_descriptor_;
+  metadata.reflection = RpcWatchServerRespone_reflection_;
   return metadata;
 }
 

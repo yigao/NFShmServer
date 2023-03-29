@@ -145,8 +145,8 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    virtual int InsertObj(const std::string& serverID, const storesvr_sqldata::storesvr_ins &select,
-                          storesvr_sqldata::storesvr_ins_res &select_res) override;
+    virtual int InsertObj(const std::string& serverID, const storesvr_sqldata::storesvr_insertobj &select,
+                          storesvr_sqldata::storesvr_insertobj_res &select_res) override;
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res

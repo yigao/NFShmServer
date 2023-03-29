@@ -291,7 +291,7 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    int InsertObj(const storesvr_sqldata::storesvr_ins &select, storesvr_sqldata::storesvr_ins_res &select_res);
+    int InsertObj(const storesvr_sqldata::storesvr_insertobj &select, storesvr_sqldata::storesvr_insertobj_res &select_res);
 
     /**
      * @brief 通过select结构体，生成sql语句
@@ -300,7 +300,7 @@ public:
      * @param  selectSql 生成sql语句
      * @return int =0执行成功, != 0失败
      */
-    int CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &resultMap);
+    int CreateSql(const storesvr_sqldata::storesvr_insertobj &select, std::map<std::string, std::string> &resultMap);
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res

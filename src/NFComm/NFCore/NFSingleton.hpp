@@ -68,6 +68,15 @@ public:
 		}
 	}
 
+    static void SetSingletonPtr(T* pNewInstance)
+    {
+        if (m_pInstance)
+        {
+            NF_SAFE_RELEASE(m_pInstance);
+        }
+
+        m_pInstance = pNewInstance;
+    }
 private:
 	static T* m_pInstance;
 };

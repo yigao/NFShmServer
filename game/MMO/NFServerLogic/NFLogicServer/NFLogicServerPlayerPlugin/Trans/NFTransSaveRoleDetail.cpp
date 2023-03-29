@@ -93,8 +93,8 @@ int NFTransSaveRoleDetail::SaveRoleDetail(TRANS_SAVE_ROLE_DETAIL_REASON iReason)
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Save Role Info To Mysql:{}", xData.DebugString());
 
     iRetCode = FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
-                                                                 proto_ff::E_STORESVR_C2S_MODIFYOBJ, 0, pServerConfig->DefaultDBName,
-                                                                 "RoleDBData", xData,GetGlobalID(), pPlayer->GetCurRoleDetailSeq(), m_roleId);
+                                                                            proto_ff::NF_STORESVR_C2S_MODIFYOBJ, 0, pServerConfig->DefaultDBName,
+                                                                            "RoleDBData", xData, GetGlobalID(), pPlayer->GetCurRoleDetailSeq(), m_roleId);
 
     SetState(TRANS_SAVE_ROLE_DETAIL_STATE_SAVING_ROLE);
     return iRetCode;
@@ -102,11 +102,11 @@ int NFTransSaveRoleDetail::SaveRoleDetail(TRANS_SAVE_ROLE_DETAIL_REASON iReason)
 
 int NFTransSaveRoleDetail::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
                                   uint32_t seq,
-                                  uint32_t err_code)
+                                  int32_t err_code)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRetCode = 0;
-    if (cmd == proto_ff::E_STORESVR_S2C_MODIFYOBJ)
+    if (cmd == proto_ff::NF_STORESVR_S2C_MODIFYOBJ)
     {
         iRetCode = HandleSaveRoleDetailRes(err_code, seq);
     }

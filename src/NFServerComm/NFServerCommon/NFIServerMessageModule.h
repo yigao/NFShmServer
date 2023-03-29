@@ -180,8 +180,8 @@ public:
         NFStoreProtoCommon::storesvr_selectobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName, vecFields);
 
         storesvr_sqldata::storesvr_selobj_res selobjRes;
-        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::E_STORESVR_C2S_SELECTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
-                                                                                                     selobjRes);
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_SELECTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                      selobjRes);
         if (iRet == 0)
         {
             data.ParseFromString(selobjRes.sel_record());
@@ -256,13 +256,13 @@ public:
                                                   tbname, packageName);
 
         storesvr_sqldata::storesvr_sel_res selRes;
-        STATIC_ASSERT_BIND_RPC_SERVICE(proto_ff::E_STORESVR_C2S_SELECT, storesvr_sqldata::storesvr_sel, storesvr_sqldata::storesvr_sel_res);
+        STATIC_ASSERT_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_SELECT, storesvr_sqldata::storesvr_sel, storesvr_sqldata::storesvr_sel_res);
         NF_ASSERT_MSG(FindModule<NFICoroutineModule>()->IsInCoroutine(), "Call GetRpcService Must Int the Coroutine");
         NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
         CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eType));
 
         proto_ff::Proto_SvrPkg svrPkg;
-        svrPkg.set_msg_id(proto_ff::E_STORESVR_C2S_SELECT);
+        svrPkg.set_msg_id(proto_ff::NF_STORESVR_C2S_SELECT);
         svrPkg.set_msg_data(sel.SerializeAsString());
         svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
         svrPkg.mutable_rpc_info()->set_req_rpc_hash(std::hash<std::string>()(sel.GetTypeName()));
@@ -305,5 +305,73 @@ public:
 
         return iRet;
     }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server insert////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_selobj selobj;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_insertobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
+
+        storesvr_sqldata::storesvr_insertobj_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_INSERTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                      selobjRes);
+        if (iRet == 0)
+        {
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_INSERTOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
+                       selobjRes.ins_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType, typename ResponFunc>
+    int GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &func, uint32_t dstBusId = 0,
+                               const std::string &dbname = "")
+    {
+        return GetRpcInsertObjServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), dstBusId, dbname);
+    }
+
+/*    virtual int SendInsertObjTrans(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t table_id = 0, int trans_id = 0,
+                                   uint32_t seq = 0,
+                                   const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                                   const std::string &dbname = "") = 0;*/
+
+private:
+    template<class DataType, typename ResponFunc>
+    int GetRpcInsertObjServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &responFunc,
+                                    void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const, uint32_t dstBusId = 0,
+                                    const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine([=]()
+        {
+           int rpcRetCode = GetRpcInsertObjService(eType, mod_key, data, dstBusId, dbname);
+           (responFunc.*pf)(rpcRetCode, data);
+        });
+        return iRet;
+    }
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 };

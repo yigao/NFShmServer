@@ -197,12 +197,12 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
                                               const std::string &where_addtional_conds, int trans_id, uint32_t seq,
                                               uint64_t mod_key, const std::string &cls_name, uint8_t packet_type)
 {
-    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_MODIFY || cmd == proto_ff::E_STORESVR_C2S_MODINS, -1, "error cmd:{}", cmd);
+    CHECK_EXPR(cmd == proto_ff::NF_STORESVR_C2S_MODIFY || cmd == proto_ff::NF_STORESVR_C2S_MODINS, -1, "error cmd:{}", cmd);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
-    svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND) cmd);
+    svrPkg.mutable_store_info()->set_cmd(cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType) packet_type);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
@@ -213,12 +213,12 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
 
     switch (cmd)
     {
-        case proto_ff::E_STORESVR_C2S_MODIFY:
+        case proto_ff::NF_STORESVR_C2S_MODIFY:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_modifybycond(dbname, table_name, mod_key, xData, vk_list, where_addtional_conds, cls_name));
             break;
         }
-        case proto_ff::E_STORESVR_C2S_MODINS:
+        case proto_ff::NF_STORESVR_C2S_MODINS:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_modinsbycond(dbname, table_name, mod_key, xData, vk_list, where_addtional_conds, cls_name));
             break;
@@ -240,12 +240,12 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
                                               const std::string &where_addtional_conds, int max_records, int trans_id, uint32_t seq,
                                               uint64_t mod_key, const std::string &cls_name, uint8_t packet_type)
 {
-    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_SELECT || cmd == proto_ff::E_STORESVR_C2S_DELETE, -1, "error cmd:{}", cmd);
+    CHECK_EXPR(cmd == proto_ff::NF_STORESVR_C2S_SELECT || cmd == proto_ff::NF_STORESVR_C2S_DELETE, -1, "error cmd:{}", cmd);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
-    svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND) cmd);
+    svrPkg.mutable_store_info()->set_cmd(cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType) packet_type);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
@@ -256,13 +256,13 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
 
     switch (cmd)
     {
-        case proto_ff::E_STORESVR_C2S_SELECT:
+        case proto_ff::NF_STORESVR_C2S_SELECT:
         {
             svrPkg.set_msg_data(
                     NFStoreProtoCommon::storesvr_selectbycond(dbname, table_name, mod_key, vecFields, vk_list, where_addtional_conds, max_records, cls_name));
             break;
         }
-        case proto_ff::E_STORESVR_C2S_DELETE:
+        case proto_ff::NF_STORESVR_C2S_DELETE:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_deletebycond(dbname, table_name, mod_key, vk_list, cls_name));
             break;
@@ -282,13 +282,12 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
                                               int trans_id, uint32_t seq,
                                               uint64_t mod_key, const std::string &cls_name, uint8_t packet_type)
 {
-    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_EXECUTE_MORE, -1, "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), -1, "error cmd:{}", cmd);
+    CHECK_EXPR(cmd == proto_ff::NF_STORESVR_C2S_EXECUTE_MORE, -1, "error cmd:{}", cmd);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
-    svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND) cmd);
+    svrPkg.mutable_store_info()->set_cmd(cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType) packet_type);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
@@ -300,7 +299,7 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
     //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "message:{}", xData.DebugString());
     switch (cmd)
     {
-        case proto_ff::E_STORESVR_C2S_EXECUTE_MORE:
+        case proto_ff::NF_STORESVR_C2S_EXECUTE_MORE:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_execute_more(dbname, table_name, mod_key, xData, max_records, cls_name));
         }
@@ -321,13 +320,12 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
                                               int trans_id, uint32_t seq,
                                               uint64_t mod_key, const std::string &cls_name, uint8_t packet_type)
 {
-    CHECK_EXPR(cmd == proto_ff::E_STORESVR_C2S_EXECUTE, -1, "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), -1, "error cmd:{}", cmd);
+    CHECK_EXPR(cmd == proto_ff::NF_STORESVR_C2S_EXECUTE, -1, "error cmd:{}", cmd);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
-    svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND) cmd);
+    svrPkg.mutable_store_info()->set_cmd(cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType) packet_type);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
@@ -339,7 +337,7 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
     //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "message:{}", xData.DebugString());
     switch (cmd)
     {
-        case proto_ff::E_STORESVR_C2S_EXECUTE:
+        case proto_ff::NF_STORESVR_C2S_EXECUTE:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_execute(dbname, table_name, mod_key, xData, cls_name));
         }
@@ -360,14 +358,13 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
                                               uint32_t seq,
                                               uint64_t mod_key, const std::string &cls_name, uint8_t packet_type)
 {
-    CHECK_EXPR(!(cmd == proto_ff::E_STORESVR_C2S_SELECT || cmd == proto_ff::E_STORESVR_C2S_DELETE || cmd == proto_ff::E_STORESVR_C2S_MODIFY ||
-                 cmd == proto_ff::E_STORESVR_C2S_MODINS), -1, "error cmd:{}", cmd);
-    CHECK_EXPR(proto_ff::STORESVR_CS_COMMAND_IsValid(cmd), -1, "error cmd:{}", cmd);
+    CHECK_EXPR(!(cmd == proto_ff::NF_STORESVR_C2S_SELECT || cmd == proto_ff::NF_STORESVR_C2S_DELETE || cmd == proto_ff::NF_STORESVR_C2S_MODIFY ||
+                 cmd == proto_ff::NF_STORESVR_C2S_MODINS), -1, "error cmd:{}", cmd);
     CHECK_EXPR(proto_ff::PacketDispType_IsValid(packet_type), -1, "error msg_type:{}", packet_type);
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
-    svrPkg.mutable_store_info()->set_cmd((proto_ff::STORESVR_CS_COMMAND) cmd);
+    svrPkg.mutable_store_info()->set_cmd(cmd);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_type((proto_ff::PacketDispType) packet_type);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
@@ -379,39 +376,39 @@ NFServerMessageModule::SendTransToStoreServer(NF_SERVER_TYPES eType, uint32_t ds
     //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "message:{}", xData.DebugString());
     switch (cmd)
     {
-        case proto_ff::E_STORESVR_C2S_SELECT:
+        case proto_ff::NF_STORESVR_C2S_SELECT:
         {
             std::vector<storesvr_sqldata::storesvr_vk> vk_list;
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_selectbycond(dbname, table_name, mod_key, std::vector<std::string>(), vk_list, "", 100, cls_name));
         }
             break;
-        case proto_ff::E_STORESVR_C2S_SELECTOBJ:
+        case proto_ff::NF_STORESVR_C2S_SELECTOBJ:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_selectobj(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
-        case proto_ff::E_STORESVR_C2S_INSERT:
+        case proto_ff::NF_STORESVR_C2S_INSERT:
         {
-            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_insert(dbname, table_name, mod_key, xData, cls_name));
+            svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_insertobj(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
-        case proto_ff::E_STORESVR_C2S_DELETE:
+        case proto_ff::NF_STORESVR_C2S_DELETE:
         {
             std::vector<storesvr_sqldata::storesvr_vk> vk_list;
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_deletebycond(dbname, table_name, mod_key, vk_list, cls_name));
         }
             break;
-        case proto_ff::E_STORESVR_C2S_DELETEOBJ:
+        case proto_ff::NF_STORESVR_C2S_DELETEOBJ:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_delete(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
-        case proto_ff::E_STORESVR_C2S_MODIFYOBJ:
+        case proto_ff::NF_STORESVR_C2S_MODIFYOBJ:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_modifyobj(dbname, table_name, mod_key, xData, cls_name));
         }
             break;
-        case proto_ff::E_STORESVR_C2S_MODINSOBJ:
+        case proto_ff::NF_STORESVR_C2S_MODINSOBJ:
         {
             svrPkg.set_msg_data(NFStoreProtoCommon::storesvr_modinsobj(dbname, table_name, mod_key, xData, cls_name));
         }
@@ -451,7 +448,7 @@ int NFServerMessageModule::SendSelectObjTrans(NF_SERVER_TYPES eType, uint64_t mo
 
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(0);
-    svrPkg.mutable_store_info()->set_cmd(proto_ff::E_STORESVR_C2S_SELECTOBJ);
+    svrPkg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_C2S_SELECTOBJ);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_table_id(table_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_id(trans_id);
     svrPkg.mutable_store_info()->mutable_cb_data()->set_seq(seq);

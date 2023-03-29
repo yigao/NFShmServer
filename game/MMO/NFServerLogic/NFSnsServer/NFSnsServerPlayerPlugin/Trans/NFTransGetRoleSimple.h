@@ -32,9 +32,9 @@ public:
     virtual int HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq);
 
     virtual int HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
-                               uint32_t seq, uint32_t err_code);
+                               uint32_t seq, int32_t err_code);
 
-    int ProQueryRoleRes(const storesvr_sqldata::storesvr_selobj_res* pSelectRsp, uint32_t err_code, int iTransID);
+    int ProQueryRoleRes(const storesvr_sqldata::storesvr_selobj_res* pSelectRsp, int32_t err_code, int iTransID);
 public:
     int QueryRole(uint64_t roleId);
 

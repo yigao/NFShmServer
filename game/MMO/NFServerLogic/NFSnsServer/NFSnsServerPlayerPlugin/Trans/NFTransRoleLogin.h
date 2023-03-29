@@ -41,7 +41,7 @@ public:
     virtual int HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq) override;
 
     virtual int HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
-                               uint32_t seq, uint32_t err_code) override;
+                               uint32_t seq, int32_t err_code) override;
 
 public:
     /**
@@ -64,7 +64,7 @@ public:
      * @param err_code
      * @return
      */
-    int OnHandleInsertRoleDetailRes(const storesvr_sqldata::storesvr_ins_res* pRes, int err_code);
+    int OnHandleInsertRoleDetailRes(const storesvr_sqldata::storesvr_insertobj_res* pRes, int err_code);
 public:
     /**
      * @brief 处理获取角色数据返回

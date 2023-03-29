@@ -56,12 +56,12 @@ int NFTransRoleLogin::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
     return NFTransBase::HandleCSMsgReq(pCSMsgReq);
 }
 
-int NFTransRoleLogin::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, uint32_t err_code)
+int NFTransRoleLogin::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, int32_t err_code)
 {
     int iRetCode = 0;
-    if (cmd == proto_ff::E_STORESVR_S2C_INSERT)
+    if (cmd == proto_ff::NF_STORESVR_S2C_INSERT)
     {
-        iRetCode = OnHandleInsertRoleDetailRes((const storesvr_sqldata::storesvr_ins_res*)pSSMsgRes, err_code);
+        iRetCode = OnHandleInsertRoleDetailRes((const storesvr_sqldata::storesvr_insertobj_res*)pSSMsgRes, err_code);
     }
     else {
         iRetCode = -1;
@@ -69,9 +69,9 @@ int NFTransRoleLogin::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes,
     return iRetCode;
 }
 
-int NFTransRoleLogin::OnHandleInsertRoleDetailRes(const storesvr_sqldata::storesvr_ins_res *pRes, int err_code)
+int NFTransRoleLogin::OnHandleInsertRoleDetailRes(const storesvr_sqldata::storesvr_insertobj_res *pRes, int err_code)
 {
-    if (err_code == proto_ff::E_STORESVR_ERRCODE_OK)
+    if (err_code == proto_ff::ERR_CODE_SVR_OK)
     {
         proto_ff::RoleDBSnsDetail xData;
         xData.set_cid(m_roleId);
@@ -183,14 +183,14 @@ int NFTransRoleLogin::HandleGetRoleDetailRes(int iRunLogicRetCode, uint64_t role
     auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     CHECK_EXPR_ASSERT(pServerConfig, -1, "FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER) Failed");
 
-    if (iRunLogicRetCode == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY)
+    if (iRunLogicRetCode == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
     {
         proto_ff::RoleDBSnsDetail xData;
         xData.set_cid(roleId);
 
         return FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
-                                                                     proto_ff::E_STORESVR_C2S_INSERT, 0, pServerConfig->DefaultDBName,
-                                                                     "RoleDBSnsDetail", xData,GetGlobalID(), 0, roleId);
+                                                                            proto_ff::NF_STORESVR_C2S_INSERT, 0, pServerConfig->DefaultDBName,
+                                                                            "RoleDBSnsDetail", xData, GetGlobalID(), 0, roleId);
     }
     else {
         return NFTransCacheBase::HandleGetRoleDetailRes(iRunLogicRetCode, roleId);

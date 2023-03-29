@@ -57,56 +57,84 @@ class NFEventNoneData;
 class Proto_ServerDumpInfoNtf;
 
 enum Proto_Kernel_CMD {
-  NF_GTM_KILL_ALL_SERVER_NTF = 3,
-  NF_STS_KILL_ALL_SERVER_NTF = 4,
-  NF_STS_SEND_DUMP_INFO_NTF = 44,
-  NF_MasterTMonitor_RELOAD_CMD_REQ = 80,
-  NF_MasterTMonitor_RESTART_CMD_REQ = 81,
-  NF_MasterTMonitor_START_CMD_REQ = 82,
-  NF_MasterTMonitor_STOP_CMD_REQ = 83,
-  NF_MasterTMonitor_STOP_ALL_CMD_REQ = 84,
-  NF_MasterTMonitor_RELOAD_ALL_CMD_REQ = 85,
-  NF_MasterTMonitor_RESTART_ALL_CMD_REQ = 86,
-  NF_MasterTMonitor_START_ALL_CMD_REQ = 87,
-  NF_MonitorTMaster_RELOAD_CMD_RSP = 90,
-  NF_MonitorTMaster_RESTART_CMD_RSP = 91,
-  NF_MonitorTMaster_START_CMD_RSP = 92,
-  NF_MonitorTMaster_STOP_CMD_RSP = 93,
-  NF_MonitorTMaster_STOP_ALL_CMD_RSP = 94,
-  NF_MonitorTMaster_RELOAD_ALL_CMD_RSP = 95,
-  NF_MonitorTMaster_RESTART_ALL_CMD_RSP = 96,
-  NF_MonitorTMaster_START_ALL_CMD_RSP = 97,
-  NF_SERVER_TO_SERVER_REGISTER = 100,
-  NF_SERVER_TO_SERVER_REGISTER_RSP = 101,
-  NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER = 102,
-  NF_SERVER_TO_MASTER_SERVER_REPORT = 103,
-  NF_ROUTER_CMD_INTERNAL_C2R_REGISTER = 104,
-  NF_ROUTER_CMD_INTERNAL_R2C_REGISTER = 105,
-  NF_ROUTER_CMD_INTERNAL_C2R_HEARTBEAT = 106,
-  NF_ROUTER_CMD_INTERNAL_R2C_HEARTBEAT = 107,
-  NF_ROUTER_CMD_DISPATCH_MOD = 108,
-  NF_ROUTER_CMD_DISPATCH_ROUNDROBIN = 109,
-  NF_ROUTER_CMD_DISPATCH_BROADCAST = 110,
-  NF_ROUTER_CMD_DISPATCH_BROADCAST_AND_MASTER = 111,
-  NF_ROUTER_CMD_DISPATCH_BORADCAST_MASTER = 112,
-  NF_ROUTER_CMD_DISPATCH_BORADCAST_SLAVE = 113,
-  NF_ROUTER_CMD_DISPATCH_DIRECT = 114,
-  NF_ROUTER_CMD_INTERNAL_R2C_DISPATCHFAILED = 115,
-  NF_ROUTER_CMD_INTERNAL_C2R_REG_RAASSOCAPPSVS = 116,
-  NF_SERVER_TO_SERVER_RPC_CMD = 119,
-  NF_SERVER_TO_SERVER_TRANS_CMD = 120,
-  NF_SERVER_TO_STORE_SERVER_DB_CMD = 121,
-  NF_STORE_SERVER_TO_SERVER_DB_CMD = 122,
-  NF_WORLD_ROUTER_CMD_TO_SUIT_LOGIC = 123,
-  NF_SNS_ROUTER_CMD_TO_SUIT_LOGIC = 124,
-  NF_STS_BROAD_PLAYER_MSG_NOTIFY = 125,
-  NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 126,
-  NF_SERVER_BROAD_EVENT_TO_SERVER_CMD = 127,
-  NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD = 128
+  NF_SERVER_TO_SERVER_HEART_BEAT = 5001,
+  NF_SERVER_TO_SERVER_HEART_BEAT_RSP = 5002,
+  NF_GTM_KILL_ALL_SERVER_NTF = 5003,
+  NF_STS_KILL_ALL_SERVER_NTF = 5004,
+  NF_STS_SEND_DUMP_INFO_NTF = 5044,
+  NF_MasterTMonitor_RELOAD_CMD_REQ = 5080,
+  NF_MasterTMonitor_RESTART_CMD_REQ = 5081,
+  NF_MasterTMonitor_START_CMD_REQ = 5082,
+  NF_MasterTMonitor_STOP_CMD_REQ = 5083,
+  NF_MasterTMonitor_STOP_ALL_CMD_REQ = 5084,
+  NF_MasterTMonitor_RELOAD_ALL_CMD_REQ = 5085,
+  NF_MasterTMonitor_RESTART_ALL_CMD_REQ = 5086,
+  NF_MasterTMonitor_START_ALL_CMD_REQ = 5087,
+  NF_MonitorTMaster_RELOAD_CMD_RSP = 5090,
+  NF_MonitorTMaster_RESTART_CMD_RSP = 5091,
+  NF_MonitorTMaster_START_CMD_RSP = 5092,
+  NF_MonitorTMaster_STOP_CMD_RSP = 5093,
+  NF_MonitorTMaster_STOP_ALL_CMD_RSP = 5094,
+  NF_MonitorTMaster_RELOAD_ALL_CMD_RSP = 5095,
+  NF_MonitorTMaster_RESTART_ALL_CMD_RSP = 5096,
+  NF_MonitorTMaster_START_ALL_CMD_RSP = 5097,
+  NF_SERVER_TO_SERVER_REGISTER = 1500,
+  NF_SERVER_TO_SERVER_REGISTER_RSP = 5101,
+  NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER = 5102,
+  NF_SERVER_TO_MASTER_SERVER_REPORT = 5103,
+  NF_ROUTER_CMD_INTERNAL_C2R_REGISTER = 5104,
+  NF_ROUTER_CMD_INTERNAL_R2C_REGISTER = 5105,
+  NF_ROUTER_CMD_INTERNAL_C2R_HEARTBEAT = 5106,
+  NF_ROUTER_CMD_INTERNAL_R2C_HEARTBEAT = 5107,
+  NF_ROUTER_CMD_DISPATCH_MOD = 5108,
+  NF_ROUTER_CMD_DISPATCH_ROUNDROBIN = 5109,
+  NF_ROUTER_CMD_DISPATCH_BROADCAST = 5110,
+  NF_ROUTER_CMD_DISPATCH_BROADCAST_AND_MASTER = 5111,
+  NF_ROUTER_CMD_DISPATCH_BORADCAST_MASTER = 5112,
+  NF_ROUTER_CMD_DISPATCH_BORADCAST_SLAVE = 5113,
+  NF_ROUTER_CMD_DISPATCH_DIRECT = 5114,
+  NF_ROUTER_CMD_INTERNAL_R2C_DISPATCHFAILED = 5115,
+  NF_ROUTER_CMD_INTERNAL_C2R_REG_RAASSOCAPPSVS = 5116,
+  NF_SERVER_TO_SERVER_RPC_CMD = 5119,
+  NF_SERVER_TO_SERVER_TRANS_CMD = 5120,
+  NF_SERVER_TO_STORE_SERVER_DB_CMD = 5121,
+  NF_STORE_SERVER_TO_SERVER_DB_CMD = 5122,
+  NF_WORLD_ROUTER_CMD_TO_SUIT_LOGIC = 5123,
+  NF_SNS_ROUTER_CMD_TO_SUIT_LOGIC = 5124,
+  NF_STS_BROAD_PLAYER_MSG_NOTIFY = 5125,
+  NF_SEVER_TO_WEB_SERVER_RSP_NOTIFY = 5126,
+  NF_SERVER_BROAD_EVENT_TO_SERVER_CMD = 5127,
+  NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD = 5128,
+  NF_STORESVR_C2S_SELECT = 5200,
+  NF_STORESVR_S2C_SELECT = 5201,
+  NF_STORESVR_C2S_SELECTOBJ = 5202,
+  NF_STORESVR_S2C_SELECTOBJ = 5203,
+  NF_STORESVR_C2S_INSERT = 5204,
+  NF_STORESVR_S2C_INSERT = 5205,
+  NF_STORESVR_C2S_INSERTOBJ = 5206,
+  NF_STORESVR_S2C_INSERTOBJ = 5207,
+  NF_STORESVR_C2S_DELETE = 5208,
+  NF_STORESVR_S2C_DELETE = 5209,
+  NF_STORESVR_C2S_DELETEOBJ = 5210,
+  NF_STORESVR_S2C_DELETEOBJ = 5211,
+  NF_STORESVR_C2S_MODIFY = 5212,
+  NF_STORESVR_S2C_MODIFY = 5213,
+  NF_STORESVR_C2S_MODIFYOBJ = 5214,
+  NF_STORESVR_S2C_MODIFYOBJ = 5215,
+  NF_STORESVR_C2S_MODINS = 5216,
+  NF_STORESVR_S2C_MODINS = 5217,
+  NF_STORESVR_C2S_MODINSOBJ = 5218,
+  NF_STORESVR_S2C_MODINSOBJ = 5219,
+  NF_STORESVR_C2S_DESCSTORE = 5220,
+  NF_STORESVR_S2C_DESCSTORE = 5221,
+  NF_STORESVR_C2S_EXECUTE = 5222,
+  NF_STORESVR_S2C_EXECUTE = 5223,
+  NF_STORESVR_C2S_EXECUTE_MORE = 5224,
+  NF_STORESVR_S2C_EXECUTE_MORE = 5225
 };
 bool Proto_Kernel_CMD_IsValid(int value);
-const Proto_Kernel_CMD Proto_Kernel_CMD_MIN = NF_GTM_KILL_ALL_SERVER_NTF;
-const Proto_Kernel_CMD Proto_Kernel_CMD_MAX = NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD;
+const Proto_Kernel_CMD Proto_Kernel_CMD_MIN = NF_SERVER_TO_SERVER_REGISTER;
+const Proto_Kernel_CMD Proto_Kernel_CMD_MAX = NF_STORESVR_S2C_EXECUTE_MORE;
 const int Proto_Kernel_CMD_ARRAYSIZE = Proto_Kernel_CMD_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Proto_Kernel_CMD_descriptor();
@@ -118,102 +146,6 @@ inline bool Proto_Kernel_CMD_Parse(
     const ::std::string& name, Proto_Kernel_CMD* value) {
   return ::google::protobuf::internal::ParseNamedEnum<Proto_Kernel_CMD>(
     Proto_Kernel_CMD_descriptor(), name, value);
-}
-enum NFROUTER_ERRCODE {
-  NF_ROUTER_ERRCODE_OK = 0,
-  NF_ROUTER_ERRCODE_DISPATCHFAILD_DESTSVR_NOTEXIST = 1
-};
-bool NFROUTER_ERRCODE_IsValid(int value);
-const NFROUTER_ERRCODE NFROUTER_ERRCODE_MIN = NF_ROUTER_ERRCODE_OK;
-const NFROUTER_ERRCODE NFROUTER_ERRCODE_MAX = NF_ROUTER_ERRCODE_DISPATCHFAILD_DESTSVR_NOTEXIST;
-const int NFROUTER_ERRCODE_ARRAYSIZE = NFROUTER_ERRCODE_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* NFROUTER_ERRCODE_descriptor();
-inline const ::std::string& NFROUTER_ERRCODE_Name(NFROUTER_ERRCODE value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    NFROUTER_ERRCODE_descriptor(), value);
-}
-inline bool NFROUTER_ERRCODE_Parse(
-    const ::std::string& name, NFROUTER_ERRCODE* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<NFROUTER_ERRCODE>(
-    NFROUTER_ERRCODE_descriptor(), name, value);
-}
-enum STORESVR_CS_COMMAND {
-  E_STORESVR_C2S_SELECT = 0,
-  E_STORESVR_S2C_SELECT = 1,
-  E_STORESVR_C2S_SELECTOBJ = 2,
-  E_STORESVR_S2C_SELECTOBJ = 3,
-  E_STORESVR_C2S_INSERT = 4,
-  E_STORESVR_S2C_INSERT = 5,
-  E_STORESVR_C2S_DELETE = 6,
-  E_STORESVR_S2C_DELETE = 7,
-  E_STORESVR_C2S_DELETEOBJ = 8,
-  E_STORESVR_S2C_DELETEOBJ = 9,
-  E_STORESVR_C2S_MODIFY = 10,
-  E_STORESVR_S2C_MODIFY = 11,
-  E_STORESVR_C2S_MODIFYOBJ = 12,
-  E_STORESVR_S2C_MODIFYOBJ = 13,
-  E_STORESVR_C2S_MODINS = 14,
-  E_STORESVR_S2C_MODINS = 15,
-  E_STORESVR_C2S_MODINSOBJ = 16,
-  E_STORESVR_S2C_MODINSOBJ = 17,
-  E_STORESVR_C2S_DESCSTORE = 18,
-  E_STORESVR_S2C_DESCSTORE = 19,
-  E_STORESVR_C2S_EXECUTE = 20,
-  E_STORESVR_S2C_EXECUTE = 21,
-  E_STORESVR_C2S_EXECUTE_MORE = 22,
-  E_STORESVR_S2C_EXECUTE_MORE = 23
-};
-bool STORESVR_CS_COMMAND_IsValid(int value);
-const STORESVR_CS_COMMAND STORESVR_CS_COMMAND_MIN = E_STORESVR_C2S_SELECT;
-const STORESVR_CS_COMMAND STORESVR_CS_COMMAND_MAX = E_STORESVR_S2C_EXECUTE_MORE;
-const int STORESVR_CS_COMMAND_ARRAYSIZE = STORESVR_CS_COMMAND_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* STORESVR_CS_COMMAND_descriptor();
-inline const ::std::string& STORESVR_CS_COMMAND_Name(STORESVR_CS_COMMAND value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    STORESVR_CS_COMMAND_descriptor(), value);
-}
-inline bool STORESVR_CS_COMMAND_Parse(
-    const ::std::string& name, STORESVR_CS_COMMAND* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<STORESVR_CS_COMMAND>(
-    STORESVR_CS_COMMAND_descriptor(), name, value);
-}
-enum STORESVR_ERRCODE {
-  E_STORESVR_ERRCODE_OK = 0,
-  E_STORESVR_ERRCODE_BUSY = 1,
-  E_STORESVR_ERRCODE_EINVAL = 2,
-  E_STORESVR_ERRCODE_PARSEFROMSTRINGFAILED = 3,
-  E_STORESVR_ERRCODE_DBNAME_OR_MODKEY_INVALID = 4,
-  E_STORESVR_ERRCODE_TBNAME_INVALID = 5,
-  E_STORESVR_ERRCODE_SELECT_EMPTY = 6,
-  E_STORESVR_ERRCODE_SELECT_FILLMESSAGEBYRESULTFAILED = 7,
-  E_STORESVR_ERRCODE_CANNOTCREATERECORDMSGOBJECT = 8,
-  E_STORESVR_ERRCODE_CANNOTFINDSQLTEMPALTE = 9,
-  E_STORESVR_ERRCODE_SETPREPARESTATEMENTFAILED = 10,
-  E_STORESVR_ERRCODE_INSERTFAILED = 11,
-  E_STORESVR_ERRCODE_DELETEFAILED = 12,
-  E_STORESVR_ERRCODE_DELETERECORDISNOTEXIST = 13,
-  E_STORESVR_ERRCODE_UPDATERECORDISNOTEXIST = 14,
-  E_STORESVR_ERRCODE_UPDATENOROWAFFECTED = 15,
-  E_STORESVR_ERRCODE_UPDATEFAILED = 16,
-  E_STORESVR_ERRCODE_UPDATEINSERTFAILED = 17,
-  E_STORESVR_ERRCODE_UNKNOWN = 18
-};
-bool STORESVR_ERRCODE_IsValid(int value);
-const STORESVR_ERRCODE STORESVR_ERRCODE_MIN = E_STORESVR_ERRCODE_OK;
-const STORESVR_ERRCODE STORESVR_ERRCODE_MAX = E_STORESVR_ERRCODE_UNKNOWN;
-const int STORESVR_ERRCODE_ARRAYSIZE = STORESVR_ERRCODE_MAX + 1;
-
-const ::google::protobuf::EnumDescriptor* STORESVR_ERRCODE_descriptor();
-inline const ::std::string& STORESVR_ERRCODE_Name(STORESVR_ERRCODE value) {
-  return ::google::protobuf::internal::NameOfEnum(
-    STORESVR_ERRCODE_descriptor(), value);
-}
-inline bool STORESVR_ERRCODE_Parse(
-    const ::std::string& name, STORESVR_ERRCODE* value) {
-  return ::google::protobuf::internal::ParseNamedEnum<STORESVR_ERRCODE>(
-    STORESVR_ERRCODE_descriptor(), name, value);
 }
 enum PacketDispType {
   E_DISP_TYPE_NONE = 0,
@@ -259,27 +191,28 @@ inline bool EServerState_Parse(
     EServerState_descriptor(), name, value);
 }
 enum Proto_Kernel_ErrorCode {
-  ERR_CODE_SVR_SYSTEM_ERROR = -1,
   ERR_CODE_SVR_OK = 0,
+  ERR_CODE_SVR_SYSTEM_ERROR = -1,
+  ERR_CODE_SVR_SYSTEM_TIMEOUT = -2,
+  ERR_CODE_SVR_SYSTEM_DATABASE_ERROR = -3,
   ERR_CODE_MSG_RPC_BASE = -100,
-  ERR_RPC_INVALID_PARAM = -101,
-  ERR_RPC_ENCODE_FAILED = -102,
-  ERR_RPC_DECODE_FAILED = -103,
-  ERR_RPC_RECV_EXCEPTION_MSG = -104,
-  ERR_RPC_UNKNOWN_TYPE = -105,
-  ERR_RPC_UNSUPPORT_FUNCTION_NAME = -106,
-  ERR_RPC_SESSION_NOT_FOUND = -107,
-  ERR_RPC_SEND_FAILED = -108,
-  ERR_RPC_REQUEST_TIMEOUT = -109,
-  ERR_RPC_FUNCTION_NAME_EXISTED = -110,
-  ERR_RPC_SYSTEM_ERROR = -111,
-  ERR_RPC_PROCESS_TIMEOUT = -112,
-  ERR_RPC_MSG_FUNCTION_UNEXISTED = -113,
-  ERR_RPC_SYSTEM_OVERLOAD_BASE = -114,
-  ERR_RPC_MESSAGE_EXPIRED = -115,
-  ERR_RPC_TASK_OVERLOAD = -116,
-  ERR_RPC_CO_USED = -117,
-  ERR_CODE_ZOOKEEPER_BASE = 0,
+  ERR_CODE_RPC_INVALID_PARAM = -101,
+  ERR_CODE_RPC_ENCODE_FAILED = -102,
+  ERR_CODE_RPC_DECODE_FAILED = -103,
+  ERR_CODE_RPC_RECV_EXCEPTION_MSG = -104,
+  ERR_CODE_RPC_UNKNOWN_TYPE = -105,
+  ERR_CODE_RPC_UNSUPPORT_FUNCTION_NAME = -106,
+  ERR_CODE_RPC_SESSION_NOT_FOUND = -107,
+  ERR_CODE_RPC_SEND_FAILED = -108,
+  ERR_CODE_RPC_REQUEST_TIMEOUT = -109,
+  ERR_CODE_RPC_FUNCTION_NAME_EXISTED = -110,
+  ERR_CODE_RPC_SYSTEM_ERROR = -111,
+  ERR_CODE_RPC_PROCESS_TIMEOUT = -112,
+  ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED = -113,
+  ERR_CODE_RPC_SYSTEM_OVERLOAD_BASE = -114,
+  ERR_CODE_RPC_MESSAGE_EXPIRED = -115,
+  ERR_CODE_RPC_TASK_OVERLOAD = -116,
+  ERR_CODE_RPC_CO_USED = -117,
   ERR_CODE_ZK_SYSTEMERROR = -200,
   ERR_CODE_ZK_RUNTIMEINCONSISTENCY = -201,
   ERR_CODE_ZK_DATAINCONSISTENCY = -203,
@@ -322,9 +255,26 @@ enum Proto_Kernel_ErrorCode {
   ERR_CODE_ROUTER_NONE_VALID_HANDLE = -503,
   ERR_CODE_ROUTER_FACTORY_MAP_NULL = -504,
   ERR_CODE_ROUTER_FACTORY_EXISTED = -505,
+  NF_CODE_ROUTER_DISPATCHFAILD_DESTSVR_NOTEXIST = -506,
   ERR_CODE_TIMER_BASE = -600,
-  ERR_CODE_PIPE_BASE = -700,
-  ERR_CODE_COROUTINE_BASE = -800,
+  ERR_CODE_STORESVR_ERRCODE_BUSY = -701,
+  ERR_CODE_STORESVR_ERRCODE_EINVAL = -702,
+  ERR_CODE_STORESVR_ERRCODE_PARSEFROMSTRINGFAILED = -703,
+  ERR_CODE_STORESVR_ERRCODE_DBNAME_OR_MODKEY_INVALID = -704,
+  ERR_CODE_STORESVR_ERRCODE_TBNAME_INVALID = -705,
+  ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY = -706,
+  ERR_CODE_STORESVR_ERRCODE_SELECT_FILLMESSAGEBYRESULTFAILED = -707,
+  ERR_CODE_STORESVR_ERRCODE_CANNOTCREATERECORDMSGOBJECT = -708,
+  ERR_CODE_STORESVR_ERRCODE_CANNOTFINDSQLTEMPALTE = -709,
+  ERR_CODE_STORESVR_ERRCODE_SETPREPARESTATEMENTFAILED = -710,
+  ERR_CODE_STORESVR_ERRCODE_INSERTFAILED = -711,
+  ERR_CODE_STORESVR_ERRCODE_DELETEFAILED = -712,
+  ERR_CODE_STORESVR_ERRCODE_DELETERECORDISNOTEXIST = -713,
+  ERR_CODE_STORESVR_ERRCODE_UPDATERECORDISNOTEXIST = -714,
+  ERR_CODE_STORESVR_ERRCODE_UPDATENOROWAFFECTED = -715,
+  ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED = -716,
+  ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED = -717,
+  ERR_CODE_STORESVR_ERRCODE_UNKNOWN = -718,
   ERR_CODE_CO_INVALID_PARAM = -801,
   ERR_CODE_CO_NOT_IN_COROUTINE = -802,
   ERR_CODE_CO_NOT_RUNNING = -803,
@@ -332,13 +282,10 @@ enum Proto_Kernel_ErrorCode {
   ERR_CODE_CO_TIMEOUT = -805,
   ERR_CODE_CO_CANNOT_RESUME_IN_COROUTINE = -806,
   ERR_CODE_CO_COROUTINE_UNEXIST = -807,
-  ERR_CODE_CO_COROUTINE_STATUS_ERROR = -809,
-  ERR_CODE_CHANNEL_BASE = -900,
-  ERR_CODE_SVR_SYSTEM_TIMEOUT = -10000,
-  ERR_CODE_SVR_SYSTEM_DATABASE_ERROR = -10001
+  ERR_CODE_CO_COROUTINE_STATUS_ERROR = -809
 };
 bool Proto_Kernel_ErrorCode_IsValid(int value);
-const Proto_Kernel_ErrorCode Proto_Kernel_ErrorCode_MIN = ERR_CODE_SVR_SYSTEM_DATABASE_ERROR;
+const Proto_Kernel_ErrorCode Proto_Kernel_ErrorCode_MIN = ERR_CODE_CO_COROUTINE_STATUS_ERROR;
 const Proto_Kernel_ErrorCode Proto_Kernel_ErrorCode_MAX = ERR_CODE_SVR_OK;
 const int Proto_Kernel_ErrorCode_ARRAYSIZE = Proto_Kernel_ErrorCode_MAX + 1;
 
@@ -678,19 +625,19 @@ class Proto_StoreInfo : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .proto_ff.STORESVR_CS_COMMAND cmd = 1;
+  // optional uint32 cmd = 1;
   inline bool has_cmd() const;
   inline void clear_cmd();
   static const int kCmdFieldNumber = 1;
-  inline ::proto_ff::STORESVR_CS_COMMAND cmd() const;
-  inline void set_cmd(::proto_ff::STORESVR_CS_COMMAND value);
+  inline ::google::protobuf::uint32 cmd() const;
+  inline void set_cmd(::google::protobuf::uint32 value);
 
-  // optional .proto_ff.STORESVR_ERRCODE err_code = 2;
+  // optional int32 err_code = 2;
   inline bool has_err_code() const;
   inline void clear_err_code();
   static const int kErrCodeFieldNumber = 2;
-  inline ::proto_ff::STORESVR_ERRCODE err_code() const;
-  inline void set_err_code(::proto_ff::STORESVR_ERRCODE value);
+  inline ::google::protobuf::int32 err_code() const;
+  inline void set_err_code(::google::protobuf::int32 value);
 
   // optional .proto_ff.Proto_StoreInfo_CB cb_data = 3;
   inline bool has_cb_data() const;
@@ -712,8 +659,8 @@ class Proto_StoreInfo : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  int cmd_;
-  int err_code_;
+  ::google::protobuf::uint32 cmd_;
+  ::google::protobuf::int32 err_code_;
   ::proto_ff::Proto_StoreInfo_CB* cb_data_;
 
   mutable int _cached_size_;
@@ -3075,7 +3022,7 @@ inline void Proto_StoreInfo_CB::set_seq(::google::protobuf::uint32 value) {
 
 // Proto_StoreInfo
 
-// optional .proto_ff.STORESVR_CS_COMMAND cmd = 1;
+// optional uint32 cmd = 1;
 inline bool Proto_StoreInfo::has_cmd() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -3086,19 +3033,18 @@ inline void Proto_StoreInfo::clear_has_cmd() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void Proto_StoreInfo::clear_cmd() {
-  cmd_ = 0;
+  cmd_ = 0u;
   clear_has_cmd();
 }
-inline ::proto_ff::STORESVR_CS_COMMAND Proto_StoreInfo::cmd() const {
-  return static_cast< ::proto_ff::STORESVR_CS_COMMAND >(cmd_);
+inline ::google::protobuf::uint32 Proto_StoreInfo::cmd() const {
+  return cmd_;
 }
-inline void Proto_StoreInfo::set_cmd(::proto_ff::STORESVR_CS_COMMAND value) {
-  assert(::proto_ff::STORESVR_CS_COMMAND_IsValid(value));
+inline void Proto_StoreInfo::set_cmd(::google::protobuf::uint32 value) {
   set_has_cmd();
   cmd_ = value;
 }
 
-// optional .proto_ff.STORESVR_ERRCODE err_code = 2;
+// optional int32 err_code = 2;
 inline bool Proto_StoreInfo::has_err_code() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -3112,11 +3058,10 @@ inline void Proto_StoreInfo::clear_err_code() {
   err_code_ = 0;
   clear_has_err_code();
 }
-inline ::proto_ff::STORESVR_ERRCODE Proto_StoreInfo::err_code() const {
-  return static_cast< ::proto_ff::STORESVR_ERRCODE >(err_code_);
+inline ::google::protobuf::int32 Proto_StoreInfo::err_code() const {
+  return err_code_;
 }
-inline void Proto_StoreInfo::set_err_code(::proto_ff::STORESVR_ERRCODE value) {
-  assert(::proto_ff::STORESVR_ERRCODE_IsValid(value));
+inline void Proto_StoreInfo::set_err_code(::google::protobuf::int32 value) {
   set_has_err_code();
   err_code_ = value;
 }
@@ -6271,18 +6216,6 @@ namespace protobuf {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_Kernel_CMD>() {
   return ::proto_ff::Proto_Kernel_CMD_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::NFROUTER_ERRCODE>() {
-  return ::proto_ff::NFROUTER_ERRCODE_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::STORESVR_CS_COMMAND>() {
-  return ::proto_ff::STORESVR_CS_COMMAND_descriptor();
-}
-template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::STORESVR_ERRCODE>() {
-  return ::proto_ff::STORESVR_ERRCODE_descriptor();
 }
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::PacketDispType>() {

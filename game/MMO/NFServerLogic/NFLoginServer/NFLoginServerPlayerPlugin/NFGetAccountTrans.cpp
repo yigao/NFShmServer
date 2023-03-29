@@ -372,7 +372,7 @@ int NFGetAccountTrans::ProGetBaseInfoRes(const storesvr_sqldata::storesvr_selobj
 
     if (err_code != 0)
     {
-        if (err_code == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY)
+        if (err_code == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
         {
             NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "Account:{} not exist in db", mAccount.Get());
             return CreateAccountReq();

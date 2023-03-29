@@ -31,7 +31,7 @@ public:
 public:
     NFBaseDBObj* GetObj(int iObjID);
     int LoadFromDB(NFBaseDBObj* pObj);
-    int OnDataLoaded(int iObjID, uint32_t err_code, const std::string* msg);
+    int OnDataLoaded(int iObjID, int32_t err_code, const std::string* msg);
     int OnDataInserted(NFDBObjTrans* trans, bool success);
     int OnDataSaved(NFDBObjTrans* trans, bool success);
     int SaveToDB(NFBaseDBObj* pObj);

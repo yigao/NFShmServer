@@ -129,8 +129,8 @@ int NFCMysqlModule::InsertObj(const std::string& nServerID, const std::string& t
  * @param  select_res 查询结果
  * @return int =0执行成功, != 0失败
  */
-int NFCMysqlModule::InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_ins &select,
-                              storesvr_sqldata::storesvr_ins_res &select_res) {
+int NFCMysqlModule::InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_insertobj &select,
+                              storesvr_sqldata::storesvr_insertobj_res &select_res) {
     NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(nServerID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", nServerID);
     return pDriver->InsertObj(select, select_res);

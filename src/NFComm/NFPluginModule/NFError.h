@@ -12,5 +12,13 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFSingleton.hpp"
 
-#include <unordered_map>
+#include <string>
 
+class NFError : public NFSingleton<NFError>
+{
+public:
+    virtual std::string GetErrorStr(int32_t retCode);
+};
+
+
+std::string GetErrorStr(int32_t retCode);

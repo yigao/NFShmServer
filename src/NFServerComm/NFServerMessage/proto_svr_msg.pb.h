@@ -53,6 +53,8 @@ class Proto_TestOtherServerSendMsgToProxyServer;
 class Proto_TestSendWorldMsgToOtherServer;
 class Proto_TestOtherServerToWorldServer;
 class RpcRequestGetServerInfo;
+class RpcWatchServerReqeust;
+class RpcWatchServerRespone;
 
 enum Proto_SvrMsgID {
   NF_STSTORE_CHECK_STORE_SERVER_REQ = 40,
@@ -1694,6 +1696,200 @@ class RpcRequestGetServerInfo : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static RpcRequestGetServerInfo* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RpcWatchServerReqeust : public ::google::protobuf::Message {
+ public:
+  RpcWatchServerReqeust();
+  virtual ~RpcWatchServerReqeust();
+
+  RpcWatchServerReqeust(const RpcWatchServerReqeust& from);
+
+  inline RpcWatchServerReqeust& operator=(const RpcWatchServerReqeust& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RpcWatchServerReqeust& default_instance();
+
+  void Swap(RpcWatchServerReqeust* other);
+
+  // implements Message ----------------------------------------------
+
+  RpcWatchServerReqeust* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RpcWatchServerReqeust& from);
+  void MergeFrom(const RpcWatchServerReqeust& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 src_server_type = 1;
+  inline bool has_src_server_type() const;
+  inline void clear_src_server_type();
+  static const int kSrcServerTypeFieldNumber = 1;
+  inline ::google::protobuf::int32 src_server_type() const;
+  inline void set_src_server_type(::google::protobuf::int32 value);
+
+  // optional int32 src_bus_id = 2;
+  inline bool has_src_bus_id() const;
+  inline void clear_src_bus_id();
+  static const int kSrcBusIdFieldNumber = 2;
+  inline ::google::protobuf::int32 src_bus_id() const;
+  inline void set_src_bus_id(::google::protobuf::int32 value);
+
+  // optional int32 dst_server_type = 3;
+  inline bool has_dst_server_type() const;
+  inline void clear_dst_server_type();
+  static const int kDstServerTypeFieldNumber = 3;
+  inline ::google::protobuf::int32 dst_server_type() const;
+  inline void set_dst_server_type(::google::protobuf::int32 value);
+
+  // optional int32 dst_bus_id = 4;
+  inline bool has_dst_bus_id() const;
+  inline void clear_dst_bus_id();
+  static const int kDstBusIdFieldNumber = 4;
+  inline ::google::protobuf::int32 dst_bus_id() const;
+  inline void set_dst_bus_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RpcWatchServerReqeust)
+ private:
+  inline void set_has_src_server_type();
+  inline void clear_has_src_server_type();
+  inline void set_has_src_bus_id();
+  inline void clear_has_src_bus_id();
+  inline void set_has_dst_server_type();
+  inline void clear_has_dst_server_type();
+  inline void set_has_dst_bus_id();
+  inline void clear_has_dst_bus_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 src_server_type_;
+  ::google::protobuf::int32 src_bus_id_;
+  ::google::protobuf::int32 dst_server_type_;
+  ::google::protobuf::int32 dst_bus_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static RpcWatchServerReqeust* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RpcWatchServerRespone : public ::google::protobuf::Message {
+ public:
+  RpcWatchServerRespone();
+  virtual ~RpcWatchServerRespone();
+
+  RpcWatchServerRespone(const RpcWatchServerRespone& from);
+
+  inline RpcWatchServerRespone& operator=(const RpcWatchServerRespone& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RpcWatchServerRespone& default_instance();
+
+  void Swap(RpcWatchServerRespone* other);
+
+  // implements Message ----------------------------------------------
+
+  RpcWatchServerRespone* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RpcWatchServerRespone& from);
+  void MergeFrom(const RpcWatchServerRespone& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RpcWatchServerRespone)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fsvr_5fmsg_2eproto();
+  friend void protobuf_AssignDesc_proto_5fsvr_5fmsg_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fsvr_5fmsg_2eproto();
+
+  void InitAsDefaultInstance();
+  static RpcWatchServerRespone* default_instance_;
 };
 // ===================================================================
 
@@ -3708,6 +3904,124 @@ inline void RpcRequestGetServerInfo::set_allocated_server_id(::std::string* serv
     clear_has_server_id();
     server_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// -------------------------------------------------------------------
+
+// RpcWatchServerReqeust
+
+// optional int32 src_server_type = 1;
+inline bool RpcWatchServerReqeust::has_src_server_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RpcWatchServerReqeust::set_has_src_server_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RpcWatchServerReqeust::clear_has_src_server_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RpcWatchServerReqeust::clear_src_server_type() {
+  src_server_type_ = 0;
+  clear_has_src_server_type();
+}
+inline ::google::protobuf::int32 RpcWatchServerReqeust::src_server_type() const {
+  return src_server_type_;
+}
+inline void RpcWatchServerReqeust::set_src_server_type(::google::protobuf::int32 value) {
+  set_has_src_server_type();
+  src_server_type_ = value;
+}
+
+// optional int32 src_bus_id = 2;
+inline bool RpcWatchServerReqeust::has_src_bus_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void RpcWatchServerReqeust::set_has_src_bus_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void RpcWatchServerReqeust::clear_has_src_bus_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void RpcWatchServerReqeust::clear_src_bus_id() {
+  src_bus_id_ = 0;
+  clear_has_src_bus_id();
+}
+inline ::google::protobuf::int32 RpcWatchServerReqeust::src_bus_id() const {
+  return src_bus_id_;
+}
+inline void RpcWatchServerReqeust::set_src_bus_id(::google::protobuf::int32 value) {
+  set_has_src_bus_id();
+  src_bus_id_ = value;
+}
+
+// optional int32 dst_server_type = 3;
+inline bool RpcWatchServerReqeust::has_dst_server_type() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void RpcWatchServerReqeust::set_has_dst_server_type() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void RpcWatchServerReqeust::clear_has_dst_server_type() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void RpcWatchServerReqeust::clear_dst_server_type() {
+  dst_server_type_ = 0;
+  clear_has_dst_server_type();
+}
+inline ::google::protobuf::int32 RpcWatchServerReqeust::dst_server_type() const {
+  return dst_server_type_;
+}
+inline void RpcWatchServerReqeust::set_dst_server_type(::google::protobuf::int32 value) {
+  set_has_dst_server_type();
+  dst_server_type_ = value;
+}
+
+// optional int32 dst_bus_id = 4;
+inline bool RpcWatchServerReqeust::has_dst_bus_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void RpcWatchServerReqeust::set_has_dst_bus_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void RpcWatchServerReqeust::clear_has_dst_bus_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void RpcWatchServerReqeust::clear_dst_bus_id() {
+  dst_bus_id_ = 0;
+  clear_has_dst_bus_id();
+}
+inline ::google::protobuf::int32 RpcWatchServerReqeust::dst_bus_id() const {
+  return dst_bus_id_;
+}
+inline void RpcWatchServerReqeust::set_dst_bus_id(::google::protobuf::int32 value) {
+  set_has_dst_bus_id();
+  dst_bus_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RpcWatchServerRespone
+
+// optional int32 ret_code = 1;
+inline bool RpcWatchServerRespone::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RpcWatchServerRespone::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RpcWatchServerRespone::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RpcWatchServerRespone::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 RpcWatchServerRespone::ret_code() const {
+  return ret_code_;
+}
+inline void RpcWatchServerRespone::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
 }
 
 

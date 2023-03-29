@@ -363,7 +363,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
 
             count++;
             select_res->set_row_count(count);
-            if (select_res->sel_records_size() >= select.baseinfo().max_records())
+            if ((int)select_res->sel_records_size() >= (int)select.baseinfo().max_records())
             {
                 count = 0;
                 select_res = vecSelectRes.Add();
@@ -1405,7 +1405,7 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
 
         if (xResult.empty() || !xResult)
         {
-            return proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
+            return proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
         }
 
         for (size_t i = 0; i < xResult.num_rows(); ++i)
@@ -1474,7 +1474,7 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
 
         if (xResult.empty() || !xResult)
         {
-            return proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
+            return proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
         }
 
         for (size_t i = 0; i < xResult.num_rows(); ++i)
@@ -1543,7 +1543,7 @@ int NFCMysqlDriver::QueryMore(const std::string &strTableName, const std::map<st
 
         if (xResult.empty() || !xResult)
         {
-            return proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY;
+            return proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
         }
 
         for (size_t i = 0; i < xResult.num_rows(); ++i)
@@ -1765,11 +1765,11 @@ int NFCMysqlDriver::InsertObj(const std::string &tbName, const google::protobuf:
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
 
-    storesvr_sqldata::storesvr_ins select;
+    storesvr_sqldata::storesvr_insertobj select;
     select.mutable_baseinfo()->set_tbname(tbName);
     select.set_ins_record(pMessage->SerializeAsString());
 
-    storesvr_sqldata::storesvr_ins_res select_res;
+    storesvr_sqldata::storesvr_insertobj_res select_res;
     int iRet = InsertObj(select, select_res);
     if (iRet != 0)
     {
@@ -1780,8 +1780,8 @@ int NFCMysqlDriver::InsertObj(const std::string &tbName, const google::protobuf:
     return iRet;
 }
 
-int NFCMysqlDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select,
-                              storesvr_sqldata::storesvr_ins_res &select_res)
+int NFCMysqlDriver::InsertObj(const storesvr_sqldata::storesvr_insertobj &select,
+                              storesvr_sqldata::storesvr_insertobj_res &select_res)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
@@ -1804,7 +1804,7 @@ int NFCMysqlDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select,
 }
 
 int
-NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &resultMap)
+NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_insertobj &select, std::map<std::string, std::string> &resultMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();

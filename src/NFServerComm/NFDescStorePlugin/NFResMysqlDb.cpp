@@ -73,7 +73,7 @@ int NFMysqlResTable::InsertOneRecord(const std::string &serverId, const google::
     CHECK_NULL(pConfig);
 
     return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
-                                                            proto_ff::E_STORESVR_C2S_INSERT, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                                        proto_ff::NF_STORESVR_C2S_INSERT, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage)
@@ -84,7 +84,7 @@ int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::
     CHECK_NULL(pConfig);
 
     return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
-            proto_ff::E_STORESVR_C2S_DELETEOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                                        proto_ff::NF_STORESVR_C2S_DELETEOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage) {
@@ -94,7 +94,7 @@ int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::pr
     CHECK_NULL(pConfig);
 
     return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
-                                                            proto_ff::E_STORESVR_C2S_MODINSOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                                        proto_ff::NF_STORESVR_C2S_MODINSOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 NFResMysqlDB::NFResMysqlDB(NFIPluginManager* p):NFResDB(p)

@@ -25,7 +25,7 @@ using DeleteByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_
 
 using DeleteObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_delobj_res &select_res)>;
 
-using InsertObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_ins_res &select_res)>;
+using InsertObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res)>;
 
 using ModifyByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_mod_res &select_res)>;
 
@@ -133,7 +133,7 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-	virtual int InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_ins &select,
+	virtual int InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_insertobj &select,
 		const InsertObj_CB& cb) = 0;
 
 	/**

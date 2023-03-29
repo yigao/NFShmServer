@@ -200,7 +200,7 @@ int NFCCoroutineModule::AddRpcService(google::protobuf::Message* pMessage)
 
     if (m_rpcCoMap.find(coId) != m_rpcCoMap.end())
     {
-        return proto_ff::ERR_RPC_CO_USED;
+        return proto_ff::ERR_CODE_RPC_CO_USED;
     }
 
     m_rpcCoMap[coId] = pMessage;

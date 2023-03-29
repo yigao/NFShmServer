@@ -35,7 +35,7 @@ public:
     int ProcessCSMsgReq(const google::protobuf::Message* pCSMsgReq);
     
 	int ProcessDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
-    int ProcessDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, uint32_t err_code);
+    int ProcessDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, int32_t err_code);
     int ProcessDBMsgRes(proto_ff::Proto_SvrPkg& svrPkg);
     bool CanRelease();
     virtual std::string DebugString() const;
@@ -53,7 +53,7 @@ protected:
     
 	virtual int HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId);
     virtual int HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq,
-                   uint32_t err_code);
+                   int32_t err_code);
 protected:
     int CheckCanRunNow();
     int RunCommLogic();

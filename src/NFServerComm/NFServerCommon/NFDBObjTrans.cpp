@@ -52,7 +52,7 @@ int NFDBObjTrans::Insert(uint32_t eTableID, const std::string &sTableName, uint6
     CHECK_NULL(data);
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "InsertToDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalID(), data->DebugString());
 
-    m_iDBOP = proto_ff::E_STORESVR_C2S_INSERT;
+    m_iDBOP = proto_ff::NF_STORESVR_C2S_INSERT;
 
     int iRetCode = 0;
     /*
@@ -75,7 +75,7 @@ int NFDBObjTrans::Save(uint32_t eTableID, const string &sTableName, uint64_t iMo
     CHECK_NULL(data);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SaveToDB, tableId:{} tableName:{} trans:{} ", eTableID, sTableName, GetGlobalID());
 
-    m_iDBOP = proto_ff::E_STORESVR_C2S_MODIFYOBJ;
+    m_iDBOP = proto_ff::NF_STORESVR_C2S_MODIFYOBJ;
     int iRetCode = 0;
     /*
     int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(m_iServerType,
@@ -97,7 +97,7 @@ int NFDBObjTrans::Load(uint32_t eTableID, const string &sTableName, uint64_t iMo
     CHECK_NULL(data);
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "LoadFromDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalID(), data->DebugString());
 
-    m_iDBOP = proto_ff::E_STORESVR_C2S_SELECTOBJ;
+    m_iDBOP = proto_ff::NF_STORESVR_C2S_SELECTOBJ;
     int iRetCode = 0;
     /*
     int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(m_iServerType,
@@ -116,17 +116,17 @@ int NFDBObjTrans::Load(uint32_t eTableID, const string &sTableName, uint64_t iMo
 
 int NFDBObjTrans::OnTimeOut() {
     switch (m_iDBOP) {
-        case proto_ff::E_STORESVR_C2S_SELECTOBJ:
+        case proto_ff::NF_STORESVR_C2S_SELECTOBJ:
         {
-            return NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_BUSY, NULL);
+            return NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY, NULL);
         }
-        case proto_ff::E_STORESVR_C2S_INSERT:
+        case proto_ff::NF_STORESVR_C2S_INSERT:
         {
             NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataInserted(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj timeout:{}", m_iLinkedObjID);
             break;
         }
-        case proto_ff::E_STORESVR_C2S_MODIFYOBJ:
+        case proto_ff::NF_STORESVR_C2S_MODIFYOBJ:
         {
             NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj timeout:{}", m_iLinkedObjID);
@@ -149,11 +149,11 @@ int NFDBObjTrans::HandleTransFinished(int iRunLogicRetCode) {
 
     switch(m_iDBOP)
     {
-        case proto_ff::E_STORESVR_C2S_SELECTOBJ:
+        case proto_ff::NF_STORESVR_C2S_SELECTOBJ:
         {
-            return NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::E_STORESVR_ERRCODE_UNKNOWN, NULL);
+            return NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN, NULL);
         }
-        case proto_ff::E_STORESVR_C2S_MODIFYOBJ:
+        case proto_ff::NF_STORESVR_C2S_MODIFYOBJ:
         {
             NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, false);
             NFLogError(NF_LOG_SYSTEMLOG, 0, "save obj failed:{} err:{}", m_iLinkedObjID, m_iRunLogicRetCode);
@@ -171,11 +171,11 @@ int NFDBObjTrans::HandleTransFinished(int iRunLogicRetCode) {
 
 int
 NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq,
-                             uint32_t err_code) {
+                             int32_t err_code) {
     int iRet = 0;
     switch(cmd)
     {
-        case proto_ff::E_STORESVR_S2C_SELECTOBJ:
+        case proto_ff::NF_STORESVR_S2C_SELECTOBJ:
         {
             if (!pSSMsgRes)
             {
@@ -189,9 +189,9 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
             }
             break;
         }
-        case proto_ff::E_STORESVR_S2C_INSERT:
+        case proto_ff::NF_STORESVR_S2C_INSERT:
         {
-            if (err_code == proto_ff::E_STORESVR_ERRCODE_OK)
+            if (err_code == proto_ff::ERR_CODE_SVR_OK)
             {
                 NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataInserted(this, true);
             }
@@ -201,9 +201,9 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
             }
             break;
         }
-        case proto_ff::E_STORESVR_S2C_MODIFYOBJ:
+        case proto_ff::NF_STORESVR_S2C_MODIFYOBJ:
         {
-            if (err_code == proto_ff::E_STORESVR_ERRCODE_OK)
+            if (err_code == proto_ff::ERR_CODE_SVR_OK)
             {
                 NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, true);
             }

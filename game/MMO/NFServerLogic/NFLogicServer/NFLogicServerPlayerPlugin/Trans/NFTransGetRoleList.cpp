@@ -100,7 +100,7 @@ int NFTransGetRoleList::SendGetRoleList()
     vk_list.push_back(cmd2);
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
-                                                                 proto_ff::E_STORESVR_C2S_SELECT, 0, pServerConfig->DefaultDBName,
+                                                                 proto_ff::NF_STORESVR_C2S_SELECT, 0, pServerConfig->DefaultDBName,
                                                                  "RoleDBData", fields, vk_list, "", 10,
                                                                  GetGlobalID(), 0, m_uid);
     return 0;
@@ -112,16 +112,16 @@ int NFTransGetRoleList::SendGetRegisterNum()
     CHECK_EXPR(pServerConfig, -1, "FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER) Failed");
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
-                                                                 proto_ff::E_STORESVR_C2S_EXECUTE, 0, pServerConfig->DefaultDBName,
+                                                                 proto_ff::NF_STORESVR_C2S_EXECUTE, 0, pServerConfig->DefaultDBName,
                                                                  "RoleDBData", "select count(*) as num from RoleDBData;",
                                                                  GetGlobalID(), 0, m_uid, "GetRegisterNum_RoleDBData");
     return 0;
 }
 
 int NFTransGetRoleList::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
-                   uint32_t seq, uint32_t err_code)
+                   uint32_t seq, int32_t err_code)
 {
-    if (cmd == proto_ff::E_STORESVR_S2C_EXECUTE)
+    if (cmd == proto_ff::NF_STORESVR_S2C_EXECUTE)
     {
         const storesvr_sqldata::storesvr_execute_res *pRes = dynamic_cast<const storesvr_sqldata::storesvr_execute_res *>(pSSMsgRes);
         CHECK_EXPR(pRes, -1, "pRes == NULL");
@@ -140,7 +140,7 @@ int NFTransGetRoleList::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRe
 
         SendGetRoleList();
     }
-    else if (cmd == proto_ff::E_STORESVR_S2C_SELECT)
+    else if (cmd == proto_ff::NF_STORESVR_S2C_SELECT)
     {
         const storesvr_sqldata::storesvr_sel_res *pRes = dynamic_cast<const storesvr_sqldata::storesvr_sel_res *>(pSSMsgRes);
         CHECK_EXPR(pRes, -1, "pRes == NULL");

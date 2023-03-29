@@ -104,17 +104,17 @@ int NFTransCreateRole::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq
 
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
-                                                                 proto_ff::E_STORESVR_C2S_INSERT, 0, pServerConfig->DefaultDBName,
+                                                                 proto_ff::NF_STORESVR_C2S_INSERT, 0, pServerConfig->DefaultDBName,
                                                                  "RoleDBData", xData, GetGlobalID(), 0, m_roleId);
     return 0;
 }
 
 int NFTransCreateRole::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
-                                      uint32_t seq, uint32_t err_code)
+                                      uint32_t seq, int32_t err_code)
 {
-    if (cmd == proto_ff::E_STORESVR_S2C_INSERT)
+    if (cmd == proto_ff::NF_STORESVR_S2C_INSERT)
     {
-        const storesvr_sqldata::storesvr_ins_res *pRes = dynamic_cast<const storesvr_sqldata::storesvr_ins_res *>(pSSMsgRes);
+        const storesvr_sqldata::storesvr_insertobj_res *pRes = dynamic_cast<const storesvr_sqldata::storesvr_insertobj_res *>(pSSMsgRes);
         CHECK_EXPR(pRes, -1, "pRes == NULL");
 
         if (err_code != 0)

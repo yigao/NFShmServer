@@ -58,10 +58,9 @@ void protobuf_AddDesc_proto_5fsvr_5ferror_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\025proto_svr_error.proto\022\010proto_ff*X\n\023Pro"
+    "\n\025proto_svr_error.proto\022\010proto_ff*@\n\023Pro"
     "to_SVR_ErrorCode\022)\n\034ERR_CODE_SERVER_SYST"
-    "EM_ERROR\020\377\377\377\377\377\377\377\377\377\001\022\026\n\022ERR_CODE_SERVER_O"
-    "K\020\000", 123);
+    "EM_ERROR\020\377\377\377\377\377\377\377\377\377\001", 99);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_svr_error.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_proto_5fsvr_5ferror_2eproto);
@@ -80,7 +79,6 @@ const ::google::protobuf::EnumDescriptor* Proto_SVR_ErrorCode_descriptor() {
 bool Proto_SVR_ErrorCode_IsValid(int value) {
   switch(value) {
     case -1:
-    case 0:
       return true;
     default:
       return false;

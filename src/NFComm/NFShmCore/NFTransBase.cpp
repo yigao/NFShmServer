@@ -16,6 +16,7 @@
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFPluginModule/NFError.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransBase, EOT_TRANS_BASE, NFShmObj)
 
@@ -112,7 +113,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
 {
     switch (svrPkg.store_info().cmd())
     {
-        case proto_ff::E_STORESVR_S2C_SELECT:
+        case proto_ff::NF_STORESVR_S2C_SELECT:
         {
             storesvr_sqldata::storesvr_sel_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -122,7 +123,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_SELECTOBJ:
+        case proto_ff::NF_STORESVR_S2C_SELECTOBJ:
         {
             storesvr_sqldata::storesvr_selobj_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -132,9 +133,9 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_INSERT:
+        case proto_ff::NF_STORESVR_S2C_INSERT:
         {
-            storesvr_sqldata::storesvr_ins_res select_res;
+            storesvr_sqldata::storesvr_insertobj_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
             ProcessDBMsgRes(&select_res, svrPkg.store_info().cmd(),
                             svrPkg.store_info().cb_data().table_id(),
@@ -142,7 +143,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_DELETE:
+        case proto_ff::NF_STORESVR_S2C_DELETE:
         {
             storesvr_sqldata::storesvr_del_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -152,7 +153,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_DELETEOBJ:
+        case proto_ff::NF_STORESVR_S2C_DELETEOBJ:
         {
             storesvr_sqldata::storesvr_delobj_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -162,7 +163,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_MODIFY:
+        case proto_ff::NF_STORESVR_S2C_MODIFY:
         {
             storesvr_sqldata::storesvr_mod_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -172,7 +173,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_MODIFYOBJ:
+        case proto_ff::NF_STORESVR_S2C_MODIFYOBJ:
         {
             storesvr_sqldata::storesvr_modobj_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -182,7 +183,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_MODINS:
+        case proto_ff::NF_STORESVR_S2C_MODINS:
         {
             storesvr_sqldata::storesvr_modins_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -192,7 +193,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_MODINSOBJ:
+        case proto_ff::NF_STORESVR_S2C_MODINSOBJ:
         {
             storesvr_sqldata::storesvr_modinsobj_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -202,7 +203,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
                             svrPkg.store_info().err_code());
         }
             break;
-        case proto_ff::E_STORESVR_S2C_EXECUTE:
+        case proto_ff::NF_STORESVR_S2C_EXECUTE:
         {
             storesvr_sqldata::storesvr_execute_res select_res;
             select_res.ParsePartialFromString(svrPkg.msg_data());
@@ -222,7 +223,7 @@ int NFTransBase::ProcessDBMsgRes(proto_ff::Proto_SvrPkg &svrPkg)
     return 0;
 }
 
-int NFTransBase::ProcessDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, uint32_t err_code)
+int NFTransBase::ProcessDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq, int32_t err_code)
 {
     int iRetCode = 0;
     iRetCode = RunCommLogic();
@@ -231,7 +232,7 @@ int NFTransBase::ProcessDBMsgRes(const google::protobuf::Message *pSSMsgRes, uin
     iRetCode = HandleDBMsgRes(pSSMsgRes, cmd, table_id, seq, err_code);
     if (iRetCode != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "HandleDBMsgRes Failed, cmd:{} table_id:{} err_code:{}", cmd, table_id, err_code);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "HandleDBMsgRes Failed, cmd:{} table_id:{} err_code:{}", cmd, table_id, GetErrorStr(err_code));
         SetFinished(iRetCode);
         m_iRunLogicRetCode = iRetCode;
         return iRetCode;
@@ -242,7 +243,7 @@ int NFTransBase::ProcessDBMsgRes(const google::protobuf::Message *pSSMsgRes, uin
 
 int
 NFTransBase::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq,
-                            uint32_t err_code)
+                            int32_t err_code)
 {
     NFLogFatal(NF_LOG_SYSTEMLOG, 0, "Fatal Err Calling the Method");
     NF_ASSERT(false);

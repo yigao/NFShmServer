@@ -53,7 +53,7 @@ public:
      * @return
      */
     virtual int HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
-                               uint32_t seq, uint32_t err_code);
+                               uint32_t seq, int32_t err_code);
 
     /**
      * @brief

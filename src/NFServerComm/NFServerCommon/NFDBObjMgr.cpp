@@ -14,6 +14,7 @@
 #include "NFDBObjTrans.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFComm/NFPluginModule/NFError.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFDBObjMgr, EOT_TRANS_DB_OBJ_MGR, NFShmObj)
 
@@ -166,8 +167,8 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj) {
     return 0;
 }
 
-int NFDBObjMgr::OnDataLoaded(int iObjID, uint32_t err_code, const std::string* msg) {
-    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Date Loaded:{} err_code:{}", iObjID, err_code);
+int NFDBObjMgr::OnDataLoaded(int iObjID, int32_t err_code, const std::string* msg) {
+    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Date Loaded:{} err_code:{}", iObjID, GetErrorStr(err_code));
     NFBaseDBObj* pObj = GetObj(iObjID);
     CHECK_NULL(pObj);
 
@@ -177,7 +178,7 @@ int NFDBObjMgr::OnDataLoaded(int iObjID, uint32_t err_code, const std::string* m
         pObj->SetRetryTimes(0);
         iRet = pObj->InitWithDBData(msg);
     }
-    else if (err_code == proto_ff::E_STORESVR_ERRCODE_SELECT_EMPTY) {
+    else if ((int)err_code == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY) {
         pObj->SetRetryTimes(0);
         pObj->SetNeedInsertDB(true);
         iRet = pObj->InitWithoutDBData();

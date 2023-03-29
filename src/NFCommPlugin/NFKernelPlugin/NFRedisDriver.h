@@ -72,14 +72,14 @@ public:
     int CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::map<std::string, std::string> &keyMap);
 
     int DeleteObj(const storesvr_sqldata::storesvr_delobj &select);
-    int DeleteObj(const storesvr_sqldata::storesvr_ins &select);
+    int DeleteObj(const storesvr_sqldata::storesvr_insertobj &select);
     int DeleteObj(const storesvr_sqldata::storesvr_modobj &select);
 
     int CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap);
-    int CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &keyMap);
+    int CreateSql(const storesvr_sqldata::storesvr_insertobj &select, std::map<std::string, std::string> &keyMap);
     int CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap);
 
-    int InsertObj(const storesvr_sqldata::storesvr_ins &select);
+    int InsertObj(const storesvr_sqldata::storesvr_insertobj &select);
     int InsertObj(const storesvr_sqldata::storesvr_modobj &select);
 public:
 

@@ -42,8 +42,10 @@ class storesvr_sel;
 class storesvr_sel_res;
 class storesvr_selobj;
 class storesvr_selobj_res;
-class storesvr_ins;
-class storesvr_ins_res;
+class storesvr_insertobj;
+class storesvr_insertobj_res;
+class storesvr_insert;
+class storesvr_insert_res;
 class storesvr_del;
 class storesvr_del_res;
 class storesvr_delobj;
@@ -1072,14 +1074,14 @@ class storesvr_selobj_res : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class storesvr_ins : public ::google::protobuf::Message {
+class storesvr_insertobj : public ::google::protobuf::Message {
  public:
-  storesvr_ins();
-  virtual ~storesvr_ins();
+  storesvr_insertobj();
+  virtual ~storesvr_insertobj();
 
-  storesvr_ins(const storesvr_ins& from);
+  storesvr_insertobj(const storesvr_insertobj& from);
 
-  inline storesvr_ins& operator=(const storesvr_ins& from) {
+  inline storesvr_insertobj& operator=(const storesvr_insertobj& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1093,17 +1095,17 @@ class storesvr_ins : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const storesvr_ins& default_instance();
+  static const storesvr_insertobj& default_instance();
 
-  void Swap(storesvr_ins* other);
+  void Swap(storesvr_insertobj* other);
 
   // implements Message ----------------------------------------------
 
-  storesvr_ins* New() const;
+  storesvr_insertobj* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const storesvr_ins& from);
-  void MergeFrom(const storesvr_ins& from);
+  void CopyFrom(const storesvr_insertobj& from);
+  void MergeFrom(const storesvr_insertobj& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1154,7 +1156,7 @@ class storesvr_ins : public ::google::protobuf::Message {
   inline ::std::string* release_ins_record();
   inline void set_allocated_ins_record(::std::string* ins_record);
 
-  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_ins)
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_insertobj)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
@@ -1177,18 +1179,18 @@ class storesvr_ins : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
 
   void InitAsDefaultInstance();
-  static storesvr_ins* default_instance_;
+  static storesvr_insertobj* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class storesvr_ins_res : public ::google::protobuf::Message {
+class storesvr_insertobj_res : public ::google::protobuf::Message {
  public:
-  storesvr_ins_res();
-  virtual ~storesvr_ins_res();
+  storesvr_insertobj_res();
+  virtual ~storesvr_insertobj_res();
 
-  storesvr_ins_res(const storesvr_ins_res& from);
+  storesvr_insertobj_res(const storesvr_insertobj_res& from);
 
-  inline storesvr_ins_res& operator=(const storesvr_ins_res& from) {
+  inline storesvr_insertobj_res& operator=(const storesvr_insertobj_res& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1202,17 +1204,17 @@ class storesvr_ins_res : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const storesvr_ins_res& default_instance();
+  static const storesvr_insertobj_res& default_instance();
 
-  void Swap(storesvr_ins_res* other);
+  void Swap(storesvr_insertobj_res* other);
 
   // implements Message ----------------------------------------------
 
-  storesvr_ins_res* New() const;
+  storesvr_insertobj_res* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const storesvr_ins_res& from);
-  void MergeFrom(const storesvr_ins_res& from);
+  void CopyFrom(const storesvr_insertobj_res& from);
+  void MergeFrom(const storesvr_insertobj_res& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1253,7 +1255,7 @@ class storesvr_ins_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_opres* release_ins_opres();
   inline void set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres);
 
-  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_ins_res)
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_insertobj_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
@@ -1273,7 +1275,214 @@ class storesvr_ins_res : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
 
   void InitAsDefaultInstance();
-  static storesvr_ins_res* default_instance_;
+  static storesvr_insertobj_res* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class storesvr_insert : public ::google::protobuf::Message {
+ public:
+  storesvr_insert();
+  virtual ~storesvr_insert();
+
+  storesvr_insert(const storesvr_insert& from);
+
+  inline storesvr_insert& operator=(const storesvr_insert& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const storesvr_insert& default_instance();
+
+  void Swap(storesvr_insert* other);
+
+  // implements Message ----------------------------------------------
+
+  storesvr_insert* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const storesvr_insert& from);
+  void MergeFrom(const storesvr_insert& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+  inline bool has_baseinfo() const;
+  inline void clear_baseinfo();
+  static const int kBaseinfoFieldNumber = 1;
+  inline const ::storesvr_sqldata::storesvr_baseinfo& baseinfo() const;
+  inline ::storesvr_sqldata::storesvr_baseinfo* mutable_baseinfo();
+  inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
+  inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
+
+  // optional uint64 mod_key = 2;
+  inline bool has_mod_key() const;
+  inline void clear_mod_key();
+  static const int kModKeyFieldNumber = 2;
+  inline ::google::protobuf::uint64 mod_key() const;
+  inline void set_mod_key(::google::protobuf::uint64 value);
+
+  // repeated bytes ins_record = 3;
+  inline int ins_record_size() const;
+  inline void clear_ins_record();
+  static const int kInsRecordFieldNumber = 3;
+  inline const ::std::string& ins_record(int index) const;
+  inline ::std::string* mutable_ins_record(int index);
+  inline void set_ins_record(int index, const ::std::string& value);
+  inline void set_ins_record(int index, const char* value);
+  inline void set_ins_record(int index, const void* value, size_t size);
+  inline ::std::string* add_ins_record();
+  inline void add_ins_record(const ::std::string& value);
+  inline void add_ins_record(const char* value);
+  inline void add_ins_record(const void* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& ins_record() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_ins_record();
+
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_insert)
+ private:
+  inline void set_has_baseinfo();
+  inline void clear_has_baseinfo();
+  inline void set_has_mod_key();
+  inline void clear_has_mod_key();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
+  ::google::protobuf::uint64 mod_key_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> ins_record_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_storesvr_5fsqldata_2eproto();
+  friend void protobuf_AssignDesc_storesvr_5fsqldata_2eproto();
+  friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
+
+  void InitAsDefaultInstance();
+  static storesvr_insert* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class storesvr_insert_res : public ::google::protobuf::Message {
+ public:
+  storesvr_insert_res();
+  virtual ~storesvr_insert_res();
+
+  storesvr_insert_res(const storesvr_insert_res& from);
+
+  inline storesvr_insert_res& operator=(const storesvr_insert_res& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const storesvr_insert_res& default_instance();
+
+  void Swap(storesvr_insert_res* other);
+
+  // implements Message ----------------------------------------------
+
+  storesvr_insert_res* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const storesvr_insert_res& from);
+  void MergeFrom(const storesvr_insert_res& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+  inline bool has_baseinfo() const;
+  inline void clear_baseinfo();
+  static const int kBaseinfoFieldNumber = 1;
+  inline const ::storesvr_sqldata::storesvr_baseinfo& baseinfo() const;
+  inline ::storesvr_sqldata::storesvr_baseinfo* mutable_baseinfo();
+  inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
+  inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
+
+  // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
+  inline bool has_ins_opres() const;
+  inline void clear_ins_opres();
+  static const int kInsOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& ins_opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_ins_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_ins_opres();
+  inline void set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres);
+
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_insert_res)
+ private:
+  inline void set_has_baseinfo();
+  inline void clear_has_baseinfo();
+  inline void set_has_ins_opres();
+  inline void clear_has_ins_opres();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
+  ::storesvr_sqldata::storesvr_opres* ins_opres_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_storesvr_5fsqldata_2eproto();
+  friend void protobuf_AssignDesc_storesvr_5fsqldata_2eproto();
+  friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
+
+  void InitAsDefaultInstance();
+  static storesvr_insert_res* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -4275,37 +4484,37 @@ inline void storesvr_selobj_res::set_allocated_sel_record(::std::string* sel_rec
 
 // -------------------------------------------------------------------
 
-// storesvr_ins
+// storesvr_insertobj
 
 // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
-inline bool storesvr_ins::has_baseinfo() const {
+inline bool storesvr_insertobj::has_baseinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void storesvr_ins::set_has_baseinfo() {
+inline void storesvr_insertobj::set_has_baseinfo() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void storesvr_ins::clear_has_baseinfo() {
+inline void storesvr_insertobj::clear_has_baseinfo() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void storesvr_ins::clear_baseinfo() {
+inline void storesvr_insertobj::clear_baseinfo() {
   if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
   clear_has_baseinfo();
 }
-inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_ins::baseinfo() const {
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_insertobj::baseinfo() const {
   return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_ins::mutable_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_insertobj::mutable_baseinfo() {
   set_has_baseinfo();
   if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
   return baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_ins::release_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_insertobj::release_baseinfo() {
   clear_has_baseinfo();
   ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
   baseinfo_ = NULL;
   return temp;
 }
-inline void storesvr_ins::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+inline void storesvr_insertobj::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
   delete baseinfo_;
   baseinfo_ = baseinfo;
   if (baseinfo) {
@@ -4316,75 +4525,75 @@ inline void storesvr_ins::set_allocated_baseinfo(::storesvr_sqldata::storesvr_ba
 }
 
 // optional uint64 mod_key = 2;
-inline bool storesvr_ins::has_mod_key() const {
+inline bool storesvr_insertobj::has_mod_key() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_ins::set_has_mod_key() {
+inline void storesvr_insertobj::set_has_mod_key() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_ins::clear_has_mod_key() {
+inline void storesvr_insertobj::clear_has_mod_key() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_ins::clear_mod_key() {
+inline void storesvr_insertobj::clear_mod_key() {
   mod_key_ = GOOGLE_ULONGLONG(0);
   clear_has_mod_key();
 }
-inline ::google::protobuf::uint64 storesvr_ins::mod_key() const {
+inline ::google::protobuf::uint64 storesvr_insertobj::mod_key() const {
   return mod_key_;
 }
-inline void storesvr_ins::set_mod_key(::google::protobuf::uint64 value) {
+inline void storesvr_insertobj::set_mod_key(::google::protobuf::uint64 value) {
   set_has_mod_key();
   mod_key_ = value;
 }
 
 // optional bytes ins_record = 3;
-inline bool storesvr_ins::has_ins_record() const {
+inline bool storesvr_insertobj::has_ins_record() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void storesvr_ins::set_has_ins_record() {
+inline void storesvr_insertobj::set_has_ins_record() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void storesvr_ins::clear_has_ins_record() {
+inline void storesvr_insertobj::clear_has_ins_record() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void storesvr_ins::clear_ins_record() {
+inline void storesvr_insertobj::clear_ins_record() {
   if (ins_record_ != &::google::protobuf::internal::kEmptyString) {
     ins_record_->clear();
   }
   clear_has_ins_record();
 }
-inline const ::std::string& storesvr_ins::ins_record() const {
+inline const ::std::string& storesvr_insertobj::ins_record() const {
   return *ins_record_;
 }
-inline void storesvr_ins::set_ins_record(const ::std::string& value) {
+inline void storesvr_insertobj::set_ins_record(const ::std::string& value) {
   set_has_ins_record();
   if (ins_record_ == &::google::protobuf::internal::kEmptyString) {
     ins_record_ = new ::std::string;
   }
   ins_record_->assign(value);
 }
-inline void storesvr_ins::set_ins_record(const char* value) {
+inline void storesvr_insertobj::set_ins_record(const char* value) {
   set_has_ins_record();
   if (ins_record_ == &::google::protobuf::internal::kEmptyString) {
     ins_record_ = new ::std::string;
   }
   ins_record_->assign(value);
 }
-inline void storesvr_ins::set_ins_record(const void* value, size_t size) {
+inline void storesvr_insertobj::set_ins_record(const void* value, size_t size) {
   set_has_ins_record();
   if (ins_record_ == &::google::protobuf::internal::kEmptyString) {
     ins_record_ = new ::std::string;
   }
   ins_record_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* storesvr_ins::mutable_ins_record() {
+inline ::std::string* storesvr_insertobj::mutable_ins_record() {
   set_has_ins_record();
   if (ins_record_ == &::google::protobuf::internal::kEmptyString) {
     ins_record_ = new ::std::string;
   }
   return ins_record_;
 }
-inline ::std::string* storesvr_ins::release_ins_record() {
+inline ::std::string* storesvr_insertobj::release_ins_record() {
   clear_has_ins_record();
   if (ins_record_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -4394,7 +4603,7 @@ inline ::std::string* storesvr_ins::release_ins_record() {
     return temp;
   }
 }
-inline void storesvr_ins::set_allocated_ins_record(::std::string* ins_record) {
+inline void storesvr_insertobj::set_allocated_ins_record(::std::string* ins_record) {
   if (ins_record_ != &::google::protobuf::internal::kEmptyString) {
     delete ins_record_;
   }
@@ -4409,37 +4618,37 @@ inline void storesvr_ins::set_allocated_ins_record(::std::string* ins_record) {
 
 // -------------------------------------------------------------------
 
-// storesvr_ins_res
+// storesvr_insertobj_res
 
 // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
-inline bool storesvr_ins_res::has_baseinfo() const {
+inline bool storesvr_insertobj_res::has_baseinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void storesvr_ins_res::set_has_baseinfo() {
+inline void storesvr_insertobj_res::set_has_baseinfo() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void storesvr_ins_res::clear_has_baseinfo() {
+inline void storesvr_insertobj_res::clear_has_baseinfo() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void storesvr_ins_res::clear_baseinfo() {
+inline void storesvr_insertobj_res::clear_baseinfo() {
   if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
   clear_has_baseinfo();
 }
-inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_ins_res::baseinfo() const {
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_insertobj_res::baseinfo() const {
   return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_ins_res::mutable_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_insertobj_res::mutable_baseinfo() {
   set_has_baseinfo();
   if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
   return baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_ins_res::release_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_insertobj_res::release_baseinfo() {
   clear_has_baseinfo();
   ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
   baseinfo_ = NULL;
   return temp;
 }
-inline void storesvr_ins_res::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+inline void storesvr_insertobj_res::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
   delete baseinfo_;
   baseinfo_ = baseinfo;
   if (baseinfo) {
@@ -4450,34 +4659,222 @@ inline void storesvr_ins_res::set_allocated_baseinfo(::storesvr_sqldata::storesv
 }
 
 // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-inline bool storesvr_ins_res::has_ins_opres() const {
+inline bool storesvr_insertobj_res::has_ins_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_ins_res::set_has_ins_opres() {
+inline void storesvr_insertobj_res::set_has_ins_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_ins_res::clear_has_ins_opres() {
+inline void storesvr_insertobj_res::clear_has_ins_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_ins_res::clear_ins_opres() {
+inline void storesvr_insertobj_res::clear_ins_opres() {
   if (ins_opres_ != NULL) ins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
   clear_has_ins_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_ins_res::ins_opres() const {
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_insertobj_res::ins_opres() const {
   return ins_opres_ != NULL ? *ins_opres_ : *default_instance_->ins_opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_ins_res::mutable_ins_opres() {
+inline ::storesvr_sqldata::storesvr_opres* storesvr_insertobj_res::mutable_ins_opres() {
   set_has_ins_opres();
   if (ins_opres_ == NULL) ins_opres_ = new ::storesvr_sqldata::storesvr_opres;
   return ins_opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_ins_res::release_ins_opres() {
+inline ::storesvr_sqldata::storesvr_opres* storesvr_insertobj_res::release_ins_opres() {
   clear_has_ins_opres();
   ::storesvr_sqldata::storesvr_opres* temp = ins_opres_;
   ins_opres_ = NULL;
   return temp;
 }
-inline void storesvr_ins_res::set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres) {
+inline void storesvr_insertobj_res::set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres) {
+  delete ins_opres_;
+  ins_opres_ = ins_opres;
+  if (ins_opres) {
+    set_has_ins_opres();
+  } else {
+    clear_has_ins_opres();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// storesvr_insert
+
+// optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+inline bool storesvr_insert::has_baseinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void storesvr_insert::set_has_baseinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void storesvr_insert::clear_has_baseinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void storesvr_insert::clear_baseinfo() {
+  if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
+  clear_has_baseinfo();
+}
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_insert::baseinfo() const {
+  return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
+}
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_insert::mutable_baseinfo() {
+  set_has_baseinfo();
+  if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
+  return baseinfo_;
+}
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_insert::release_baseinfo() {
+  clear_has_baseinfo();
+  ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
+  baseinfo_ = NULL;
+  return temp;
+}
+inline void storesvr_insert::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+  delete baseinfo_;
+  baseinfo_ = baseinfo;
+  if (baseinfo) {
+    set_has_baseinfo();
+  } else {
+    clear_has_baseinfo();
+  }
+}
+
+// optional uint64 mod_key = 2;
+inline bool storesvr_insert::has_mod_key() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void storesvr_insert::set_has_mod_key() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void storesvr_insert::clear_has_mod_key() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void storesvr_insert::clear_mod_key() {
+  mod_key_ = GOOGLE_ULONGLONG(0);
+  clear_has_mod_key();
+}
+inline ::google::protobuf::uint64 storesvr_insert::mod_key() const {
+  return mod_key_;
+}
+inline void storesvr_insert::set_mod_key(::google::protobuf::uint64 value) {
+  set_has_mod_key();
+  mod_key_ = value;
+}
+
+// repeated bytes ins_record = 3;
+inline int storesvr_insert::ins_record_size() const {
+  return ins_record_.size();
+}
+inline void storesvr_insert::clear_ins_record() {
+  ins_record_.Clear();
+}
+inline const ::std::string& storesvr_insert::ins_record(int index) const {
+  return ins_record_.Get(index);
+}
+inline ::std::string* storesvr_insert::mutable_ins_record(int index) {
+  return ins_record_.Mutable(index);
+}
+inline void storesvr_insert::set_ins_record(int index, const ::std::string& value) {
+  ins_record_.Mutable(index)->assign(value);
+}
+inline void storesvr_insert::set_ins_record(int index, const char* value) {
+  ins_record_.Mutable(index)->assign(value);
+}
+inline void storesvr_insert::set_ins_record(int index, const void* value, size_t size) {
+  ins_record_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* storesvr_insert::add_ins_record() {
+  return ins_record_.Add();
+}
+inline void storesvr_insert::add_ins_record(const ::std::string& value) {
+  ins_record_.Add()->assign(value);
+}
+inline void storesvr_insert::add_ins_record(const char* value) {
+  ins_record_.Add()->assign(value);
+}
+inline void storesvr_insert::add_ins_record(const void* value, size_t size) {
+  ins_record_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+storesvr_insert::ins_record() const {
+  return ins_record_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+storesvr_insert::mutable_ins_record() {
+  return &ins_record_;
+}
+
+// -------------------------------------------------------------------
+
+// storesvr_insert_res
+
+// optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
+inline bool storesvr_insert_res::has_baseinfo() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void storesvr_insert_res::set_has_baseinfo() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void storesvr_insert_res::clear_has_baseinfo() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void storesvr_insert_res::clear_baseinfo() {
+  if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
+  clear_has_baseinfo();
+}
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_insert_res::baseinfo() const {
+  return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
+}
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_insert_res::mutable_baseinfo() {
+  set_has_baseinfo();
+  if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
+  return baseinfo_;
+}
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_insert_res::release_baseinfo() {
+  clear_has_baseinfo();
+  ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
+  baseinfo_ = NULL;
+  return temp;
+}
+inline void storesvr_insert_res::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+  delete baseinfo_;
+  baseinfo_ = baseinfo;
+  if (baseinfo) {
+    set_has_baseinfo();
+  } else {
+    clear_has_baseinfo();
+  }
+}
+
+// optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
+inline bool storesvr_insert_res::has_ins_opres() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void storesvr_insert_res::set_has_ins_opres() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void storesvr_insert_res::clear_has_ins_opres() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void storesvr_insert_res::clear_ins_opres() {
+  if (ins_opres_ != NULL) ins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_ins_opres();
+}
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_insert_res::ins_opres() const {
+  return ins_opres_ != NULL ? *ins_opres_ : *default_instance_->ins_opres_;
+}
+inline ::storesvr_sqldata::storesvr_opres* storesvr_insert_res::mutable_ins_opres() {
+  set_has_ins_opres();
+  if (ins_opres_ == NULL) ins_opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return ins_opres_;
+}
+inline ::storesvr_sqldata::storesvr_opres* storesvr_insert_res::release_ins_opres() {
+  clear_has_ins_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = ins_opres_;
+  ins_opres_ = NULL;
+  return temp;
+}
+inline void storesvr_insert_res::set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres) {
   delete ins_opres_;
   ins_opres_ = ins_opres;
   if (ins_opres) {

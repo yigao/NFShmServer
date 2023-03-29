@@ -383,7 +383,7 @@ public:
 class NFInsertObjTask : public NFMysqlTask
 {
 public:
-	NFInsertObjTask(const std::string& serverId, const storesvr_sqldata::storesvr_ins& select, const InsertObj_CB& cb) :NFMysqlTask(serverId)
+	NFInsertObjTask(const std::string& serverId, const storesvr_sqldata::storesvr_insertobj& select, const InsertObj_CB& cb) : NFMysqlTask(serverId)
 	{
 		m_balanceId = select.mod_key();
 		mSelect = select;
@@ -424,8 +424,8 @@ public:
 	}
 
 public:
-	storesvr_sqldata::storesvr_ins mSelect;
-	storesvr_sqldata::storesvr_ins_res mSelectRes;
+	storesvr_sqldata::storesvr_insertobj mSelect;
+	storesvr_sqldata::storesvr_insertobj_res mSelectRes;
 	InsertObj_CB mCB;
     int iRet;
 };
@@ -862,7 +862,7 @@ int NFCAsyMysqlModule::DeleteObj(const std::string& nServerID, const storesvr_sq
 }
 
 
-int NFCAsyMysqlModule::InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_ins &select,
+int NFCAsyMysqlModule::InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_insertobj &select,
 	const InsertObj_CB& cb)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");

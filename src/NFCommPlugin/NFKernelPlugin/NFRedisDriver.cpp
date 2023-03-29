@@ -210,7 +210,7 @@ int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_modobj &select)
     return 0;
 }
 
-int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_ins &select)
+int NFRedisDriver::InsertObj(const storesvr_sqldata::storesvr_insertobj &select)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
@@ -298,7 +298,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select)
     return 0;
 }
 
-int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_ins &select)
+int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_insertobj &select)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
@@ -383,7 +383,7 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, st
     return 0;
 }
 
-int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_ins &select, std::map<std::string, std::string> &keyMap)
+int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_insertobj &select, std::map<std::string, std::string> &keyMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();

@@ -259,7 +259,7 @@ std::string storesvr_selectobj(const std::string &dbname, const std::string &tbn
 std::string storesvr_insert(const std::string &dbname, const std::string &tbname,
                             uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "")
 {
-    storesvr_sqldata::storesvr_ins select;
+    storesvr_sqldata::storesvr_insertobj select;
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_tbname(tbname);
     if (cls_name.empty())
@@ -868,7 +868,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                             pRespone->ParseFromString(svrPkg.msg_data());
                         }
                         else {
-                            int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(), proto_ff::ERR_RPC_DECODE_FAILED);
+                            int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(), proto_ff::ERR_CODE_RPC_DECODE_FAILED);
                             if (iRet != 0)
                             {
                                 NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}", svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
@@ -965,11 +965,11 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
                 }
             }
             else {
-                iRet = proto_ff::ERR_RPC_MSG_FUNCTION_UNEXISTED;
+                iRet = proto_ff::ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED;
             }
         }
         else {
-            iRet = proto_ff::ERR_RPC_MSG_FUNCTION_UNEXISTED;
+            iRet = proto_ff::ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED;
             NFLogErrorIf(nMsgId >= NF_NET_MAX_MSG_ID, NF_LOG_SYSTEMLOG, 0, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgId);
         }
 

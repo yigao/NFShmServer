@@ -86,13 +86,24 @@ message storesvr_selobj_res {
 
 //--------------------------------------------------------------------------------------------------
 // insert 
-message storesvr_ins {
+message storesvr_insertobj {
 	optional storesvr_baseinfo	 baseinfo	= 1;
 	optional uint64 mod_key					= 2;	// db+table取模值
 	optional bytes  ins_record				= 3;	// insert对象序列化后buffer
 };
 
-message storesvr_ins_res {
+message storesvr_insertobj_res {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional storesvr_opres		 ins_opres	= 2;	// 插入结果
+}
+
+message storesvr_insert {
+	optional storesvr_baseinfo	 baseinfo	= 1;
+	optional uint64 mod_key					= 2;	// db+table取模值
+	repeated bytes  ins_record				= 3;	// insert对象序列化后buffer
+};
+
+message storesvr_insert_res {
 	optional storesvr_baseinfo	 baseinfo	= 1;
 	optional storesvr_opres		 ins_opres	= 2;	// 插入结果
 }
