@@ -686,7 +686,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
     return 0;
 }
 
-int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modins &select, std::string &selectSql)
+int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_update &select, std::string &selectSql)
 {
     if (select.has_mod_cond())
     {
@@ -1911,7 +1911,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
     return 0;
 }
 
-int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modins &select, std::map<std::string, std::string> &keyMap,
+int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_update &select, std::map<std::string, std::string> &keyMap,
                               std::map<std::string, std::string> &kevValueMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
@@ -1956,11 +1956,11 @@ int NFCMysqlDriver::UpdateObj(const std::string &tbName, const google::protobuf:
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
 
-    storesvr_sqldata::storesvr_modinsobj select;
+    storesvr_sqldata::storesvr_updateobj select;
     select.mutable_baseinfo()->set_tbname(tbName);
     select.set_modins_record(pMessage->SerializeAsString());
 
-    storesvr_sqldata::storesvr_modinsobj_res select_res;
+    storesvr_sqldata::storesvr_updateobj_res select_res;
     int iRet = UpdateObj(select, select_res);
     if (iRet != 0)
     {
@@ -1971,7 +1971,7 @@ int NFCMysqlDriver::UpdateObj(const std::string &tbName, const google::protobuf:
     return iRet;
 }
 
-int NFCMysqlDriver::UpdateByCond(const storesvr_sqldata::storesvr_modins &select, storesvr_sqldata::storesvr_modins_res &select_res)
+int NFCMysqlDriver::UpdateByCond(const storesvr_sqldata::storesvr_update &select, storesvr_sqldata::storesvr_update_res &select_res)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
@@ -1997,8 +1997,8 @@ int NFCMysqlDriver::UpdateByCond(const storesvr_sqldata::storesvr_modins &select
     return 0;
 }
 
-int NFCMysqlDriver::UpdateObj(const storesvr_sqldata::storesvr_modinsobj &select,
-                              storesvr_sqldata::storesvr_modinsobj_res &select_res)
+int NFCMysqlDriver::UpdateObj(const storesvr_sqldata::storesvr_updateobj &select,
+                              storesvr_sqldata::storesvr_updateobj_res &select_res)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     int iRet = 0;
@@ -2022,7 +2022,7 @@ int NFCMysqlDriver::UpdateObj(const storesvr_sqldata::storesvr_modinsobj &select
 }
 
 int
-NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modinsobj &select, std::map<std::string, std::string> &keyMap,
+NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_updateobj &select, std::map<std::string, std::string> &keyMap,
                           std::map<std::string, std::string> &kevValueMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");

@@ -254,7 +254,7 @@ public:
      */
     int CreateSql(const storesvr_sqldata::storesvr_del &select, std::string &select_res);
     int CreateSql(const storesvr_sqldata::storesvr_mod &select, std::string &select_res);
-    int CreateSql(const storesvr_sqldata::storesvr_modins &select, std::string &select_res);
+    int CreateSql(const storesvr_sqldata::storesvr_update &select, std::string &select_res);
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
@@ -330,7 +330,7 @@ public:
      * @return int =0执行成功, != 0失败
      */
     int CreateSql(const storesvr_sqldata::storesvr_mod &select, std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap);
-    int CreateSql(const storesvr_sqldata::storesvr_modins &select, std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap);
+    int CreateSql(const storesvr_sqldata::storesvr_update &select, std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap);
     int CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap,
                   std::map<std::string, std::string> &kevValueMap);
 
@@ -351,8 +351,8 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    int UpdateByCond(const storesvr_sqldata::storesvr_modins &select, storesvr_sqldata::storesvr_modins_res &select_res);
-    int UpdateObj(const storesvr_sqldata::storesvr_modinsobj &select, storesvr_sqldata::storesvr_modinsobj_res &select_res);
+    int UpdateByCond(const storesvr_sqldata::storesvr_update &select, storesvr_sqldata::storesvr_update_res &select_res);
+    int UpdateObj(const storesvr_sqldata::storesvr_updateobj &select, storesvr_sqldata::storesvr_updateobj_res &select_res);
 
     /**
      * @brief 通过select结构体，生成sql语句
@@ -361,7 +361,7 @@ public:
      * @param  selectSql 生成sql语句
      * @return int =0执行成功, != 0失败
      */
-    int CreateSql(const storesvr_sqldata::storesvr_modinsobj &select, std::map<std::string, std::string> &keyMap,
+    int CreateSql(const storesvr_sqldata::storesvr_updateobj &select, std::map<std::string, std::string> &keyMap,
                   std::map<std::string, std::string> &kevValueMap);
 
     /**

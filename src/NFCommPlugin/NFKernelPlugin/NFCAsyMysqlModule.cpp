@@ -533,7 +533,7 @@ public:
 class NFUpdateByCondTask : public NFMysqlTask
 {
 public:
-    NFUpdateByCondTask(const std::string& serverId, const storesvr_sqldata::storesvr_modins& select, const UpdateByCond_CB& cb) :NFMysqlTask(serverId)
+    NFUpdateByCondTask(const std::string& serverId, const storesvr_sqldata::storesvr_update& select, const UpdateByCond_CB& cb) : NFMysqlTask(serverId)
     {
         m_balanceId = 0;
         mSelect = select;
@@ -574,8 +574,8 @@ public:
     }
 
 public:
-    storesvr_sqldata::storesvr_modins mSelect;
-    storesvr_sqldata::storesvr_modins_res mSelectRes;
+    storesvr_sqldata::storesvr_update mSelect;
+    storesvr_sqldata::storesvr_update_res mSelectRes;
     UpdateByCond_CB mCB;
     int iRet;
 };
@@ -583,7 +583,7 @@ public:
 class NFUpdateObjTask : public NFMysqlTask
 {
 public:
-	NFUpdateObjTask(const std::string& serverId, const storesvr_sqldata::storesvr_modinsobj& select, const UpdateObj_CB& cb): NFMysqlTask(serverId)
+	NFUpdateObjTask(const std::string& serverId, const storesvr_sqldata::storesvr_updateobj& select, const UpdateObj_CB& cb): NFMysqlTask(serverId)
 	{
 		m_balanceId = select.mod_key();
 		mSelect = select;
@@ -624,8 +624,8 @@ public:
 	}
 
 public:
-	storesvr_sqldata::storesvr_modinsobj mSelect;
-	storesvr_sqldata::storesvr_modinsobj_res mSelectRes;
+	storesvr_sqldata::storesvr_updateobj mSelect;
+	storesvr_sqldata::storesvr_updateobj_res mSelectRes;
 	UpdateObj_CB mCB;
     int iRet;
 };
@@ -895,7 +895,7 @@ int NFCAsyMysqlModule::ModifyObj(const std::string& nServerID, const storesvr_sq
 	return 0;
 }
 
-int NFCAsyMysqlModule::UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_modins &select,
+int NFCAsyMysqlModule::UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_update &select,
                                  const UpdateByCond_CB& cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
@@ -906,7 +906,7 @@ int NFCAsyMysqlModule::UpdateByCond(const std::string& nServerID, const storesvr
     return 0;
 }
 
-int NFCAsyMysqlModule::UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modinsobj &select,
+int NFCAsyMysqlModule::UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_updateobj &select,
 		const UpdateObj_CB& cb)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");

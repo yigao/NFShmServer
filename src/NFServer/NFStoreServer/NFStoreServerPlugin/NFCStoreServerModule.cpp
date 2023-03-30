@@ -48,10 +48,10 @@ bool NFCStoreServerModule::Awake()
                                                                                        &NFCStoreServerModule::OnHandleModifyObjRpc, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_MODIFY>(NF_ST_STORE_SERVER, this,
                                                                                        &NFCStoreServerModule::OnHandleModifyRpc, true);
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_MODINS>(NF_ST_STORE_SERVER, this,
-                                                                                    &NFCStoreServerModule::OnHandleModInsRpc, true);
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_MODINSOBJ>(NF_ST_STORE_SERVER, this,
-                                                                                    &NFCStoreServerModule::OnHandleModInsObjRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_UPDATE>(NF_ST_STORE_SERVER, this,
+                                                                                    &NFCStoreServerModule::OnHandleUpdateRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_UPDATEOBJ>(NF_ST_STORE_SERVER, this,
+                                                                                       &NFCStoreServerModule::OnHandleUpdateObjRpc, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_EXECUTE>(NF_ST_STORE_SERVER, this,
                                                                                        &NFCStoreServerModule::OnHandleExecuteRpc, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_DELETE>(NF_ST_STORE_SERVER, this,
@@ -570,11 +570,11 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                      });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_MODINS:
+        case proto_ff::NF_STORESVR_C2S_UPDATE:
         {
-            retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_MODINS);
+            retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_UPDATE);
 
-            storesvr_sqldata::storesvr_modins select;
+            storesvr_sqldata::storesvr_update select;
             select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
@@ -591,7 +591,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
 
             FindModule<NFIAsyMysqlModule>()->UpdateByCond
                     (select.baseinfo().dbname(), select,
-                     [=](int iRet, storesvr_sqldata::storesvr_modins_res &select_res) mutable
+                     [=](int iRet, storesvr_sqldata::storesvr_update_res &select_res) mutable
                      {
                          if (iRet != 0)
                          {
@@ -611,11 +611,11 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                      });
         }
             break;
-        case proto_ff::NF_STORESVR_C2S_MODINSOBJ:
+        case proto_ff::NF_STORESVR_C2S_UPDATEOBJ:
         {
-            retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_MODINSOBJ);
+            retMsg.mutable_store_info()->set_cmd(proto_ff::NF_STORESVR_S2C_UPDATEOBJ);
 
-            storesvr_sqldata::storesvr_modinsobj select;
+            storesvr_sqldata::storesvr_updateobj select;
             select.ParsePartialFromString(xMsg.msg_data());
 
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
@@ -632,7 +632,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
 
             FindModule<NFIAsyMysqlModule>()->UpdateObj
                     (select.baseinfo().dbname(), select,
-                     [=](int iRet, storesvr_sqldata::storesvr_modinsobj_res &select_res) mutable
+                     [=](int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res) mutable
                      {
                          if (iRet != 0)
                          {
@@ -1006,7 +1006,7 @@ int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &requ
     return iRet;
 }
 
-int NFCStoreServerModule::OnHandleModInsRpc(storesvr_sqldata::storesvr_modins &request, storesvr_sqldata::storesvr_modins_res &respone)
+int NFCStoreServerModule::OnHandleUpdateRpc(storesvr_sqldata::storesvr_update &request, storesvr_sqldata::storesvr_update_res &respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
@@ -1029,7 +1029,7 @@ int NFCStoreServerModule::OnHandleModInsRpc(storesvr_sqldata::storesvr_modins &r
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->UpdateByCond
             (request.baseinfo().dbname(), request,
-             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_modins_res &select_res) mutable
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_update_res &select_res) mutable
              {
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
                  {
@@ -1062,7 +1062,7 @@ int NFCStoreServerModule::OnHandleModInsRpc(storesvr_sqldata::storesvr_modins &r
     return iRet;
 }
 
-int NFCStoreServerModule::OnHandleModInsObjRpc(storesvr_sqldata::storesvr_modinsobj &request, storesvr_sqldata::storesvr_modinsobj_res &respone)
+int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_updateobj &request, storesvr_sqldata::storesvr_updateobj_res &respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
@@ -1085,7 +1085,7 @@ int NFCStoreServerModule::OnHandleModInsObjRpc(storesvr_sqldata::storesvr_modins
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->UpdateObj
             (request.baseinfo().dbname(), request,
-             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_modinsobj_res &select_res) mutable
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res) mutable
              {
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
                  {

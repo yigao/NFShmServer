@@ -94,7 +94,7 @@ int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::pr
     CHECK_NULL(pConfig);
 
     return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
-                                                                        proto_ff::NF_STORESVR_C2S_MODINSOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                                        proto_ff::NF_STORESVR_C2S_UPDATEOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 NFResMysqlDB::NFResMysqlDB(NFIPluginManager* p):NFResDB(p)

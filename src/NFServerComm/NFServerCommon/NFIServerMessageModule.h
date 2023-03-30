@@ -311,10 +311,11 @@ public:
 
     template<class DataType, typename ResponFunc>
     int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &func,
-                             const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
-                             int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
+                            const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
+                            int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
     {
-        return GetRpcSelectServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields,where_addtional_conds, max_records, dstBusId, dbname);
+        return GetRpcSelectServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields, where_addtional_conds, max_records, dstBusId,
+                                        dbname);
     }
 
 private:
@@ -417,7 +418,7 @@ public:
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
         CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
-        NFStoreProtoCommon::storesvr_insertobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
+        NFStoreProtoCommon::storesvr_modifyobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
 
         storesvr_sqldata::storesvr_modobj_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_MODIFYOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
@@ -448,6 +449,7 @@ public:
                  });
         return iRet;
     }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server UpdateObj////////////////////////////////////////////////////////////////////////////
     template<typename DataType>
@@ -465,14 +467,14 @@ public:
         CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
 
 
-        storesvr_sqldata::storesvr_modinsobj selobj;
+        storesvr_sqldata::storesvr_updateobj selobj;
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
         CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
-        NFStoreProtoCommon::storesvr_insertobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
+        NFStoreProtoCommon::storesvr_updateobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
 
-        storesvr_sqldata::storesvr_modinsobj_res selobjRes;
-        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_MODINSOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+        storesvr_sqldata::storesvr_updateobj_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_UPDATEOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                       selobjRes);
         if (iRet == 0)
         {
@@ -486,13 +488,13 @@ public:
     }
 
     template<class DataType>
-    int GetRpcModInsObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+    int GetRpcUpdateObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
                                uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
-                     int rpcRetCode = GetRpcModInsObjService(eType, mod_key, data, dstBusId, dbname);
+                     int rpcRetCode = GetRpcUpdateObjService(eType, mod_key, data, dstBusId, dbname);
                      if (func)
                      {
                          func(rpcRetCode);
@@ -500,12 +502,285 @@ public:
                  });
         return iRet;
     }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server delete obj////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcDeleteObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_delobj selobj;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_deleteobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName);
+
+        storesvr_sqldata::storesvr_delobj_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_DELETEOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                      selobjRes);
+        if (iRet == 0)
+        {
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_DELETEOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
+                       selobjRes.del_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType>
+    int GetRpcDeleteObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+                               uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     int rpcRetCode = GetRpcDeleteObjService(eType, mod_key, data, dstBusId, dbname);
+                     if (func)
+                     {
+                         func(rpcRetCode);
+                     }
+                 });
+        return iRet;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server delete////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcDeleteService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::string &where_addtional_conds = "",
+                            uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_del selobj;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        std::vector<storesvr_sqldata::storesvr_vk> vk_list;
+        NFStoreProtoCommon::get_vk_list_from_proto(data, vk_list);
+        NFStoreProtoCommon::storesvr_deletebycond(selobj, tempDBName, tbname, mod_key, vk_list, where_addtional_conds, tbname, packageName);
+
+        storesvr_sqldata::storesvr_del_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_DELETE>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                   selobjRes);
+        if (iRet == 0)
+        {
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_DELETE iRet:{} errMsg:{}", GetErrorStr(iRet),
+                       selobjRes.del_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType>
+    int GetRpcDeleteService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+                            const std::string &where_addtional_conds = "",
+                            uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     int rpcRetCode = GetRpcDeleteService(eType, mod_key, data, where_addtional_conds, dstBusId, dbname);
+                     if (func)
+                     {
+                         func(rpcRetCode);
+                     }
+                 });
+        return iRet;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server modify////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcModifyService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data,
+                            const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                            const std::string &where_addtional_conds = "", uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_mod selobj;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_modifybycond(selobj, tempDBName, tbname, mod_key, data, vk_list, where_addtional_conds, tbname, packageName);
+
+        storesvr_sqldata::storesvr_mod_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_MODIFY>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                   selobjRes);
+        if (iRet == 0)
+        {
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_MODIFY iRet:{} errMsg:{}", GetErrorStr(iRet),
+                       selobjRes.mod_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType>
+    int GetRpcModifyService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+                            const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                            const std::string &where_addtional_conds = "",
+                            uint32_t
+                            dstBusId = 0,
+                            const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     int rpcRetCode = GetRpcModifyService(eType, mod_key, data, vk_list, where_addtional_conds, dstBusId, dbname);
+                     if (func)
+                     {
+                         func(rpcRetCode);
+                     }
+                 });
+        return iRet;
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int GetRpcUpdateService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data,
+                            const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                            const std::string &where_addtional_conds = "", uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_update selobj;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_updatebycond(selobj, tempDBName, tbname, mod_key, data, vk_list, where_addtional_conds, tbname, packageName);
+
+        storesvr_sqldata::storesvr_update_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_UPDATE>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                   selobjRes);
+        if (iRet == 0)
+        {
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_MODINS iRet:{} errMsg:{}", GetErrorStr(iRet),
+                       selobjRes.mod_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType>
+    int GetRpcUpdateService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+                            const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                            const std::string &where_addtional_conds = "",
+                            uint32_t
+                            dstBusId = 0,
+                            const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     int rpcRetCode = GetRpcUpdateService(eType, mod_key, data, vk_list, where_addtional_conds, dstBusId, dbname);
+                     if (func)
+                     {
+                         func(rpcRetCode);
+                     }
+                 });
+        return iRet;
+    }
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
-    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
+    ///////////////////////store server update////////////////////////////////////////////////////////////////////////////
+    int GetRpcExecuteService(NF_SERVER_TYPES eType, const std::string &tbname, uint64_t mod_key, const std::string &sql, uint32_t dstBusId = 0,
+                             const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_execute selobj;
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_execute(selobj, tempDBName, tbname, mod_key, sql);
+
+        storesvr_sqldata::storesvr_execute_res selobjRes;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_EXECUTE>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
+                                                                                                    selobjRes);
+        if (iRet == 0)
+        {
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_EXECUTE iRet:{} errMsg:{}", GetErrorStr(iRet),
+                       selobjRes.exe_opres().errmsg());
+        }
+        return iRet;
+    }
+
+    template<class DataType>
+    int GetRpcExecuteService(NF_SERVER_TYPES eType, const std::string &tbname, uint64_t mod_key, const std::string &sql,
+                            const std::function<void(int)> &func, uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     int rpcRetCode = GetRpcExecuteService(eType, tbname, mod_key, sql, dstBusId, dbname);
+                     if (func)
+                     {
+                         func(rpcRetCode);
+                     }
+                 });
+        return iRet;
+    }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

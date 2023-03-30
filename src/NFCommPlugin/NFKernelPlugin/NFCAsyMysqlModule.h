@@ -134,10 +134,10 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-    virtual int UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_modins &select,
+    virtual int UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_update &select,
                           const UpdateByCond_CB& cb) override;
 
-	virtual int UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modinsobj &select,
+	virtual int UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_updateobj &select,
 		const UpdateObj_CB& cb) override;
 
     virtual int Execute(const std::string& nServerID, const storesvr_sqldata::storesvr_execute &select,

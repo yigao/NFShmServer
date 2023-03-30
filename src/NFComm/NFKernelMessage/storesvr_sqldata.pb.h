@@ -54,10 +54,10 @@ class storesvr_mod;
 class storesvr_mod_res;
 class storesvr_modobj;
 class storesvr_modobj_res;
-class storesvr_modins;
-class storesvr_modins_res;
-class storesvr_modinsobj;
-class storesvr_modinsobj_res;
+class storesvr_update;
+class storesvr_update_res;
+class storesvr_updateobj;
+class storesvr_updateobj_res;
 class storesvr_execute;
 class storesvr_execute_res;
 class storesvr_execute_more;
@@ -2295,14 +2295,14 @@ class storesvr_modobj_res : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class storesvr_modins : public ::google::protobuf::Message {
+class storesvr_update : public ::google::protobuf::Message {
  public:
-  storesvr_modins();
-  virtual ~storesvr_modins();
+  storesvr_update();
+  virtual ~storesvr_update();
 
-  storesvr_modins(const storesvr_modins& from);
+  storesvr_update(const storesvr_update& from);
 
-  inline storesvr_modins& operator=(const storesvr_modins& from) {
+  inline storesvr_update& operator=(const storesvr_update& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2316,17 +2316,17 @@ class storesvr_modins : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const storesvr_modins& default_instance();
+  static const storesvr_update& default_instance();
 
-  void Swap(storesvr_modins* other);
+  void Swap(storesvr_update* other);
 
   // implements Message ----------------------------------------------
 
-  storesvr_modins* New() const;
+  storesvr_update* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const storesvr_modins& from);
-  void MergeFrom(const storesvr_modins& from);
+  void CopyFrom(const storesvr_update& from);
+  void MergeFrom(const storesvr_update& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2379,7 +2379,7 @@ class storesvr_modins : public ::google::protobuf::Message {
   inline ::std::string* release_mod_record();
   inline void set_allocated_mod_record(::std::string* mod_record);
 
-  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_modins)
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_update)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
@@ -2402,18 +2402,18 @@ class storesvr_modins : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
 
   void InitAsDefaultInstance();
-  static storesvr_modins* default_instance_;
+  static storesvr_update* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class storesvr_modins_res : public ::google::protobuf::Message {
+class storesvr_update_res : public ::google::protobuf::Message {
  public:
-  storesvr_modins_res();
-  virtual ~storesvr_modins_res();
+  storesvr_update_res();
+  virtual ~storesvr_update_res();
 
-  storesvr_modins_res(const storesvr_modins_res& from);
+  storesvr_update_res(const storesvr_update_res& from);
 
-  inline storesvr_modins_res& operator=(const storesvr_modins_res& from) {
+  inline storesvr_update_res& operator=(const storesvr_update_res& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2427,17 +2427,17 @@ class storesvr_modins_res : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const storesvr_modins_res& default_instance();
+  static const storesvr_update_res& default_instance();
 
-  void Swap(storesvr_modins_res* other);
+  void Swap(storesvr_update_res* other);
 
   // implements Message ----------------------------------------------
 
-  storesvr_modins_res* New() const;
+  storesvr_update_res* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const storesvr_modins_res& from);
-  void MergeFrom(const storesvr_modins_res& from);
+  void CopyFrom(const storesvr_update_res& from);
+  void MergeFrom(const storesvr_update_res& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2478,7 +2478,7 @@ class storesvr_modins_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_opres* release_mod_opres();
   inline void set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres);
 
-  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_modins_res)
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_update_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
@@ -2498,18 +2498,18 @@ class storesvr_modins_res : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
 
   void InitAsDefaultInstance();
-  static storesvr_modins_res* default_instance_;
+  static storesvr_update_res* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class storesvr_modinsobj : public ::google::protobuf::Message {
+class storesvr_updateobj : public ::google::protobuf::Message {
  public:
-  storesvr_modinsobj();
-  virtual ~storesvr_modinsobj();
+  storesvr_updateobj();
+  virtual ~storesvr_updateobj();
 
-  storesvr_modinsobj(const storesvr_modinsobj& from);
+  storesvr_updateobj(const storesvr_updateobj& from);
 
-  inline storesvr_modinsobj& operator=(const storesvr_modinsobj& from) {
+  inline storesvr_updateobj& operator=(const storesvr_updateobj& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2523,17 +2523,17 @@ class storesvr_modinsobj : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const storesvr_modinsobj& default_instance();
+  static const storesvr_updateobj& default_instance();
 
-  void Swap(storesvr_modinsobj* other);
+  void Swap(storesvr_updateobj* other);
 
   // implements Message ----------------------------------------------
 
-  storesvr_modinsobj* New() const;
+  storesvr_updateobj* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const storesvr_modinsobj& from);
-  void MergeFrom(const storesvr_modinsobj& from);
+  void CopyFrom(const storesvr_updateobj& from);
+  void MergeFrom(const storesvr_updateobj& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2584,7 +2584,7 @@ class storesvr_modinsobj : public ::google::protobuf::Message {
   inline ::std::string* release_modins_record();
   inline void set_allocated_modins_record(::std::string* modins_record);
 
-  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_modinsobj)
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_updateobj)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
@@ -2607,18 +2607,18 @@ class storesvr_modinsobj : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
 
   void InitAsDefaultInstance();
-  static storesvr_modinsobj* default_instance_;
+  static storesvr_updateobj* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class storesvr_modinsobj_res : public ::google::protobuf::Message {
+class storesvr_updateobj_res : public ::google::protobuf::Message {
  public:
-  storesvr_modinsobj_res();
-  virtual ~storesvr_modinsobj_res();
+  storesvr_updateobj_res();
+  virtual ~storesvr_updateobj_res();
 
-  storesvr_modinsobj_res(const storesvr_modinsobj_res& from);
+  storesvr_updateobj_res(const storesvr_updateobj_res& from);
 
-  inline storesvr_modinsobj_res& operator=(const storesvr_modinsobj_res& from) {
+  inline storesvr_updateobj_res& operator=(const storesvr_updateobj_res& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2632,17 +2632,17 @@ class storesvr_modinsobj_res : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const storesvr_modinsobj_res& default_instance();
+  static const storesvr_updateobj_res& default_instance();
 
-  void Swap(storesvr_modinsobj_res* other);
+  void Swap(storesvr_updateobj_res* other);
 
   // implements Message ----------------------------------------------
 
-  storesvr_modinsobj_res* New() const;
+  storesvr_updateobj_res* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const storesvr_modinsobj_res& from);
-  void MergeFrom(const storesvr_modinsobj_res& from);
+  void CopyFrom(const storesvr_updateobj_res& from);
+  void MergeFrom(const storesvr_updateobj_res& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2683,7 +2683,7 @@ class storesvr_modinsobj_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_opres* release_modins_opres();
   inline void set_allocated_modins_opres(::storesvr_sqldata::storesvr_opres* modins_opres);
 
-  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_modinsobj_res)
+  // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_updateobj_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
@@ -2703,7 +2703,7 @@ class storesvr_modinsobj_res : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto();
 
   void InitAsDefaultInstance();
-  static storesvr_modinsobj_res* default_instance_;
+  static storesvr_updateobj_res* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -5704,37 +5704,37 @@ inline void storesvr_modobj_res::set_allocated_mod_opres(::storesvr_sqldata::sto
 
 // -------------------------------------------------------------------
 
-// storesvr_modins
+// storesvr_update
 
 // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
-inline bool storesvr_modins::has_baseinfo() const {
+inline bool storesvr_update::has_baseinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void storesvr_modins::set_has_baseinfo() {
+inline void storesvr_update::set_has_baseinfo() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void storesvr_modins::clear_has_baseinfo() {
+inline void storesvr_update::clear_has_baseinfo() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void storesvr_modins::clear_baseinfo() {
+inline void storesvr_update::clear_baseinfo() {
   if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
   clear_has_baseinfo();
 }
-inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_modins::baseinfo() const {
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_update::baseinfo() const {
   return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_modins::mutable_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_update::mutable_baseinfo() {
   set_has_baseinfo();
   if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
   return baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_modins::release_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_update::release_baseinfo() {
   clear_has_baseinfo();
   ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
   baseinfo_ = NULL;
   return temp;
 }
-inline void storesvr_modins::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+inline void storesvr_update::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
   delete baseinfo_;
   baseinfo_ = baseinfo;
   if (baseinfo) {
@@ -5745,34 +5745,34 @@ inline void storesvr_modins::set_allocated_baseinfo(::storesvr_sqldata::storesvr
 }
 
 // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-inline bool storesvr_modins::has_mod_cond() const {
+inline bool storesvr_update::has_mod_cond() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_modins::set_has_mod_cond() {
+inline void storesvr_update::set_has_mod_cond() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_modins::clear_has_mod_cond() {
+inline void storesvr_update::clear_has_mod_cond() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_modins::clear_mod_cond() {
+inline void storesvr_update::clear_mod_cond() {
   if (mod_cond_ != NULL) mod_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
   clear_has_mod_cond();
 }
-inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_modins::mod_cond() const {
+inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_update::mod_cond() const {
   return mod_cond_ != NULL ? *mod_cond_ : *default_instance_->mod_cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_modins::mutable_mod_cond() {
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_update::mutable_mod_cond() {
   set_has_mod_cond();
   if (mod_cond_ == NULL) mod_cond_ = new ::storesvr_sqldata::storesvr_wherecond;
   return mod_cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_modins::release_mod_cond() {
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_update::release_mod_cond() {
   clear_has_mod_cond();
   ::storesvr_sqldata::storesvr_wherecond* temp = mod_cond_;
   mod_cond_ = NULL;
   return temp;
 }
-inline void storesvr_modins::set_allocated_mod_cond(::storesvr_sqldata::storesvr_wherecond* mod_cond) {
+inline void storesvr_update::set_allocated_mod_cond(::storesvr_sqldata::storesvr_wherecond* mod_cond) {
   delete mod_cond_;
   mod_cond_ = mod_cond;
   if (mod_cond) {
@@ -5783,53 +5783,53 @@ inline void storesvr_modins::set_allocated_mod_cond(::storesvr_sqldata::storesvr
 }
 
 // optional bytes mod_record = 3;
-inline bool storesvr_modins::has_mod_record() const {
+inline bool storesvr_update::has_mod_record() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void storesvr_modins::set_has_mod_record() {
+inline void storesvr_update::set_has_mod_record() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void storesvr_modins::clear_has_mod_record() {
+inline void storesvr_update::clear_has_mod_record() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void storesvr_modins::clear_mod_record() {
+inline void storesvr_update::clear_mod_record() {
   if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
     mod_record_->clear();
   }
   clear_has_mod_record();
 }
-inline const ::std::string& storesvr_modins::mod_record() const {
+inline const ::std::string& storesvr_update::mod_record() const {
   return *mod_record_;
 }
-inline void storesvr_modins::set_mod_record(const ::std::string& value) {
+inline void storesvr_update::set_mod_record(const ::std::string& value) {
   set_has_mod_record();
   if (mod_record_ == &::google::protobuf::internal::kEmptyString) {
     mod_record_ = new ::std::string;
   }
   mod_record_->assign(value);
 }
-inline void storesvr_modins::set_mod_record(const char* value) {
+inline void storesvr_update::set_mod_record(const char* value) {
   set_has_mod_record();
   if (mod_record_ == &::google::protobuf::internal::kEmptyString) {
     mod_record_ = new ::std::string;
   }
   mod_record_->assign(value);
 }
-inline void storesvr_modins::set_mod_record(const void* value, size_t size) {
+inline void storesvr_update::set_mod_record(const void* value, size_t size) {
   set_has_mod_record();
   if (mod_record_ == &::google::protobuf::internal::kEmptyString) {
     mod_record_ = new ::std::string;
   }
   mod_record_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* storesvr_modins::mutable_mod_record() {
+inline ::std::string* storesvr_update::mutable_mod_record() {
   set_has_mod_record();
   if (mod_record_ == &::google::protobuf::internal::kEmptyString) {
     mod_record_ = new ::std::string;
   }
   return mod_record_;
 }
-inline ::std::string* storesvr_modins::release_mod_record() {
+inline ::std::string* storesvr_update::release_mod_record() {
   clear_has_mod_record();
   if (mod_record_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -5839,7 +5839,7 @@ inline ::std::string* storesvr_modins::release_mod_record() {
     return temp;
   }
 }
-inline void storesvr_modins::set_allocated_mod_record(::std::string* mod_record) {
+inline void storesvr_update::set_allocated_mod_record(::std::string* mod_record) {
   if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
     delete mod_record_;
   }
@@ -5854,37 +5854,37 @@ inline void storesvr_modins::set_allocated_mod_record(::std::string* mod_record)
 
 // -------------------------------------------------------------------
 
-// storesvr_modins_res
+// storesvr_update_res
 
 // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
-inline bool storesvr_modins_res::has_baseinfo() const {
+inline bool storesvr_update_res::has_baseinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void storesvr_modins_res::set_has_baseinfo() {
+inline void storesvr_update_res::set_has_baseinfo() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void storesvr_modins_res::clear_has_baseinfo() {
+inline void storesvr_update_res::clear_has_baseinfo() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void storesvr_modins_res::clear_baseinfo() {
+inline void storesvr_update_res::clear_baseinfo() {
   if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
   clear_has_baseinfo();
 }
-inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_modins_res::baseinfo() const {
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_update_res::baseinfo() const {
   return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_modins_res::mutable_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_update_res::mutable_baseinfo() {
   set_has_baseinfo();
   if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
   return baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_modins_res::release_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_update_res::release_baseinfo() {
   clear_has_baseinfo();
   ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
   baseinfo_ = NULL;
   return temp;
 }
-inline void storesvr_modins_res::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+inline void storesvr_update_res::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
   delete baseinfo_;
   baseinfo_ = baseinfo;
   if (baseinfo) {
@@ -5895,34 +5895,34 @@ inline void storesvr_modins_res::set_allocated_baseinfo(::storesvr_sqldata::stor
 }
 
 // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-inline bool storesvr_modins_res::has_mod_opres() const {
+inline bool storesvr_update_res::has_mod_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_modins_res::set_has_mod_opres() {
+inline void storesvr_update_res::set_has_mod_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_modins_res::clear_has_mod_opres() {
+inline void storesvr_update_res::clear_has_mod_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_modins_res::clear_mod_opres() {
+inline void storesvr_update_res::clear_mod_opres() {
   if (mod_opres_ != NULL) mod_opres_->::storesvr_sqldata::storesvr_opres::Clear();
   clear_has_mod_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_modins_res::mod_opres() const {
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_update_res::mod_opres() const {
   return mod_opres_ != NULL ? *mod_opres_ : *default_instance_->mod_opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_modins_res::mutable_mod_opres() {
+inline ::storesvr_sqldata::storesvr_opres* storesvr_update_res::mutable_mod_opres() {
   set_has_mod_opres();
   if (mod_opres_ == NULL) mod_opres_ = new ::storesvr_sqldata::storesvr_opres;
   return mod_opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_modins_res::release_mod_opres() {
+inline ::storesvr_sqldata::storesvr_opres* storesvr_update_res::release_mod_opres() {
   clear_has_mod_opres();
   ::storesvr_sqldata::storesvr_opres* temp = mod_opres_;
   mod_opres_ = NULL;
   return temp;
 }
-inline void storesvr_modins_res::set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres) {
+inline void storesvr_update_res::set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres) {
   delete mod_opres_;
   mod_opres_ = mod_opres;
   if (mod_opres) {
@@ -5934,37 +5934,37 @@ inline void storesvr_modins_res::set_allocated_mod_opres(::storesvr_sqldata::sto
 
 // -------------------------------------------------------------------
 
-// storesvr_modinsobj
+// storesvr_updateobj
 
 // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
-inline bool storesvr_modinsobj::has_baseinfo() const {
+inline bool storesvr_updateobj::has_baseinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void storesvr_modinsobj::set_has_baseinfo() {
+inline void storesvr_updateobj::set_has_baseinfo() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void storesvr_modinsobj::clear_has_baseinfo() {
+inline void storesvr_updateobj::clear_has_baseinfo() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void storesvr_modinsobj::clear_baseinfo() {
+inline void storesvr_updateobj::clear_baseinfo() {
   if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
   clear_has_baseinfo();
 }
-inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_modinsobj::baseinfo() const {
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_updateobj::baseinfo() const {
   return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_modinsobj::mutable_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_updateobj::mutable_baseinfo() {
   set_has_baseinfo();
   if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
   return baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_modinsobj::release_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_updateobj::release_baseinfo() {
   clear_has_baseinfo();
   ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
   baseinfo_ = NULL;
   return temp;
 }
-inline void storesvr_modinsobj::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+inline void storesvr_updateobj::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
   delete baseinfo_;
   baseinfo_ = baseinfo;
   if (baseinfo) {
@@ -5975,75 +5975,75 @@ inline void storesvr_modinsobj::set_allocated_baseinfo(::storesvr_sqldata::store
 }
 
 // optional uint64 mod_key = 2;
-inline bool storesvr_modinsobj::has_mod_key() const {
+inline bool storesvr_updateobj::has_mod_key() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_modinsobj::set_has_mod_key() {
+inline void storesvr_updateobj::set_has_mod_key() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_modinsobj::clear_has_mod_key() {
+inline void storesvr_updateobj::clear_has_mod_key() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_modinsobj::clear_mod_key() {
+inline void storesvr_updateobj::clear_mod_key() {
   mod_key_ = GOOGLE_ULONGLONG(0);
   clear_has_mod_key();
 }
-inline ::google::protobuf::uint64 storesvr_modinsobj::mod_key() const {
+inline ::google::protobuf::uint64 storesvr_updateobj::mod_key() const {
   return mod_key_;
 }
-inline void storesvr_modinsobj::set_mod_key(::google::protobuf::uint64 value) {
+inline void storesvr_updateobj::set_mod_key(::google::protobuf::uint64 value) {
   set_has_mod_key();
   mod_key_ = value;
 }
 
 // optional bytes modins_record = 3;
-inline bool storesvr_modinsobj::has_modins_record() const {
+inline bool storesvr_updateobj::has_modins_record() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void storesvr_modinsobj::set_has_modins_record() {
+inline void storesvr_updateobj::set_has_modins_record() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void storesvr_modinsobj::clear_has_modins_record() {
+inline void storesvr_updateobj::clear_has_modins_record() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void storesvr_modinsobj::clear_modins_record() {
+inline void storesvr_updateobj::clear_modins_record() {
   if (modins_record_ != &::google::protobuf::internal::kEmptyString) {
     modins_record_->clear();
   }
   clear_has_modins_record();
 }
-inline const ::std::string& storesvr_modinsobj::modins_record() const {
+inline const ::std::string& storesvr_updateobj::modins_record() const {
   return *modins_record_;
 }
-inline void storesvr_modinsobj::set_modins_record(const ::std::string& value) {
+inline void storesvr_updateobj::set_modins_record(const ::std::string& value) {
   set_has_modins_record();
   if (modins_record_ == &::google::protobuf::internal::kEmptyString) {
     modins_record_ = new ::std::string;
   }
   modins_record_->assign(value);
 }
-inline void storesvr_modinsobj::set_modins_record(const char* value) {
+inline void storesvr_updateobj::set_modins_record(const char* value) {
   set_has_modins_record();
   if (modins_record_ == &::google::protobuf::internal::kEmptyString) {
     modins_record_ = new ::std::string;
   }
   modins_record_->assign(value);
 }
-inline void storesvr_modinsobj::set_modins_record(const void* value, size_t size) {
+inline void storesvr_updateobj::set_modins_record(const void* value, size_t size) {
   set_has_modins_record();
   if (modins_record_ == &::google::protobuf::internal::kEmptyString) {
     modins_record_ = new ::std::string;
   }
   modins_record_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* storesvr_modinsobj::mutable_modins_record() {
+inline ::std::string* storesvr_updateobj::mutable_modins_record() {
   set_has_modins_record();
   if (modins_record_ == &::google::protobuf::internal::kEmptyString) {
     modins_record_ = new ::std::string;
   }
   return modins_record_;
 }
-inline ::std::string* storesvr_modinsobj::release_modins_record() {
+inline ::std::string* storesvr_updateobj::release_modins_record() {
   clear_has_modins_record();
   if (modins_record_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -6053,7 +6053,7 @@ inline ::std::string* storesvr_modinsobj::release_modins_record() {
     return temp;
   }
 }
-inline void storesvr_modinsobj::set_allocated_modins_record(::std::string* modins_record) {
+inline void storesvr_updateobj::set_allocated_modins_record(::std::string* modins_record) {
   if (modins_record_ != &::google::protobuf::internal::kEmptyString) {
     delete modins_record_;
   }
@@ -6068,37 +6068,37 @@ inline void storesvr_modinsobj::set_allocated_modins_record(::std::string* modin
 
 // -------------------------------------------------------------------
 
-// storesvr_modinsobj_res
+// storesvr_updateobj_res
 
 // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
-inline bool storesvr_modinsobj_res::has_baseinfo() const {
+inline bool storesvr_updateobj_res::has_baseinfo() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void storesvr_modinsobj_res::set_has_baseinfo() {
+inline void storesvr_updateobj_res::set_has_baseinfo() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void storesvr_modinsobj_res::clear_has_baseinfo() {
+inline void storesvr_updateobj_res::clear_has_baseinfo() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void storesvr_modinsobj_res::clear_baseinfo() {
+inline void storesvr_updateobj_res::clear_baseinfo() {
   if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
   clear_has_baseinfo();
 }
-inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_modinsobj_res::baseinfo() const {
+inline const ::storesvr_sqldata::storesvr_baseinfo& storesvr_updateobj_res::baseinfo() const {
   return baseinfo_ != NULL ? *baseinfo_ : *default_instance_->baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_modinsobj_res::mutable_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_updateobj_res::mutable_baseinfo() {
   set_has_baseinfo();
   if (baseinfo_ == NULL) baseinfo_ = new ::storesvr_sqldata::storesvr_baseinfo;
   return baseinfo_;
 }
-inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_modinsobj_res::release_baseinfo() {
+inline ::storesvr_sqldata::storesvr_baseinfo* storesvr_updateobj_res::release_baseinfo() {
   clear_has_baseinfo();
   ::storesvr_sqldata::storesvr_baseinfo* temp = baseinfo_;
   baseinfo_ = NULL;
   return temp;
 }
-inline void storesvr_modinsobj_res::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
+inline void storesvr_updateobj_res::set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo) {
   delete baseinfo_;
   baseinfo_ = baseinfo;
   if (baseinfo) {
@@ -6109,34 +6109,34 @@ inline void storesvr_modinsobj_res::set_allocated_baseinfo(::storesvr_sqldata::s
 }
 
 // optional .storesvr_sqldata.storesvr_opres modins_opres = 2;
-inline bool storesvr_modinsobj_res::has_modins_opres() const {
+inline bool storesvr_updateobj_res::has_modins_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_modinsobj_res::set_has_modins_opres() {
+inline void storesvr_updateobj_res::set_has_modins_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_modinsobj_res::clear_has_modins_opres() {
+inline void storesvr_updateobj_res::clear_has_modins_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_modinsobj_res::clear_modins_opres() {
+inline void storesvr_updateobj_res::clear_modins_opres() {
   if (modins_opres_ != NULL) modins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
   clear_has_modins_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_modinsobj_res::modins_opres() const {
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_updateobj_res::modins_opres() const {
   return modins_opres_ != NULL ? *modins_opres_ : *default_instance_->modins_opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_modinsobj_res::mutable_modins_opres() {
+inline ::storesvr_sqldata::storesvr_opres* storesvr_updateobj_res::mutable_modins_opres() {
   set_has_modins_opres();
   if (modins_opres_ == NULL) modins_opres_ = new ::storesvr_sqldata::storesvr_opres;
   return modins_opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_modinsobj_res::release_modins_opres() {
+inline ::storesvr_sqldata::storesvr_opres* storesvr_updateobj_res::release_modins_opres() {
   clear_has_modins_opres();
   ::storesvr_sqldata::storesvr_opres* temp = modins_opres_;
   modins_opres_ = NULL;
   return temp;
 }
-inline void storesvr_modinsobj_res::set_allocated_modins_opres(::storesvr_sqldata::storesvr_opres* modins_opres) {
+inline void storesvr_updateobj_res::set_allocated_modins_opres(::storesvr_sqldata::storesvr_opres* modins_opres) {
   delete modins_opres_;
   modins_opres_ = modins_opres;
   if (modins_opres) {

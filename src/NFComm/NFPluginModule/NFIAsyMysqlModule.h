@@ -31,8 +31,8 @@ using ModifyByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_
 
 using ModifyObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_modobj_res &select_res)>;
 
-using UpdateByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_modins_res &select_res)>;
-using UpdateObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_modinsobj_res &select_res)>;
+using UpdateByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_update_res &select_res)>;
+using UpdateObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res)>;
 
 using Execute_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_execute_res &select_res)>;
 
@@ -156,10 +156,10 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-    virtual int UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_modins &select,
+    virtual int UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_update &select,
                           const UpdateByCond_CB& cb) = 0;
 
-	virtual int UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modinsobj &select,
+	virtual int UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_updateobj &select,
 		const UpdateObj_CB& cb) = 0;
 
     /**

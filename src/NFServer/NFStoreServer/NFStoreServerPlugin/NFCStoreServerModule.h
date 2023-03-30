@@ -100,7 +100,7 @@ public:
      * @param respone
      * @return
      */
-    int OnHandleModInsRpc(storesvr_sqldata::storesvr_modins& request, storesvr_sqldata::storesvr_modins_res& respone);
+    int OnHandleUpdateRpc(storesvr_sqldata::storesvr_update& request, storesvr_sqldata::storesvr_update_res& respone);
 
     /**
      * @brief
@@ -108,7 +108,7 @@ public:
      * @param respone
      * @return
      */
-    int OnHandleModInsObjRpc(storesvr_sqldata::storesvr_modinsobj& request, storesvr_sqldata::storesvr_modinsobj_res& respone);
+    int OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_updateobj& request, storesvr_sqldata::storesvr_updateobj_res& respone);
 
     /**
      * @brief

@@ -80,18 +80,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* storesvr_modobj_res_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   storesvr_modobj_res_reflection_ = NULL;
-const ::google::protobuf::Descriptor* storesvr_modins_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* storesvr_update_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  storesvr_modins_reflection_ = NULL;
-const ::google::protobuf::Descriptor* storesvr_modins_res_descriptor_ = NULL;
+  storesvr_update_reflection_ = NULL;
+const ::google::protobuf::Descriptor* storesvr_update_res_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  storesvr_modins_res_reflection_ = NULL;
-const ::google::protobuf::Descriptor* storesvr_modinsobj_descriptor_ = NULL;
+  storesvr_update_res_reflection_ = NULL;
+const ::google::protobuf::Descriptor* storesvr_updateobj_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  storesvr_modinsobj_reflection_ = NULL;
-const ::google::protobuf::Descriptor* storesvr_modinsobj_res_descriptor_ = NULL;
+  storesvr_updateobj_reflection_ = NULL;
+const ::google::protobuf::Descriptor* storesvr_updateobj_res_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  storesvr_modinsobj_res_reflection_ = NULL;
+  storesvr_updateobj_res_reflection_ = NULL;
 const ::google::protobuf::Descriptor* storesvr_execute_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   storesvr_execute_reflection_ = NULL;
@@ -455,72 +455,72 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(storesvr_modobj_res));
-  storesvr_modins_descriptor_ = file->message_type(20);
-  static const int storesvr_modins_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins, mod_cond_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins, mod_record_),
+  storesvr_update_descriptor_ = file->message_type(20);
+  static const int storesvr_update_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, baseinfo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, mod_cond_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, mod_record_),
   };
-  storesvr_modins_reflection_ =
+  storesvr_update_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      storesvr_modins_descriptor_,
-      storesvr_modins::default_instance_,
-      storesvr_modins_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins, _unknown_fields_),
+      storesvr_update_descriptor_,
+      storesvr_update::default_instance_,
+      storesvr_update_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(storesvr_modins));
-  storesvr_modins_res_descriptor_ = file->message_type(21);
-  static const int storesvr_modins_res_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins_res, mod_opres_),
+      sizeof(storesvr_update));
+  storesvr_update_res_descriptor_ = file->message_type(21);
+  static const int storesvr_update_res_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update_res, baseinfo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update_res, mod_opres_),
   };
-  storesvr_modins_res_reflection_ =
+  storesvr_update_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      storesvr_modins_res_descriptor_,
-      storesvr_modins_res::default_instance_,
-      storesvr_modins_res_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins_res, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modins_res, _unknown_fields_),
+      storesvr_update_res_descriptor_,
+      storesvr_update_res::default_instance_,
+      storesvr_update_res_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update_res, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update_res, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(storesvr_modins_res));
-  storesvr_modinsobj_descriptor_ = file->message_type(22);
-  static const int storesvr_modinsobj_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj, modins_record_),
+      sizeof(storesvr_update_res));
+  storesvr_updateobj_descriptor_ = file->message_type(22);
+  static const int storesvr_updateobj_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, baseinfo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, mod_key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, modins_record_),
   };
-  storesvr_modinsobj_reflection_ =
+  storesvr_updateobj_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      storesvr_modinsobj_descriptor_,
-      storesvr_modinsobj::default_instance_,
-      storesvr_modinsobj_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj, _unknown_fields_),
+      storesvr_updateobj_descriptor_,
+      storesvr_updateobj::default_instance_,
+      storesvr_updateobj_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(storesvr_modinsobj));
-  storesvr_modinsobj_res_descriptor_ = file->message_type(23);
-  static const int storesvr_modinsobj_res_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj_res, modins_opres_),
+      sizeof(storesvr_updateobj));
+  storesvr_updateobj_res_descriptor_ = file->message_type(23);
+  static const int storesvr_updateobj_res_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj_res, baseinfo_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj_res, modins_opres_),
   };
-  storesvr_modinsobj_res_reflection_ =
+  storesvr_updateobj_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      storesvr_modinsobj_res_descriptor_,
-      storesvr_modinsobj_res::default_instance_,
-      storesvr_modinsobj_res_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj_res, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modinsobj_res, _unknown_fields_),
+      storesvr_updateobj_res_descriptor_,
+      storesvr_updateobj_res::default_instance_,
+      storesvr_updateobj_res_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj_res, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj_res, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(storesvr_modinsobj_res));
+      sizeof(storesvr_updateobj_res));
   storesvr_execute_descriptor_ = file->message_type(24);
   static const int storesvr_execute_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute, baseinfo_),
@@ -647,13 +647,13 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     storesvr_modobj_res_descriptor_, &storesvr_modobj_res::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    storesvr_modins_descriptor_, &storesvr_modins::default_instance());
+    storesvr_update_descriptor_, &storesvr_update::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    storesvr_modins_res_descriptor_, &storesvr_modins_res::default_instance());
+    storesvr_update_res_descriptor_, &storesvr_update_res::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    storesvr_modinsobj_descriptor_, &storesvr_modinsobj::default_instance());
+    storesvr_updateobj_descriptor_, &storesvr_updateobj::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    storesvr_modinsobj_res_descriptor_, &storesvr_modinsobj_res::default_instance());
+    storesvr_updateobj_res_descriptor_, &storesvr_updateobj_res::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     storesvr_execute_descriptor_, &storesvr_execute::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -707,14 +707,14 @@ void protobuf_ShutdownFile_storesvr_5fsqldata_2eproto() {
   delete storesvr_modobj_reflection_;
   delete storesvr_modobj_res::default_instance_;
   delete storesvr_modobj_res_reflection_;
-  delete storesvr_modins::default_instance_;
-  delete storesvr_modins_reflection_;
-  delete storesvr_modins_res::default_instance_;
-  delete storesvr_modins_res_reflection_;
-  delete storesvr_modinsobj::default_instance_;
-  delete storesvr_modinsobj_reflection_;
-  delete storesvr_modinsobj_res::default_instance_;
-  delete storesvr_modinsobj_res_reflection_;
+  delete storesvr_update::default_instance_;
+  delete storesvr_update_reflection_;
+  delete storesvr_update_res::default_instance_;
+  delete storesvr_update_res_reflection_;
+  delete storesvr_updateobj::default_instance_;
+  delete storesvr_updateobj_reflection_;
+  delete storesvr_updateobj_res::default_instance_;
+  delete storesvr_updateobj_res_reflection_;
   delete storesvr_execute::default_instance_;
   delete storesvr_execute_reflection_;
   delete storesvr_execute_res::default_instance_;
@@ -800,17 +800,17 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
     "esvr_modobj_res\0225\n\010baseinfo\030\001 \001(\0132#.stor"
     "esvr_sqldata.storesvr_baseinfo\0223\n\tmod_op"
     "res\030\002 \001(\0132 .storesvr_sqldata.storesvr_op"
-    "res\"\224\001\n\017storesvr_modins\0225\n\010baseinfo\030\001 \001("
+    "res\"\224\001\n\017storesvr_update\0225\n\010baseinfo\030\001 \001("
     "\0132#.storesvr_sqldata.storesvr_baseinfo\0226"
     "\n\010mod_cond\030\002 \001(\0132$.storesvr_sqldata.stor"
     "esvr_wherecond\022\022\n\nmod_record\030\003 \001(\014\"\201\001\n\023s"
-    "toresvr_modins_res\0225\n\010baseinfo\030\001 \001(\0132#.s"
+    "toresvr_update_res\0225\n\010baseinfo\030\001 \001(\0132#.s"
     "toresvr_sqldata.storesvr_baseinfo\0223\n\tmod"
     "_opres\030\002 \001(\0132 .storesvr_sqldata.storesvr"
-    "_opres\"s\n\022storesvr_modinsobj\0225\n\010baseinfo"
+    "_opres\"s\n\022storesvr_updateobj\0225\n\010baseinfo"
     "\030\001 \001(\0132#.storesvr_sqldata.storesvr_basei"
     "nfo\022\017\n\007mod_key\030\002 \001(\004\022\025\n\rmodins_record\030\003 "
-    "\001(\014\"\207\001\n\026storesvr_modinsobj_res\0225\n\010basein"
+    "\001(\014\"\207\001\n\026storesvr_updateobj_res\0225\n\010basein"
     "fo\030\001 \001(\0132#.storesvr_sqldata.storesvr_bas"
     "einfo\0226\n\014modins_opres\030\002 \001(\0132 .storesvr_s"
     "qldata.storesvr_opres\"r\n\020storesvr_execut"
@@ -859,10 +859,10 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
   storesvr_mod_res::default_instance_ = new storesvr_mod_res();
   storesvr_modobj::default_instance_ = new storesvr_modobj();
   storesvr_modobj_res::default_instance_ = new storesvr_modobj_res();
-  storesvr_modins::default_instance_ = new storesvr_modins();
-  storesvr_modins_res::default_instance_ = new storesvr_modins_res();
-  storesvr_modinsobj::default_instance_ = new storesvr_modinsobj();
-  storesvr_modinsobj_res::default_instance_ = new storesvr_modinsobj_res();
+  storesvr_update::default_instance_ = new storesvr_update();
+  storesvr_update_res::default_instance_ = new storesvr_update_res();
+  storesvr_updateobj::default_instance_ = new storesvr_updateobj();
+  storesvr_updateobj_res::default_instance_ = new storesvr_updateobj_res();
   storesvr_execute::default_instance_ = new storesvr_execute();
   storesvr_execute_res::default_instance_ = new storesvr_execute_res();
   storesvr_execute_more::default_instance_ = new storesvr_execute_more();
@@ -887,10 +887,10 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
   storesvr_mod_res::default_instance_->InitAsDefaultInstance();
   storesvr_modobj::default_instance_->InitAsDefaultInstance();
   storesvr_modobj_res::default_instance_->InitAsDefaultInstance();
-  storesvr_modins::default_instance_->InitAsDefaultInstance();
-  storesvr_modins_res::default_instance_->InitAsDefaultInstance();
-  storesvr_modinsobj::default_instance_->InitAsDefaultInstance();
-  storesvr_modinsobj_res::default_instance_->InitAsDefaultInstance();
+  storesvr_update::default_instance_->InitAsDefaultInstance();
+  storesvr_update_res::default_instance_->InitAsDefaultInstance();
+  storesvr_updateobj::default_instance_->InitAsDefaultInstance();
+  storesvr_updateobj_res::default_instance_->InitAsDefaultInstance();
   storesvr_execute::default_instance_->InitAsDefaultInstance();
   storesvr_execute_res::default_instance_->InitAsDefaultInstance();
   storesvr_execute_more::default_instance_->InitAsDefaultInstance();
@@ -6974,28 +6974,28 @@ void storesvr_modobj_res::Swap(storesvr_modobj_res* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int storesvr_modins::kBaseinfoFieldNumber;
-const int storesvr_modins::kModCondFieldNumber;
-const int storesvr_modins::kModRecordFieldNumber;
+const int storesvr_update::kBaseinfoFieldNumber;
+const int storesvr_update::kModCondFieldNumber;
+const int storesvr_update::kModRecordFieldNumber;
 #endif  // !_MSC_VER
 
-storesvr_modins::storesvr_modins()
+storesvr_update::storesvr_update()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void storesvr_modins::InitAsDefaultInstance() {
+void storesvr_update::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
   mod_cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
 }
 
-storesvr_modins::storesvr_modins(const storesvr_modins& from)
+storesvr_update::storesvr_update(const storesvr_update& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void storesvr_modins::SharedCtor() {
+void storesvr_update::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_cond_ = NULL;
@@ -7003,11 +7003,11 @@ void storesvr_modins::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-storesvr_modins::~storesvr_modins() {
+storesvr_update::~storesvr_update() {
   SharedDtor();
 }
 
-void storesvr_modins::SharedDtor() {
+void storesvr_update::SharedDtor() {
   if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
     delete mod_record_;
   }
@@ -7017,28 +7017,28 @@ void storesvr_modins::SharedDtor() {
   }
 }
 
-void storesvr_modins::SetCachedSize(int size) const {
+void storesvr_update::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* storesvr_modins::descriptor() {
+const ::google::protobuf::Descriptor* storesvr_update::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return storesvr_modins_descriptor_;
+  return storesvr_update_descriptor_;
 }
 
-const storesvr_modins& storesvr_modins::default_instance() {
+const storesvr_update& storesvr_update::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_storesvr_5fsqldata_2eproto();
   return *default_instance_;
 }
 
-storesvr_modins* storesvr_modins::default_instance_ = NULL;
+storesvr_update* storesvr_update::default_instance_ = NULL;
 
-storesvr_modins* storesvr_modins::New() const {
-  return new storesvr_modins;
+storesvr_update* storesvr_update::New() const {
+  return new storesvr_update;
 }
 
-void storesvr_modins::Clear() {
+void storesvr_update::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
@@ -7056,7 +7056,7 @@ void storesvr_modins::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool storesvr_modins::MergePartialFromCodedStream(
+bool storesvr_update::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -7119,7 +7119,7 @@ bool storesvr_modins::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void storesvr_modins::SerializeWithCachedSizes(
+void storesvr_update::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
   if (has_baseinfo()) {
@@ -7145,7 +7145,7 @@ void storesvr_modins::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* storesvr_modins::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* storesvr_update::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
   if (has_baseinfo()) {
@@ -7175,7 +7175,7 @@ void storesvr_modins::SerializeWithCachedSizes(
   return target;
 }
 
-int storesvr_modins::ByteSize() const {
+int storesvr_update::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -7212,10 +7212,10 @@ int storesvr_modins::ByteSize() const {
   return total_size;
 }
 
-void storesvr_modins::MergeFrom(const ::google::protobuf::Message& from) {
+void storesvr_update::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const storesvr_modins* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_modins*>(
+  const storesvr_update* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_update*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -7224,7 +7224,7 @@ void storesvr_modins::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void storesvr_modins::MergeFrom(const storesvr_modins& from) {
+void storesvr_update::MergeFrom(const storesvr_update& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_baseinfo()) {
@@ -7240,24 +7240,24 @@ void storesvr_modins::MergeFrom(const storesvr_modins& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void storesvr_modins::CopyFrom(const ::google::protobuf::Message& from) {
+void storesvr_update::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void storesvr_modins::CopyFrom(const storesvr_modins& from) {
+void storesvr_update::CopyFrom(const storesvr_update& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool storesvr_modins::IsInitialized() const {
+bool storesvr_update::IsInitialized() const {
 
   return true;
 }
 
-void storesvr_modins::Swap(storesvr_modins* other) {
+void storesvr_update::Swap(storesvr_update* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_cond_, other->mod_cond_);
@@ -7268,11 +7268,11 @@ void storesvr_modins::Swap(storesvr_modins* other) {
   }
 }
 
-::google::protobuf::Metadata storesvr_modins::GetMetadata() const {
+::google::protobuf::Metadata storesvr_update::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = storesvr_modins_descriptor_;
-  metadata.reflection = storesvr_modins_reflection_;
+  metadata.descriptor = storesvr_update_descriptor_;
+  metadata.reflection = storesvr_update_reflection_;
   return metadata;
 }
 
@@ -7280,66 +7280,66 @@ void storesvr_modins::Swap(storesvr_modins* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int storesvr_modins_res::kBaseinfoFieldNumber;
-const int storesvr_modins_res::kModOpresFieldNumber;
+const int storesvr_update_res::kBaseinfoFieldNumber;
+const int storesvr_update_res::kModOpresFieldNumber;
 #endif  // !_MSC_VER
 
-storesvr_modins_res::storesvr_modins_res()
+storesvr_update_res::storesvr_update_res()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void storesvr_modins_res::InitAsDefaultInstance() {
+void storesvr_update_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
   mod_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
-storesvr_modins_res::storesvr_modins_res(const storesvr_modins_res& from)
+storesvr_update_res::storesvr_update_res(const storesvr_update_res& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void storesvr_modins_res::SharedCtor() {
+void storesvr_update_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-storesvr_modins_res::~storesvr_modins_res() {
+storesvr_update_res::~storesvr_update_res() {
   SharedDtor();
 }
 
-void storesvr_modins_res::SharedDtor() {
+void storesvr_update_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
     delete mod_opres_;
   }
 }
 
-void storesvr_modins_res::SetCachedSize(int size) const {
+void storesvr_update_res::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* storesvr_modins_res::descriptor() {
+const ::google::protobuf::Descriptor* storesvr_update_res::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return storesvr_modins_res_descriptor_;
+  return storesvr_update_res_descriptor_;
 }
 
-const storesvr_modins_res& storesvr_modins_res::default_instance() {
+const storesvr_update_res& storesvr_update_res::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_storesvr_5fsqldata_2eproto();
   return *default_instance_;
 }
 
-storesvr_modins_res* storesvr_modins_res::default_instance_ = NULL;
+storesvr_update_res* storesvr_update_res::default_instance_ = NULL;
 
-storesvr_modins_res* storesvr_modins_res::New() const {
-  return new storesvr_modins_res;
+storesvr_update_res* storesvr_update_res::New() const {
+  return new storesvr_update_res;
 }
 
-void storesvr_modins_res::Clear() {
+void storesvr_update_res::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
@@ -7352,7 +7352,7 @@ void storesvr_modins_res::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool storesvr_modins_res::MergePartialFromCodedStream(
+bool storesvr_update_res::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -7401,7 +7401,7 @@ bool storesvr_modins_res::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void storesvr_modins_res::SerializeWithCachedSizes(
+void storesvr_update_res::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
   if (has_baseinfo()) {
@@ -7421,7 +7421,7 @@ void storesvr_modins_res::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* storesvr_modins_res::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* storesvr_update_res::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
   if (has_baseinfo()) {
@@ -7444,7 +7444,7 @@ void storesvr_modins_res::SerializeWithCachedSizes(
   return target;
 }
 
-int storesvr_modins_res::ByteSize() const {
+int storesvr_update_res::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -7474,10 +7474,10 @@ int storesvr_modins_res::ByteSize() const {
   return total_size;
 }
 
-void storesvr_modins_res::MergeFrom(const ::google::protobuf::Message& from) {
+void storesvr_update_res::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const storesvr_modins_res* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_modins_res*>(
+  const storesvr_update_res* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_update_res*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -7486,7 +7486,7 @@ void storesvr_modins_res::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void storesvr_modins_res::MergeFrom(const storesvr_modins_res& from) {
+void storesvr_update_res::MergeFrom(const storesvr_update_res& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_baseinfo()) {
@@ -7499,24 +7499,24 @@ void storesvr_modins_res::MergeFrom(const storesvr_modins_res& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void storesvr_modins_res::CopyFrom(const ::google::protobuf::Message& from) {
+void storesvr_update_res::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void storesvr_modins_res::CopyFrom(const storesvr_modins_res& from) {
+void storesvr_update_res::CopyFrom(const storesvr_update_res& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool storesvr_modins_res::IsInitialized() const {
+bool storesvr_update_res::IsInitialized() const {
 
   return true;
 }
 
-void storesvr_modins_res::Swap(storesvr_modins_res* other) {
+void storesvr_update_res::Swap(storesvr_update_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_opres_, other->mod_opres_);
@@ -7526,11 +7526,11 @@ void storesvr_modins_res::Swap(storesvr_modins_res* other) {
   }
 }
 
-::google::protobuf::Metadata storesvr_modins_res::GetMetadata() const {
+::google::protobuf::Metadata storesvr_update_res::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = storesvr_modins_res_descriptor_;
-  metadata.reflection = storesvr_modins_res_reflection_;
+  metadata.descriptor = storesvr_update_res_descriptor_;
+  metadata.reflection = storesvr_update_res_reflection_;
   return metadata;
 }
 
@@ -7538,27 +7538,27 @@ void storesvr_modins_res::Swap(storesvr_modins_res* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int storesvr_modinsobj::kBaseinfoFieldNumber;
-const int storesvr_modinsobj::kModKeyFieldNumber;
-const int storesvr_modinsobj::kModinsRecordFieldNumber;
+const int storesvr_updateobj::kBaseinfoFieldNumber;
+const int storesvr_updateobj::kModKeyFieldNumber;
+const int storesvr_updateobj::kModinsRecordFieldNumber;
 #endif  // !_MSC_VER
 
-storesvr_modinsobj::storesvr_modinsobj()
+storesvr_updateobj::storesvr_updateobj()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void storesvr_modinsobj::InitAsDefaultInstance() {
+void storesvr_updateobj::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
 }
 
-storesvr_modinsobj::storesvr_modinsobj(const storesvr_modinsobj& from)
+storesvr_updateobj::storesvr_updateobj(const storesvr_updateobj& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void storesvr_modinsobj::SharedCtor() {
+void storesvr_updateobj::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_key_ = GOOGLE_ULONGLONG(0);
@@ -7566,11 +7566,11 @@ void storesvr_modinsobj::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-storesvr_modinsobj::~storesvr_modinsobj() {
+storesvr_updateobj::~storesvr_updateobj() {
   SharedDtor();
 }
 
-void storesvr_modinsobj::SharedDtor() {
+void storesvr_updateobj::SharedDtor() {
   if (modins_record_ != &::google::protobuf::internal::kEmptyString) {
     delete modins_record_;
   }
@@ -7579,28 +7579,28 @@ void storesvr_modinsobj::SharedDtor() {
   }
 }
 
-void storesvr_modinsobj::SetCachedSize(int size) const {
+void storesvr_updateobj::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* storesvr_modinsobj::descriptor() {
+const ::google::protobuf::Descriptor* storesvr_updateobj::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return storesvr_modinsobj_descriptor_;
+  return storesvr_updateobj_descriptor_;
 }
 
-const storesvr_modinsobj& storesvr_modinsobj::default_instance() {
+const storesvr_updateobj& storesvr_updateobj::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_storesvr_5fsqldata_2eproto();
   return *default_instance_;
 }
 
-storesvr_modinsobj* storesvr_modinsobj::default_instance_ = NULL;
+storesvr_updateobj* storesvr_updateobj::default_instance_ = NULL;
 
-storesvr_modinsobj* storesvr_modinsobj::New() const {
-  return new storesvr_modinsobj;
+storesvr_updateobj* storesvr_updateobj::New() const {
+  return new storesvr_updateobj;
 }
 
-void storesvr_modinsobj::Clear() {
+void storesvr_updateobj::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
@@ -7616,7 +7616,7 @@ void storesvr_modinsobj::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool storesvr_modinsobj::MergePartialFromCodedStream(
+bool storesvr_updateobj::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -7681,7 +7681,7 @@ bool storesvr_modinsobj::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void storesvr_modinsobj::SerializeWithCachedSizes(
+void storesvr_updateobj::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
   if (has_baseinfo()) {
@@ -7706,7 +7706,7 @@ void storesvr_modinsobj::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* storesvr_modinsobj::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* storesvr_updateobj::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
   if (has_baseinfo()) {
@@ -7734,7 +7734,7 @@ void storesvr_modinsobj::SerializeWithCachedSizes(
   return target;
 }
 
-int storesvr_modinsobj::ByteSize() const {
+int storesvr_updateobj::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -7771,10 +7771,10 @@ int storesvr_modinsobj::ByteSize() const {
   return total_size;
 }
 
-void storesvr_modinsobj::MergeFrom(const ::google::protobuf::Message& from) {
+void storesvr_updateobj::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const storesvr_modinsobj* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_modinsobj*>(
+  const storesvr_updateobj* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_updateobj*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -7783,7 +7783,7 @@ void storesvr_modinsobj::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void storesvr_modinsobj::MergeFrom(const storesvr_modinsobj& from) {
+void storesvr_updateobj::MergeFrom(const storesvr_updateobj& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_baseinfo()) {
@@ -7799,24 +7799,24 @@ void storesvr_modinsobj::MergeFrom(const storesvr_modinsobj& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void storesvr_modinsobj::CopyFrom(const ::google::protobuf::Message& from) {
+void storesvr_updateobj::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void storesvr_modinsobj::CopyFrom(const storesvr_modinsobj& from) {
+void storesvr_updateobj::CopyFrom(const storesvr_updateobj& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool storesvr_modinsobj::IsInitialized() const {
+bool storesvr_updateobj::IsInitialized() const {
 
   return true;
 }
 
-void storesvr_modinsobj::Swap(storesvr_modinsobj* other) {
+void storesvr_updateobj::Swap(storesvr_updateobj* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
@@ -7827,11 +7827,11 @@ void storesvr_modinsobj::Swap(storesvr_modinsobj* other) {
   }
 }
 
-::google::protobuf::Metadata storesvr_modinsobj::GetMetadata() const {
+::google::protobuf::Metadata storesvr_updateobj::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = storesvr_modinsobj_descriptor_;
-  metadata.reflection = storesvr_modinsobj_reflection_;
+  metadata.descriptor = storesvr_updateobj_descriptor_;
+  metadata.reflection = storesvr_updateobj_reflection_;
   return metadata;
 }
 
@@ -7839,66 +7839,66 @@ void storesvr_modinsobj::Swap(storesvr_modinsobj* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int storesvr_modinsobj_res::kBaseinfoFieldNumber;
-const int storesvr_modinsobj_res::kModinsOpresFieldNumber;
+const int storesvr_updateobj_res::kBaseinfoFieldNumber;
+const int storesvr_updateobj_res::kModinsOpresFieldNumber;
 #endif  // !_MSC_VER
 
-storesvr_modinsobj_res::storesvr_modinsobj_res()
+storesvr_updateobj_res::storesvr_updateobj_res()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void storesvr_modinsobj_res::InitAsDefaultInstance() {
+void storesvr_updateobj_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
   modins_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
-storesvr_modinsobj_res::storesvr_modinsobj_res(const storesvr_modinsobj_res& from)
+storesvr_updateobj_res::storesvr_updateobj_res(const storesvr_updateobj_res& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void storesvr_modinsobj_res::SharedCtor() {
+void storesvr_updateobj_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   modins_opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-storesvr_modinsobj_res::~storesvr_modinsobj_res() {
+storesvr_updateobj_res::~storesvr_updateobj_res() {
   SharedDtor();
 }
 
-void storesvr_modinsobj_res::SharedDtor() {
+void storesvr_updateobj_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
     delete modins_opres_;
   }
 }
 
-void storesvr_modinsobj_res::SetCachedSize(int size) const {
+void storesvr_updateobj_res::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* storesvr_modinsobj_res::descriptor() {
+const ::google::protobuf::Descriptor* storesvr_updateobj_res::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return storesvr_modinsobj_res_descriptor_;
+  return storesvr_updateobj_res_descriptor_;
 }
 
-const storesvr_modinsobj_res& storesvr_modinsobj_res::default_instance() {
+const storesvr_updateobj_res& storesvr_updateobj_res::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_storesvr_5fsqldata_2eproto();
   return *default_instance_;
 }
 
-storesvr_modinsobj_res* storesvr_modinsobj_res::default_instance_ = NULL;
+storesvr_updateobj_res* storesvr_updateobj_res::default_instance_ = NULL;
 
-storesvr_modinsobj_res* storesvr_modinsobj_res::New() const {
-  return new storesvr_modinsobj_res;
+storesvr_updateobj_res* storesvr_updateobj_res::New() const {
+  return new storesvr_updateobj_res;
 }
 
-void storesvr_modinsobj_res::Clear() {
+void storesvr_updateobj_res::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
@@ -7911,7 +7911,7 @@ void storesvr_modinsobj_res::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool storesvr_modinsobj_res::MergePartialFromCodedStream(
+bool storesvr_updateobj_res::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -7960,7 +7960,7 @@ bool storesvr_modinsobj_res::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void storesvr_modinsobj_res::SerializeWithCachedSizes(
+void storesvr_updateobj_res::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
   if (has_baseinfo()) {
@@ -7980,7 +7980,7 @@ void storesvr_modinsobj_res::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* storesvr_modinsobj_res::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* storesvr_updateobj_res::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional .storesvr_sqldata.storesvr_baseinfo baseinfo = 1;
   if (has_baseinfo()) {
@@ -8003,7 +8003,7 @@ void storesvr_modinsobj_res::SerializeWithCachedSizes(
   return target;
 }
 
-int storesvr_modinsobj_res::ByteSize() const {
+int storesvr_updateobj_res::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -8033,10 +8033,10 @@ int storesvr_modinsobj_res::ByteSize() const {
   return total_size;
 }
 
-void storesvr_modinsobj_res::MergeFrom(const ::google::protobuf::Message& from) {
+void storesvr_updateobj_res::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const storesvr_modinsobj_res* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_modinsobj_res*>(
+  const storesvr_updateobj_res* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const storesvr_updateobj_res*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -8045,7 +8045,7 @@ void storesvr_modinsobj_res::MergeFrom(const ::google::protobuf::Message& from) 
   }
 }
 
-void storesvr_modinsobj_res::MergeFrom(const storesvr_modinsobj_res& from) {
+void storesvr_updateobj_res::MergeFrom(const storesvr_updateobj_res& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_baseinfo()) {
@@ -8058,24 +8058,24 @@ void storesvr_modinsobj_res::MergeFrom(const storesvr_modinsobj_res& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void storesvr_modinsobj_res::CopyFrom(const ::google::protobuf::Message& from) {
+void storesvr_updateobj_res::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void storesvr_modinsobj_res::CopyFrom(const storesvr_modinsobj_res& from) {
+void storesvr_updateobj_res::CopyFrom(const storesvr_updateobj_res& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool storesvr_modinsobj_res::IsInitialized() const {
+bool storesvr_updateobj_res::IsInitialized() const {
 
   return true;
 }
 
-void storesvr_modinsobj_res::Swap(storesvr_modinsobj_res* other) {
+void storesvr_updateobj_res::Swap(storesvr_updateobj_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(modins_opres_, other->modins_opres_);
@@ -8085,11 +8085,11 @@ void storesvr_modinsobj_res::Swap(storesvr_modinsobj_res* other) {
   }
 }
 
-::google::protobuf::Metadata storesvr_modinsobj_res::GetMetadata() const {
+::google::protobuf::Metadata storesvr_updateobj_res::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = storesvr_modinsobj_res_descriptor_;
-  metadata.reflection = storesvr_modinsobj_res_reflection_;
+  metadata.descriptor = storesvr_updateobj_res_descriptor_;
+  metadata.reflection = storesvr_updateobj_res_reflection_;
   return metadata;
 }
 

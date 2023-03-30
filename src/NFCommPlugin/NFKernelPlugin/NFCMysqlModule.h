@@ -185,8 +185,8 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    virtual int UpdateObj(const std::string& serverID, const storesvr_sqldata::storesvr_modinsobj &select,
-                          storesvr_sqldata::storesvr_modinsobj_res &select_res) override;
+    virtual int UpdateObj(const std::string& serverID, const storesvr_sqldata::storesvr_updateobj &select,
+                          storesvr_sqldata::storesvr_updateobj_res &select_res) override;
 
     /**
      * @brief 查询数据

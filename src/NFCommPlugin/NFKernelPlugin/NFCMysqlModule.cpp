@@ -171,8 +171,8 @@ int NFCMysqlModule::UpdateObj(const std::string& nServerID, const std::string& t
  * @param  select_res 查询结果
  * @return int =0执行成功, != 0失败
  */
-int NFCMysqlModule::UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modinsobj &select,
-                              storesvr_sqldata::storesvr_modinsobj_res &select_res) {
+int NFCMysqlModule::UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_updateobj &select,
+                              storesvr_sqldata::storesvr_updateobj_res &select_res) {
     NFCMysqlDriver *pDriver = m_pMysqlDriverManager->GetMysqlDriver(nServerID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", nServerID);
     return pDriver->UpdateObj(select, select_res);

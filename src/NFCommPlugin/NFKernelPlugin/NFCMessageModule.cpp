@@ -375,7 +375,7 @@ std::string storesvr_modinsbycond(const std::string &dbname, const std::string &
                                   const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
                                   const std::string &additional_conds = "", const std::string &cls_name = "")
 {
-    storesvr_sqldata::storesvr_modins select;
+    storesvr_sqldata::storesvr_update select;
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_tbname(tbname);
     if (cls_name.empty())
@@ -404,7 +404,7 @@ std::string storesvr_modinsbycond(const std::string &dbname, const std::string &
 std::string storesvr_modinsobj(const std::string &dbname, const std::string &tbname,
                                uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "")
 {
-    storesvr_sqldata::storesvr_modinsobj select;
+    storesvr_sqldata::storesvr_updateobj select;
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_tbname(tbname);
     if (cls_name.empty())
