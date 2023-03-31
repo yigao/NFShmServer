@@ -142,6 +142,9 @@ public:
 
     virtual int Execute(const std::string& nServerID, const storesvr_sqldata::storesvr_execute &select,
                 const Execute_CB& cb) override;
+
+    virtual int ExecuteMore(const std::string& nServerID, const storesvr_sqldata::storesvr_execute_more &select,
+                    const ExecuteMore_CB& cb) override;
 private:
 	uint64_t mnLastCheckTime;
 	bool m_initComponet;

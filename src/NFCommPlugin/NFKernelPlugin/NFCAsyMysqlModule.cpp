@@ -680,6 +680,60 @@ public:
     int iRet;
 };
 
+class NFExecuteMoreTask : public NFMysqlTask
+{
+public:
+    NFExecuteMoreTask(const std::string& serverId, const storesvr_sqldata::storesvr_execute_more& select, const ExecuteMore_CB& cb) :NFMysqlTask(serverId)
+    {
+        m_balanceId = 0;
+        mSelect = select;
+        mCB = cb;
+        iRet = 0;
+        m_taskName = GET_CLASS_NAME(NFExecuteMoreTask);
+    }
+
+    virtual ~NFExecuteMoreTask()
+    {
+
+    }
+
+    /**
+    **  异步线程处理函数，将在另一个线程里运行
+    */
+    bool ThreadProcess() override
+    {
+        if (m_pMysqlDriver)
+        {
+            iRet = m_pMysqlDriver->ExecuteMore(mSelect, mSelectRes);
+        }
+        else
+        {
+            iRet = -1;
+        }
+        return true;
+    }
+
+    /**
+    ** 主线程处理函数，将在线程处理完后，提交给主线程来处理，根据返回函数是否继续处理
+    返回值： thread::TPTask::TPTaskState， 请参看TPTaskState
+    */
+    TPTaskState MainThreadProcess() override
+    {
+        for(int i = 0; i < (int)mSelectRes.size(); i++)
+        {
+            mCB(iRet, *mSelectRes.Mutable(i));
+        }
+
+        return TPTASK_STATE_COMPLETED;
+    }
+
+public:
+    storesvr_sqldata::storesvr_execute_more mSelect;
+    ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_execute_more_res> mSelectRes;
+    ExecuteMore_CB mCB;
+    int iRet;
+};
+
 class NFMysqlTaskComponent : public NFITaskComponent
 {
 public:
@@ -922,6 +976,17 @@ int NFCAsyMysqlModule::Execute(const std::string& nServerID, const storesvr_sqld
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFExecuteTask* pTask = NF_NEW NFExecuteTask(nServerID, select, cb);
+    int iRet = AddTask(pTask);
+    CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCAsyMysqlModule::ExecuteMore(const std::string& nServerID, const storesvr_sqldata::storesvr_execute_more &select,
+                const ExecuteMore_CB& cb)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFExecuteMoreTask* pTask = NF_NEW NFExecuteMoreTask(nServerID, select, cb);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");

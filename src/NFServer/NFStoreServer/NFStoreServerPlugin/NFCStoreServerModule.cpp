@@ -54,6 +54,8 @@ bool NFCStoreServerModule::Awake()
                                                                                        &NFCStoreServerModule::OnHandleUpdateObjRpc, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_EXECUTE>(NF_ST_STORE_SERVER, this,
                                                                                        &NFCStoreServerModule::OnHandleExecuteRpc, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_EXECUTE_MORE>(NF_ST_STORE_SERVER, this,
+                                                                                     &NFCStoreServerModule::OnHandleExecuteMoreRpc, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_DELETE>(NF_ST_STORE_SERVER, this,
                                                                                      &NFCStoreServerModule::OnHandleDeleteRpc, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_DELETEOBJ>(NF_ST_STORE_SERVER, this,
@@ -1126,18 +1128,6 @@ int NFCStoreServerModule::OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
-    auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
-    if (iter != pConfig->mTBConfMap.end())
-    {
-        uint32_t count = iter->second;
-        if (count > 1)
-        {
-            uint32_t index = request.mod_key() % count;
-            std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
-            request.mutable_baseinfo()->set_tbname(newTableName);
-        }
-    }
-
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->Execute
             (request.baseinfo().dbname(), request,
@@ -1170,6 +1160,72 @@ int NFCStoreServerModule::OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute 
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCStoreServerModule::OnHandleExecuteMoreRpc(storesvr_sqldata::storesvr_execute_more& request, storesvr_sqldata::storesvr_execute_more_res& respone, const std::function<void()>& cb)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
+    NF_ASSERT(pConfig);
+
+    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+
+    int iRet = FindModule<NFIAsyMysqlModule>()->ExecuteMore
+            (request.baseinfo().dbname(), request,
+             [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_execute_more_res &select_res) mutable
+             {
+                 if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
+                 {
+                     NFLogError(NF_LOG_SYSTEMLOG, 0,
+                                "ExecuteMore, But Coroutine Status Error..........Not Yielding");
+                     return;
+                 }
+
+                 if (iRet != 0)
+                 {
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY;
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "ExecuteMore Failed, iRet:{}", iRet);
+                 }
+                 else
+                 {
+                     respone.CopyFrom(select_res);
+                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ExecuteMore Success select_res:{}",
+                                select_res.Utf8DebugString());
+                 }
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+             });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFIAsyMysqlModule>()->ExecuteMore Failed, iRet:{}", iRet);
+        return iRet;
+    }
+
+    do
+    {
+        iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+        if (iRet != 0)
+        {
+            break;
+        }
+
+        if (respone.is_lastbatch())
+        {
+            break;
+        }
+        else
+        {
+            if (cb)
+            {
+                cb();
+            }
+        }
+    } while (true);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return iRet;
 }
@@ -1264,7 +1320,7 @@ int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj
                  if (iRet != 0)
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteObj Failed, iRet:{}", GetErrorStr(iRet));
-                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
+                     iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_DELETEFAILED;
                  }
                  else
                  {

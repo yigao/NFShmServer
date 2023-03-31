@@ -119,6 +119,14 @@ public:
     int OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute& request, storesvr_sqldata::storesvr_execute_res& respone);
 
     /**
+     * @brief Execute More Rpc Service
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleExecuteMoreRpc(storesvr_sqldata::storesvr_execute_more& request, storesvr_sqldata::storesvr_execute_more_res& respone, const std::function<void()>& cb);
+
+    /**
      * @brief
      * @param request
      * @param respone
@@ -133,4 +141,6 @@ public:
      * @return
      */
     int OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj& request, storesvr_sqldata::storesvr_delobj_res& respone);
+
+
 };

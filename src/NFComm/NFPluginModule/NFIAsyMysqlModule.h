@@ -35,6 +35,7 @@ using UpdateByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_
 using UpdateObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res)>;
 
 using Execute_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_execute_res &select_res)>;
+using ExecuteMore_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_execute_more_res &select_res)>;
 
 class NFIAsyMysqlModule
 	: public NFIAsycModule
@@ -171,4 +172,14 @@ public:
      */
     virtual int Execute(const std::string& nServerID, const storesvr_sqldata::storesvr_execute &select,
                           const Execute_CB& cb) = 0;
+
+    /**
+     * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
+     *
+     * @param  select 查询语句
+     * @param  select_res 查询结果
+     * @return int =0执行成功, != 0失败
+     */
+    virtual int ExecuteMore(const std::string& nServerID, const storesvr_sqldata::storesvr_execute_more &select,
+                             const ExecuteMore_CB& cb) = 0;
 };

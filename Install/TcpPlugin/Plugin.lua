@@ -28,7 +28,7 @@ LoadPlugin =
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
-			--"NFTestPlugin",
+			"NFTestPlugin",
 			"NFNetPlugin",
 			--"NFShmPlugin",
 

@@ -181,6 +181,25 @@ public:
     int Execute(const storesvr_sqldata::storesvr_execute &select, storesvr_sqldata::storesvr_execute_res &select_res);
 
     /**
+     * @brief 执行sql语句
+     *
+     * @param  qstr sql语句
+     * @param  valueVec 返回数据
+     * @return int =0执行成功, != 0失败
+     */
+    int ExecuteMore(const storesvr_sqldata::storesvr_execute_more &select, storesvr_sqldata::storesvr_execute_more_res &select_res);
+
+    /**
+     * @brief 执行sql语句
+     *
+     * @param  qstr sql语句
+     * @param  valueVec 返回数据
+     * @return int =0执行成功, != 0失败
+     */
+    int ExecuteMore(const storesvr_sqldata::storesvr_execute_more &select,
+                                    ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_execute_more_res> &vecSelectRes);
+
+    /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
      *
      * @param  select 查询语句

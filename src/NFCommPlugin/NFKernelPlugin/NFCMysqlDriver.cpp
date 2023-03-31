@@ -133,8 +133,8 @@ int NFCMysqlDriver::Execute(const storesvr_sqldata::storesvr_execute &select, st
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
-                       NFCommon::tostr(result), select.baseinfo().tbname());
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} sql:{}",
+                       NFCommon::tostr(result), select.execute_record());
             iRet = -1;
         }
 
@@ -144,6 +144,114 @@ int NFCMysqlDriver::Execute(const storesvr_sqldata::storesvr_execute &select, st
         }
 
         break;
+    }
+
+    return iRet;
+}
+
+int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &select,
+                                 ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_execute_more_res> &vecSelectRes)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    mysqlpp::StoreQueryResult queryResult;
+    std::vector<std::map<std::string, std::string>> resultVec;
+    std::string errormsg;
+    int iRet = ExecuteMore(select.execute_record(), resultVec, errormsg);
+    if (iRet != 0)
+    {
+        storesvr_sqldata::storesvr_execute_more_res *select_res = vecSelectRes.Add();
+        select_res->mutable_exe_opres()->set_errmsg(errormsg);
+        return -1;
+    }
+
+    storesvr_sqldata::storesvr_execute_more_res *select_res = vecSelectRes.Add();
+
+    select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
+    select_res->mutable_exe_opres()->set_mod_key(select.mod_key());
+    select_res->set_is_lastbatch(false);
+
+    int count = 0;
+    for (size_t i = 0; i < resultVec.size(); i++)
+    {
+        const std::map<std::string, std::string> &result = resultVec[i];
+
+        google::protobuf::Message *pMessage = NULL;
+        iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
+        if (iRet == 0 && pMessage != NULL)
+        {
+            select_res->add_sel_records(pMessage->SerializeAsString());
+
+            count++;
+            select_res->set_row_count(count);
+            if ((int)select_res->sel_records_size() >= (int)select.baseinfo().max_records())
+            {
+                count = 0;
+                select_res = vecSelectRes.Add();
+
+                select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
+                select_res->mutable_exe_opres()->set_mod_key(select.mod_key());
+                select_res->set_is_lastbatch(false);
+            }
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
+                       NFCommon::tostr(result), select.baseinfo().clname());
+            iRet = -1;
+        }
+
+        if (pMessage != NULL)
+        {
+            NF_SAFE_DELETE(pMessage);
+        }
+    }
+
+    select_res->set_is_lastbatch(true);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return iRet;
+}
+
+int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &select, storesvr_sqldata::storesvr_execute_more_res &select_res)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", select.execute_record());
+
+    mysqlpp::StoreQueryResult queryResult;
+    std::vector<std::map<std::string, std::string>> resultVec;
+    std::string errormsg;
+    int iRet = ExecuteMore(select.execute_record(), resultVec, errormsg);
+    if (iRet != 0)
+    {
+        select_res.mutable_exe_opres()->set_errmsg(errormsg);
+        return -1;
+    }
+
+    select_res.mutable_baseinfo()->CopyFrom(select.baseinfo());
+    select_res.mutable_exe_opres()->set_mod_key(select.mod_key());
+
+    for (size_t i = 0; i < resultVec.size(); i++)
+    {
+        const std::map<std::string, std::string> &result = resultVec[i];
+
+        google::protobuf::Message *pMessage = NULL;
+        iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
+        if (iRet == 0 && pMessage != NULL)
+        {
+            select_res.add_sel_records(pMessage->SerializeAsString());
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} sql:{}",
+                       NFCommon::tostr(result), select.execute_record());
+            iRet = -1;
+        }
+
+        if (pMessage != NULL)
+        {
+            NF_SAFE_DELETE(pMessage);
+        }
     }
 
     return iRet;
@@ -570,8 +678,16 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, s
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.del_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -903,8 +1019,16 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.sel_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -1810,7 +1934,16 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_insertobj &select, st
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string packageName = select.baseinfo().package_name();
+
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.ins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -1898,8 +2031,16 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -1917,8 +2058,16 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_update &select, s
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -1937,8 +2086,16 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, s
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -2028,8 +2185,16 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_updateobj &select, st
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().clname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.modins_record()), -1, "ParsePartialFromString Failed:{}", full_name);

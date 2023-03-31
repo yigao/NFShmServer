@@ -74,18 +74,18 @@ public:
                                              const std::string &additional_conds = "", const std::string &cls_name = "",
                                              const std::string &package_name = "");
 
-    static void storesvr_modifybycond(storesvr_sqldata::storesvr_mod& select, const std::string &dbname, const std::string &tbname,
-                                             uint64_t mod_key, const ::google::protobuf::Message &msg_obj,
-                                             const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
-                                             const std::string &additional_conds = "", const std::string &cls_name = "",
-                                             const std::string &package_name = "");
+    static void storesvr_modifybycond(storesvr_sqldata::storesvr_mod &select, const std::string &dbname, const std::string &tbname,
+                                      uint64_t mod_key, const ::google::protobuf::Message &msg_obj,
+                                      const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
+                                      const std::string &additional_conds = "", const std::string &cls_name = "",
+                                      const std::string &package_name = "");
 
     // 按对象修改
     static std::string storesvr_modifyobj(const std::string &dbname, const std::string &tbname,
                                           uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "",
                                           const std::string &package_name = "");
 
-    static void storesvr_modifyobj(storesvr_sqldata::storesvr_modobj select, const std::string &dbname, const std::string &tbname,
+    static void storesvr_modifyobj(storesvr_sqldata::storesvr_modobj &select, const std::string &dbname, const std::string &tbname,
                                    uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "",
                                    const std::string &package_name = "");
 
@@ -95,14 +95,14 @@ public:
                                              const std::string &additional_conds = "", const std::string &cls_name = "",
                                              const std::string &package_name = "");
 
-    static void storesvr_updatebycond(storesvr_sqldata::storesvr_update& select, const std::string &dbname, const std::string &tbname,
+    static void storesvr_updatebycond(storesvr_sqldata::storesvr_update &select, const std::string &dbname, const std::string &tbname,
                                       uint64_t mod_key, const ::google::protobuf::Message &msg_obj,
                                       const std::vector<storesvr_sqldata::storesvr_vk> &vk_list,
                                       const std::string &additional_conds = "", const std::string &cls_name = "",
                                       const std::string &package_name = "");
 
     // 修改插入
-    static void storesvr_updateobj(storesvr_sqldata::storesvr_updateobj select, const std::string &dbname, const std::string &tbname,
+    static void storesvr_updateobj(storesvr_sqldata::storesvr_updateobj &select, const std::string &dbname, const std::string &tbname,
                                    uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name = "",
                                    const std::string &package_name = "");
 
@@ -112,14 +112,21 @@ public:
 
     // 按对象修改
     static std::string storesvr_execute(const std::string &dbname, const std::string &tbname,
-                                        uint64_t mod_key, const std::string &msg);
+                                        uint64_t mod_key, const std::string &msg, const std::string &cls_name = "",
+                                        const std::string &package_name = "");
 
-    static void storesvr_execute(storesvr_sqldata::storesvr_execute& select, const std::string &dbname, const std::string &tbname,
-                                        uint64_t mod_key, const std::string &msg);
+    static void storesvr_execute(storesvr_sqldata::storesvr_execute &select, const std::string &dbname, const std::string &tbname,
+                                 uint64_t mod_key, const std::string &msg, const std::string &cls_name = "",
+                                 const std::string &package_name = "");
 
     // 按对象修改
     static std::string storesvr_execute_more(const std::string &dbname, const std::string &tbname,
-                                             uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name);
+                                             uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name,
+                                             const std::string &package_name = "");
+
+    static void storesvr_execute_more(storesvr_sqldata::storesvr_execute_more &select, const std::string &dbname, const std::string &tbname,
+                                             uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name,
+                                             const std::string &package_name = "");
 
 public:
     static int get_proto_field_type(const google::protobuf::FieldDescriptor &fieldDesc);

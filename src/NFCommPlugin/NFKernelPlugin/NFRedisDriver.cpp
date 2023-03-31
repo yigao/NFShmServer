@@ -148,11 +148,19 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     {
         return 1;
     }
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string proto_fullname = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + select.baseinfo().tbname();
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
 
-    ::google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(proto_fullname);
-    CHECK_EXPR(pMessageObject, -1, "{} New Failed", proto_fullname);
+    ::google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
+    CHECK_EXPR(pMessageObject, -1, "{} New Failed", full_name);
 
     bRet = pMessageObject->ParsePartialFromString(value);
 
@@ -252,8 +260,16 @@ NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::m
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.sel_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -371,8 +387,16 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, st
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.del_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -388,8 +412,16 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_insertobj &select,
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.ins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
@@ -405,8 +437,16 @@ int NFRedisDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, st
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
 
-    std::string full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);

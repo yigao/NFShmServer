@@ -241,7 +241,7 @@ std::string NFStoreProtoCommon::storesvr_modifyobj(const std::string &dbname, co
     return select.SerializeAsString();
 }
 
-void NFStoreProtoCommon::storesvr_modifyobj(storesvr_sqldata::storesvr_modobj select, const std::string &dbname, const std::string &tbname,
+void NFStoreProtoCommon::storesvr_modifyobj(storesvr_sqldata::storesvr_modobj& select, const std::string &dbname, const std::string &tbname,
                                             uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name/* = ""*/,
                                             const std::string &package_name/* = ""*/)
 {
@@ -312,7 +312,7 @@ std::string NFStoreProtoCommon::storesvr_updateobj(const std::string &dbname, co
     return select.SerializeAsString();
 }
 
-void NFStoreProtoCommon::storesvr_updateobj(storesvr_sqldata::storesvr_updateobj select, const std::string &dbname, const std::string &tbname,
+void NFStoreProtoCommon::storesvr_updateobj(storesvr_sqldata::storesvr_updateobj& select, const std::string &dbname, const std::string &tbname,
                                             uint64_t mod_key, const ::google::protobuf::Message &msg_obj, const std::string &cls_name/* = ""*/,
                                             const std::string &package_name/* = ""*/)
 {
@@ -333,29 +333,49 @@ void NFStoreProtoCommon::storesvr_updateobj(storesvr_sqldata::storesvr_updateobj
 
 // 按对象修改
 std::string NFStoreProtoCommon::storesvr_execute(const std::string &dbname, const std::string &tbname,
-                                                 uint64_t mod_key, const std::string &msg)
+                                                 uint64_t mod_key, const std::string &msg, const std::string &cls_name/* = ""*/,
+                                                 const std::string &package_name/* = ""*/)
 {
     storesvr_sqldata::storesvr_execute select;
-    storesvr_execute(select, dbname, tbname, mod_key, msg);
+    storesvr_execute(select, dbname, tbname, mod_key, msg, cls_name, package_name);
     return select.SerializeAsString();
 }
 
 void NFStoreProtoCommon::storesvr_execute(storesvr_sqldata::storesvr_execute& select, const std::string &dbname, const std::string &tbname,
-                                                 uint64_t mod_key, const std::string &msg)
+                                                 uint64_t mod_key, const std::string &msg, const std::string &cls_name/* = ""*/,
+                                          const std::string &package_name/* = ""*/)
 {
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_tbname(tbname);
+    select.mutable_baseinfo()->set_package_name(package_name);
+    if (cls_name.empty())
+    {
+        select.mutable_baseinfo()->set_clname(tbname);
+    }
+    else
+    {
+        select.mutable_baseinfo()->set_clname(cls_name);
+    }
     select.set_mod_key(mod_key);
     select.set_execute_record(msg + ";");
 }
 
 // 按对象修改
 std::string NFStoreProtoCommon::storesvr_execute_more(const std::string &dbname, const std::string &tbname,
-                                                      uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name)
+                                                      uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name, const std::string &package_name)
 {
     storesvr_sqldata::storesvr_execute_more select;
+    storesvr_execute_more(select, dbname, tbname, mod_key, msg, max_records, cls_name, package_name);
+    return select.SerializeAsString();
+}
+
+void NFStoreProtoCommon::storesvr_execute_more(storesvr_sqldata::storesvr_execute_more &select, const std::string &dbname, const std::string &tbname,
+                           uint64_t mod_key, const std::string &msg, int max_records, const std::string &cls_name,
+                           const std::string &package_name)
+{
     select.mutable_baseinfo()->set_dbname(dbname);
     select.mutable_baseinfo()->set_tbname(tbname);
+    select.mutable_baseinfo()->set_package_name(package_name);
     if (cls_name.empty())
     {
         select.mutable_baseinfo()->set_clname(tbname);
@@ -367,7 +387,6 @@ std::string NFStoreProtoCommon::storesvr_execute_more(const std::string &dbname,
     select.mutable_baseinfo()->set_max_records(max_records);
     select.set_mod_key(mod_key);
     select.set_execute_record(msg + ";");
-    return select.SerializeAsString();
 }
 
 int NFStoreProtoCommon::get_proto_field_type(const google::protobuf::FieldDescriptor &fieldDesc)

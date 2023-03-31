@@ -733,7 +733,9 @@ public:
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server update////////////////////////////////////////////////////////////////////////////
-    int GetRpcExecuteService(NF_SERVER_TYPES eType, const std::string &tbname, uint64_t mod_key, const std::string &sql, uint32_t dstBusId = 0,
+    template<class DataType>
+    int GetRpcExecuteService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const std::string &sql,
+                             uint32_t dstBusId = 0,
                              const std::string &dbname = "")
     {
         std::string tempDBName = dbname;
@@ -749,14 +751,16 @@ public:
 
 
         storesvr_sqldata::storesvr_execute selobj;
-        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
-        NFStoreProtoCommon::storesvr_execute(selobj, tempDBName, tbname, mod_key, sql);
-
+        std::string clsname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!clsname.empty(), -1, "no clsname ........");
+        NFStoreProtoCommon::storesvr_execute(selobj, tempDBName, clsname, mod_key, sql);
         storesvr_sqldata::storesvr_execute_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_EXECUTE>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                     selobjRes);
         if (iRet == 0)
         {
+            data.ParseFromString(selobjRes.sel_records());
         }
         else
         {
@@ -766,22 +770,136 @@ public:
         return iRet;
     }
 
-    template<class DataType>
-    int GetRpcExecuteService(NF_SERVER_TYPES eType, const std::string &tbname, uint64_t mod_key, const std::string &sql,
-                            const std::function<void(int)> &func, uint32_t dstBusId = 0, const std::string &dbname = "")
+    template<typename ResponFunc>
+    int GetRpcExecuteService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql,
+                             const ResponFunc &func, uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        return GetRpcExecuteServiceInner(eType, mod_key, sql, func, &ResponFunc::operator(), dstBusId, dbname);
+    }
+
+private:
+    template<class DataType, typename ResponFunc>
+    int GetRpcExecuteServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql,
+                                  const ResponFunc &responFunc, void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
+                                  uint32_t dstBusId = 0,
+                                  const std::string &dbname = "")
     {
         int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
-                     int rpcRetCode = GetRpcExecuteService(eType, tbname, mod_key, sql, dstBusId, dbname);
-                     if (func)
-                     {
-                         func(rpcRetCode);
-                     }
+                     DataType respone;
+                     int rpcRetCode = GetRpcExecuteService(eType, mod_key, respone, sql, dstBusId, dbname);
+                     (responFunc.*pf)(rpcRetCode, respone);
                  });
         return iRet;
     }
+
+public:
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
+    template<typename DataType>
+    int
+    GetRpcExecuteMoreService(NF_SERVER_TYPES eType, uint64_t mod_key, std::vector<DataType> &respone, const std::string &sql, int max_records = 100,
+                             uint32_t dstBusId = 0,
+                             const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+        DataType data;
+        storesvr_sqldata::storesvr_execute_more sel;
+        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+
+        NFStoreProtoCommon::storesvr_execute_more(sel, tempDBName, tbname, mod_key, sql, max_records, tbname, packageName);
+        storesvr_sqldata::storesvr_execute_more_res selRes;
+        STATIC_ASSERT_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_EXECUTE_MORE, storesvr_sqldata::storesvr_execute_more,
+                                       storesvr_sqldata::storesvr_execute_more_res);
+        NF_ASSERT_MSG(FindModule<NFICoroutineModule>()->IsInCoroutine(), "Call GetRpcService Must Int the Coroutine");
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+        CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eType));
+
+        proto_ff::Proto_SvrPkg svrPkg;
+        svrPkg.set_msg_id(proto_ff::NF_STORESVR_C2S_EXECUTE_MORE);
+        svrPkg.set_msg_data(sel.SerializeAsString());
+        svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(std::hash<std::string>()(sel.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(std::hash<std::string>()(selRes.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_req_server_type(eType);
+        svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
+
+        FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD,
+                                                        svrPkg);
+
+        int iRet = FindModule<NFICoroutineModule>()->AddRpcService(&selRes);
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
+
+        do
+        {
+            iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
+            CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
+            if (iRet == 0)
+            {
+                for (int i = 0; i < (int) selRes.sel_records_size(); i++)
+                {
+                    DataType result;
+                    result.ParseFromString(selRes.sel_records(i));
+                    respone.push_back(result);
+                }
+
+                if (selRes.is_lastbatch())
+                {
+                    break;
+                }
+            }
+            else
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_EXECUTE_MORE iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selRes.exe_opres().errmsg());
+                break;
+            }
+        } while (true);
+
+
+        FindModule<NFICoroutineModule>()->DelRpcService(&selRes);
+
+        return iRet;
+    }
+
+    template<typename ResponFunc>
+    int GetRpcExecuteMoreService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql, const ResponFunc &func,
+                            int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
+    {
+        return GetRpcExecuteMoreServiceInner(eType, mod_key, sql, func, &ResponFunc::operator(), max_records, dstBusId,
+                                        dbname);
+    }
+
+private:
+    template<class DataType, typename ResponFunc>
+    int GetRpcExecuteMoreServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql, const ResponFunc &responFunc,
+                                 void (ResponFunc::*pf)(int rpcRetCode, std::vector<DataType> &respone) const,
+                                 int max_records = 100, uint32_t dstBusId = 0,
+                                 const std::string &dbname = "")
+    {
+        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+                ([=]()
+                 {
+                     std::vector<DataType> respone;
+                     int rpcRetCode = GetRpcExecuteMoreService(eType, mod_key, respone, sql, max_records,
+                                                          dstBusId, dbname);
+
+                     (responFunc.*pf)(rpcRetCode, respone);
+                 });
+        return iRet;
+    }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 };

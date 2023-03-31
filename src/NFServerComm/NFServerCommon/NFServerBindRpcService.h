@@ -30,5 +30,6 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_MODIFY, storesvr_sqldata::stor
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_UPDATE, storesvr_sqldata::storesvr_update, storesvr_sqldata::storesvr_update_res)
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_UPDATEOBJ, storesvr_sqldata::storesvr_updateobj, storesvr_sqldata::storesvr_updateobj_res)
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_EXECUTE, storesvr_sqldata::storesvr_execute, storesvr_sqldata::storesvr_execute_res)
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_EXECUTE_MORE, storesvr_sqldata::storesvr_execute_more, storesvr_sqldata::storesvr_execute_more_res);
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_DELETE, storesvr_sqldata::storesvr_del, storesvr_sqldata::storesvr_del_res)
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_DELETEOBJ, storesvr_sqldata::storesvr_delobj, storesvr_sqldata::storesvr_delobj_res)
