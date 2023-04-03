@@ -56,23 +56,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="store server rpc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIAsyMysqlModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIAsyMysqlModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFStoreProtoCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFStoreProtoCommon.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFStoreProtoCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFStoreProtoCommon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCAsyMysqlModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCAsyMysqlModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCAsyMysqlModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCAsyMysqlModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFRedisDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFRedisDriver.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFServerBindRpcService.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFServerBindRpcService.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFCTestModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFCTestModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFTestPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFTestPlugin.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,6 +153,11 @@
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="NFBattlePlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFBattlePlugin" CONFIG_NAME="Debug">
@@ -347,11 +335,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -437,14 +420,16 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="CMake 应用程序.NFBattlePlugin" />
-      <item itemvalue="CMake 应用程序.NFCommLogicPlugin" />
       <item itemvalue="CMake 应用程序.NFDescStorePlugin" />
-      <item itemvalue="CMake 应用程序.NFDescStore" />
       <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
       <item itemvalue="CMake 应用程序.NFGlobalServerPlugin" />
       <item itemvalue="CMake 应用程序.NFKernelPlugin" />
+      <item itemvalue="CMake 应用程序.NFDescStore" />
       <item itemvalue="CMake 应用程序.NFLogicCommon" />
+      <item itemvalue="CMake 应用程序.NFServerLogicMessage" />
+      <item itemvalue="CMake 应用程序.RecastNavigation" />
+      <item itemvalue="CMake 应用程序.NFCommLogicPlugin" />
+      <item itemvalue="CMake 应用程序.NFBattlePlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
       <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
@@ -454,23 +439,21 @@
       <item itemvalue="CMake 应用程序.NFPluginLoader" />
       <item itemvalue="CMake 应用程序.NFProxyAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyClientPlugin" />
+      <item itemvalue="CMake 应用程序.NFSnsServerPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFWorldServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRobotPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteServerPlugin" />
       <item itemvalue="CMake 应用程序.NFServerCommonPlugin" />
       <item itemvalue="CMake 应用程序.NFServerCommon" />
-      <item itemvalue="CMake 应用程序.NFServerLogicMessage" />
       <item itemvalue="CMake 应用程序.NFServerMessage" />
       <item itemvalue="CMake 应用程序.NFShmPlugin" />
-      <item itemvalue="CMake 应用程序.NFSnsServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFSnsServerPlugin" />
       <item itemvalue="CMake 应用程序.NFStoreServerPlugin" />
       <item itemvalue="CMake 应用程序.NFTestPlugin" />
       <item itemvalue="CMake 应用程序.NFWebServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFWorldServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFWorldServerPlugin" />
-      <item itemvalue="CMake 应用程序.RecastNavigation" />
       <item itemvalue="CMake 应用程序.Sqlite3" />
       <item itemvalue="CMake 应用程序.evpp" />
       <item itemvalue="CMake 应用程序.mysqlpp" />
@@ -670,14 +653,8 @@
       <workItem from="1679704166075" duration="13742000" />
       <workItem from="1679722414436" duration="11975000" />
       <workItem from="1679893898145" duration="79298000" />
-      <workItem from="1680136485583" duration="21585000" />
-    </task>
-    <task id="LOCAL-00520" summary="proxy client">
-      <created>1679364100915</created>
-      <option name="number" value="00520" />
-      <option name="presentableId" value="LOCAL-00520" />
-      <option name="project" value="LOCAL" />
-      <updated>1679364100915</updated>
+      <workItem from="1680136485583" duration="26480000" />
+      <workItem from="1680483236675" duration="6691000" />
     </task>
     <task id="LOCAL-00521" summary="proxy client">
       <created>1679364668332</created>
@@ -1015,7 +992,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680143343208</updated>
     </task>
-    <option name="localTasksCounter" value="569" />
+    <task id="LOCAL-00569" summary="store server rpc">
+      <created>1680243573820</created>
+      <option name="number" value="00569" />
+      <option name="presentableId" value="LOCAL-00569" />
+      <option name="project" value="LOCAL" />
+      <updated>1680243573821</updated>
+    </task>
+    <option name="localTasksCounter" value="570" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1267,18 +1251,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp</url>
-          <line>154</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp</url>
-          <line>1166</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

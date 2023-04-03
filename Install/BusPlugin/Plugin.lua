@@ -30,37 +30,38 @@ LoadPlugin =
 			"NFKernelPlugin",
 			--"NFTestPlugin",
 			"NFNetPlugin",
-			--"NFShmPlugin",
+			"NFShmPlugin",
 
 			"NFServerCommonPlugin",
-			--"NFDescStorePlugin",
-			--"NFCommLogicPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
 
-			"NFMasterServerPlugin",
-			"NFRouteServerPlugin",
+			--"NFMasterServerPlugin",
+			--"NFRouteServerPlugin",
 			"NFRouteAgentServerPlugin",
 
 			"NFStoreServerPlugin",
 
 			"NFProxyServerPlugin",
-			--"NFProxyClientPlugin",
+			"NFProxyClientPlugin",
 			"NFProxyAgentServerPlugin",
 
 			--"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
 
-			--"NFGameServerPlugin",
+			"NFGameServerPlugin",
+			"NFBattlePlugin",
 
-			--"NFWorldServerPlugin",
-			--"NFWorldServerPlayerPlugin",
+			"NFWorldServerPlugin",
+			"NFWorldServerPlayerPlugin",
 
 			"NFSnsServerPlugin",
-			--"NFSnsServerPlayerPlugin",
+			"NFSnsServerPlayerPlugin",
 
-			--"NFLogicServerPlugin",
-			--"NFLogicServerPlayerPlugin",
+			"NFLogicServerPlugin",
+			"NFLogicServerPlayerPlugin",
 
-			"NFWebServerPlugin",
+			--"NFWebServerPlugin",
 			--"NFWebServerLogicPlugin",
 
 			--"NFMonitorServerPlugin",
@@ -129,8 +130,12 @@ LoadPlugin =
 			"NFNetPlugin",
 			"NFShmPlugin",
 			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
+
 
 			"NFGameServerPlugin",
+			"NFBattlePlugin",
 		};
 		ServerType = NF_ST_GAME_SERVER;
 	},
@@ -143,6 +148,8 @@ LoadPlugin =
 			"NFNetPlugin",
 			"NFShmPlugin",
 			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
 
 			"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
@@ -158,9 +165,11 @@ LoadPlugin =
 			"NFNetPlugin",
 			"NFShmPlugin",
 			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
 
 			"NFWorldServerPlugin",
-			--"NFWorldServerPlayerPlugin",
+			"NFWorldServerPlayerPlugin",
 		};
 		ServerType = NF_ST_WORLD_SERVER;
 	},
@@ -186,10 +195,11 @@ LoadPlugin =
 			"NFNetPlugin",
 			"NFShmPlugin",
 			"NFServerCommonPlugin",
-			--"NFCommLogicPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
 
 			"NFLogicServerPlugin",
-			--"NFLogicServerPlayerPlugin",
+			"NFLogicServerPlayerPlugin",
 		};
 		ServerType = NF_ST_LOGIC_SERVER;
 	},

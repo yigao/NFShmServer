@@ -28,13 +28,13 @@ LoadPlugin =
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
-			"NFTestPlugin",
+			--"NFTestPlugin",
 			"NFNetPlugin",
-			--"NFShmPlugin",
+			"NFShmPlugin",
 
 			"NFServerCommonPlugin",
-			--"NFDescStorePlugin",
-			--"NFCommLogicPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
 
 			"NFMasterServerPlugin",
 			"NFRouteServerPlugin",
@@ -42,24 +42,24 @@ LoadPlugin =
 
 			"NFStoreServerPlugin",
 
-			--"NFProxyServerPlugin",
-			--"NFProxyClientPlugin",
+			"NFProxyServerPlugin",
+			"NFProxyClientPlugin",
 			"NFProxyAgentServerPlugin",
 
 			--"NFLoginServerPlugin",
 			--"NFLoginServerPlayerPlugin",
 
-			--"NFGameServerPlugin",
-			--"NFBattlePlugin",
+			"NFGameServerPlugin",
+			"NFBattlePlugin",
 
-			--"NFWorldServerPlugin",
-			--"NFWorldServerPlayerPlugin",
+			"NFWorldServerPlugin",
+			"NFWorldServerPlayerPlugin",
 
-			--"NFSnsServerPlugin",
-			--"NFSnsServerPlayerPlugin",
+			"NFSnsServerPlugin",
+			"NFSnsServerPlayerPlugin",
 
 			"NFLogicServerPlugin",
-			--"NFLogicServerPlayerPlugin",
+			"NFLogicServerPlayerPlugin",
 
 			--"NFWebServerPlugin",
 			--"NFWebServerLogicPlugin",
