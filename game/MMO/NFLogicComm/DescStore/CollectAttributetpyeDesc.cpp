@@ -19,7 +19,6 @@ CollectAttributetpyeDesc::~CollectAttributetpyeDesc()
 
 int CollectAttributetpyeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

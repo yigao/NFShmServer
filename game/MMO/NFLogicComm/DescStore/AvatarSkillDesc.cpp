@@ -19,7 +19,6 @@ AvatarSkillDesc::~AvatarSkillDesc()
 
 int AvatarSkillDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

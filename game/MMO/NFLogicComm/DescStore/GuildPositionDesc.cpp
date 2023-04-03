@@ -19,7 +19,6 @@ GuildPositionDesc::~GuildPositionDesc()
 
 int GuildPositionDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

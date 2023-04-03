@@ -19,7 +19,6 @@ MonsterValueparamDesc::~MonsterValueparamDesc()
 
 int MonsterValueparamDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

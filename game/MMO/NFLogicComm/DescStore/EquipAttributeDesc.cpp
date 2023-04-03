@@ -19,7 +19,6 @@ EquipAttributeDesc::~EquipAttributeDesc()
 
 int EquipAttributeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

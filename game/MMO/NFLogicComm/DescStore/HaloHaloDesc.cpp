@@ -19,7 +19,6 @@ HaloHaloDesc::~HaloHaloDesc()
 
 int HaloHaloDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

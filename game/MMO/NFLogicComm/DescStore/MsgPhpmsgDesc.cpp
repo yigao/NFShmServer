@@ -19,7 +19,6 @@ MsgPhpmsgDesc::~MsgPhpmsgDesc()
 
 int MsgPhpmsgDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

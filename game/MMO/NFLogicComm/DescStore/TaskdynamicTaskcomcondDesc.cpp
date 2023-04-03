@@ -19,7 +19,6 @@ TaskdynamicTaskcomcondDesc::~TaskdynamicTaskcomcondDesc()
 
 int TaskdynamicTaskcomcondDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

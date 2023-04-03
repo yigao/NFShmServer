@@ -19,7 +19,6 @@ MoneyrewardMoneyrewardDesc::~MoneyrewardMoneyrewardDesc()
 
 int MoneyrewardMoneyrewardDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

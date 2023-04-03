@@ -19,7 +19,6 @@ EquipGemDesc::~EquipGemDesc()
 
 int EquipGemDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

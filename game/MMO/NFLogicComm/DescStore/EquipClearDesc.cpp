@@ -19,7 +19,6 @@ EquipClearDesc::~EquipClearDesc()
 
 int EquipClearDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

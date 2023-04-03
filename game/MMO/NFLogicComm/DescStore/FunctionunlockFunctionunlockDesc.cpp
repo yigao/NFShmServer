@@ -19,7 +19,6 @@ FunctionunlockFunctionunlockDesc::~FunctionunlockFunctionunlockDesc()
 
 int FunctionunlockFunctionunlockDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -802,7 +802,7 @@ template<class _Tp, size_t MAX_SIZE>
 void NFShmVector<_Tp, MAX_SIZE>::_M_fill_insert(iterator __position, size_type __n,
                                                 const _Tp &__x)
 {
-    CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail!");
+    CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail! size:{} max_size:{}", m_size, MAX_SIZE);
     if (__n != 0)
     {
         if (size_type(MAX_SIZE - m_size) < __n)

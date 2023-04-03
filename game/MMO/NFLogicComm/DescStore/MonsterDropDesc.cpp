@@ -19,7 +19,6 @@ MonsterDropDesc::~MonsterDropDesc()
 
 int MonsterDropDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

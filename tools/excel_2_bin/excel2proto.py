@@ -122,7 +122,6 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 #///////////////////////////////////////////////////////////
 	desc_file.write("int " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::CreateInit()\n")
 	desc_file.write("{\n")
-	desc_file.write("\tInitialize();\n")
 	desc_file.write("\treturn 0;\n")
 	desc_file.write("}\n\n")
 #////////////////////////////////////////////////////////////////

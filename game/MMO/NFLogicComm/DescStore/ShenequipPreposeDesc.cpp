@@ -19,7 +19,6 @@ ShenequipPreposeDesc::~ShenequipPreposeDesc()
 
 int ShenequipPreposeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

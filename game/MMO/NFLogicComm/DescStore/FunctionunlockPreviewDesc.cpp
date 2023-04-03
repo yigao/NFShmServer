@@ -19,7 +19,6 @@ FunctionunlockPreviewDesc::~FunctionunlockPreviewDesc()
 
 int FunctionunlockPreviewDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

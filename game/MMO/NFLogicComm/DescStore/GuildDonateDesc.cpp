@@ -19,7 +19,6 @@ GuildDonateDesc::~GuildDonateDesc()
 
 int GuildDonateDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

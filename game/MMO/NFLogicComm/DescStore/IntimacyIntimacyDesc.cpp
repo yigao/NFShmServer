@@ -19,7 +19,6 @@ IntimacyIntimacyDesc::~IntimacyIntimacyDesc()
 
 int IntimacyIntimacyDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

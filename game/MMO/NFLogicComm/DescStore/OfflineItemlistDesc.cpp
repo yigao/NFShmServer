@@ -19,7 +19,6 @@ OfflineItemlistDesc::~OfflineItemlistDesc()
 
 int OfflineItemlistDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

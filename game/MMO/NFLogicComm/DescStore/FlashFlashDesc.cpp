@@ -19,7 +19,6 @@ FlashFlashDesc::~FlashFlashDesc()
 
 int FlashFlashDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

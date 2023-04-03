@@ -19,7 +19,6 @@ GodrelicsGodrelicsDesc::~GodrelicsGodrelicsDesc()
 
 int GodrelicsGodrelicsDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

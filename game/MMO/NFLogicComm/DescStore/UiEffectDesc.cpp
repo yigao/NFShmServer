@@ -19,7 +19,6 @@ UiEffectDesc::~UiEffectDesc()
 
 int UiEffectDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

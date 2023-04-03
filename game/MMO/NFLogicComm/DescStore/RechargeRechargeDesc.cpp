@@ -19,7 +19,6 @@ RechargeRechargeDesc::~RechargeRechargeDesc()
 
 int RechargeRechargeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

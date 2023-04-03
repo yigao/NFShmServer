@@ -19,7 +19,6 @@ DupGroupDesc::~DupGroupDesc()
 
 int DupGroupDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

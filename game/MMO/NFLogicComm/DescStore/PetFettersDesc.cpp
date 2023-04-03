@@ -19,7 +19,6 @@ PetFettersDesc::~PetFettersDesc()
 
 int PetFettersDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ EquipGradeDesc::~EquipGradeDesc()
 
 int EquipGradeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

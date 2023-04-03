@@ -19,7 +19,6 @@ MountChangeDesc::~MountChangeDesc()
 
 int MountChangeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

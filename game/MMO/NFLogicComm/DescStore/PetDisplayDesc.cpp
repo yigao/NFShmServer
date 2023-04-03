@@ -19,7 +19,6 @@ PetDisplayDesc::~PetDisplayDesc()
 
 int PetDisplayDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

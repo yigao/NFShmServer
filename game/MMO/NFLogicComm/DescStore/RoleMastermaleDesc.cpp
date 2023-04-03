@@ -19,7 +19,6 @@ RoleMastermaleDesc::~RoleMastermaleDesc()
 
 int RoleMastermaleDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

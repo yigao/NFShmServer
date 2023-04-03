@@ -19,7 +19,6 @@ PetAttributetpyeDesc::~PetAttributetpyeDesc()
 
 int PetAttributetpyeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

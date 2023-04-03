@@ -19,7 +19,6 @@ ChatSpecialchatDesc::~ChatSpecialchatDesc()
 
 int ChatSpecialchatDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

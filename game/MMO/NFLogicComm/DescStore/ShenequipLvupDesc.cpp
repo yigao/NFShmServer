@@ -19,7 +19,6 @@ ShenequipLvupDesc::~ShenequipLvupDesc()
 
 int ShenequipLvupDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

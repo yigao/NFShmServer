@@ -19,7 +19,6 @@ FacadeSoullvDesc::~FacadeSoullvDesc()
 
 int FacadeSoullvDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

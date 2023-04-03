@@ -19,7 +19,6 @@ RoleWorldexpDesc::~RoleWorldexpDesc()
 
 int RoleWorldexpDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

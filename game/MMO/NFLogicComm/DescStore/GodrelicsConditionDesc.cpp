@@ -19,7 +19,6 @@ GodrelicsConditionDesc::~GodrelicsConditionDesc()
 
 int GodrelicsConditionDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

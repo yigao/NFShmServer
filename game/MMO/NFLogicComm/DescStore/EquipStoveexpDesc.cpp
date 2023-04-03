@@ -19,7 +19,6 @@ EquipStoveexpDesc::~EquipStoveexpDesc()
 
 int EquipStoveexpDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

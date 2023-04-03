@@ -19,7 +19,6 @@ MountFragmentDesc::~MountFragmentDesc()
 
 int MountFragmentDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

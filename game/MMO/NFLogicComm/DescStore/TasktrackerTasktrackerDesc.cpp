@@ -19,7 +19,6 @@ TasktrackerTasktrackerDesc::~TasktrackerTasktrackerDesc()
 
 int TasktrackerTasktrackerDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

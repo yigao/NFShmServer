@@ -19,7 +19,6 @@ AttributeAttributeDesc::~AttributeAttributeDesc()
 
 int AttributeAttributeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

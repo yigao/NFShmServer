@@ -19,7 +19,6 @@ AvatarEquipsuitDesc::~AvatarEquipsuitDesc()
 
 int AvatarEquipsuitDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

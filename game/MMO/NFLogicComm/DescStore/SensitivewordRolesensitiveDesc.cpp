@@ -19,7 +19,6 @@ SensitivewordRolesensitiveDesc::~SensitivewordRolesensitiveDesc()
 
 int SensitivewordRolesensitiveDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

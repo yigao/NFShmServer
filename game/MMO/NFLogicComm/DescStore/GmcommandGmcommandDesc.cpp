@@ -19,7 +19,6 @@ GmcommandGmcommandDesc::~GmcommandGmcommandDesc()
 
 int GmcommandGmcommandDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

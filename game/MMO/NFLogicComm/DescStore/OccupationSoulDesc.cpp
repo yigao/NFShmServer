@@ -19,7 +19,6 @@ OccupationSoulDesc::~OccupationSoulDesc()
 
 int OccupationSoulDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

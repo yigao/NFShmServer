@@ -19,7 +19,6 @@ EscortConstDesc::~EscortConstDesc()
 
 int EscortConstDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

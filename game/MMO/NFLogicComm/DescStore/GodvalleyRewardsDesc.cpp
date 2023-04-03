@@ -19,7 +19,6 @@ GodvalleyRewardsDesc::~GodvalleyRewardsDesc()
 
 int GodvalleyRewardsDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

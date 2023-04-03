@@ -19,7 +19,6 @@ AvatarChangetabDesc::~AvatarChangetabDesc()
 
 int AvatarChangetabDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

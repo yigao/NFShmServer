@@ -19,7 +19,6 @@ FashionFashionDesc::~FashionFashionDesc()
 
 int FashionFashionDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

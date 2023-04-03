@@ -19,7 +19,6 @@ AvatarBattleslotDesc::~AvatarBattleslotDesc()
 
 int AvatarBattleslotDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

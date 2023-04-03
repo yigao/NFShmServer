@@ -19,7 +19,6 @@ DailyCultivateDesc::~DailyCultivateDesc()
 
 int DailyCultivateDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

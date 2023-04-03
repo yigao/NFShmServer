@@ -19,7 +19,6 @@ CollectConstDesc::~CollectConstDesc()
 
 int CollectConstDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

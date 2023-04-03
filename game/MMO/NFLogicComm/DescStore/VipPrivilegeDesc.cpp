@@ -19,7 +19,6 @@ VipPrivilegeDesc::~VipPrivilegeDesc()
 
 int VipPrivilegeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

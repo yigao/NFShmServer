@@ -19,7 +19,6 @@ TaskrewardTaskrewardDesc::~TaskrewardTaskrewardDesc()
 
 int TaskrewardTaskrewardDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

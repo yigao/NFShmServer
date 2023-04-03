@@ -19,7 +19,6 @@ MeditationMeditationDesc::~MeditationMeditationDesc()
 
 int MeditationMeditationDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

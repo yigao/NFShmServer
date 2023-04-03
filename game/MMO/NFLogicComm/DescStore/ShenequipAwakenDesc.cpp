@@ -19,7 +19,6 @@ ShenequipAwakenDesc::~ShenequipAwakenDesc()
 
 int ShenequipAwakenDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

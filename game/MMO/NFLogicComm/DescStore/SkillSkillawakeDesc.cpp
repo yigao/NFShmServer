@@ -19,7 +19,6 @@ SkillSkillawakeDesc::~SkillSkillawakeDesc()
 
 int SkillSkillawakeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ PetDecomposeDesc::~PetDecomposeDesc()
 
 int PetDecomposeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

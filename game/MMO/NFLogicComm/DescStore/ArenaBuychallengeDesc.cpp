@@ -19,7 +19,6 @@ ArenaBuychallengeDesc::~ArenaBuychallengeDesc()
 
 int ArenaBuychallengeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

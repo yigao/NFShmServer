@@ -19,7 +19,6 @@ RoleSkilltypeDesc::~RoleSkilltypeDesc()
 
 int RoleSkilltypeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

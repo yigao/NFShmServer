@@ -19,7 +19,6 @@ SensitivewordSensitive_wordDesc::~SensitivewordSensitive_wordDesc()
 
 int SensitivewordSensitive_wordDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

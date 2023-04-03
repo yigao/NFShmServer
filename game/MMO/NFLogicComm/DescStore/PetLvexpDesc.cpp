@@ -19,7 +19,6 @@ PetLvexpDesc::~PetLvexpDesc()
 
 int PetLvexpDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ EquipStoveattDesc::~EquipStoveattDesc()
 
 int EquipStoveattDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

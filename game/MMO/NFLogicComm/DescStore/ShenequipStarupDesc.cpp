@@ -19,7 +19,6 @@ ShenequipStarupDesc::~ShenequipStarupDesc()
 
 int ShenequipStarupDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

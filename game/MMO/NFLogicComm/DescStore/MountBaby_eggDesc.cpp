@@ -19,7 +19,6 @@ MountBaby_eggDesc::~MountBaby_eggDesc()
 
 int MountBaby_eggDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

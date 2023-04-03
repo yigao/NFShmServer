@@ -19,7 +19,6 @@ ArenaFirstrankDesc::~ArenaFirstrankDesc()
 
 int ArenaFirstrankDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

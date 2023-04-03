@@ -19,7 +19,6 @@ RandomnameWomansecondDesc::~RandomnameWomansecondDesc()
 
 int RandomnameWomansecondDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

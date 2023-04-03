@@ -19,7 +19,6 @@ ShenequipClearDesc::~ShenequipClearDesc()
 
 int ShenequipClearDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

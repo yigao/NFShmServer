@@ -19,7 +19,6 @@ PetAdvancelvDesc::~PetAdvancelvDesc()
 
 int PetAdvancelvDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

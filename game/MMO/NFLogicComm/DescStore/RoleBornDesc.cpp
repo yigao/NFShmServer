@@ -19,7 +19,6 @@ RoleBornDesc::~RoleBornDesc()
 
 int RoleBornDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

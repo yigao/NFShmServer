@@ -19,7 +19,6 @@ CollectCollectDesc::~CollectCollectDesc()
 
 int CollectCollectDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

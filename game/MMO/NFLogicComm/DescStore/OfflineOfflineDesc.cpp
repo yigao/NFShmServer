@@ -19,7 +19,6 @@ OfflineOfflineDesc::~OfflineOfflineDesc()
 
 int OfflineOfflineDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

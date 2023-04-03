@@ -19,7 +19,6 @@ AssistBoxDesc::~AssistBoxDesc()
 
 int AssistBoxDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

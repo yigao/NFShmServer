@@ -19,7 +19,6 @@ MapDestroyitemDesc::~MapDestroyitemDesc()
 
 int MapDestroyitemDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

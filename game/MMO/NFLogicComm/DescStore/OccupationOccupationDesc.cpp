@@ -19,7 +19,6 @@ OccupationOccupationDesc::~OccupationOccupationDesc()
 
 int OccupationOccupationDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

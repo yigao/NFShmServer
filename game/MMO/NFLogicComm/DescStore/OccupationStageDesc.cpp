@@ -19,7 +19,6 @@ OccupationStageDesc::~OccupationStageDesc()
 
 int OccupationStageDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

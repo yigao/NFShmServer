@@ -19,7 +19,6 @@ HeadportraitHeadDesc::~HeadportraitHeadDesc()
 
 int HeadportraitHeadDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

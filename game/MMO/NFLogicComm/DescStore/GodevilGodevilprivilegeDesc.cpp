@@ -19,7 +19,6 @@ GodevilGodevilprivilegeDesc::~GodevilGodevilprivilegeDesc()
 
 int GodevilGodevilprivilegeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

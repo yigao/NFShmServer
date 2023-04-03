@@ -19,7 +19,6 @@ DailyRewardDesc::~DailyRewardDesc()
 
 int DailyRewardDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

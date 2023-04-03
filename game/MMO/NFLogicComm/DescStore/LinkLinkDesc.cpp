@@ -19,7 +19,6 @@ LinkLinkDesc::~LinkLinkDesc()
 
 int LinkLinkDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

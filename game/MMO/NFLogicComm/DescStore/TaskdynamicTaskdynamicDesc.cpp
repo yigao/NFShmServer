@@ -19,7 +19,6 @@ TaskdynamicTaskdynamicDesc::~TaskdynamicTaskdynamicDesc()
 
 int TaskdynamicTaskdynamicDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ AssistThankDesc::~AssistThankDesc()
 
 int AssistThankDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

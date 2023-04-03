@@ -19,7 +19,6 @@ FacadeFragmentDesc::~FacadeFragmentDesc()
 
 int FacadeFragmentDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

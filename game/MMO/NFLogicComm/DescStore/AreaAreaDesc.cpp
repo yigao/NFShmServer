@@ -19,7 +19,6 @@ AreaAreaDesc::~AreaAreaDesc()
 
 int AreaAreaDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

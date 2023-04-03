@@ -19,7 +19,6 @@ EquipEquipDesc::~EquipEquipDesc()
 
 int EquipEquipDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

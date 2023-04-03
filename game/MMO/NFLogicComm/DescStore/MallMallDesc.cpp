@@ -19,7 +19,6 @@ MallMallDesc::~MallMallDesc()
 
 int MallMallDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

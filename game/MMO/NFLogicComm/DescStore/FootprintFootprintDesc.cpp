@@ -19,7 +19,6 @@ FootprintFootprintDesc::~FootprintFootprintDesc()
 
 int FootprintFootprintDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

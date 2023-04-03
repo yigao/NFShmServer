@@ -19,7 +19,6 @@ EquipStrongtotalDesc::~EquipStrongtotalDesc()
 
 int EquipStrongtotalDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ TeamTeamDesc::~TeamTeamDesc()
 
 int TeamTeamDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

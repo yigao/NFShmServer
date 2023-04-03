@@ -19,7 +19,6 @@ SkillSkillDesc::~SkillSkillDesc()
 
 int SkillSkillDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

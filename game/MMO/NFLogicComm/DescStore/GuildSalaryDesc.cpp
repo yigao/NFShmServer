@@ -19,7 +19,6 @@ GuildSalaryDesc::~GuildSalaryDesc()
 
 int GuildSalaryDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

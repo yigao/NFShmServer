@@ -19,7 +19,6 @@ MountUnlockDesc::~MountUnlockDesc()
 
 int MountUnlockDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

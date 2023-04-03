@@ -19,7 +19,6 @@ ConditionConditionDesc::~ConditionConditionDesc()
 
 int ConditionConditionDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ VipVipDesc::~VipVipDesc()
 
 int VipVipDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

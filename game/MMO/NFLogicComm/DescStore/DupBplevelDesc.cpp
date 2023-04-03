@@ -19,7 +19,6 @@ DupBplevelDesc::~DupBplevelDesc()
 
 int DupBplevelDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

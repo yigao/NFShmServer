@@ -19,7 +19,6 @@ MapItemdropDesc::~MapItemdropDesc()
 
 int MapItemdropDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ SkillBuffDesc::~SkillBuffDesc()
 
 int SkillBuffDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ AttributePowersupDesc::~AttributePowersupDesc()
 
 int AttributePowersupDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

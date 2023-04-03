@@ -19,7 +19,6 @@ DupDupDesc::~DupDupDesc()
 
 int DupDupDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ RoleSwordmaleDesc::~RoleSwordmaleDesc()
 
 int RoleSwordmaleDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

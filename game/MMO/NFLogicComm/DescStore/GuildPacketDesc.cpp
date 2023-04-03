@@ -19,7 +19,6 @@ GuildPacketDesc::~GuildPacketDesc()
 
 int GuildPacketDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

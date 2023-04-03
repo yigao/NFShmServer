@@ -19,7 +19,6 @@ MountValueDesc::~MountValueDesc()
 
 int MountValueDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

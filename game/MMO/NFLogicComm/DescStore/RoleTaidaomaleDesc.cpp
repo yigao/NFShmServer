@@ -19,7 +19,6 @@ RoleTaidaomaleDesc::~RoleTaidaomaleDesc()
 
 int RoleTaidaomaleDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

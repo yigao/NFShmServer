@@ -19,7 +19,6 @@ AssistConstDesc::~AssistConstDesc()
 
 int AssistConstDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

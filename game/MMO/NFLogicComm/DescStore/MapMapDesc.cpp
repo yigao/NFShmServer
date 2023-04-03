@@ -19,7 +19,6 @@ MapMapDesc::~MapMapDesc()
 
 int MapMapDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

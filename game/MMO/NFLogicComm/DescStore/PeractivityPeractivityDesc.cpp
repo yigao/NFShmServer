@@ -19,7 +19,6 @@ PeractivityPeractivityDesc::~PeractivityPeractivityDesc()
 
 int PeractivityPeractivityDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

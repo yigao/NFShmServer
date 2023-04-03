@@ -19,7 +19,6 @@ EquipStrongDesc::~EquipStrongDesc()
 
 int EquipStrongDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

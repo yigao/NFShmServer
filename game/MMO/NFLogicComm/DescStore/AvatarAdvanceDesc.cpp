@@ -19,7 +19,6 @@ AvatarAdvanceDesc::~AvatarAdvanceDesc()
 
 int AvatarAdvanceDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

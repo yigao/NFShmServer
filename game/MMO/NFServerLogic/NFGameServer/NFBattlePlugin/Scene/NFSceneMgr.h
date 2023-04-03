@@ -28,7 +28,7 @@ class NFScene;
 class NFSceneMgr : public NFShmObj
 {
 public:
-    typedef NFShmVector<NFPoint2<int32_t>, MAX_LAYER*3> OneLayer;
+    typedef NFShmVector<NFPoint2<int32_t>, (1+(MAX_LAYER-1)*2)*(1+(MAX_LAYER-1)*2)> OneLayer;
     typedef NFShmVector<OneLayer, MAX_LAYER+1> NineGridLayer;
 public:
     NFSceneMgr();

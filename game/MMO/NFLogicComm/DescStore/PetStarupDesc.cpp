@@ -19,7 +19,6 @@ PetStarupDesc::~PetStarupDesc()
 
 int PetStarupDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

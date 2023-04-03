@@ -19,7 +19,6 @@ RandomnameManfirstDesc::~RandomnameManfirstDesc()
 
 int RandomnameManfirstDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

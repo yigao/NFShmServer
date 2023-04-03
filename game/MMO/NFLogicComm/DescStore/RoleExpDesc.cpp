@@ -19,7 +19,6 @@ RoleExpDesc::~RoleExpDesc()
 
 int RoleExpDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

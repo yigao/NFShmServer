@@ -19,7 +19,6 @@ EscortChanceDesc::~EscortChanceDesc()
 
 int EscortChanceDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

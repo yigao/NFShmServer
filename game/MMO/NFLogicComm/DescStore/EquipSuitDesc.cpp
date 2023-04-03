@@ -19,7 +19,6 @@ EquipSuitDesc::~EquipSuitDesc()
 
 int EquipSuitDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

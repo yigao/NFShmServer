@@ -19,7 +19,6 @@ GuildLevelDesc::~GuildLevelDesc()
 
 int GuildLevelDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

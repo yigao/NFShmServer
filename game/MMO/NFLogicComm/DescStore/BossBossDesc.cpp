@@ -19,7 +19,6 @@ BossBossDesc::~BossBossDesc()
 
 int BossBossDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

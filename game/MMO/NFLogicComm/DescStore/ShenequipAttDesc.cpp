@@ -19,7 +19,6 @@ ShenequipAttDesc::~ShenequipAttDesc()
 
 int ShenequipAttDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

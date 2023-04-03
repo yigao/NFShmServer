@@ -19,7 +19,6 @@ MountDisplayDesc::~MountDisplayDesc()
 
 int MountDisplayDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ AiAiDesc::~AiAiDesc()
 
 int AiAiDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

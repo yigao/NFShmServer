@@ -19,7 +19,6 @@ ItemItemDesc::~ItemItemDesc()
 
 int ItemItemDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ DupTowerrewardDesc::~DupTowerrewardDesc()
 
 int DupTowerrewardDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

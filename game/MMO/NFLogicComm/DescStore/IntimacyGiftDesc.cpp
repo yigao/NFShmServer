@@ -19,7 +19,6 @@ IntimacyGiftDesc::~IntimacyGiftDesc()
 
 int IntimacyGiftDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

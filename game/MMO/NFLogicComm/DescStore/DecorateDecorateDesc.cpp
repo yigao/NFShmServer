@@ -19,7 +19,6 @@ DecorateDecorateDesc::~DecorateDecorateDesc()
 
 int DecorateDecorateDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

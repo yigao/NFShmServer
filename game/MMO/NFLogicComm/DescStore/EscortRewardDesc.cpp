@@ -19,7 +19,6 @@ EscortRewardDesc::~EscortRewardDesc()
 
 int EscortRewardDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

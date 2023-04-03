@@ -19,7 +19,6 @@ GodevilGodevillvDesc::~GodevilGodevillvDesc()
 
 int GodevilGodevillvDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

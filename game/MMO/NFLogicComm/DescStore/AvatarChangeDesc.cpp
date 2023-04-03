@@ -19,7 +19,6 @@ AvatarChangeDesc::~AvatarChangeDesc()
 
 int AvatarChangeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

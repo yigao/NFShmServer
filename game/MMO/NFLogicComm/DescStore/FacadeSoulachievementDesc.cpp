@@ -19,7 +19,6 @@ FacadeSoulachievementDesc::~FacadeSoulachievementDesc()
 
 int FacadeSoulachievementDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

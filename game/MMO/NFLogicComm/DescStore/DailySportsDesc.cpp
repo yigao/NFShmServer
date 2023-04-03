@@ -19,7 +19,6 @@ DailySportsDesc::~DailySportsDesc()
 
 int DailySportsDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

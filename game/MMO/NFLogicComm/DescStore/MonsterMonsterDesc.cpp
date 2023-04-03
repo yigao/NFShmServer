@@ -19,7 +19,6 @@ MonsterMonsterDesc::~MonsterMonsterDesc()
 
 int MonsterMonsterDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

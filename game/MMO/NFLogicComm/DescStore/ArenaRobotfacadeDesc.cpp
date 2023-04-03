@@ -19,7 +19,6 @@ ArenaRobotfacadeDesc::~ArenaRobotfacadeDesc()
 
 int ArenaRobotfacadeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

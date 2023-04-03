@@ -19,7 +19,6 @@ PathPathDesc::~PathPathDesc()
 
 int PathPathDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

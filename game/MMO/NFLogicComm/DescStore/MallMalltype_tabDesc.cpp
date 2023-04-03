@@ -19,7 +19,6 @@ MallMalltype_tabDesc::~MallMalltype_tabDesc()
 
 int MallMalltype_tabDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

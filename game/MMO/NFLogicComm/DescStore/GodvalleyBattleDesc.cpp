@@ -19,7 +19,6 @@ GodvalleyBattleDesc::~GodvalleyBattleDesc()
 
 int GodvalleyBattleDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

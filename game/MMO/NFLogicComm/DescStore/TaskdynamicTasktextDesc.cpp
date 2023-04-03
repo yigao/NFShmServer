@@ -19,7 +19,6 @@ TaskdynamicTasktextDesc::~TaskdynamicTasktextDesc()
 
 int TaskdynamicTasktextDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

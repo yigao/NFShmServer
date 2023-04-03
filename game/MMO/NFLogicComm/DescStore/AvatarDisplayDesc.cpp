@@ -19,7 +19,6 @@ AvatarDisplayDesc::~AvatarDisplayDesc()
 
 int AvatarDisplayDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

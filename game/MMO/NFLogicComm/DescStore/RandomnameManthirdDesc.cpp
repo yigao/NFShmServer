@@ -19,7 +19,6 @@ RandomnameManthirdDesc::~RandomnameManthirdDesc()
 
 int RandomnameManthirdDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

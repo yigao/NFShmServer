@@ -19,7 +19,6 @@ TitleTitleDesc::~TitleTitleDesc()
 
 int TitleTitleDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

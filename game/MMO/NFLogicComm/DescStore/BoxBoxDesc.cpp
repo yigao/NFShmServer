@@ -19,7 +19,6 @@ BoxBoxDesc::~BoxBoxDesc()
 
 int BoxBoxDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

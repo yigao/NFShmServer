@@ -19,7 +19,6 @@ BackBackDesc::~BackBackDesc()
 
 int BackBackDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ DupSweepmonsternumDesc::~DupSweepmonsternumDesc()
 
 int DupSweepmonsternumDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

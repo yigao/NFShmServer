@@ -19,7 +19,6 @@ PeractivityWeekDesc::~PeractivityWeekDesc()
 
 int PeractivityWeekDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

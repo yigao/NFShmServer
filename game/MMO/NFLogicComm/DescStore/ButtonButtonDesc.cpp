@@ -19,7 +19,6 @@ ButtonButtonDesc::~ButtonButtonDesc()
 
 int ButtonButtonDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

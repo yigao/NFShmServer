@@ -19,7 +19,6 @@ RoleSicklefemaleDesc::~RoleSicklefemaleDesc()
 
 int RoleSicklefemaleDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

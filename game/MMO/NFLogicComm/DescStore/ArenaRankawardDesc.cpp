@@ -19,7 +19,6 @@ ArenaRankawardDesc::~ArenaRankawardDesc()
 
 int ArenaRankawardDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

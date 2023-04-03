@@ -19,7 +19,6 @@ PetEggDesc::~PetEggDesc()
 
 int PetEggDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

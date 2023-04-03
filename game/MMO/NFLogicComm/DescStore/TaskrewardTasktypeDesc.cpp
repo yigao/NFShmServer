@@ -19,7 +19,6 @@ TaskrewardTasktypeDesc::~TaskrewardTasktypeDesc()
 
 int TaskrewardTasktypeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

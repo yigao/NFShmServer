@@ -19,7 +19,6 @@ MountAdvanceDesc::~MountAdvanceDesc()
 
 int MountAdvanceDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

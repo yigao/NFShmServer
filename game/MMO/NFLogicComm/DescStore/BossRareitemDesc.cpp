@@ -19,7 +19,6 @@ BossRareitemDesc::~BossRareitemDesc()
 
 int BossRareitemDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ AttributeSuppressDesc::~AttributeSuppressDesc()
 
 int AttributeSuppressDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

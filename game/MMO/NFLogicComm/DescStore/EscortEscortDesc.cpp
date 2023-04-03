@@ -19,7 +19,6 @@ EscortEscortDesc::~EscortEscortDesc()
 
 int EscortEscortDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ FacadeStarupDesc::~FacadeStarupDesc()
 
 int FacadeStarupDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

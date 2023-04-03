@@ -19,7 +19,6 @@ SkillBuffupDesc::~SkillBuffupDesc()
 
 int SkillBuffupDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

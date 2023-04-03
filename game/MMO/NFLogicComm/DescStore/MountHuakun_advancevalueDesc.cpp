@@ -19,7 +19,6 @@ MountHuakun_advancevalueDesc::~MountHuakun_advancevalueDesc()
 
 int MountHuakun_advancevalueDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

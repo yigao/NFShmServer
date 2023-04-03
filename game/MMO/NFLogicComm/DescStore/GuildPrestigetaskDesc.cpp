@@ -19,7 +19,6 @@ GuildPrestigetaskDesc::~GuildPrestigetaskDesc()
 
 int GuildPrestigetaskDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

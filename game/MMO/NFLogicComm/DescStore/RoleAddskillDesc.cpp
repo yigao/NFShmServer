@@ -19,7 +19,6 @@ RoleAddskillDesc::~RoleAddskillDesc()
 
 int RoleAddskillDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

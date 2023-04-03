@@ -19,7 +19,6 @@ TaskTaskDesc::~TaskTaskDesc()
 
 int TaskTaskDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

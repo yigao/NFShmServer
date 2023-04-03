@@ -19,7 +19,6 @@ DailyDailyDesc::~DailyDailyDesc()
 
 int DailyDailyDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

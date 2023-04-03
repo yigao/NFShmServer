@@ -19,7 +19,6 @@ FacadeValueDesc::~FacadeValueDesc()
 
 int FacadeValueDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

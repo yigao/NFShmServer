@@ -19,7 +19,6 @@ GodevilPreposetaskDesc::~GodevilPreposetaskDesc()
 
 int GodevilPreposetaskDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

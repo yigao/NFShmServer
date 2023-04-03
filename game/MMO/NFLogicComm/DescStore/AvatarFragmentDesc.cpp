@@ -19,7 +19,6 @@ AvatarFragmentDesc::~AvatarFragmentDesc()
 
 int AvatarFragmentDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

@@ -19,7 +19,6 @@ FacadeChangeDesc::~FacadeChangeDesc()
 
 int FacadeChangeDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

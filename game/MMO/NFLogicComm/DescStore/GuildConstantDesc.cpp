@@ -19,7 +19,6 @@ GuildConstantDesc::~GuildConstantDesc()
 
 int GuildConstantDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

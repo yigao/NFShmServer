@@ -19,7 +19,6 @@ RandomnameMansecondDesc::~RandomnameMansecondDesc()
 
 int RandomnameMansecondDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

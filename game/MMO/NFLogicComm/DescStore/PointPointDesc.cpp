@@ -19,7 +19,6 @@ PointPointDesc::~PointPointDesc()
 
 int PointPointDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

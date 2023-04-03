@@ -19,7 +19,6 @@ EquipBreakDesc::~EquipBreakDesc()
 
 int EquipBreakDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

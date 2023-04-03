@@ -19,7 +19,6 @@ BossLayerDesc::~BossLayerDesc()
 
 int BossLayerDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

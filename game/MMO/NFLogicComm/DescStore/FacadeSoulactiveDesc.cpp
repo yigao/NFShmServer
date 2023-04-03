@@ -19,7 +19,6 @@ FacadeSoulactiveDesc::~FacadeSoulactiveDesc()
 
 int FacadeSoulactiveDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

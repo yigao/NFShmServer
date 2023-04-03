@@ -19,7 +19,6 @@ MountHuakunDesc::~MountHuakunDesc()
 
 int MountHuakunDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

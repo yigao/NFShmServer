@@ -19,7 +19,6 @@ MountBloodDesc::~MountBloodDesc()
 
 int MountBloodDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

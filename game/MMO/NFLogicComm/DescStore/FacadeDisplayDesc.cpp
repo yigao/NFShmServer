@@ -19,7 +19,6 @@ FacadeDisplayDesc::~FacadeDisplayDesc()
 
 int FacadeDisplayDesc::CreateInit()
 {
-	Initialize();
 	return 0;
 }
 

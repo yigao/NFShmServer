@@ -55,6 +55,7 @@ int NFSceneMgr::CreateInit()
             int y = -a;
             for (int x = -a; x <= a; x++)
             {
+                NF_ASSERT_MSG(m_nineGridLayer[a].size() < m_nineGridLayer[a].max_size(), "size:{} max_size:{}", m_nineGridLayer[a].size(), m_nineGridLayer[a].max_size());
                 m_nineGridLayer[a].push_back({x, y });
             }
         }
@@ -63,6 +64,7 @@ int NFSceneMgr::CreateInit()
             int y = a;
             for (int x = -a; x <= a; x++)
             {
+                NF_ASSERT_MSG(m_nineGridLayer[a].size() < m_nineGridLayer[a].max_size(), "size:{} max_size:{}", m_nineGridLayer[a].size(), m_nineGridLayer[a].max_size());
                 m_nineGridLayer[a].push_back({x, y });
             }
         }
@@ -71,6 +73,7 @@ int NFSceneMgr::CreateInit()
             int x = -a;
             for (int y = -a + 1; y <= a - 1; y++)
             {
+                NF_ASSERT_MSG(m_nineGridLayer[a].size() < m_nineGridLayer[a].max_size(), "size:{} max_size:{}", m_nineGridLayer[a].size(), m_nineGridLayer[a].max_size());
                 m_nineGridLayer[a].push_back({x, y });
             }
         }
@@ -79,6 +82,7 @@ int NFSceneMgr::CreateInit()
             int x = a;
             for (int y = -a + 1; y <= a - 1; y++)
             {
+                NF_ASSERT_MSG(m_nineGridLayer[a].size() < m_nineGridLayer[a].max_size(), "size:{} max_size:{}", m_nineGridLayer[a].size(), m_nineGridLayer[a].max_size());
                 m_nineGridLayer[a].push_back({x, y });
             }
         }
