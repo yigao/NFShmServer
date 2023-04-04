@@ -62,7 +62,7 @@ enum BattlePartType
 enum SnsPartType
 {
     SNS_PART_NONE = 0,
-    SNS_PART_FRIEND,
+    SNS_PART_RELATION,
     SNS_PART_MAX,
 };
 

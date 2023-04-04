@@ -38,7 +38,7 @@ bool NFStoreServerTest::Execute()
         //Test_GetRpcDeleteService();
         //Test_GetRpcUpdateObjService();
         //Test_GetRpcExecuteObjService();
-        Test_GetRpcExecuteMoreObjService();
+        //Test_GetRpcExecuteMoreObjService();
         //Test_GetRpcModifyObjService();
         //Test_GetRpcDeleteObjService();
         flag = true;

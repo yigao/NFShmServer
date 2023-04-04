@@ -13,6 +13,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmVector.h"
+#include "NFShmList.h"
 #include <iterator>
 #include <algorithm>
 #include <vector>
@@ -24,9 +25,9 @@
  */
 
 template<class Val>
-struct NFShmHashTableNode
+struct NFShmHashTableWithListNode
 {
-    NFShmHashTableNode()
+    NFShmHashTableWithListNode()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -42,6 +43,7 @@ struct NFShmHashTableNode
     {
         m_valid = false;
         m_next = -1;
+        m_list_pos = -1;
         m_self = 0;
 
         if (std::numeric_limits<Val>::is_specialized)
@@ -60,33 +62,34 @@ struct NFShmHashTableNode
     Val m_value;
     bool m_valid;
     size_t m_self;
+    int m_list_pos;
 };
 
 template<class Val, class Key, int MAX_SIZE, class HashFcn,
         class ExtractKey, class EqualKey>
-class NFShmHashTable;
+class NFShmHashTableWithList;
 
 template<class Val, class Key, int MAX_SIZE, class HashFcn,
         class ExtractKey, class EqualKey>
-struct NFShmHashTableIterator;
+struct NFShmHashTableWithListIterator;
 
 template<class Val, class Key, int MAX_SIZE, class HashFcn,
         class ExtractKey, class EqualKey>
-struct NFShmHashTableConstIterator;
+struct NFShmHashTableWithListConstIterator;
 
 template<class Val, class Key, int MAX_SIZE, class HashFcn,
         class ExtractKey, class EqualKey>
-struct NFShmHashTableIterator
+struct NFShmHashTableWithListIterator
 {
-    typedef NFShmHashTable<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>
+    typedef NFShmHashTableWithList<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>
             _Hashtable;
-    typedef NFShmHashTableIterator<Val, Key, MAX_SIZE, HashFcn,
+    typedef NFShmHashTableWithListIterator<Val, Key, MAX_SIZE, HashFcn,
             ExtractKey, EqualKey>
             iterator;
-    typedef NFShmHashTableConstIterator<Val, Key, MAX_SIZE, HashFcn,
+    typedef NFShmHashTableWithListConstIterator<Val, Key, MAX_SIZE, HashFcn,
             ExtractKey, EqualKey>
             const_iterator;
-    typedef NFShmHashTableNode<Val> _Node;
+    typedef NFShmHashTableWithListNode<Val> _Node;
 
     typedef std::forward_iterator_tag iterator_category;
     typedef Val value_type;
@@ -98,10 +101,10 @@ struct NFShmHashTableIterator
     _Node *m_curNode;
     _Hashtable *m_hashTable;
 
-    NFShmHashTableIterator(_Node *__n, _Hashtable *__tab)
+    NFShmHashTableWithListIterator(_Node *__n, _Hashtable *__tab)
             : m_curNode(__n), m_hashTable(__tab) {}
 
-    NFShmHashTableIterator() {}
+    NFShmHashTableWithListIterator() {}
 
     reference operator*() const { return m_curNode->m_value; }
 
@@ -119,17 +122,17 @@ struct NFShmHashTableIterator
 
 template<class Val, class Key, int MAX_SIZE, class HashFcn,
         class ExtractKey, class EqualKey>
-struct NFShmHashTableConstIterator
+struct NFShmHashTableWithListConstIterator
 {
-    typedef NFShmHashTable<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>
+    typedef NFShmHashTableWithList<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>
             _Hashtable;
-    typedef NFShmHashTableIterator<Val, Key, MAX_SIZE, HashFcn,
+    typedef NFShmHashTableWithListIterator<Val, Key, MAX_SIZE, HashFcn,
             ExtractKey, EqualKey>
             iterator;
-    typedef NFShmHashTableConstIterator<Val, Key, MAX_SIZE, HashFcn,
+    typedef NFShmHashTableWithListConstIterator<Val, Key, MAX_SIZE, HashFcn,
             ExtractKey, EqualKey>
             const_iterator;
-    typedef NFShmHashTableNode<Val> _Node;
+    typedef NFShmHashTableWithListNode<Val> _Node;
 
     typedef std::forward_iterator_tag iterator_category;
     typedef Val value_type;
@@ -141,12 +144,12 @@ struct NFShmHashTableConstIterator
     const _Node *m_curNode;
     const _Hashtable *m_hashTable;
 
-    NFShmHashTableConstIterator(const _Node *__n, const _Hashtable *__tab)
+    NFShmHashTableWithListConstIterator(const _Node *__n, const _Hashtable *__tab)
             : m_curNode(__n), m_hashTable(__tab) {}
 
-    NFShmHashTableConstIterator() {}
+    NFShmHashTableWithListConstIterator() {}
 
-    NFShmHashTableConstIterator(const iterator &__it)
+    NFShmHashTableWithListConstIterator(const iterator &__it)
             : m_curNode(__it.m_curNode), m_hashTable(__it.m_hashTable) {}
 
     reference operator*() const { return m_curNode->m_value; }
@@ -163,15 +166,15 @@ struct NFShmHashTableConstIterator
 };
 
 template<class Val, class Key, int MAX_SIZE, class HF, class Ex, class Eq>
-class NFShmHashTable;
+class NFShmHashTableWithList;
 
 template<class Val, class Key, int MAX_SIZE, class HF, class Ex, class Eq>
-bool operator==(const NFShmHashTable<Val, Key, MAX_SIZE, HF, Ex, Eq> &__ht1,
-                const NFShmHashTable<Val, Key, MAX_SIZE, HF, Ex, Eq> &__ht2);
+bool operator==(const NFShmHashTableWithList<Val, Key, MAX_SIZE, HF, Ex, Eq> &__ht1,
+                const NFShmHashTableWithList<Val, Key, MAX_SIZE, HF, Ex, Eq> &__ht2);
 
 template<class Val, class Key, int MAX_SIZE, class HashFcn,
         class ExtractKey, class EqualKey>
-class NFShmHashTable
+class NFShmHashTableWithList
 {
 public:
     typedef Key key_type;
@@ -191,7 +194,7 @@ public:
     key_equal key_eq() const { return m_equals; }
 
 private:
-    typedef NFShmHashTableNode<Val> _Node;
+    typedef NFShmHashTableWithListNode<Val> _Node;
 
     /**
      * @brief This function gets a node from the free list of the NFShmHashTable, assigns the index to the current free index,
@@ -227,21 +230,23 @@ private:
     NFShmVector<_Node, MAX_SIZE> m_buckets;
     int m_firstFreeIdx; //!<空闲链表头节点
     NFShmVector<int, MAX_SIZE> m_bucketsFirstIdx;
+    NFShmList<int, MAX_SIZE> m_bucketsListIdx;
     size_type m_num_elements;
+    bool m_getList;
 
 public:
-    typedef NFShmHashTableIterator<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>
+    typedef NFShmHashTableWithListIterator<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>
             iterator;
-    typedef NFShmHashTableConstIterator<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>
+    typedef NFShmHashTableWithListConstIterator<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>
             const_iterator;
 
     friend struct
-            NFShmHashTableIterator<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>;
+            NFShmHashTableWithListIterator<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>;
     friend struct
-            NFShmHashTableConstIterator<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>;
+            NFShmHashTableWithListConstIterator<Val, Key, MAX_SIZE, HashFcn, ExtractKey, EqualKey>;
 
 public:
-    NFShmHashTable()
+    NFShmHashTableWithList()
     {
         m_hash = HashFcn();
         m_equals = EqualKey();
@@ -257,12 +262,12 @@ public:
         }
     }
 
-    NFShmHashTable(const NFShmHashTable &__ht) : m_hash(__ht.m_hash), m_equals(__ht.m_equals), m_get_key(__ht.m_get_key), m_num_elements(0)
+    NFShmHashTableWithList(const NFShmHashTableWithList &__ht) : m_hash(__ht.m_hash), m_equals(__ht.m_equals), m_get_key(__ht.m_get_key), m_num_elements(0)
     {
         _M_copy_from(__ht);
     }
 
-    NFShmHashTable &operator=(const NFShmHashTable &__ht)
+    NFShmHashTableWithList &operator=(const NFShmHashTableWithList &__ht)
     {
         if (&__ht != this)
         {
@@ -274,7 +279,7 @@ public:
         return *this;
     }
 
-    ~NFShmHashTable()
+    ~NFShmHashTableWithList()
     {
 
     }
@@ -282,6 +287,7 @@ public:
     int CreateInit()
     {
         _M_initialize_buckets();
+        m_getList = false;
         return 0;
     }
 
@@ -299,6 +305,11 @@ public:
     bool full() const { return size() == MAX_SIZE; }
 
     size_t left_size() const { return size() >= MAX_SIZE ? 0 : MAX_SIZE - size(); }
+
+    bool is_get_list() const { return m_getList; }
+    void set_get_list(bool flag) { m_getList = flag; }
+
+    const NFShmList<int, MAX_SIZE>& get_list() const { return m_bucketsListIdx; }
 
     _Node *get_node(int idx)
     {
@@ -328,7 +339,7 @@ public:
         return const_iterator(get_node(idx), this);
     }
 
-    void swap(NFShmHashTable &__ht)
+    void swap(NFShmHashTableWithList &__ht)
     {
 
     }
@@ -354,8 +365,8 @@ public:
     const_iterator end() const { return const_iterator(0, this); }
 
     template<class _Vl, class _Ky, int _MAX_SIZE, class _HF, class _Ex, class _Eq>
-    friend bool operator==(const NFShmHashTable<_Vl, _Ky, _MAX_SIZE, _HF, _Ex, _Eq> &,
-                           const NFShmHashTable<_Vl, _Ky, _MAX_SIZE, _HF, _Ex, _Eq> &);
+    friend bool operator==(const NFShmHashTableWithList<_Vl, _Ky, _MAX_SIZE, _HF, _Ex, _Eq> &,
+                           const NFShmHashTableWithList<_Vl, _Ky, _MAX_SIZE, _HF, _Ex, _Eq> &);
 
 public:
 
@@ -509,6 +520,11 @@ public:
              __first && !m_equals(m_get_key(__first->m_value), __key);
              __first = get_node(__first->m_next)) {}
 
+        if (m_getList && __first)
+        {
+            NF_ASSERT(*m_bucketsListIdx.GetIterator(__first->m_list_pos) == __first->m_self);
+            m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__first->m_list_pos));
+        }
         return iterator(__first, this);
     }
 
@@ -523,6 +539,11 @@ public:
              __first && !m_equals(m_get_key(__first->m_value), __key);
              __first = get_node(__first->m_next)) {}
 
+        if (m_getList && __first)
+        {
+            NF_ASSERT(*m_bucketsListIdx.GetIterator(__first->m_list_pos) == __first->m_self);
+            m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__first->m_list_pos));
+        }
         return const_iterator(__first, this);
     }
 
@@ -676,6 +697,12 @@ private:
         {
             pNode->m_valid = true;
             pNode->m_next = -1;
+            NF_ASSERT(!m_bucketsListIdx.full());
+            auto iter = m_bucketsListIdx.insert(m_bucketsListIdx.end(), pNode->m_self);
+            NF_ASSERT(iter != m_bucketsListIdx.end());
+            NF_ASSERT(*iter == pNode->m_self);
+            pNode->m_list_pos = iter.m_node->m_self;
+            NF_ASSERT(*m_bucketsListIdx.GetIterator(pNode->m_list_pos) == (int)pNode->m_self);
             std::_Construct(&pNode->m_value, __obj);
         }
 
@@ -688,7 +715,12 @@ private:
      */
     void _M_delete_node(_Node *__n)
     {
+        NF_ASSERT(__n->m_valid);
+        NF_ASSERT(__n->m_list_pos != -1);
+        NF_ASSERT(*m_bucketsListIdx.GetIterator(__n->m_list_pos) == (int)__n->m_self);
         __n->m_valid = false;
+        m_bucketsListIdx.erase(m_bucketsListIdx.GetIterator(__n->m_list_pos));
+        __n->m_list_pos = -1;
         std::_Destroy(&__n->m_value);
         _M_put_node(__n);
     }
@@ -697,13 +729,13 @@ private:
 
     void _M_erase_bucket(const size_type __n, _Node *__last);
 
-    void _M_copy_from(const NFShmHashTable &__ht);
+    void _M_copy_from(const NFShmHashTableWithList &__ht);
 
 };
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
-NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &
-NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++()
+NFShmHashTableWithListIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &
+NFShmHashTableWithListIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++()
 {
     const _Node *__old = m_curNode;
     m_curNode = m_hashTable->get_node(m_curNode->m_next);
@@ -718,8 +750,8 @@ NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++()
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
-inline NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>
-NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++(int)
+inline NFShmHashTableWithListIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>
+NFShmHashTableWithListIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++(int)
 {
     iterator __tmp = *this;
     ++*this;
@@ -727,8 +759,8 @@ NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++(int)
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
-NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &
-NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++()
+NFShmHashTableWithListConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &
+NFShmHashTableWithListConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++()
 {
     const _Node *__old = m_curNode;
     m_curNode = m_hashTable->get_node(m_curNode->m_next);
@@ -743,8 +775,8 @@ NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++()
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
-inline NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>
-NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++(int)
+inline NFShmHashTableWithListConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>
+NFShmHashTableWithListConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++(int)
 {
     const_iterator __tmp = *this;
     ++*this;
@@ -753,51 +785,51 @@ NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::operator++(i
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
 inline std::forward_iterator_tag
-iterator_category(const NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
+iterator_category(const NFShmHashTableWithListIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
 {
     return std::forward_iterator_tag();
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
 inline _Val *
-value_type(const NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
+value_type(const NFShmHashTableWithListIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
 {
     return (_Val *) 0;
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
-inline typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *
-distance_type(const NFShmHashTableIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
+inline typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *
+distance_type(const NFShmHashTableWithListIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
 {
-    return (typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *) 0;
+    return (typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *) 0;
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
 inline std::forward_iterator_tag
-iterator_category(const NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
+iterator_category(const NFShmHashTableWithListConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
 {
     return std::forward_iterator_tag();
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
 inline _Val *
-value_type(const NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
+value_type(const NFShmHashTableWithListConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
 {
     return (_Val *) 0;
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _ExK, class _EqK>
-inline typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *
-distance_type(const NFShmHashTableConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
+inline typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *
+distance_type(const NFShmHashTableWithListConstIterator<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK> &)
 {
-    return (typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *) 0;
+    return (typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _ExK, _EqK>::difference_type *) 0;
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-bool operator==(const NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht1,
-                const NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht2)
+bool operator==(const NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht1,
+                const NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht2)
 {
-    typedef typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::_Node _Node;
+    typedef typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::_Node _Node;
     if (__ht1.m_bucketsFirstIdx.size() != __ht2.m_bucketsFirstIdx.size())
         return false;
     for (int __n = 0; __n < (int) __ht1.m_bucketsFirstIdx.size(); ++__n)
@@ -813,15 +845,15 @@ bool operator==(const NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht1
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-inline bool operator!=(const NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht1,
-                       const NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht2)
+inline bool operator!=(const NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht1,
+                       const NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq> &__ht2)
 {
     return !(__ht1 == __ht2);
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Extract, class _EqKey>
-inline void swap(NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Extract, _EqKey> &__ht1,
-                 NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Extract, _EqKey> &__ht2)
+inline void swap(NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Extract, _EqKey> &__ht1,
+                 NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Extract, _EqKey> &__ht2)
 {
     __ht1.swap(__ht2);
 }
@@ -843,8 +875,8 @@ inline void swap(NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Extract, _EqKey> &__
  * @return
  */
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-std::pair<typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator, bool>
-NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
+std::pair<typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator, bool>
+NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::insert_unique_noresize(const value_type &__obj)
 {
     const size_type __n = _M_bkt_num(__obj);
@@ -886,8 +918,8 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
  * @return
  */
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator
-NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
+typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator
+NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::insert_equal_noresize(const value_type &__obj)
 {
     //已经没有可用的节点了
@@ -938,8 +970,8 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
  * @return
  */
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::reference
-NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::find_or_insert(const value_type &__obj)
+typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::reference
+NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::find_or_insert(const value_type &__obj)
 {
     const size_type __n = _M_bkt_num(__obj);
     NF_ASSERT(__n < m_bucketsFirstIdx.size());
@@ -949,6 +981,11 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::find_or_insert(const value_
     {
         if (m_equals(m_get_key(__cur->m_value), m_get_key(__obj)))
         {
+            if (m_getList && __cur)
+            {
+                NF_ASSERT(*m_bucketsListIdx.GetIterator(__cur->m_list_pos) == __cur->m_self);
+                m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__cur->m_list_pos));
+            }
             return __cur->m_value;
         }
     }
@@ -962,9 +999,9 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::find_or_insert(const value_
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-std::pair<typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator,
-        typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator>
-NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::equal_range(const key_type &__key)
+std::pair<typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator,
+        typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator>
+NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::equal_range(const key_type &__key)
 {
     typedef std::pair<iterator, iterator> _Pii;
     const size_type __n = _M_bkt_num_key(__key);
@@ -996,9 +1033,9 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::equal_range(const key_type 
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-std::pair<typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::const_iterator,
-        typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::const_iterator>
-NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
+std::pair<typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::const_iterator,
+        typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::const_iterator>
+NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::equal_range(const key_type &__key) const
 {
     typedef std::pair<const_iterator, const_iterator> _Pii;
@@ -1031,8 +1068,8 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::size_type
-NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const key_type &__key)
+typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::size_type
+NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const key_type &__key)
 {
     const size_type __n = _M_bkt_num_key(__key);
     NF_ASSERT(__n < m_bucketsFirstIdx.size());
@@ -1070,7 +1107,7 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const key_type &__key
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const iterator &__it)
+typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const iterator &__it)
 {
     _Node *__p = __it.m_curNode;
     if (__p)
@@ -1113,7 +1150,7 @@ typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::iterator NFShmHash
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
+void NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::erase(iterator __first, iterator __last)
 {
     size_type __f_bucket = __first.m_curNode ?
@@ -1137,21 +1174,21 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
 inline void
-NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const_iterator __first,
-                                                           const_iterator __last)
+NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const_iterator __first,
+                                                                   const_iterator __last)
 {
     erase(iterator(const_cast<_Node *>(__first.m_curNode),
-                   const_cast<NFShmHashTable *>(__first.m_hashTable)),
+                   const_cast<NFShmHashTableWithList *>(__first.m_hashTable)),
           iterator(const_cast<_Node *>(__last.m_curNode),
-                   const_cast<NFShmHashTable *>(__last.m_hashTable)));
+                   const_cast<NFShmHashTableWithList *>(__last.m_hashTable)));
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-inline typename NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::const_iterator
-NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const const_iterator &__it)
+inline typename NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::const_iterator
+NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const const_iterator &__it)
 {
     return erase(iterator(const_cast<_Node *>(__it.m_curNode),
-                   const_cast<NFShmHashTable *>(__it.m_hashTable)));
+                   const_cast<NFShmHashTableWithList *>(__it.m_hashTable)));
 }
 
 /**
@@ -1165,14 +1202,14 @@ NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::erase(const const_iterator 
  * @param __num_elements_hint
  */
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
+void NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::resize(size_type __num_elements_hint)
 {
 
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
+void NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::_M_erase_bucket(const size_type __n, _Node *__first, _Node *__last)
 {
     _Node *__cur = get_node(m_bucketsFirstIdx[__n]);
@@ -1195,7 +1232,7 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
+void NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 ::_M_erase_bucket(const size_type __n, _Node *__last)
 {
     _Node *__cur = get_node(m_bucketsFirstIdx[__n]);
@@ -1210,7 +1247,7 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
 }
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::clear()
+void NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::clear()
 {
     m_buckets.clear();
     m_bucketsFirstIdx.clear();
@@ -1219,8 +1256,8 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::clear()
 
 
 template<class _Val, class _Key, int MAX_SIZE, class _HF, class _Ex, class _Eq>
-void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
-::_M_copy_from(const NFShmHashTable &__ht)
+void NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
+::_M_copy_from(const NFShmHashTableWithList &__ht)
 {
     m_buckets.clear();
     m_bucketsFirstIdx.clear();
@@ -1228,4 +1265,6 @@ void NFShmHashTable<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
     m_bucketsFirstIdx = __ht.m_bucketsFirstIdx;
     m_num_elements = __ht.m_num_elements;
     m_firstFreeIdx = __ht.m_firstFreeIdx;
+    m_bucketsListIdx = __ht.m_bucketsListIdx;
+    m_getList = __ht.m_getList;
 }

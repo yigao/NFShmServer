@@ -10,7 +10,7 @@
 #include "NFSnsPartModule.h"
 #include "Cache/NFCacheMgr.h"
 #include "NFSnsPart.h"
-#include "Friend/NFFriendPart.h"
+#include "Relation/NFRelationPart.h"
 
 NFSnsPartModule::NFSnsPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -25,7 +25,7 @@ NFSnsPartModule::~NFSnsPartModule()
 bool NFSnsPartModule::Awake()
 {
     //friend part
-    NFFriendPart::RegisterClientMessage(m_pObjPluginManager);
+    NFRelationPart::RegisterClientMessage(m_pObjPluginManager);
     return true;
 }
 

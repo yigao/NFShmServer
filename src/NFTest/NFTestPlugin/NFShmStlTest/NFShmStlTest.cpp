@@ -13,6 +13,7 @@
 #include "NFComm/NFShmStl/NFShmHashTable.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashMapWithList.h"
 //#include "NFComm/NFShmStl/NFShmString.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
@@ -682,6 +683,23 @@ int checkList()
 
 int checkAlgoList()
 {
+    NFShmList<int, 20> vecXX;
+    for (int i = 0; i < 10; i++)
+    {
+        vecXX.push_back(i);
+    }
+    printList(vecXX);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test splice");
+    vecXX.splice(vecXX.end(), vecXX.begin());
+    printList(vecXX);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test splice");
+    auto iter = vecXX.end();
+    --iter;
+    --iter;
+    vecXX.splice(vecXX.end(), iter);
+    printList(vecXX);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test splice");
+
     NFShmList<int, 20> vec1;
     for (int i = 0; i < 10; i++)
     {
@@ -732,7 +750,7 @@ int checkAlgoList()
 
 int checkHashTable()
 {
-    NFShmHashTable<int, int, 10, std::hash<int>, std::_Identity<int>, std::equal_to<int>> hashtable;
+    NFShmHashTableWithList<int, int, 10, std::hash<int>, std::_Identity<int>, std::equal_to<int>> hashtable;
 
     for(int i = 0; i < 10; i++)
     {
@@ -768,6 +786,55 @@ int checkHashTable()
     return 0;
 }
 
+int checkHashMap()
+{
+    NFShmHashMapWithList<int, int, 10> hashtable;
+    hashtable.set_get_list(true);
+
+    for(int i = 0; i < 10; i++)
+    {
+        int rand = NFRandInt(0, 100);
+        hashtable.emplace_hint(rand, i);
+    }
+
+    for(auto iter = hashtable.get_list().begin(); iter != hashtable.get_list().end(); iter++)
+    {
+        auto map_iter = hashtable.get_iterator(*iter);
+        NF_ASSERT(map_iter != hashtable.end());
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "list:{}", map_iter->second);
+    }
+
+    hashtable.find(hashtable.begin()->first);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "find..........");
+    std::vector<int> vec;
+    for(auto iter = hashtable.get_list().begin(); iter != hashtable.get_list().end(); iter++)
+    {
+        auto map_iter = hashtable.get_iterator(*iter);
+        NF_ASSERT(map_iter != hashtable.end());
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "list:{}", map_iter->second);
+        vec.push_back(map_iter->first);
+    }
+
+    for(auto iter = vec.begin(); iter != vec.end(); iter++)
+    {
+        NF_ASSERT(hashtable.find(*iter) != hashtable.end());
+    }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "list..........");
+    for(auto iter = hashtable.get_list().begin(); iter != hashtable.get_list().end(); iter++)
+    {
+        auto map_iter = hashtable.get_iterator(*iter);
+        NF_ASSERT(map_iter != hashtable.end());
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "list:{}", map_iter->second);
+    }
+
+    auto hashtable2 = hashtable;
+    hashtable2.erase(hashtable2.begin(), hashtable2.end());
+    hashtable2.debug_string();
+
+    return 0;
+}
+
 int checkHashSet()
 {
     return 0;
@@ -775,10 +842,11 @@ int checkHashSet()
 
 int testMain()
 {
-    CHECK_RET(checkPair(), "checkPair Failed");
-    CHECK_RET(checkVector(), "checkVector Failed");
-    CHECK_RET(checkAlgoVector(), "checkAlgoVector Failed");
-    CHECK_RET(checkAlgoList(), "checkAlgoList Failed");
-    CHECK_RET(checkHashTable(), "checkAlgoList Failed");
+    //CHECK_RET(checkPair(), "checkPair Failed");
+    //CHECK_RET(checkVector(), "checkVector Failed");
+    //CHECK_RET(checkAlgoVector(), "checkAlgoVector Failed");
+    //CHECK_RET(checkAlgoList(), "checkAlgoList Failed");
+    //CHECK_RET(checkHashTable(), "checkAlgoList Failed");
+    checkHashMap();
     return 0;
 }

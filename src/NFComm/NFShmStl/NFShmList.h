@@ -601,8 +601,36 @@ public:
         typedef typename std::__is_integer<_InputIterator>::__type _Integral;
         _M_assign_dispatch(__first, __last, _Integral());
     }
+    
+protected:
+    void transfer(iterator __position, iterator __first, iterator __last) {
+        NF_ASSERT(this == __position.m_pContainer);
+        NF_ASSERT(this == __first.m_pContainer);
+        NF_ASSERT(this == __last.m_pContainer);
+        if (__position != __last) {
+            // Remove [first, last) from its old position.
+            GetNode(__last.m_node->m_prev)->m_next     = __position.m_node->m_self;
+            GetNode(__first.m_node->m_prev)->m_next    = __last.m_node->m_self;
+            GetNode(__position.m_node->m_prev)->m_next = __first.m_node->m_self;
 
-
+            // Splice [first, last) into its new position.
+            ptrdiff_t __tmp      = __position.m_node->m_prev;
+            __position.m_node->m_prev = __last.m_node->m_prev;
+            __last.m_node->m_prev     = __first.m_node->m_prev;
+            __first.m_node->m_prev    = __tmp;
+        }
+    }
+public:
+    void splice(iterator __position, iterator __i) {
+        iterator __j = __i;
+        ++__j;
+        if (__position == __i || __position == __j) return;
+        this->transfer(__position, __i, __j);
+    }
+    void splice(iterator __position, iterator __first, iterator __last) {
+        if (__first != __last)
+            this->transfer(__position, __first, __last);
+    }
 public:
     void remove(const Tp &__value);
 

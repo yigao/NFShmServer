@@ -64,7 +64,7 @@ bool NFCTestModule::Init()
 
 int NFCTestModule::OnTimer(uint32_t nTimerID)
 {
-    //testMain();
+    testMain();
     return 0;
 }
 

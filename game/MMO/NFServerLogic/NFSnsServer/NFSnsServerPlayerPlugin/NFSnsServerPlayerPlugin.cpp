@@ -23,7 +23,7 @@
 #include "Trans/NFTransGetRoleDetail.h"
 #include "Part/NFSnsPart.h"
 #include "Part/NFSnsPartModule.h"
-#include "Friend/NFFriendPart.h"
+#include "Relation/NFRelationPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -82,6 +82,6 @@ bool NFSnsServerPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFTransRoleLogin, maxOnlinePlayerNum/10);
 
     REGISTER_SHM_OBJ(NFSnsPart, 1);
-    REGISTER_SHM_OBJ(NFFriendPart, SNSSVR_MAX_ROLE_SIMPLE_NUM/3);
+    REGISTER_SHM_OBJ(NFRelationPart, SNSSVR_MAX_ROLE_SIMPLE_NUM / 3);
     return true;
 }

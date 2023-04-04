@@ -1,32 +1,31 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFShmHashMap.h
+//    @FileName         :    NFShmHashMapWithList.h
 //    @Author           :    gaoyi
 //    @Date             :    23-2-11
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFShmHashMap
+//    @Module           :    NFShmHashMapWithList
 //
 // -------------------------------------------------------------------------
 
 #pragma once
 
-#include "NFShmHashTable.h"
+#include "NFShmHashTableWithList.h"
 #include "NFShmPair.h"
-#include "NFShmList.h"
 
 template<class Key, class Tp, int MAX_SIZE,
         class HashFcn = std::hash<Key>,
         class EqualKey = std::equal_to<Key>>
-class NFShmHashMap;
+class NFShmHashMapWithList;
 
 template<class _Key, class _Tp, int MAX_SIZE, class _HashFn, class _EqKey>
-inline bool operator==(const NFShmHashMap<_Key, _Tp, MAX_SIZE, _HashFn, _EqKey> &,
-                       const NFShmHashMap<_Key, _Tp, MAX_SIZE, _HashFn, _EqKey> &);
+inline bool operator==(const NFShmHashMapWithList<_Key, _Tp, MAX_SIZE, _HashFn, _EqKey> &,
+                       const NFShmHashMapWithList<_Key, _Tp, MAX_SIZE, _HashFn, _EqKey> &);
 
 template<class Key, class Tp, int MAX_SIZE, class HashFcn, class EqualKey>
-class NFShmHashMap
+class NFShmHashMapWithList
 {
 private:
-    typedef NFShmHashTable<NFShmPair<Key, Tp>, Key, MAX_SIZE, HashFcn,
+    typedef NFShmHashTableWithList<NFShmPair<Key, Tp>, Key, MAX_SIZE, HashFcn,
             std::_Select1st<NFShmPair<Key, Tp> >, EqualKey> _Ht;
     _Ht m_hashTable;
 
@@ -53,7 +52,7 @@ public:
     key_equal key_eq() const { return m_hashTable.key_eq(); }
 
 public:
-    NFShmHashMap()
+    NFShmHashMapWithList()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -66,13 +65,13 @@ public:
     }
 
     template<class _InputIterator>
-    NFShmHashMap(_InputIterator __f, _InputIterator __l) { m_hashTable.insert_unique(__f, __l); }
+    NFShmHashMapWithList(_InputIterator __f, _InputIterator __l) { m_hashTable.insert_unique(__f, __l); }
 
-    NFShmHashMap(const value_type *__f, const value_type *__l) { m_hashTable.insert_unique(__f, __l); }
+    NFShmHashMapWithList(const value_type *__f, const value_type *__l) { m_hashTable.insert_unique(__f, __l); }
 
-    NFShmHashMap(const_iterator __f, const_iterator __l) { m_hashTable.insert_unique(__f, __l); }
+    NFShmHashMapWithList(const_iterator __f, const_iterator __l) { m_hashTable.insert_unique(__f, __l); }
 
-    NFShmHashMap(iterator __f, iterator __l) { m_hashTable.insert_unique(__f, __l); }
+    NFShmHashMapWithList(iterator __f, iterator __l) { m_hashTable.insert_unique(__f, __l); }
 
     int CreateInit()
     {
@@ -91,11 +90,11 @@ public:
 
     bool empty() const { return m_hashTable.empty(); }
 
-    void swap(NFShmHashMap &__hs) { m_hashTable.swap(__hs.m_hashTable); }
+    void swap(NFShmHashMapWithList &__hs) { m_hashTable.swap(__hs.m_hashTable); }
 
     template<class _K1, class _T1, int _MAX_SIZE, class _HF, class _EqK>
-    friend bool operator==(const NFShmHashMap<_K1, _T1, _MAX_SIZE, _HF, _EqK> &,
-                           const NFShmHashMap<_K1, _T1, _MAX_SIZE, _HF, _EqK> &);
+    friend bool operator==(const NFShmHashMapWithList<_K1, _T1, _MAX_SIZE, _HF, _EqK> &,
+                           const NFShmHashMapWithList<_K1, _T1, _MAX_SIZE, _HF, _EqK> &);
 
     iterator begin() { return m_hashTable.begin(); }
 
@@ -108,6 +107,21 @@ public:
     bool full() const { return m_hashTable.full(); }
 
     size_t left_size() const { return m_hashTable.left_size(); }
+
+    bool is_get_list() const { return m_hashTable.is_get_list(); }
+    void set_get_list(bool flag) { m_hashTable.set_get_list(flag); }
+
+    iterator get_iterator(int idx)
+    {
+        return m_hashTable.get_iterator(idx);
+    }
+
+    const iterator get_iterator(int idx) const
+    {
+        return m_hashTable.get_iterator(idx);
+    }
+
+    const NFShmList<int, MAX_SIZE>& get_list() const { return m_hashTable.get_list(); }
 
     void debug_string() { m_hashTable.debug_string(); }
 public:
@@ -162,8 +176,8 @@ public:
 
 template<class _Key, class _Tp, int MAX_SIZE, class _HashFcn, class _EqlKey>
 inline bool
-operator==(const NFShmHashMap<_Key, _Tp, MAX_SIZE, _HashFcn, _EqlKey> &__hm1,
-           const NFShmHashMap<_Key, _Tp, MAX_SIZE, _HashFcn, _EqlKey> &__hm2)
+operator==(const NFShmHashMapWithList<_Key, _Tp, MAX_SIZE, _HashFcn, _EqlKey> &__hm1,
+           const NFShmHashMapWithList<_Key, _Tp, MAX_SIZE, _HashFcn, _EqlKey> &__hm2)
 {
     return __hm1.m_hashTable == __hm2.m_hashTable;
 }
@@ -171,18 +185,18 @@ operator==(const NFShmHashMap<_Key, _Tp, MAX_SIZE, _HashFcn, _EqlKey> &__hm1,
 template<class Key, class Tp, int MAX_SIZE,
         class HashFcn = std::hash<Key>,
         class EqualKey = std::equal_to<Key>>
-class NFShmHashMultiMap;
+class NFShmHashMultiMapWithList;
 
 template<class _Key, class _Tp, int MAX_SIZE, class _HF, class _EqKey>
 inline bool
-operator==(const NFShmHashMultiMap<_Key, _Tp, MAX_SIZE, _HF, _EqKey> &__hm1,
-           const NFShmHashMultiMap<_Key, _Tp, MAX_SIZE, _HF, _EqKey> &__hm2);
+operator==(const NFShmHashMultiMapWithList<_Key, _Tp, MAX_SIZE, _HF, _EqKey> &__hm1,
+           const NFShmHashMultiMapWithList<_Key, _Tp, MAX_SIZE, _HF, _EqKey> &__hm2);
 
 template<class Key, class Tp, int MAX_SIZE, class HashFcn, class EqualKey>
-class NFShmHashMultiMap
+class NFShmHashMultiMapWithList
 {
 private:
-    typedef NFShmHashTable<NFShmPair<const Key, Tp>, Key, MAX_SIZE, HashFcn,
+    typedef NFShmHashTableWithList<NFShmPair<const Key, Tp>, Key, MAX_SIZE, HashFcn,
             std::_Select1st<NFShmPair<const Key, Tp> >, EqualKey> _Ht;
     _Ht m_hashTable;
 
@@ -213,7 +227,7 @@ public:
     allocator_type get_allocator() const { return m_hashTable.get_allocator(); }
 
 public:
-    NFShmHashMultiMap()
+    NFShmHashMultiMapWithList()
     {
         if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
         {
@@ -226,11 +240,11 @@ public:
     }
 
     template<class _InputIterator>
-    NFShmHashMultiMap(_InputIterator __f, _InputIterator __l) { m_hashTable.insert_equal(__f, __l); }
+    NFShmHashMultiMapWithList(_InputIterator __f, _InputIterator __l) { m_hashTable.insert_equal(__f, __l); }
 
-    NFShmHashMultiMap(const value_type *__f, const value_type *__l) { m_hashTable.insert_equal(__f, __l); }
+    NFShmHashMultiMapWithList(const value_type *__f, const value_type *__l) { m_hashTable.insert_equal(__f, __l); }
 
-    NFShmHashMultiMap(const_iterator __f, const_iterator __l) { m_hashTable.insert_equal(__f, __l); }
+    NFShmHashMultiMapWithList(const_iterator __f, const_iterator __l) { m_hashTable.insert_equal(__f, __l); }
 
     int CreateInit()
     {
@@ -249,11 +263,11 @@ public:
 
     bool empty() const { return m_hashTable.empty(); }
 
-    void swap(NFShmHashMultiMap &__hs) { m_hashTable.swap(__hs.m_hashTable); }
+    void swap(NFShmHashMultiMapWithList &__hs) { m_hashTable.swap(__hs.m_hashTable); }
 
     template<class _K1, class _T1, int _MAX_SIZE, class _HF, class _EqK>
-    friend bool operator==(const NFShmHashMultiMap<_K1, _T1, _MAX_SIZE, _HF, _EqK> &,
-                           const NFShmHashMultiMap<_K1, _T1, _MAX_SIZE, _HF, _EqK> &);
+    friend bool operator==(const NFShmHashMultiMapWithList<_K1, _T1, _MAX_SIZE, _HF, _EqK> &,
+                           const NFShmHashMultiMapWithList<_K1, _T1, _MAX_SIZE, _HF, _EqK> &);
 
     iterator begin() { return m_hashTable.begin(); }
 
@@ -266,6 +280,11 @@ public:
     bool full() const { return m_hashTable.full(); }
 
     size_t left_size() const { return m_hashTable.left_size(); }
+
+    bool is_get_list() const { return m_hashTable.is_get_list(); }
+    void set_get_list(bool flag) { m_hashTable.set_get_list(flag); }
+
+    const NFShmList<int, MAX_SIZE>& get_list() const { return m_hashTable.get_list(); }
 public:
     iterator insert(const value_type &__obj) { return m_hashTable.insert_equal(__obj); }
 
@@ -312,8 +331,8 @@ public:
 
 template<class _Key, class _Tp, int MAX_SIZE, class _HF, class _EqKey>
 inline bool
-operator==(const NFShmHashMultiMap<_Key, _Tp, MAX_SIZE, _HF, _EqKey> &__hm1,
-           const NFShmHashMultiMap<_Key, _Tp, MAX_SIZE, _HF, _EqKey> &__hm2)
+operator==(const NFShmHashMultiMapWithList<_Key, _Tp, MAX_SIZE, _HF, _EqKey> &__hm1,
+           const NFShmHashMultiMapWithList<_Key, _Tp, MAX_SIZE, _HF, _EqKey> &__hm2)
 {
     return __hm1.m_hashTable == __hm2.m_hashTable;
 }

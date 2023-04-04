@@ -94,9 +94,9 @@ NFSnsPart *NFRoleDetail::CreatePart(uint32_t partType, const proto_ff::RoleDBSns
     NFSnsPart *pPart = NULL;
     switch (partType)
     {
-        case SNS_PART_FRIEND:
+        case SNS_PART_RELATION:
         {
-            pPart = dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_SNS_FriendPart_ID));
+            pPart = dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_SNS_RelationPart_ID));
             break;
         }
         default:
