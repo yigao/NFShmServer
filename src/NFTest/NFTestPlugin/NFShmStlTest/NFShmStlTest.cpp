@@ -9,6 +9,7 @@
 
 #include "NFComm/NFShmStl/NFShmPair.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFComm/NFShmStl/NFShmDyVector.h"
 #include "NFComm/NFShmStl/NFShmList.h"
 #include "NFComm/NFShmStl/NFShmHashTable.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
@@ -44,6 +45,151 @@ void printVector(const NFShmVector<T, MAX_SIZE> &vec)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "vev[{}] = {}", i, vec[i]);
     }
+}
+
+template<typename T>
+void printVector(const NFShmDyVector<T> &vec)
+{
+    for (int i = 0; i < (int) vec.size(); i++)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "vev[{}] = {}", i, vec[i]);
+    }
+}
+
+int checkAlgoDyVector()
+{
+    NFShmDyVector<int> vec1;
+    int vec1Size = vec1.CountSize(10);
+    char* buffer1 = (char*)malloc(vec1Size);
+    vec1.Init(buffer1, vec1Size, 10);
+    for (int i = 0; i < 11; i++)
+    {
+        vec1.push_back(NFRandInt(1, 100));
+    }
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test random_shuffle");
+    vec1.random_shuffle();
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test sort");
+    vec1.sort();
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test unique");
+    vec1.unique();
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test random_shuffle");
+    vec1.random_shuffle();
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test remove_if");
+    vec1.remove_if([](int n) { return n <= 5; });
+    printVector(vec1);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "test sort");
+    vec1.sort();
+    printVector(vec1);
+
+    NFShmDyVector<int> vec2;
+    int vec2Size = vec2.CountSize(20);
+    char* buffer2 = (char*)malloc(vec2Size);
+    vec2.Init(buffer2, vec2Size, 20);
+    vec2 = vec1;
+
+    vec2.sort();
+    vec2.unique();
+    vec2.random_shuffle();
+    for (auto iter = vec2.begin(); iter != vec2.end(); iter++)
+    {
+        int num = *iter;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "will seach :{}", num);
+        auto vecIter = vec1.binary_search_array(num);
+        for (int i = 0; i < (int) vecIter.size(); i++)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "search num:{}", *vecIter[i]);
+        }
+    }
+
+    for (auto iter = vec2.begin(); iter != vec2.end(); iter++)
+    {
+        int num = *iter;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "will delete:{}", num);
+        vec1.binary_delete(num);
+        printVector(vec1);
+    }
+
+    // assign
+    NFShmDyVector<std::string> sv;
+    int vec3Size = sv.CountSize(5);
+    char* buffer3 = (char*)malloc(vec3Size);
+    sv.Init(buffer3, vec3Size, 5);
+    sv.assign(5, "aaaa");
+    printVector(sv);
+    sv.assign(3, "bbb");
+    printVector(sv);
+    sv.assign(6, "ccc");
+    printVector(sv);
+
+    // front 容器首元素
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sv.front:{}", sv.front());
+
+    // back 容器最后一个元素
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sv.back:{}", sv.back());
+
+
+    // rbegin 返回一个指向容器最后一个元素的反向迭代器
+    // rend 返回一个指向容器前端的反向迭代器
+    for (auto it = sv.rbegin(); it != sv.rend(); it++)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "reverse_iterator:{}", *it);
+    }
+
+    // empty 若容器为空则为 true ，否则为 false
+    if (sv.empty())
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container is null.");
+    }
+    else
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container is not null.");
+    }
+
+    // size	容器中的元素个数
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container size:{}", sv.size());
+
+    // max_size 元素数量的最大值
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container max_size:{}", sv.max_size());
+
+    // capacity 当前分配存储的容量
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container capacity:{}", sv.capacity());
+
+    // resize 改变容器中可存储元素的个数
+    printVector(sv);
+    sv.resize(10, "111");
+    printVector(sv);
+
+    sv.resize(2, "111");
+    printVector(sv);
+
+    // clear 从容器移除所有元素
+
+    // insert:三种形式
+    auto it = sv.begin();
+    it = sv.insert(it, "YES");
+    printVector(sv);
+
+    sv.insert(it, 2, "NO");
+    printVector(sv);
+
+    it = sv.begin();
+    it = sv.insert(it, "YES");
+    printVector(sv);
+
+    sv.insert(it, 2, "NO");
+    printVector(sv);
+    return 0;
 }
 
 int checkAlgoVector()
@@ -847,6 +993,7 @@ int testMain()
     //CHECK_RET(checkAlgoVector(), "checkAlgoVector Failed");
     //CHECK_RET(checkAlgoList(), "checkAlgoList Failed");
     //CHECK_RET(checkHashTable(), "checkAlgoList Failed");
-    checkHashMap();
+    //checkHashMap();
+    checkAlgoDyVector();
     return 0;
 }
