@@ -174,6 +174,13 @@ int NFWorkServerModule::BindServer()
     return 0;
 }
 
+int NFWorkServerModule::InitLoadLua()
+{
+    m_pLuaScriptModule = new NFCLuaScriptModule(m_pObjPluginManager, m_serverType);
+    m_pLuaScriptModule->Init();
+    return 0;
+}
+
 int NFWorkServerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
 {
     CHECK_NULL(serverType == m_serverType);

@@ -69,21 +69,21 @@ class NFCLuaScriptModule
 	: public NFILuaScriptModule, public NFILuaLoader
 {
 public:
-    NFCLuaScriptModule(NFIPluginManager* p);
+    NFCLuaScriptModule(NFIPluginManager* p, NF_SERVER_TYPES serverType);
     virtual ~NFCLuaScriptModule();
 public:
 
     virtual bool Init() override;
     virtual bool AfterInit();
-	virtual bool ReadyExecute() override;;
+	virtual bool ReadyExecute() override;
 
-    virtual bool Execute() override;;
+    virtual bool Execute() override;
 
-    virtual bool BeforeShut() override;;
-    virtual bool Shut() override;;
-    virtual bool Finalize() override;;
+    virtual bool BeforeShut() override;
+    virtual bool Shut() override;
+    virtual bool Finalize() override;
 
-	virtual int OnTimer(uint32_t nTimerID) override;;
+	virtual int OnTimer(uint32_t nTimerID) override;
 public:
 	virtual void RunNetRecvLuaFunc(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint32_t nMsgId, const std::string& strMsg) override;
 	virtual void RunNetRecvLuaFuncWithMainSub(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint16_t nMainMsgId, const uint16_t nSubMsgId, const std::string& strMsg) override;
@@ -152,5 +152,6 @@ protected:
 	std::map<uint64_t, NFLuaTimer*> m_luaTimerMap;
 	std::list<NFLuaTimer*> m_luaTimerList;
 	uint32_t m_luaTimerIndex;
+    NF_SERVER_TYPES m_serverType;
 };
 

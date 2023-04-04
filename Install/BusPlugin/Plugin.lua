@@ -30,11 +30,11 @@ LoadPlugin =
 			"NFKernelPlugin",
 			--"NFTestPlugin",
 			"NFNetPlugin",
-			"NFShmPlugin",
+			--"NFShmPlugin",
 
 			"NFServerCommonPlugin",
-			"NFDescStorePlugin",
-			"NFCommLogicPlugin",
+			--"NFDescStorePlugin",
+			--"NFCommLogicPlugin",
 
 			--"NFMasterServerPlugin",
 			--"NFRouteServerPlugin",
@@ -50,16 +50,16 @@ LoadPlugin =
 			--"NFLoginServerPlayerPlugin",
 
 			"NFGameServerPlugin",
-			"NFBattlePlugin",
+			--"NFBattlePlugin",
 
 			"NFWorldServerPlugin",
-			"NFWorldServerPlayerPlugin",
+			--"NFWorldServerPlayerPlugin",
 
 			"NFSnsServerPlugin",
-			"NFSnsServerPlayerPlugin",
+			--"NFSnsServerPlayerPlugin",
 
 			"NFLogicServerPlugin",
-			"NFLogicServerPlayerPlugin",
+			--"NFLogicServerPlayerPlugin",
 
 			--"NFWebServerPlugin",
 			--"NFWebServerLogicPlugin",

@@ -35,8 +35,8 @@ function LuaNFrame.InitLoad()
 end
 
 function LuaNFrame.InitScript(luaModule)
-	package.path = package.path .. ";../ScriptModule/?.lua;"
-	package.path = package.path .. ";../ScriptModule/LuaNFrame/?.lua;"
+	package.path = package.path .. ";../../ScriptModule/?.lua;"
+	package.path = package.path .. ";../../ScriptModule/LuaNFrame/?.lua;"
 
 	LuaNFrame.InitLoad()
 
@@ -59,7 +59,9 @@ function LuaNFrame.InitScript(luaModule)
 
 			LuaNFrame.AddTimer("update_debugsocket", 1)
 		else
-			require("LuaPanda").start("127.0.0.1",8818);
+			package.cpath = package.cpath .. ';/home/gaoyi/.local/share/JetBrains/CLion2022.3/EmmyLua/debugger/emmy/linux/?.so'
+			local dbg = require('emmy_core')
+			dbg.tcpListen('localhost', 9966)
 		end
 	end
 

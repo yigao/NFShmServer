@@ -24,7 +24,7 @@ enum EnumLuaScriptTimer
 	EnumLuaScriptTimer_ServerLoop = 0,
 };
 
-NFCLuaScriptModule::NFCLuaScriptModule(NFIPluginManager* p): NFILuaScriptModule(p)
+NFCLuaScriptModule::NFCLuaScriptModule(NFIPluginManager* p, NF_SERVER_TYPES serverType): NFILuaScriptModule(p),m_serverType(serverType)
 {
     m_luaTimerIndex = 10000;
     mnTime = 0;
