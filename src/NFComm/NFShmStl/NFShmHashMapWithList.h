@@ -121,6 +121,11 @@ public:
         return m_hashTable.get_iterator(idx);
     }
 
+    int auto_erase(int num)
+    {
+        return m_hashTable.auto_erase(num);
+    }
+
     const NFShmList<int, MAX_SIZE>& get_list() const { return m_hashTable.get_list(); }
 
     void debug_string() { m_hashTable.debug_string(); }
@@ -285,6 +290,21 @@ public:
     void set_get_list(bool flag) { m_hashTable.set_get_list(flag); }
 
     const NFShmList<int, MAX_SIZE>& get_list() const { return m_hashTable.get_list(); }
+
+    iterator get_iterator(int idx)
+    {
+        return m_hashTable.get_iterator(idx);
+    }
+
+    const iterator get_iterator(int idx) const
+    {
+        return m_hashTable.get_iterator(idx);
+    }
+
+    int auto_erase(int num)
+    {
+        return m_hashTable.auto_erase(num);
+    }
 public:
     iterator insert(const value_type &__obj) { return m_hashTable.insert_equal(__obj); }
 

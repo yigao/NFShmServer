@@ -17,10 +17,61 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFRelationPlayer.h"
-#include "NFComm/NFShmStl/NFShmHashTableWithList.h"
+#include "NFComm/NFShmStl/NFShmHashMapWithList.h"
+
+class NFRelationBaseTeam
+{
+public:
+    NFRelationBaseTeam()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+        {
+            CreateInit();
+        }
+        else
+        {
+            ResumeInit();
+        }
+    }
+
+    virtual ~NFRelationBaseTeam()
+    {
+
+    }
+
+    int CreateInit()
+    {
+        return 0;
+    }
+
+    int ResumeInit()
+    {
+        return 0;
+    }
+
+    //获取大小
+    virtual uint32_t GetSize() = 0;
+
+    virtual uint32_t GetMaxSize() = 0;
+
+    //添加成员
+    virtual NFRelationCommonPlayer* AddPlayer(uint64_t cid, bool autoErase = true) = 0;
+
+    //判断是否已有某个成员
+    virtual bool HavePlayer(uint64_t cid) = 0;
+
+    virtual bool IsFull() = 0;
+
+    //获取好友数据
+    virtual NFRelationCommonPlayer *GetPlayer(uint64_t cid) = 0;
+
+    virtual void Clear() = 0;
+
+    virtual bool deleteRelation(uint64_t cid) = 0;
+};
 
 template<typename RelationPlayer, size_t max_size>
-class NFRelationTeam
+class NFRelationTeam : public NFRelationBaseTeam
 {
     static_assert((TIsDerived<RelationPlayer, NFRelationCommonPlayer>::Result), "the class must inherit NFRelationCommonPlayer");
 public:
@@ -57,13 +108,13 @@ public:
         return m_playerMap.size();
     }
 
-    uint32_t GetMaxSize()
+    virtual uint32_t GetMaxSize()
     {
         return m_playerMap.max_size();
     }
 
     //添加成员
-    RelationPlayer* AddPlayer(uint64_t cid, bool autoErase = false;)
+    virtual RelationPlayer* AddPlayer(uint64_t cid, bool autoErase = true)
     {
         if (!HavePlayer(cid))
         {
@@ -75,26 +126,24 @@ public:
                     return NULL;
                 }
 
-                uint32_t pos = m_playerList.front();
-
-                m_playerList.pop_front();
+                m_playerMap.auto_erase(1);
+                if (IsFull())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "m_playerMap auto_erase fail, max_size:{} class:{}", GetMaxSize(), typeid(RelationPlayer).name());
+                    return NULL;
+                }
             }
 
-            RelationPlayer player;
-            player.m_cid = cid;
-            auto iter = m_playerMap.emplace_hint(cid, player);
-            if (iter != m_playerMap.end())
-            {
-                m_playerList.push_back(iter.m_curNode->m_self);
-                return &iter->second;
-            }
+            RelationPlayer& pPlayer = m_playerMap[cid];
+            pPlayer.m_cid = cid;
+            return &pPlayer;
         }
 
         return NULL;
     }
 
     //判断是否已有某个成员
-    bool HavePlayer(uint64_t cid)
+    virtual bool HavePlayer(uint64_t cid)
     {
         auto iter = m_playerMap.find(cid);
         if (iter != m_playerMap.end())
@@ -104,19 +153,19 @@ public:
         return false;
     }
 
-    bool IsFull()
+    virtual bool IsFull()
     {
         return m_playerMap.size() >= m_playerMap.max_size();
     }
 
     //获取好友列表数据
-    NFShmHashMap<uint64_t, RelationPlayer, max_size> &GetPlayerData()
+    NFShmHashMapWithList<uint64_t, RelationPlayer, max_size> &GetPlayerData()
     {
         return m_playerMap;
     }
 
     //获取好友数据
-    RelationPlayer *GetPlayer(uint64_t cid)
+    virtual RelationPlayer *GetPlayer(uint64_t cid)
     {
         auto iter = m_playerMap.find(cid);
         if (iter != m_playerMap.end())
@@ -126,7 +175,21 @@ public:
         return NULL;
     }
 
+    virtual void Clear()
+    {
+        m_playerMap.clear();
+    }
+
+    virtual bool deleteRelation(uint64_t cid)
+    {
+        auto iter = m_playerMap.find(cid);
+        if (iter != m_playerMap.end())
+        {
+            m_playerMap.erase(iter);
+            return true;
+        }
+        return false;
+    }
 protected:
-    NFShmHashMap<uint64_t, RelationPlayer, max_size> m_playerMap;
-    NFShmList<uint32_t, max_size> m_playerList;
+    NFShmHashMapWithList<uint64_t, RelationPlayer, max_size> m_playerMap;
 };

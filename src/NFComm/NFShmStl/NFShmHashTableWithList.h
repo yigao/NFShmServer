@@ -334,6 +334,22 @@ public:
         return iterator(get_node(idx), this);
     }
 
+    int auto_erase(int num)
+    {
+        int count = 0;
+        for(int i = 0; i < num; i++)
+        {
+            if (m_bucketsListIdx.size() > 0)
+            {
+                auto iter = m_bucketsListIdx.begin();
+                erase(get_iterator(*iter));
+                count++;
+            }
+        }
+
+        return count;
+    }
+
     const iterator get_iterator(int idx) const
     {
         return const_iterator(get_node(idx), this);
@@ -522,7 +538,7 @@ public:
 
         if (m_getList && __first)
         {
-            NF_ASSERT(*m_bucketsListIdx.GetIterator(__first->m_list_pos) == __first->m_self);
+            NF_ASSERT(*m_bucketsListIdx.GetIterator(__first->m_list_pos) == (int)__first->m_self);
             m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__first->m_list_pos));
         }
         return iterator(__first, this);
@@ -541,7 +557,7 @@ public:
 
         if (m_getList && __first)
         {
-            NF_ASSERT(*m_bucketsListIdx.GetIterator(__first->m_list_pos) == __first->m_self);
+            NF_ASSERT(*m_bucketsListIdx.GetIterator(__first->m_list_pos) == (int)__first->m_self);
             m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__first->m_list_pos));
         }
         return const_iterator(__first, this);
@@ -700,7 +716,7 @@ private:
             NF_ASSERT(!m_bucketsListIdx.full());
             auto iter = m_bucketsListIdx.insert(m_bucketsListIdx.end(), pNode->m_self);
             NF_ASSERT(iter != m_bucketsListIdx.end());
-            NF_ASSERT(*iter == pNode->m_self);
+            NF_ASSERT(*iter == (int)pNode->m_self);
             pNode->m_list_pos = iter.m_node->m_self;
             NF_ASSERT(*m_bucketsListIdx.GetIterator(pNode->m_list_pos) == (int)pNode->m_self);
             std::_Construct(&pNode->m_value, __obj);
@@ -983,7 +999,7 @@ NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::find_or_insert(cons
         {
             if (m_getList && __cur)
             {
-                NF_ASSERT(*m_bucketsListIdx.GetIterator(__cur->m_list_pos) == __cur->m_self);
+                NF_ASSERT(*m_bucketsListIdx.GetIterator(__cur->m_list_pos) == (int)__cur->m_self);
                 m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__cur->m_list_pos));
             }
             return __cur->m_value;
@@ -1012,11 +1028,23 @@ NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>::equal_range(const k
     {
         if (m_equals(m_get_key(__first->m_value), __key))
         {
+            if (m_getList && __first)
+            {
+                NF_ASSERT(*m_bucketsListIdx.GetIterator(__first->m_list_pos) == __first->m_self);
+                m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__first->m_list_pos));
+            }
+
             for (_Node *__cur = get_node(__first->m_next); __cur; __cur = get_node(__cur->m_next))
             {
                 if (!m_equals(m_get_key(__cur->m_value), __key))
                 {
                     return _Pii(iterator(__first, this), iterator(__cur, this));
+                }
+
+                if (m_getList && __cur)
+                {
+                    NF_ASSERT(*m_bucketsListIdx.GetIterator(__cur->m_list_pos) == __cur->m_self);
+                    m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__cur->m_list_pos));
                 }
             }
             for (size_type __m = __n + 1; __m < m_bucketsFirstIdx.size(); ++__m)
@@ -1047,11 +1075,23 @@ NFShmHashTableWithList<_Val, _Key, MAX_SIZE, _HF, _Ex, _Eq>
     {
         if (m_equals(m_get_key(__first->m_value), __key))
         {
+            if (m_getList && __first)
+            {
+                NF_ASSERT(*m_bucketsListIdx.GetIterator(__first->m_list_pos) == __first->m_self);
+                m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__first->m_list_pos));
+            }
+
             for (_Node *__cur = get_node(__first->m_next); __cur; __cur = get_node(__cur->m_next))
             {
                 if (!m_equals(m_get_key(__cur->m_value), __key))
                 {
                     return _Pii(const_iterator(__first, this), const_iterator(__cur, this));
+                }
+
+                if (m_getList && __cur)
+                {
+                    NF_ASSERT(*m_bucketsListIdx.GetIterator(__cur->m_list_pos) == __cur->m_self);
+                    m_bucketsListIdx.splice(m_bucketsListIdx.end(), m_bucketsListIdx.GetIterator(__cur->m_list_pos));
                 }
             }
             for (size_type __m = __n + 1; __m < m_bucketsFirstIdx.size(); ++__m)

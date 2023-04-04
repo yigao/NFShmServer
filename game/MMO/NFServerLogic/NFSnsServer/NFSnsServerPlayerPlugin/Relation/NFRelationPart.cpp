@@ -122,7 +122,7 @@ bool NFRelationPart::addGiftRecord(uint64_t targetId, uint64_t itemId, uint32_t 
 
 bool NFRelationPart::AddFriend(uint64_t cid)
 {
-    auto pRelationPlayer = m_friendPlayerTeam.AddPlayer(cid);
+    auto pRelationPlayer = m_friendPlayerTeam.AddPlayer(cid, false);
     if (pRelationPlayer)
     {
         pRelationPlayer->closeness = 0;
@@ -152,7 +152,7 @@ bool NFRelationPart::AddHate(uint64_t cid)
 
 bool NFRelationPart::AddBlack(uint64_t cid)
 {
-    auto pRelationPlayer = m_blackPlayerTeam.AddPlayer(cid);
+    auto pRelationPlayer = m_blackPlayerTeam.AddPlayer(cid, false);
     if (pRelationPlayer)
     {
         MarkDirty();
@@ -161,113 +161,134 @@ bool NFRelationPart::AddBlack(uint64_t cid)
     return false;
 }
 
-bool NFRelationPart::addRecent(uint64_t cid, uint32_t recentType)
+bool NFRelationPart::AddRecent(uint64_t cid, uint32_t recentType)
 {
+    auto pRelationPlayer = m_recentPlayerTeam.AddPlayer(cid);
+    if (pRelationPlayer)
+    {
+        pRelationPlayer->m_recentType = recentType;
+        pRelationPlayer->m_recentTime = NFTime::Now().UnixSec();
+        MarkDirty();
+        return true;
+    }
     return false;
 }
 
-bool NFRelationPart::addApply(uint64_t cid, string sConnect)
+bool NFRelationPart::AddApply(uint64_t cid, string sConnect)
 {
+    auto pRelationPlayer = m_applyPlayerTeam.AddPlayer(cid);
+    if (pRelationPlayer)
+    {
+        pRelationPlayer->m_sConnect = sConnect;
+        MarkDirty();
+        return true;
+    }
     return false;
 }
 
-bool NFRelationPart::addShield(uint64_t cid)
+bool NFRelationPart::AddShield(uint64_t cid)
 {
+    auto pRelationPlayer = m_shieldPlayerTeam.AddPlayer(cid);
+    if (pRelationPlayer)
+    {
+        MarkDirty();
+        return true;
+    }
     return false;
+}
+
+NFRelationBaseTeam* NFRelationPart::GetRelationTeam(uint32_t groupIndex)
+{
+    switch (groupIndex)
+    {
+        case GROUP_FRIEND:
+        {
+            return &m_friendPlayerTeam;
+        }
+        case GROUP_BLACK:
+        {
+            return &m_blackPlayerTeam;
+        }
+        case GROUP_HATE:
+        {
+            return &m_hatePlayerTeam;
+        }
+        case GROUP_RECENT:
+        {
+            return &m_recentPlayerTeam;
+        }
+        case GROUP_APPLY:
+        {
+            return &m_applyPlayerTeam;
+        }
+        case GROUP_SHIELD:
+        {
+            return &m_shieldPlayerTeam;
+        }
+        default:
+            break;
+    }
+
+    return NULL;
 }
 
 bool NFRelationPart::deleteRelation(uint32_t groupIndex, uint64_t cid)
 {
+    auto pTeam = GetRelationTeam(groupIndex);
+    if (pTeam)
+    {
+        return pTeam->deleteRelation(cid);
+    }
+
     return false;
 }
 
 void NFRelationPart::deleteRelationByGroup(uint32_t groupIndex)
 {
-
-}
-
-uint64_t NFRelationPart::delFront(uint32_t groupIndex)
-{
-    return 0;
+    auto pTeam = GetRelationTeam(groupIndex);
+    if (pTeam)
+    {
+        pTeam->Clear();
+    }
 }
 
 bool NFRelationPart::isRelationExit(uint32_t groupIndex, uint64_t cid)
 {
+    auto pTeam = GetRelationTeam(groupIndex);
+    if (pTeam)
+    {
+        return pTeam->HavePlayer(cid);
+    }
     return false;
 }
 
 uint32_t NFRelationPart::getLeftSize(uint32_t groupIndex)
 {
+    auto pTeam = GetRelationTeam(groupIndex);
+    if (pTeam)
+    {
+        return pTeam->GetMaxSize() - pTeam->GetSize();
+    }
     return 0;
 }
 
 uint32_t NFRelationPart::getMaxSize(uint32_t groupIndex)
 {
-    switch (groupIndex)
+    auto pTeam = GetRelationTeam(groupIndex);
+    if (pTeam)
     {
-        case GROUP_FRIEND:
-        {
-            return m_friendPlayerTeam.GetMaxSize();
-        }
-        case GROUP_BLACK:
-        {
-            return m_blackPlayerTeam.GetMaxSize();
-        }
-        case GROUP_HATE:
-        {
-            return m_hatePlayerTeam.GetMaxSize();
-        }
-        case GROUP_RECENT:
-        {
-            return m_recentPlayerTeam.GetMaxSize();
-        }
-        case GROUP_APPLY:
-        {
-            return m_applyPlayerTeam.GetMaxSize();
-        }
-        case GROUP_SHIELD:
-        {
-            return m_shieldPlayerTeam.GetMaxSize();
-        }
-        default:
-            break;
+        return pTeam->GetMaxSize();
     }
-
     return 0;
 }
 
 uint32_t NFRelationPart::getCurSize(uint32_t groupIndex)
 {
-    switch (groupIndex)
+    auto pTeam = GetRelationTeam(groupIndex);
+    if (pTeam)
     {
-        case GROUP_FRIEND:
-        {
-            return m_friendPlayerTeam.GetSize();
-        }
-        case GROUP_BLACK:
-        {
-            return m_blackPlayerTeam.GetSize();
-        }
-        case GROUP_HATE:
-        {
-            return m_hatePlayerTeam.GetSize();
-        }
-        case GROUP_RECENT:
-        {
-            return m_recentPlayerTeam.GetSize();
-        }
-        case GROUP_APPLY:
-        {
-            return m_applyPlayerTeam.GetSize();
-        }
-        case GROUP_SHIELD:
-        {
-            return m_shieldPlayerTeam.GetSize();
-        }
-        default:
-            break;
+        return pTeam->GetSize();
     }
-
     return 0;
 }
 

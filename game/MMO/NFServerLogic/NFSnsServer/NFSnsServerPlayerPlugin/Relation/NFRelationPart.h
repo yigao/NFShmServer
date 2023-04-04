@@ -136,22 +136,19 @@ public:
     bool AddBlack(uint64_t cid);
 
     //添加最近联系人
-    bool addRecent(uint64_t cid, uint32_t recentType);
+    bool AddRecent(uint64_t cid, uint32_t recentType);
 
     //添加好友申请
-    bool addApply(uint64_t cid, string sConnect);
+    bool AddApply(uint64_t cid, string sConnect);
 
     //添加屏蔽发言申请
-    bool addShield(uint64_t cid);
+    bool AddShield(uint64_t cid);
 
     //删除关系
     bool deleteRelation(uint32_t groupIndex, uint64_t cid);
 
     //删除某一类型的所有关系 （清除申请列表）
     void deleteRelationByGroup(uint32_t groupIndex);
-
-    //删除头部元素
-    uint64_t delFront(uint32_t groupIndex);
 
     //某个关系是否存在
     bool isRelationExit(uint32_t groupIndex, uint64_t cid);
@@ -166,7 +163,6 @@ public:
     uint32_t getCurSize(uint32_t groupIndex);
 
     //获取某组关系数据
-    GroupList &GetGroupList();
 
     //获取某组关系的id列表
     bool GetRelationIdList(uint32_t groupIndex, std::list<uint64_t> &ids, uint32_t limitCount = 0);
@@ -179,9 +175,6 @@ public:
 
     //获取亲密值等级
     uint32_t getFriendClosenessLv(uint64_t destId);
-
-    //数据是否改变（保存数据判断依据）
-    inline bool IsChange() { return m_change; }
 
     //是否在冷却时间中
     bool InCdTime();
@@ -202,17 +195,18 @@ public:
     uint32_t GetActive();
 
     //获取玩家
-    NFRelationCommonPlayer *GetPlayer(uint32_t groupIndex, uint64_t destId)
+    NFRelationCommonPlayer *GetPlayer(uint32_t groupIndex, uint64_t destId);
 
     //获取最大机器人id
     uint64_t GetStartRobotId();
 
     //获取收礼记录
-    GiftRecords &GetGiftRecords() { return _giftRecords; }
+    //GiftRecords &GetGiftRecords() { return _giftRecords; }
 
     //设置感谢送礼
     bool setThanksGift(uint32_t recordId);
 
+    NFRelationBaseTeam* GetRelationTeam(uint32_t groupIndex);
 private:
     /**
      * @brief 好友
