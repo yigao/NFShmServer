@@ -31,12 +31,15 @@ function LuaNFrame.InitLoad()
 	require("LuaNFrame/ServerDefine")
 	require("LuaNFrame/NFExecutor")
 	require("LuaNFrame/NFReload")
+	require("LuaNFrame/libprotobuf/protobuf")
 	--require("LuaNFrame/NFTimeUtils")
 end
 
 function LuaNFrame.InitScript(luaModule)
 	package.path = package.path .. ";../../ScriptModule/?.lua;"
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/?.lua;"
+	package.path = package.path .. ";../../ScriptModule/LuaNFrame/libprotobuf/?.lua"
+	package.path = package.path .. ";../../ScriptModule/LuaNFrame/lua/?.lua"
 
 	LuaNFrame.InitLoad()
 
@@ -58,10 +61,10 @@ function LuaNFrame.InitScript(luaModule)
 			end
 
 			LuaNFrame.AddTimer("update_debugsocket", 1)
+
 		else
-			package.cpath = package.cpath .. ';/home/gaoyi/.local/share/JetBrains/CLion2022.3/EmmyLua/debugger/emmy/linux/?.so'
-			local dbg = require('emmy_core')
-			dbg.tcpListen('localhost', 9966)
+			--require("mobdebug").start("127.0.0.1", 8872);
+			breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7004)
 		end
 	end
 
