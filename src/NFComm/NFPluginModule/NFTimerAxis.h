@@ -16,7 +16,7 @@
 class NFTimerObjBase;
 
 //时间轴
-class _NFExport NFTimerAxis
+class NFTimerAxis
 {
 public:
 	NFTimerAxis();

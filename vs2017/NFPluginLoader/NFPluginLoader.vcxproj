@@ -11,28 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\NFPluginLoader\demangle.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\dllmain.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\NFCAppInited.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\NFCDynLib.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\NFCDynLibMgr.cpp" />
     <ClCompile Include="..\..\src\NFPluginLoader\NFCLoadStaticPlugin.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\NFCPluginManager.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\NFCrashHandlerMgr.cpp" />
     <ClCompile Include="..\..\src\NFPluginLoader\NFPluginLoader.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\NFPrintfLogo.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\NFSignalHandleMgr.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\src\NFPluginLoader\demangle.h" />
-    <ClInclude Include="..\..\src\NFPluginLoader\NFCAppInited.h" />
-    <ClInclude Include="..\..\src\NFPluginLoader\NFCDynLib.h" />
-    <ClInclude Include="..\..\src\NFPluginLoader\NFCDynLibMgr.h" />
-    <ClInclude Include="..\..\src\NFPluginLoader\NFCPluginManager.h" />
-    <ClInclude Include="..\..\src\NFPluginLoader\NFCrashHandlerMgr.h" />
-    <ClInclude Include="..\..\src\NFPluginLoader\NFPrintfLogo.h" />
-    <ClInclude Include="..\..\src\NFPluginLoader\NFProcessParameter.h" />
-    <ClInclude Include="..\..\src\NFPluginLoader\NFSignalHandleMgr.h" />
+    <ClCompile Include="I:\StaticNFrame\Server\StaticNFrame\NFPluginLoader\dllmain.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -83,7 +64,7 @@
       <ConformanceMode>
       </ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\src\NFComm\NFKernelMessage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\src\NFComm\NFKernelMessage;$(SolutionDir)..\thirdparty\LuaBind\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4091;4251;4996;4275;4316;4244;4267;4244;</DisableSpecificWarnings>
     </ClCompile>
@@ -93,6 +74,9 @@
       <IgnoreSpecificDefaultLibraries>libcmt.lib;</IgnoreSpecificDefaultLibraries>
       <AdditionalOptions> /force %(AdditionalOptions)</AdditionalOptions>
     </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
