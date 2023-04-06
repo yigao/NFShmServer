@@ -719,7 +719,12 @@ private:
             NF_ASSERT(*iter == (int)pNode->m_self);
             pNode->m_list_pos = iter.m_node->m_self;
             NF_ASSERT(*m_bucketsListIdx.GetIterator(pNode->m_list_pos) == (int)pNode->m_self);
+
+#if NF_PLATFORM == NF_PLATFORM_WIN
+            new (&pNode->m_value) Tp(__obj);
+#else
             std::_Construct(&pNode->m_value, __obj);
+#endif
         }
 
         return pNode;
@@ -737,7 +742,12 @@ private:
         __n->m_valid = false;
         m_bucketsListIdx.erase(m_bucketsListIdx.GetIterator(__n->m_list_pos));
         __n->m_list_pos = -1;
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        (&__n->m_value)->~Tp();
+#else
         std::_Destroy(&__n->m_value);
+#endif
+
         _M_put_node(__n);
     }
 

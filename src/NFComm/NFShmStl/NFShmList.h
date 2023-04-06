@@ -237,7 +237,11 @@ public:
             {
                 if (m_node[i].m_valid)
                 {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+                    new (&m_node[i].m_data) Tp();
+#else
                     std::_Construct(&m_node[i].m_data);
+#endif
                 }
             }
         }
@@ -254,7 +258,11 @@ public:
         {
             if (m_node[i].m_valid)
             {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+                (&(m_node[i].m_data))->~Tp();
+#else
                 std::_Destroy(&(m_node[i].m_data));
+#endif
             }
             m_node[i].m_next = i + 1;
             m_node[i].m_prev = 0;
@@ -264,7 +272,11 @@ public:
 
         if (m_node[MAX_SIZE].m_valid)
         {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+            (&(m_node[MAX_SIZE].m_data))->~Tp();
+#else
             std::_Destroy(&(m_node[MAX_SIZE].m_data));
+#endif
         }
         m_node[MAX_SIZE].m_next = MAX_SIZE;
         m_node[MAX_SIZE].m_prev = MAX_SIZE;
@@ -318,8 +330,12 @@ protected:
     {
         ptrdiff_t iSelf = m_freeStart;
         m_freeStart = m_node[m_freeStart].m_next;
-
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        new (&m_node[iSelf].m_data) Tp(__x);
+#else
         std::_Construct(&m_node[iSelf].m_data, __x);
+#endif
+
 
         NF_ASSERT(!m_node[iSelf].m_valid);
         m_node[iSelf].m_valid = true;
@@ -331,8 +347,11 @@ protected:
     {
         ptrdiff_t iSelf = m_freeStart;
         m_freeStart = m_node[m_freeStart].m_next;
-
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        new (&m_node[iSelf].m_data) Tp();
+#else
         std::_Construct(&m_node[iSelf].m_data, Tp());
+#endif
 
         NF_ASSERT(!m_node[iSelf].m_valid);
         m_node[iSelf].m_valid = true;
@@ -350,7 +369,11 @@ protected:
     {
         NF_ASSERT(pNode);
         NF_ASSERT(pNode->m_valid);
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        (&(pNode->m_data))->~Tp();
+#else
         std::_Destroy(&(pNode->m_data));
+#endif
 
         pNode->m_valid = false;
         pNode->m_next = m_freeStart;

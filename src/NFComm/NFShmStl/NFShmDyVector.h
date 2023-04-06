@@ -84,7 +84,11 @@ public:
             {
                 for(size_t i = 0; i < *m_pSize; i++)
                 {
-                    std::_Construct(m_pData + i);
+#if NF_PLATFORM == NF_PLATFORM_WIN
+                    new (m_pData+i) Tp();
+#else
+                    std::_Construct(m_pData+i);
+#endif
                 }
             }
         }
@@ -286,7 +290,12 @@ public:
     {
         if (m_pData + size() != m_pData + max_size())
         {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+            new (m_pData + size()) Tp(__x);
+#else
             std::_Construct(m_pData + size(), __x);
+#endif
+
             ++(*m_pSize);
             return 0;
         }
@@ -306,7 +315,12 @@ public:
     {
         if (m_pData + size() != m_pData + max_size())
         {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+            new (m_pData + size()) Tp();
+#else
             std::_Construct(m_pData + size());
+#endif
+
             ++(*m_pSize);
             return 0;
         }
@@ -332,7 +346,12 @@ public:
         size_type __n = __position - begin();
         if (m_pData + size() != m_pData + max_size() && __position == end())
         {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+            new (m_pData + size()) Tp(__x);
+#else
             std::_Construct(m_pData + size(), __x);
+#endif
+
             ++(*m_pSize);
         }
         else
@@ -355,7 +374,12 @@ public:
         size_type __n = __position - begin();
         if (m_pData + size() != m_pData + max_size() && __position == end())
         {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+            new (m_pData + size()) Tp();
+#else
             std::_Construct(m_pData + size());
+#endif
+
             ++(*m_pSize);
         }
         else
@@ -383,7 +407,11 @@ public:
     void pop_back()
     {
         --size();
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        (m_pData + size())->~Tp();
+#else
         std::_Destroy(m_pData + size());
+#endif
     }
 
     /**
@@ -401,7 +429,11 @@ public:
         if (__position + 1 != end())
             std::copy(__position + 1, m_pData + size(), __position);
         --size();
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        (m_pData + size())->~Tp();
+#else
         std::_Destroy(m_pData + size());
+#endif
         return __position;
     }
 
@@ -417,7 +449,15 @@ public:
     iterator erase(iterator __first, iterator __last)
     {
         iterator __i = std::copy(__last, m_pData + size(), __first);
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        for (iterator __first = __i; __first != (m_pData + size()); ++__first)
+        {
+           __first->~Tp();
+        }
+#else
         std::_Destroy(__i, m_pData + size());
+#endif
+
         *m_pSize = size() - (__last - __first);
         return __first;
     }
@@ -722,7 +762,15 @@ NFShmDyVector<_Tp>::operator=(const NFShmDyVector<_Tp> &__x)
         if (size() >= __xlen)
         {
             iterator __i = std::copy(__x.begin(), __x.end(), begin());
+#if NF_PLATFORM == NF_PLATFORM_WIN
+            for (iterator __first = __i; __first != (m_pData + size()); ++__first)
+        {
+           __first->~Tp();
+        }
+#else
             std::_Destroy(__i, m_pData + size());
+#endif
+
         }
         else
         {
@@ -765,7 +813,12 @@ template<class _Tp>
 int NFShmDyVector<_Tp>::_M_insert_aux(iterator __position, const _Tp &__x)
 {
     CHECK_EXPR(m_pData + size() != m_pData + max_size(), -1, "The Vector No Enough Space!");
+#if NF_PLATFORM == NF_PLATFORM_WIN
+    new (m_pData + size()) Tp(*(m_pData + size() - 1));
+#else
     std::_Construct(m_pData + size(), *(m_pData + size() - 1));
+#endif
+
     ++(*m_pSize);
     _Tp __x_copy = __x;
     std::copy_backward(__position, m_pData + size() - 2, m_pData + size() - 1);
@@ -777,8 +830,12 @@ template<class _Tp>
 int NFShmDyVector<_Tp>::_M_insert_aux(iterator __position)
 {
     CHECK_EXPR(m_pData + size() != m_pData + max_size(), -1, "The Vector No Enough Space!");
-
+#if NF_PLATFORM == NF_PLATFORM_WIN
+    new (m_pData + size()) Tp(*(m_pData + size() - 1));
+#else
     std::_Construct(m_pData + size(), *(m_pData + size() - 1));
+#endif
+
     ++(*m_pSize);
     std::copy_backward(__position, m_pData + size() - 2, m_pData + size() - 1);
     *__position = _Tp();
@@ -886,14 +943,30 @@ void NFShmDyVector<_Tp>::_M_assign_aux(_ForwardIter __first, _ForwardIter __last
     if (__len > capacity())
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "__len > capacity(), some copy not success");
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        for (iterator __first = m_pData; __first != (m_pData + size()); ++__first)
+        {
+           __first->~Tp();
+        }
+#else
         std::_Destroy(m_pData, m_pData + size());
+#endif
+
         auto finish = std::uninitialized_copy_n(__first, max_size(), m_pData);
         *m_pSize = finish - begin();
     }
     else if (size() >= __len)
     {
         iterator __new_finish = std::copy(__first, __last, m_pData);
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        for (iterator __first = __new_finish; __first != (m_pData + size()); ++__first)
+        {
+           __first->~Tp();
+        }
+#else
         std::_Destroy(__new_finish, m_pData + size());
+#endif
+
         *m_pSize = __new_finish - begin();
     }
     else
