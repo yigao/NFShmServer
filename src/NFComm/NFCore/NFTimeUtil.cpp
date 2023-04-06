@@ -211,12 +211,12 @@ const char *DateTimeToStrSimCN_R( time_t *mytime, char *s, int *pio )
 
     if (curr.tm_year > 50)
     {
-        len = snprintf(s, *pio, "%04d年%02d月%02d日",
+        len = snprintf(s, *pio, "%04d年%02d月%02d日 ",
                        curr.tm_year+1900, curr.tm_mon+1, curr.tm_mday);
     }
     else
     {
-        len = snprintf(s, *pio, "%04d年%02d月%02d日",
+        len = snprintf(s, *pio, "%04d年%02d月%02d日 ",
                        curr.tm_year+2000, curr.tm_mon+1, curr.tm_mday);
     }
 

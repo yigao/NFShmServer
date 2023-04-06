@@ -25,6 +25,7 @@
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFBuffer.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCmdLine.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCommon.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFCommonApi.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFConcurrentQueue.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFConsistentHash.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFConsistentHash.hpp" />
@@ -36,6 +37,7 @@
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFDataStream.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFDateTime.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFDeclareProperty.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFDoubleList.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFException.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFFileCSV.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFFileUtility.h" />
@@ -49,15 +51,11 @@
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFLock.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMacros.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMagicTimeUtil.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMallocChunk.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMap.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMapEx.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMapList.hpp" />
-    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMath.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMD5.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMemChunk.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMemPolicy.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMemQueue.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMemVector.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMetaUtils.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFMutex.h" />
@@ -83,7 +81,6 @@
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFSpinLock.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFStat.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFStringUtility.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFCore\NFTea.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFThreadUtils.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFTime.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFCore\NFTimeUtil.h" />
@@ -92,20 +89,19 @@
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFBase64.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFBuffer.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCommon.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCommonApi.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCpu.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCRC16.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFCRC32.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFDataStream.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFDoubleList.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFFileCSV.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFFileUtility.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFHmacSha.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFIniReader.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFJson.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMagicTimeUtil.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMallocChunk.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMD5.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMemChunk.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFMemQueu.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFNetBuffer.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFPebbleSha1.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFRandom.cpp" />
@@ -117,7 +113,6 @@
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFSnprintf.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFStat.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFStringUtility.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFCore\NFTea.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFTime.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFCore\NFTimeUtil.cpp" />
   </ItemGroup>
@@ -125,32 +120,32 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{5269E592-2FF2-44DA-A18D-6BCF2194624D}</ProjectGuid>
     <RootNamespace>NFCore</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -188,7 +183,7 @@
       </SDLCheck>
       <ConformanceMode>false</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_DEBUG;NF_NONCLIENT_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
     </ClCompile>

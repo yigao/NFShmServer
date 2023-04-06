@@ -42,6 +42,8 @@
     <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFTransSnsBase.cpp">
       <Filter>NFUserSimple</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFOnlineModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFSnsServerPlayerPlugin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFEventLog\NFTransSnsSendEventLog.h">
@@ -74,5 +76,7 @@
     <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFUserSimple\NFTransSnsBase.h">
       <Filter>NFUserSimple</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFOnlineModule.h" />
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFSnsServer\NFSnsServerPlayerPlugin\NFSnsServerPlayerPlugin.h" />
   </ItemGroup>
 </Project>

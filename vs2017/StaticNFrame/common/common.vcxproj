@@ -17,52 +17,6 @@
     <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\hiredis.h" />
     <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\net.h" />
     <ClInclude Include="..\..\..\thirdparty\common\hiredis\hiredis_win\hiredis\sds.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\cpp_config.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\cpp_config_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\fbuffer_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\gcc_atomic.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\iterator.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\iterator_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\meta.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\meta_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_fwd.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\object_fwd_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_define.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\pack_template.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\predef.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\preprocessor.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sbuffer_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\sysdep.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\type.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_define.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\unpack_template.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\util.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\versioning.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\version_master.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\vrefbuffer_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zbuffer_decl.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone.h" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone.hpp" />
-    <ClInclude Include="..\..\..\thirdparty\common\msgpack\zone_decl.hpp" />
     <ClInclude Include="..\..\..\thirdparty\common\rapidjson\allocators.h" />
     <ClInclude Include="..\..\..\thirdparty\common\rapidjson\document.h" />
     <ClInclude Include="..\..\..\thirdparty\common\rapidjson\encodedstream.h" />
@@ -133,19 +87,19 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{D0FAE502-D650-4F3C-8C7B-691FC048CA93}</ProjectGuid>
     <RootNamespace>common</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>

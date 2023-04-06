@@ -15,6 +15,7 @@
 #include <iterator>
 #include <algorithm>
 #include <vector>
+#include <type_traits>
 
 template<class Tp, size_t MAX_SIZE>
 class NFShmVectorBase
@@ -170,8 +171,12 @@ public:
     template<class _InputIterator>
     NFShmVector(_InputIterator __first, _InputIterator __last)
     {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        _M_initialize_aux(__first, __last, std::numeric_limits<_InputIterator>::is_integer);
+#else
         typedef typename std::__is_integer<_InputIterator>::__type _Integral;
         _M_initialize_aux(__first, __last, _Integral());
+#endif
     }
 
     ~NFShmVector()
@@ -247,12 +252,12 @@ public:
 
     Tp *data()
     {
-        return std::__addressof(front());
+        return std::addressof(front());
     }
 
     const Tp *data() const
     {
-        return std::__addressof(front());
+        return std::addressof(front());
     }
 
     void assign(size_type __n, const Tp &__val) { _M_fill_assign(__n, __val); }
@@ -260,8 +265,12 @@ public:
     template<class _InputIterator>
     void assign(_InputIterator __first, _InputIterator __last)
     {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        _M_assign_dispatch(__first, __last, std::numeric_limits<_InputIterator>::is_integer);
+#else
         typedef typename std::__is_integer<_InputIterator>::__type _Integral;
         _M_assign_dispatch(__first, __last, _Integral());
+#endif
     }
 
     reference front()
@@ -407,8 +416,12 @@ public:
     template<class _InputIterator>
     void insert(iterator __pos, _InputIterator __first, _InputIterator __last)
     {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        _M_insert_dispatch(__pos, __first, __last, std::numeric_limits<_InputIterator>::is_integer);
+#else
         typedef typename std::__is_integer<_InputIterator>::__type _Integral;
         _M_insert_dispatch(__pos, __first, __last, _Integral());
+#endif
     }
 
     void insert(iterator __pos, size_type __n, const Tp &__x) { _M_fill_insert(__pos, __n, __x); }
@@ -647,7 +660,7 @@ protected:
     void _M_fill_assign(size_type __n, const Tp &__val);
 
     template<class _Integer>
-    void _M_initialize_aux(_Integer __n, _Integer __value, std::__true_type)
+    void _M_initialize_aux(_Integer __n, _Integer __value, std::true_type)
     {
         if (__n > MAX_SIZE)
         {
@@ -662,7 +675,7 @@ protected:
 
     template<class _InputIterator>
     void _M_initialize_aux(_InputIterator __first, _InputIterator __last,
-                           std::__false_type)
+                           std::false_type)
     {
         _M_range_initialize(__first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
     }
@@ -709,13 +722,13 @@ protected:
 
 
     template<class _Integer>
-    void _M_assign_dispatch(_Integer __n, _Integer __val, std::__true_type)
+    void _M_assign_dispatch(_Integer __n, _Integer __val, std::true_type)
     {
         _M_fill_assign((size_type) __n, (Tp) __val);
     }
 
     template<class _InputIter>
-    void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::__false_type)
+    void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::false_type)
     {
         _M_assign_aux(__first, __last, typename std::iterator_traits<_InputIter>::iterator_category());
     }
@@ -730,7 +743,7 @@ protected:
 
     template<class _Integer>
     void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __val,
-                            std::__true_type)
+                            std::true_type)
     {
         _M_fill_insert(__pos, (size_type) __n, (Tp) __val);
     }
@@ -738,7 +751,7 @@ protected:
     template<class _InputIterator>
     void _M_insert_dispatch(iterator __pos,
                             _InputIterator __first, _InputIterator __last,
-                            std::__false_type)
+                            std::false_type)
     {
         _M_range_insert(__pos, __first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
     }
@@ -822,7 +835,7 @@ int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp &__
 {
     CHECK_EXPR(m_data + m_size != m_data + MAX_SIZE, -1, "The Vector No Enough Space!");
 #if NF_PLATFORM == NF_PLATFORM_WIN
-    new (m_data + m_size) Tp(*(m_data + m_size - 1));
+    new (m_data + m_size) _Tp(*(m_data + m_size - 1));
 #else
     std::_Construct(m_data + m_size, *(m_data + m_size - 1));
 #endif
@@ -839,7 +852,7 @@ int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position)
 {
     CHECK_EXPR(m_data + m_size != m_data + MAX_SIZE, -1, "The Vector No Enough Space!");
 #if NF_PLATFORM == NF_PLATFORM_WIN
-    new (m_data + m_size) Tp(*(m_data + m_size - 1));
+    new (m_data + m_size) _Tp(*(m_data + m_size - 1));
 #else
     std::_Construct(m_data + m_size, *(m_data + m_size - 1));
 #endif

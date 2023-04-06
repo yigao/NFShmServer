@@ -11,6 +11,7 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include <functional>
 
 #define OBJECT_MAGIC_CHECK_NUMBER 1234567890
 const int INVALID_ID = -1;

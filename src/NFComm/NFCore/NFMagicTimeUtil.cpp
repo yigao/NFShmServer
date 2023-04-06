@@ -352,6 +352,7 @@ time_t NFMagicTimeUtil::GetShiTuoFengYinBreakTime(time_t tBreakTime) {
 }
 
 const char *NFMagicTimeUtil::GetWeekDayStringByStartZero(uint8_t bWeekDayIndex) {
+#if NF_PLATFORM != NF_PLATFORM_WIN
     switch (bWeekDayIndex) {
         case 0:
             return "星期一";
@@ -374,7 +375,7 @@ const char *NFMagicTimeUtil::GetWeekDayStringByStartZero(uint8_t bWeekDayIndex) 
         case 6:
             return "星期日";
     }
-
+#endif
     return "--";
 }
 

@@ -45,6 +45,8 @@
     <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFUserEventLog.cpp">
       <Filter>NFUserDetail</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFLogicServerPlayerPlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetailModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFMoneyLogHandle.h">
@@ -86,5 +88,7 @@
     <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetail\NFUserEventLog.h">
       <Filter>NFUserDetail</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFLogicServerPlayerPlugin.h" />
+    <ClInclude Include="..\..\..\src\NFServerLogic\NFLogicServer\NFLogicServerPlayerPlugin\NFUserDetailModule.h" />
   </ItemGroup>
 </Project>

@@ -19,7 +19,6 @@
 #include "NFServerDefine.h"
 #include "NFCRpcService.h"
 #include "NFComm/NFCore/NFCommon.h"
-#include "proto_svr_msg.pb.h"
 #include "NFIConfigModule.h"
 #include "NFError.h"
 

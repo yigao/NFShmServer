@@ -23,54 +23,51 @@
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArrayQueue.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArraySequence.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFAutoFree.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFBaseDBObj.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFCSharedMem.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDBObjMgr.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDBObjTrans.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDescStoreDefine.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDescStoreTrans.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFDynamicHead.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFIDescStore.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFIDescStoreModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFISharedMemModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFLinearQueue.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFResDb.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFSeqOP.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFServerFrameTypeDefines.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmBitMap.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmDefine.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashMap.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashTable.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmNodeList.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObjectMgr.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObjHashMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashMap.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashTable.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmOrderedSet.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmPtr.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmQueue.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmStack.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmStaticList.hpp" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmString.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFSubGameTypeDefines.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTickByRunIndexOP.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTransBase.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTypeDefines.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmDyVector.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashMap.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashMapWithList.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashSet.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashTable.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashTableWithList.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmList.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmPair.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmString.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmVector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFArrayQueue.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFBaseDBObj.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFCSharedMem.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFDBObjMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFDBObjTrans.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFDescStoreTrans.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashTable.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmNodeList.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObjectMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashTable.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFTickByRunIndexOP.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFTransBase.cpp" />
   </ItemGroup>
@@ -78,7 +75,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{85A5462D-0A5E-4018-AA12-FAF939D59BB7}</ProjectGuid>
     <RootNamespace>NFShmCore</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -97,7 +94,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -135,7 +132,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\thirdparty\LuaBind\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>

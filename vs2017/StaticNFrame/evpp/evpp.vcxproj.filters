@@ -128,9 +128,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\..\thirdparty\evpp\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="udp">
       <UniqueIdentifier>{d23a68e9-f86f-4349-a4f5-734adeb8d0b9}</UniqueIdentifier>
     </Filter>
@@ -140,5 +137,11 @@
     <Filter Include="httpc">
       <UniqueIdentifier>{17858f3e-5cd1-456c-a406-9e7dbd038af7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="evpphttp">
+      <UniqueIdentifier>{19e070cd-e173-4210-bba0-48128d065e3c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\thirdparty\evpp\CMakeLists.txt" />
   </ItemGroup>
 </Project>

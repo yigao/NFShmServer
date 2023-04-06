@@ -19,26 +19,29 @@
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFProtobufMap.cpp">
       <Filter>NFJsonPb</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCoMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFBufferPool.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFChunkPool.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCLuaScriptModule.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCommLogic.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFConfigMgr.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCoroutineTask.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEmailSender.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFError.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEventMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEventObjBase.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFEventObj.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFGlobalSystem.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFIDynamicModule.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFIPlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFITimerEventModule.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFLogMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFMessageMgr.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFMemTracker.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFNaming.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFObject.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFProfiler.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFProtobufCommon.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFRawAllocator.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFServerDefine.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFStoreProtoCommon.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFSystemInfo.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerAxis.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerMgr.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObjBase.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObj.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProto\NFProtobufMessageCodec.h">
@@ -71,20 +74,21 @@
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFJson2PB\NFZeroCopyStreamWriter.h">
       <Filter>NFJsonPb</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFBufferPool.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCheck.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFChunkPool.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCLuaScriptModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCodeQueue.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCoMgr.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCommLogic.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFConfigDefine.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFConfigMgr.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCoroutineTask.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCRpcService.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFDefine.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEmailSender.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFError.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEventDefine.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEventMgr.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEventObj.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFEventTemplate.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFGlobalSystem.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIAsycModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIAsyMysqlModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIBusModule.h" />
@@ -97,32 +101,41 @@
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIKernelModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILogModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILuaLoader.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINetModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILuaScriptModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFILuaThreadModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMessageModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMonitorModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIMysqlModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINamingModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINetModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINoSqlModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIPlugin.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIPluginManager.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIProcessor.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFIRpcService.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFITaskComponent.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFITaskModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFITimerEventModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFITimerModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFLogMgr.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFMessageMgr.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFMsgPackCode.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFMemoryPool.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFMemTracker.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFNaming.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFNetPackagePool.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFObject.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFObjectPool.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFPair.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProfiler.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFProtobufCommon.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFRawAllocator.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFServerDefine.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFStateBase.hpp" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFStoreProtoCommon.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFSystemInfo.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTask.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerAxis.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerMgr.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObjBase.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFINoSqlModule.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObj.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NFProto">

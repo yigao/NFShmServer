@@ -84,7 +84,7 @@ int StrHash( const TStrAndID * pstKey )
     int iHash = 0 ;
     int iPara = 0 ;
     int iLength = strlen( pstKey->m_szName );
-    iLength = std::min( iLength, MAX_NAME_STR_LEN );
+    iLength = (std::min)( iLength, MAX_NAME_STR_LEN );
     const char *pcKey = (const char *)pstKey->m_szName;
 
     for (int i = 0; i < iLength; i++)
