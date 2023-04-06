@@ -67,7 +67,7 @@ public:
         return 0;
     }
 
-    /*检查下标的合法性，返回合法的下标值,用于[]函数中*/
+    /*检查下标的合法性，返回合法的下标值,用于[]函数中.*/
     int CheckIndex(int i) const
     {
         int iIndex = 0;

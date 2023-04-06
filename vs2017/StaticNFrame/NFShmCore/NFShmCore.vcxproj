@@ -19,7 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArray.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArray.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArrayQueue.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArraySequence.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFAutoFree.h" />

@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\my_date_and_hour_file_sink.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFBusppNaming.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCAsyMysqlModule.h" />
@@ -32,6 +35,8 @@
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCMysqlDriverManager.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCMysqlModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNamingModule.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlDriverManager.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFConsoleModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCoroutine.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCoroutineSchedule.h" />
@@ -39,15 +44,13 @@
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCTimerModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFKernelPlugin.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFMonitorModule.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlModule.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisDriver.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisClientSocket.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisCommand.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisDriver.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisProtocolDefine.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFResFileDb.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFResMysqlDb.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRouter.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFSchedule.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFServerLinkData.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFTaskActor.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\termcolor.hpp" />
   </ItemGroup>
@@ -64,6 +67,8 @@
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCMysqlDriverManager.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCMysqlModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNamingModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlDriverManager.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFConsoleModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCoroutine.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCoroutineSchedule.cpp" />
@@ -71,8 +76,6 @@
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCTimerModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFKernelPlugin.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFMonitorModule.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlModule.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisDriver.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisClientHash.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisClientKey.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisClientList.cpp" />
@@ -83,10 +86,10 @@
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisClientSort.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisClientString.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisCommand.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFResFileDb.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFResMysqlDb.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRedisDriver.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFRouter.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFSchedule.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFServerLinkData.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFTaskActor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

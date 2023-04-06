@@ -1,25 +1,32 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFCDescStoreModule.cpp" />
+    <Text Include="..\..\..\src\NFCommPlugin\NFShmPlugin\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFCSharedMemModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFGlobalID.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFIDRuntimeClass.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmEventKey.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmEventMgr.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmIdx.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmObjSeg.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmPlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmSubscribeInfo.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmTimer.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmTimerManager.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFTransMng.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFCDescStoreModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFCSharedMemModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFGlobalID.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFIDRuntimeClass.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmEventKey.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmEventMgr.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmIdx.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmObjSeg.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmPlugin.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmSubscribeInfo.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmTimer.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmTimerManager.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFShmPlugin\NFShmTimerSlot.h" />

@@ -488,7 +488,7 @@ public:
         }
     }
 
-    /**导出hash表所有已分配的节点到指定函数里*/
+    /**导出hash表所有已分配的节点到指定函数里.*/
     int DumpData(const pDumpFunc& pDf)
     {
         int iRetCounts = 0;

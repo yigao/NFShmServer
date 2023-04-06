@@ -905,7 +905,7 @@ int32_t NFCNamingModule::Init(NF_SERVER_TYPES eServerType, const string &host, i
     if (m_namingList[eServerType] == NULL)
     {
 #if NF_PLATFORM == NF_PLATFORM_WIN
-		m_namingList[eServerType] = NF_NEW NFBusppNaming();
+		m_namingList[eServerType] = NF_NEW NFBusppNaming(m_pObjPluginManager);
 #else
         if (host.empty())
         {

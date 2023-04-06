@@ -19,46 +19,48 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusClient.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusMessage.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusServer.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFIBusConnection.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Encrypt.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NetEvppObject.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFCHttpClient.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFCHttpServer.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppClient.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppNetMessage.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppServer.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\ExternalPacketParse.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\InternalPacketParse.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NetEvppObject.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCBusClient.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCBusMessage.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCBusServer.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCHttpClient.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCHttpServer.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetModule.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppClient.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppNetMessage.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppServer.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIBusConnection.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEmailSender.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIPacketParse.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFNetPlugin.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\OldExternalPacketParse.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFBusDefine.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFBusHash.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFBusShm.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusClient.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusMessage.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusServer.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFIBusConnection.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Encrypt.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NetEvppObject.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFCHttpClient.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFCHttpServer.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppClient.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppNetMessage.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppServer.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\ExternalPacketParse.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\InternalPacketParse.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NetEvppObject.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFBusDefine.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFBusHash.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFBusShm.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCBusClient.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCBusMessage.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCBusServer.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCHttpClient.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCHttpServer.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetModule.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppClient.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppNetMessage.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEvppServer.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIBusConnection.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFEmailSender.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIConnection.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFINetMessage.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIPacketParse.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFNetDefine.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFNetPlugin.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\OldExternalPacketParse.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
