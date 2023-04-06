@@ -63,121 +63,13 @@ function LuaNFrame.InitScript(luaModule)
 			LuaNFrame.AddTimer("update_debugsocket", 1)
 
 		else
-			--require("mobdebug").start("127.0.0.1", 8872);
-			breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7004)
+			require("mobdebug").start("127.0.0.1", 7004);
+			--require("mobdebug").loop("127.0.0.1", 7004);
+			--breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7004)
 		end
 	end
 
 	local function timerExecute()
-		if LuaNFrame.GetAppName() == "AllServer" then
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-
-			require("GameServer/LoadHelper")
-			require("GameServer/common/LoadProto")
-
-			mysqlItem = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-			redisItem = redisConnect.new()
-			mysqlLog = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-		elseif LuaNFrame.GetAppName() == "GameServer" then
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-
-			require("GameServer/LoadHelper")
-			require("GameServer/GameTimerManager")
-			require("GameServer/common/LoadProto")
-
-			mysqlItem = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-			redisItem = redisConnect.new()
-			mysqlLog = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-		elseif LuaNFrame.GetAppName() == "WorldServer" then
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-
-			require("WorldServer/WorldLoadHelper")
-			require("WorldServer/WorldTimerManager")
-			require("GameServer/common/LoadProto")
-
-			mysqlItem = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-			redisItem = redisConnect.new()
-			mysqlLog = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-		elseif LuaNFrame.GetAppName() == "LoginServer" then
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-
-			require("LoginServer/LoginLoadHelper")
-			require("LoginServer/LoginTimerManager")
-			require("GameServer/common/LoadProto")
-
-			mysqlItem = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-			redisItem = redisConnect.new()
-			mysqlLog = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-		elseif LuaNFrame.GetAppName() == "WebServer" then
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-			
-			require("WebServer/WebLoadHelper")
-			require("WebServer/WebTimerManager")
-			require("GameServer/common/LoadProto")
-
-			mysqlItem = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-			redisItem = redisConnect.new()
-			mysqlLog = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-		elseif LuaNFrame.GetAppName() == "LocationServer" then
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-			
-			require("LocationServer/LocationLoadHelper")
-			require("LocationServer/LocationTimerManager")
-			require("GameServer/common/LoadProto")
-
-			mysqlItem = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-			redisItem = redisConnect.new()
-			mysqlLog = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-		elseif LuaNFrame.GetAppName() == "LogServer" then
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-			
-			require("LogServer/LogLoadHelper")
-			require("LogServer/LogTimerManager")
-			require("GameServer/common/LoadProto")
-
-			mysqlItem = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-			redisItem = redisConnect.new()
-			mysqlLog = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-		elseif LuaNFrame.GetAppName() == "RebotServer" then
-			package.path = package.path .. ";../ScriptModule/RebotServer/?.lua;"
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-
-			require("RebotServer/RebotLoadHelper")
-			require("RebotServer/RebotTimerManager")
-			require("GameServer/common/LoadProto")
-
-			redisItem = redisConnect.new()
-		elseif LuaNFrame.GetAppName() == "CheckServer" then
-			package.path = package.path .. ";../ScriptModule/CheckServer/?.lua;"
-			package.path = package.path .. ";../ScriptModule/GameServer/?.lua;"
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/libprotobuf/?.lua"   --由于这里protobuf的特殊性，必须把包含protobuf的目录加到环境变量中
-			package.path = package.path..";../ScriptModule/GameServer/trdlib/lua/?.lua"
-
-			require("CheckServer/CheckServerLoadHelper")
-			require("CheckServer/CheckServerTimerManager")
-			require("GameServer/common/LoadProto")
-
-			mysqlItem = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-			mysqlLog = mysqlConnect.new(g_dbtype, g_dbUser, g_dbPassword, g_dbHost, g_dbPort, g_dbDatabase)
-		end
-
-		math.newrandomseed()
 		require("LuaNFrame/NFTimeUtils")
 
 		--记录所有文件的当前修改时间，为以后热更新做准备, 时间大概300ms

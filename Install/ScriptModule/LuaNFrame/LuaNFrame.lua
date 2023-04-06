@@ -616,7 +616,7 @@ end
 
 function LuaNFrame.TimerInit()
 	local function timerInitData()
-		timerManager.Init()
+		
 	end
 	
 	local status, msg = xpcall (timerInitData, __G__TRACKBACK__)
@@ -629,6 +629,7 @@ end
 --在主循环线程里执行，每一秒执行这个函数
 function LuaNFrame.UpdateSec()
 	local function timerfunc()
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, "LuaNFrame.UpdateSec........")
 		if timerManager ~= nil and timerManager.UpdateSec ~= nil then
 			timerManager.UpdateSec()
 		end

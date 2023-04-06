@@ -25,6 +25,7 @@ AUX_SOURCE_DIRECTORY(../../thirdparty/common/lzf SRC)
 
 add_definitions(
 		-DLUA_COMPAT_5_1
+		-DLUA_USE_LINUX
 )
 
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRC})
