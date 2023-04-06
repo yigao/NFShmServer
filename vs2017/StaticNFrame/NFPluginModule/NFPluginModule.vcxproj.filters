@@ -40,7 +40,6 @@
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFServerDefine.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFStoreProtoCommon.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFSystemInfo.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerAxis.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObj.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -134,7 +133,6 @@
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFStoreProtoCommon.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFSystemInfo.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTask.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerAxis.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFTimerObj.h" />
   </ItemGroup>
   <ItemGroup>

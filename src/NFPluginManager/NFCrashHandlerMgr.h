@@ -35,8 +35,8 @@
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 
-extern void CreateDumpFile(const std::string& strDumpFilePathName, EXCEPTION_POINTERS* pException);
+void CreateDumpFile(const std::string& strDumpFilePathName, EXCEPTION_POINTERS* pException);
 
-extern long ApplicationCrashHandler(EXCEPTION_POINTERS* pException);
+long ApplicationCrashHandler(EXCEPTION_POINTERS* pException);
 
 #endif

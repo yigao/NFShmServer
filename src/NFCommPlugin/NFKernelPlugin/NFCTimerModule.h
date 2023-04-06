@@ -10,7 +10,7 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFITimerModule.h"
-#include "NFComm/NFPluginModule/NFTimerAxis.h"
+#include "NFTimerAxis.h"
 
 class NFCTimerModule : public NFITimerModule
 {

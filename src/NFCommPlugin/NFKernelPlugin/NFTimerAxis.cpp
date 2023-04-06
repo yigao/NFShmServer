@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 #include "NFTimerAxis.h"
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFTimerObj.h"
+#include "NFComm/NFPluginModule/NFTimerObj.h"
 
 NFTimerAxis::NFTimerAxis()
 {

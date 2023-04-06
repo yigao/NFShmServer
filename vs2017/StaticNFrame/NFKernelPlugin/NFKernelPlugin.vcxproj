@@ -52,6 +52,7 @@
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFSchedule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFServerLinkData.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFTaskActor.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFTimerAxis.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\termcolor.hpp" />
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +92,7 @@
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFSchedule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFServerLinkData.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFTaskActor.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFTimerAxis.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

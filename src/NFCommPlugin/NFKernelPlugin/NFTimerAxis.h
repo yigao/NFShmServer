@@ -14,6 +14,7 @@
 #include "NFComm/NFCore/NFTime.h"
 
 class NFTimerObjBase;
+class NFTimerAxis;
 
 //时间轴
 class NFTimerAxis

@@ -21,6 +21,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFPluginManager/NFProcessParameter.h"
 #include "NFComm/NFPluginModule/NFGlobalSystem.h"
+#include "NFPluginManager/NFCrashHandlerMgr.h"
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #elif NF_PLATFORM == NF_PLATFORM_LINUX
@@ -28,7 +29,7 @@
 #endif
 
 
-int main(int argc, char* argv[])
+int __c_main(int argc, char* argv[])
 {
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	//SetConsoleOutputCP(CP_UTF8);

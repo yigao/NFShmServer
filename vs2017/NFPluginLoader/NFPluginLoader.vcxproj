@@ -11,9 +11,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\NFPluginLoader\dllmain.cpp" />
     <ClCompile Include="..\..\src\NFPluginLoader\NFCLoadStaticPlugin.cpp" />
-    <ClCompile Include="..\..\src\NFPluginLoader\NFPluginLoader.cpp" />
-    <ClCompile Include="I:\StaticNFrame\Server\StaticNFrame\NFPluginLoader\dllmain.cpp" />
+    <ClCompile Include="NFFrame.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

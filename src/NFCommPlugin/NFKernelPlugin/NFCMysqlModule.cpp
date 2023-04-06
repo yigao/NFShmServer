@@ -13,7 +13,6 @@
 #include "NFCMysqlDriverManager.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "NFComm/NFPluginModule/NFTimerAxis.h"
 
 NFCMysqlModule::NFCMysqlModule(NFIPluginManager* p): NFIMysqlModule(p)
 {

@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArray.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArrayQueue.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFArraySequence.h" />
