@@ -11,6 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFIRpcService.h"
 #include "NFServerComm/NFServerMessage/proto_svr_common.pb.h"
+#include "proto_svr_msg.pb.h"
 
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ, proto_ff::RpcRequestGetServerInfo, proto_ff::ServerInfoReport)
 

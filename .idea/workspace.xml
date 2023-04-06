@@ -54,11 +54,10 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="relation">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="shm stl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmList.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmList.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmVector.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmVector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFServerBindRpcService.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFServerBindRpcService.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -663,14 +662,7 @@
       <workItem from="1680483236675" duration="45831000" />
       <workItem from="1680591532138" duration="10437000" />
       <workItem from="1680741106126" duration="5188000" />
-      <workItem from="1680746577546" duration="13416000" />
-    </task>
-    <task id="LOCAL-00531" summary="store server">
-      <created>1679541202582</created>
-      <option name="number" value="00531" />
-      <option name="presentableId" value="LOCAL-00531" />
-      <option name="project" value="LOCAL" />
-      <updated>1679541202582</updated>
+      <workItem from="1680746577546" duration="15840000" />
     </task>
     <task id="LOCAL-00532" summary="store server">
       <created>1679541456534</created>
@@ -1008,7 +1000,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680759204084</updated>
     </task>
-    <option name="localTasksCounter" value="580" />
+    <task id="LOCAL-00580" summary="shm stl">
+      <created>1680768712745</created>
+      <option name="number" value="00580" />
+      <option name="presentableId" value="LOCAL-00580" />
+      <option name="project" value="LOCAL" />
+      <updated>1680768712745</updated>
+    </task>
+    <option name="localTasksCounter" value="581" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1233,7 +1232,6 @@
     </ignored-roots>
     <MESSAGE value="shm stl vector" />
     <MESSAGE value="nf_assert" />
-    <MESSAGE value="shm stl" />
     <MESSAGE value="excel" />
     <MESSAGE value="title" />
     <MESSAGE value="net" />
@@ -1256,7 +1254,8 @@
     <MESSAGE value="store server rpc" />
     <MESSAGE value="plugin" />
     <MESSAGE value="relation" />
-    <option name="LAST_COMMIT_MESSAGE" value="relation" />
+    <MESSAGE value="shm stl" />
+    <option name="LAST_COMMIT_MESSAGE" value="shm stl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

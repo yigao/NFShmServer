@@ -660,7 +660,11 @@ protected:
     void _M_fill_assign(size_type __n, const Tp &__val);
 
     template<class _Integer>
+#if NF_PLATFORM == NF_PLATFORM_WIN
     void _M_initialize_aux(_Integer __n, _Integer __value, std::true_type)
+#else
+    void _M_initialize_aux(_Integer __n, _Integer __value, std::__true_type)
+#endif
     {
         if (__n > MAX_SIZE)
         {
@@ -674,8 +678,13 @@ protected:
     }
 
     template<class _InputIterator>
+#if NF_PLATFORM == NF_PLATFORM_WIN
     void _M_initialize_aux(_InputIterator __first, _InputIterator __last,
                            std::false_type)
+#else
+    void _M_initialize_aux(_InputIterator __first, _InputIterator __last,
+                           std::__false_type)
+#endif
     {
         _M_range_initialize(__first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
     }
@@ -722,13 +731,21 @@ protected:
 
 
     template<class _Integer>
+#if NF_PLATFORM == NF_PLATFORM_WIN
     void _M_assign_dispatch(_Integer __n, _Integer __val, std::true_type)
+#else
+    void _M_assign_dispatch(_Integer __n, _Integer __val, std::__true_type)
+#endif
     {
         _M_fill_assign((size_type) __n, (Tp) __val);
     }
 
     template<class _InputIter>
+#if NF_PLATFORM == NF_PLATFORM_WIN
     void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::false_type)
+#else
+    void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::__false_type)
+#endif
     {
         _M_assign_aux(__first, __last, typename std::iterator_traits<_InputIter>::iterator_category());
     }
@@ -742,16 +759,27 @@ protected:
                        std::forward_iterator_tag);
 
     template<class _Integer>
+#if NF_PLATFORM == NF_PLATFORM_WIN
     void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __val,
                             std::true_type)
+#else
+    void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __val,
+                            std::__true_type)
+#endif
     {
         _M_fill_insert(__pos, (size_type) __n, (Tp) __val);
     }
 
     template<class _InputIterator>
+#if NF_PLATFORM == NF_PLATFORM_WIN
     void _M_insert_dispatch(iterator __pos,
                             _InputIterator __first, _InputIterator __last,
                             std::false_type)
+#else
+    void _M_insert_dispatch(iterator __pos,
+                            _InputIterator __first, _InputIterator __last,
+                            std::__false_type)
+#endif
     {
         _M_range_insert(__pos, __first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
     }
