@@ -63,9 +63,12 @@ function LuaNFrame.InitScript(luaModule)
 			LuaNFrame.AddTimer("update_debugsocket", 1)
 
 		else
-			require("mobdebug").start("127.0.0.1", 7004);
-			--require("mobdebug").loop("127.0.0.1", 7004);
-			--breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7004)
+			--require("mobdebug").start("127.0.0.1", 7004);
+			breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7004)
+			--package.cpath = package.cpath .. ';/home/gaoyi/.local/share/JetBrains/CLion2022.3/EmmyLua/debugger/emmy/linux/?.so'
+			--local dbg = require('emmy_core')
+			--dbg.tcpConnect('localhost', 9966)
+			--dbg.breakHere()
 		end
 	end
 

@@ -683,8 +683,7 @@ static bool ParseSeqId(State *state) {
 
 // <identifier> ::= <unqualified source code identifier> (of given length)
 static bool ParseIdentifier(State *state, size_t length) {
-    if (length == -1 ||
-        !AtLeastNumCharsRemaining(state->mangled_cur, length)) {
+    if (!AtLeastNumCharsRemaining(state->mangled_cur, length)) {
         return false;
     }
     if (IdentifierIsAnonymousNamespace(state, length)) {
