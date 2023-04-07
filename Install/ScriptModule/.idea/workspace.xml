@@ -12,12 +12,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1527d703-b22b-44ab-b686-8a087031b10d" name="变更" comment="">
+    <list default="true" id="1527d703-b22b-44ab-b686-8a087031b10d" name="变更" comment="lua">
       <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/init.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/NFPluginManager/NFProcessParameter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/NFPluginManager/NFProcessParameter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../src/NFPluginManager/demangle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../src/NFPluginManager/demangle.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,12 +66,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1680831736142</updated>
-      <workItem from="1680831737226" duration="754000" />
+      <workItem from="1680831737226" duration="1413000" />
     </task>
+    <task id="LOCAL-00001" summary="lua">
+      <created>1680832511835</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1680832511835</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lua" />
+    <option name="LAST_COMMIT_MESSAGE" value="lua" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
