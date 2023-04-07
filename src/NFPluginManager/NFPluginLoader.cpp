@@ -21,7 +21,6 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFPluginManager/NFProcessParameter.h"
 #include "NFComm/NFPluginModule/NFGlobalSystem.h"
-#include "NFPluginManager/NFCrashHandlerMgr.h"
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #elif NF_PLATFORM == NF_PLATFORM_LINUX

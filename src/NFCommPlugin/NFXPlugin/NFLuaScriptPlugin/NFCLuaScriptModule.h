@@ -98,6 +98,8 @@ public:
 	virtual void StopTimer(uint32_t nTimerID);
 	virtual void StopClocker(uint32_t nTimerID);
 public:
+    virtual void SendErrorLog(uint64_t id, const std::string& funcLog, const std::string& errorLog, uint32_t count);
+public:
 	virtual const std::string& GetAppName() const;
 	virtual int GetAppID() const;
 	virtual uint64_t GetInitTime() const;
@@ -132,7 +134,7 @@ public:
 	virtual void ReloadLuaFiles(const std::vector<std::string>& vecStr) override;
 
 	virtual std::string Sha256(const std::string& s);
-	virtual std::string Platfrom();
+	virtual std::string Platform();
 	virtual bool IsThreadModule();
 public:
     bool Register();

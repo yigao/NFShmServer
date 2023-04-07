@@ -1,5 +1,7 @@
+uaNFrame = LuaNFrame or {}
 
-LuaNFrame = LuaNFrame or {}
+--用来存放加载函数
+LuaNFrame.LoadScriptList = { }
 
 function LuaNFrame.GetAppName()
     return CPPNFrame:GetAppName()
@@ -9,9 +11,55 @@ function LuaNFrame.GetAppID()
     return CPPNFrame:GetAppID()
 end
 
-function LuaNFrame.init(luaModule)
+function LuaNFrame.LoadCPP(luaModule)
+
 	CPPNFrame:init(luaModule)
+	--用来存放加载的module
+	LuaNFrame.ScriptList = { }
+
 end
+
+--执行函数, 函数被字符串表达出来
+--比如说，要执行LoginModule.Init函数，
+--LuaNFrame.RunStringFunction("LoginModule.Init")
+function LuaNFrame.RunStringFunction(strFunction,...)
+    local v = _G;
+    for w in string.gmatch(strFunction,"[%[%]%w_\"]+") do
+      local index = string.find(w, "%[");
+      if index == nil then
+          v = v[w]
+          if v == nil then
+            break
+          end
+      else
+          local key = string.match(w, "([%w_]+)%[")
+          if key == nil then
+              return;
+          else
+              v = v[key]
+              for val in string.gmatch(w, "%[[\"%w_]+%]") do
+                  local value = string.match(val, "%[([\"%w_]+)%]")
+                  local value_str = string.match(value,"\"([%w_]+)\"");
+                  if value_str ~= nil then
+                      v = v[value_str];
+                  else
+                      local value_num = tonumber(value);
+                      if value_num ~= nil then
+                          v = v[value_num];
+                      else
+                        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("strFunction:"..strFunction.." is not a function"));
+                      end
+                  end
+              end
+          end
+      end
+    end
+    if type(v) == "function" then
+      return v(...);
+    else
+        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("strFunction:"..strFunction.." is not a function"));
+    end
+  end
 
 --添加服务器秒定时器
 function LuaNFrame.AddTimer(luaFunc, nInterValSec, nCallCount, dataStr)
@@ -32,9 +80,9 @@ end
 
 --每嗝1毫秒的定时器示例, 300ms执行testtimer函数一次,总共执行5此
 --LuaNFrame.addtimermsec("testtimer",300, 5)
-function LuaNFrame.AddTimerMsec(luaFunc, nInterValMSec, nCallCount, dataStr)
+function LuaNFrame.AddTimerMSec(luaFunc, nInterValMSec, nCallCount, dataStr)
 	if nInterValMSec == nil or type(luaFunc) ~= "string" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddTimerMsec Para Error"))
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddTimerMSec Para Error"))
 		return
     end
 
@@ -223,8 +271,8 @@ function LuaNFrame.Sha256(str)
     return CPPNFrame:Sha256(str)
 end
 
-function LuaNFrame.Platfrom()
-    return CPPNFrame:Platfrom()
+function LuaNFrame.Platform()
+    return CPPNFrame:Platform()
 end
 
 function LuaNFrame.IsThreadModule()
@@ -578,15 +626,9 @@ function LuaNFrame.DispatchWebHttp(unLinkId, requestId, firstPath, secondPath, s
 end
 
 --执行定时函数
-function LuaNFrame.DispatchTimer(luaFunc, dataStr)
+function LuaNFrame.DispatchTimer(timeId, luaFunc, dataStr)
 	local function timerExecute()
-		local timer = timerManager:createOnceTimer(luaFunc)
-		
-		if timer == nil then
-			LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, "DispatchTimer luaFunc:"..luaFunc.." not handled!")
-		else
-			timer.execute(dataStr)
-		end
+		LuaNFrame.RunStringFunction(luaFunc, timeId, dataStr)
 	end
 	
 	local status, msg = xpcall (timerExecute, __G__TRACKBACK__)
@@ -614,155 +656,7 @@ function LuaNFrame.DispatchTimerOnce( luaFunc, dataStr)
     end
 end
 
-function LuaNFrame.TimerInit()
-	local function timerInitData()
-		if timerManager ~= nil and timerManager.Init ~= nil then
-			timerManager.Init()
-		end
-	end
-	
-	local status, msg = xpcall (timerInitData, __G__TRACKBACK__)
 
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.TimerInit error, param:"..tostring(timeType), msg)
-    end
-end
-
---在主循环线程里执行，每一秒执行这个函数
-function LuaNFrame.UpdateSec()
-	local function timerfunc()
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, "LuaNFrame.UpdateSec........")
-		if timerManager ~= nil and timerManager.UpdateSec ~= nil then
-			timerManager.UpdateSec()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.UpdateSec error:", msg)
-    end
-end
-
---在主循环线程里执行，每一分钟的0秒执行这个函数
-function LuaNFrame.UpdateMin()
-	local function timerfunc()
-		if timerManager ~= nil and timerManager.UpdateMin ~= nil then
-			timerManager.UpdateMin()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.UpdateMin error:", msg)
-    end
-end
-
---在主循环线程里执行，每一分钟的0秒执行这个函数
-function LuaNFrame.Update5Min()
-	local function timerfunc()
-		if timerManager ~= nil and timerManager.Update5Min ~= nil then
-			timerManager.Update5Min()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.Update5Min error:", msg)
-    end
-end
-
---在主循环线程里执行，每一分钟的0秒执行这个函数
-function LuaNFrame.Update10Min()
-	local function timerfunc()
-		if timerManager ~= nil and timerManager.Update10Min ~= nil then
-			timerManager.Update10Min()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.Update10Min error:", msg)
-    end
-end
-
---在主循环线程里执行，每一分钟的0秒执行这个函数
-function LuaNFrame.Update30Min()
-	local function timerfunc()
-		if timerManager ~= nil and timerManager.Update30Min ~= nil then
-			timerManager.Update30Min()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.Update30Min error:", msg)
-    end
-end
-
----在主循环线程里执行，每一小时的0秒执行这个函数
-function LuaNFrame.UpdateHour()
-	local function timerfunc()
-		if timerManager ~= nil and timerManager.UpdateHour ~= nil then
-			timerManager.UpdateHour()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.UpdateHour error:", msg)
-    end
-end
-
----在主循环线程里执行，每一天的0秒执行这个函数
-function LuaNFrame.UpdateDay()
-	local function timerfunc()
-		if timerManager ~= nil and timerManager.UpdateDay ~= nil then
-			timerManager.UpdateDay()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.UpdateDay error:", msg)
-    end
-end
-
----在主循环线程里执行，每一周的0秒执行这个函数
-function LuaNFrame.UpdateWeek()
-	local function timerfunc()
-		if timerManager ~= nil and timerManager.UpdateWeek ~= nil then
-			timerManager.UpdateWeek()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.UpdateWeek error:", msg)
-    end
-end
-
----在主循环线程里执行，每一月的0秒执行这个函数
-function LuaNFrame.UpdateMonth()
-	local function timerfunc()
-		if timerManager ~= nil and timerManager.UpdateMonth ~= nil then
-			timerManager.UpdateMonth()
-		end
-	end
-	
-	local status, msg = xpcall (timerfunc, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.UpdateMonth error:", msg)
-    end
-end
 
 function LuaNFrame.DispatchWorker(indexStr, dataStr)
 	--传入的参数中，第一个是index索引，字符串类型的，第二个是参数

@@ -59,7 +59,7 @@ int NFLuaTimer::OnTimer(uint32_t nTimerID)
 	else
 	{
 		m_pLuaScriptModule->BeginProfiler("LuaNFrame.DispatchTimer--"+ mLuaFunc);
-		m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimer", mLuaFunc, mDataStr);
+		m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimer", nTimerID, mLuaFunc, mDataStr);
 		m_pLuaScriptModule->EndProfiler();
 	}
     return 0;
@@ -201,7 +201,6 @@ void NFCLuaScriptModule::LoadScript()
 	TryAddPackagePath(m_pObjPluginManager->GetLuaScriptPath());
 	TryLoadScriptFile("init.lua");
 	TryRunGlobalScriptFunc("LuaNFrame.InitScript", this);
-	TryRunGlobalScriptFunc("LuaNFrame.TimerInit");
 }
 
 const std::string& NFCLuaScriptModule::GetAppName() const
@@ -390,8 +389,9 @@ bool NFCLuaScriptModule::Register()
 		.addFunction("BeginProfiler", &NFCLuaScriptModule::BeginProfiler)
 		.addFunction("EndProfiler", &NFCLuaScriptModule::EndProfiler)
 		.addFunction("Sha256", &NFCLuaScriptModule::Sha256)
-		.addFunction("Platfrom", &NFCLuaScriptModule::Platfrom)
+		.addFunction("Platform", &NFCLuaScriptModule::Platform)
 		.addFunction("IsThreadModule", &NFCLuaScriptModule::IsThreadModule)
+        .addFunction("SendErrorLog", &NFCLuaScriptModule::SendErrorLog)
 		.endClass();
 	return true;
 }
@@ -444,6 +444,13 @@ void NFCLuaScriptModule::RunGmFunction(const std::string& luaFunc, const std::ve
 	{
 		TryRunGlobalScriptFunc(luaFunc, vecStr[0], vecStr[1], vecStr[2], vecStr[3], vecStr[4]);
 	}
+}
+
+void NFCLuaScriptModule::SendErrorLog(uint64_t id, const std::string& funcLog, const std::string& errorLog, uint32_t count)
+{
+    std::string luaErrorLog;
+    NF_FORMAT_EXPR(luaErrorLog, "id:{} luaFunc:{} errorLog:{} errorCount:{}", id, funcLog, errorLog, count);
+    NFGlobalSystem::Instance()->GetGlobalPluginManager()->SendDumpInfo(luaErrorLog);
 }
 
 void NFCLuaScriptModule::StopTimer(uint32_t nTimerID)
@@ -557,7 +564,7 @@ void NFCLuaScriptModule::ReloadLuaFiles(const std::vector<std::string>& vecStr)
 	
 }
 
-std::string NFCLuaScriptModule::Platfrom()
+std::string NFCLuaScriptModule::Platform()
 {
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	return "win32";

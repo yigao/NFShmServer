@@ -2,7 +2,11 @@
 LuaNFrame = LuaNFrame or {}
 
 --加载LUA文件， path为路径，subdir加载子目录，会一直递归
-function LoadLuaFile(path, subdir)
+function LoadLuaFile(path, subdir, subpath)
+	local path_attr = lfs.attributes(path)
+	if path_attr.mode == "directory" and subpath == nil then
+		package.path = package.path .. ";"..path.."/?.lua;"
+	end
 	local sep = string.match (package.config, "[^\n]+")
 	for file in lfs.dir(path) do
 		if file ~= "." and file ~= ".." then
@@ -10,12 +14,24 @@ function LoadLuaFile(path, subdir)
 			local attr = lfs.attributes(f)
 			if attr.mode == "directory"  then
 				if subdir == true then
-					LoadLuaFile(f, subdir)
+					if subpath == nil then
+						subpath = file
+					else
+						subpath = subpath..sep..file
+					end
+					LoadLuaFile(f, subdir, subpath)
 				end
 			else
 				if string.find(file, ".lua") ~= nil then
-					dofile(f)
-					print("load lua file:"..file)
+					local temp_file = ""
+					if subpath == nil then
+						temp_file = file
+					else
+						temp_file = subpath..sep..file
+					end
+					local array = string.split(temp_file, ".lua")
+					require(array[1])
+					LuaNFrame.Info(NFLogId.NF_LOG_SYSTEMLOG, 0, "load lua file:"..temp_file)
 				end
 			end
 		end
@@ -25,6 +41,7 @@ end
 function LuaNFrame.InitLoad()
 	require("LuaNFrame/CPPNFrame")
 	require("LuaNFrame/LuaNFrame")
+	require("LuaNFrame/LuaModule")
 	require("LuaNFrame/LuaProto")
 	require("LuaNFrame/NFExtrend")
 	require("LuaNFrame/NFLogDefine")
@@ -43,41 +60,31 @@ function LuaNFrame.InitScript(luaModule)
 
 	require("LuaPanda").start("127.0.0.1",8818)
 
-	LuaNFrame.InitLoad()
-
 	--初始化LuaNFrame
-	LuaNFrame.init(luaModule)
+	LuaNFrame.InitLoad()
+	LuaNFrame.LoadCPP(luaModule)
 	--初始化热更
 	NFLuaReload.Init()
 
-	if type(LuaNFrame.Platfrom) == 'function' then
-		g_platfrom = LuaNFrame.Platfrom()    --from C++ always is 'win32' or 'linux'
-	end
-
-	if LuaNFrame.IsThreadModule() == false then
-		if g_platfrom == "win32" then
-			if  LuaNFrame.GetAppName() == "RebotServer" then
-				breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7004)
-			else
-				breakSocketHandle,debugXpCall = require("LuaDebug")("localhost",7003)
-			end
-
-			LuaNFrame.AddTimer("update_debugsocket", 1)
-
-		else
-			
-		end
+	if type(LuaNFrame.Platform) == 'function' then
+		g_platfrom = LuaNFrame.Platform()    --from C++ always is 'win32' or 'linux'
 	end
 
 	local function timerExecute()
 		if LuaNFrame.GetAppName() == "AllServer" then
 			LoadLuaFile("../../ScriptModule/MMO", true)
 		else
-			LoadLuaFile("MMO/"..LuaNFrame.GetAppName(), true)
+			LoadLuaFile("../../ScriptModule/MMO/"..LuaNFrame.GetAppName(), true)
 		end
 
 		--记录所有文件的当前修改时间，为以后热更新做准备, 时间大概300ms
 		NFLuaReload.RecordAllFilesTimes()
+
+		--加载应用程序的Lua  Module
+		LuaNFrame.load_script_file()
+		LuaNFrame.Init()
+		LuaNFrame.AfterInit()
+		LuaNFrame.AddTimerMSec("LuaNFrame.Execute",  100)
 
 		--启动垃圾回收
 		collectgarbage("setpause",100)

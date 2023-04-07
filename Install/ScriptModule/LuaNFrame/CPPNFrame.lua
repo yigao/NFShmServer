@@ -170,8 +170,8 @@ function CPPNFrame:Sha256(str)
     return self.luaModule:Sha256(str)
 end
 
-function CPPNFrame:Platfrom()
-    return self.luaModule:Platfrom()
+function CPPNFrame:Platform()
+    return self.luaModule:Platform()
 end
 
 function CPPNFrame:IsThreadModule()
