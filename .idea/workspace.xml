@@ -675,7 +675,7 @@
       <workItem from="1680591532138" duration="10437000" />
       <workItem from="1680741106126" duration="5188000" />
       <workItem from="1680746577546" duration="19446000" />
-      <workItem from="1680831230525" duration="683000" />
+      <workItem from="1680831230525" duration="1282000" />
     </task>
     <task id="LOCAL-00533" summary="store server">
       <created>1679544412197</created>
@@ -1287,11 +1287,6 @@
           <url>file://$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCLuaScriptModule.cpp</url>
           <line>79</line>
           <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="lua-line">
-          <url>file://$PROJECT_DIR$/Install/ScriptModule/init.lua</url>
-          <line>73</line>
-          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
