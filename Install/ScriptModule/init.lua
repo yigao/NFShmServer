@@ -32,7 +32,7 @@ function LuaNFrame.InitLoad()
 	require("LuaNFrame/NFExecutor")
 	require("LuaNFrame/NFReload")
 	require("LuaNFrame/libprotobuf/protobuf")
-	--require("LuaNFrame/NFTimeUtils")
+	require("LuaNFrame/NFTimeUtils")
 end
 
 function LuaNFrame.InitScript(luaModule)
@@ -40,6 +40,8 @@ function LuaNFrame.InitScript(luaModule)
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/?.lua;"
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/libprotobuf/?.lua"
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/lua/?.lua"
+
+	require("LuaPanda").start("127.0.0.1",8818)
 
 	LuaNFrame.InitLoad()
 
@@ -63,7 +65,7 @@ function LuaNFrame.InitScript(luaModule)
 			LuaNFrame.AddTimer("update_debugsocket", 1)
 
 		else
-			require("LuaPanda").start("127.0.0.1",8818)
+			
 		end
 	end
 
