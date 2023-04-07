@@ -70,7 +70,11 @@ function LuaNFrame.InitScript(luaModule)
 	end
 
 	local function timerExecute()
-		require("LuaNFrame/NFTimeUtils")
+		if LuaNFrame.GetAppName() == "AllServer" then
+			LoadLuaFile("../../ScriptModule/MMO", true)
+		else
+			LoadLuaFile("MMO/"..LuaNFrame.GetAppName(), true)
+		end
 
 		--记录所有文件的当前修改时间，为以后热更新做准备, 时间大概300ms
 		NFLuaReload.RecordAllFilesTimes()

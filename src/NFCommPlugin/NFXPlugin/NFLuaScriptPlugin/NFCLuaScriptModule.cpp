@@ -8,8 +8,8 @@
 
 #include <assert.h>
 #include <set>
-#include <NFComm/NFCore/NFTime.h>
-#include <NFComm/NFCore/NFMD5.h>
+#include "NFComm/NFCore/NFTime.h"
+#include "NFComm/NFCore/NFMD5.h"
 #include "NFCLuaScriptModule.h"
 
 #include "NFComm/NFCore/NFCRC32.h"
@@ -17,14 +17,14 @@
 #include "NFComm/NFCore/NFBase64.h"
 #include "NFComm/NFCore/NFSha256.h"
 #include "NFComm/NFPluginModule/NFEventDefine.h"
-#include "NFLogMgr.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
 
 enum EnumLuaScriptTimer
 {
 	EnumLuaScriptTimer_ServerLoop = 0,
 };
 
-NFCLuaScriptModule::NFCLuaScriptModule(NFIPluginManager* p, NF_SERVER_TYPES serverType): NFILuaScriptModule(p),m_serverType(serverType)
+NFCLuaScriptModule::NFCLuaScriptModule(NFIPluginManager* p): NFILuaScriptModule(p)
 {
     m_luaTimerIndex = 10000;
     mnTime = 0;
@@ -67,14 +67,20 @@ int NFLuaTimer::OnTimer(uint32_t nTimerID)
 
 bool NFCLuaScriptModule::Init()
 {
-	SetTimer(EnumLuaModule_INIT, 1000, 1);
+	SetTimer(EnumLuaModule_INIT, 1000, INFINITY_CALL);
     return true;
 }
 
 int NFCLuaScriptModule::OnTimer(uint32_t nTimerID)
 {
+    if (!m_pObjPluginManager->IsInited())
+    {
+        return 0;
+    }
+
 	if (nTimerID == EnumLuaModule_INIT)
 	{
+        KillTimer(nTimerID);
 		Register();
 		LoadScript();
 		SetFixTimer(EnumLuaModule_SEC, 0, 1, INFINITY_CALL);

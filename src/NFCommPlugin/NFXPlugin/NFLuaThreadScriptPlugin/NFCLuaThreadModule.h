@@ -17,13 +17,7 @@
 
 #include "NFComm/NFPluginModule/NFITaskModule.h"
 #include "NFComm/NFPluginModule/NFTask.h"
-
-#include "NFComm/NFPluginModule/NFTimerMgr.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-
-#include "NFComm/NFPluginModule/NFINetServerModule.h"
-#include "NFComm/NFPluginModule/NFINetClientModule.h"
-#include "NFComm/NFPluginModule/NFIHttpServerModule.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 
 #include <vector>

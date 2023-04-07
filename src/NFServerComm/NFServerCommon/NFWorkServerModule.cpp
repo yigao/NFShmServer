@@ -176,8 +176,6 @@ int NFWorkServerModule::BindServer()
 
 int NFWorkServerModule::InitLoadLua()
 {
-    m_pLuaScriptModule = new NFCLuaScriptModule(m_pObjPluginManager, m_serverType);
-    m_pLuaScriptModule->Init();
     return 0;
 }
 

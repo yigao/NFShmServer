@@ -616,7 +616,9 @@ end
 
 function LuaNFrame.TimerInit()
 	local function timerInitData()
-		
+		if timerManager ~= nil and timerManager.Init ~= nil then
+			timerManager.Init()
+		end
 	end
 	
 	local status, msg = xpcall (timerInitData, __G__TRACKBACK__)

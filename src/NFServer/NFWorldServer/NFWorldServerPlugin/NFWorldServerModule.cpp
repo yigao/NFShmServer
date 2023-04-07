@@ -41,7 +41,6 @@ bool NFCWorldServerModule::Awake()
 bool NFCWorldServerModule::Init()
 {
     ConnectMasterServer();
-    InitLoadLua();
     return true;
 }
 

@@ -11,7 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 #include "NFServerBindRpcService.h"
-#include "NFComm/NFPluginModule/NFCLuaScriptModule.h"
+#include "NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h"
 
 /**
  * @brief 业务服务器类似NFLogicServer,NFWorldServer,NFSnsServer，实现类似连接NFMasterServer,NFProxyAgentServer,NFRouteAgentServer等功能
@@ -264,6 +264,4 @@ protected:
     bool m_connectProxyAgentServer;
     bool m_checkStoreServer;
     bool m_checkWorldServer;
-public:
-    NFCLuaScriptModule* m_pLuaScriptModule;
 };

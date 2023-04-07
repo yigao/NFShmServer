@@ -19,7 +19,7 @@ function CPPNFrame:init(luaModule)
     self.luaModule = luaModule
     self.app_name = luaModule:GetAppName()
     self.app_id = luaModule:GetAppID()
-    self.app_dir = self.app_name .. tostring(self.app_id)
+    self.app_dir = self.app_name
 end
 
 function CPPNFrame:GetAppName()
