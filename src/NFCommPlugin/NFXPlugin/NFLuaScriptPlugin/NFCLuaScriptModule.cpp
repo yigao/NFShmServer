@@ -38,19 +38,7 @@ NFCLuaScriptModule::~NFCLuaScriptModule()
 int NFLuaTimer::OnTimer(uint32_t nTimerID)
 {
 	mCurCallCount++;
-	if (mGlobalLuaFunc == "LuaNFrame.DispatchTimerLoop")
-	{
-		m_pLuaScriptModule->BeginProfiler("LuaNFrame.DispatchTimerLoop--"+ mTmpStr);
-		m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimerLoop", mTmpStr);
-		m_pLuaScriptModule->EndProfiler();
-	}
-	else if (mGlobalLuaFunc == "LuaNFrame.DispatchTimerOnce")
-	{
-		m_pLuaScriptModule->BeginProfiler("LuaNFrame.DispatchTimerOnce--"+mLuaFunc);
-		m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimerOnce", mLuaFunc, mDataStr);
-		m_pLuaScriptModule->EndProfiler();
-	}
-	else if (mGlobalLuaFunc == "LuaNFrame.DispatchWorker")
+	if (mGlobalLuaFunc == "LuaNFrame.DispatchWorker")
 	{
 		m_pLuaScriptModule->BeginProfiler("LuaNFrame.DispatchWorker--"+ mLuaFunc);
 		m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchWorker", mLuaFunc, mDataStr);
@@ -306,44 +294,6 @@ void NFCLuaScriptModule::ProcessWork(const std::string& luaFunc, const NFLuaRef&
 	m_luaTimerMap.emplace(luaTimer->mTimerId, luaTimer);
 }
 
-void NFCLuaScriptModule::ProcessTimer(uint32_t timeSec, const std::string& luaFunc, const NFLuaRef& dataStr)
-{
-	if (timeSec <= 0)
-	{
-		timeSec = 1;
-	}
-
-	NFLuaTimer* luaTimer = nullptr;
-	if (m_luaTimerList.empty())
-	{
-		luaTimer = NF_NEW NFLuaTimer(this, m_pObjPluginManager);
-	}
-	else
-	{
-		luaTimer = m_luaTimerList.front();
-		m_luaTimerList.pop_front();
-		luaTimer->m_pLuaScriptModule = this;
-	}
-
-	luaTimer->mGlobalLuaFunc = "LuaNFrame.DispatchTimerOnce";
-	luaTimer->mLuaFunc = luaFunc;
-	luaTimer->mInterVal = timeSec;
-	luaTimer->mDataStr = dataStr;
-	luaTimer->mCallCount = 1;
-
-
-	luaTimer->mCurCallCount = 0;
-	luaTimer->mTimerId = ++m_luaTimerIndex;
-
-	luaTimer->SetTimer(luaTimer->mTimerId, luaTimer->mInterVal, luaTimer->mCallCount);
-	m_luaTimerMap.emplace(luaTimer->mTimerId, luaTimer);
-}
-
-void NFCLuaScriptModule::ProcessLoopTimer(uint32_t timeSec, const std::string& luaFunc, const NFLuaRef& dataStr)
-{
-	ProcessTimer(timeSec, luaFunc, dataStr);
-}
-
 void NFCLuaScriptModule::BeginProfiler(const std::string& funcName)
 {
 	m_pObjPluginManager->BeginProfiler(funcName);
@@ -384,8 +334,6 @@ bool NFCLuaScriptModule::Register()
 		.addFunction("LuaWarn", &NFCLuaScriptModule::LuaWarn)
 		.addFunction("LuaError", &NFCLuaScriptModule::LuaError)
 		.addFunction("ProcessWork", &NFCLuaScriptModule::ProcessWork)
-		.addFunction("ProcessTimer", &NFCLuaScriptModule::ProcessTimer)
-		.addFunction("ProcessLoopTimer", &NFCLuaScriptModule::ProcessLoopTimer)
 		.addFunction("BeginProfiler", &NFCLuaScriptModule::BeginProfiler)
 		.addFunction("EndProfiler", &NFCLuaScriptModule::EndProfiler)
 		.addFunction("Sha256", &NFCLuaScriptModule::Sha256)

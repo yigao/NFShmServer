@@ -57,17 +57,12 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="lua">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaDebug.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaDebugjit.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaNFrame.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/MMO/WorldServer/WorldLoadHelper.lua" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/MMO/WorldServer/WorldTimerManager.lua" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/NFExecutor.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/NFExecutor.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/NFLogDefine.lua" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/ScriptModule/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/init.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/luaideReLoadFile.lua" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/NFPluginLoader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/NFPluginLoader.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -689,14 +684,7 @@
       <workItem from="1680591532138" duration="10437000" />
       <workItem from="1680741106126" duration="5188000" />
       <workItem from="1680746577546" duration="19446000" />
-      <workItem from="1680831230525" duration="21811000" />
-    </task>
-    <task id="LOCAL-00537" summary="store server">
-      <created>1679557676240</created>
-      <option name="number" value="00537" />
-      <option name="presentableId" value="LOCAL-00537" />
-      <option name="project" value="LOCAL" />
-      <updated>1679557676241</updated>
+      <workItem from="1680831230525" duration="24007000" />
     </task>
     <task id="LOCAL-00538" summary="store server">
       <created>1679557982900</created>
@@ -1034,7 +1022,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680841708299</updated>
     </task>
-    <option name="localTasksCounter" value="586" />
+    <task id="LOCAL-00586" summary="lua">
+      <created>1680858703583</created>
+      <option name="number" value="00586" />
+      <option name="presentableId" value="LOCAL-00586" />
+      <option name="project" value="LOCAL" />
+      <updated>1680858703583</updated>
+    </task>
+    <option name="localTasksCounter" value="587" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1294,17 +1289,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
-          <line>512</line>
+          <line>460</line>
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
-          <line>471</line>
+          <line>419</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
-          <line>450</line>
+          <line>398</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="lua-line">

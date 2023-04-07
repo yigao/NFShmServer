@@ -100,6 +100,22 @@ public:
 public:
     virtual void SendErrorLog(uint64_t id, const std::string& funcLog, const std::string& errorLog, uint32_t count);
 public:
+    /**
+     * @brief 注册客户端信息处理函数
+     * @param eType
+     * @param nMsgID
+     * @return
+     */
+    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const std::string& luaFunc);
+
+    /**
+     * @brief 注册服务器信息处理函数
+     * @param eType
+     * @param nMsgID
+     * @return
+     */
+    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const std::string& luaFunc);
+public:
 	virtual const std::string& GetAppName() const;
 	virtual int GetAppID() const;
 	virtual uint64_t GetInitTime() const;
@@ -121,10 +137,6 @@ public:
 	virtual void LuaError(uint32_t logId, uint64_t guid, const std::string& str);
 
 	virtual void ProcessWork(const std::string& luaFunc, const NFLuaRef& dataStr);
-
-	virtual void ProcessTimer(uint32_t timeSec, const std::string& luaFunc, const NFLuaRef& dataStr);
-
-	virtual void ProcessLoopTimer(uint32_t timeSec, const std::string& luaFunc, const NFLuaRef& dataStr);
 
 	virtual void BeginProfiler(const std::string& luaFunc);
 	virtual uint64_t EndProfiler();//return this time cost time(us) 微妙

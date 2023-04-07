@@ -40,35 +40,6 @@ function LogFile(file, msg)
 	end
 end
 
---入参是两个参数，第一个是索引，第一个是参数信息
-function processWork(luaFunc, dataStr)
-	LuaNFrame.ProcessWork(luaFunc, dataStr)
-end
-
-function processTimer(timeSec, indexStr, dataStr)
-	LuaNFrame.ProcessTimer(timeSec, indexStr, dataStr)
-end
-
-function processLoopTimer(timeSec, indexStr, dataStr)
-	--该函数设置的定时器，是在主线程serverloop的线程中执行
-	LuaNFrame.ProcessLoopTimer(timeSec, indexStr, dataStr)
-end
-
-function TcpSessionClose(playerID)
-	if tonumber(playerID) == 0 then
-		return
-	end
-
-	LogFile("error", playerID.." Exit")
-	OnlineModel.PlayerExit(playerID)
-end
-
-function TcpSessionReport(userID, IP)
-	--上报玩家的IP，目前主要是IP	
-	LogFile("error", userID.." Report:"..IP)
-	PlayerModel.PlayerReport(userID, IP)
-end
-
 function SendMessage(useridList, retMsgID, buffLen, retString)
 
 	if useridList == nil or buffLen == 0  then
