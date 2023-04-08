@@ -277,7 +277,7 @@ std::string NFCLuaScriptModule::Sha256(const std::string &s)
 bool NFCLuaScriptModule::Register()
 {
     LuaIntf::LuaBinding(*m_pLuaContext).beginClass<NFDataPackage>("NFDataPackage")
-            .addFunction("GetBuffer", &NFDataPackage::GetBuffer)
+            .addFunction("GetData", &NFDataPackage::GetData)
             .addFunction("GetSize", &NFDataPackage::GetSize)
             .addFunction("GetParam1", &NFDataPackage::GetParam1)
             .addFunction("GetParam2", &NFDataPackage::GetParam2)

@@ -1,53 +1,91 @@
-LuaProto = LuaProto or {}
+LuaNFrame = LuaNFrame or {}
 
-LuaProto.pb     = require "pb"
-LuaProto.pb_io   = require "pb_io"
-LuaProto.pb_buffer = require "pb_buffer"
-LuaProto.pb_slice  = require "pb_slice"
-LuaProto.pb_conv   = require "pb_conv"
-LuaProto.protoc = require "protoc"
-LuaProto.serpent = require "serpent"
+LuaNFrame.pb     = require "pb"
+LuaNFrame.pb_io   = require "pb_io"
+LuaNFrame.pb_buffer = require "pb_buffer"
+LuaNFrame.pb_slice  = require "pb_slice"
+LuaNFrame.pb_conv   = require "pb_conv"
+LuaNFrame.protoc = require "protoc"
+LuaNFrame.serpent = require "serpent"
 
-function LuaProto.LoadProto(proto)
-    LuaProto.protoc:load(proto)
+function LuaNFrame.LoadProto(proto)
+    LuaNFrame.protoc:load(proto)
 end
 
-function LuaProto.LoadProtoFile(proto)
-    LuaProto.protoc:loadfile(proto)
+function LuaNFrame.LoadProtoFile(proto)
+    LuaNFrame.protoc:loadfile(proto)
 end
 
-function LuaProto.AddPath(path)
-    LuaProto.protoc:addpath(path)
+function LuaNFrame.AddPath(path)
+    LuaNFrame.protoc:addpath(path)
 end
 
-function LuaProto.LoadFile(protofile)
-    assert(LuaProto.pb.loadfile(protofile)) -- 载入刚才编译的pb文件
+function LuaNFrame.Enum(type, value)
+    return LuaNFrame.pb.enum(type, value)
 end
 
-function LuaProto.Decode(msgtype, msgdata_buffer)
-    if type(msgtype) ~= "string" or type(msgdata_buffer) ~= "string" then
+ -- 载入刚才编译的pb文件
+function LuaNFrame.LoadPbFile(pbfile)
+    if type(pbfile) ~= "string" then
+        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "LuaNFrame.LoadPbFile Failed, param pbfile is not string, can't load")
+        assert(false)
+    end
+
+    local result = LuaNFrame.pb.loadfile(pbfile)
+    if result == nil or result == false then
+        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "LuaNFrame.LoadPbFile Failed, can 't load file fail:"..pbfile)
+        assert(false)
+    end
+end
+
+function LuaNFrame.Decode(msgtype, msgdata_buffer)
+    if type(msgtype) ~= "string" then
+        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "msgtype param is not string")
         return nil
     end
-    return LuaProto.pb.decode(msgtype, msgdata_buffer)
-end
 
-function LuaProto.Encode(msgtype, msgdata)
-    if type(msgtype) ~= "string" or type(msgdata) ~= "table" then
+    if type(msgdata_buffer) ~= "string" then
+        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "msgdata_buffer param is not string")
         return nil
     end
-    return LuaProto.pb.encode(msgtype, msgdata)
+
+    return LuaNFrame.pb.decode(msgtype, msgdata_buffer)
 end
 
-function LuaProto.Defaults(msgtype)
-    local msg_proto_type, basename, type_name = pb.type(msgtype)
+function LuaNFrame.DecodePackage(msgtype,  dataPackage)
+    local data = LuaNFrame.Decode(msgtype, dataPackage:GetData())
+    if data == nil then
+        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "LuaNFrame.DecodePackage Fail,  package:"..dataPackage:ToString())
+    else
+        LuaNFrame.Debug(NF_LOG_SYSTEMLOG, 0, LuaNFrame.serpent.block(ata))
+    end
+    return data
+end
+
+function LuaNFrame.Encode(msgtype, msgdata)
+    if type(msgtype) ~= "string" then
+        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "msgtype param is not string")
+        return nil
+    end
+
+    if type(msgdata) ~= "string" then
+        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "msgdata param is not string")
+        return nil
+    end
+
+    return LuaNFrame.pb.encode(msgtype, msgdata)
+end
+
+function LuaNFrame.Defaults(msgtype)
+    local msg_proto_type, basename, type_name = LuaNFrame.pb.type(msgtype)
     if type_name == "enum" then
         return pb.enum(msgtype, 0)
     elseif type_name == "map" then
         return {}
     end
 
-    local data = LuaProto.pb.defaults(msgtype)
-    for name, number, type, defaultValue, fieldlabel in pb.fields(msgtype) do
+    local data = LuaNFrame.pb.defaults(msgtype)
+    for name, number, type, defaultValue, fieldlabel in LuaNFrame.pb.fields(msgtype) do
         if type == msgtype then --无线迭代或enum
             if data[name] == nil then
                 data[name] = 0
@@ -75,7 +113,7 @@ function LuaProto.Defaults(msgtype)
                 end
             else
                 if data[name] == nil then
-                    data[name] = LuaProto.Defaults(type)
+                    data[name] = LuaNFrame.Defaults(type)
                 end
             end
         end
@@ -83,6 +121,6 @@ function LuaProto.Defaults(msgtype)
     return data
 end
 
-function LuaProto.PrintProto(msgdata)
-    LogFile("info", LuaProto.serpent.block(msgdata))
+function LuaNFrame.PrintProto(msgdata)
+    LuaNFrame.Info(NF_LOG_SYSTEMLOG, 0, LuaNFrame.serpent.block(msgdata))
 end

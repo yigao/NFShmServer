@@ -59,6 +59,7 @@ function LuaNFrame.InitScript(luaModule)
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/?.lua;"
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/libprotobuf/?.lua"
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/lua/?.lua"
+	package.path = package.path .. ";../../ScriptModule/LuaNFrame/luaprotobuf/?.lua"
 
 	require("LuaPanda").start("127.0.0.1",8818)
 
@@ -84,9 +85,10 @@ function LuaNFrame.InitScript(luaModule)
 
 		--加载应用程序的Lua  Module
 		LuaNFrame.load_script_file()
+		LuaNFrame.LoadPbFile("../../ScriptModule/CommonProto/proto_server.proto.ds")
 		LuaNFrame.Init()
 		LuaNFrame.AfterInit()
-		LuaNFrame.AddTimerMSec("LuaNFrame.Execute",  100)
+		LuaNFrame.AddTimerMSec(LuaNFrame.Execute,  100)
 
 		--启动垃圾回收
 		collectgarbage("setpause",100)

@@ -255,6 +255,11 @@ struct NFDataPackage
         return nBuffer;
     }
 
+    std::string GetData() const
+    {
+        return std::string(nBuffer, nMsgLen);
+    }
+
     uint32_t GetSize() const
     {
         return nMsgLen;

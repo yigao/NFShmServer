@@ -78,7 +78,9 @@ function LuaNFrame.SendMsgToMasterServer(eServerType, nMsgID, xData, nParam1, nP
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -123,7 +125,9 @@ function LuaNFrame.SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, x
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -168,7 +172,9 @@ function LuaNFrame.SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -205,7 +211,9 @@ function LuaNFrame.SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, 
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -245,7 +253,9 @@ function LuaNFrame.SendMsgToWorldServer(eServerType, nModuleId, nMsgID, xData, n
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -280,7 +290,9 @@ function LuaNFrame.SendTransToWorldServer(eServerType, nMsgID, xData, req_trans_
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -325,7 +337,9 @@ function LuaNFrame.SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, x
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -365,7 +379,9 @@ function LuaNFrame.SendTransToGameServer(eServerType, nDstId, nMsgID, xData, req
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -410,7 +426,9 @@ function LuaNFrame.SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, 
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -450,7 +468,9 @@ function LuaNFrame.SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, re
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
@@ -530,7 +550,9 @@ function LuaNFrame.SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id
 		return
     end
 
-	if type(xData) ~= "string" then
+	local xDataType = type(xData) 
+
+	if xDataType ~= "string"  and xDataType ~= "table" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
 		return
     end
