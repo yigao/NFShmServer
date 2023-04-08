@@ -184,6 +184,7 @@ void NFCBusServer::ProcessMsgLogicThread()
                         dataPacket.nBuffer = outData;
                         dataPacket.nMsgLen = outLen;
 
+
                         if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                         {
                             m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);

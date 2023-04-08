@@ -17,6 +17,7 @@
 #include "NFComm/NFCore/NFCommon.h"
 
 #include "NFComm/NFCore/NFMapEx.hpp"
+#include "NFCommPlugin/NFKernelPlugin/NFServerLinkData.h"
 
 enum EnumLuaModule
 {
@@ -65,6 +66,65 @@ public:
 	virtual int OnTimer(uint32_t nTimerID) override;
 };
 
+struct NetLuaReceiveFunctor
+{
+    NetLuaReceiveFunctor()
+    {
+    }
+
+    NetLuaReceiveFunctor(const LuaIntf::LuaRef& luaFunc):m_strLuaFunc(luaFunc)
+    {
+    }
+
+    NetLuaReceiveFunctor(const NetLuaReceiveFunctor& functor)
+    {
+        if (this != &functor)
+        {
+            m_strLuaFunc = functor.m_strLuaFunc;
+        }
+    }
+
+    NetLuaReceiveFunctor& operator=(const NetLuaReceiveFunctor& functor)
+    {
+        if (this != &functor)
+        {
+            m_strLuaFunc = functor.m_strLuaFunc;
+        }
+
+        return *this;
+    }
+
+    LuaIntf::LuaRef m_strLuaFunc;
+};
+
+struct LuaCallBack {
+    //call back
+    LuaCallBack()
+    {
+        mxReceiveCallBack.resize(NF_MODULE_MAX);
+        for(int i = 0; i < (int)mxReceiveCallBack.size(); i++)
+        {
+            mxReceiveCallBack[i].resize(NF_NET_MAX_MSG_ID);
+        }
+
+        mxRpcCallBack.resize(NF_NET_MAX_MSG_ID);
+    }
+
+    virtual ~LuaCallBack()
+    {
+
+    }
+
+    std::vector<std::vector<NetLuaReceiveFunctor>> mxReceiveCallBack;
+    std::unordered_map<uint64_t, NetEventFunctor> mxEventCallBack;
+    std::unordered_map<uint64_t, NetReceiveFunctor> mxOtherMsgCallBackList;
+    NetReceiveFunctor mxAllMsgCallBackList;
+    std::unordered_map<uint32_t, std::unordered_map<std::string, HTTP_RECEIVE_FUNCTOR>> mxHttpMsgCBMap; //uint32_t => NFHttpType
+    std::unordered_map<uint32_t, std::vector<HTTP_RECEIVE_FUNCTOR>> mxHttpOtherMsgCBMap; //uint32_t => NFHttpType
+    std::unordered_map<std::string, HTTP_FILTER_FUNCTOR> mxHttpMsgFliterMap;
+    std::vector<NetRpcService> mxRpcCallBack;
+};
+
 class NFCLuaScriptModule
 	: public NFILuaScriptModule, public NFILuaLoader
 {
@@ -86,9 +146,6 @@ public:
 	virtual int OnTimer(uint32_t nTimerID) override;
 
 public:
-	virtual void RunNetRecvLuaFunc(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint32_t nMsgId, const std::string& strMsg) override;
-	virtual void RunNetRecvLuaFuncWithMainSub(const std::string& luaFunc, const uint32_t unLinkId, const uint64_t valueId, const uint32_t opreateId, const uint16_t nMainMsgId, const uint16_t nSubMsgId, const std::string& strMsg) override;
-	virtual void RunHttpRecvLuaFunc(const std::string& luaFunc, const uint32_t unLinkId, const uint32_t requestId, const std::string& firstPath, const std::string& secondPath, const std::string& strMsg) override;
 	virtual void SessionReport(uint64_t playerId, const std::string& report) override;
 	virtual void SessionClose(uint64_t playerId) override;
 	virtual void RunGmFunction(const std::string& luaFunc, const std::vector<std::string>& vecStr) override;
@@ -106,7 +163,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const std::string& luaFunc);
+    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef& luaFunc);
 
     /**
      * @brief 注册服务器信息处理函数
@@ -114,7 +171,23 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const std::string& luaFunc);
+    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef& luaFunc);
+
+    /**
+     * @brief 处理客户端消息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
+
+    /**
+     * @brief 处理来自服务器的信息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
 public:
 	virtual const std::string& GetAppName() const;
 	virtual int GetAppID() const;
@@ -148,6 +221,7 @@ public:
 	virtual std::string Sha256(const std::string& s);
 	virtual std::string Platform();
 	virtual bool IsThreadModule();
+    virtual bool IsDebug();
 public:
     bool Register();
 	void LoadScript();
@@ -167,5 +241,7 @@ protected:
 	std::map<uint64_t, NFLuaTimer*> m_luaTimerMap;
 	std::list<NFLuaTimer*> m_luaTimerList;
 	uint32_t m_luaTimerIndex;
+protected:
+    std::vector<LuaCallBack> mxLuaCallBack;
 };
 

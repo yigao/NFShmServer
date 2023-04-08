@@ -7,7 +7,7 @@
             "label": "run",
             "type": "shell",
             
-            "command": "cd ../Debug && NFPluginLoader --Server=RebotServer --ID=20 --Path=../Config --LuaScript=../ScriptModule",
+            "command": "cd ../Bin/Dynamic_Debug && ./NFPluginLoader ---Server=AllServer --ID=1.13.1.1 --Config=../../Config/MMO --Plugin=../../BusPlugin --restart",
             //"command": "cd ../Debug && NFPluginLoader --Server=AllServer --ID=11 --Path=../Config --LuaScript=../ScriptModule",
             "problemMatcher": []
         }

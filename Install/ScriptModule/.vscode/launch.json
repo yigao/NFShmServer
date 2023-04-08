@@ -5,6 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         
+        
         {
             "name": "Cocos2-launch",
             "type": "lua",
@@ -25,6 +26,7 @@
         },
         {
             "name": "COCOS(remote debugging)",
+            "distinguishSameNameFile":true,
             "type": "lua",
             "request": "attach",
             "runtimeType": "Cocos2",

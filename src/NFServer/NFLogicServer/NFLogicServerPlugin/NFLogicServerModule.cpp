@@ -79,7 +79,17 @@ bool NFCLogicServerModule::OnDynamicPlugin()
 
 int NFCLogicServerModule::TestOtherServerToWorldServer()
 {
-#ifdef TEST_SERVER_SEND_MSG
+    if (!m_pObjPluginManager->IsInited())
+    {
+        return 0;
+    }
+
+    if (m_pObjPluginManager->IsServerStopping())
+    {
+        return 0;
+    }
+
+//#ifdef TEST_SERVER_SEND_MSG
     static int req = 0;
     for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
@@ -94,16 +104,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
         FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     }
-#endif
-    if (!m_pObjPluginManager->IsInited())
-    {
-        return 0;
-    }
-
-    if (m_pObjPluginManager->IsServerStopping())
-    {
-        return 0;
-    }
+//#endif
 
     return 0;
 }

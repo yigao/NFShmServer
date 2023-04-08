@@ -198,6 +198,8 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
                 auto pConn = m_busConnectMap.GetElement(fromLinkId);
                 if (pConn)
                 {
+                    packet.nConnectLinkId = m_bindConnect->GetLinkId();
+                    packet.nObjectLinkId = pConn->GetLinkId();
                     mRecvCB(m_bindConnect->GetLinkId(), pConn->GetLinkId(), packet);
                 }
                 else
@@ -234,6 +236,8 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
                     pConn->SendBusConnectRspMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
                     if (mEventCB)
                     {
+                        packet.nConnectLinkId = m_bindConnect->GetLinkId();
+                        packet.nObjectLinkId = pConn->GetLinkId();
                         mEventCB(type, m_bindConnect->GetLinkId(), pConn->GetLinkId());
                     }
                 }
@@ -241,6 +245,8 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
                 {
                     if (mEventCB)
                     {
+                        packet.nConnectLinkId = m_bindConnect->GetLinkId();
+                        packet.nObjectLinkId = pConn->GetLinkId();
                         mEventCB(type, pConn->GetLinkId(), pConn->GetLinkId());
                     }
                 }

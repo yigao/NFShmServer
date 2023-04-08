@@ -145,7 +145,10 @@ function LuaNFrame.IsThreadModule()
     return CPPNFrame:IsThreadModule()
 end
 
-
+function LuaNFrame.IsDebug()
+	return false;
+	--return CPPNFrame:IsDebug()
+end
 
 function LuaNFrame.ExeFunc(func)
 	local status, msg = xpcall (func, __G__TRACKBACK__)
@@ -163,129 +166,71 @@ function LuaNFrame.EndProfiler()
     CPPNFrame:EndProfiler()
 end
 
-function LuaNFrame.SendMsgToPlayer(unLinkId, nPlayerId, nMsgId, nLen, strData)
-	if type(unLinkId) == "number" and type(nMsgId) == "number" and type(strData) == "string" and type(nPlayerId) == "number" and type(nLen) == "number" then
-		if tonumber(nLen) == string.len(strData) or tonumber(nLen) == 0 then
-			if tonumber(nLen) == 0 then
-				nLen = string.len(strData)
-			end
-			CPPNFrame:SendMsgToPlayer(unLinkId, nPlayerId, nMsgId, nLen, strData)
-		end
-	else
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("LuaNFrame.SendMsgToPlayer Para Error"))
-	end
-end
+function LuaNFrame.RegisterClientMessage(eServerType, nMsgID, luaFunc)
+	if type(eServerType) ~= "number" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
+		return
+    end
 
-function LuaNFrame.SendMsgToManyPlayer(nPlayerIdList, nMsgId, nLen, strData)
-	if type(nPlayerIdList) == "table" and type(nMsgId) == "number" and type(strData) == "string" and type(nLen) == "number" then
-		if tonumber(nLen) == string.len(strData) or tonumber(nLen) == 0 then
-			if tonumber(nLen) == 0 then
-				nLen = string.len(strData)
-			end
-			CPPNFrame:SendMsgToManyPlayer(nPlayerIdList, nMsgId, nLen, strData)
-		end
-	else
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("LuaNFrame.SendMsgToManyPlayer Para Error"))
-	end
-end
+	if type(nMsgID) ~= "number" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
+		return
+    end
 
-function LuaNFrame.SendMsgToAllPlayer(nMsgId, nLen, strData)
-	if type(nMsgId) == "number" and type(strData) == "string" and type(nLen) == "number" then
-		if tonumber(nLen) == string.len(strData) or tonumber(nLen) == 0 then
-			if tonumber(nLen) == 0 then
-				nLen = string.len(strData)
-			end
-			CPPNFrame:SendMsgToAllPlayer(nMsgId, nLen, strData)
-		end
-	else
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("LuaNFrame.SendMsgToAllPlayer Para Error"))
-	end
-end
-
-function LuaNFrame.SendMsgToMaster(unLinkId, nPlayerId, nMsgId, nLen, strData)
-	if type(unLinkId) == "number" and type(nMsgId) == "number" and type(strData) == "string" and type(nPlayerId) == "number" and type(nLen) == "number" then
-		if tonumber(nLen) == string.len(strData) or tonumber(nLen) == 0  then
-			if tonumber(nLen) == 0 then
-				nLen = string.len(strData)
-			end
-			CPPNFrame:SendMsgToMaster(unLinkId, nPlayerId, nMsgId, nLen, strData)
-		end
-	else
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("LuaNFrame.SendMsgToMaster Para Error"))
-	end
-end
-
-function LuaNFrame.SendMsgToHttpServer(servertype, requestId, nLen, strData)
-	if type(servertype) == "number" and type(requestId) == "number" and type(strData) == "string" and type(nLen) == "number" then
-		if tonumber(nLen) == string.len(strData) or tonumber(nLen) == 0  then
-			if tonumber(nLen) == 0 then
-				nLen = string.len(strData)
-			end
-			CPPNFrame:SendMsgToHttpServer(servertype, requestId, strData)
-		end
-	else
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("LuaNFrame.SendMsgToHttpServer Para Error"))
-	end
-end
-
-
---执行游戏服务器信息
-function LuaNFrame.DispatchGameTcp(unLinkId, valueId, nMsgId, strMsg)
-	local function TcpExecute()
-		local retMsgID,controller = tcpManager:createController(nMsgId)
-	
-		if controller == nil then
-			LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, valueId, "nMsgId:"..nMsgId.." not handled!")
-		else
-			g_operateID = g_operateID + 1
-			local playerID, retCode, retBufferLen, retString, otString = controller.execute(nMsgId, g_operateID, strMsg)
-			if type(playerID) == "number" and playerID == 0 then
-				playerID = valueId
-			end
-
-			--登录协议特殊处理一下
-			if nMsgId == 1001 then
-				LuaNFrame.SendMsgToPlayer(unLinkId, valueId, retMsgID, retBufferLen, retString)
-			else
-				LuaNFrame.SendMsgToPlayer(unLinkId, playerID, retMsgID, retBufferLen, retString)
-			end
-		end
+	if type(luaFunc) ~= "function" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("luaFunc Para Error"))
+		return
+    end
+    
+	local function RegisterExecute()
+		CPPNFrame:RegisterClientMessage(eServerType, nMsgID, luaFunc)
 	end
 	
-	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
+	local status, msg = xpcall (RegisterExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchGameTcp error, unLinkId:"..tostring(unLinkId).." valueId:"..tostring(valueId).." nMsgId:"..nMsgId, msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.RegisterClientMessage error, eServerType:"..tostring(eServerType).." nMsgID:"..tostring(nMsgID).." luaFunc:"..__G__FUNCTION__(luaFunc), msg)
     end
 end
 
---执行游戏服务器信息
-function LuaNFrame.DispatchWorldTcp(unLinkId, valueId, nMsgId, strMsg)
-	local function TcpExecute()
-		local retMsgID,controller = tcpManager:createController(nMsgId)
-	
-		if controller == nil then
-			LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, valueId, "nMsgId:"..nMsgId.." not handled!")
-		else
-			g_operateID = g_operateID + 1
-			local playerID, retCode, retBufferLen, retString, otString = controller.execute(nMsgId, g_operateID, strMsg)
-			if type(playerID) == "number" and playerID == 0 then
-				playerID = valueId
-			end
+function LuaNFrame.RegisterServerMessage(eServerType, nMsgID, luaFunc)
+	if type(eServerType) ~= "number" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
+		return
+    end
 
-			--登录协议特殊处理一下
-			if nMsgId == 1001 then
-				LuaNFrame.SendMsgToPlayer(unLinkId, valueId, retMsgID, retBufferLen, retString)
-			else
-				LuaNFrame.SendMsgToPlayer(unLinkId, playerID, retMsgID, retBufferLen, retString)
-			end
-		end
+	if type(nMsgID) ~= "number" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
+		return
+    end
+
+	if type(luaFunc) ~= "function" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("luaFunc Para Error"))
+		return
+    end
+	
+    
+	local function RegisterExecute()
+		CPPNFrame:RegisterServerMessage(eServerType, nMsgID, luaFunc)
+	end
+	
+	local status, msg = xpcall (RegisterExecute, __G__TRACKBACK__)
+
+	if not status then
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.RegisterServerMessage error, eServerType:"..tostring(eServerType).." nMsgID:"..tostring(nMsgID).." luaFunc:"..__G__FUNCTION__(luaFunc), msg)
+    end
+end
+
+--执行服务器协议处理函数
+function LuaNFrame.DispatchMessage(luaFunc, msgId, packet, param1, param2)
+	local function TcpExecute()
+		luaFunc(msgId, packet, param1, param2)
 	end
 	
 	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchWorldTcp error, unLinkId:"..tostring(unLinkId).." valueId:"..tostring(valueId).." nMsgId:"..nMsgId, msg)
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchMessage error, luaFunc:"..__G__FUNCTION__(luaFunc).." msgId:"..tostring(msgId), msg)
     end
 end
 

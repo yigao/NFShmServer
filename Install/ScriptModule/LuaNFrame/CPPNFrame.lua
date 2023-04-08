@@ -2,13 +2,25 @@
 CPPNFrame = CPPNFrame or {}
 
 function __G__TRACKBACK__(msg)
-	local traceback = string.split(debug.traceback("", 2), "\n")
-	string.trim(traceback[3])
-	
-	local trace = debug.traceback()
-	local logData = "LUA_ERROR:"..string.trim(traceback[3]).."\n"..tostring(msg).."\n".."trace msg:"..trace.."\n"
-	
-	return logData
+    if CPPNFrame:IsDebug() then
+        local traceback = string.split(debug.traceback("", 2), "\n")
+        string.trim(traceback[3])
+        
+        local trace = debug.traceback()
+        local logData = "LUA_ERROR:"..string.trim(traceback[3]).."\n"..tostring(msg).."\n".."trace msg:"..trace.."\n"
+        
+        return logData
+    else
+        return tostring(msg)
+    end
+end
+
+function __G__FUNCTION__(luaFunc)
+    if CPPNFrame:IsDebug() then
+        return ""
+    else
+        return ""
+    end
 end
 
 function CPPNFrame:init(luaModule)
@@ -28,6 +40,10 @@ end
 
 function CPPNFrame:GetAppID()
     return self.app_id
+end
+
+function CPPNFrame:IsDebug()
+    return self.luaModule:IsDebug()
 end
 
 --添加服务器定时器, 返回定时器ID
@@ -98,26 +114,6 @@ function CPPNFrame:GetSecTime()
     return self.luaModule:GetSecTime()
 end
 
-function CPPNFrame:SendMsgToPlayer(unLinkId, nPlayerId, nMsgId, nLen, strData)
-    self.luaModule:SendMsgToPlayer(unLinkId, nPlayerId, nMsgId, nLen, strData)
-end
-
-function CPPNFrame:SendMsgToManyPlayer(nPlayerIdList, nMsgId, nLen, strData)
-    self.luaModule:SendMsgToManyPlayer(nPlayerIdList, nMsgId, nLen, strData)
-end
-
-function CPPNFrame:SendMsgToAllPlayer(nMsgId, nLen, strData)
-    self.luaModule:SendMsgToAllPlayer(nMsgId, nLen, strData)
-end
-
-function CPPNFrame:SendMsgToMaster(unLinkId, nPlayerId, nMsgId, nLen, strData)
-    self.luaModule:SendMsgToMaster(unLinkId, nPlayerId, nMsgId, nLen, strData)
-end
-
-function CPPNFrame:SendMsgToHttpServer(servertype, requestId, strData)
-    self.luaModule:SendMsgToHttpServer(servertype, requestId, strData)
-end
-
 --设置LOG等级
 function CPPNFrame:SetLogLevel(level)
     self.luaModule:SetLogLevel(level)
@@ -149,15 +145,6 @@ function CPPNFrame:ProcessWork(luaFunc, dataStr)
 	self.luaModule:ProcessWork(luaFunc, dataStr)
 end
 
-function CPPNFrame:ProcessTimer(timeSec, luaFunc, dataStr)
-    self.luaModule:ProcessTimer(timeSec, luaFunc, dataStr)
-end
-
-function CPPNFrame:ProcessLoopTimer(timeSec, luaFunc, dataStr)
-	--该函数设置的定时器，是在主线程serverloop的线程中执行
-    self.luaModule:ProcessLoopTimer(timeSec, luaFunc, dataStr)
-end
-
 function CPPNFrame:BeginProfiler(name)
     self.luaModule:BeginProfiler(name)
 end
@@ -182,18 +169,12 @@ function CPPNFrame:SendErrorLog(playerId, func_log, errorLog, count)
     return self.luaModule:SendErrorLog(playerId, func_log, errorLog, count)
 end
 
-function  CPPNFrame:HttpPost(url,content)
-	return self.luaModule:HttpPost(url,content)
+function CPPNFrame:RegisterClientMessage(eServerType, nMsgID, luaFunc)
+    return self.luaModule:RegisterClientMessage(eServerType, nMsgID, luaFunc)
 end
 
-function  CPPNFrame:HttpPostWithHead(url,content,head)
-	return self.luaModule:HttpPostWithHead(url,content,head)
+function CPPNFrame:RegisterServerMessage(eServerType, nMsgID, luaFunc)
+    return self.luaModule:RegisterServerMessage(eServerType, nMsgID, luaFunc)
 end
 
-function  CPPNFrame:HttpGet(url)
-	return self.luaModule:HttpGet(url)
-end
 
-function  CPPNFrame:HttpGetWithHead(url,head)
-	return self.luaModule:HttpGetWithHead(url,head)
-end

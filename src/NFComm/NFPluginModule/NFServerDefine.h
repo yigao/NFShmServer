@@ -260,6 +260,41 @@ struct NFDataPackage
         return nMsgLen;
     }
 
+    uint64_t GetParam1() const
+    {
+        return nParam1;
+    }
+
+    uint64_t GetParam2() const
+    {
+        return nParam2;
+    }
+
+    uint64_t GetSrcId() const
+    {
+        return nSrcId;
+    }
+
+    uint64_t GetDstId() const
+    {
+        return nDstId;
+    }
+
+    uint64_t GetServerType() const
+    {
+        return GetServerTypeFromUnlinkId(nObjectLinkId);
+    }
+
+    uint64_t GetObjectLinkId() const
+    {
+        return nObjectLinkId;
+    }
+
+    uint64_t GetMsgId() const
+    {
+        return nMsgId;
+    }
+
     uint32_t mModuleId;
     uint32_t nMsgId;
     uint64_t nParam1;
