@@ -23,7 +23,6 @@
 #include "NFComm/NFPluginModule/NFIEventModule.h"
 
 
-
 NFCMessageModule::NFCMessageModule(NFIPluginManager *p) : NFIMessageModule(p)
 {
     m_pObjPluginManager = p;
@@ -289,7 +288,8 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID
     return false;
 }
 
-bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb)
+bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget,
+                                          const NET_RECEIVE_FUNCTOR &cb)
 {
     if (eType < mxCallBack.size())
     {
@@ -339,7 +339,8 @@ bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule
     return false;
 }
 
-bool NFCMessageModule::AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, NFIDynamicModule *pTarget, NFIRpcService* pRpcService, bool createCo/* = false*/)
+bool NFCMessageModule::AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID, NFIDynamicModule *pTarget, NFIRpcService *pRpcService,
+                                     bool createCo/* = false*/)
 {
     if (serverType < mxCallBack.size())
     {
@@ -604,7 +605,8 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
 
                     if (!pMessage->ParseFromArray(svrPkg.msg_data().data(), svrPkg.msg_data().length()))
                     {
-                        NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, FireBorad Failed packet name:{}", pEventInfo->full_message_name());
+                        NFLogError(NF_LOG_PROTOBUF_PARSE, 0, "Protobuf Parse Message Failed, FireBorad Failed packet name:{}",
+                                   pEventInfo->full_message_name());
                         return -1;
                     }
 
@@ -636,18 +638,20 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
 
                 if (svrPkg.rpc_info().rsp_rpc_id() > 0)
                 {
-                    google::protobuf::Message* pRespone = FindModule<NFICoroutineModule>()->GetRpcService(svrPkg.rpc_info().rsp_rpc_id());
+                    google::protobuf::Message *pRespone = FindModule<NFICoroutineModule>()->GetRpcService(svrPkg.rpc_info().rsp_rpc_id());
                     if (pRespone && svrPkg.rpc_info().rpc_ret_code() == 0)
                     {
                         if (svrPkg.rpc_info().rsp_rpc_hash() == std::hash<std::string>()(pRespone->GetTypeName()))
                         {
                             pRespone->ParseFromString(svrPkg.msg_data());
                         }
-                        else {
+                        else
+                        {
                             int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(), proto_ff::ERR_CODE_RPC_DECODE_FAILED);
                             if (iRet != 0)
                             {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}", svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}",
+                                           svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
                             }
                             return 0;
                         }
@@ -656,7 +660,8 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                     int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(), svrPkg.rpc_info().rpc_ret_code());
                     if (iRet != 0)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}", svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}", svrPkg.rpc_info().rsp_rpc_id(),
+                                   svrPkg.msg_id(), iRet);
                     }
                     return 0;
                 }
@@ -682,7 +687,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
     return 0;
 }
 
-int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg)
+int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, const proto_ff::Proto_SvrPkg &reqSvrPkg)
 {
     int iRet = 0;
     uint32_t nMsgId = reqSvrPkg.msg_id();
@@ -699,28 +704,36 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
             {
                 if (netRpcService.m_createCo)
                 {
-                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine([this, netRpcService, objectLinkId, reqSvrPkg](){
-                        int iRet = netRpcService.m_pRpcService->run(objectLinkId, reqSvrPkg);
-                        if (iRet != 0)
-                        {
-                            uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
-                            uint32_t nMsgId = reqSvrPkg.msg_id();
-                            uint32_t reqBusId = reqSvrPkg.rpc_info().req_bus_id();
-                            uint32_t reqServerType = reqSvrPkg.rpc_info().req_server_type();
+                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine([this, netRpcService, objectLinkId, reqSvrPkg]()
+                                                                           {
+                                                                               int iRet = netRpcService.m_pRpcService->run(objectLinkId, reqSvrPkg);
+                                                                               if (iRet != 0)
+                                                                               {
+                                                                                   uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
+                                                                                   uint32_t nMsgId = reqSvrPkg.msg_id();
+                                                                                   uint32_t reqBusId = reqSvrPkg.rpc_info().req_bus_id();
+                                                                                   uint32_t reqServerType = reqSvrPkg.rpc_info().req_server_type();
 
-                            proto_ff::Proto_SvrPkg rspSvrPkg;
-                            rspSvrPkg.set_msg_id(nMsgId);
-                            rspSvrPkg.mutable_rpc_info()->set_req_rpc_id(0);
-                            rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
-                            rspSvrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
-                            rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
-                            rspSvrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
+                                                                                   proto_ff::Proto_SvrPkg rspSvrPkg;
+                                                                                   rspSvrPkg.set_msg_id(nMsgId);
+                                                                                   rspSvrPkg.mutable_rpc_info()->set_req_rpc_id(0);
+                                                                                   rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_id(
+                                                                                           reqSvrPkg.rpc_info().req_rpc_id());
+                                                                                   rspSvrPkg.mutable_rpc_info()->set_req_rpc_hash(
+                                                                                           reqSvrPkg.rpc_info().req_rpc_hash());
+                                                                                   rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_hash(
+                                                                                           reqSvrPkg.rpc_info().rsp_rpc_hash());
+                                                                                   rspSvrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
 
-                            FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, (NF_SERVER_TYPES)reqServerType, 0, reqBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, rspSvrPkg);
-                        }
-                    });
+                                                                                   FindModule<NFIMessageModule>()->SendMsgToServer(
+                                                                                           (NF_SERVER_TYPES) eServerType,
+                                                                                           (NF_SERVER_TYPES) reqServerType, 0, reqBusId,
+                                                                                           proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, rspSvrPkg);
+                                                                               }
+                                                                           });
                 }
-                else {
+                else
+                {
                     iRet = netRpcService.m_pRpcService->run(objectLinkId, reqSvrPkg);
                 }
                 netRpcService.m_iCount++;
@@ -740,11 +753,13 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
                                useTime / 1000);
                 }
             }
-            else {
+            else
+            {
                 iRet = proto_ff::ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED;
             }
         }
-        else {
+        else
+        {
             iRet = proto_ff::ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED;
             NFLogErrorIf(nMsgId >= NF_NET_MAX_MSG_ID, NF_LOG_SYSTEMLOG, 0, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgId);
         }
@@ -762,7 +777,8 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
             rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
             rspSvrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
 
-            FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, (NF_SERVER_TYPES)reqServerType, 0, reqBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, rspSvrPkg);
+            FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES) eServerType, (NF_SERVER_TYPES) reqServerType, 0, reqBusId,
+                                                            proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, rspSvrPkg);
         }
     }
 
@@ -818,7 +834,43 @@ NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES rec
             Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
         }
     }
-    else {
+    else
+    {
+        Send(linkData.m_routeData.mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
+    }
+    return 0;
+}
+
+int NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nModuleId,
+                                      uint32_t nMsgId, const std::string &xData, uint64_t param1, uint64_t param2)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), -1, "eType error:{}", (int) eSendType);
+    ServerLinkData &linkData = mServerLinkData[eSendType];
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eSendType);
+    CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eSendType));
+
+    uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, dstBusId, 0);
+    uint64_t sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, srcBusId, 0);
+    if (srcBusId == 0)
+    {
+        sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->BusId, 0);
+    }
+
+    if (recvType == NF_ST_MASTER_SERVER)
+    {
+        Send(linkData.m_masterServerData.mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
+    }
+    else if (eSendType == NF_ST_MASTER_SERVER)
+    {
+        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, dstBusId);
+        if (pServerData)
+        {
+            Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
+        }
+    }
+    else
+    {
         Send(linkData.m_routeData.mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
     }
     return 0;
@@ -847,7 +899,8 @@ int NFCMessageModule::SendTrans(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvT
     }
     if (recvType == NF_ST_MASTER_SERVER)
     {
-        Send(linkData.m_masterServerData.mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
+        Send(linkData.m_masterServerData.mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId,
+             destServerLinkId);
     }
     else if (eSendType == NF_ST_MASTER_SERVER)
     {
@@ -857,7 +910,49 @@ int NFCMessageModule::SendTrans(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvT
             Send(pServerData->mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
         }
     }
-    else {
+    else
+    {
+        Send(linkData.m_routeData.mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
+    }
+    return 0;
+}
+
+int NFCMessageModule::SendTrans(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nMsgID,
+              const std::string &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    proto_ff::Proto_SvrPkg svrPkg;
+    svrPkg.set_msg_id(nMsgID);
+    svrPkg.mutable_disp_info()->set_req_trans_id(req_trans_id);
+    svrPkg.mutable_disp_info()->set_rsp_trans_id(rsp_trans_id);
+    svrPkg.set_msg_data(xData);
+
+    CHECK_EXPR(eSendType < mServerLinkData.size(), -1, "eType error:{}", (int) eSendType);
+    ServerLinkData &linkData = mServerLinkData[eSendType];
+
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eSendType);
+    CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eSendType));
+
+    uint64_t destServerLinkId = GetUnLinkId(NF_IS_NONE, recvType, dstBusId, 0);
+    uint64_t sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, srcBusId, 0);
+    if (srcBusId == 0)
+    {
+        sendLinkId = GetUnLinkId(NF_IS_NONE, eSendType, pConfig->BusId, 0);
+    }
+    if (recvType == NF_ST_MASTER_SERVER)
+    {
+        Send(linkData.m_masterServerData.mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId,
+             destServerLinkId);
+    }
+    else if (eSendType == NF_ST_MASTER_SERVER)
+    {
+        NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_MASTER_SERVER, dstBusId);
+        if (pServerData)
+        {
+            Send(pServerData->mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
+        }
+    }
+    else
+    {
         Send(linkData.m_routeData.mUnlinkId, NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_TRANS_CMD, svrPkg, 0, 0, sendLinkId, destServerLinkId);
     }
     return 0;

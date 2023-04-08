@@ -146,8 +146,7 @@ function LuaNFrame.IsThreadModule()
 end
 
 function LuaNFrame.IsDebug()
-	return false;
-	--return CPPNFrame:IsDebug()
+	return CPPNFrame:IsDebug()
 end
 
 function LuaNFrame.ExeFunc(func)

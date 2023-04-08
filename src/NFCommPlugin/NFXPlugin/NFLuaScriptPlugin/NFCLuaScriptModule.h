@@ -19,6 +19,8 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFCommPlugin/NFKernelPlugin/NFServerLinkData.h"
 
+#include <unordered_set>
+
 enum EnumLuaModule
 {
 	EnumLuaModule_NULL = 0,
@@ -54,13 +56,11 @@ public:
 	}
 
 	uint32_t mTimerId;
-	std::string mGlobalLuaFunc;
-	std::string mLuaFunc;
+    LuaIntf::LuaRef mLuaFunc;
 	uint64_t mInterVal;
 	uint32_t mCallCount;
 	uint32_t mCurCallCount;
 	NFLuaRef mDataStr;
-	std::string mTmpStr;
 	NFCLuaScriptModule* m_pLuaScriptModule;
 
 	virtual int OnTimer(uint32_t nTimerID) override;
@@ -72,7 +72,7 @@ struct NetLuaReceiveFunctor
     {
     }
 
-    NetLuaReceiveFunctor(const LuaIntf::LuaRef& luaFunc):m_strLuaFunc(luaFunc)
+    NetLuaReceiveFunctor(const LuaIntf::LuaRef& luaFunc): m_luaFunc(luaFunc)
     {
     }
 
@@ -80,7 +80,7 @@ struct NetLuaReceiveFunctor
     {
         if (this != &functor)
         {
-            m_strLuaFunc = functor.m_strLuaFunc;
+            m_luaFunc = functor.m_luaFunc;
         }
     }
 
@@ -88,13 +88,13 @@ struct NetLuaReceiveFunctor
     {
         if (this != &functor)
         {
-            m_strLuaFunc = functor.m_strLuaFunc;
+            m_luaFunc = functor.m_luaFunc;
         }
 
         return *this;
     }
 
-    LuaIntf::LuaRef m_strLuaFunc;
+    LuaIntf::LuaRef m_luaFunc;
 };
 
 struct LuaCallBack {
@@ -150,8 +150,8 @@ public:
 	virtual void SessionClose(uint64_t playerId) override;
 	virtual void RunGmFunction(const std::string& luaFunc, const std::vector<std::string>& vecStr) override;
 public:
-	virtual uint32_t AddTimer(const std::string& luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef& dataStr);
-	virtual uint32_t AddClocker(const std::string& luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef& dataStr);
+	virtual uint32_t AddTimer(const LuaIntf::LuaRef& luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef& dataStr);
+	virtual uint32_t AddClocker(const LuaIntf::LuaRef& luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef& dataStr);
 	virtual void StopTimer(uint32_t nTimerID);
 	virtual void StopClocker(uint32_t nTimerID);
 public:
@@ -189,6 +189,59 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
 public:
+public:
+    virtual int SendMsgToMasterServer(NF_SERVER_TYPES eSendTyp, uint32_t nMsgId, const std::string &xData, uint64_t nParam1 = 0,
+                                      uint64_t nParam2 = 0);
+
+public:
+    ////////////////////////////send proxy msg to other serer//////////////////////////////////
+    virtual int
+    SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const std::string &xData,
+                        uint64_t nParam1 = 0, uint64_t nParam2 = 0);
+
+public:
+    ///////////////////////////other server send msg to proxy msg/////////////////////////////
+    virtual int SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const std::unordered_set<uint64_t> &ids, uint32_t nMsgId,
+                                             const string &xData);
+
+    virtual int
+    SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const std::string &xData,
+                         uint64_t nParam1 = 0, uint64_t nParam2 = 0);
+
+    ///////////////////////////other server send msg to world msg/////////////////////////////
+    virtual int
+    SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const std::string &xData, uint64_t nParam1 = 0,
+                         uint64_t nParam2 = 0);
+
+    virtual int SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string &xData, uint32_t req_trans_id = 0,
+                                       uint32_t rsp_trans_id = 0);
+
+    ///////////////////////////other server send msg to game msg/////////////////////////////
+    virtual int
+    SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const std::string &xData,
+                        uint64_t nParam1 = 0, uint64_t nParam2 = 0);
+
+    virtual int
+    SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const std::string &xData, uint32_t req_trans_id = 0,
+                          uint32_t rsp_trans_id = 0);
+
+    ///////////////////////////other server send msg to logic server/////////////////////////////
+    virtual int
+    SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const std::string &xData,
+                         uint64_t nParam1 = 0, uint64_t nParam2 = 0);
+
+    virtual int
+    SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const std::string &xData, uint32_t req_trans_id = 0,
+                           uint32_t rsp_trans_id = 0);
+
+    ///////////////////////////other server send msg to sns server/////////////////////////////
+    virtual int
+    SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const std::string &xData, uint64_t nParam1 = 0,
+                       uint64_t nParam2 = 0);
+
+    virtual int SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string &xData, uint32_t req_trans_id = 0,
+                                     uint32_t rsp_trans_id = 0);
+public:
 	virtual const std::string& GetAppName() const;
 	virtual int GetAppID() const;
 	virtual uint64_t GetInitTime() const;
@@ -208,8 +261,6 @@ public:
 	virtual void LuaWarn(uint32_t logId, uint64_t guid, const std::string& str);
 
 	virtual void LuaError(uint32_t logId, uint64_t guid, const std::string& str);
-
-	virtual void ProcessWork(const std::string& luaFunc, const NFLuaRef& dataStr);
 
 	virtual void BeginProfiler(const std::string& luaFunc);
 	virtual uint64_t EndProfiler();//return this time cost time(us) 微妙

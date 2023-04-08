@@ -39,18 +39,7 @@ NFCLuaScriptModule::~NFCLuaScriptModule()
 int NFLuaTimer::OnTimer(uint32_t nTimerID)
 {
     mCurCallCount++;
-    if (mGlobalLuaFunc == "LuaNFrame.DispatchWorker")
-    {
-        m_pLuaScriptModule->BeginProfiler("LuaNFrame.DispatchWorker--" + mLuaFunc);
-        m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchWorker", mLuaFunc, mDataStr);
-        m_pLuaScriptModule->EndProfiler();
-    }
-    else
-    {
-        m_pLuaScriptModule->BeginProfiler("LuaNFrame.DispatchTimer--" + mLuaFunc);
-        m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimer", nTimerID, mLuaFunc, mDataStr);
-        m_pLuaScriptModule->EndProfiler();
-    }
+    m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimer", nTimerID, mLuaFunc, mDataStr);
     return 0;
 }
 
@@ -268,33 +257,6 @@ void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::stri
 }
 
 
-void NFCLuaScriptModule::ProcessWork(const std::string &luaFunc, const NFLuaRef &dataStr)
-{
-    NFLuaTimer *luaTimer = nullptr;
-    if (m_luaTimerList.empty())
-    {
-        luaTimer = NF_NEW NFLuaTimer(this, m_pObjPluginManager);
-    }
-    else
-    {
-        luaTimer = m_luaTimerList.front();
-        m_luaTimerList.pop_front();
-        luaTimer->m_pLuaScriptModule = this;
-    }
-
-    luaTimer->mGlobalLuaFunc = "LuaNFrame.DispatchWorker";
-    luaTimer->mInterVal = 1;
-    luaTimer->mLuaFunc = luaFunc;
-    luaTimer->mDataStr = dataStr;
-    luaTimer->mCallCount = 1;
-
-    luaTimer->mCurCallCount = 0;
-    luaTimer->mTimerId = ++m_luaTimerIndex;
-
-    luaTimer->SetTimer(luaTimer->mTimerId, luaTimer->mInterVal, luaTimer->mCallCount);
-    m_luaTimerMap.emplace(luaTimer->mTimerId, luaTimer);
-}
-
 void NFCLuaScriptModule::BeginProfiler(const std::string &funcName)
 {
     m_pObjPluginManager->BeginProfiler(funcName);
@@ -347,7 +309,6 @@ bool NFCLuaScriptModule::Register()
             .addFunction("LuaInfo", &NFCLuaScriptModule::LuaInfo)
             .addFunction("LuaWarn", &NFCLuaScriptModule::LuaWarn)
             .addFunction("LuaError", &NFCLuaScriptModule::LuaError)
-            .addFunction("ProcessWork", &NFCLuaScriptModule::ProcessWork)
             .addFunction("BeginProfiler", &NFCLuaScriptModule::BeginProfiler)
             .addFunction("EndProfiler", &NFCLuaScriptModule::EndProfiler)
             .addFunction("Sha256", &NFCLuaScriptModule::Sha256)
@@ -357,7 +318,20 @@ bool NFCLuaScriptModule::Register()
             .addFunction("SendErrorLog", &NFCLuaScriptModule::SendErrorLog)
             .addFunction("RegisterClientMessage", &NFCLuaScriptModule::RegisterClientMessage)
             .addFunction("RegisterServerMessage", &NFCLuaScriptModule::RegisterServerMessage)
+            .addFunction("SendMsgToMasterServer", &NFCLuaScriptModule::SendMsgToMasterServer)
+            .addFunction("SendProxyMsgByBusId", &NFCLuaScriptModule::SendProxyMsgByBusId)
+            .addFunction("SendRedirectMsgToProxyServer", &NFCLuaScriptModule::SendRedirectMsgToProxyServer)
+            .addFunction("SendMsgToProxyServer", &NFCLuaScriptModule::SendMsgToProxyServer)
+            .addFunction("SendMsgToWorldServer", &NFCLuaScriptModule::SendMsgToWorldServer)
+            .addFunction("SendTransToWorldServer", &NFCLuaScriptModule::SendTransToWorldServer)
+            .addFunction("SendMsgToGameServer", &NFCLuaScriptModule::SendMsgToGameServer)
+            .addFunction("SendTransToGameServer", &NFCLuaScriptModule::SendTransToGameServer)
+            .addFunction("SendMsgToLogicServer", &NFCLuaScriptModule::SendMsgToLogicServer)
+            .addFunction("SendTransToLogicServer", &NFCLuaScriptModule::SendTransToLogicServer)
+            .addFunction("SendMsgToSnsServer", &NFCLuaScriptModule::SendMsgToSnsServer)
+            .addFunction("SendTransToSnsServer", &NFCLuaScriptModule::SendTransToSnsServer)
             .endClass();
+
     return true;
 }
 
@@ -422,7 +396,7 @@ void NFCLuaScriptModule::StopClocker(uint32_t nTimerID)
     StopTimer(nTimerID);
 }
 
-uint32_t NFCLuaScriptModule::AddTimer(const std::string &luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef &dataStr)
+uint32_t NFCLuaScriptModule::AddTimer(const LuaIntf::LuaRef &luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef &dataStr)
 {
     NFLuaTimer *luaTimer = nullptr;
     if (m_luaTimerList.empty())
@@ -459,7 +433,7 @@ uint32_t NFCLuaScriptModule::AddTimer(const std::string &luaFunc, uint64_t nInte
 }
 
 uint32_t
-NFCLuaScriptModule::AddClocker(const std::string &luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef &dataStr)
+NFCLuaScriptModule::AddClocker(const LuaIntf::LuaRef &luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef &dataStr)
 {
     NFLuaTimer *luaTimer = nullptr;
     if (m_luaTimerList.empty())
@@ -638,7 +612,7 @@ int NFCLuaScriptModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
     uint32_t eServerType = GetServerTypeFromUnlinkId(packet.nObjectLinkId);
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
-        bool ret = TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_CLIENT][msgId].m_strLuaFunc, msgId, packet, param1,
+        bool ret = TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_CLIENT][msgId].m_luaFunc, msgId, packet, param1,
                                           param2);
         if (ret == false)
         {
@@ -665,7 +639,7 @@ int NFCLuaScriptModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
     uint32_t eServerType = GetServerTypeFromUnlinkId(packet.nObjectLinkId);
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
-        bool ret = TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_SERVER][msgId].m_strLuaFunc, msgId, packet, param1,
+        bool ret = TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_SERVER][msgId].m_luaFunc, msgId, packet, param1,
                                           param2);
         if (ret == false)
         {
@@ -673,4 +647,110 @@ int NFCLuaScriptModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
         }
     }
     return 0;
+}
+
+int NFCLuaScriptModule::SendMsgToMasterServer(NF_SERVER_TYPES eSendType, uint32_t nMsgId, const string &xData, uint64_t nParam1, uint64_t nParam2)
+{
+    auto pServerData = FindModule<NFIMessageModule>()->GetMasterData(eSendType);
+    CHECK_EXPR(pServerData, -1, "pServerData == NULL, eType error:{}", (int) eSendType);
+
+    FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nMsgId, xData, nParam1, nParam2);
+    return 0;
+}
+
+int NFCLuaScriptModule::SendProxyMsgByBusId(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const string &xData,
+                                            uint64_t nParam1, uint64_t nParam2)
+{
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+    CHECK_EXPR(pConfig, -1, "pConfig == NULL");
+
+    NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(eType, nDstId);
+    CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", nDstId);
+
+    FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, nParam1, nParam2, pConfig->BusId, nDstId);
+    return 0;
+}
+
+int NFCLuaScriptModule::SendRedirectMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, const unordered_set<uint64_t> &ids, uint32_t nMsgId,
+                                                     const string &xData)
+{
+    proto_ff::Proto_SvrPkg svrPkg;
+    svrPkg.set_msg_id(nMsgId);
+    svrPkg.set_msg_data(xData);
+
+    for (auto iter = ids.begin(); iter != ids.end(); iter++)
+    {
+        svrPkg.mutable_redirect_info()->add_id(*iter);
+    }
+
+    SendMsgToProxyServer(eType, nDstId, NF_MODULE_SERVER, proto_ff::NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD, svrPkg.SerializeAsString());
+    return 0;
+}
+
+int NFCLuaScriptModule::SendMsgToProxyServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const string &xData,
+                                             uint64_t nParam1, uint64_t nParam2)
+{
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+    CHECK_EXPR(pConfig, -1, "pConfig == NULL");
+
+    auto pServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(eType, NF_ST_PROXY_AGENT_SERVER);
+    if (pServerData)
+    {
+        FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, nParam1, nParam2, pConfig->BusId, nDstId);
+        return 0;
+    }
+
+    pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(eType, nDstId);
+    CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", nDstId);
+    FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, nParam1, nParam2, pConfig->BusId, nDstId);
+    return 0;
+}
+
+int NFCLuaScriptModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const string &xData, uint64_t nParam1,
+                                             uint64_t nParam2)
+{
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_WORLD_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
+}
+
+int
+NFCLuaScriptModule::SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const string &xData, uint32_t req_trans_id,
+                                              uint32_t rsp_trans_id)
+{
+    return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_WORLD_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
+}
+
+int NFCLuaScriptModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const string &xData,
+                                            uint64_t nParam1, uint64_t nParam2)
+{
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_GAME_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
+}
+
+int NFCLuaScriptModule::SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const string &xData,
+                                                 uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_GAME_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
+}
+
+int NFCLuaScriptModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nModuleId, uint32_t nMsgId, const string &xData,
+                                             uint64_t nParam1, uint64_t nParam2)
+{
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nModuleId, nMsgId, xData, nParam1, nParam2);
+}
+
+int NFCLuaScriptModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const string &xData,
+                                                  uint32_t req_trans_id, uint32_t rsp_trans_id)
+{
+    return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
+}
+
+int NFCLuaScriptModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgId, const string &xData, uint64_t nParam1,
+                                           uint64_t nParam2)
+{
+    return FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_SNS_SERVER, 0, 0, nModuleId, nMsgId, xData, nParam1, nParam2);
+}
+
+int NFCLuaScriptModule::SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const string &xData, uint32_t req_trans_id,
+                                                uint32_t rsp_trans_id)
+{
+    return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_SNS_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
 }

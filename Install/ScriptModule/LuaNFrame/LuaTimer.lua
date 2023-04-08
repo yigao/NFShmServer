@@ -1,6 +1,6 @@
 --添加服务器秒定时器
 function LuaNFrame.AddTimer(luaFunc, nInterValSec, nCallCount, dataStr)
-    if nInterValSec == nil or type(luaFunc) ~= "string" then
+    if nInterValSec == nil or type(luaFunc) ~= "function" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddTimer Para Error"))
 		return
 	end
@@ -18,7 +18,7 @@ end
 --每嗝1毫秒的定时器示例, 300ms执行testtimer函数一次,总共执行5此
 --LuaNFrame.addtimermsec("testtimer",300, 5)
 function LuaNFrame.AddTimerMSec(luaFunc, nInterValMSec, nCallCount, dataStr)
-	if nInterValMSec == nil or type(luaFunc) ~= "string" then
+	if nInterValMSec == nil or type(luaFunc) ~= "function" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddTimerMSec Para Error"))
 		return
     end
@@ -66,7 +66,7 @@ end
 -- (3) 每周（7*24*3600）的第34个小时触发闹钟：LuaNFrame.addclocker("OnClocker", 34*3600, 7*24*3600, 0);
 -- 
 function LuaNFrame.AddClocker(luaFunc, sec, intervalSec, nCallCount, dataStr)
-	if type(luaFunc) ~= "string" or type(sec) ~= "number" or type(intervalSec) ~= "number" then
+	if type(luaFunc) ~= "function" or type(sec) ~= "number" or type(intervalSec) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddClocker Para Error"))
 		return
     end
@@ -88,7 +88,7 @@ end
 --执行定时函数
 function LuaNFrame.DispatchTimer(timeId, luaFunc, dataStr)
 	local function timerExecute()
-		LuaNFrame.RunStringFunction(luaFunc, timeId, dataStr)
+		luaFunc(timeId, dataStr)
 	end
 	
 	local status, msg = xpcall (timerExecute, __G__TRACKBACK__)
@@ -98,27 +98,5 @@ function LuaNFrame.DispatchTimer(timeId, luaFunc, dataStr)
     end
 end
 
---入参是两个参数，第一个是lua函数字符串，第二个是参数信息,   在下一帧调用LuaFunc函数
-function LuaNFrame.ProcessWork(luaFunc, dataStr)
-	if type(luaFunc) ~= "string" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("ProcessWork Para Error"))
-		return
-    end
 
-	CPPNFrame:ProcessWork(luaFunc, dataStr)
-end
-
---通过调用ProcessWork, 在下一循环帧执行这个函数
-function LuaNFrame.DispatchWorker(indexStr, dataStr)
-	--传入的参数中，第一个是index索引，字符串类型的，第二个是参数
-	local function workExecute()
-		LuaNFrame.RunStringFunction(luaFunc,  dataStr)
-	end
-	
-	local status, msg = xpcall (workExecute, __G__TRACKBACK__)
-
-	if not status then
-		LuaNFrame.SendErrorLog(0,  "LuaNFrame.DispatchWorker "..tostring(indexStr).." error, param:"..tostring(dataStr), msg)
-    end
-end
 

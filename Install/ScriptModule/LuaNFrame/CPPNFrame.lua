@@ -140,11 +140,6 @@ function CPPNFrame:Error(logId, guid, str)
     self.luaModule:LuaError(logId, guid, str)
 end
 
---入参是两个参数，第一个是索引，第一个是参数信息
-function CPPNFrame:ProcessWork(luaFunc, dataStr)
-	self.luaModule:ProcessWork(luaFunc, dataStr)
-end
-
 function CPPNFrame:BeginProfiler(name)
     self.luaModule:BeginProfiler(name)
 end
