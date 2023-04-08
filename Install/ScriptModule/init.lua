@@ -41,6 +41,7 @@ end
 function LuaNFrame.InitLoad()
 	require("LuaNFrame/CPPNFrame")
 	require("LuaNFrame/LuaNFrame")
+	require("LuaNFrame/LuaMessage")
 	require("LuaNFrame/LuaModule")
 	require("LuaNFrame/LuaProto")
 	require("LuaNFrame/NFExtrend")

@@ -172,4 +172,52 @@ function CPPNFrame:RegisterServerMessage(eServerType, nMsgID, luaFunc)
     return self.luaModule:RegisterServerMessage(eServerType, nMsgID, luaFunc)
 end
 
+function CPPNFrame:SendMsgToMasterServer(eServerType, nMsgID, xData, nParam1, nParam2)
+    return self.luaModule:SendMsgToMasterServer(eServerType, nMsgID, xData, nParam1, nParam2)
+end
+
+function CPPNFrame:SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+    return self.luaModule:SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+end
+
+function CPPNFrame:SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID, xData)
+    return self.luaModule:SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID, xData)
+end
+
+function CPPNFrame:SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+    return self.luaModule:SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+end
+
+function CPPNFrame:SendMsgToWorldServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
+    return self.luaModule:SendMsgToWorldServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
+end
+
+function CPPNFrame:SendTransToWorldServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
+    return self.luaModule:SendTransToWorldServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
+end
+
+function CPPNFrame:SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+    return self.luaModule:SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+end
+
+function CPPNFrame:SendTransToGameServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
+    return self.luaModule:SendTransToGameServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
+end
+
+function CPPNFrame:SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+    return self.luaModule:SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+end
+
+function CPPNFrame:SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
+    return self.luaModule:SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
+end
+
+function CPPNFrame:SendMsgToSnsServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
+    return self.luaModule:SendMsgToSnsServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
+end
+
+function CPPNFrame:SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
+    return self.luaModule:SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
+end
+
 
