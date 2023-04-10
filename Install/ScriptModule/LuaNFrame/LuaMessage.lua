@@ -66,33 +66,54 @@ function LuaNFrame.DispatchMessage(luaFunc, msgId, packet, param1, param2)
     end
 end
 
+function LuaNFrame.GetMsgId(nMsgID)
+	if type(nMsgID) == "string" then
+		local msgId = LuaNFrame.Enum("proto_ff.ClientServerCmd",  nMsgID)
+		if msgId == nil then
+			msgId = LuaNFrame.Enum("proto_ff.Proto_SvrMsgID",  nMsgID)
+		end
+		return msgId
+	else if type(nMsgID) == "number" then
+		return nMsgID
+    end
+end
 
-function LuaNFrame.SendMsgToMasterServer(eServerType, nMsgID, xData, nParam1, nParam2)
+
+function LuaNFrame.SendMsgToMasterServer(eServerType, nMsgID, nMsgType, nMsgData, nParam1, nParam2)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(nParam1) == "string" then
+		nParam1 = tonumber(nParam1)
+	else
+		nParam1 = 0
+    end
+
+	if type(nParam2) == "string" then
+		nParam2 = tonumber(nParam2)
+	else
+		nParam2 = 0
+    end
+
+	local nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if nParam1 == nil then
-        nParam1 = 0
-    end
-
-    if nParam2 == nil then
-        nParam2 = 0
-    end
-	
 	local function RegisterExecute()
 		CPPNFrame:SendMsgToMasterServer(eServerType, nMsgID, xData, nParam1, nParam2)
 	end
@@ -104,7 +125,7 @@ function LuaNFrame.SendMsgToMasterServer(eServerType, nMsgID, xData, nParam1, nP
     end
 end
 
-function LuaNFrame.SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+function LuaNFrame.SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, nMsgType, nMsgData, nParam1, nParam2)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
@@ -120,25 +141,34 @@ function LuaNFrame.SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, x
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(nParam1) == "string" then
+		nParam1 = tonumber(nParam1)
+	else
+		nParam1 = 0
+    end
+
+	if type(nParam2) == "string" then
+		nParam2 = tonumber(nParam2)
+	else
+		nParam2 = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if nParam1 == nil then
-        nParam1 = 0
-    end
-
-    if nParam2 == nil then
-        nParam2 = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
@@ -147,11 +177,11 @@ function LuaNFrame.SendProxyMsgByBusId(eServerType, nDstId, nModuleId, nMsgID, x
 	local status, msg = xpcall (RegisterExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.SendMsgToMasterServer error, eServerType:"..tostring(eServerType).." nMsgID:"..tostring(nMsgID), msg)
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.SendProxyMsgByBusId error, eServerType:"..tostring(eServerType).." nMsgID:"..tostring(nMsgID), msg)
     end
 end
 
-function LuaNFrame.SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID, xData)
+function LuaNFrame.SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID, nMsgType, nMsgData)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
@@ -167,17 +197,22 @@ function LuaNFrame.SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 
 	local function RegisterExecute()
         CPPNFrame:SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID, xData)
@@ -186,11 +221,11 @@ function LuaNFrame.SendRedirectMsgToProxyServer(eServerType, nDstId, ids, nMsgID
 	local status, msg = xpcall (RegisterExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.SendMsgToMasterServer error, eServerType:"..tostring(eServerType).." nMsgID:"..tostring(nMsgID), msg)
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.SendRedirectMsgToProxyServer error, eServerType:"..tostring(eServerType).." nMsgID:"..tostring(nMsgID), msg)
     end
 end
 
-function LuaNFrame.SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+function LuaNFrame.SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID,  nMsgType, nMsgData, nParam1, nParam2)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
@@ -206,25 +241,34 @@ function LuaNFrame.SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, 
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(nParam1) == "string" then
+		nParam1 = tonumber(nParam1)
+	else
+		nParam1 = 0
+    end
+
+	if type(nParam2) == "string" then
+		nParam2 = tonumber(nParam2)
+	else
+		nParam2 = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if nParam1 == nil then
-        nParam1 = 0
-    end
-
-    if nParam2 == nil then
-        nParam2 = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
@@ -233,11 +277,11 @@ function LuaNFrame.SendMsgToProxyServer(eServerType, nDstId, nModuleId, nMsgID, 
 	local status, msg = xpcall (RegisterExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.SendMsgToMasterServer error, eServerType:"..tostring(eServerType).." nMsgID:"..tostring(nMsgID), msg)
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.SendMsgToProxyServer error, eServerType:"..tostring(eServerType).." nMsgID:"..tostring(nMsgID), msg)
     end
 end
 
-function LuaNFrame.SendMsgToWorldServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
+function LuaNFrame.SendMsgToWorldServer(eServerType, nModuleId, nMsgID, nMsgType, nMsgData, nParam1, nParam2)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
@@ -248,25 +292,34 @@ function LuaNFrame.SendMsgToWorldServer(eServerType, nModuleId, nMsgID, xData, n
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(nParam1) == "string" then
+		nParam1 = tonumber(nParam1)
+	else
+		nParam1 = 0
+    end
+
+	if type(nParam2) == "string" then
+		nParam2 = tonumber(nParam2)
+	else
+		nParam2 = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if nParam1 == nil then
-        nParam1 = 0
-    end
-
-    if nParam2 == nil then
-        nParam2 = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendMsgToWorldServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
@@ -279,31 +332,45 @@ function LuaNFrame.SendMsgToWorldServer(eServerType, nModuleId, nMsgID, xData, n
     end
 end
 
-function LuaNFrame.SendTransToWorldServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
+function LuaNFrame.SendTransToWorldServer(eServerType, nMsgID, nMsgType, nMsgData, req_trans_id, rsp_trans_id)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nModuleId) ~= "number" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nModuleId Para Error"))
+		return
+    end
+
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(req_trans_id) == "string" then
+		req_trans_id = tonumber(req_trans_id)
+	else
+		req_trans_id = 0
+    end
+
+	if type(rsp_trans_id) == "string" then
+		rsp_trans_id = tonumber(rsp_trans_id)
+	else
+		rsp_trans_id = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if req_trans_id == nil then
-        req_trans_id = 0
-    end
-
-    if rsp_trans_id == nil then
-        rsp_trans_id = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendTransToWorldServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
@@ -316,7 +383,7 @@ function LuaNFrame.SendTransToWorldServer(eServerType, nMsgID, xData, req_trans_
     end
 end
 
-function LuaNFrame.SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+function LuaNFrame.SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, nMsgType, nMsgData, nParam1, nParam2)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
@@ -332,25 +399,34 @@ function LuaNFrame.SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, x
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(nParam1) == "string" then
+		nParam1 = tonumber(nParam1)
+	else
+		nParam1 = 0
+    end
+
+	if type(nParam2) == "string" then
+		nParam2 = tonumber(nParam2)
+	else
+		nParam2 = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if nParam1 == nil then
-        nParam1 = 0
-    end
-
-    if nParam2 == nil then
-        nParam2 = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
@@ -363,7 +439,7 @@ function LuaNFrame.SendMsgToGameServer(eServerType, nDstId, nModuleId, nMsgID, x
     end
 end
 
-function LuaNFrame.SendTransToGameServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
+function LuaNFrame.SendTransToGameServer(eServerType, nDstId, nMsgID, nMsgType, nMsgData, req_trans_id, rsp_trans_id)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
@@ -374,25 +450,34 @@ function LuaNFrame.SendTransToGameServer(eServerType, nDstId, nMsgID, xData, req
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(req_trans_id) == "string" then
+		req_trans_id = tonumber(req_trans_id)
+	else
+		req_trans_id = 0
+    end
+
+	if type(rsp_trans_id) == "string" then
+		rsp_trans_id = tonumber(rsp_trans_id)
+	else
+		rsp_trans_id = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if req_trans_id == nil then
-        req_trans_id = 0
-    end
-
-    if rsp_trans_id == nil then
-        rsp_trans_id = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendTransToGameServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
@@ -405,7 +490,7 @@ function LuaNFrame.SendTransToGameServer(eServerType, nDstId, nMsgID, xData, req
     end
 end
 
-function LuaNFrame.SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
+function LuaNFrame.SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, nMsgType, nMsgData, nParam1, nParam2)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
@@ -421,25 +506,34 @@ function LuaNFrame.SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, 
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(nParam1) == "string" then
+		nParam1 = tonumber(nParam1)
+	else
+		nParam1 = 0
+    end
+
+	if type(nParam2) == "string" then
+		nParam2 = tonumber(nParam2)
+	else
+		nParam2 = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if nParam1 == nil then
-        nParam1 = 0
-    end
-
-    if nParam2 == nil then
-        nParam2 = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, xData, nParam1, nParam2)
@@ -452,7 +546,7 @@ function LuaNFrame.SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, 
     end
 end
 
-function LuaNFrame.SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
+function LuaNFrame.SendTransToLogicServer(eServerType, nDstId, nMsgID, nMsgType, nMsgData, req_trans_id, rsp_trans_id)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
 		return
@@ -463,25 +557,34 @@ function LuaNFrame.SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, re
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(req_trans_id) == "string" then
+		req_trans_id = tonumber(req_trans_id)
+	else
+		req_trans_id = 0
+    end
+
+	if type(rsp_trans_id) == "string" then
+		rsp_trans_id = tonumber(rsp_trans_id)
+	else
+		rsp_trans_id = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if req_trans_id == nil then
-        req_trans_id = 0
-    end
-
-    if rsp_trans_id == nil then
-        rsp_trans_id = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
@@ -494,14 +597,9 @@ function LuaNFrame.SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, re
     end
 end
 
-function LuaNFrame.SendMsgToSnsServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
+function LuaNFrame.SendMsgToSnsServer(eServerType, nModuleId, nMsgType, nMsgData, xData, nParam1, nParam2)
     if type(eServerType) ~= "number" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("eServerType Para Error"))
-		return
-    end
-
-    if type(nDstId) ~= "number" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nDstId Para Error"))
 		return
     end
 
@@ -510,23 +608,34 @@ function LuaNFrame.SendMsgToSnsServer(eServerType, nModuleId, nMsgID, xData, nPa
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(nParam1) == "string" then
+		nParam1 = tonumber(nParam1)
+	else
+		nParam1 = 0
+    end
+
+	if type(nParam2) == "string" then
+		nParam2 = tonumber(nParam2)
+	else
+		nParam2 = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	if type(xData) ~= "string" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if nParam1 == nil then
-        nParam1 = 0
-    end
-
-    if nParam2 == nil then
-        nParam2 = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendMsgToSnsServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
@@ -545,25 +654,35 @@ function LuaNFrame.SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id
 		return
     end
 
-	if type(nMsgID) ~= "number" then
+
+	if type(nMsgType) ~= "string" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
+		return
+    end
+
+	if type(nMsgData)  ~= "table" then
+		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgData Para Error"))
+		return
+    end
+
+	if type(req_trans_id) == "string" then
+		req_trans_id = tonumber(req_trans_id)
+	else
+		req_trans_id = 0
+    end
+
+	if type(rsp_trans_id) == "string" then
+		rsp_trans_id = tonumber(rsp_trans_id)
+	else
+		rsp_trans_id = 0
+    end
+
+	nMsgID = LuaNFrame.GetMsgId(nMsgID)
+	if nMsgID == nil then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgID Para Error"))
-		return
     end
 
-	local xDataType = type(xData) 
-
-	if xDataType ~= "string"  and xDataType ~= "table" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("xData Para Error"))
-		return
-    end
-
-    if req_trans_id == nil then
-        req_trans_id = 0
-    end
-
-    if rsp_trans_id == nil then
-        rsp_trans_id = 0
-    end
+	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
 	
 	local function RegisterExecute()
         CPPNFrame:SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
