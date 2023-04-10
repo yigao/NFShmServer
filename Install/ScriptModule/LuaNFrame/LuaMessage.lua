@@ -450,7 +450,8 @@ function LuaNFrame.SendMsgToLogicServer(eServerType, nDstId, nModuleId, nMsgID, 
 
 	nMsgID = LuaNFrame.GetMsgId(nMsgID)
 	if nMsgID == nil then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgID Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgID Para Error")
+		return
     end
 
 	local xData = LuaNFrame.Encode(nMsgType, nMsgData)
