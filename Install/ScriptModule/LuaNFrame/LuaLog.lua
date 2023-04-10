@@ -49,8 +49,8 @@ function LuaNFrame.SendErrorLog(playerId, func_log, errorLog)
 	if errorLog == nil then
 		errorLog = ""
 	end
-	LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, playerId,  func_log)
-	LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, playerId, errorLog)
+	LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, playerId, 3, func_log)
+	LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, playerId, 3, errorLog)
 
 	local error_md5 = LuaNFrame.GetMD5(errorLog)
 	if LuaNFrame.ErrorLogMsg[error_md5] == nil or type(LuaNFrame.ErrorLogMsg[error_md5]) ~= "number" then
@@ -67,7 +67,7 @@ function LuaNFrame.SendErrorLog(playerId, func_log, errorLog)
 	end
 end
 
-function LuaNFrame.Debug(logId, guid, ...)
+function LuaNFrame.TraceWithThread(logId, guid, thread, ...)
 	if LuaNFrame.IsDebug() then
 		if type(logId) == nil then
 			logId = NFLogId.NF_LOG_SYSTEMLOG
@@ -79,82 +79,118 @@ function LuaNFrame.Debug(logId, guid, ...)
 		elseif type(guid) ~= "number" then
 			guid = tonumber(guid)
 		end
-		local cStackInfo = debug.getinfo(2, "Sl")
-		if cStackInfo then
-			CPPNFrame:Debug(logId, guid,"["..tostring(cStackInfo.short_src)..":"..tostring(cStackInfo.currentline).."] | "..tostring(...))
+		local cStackInfo = debug.getinfo(thread, "Sl")
+		local cName = debug.getinfo(thread, "n")
+		if cStackInfo ~= nil  and cStackInfo.short_src ~= nil and  cStackInfo.currentline ~= nil  then
+			if cName ~= nil and cName.name ~= nil then
+				CPPNFrame:Trace(logId, guid, cStackInfo.short_src, cStackInfo.currentline, cName.name, tostring(...))
+			else
+				CPPNFrame:Trace(logId, guid, cStackInfo.short_src, cStackInfo.currentline,  "NoLuaFunc", tostring(...))
+			end
 		else
-			CPPNFrame:Debug(logId, guid, tostring(...))
+			CPPNFrame:Trace(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
 		end
 	else
-		CPPNFrame:Debug(logId, guid, tostring(...))
+			CPPNFrame:Trace(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
 	end
+end
+
+function LuaNFrame.DebugWithThread(logId, guid, thread, ...)
+	if LuaNFrame.IsDebug() then
+		if type(logId) == nil then
+			logId = NFLogId.NF_LOG_SYSTEMLOG
+		elseif type(logId) ~= "number" then
+			logId = tonumber(logId)
+		end
+		if type(guid) == nil then
+			guid = 0
+		elseif type(guid) ~= "number" then
+			guid = tonumber(guid)
+		end
+		local cStackInfo = debug.getinfo(thread, "Sl")
+		local cName = debug.getinfo(thread, "n")
+		if cStackInfo ~= nil  and cStackInfo.short_src ~= nil and  cStackInfo.currentline ~= nil  then
+			if cName ~= nil and cName.name ~= nil then
+				CPPNFrame:Debug(logId, guid, cStackInfo.short_src, cStackInfo.currentline, cName.name, tostring(...))
+			else
+				CPPNFrame:Debug(logId, guid, cStackInfo.short_src, cStackInfo.currentline,  "NoLuaFunc", tostring(...))
+			end
+		else
+			CPPNFrame:Debug(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
+		end
+	else
+			CPPNFrame:Debug(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
+	end
+end
+
+function LuaNFrame.InfoWithThread(logId, guid, thread, ...)
+	if LuaNFrame.IsDebug() then
+		if type(logId) == nil then
+			logId = NFLogId.NF_LOG_SYSTEMLOG
+		elseif type(logId) ~= "number" then
+			logId = tonumber(logId)
+		end
+		if type(guid) == nil then
+			guid = 0
+		elseif type(guid) ~= "number" then
+			guid = tonumber(guid)
+		end
+		local cStackInfo = debug.getinfo(thread, "Sl")
+		local cName = debug.getinfo(thread, "n")
+		if cStackInfo ~= nil  and cStackInfo.short_src ~= nil and  cStackInfo.currentline ~= nil  then
+			if cName ~= nil and cName.name ~= nil then
+				CPPNFrame:Info(logId, guid, cStackInfo.short_src, cStackInfo.currentline, cName.name, tostring(...))
+			else
+				CPPNFrame:Info(logId, guid, cStackInfo.short_src, cStackInfo.currentline,  "NoLuaFunc", tostring(...))
+			end
+		else
+			CPPNFrame:Info(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
+		end
+	else
+			CPPNFrame:Info(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
+	end
+end
+
+function LuaNFrame.ErrorWithThread(logId, guid, thread, ...)
+	if LuaNFrame.IsDebug() then
+		if type(logId) == nil then
+			logId = NFLogId.NF_LOG_SYSTEMLOG
+		elseif type(logId) ~= "number" then
+			logId = tonumber(logId)
+		end
+		if type(guid) == nil then
+			guid = 0
+		elseif type(guid) ~= "number" then
+			guid = tonumber(guid)
+		end
+		local cStackInfo = debug.getinfo(thread, "Sl")
+		local cName = debug.getinfo(thread, "n")
+		if cStackInfo ~= nil  and cStackInfo.short_src ~= nil and  cStackInfo.currentline ~= nil  then
+			if cName ~= nil and cName.name ~= nil then
+				CPPNFrame:Error(logId, guid, cStackInfo.short_src, cStackInfo.currentline, cName.name, tostring(...))
+			else
+				CPPNFrame:Error(logId, guid, cStackInfo.short_src, cStackInfo.currentline,  "NoLuaFunc", tostring(...))
+			end
+		else
+			CPPNFrame:Error(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
+		end
+	else
+			CPPNFrame:Error(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
+	end
+end
+
+function LuaNFrame.Trace(logId, guid, ...)
+	LuaNFrame.TraceWithThread(logId, guid, 3, ...)
+end
+
+function LuaNFrame.Debug(logId, guid, ...)
+	LuaNFrame.DebugWithThread(logId, guid, 3, ...)
 end
 
 function LuaNFrame.Info(logId, guid, ...)
-	if LuaNFrame.IsDebug() then
-		if type(logId) == nil then
-			logId = NFLogId.NF_LOG_SYSTEMLOG
-		elseif type(logId) ~= "number" then
-			logId = tonumber(logId)
-		end
-		if type(guid) == nil then
-			guid = 0
-		elseif type(guid) ~= "number" then
-			guid = tonumber(guid)
-		end
-		local cStackInfo = debug.getinfo(2, "Sl")
-		if cStackInfo then
-			CPPNFrame:Info(logId, guid,"["..tostring(cStackInfo.short_src)..":"..tostring(cStackInfo.currentline).."] | "..tostring(...))
-		else
-			CPPNFrame:Info(logId, guid,tostring(...))
-		end
-	else
-		CPPNFrame:Info(logId, guid,tostring(...))
-	end
-end
-
-function LuaNFrame.Warn(logId, guid, ...)
-	if LuaNFrame.IsDebug() then
-		if type(logId) == nil then
-			logId = NFLogId.NF_LOG_SYSTEMLOG
-		elseif type(logId) ~= "number" then
-			logId = tonumber(logId)
-		end
-		if type(guid) == nil then
-			guid = 0
-		elseif type(guid) ~= "number" then
-			guid = tonumber(guid)
-		end
-		local cStackInfo = debug.getinfo(2, "Sl")
-		if cStackInfo then
-			CPPNFrame:Warn(logId, guid,"["..tostring(cStackInfo.short_src)..":"..tostring(cStackInfo.currentline).."] | "..tostring(...))
-		else
-			CPPNFrame:Warn(logId, guid,tostring(...))
-		end
-	else
-		CPPNFrame:Warn(logId, guid,tostring(...))
-	end
+	LuaNFrame.InfoWithThread(logId, guid, 3, ...)
 end
 
 function LuaNFrame.Error(logId, guid, ...)
-	if LuaNFrame.IsDebug() then
-		if type(logId) == nil then
-			logId = NFLogId.NF_LOG_SYSTEMLOG
-		elseif type(logId) ~= "number" then
-			logId = tonumber(logId)
-		end
-		if type(guid) == nil then
-			guid = 0
-		elseif type(guid) ~= "number" then
-			guid = tonumber(guid)
-		end
-		local cStackInfo = debug.getinfo(2, "Sl")
-		if cStackInfo then
-			CPPNFrame:Error(logId, guid, "["..tostring(cStackInfo.short_src)..":"..tostring(cStackInfo.currentline).."] | "..tostring(...))
-		else
-			CPPNFrame:Error(logId, guid, tostring(...))
-		end
-	else
-		CPPNFrame:Error(logId, guid, tostring(...))
-	end
+	LuaNFrame.ErrorWithThread(logId, guid, 3, ...)
 end

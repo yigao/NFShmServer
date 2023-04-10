@@ -57,6 +57,11 @@ public:
         }
 	}
 
+    virtual void LogDefault(NF_LOG_LEVEL log_level, const NFSourceLoc& loc, uint32_t logId, uint64_t guid, const std::string& log)
+    {
+        m_pLogModule->LogDefault((NF_LOG_LEVEL)log_level, loc, logId, guid, log);
+    }
+
     /**
     * @brief 行为日志LOG
     *

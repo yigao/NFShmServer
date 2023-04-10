@@ -1,14 +1,14 @@
 --添加服务器秒定时器
 function LuaNFrame.AddTimer(luaFunc, nInterValSec, nCallCount, dataStr)
     if nInterValSec == nil or type(luaFunc) ~= "function" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddTimer Para Error"))
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddTimer Para Error")
 		return
 	end
 
     if nCallCount == nil then
 		nCallCount = 0;
 	elseif type(nCallCount) ~= "number" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddTimer Para Error:nCallCount is not number"))
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddTimer Para Error:nCallCount is not number")
 		return
 	end
 
@@ -19,7 +19,7 @@ end
 --LuaNFrame.addtimermsec("testtimer",300, 5)
 function LuaNFrame.AddTimerMSec(luaFunc, nInterValMSec, nCallCount, dataStr)
 	if nInterValMSec == nil or type(luaFunc) ~= "function" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddTimerMSec Para Error"))
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddTimerMSec Para Error")
 		return
     end
 
@@ -30,7 +30,7 @@ function LuaNFrame.AddTimerMSec(luaFunc, nInterValMSec, nCallCount, dataStr)
 	if nCallCount == nil then
 		nCallCount = 0;
 	elseif type(nCallCount) ~= "number" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddTimerMsec Para Error:nCallCount is not number"))
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddTimerMsec Para Error:nCallCount is not number")
 		return
 	end
 
@@ -41,7 +41,7 @@ end
 --停止服务器定时器
 function LuaNFrame.StopTimer(timer)
 	if type(timer) ~= "number" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("StopTimer Para Error"))
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "StopTimer Para Error")
 		return 
 	end
 	CPPNFrame:StopTimer(timer)
@@ -67,7 +67,7 @@ end
 -- 
 function LuaNFrame.AddClocker(luaFunc, sec, intervalSec, nCallCount, dataStr)
 	if type(luaFunc) ~= "function" or type(sec) ~= "number" or type(intervalSec) ~= "number" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddClocker Para Error"))
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddClocker Para Error")
 		return
     end
 
@@ -78,7 +78,7 @@ function LuaNFrame.AddClocker(luaFunc, sec, intervalSec, nCallCount, dataStr)
 	if nCallCount == nil then
 		nCallCount = 0;
 	elseif type(nCallCount) ~= "number" then
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("AddClocker Para Error:nCallCount is not number"))
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddClocker Para Error:nCallCount is not number")
 		return
 	end
 
@@ -94,7 +94,7 @@ function LuaNFrame.DispatchTimer(timeId, luaFunc, dataStr)
 	local status, msg = xpcall (timerExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchTimer error, func:"..luaFunc.." param:"..tostring(dataStr), msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchTimer error, func:"..__G__FUNCTION__(luaFunc).." param:"..tostring(dataStr), msg)
     end
 end
 

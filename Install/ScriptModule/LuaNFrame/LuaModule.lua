@@ -1,7 +1,7 @@
 function register_module(tbl, name)
 	local tmp = {tbl = tbl, tblName = name}
 	table.insert(LuaNFrame.ScriptList, tmp)
-	LuaNFrame.Info(NFLogId.NF_LOG_SYSTEMLOG, 0, "load module:" .. name)
+	LuaNFrame.InfoWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "load module:" .. name)
 end
 
 
@@ -16,7 +16,7 @@ function LuaNFrame.InsertLoadFunc(func)
 	if type(func) == "function" then
     	table.insert(LuaNFrame.LoadScriptList, func)
 	else
-		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, "InsertLoadFunc failed")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "InsertLoadFunc failed")
 	end
 end
 

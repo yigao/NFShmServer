@@ -17,9 +17,11 @@ end
 
 function __G__FUNCTION__(luaFunc)
     if CPPNFrame:IsDebug() then
-        return ""
+        --local info = debug.getinfo(luaFunc)
+        --return info.short_src
+        return "luaFunc"
     else
-        return ""
+        return "NoLuaFunc"
     end
 end
 
@@ -124,20 +126,24 @@ function CPPNFrame:SetFlushOn(level)
     self.luaModule:SetFlushOn(level)
 end
 
-function CPPNFrame:Debug(logId, guid, str)
-	self.luaModule:LuaDebug(logId, guid, str)
+function CPPNFrame:Trace(logId, guid, file, line, func, str)
+	self.luaModule:LuaTrace(logId, guid, file, line, func, str)
 end
 
-function CPPNFrame:Info(logId, guid, str)
-	self.luaModule:LuaInfo(logId, guid, str)
+function CPPNFrame:Debug(logId, guid, file, line, func, str)
+	self.luaModule:LuaDebug(logId, guid, file, line, func, str)
 end
 
-function CPPNFrame:Warn(logId, guid, str)
-	self.luaModule:LuaWarn(logId, guid, str)
+function CPPNFrame:Info(logId, guid, file, line, func, str)
+	self.luaModule:LuaInfo(logId, guid, file, line, func, str)
 end
 
-function CPPNFrame:Error(logId, guid, str)
-    self.luaModule:LuaError(logId, guid, str)
+function CPPNFrame:Warn(logId, guid, file, line, func, str)
+	self.luaModule:LuaWarn(logId, guid, file, line, func, str)
+end
+
+function CPPNFrame:Error(logId, guid, file, line, func, str)
+    self.luaModule:LuaError(logId, guid, file, line, func, str)
 end
 
 function CPPNFrame:BeginProfiler(name)

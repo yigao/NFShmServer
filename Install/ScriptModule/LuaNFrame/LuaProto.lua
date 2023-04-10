@@ -27,52 +27,43 @@ end
  -- 载入刚才编译的pb文件
 function LuaNFrame.LoadPbFile(pbfile)
     if type(pbfile) ~= "string" then
-        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "LuaNFrame.LoadPbFile Failed, param pbfile is not string, can't load")
+        LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0,  3, "LuaNFrame.LoadPbFile Failed, param pbfile is not string, can't load")
         assert(false)
     end
 
     local result = LuaNFrame.pb.loadfile(pbfile)
     if result == nil or result == false then
-        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "LuaNFrame.LoadPbFile Failed, can 't load file fail:"..pbfile)
+        LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0,  3, "LuaNFrame.LoadPbFile Failed, can 't load file fail:"..pbfile)
         assert(false)
     end
 end
 
 function LuaNFrame.Decode(msgtype, msgdata_buffer)
-    if type(msgtype) ~= "string" then
-        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "msgtype param is not string")
-        return nil
-    end
-
-    if type(msgdata_buffer) ~= "string" then
-        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "msgdata_buffer param is not string")
-        return nil
-    end
-
     return LuaNFrame.pb.decode(msgtype, msgdata_buffer)
 end
 
 function LuaNFrame.DecodePackage(msgtype,  dataPackage)
+    if type(msgtype) ~= "string" then
+        LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0,  3, "msgtype param is not string")
+        return nil
+    end
+
+    local result = type(dataPackage)
+    if result ~= "userdata" then
+        LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0,  3, "dataPackage param is not string")
+        return nil
+    end
+
     local data = LuaNFrame.Decode(msgtype, dataPackage:GetData())
     if data == nil then
-        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "LuaNFrame.DecodePackage Fail,  package:"..dataPackage:ToString())
+        LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0,  3, "LuaNFrame.DecodePackage Fail,  package:"..dataPackage:ToString())
     else
-        LuaNFrame.Debug(NF_LOG_SYSTEMLOG, 0, LuaNFrame.serpent.block(ata))
+        LuaNFrame.DebugWithThread(NF_LOG_SYSTEMLOG, 0, 3, LuaNFrame.serpent.block(data))
     end
     return data
 end
 
 function LuaNFrame.Encode(msgtype, msgdata)
-    if type(msgtype) ~= "string" then
-        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "msgtype param is not string")
-        return nil
-    end
-
-    if type(msgdata) ~= "string" then
-        LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0,  "msgdata param is not string")
-        return nil
-    end
-
     return LuaNFrame.pb.encode(msgtype, msgdata)
 end
 

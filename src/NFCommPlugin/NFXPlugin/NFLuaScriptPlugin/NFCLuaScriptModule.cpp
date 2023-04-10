@@ -236,27 +236,6 @@ uint64_t NFCLuaScriptModule::GetSecTime() const
     return NFTime::Now().UnixSec();
 }
 
-void NFCLuaScriptModule::LuaDebug(uint32_t logId, uint64_t guid, const std::string &str)
-{
-    NFLogDebug(logId, guid, "{}", str);
-}
-
-void NFCLuaScriptModule::LuaInfo(uint32_t logId, uint64_t guid, const std::string &str)
-{
-    NFLogInfo(logId, guid, "{}", str);
-}
-
-void NFCLuaScriptModule::LuaWarn(uint32_t logId, uint64_t guid, const std::string &str)
-{
-    NFLogWarning(logId, guid, "{}", str);
-}
-
-void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::string &str)
-{
-    NFLogError(logId, guid, "{}", str);
-}
-
-
 void NFCLuaScriptModule::BeginProfiler(const std::string &funcName)
 {
     m_pObjPluginManager->BeginProfiler(funcName);
@@ -305,6 +284,7 @@ bool NFCLuaScriptModule::Register()
             .addFunction("StopTimer", &NFCLuaScriptModule::StopTimer)
             .addFunction("AddClocker", &NFCLuaScriptModule::AddClocker)
             .addFunction("StopClocker", &NFCLuaScriptModule::StopClocker)
+            .addFunction("LuaTrace", &NFCLuaScriptModule::LuaTrace)
             .addFunction("LuaDebug", &NFCLuaScriptModule::LuaDebug)
             .addFunction("LuaInfo", &NFCLuaScriptModule::LuaInfo)
             .addFunction("LuaWarn", &NFCLuaScriptModule::LuaWarn)
