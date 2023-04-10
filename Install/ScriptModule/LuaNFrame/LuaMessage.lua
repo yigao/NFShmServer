@@ -654,7 +654,6 @@ function LuaNFrame.SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id
 		return
     end
 
-
 	if type(nMsgType) ~= "string" then
 		LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, __G__TRACKBACK__("nMsgType Para Error"))
 		return
