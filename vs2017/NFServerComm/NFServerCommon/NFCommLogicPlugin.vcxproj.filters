@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFCommLogicModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFCommLogicPlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFConstDesc.cpp" />
+    <ClCompile Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFNameDesc.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFCommLogicModule.h" />
+    <ClInclude Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFCommLogicPlugin.h" />
+    <ClInclude Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFConstDesc.h" />
+    <ClInclude Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFNameDesc.h" />
+  </ItemGroup>
+</Project>
