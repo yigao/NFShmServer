@@ -18,23 +18,12 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFCommLogicModule.cpp" />
-    <ClCompile Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFCommLogicPlugin.cpp" />
-    <ClCompile Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFConstDesc.cpp" />
-    <ClCompile Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFNameDesc.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFCommLogicModule.h" />
-    <ClInclude Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFCommLogicPlugin.h" />
-    <ClInclude Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFConstDesc.h" />
-    <ClInclude Include="..\..\..\src\NFServer\NFCommLogic\NFCommLogicPlugin\NFNameDesc.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{057FC0B6-0CEF-47D5-B0AB-6A8EA8ED5150}</ProjectGuid>
     <RootNamespace>NFCommLogicPlugin</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>NFDescStorePlugin</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
