@@ -638,7 +638,7 @@ protected:
     void _M_fill_assign(size_type __n, const Tp &__val);
 
     template<class _Integer>
-    void _M_initialize_aux(_Integer __n, _Integer __value, std::__true_type)
+    void _M_initialize_aux(_Integer __n, _Integer __value, std::true_type)
     {
         if (__n > max_size())
         {
@@ -653,7 +653,7 @@ protected:
 
     template<class _InputIterator>
     void _M_initialize_aux(_InputIterator __first, _InputIterator __last,
-                           std::__false_type)
+                           std::false_type)
     {
         _M_range_initialize(__first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
     }
@@ -700,13 +700,13 @@ protected:
 
 
     template<class _Integer>
-    void _M_assign_dispatch(_Integer __n, _Integer __val, std::__true_type)
+    void _M_assign_dispatch(_Integer __n, _Integer __val, std::true_type)
     {
         _M_fill_assign((size_type) __n, (Tp) __val);
     }
 
     template<class _InputIter>
-    void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::__false_type)
+    void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::false_type)
     {
         _M_assign_aux(__first, __last, typename std::iterator_traits<_InputIter>::iterator_category());
     }
@@ -721,7 +721,7 @@ protected:
 
     template<class _Integer>
     void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __val,
-                            std::__true_type)
+                            std::true_type)
     {
         _M_fill_insert(__pos, (size_type) __n, (Tp) __val);
     }
@@ -729,7 +729,7 @@ protected:
     template<class _InputIterator>
     void _M_insert_dispatch(iterator __pos,
                             _InputIterator __first, _InputIterator __last,
-                            std::__false_type)
+                            std::false_type)
     {
         _M_range_insert(__pos, __first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
     }

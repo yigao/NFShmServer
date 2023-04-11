@@ -685,7 +685,7 @@ public:
 
 protected:
     template<class _Integer>
-    void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __x, std::__true_type)
+    void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __x, std::true_type)
     {
         _M_fill_insert(__pos, (size_type) __n, (Tp) __x);
     }
@@ -693,15 +693,15 @@ protected:
     template<class _InputIterator>
     void _M_insert_dispatch(iterator __pos,
                             _InputIterator __first, _InputIterator __last,
-                            __false_type);
+                            false_type);
 
 
     template<class _Integer>
-    void _M_assign_dispatch(_Integer __n, _Integer __val, __true_type) { _M_fill_assign((size_type) __n, (Tp) __val); }
+    void _M_assign_dispatch(_Integer __n, _Integer __val, true_type) { _M_fill_assign((size_type) __n, (Tp) __val); }
 
     template<class _InputIterator>
     void _M_assign_dispatch(_InputIterator __first, _InputIterator __last,
-                            __false_type);
+                            false_type);
 
     void _M_fill_assign(size_type __n, const Tp &__val);
 
@@ -737,7 +737,7 @@ template<class _Tp, size_t MAX_SIZE>
 template<class _InputIter>
 void NFShmList<_Tp, MAX_SIZE>::_M_insert_dispatch(iterator __position,
                                                   _InputIter __first, _InputIter __last,
-                                                  std::__false_type)
+                                                  std::false_type)
 {
     for (; __first != __last; ++__first)
         insert(__position, *__first);
@@ -823,7 +823,7 @@ template<class _Tp, size_t MAX_SIZEc>
 template<class _InputIter>
 void
 NFShmList<_Tp, MAX_SIZEc>::_M_assign_dispatch(_InputIter __first2, _InputIter __last2,
-                                              std::__false_type)
+                                              std::false_type)
 {
     iterator __first1 = begin();
     iterator __last1 = end();
