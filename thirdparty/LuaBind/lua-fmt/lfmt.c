@@ -1,6 +1,6 @@
 #define LUA_LIB
-#include "lua/lua.h"
-#include "lua/lauxlib.h"
+#include "lua.h"
+#include "lauxlib.h"
 
 #include <string.h>
 #include <float.h>
