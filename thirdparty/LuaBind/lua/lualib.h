@@ -74,6 +74,9 @@ LUALIB_API int (luaopen_pb_slice)(lua_State *L);
 #define LUA_LUA_PB "pb"
 LUALIB_API int (luaopen_pb)(lua_State *L);
 
+#define LUA_LUA_FMT "fmt"
+LUALIB_API int luaopen_fmt(lua_State *L);
+
 #define LUA_LUA_PB_UNSAFE "pb_unsafe"
 LUALIB_API int (luaopen_pb_unsafe)(lua_State *L);
 

@@ -12,6 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "common/spdlog/fmt/fmt.h"
 #include "NFILogModule.h"
+#include "NFComm/NFCore/NFSnprintf.h"
 
 class NFLogMgr : public NFSingleton<NFLogMgr>
 {
@@ -60,6 +61,15 @@ public:
     virtual void LogDefault(NF_LOG_LEVEL log_level, const NFSourceLoc& loc, uint32_t logId, uint64_t guid, const std::string& log)
     {
         m_pLogModule->LogDefault((NF_LOG_LEVEL)log_level, loc, logId, guid, log);
+    }
+
+    virtual void LogFormat(NF_LOG_LEVEL log_level, const NFSourceLoc& loc, uint32_t logId, uint64_t guid, const char *fmt, ...)
+    {
+        va_list ap;
+        va_start(ap, fmt);
+        NFSafeVsnprintf(m_format, sizeof(m_format), fmt, ap);  // 调用 NFSafeVsnprintf
+        va_end(ap);
+        m_pLogModule->LogDefault((NF_LOG_LEVEL)log_level, loc, logId, guid, m_format);
     }
 
     /**
@@ -129,6 +139,7 @@ public:
         return true;
     }
 protected:
+    char m_format[1024];
 	NFILogModule* m_pLogModule;
 };
 

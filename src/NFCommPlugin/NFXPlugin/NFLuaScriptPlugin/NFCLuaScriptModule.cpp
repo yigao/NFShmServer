@@ -284,6 +284,8 @@ bool NFCLuaScriptModule::Register()
             .addFunction("StopTimer", &NFCLuaScriptModule::StopTimer)
             .addFunction("AddClocker", &NFCLuaScriptModule::AddClocker)
             .addFunction("StopClocker", &NFCLuaScriptModule::StopClocker)
+            .addFunction("SetLogLevel", &NFCLuaScriptModule::SetLogLevel)
+            .addFunction("SetFlushOn", &NFCLuaScriptModule::SetFlushOn)
             .addFunction("LuaTrace", &NFCLuaScriptModule::LuaTrace)
             .addFunction("LuaDebug", &NFCLuaScriptModule::LuaDebug)
             .addFunction("LuaInfo", &NFCLuaScriptModule::LuaInfo)
@@ -543,7 +545,7 @@ void NFCLuaScriptModule::UpdateMonth()
 
 bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc)
 {
-    CHECK_EXPR(luaFunc.isFunction(), false, "RegisterServerMessage Lua Func Fail, is not a function");
+    CHECK_EXPR(luaFunc.isFunction(), false, "RegisterClientMessage Lua Func Fail, is not a function");
 
     if (NFIDynamicModule::RegisterClientMessage(eType, nMsgID))
     {
@@ -733,4 +735,75 @@ int NFCLuaScriptModule::SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMs
                                                 uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_SNS_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
+}
+
+void NFCLuaScriptModule::SetLogLevel(uint32_t level)
+{
+    NFLogMgr::Instance()->SetDefaultLevel((NF_LOG_LEVEL)level);
+}
+
+void NFCLuaScriptModule::SetFlushOn(uint32_t level)
+{
+    NFLogMgr::Instance()->SetDefaultFlush((NF_LOG_LEVEL)level);
+}
+
+void NFCLuaScriptModule::LuaTrace(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+{
+#ifdef _WIN32
+    std::string tempFile = "\\" + file;
+        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
+#else
+    std::string tempFile = "/" + file;
+    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+#endif
+
+    NFLogMgr::Instance()->LogDefault(NLL_TRACE_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
+}
+
+void NFCLuaScriptModule::LuaDebug(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+{
+#ifdef _WIN32
+    std::string tempFile = "\\" + file;
+        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
+#else
+    std::string tempFile = "/" + file;
+    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+#endif
+    NFLogMgr::Instance()->LogDefault(NLL_DEBUG_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
+}
+
+void NFCLuaScriptModule::LuaInfo(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+{
+#ifdef _WIN32
+    std::string tempFile = "\\" + file;
+        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
+#else
+    std::string tempFile = "/" + file;
+    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+#endif
+    NFLogMgr::Instance()->LogDefault(NLL_INFO_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
+}
+
+void NFCLuaScriptModule::LuaWarn(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+{
+#ifdef _WIN32
+    std::string tempFile = "\\" + file;
+        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
+#else
+    std::string tempFile = "/" + file;
+    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+#endif
+    NFLogMgr::Instance()->LogDefault(NLL_WARING_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
+}
+
+void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+{
+#ifdef _WIN32
+    std::string tempFile = "\\" + file;
+        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
+#else
+    std::string tempFile = "/" + file;
+    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+#endif
+    NFLogMgr::Instance()->LogDefault(NLL_ERROR_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }

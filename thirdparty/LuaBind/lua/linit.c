@@ -65,6 +65,7 @@ static const luaL_Reg loadedlibs[] = {
   { LUA_LUA_PB_BUFFER, luaopen_pb_buffer },
   { LUA_LUA_PB_SLICE, luaopen_pb_slice },
   { LUA_LUA_PB, luaopen_pb },
+  { LUA_LUA_FMT, luaopen_fmt },
   { LUA_LUA_PB_UNSAFE, luaopen_pb_unsafe },
   { NULL, NULL }
 };

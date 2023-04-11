@@ -58,7 +58,7 @@ function LuaNFrame.DecodePackage(msgtype,  dataPackage)
     if data == nil then
         LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0,  3, "LuaNFrame.DecodePackage Fail,  package:"..dataPackage:ToString())
     else
-        LuaNFrame.DebugWithThread(NF_LOG_SYSTEMLOG, 0, 3, LuaNFrame.serpent.block(data))
+        LuaNFrame.TraceWithThread(NF_LOG_SYSTEMLOG, 0, 3, LuaNFrame.serpent.block(data))
     end
     return data
 end

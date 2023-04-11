@@ -18,6 +18,7 @@ AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/luacjson SRC)
 AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/protoc-gen-lua SRC)
 AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/lua_protobuf SRC)
 AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/luafilesystem SRC)
+AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/lua-fmt SRC)
 
 AUX_SOURCE_DIRECTORY(../../thirdparty/common/hiredis/hiredis_linux/hiredis SRC)
 AUX_SOURCE_DIRECTORY(../../thirdparty/common/hwinfo/source/linux SRC)

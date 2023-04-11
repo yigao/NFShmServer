@@ -27,6 +27,8 @@ NF_LOG_PROTOBUF_PARSE = 6;				--protobuf解析出错
 NF_LOG_PLUGIN_MANAGER = 7;			--引擎加载器
 NF_LOG_MAX_ID = 100; --最大LOGID
 
+LuaNFrame.fmt = require "fmt"
+
 --设置LOG等级
 function LuaNFrame.SetLogLevel(level)
     CPPNFrame:SetLogLevel(level)
@@ -180,17 +182,17 @@ function LuaNFrame.ErrorWithThread(logId, guid, thread, ...)
 end
 
 function LuaNFrame.Trace(logId, guid, ...)
-	LuaNFrame.TraceWithThread(logId, guid, 3, ...)
+	LuaNFrame.TraceWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end
 
 function LuaNFrame.Debug(logId, guid, ...)
-	LuaNFrame.DebugWithThread(logId, guid, 3, ...)
+	LuaNFrame.DebugWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end
 
 function LuaNFrame.Info(logId, guid, ...)
-	LuaNFrame.InfoWithThread(logId, guid, 3, ...)
+	LuaNFrame.InfoWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end
 
 function LuaNFrame.Error(logId, guid, ...)
-	LuaNFrame.ErrorWithThread(logId, guid, 3, ...)
+	LuaNFrame.ErrorWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end

@@ -69,11 +69,16 @@ function LuaNFrame.InitScript(luaModule)
 	--初始化热更
 	NFLuaReload.Init()
 
+
+
 	if type(LuaNFrame.Platform) == 'function' then
 		g_platfrom = LuaNFrame.Platform()    --from C++ always is 'win32' or 'linux'
 	end
 
 	local function timerExecute()
+		LuaNFrame.SetLogLevel(NF_LOG_LEVEL_TRACE)
+		LuaNFrame.SetFlushOn(NF_LOG_LEVEL_TRACE)
+
 		if LuaNFrame.GetAppName() == "AllServer" then
 			LoadLuaFile("../../ScriptModule/MMO", true)
 		else

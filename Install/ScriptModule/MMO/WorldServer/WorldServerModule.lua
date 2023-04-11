@@ -12,11 +12,11 @@ function WorldServerModule.HandleMsg(msgId, packet, param1, param2)
         WorldServerModule.serverIdMap[xMsg.server_id] = xMsg.seq
     else
         if WorldServerModule.serverIdMap[xMsg.server_id] + 1 ~= xMsg.seq then
-            --LuaNFrame.Error(NF_LOG_SYSTEMLOG, 0, "serverId:{} serverName:{} last_seq:{} seq:{} Error", xMsg.server_id, xMsg.server_name, WorldServerModule.serverIdMap[xMsg.server_id] , xMsg.seq)
-            LuaNFrame.Error(NF_LOG_SYSTEMLOG, 0, "serverId"..xMsg.server_id.." serverName:"..xMsg.server_name.." last_seq:".. WorldServerModule.serverIdMap[xMsg.server_id].." seq:"..xMsg.seq)
+            LuaNFrame.Error(NF_LOG_SYSTEMLOG, 0, "serverId:{} serverName:{} last_seq:{} seq:{} Error", xMsg.server_id, xMsg.server_name, WorldServerModule.serverIdMap[xMsg.server_id] , xMsg.seq)
         end
         WorldServerModule.serverIdMap[xMsg.server_id] = xMsg.seq
     end
+
     local xData = LuaNFrame.Defaults("proto_ff.Proto_TestSendWorldMsgToOtherServer")
     xData.seq = xMsg.seq;
     LuaNFrame.SendMsgToLogicServer(NF_ST_WORLD_SERVER,  packet:GetSrcId(), 0,"NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ", "proto_ff.Proto_TestOtherServerToWorldServer", xData, 3, 4);

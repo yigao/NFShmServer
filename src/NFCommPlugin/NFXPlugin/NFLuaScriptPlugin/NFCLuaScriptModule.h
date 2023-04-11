@@ -253,67 +253,15 @@ public:
 	virtual std::string Base64Decode(const std::string& s);
 	virtual uint64_t GetMsecTime() const;
 	virtual uint64_t GetSecTime() const;
-
-    void LuaTrace(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
-    {
-#ifdef _WIN32
-        std::string tempFile = "\\" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
-#else
-        std::string tempFile = "/" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
-#endif
-
-        NFLogMgr::Instance()->LogDefault(NLL_TRACE_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
-    }
-
-    void LuaDebug(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
-    {
-#ifdef _WIN32
-        std::string tempFile = "\\" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
-#else
-        std::string tempFile = "/" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
-#endif
-        NFLogMgr::Instance()->LogDefault(NLL_DEBUG_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
-    }
-
-    void LuaInfo(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
-    {
-#ifdef _WIN32
-        std::string tempFile = "\\" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
-#else
-        std::string tempFile = "/" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
-#endif
-        NFLogMgr::Instance()->LogDefault(NLL_INFO_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
-    }
-
-    void LuaWarn(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
-    {
-#ifdef _WIN32
-        std::string tempFile = "\\" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
-#else
-        std::string tempFile = "/" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
-#endif
-        NFLogMgr::Instance()->LogDefault(NLL_WARING_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
-    }
-
-    void LuaError(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
-    {
-#ifdef _WIN32
-        std::string tempFile = "\\" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
-#else
-        std::string tempFile = "/" + file;
-        const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
-#endif
-        NFLogMgr::Instance()->LogDefault(NLL_ERROR_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
-    }
+public:
+    void SetLogLevel(uint32_t level);
+    void SetFlushOn(uint32_t level);
+    void LuaTrace(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
+    void LuaDebug(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
+    void LuaInfo(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
+    void LuaWarn(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
+    void LuaError(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
+public:
 
 	virtual void BeginProfiler(const std::string& luaFunc);
 	virtual uint64_t EndProfiler();//return this time cost time(us) 微妙
