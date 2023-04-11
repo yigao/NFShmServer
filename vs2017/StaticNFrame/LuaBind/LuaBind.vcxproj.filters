@@ -22,6 +22,9 @@
     <Filter Include="protoc-gen-lua">
       <UniqueIdentifier>{5b3b5163-1075-47ea-b522-b16a2610d8b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lua_fmt">
+      <UniqueIdentifier>{6d374f89-3868-4042-a2a6-370d96f4d32b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lpcap.c">
@@ -158,6 +161,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\thirdparty\LuaBind\protoc-gen-lua\gen_pb.c">
       <Filter>protoc-gen-lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua-fmt\lfmt.c">
+      <Filter>lua_fmt</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

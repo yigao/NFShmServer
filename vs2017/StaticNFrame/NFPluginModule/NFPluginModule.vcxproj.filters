@@ -21,7 +21,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFBufferPool.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFChunkPool.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCLuaScriptModule.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCommLogic.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFCoroutineTask.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFPluginModule\NFError.cpp" />
@@ -76,7 +75,6 @@
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFBufferPool.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCheck.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFChunkPool.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCLuaScriptModule.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCodeQueue.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFCommLogic.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFPluginModule\NFConfigDefine.h" />

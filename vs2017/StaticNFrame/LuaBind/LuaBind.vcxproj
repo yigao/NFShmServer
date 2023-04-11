@@ -16,6 +16,7 @@
     <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lpprint.c" />
     <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lptree.c" />
     <ClCompile Include="..\..\..\thirdparty\LuaBind\lpeg\lpvm.c" />
+    <ClCompile Include="..\..\..\thirdparty\LuaBind\lua-fmt\lfmt.c" />
     <ClCompile Include="..\..\..\thirdparty\LuaBind\luacjson\dtoa.c" />
     <ClCompile Include="..\..\..\thirdparty\LuaBind\luacjson\g_fmt.c" />
     <ClCompile Include="..\..\..\thirdparty\LuaBind\luacjson\lua_cjson.c" />

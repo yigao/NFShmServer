@@ -13,7 +13,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\NFPluginLoader\dllmain.cpp" />
     <ClCompile Include="..\..\src\NFPluginLoader\NFCLoadStaticPlugin.cpp" />
-    <ClCompile Include="NFFrame.cpp" />
+    <ClCompile Include="..\..\src\NFPluginLoader\NFFrame.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
