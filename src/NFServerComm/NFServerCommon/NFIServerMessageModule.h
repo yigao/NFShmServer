@@ -26,7 +26,7 @@
 #include <unordered_set>
 
 //#define TEST_SERVER_SEND_MSG
-#define TEST_SERVER_SEND_MSG_FRAME_COUNT 10
+#define TEST_SERVER_SEND_MSG_FRAME_COUNT 1
 
 /// @brief 基于消息的通讯接口类
 class NFIServerMessageModule : public NFIDynamicModule

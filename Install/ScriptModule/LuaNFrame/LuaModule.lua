@@ -28,26 +28,10 @@ function LuaNFrame.Init()
 	end
 end
 
-function LuaNFrame.AfterInit()
-	for i=1, #(LuaNFrame.ScriptList) do
-		if (LuaNFrame.ScriptList[i].tbl.AfterInit ~= nil) then
-			LuaNFrame.ScriptList[i].tbl.AfterInit();
-		end
-	end
-end
-
 function LuaNFrame.Execute()
 	for i=1, #(LuaNFrame.ScriptList) do
 		if ((LuaNFrame.ScriptList[i].tbl.Execute) ~= nil) then
 			LuaNFrame.ScriptList[i].tbl.Execute();
-		end
-	end
-end
-
-function LuaNFrame.BeforeShut()
-	for i=1, #(LuaNFrame.ScriptList) do
-		if ((LuaNFrame.ScriptList[i].tbl.BeforeShut)~= nil) then
-			LuaNFrame.ScriptList[i].tbl.BeforeShut();
 		end
 	end
 end

@@ -17,22 +17,17 @@ function WorldServerModule.HandleMsg(msgId, packet, param1, param2)
         WorldServerModule.serverIdMap[xMsg.server_id] = xMsg.seq
     end
 
+    LuaNFrame.Info(NF_LOG_SYSTEMLOG, 0, "{} serverId:{} serverName:{} last_seq:{} seq:{}",  pServerConfig, xMsg.server_id, xMsg.server_name, WorldServerModule.serverIdMap[xMsg.server_id] , xMsg.seq)
+    local pServerConfig = LuaNFrame.GetAppConfig(NF_ST_WORLD_SERVER)
+
     local xData = LuaNFrame.Defaults("proto_ff.Proto_TestSendWorldMsgToOtherServer")
     xData.seq = xMsg.seq;
+    xData.server_id = pServerConfig:GetServerId()
+    xData.server_name = pServerConfig:GetServerName()
     LuaNFrame.SendMsgToLogicServer(NF_ST_WORLD_SERVER,  packet:GetSrcId(), 0,"NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ", "proto_ff.Proto_TestOtherServerToWorldServer", xData, 3, 4);
 end
 
-
-function WorldServerModule.AfterInit()
-
-end
-
-
 function WorldServerModule.Execute()
-
-end
-
-function WorldServerModule.BeforeShut()
 
 end
 

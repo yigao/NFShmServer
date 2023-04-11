@@ -48,6 +48,18 @@ function CPPNFrame:IsDebug()
     return self.luaModule:IsDebug()
 end
 
+function CPPNFrame:IsInited()
+    return self.luaModule:IsInited()
+end
+
+function CPPNFrame:IsServerStopping()
+    return self.luaModule:IsServerStopping()
+end
+
+function CPPNFrame:GetAppConfig(serverType)
+    return self.luaModule:GetAppConfig(serverType)
+end
+
 --添加服务器定时器, 返回定时器ID
 function CPPNFrame:AddTimer(luaFunc, nInterVal, nCallCount, dataStr)
     return self.luaModule:AddTimer(luaFunc, nInterVal, nCallCount, dataStr)

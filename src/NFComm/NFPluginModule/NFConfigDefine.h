@@ -69,5 +69,14 @@ public:
         }
 	}
 
+    std::string GetServerId() const { return ServerId; }
+    std::string GetServerName() const { return ServerName; }
+    uint32_t GetBusId() const { return BusId; }
+    uint64_t GetServerOpenTime() const { return ServerOpenTime; }
+    std::string GetDefaultDBName() const { return DefaultDBName; }
+    std::string GetCrossDBName() const { return CrossDBName; }
+    uint32_t GetMaxOnlinePlayerNum() const { return MaxOnlinePlayerNum; }
+    uint32_t GetHeartBeatTimeout() const { return HeartBeatTimeout; }
+    uint32_t GetClientKeepAliveTimeout() const { return ClientKeepAliveTimeout; }
     std::unordered_map<std::string, uint32_t> mTBConfMap;
 };

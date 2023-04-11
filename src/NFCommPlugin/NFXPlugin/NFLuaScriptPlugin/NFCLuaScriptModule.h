@@ -132,19 +132,17 @@ public:
     NFCLuaScriptModule(NFIPluginManager* p);
     virtual ~NFCLuaScriptModule();
 public:
-
+    virtual bool Awake() override;
     virtual bool Init() override;
-    virtual bool AfterInit();
-	virtual bool ReadyExecute() override;
 
     virtual bool Execute() override;
 
-    virtual bool BeforeShut() override;
     virtual bool Shut() override;
     virtual bool Finalize() override;
 
 	virtual int OnTimer(uint32_t nTimerID) override;
 
+    virtual bool OnReloadConfig() override;
 public:
 	virtual void SessionReport(uint64_t playerId, const std::string& report) override;
 	virtual void SessionClose(uint64_t playerId) override;
@@ -266,14 +264,17 @@ public:
 	virtual void BeginProfiler(const std::string& luaFunc);
 	virtual uint64_t EndProfiler();//return this time cost time(us) 微妙
 
-	virtual void ReloadAllLuaFiles() override;
-	virtual void ReloadLuaFiles() override;
-	virtual void ReloadLuaFiles(const std::vector<std::string>& vecStr) override;
+	virtual void ReloadAllLuaFiles();
+	virtual void ReloadLuaFiles();
+	virtual void ReloadLuaFiles(const std::vector<std::string>& vecStr);
 
 	virtual std::string Sha256(const std::string& s);
 	virtual std::string Platform();
 	virtual bool IsThreadModule();
     virtual bool IsDebug();
+    virtual bool IsInited();
+    virtual bool IsServerStopping();
+    virtual NFServerConfig* GetAppConfig(uint32_t serverType);
 public:
     bool Register();
 	void LoadScript();

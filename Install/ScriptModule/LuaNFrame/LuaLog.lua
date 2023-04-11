@@ -153,6 +153,34 @@ function LuaNFrame.InfoWithThread(logId, guid, thread, ...)
 	end
 end
 
+function LuaNFrame.WarnWithThread(logId, guid, thread, ...)
+	if LuaNFrame.IsDebug() then
+		if type(logId) == nil then
+			logId = NFLogId.NF_LOG_SYSTEMLOG
+		elseif type(logId) ~= "number" then
+			logId = tonumber(logId)
+		end
+		if type(guid) == nil then
+			guid = 0
+		elseif type(guid) ~= "number" then
+			guid = tonumber(guid)
+		end
+		local cStackInfo = debug.getinfo(thread, "Sl")
+		local cName = debug.getinfo(thread, "n")
+		if cStackInfo ~= nil  and cStackInfo.short_src ~= nil and  cStackInfo.currentline ~= nil  then
+			if cName ~= nil and cName.name ~= nil then
+				CPPNFrame:Warn(logId, guid, cStackInfo.short_src, cStackInfo.currentline, cName.name, tostring(...))
+			else
+				CPPNFrame:Warn(logId, guid, cStackInfo.short_src, cStackInfo.currentline,  "NoLuaFunc", tostring(...))
+			end
+		else
+			CPPNFrame:Warn(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
+		end
+	else
+			CPPNFrame:Warn(logId, guid, "NoLuaFile", 0, "NoLuaFunc", tostring(...))
+	end
+end
+
 function LuaNFrame.ErrorWithThread(logId, guid, thread, ...)
 	if LuaNFrame.IsDebug() then
 		if type(logId) == nil then
@@ -191,6 +219,10 @@ end
 
 function LuaNFrame.Info(logId, guid, ...)
 	LuaNFrame.InfoWithThread(logId, guid, 3, LuaNFrame.fmt(...))
+end
+
+function LuaNFrame:Warn(logId, guid, ...)
+	LuaNFrame.WarnWithThread(logId, guid, 3, LuaNFrame.fmt(...))
 end
 
 function LuaNFrame.Error(logId, guid, ...)

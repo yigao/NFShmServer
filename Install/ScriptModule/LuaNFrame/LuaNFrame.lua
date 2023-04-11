@@ -164,3 +164,15 @@ end
 function LuaNFrame.EndProfiler()
     CPPNFrame:EndProfiler()
 end
+
+function LuaNFrame.IsInited()
+    return CPPNFrame:IsInited()
+end
+
+function LuaNFrame.IsServerStopping()
+    return CPPNFrame:IsServerStopping()
+end
+
+function LuaNFrame.GetAppConfig(serverType)
+    return CPPNFrame:GetAppConfig(serverType)
+end

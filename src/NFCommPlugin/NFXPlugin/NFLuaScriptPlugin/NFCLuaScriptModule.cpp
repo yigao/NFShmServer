@@ -43,9 +43,29 @@ int NFLuaTimer::OnTimer(uint32_t nTimerID)
     return 0;
 }
 
+bool NFCLuaScriptModule::Awake()
+{
+    Register();
+    LoadScript();
+    SetFixTimer(EnumLuaModule_SEC, 0, 1, INFINITY_CALL);
+    SetFixTimer(EnumLuaModule_MIN, 0, 60, INFINITY_CALL);
+    SetFixTimer(EnumLuaModule_5MIN, 0, 5 * 60, INFINITY_CALL);
+    SetFixTimer(EnumLuaModule_10MIN, 0, 10 * 60, INFINITY_CALL);
+    SetFixTimer(EnumLuaModule_30MIN, 0, 30 * 60, INFINITY_CALL);
+    SetFixTimer(EnumLuaModule_HOUR, 0, 3600, INFINITY_CALL);
+    SetFixTimer(EnumLuaModule_DAY, 0, 24 * 3600, INFINITY_CALL);
+    //一周定时器
+    SetTimer(EnumLuaModule_WEEK, NFTime::GetNextWeekRemainingTime() * 1000, 1);
+
+    //一月定时器，多加了一秒，避免定时器32ms的误差
+    uint64_t monthtime = NFTime::GetNextMonthRemainingTime() + 1;
+    SetTimer(EnumLuaModule_MONTH, monthtime * 1000, 1);
+    return true;
+}
+
 bool NFCLuaScriptModule::Init()
 {
-    SetTimer(EnumLuaModule_INIT, 1000, INFINITY_CALL);
+    TryRunGlobalScriptFunc("LuaNFrame.Init");
     return true;
 }
 
@@ -56,26 +76,7 @@ int NFCLuaScriptModule::OnTimer(uint32_t nTimerID)
         return 0;
     }
 
-    if (nTimerID == EnumLuaModule_INIT)
-    {
-        KillTimer(nTimerID);
-        Register();
-        LoadScript();
-        SetFixTimer(EnumLuaModule_SEC, 0, 1, INFINITY_CALL);
-        SetFixTimer(EnumLuaModule_MIN, 0, 60, INFINITY_CALL);
-        SetFixTimer(EnumLuaModule_5MIN, 0, 5 * 60, INFINITY_CALL);
-        SetFixTimer(EnumLuaModule_10MIN, 0, 10 * 60, INFINITY_CALL);
-        SetFixTimer(EnumLuaModule_30MIN, 0, 30 * 60, INFINITY_CALL);
-        SetFixTimer(EnumLuaModule_HOUR, 0, 3600, INFINITY_CALL);
-        SetFixTimer(EnumLuaModule_DAY, 0, 24 * 3600, INFINITY_CALL);
-        //一周定时器
-        SetTimer(EnumLuaModule_WEEK, NFTime::GetNextWeekRemainingTime() * 1000, 1);
-
-        //一月定时器，多加了一秒，避免定时器32ms的误差
-        uint64_t monthtime = NFTime::GetNextMonthRemainingTime() + 1;
-        SetTimer(EnumLuaModule_MONTH, monthtime * 1000, 1);
-    }
-    else if (nTimerID == EnumLuaModule_SEC)
+    if (nTimerID == EnumLuaModule_SEC)
     {
         UpdateSec();
     }
@@ -114,18 +115,15 @@ int NFCLuaScriptModule::OnTimer(uint32_t nTimerID)
     return 0;
 }
 
-bool NFCLuaScriptModule::AfterInit()
+bool NFCLuaScriptModule::OnReloadConfig()
 {
-    return true;
-}
-
-bool NFCLuaScriptModule::ReadyExecute()
-{
+    ReloadAllLuaFiles();
     return true;
 }
 
 bool NFCLuaScriptModule::Shut()
 {
+    TryRunGlobalScriptFunc("LuaNFrame.Shut");
     return true;
 }
 
@@ -166,11 +164,6 @@ bool NFCLuaScriptModule::Execute()
         }
         iter++;
     }
-    return true;
-}
-
-bool NFCLuaScriptModule::BeforeShut()
-{
     return true;
 }
 
@@ -255,6 +248,18 @@ std::string NFCLuaScriptModule::Sha256(const std::string &s)
 
 bool NFCLuaScriptModule::Register()
 {
+    LuaIntf::LuaBinding(*m_pLuaContext).beginClass<NFServerConfig>("NFServerConfig")
+            .addFunction("GetServerId", &NFServerConfig::GetServerId)
+            .addFunction("GetServerName", &NFServerConfig::GetServerName)
+            .addFunction("GetBusId", &NFServerConfig::GetBusId)
+            .addFunction("GetServerOpenTime", &NFServerConfig::GetServerOpenTime)
+            .addFunction("GetDefaultDBName", &NFServerConfig::GetDefaultDBName)
+            .addFunction("GetCrossDBName", &NFServerConfig::GetCrossDBName)
+            .addFunction("GetMaxOnlinePlayerNum", &NFServerConfig::GetMaxOnlinePlayerNum)
+            .addFunction("GetHeartBeatTimeout", &NFServerConfig::GetHeartBeatTimeout)
+            .addFunction("GetClientKeepAliveTimeout", &NFServerConfig::GetClientKeepAliveTimeout)
+            .endClass();
+
     LuaIntf::LuaBinding(*m_pLuaContext).beginClass<NFDataPackage>("NFDataPackage")
             .addFunction("GetData", &NFDataPackage::GetData)
             .addFunction("GetSize", &NFDataPackage::GetSize)
@@ -312,6 +317,9 @@ bool NFCLuaScriptModule::Register()
             .addFunction("SendTransToLogicServer", &NFCLuaScriptModule::SendTransToLogicServer)
             .addFunction("SendMsgToSnsServer", &NFCLuaScriptModule::SendMsgToSnsServer)
             .addFunction("SendTransToSnsServer", &NFCLuaScriptModule::SendTransToSnsServer)
+            .addFunction("IsInited", &NFCLuaScriptModule::IsInited)
+            .addFunction("IsServerStopping", &NFCLuaScriptModule::IsServerStopping)
+            .addFunction("GetAppConfig", &NFCLuaScriptModule::GetAppConfig)
             .endClass();
 
     return true;
@@ -492,6 +500,21 @@ bool NFCLuaScriptModule::IsDebug()
 #else
     return false;
 #endif
+}
+
+bool NFCLuaScriptModule::IsInited()
+{
+    return m_pObjPluginManager->IsInited();
+}
+
+bool NFCLuaScriptModule::IsServerStopping()
+{
+    return m_pObjPluginManager->IsServerStopping();
+}
+
+NFServerConfig* NFCLuaScriptModule::GetAppConfig(uint32_t serverType)
+{
+    return FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
 }
 
 void NFCLuaScriptModule::UpdateSec()

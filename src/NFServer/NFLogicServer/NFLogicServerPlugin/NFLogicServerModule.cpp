@@ -67,7 +67,10 @@ bool NFCLogicServerModule::Init()
 
 bool NFCLogicServerModule::Execute()
 {
-    TestOtherServerToWorldServer();
+    if (m_pObjPluginManager->GetCurFrameCount() % 1000 == 0)
+    {
+        TestOtherServerToWorldServer();
+    }
     return true;
 }
 

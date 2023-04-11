@@ -44,15 +44,15 @@ NFLuaReload.global_objects = {
 }
 
 function hotfix_log_debug(strMsg)
-    CPPNFrame:Info(NFLogId.NF_LOG_SYSTEMLOG, 0, tostring(strMsg))
+    LuaNFrame.Debug(NFLogId.NF_LOG_SYSTEMLOG, 0, tostring(strMsg))
 end
 
 function hotfix_log_error(strMsg)
-    CPPNFrame:Info(NFLogId.NF_LOG_SYSTEMLOG, 0, tostring(strMsg))
+    LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, tostring(strMsg))
 end
 
 function hotfix_log_info(strMsg)
-    CPPNFrame:Info(NFLogId.NF_LOG_SYSTEMLOG, 0, tostring(strMsg))
+    LuaNFrame.Info(NFLogId.NF_LOG_SYSTEMLOG, 0, tostring(strMsg))
 end
 
 function NFLuaReload.Init()
@@ -77,7 +77,6 @@ function NFLuaReload.Execute()
 
         for _, module_name in pairs(module_names) do
             NFLuaReload.ReloadNewFile(module_name)
-            load_pb()
         end  -- for
 	end
 	
@@ -101,11 +100,6 @@ function NFLuaReload.ReloadAll()
                 end
             end
         end
-
-        if load_pb then
-            load_pb()
-            LuaNFrame.Warn(NFLogId.NF_LOG_SYSTEMLOG, 0, "Reload load_pb File Success")
-        end
 	end
     
     local status, msg = xpcall (ReloadExecute, __G__TRACKBACK__)
@@ -115,7 +109,7 @@ function NFLuaReload.ReloadAll()
         return modifyFiles
     end
 
-    LuaNFrame.Warn(NFLogId.NF_LOG_SYSTEMLOG, 0, "Reload All Modified Lua File Success")
+    LuaNFrame.Info(NFLogId.NF_LOG_SYSTEMLOG, 0, "Reload All Modified Lua File Success")
     return modifyFiles
 end
 
@@ -155,14 +149,14 @@ function NFLuaReload.ReloadNewFile(file_path)
                     NFLuaReload.hotfix.hotfix_module(file_path)
                 end
                 
-                LuaNFrame.Warn(NFLogId.NF_LOG_SYSTEMLOG, 0, "Hotfix Lua File: "..file_path.." Success")
+                LuaNFrame.Info(NFLogId.NF_LOG_SYSTEMLOG, 0, "Hotfix Lua File:{} Success", file_path)
                 return true
             end
         else
             if type(err) ~= nil then
-                LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, "Hotfix Lua File: "..file_path.." Failed, err:"..err)
+                LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, "Hotfix Lua File:{} Failed err:{} ", file_path, err)
             else
-                LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, "Hotfix Lua File: "..file_path.." Failed")
+                LuaNFrame.Error(NFLogId.NF_LOG_SYSTEMLOG, 0, "Hotfix Lua File:{} Failed", file_path)
             end
         end
     end
