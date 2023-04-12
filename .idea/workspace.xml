@@ -55,14 +55,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="lua fmt">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="protoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -682,14 +676,7 @@
       <workItem from="1680831230525" duration="51695000" />
       <workItem from="1681088835777" duration="27704000" />
       <workItem from="1681205716943" duration="9230000" />
-      <workItem from="1681268831855" duration="7320000" />
-    </task>
-    <task id="LOCAL-00551" summary="stop server">
-      <created>1679712613291</created>
-      <option name="number" value="00551" />
-      <option name="presentableId" value="LOCAL-00551" />
-      <option name="project" value="LOCAL" />
-      <updated>1679712613291</updated>
+      <workItem from="1681268831855" duration="9013000" />
     </task>
     <task id="LOCAL-00552" summary="stop server">
       <created>1679712826261</created>
@@ -1027,7 +1014,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681276831644</updated>
     </task>
-    <option name="localTasksCounter" value="600" />
+    <task id="LOCAL-00600" summary="protoc">
+      <created>1681280691482</created>
+      <option name="number" value="00600" />
+      <option name="presentableId" value="LOCAL-00600" />
+      <option name="project" value="LOCAL" />
+      <updated>1681280691482</updated>
+    </task>
+    <option name="localTasksCounter" value="601" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1250,7 +1244,6 @@
       <path value="$PROJECT_DIR$/game/oldMMO" />
       <path value="$PROJECT_DIR$/game/MMO" />
     </ignored-roots>
-    <MESSAGE value="excel" />
     <MESSAGE value="title" />
     <MESSAGE value="net" />
     <MESSAGE value="mission" />
@@ -1275,7 +1268,8 @@
     <MESSAGE value="shm stl" />
     <MESSAGE value="lua" />
     <MESSAGE value="lua fmt" />
-    <option name="LAST_COMMIT_MESSAGE" value="lua fmt" />
+    <MESSAGE value="protoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="protoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
