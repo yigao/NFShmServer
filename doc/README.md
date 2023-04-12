@@ -1,4 +1,4 @@
-## 安装google python模块(需要安装python2.7, centos7自带)
+## 安装google python模块(需要安装python2.7, centos7,ubuntu20自带)
 - 解压thirdparty/pkg目录下得protobuf-2.5.0.tar, 会有一个protobuf-2.5.0目录，里面有protobuf的源文件, cd protobuf-2.5.0
 - 编译protobuf,执行:
 - ./configure
