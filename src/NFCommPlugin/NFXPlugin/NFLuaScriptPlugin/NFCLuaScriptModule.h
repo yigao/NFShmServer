@@ -23,17 +23,17 @@
 
 enum EnumLuaModule
 {
-	EnumLuaModule_NULL = 0,
-	EnumLuaModule_INIT = 1,
-	EnumLuaModule_SEC = 6,
-	EnumLuaModule_MIN = 7,
-	EnumLuaModule_5MIN = 8,
-	EnumLuaModule_10MIN = 9,
-	EnumLuaModule_30MIN = 10,
-	EnumLuaModule_HOUR = 11,
-	EnumLuaModule_DAY = 12,
-	EnumLuaModule_WEEK = 13,
-	EnumLuaModule_MONTH = 14,
+    EnumLuaModule_NULL = 0,
+    EnumLuaModule_INIT = 1,
+    EnumLuaModule_SEC = 6,
+    EnumLuaModule_MIN = 7,
+    EnumLuaModule_5MIN = 8,
+    EnumLuaModule_10MIN = 9,
+    EnumLuaModule_30MIN = 10,
+    EnumLuaModule_HOUR = 11,
+    EnumLuaModule_DAY = 12,
+    EnumLuaModule_WEEK = 13,
+    EnumLuaModule_MONTH = 14,
 };
 
 class NFCLuaScriptModule;
@@ -41,29 +41,29 @@ class NFCLuaScriptModule;
 class NFLuaTimer : public NFTimerObj
 {
 public:
-	NFLuaTimer(NFCLuaScriptModule* p, NFIPluginManager* pPluginManager): NFTimerObj(pPluginManager)
-	{
-		Clear();
-		m_pLuaScriptModule = p;
-	}
+    NFLuaTimer(NFCLuaScriptModule *p, NFIPluginManager *pPluginManager) : NFTimerObj(pPluginManager)
+    {
+        Clear();
+        m_pLuaScriptModule = p;
+    }
 
-	void Clear()
-	{
-		mTimerId = 0;
-		mInterVal = 0;
-		mCallCount = 0;
-		mCurCallCount = 0;
-	}
+    void Clear()
+    {
+        mTimerId = 0;
+        mInterVal = 0;
+        mCallCount = 0;
+        mCurCallCount = 0;
+    }
 
-	uint32_t mTimerId;
+    uint32_t mTimerId;
     LuaIntf::LuaRef mLuaFunc;
-	uint64_t mInterVal;
-	uint32_t mCallCount;
-	uint32_t mCurCallCount;
-	NFLuaRef mDataStr;
-	NFCLuaScriptModule* m_pLuaScriptModule;
+    uint64_t mInterVal;
+    uint32_t mCallCount;
+    uint32_t mCurCallCount;
+    NFLuaRef mDataStr;
+    NFCLuaScriptModule *m_pLuaScriptModule;
 
-	virtual int OnTimer(uint32_t nTimerID) override;
+    virtual int OnTimer(uint32_t nTimerID) override;
 };
 
 struct NetLuaReceiveFunctor
@@ -72,11 +72,11 @@ struct NetLuaReceiveFunctor
     {
     }
 
-    NetLuaReceiveFunctor(const LuaIntf::LuaRef& luaFunc): m_luaFunc(luaFunc)
+    NetLuaReceiveFunctor(const LuaIntf::LuaRef &luaFunc) : m_luaFunc(luaFunc)
     {
     }
 
-    NetLuaReceiveFunctor(const NetLuaReceiveFunctor& functor)
+    NetLuaReceiveFunctor(const NetLuaReceiveFunctor &functor)
     {
         if (this != &functor)
         {
@@ -84,7 +84,7 @@ struct NetLuaReceiveFunctor
         }
     }
 
-    NetLuaReceiveFunctor& operator=(const NetLuaReceiveFunctor& functor)
+    NetLuaReceiveFunctor &operator=(const NetLuaReceiveFunctor &functor)
     {
         if (this != &functor)
         {
@@ -97,12 +97,13 @@ struct NetLuaReceiveFunctor
     LuaIntf::LuaRef m_luaFunc;
 };
 
-struct LuaCallBack {
+struct LuaCallBack
+{
     //call back
     LuaCallBack()
     {
         mxReceiveCallBack.resize(NF_MODULE_MAX);
-        for(int i = 0; i < (int)mxReceiveCallBack.size(); i++)
+        for (int i = 0; i < (int) mxReceiveCallBack.size(); i++)
         {
             mxReceiveCallBack[i].resize(NF_NET_MAX_MSG_ID);
         }
@@ -126,34 +127,48 @@ struct LuaCallBack {
 };
 
 class NFCLuaScriptModule
-	: public NFILuaScriptModule, public NFILuaLoader
+        : public NFILuaScriptModule, public NFILuaLoader
 {
 public:
-    NFCLuaScriptModule(NFIPluginManager* p);
+    NFCLuaScriptModule(NFIPluginManager *p);
+
     virtual ~NFCLuaScriptModule();
+
 public:
     virtual bool Awake() override;
+
     virtual bool Init() override;
 
     virtual bool Execute() override;
 
     virtual bool Shut() override;
+
     virtual bool Finalize() override;
 
-	virtual int OnTimer(uint32_t nTimerID) override;
+    virtual int OnTimer(uint32_t nTimerID) override;
 
     virtual bool OnReloadConfig() override;
+
 public:
-	virtual void SessionReport(uint64_t playerId, const std::string& report) override;
-	virtual void SessionClose(uint64_t playerId) override;
-	virtual void RunGmFunction(const std::string& luaFunc, const std::vector<std::string>& vecStr) override;
+    virtual void SessionReport(uint64_t playerId, const std::string &report) override;
+
+    virtual void SessionClose(uint64_t playerId) override;
+
+    virtual void RunGmFunction(const std::string &luaFunc, const std::vector<std::string> &vecStr) override;
+
 public:
-	virtual uint32_t AddTimer(const LuaIntf::LuaRef& luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef& dataStr);
-	virtual uint32_t AddClocker(const LuaIntf::LuaRef& luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef& dataStr);
-	virtual void StopTimer(uint32_t nTimerID);
-	virtual void StopClocker(uint32_t nTimerID);
+    virtual uint32_t AddTimer(const LuaIntf::LuaRef &luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef &dataStr);
+
+    virtual uint32_t
+    AddClocker(const LuaIntf::LuaRef &luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef &dataStr);
+
+    virtual void StopTimer(uint32_t nTimerID);
+
+    virtual void StopClocker(uint32_t nTimerID);
+
 public:
-    virtual void SendErrorLog(uint64_t id, const std::string& funcLog, const std::string& errorLog, uint32_t count);
+    virtual void SendErrorLog(uint64_t id, const std::string &funcLog, const std::string &errorLog, uint32_t count);
+
 public:
     /**
      * @brief 注册客户端信息处理函数
@@ -161,7 +176,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef& luaFunc);
+    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc);
 
     /**
      * @brief 注册服务器信息处理函数
@@ -169,7 +184,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef& luaFunc);
+    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc);
 
     /**
      * @brief 处理客户端消息
@@ -177,7 +192,7 @@ public:
      * @param packet
      * @return
      */
-    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
+    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 
     /**
      * @brief 处理来自服务器的信息
@@ -185,7 +200,8 @@ public:
      * @param packet
      * @return
      */
-    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2);
+    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
+
 public:
 public:
     virtual int SendMsgToMasterServer(NF_SERVER_TYPES eSendTyp, uint32_t nMsgId, const std::string &xData, uint64_t nParam1 = 0,
@@ -240,63 +256,106 @@ public:
     virtual int SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string &xData, uint32_t req_trans_id = 0,
                                      uint32_t rsp_trans_id = 0);
 
-    virtual int GetScriptRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
-                            const std::string &request, const std::string &rspType);
+    virtual bool AddScriptRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
+                                     const std::string &strLuaFunc, const LuaIntf::LuaRef &luaFunc, bool createCo = false);
+
+    virtual int
+    GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
+                  const std::string &request, const std::string &rspType, std::string &respone);
+
 public:
-	virtual const std::string& GetAppName() const;
-	virtual int GetAppID() const;
-	virtual uint64_t GetInitTime() const;
-	virtual uint64_t GetNowTime() const;
-	virtual std::string GetMD5(const std::string& str);
-	virtual uint32_t GetCRC32(const std::string& s);
-	virtual uint16_t GetCRC16(const std::string& s);
-	virtual std::string Base64Encode(const std::string& s);
-	virtual std::string Base64Decode(const std::string& s);
-	virtual uint64_t GetMsecTime() const;
-	virtual uint64_t GetSecTime() const;
+    virtual const std::string &GetAppName() const;
+
+    virtual int GetAppID() const;
+
+    virtual uint64_t GetInitTime() const;
+
+    virtual uint64_t GetNowTime() const;
+
+    virtual std::string GetMD5(const std::string &str);
+
+    virtual uint32_t GetCRC32(const std::string &s);
+
+    virtual uint16_t GetCRC16(const std::string &s);
+
+    virtual std::string Base64Encode(const std::string &s);
+
+    virtual std::string Base64Decode(const std::string &s);
+
+    virtual uint64_t GetMsecTime() const;
+
+    virtual uint64_t GetSecTime() const;
+
 public:
     void SetLogLevel(uint32_t level);
+
     void SetFlushOn(uint32_t level);
-    void LuaTrace(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
-    void LuaDebug(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
-    void LuaInfo(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
-    void LuaWarn(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
-    void LuaError(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log);
+
+    void LuaTrace(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log);
+
+    void LuaDebug(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log);
+
+    void LuaInfo(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log);
+
+    void LuaWarn(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log);
+
+    void LuaError(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log);
+
 public:
 
-	virtual void BeginProfiler(const std::string& luaFunc);
-	virtual uint64_t EndProfiler();//return this time cost time(us) 微妙
+    virtual void BeginProfiler(const std::string &luaFunc);
 
-	virtual void ReloadAllLuaFiles();
-	virtual void ReloadLuaFiles();
-	virtual void ReloadLuaFiles(const std::vector<std::string>& vecStr);
+    virtual uint64_t EndProfiler();//return this time cost time(us) 微妙
 
-	virtual std::string Sha256(const std::string& s);
-	virtual std::string Platform();
-	virtual bool IsThreadModule();
+    virtual void ReloadAllLuaFiles();
+
+    virtual void ReloadLuaFiles();
+
+    virtual void ReloadLuaFiles(const std::vector<std::string> &vecStr);
+
+    virtual std::string Sha256(const std::string &s);
+
+    virtual std::string Platform();
+
+    virtual bool IsThreadModule();
+
     virtual bool IsDebug();
+
     virtual bool IsInited();
+
     virtual bool IsServerStopping();
-    virtual NFServerConfig* GetAppConfig(uint32_t serverType);
+
+    virtual NFServerConfig *GetAppConfig(uint32_t serverType);
+
 public:
     bool Register();
-	void LoadScript();
 
-	virtual void UpdateSec();
-	virtual void UpdateMin();
-	virtual void Update5Min();
-	virtual void Update10Min();
-	virtual void Update30Min();
-	virtual void UpdateHour();
-	virtual void UpdateDay();
-	virtual void UpdateWeek();
-	virtual void UpdateMonth();
+    void LoadScript();
+
+    virtual void UpdateSec();
+
+    virtual void UpdateMin();
+
+    virtual void Update5Min();
+
+    virtual void Update10Min();
+
+    virtual void Update30Min();
+
+    virtual void UpdateHour();
+
+    virtual void UpdateDay();
+
+    virtual void UpdateWeek();
+
+    virtual void UpdateMonth();
+
 protected:
     int64_t mnTime;
 protected:
-	std::map<uint64_t, NFLuaTimer*> m_luaTimerMap;
-	std::list<NFLuaTimer*> m_luaTimerList;
-	uint32_t m_luaTimerIndex;
+    std::map<uint64_t, NFLuaTimer *> m_luaTimerMap;
+    std::list<NFLuaTimer *> m_luaTimerList;
+    uint32_t m_luaTimerIndex;
 protected:
     std::vector<LuaCallBack> mxLuaCallBack;
 };

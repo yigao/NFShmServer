@@ -20,6 +20,7 @@
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFDescStoreTrans.h"
 
 

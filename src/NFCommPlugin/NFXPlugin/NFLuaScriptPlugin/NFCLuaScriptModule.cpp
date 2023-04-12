@@ -830,3 +830,15 @@ void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::stri
 #endif
     NFLogMgr::Instance()->LogDefault(NLL_ERROR_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
+
+bool NFCLuaScriptModule::AddScriptRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
+                                 const std::string &strLuaFunc, const LuaIntf::LuaRef &luaFunc, bool createCo)
+{
+    return true;
+}
+
+int NFCLuaScriptModule::GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
+              const std::string &request, const std::string &rspType, std::string &respone)
+{
+    return 0;
+}
