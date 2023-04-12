@@ -31,12 +31,6 @@
 #include <thread>
 #include <chrono>
 
-#if NF_PLATFORM == NF_PLATFORM_WIN
-#pragma comment( lib, "ws2_32.lib" )
-#else
-#include <bits/signum.h>
-#endif
-
 #include "sigar/sigar.h"
 
 #ifdef __cplusplus
