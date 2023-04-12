@@ -12,6 +12,7 @@
 #include "NFIRpcService.h"
 #include "NFServerDefine.h"
 #include "NFCheck.h"
+#include "NFIMessageModule.h"
 
 class NFIDynamicModule;
 class NFIMessageModule;
