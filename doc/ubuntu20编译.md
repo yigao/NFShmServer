@@ -3,6 +3,7 @@
  - sudo vim /etc/ld.so.conf 加入 /usr/local/lib, 然后执行ldconfig
  - 安装git, sudo apt install git
  - 安装cmake, sudo apt install cmake
+ - 安装libkrb5(openssl need), sudo apt install libkrb5-dev
  - git clone https://gitee.com/xiaoyi445_admin/NFShmServer2.git拉取代码
 ## 安装google python模块(需要安装python2.7, centos7,ubuntu20自带)
 - 解压thirdparty/pkg目录下得protobuf-2.5.0.tar, 会有一个protobuf-2.5.0目录，里面有protobuf的源文件, cd protobuf-2.5.0

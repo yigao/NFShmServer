@@ -16,7 +16,6 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFBusppNaming.h"
-#include "NFZookeeperNaming.h"
 
 NFCNamingModule::NFCNamingModule(NFIPluginManager *p) : NFINamingModule(p)
 {
@@ -912,7 +911,7 @@ int32_t NFCNamingModule::Init(NF_SERVER_TYPES eServerType, const string &host, i
             m_namingList[eServerType] = NF_NEW NFBusppNaming(m_pObjPluginManager);
         }
         else {
-            m_namingList[eServerType] = NF_NEW NFZookeeperNaming(m_pObjPluginManager);
+            m_namingList[eServerType] = NF_NEW NFBusppNaming(m_pObjPluginManager);
         }
 #endif
     }

@@ -239,6 +239,9 @@ public:
 
     virtual int SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string &xData, uint32_t req_trans_id = 0,
                                      uint32_t rsp_trans_id = 0);
+
+    virtual int GetScriptRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
+                            const std::string &request, const std::string &rspType);
 public:
 	virtual const std::string& GetAppName() const;
 	virtual int GetAppID() const;
