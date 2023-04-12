@@ -21,7 +21,7 @@ THIRD_PARTY_INC_PATH=${THIRD_PARTY_PATH}/
 
 TOOLS_PATH=${GAME_SRC_PATH}/tools
 THIRD_PARTY_TOOLS_PATH=${TOOLS_PATH}
-PROTOC=${THIRD_PARTY_TOOLS_PATH}/protoc
+PROTOC=protoc
 PROTO2STRUCT=python ${TOOLS_PATH}/proto_2_struct/proto2struct.py
 EXCEL2BIN=python ${TOOLS_PATH}/excel_2_bin/excel2bin_new.py
 PROTO2SQL=python ${TOOLS_PATH}/proto_2_sql/proto2sql.py
