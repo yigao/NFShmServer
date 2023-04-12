@@ -17,6 +17,7 @@
 #include "NFComm/NFPluginModule/NFStoreProtoCommon.h"
 #include "NFServerBindRpcService.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include <map>
 #include <unordered_map>
 #include <list>

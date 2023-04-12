@@ -14,7 +14,6 @@
 #include "common/spdlog/fmt/fmt.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
-
 class NFServerMessageModule : public NFIServerMessageModule
 {
 public:
