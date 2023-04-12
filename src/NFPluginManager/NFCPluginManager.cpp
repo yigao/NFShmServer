@@ -34,7 +34,7 @@
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #pragma comment( lib, "ws2_32.lib" )
 #else
-#include <signal.h>
+#include <bits/signum.h>
 #endif
 
 #include "sigar/sigar.h"
