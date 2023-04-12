@@ -127,6 +127,9 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 	SET(LIB_LINK_NF libNFKernelPlugin.a  NFTestPlugin.a)
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
+	message ("DISTRO_ID: ${DISTRO_ID} ")
+	message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
+
 	if (DISTRO_ID STREQUAL "centos")
 		message ("DISTRO_ID: ${DISTRO_ID} ")
 		message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
@@ -146,9 +149,10 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 
 	SET(LIB_LINK_DEP resolv dl rt pthread)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
+	message ("DISTRO_ID: ${DISTRO_ID} ")
+	message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
+
 	if (DISTRO_ID STREQUAL "centos")
-		message ("DISTRO_ID: ${DISTRO_ID} ")
-		message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
 		SET(LIB_DIR "." "/usr/lib"
 				"${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
 				"${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
