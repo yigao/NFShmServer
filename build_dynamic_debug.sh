@@ -13,5 +13,5 @@ mkdir build64_debug
 cd build64_debug
 rm * -rf
 
-cmake -DCMAKE_BUILD_TYPE=DynamicDebug  ../..
+cmake -Wno-dev -DCMAKE_BUILD_TYPE=DynamicDebug  ../..
 make -j16

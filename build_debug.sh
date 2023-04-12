@@ -6,5 +6,5 @@ mkdir build64_debug
 cd build64_debug
 rm * -rf
 
-cmake -DCMAKE_BUILD_TYPE=Debug  ../..
+cmake -Wno-dev -DCMAKE_BUILD_TYPE=Debug  ../..
 make -j4
