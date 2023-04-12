@@ -43,6 +43,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 			-DEVPP_HTTP_SERVER_SUPPORTS_SSL			#evpp http server ssl
 			-DH_HAVE_CAMERON314_CONCURRENTQUEUE		#evpp need
 			-fPIC
+			-Wno-error
 	)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	set(CMAKE_BUILD_TYPE "DynamicRelease")
@@ -58,6 +59,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 			-DEVPP_HTTP_SERVER_SUPPORTS_SSL			#evpp http server ssl
 			-DH_HAVE_CAMERON314_CONCURRENTQUEUE		#evpp need
 			-fPIC
+			-Wno-error
 	)
 endif()
 
