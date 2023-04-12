@@ -32,12 +32,6 @@ public:
 
     virtual int MakeCoroutine(const std::function<void()> &func) = 0;
 
-    virtual int AddRpcService(google::protobuf::Message* pMessage) = 0;
-
-    virtual google::protobuf::Message* GetRpcService(int64_t coId) = 0;
-
-    virtual int DelRpcService(google::protobuf::Message* pMessage) = 0;
-
     /// @brief 启动该协程任务, 执行Run方法
     /// @param is_immediately 是否立即执行
     /// @return 返回协程ID
@@ -83,6 +77,9 @@ public:
     /// @param id 协程ID
     /// @return 协程状态
     virtual int Status(int64_t id) = 0;
+
+    virtual google::protobuf::Message *GetUserData(int64_t id) = 0;
+    virtual int SetUserData(google::protobuf::Message *pUserData) = 0;
 
     /**
      * @brief 协程是否存在，是否已经死亡

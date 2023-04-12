@@ -270,6 +270,43 @@ int NFSchedule::CoroutineStatus(int64_t id)
     return (pos->second)->status;
 }
 
+google::protobuf::Message *NFSchedule::CoroutineUserData(int64_t id)
+{
+    if (id < 0) {
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "coroutine {} not exist", id);
+        return NULL;
+    }
+
+    auto pos = co_hash_map.find(id);
+
+    // 如果在协程哈希表中没有找到，或者找到的协程内容为空
+    if (pos == co_hash_map.end()) {
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cann't find coroutine {}", id);
+        return NULL;
+    }
+
+    return (pos->second)->userData;
+}
+
+int NFSchedule::CoroutineSetUserData(int64_t id, google::protobuf::Message *pUserData)
+{
+    if (id < 0) {
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "coroutine {} not exist", id);
+        return proto_ff::ERR_CODE_CO_NOT_IN_COROUTINE;
+    }
+
+    auto pos = co_hash_map.find(id);
+
+    // 如果在协程哈希表中没有找到，或者找到的协程内容为空
+    if (pos == co_hash_map.end()) {
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cann't find coroutine {}", id);
+        return proto_ff::ERR_CODE_CO_COROUTINE_UNEXIST;
+    }
+
+    (pos->second)->userData = pUserData;
+    return 0;
+}
+
 /// @brief 获取当前正在运行的协程ID
 /// @param 协程调度器结构体指针
 /// @return 返回正在运行的协程ID

@@ -42,12 +42,6 @@ bool NFCCoroutineModule::OnStopServer()
         return m_pCorSched->OnStopServer();
     }
 
-    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFCCoroutineModule OnStopServer, m_rpcCoMap:{}", m_rpcCoMap.size());
-    if (!m_rpcCoMap.empty())
-    {
-        return false;
-    }
-
     return true;
 }
 
@@ -59,7 +53,6 @@ bool NFCCoroutineModule::Shut()
 bool NFCCoroutineModule::Finalize()
 {
     NF_SAFE_DELETE(m_pCorSched);
-    m_rpcCoMap.clear();
     return true;
 }
 
@@ -163,6 +156,23 @@ int NFCCoroutineModule::Status(int64_t id)
     return m_pCorSched->Status(id);
 }
 
+google::protobuf::Message *NFCCoroutineModule::GetUserData(int64_t id)
+{
+    CHECK_EXPR(m_pCorSched, NULL, "m_pCorSched == NULL");
+    return m_pCorSched->GetUserData(id);
+}
+
+int NFCCoroutineModule::SetUserData(google::protobuf::Message *pUserData)
+{
+    CHECK_EXPR(m_pCorSched, -1, "m_pCorSched == NULL");
+    int64_t coId = CurrentTaskId();
+    if (INVALID_CO_ID == coId)
+    {
+        return NULL;
+    }
+    return m_pCorSched->SetUserData(coId, pUserData);
+}
+
 /**
  * @brief 协程是否存在，是否已经死亡
  * @return
@@ -204,49 +214,3 @@ int NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func)
     return coid < 0 ? -1 : 0;
 }
 
-int NFCCoroutineModule::AddRpcService(google::protobuf::Message *pMessage)
-{
-    int64_t coId = CurrentTaskId();
-    if (INVALID_CO_ID == coId)
-    {
-        return proto_ff::ERR_CODE_CO_NOT_IN_COROUTINE;
-    }
-
-    if (m_rpcCoMap.find(coId) != m_rpcCoMap.end())
-    {
-        return proto_ff::ERR_CODE_RPC_CO_USED;
-    }
-
-    m_rpcCoMap[coId] = pMessage;
-    return 0;
-}
-
-google::protobuf::Message *NFCCoroutineModule::GetRpcService(int64_t coId)
-{
-    auto iter = m_rpcCoMap.find(coId);
-    if (iter != m_rpcCoMap.end())
-    {
-        return iter->second;
-    }
-
-    return NULL;
-}
-
-int NFCCoroutineModule::DelRpcService(google::protobuf::Message *pMessage)
-{
-    int64_t coId = CurrentTaskId();
-    if (INVALID_CO_ID == coId)
-    {
-        return proto_ff::ERR_CODE_CO_NOT_IN_COROUTINE;
-    }
-
-    auto iter = m_rpcCoMap.find(coId);
-    if (iter != m_rpcCoMap.end())
-    {
-        NF_ASSERT_MSG(pMessage == iter->second, "DelRpcService Error");
-        m_rpcCoMap.erase(coId);
-        return 0;
-    }
-
-    return proto_ff::ERR_CODE_CO_COROUTINE_UNEXIST;
-}

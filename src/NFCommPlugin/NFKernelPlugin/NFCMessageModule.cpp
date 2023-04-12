@@ -638,22 +638,48 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
 
                 if (svrPkg.rpc_info().rsp_rpc_id() > 0)
                 {
-                    google::protobuf::Message *pRespone = FindModule<NFICoroutineModule>()->GetRpcService(svrPkg.rpc_info().rsp_rpc_id());
-                    if (pRespone && svrPkg.rpc_info().rpc_ret_code() == 0)
+                    if (svrPkg.rpc_info().is_script_rpc())
                     {
-                        if (svrPkg.rpc_info().rsp_rpc_hash() == std::hash<std::string>()(pRespone->GetTypeName()))
+                        proto_ff::Proto_ScriptRpcResult *pRespone = dynamic_cast<proto_ff::Proto_ScriptRpcResult *>(FindModule<NFICoroutineModule>()->GetUserData(svrPkg.rpc_info().rsp_rpc_id()));
+                        if (pRespone && svrPkg.rpc_info().rpc_ret_code() == 0)
                         {
-                            pRespone->ParseFromString(svrPkg.msg_data());
-                        }
-                        else
-                        {
-                            int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(), proto_ff::ERR_CODE_RPC_DECODE_FAILED);
-                            if (iRet != 0)
+                            if (svrPkg.rpc_info().req_rpc_hash() == std::hash<std::string>()(pRespone->req_type()) && svrPkg.rpc_info().rsp_rpc_hash() == std::hash<std::string>()(pRespone->rsp_type()))
                             {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}",
-                                           svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
+                                pRespone->set_respone(svrPkg.msg_data());
                             }
-                            return 0;
+                            else
+                            {
+                                int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(),
+                                                                                    proto_ff::ERR_CODE_RPC_DECODE_FAILED);
+                                if (iRet != 0)
+                                {
+                                    NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}",
+                                               svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
+                                }
+                                return 0;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        google::protobuf::Message *pRespone = FindModule<NFICoroutineModule>()->GetUserData(svrPkg.rpc_info().rsp_rpc_id());
+                        if (pRespone && svrPkg.rpc_info().rpc_ret_code() == 0)
+                        {
+                            if (svrPkg.rpc_info().rsp_rpc_hash() == std::hash<std::string>()(pRespone->GetTypeName()))
+                            {
+                                pRespone->ParseFromString(svrPkg.msg_data());
+                            }
+                            else
+                            {
+                                int iRet = FindModule<NFICoroutineModule>()->Resume(svrPkg.rpc_info().rsp_rpc_id(),
+                                                                                    proto_ff::ERR_CODE_RPC_DECODE_FAILED);
+                                if (iRet != 0)
+                                {
+                                    NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule Resume Failed, CoId:{} nMsgId:{} iRet:{}",
+                                               svrPkg.rpc_info().rsp_rpc_id(), svrPkg.msg_id(), iRet);
+                                }
+                                return 0;
+                            }
                         }
                     }
 
@@ -704,33 +730,31 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
             {
                 if (netRpcService.m_createCo)
                 {
-                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine([this, netRpcService, objectLinkId, reqSvrPkg]()
-                                                                           {
-                                                                               int iRet = netRpcService.m_pRpcService->run(objectLinkId, reqSvrPkg);
-                                                                               if (iRet != 0)
-                                                                               {
-                                                                                   uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
-                                                                                   uint32_t nMsgId = reqSvrPkg.msg_id();
-                                                                                   uint32_t reqBusId = reqSvrPkg.rpc_info().req_bus_id();
-                                                                                   uint32_t reqServerType = reqSvrPkg.rpc_info().req_server_type();
+                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                            [this, netRpcService, objectLinkId, reqSvrPkg]()
+                            {
+                                int iRet = netRpcService.m_pRpcService->run(objectLinkId, reqSvrPkg);
+                                if (iRet != 0)
+                                {
+                                    uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
+                                    uint32_t nMsgId = reqSvrPkg.msg_id();
+                                    uint32_t reqBusId = reqSvrPkg.rpc_info().req_bus_id();
+                                    uint32_t reqServerType = reqSvrPkg.rpc_info().req_server_type();
 
-                                                                                   proto_ff::Proto_SvrPkg rspSvrPkg;
-                                                                                   rspSvrPkg.set_msg_id(nMsgId);
-                                                                                   rspSvrPkg.mutable_rpc_info()->set_req_rpc_id(0);
-                                                                                   rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_id(
-                                                                                           reqSvrPkg.rpc_info().req_rpc_id());
-                                                                                   rspSvrPkg.mutable_rpc_info()->set_req_rpc_hash(
-                                                                                           reqSvrPkg.rpc_info().req_rpc_hash());
-                                                                                   rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_hash(
-                                                                                           reqSvrPkg.rpc_info().rsp_rpc_hash());
-                                                                                   rspSvrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
+                                    proto_ff::Proto_SvrPkg rspSvrPkg;
+                                    rspSvrPkg.set_msg_id(nMsgId);
+                                    rspSvrPkg.mutable_rpc_info()->set_req_rpc_id(0);
+                                    rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
+                                    rspSvrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
+                                    rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
+                                    rspSvrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
+                                    rspSvrPkg.mutable_rpc_info()->set_is_script_rpc(reqSvrPkg.rpc_info().is_script_rpc());
 
-                                                                                   FindModule<NFIMessageModule>()->SendMsgToServer(
-                                                                                           (NF_SERVER_TYPES) eServerType,
-                                                                                           (NF_SERVER_TYPES) reqServerType, 0, reqBusId,
-                                                                                           proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, rspSvrPkg);
-                                                                               }
-                                                                           });
+                                    FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES) eServerType, (NF_SERVER_TYPES) reqServerType, 0,
+                                                                                    reqBusId,
+                                                                                    proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, rspSvrPkg);
+                                }
+                            });
                 }
                 else
                 {
@@ -776,6 +800,7 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
             rspSvrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
             rspSvrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
             rspSvrPkg.mutable_rpc_info()->set_rpc_ret_code(iRet);
+            rspSvrPkg.mutable_rpc_info()->set_is_script_rpc(reqSvrPkg.rpc_info().is_script_rpc());
 
             FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES) eServerType, (NF_SERVER_TYPES) reqServerType, 0, reqBusId,
                                                             proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, rspSvrPkg);
@@ -918,7 +943,7 @@ int NFCMessageModule::SendTrans(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvT
 }
 
 int NFCMessageModule::SendTrans(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES recvType, uint32_t srcBusId, uint32_t dstBusId, uint32_t nMsgID,
-              const std::string &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
+                                const std::string &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
 {
     proto_ff::Proto_SvrPkg svrPkg;
     svrPkg.set_msg_id(nMsgID);

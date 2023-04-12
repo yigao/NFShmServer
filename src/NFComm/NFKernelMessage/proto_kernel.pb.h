@@ -39,6 +39,7 @@ class Proto_DispInfo;
 class Proto_StoreInfo_CB;
 class Proto_StoreInfo;
 class Proto_EventInfo;
+class Proto_ScriptRpcResult;
 class Proto_RpcInfo;
 class Proto_RedirectInfo;
 class Proto_SvrPkg;
@@ -802,6 +803,123 @@ class Proto_EventInfo : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class Proto_ScriptRpcResult : public ::google::protobuf::Message {
+ public:
+  Proto_ScriptRpcResult();
+  virtual ~Proto_ScriptRpcResult();
+
+  Proto_ScriptRpcResult(const Proto_ScriptRpcResult& from);
+
+  inline Proto_ScriptRpcResult& operator=(const Proto_ScriptRpcResult& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_ScriptRpcResult& default_instance();
+
+  void Swap(Proto_ScriptRpcResult* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_ScriptRpcResult* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_ScriptRpcResult& from);
+  void MergeFrom(const Proto_ScriptRpcResult& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string req_type = 1;
+  inline bool has_req_type() const;
+  inline void clear_req_type();
+  static const int kReqTypeFieldNumber = 1;
+  inline const ::std::string& req_type() const;
+  inline void set_req_type(const ::std::string& value);
+  inline void set_req_type(const char* value);
+  inline void set_req_type(const char* value, size_t size);
+  inline ::std::string* mutable_req_type();
+  inline ::std::string* release_req_type();
+  inline void set_allocated_req_type(::std::string* req_type);
+
+  // optional string rsp_type = 2;
+  inline bool has_rsp_type() const;
+  inline void clear_rsp_type();
+  static const int kRspTypeFieldNumber = 2;
+  inline const ::std::string& rsp_type() const;
+  inline void set_rsp_type(const ::std::string& value);
+  inline void set_rsp_type(const char* value);
+  inline void set_rsp_type(const char* value, size_t size);
+  inline ::std::string* mutable_rsp_type();
+  inline ::std::string* release_rsp_type();
+  inline void set_allocated_rsp_type(::std::string* rsp_type);
+
+  // optional string respone = 3;
+  inline bool has_respone() const;
+  inline void clear_respone();
+  static const int kResponeFieldNumber = 3;
+  inline const ::std::string& respone() const;
+  inline void set_respone(const ::std::string& value);
+  inline void set_respone(const char* value);
+  inline void set_respone(const char* value, size_t size);
+  inline ::std::string* mutable_respone();
+  inline ::std::string* release_respone();
+  inline void set_allocated_respone(::std::string* respone);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_ScriptRpcResult)
+ private:
+  inline void set_has_req_type();
+  inline void clear_has_req_type();
+  inline void set_has_rsp_type();
+  inline void clear_has_rsp_type();
+  inline void set_has_respone();
+  inline void clear_has_respone();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* req_type_;
+  ::std::string* rsp_type_;
+  ::std::string* respone_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
+  friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
+  friend void protobuf_ShutdownFile_proto_5fkernel_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_ScriptRpcResult* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class Proto_RpcInfo : public ::google::protobuf::Message {
  public:
   Proto_RpcInfo();
@@ -905,6 +1023,13 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 req_server_type() const;
   inline void set_req_server_type(::google::protobuf::uint64 value);
 
+  // optional bool is_script_rpc = 8;
+  inline bool has_is_script_rpc() const;
+  inline void clear_is_script_rpc();
+  static const int kIsScriptRpcFieldNumber = 8;
+  inline bool is_script_rpc() const;
+  inline void set_is_script_rpc(bool value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_RpcInfo)
  private:
   inline void set_has_req_rpc_id();
@@ -921,6 +1046,8 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
   inline void clear_has_req_bus_id();
   inline void set_has_req_server_type();
   inline void clear_has_req_server_type();
+  inline void set_has_is_script_rpc();
+  inline void clear_has_is_script_rpc();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -931,9 +1058,10 @@ class Proto_RpcInfo : public ::google::protobuf::Message {
   ::google::protobuf::uint32 req_bus_id_;
   ::google::protobuf::uint64 rsp_rpc_hash_;
   ::google::protobuf::uint64 req_server_type_;
+  bool is_script_rpc_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -3268,6 +3396,220 @@ inline void Proto_EventInfo::set_allocated_full_message_name(::std::string* full
 
 // -------------------------------------------------------------------
 
+// Proto_ScriptRpcResult
+
+// optional string req_type = 1;
+inline bool Proto_ScriptRpcResult::has_req_type() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_ScriptRpcResult::set_has_req_type() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_ScriptRpcResult::clear_has_req_type() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_ScriptRpcResult::clear_req_type() {
+  if (req_type_ != &::google::protobuf::internal::kEmptyString) {
+    req_type_->clear();
+  }
+  clear_has_req_type();
+}
+inline const ::std::string& Proto_ScriptRpcResult::req_type() const {
+  return *req_type_;
+}
+inline void Proto_ScriptRpcResult::set_req_type(const ::std::string& value) {
+  set_has_req_type();
+  if (req_type_ == &::google::protobuf::internal::kEmptyString) {
+    req_type_ = new ::std::string;
+  }
+  req_type_->assign(value);
+}
+inline void Proto_ScriptRpcResult::set_req_type(const char* value) {
+  set_has_req_type();
+  if (req_type_ == &::google::protobuf::internal::kEmptyString) {
+    req_type_ = new ::std::string;
+  }
+  req_type_->assign(value);
+}
+inline void Proto_ScriptRpcResult::set_req_type(const char* value, size_t size) {
+  set_has_req_type();
+  if (req_type_ == &::google::protobuf::internal::kEmptyString) {
+    req_type_ = new ::std::string;
+  }
+  req_type_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_ScriptRpcResult::mutable_req_type() {
+  set_has_req_type();
+  if (req_type_ == &::google::protobuf::internal::kEmptyString) {
+    req_type_ = new ::std::string;
+  }
+  return req_type_;
+}
+inline ::std::string* Proto_ScriptRpcResult::release_req_type() {
+  clear_has_req_type();
+  if (req_type_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = req_type_;
+    req_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_ScriptRpcResult::set_allocated_req_type(::std::string* req_type) {
+  if (req_type_ != &::google::protobuf::internal::kEmptyString) {
+    delete req_type_;
+  }
+  if (req_type) {
+    set_has_req_type();
+    req_type_ = req_type;
+  } else {
+    clear_has_req_type();
+    req_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string rsp_type = 2;
+inline bool Proto_ScriptRpcResult::has_rsp_type() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_ScriptRpcResult::set_has_rsp_type() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_ScriptRpcResult::clear_has_rsp_type() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_ScriptRpcResult::clear_rsp_type() {
+  if (rsp_type_ != &::google::protobuf::internal::kEmptyString) {
+    rsp_type_->clear();
+  }
+  clear_has_rsp_type();
+}
+inline const ::std::string& Proto_ScriptRpcResult::rsp_type() const {
+  return *rsp_type_;
+}
+inline void Proto_ScriptRpcResult::set_rsp_type(const ::std::string& value) {
+  set_has_rsp_type();
+  if (rsp_type_ == &::google::protobuf::internal::kEmptyString) {
+    rsp_type_ = new ::std::string;
+  }
+  rsp_type_->assign(value);
+}
+inline void Proto_ScriptRpcResult::set_rsp_type(const char* value) {
+  set_has_rsp_type();
+  if (rsp_type_ == &::google::protobuf::internal::kEmptyString) {
+    rsp_type_ = new ::std::string;
+  }
+  rsp_type_->assign(value);
+}
+inline void Proto_ScriptRpcResult::set_rsp_type(const char* value, size_t size) {
+  set_has_rsp_type();
+  if (rsp_type_ == &::google::protobuf::internal::kEmptyString) {
+    rsp_type_ = new ::std::string;
+  }
+  rsp_type_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_ScriptRpcResult::mutable_rsp_type() {
+  set_has_rsp_type();
+  if (rsp_type_ == &::google::protobuf::internal::kEmptyString) {
+    rsp_type_ = new ::std::string;
+  }
+  return rsp_type_;
+}
+inline ::std::string* Proto_ScriptRpcResult::release_rsp_type() {
+  clear_has_rsp_type();
+  if (rsp_type_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = rsp_type_;
+    rsp_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_ScriptRpcResult::set_allocated_rsp_type(::std::string* rsp_type) {
+  if (rsp_type_ != &::google::protobuf::internal::kEmptyString) {
+    delete rsp_type_;
+  }
+  if (rsp_type) {
+    set_has_rsp_type();
+    rsp_type_ = rsp_type;
+  } else {
+    clear_has_rsp_type();
+    rsp_type_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string respone = 3;
+inline bool Proto_ScriptRpcResult::has_respone() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_ScriptRpcResult::set_has_respone() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_ScriptRpcResult::clear_has_respone() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_ScriptRpcResult::clear_respone() {
+  if (respone_ != &::google::protobuf::internal::kEmptyString) {
+    respone_->clear();
+  }
+  clear_has_respone();
+}
+inline const ::std::string& Proto_ScriptRpcResult::respone() const {
+  return *respone_;
+}
+inline void Proto_ScriptRpcResult::set_respone(const ::std::string& value) {
+  set_has_respone();
+  if (respone_ == &::google::protobuf::internal::kEmptyString) {
+    respone_ = new ::std::string;
+  }
+  respone_->assign(value);
+}
+inline void Proto_ScriptRpcResult::set_respone(const char* value) {
+  set_has_respone();
+  if (respone_ == &::google::protobuf::internal::kEmptyString) {
+    respone_ = new ::std::string;
+  }
+  respone_->assign(value);
+}
+inline void Proto_ScriptRpcResult::set_respone(const char* value, size_t size) {
+  set_has_respone();
+  if (respone_ == &::google::protobuf::internal::kEmptyString) {
+    respone_ = new ::std::string;
+  }
+  respone_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_ScriptRpcResult::mutable_respone() {
+  set_has_respone();
+  if (respone_ == &::google::protobuf::internal::kEmptyString) {
+    respone_ = new ::std::string;
+  }
+  return respone_;
+}
+inline ::std::string* Proto_ScriptRpcResult::release_respone() {
+  clear_has_respone();
+  if (respone_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = respone_;
+    respone_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_ScriptRpcResult::set_allocated_respone(::std::string* respone) {
+  if (respone_ != &::google::protobuf::internal::kEmptyString) {
+    delete respone_;
+  }
+  if (respone) {
+    set_has_respone();
+    respone_ = respone;
+  } else {
+    clear_has_respone();
+    respone_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
 // Proto_RpcInfo
 
 // optional int64 req_rpc_id = 1;
@@ -3422,6 +3764,28 @@ inline ::google::protobuf::uint64 Proto_RpcInfo::req_server_type() const {
 inline void Proto_RpcInfo::set_req_server_type(::google::protobuf::uint64 value) {
   set_has_req_server_type();
   req_server_type_ = value;
+}
+
+// optional bool is_script_rpc = 8;
+inline bool Proto_RpcInfo::has_is_script_rpc() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void Proto_RpcInfo::set_has_is_script_rpc() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void Proto_RpcInfo::clear_has_is_script_rpc() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void Proto_RpcInfo::clear_is_script_rpc() {
+  is_script_rpc_ = false;
+  clear_has_is_script_rpc();
+}
+inline bool Proto_RpcInfo::is_script_rpc() const {
+  return is_script_rpc_;
+}
+inline void Proto_RpcInfo::set_is_script_rpc(bool value) {
+  set_has_is_script_rpc();
+  is_script_rpc_ = value;
 }
 
 // -------------------------------------------------------------------

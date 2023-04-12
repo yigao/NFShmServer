@@ -129,6 +129,13 @@ message Proto_EventInfo
   optional string full_message_name = 5;
 }
 
+message Proto_ScriptRpcResult
+{
+  optional string req_type = 1;
+  optional string rsp_type = 2;
+  optional string respone = 3;
+}
+
 message Proto_RpcInfo
 {
   optional int64 req_rpc_id = 1;
@@ -138,6 +145,7 @@ message Proto_RpcInfo
   optional uint64 rsp_rpc_hash = 5;
   optional uint32 req_bus_id = 6;
   optional uint64 req_server_type = 7;
+  optional bool is_script_rpc = 8;
 }
 
 //粘包

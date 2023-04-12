@@ -9,6 +9,7 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFError.h"
+#include "google/protobuf/message.h"
 
 #include <functional>
 #include <list>
@@ -51,6 +52,7 @@ public:
 #else
 		ctx = NULL;
 #endif
+        userData = NULL;
 	}
 
 	virtual ~NFCoroutine()
@@ -73,4 +75,5 @@ public:
 	bool enable_hook;
 	char* stack;                // 协程栈的内容
 	int32_t result;             // 携带resume结果
+    google::protobuf::Message *userData;
 };

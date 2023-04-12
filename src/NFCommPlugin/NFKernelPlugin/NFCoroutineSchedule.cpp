@@ -204,3 +204,13 @@ int32_t NFCoroutineSchedule::Status(int64_t id) {
     return schedule_->CoroutineStatus(id);
 }
 
+google::protobuf::Message *NFCoroutineSchedule::GetUserData(int64_t id)
+{
+    return schedule_->CoroutineUserData(id);
+}
+
+int NFCoroutineSchedule::SetUserData(int64_t id, google::protobuf::Message *pUserData)
+{
+    return schedule_->CoroutineSetUserData(id, pUserData);
+}
+

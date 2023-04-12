@@ -118,6 +118,12 @@ public:
     /// @return 协程状态
     int Status(int64_t id);
 
+    /// @brief 获取协程
+    /// @param 协程ID
+    /// @return 返回
+    google::protobuf::Message *GetUserData(int64_t id);
+    int SetUserData(int64_t id, google::protobuf::Message *pUserData);
+
     int AddTaskToSchedule(NFCoroutineTask *task);
     int32_t OnTimeout(int64_t id);
     NFCoroutineTask *Find(int64_t id) const;

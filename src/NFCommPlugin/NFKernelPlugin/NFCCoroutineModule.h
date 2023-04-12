@@ -77,6 +77,12 @@ public:
     /// @return 协程状态
     virtual int Status(int64_t id) override;
 
+    /// @brief 获取协程
+    /// @param 协程ID
+    /// @return 返回
+    google::protobuf::Message *GetUserData(int64_t id) override;
+    int SetUserData(google::protobuf::Message *pUserData)  override;
+
     /**
      * @brief 协程是否存在，是否已经死亡
      * @return
@@ -111,13 +117,6 @@ public:
     }
 
     virtual int MakeCoroutine(const std::function<void()> &func) override;
-
-    virtual int AddRpcService(google::protobuf::Message* pMessage) override;
-
-    virtual google::protobuf::Message* GetRpcService(int64_t coId) override;
-
-    virtual int DelRpcService(google::protobuf::Message* pMessage) override;
 private:
     NFCoroutineSchedule *m_pCorSched;
-    std::unordered_map<int64_t, google::protobuf::Message*> m_rpcCoMap;
 };

@@ -25,6 +25,7 @@
 #endif
 
 #include "NFCoroutine.h"
+#include "google/protobuf/message.h"
 
 #ifdef Yield
 #undef Yield
@@ -103,6 +104,12 @@ public:
 	/// @param 协程ID
 	/// @return 返回协程运行状态
 	int CoroutineStatus(int64_t id);
+
+    /// @brief 获取协程
+    /// @param 协程ID
+    /// @return 返回
+    google::protobuf::Message *CoroutineUserData(int64_t id);
+    int CoroutineSetUserData(int64_t id, google::protobuf::Message *pUserData);
 
 	/// @brief 获取当前正在运行的协程ID
 	/// @return 返回正在运行的协程ID

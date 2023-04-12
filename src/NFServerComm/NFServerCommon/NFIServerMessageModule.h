@@ -274,7 +274,7 @@ public:
         FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD,
                                                         svrPkg);
 
-        int iRet = FindModule<NFICoroutineModule>()->AddRpcService(&selRes);
+        int iRet = FindModule<NFICoroutineModule>()->SetUserData(&selRes);
         CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
 
         do
@@ -304,7 +304,7 @@ public:
         } while (true);
 
 
-        FindModule<NFICoroutineModule>()->DelRpcService(&selRes);
+        FindModule<NFICoroutineModule>()->SetUserData(NULL);
 
         return iRet;
     }
@@ -840,7 +840,7 @@ public:
         FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD,
                                                         svrPkg);
 
-        int iRet = FindModule<NFICoroutineModule>()->AddRpcService(&selRes);
+        int iRet = FindModule<NFICoroutineModule>()->SetUserData(&selRes);
         CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
 
         do
@@ -870,7 +870,7 @@ public:
         } while (true);
 
 
-        FindModule<NFICoroutineModule>()->DelRpcService(&selRes);
+        FindModule<NFICoroutineModule>()->SetUserData(NULL);
 
         return iRet;
     }

@@ -57,6 +57,7 @@ public:
         svrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
         svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
         svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
+        svrPkg.mutable_rpc_info()->set_is_script_rpc(false);
         if (m_function || m_functionWithLink || m_functionWithCallBack)
         {
             if (m_function)
