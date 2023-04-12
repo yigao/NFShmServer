@@ -146,7 +146,7 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 
 	SET(LIB_LINK_DEP resolv dl rt pthread)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
-	if (${DISTRO_ID} STREQUAL "centos")
+	if (DISTRO_ID STREQUAL "centos")
 		message ("DISTRO_ID: ${DISTRO_ID} ")
 		message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
 		SET(LIB_DIR "." "/usr/lib"
