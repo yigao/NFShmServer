@@ -11,6 +11,17 @@ message("CMAKE_SYSTEM: ${CMAKE_SYSTEM} ")
 message("CMAKE_HOST_UNIX: ${CMAKE_HOST_UNIX} ")
 message("CMAKE_HOST_WIN32: ${CMAKE_HOST_WIN32} ")
 
+
+cmake_host_system_information(RESULT PRETTY_NAME QUERY DISTRIB_PRETTY_NAME)
+message(STATUS "${PRETTY_NAME}")
+
+cmake_host_system_information(RESULT DISTRO QUERY DISTRIB_INFO)
+foreach(VAR IN LISTS DISTRO)
+	message(STATUS "${VAR}=`${${VAR}}`")
+endforeach()
+
+
+
 if( CMAKE_BUILD_TYPE STREQUAL "Release" )
 	set(CMAKE_BUILD_TYPE "Release")
 	set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -fPIC")
@@ -116,19 +127,40 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 	SET(LIB_LINK_NF libNFKernelPlugin.a  NFTestPlugin.a)
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
-	SET(LIB_DIR "./" "/usr/lib"
-			"${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
-			"${CMAKE_SOURCE_DIR}/Build/Lib/Release"
-			"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
-			)
+	if (${DISTRO_ID} STREQUAL "centos")
+		message ("DISTRO_ID: ${DISTRO_ID} ")
+		message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
+		SET(LIB_DIR "./" "/usr/lib"
+				"${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
+				"${CMAKE_SOURCE_DIR}/Build/Lib/Release"
+				"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
+				)
+	else()
+		SET(LIB_DIR "./" "/usr/lib"
+				"${CMAKE_SOURCE_DIR}/Build/Lib/Release"
+				"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
+				)
+	endif()
+
+
 
 	SET(LIB_LINK_DEP resolv dl rt pthread)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
-	SET(LIB_DIR "." "/usr/lib"
-			"${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
-			"${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
-			"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
-			)
+	if (${DISTRO_ID} STREQUAL "centos")
+		message ("DISTRO_ID: ${DISTRO_ID} ")
+		message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
+		SET(LIB_DIR "." "/usr/lib"
+				"${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
+				"${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
+				"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
+				)
+	else()
+		SET(LIB_DIR "." "/usr/lib"
+				"${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
+				"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
+				)
+	endif()
+
 
 	SET(LIB_LINK_DEP resolv dl rt pthread)
 endif()
