@@ -127,7 +127,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 
 	SET(LIB_LINK_NF libNFKernelPlugin.a  NFTestPlugin.a)
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
-	if (${DISTRO_ID} STREQUAL "centos")
+	if (DISTRO_ID STREQUAL "centos")
 		message ("DISTRO_ID: ${DISTRO_ID} ")
 		message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
 		SET(LIB_DIR "./" "/usr/lib"
