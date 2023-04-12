@@ -20,7 +20,7 @@
 #include "demangle.h"
 
 #if NF_PLATFORM != NF_PLATFORM_WIN
-
+#include <bits/signum.h>
 #include <ucontext.h>
 #include <sys/ucontext.h>
 #include <execinfo.h>
