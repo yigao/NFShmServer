@@ -23,6 +23,7 @@
 #include "NFComm/NFPluginModule/NFITaskModule.h"
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
+#include "NFSignalHandleMgr.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "hwinfo/hw_info.h"
 
