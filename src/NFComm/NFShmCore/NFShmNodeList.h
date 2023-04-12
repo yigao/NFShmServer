@@ -422,6 +422,17 @@ public:
         }
     }
 
+    NFShmNodeObjMultiList(const NFShmNodeObjMultiList& list)
+    {
+        if (this != &list)
+        {
+            m_iListCheckID = list.m_iListCheckID;
+            m_iNodeCount = list.m_iNodeCount;
+            m_iHeadNode = list.m_iHeadNode;
+            m_iTailNode = list.m_iTailNode;
+        }
+    }
+
     void InitNodeList()
     {
         m_iNodeCount = 0;

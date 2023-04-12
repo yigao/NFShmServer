@@ -27,6 +27,8 @@ class NFGrid
 public:
     NFGrid();
 
+    NFGrid(const NFGrid& grid);
+
     virtual ~NFGrid();
 
     int CreateInit();

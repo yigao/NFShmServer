@@ -29,6 +29,15 @@ NFGrid::~NFGrid()
 
 }
 
+NFGrid::NFGrid(const NFGrid& grid)
+{
+    if (this != &grid)
+    {
+        m_cidList = grid.m_cidList;
+        m_gridPos = grid.m_gridPos;
+    }
+}
+
 int NFGrid::CreateInit()
 {
     return 0;
