@@ -13,6 +13,7 @@
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 NFServerMessageModule::NFServerMessageModule(NFIPluginManager *pPluginManager) : NFIServerMessageModule(pPluginManager)
 {
