@@ -422,7 +422,7 @@ public:
         }
     }
 
-    NFShmNodeObjMultiList(const NFShmNodeObjMultiList& list)
+    NFShmNodeObjMultiList(const NFShmNodeObjMultiList<NodeObjType>& list)
     {
         if (this != &list)
         {
