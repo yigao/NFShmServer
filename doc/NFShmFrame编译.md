@@ -56,7 +56,8 @@
 ## 安装  openssl-1.0.2n
 - 解压thirdparty/pkg目录下得  openssl-1.0.2n.tar.gz(tar -xvf   openssl-1.0.2n.tar.gz), 会有一个openssl-1.0.2n目录，cd openssl-1.0.2n
 - 编译openssl:
-- ./Configure
+- ./config
+- 找到Makefile文件，在CFLAG=这一行，加入-fPIC
 - make
 - sudo make install
 ## 安装zlib(系统自带的zlib库编译的时候没有-fPIC， 所有我们要自己编译安装一个带-fPIC的)
