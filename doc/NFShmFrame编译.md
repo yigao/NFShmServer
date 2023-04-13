@@ -4,8 +4,10 @@
 - sudo vim /etc/ld.so.conf 加入 /usr/local/lib, 然后执行ldconfig
 - 安装git, sudo apt install git
 - 安装mysqlclient, sudo apt install libmysqlclient-dev
+- sudo apt install libkrb5-dev
 - git clone https://gitee.com/xiaoyi445_admin/NFShmServer2.git拉取代码
- 
+## Centos7编译前提条件
+- yum install krb5-devel.x86_64
 ## 安装CMake 2.6
 - 解压thirdparty/pkg目录下得cmake-3.26.3.tar.gz(tar -xvf cmake-3.26.3.tar.gz), 会有一个cmake-3.26.3目录，, cd cmake-3.26.3
 - 编译cmake,执行:
