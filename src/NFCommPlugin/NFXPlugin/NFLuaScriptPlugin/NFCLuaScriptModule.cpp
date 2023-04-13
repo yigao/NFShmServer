@@ -572,12 +572,12 @@ bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t n
 {
     CHECK_EXPR(luaFunc.isFunction(), false, "RegisterClientMessage Lua Func Fail, is not a function");
 
-    if (NFIDynamicModule::RegisterClientMessage(eType, nMsgID))
+    if (NFIDynamicModule::RegisterClientMessage(eType, nMsgID, createCo))
     {
         if (eType < mxLuaCallBack.size())
         {
             CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
-            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_CLIENT][nMsgID] = NetLuaReceiveFunctor(luaFunc, createCo);
+            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_CLIENT][nMsgID] = NetLuaReceiveFunctor(luaFunc);
             return true;
         }
     }
@@ -589,12 +589,12 @@ bool NFCLuaScriptModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t n
 {
     CHECK_EXPR(luaFunc.isFunction(), false, "RegisterServerMessage Lua Func Fail, is not a function");
 
-    if (NFIDynamicModule::RegisterServerMessage(eType, nMsgID))
+    if (NFIDynamicModule::RegisterServerMessage(eType, nMsgID, createCo))
     {
         if (eType < mxLuaCallBack.size())
         {
             CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
-            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_SERVER][nMsgID] = NetLuaReceiveFunctor(luaFunc, createCo);
+            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_SERVER][nMsgID] = NetLuaReceiveFunctor(luaFunc);
             return true;
         }
     }
@@ -620,18 +620,7 @@ int NFCLuaScriptModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
         NetLuaReceiveFunctor& functor = mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_CLIENT][msgId];
-        if (functor.m_createCo)
-        {
-            FindModule<NFICoroutineModule>()->MakeCoroutine(
-                    [=]
-                    {
-                        TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
-                    });
-        }
-        else
-        {
-            TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
-        }
+        TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
     }
     return 0;
 }
@@ -654,17 +643,7 @@ int NFCLuaScriptModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
         NetLuaReceiveFunctor& functor = mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_SERVER][msgId];
-        if (functor.m_createCo)
-        {
-            FindModule<NFICoroutineModule>()->MakeCoroutine(
-                    [=]
-                    {
-                        TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
-                    });
-        }
-        else {
-            TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
-        }
+        TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
     }
     return 0;
 }

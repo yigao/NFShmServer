@@ -39,7 +39,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID);
+    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, bool createCo = false);
 
     /**
      * @brief 注册服务器信息处理函数
@@ -47,7 +47,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID);
+    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, bool createCo = false);
 
     /**
      * @brief 处理客户端消息

@@ -85,9 +85,10 @@ struct NetReceiveFunctor
         m_iAllUseTime = 0;
         m_iMinTime = 1000000000;
         m_iMaxTime = 0;
+        m_createCo = false;
     }
 
-    NetReceiveFunctor(NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR& functor):m_pTarget(pTarget),m_pFunctor(functor)
+    NetReceiveFunctor(NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR& functor, bool createCo):m_pTarget(pTarget),m_pFunctor(functor),m_createCo(createCo)
     {
         m_iCount = 0;
         m_iAllUseTime = 0;
@@ -105,6 +106,7 @@ struct NetReceiveFunctor
             m_iAllUseTime = functor.m_iAllUseTime;
             m_iMinTime = functor.m_iMinTime;
             m_iMaxTime = functor.m_iMaxTime;
+            m_createCo = functor.m_createCo;
         }
     }
 
@@ -118,6 +120,7 @@ struct NetReceiveFunctor
             m_iAllUseTime = functor.m_iAllUseTime;
             m_iMinTime = functor.m_iMinTime;
             m_iMaxTime = functor.m_iMaxTime;
+            m_createCo = functor.m_createCo;
         }
 
         return *this;
@@ -129,6 +132,7 @@ struct NetReceiveFunctor
     uint64_t m_iAllUseTime;
     uint64_t m_iMinTime;
     uint64_t m_iMaxTime;
+    bool m_createCo;
 };
 
 struct NetEventFunctor
@@ -137,9 +141,10 @@ struct NetEventFunctor
     {
         m_pTarget = NULL;
         m_pFunctor = NULL;
+        m_createCo = false;
     }
 
-    NetEventFunctor(NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR& functor):m_pTarget(pTarget),m_pFunctor(functor)
+    NetEventFunctor(NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR& functor, bool createCo):m_pTarget(pTarget),m_pFunctor(functor),m_createCo(createCo)
     {
     }
 
@@ -165,6 +170,7 @@ struct NetEventFunctor
 
     NFIDynamicModule* m_pTarget;
     NET_EVENT_FUNCTOR m_pFunctor;
+    bool m_createCo;
 };
 
 struct CallBack {

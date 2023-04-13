@@ -233,38 +233,38 @@ public:
 public:
     template<typename BaseType>
     bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, BaseType *pBase,
-                            int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet))
+                            int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
         NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
-        return AddMessageCallBack(eType, nMsgID, pBase, functor);
+        return AddMessageCallBack(eType, nMsgID, pBase, functor, createCo);
     }
 
     template<typename BaseType>
     bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, BaseType *pBase,
-                            int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet))
+                            int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
         NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
-        return AddMessageCallBack(eType, nModuleId, nMsgID, pBase, functor);
+        return AddMessageCallBack(eType, nModuleId, nMsgID, pBase, functor, createCo);
     }
 
     template<typename BaseType>
     bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, BaseType *pBase,
-                          int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet))
+                          int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
         NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
 
-        return AddOtherCallBack(eType, linkId, pBase, functor);
+        return AddOtherCallBack(eType, linkId, pBase, functor, createCo);
     }
 
     template<typename BaseType>
-    bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, BaseType *pBase, int (BaseType::*handler)(eMsgType nEvent, uint64_t unLinkId))
+    bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, BaseType *pBase, int (BaseType::*handler)(eMsgType nEvent, uint64_t unLinkId), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIMessageProcessor");
         NET_EVENT_FUNCTOR functor = std::bind(handler, pBase, std::placeholders::_1, std::placeholders::_2);
-        return AddEventCallBack(eType, linkId, pBase, functor);
+        return AddEventCallBack(eType, linkId, pBase, functor, createCo);
     }
 
     /*
@@ -272,12 +272,12 @@ public:
     * */
     template<typename BaseType>
     bool AddAllMsgCallBack(NF_SERVER_TYPES eType, BaseType *pBase,
-                           int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet))
+                           int (BaseType::*handleRecieve)(uint64_t unLinkId, NFDataPackage &packet), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
         NET_RECEIVE_FUNCTOR functor = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2);
 
-        return AddAllMsgCallBack(eType, pBase, functor);
+        return AddAllMsgCallBack(eType, pBase, functor, createCo);
     }
 
 public:
@@ -704,26 +704,26 @@ public:
     /*
      * 添加模块0, 消息ID的回调, 一个消息只能有一个处理函数
      * */
-    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
+    virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb, bool createCo) = 0;
 
     /*
      * 添加模块moduleId, 消息ID的回调, 一个消息只能有一个处理函数
      * */
     virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget,
-                                    const NET_RECEIVE_FUNCTOR &cb) = 0;
+                                    const NET_RECEIVE_FUNCTOR &cb, bool createCo) = 0;
 
     /*
      * 未没有注册过的消息，添加一个统一处理的回调函数
      * */
-    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
+    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb, bool createCo) = 0;
 
     /*
     * 对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
     * */
-    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) = 0;
+    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb, bool createCo) = 0;
 
     /*
      * 添加连接事件，掉线事件的处理函数
      * */
-    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb) = 0;
+    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb, bool createCo) = 0;
 };

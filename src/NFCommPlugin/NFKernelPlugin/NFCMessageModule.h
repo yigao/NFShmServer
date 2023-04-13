@@ -177,28 +177,28 @@ public:
      * 添加模块0, 消息ID的回调, 一个消息只能有一个处理函数
      * */
     virtual bool AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, NFIDynamicModule *pTarget,
-                                    const NET_RECEIVE_FUNCTOR &cb) override;
+                                    const NET_RECEIVE_FUNCTOR &cb, bool createCo) override;
 
     /*
      * 添加模块moduleId, 消息ID的回调, 一个消息只能有一个处理函数
      * */
     virtual bool
-    AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) override;
+    AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb, bool createCo) override;
 
     /*
      * 未没有注册过的消息，添加一个统一处理的回调函数
      * */
-    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb) override;
+    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb, bool createCo) override;
 
     /*
      * 添加连接事件，掉线事件的处理函数
      * */
-    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb) override;
+    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb, bool createCo) override;
 
     /*
     * 对所有的消息添加一个统一的回调， 同过判断返回true表示将处理这个消息，false将不处理这个消息
     * */
-    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTaraget, const NET_RECEIVE_FUNCTOR &cb) override;
+    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTaraget, const NET_RECEIVE_FUNCTOR &cb, bool createCo) override;
 
     /**
      * @brief 添加rpc服务

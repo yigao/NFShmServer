@@ -277,25 +277,25 @@ bool NFCMessageModule::DelAllCallBack(NFIDynamicModule *pTarget)
 }
 
 bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID, NFIDynamicModule *pTarget,
-                                          const NET_RECEIVE_FUNCTOR &cb)
+                                          const NET_RECEIVE_FUNCTOR &cb, bool createCo)
 {
     if (eType < mxCallBack.size())
     {
         CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
-        mxCallBack[eType].mxReceiveCallBack[0][nMsgID] = NetReceiveFunctor(pTarget, cb);
+        mxCallBack[eType].mxReceiveCallBack[0][nMsgID] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
     return false;
 }
 
 bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModuleId, uint32_t nMsgID, NFIDynamicModule *pTarget,
-                                          const NET_RECEIVE_FUNCTOR &cb)
+                                          const NET_RECEIVE_FUNCTOR &cb, bool createCo)
 {
     if (eType < mxCallBack.size())
     {
         CHECK_EXPR_ASSERT(nModuleId < NF_MODULE_MAX, false, "nModuleId:{} >= NF_MODULE_MAX", nModuleId);
         CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
-        mxCallBack[eType].mxReceiveCallBack[nModuleId][nMsgID] = NetReceiveFunctor(pTarget, cb);
+        mxCallBack[eType].mxReceiveCallBack[nModuleId][nMsgID] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
     return false;
@@ -319,21 +319,21 @@ std::set<uint32_t> NFCMessageModule::GetAllMsg(NF_SERVER_TYPES eType, uint32_t n
 }
 
 bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget,
-                                        const NET_RECEIVE_FUNCTOR &cb)
+                                        const NET_RECEIVE_FUNCTOR &cb, bool createCo)
 {
     if (eType < mxCallBack.size())
     {
-        mxCallBack[eType].mxOtherMsgCallBackList[linkId] = NetReceiveFunctor(pTarget, cb);
+        mxCallBack[eType].mxOtherMsgCallBackList[linkId] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
     return false;
 }
 
-bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb)
+bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule *pTarget, const NET_RECEIVE_FUNCTOR &cb, bool createCo)
 {
     if (eType < mxCallBack.size())
     {
-        mxCallBack[eType].mxAllMsgCallBackList = NetReceiveFunctor(pTarget, cb);
+        mxCallBack[eType].mxAllMsgCallBackList = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
     return false;
@@ -351,11 +351,11 @@ bool NFCMessageModule::AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID
     return false;
 }
 
-bool NFCMessageModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb)
+bool NFCMessageModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, NFIDynamicModule *pTarget, const NET_EVENT_FUNCTOR &cb, bool createCo)
 {
     if (eType < mxCallBack.size())
     {
-        mxCallBack[eType].mxEventCallBack[linkId] = NetEventFunctor(pTarget, cb);
+        mxCallBack[eType].mxEventCallBack[linkId] = NetEventFunctor(pTarget, cb, createCo);
         return true;
     }
     return false;
@@ -370,10 +370,34 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
         CallBack &callBack = mxCallBack[eServerType];
         if (callBack.mxAllMsgCallBackList.m_pFunctor)
         {
-            int iRet = callBack.mxAllMsgCallBackList.m_pFunctor(objectLinkId, packet);
-            if (iRet != 0)
+            if (callBack.mxAllMsgCallBackList.m_createCo)
             {
-                return 0;
+                NET_RECEIVE_FUNCTOR &pFun = callBack.mxAllMsgCallBackList.m_pFunctor;
+                int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                        [pFun, objectLinkId, packet]
+                        {
+                            //从消息层传过来的包中的数据，会在处理函数执行完后销毁掉，所以携程必须复制一份，以防万一yield后又用到。
+                            std::string tempCopyBuffer(packet.GetBuffer(), packet.GetSize());
+                            NFDataPackage tempPackage = packet;
+                            tempPackage.nBuffer = (char*)tempCopyBuffer.data();
+                            int iRet = pFun(objectLinkId, tempPackage);
+                            if (iRet != 0)
+                            {
+                                return 0;
+                            }
+                        });
+
+                if (iRet != 0)
+                {
+                    return 0;
+                }
+            }
+            else {
+                int iRet = callBack.mxAllMsgCallBackList.m_pFunctor(objectLinkId, packet);
+                if (iRet != 0)
+                {
+                    return 0;
+                }
             }
         }
 
@@ -385,7 +409,22 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
             NET_RECEIVE_FUNCTOR &pFun = netFunctor.m_pFunctor;
             if (pFun)
             {
-                int iRet = pFun(objectLinkId, packet);
+                int iRet = 0;
+                if (netFunctor.m_createCo)
+                {
+                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                            [objectLinkId, packet, pFun]
+                            {
+                                //从消息层传过来的包中的数据，会在处理函数执行完后销毁掉，所以携程必须复制一份，以防万一yield后又用到。
+                                std::string tempCopyBuffer(packet.GetBuffer(), packet.GetSize());
+                                NFDataPackage tempPackage = packet;
+                                tempPackage.nBuffer = (char*)tempCopyBuffer.data();
+                                pFun(objectLinkId, tempPackage);
+                            });
+                }
+                else {
+                    iRet = pFun(objectLinkId, packet);
+                }
                 netFunctor.m_iCount++;
                 uint64_t useTime = NFGetMicroSecondTime() - startTime;
                 netFunctor.m_iAllUseTime += useTime;
@@ -425,7 +464,22 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
             NET_RECEIVE_FUNCTOR &pFun = iterator2->second.m_pFunctor;
             if (pFun)
             {
-                int iRet = pFun(objectLinkId, packet);
+                int iRet = 0;
+                if (iterator2->second.m_createCo)
+                {
+                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                            [objectLinkId, packet, pFun]
+                            {
+                                //从消息层传过来的包中的数据，会在处理函数执行完后销毁掉，所以携程必须复制一份，以防万一yield后又用到。
+                                std::string tempCopyBuffer(packet.GetBuffer(), packet.GetSize());
+                                NFDataPackage tempPackage = packet;
+                                tempPackage.nBuffer = (char*)tempCopyBuffer.data();
+                                pFun(objectLinkId, tempPackage);
+                            });
+                }
+                else {
+                    iRet = pFun(objectLinkId, packet);
+                }
                 iterator2->second.m_iCount++;
                 uint64_t useTime = NFGetMicroSecondTime() - startTime;
                 iterator2->second.m_iAllUseTime += useTime;
@@ -730,10 +784,11 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
             {
                 if (netRpcService.m_createCo)
                 {
+                    NFIRpcService* pRpcService = netRpcService.m_pRpcService;
                     iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
-                            [this, netRpcService, objectLinkId, reqSvrPkg]()
+                            [this, pRpcService, objectLinkId, reqSvrPkg]()
                             {
-                                int iRet = netRpcService.m_pRpcService->run(objectLinkId, reqSvrPkg);
+                                int iRet = pRpcService->run(objectLinkId, reqSvrPkg);
                                 if (iRet != 0)
                                 {
                                     uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
@@ -821,8 +876,18 @@ int NFCMessageModule::OnSocketNetEvent(eMsgType nEvent, uint64_t connectionLink,
             NET_EVENT_FUNCTOR &pFun = iter->second.m_pFunctor;
             if (pFun)
             {
-                int iRet = pFun(nEvent, objectLinkId);
-                CHECK_RET(iRet, "nEvent:{}", nEvent);
+                if (iter->second.m_createCo)
+                {
+                    int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                            [pFun, nEvent, objectLinkId]{
+                                pFun(nEvent, objectLinkId);
+                            });
+                    CHECK_RET(iRet, "nEvent:{}", nEvent);
+                }
+                else {
+                    int iRet = pFun(nEvent, objectLinkId);
+                    CHECK_RET(iRet, "nEvent:{}", nEvent);
+                }
             }
         }
     }

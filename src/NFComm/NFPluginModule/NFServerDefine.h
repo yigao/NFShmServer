@@ -227,6 +227,27 @@ struct NFDataPackage
 
     }
 
+    NFDataPackage(const NFDataPackage& data)
+    {
+        if (this != &data)
+        {
+            mModuleId = data.mModuleId;
+            nMsgId = data.nMsgId;
+            nParam1 = data.nParam1;
+            nParam2 = data.nParam2;
+            nSrcId = data.nSrcId;
+            nDstId = data.nDstId;
+            nSendBusLinkId = data.nSendBusLinkId;
+            bCompress = data.bCompress;
+            nConnectLinkId = data.nConnectLinkId;
+            nObjectLinkId = data.nObjectLinkId;
+            nPacketParseType = data.nPacketParseType;
+            isSecurity = data.isSecurity;
+            nBuffer = data.nBuffer;
+            nMsgLen = data.nMsgLen;
+        }
+    }
+
     std::string ToString() const
     {
         return NF_FORMAT("(mdouleId:{} msgId:{} param1:{} param2:{} nMsgLen:{})", mModuleId, nMsgId, nParam1, nParam2, nMsgLen);

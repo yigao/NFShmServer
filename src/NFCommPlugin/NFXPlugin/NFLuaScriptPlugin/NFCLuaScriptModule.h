@@ -70,10 +70,9 @@ struct NetLuaReceiveFunctor
 {
     NetLuaReceiveFunctor()
     {
-        m_createCo = false;
     }
 
-    NetLuaReceiveFunctor(const LuaIntf::LuaRef &luaFunc, bool createCo = false) : m_luaFunc(luaFunc), m_createCo(createCo)
+    NetLuaReceiveFunctor(const LuaIntf::LuaRef &luaFunc) : m_luaFunc(luaFunc)
     {
 
     }
@@ -83,7 +82,6 @@ struct NetLuaReceiveFunctor
         if (this != &functor)
         {
             m_luaFunc = functor.m_luaFunc;
-            m_createCo = functor.m_createCo;
         }
     }
 
@@ -92,14 +90,12 @@ struct NetLuaReceiveFunctor
         if (this != &functor)
         {
             m_luaFunc = functor.m_luaFunc;
-            m_createCo = functor.m_createCo;
         }
 
         return *this;
     }
 
     LuaIntf::LuaRef m_luaFunc;
-    bool m_createCo;
 };
 
 struct NetLuaRpcService
