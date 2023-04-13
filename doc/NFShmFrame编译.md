@@ -44,13 +44,13 @@
 ## 安装libevent-release-2.1.8
 - 解压thirdparty/pkg目录下得libevent-release-2.1.8-stable.tar.gz(tar -xvf libevent-release-2.1.8-stable.tar.gz), 会有一个libevent-release-2.1.8-stable目录，cd libevent-release-2.1.8-stable
 - 编译libevent, 注意-with-pic， 一定要带:
-- ./configure
+- ./configure -with-pic
 - make
 - sudo make install
 ## 安装 curl-7.60.0
 - 解压thirdparty/pkg目录下得 curl-7.60.0.tar.bz2(tar -xvf  curl-7.60.0.tar.bz2), 会有一个curl-7.60.0目录，cd curl-7.60.0
-- 编译curl:
-- ./configure
+- 编译curl, 注意-with-pic， 一定要带::
+- ./configure -with-pic
 - make
 - sudo make install
 ## 安装  openssl-1.0.2n
