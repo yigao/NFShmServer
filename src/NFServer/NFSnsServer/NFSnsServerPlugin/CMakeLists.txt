@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.22)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 PROJECT(NFSnsServerPlugin)
 
 include_directories( ${INCLUDE_DIR} "../../../NFServer/NFSnsServer/NFSnsServerPlugin")

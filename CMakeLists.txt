@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.22)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 project(ShmNFrame)
 add_compile_options(-std=c++11)
 
