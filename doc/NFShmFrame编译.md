@@ -8,7 +8,7 @@
 ## Centos7编译前提条件
 - yum install krb5-devel.x86_64
 ## 
-## 安装mysqlclient
+## 安装mysqlclient(不要安装系统默认的libmysqlclient)
 - sudo apt install cmake (低版本cmake, 先不要安装cmake3.26)
 - thirdparty目录下有一个mysql目录，cd mysql
 - mkdir build
