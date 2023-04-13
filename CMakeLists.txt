@@ -138,8 +138,9 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 				"${CMAKE_SOURCE_DIR}/Build/Lib/Release"
 				"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
 				)
-	else()
+	elseif(DISTRO_ID STREQUAL "ubuntu")
 		SET(LIB_DIR "./" "/usr/lib"
+				"${CMAKE_SOURCE_DIR}/thirdparty/lib64_release/ubuntu"
 				"${CMAKE_SOURCE_DIR}/Build/Lib/Release"
 				"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
 				)
@@ -158,8 +159,9 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 				"${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
 				"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
 				)
-	else()
+	elseif(DISTRO_ID STREQUAL "ubuntu")
 		SET(LIB_DIR "." "/usr/lib"
+				"${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug/ubuntu"
 				"${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
 				"${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
 				)
