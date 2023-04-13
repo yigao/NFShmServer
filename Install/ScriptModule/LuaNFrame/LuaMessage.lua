@@ -603,13 +603,25 @@ function LuaNFrame.AddRpcService(serverType, nMsgId, reqType, rspType, luaFunc, 
     end
 
 	if type(reqType) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgType Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error")
 		return
+	else
+		local name = LuaNFrame.pb.type(reqType)
+		if name == nil then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, reqType.."..reqType.." is not a protobuf message")
+			return
+		end
     end
 
 	if type(rspType)  ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgData Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "rspType Para Error")
 		return
+	else
+		local name = LuaNFrame.pb.type(rspType)
+		if name == nil then
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, rspType.."..rspType.." is not a protobuf message")
+			return
+		end
     end
 
 	if type(luaFunc) ~= "function" then
@@ -656,7 +668,7 @@ function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, req
 	else
 		local name = LuaNFrame.pb.type(reqType)
 		if name == nil then
-			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, reqType:{} is not a protobuf message", reqType)
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType Para Error, reqType.."..reqType.." is not a protobuf message")
 			return
 		end
     end
@@ -667,7 +679,7 @@ function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, req
 	else
 		local name = LuaNFrame.pb.type(rspType)
 		if name == nil then
-			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "rspType Para Error, rspType:{} is not a protobuf message", rspType)
+			LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "rspType Para Error, rspType:"..rspType.." is not a protobuf message")
 			return
 		end
     end
@@ -680,7 +692,7 @@ function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, req
 
 	local reqeustData = LuaNFrame.Encode(reqType, request)
 	if type(reqeustData) ~= "string" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType:{} Encode Failed", reqType)
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "reqType:"..reqType.." Encode Failed")
 		return
 	end
 
@@ -688,14 +700,15 @@ function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, req
 	if iRetCode == 0 then
 		return LuaNFrame.Decode(rspType, respone)
 	else
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "GetRpcService Failed, reqType:{} rspType:{} iRetCode:{}", reqType, rspType, iRetCode)
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "GetRpcService Failed, reqType:"..reqType.." rspType:"..rspType.." iRetCode:"..iRetCode)
 	end
 end
 
 function LuaNFrame.DispatchRpcMessage(luaFunc,  reqType,  request,  rspType, respone)
 	local function TcpExecute()
 		local reqMsg = LuaNFrame.Decode(reqType, request)
-		local rspMsg = luaFunc(reqMsg)
+		local rspMsg = LuaNFrame.Defaults(rspType)
+		luaFunc(reqMsg, rspMsg)
 		if type(rspMsg) == "table" then
 			local data = LuaNFrame.Encode(rspType, rspMsg)
 			if type(data) == "string" then

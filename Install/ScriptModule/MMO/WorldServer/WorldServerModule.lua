@@ -2,6 +2,7 @@ WorldServerModule = {}
 WorldServerModule.serverIdMap = {}
 function WorldServerModule.Init()
     LuaNFrame.RegisterServerMessage(NF_ST_WORLD_SERVER,  "NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ",  WorldServerModule.HandleMsg, true)
+    LuaNFrame.AddRpcService(NF_ST_WORLD_SERVER, "NF_RPC_SERVICE_GET_SERVER_INFO_REQ", "proto_ff.RpcRequestGetServerInfo", "proto_ff.ServerInfoReport", WorldServerModule.OnRpcServiceGetServerInfo)
 end
 
 function WorldServerModule.HandleMsg(msgId, packet, param1, param2)
@@ -27,7 +28,14 @@ function WorldServerModule.HandleMsg(msgId, packet, param1, param2)
     LuaNFrame.SendMsgToLogicServer(NF_ST_WORLD_SERVER,  packet:GetSrcId(), 0,"NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ", "proto_ff.Proto_TestOtherServerToWorldServer", xData, 3, 4);
 end
 
-function WorldServerModule.OnRpcServiceGetServerInfo()
+function WorldServerModule.OnRpcServiceGetServerInfo(request, respone)
+    if request ~= nil then
+        LuaNFrame.PrintProto(request)
+    end
+
+    if respone ~= nil then
+        LuaNFrame.PrintProto(respone)
+    end
 end
 
 function WorldServerModule.Execute()

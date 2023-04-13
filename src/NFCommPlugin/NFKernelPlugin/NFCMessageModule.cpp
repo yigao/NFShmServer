@@ -282,6 +282,7 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID
     if (eType < mxCallBack.size())
     {
         CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
+        CHECK_EXPR(!mxCallBack[eType].mxReceiveCallBack[0][nMsgID].m_pFunctor, false, "eType:{} nModuleId:{} nMsgID:{} Exist, AddMessageCallBack Failed..........", eType, 0, nMsgID);
         mxCallBack[eType].mxReceiveCallBack[0][nMsgID] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
@@ -293,8 +294,9 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModul
 {
     if (eType < mxCallBack.size())
     {
-        CHECK_EXPR_ASSERT(nModuleId < NF_MODULE_MAX, false, "nModuleId:{} >= NF_MODULE_MAX", nModuleId);
-        CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
+        CHECK_EXPR(nModuleId < NF_MODULE_MAX, false, "nModuleId:{} >= NF_MODULE_MAX", nModuleId);
+        CHECK_EXPR(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
+        CHECK_EXPR(!mxCallBack[eType].mxReceiveCallBack[nModuleId][nMsgID].m_pFunctor, false, "eType:{} nModuleId:{} nMsgID:{} Exist, AddMessageCallBack Failed..........", eType, nModuleId, nMsgID);
         mxCallBack[eType].mxReceiveCallBack[nModuleId][nMsgID] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
@@ -323,6 +325,7 @@ bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, 
 {
     if (eType < mxCallBack.size())
     {
+        CHECK_EXPR(!mxCallBack[eType].mxOtherMsgCallBackList[linkId].m_pFunctor, false, "serverType:{} linkId:{} Exist, AddOtherCallBack Failed..........", eType, linkId);
         mxCallBack[eType].mxOtherMsgCallBackList[linkId] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
@@ -333,6 +336,7 @@ bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule
 {
     if (eType < mxCallBack.size())
     {
+        CHECK_EXPR(!mxCallBack[eType].mxAllMsgCallBackList.m_pFunctor, false, "serverType:{} Exist, AddAllMsgCallBack Failed..........", eType);
         mxCallBack[eType].mxAllMsgCallBackList = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
@@ -344,7 +348,8 @@ bool NFCMessageModule::AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgID
 {
     if (serverType < mxCallBack.size())
     {
-        CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
+        CHECK_EXPR(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
+        CHECK_EXPR(!mxCallBack[serverType].mxRpcCallBack[nMsgID].m_pRpcService, false, "serverType:{} nMsgID:{} Exist, AddRpcService Failed..........", serverType, nMsgID);
         mxCallBack[serverType].mxRpcCallBack[nMsgID] = NetRpcService(pTarget, pRpcService, createCo);
         return true;
     }
@@ -380,11 +385,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                             std::string tempCopyBuffer(packet.GetBuffer(), packet.GetSize());
                             NFDataPackage tempPackage = packet;
                             tempPackage.nBuffer = (char*)tempCopyBuffer.data();
-                            int iRet = pFun(objectLinkId, tempPackage);
-                            if (iRet != 0)
-                            {
-                                return 0;
-                            }
+                            pFun(objectLinkId, tempPackage);
                         });
 
                 if (iRet != 0)

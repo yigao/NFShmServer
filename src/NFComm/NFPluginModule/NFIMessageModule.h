@@ -141,8 +141,8 @@ public:
         virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg) override
         {
             std::string rsp;
-            CHECK_EXPR(std::hash<std::string>()(m_reqType) == reqSvrPkg.rpc_info().req_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED, "NFCRpcService reqHash Not Equal:{}, nMsgId:{}", m_reqType, reqSvrPkg.msg_id());
-            CHECK_EXPR(std::hash<std::string>()(m_rspType) == reqSvrPkg.rpc_info().rsp_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED, "NFCRpcService rspHash Not Equal:{}, nMsgId:{}", m_rspType, reqSvrPkg.msg_id());
+            CHECK_EXPR(std::hash<std::string>()(m_reqType) == reqSvrPkg.rpc_info().req_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED, "NFCScriptRpcService reqHash Not Equal:{}, nMsgId:{}", m_reqType, reqSvrPkg.msg_id());
+            CHECK_EXPR(std::hash<std::string>()(m_rspType) == reqSvrPkg.rpc_info().rsp_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED, "NFCScriptRpcService rspHash Not Equal:{}, nMsgId:{}", m_rspType, reqSvrPkg.msg_id());
 
             uint32_t eServerType = GetServerTypeFromUnlinkId(unLinkId);
             uint32_t reqBusId = reqSvrPkg.rpc_info().req_bus_id();
