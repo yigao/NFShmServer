@@ -12,11 +12,11 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libmysqlpp.a libmysqlclient.a libtheron.a  libzookeeper_st.a libzdb.a libSqlite3.a)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libmysqlpp.a libmysqlclient.a libtheron.a)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libmysqlpp.a libmysqlclient.a libtheron.a  libzookeeper_st.a libzdb.a libSqlite3.a)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libmysqlpp.a libmysqlclient.a libtheron.a)
 endif()
 
 
