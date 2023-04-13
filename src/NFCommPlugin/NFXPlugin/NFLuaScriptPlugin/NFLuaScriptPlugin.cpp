@@ -6,7 +6,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFShmPlugin.h"
+#include "NFLuaScriptPlugin.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFCLuaScriptModule.h"
 
