@@ -26,6 +26,7 @@
 #include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "yd_fieldoptions.pb.h"
+#include "proto_kernel.pb.h"
 #include "proto_common.pb.h"
 #include "proto_svr_common.pb.h"
 // @@protoc_insertion_point(includes)

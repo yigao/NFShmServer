@@ -1,7 +1,7 @@
 WorldServerModule = {}
 WorldServerModule.serverIdMap = {}
 function WorldServerModule.Init()
-    LuaNFrame.RegisterServerMessage(NF_ST_WORLD_SERVER,  44,  WorldServerModule.HandleMsg)
+    LuaNFrame.RegisterServerMessage(NF_ST_WORLD_SERVER,  "NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ",  WorldServerModule.HandleMsg, true)
 end
 
 function WorldServerModule.HandleMsg(msgId, packet, param1, param2)

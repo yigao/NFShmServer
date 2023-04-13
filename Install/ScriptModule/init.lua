@@ -13,13 +13,14 @@ function LoadLuaFile(path, subdir, subpath)
 			local f = path..sep..file
 			local attr = lfs.attributes(f)
 			if attr.mode == "directory"  then
+				local l_subpath = subpath
 				if subdir == true then
-					if subpath == nil then
-						subpath = file
+					if l_subpath == nil then
+						l_subpath = file
 					else
-						subpath = subpath..sep..file
+						l_subpath = l_subpath..sep..file
 					end
-					LoadLuaFile(f, subdir, subpath)
+					LoadLuaFile(f, subdir, l_subpath)
 				end
 			else
 				if string.find(file, ".lua") ~= nil then

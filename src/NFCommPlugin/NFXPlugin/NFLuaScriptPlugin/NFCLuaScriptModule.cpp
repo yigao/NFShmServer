@@ -320,6 +320,8 @@ bool NFCLuaScriptModule::Register()
             .addFunction("IsInited", &NFCLuaScriptModule::IsInited)
             .addFunction("IsServerStopping", &NFCLuaScriptModule::IsServerStopping)
             .addFunction("GetAppConfig", &NFCLuaScriptModule::GetAppConfig)
+            .addFunction("AddRpcService", &NFCLuaScriptModule::AddRpcService)
+            .addFunction("GetRpcService", &NFCLuaScriptModule::GetRpcService)
             .endClass();
 
     return true;
@@ -512,7 +514,7 @@ bool NFCLuaScriptModule::IsServerStopping()
     return m_pObjPluginManager->IsServerStopping();
 }
 
-NFServerConfig* NFCLuaScriptModule::GetAppConfig(uint32_t serverType)
+NFServerConfig *NFCLuaScriptModule::GetAppConfig(uint32_t serverType)
 {
     return FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
 }
@@ -566,7 +568,7 @@ void NFCLuaScriptModule::UpdateMonth()
     SetTimer(EnumLuaModule_MONTH, monthtime * 1000, 1);
 }
 
-bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc)
+bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc, bool createCo)
 {
     CHECK_EXPR(luaFunc.isFunction(), false, "RegisterClientMessage Lua Func Fail, is not a function");
 
@@ -575,15 +577,15 @@ bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t n
         if (eType < mxLuaCallBack.size())
         {
             CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
-            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_CLIENT][nMsgID] = NetLuaReceiveFunctor(luaFunc);
-            return NFIDynamicModule::RegisterClientMessage(eType, nMsgID);
+            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_CLIENT][nMsgID] = NetLuaReceiveFunctor(luaFunc, createCo);
+            return true;
         }
     }
 
     return false;
 }
 
-bool NFCLuaScriptModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc)
+bool NFCLuaScriptModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc, bool createCo)
 {
     CHECK_EXPR(luaFunc.isFunction(), false, "RegisterServerMessage Lua Func Fail, is not a function");
 
@@ -592,8 +594,8 @@ bool NFCLuaScriptModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t n
         if (eType < mxLuaCallBack.size())
         {
             CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
-            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_SERVER][nMsgID] = NetLuaReceiveFunctor(luaFunc);
-            return NFIDynamicModule::RegisterClientMessage(eType, nMsgID);
+            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_SERVER][nMsgID] = NetLuaReceiveFunctor(luaFunc, createCo);
+            return true;
         }
     }
 
@@ -617,11 +619,18 @@ int NFCLuaScriptModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
     uint32_t eServerType = GetServerTypeFromUnlinkId(packet.nObjectLinkId);
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
-        bool ret = TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_CLIENT][msgId].m_luaFunc, msgId, packet, param1,
-                                          param2);
-        if (ret == false)
+        NetLuaReceiveFunctor& functor = mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_CLIENT][msgId];
+        if (functor.m_createCo)
         {
-            return -1;
+            FindModule<NFICoroutineModule>()->MakeCoroutine(
+                    [=]
+                    {
+                        TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
+                    });
+        }
+        else
+        {
+            TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
         }
     }
     return 0;
@@ -644,11 +653,17 @@ int NFCLuaScriptModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
     uint32_t eServerType = GetServerTypeFromUnlinkId(packet.nObjectLinkId);
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
-        bool ret = TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_SERVER][msgId].m_luaFunc, msgId, packet, param1,
-                                          param2);
-        if (ret == false)
+        NetLuaReceiveFunctor& functor = mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_SERVER][msgId];
+        if (functor.m_createCo)
         {
-            return -1;
+            FindModule<NFICoroutineModule>()->MakeCoroutine(
+                    [=]
+                    {
+                        TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
+                    });
+        }
+        else {
+            TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
         }
     }
     return 0;
@@ -719,7 +734,7 @@ int NFCLuaScriptModule::SendMsgToWorldServer(NF_SERVER_TYPES eType, uint32_t nMo
 
 int
 NFCLuaScriptModule::SendTransToWorldServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const string &xData, uint32_t req_trans_id,
-                                              uint32_t rsp_trans_id)
+                                           uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_WORLD_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
@@ -731,7 +746,7 @@ int NFCLuaScriptModule::SendMsgToGameServer(NF_SERVER_TYPES eType, uint32_t nDst
 }
 
 int NFCLuaScriptModule::SendTransToGameServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const string &xData,
-                                                 uint32_t req_trans_id, uint32_t rsp_trans_id)
+                                              uint32_t req_trans_id, uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_GAME_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
@@ -743,7 +758,7 @@ int NFCLuaScriptModule::SendMsgToLogicServer(NF_SERVER_TYPES eType, uint32_t nDs
 }
 
 int NFCLuaScriptModule::SendTransToLogicServer(NF_SERVER_TYPES eType, uint32_t nDstId, uint32_t nMsgId, const string &xData,
-                                                  uint32_t req_trans_id, uint32_t rsp_trans_id)
+                                               uint32_t req_trans_id, uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_LOGIC_SERVER, 0, nDstId, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
@@ -755,90 +770,118 @@ int NFCLuaScriptModule::SendMsgToSnsServer(NF_SERVER_TYPES eType, uint32_t nModu
 }
 
 int NFCLuaScriptModule::SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const string &xData, uint32_t req_trans_id,
-                                                uint32_t rsp_trans_id)
+                                             uint32_t rsp_trans_id)
 {
     return FindModule<NFIMessageModule>()->SendTrans(eType, NF_ST_SNS_SERVER, 0, 0, nMsgId, xData, req_trans_id, rsp_trans_id);
 }
 
 void NFCLuaScriptModule::SetLogLevel(uint32_t level)
 {
-    NFLogMgr::Instance()->SetDefaultLevel((NF_LOG_LEVEL)level);
+    NFLogMgr::Instance()->SetDefaultLevel((NF_LOG_LEVEL) level);
 }
 
 void NFCLuaScriptModule::SetFlushOn(uint32_t level)
 {
-    NFLogMgr::Instance()->SetDefaultFlush((NF_LOG_LEVEL)level);
+    NFLogMgr::Instance()->SetDefaultFlush((NF_LOG_LEVEL) level);
 }
 
-void NFCLuaScriptModule::LuaTrace(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+void NFCLuaScriptModule::LuaTrace(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log)
 {
 #ifdef _WIN32
     std::string tempFile = "\\" + file;
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
     std::string tempFile = "/" + file;
-    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+    const char *pFile = strrchr(tempFile.c_str(), '/') + 1;
 #endif
 
     NFLogMgr::Instance()->LogDefault(NLL_TRACE_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
 
-void NFCLuaScriptModule::LuaDebug(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+void NFCLuaScriptModule::LuaDebug(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log)
 {
 #ifdef _WIN32
     std::string tempFile = "\\" + file;
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
     std::string tempFile = "/" + file;
-    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+    const char *pFile = strrchr(tempFile.c_str(), '/') + 1;
 #endif
     NFLogMgr::Instance()->LogDefault(NLL_DEBUG_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
 
-void NFCLuaScriptModule::LuaInfo(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+void NFCLuaScriptModule::LuaInfo(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log)
 {
 #ifdef _WIN32
     std::string tempFile = "\\" + file;
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
     std::string tempFile = "/" + file;
-    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+    const char *pFile = strrchr(tempFile.c_str(), '/') + 1;
 #endif
     NFLogMgr::Instance()->LogDefault(NLL_INFO_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
 
-void NFCLuaScriptModule::LuaWarn(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+void NFCLuaScriptModule::LuaWarn(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log)
 {
 #ifdef _WIN32
     std::string tempFile = "\\" + file;
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
     std::string tempFile = "/" + file;
-    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+    const char *pFile = strrchr(tempFile.c_str(), '/') + 1;
 #endif
     NFLogMgr::Instance()->LogDefault(NLL_WARING_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
 
-void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::string& file, int line, const std::string& func, const std::string& log)
+void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::string &file, int line, const std::string &func, const std::string &log)
 {
 #ifdef _WIN32
     std::string tempFile = "\\" + file;
         const char* pFile = strrchr(tempFile.c_str(), '\\') + 1;
 #else
     std::string tempFile = "/" + file;
-    const char* pFile = strrchr(tempFile.c_str(), '/') + 1;
+    const char *pFile = strrchr(tempFile.c_str(), '/') + 1;
 #endif
     NFLogMgr::Instance()->LogDefault(NLL_ERROR_NORMAL, NFSourceLoc{pFile, line, func.c_str()}, logId, guid, log);
 }
 
-bool NFCLuaScriptModule::AddScriptRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
-                                 const std::string &strLuaFunc, const LuaIntf::LuaRef &luaFunc, bool createCo)
+bool NFCLuaScriptModule::AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
+                                       const LuaIntf::LuaRef &luaFunc, bool createCo)
 {
-    return true;
+    bool ret = FindModule<NFIMessageModule>()->AddScriptRpcService(serverType, nMsgId, reqType, rspType, this,
+                                                                   &NFCLuaScriptModule::OnHandleAddRpcService, createCo);
+    if (ret)
+    {
+        CHECK_EXPR(luaFunc.isFunction(), false, "AddRpcService Lua Func Fail, is not a function");
+
+        if (serverType < mxLuaCallBack.size())
+        {
+            CHECK_EXPR_ASSERT(nMsgId < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgId);
+            mxLuaCallBack[serverType].mxRpcCallBack[nMsgId] = NetLuaRpcService(luaFunc);
+            return true;
+        }
+    }
+    return ret;
 }
 
-int NFCLuaScriptModule::GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
-              const std::string &request, const std::string &rspType, std::string &respone)
+std::tuple<std::string, int> NFCLuaScriptModule::GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId,
+                                      const std::string &reqType,
+                                      const std::string &request, const std::string &rspType)
 {
+    std::string respone;
+    int iRetCode = FindModule<NFIMessageModule>()->GetScriptRpcService(serverType, dstServerType, dstBusId, msgId, reqType, request, rspType, respone);
+    return std::tuple<std::string, int>(respone, iRetCode);
+}
+
+int NFCLuaScriptModule::OnHandleAddRpcService(uint64_t unLinkId, uint32_t msgId, const std::string &reqType, const std::string &request,
+                                              const std::string &rspType, std::string &respone)
+{
+    uint32_t eServerType = GetServerTypeFromUnlinkId(unLinkId);
+    if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
+    {
+        NetLuaRpcService& service = mxLuaCallBack[eServerType].mxRpcCallBack[msgId];
+        TryRunGlobalScriptFunc("LuaNFrame.DispatchRpcMessage", service.m_luaFunc, reqType, request, rspType, respone);
+    }
     return 0;
 }

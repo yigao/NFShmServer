@@ -70,10 +70,12 @@ struct NetLuaReceiveFunctor
 {
     NetLuaReceiveFunctor()
     {
+        m_createCo = false;
     }
 
-    NetLuaReceiveFunctor(const LuaIntf::LuaRef &luaFunc) : m_luaFunc(luaFunc)
+    NetLuaReceiveFunctor(const LuaIntf::LuaRef &luaFunc, bool createCo = false) : m_luaFunc(luaFunc), m_createCo(createCo)
     {
+
     }
 
     NetLuaReceiveFunctor(const NetLuaReceiveFunctor &functor)
@@ -81,10 +83,46 @@ struct NetLuaReceiveFunctor
         if (this != &functor)
         {
             m_luaFunc = functor.m_luaFunc;
+            m_createCo = functor.m_createCo;
         }
     }
 
     NetLuaReceiveFunctor &operator=(const NetLuaReceiveFunctor &functor)
+    {
+        if (this != &functor)
+        {
+            m_luaFunc = functor.m_luaFunc;
+            m_createCo = functor.m_createCo;
+        }
+
+        return *this;
+    }
+
+    LuaIntf::LuaRef m_luaFunc;
+    bool m_createCo;
+};
+
+struct NetLuaRpcService
+{
+    NetLuaRpcService()
+    {
+
+    }
+
+    NetLuaRpcService(const LuaIntf::LuaRef &luaFunc) : m_luaFunc(luaFunc)
+    {
+
+    }
+
+    NetLuaRpcService(const NetLuaRpcService& functor)
+    {
+        if (this != &functor)
+        {
+            m_luaFunc = functor.m_luaFunc;
+        }
+    }
+
+    NetLuaRpcService& operator=(const NetLuaRpcService& functor)
     {
         if (this != &functor)
         {
@@ -123,7 +161,7 @@ struct LuaCallBack
     std::unordered_map<uint32_t, std::unordered_map<std::string, HTTP_RECEIVE_FUNCTOR>> mxHttpMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<uint32_t, std::vector<HTTP_RECEIVE_FUNCTOR>> mxHttpOtherMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<std::string, HTTP_FILTER_FUNCTOR> mxHttpMsgFliterMap;
-    std::vector<NetRpcService> mxRpcCallBack;
+    std::vector<NetLuaRpcService> mxRpcCallBack;
 };
 
 class NFCLuaScriptModule
@@ -176,7 +214,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc);
+    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc, bool createCo = false);
 
     /**
      * @brief 注册服务器信息处理函数
@@ -184,7 +222,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc);
+    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc, bool createCo = false);
 
     /**
      * @brief 处理客户端消息
@@ -255,14 +293,16 @@ public:
 
     virtual int SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string &xData, uint32_t req_trans_id = 0,
                                      uint32_t rsp_trans_id = 0);
+public:
+    virtual bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
+                                     const LuaIntf::LuaRef &luaFunc, bool createCo = false);
 
-    virtual bool AddScriptRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
-                                     const std::string &strLuaFunc, const LuaIntf::LuaRef &luaFunc, bool createCo = false);
-
-    virtual int
+    virtual std::tuple<std::string, int>
     GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
-                  const std::string &request, const std::string &rspType, std::string &respone);
+                  const std::string &request, const std::string &rspType);
 
+    virtual int OnHandleAddRpcService(uint64_t unLinkId, uint32_t msgId, const std::string &reqType, const std::string &request,
+                                      const std::string &rspType, std::string &respone);
 public:
     virtual const std::string &GetAppName() const;
 

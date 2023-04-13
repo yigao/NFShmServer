@@ -133,35 +133,20 @@ public:
 	}
 
 public:
-	bool TryRunGlobalScriptFunc(const std::string& strFuncName) const
-	{
-		try
-		{
-			LuaIntf::LuaRef func(*m_pLuaContext, strFuncName.c_str());
-			func.call<LuaIntf::LuaRef>();
-			return true;
-		}
-		catch (LuaIntf::LuaException& e)
-		{
-			std::cout << e.what() << std::endl;
-		}
-		return false;
-	}
-
 	template <typename... Arg>
-	bool TryRunGlobalScriptFunc(const std::string& strFuncName, Arg&&... args)
+    LuaIntf::LuaRef TryRunGlobalScriptFunc(const std::string& strFuncName, Arg&&... args)
 	{
 		try
 		{
 			LuaIntf::LuaRef func(*m_pLuaContext, strFuncName.c_str());
-			func.call<LuaIntf::LuaRef>(std::forward<Arg>(args)...);
-			return true;
+            LuaIntf::LuaRef result = func.call<LuaIntf::LuaRef>(std::forward<Arg>(args)...);
+			return result;
 		}
 		catch (LuaIntf::LuaException& e)
 		{
 			std::cout << e.what() << std::endl;
 		}
-		return false;
+		return LuaIntf::LuaRef();
 	}
 
 public:

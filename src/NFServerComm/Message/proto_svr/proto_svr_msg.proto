@@ -1,4 +1,5 @@
 import "yd_fieldoptions.proto";
+import "proto_kernel.proto";
 import "proto_common.proto";
 import "proto_svr_common.proto";
 

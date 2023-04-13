@@ -182,12 +182,12 @@ function CPPNFrame:SendErrorLog(playerId, func_log, errorLog, count)
     return self.luaModule:SendErrorLog(playerId, func_log, errorLog, count)
 end
 
-function CPPNFrame:RegisterClientMessage(eServerType, nMsgID, luaFunc)
-    return self.luaModule:RegisterClientMessage(eServerType, nMsgID, luaFunc)
+function CPPNFrame:RegisterClientMessage(eServerType, nMsgID, luaFunc, createCo)
+    return self.luaModule:RegisterClientMessage(eServerType, nMsgID, luaFunc, createCo)
 end
 
-function CPPNFrame:RegisterServerMessage(eServerType, nMsgID, luaFunc)
-    return self.luaModule:RegisterServerMessage(eServerType, nMsgID, luaFunc)
+function CPPNFrame:RegisterServerMessage(eServerType, nMsgID, luaFunc, createCo)
+    return self.luaModule:RegisterServerMessage(eServerType, nMsgID, luaFunc, createCo)
 end
 
 function CPPNFrame:SendMsgToMasterServer(eServerType, nMsgID, xData, nParam1, nParam2)
@@ -238,4 +238,14 @@ function CPPNFrame:SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id
     return self.luaModule:SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
 end
 
+----------------------------------------rpc service---------------------------------------------------------------------------------------------------------------
+function CPPNFrame:AddRpcService(serverType, nMsgId, reqType, rspType, luaFunc, createCo)
+    return self.luaModule:AddRpcService(serverType, nMsgId, reqType, rspType, luaFunc, createCo)
+end
 
+function CPPNFrame:GetRpcService(serverType, dstServerType, dstBusId, msgId, reqType, request, rspType)
+    return self.luaModule:GetRpcService(serverType, dstServerType, dstBusId, msgId, reqType, request, rspType)
+end
+
+
+----------------------------------------rpc service---------------------------------------------------------------------------------------------------------------

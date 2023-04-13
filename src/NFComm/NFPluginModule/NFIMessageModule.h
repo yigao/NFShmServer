@@ -76,7 +76,7 @@ public:
             svrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
             svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
             svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
-            svrPkg.mutable_rpc_info()->set_is_script_rpc(false);
+            svrPkg.mutable_rpc_info()->set_is_script_rpc(reqSvrPkg.rpc_info().is_script_rpc());
             if (m_function || m_functionWithLink || m_functionWithCallBack)
             {
                 if (m_function)
@@ -117,25 +117,25 @@ public:
     {
         static_assert((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
     public:
-        NFCScriptRpcService(NFIPluginManager* p, const std::string& reqType, const std::string& rspType, BaseType *pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone)): NFIRpcService(p)
+        NFCScriptRpcService(NFIPluginManager* p, const std::string& reqType, const std::string& rspType, BaseType *pBase, int (BaseType::*handleRecieve)(uint64_t unLinkId, uint32_t msgId, const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone)): NFIRpcService(p)
         {
             m_reqType = reqType;
             m_rspType = rspType;
-            m_functionWithLink = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5);
+            m_functionWithLink = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6);
         }
 
-        NFCScriptRpcService(NFIPluginManager* p, const std::string& reqType, const std::string& rspType, BaseType *pBase, int (BaseType::*handleRecieve)(const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone)): NFIRpcService(p)
+        NFCScriptRpcService(NFIPluginManager* p, const std::string& reqType, const std::string& rspType, BaseType *pBase, int (BaseType::*handleRecieve)(uint32_t msgId, const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone)): NFIRpcService(p)
         {
             m_reqType = reqType;
             m_rspType = rspType;
-            m_function = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
+            m_function = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5);
         }
 
-        NFCScriptRpcService(NFIPluginManager* p, const std::string& reqType, const std::string& rspType, BaseType *pBase, int (BaseType::*handleRecieve)(const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone, const std::function<void()>& cb)): NFIRpcService(p)
+        NFCScriptRpcService(NFIPluginManager* p, const std::string& reqType, const std::string& rspType, BaseType *pBase, int (BaseType::*handleRecieve)(uint32_t msgId, const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone, const std::function<void()>& cb)): NFIRpcService(p)
         {
             m_reqType = reqType;
             m_rspType = rspType;
-            m_functionWithCallBack = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5);
+            m_functionWithCallBack = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5, std::placeholders::_6);
         }
 
         virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg) override
@@ -155,20 +155,20 @@ public:
             svrPkg.mutable_rpc_info()->set_rsp_rpc_id(reqSvrPkg.rpc_info().req_rpc_id());
             svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
             svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
-            svrPkg.mutable_rpc_info()->set_is_script_rpc(true);
+            svrPkg.mutable_rpc_info()->set_is_script_rpc(reqSvrPkg.rpc_info().is_script_rpc());
             if (m_function || m_functionWithLink || m_functionWithCallBack)
             {
                 if (m_function)
                 {
-                    iRet = m_function(m_reqType, reqSvrPkg.msg_data(), m_rspType, rsp);
+                    iRet = m_function(reqSvrPkg.msg_id(), m_reqType, reqSvrPkg.msg_data(), m_rspType, rsp);
                 }
                 else if (m_functionWithLink)
                 {
-                    iRet = m_functionWithLink(unLinkId, m_reqType, reqSvrPkg.msg_data(), m_rspType, rsp);
+                    iRet = m_functionWithLink(unLinkId, reqSvrPkg.msg_id(), m_reqType, reqSvrPkg.msg_data(), m_rspType, rsp);
                 }
                 else if (m_functionWithCallBack)
                 {
-                    iRet = m_functionWithCallBack(m_reqType, reqSvrPkg.msg_data(), m_rspType, rsp, [eServerType, reqServerType, reqBusId, &svrPkg, &rsp, this](){
+                    iRet = m_functionWithCallBack(reqSvrPkg.msg_id(), m_reqType, reqSvrPkg.msg_data(), m_rspType, rsp, [eServerType, reqServerType, reqBusId, &svrPkg, &rsp, this](){
                         svrPkg.set_msg_data(rsp);
                         svrPkg.mutable_rpc_info()->set_rpc_ret_code(0);
                         FindModule<NFIMessageModule>()->SendMsgToServer((NF_SERVER_TYPES)eServerType, (NF_SERVER_TYPES)reqServerType, 0, reqBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
@@ -188,9 +188,9 @@ public:
 
         std::string m_reqType;
         std::string m_rspType;
-        std::function<int(const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone)> m_function;
-        std::function<int(uint64_t unLinkId, const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone)> m_functionWithLink;
-        std::function<int(const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone, const std::function<void()>& cb)> m_functionWithCallBack;
+        std::function<int(uint32_t msgId, const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone)> m_function;
+        std::function<int(uint64_t unLinkId, uint32_t msgId, const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone)> m_functionWithLink;
+        std::function<int(uint32_t msgId, const std::string& reqType, const std::string& request, const std::string& rspType, std::string &respone, const std::function<void()>& cb)> m_functionWithCallBack;
     };
 public:
     NFIMessageModule(NFIPluginManager *p) : NFIModule(p)
@@ -323,7 +323,7 @@ public:
 
     template<typename BaseType>
     bool AddScriptRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType, BaseType *pBase,
-                             int (BaseType::*handleRecieve)(uint64_t unLinkId, const std::string &reqType, const std::string &request,
+                             int (BaseType::*handleRecieve)(uint64_t unLinkId, uint32_t msgId, const std::string &reqType, const std::string &request,
                                                             const std::string &rspType, std::string &respone), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
@@ -333,7 +333,7 @@ public:
 
     template<typename BaseType>
     bool AddScriptRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType, BaseType *pBase,
-                             int (BaseType::*handleRecieve)(const std::string &reqType, const std::string &request, const std::string &rspType,
+                             int (BaseType::*handleRecieve)(uint32_t msgId, const std::string &reqType, const std::string &request, const std::string &rspType,
                                                             std::string &respone), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
@@ -343,7 +343,7 @@ public:
 
     template<typename BaseType>
     bool AddScriptRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType, BaseType *pBase,
-                             int (BaseType::*handleRecieve)(const std::string &reqType, const std::string &request, const std::string &rspType,
+                             int (BaseType::*handleRecieve)(uint32_t msgId, const std::string &reqType, const std::string &request, const std::string &rspType,
                                                             std::string &respone, const std::function<void()> &cb), bool createCo = false)
     {
         NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
