@@ -1,7 +1,7 @@
 LogicServerModule = {}
 LogicServerModule.serverIdMap = {}
 function LogicServerModule.Init()
-    LuaNFrame.RegisterServerMessage(NF_ST_LOGIC_SERVER,  "NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ",  LogicServerModule.HandleMsg, true)
+    --LuaNFrame.RegisterServerMessage(NF_ST_LOGIC_SERVER,  "NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ",  LogicServerModule.HandleMsg, true)
 end
 
 LogicServerModule.last_seq =  -1
@@ -20,10 +20,10 @@ function LogicServerModule.HandleMsg(msgId, packet, param1, param2)
 
     local request = LuaNFrame.Defaults("proto_ff.RpcRequestGetServerInfo")
 
-    local respone = LuaNFrame.GetRpcService(NF_ST_LOGIC_SERVER, NF_ST_WORLD_SERVER,  0, "NF_RPC_SERVICE_GET_SERVER_INFO_REQ",  "proto_ff.RpcRequestGetServerInfo", request,  "proto_ff.ServerInfoReport")
-    if respone ~= nil then
-        LuaNFrame.PrintProto(respone)
-    end
+    --local respone = LuaNFrame.GetRpcService(NF_ST_LOGIC_SERVER, NF_ST_WORLD_SERVER,  0, "NF_RPC_SERVICE_GET_SERVER_INFO_REQ",  "proto_ff.RpcRequestGetServerInfo", request,  "proto_ff.ServerInfoReport")
+    --if respone ~= nil then
+    --    LuaNFrame.PrintProto(respone)
+    --end
 end
 
 function LogicServerModule.Execute()

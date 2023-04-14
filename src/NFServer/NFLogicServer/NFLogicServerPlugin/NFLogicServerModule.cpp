@@ -33,7 +33,7 @@ bool NFCLogicServerModule::Awake()
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_LOGIC_SERVER);
 
     ////////////////test other server msg///////////////////////////////////////////////
-    //RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ);
+    RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, true);
 
     BindServer();
     return true;
@@ -94,17 +94,18 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
 
 //#ifdef TEST_SERVER_SEND_MSG
     static int req = 0;
-    for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
+    for (int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
         CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
 
         proto_ff::Proto_TestOtherServerToWorldServer xData;
         xData.set_server_id(pConfig->ServerId);
         xData.set_server_name(pConfig->ServerName);
         xData.set_seq(++req);
-        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
+        FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData,
+                                                                   1, 2);
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     }
 //#endif
@@ -130,6 +131,11 @@ int NFCLogicServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPa
         NFLogErrorIf(last_seq + 1 != xMsg.seq(), NF_LOG_SYSTEMLOG, 0, "world server send seq error, last_seq:{} seq:{}", last_seq, xMsg.seq());
         last_seq = xMsg.seq();
     }
+
+    proto_ff::RpcRequestGetServerInfo request;
+    proto_ff::ServerInfoReport respone;
+    FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ>(NF_ST_LOGIC_SERVER, NF_ST_WORLD_SERVER, 0,
+                                                                                                          request, respone);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
