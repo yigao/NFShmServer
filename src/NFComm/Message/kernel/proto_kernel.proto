@@ -432,7 +432,7 @@ message NFEventNoneData
   optional int64 param5 = 5;
 }
 
-message NFEventPackageData
+message NFEventScriptData
 {
   optional string event_type = 1;
   optional string event_data = 2;

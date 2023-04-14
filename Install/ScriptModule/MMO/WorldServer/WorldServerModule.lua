@@ -26,6 +26,7 @@ function WorldServerModule.HandleMsg(msgId, packet, param1, param2)
     xData.server_id = pServerConfig:GetServerId()
     xData.server_name = pServerConfig:GetServerName()
     LuaNFrame.SendMsgToLogicServer(NF_ST_WORLD_SERVER,  packet:GetSrcId(), 0,"NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ", "proto_ff.Proto_TestOtherServerToWorldServer", xData, 3, 4);
+
 end
 
 function WorldServerModule.OnRpcServiceGetServerInfo(request, respone)

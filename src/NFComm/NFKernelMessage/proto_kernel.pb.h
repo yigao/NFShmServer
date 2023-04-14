@@ -55,7 +55,7 @@ class Proto_STSBroadPlayerMsgNotify;
 class Proto_STWebMsgRspNotify;
 class BehaviorLogHeader;
 class NFEventNoneData;
-class NFEventPackageData;
+class NFEventScriptData;
 class Proto_ServerDumpInfoNtf;
 
 enum Proto_Kernel_CMD {
@@ -2886,14 +2886,14 @@ class NFEventNoneData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class NFEventPackageData : public ::google::protobuf::Message {
+class NFEventScriptData : public ::google::protobuf::Message {
  public:
-  NFEventPackageData();
-  virtual ~NFEventPackageData();
+  NFEventScriptData();
+  virtual ~NFEventScriptData();
 
-  NFEventPackageData(const NFEventPackageData& from);
+  NFEventScriptData(const NFEventScriptData& from);
 
-  inline NFEventPackageData& operator=(const NFEventPackageData& from) {
+  inline NFEventScriptData& operator=(const NFEventScriptData& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2907,17 +2907,17 @@ class NFEventPackageData : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const NFEventPackageData& default_instance();
+  static const NFEventScriptData& default_instance();
 
-  void Swap(NFEventPackageData* other);
+  void Swap(NFEventScriptData* other);
 
   // implements Message ----------------------------------------------
 
-  NFEventPackageData* New() const;
+  NFEventScriptData* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const NFEventPackageData& from);
-  void MergeFrom(const NFEventPackageData& from);
+  void CopyFrom(const NFEventScriptData& from);
+  void MergeFrom(const NFEventScriptData& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2964,7 +2964,7 @@ class NFEventPackageData : public ::google::protobuf::Message {
   inline ::std::string* release_event_data();
   inline void set_allocated_event_data(::std::string* event_data);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.NFEventPackageData)
+  // @@protoc_insertion_point(class_scope:proto_ff.NFEventScriptData)
  private:
   inline void set_has_event_type();
   inline void clear_has_event_type();
@@ -2984,7 +2984,7 @@ class NFEventPackageData : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_proto_5fkernel_2eproto();
 
   void InitAsDefaultInstance();
-  static NFEventPackageData* default_instance_;
+  static NFEventScriptData* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -6577,56 +6577,56 @@ inline void NFEventNoneData::set_param5(::google::protobuf::int64 value) {
 
 // -------------------------------------------------------------------
 
-// NFEventPackageData
+// NFEventScriptData
 
 // optional string event_type = 1;
-inline bool NFEventPackageData::has_event_type() const {
+inline bool NFEventScriptData::has_event_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NFEventPackageData::set_has_event_type() {
+inline void NFEventScriptData::set_has_event_type() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NFEventPackageData::clear_has_event_type() {
+inline void NFEventScriptData::clear_has_event_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NFEventPackageData::clear_event_type() {
+inline void NFEventScriptData::clear_event_type() {
   if (event_type_ != &::google::protobuf::internal::kEmptyString) {
     event_type_->clear();
   }
   clear_has_event_type();
 }
-inline const ::std::string& NFEventPackageData::event_type() const {
+inline const ::std::string& NFEventScriptData::event_type() const {
   return *event_type_;
 }
-inline void NFEventPackageData::set_event_type(const ::std::string& value) {
+inline void NFEventScriptData::set_event_type(const ::std::string& value) {
   set_has_event_type();
   if (event_type_ == &::google::protobuf::internal::kEmptyString) {
     event_type_ = new ::std::string;
   }
   event_type_->assign(value);
 }
-inline void NFEventPackageData::set_event_type(const char* value) {
+inline void NFEventScriptData::set_event_type(const char* value) {
   set_has_event_type();
   if (event_type_ == &::google::protobuf::internal::kEmptyString) {
     event_type_ = new ::std::string;
   }
   event_type_->assign(value);
 }
-inline void NFEventPackageData::set_event_type(const char* value, size_t size) {
+inline void NFEventScriptData::set_event_type(const char* value, size_t size) {
   set_has_event_type();
   if (event_type_ == &::google::protobuf::internal::kEmptyString) {
     event_type_ = new ::std::string;
   }
   event_type_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* NFEventPackageData::mutable_event_type() {
+inline ::std::string* NFEventScriptData::mutable_event_type() {
   set_has_event_type();
   if (event_type_ == &::google::protobuf::internal::kEmptyString) {
     event_type_ = new ::std::string;
   }
   return event_type_;
 }
-inline ::std::string* NFEventPackageData::release_event_type() {
+inline ::std::string* NFEventScriptData::release_event_type() {
   clear_has_event_type();
   if (event_type_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -6636,7 +6636,7 @@ inline ::std::string* NFEventPackageData::release_event_type() {
     return temp;
   }
 }
-inline void NFEventPackageData::set_allocated_event_type(::std::string* event_type) {
+inline void NFEventScriptData::set_allocated_event_type(::std::string* event_type) {
   if (event_type_ != &::google::protobuf::internal::kEmptyString) {
     delete event_type_;
   }
@@ -6650,53 +6650,53 @@ inline void NFEventPackageData::set_allocated_event_type(::std::string* event_ty
 }
 
 // optional string event_data = 2;
-inline bool NFEventPackageData::has_event_data() const {
+inline bool NFEventScriptData::has_event_data() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void NFEventPackageData::set_has_event_data() {
+inline void NFEventScriptData::set_has_event_data() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void NFEventPackageData::clear_has_event_data() {
+inline void NFEventScriptData::clear_has_event_data() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void NFEventPackageData::clear_event_data() {
+inline void NFEventScriptData::clear_event_data() {
   if (event_data_ != &::google::protobuf::internal::kEmptyString) {
     event_data_->clear();
   }
   clear_has_event_data();
 }
-inline const ::std::string& NFEventPackageData::event_data() const {
+inline const ::std::string& NFEventScriptData::event_data() const {
   return *event_data_;
 }
-inline void NFEventPackageData::set_event_data(const ::std::string& value) {
+inline void NFEventScriptData::set_event_data(const ::std::string& value) {
   set_has_event_data();
   if (event_data_ == &::google::protobuf::internal::kEmptyString) {
     event_data_ = new ::std::string;
   }
   event_data_->assign(value);
 }
-inline void NFEventPackageData::set_event_data(const char* value) {
+inline void NFEventScriptData::set_event_data(const char* value) {
   set_has_event_data();
   if (event_data_ == &::google::protobuf::internal::kEmptyString) {
     event_data_ = new ::std::string;
   }
   event_data_->assign(value);
 }
-inline void NFEventPackageData::set_event_data(const char* value, size_t size) {
+inline void NFEventScriptData::set_event_data(const char* value, size_t size) {
   set_has_event_data();
   if (event_data_ == &::google::protobuf::internal::kEmptyString) {
     event_data_ = new ::std::string;
   }
   event_data_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* NFEventPackageData::mutable_event_data() {
+inline ::std::string* NFEventScriptData::mutable_event_data() {
   set_has_event_data();
   if (event_data_ == &::google::protobuf::internal::kEmptyString) {
     event_data_ = new ::std::string;
   }
   return event_data_;
 }
-inline ::std::string* NFEventPackageData::release_event_data() {
+inline ::std::string* NFEventScriptData::release_event_data() {
   clear_has_event_data();
   if (event_data_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -6706,7 +6706,7 @@ inline ::std::string* NFEventPackageData::release_event_data() {
     return temp;
   }
 }
-inline void NFEventPackageData::set_allocated_event_data(::std::string* event_data) {
+inline void NFEventScriptData::set_allocated_event_data(::std::string* event_data) {
   if (event_data_ != &::google::protobuf::internal::kEmptyString) {
     delete event_data_;
   }

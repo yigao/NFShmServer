@@ -1274,19 +1274,33 @@ int NFProtobufCommon::LoadProtoDsFile(const std::string &ds)
 
 const google::protobuf::Descriptor *NFProtobufCommon::FindDynamicMessageTypeByName(const std::string &full_name)
 {
-    return m_pDescriptorPool->FindMessageTypeByName(full_name);
+    auto pDesc = m_pDescriptorPool->FindMessageTypeByName(full_name);
+    if (pDesc == NULL)
+    {
+        return google::protobuf::DescriptorPool::generated_pool()->FindMessageTypeByName(full_name);
+    }
 }
 
 ::google::protobuf::Message *NFProtobufCommon::CreateDynamicMessageByName(const std::string &full_name)
 {
-    const google::protobuf::Descriptor *pDescriptor = m_pDescriptorPool->FindMessageTypeByName(
-            full_name);
+    const google::protobuf::Descriptor *pDescriptor = m_pDescriptorPool->FindMessageTypeByName(full_name);
     if (pDescriptor)
     {
         const ::google::protobuf::Message *pMessageType = m_pDynamicMessageFactory->GetPrototype(pDescriptor);
         if (pMessageType)
         {
             return pMessageType->New();
+        }
+    }
+    else {
+        pDescriptor = google::protobuf::DescriptorPool::generated_pool()->FindMessageTypeByName(full_name);
+        if (pDescriptor)
+        {
+            const ::google::protobuf::Message *pMessageType = google::protobuf::MessageFactory::generated_factory()->GetPrototype(pDescriptor);
+            if (pMessageType)
+            {
+                return pMessageType->New();
+            }
         }
     }
 
