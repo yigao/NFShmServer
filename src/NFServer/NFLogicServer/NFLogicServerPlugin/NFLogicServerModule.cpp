@@ -92,7 +92,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
         return 0;
     }
 
-//#ifdef TEST_SERVER_SEND_MSG
+#ifdef TEST_SERVER_SEND_MSG
     static int req = 0;
     for (int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
@@ -108,7 +108,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
                                                                    1, 2);
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     }
-//#endif
+#endif
 
     return 0;
 }

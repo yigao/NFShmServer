@@ -18,24 +18,34 @@
       <config projectName="ShmNFrame" targetName="NFLogicServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFSnsServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
+      <config projectName="ShmNFrame" targetName="RecastNavigation" />
       <config projectName="ShmNFrame" targetName="NFRouteAgentServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFGameServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFWorldServerPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
       <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
+      <config projectName="ShmNFrame" targetName="NFBattlePlugin" />
+      <config projectName="ShmNFrame" targetName="NFProxyClientPlugin" />
+      <config projectName="ShmNFrame" targetName="NFServerLogicMessage" />
       <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerCommon" />
+      <config projectName="ShmNFrame" targetName="NFLogicServerPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFProxyAgentServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFMasterServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFStoreServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFDescStorePlugin" />
       <config projectName="ShmNFrame" targetName="NFTestPlugin" />
       <config projectName="ShmNFrame" targetName="Sqlite3" />
+      <config projectName="ShmNFrame" targetName="NFDescStore" />
+      <config projectName="ShmNFrame" targetName="NFSnsServerPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerCommonPlugin" />
       <config projectName="ShmNFrame" targetName="NFLoginServerPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
       <config projectName="ShmNFrame" targetName="NFWebServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFCommLogicPlugin" />
     </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
@@ -45,7 +55,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="rpc service" />
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="ubuntu lib">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,7 +123,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/mmo-nfshm-server/Install/ScriptModule/CommonProto&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/mmo-nfshm-server/src/NFPluginManager&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -124,11 +136,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Install/ScriptModule/CommonProto" />
-      <recent name="$PROJECT_DIR$/Install/ScriptModule/MMO/Common" />
-      <recent name="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin" />
-      <recent name="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin" />
-      <recent name="$PROJECT_DIR$/src/NFComm/NFShmStl" />
+      <recent name="$PROJECT_DIR$/src/NFPluginManager" />
+      <recent name="$PROJECT_DIR$/src/NFComm/NFShmCore" />
+      <recent name="$PROJECT_DIR$/src/NFComm/NFPluginModule" />
+      <recent name="$PROJECT_DIR$/src/NFComm/NFKernelMessage" />
+      <recent name="$PROJECT_DIR$/src/NFComm" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/thirdparty/LuaBind/lua-fmt" />
@@ -144,9 +156,19 @@
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration name="NFBattlePlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFBattlePlugin" CONFIG_NAME="Debug">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFCommLogicPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCommLogicPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFDescStore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFDescStore" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="NFDescStorePlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFDescStorePlugin" CONFIG_NAME="Debug">
@@ -165,6 +187,11 @@
       </method>
     </configuration>
     <configuration name="NFKernelPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFKernelPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFLogicCommon" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFLogicCommon" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -214,6 +241,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NFProxyClientPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFProxyClientPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFProxyServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFProxyServerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -244,12 +276,22 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NFServerLogicMessage" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFServerLogicMessage" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFServerMessage" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFServerMessage" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="NFShmPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFShmPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFSnsServerPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFSnsServerPlayerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -274,12 +316,27 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="NFWorldServerPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlayerPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFWorldServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=WorldServer --ID=15.100.3.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RecastNavigation" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="RecastNavigation" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Sqlite3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="Sqlite3" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -387,7 +444,16 @@
       <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
       <item itemvalue="CMake 应用程序.NFGlobalServerPlugin" />
       <item itemvalue="CMake 应用程序.NFKernelPlugin" />
+      <item itemvalue="CMake 应用程序.NFDescStore" />
+      <item itemvalue="CMake 应用程序.NFLogicCommon" />
+      <item itemvalue="CMake 应用程序.NFServerLogicMessage" />
+      <item itemvalue="CMake 应用程序.RecastNavigation" />
+      <item itemvalue="CMake 应用程序.NFCommLogicPlugin" />
+      <item itemvalue="CMake 应用程序.NFBattlePlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFProxyClientPlugin" />
+      <item itemvalue="CMake 应用程序.NFSnsServerPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFWorldServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
       <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
       <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
@@ -618,196 +684,8 @@
       <workItem from="1680831230525" duration="51695000" />
       <workItem from="1681088835777" duration="27704000" />
       <workItem from="1681205716943" duration="9230000" />
-      <workItem from="1681268831855" duration="21607000" />
-    </task>
-    <task id="LOCAL-00571" summary="plugin">
-      <created>1680502284033</created>
-      <option name="number" value="00571" />
-      <option name="presentableId" value="LOCAL-00571" />
-      <option name="project" value="LOCAL" />
-      <updated>1680502284033</updated>
-    </task>
-    <task id="LOCAL-00572" summary="plugin">
-      <created>1680507635283</created>
-      <option name="number" value="00572" />
-      <option name="presentableId" value="LOCAL-00572" />
-      <option name="project" value="LOCAL" />
-      <updated>1680507635283</updated>
-    </task>
-    <task id="LOCAL-00573" summary="relation">
-      <created>1680576233869</created>
-      <option name="number" value="00573" />
-      <option name="presentableId" value="LOCAL-00573" />
-      <option name="project" value="LOCAL" />
-      <updated>1680576233869</updated>
-    </task>
-    <task id="LOCAL-00574" summary="relation">
-      <created>1680583137469</created>
-      <option name="number" value="00574" />
-      <option name="presentableId" value="LOCAL-00574" />
-      <option name="project" value="LOCAL" />
-      <updated>1680583137469</updated>
-    </task>
-    <task id="LOCAL-00575" summary="relation">
-      <created>1680597143629</created>
-      <option name="number" value="00575" />
-      <option name="presentableId" value="LOCAL-00575" />
-      <option name="project" value="LOCAL" />
-      <updated>1680597143629</updated>
-    </task>
-    <task id="LOCAL-00576" summary="relation">
-      <created>1680602612192</created>
-      <option name="number" value="00576" />
-      <option name="presentableId" value="LOCAL-00576" />
-      <option name="project" value="LOCAL" />
-      <updated>1680602612192</updated>
-    </task>
-    <task id="LOCAL-00577" summary="relation">
-      <created>1680745698338</created>
-      <option name="number" value="00577" />
-      <option name="presentableId" value="LOCAL-00577" />
-      <option name="project" value="LOCAL" />
-      <updated>1680745698338</updated>
-    </task>
-    <task id="LOCAL-00578" summary="relation">
-      <created>1680759143342</created>
-      <option name="number" value="00578" />
-      <option name="presentableId" value="LOCAL-00578" />
-      <option name="project" value="LOCAL" />
-      <updated>1680759143342</updated>
-    </task>
-    <task id="LOCAL-00579" summary="relation">
-      <created>1680759204083</created>
-      <option name="number" value="00579" />
-      <option name="presentableId" value="LOCAL-00579" />
-      <option name="project" value="LOCAL" />
-      <updated>1680759204084</updated>
-    </task>
-    <task id="LOCAL-00580" summary="shm stl">
-      <created>1680768712745</created>
-      <option name="number" value="00580" />
-      <option name="presentableId" value="LOCAL-00580" />
-      <option name="project" value="LOCAL" />
-      <updated>1680768712745</updated>
-    </task>
-    <task id="LOCAL-00581" summary="shm stl">
-      <created>1680770857595</created>
-      <option name="number" value="00581" />
-      <option name="presentableId" value="LOCAL-00581" />
-      <option name="project" value="LOCAL" />
-      <updated>1680770857595</updated>
-    </task>
-    <task id="LOCAL-00582" summary="shm stl">
-      <created>1680832945368</created>
-      <option name="number" value="00582" />
-      <option name="presentableId" value="LOCAL-00582" />
-      <option name="project" value="LOCAL" />
-      <updated>1680832945369</updated>
-    </task>
-    <task id="LOCAL-00583" summary="shm stl">
-      <created>1680834841668</created>
-      <option name="number" value="00583" />
-      <option name="presentableId" value="LOCAL-00583" />
-      <option name="project" value="LOCAL" />
-      <updated>1680834841668</updated>
-    </task>
-    <task id="LOCAL-00584" summary="shm stl">
-      <created>1680835435620</created>
-      <option name="number" value="00584" />
-      <option name="presentableId" value="LOCAL-00584" />
-      <option name="project" value="LOCAL" />
-      <updated>1680835435621</updated>
-    </task>
-    <task id="LOCAL-00585" summary="lua">
-      <created>1680841708299</created>
-      <option name="number" value="00585" />
-      <option name="presentableId" value="LOCAL-00585" />
-      <option name="project" value="LOCAL" />
-      <updated>1680841708299</updated>
-    </task>
-    <task id="LOCAL-00586" summary="lua">
-      <created>1680858703583</created>
-      <option name="number" value="00586" />
-      <option name="presentableId" value="LOCAL-00586" />
-      <option name="project" value="LOCAL" />
-      <updated>1680858703583</updated>
-    </task>
-    <task id="LOCAL-00587" summary="lua">
-      <created>1680861744216</created>
-      <option name="number" value="00587" />
-      <option name="presentableId" value="LOCAL-00587" />
-      <option name="project" value="LOCAL" />
-      <updated>1680861744216</updated>
-    </task>
-    <task id="LOCAL-00588" summary="lua">
-      <created>1680931865007</created>
-      <option name="number" value="00588" />
-      <option name="presentableId" value="LOCAL-00588" />
-      <option name="project" value="LOCAL" />
-      <updated>1680931865008</updated>
-    </task>
-    <task id="LOCAL-00589" summary="lua">
-      <created>1680935955566</created>
-      <option name="number" value="00589" />
-      <option name="presentableId" value="LOCAL-00589" />
-      <option name="project" value="LOCAL" />
-      <updated>1680935955566</updated>
-    </task>
-    <task id="LOCAL-00590" summary="lua">
-      <created>1680938451647</created>
-      <option name="number" value="00590" />
-      <option name="presentableId" value="LOCAL-00590" />
-      <option name="project" value="LOCAL" />
-      <updated>1680938451647</updated>
-    </task>
-    <task id="LOCAL-00591" summary="lua">
-      <created>1680948124795</created>
-      <option name="number" value="00591" />
-      <option name="presentableId" value="LOCAL-00591" />
-      <option name="project" value="LOCAL" />
-      <updated>1680948124795</updated>
-    </task>
-    <task id="LOCAL-00592" summary="lua">
-      <created>1681099194105</created>
-      <option name="number" value="00592" />
-      <option name="presentableId" value="LOCAL-00592" />
-      <option name="project" value="LOCAL" />
-      <updated>1681099194105</updated>
-    </task>
-    <task id="LOCAL-00593" summary="lua">
-      <created>1681099205678</created>
-      <option name="number" value="00593" />
-      <option name="presentableId" value="LOCAL-00593" />
-      <option name="project" value="LOCAL" />
-      <updated>1681099205679</updated>
-    </task>
-    <task id="LOCAL-00594" summary="lua">
-      <created>1681114655154</created>
-      <option name="number" value="00594" />
-      <option name="presentableId" value="LOCAL-00594" />
-      <option name="project" value="LOCAL" />
-      <updated>1681114655154</updated>
-    </task>
-    <task id="LOCAL-00595" summary="lua">
-      <created>1681115379528</created>
-      <option name="number" value="00595" />
-      <option name="presentableId" value="LOCAL-00595" />
-      <option name="project" value="LOCAL" />
-      <updated>1681115379528</updated>
-    </task>
-    <task id="LOCAL-00596" summary="lua fmt">
-      <created>1681177697821</created>
-      <option name="number" value="00596" />
-      <option name="presentableId" value="LOCAL-00596" />
-      <option name="project" value="LOCAL" />
-      <updated>1681177697821</updated>
-    </task>
-    <task id="LOCAL-00597" summary="lua fmt">
-      <created>1681184309905</created>
-      <option name="number" value="00597" />
-      <option name="presentableId" value="LOCAL-00597" />
-      <option name="project" value="LOCAL" />
-      <updated>1681184309905</updated>
+      <workItem from="1681268831855" duration="63503000" />
+      <workItem from="1681435038498" duration="9000" />
     </task>
     <task id="LOCAL-00598" summary="lua fmt">
       <created>1681206851930</created>
@@ -963,7 +841,196 @@
       <option name="project" value="LOCAL" />
       <updated>1681298637941</updated>
     </task>
-    <option name="localTasksCounter" value="620" />
+    <task id="LOCAL-00620" summary="rpc service">
+      <created>1681299147418</created>
+      <option name="number" value="00620" />
+      <option name="presentableId" value="LOCAL-00620" />
+      <option name="project" value="LOCAL" />
+      <updated>1681299147418</updated>
+    </task>
+    <task id="LOCAL-00621" summary="rpc service">
+      <created>1681299473817</created>
+      <option name="number" value="00621" />
+      <option name="presentableId" value="LOCAL-00621" />
+      <option name="project" value="LOCAL" />
+      <updated>1681299473818</updated>
+    </task>
+    <task id="LOCAL-00622" summary="rpc service">
+      <created>1681300122722</created>
+      <option name="number" value="00622" />
+      <option name="presentableId" value="LOCAL-00622" />
+      <option name="project" value="LOCAL" />
+      <updated>1681300122722</updated>
+    </task>
+    <task id="LOCAL-00623" summary="rpc service">
+      <created>1681300238798</created>
+      <option name="number" value="00623" />
+      <option name="presentableId" value="LOCAL-00623" />
+      <option name="project" value="LOCAL" />
+      <updated>1681300238798</updated>
+    </task>
+    <task id="LOCAL-00624" summary="rpc service">
+      <created>1681300268888</created>
+      <option name="number" value="00624" />
+      <option name="presentableId" value="LOCAL-00624" />
+      <option name="project" value="LOCAL" />
+      <updated>1681300268888</updated>
+    </task>
+    <task id="LOCAL-00625" summary="rpc service">
+      <created>1681300536351</created>
+      <option name="number" value="00625" />
+      <option name="presentableId" value="LOCAL-00625" />
+      <option name="project" value="LOCAL" />
+      <updated>1681300536351</updated>
+    </task>
+    <task id="LOCAL-00626" summary="rpc service">
+      <created>1681346192177</created>
+      <option name="number" value="00626" />
+      <option name="presentableId" value="LOCAL-00626" />
+      <option name="project" value="LOCAL" />
+      <updated>1681346192177</updated>
+    </task>
+    <task id="LOCAL-00627" summary="rpc service">
+      <created>1681348736966</created>
+      <option name="number" value="00627" />
+      <option name="presentableId" value="LOCAL-00627" />
+      <option name="project" value="LOCAL" />
+      <updated>1681348736966</updated>
+    </task>
+    <task id="LOCAL-00628" summary="rpc service">
+      <created>1681364669810</created>
+      <option name="number" value="00628" />
+      <option name="presentableId" value="LOCAL-00628" />
+      <option name="project" value="LOCAL" />
+      <updated>1681364669811</updated>
+    </task>
+    <task id="LOCAL-00629" summary="rpc service">
+      <created>1681370309440</created>
+      <option name="number" value="00629" />
+      <option name="presentableId" value="LOCAL-00629" />
+      <option name="project" value="LOCAL" />
+      <updated>1681370309440</updated>
+    </task>
+    <task id="LOCAL-00630" summary="rpc service">
+      <created>1681373297360</created>
+      <option name="number" value="00630" />
+      <option name="presentableId" value="LOCAL-00630" />
+      <option name="project" value="LOCAL" />
+      <updated>1681373297360</updated>
+    </task>
+    <task id="LOCAL-00631" summary="rpc service">
+      <created>1681376058045</created>
+      <option name="number" value="00631" />
+      <option name="presentableId" value="LOCAL-00631" />
+      <option name="project" value="LOCAL" />
+      <updated>1681376058045</updated>
+    </task>
+    <task id="LOCAL-00632" summary="rpc service">
+      <created>1681377843847</created>
+      <option name="number" value="00632" />
+      <option name="presentableId" value="LOCAL-00632" />
+      <option name="project" value="LOCAL" />
+      <updated>1681377843847</updated>
+    </task>
+    <task id="LOCAL-00633" summary="cmake">
+      <created>1681378710960</created>
+      <option name="number" value="00633" />
+      <option name="presentableId" value="LOCAL-00633" />
+      <option name="project" value="LOCAL" />
+      <updated>1681378710960</updated>
+    </task>
+    <task id="LOCAL-00634" summary="ubuntu lib">
+      <created>1681379037635</created>
+      <option name="number" value="00634" />
+      <option name="presentableId" value="LOCAL-00634" />
+      <option name="project" value="LOCAL" />
+      <updated>1681379037635</updated>
+    </task>
+    <task id="LOCAL-00635" summary="ubuntu lib">
+      <created>1681379924887</created>
+      <option name="number" value="00635" />
+      <option name="presentableId" value="LOCAL-00635" />
+      <option name="project" value="LOCAL" />
+      <updated>1681379924887</updated>
+    </task>
+    <task id="LOCAL-00636" summary="ubuntu lib">
+      <created>1681380642990</created>
+      <option name="number" value="00636" />
+      <option name="presentableId" value="LOCAL-00636" />
+      <option name="project" value="LOCAL" />
+      <updated>1681380642990</updated>
+    </task>
+    <task id="LOCAL-00637" summary="ubuntu lib">
+      <created>1681381152448</created>
+      <option name="number" value="00637" />
+      <option name="presentableId" value="LOCAL-00637" />
+      <option name="project" value="LOCAL" />
+      <updated>1681381152448</updated>
+    </task>
+    <task id="LOCAL-00638" summary="ubuntu lib">
+      <created>1681381681872</created>
+      <option name="number" value="00638" />
+      <option name="presentableId" value="LOCAL-00638" />
+      <option name="project" value="LOCAL" />
+      <updated>1681381681872</updated>
+    </task>
+    <task id="LOCAL-00639" summary="ubuntu lib">
+      <created>1681382006483</created>
+      <option name="number" value="00639" />
+      <option name="presentableId" value="LOCAL-00639" />
+      <option name="project" value="LOCAL" />
+      <updated>1681382006483</updated>
+    </task>
+    <task id="LOCAL-00640" summary="ubuntu lib">
+      <created>1681382050355</created>
+      <option name="number" value="00640" />
+      <option name="presentableId" value="LOCAL-00640" />
+      <option name="project" value="LOCAL" />
+      <updated>1681382050355</updated>
+    </task>
+    <task id="LOCAL-00641" summary="ubuntu lib">
+      <created>1681382511668</created>
+      <option name="number" value="00641" />
+      <option name="presentableId" value="LOCAL-00641" />
+      <option name="project" value="LOCAL" />
+      <updated>1681382511668</updated>
+    </task>
+    <task id="LOCAL-00642" summary="ubuntu lib">
+      <created>1681385958286</created>
+      <option name="number" value="00642" />
+      <option name="presentableId" value="LOCAL-00642" />
+      <option name="project" value="LOCAL" />
+      <updated>1681385958286</updated>
+    </task>
+    <task id="LOCAL-00643" summary="ubuntu lib">
+      <created>1681386005752</created>
+      <option name="number" value="00643" />
+      <option name="presentableId" value="LOCAL-00643" />
+      <option name="project" value="LOCAL" />
+      <updated>1681386005752</updated>
+    </task>
+    <task id="LOCAL-00644" summary="ubuntu lib">
+      <created>1681431695363</created>
+      <option name="number" value="00644" />
+      <option name="presentableId" value="LOCAL-00644" />
+      <option name="project" value="LOCAL" />
+      <updated>1681431695363</updated>
+    </task>
+    <task id="LOCAL-00645" summary="ubuntu lib">
+      <created>1681432544305</created>
+      <option name="number" value="00645" />
+      <option name="presentableId" value="LOCAL-00645" />
+      <option name="project" value="LOCAL" />
+      <updated>1681432544305</updated>
+    </task>
+    <task id="LOCAL-00646" summary="ubuntu lib">
+      <created>1681433784149</created>
+      <option name="number" value="00646" />
+      <option name="presentableId" value="LOCAL-00646" />
+      <option name="project" value="LOCAL" />
+      <updated>1681433784149</updated>
+    </task>
+    <option name="localTasksCounter" value="647" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1186,8 +1253,6 @@
       <path value="$PROJECT_DIR$/game/oldMMO" />
       <path value="$PROJECT_DIR$/game/MMO" />
     </ignored-roots>
-    <MESSAGE value="title" />
-    <MESSAGE value="net" />
     <MESSAGE value="mission" />
     <MESSAGE value="creature" />
     <MESSAGE value="scene" />
@@ -1211,17 +1276,12 @@
     <MESSAGE value="lua fmt" />
     <MESSAGE value="protoc" />
     <MESSAGE value="rpc service" />
-    <option name="LAST_COMMIT_MESSAGE" value="rpc service" />
+    <MESSAGE value="cmake" />
+    <MESSAGE value="ubuntu lib" />
+    <option name="LAST_COMMIT_MESSAGE" value="ubuntu lib" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
-          <line>604</line>
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
