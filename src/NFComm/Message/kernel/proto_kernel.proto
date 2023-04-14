@@ -432,6 +432,12 @@ message NFEventNoneData
   optional int64 param5 = 5;
 }
 
+message NFEventPackageData
+{
+  optional string event_type = 1;
+  optional string event_data = 2;
+}
+
 message Proto_ServerDumpInfoNtf
 {
   optional string dump_info = 1;

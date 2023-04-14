@@ -27,13 +27,16 @@ enum EnumLuaScriptTimer
 NFCLuaScriptModule::NFCLuaScriptModule(NFIPluginManager *p) : NFILuaScriptModule(p)
 {
     m_luaTimerIndex = 10000;
-    mnTime = 0;
     mxLuaCallBack.resize(NF_ST_MAX);
+    m_luaTimerPool = NF_NEW NFObjectPool<NFLuaTimer>(1000, false);
 }
 
 NFCLuaScriptModule::~NFCLuaScriptModule()
 {
-
+    if (m_luaTimerPool)
+    {
+        NF_SAFE_DELETE(m_luaTimerPool);
+    }
 }
 
 int NFLuaTimer::OnTimer(uint32_t nTimerID)
@@ -131,15 +134,9 @@ bool NFCLuaScriptModule::Finalize()
 {
     for (auto iter = m_luaTimerMap.begin(); iter != m_luaTimerMap.end(); iter++)
     {
-        NF_SAFE_DELETE(iter->second);
+        m_luaTimerPool->FreeObj(iter->second);
     }
 
-    for (auto iter = m_luaTimerList.begin(); iter != m_luaTimerList.end(); iter++)
-    {
-        NF_SAFE_DELETE(*iter);
-    }
-
-    m_luaTimerList.clear();
     m_luaTimerMap.clear();
     return true;
 }
@@ -157,7 +154,7 @@ bool NFCLuaScriptModule::Execute()
                 {
                     iter = m_luaTimerMap.erase(iter);
                     pTimer->Clear();
-                    m_luaTimerList.push_back(pTimer);
+                    m_luaTimerPool->FreeObj(pTimer);
                     continue;
                 }
             }
@@ -379,7 +376,7 @@ void NFCLuaScriptModule::StopTimer(uint32_t nTimerID)
 
         m_luaTimerMap.erase(iter);
         luaTimer->Clear();
-        m_luaTimerList.push_back(luaTimer);
+        m_luaTimerPool->FreeObj(luaTimer);
     }
 }
 
@@ -390,17 +387,7 @@ void NFCLuaScriptModule::StopClocker(uint32_t nTimerID)
 
 uint32_t NFCLuaScriptModule::AddTimer(const LuaIntf::LuaRef &luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef &dataStr)
 {
-    NFLuaTimer *luaTimer = nullptr;
-    if (m_luaTimerList.empty())
-    {
-        luaTimer = NF_NEW NFLuaTimer(this, m_pObjPluginManager);
-    }
-    else
-    {
-        luaTimer = m_luaTimerList.front();
-        m_luaTimerList.pop_front();
-        luaTimer->m_pLuaScriptModule = this;
-    }
+    NFLuaTimer *luaTimer = m_luaTimerPool->MallocObjWithArgs(this, m_pObjPluginManager);
 
     luaTimer->mLuaFunc = luaFunc;
     luaTimer->mInterVal = nInterVal;
@@ -427,17 +414,7 @@ uint32_t NFCLuaScriptModule::AddTimer(const LuaIntf::LuaRef &luaFunc, uint64_t n
 uint32_t
 NFCLuaScriptModule::AddClocker(const LuaIntf::LuaRef &luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef &dataStr)
 {
-    NFLuaTimer *luaTimer = nullptr;
-    if (m_luaTimerList.empty())
-    {
-        luaTimer = NF_NEW NFLuaTimer(this, m_pObjPluginManager);
-    }
-    else
-    {
-        luaTimer = m_luaTimerList.front();
-        m_luaTimerList.pop_front();
-        luaTimer->m_pLuaScriptModule = this;
-    }
+    NFLuaTimer *luaTimer = m_luaTimerPool->MallocObjWithArgs(this, m_pObjPluginManager);
 
     luaTimer->mLuaFunc = luaFunc;
     luaTimer->mDataStr = dataStr;
