@@ -42,7 +42,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Debug"
 	)
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a NFCore NFKernelMessage NFPluginModule NFShmCore NFPluginManager)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	message("CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}")
 
 	SET_TARGET_PROPERTIES(${PROJECT_NAME}
@@ -51,7 +51,7 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	)
 
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a NFCore NFKernelMessage NFPluginModule NFShmCore NFPluginManager)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	#TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
 	SET_TARGET_PROPERTIES(${PROJECT_NAME} 
