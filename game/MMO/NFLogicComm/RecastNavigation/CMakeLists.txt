@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
+CMAKE_MINIMUM_REQUIRED(VERSION 3.22)
 PROJECT(RecastNavigation)
 
 include_directories( ${INCLUDE_DIR} "./Detour/Include" "./DetourCrowd/Include" "./DetourTileCache/Include" "./Recast/Include")

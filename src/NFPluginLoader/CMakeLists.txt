@@ -10,8 +10,6 @@ AUX_SOURCE_DIRECTORY(../NFComm/NFShmCore SRC)
 AUX_SOURCE_DIRECTORY(../NFComm/NFPluginModule/NFJson2PB SRC)
 AUX_SOURCE_DIRECTORY(../NFComm/NFPluginModule/NFProto SRC)
 AUX_SOURCE_DIRECTORY(../../thirdparty/common/sigar/linux SRC)
-AUX_SOURCE_DIRECTORY(../NFRegCheck SRC)
-
 AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/lpeg SRC)
 AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/lua SRC)
 AUX_SOURCE_DIRECTORY(../../thirdparty/LuaBind/luacjson SRC)
@@ -44,7 +42,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Debug"
 	)
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a NFCore NFKernelMessage NFPluginModule NFShmCore NFPluginManager)
 	message("CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}")
 
 	SET_TARGET_PROPERTIES(${PROJECT_NAME}
@@ -53,7 +51,7 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	)
 
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a )
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a NFCore NFKernelMessage NFPluginModule NFShmCore NFPluginManager)
 	#TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
 	SET_TARGET_PROPERTIES(${PROJECT_NAME} 
