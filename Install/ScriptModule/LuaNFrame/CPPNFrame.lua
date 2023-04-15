@@ -249,3 +249,12 @@ end
 
 
 ----------------------------------------rpc service---------------------------------------------------------------------------------------------------------------
+----------------------------------------event system---------------------------------------------------------------------------------------------------------------
+function CPPNFrame:FireExecute(serverType, nEventID, bySrcType, nSrcID, msgTypeName, msgData)
+    return self.luaModule:FireExecute(serverType, nEventID, bySrcType, nSrcID, msgTypeName, msgData)
+end
+
+function CPPNFrame:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc, luaFunc)
+    return self.luaModule:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc, luaFunc)
+end
+----------------------------------------event system---------------------------------------------------------------------------------------------------------------
