@@ -14,6 +14,7 @@
 #include "NFComm/NFPluginModule/NFILuaLoader.h"
 #include "NFServerLogicMessage/common_logic.pb.h"
 #include "NFServerLogicMessage/ClientServerCmd.pb.h"
+#include "proto_svr_common.pb.h"
 
 #define CLIENT_MAX_CMD_ID_VALUE 10000
 

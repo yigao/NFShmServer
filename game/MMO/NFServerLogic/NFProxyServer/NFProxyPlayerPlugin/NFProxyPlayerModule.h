@@ -10,7 +10,7 @@
 #pragma once
 
 #include "NFPackageConfig.h"
-#include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
+#include "NFServerComm/NFServerCommon/NFIProxyPlayerModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFProxySession.h"
@@ -20,12 +20,12 @@
 #define NF_PROXY_CLIENT_TIMER_ID 1
 #define NF_PROXY_CLIENT_INTERVAL_TIME 100
 
-class NFCProxyClientModule : public NFIProxyClientModule
+class NFCProxyPlayerModule : public NFIProxyPlayerModule
 {
 public:
-    explicit NFCProxyClientModule(NFIPluginManager *p);
+    explicit NFCProxyPlayerModule(NFIPluginManager *p);
 
-    virtual ~NFCProxyClientModule();
+    virtual ~NFCProxyPlayerModule();
 
     virtual bool Awake() override;
 
@@ -36,8 +36,6 @@ public:
     virtual bool OnDynamicPlugin() override;
 
     virtual int OnTimer(uint32_t nTimerID) override;
-
-    virtual int OnHandleOtherServerOtherMessage(uint64_t unLinkId, const NFDataPackage &packet) override;
 
     /**
      * @brief 处理客户端消息
@@ -169,10 +167,6 @@ public:
      */
     int NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo) const;
 private:
-    /*
-        对外部客户端监听唯一ID
-    */
-    uint64_t m_proxyClientLinkId;
     NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
     NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
     NFPackageConfig m_packetConfig;

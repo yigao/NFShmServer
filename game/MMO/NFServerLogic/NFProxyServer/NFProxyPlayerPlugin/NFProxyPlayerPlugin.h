@@ -14,10 +14,10 @@
 #include <string>
 
 //////////////////////////////////////////////////////////////////////////
-class NFProxyClientPlugin: public NFIPlugin
+class NFProxyPlayerPlugin: public NFIPlugin
 {
 public:
-	explicit NFProxyClientPlugin(NFIPluginManager* p):NFIPlugin(p)
+	explicit NFProxyPlayerPlugin(NFIPluginManager* p): NFIPlugin(p)
 	{
 	}
 

@@ -7,21 +7,21 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFProxyClientPlugin.h"
+#include "NFProxyPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
-#include "NFProxyClientModule.h"
+#include "NFProxyPlayerModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-    CREATE_PLUGIN(pm, NFProxyClientPlugin)
+    CREATE_PLUGIN(pm, NFProxyPlayerPlugin)
 
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-    DESTROY_PLUGIN(pm, NFProxyClientPlugin)
+    DESTROY_PLUGIN(pm, NFProxyPlayerPlugin)
 };
 
 #endif
@@ -29,22 +29,22 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 //////////////////////////////////////////////////////////////////////////
 
-int NFProxyClientPlugin::GetPluginVersion()
+int NFProxyPlayerPlugin::GetPluginVersion()
 {
 	return 0;
 }
 
-std::string NFProxyClientPlugin::GetPluginName()
+std::string NFProxyPlayerPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFProxyClientPlugin);
+	return GET_CLASS_NAME(NFProxyPlayerPlugin);
 }
 
-void NFProxyClientPlugin::Install()
+void NFProxyPlayerPlugin::Install()
 {
-	REGISTER_MODULE(m_pObjPluginManager, NFIProxyClientModule, NFCProxyClientModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFIProxyPlayerModule, NFCProxyPlayerModule);
 }
 
-void NFProxyClientPlugin::Uninstall()
+void NFProxyPlayerPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pObjPluginManager, NFIProxyClientModule, NFCProxyClientModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFIProxyPlayerModule, NFCProxyPlayerModule);
 }

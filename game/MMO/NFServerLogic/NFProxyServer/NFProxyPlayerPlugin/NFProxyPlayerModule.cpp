@@ -15,7 +15,7 @@
 #include <NFComm/NFPluginModule/NFCheck.h>
 #include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
 #include <ServerInternalCmd.pb.h>
-#include "NFProxyClientModule.h"
+#include "NFProxyPlayerModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
@@ -27,21 +27,19 @@
 #include "NFLogicCommon/NFLogicCommonDefine.h"
 #include "ServerInternalCmd2.pb.h"
 
-NFCProxyClientModule::NFCProxyClientModule(NFIPluginManager *p) : NFIProxyClientModule(p)
-{
-    m_proxyClientLinkId = 0;
-}
-
-NFCProxyClientModule::~NFCProxyClientModule()
+NFCProxyPlayerModule::NFCProxyPlayerModule(NFIPluginManager *p) : NFIProxyPlayerModule(p)
 {
 }
 
-bool NFCProxyClientModule::Awake()
+NFCProxyPlayerModule::~NFCProxyPlayerModule()
+{
+}
+
+bool NFCProxyPlayerModule::Awake()
 {
     m_packetConfig.LoadConfig(m_pObjPluginManager->GetConfigPath() + "/Server", "ProxyServer");
     SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    FindModule<NFIProxyServerModule>()->SetOtherServerMsgHandle(this, &NFCProxyClientModule::OnHandleOtherServerToClientMsg);
     //////来自客户端的协议////////////////////////////////////////
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_PING_REQ);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_LOGIN_REQ);
@@ -58,39 +56,43 @@ bool NFCProxyClientModule::Awake()
 
     RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD);
 
+    return true;
+}
+
+bool NFCProxyPlayerModule::Init()
+{
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig)
     {
-        if (!m_pObjPluginManager->IsLoadAllServer())
-        {
-            if (pConfig->ServerType != NF_ST_PROXY_SERVER)
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "server config error, server id not match the server type!");
-                exit(0);
-            }
-        }
-
-        std::string externUrl = NF_FORMAT("tcp://{}:{}", pConfig->ExternalServerIp, pConfig->ExternalServerPort);
-        uint64_t extern_unlinkId = FindModule<NFIMessageModule>()->BindServer(NF_ST_PROXY_SERVER, externUrl, pConfig->NetThreadNum,
-                                                                              pConfig->MaxConnectNum,
-                                                                              pConfig->ParseType, pConfig->Security);
-        if (extern_unlinkId > 0)
+        uint64_t proxyClientLinkId = FindModule<NFIMessageModule>()->GetClientLinkId(NF_ST_PROXY_SERVER);
+        if (proxyClientLinkId > 0)
         {
             /*
             注册服务器事件
             */
-            m_proxyClientLinkId = extern_unlinkId;
-            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_PROXY_SERVER, m_proxyClientLinkId, this,
-                                                             &NFCProxyClientModule::OnProxyClientSocketEvent);
-            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER, m_proxyClientLinkId, this,
-                                                             &NFCProxyClientModule::OnHandleProxyClientOtherMessage);
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "proxy client listen success, serverId:{}, ip:{}, port:{}",
-                      pConfig->ServerId, pConfig->ExternalServerIp, pConfig->ExternalServerPort);
+            FindModule<NFIMessageModule>()->AddEventCallBack(NF_ST_PROXY_SERVER, proxyClientLinkId, this,
+                                                             &NFCProxyPlayerModule::OnProxyClientSocketEvent);
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER, proxyClientLinkId, this,
+                                                             &NFCProxyPlayerModule::OnHandleProxyClientOtherMessage);
         }
         else
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "proxy client listen failed!, serverId:{}, ip:{}, port:{}",
-                      pConfig->ServerId, pConfig->ExternalServerIp, pConfig->ExternalServerPort);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Get NF_ST_PROXY_SERVER ClientLinkId Failed!");
+            return false;
+        }
+
+        uint64_t proxyServerLinkId = FindModule<NFIMessageModule>()->GetServerLinkId(NF_ST_PROXY_SERVER);
+        if (proxyServerLinkId > 0)
+        {
+            /*
+            注册服务器事件
+            */
+            FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_PROXY_SERVER, proxyServerLinkId, this,
+                                                             &NFCProxyPlayerModule::OnHandleOtherServerToClientMsg);
+        }
+        else
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Get NF_ST_PROXY_SERVER ClientLinkId Failed!");
             return false;
         }
     }
@@ -103,24 +105,17 @@ bool NFCProxyClientModule::Awake()
     return true;
 }
 
-bool NFCProxyClientModule::Init()
-{
-    SetTimer(1, 1000);
-    return true;
-}
-
-bool NFCProxyClientModule::Execute()
+bool NFCProxyPlayerModule::Execute()
 {
     return true;
 }
 
-bool NFCProxyClientModule::OnDynamicPlugin()
+bool NFCProxyPlayerModule::OnDynamicPlugin()
 {
-    FindModule<NFIMessageModule>()->CloseLinkId(m_proxyClientLinkId);
     return true;
 }
 
-int NFCProxyClientModule::OnTimer(uint32_t nTimerID)
+int NFCProxyPlayerModule::OnTimer(uint32_t nTimerID)
 {
     if (nTimerID == NF_PROXY_CLIENT_TIMER_ID)
     {
@@ -130,7 +125,7 @@ int NFCProxyClientModule::OnTimer(uint32_t nTimerID)
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
     if (!m_pObjPluginManager->IsInited())
     {
@@ -165,7 +160,7 @@ int NFCProxyClientModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleLeaveGame(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleLeaveGame(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::NotifyGateLeaveGame2 xMsg;
@@ -199,7 +194,7 @@ int NFCProxyClientModule::OnHandleLeaveGame(uint64_t unLinkId, NFDataPackage &pa
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
     if (!m_pObjPluginManager->IsInited())
     {
@@ -257,7 +252,7 @@ int NFCProxyClientModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 /*
 	处理客户端链接事件
 */
-int NFCProxyClientModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unLinkId)
+int NFCProxyPlayerModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     if (nEvent == eMsgType_CONNECTED)
@@ -292,7 +287,7 @@ int NFCProxyClientModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unL
 /*
 	处理客户端未注册协议
 */
-int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
@@ -431,7 +426,7 @@ int NFCProxyClientModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleClientDisconnect(uint64_t unLinkId)
+int NFCProxyPlayerModule::OnHandleClientDisconnect(uint64_t unLinkId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
@@ -452,7 +447,7 @@ int NFCProxyClientModule::OnHandleClientDisconnect(uint64_t unLinkId)
     return 0;
 }
 
-int NFCProxyClientModule::NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo) const
+int NFCProxyPlayerModule::NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo) const
 {
     CHECK_NULL(pPlayerInfo);
     pPlayerInfo->SetLinkId(0);
@@ -474,29 +469,8 @@ int NFCProxyClientModule::NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleOtherServerOtherMessage(uint64_t unLinkId, const NFDataPackage &packet)
-{
-    /*
-    auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, busId);
-    if (pServerData)
-    {
-        NFLogTrace(NF_LOG_SYSTEMLOG, playerId, "proxy trans other server:{} msg:{} to client", pServerData->mServerInfo.server_name(), nMsgId);
-        NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
-        if (pPlayerInfo)
-        {
-            FindModule<NFIMessageModule>()->Send(pPlayerInfo->mLinkId, nMsgId, msg, nLen, 0);
-        }
-        else
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "other server msg:{} not handle", nMsgId);
-        }
-    }
-    */
 
-    return 0;
-}
-
-int NFCProxyClientModule::OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPackage &packet)
 {
     NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
     if (pLinkInfo == NULL)
@@ -516,7 +490,7 @@ int NFCProxyClientModule::OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPacka
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleClientLogin(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleClientLogin(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::ClientLoginReq xMsg;
@@ -623,7 +597,7 @@ int NFCProxyClientModule::OnHandleClientLogin(uint64_t unLinkId, NFDataPackage &
     return 0;
 }
 
-int NFCProxyClientModule::HandleProxyClientTick()
+int NFCProxyPlayerModule::HandleProxyClientTick()
 {
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     CHECK_EXPR(pConfig, -1, "pConfig == NULL");
@@ -651,7 +625,7 @@ int NFCProxyClientModule::HandleProxyClientTick()
     return 0;
 }
 
-int NFCProxyClientModule::KickPlayer(NF_SHARE_PTR<NFProxySession> pLinkInfo, uint32_t flag)
+int NFCProxyPlayerModule::KickPlayer(NF_SHARE_PTR<NFProxySession> pLinkInfo, uint32_t flag)
 {
     CHECK_NULL(pLinkInfo);
 
@@ -667,7 +641,7 @@ int NFCProxyClientModule::KickPlayer(NF_SHARE_PTR<NFProxySession> pLinkInfo, uin
  * @param packet
  * @return
  */
-int NFCProxyClientModule::OnHandleClientQueueResult(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleClientQueueResult(uint64_t unLinkId, NFDataPackage &packet)
 {
     uint64_t playerId = packet.nParam1;
     NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
@@ -692,7 +666,7 @@ int NFCProxyClientModule::OnHandleClientQueueResult(uint64_t unLinkId, NFDataPac
 }
 
 int
-NFCProxyClientModule::ForceDisconnect(NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo, NF_SHARE_PTR<NFProxySession> pLinkInfo, proto_ff::LOGOUT_TYPE flag)
+NFCProxyPlayerModule::ForceDisconnect(NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo, NF_SHARE_PTR<NFProxySession> pLinkInfo, proto_ff::LOGOUT_TYPE flag)
 {
     CHECK_NULL(pPlayerInfo);
     CHECK_NULL(pLinkInfo);
@@ -708,7 +682,7 @@ NFCProxyClientModule::ForceDisconnect(NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInf
     return 0;
 }
 
-int NFCProxyClientModule::LeaveGame(NF_SHARE_PTR<NFProxySession> pLinkInfo, proto_ff::LOGOUT_TYPE flag)
+int NFCProxyPlayerModule::LeaveGame(NF_SHARE_PTR<NFProxySession> pLinkInfo, proto_ff::LOGOUT_TYPE flag)
 {
     CHECK_EXPR(pLinkInfo, -1, "pLinkInfo == NULL");
 
@@ -725,7 +699,7 @@ int NFCProxyClientModule::LeaveGame(NF_SHARE_PTR<NFProxySession> pLinkInfo, prot
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
     uint64_t playerId = packet.nParam1;
     uint64_t clientId = packet.nParam2;
@@ -755,7 +729,7 @@ int NFCProxyClientModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDa
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleRedirectMsg(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleRedirectMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
     proto_ff::Proto_SvrPkg xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -785,7 +759,7 @@ int NFCProxyClientModule::OnHandleRedirectMsg(uint64_t unLinkId, NFDataPackage &
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleClientLoginRep(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleClientLoginRep(uint64_t unLinkId, NFDataPackage &packet)
 {
     uint64_t playerId = packet.nParam1;
     NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
@@ -809,7 +783,7 @@ int NFCProxyClientModule::OnHandleClientLoginRep(uint64_t unLinkId, NFDataPackag
     return 0;
 }
 
-int NFCProxyClientModule::HandlePlayerTick()
+int NFCProxyPlayerModule::HandlePlayerTick()
 {
     std::vector<uint64_t> vec;
     auto pPlayerInfo = mPlayerLinkInfo.First();
@@ -841,7 +815,7 @@ int NFCProxyClientModule::HandlePlayerTick()
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleEnterGameRsp(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleEnterGameRsp(uint64_t unLinkId, NFDataPackage &packet)
 {
     proto_ff::ClientEnterGameRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -872,7 +846,7 @@ int NFCProxyClientModule::OnHandleEnterGameRsp(uint64_t unLinkId, NFDataPackage 
     return 0;
 }
 
-int NFCProxyClientModule::OnHandleChangeServerBusId(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandleChangeServerBusId(uint64_t unLinkId, NFDataPackage &packet)
 {
     proto_ff::WroldToProxyChangeServerBusId xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
