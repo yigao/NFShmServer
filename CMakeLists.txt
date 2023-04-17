@@ -1,7 +1,9 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.22)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 project(ShmNFrame)
 add_compile_options(-std=c++11)
 
+
+message("CMAKE_VERSION: ${CMAKE_VERSION} ")
 message("CMAKE_HOST_SYSTEM_NAME: ${CMAKE_HOST_SYSTEM_NAME} ")
 message("CMAKE_HOST_SYSTEM: ${CMAKE_HOST_SYSTEM} ")
 
@@ -11,15 +13,20 @@ message("CMAKE_SYSTEM: ${CMAKE_SYSTEM} ")
 message("CMAKE_HOST_UNIX: ${CMAKE_HOST_UNIX} ")
 message("CMAKE_HOST_WIN32: ${CMAKE_HOST_WIN32} ")
 
+if(${CMAKE_VERSION} VERSION_LESS "3.22.0")
+	set(DISTRO_ID "centos")
+	set(DISTRO_VERSION_ID 7)
+	message ("DISTRO_ID: ${DISTRO_ID} ")
+	message ("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
+else()
+	cmake_host_system_information(RESULT PRETTY_NAME QUERY DISTRIB_PRETTY_NAME)
+	message(STATUS "${PRETTY_NAME}")
 
-cmake_host_system_information(RESULT PRETTY_NAME QUERY DISTRIB_PRETTY_NAME)
-message(STATUS "${PRETTY_NAME}")
-
-cmake_host_system_information(RESULT DISTRO QUERY DISTRIB_INFO)
-foreach(VAR IN LISTS DISTRO)
-	message(STATUS "${VAR}=`${${VAR}}`")
-endforeach()
-
+	cmake_host_system_information(RESULT DISTRO QUERY DISTRIB_INFO)
+	foreach(VAR IN LISTS DISTRO)
+		message(STATUS "${VAR}=`${${VAR}}`")
+	endforeach()
+endif()
 
 
 if( CMAKE_BUILD_TYPE STREQUAL "Release" )

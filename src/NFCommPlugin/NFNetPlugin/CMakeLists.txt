@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.22)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 PROJECT(NFNetPlugin)
 
 AUX_SOURCE_DIRECTORY(. SRC)
@@ -14,10 +14,12 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
+	add_dependencies(${PROJECT_NAME} evpp)
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libevpp.a libevent_core.a libevent_openssl.a libevent_extra.a libevent.a  libcurl.a libssl.a libcrypto.a libz.a)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
+	add_dependencies(${PROJECT_NAME} evpp)
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libevpp.a libevent_core.a libevent_openssl.a libevent_extra.a libevent.a libcurl.a libssl.a libcrypto.a libz.a)
 endif()
 

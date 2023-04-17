@@ -17,7 +17,7 @@
 - make
 - make install
 - sudo apt remove cmake (卸载低版本的cmake)
-## 安装CMake 3.26
+## 安装CMake 3.26(如果你不想安装cmake的话，又不是centos7, ubuntu用户可以修改CMakeLists.txt的set(DISTRO_ID "centos")为set(DISTRO_ID "ubuntu"))
 - 解压thirdparty/pkg目录下得cmake-3.26.3.tar.gz(tar -xvf cmake-3.26.3.tar.gz), 会有一个cmake-3.26.3目录，, cd cmake-3.26.3
 - 编译cmake,执行:
 - ./configure

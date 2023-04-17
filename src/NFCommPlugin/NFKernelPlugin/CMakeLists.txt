@@ -1,4 +1,4 @@
-CMAKE_MINIMUM_REQUIRED(VERSION 3.22)
+CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 PROJECT(NFKernelPlugin)
 
 AUX_SOURCE_DIRECTORY(. SRC)
@@ -12,10 +12,12 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
+	add_dependencies(${PROJECT_NAME} mysqlpp)
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libmysqlpp.a libmysqlclient.a libtheron.a)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
+	add_dependencies(${PROJECT_NAME} mysqlpp)
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libmysqlpp.a libmysqlclient.a libtheron.a)
 endif()
 

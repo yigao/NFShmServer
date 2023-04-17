@@ -57,7 +57,88 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="lua">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/Common.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/TcpPlugin/Common.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/NFShmFrame编译.md" beforeDir="false" afterPath="$PROJECT_DIR$/doc/NFShmFrame编译.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCommLogic/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCommLogic/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCommLogic/NFCommLogicPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFCommLogic/NFCommLogicPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyClientPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWebServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWebServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWebServer/NFWebServerLogicPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWebServer/NFWebServerLogicPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFGameServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFGameServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMonitorServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMonitorServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMonitorServer/NFMonitorServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMonitorServer/NFMonitorServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyAgentServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyAgentServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFSnsServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFSnsServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFSnsServer/NFSnsServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFSnsServer/NFSnsServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWebServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWebServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommonPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerMessage/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTest/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/evpp/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/evpp/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/g3dlite/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/g3dlite/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/json/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/json/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/mysqlpp/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/mysqlpp/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/sqlite3/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/sqlite3/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +236,11 @@
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="NFBattlePlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFBattlePlugin" CONFIG_NAME="Debug">
@@ -682,14 +768,8 @@
       <workItem from="1681205716943" duration="9230000" />
       <workItem from="1681268831855" duration="63503000" />
       <workItem from="1681435038498" duration="18947000" />
-      <workItem from="1681518992007" duration="1684000" />
-    </task>
-    <task id="LOCAL-00601" summary="protoc">
-      <created>1681282905226</created>
-      <option name="number" value="00601" />
-      <option name="presentableId" value="LOCAL-00601" />
-      <option name="project" value="LOCAL" />
-      <updated>1681282905226</updated>
+      <workItem from="1681518992007" duration="5615000" />
+      <workItem from="1681693264649" duration="3313000" />
     </task>
     <task id="LOCAL-00602" summary="protoc">
       <created>1681283794391</created>
@@ -1027,7 +1107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681465073410</updated>
     </task>
-    <option name="localTasksCounter" value="650" />
+    <task id="LOCAL-00650" summary="lua">
+      <created>1681523863566</created>
+      <option name="number" value="00650" />
+      <option name="presentableId" value="LOCAL-00650" />
+      <option name="project" value="LOCAL" />
+      <updated>1681523863566</updated>
+    </task>
+    <option name="localTasksCounter" value="651" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
