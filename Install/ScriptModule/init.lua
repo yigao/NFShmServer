@@ -77,8 +77,8 @@ function LuaNFrame.InitScript(luaModule)
 	end
 
 	local function timerExecute()
-		LuaNFrame.SetLogLevel(NF_LOG_LEVEL_TRACE)
-		LuaNFrame.SetFlushOn(NF_LOG_LEVEL_TRACE)
+		--LuaNFrame.SetLogLevel(NF_LOG_LEVEL_TRACE)
+		--LuaNFrame.SetFlushOn(NF_LOG_LEVEL_TRACE)
 
 		if LuaNFrame.GetAppName() == "AllServer" then
 			LoadLuaFile("../../ScriptModule/MMO", true)

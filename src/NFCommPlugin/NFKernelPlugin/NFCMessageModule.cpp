@@ -360,6 +360,8 @@ bool NFCMessageModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, 
 {
     if (eType < mxCallBack.size())
     {
+
+        NFLogWarningIf(mxCallBack[eType].mxEventCallBack.find(linkId) != mxCallBack[eType].mxEventCallBack.end(), NF_LOG_SYSTEMLOG, 0, "serverType:{} Exist, this is replace old func..........", eType);
         mxCallBack[eType].mxEventCallBack[linkId] = NetEventFunctor(pTarget, cb, createCo);
         return true;
     }

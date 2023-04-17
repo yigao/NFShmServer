@@ -127,24 +127,6 @@ int NFTransMsgServerModule::ConnectMasterServer()
     }
 #endif
 
-    FindModule<NFINamingModule>()->WatchTcpUrls(m_serverType, NF_ST_MASTER_SERVER,
-                                                [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
-                                                {
-                                                    if (errCode != 0)
-                                                    {
-                                                        NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                                                   "Server Watch, MasterServer Dump, errCode:{} name:{} serverInfo:{}", errCode, name,
-                                                                   xData.DebugString());
-
-                                                        return;
-                                                    }
-                                                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server Watch MasterServer name:{} serverInfo:{}", name,
-                                                              xData.DebugString());
-
-                                                    int32_t ret = ConnectMasterServer(xData);
-                                                    CHECK_EXPR(ret == 0, , "ConnectMasterServer Failed, url:{}", xData.DebugString());
-                                                });
-
     return 0;
 }
 

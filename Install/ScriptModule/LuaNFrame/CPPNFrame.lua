@@ -263,7 +263,7 @@ function CPPNFrame:GetClientLinkId(serverType)
 end
 
 function CPPNFrame:GetServerLinkId(serverType)
-    return self.luaModule:GetClientLinkId(serverType)
+    return self.luaModule:GetServerLinkId(serverType)
 end
 
 --添加连接事件，掉线事件的处理函数

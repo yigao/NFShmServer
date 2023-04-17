@@ -1,3 +1,8 @@
+eMsgType_Num = 0
+eMsgType_CONNECTED = 1
+eMsgType_DISCONNECTED = 2
+eMsgType_RECIVEDATA = 3
+eMsgType_SENDBUFFER = 4
 
 function LuaNFrame.RegisterClientMessage(eServerType, nMsgID, luaFunc, createCo)
 	if type(eServerType) ~= "number" then
@@ -741,7 +746,7 @@ function LuaNFrame.GetServerLinkId(serverType)
 		return 0
     end
 
-    return CPPNFrame:GetClientLinkId(serverType)
+    return CPPNFrame:GetServerLinkId(serverType)
 end
 
 --添加连接事件，掉线事件的处理函数
