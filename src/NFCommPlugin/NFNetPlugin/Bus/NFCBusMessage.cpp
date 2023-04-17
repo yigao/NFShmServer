@@ -178,7 +178,7 @@ void NFCBusMessage::CloseLinkId(uint64_t usLinkId)
     return pConn->CloseLinkId();
 }
 
-void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage &packet)
+void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64_t objectLinkId, NFDataPackage &packet)
 {
     if (!(packet.mModuleId == 0 && (packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
                                     || packet.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT ||
@@ -198,7 +198,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
                 auto pConn = m_busConnectMap.GetElement(fromLinkId);
                 if (pConn)
                 {
-                    packet.nConnectLinkId = m_bindConnect->GetLinkId();
+                    packet.nServerLinkId = m_bindConnect->GetLinkId();
                     packet.nObjectLinkId = pConn->GetLinkId();
                     mRecvCB(m_bindConnect->GetLinkId(), pConn->GetLinkId(), packet);
                 }
@@ -236,7 +236,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
                     pConn->SendBusConnectRspMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
                     if (mEventCB)
                     {
-                        packet.nConnectLinkId = m_bindConnect->GetLinkId();
+                        packet.nServerLinkId = m_bindConnect->GetLinkId();
                         packet.nObjectLinkId = pConn->GetLinkId();
                         mEventCB(type, m_bindConnect->GetLinkId(), pConn->GetLinkId());
                     }
@@ -245,7 +245,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint
                 {
                     if (mEventCB)
                     {
-                        packet.nConnectLinkId = m_bindConnect->GetLinkId();
+                        packet.nServerLinkId = m_bindConnect->GetLinkId();
                         packet.nObjectLinkId = pConn->GetLinkId();
                         mEventCB(type, pConn->GetLinkId(), pConn->GetLinkId());
                     }

@@ -239,7 +239,7 @@ struct NFDataPackage
             nDstId = data.nDstId;
             nSendBusLinkId = data.nSendBusLinkId;
             bCompress = data.bCompress;
-            nConnectLinkId = data.nConnectLinkId;
+            nServerLinkId = data.nServerLinkId;
             nObjectLinkId = data.nObjectLinkId;
             nPacketParseType = data.nPacketParseType;
             isSecurity = data.isSecurity;
@@ -263,7 +263,7 @@ struct NFDataPackage
         nDstId = 0;
         nSendBusLinkId = 0;
         bCompress = false;
-        nConnectLinkId = 0;
+        nServerLinkId = 0;
         nObjectLinkId = 0;
         nPacketParseType = 0;
         isSecurity = false;
@@ -329,7 +329,7 @@ struct NFDataPackage
     uint64_t nDstId;
     uint64_t nSendBusLinkId;
     bool bCompress;
-    uint64_t nConnectLinkId;
+    uint64_t nServerLinkId;
     uint64_t nObjectLinkId;
     uint32_t nPacketParseType;
     bool isSecurity;
@@ -337,13 +337,13 @@ struct NFDataPackage
     uint64_t nMsgLen;
 };
 
-typedef std::function<int(uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage &packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
+typedef std::function<int(uint64_t serverLinkId, uint64_t objectLinkId, NFDataPackage &packet)> NET_CALLBACK_RECEIVE_FUNCTOR;
 
 typedef std::function<int(uint64_t unLinkId, NFDataPackage &packet)> NET_RECEIVE_FUNCTOR;
 
 typedef std::function<int(eMsgType nEvent, uint64_t unLinkId)> NET_EVENT_FUNCTOR;
 
-typedef std::function<int(eMsgType nEvent, uint64_t conntionLinkId, uint64_t objectLinkId)> NET_CALLBACK_EVENT_FUNCTOR;
+typedef std::function<int(eMsgType nEvent, uint64_t serverLinkId, uint64_t objectLinkId)> NET_CALLBACK_EVENT_FUNCTOR;
 
 typedef std::function<void(int iRet, google::protobuf::Message &message)> RPC_TRANS_DESC_STORE_CB;
 

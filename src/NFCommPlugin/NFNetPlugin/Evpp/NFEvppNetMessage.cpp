@@ -122,7 +122,7 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
             {
                 for (size_t i = 0; i < m_connectionList.size(); i++)
                 {
-                    if (m_connectionList[i]->GetLinkId() == pMsg->nConnectLinkId)
+                    if (m_connectionList[i]->GetLinkId() == pMsg->nServerLinkId)
                     {
                         if (m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
                         {
@@ -174,17 +174,17 @@ void NFEvppNetMessage::ProcessMsgLogicThread()
 
                     pObject->mConnPtr = NULL;
                     NFDataPackage tmpPacket;
-                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nConnectLinkId, pMsg->nObjectLinkId, tmpPacket);
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nServerLinkId, pMsg->nObjectLinkId, tmpPacket);
                 }
                 else {
                     /**
                      * @brief   处理客户端连接服务器掉线, 这里相当于NFClient主动连接服务器，没有连接上
                      *         这里的conn其实是一个临时的对象
                      */
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "net client:{} diconnect, can't connect the server", pMsg->nConnectLinkId);
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "net client:{} diconnect, can't connect the server", pMsg->nServerLinkId);
 
                     NFDataPackage tmpPacket;
-                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nConnectLinkId, pMsg->nConnectLinkId, tmpPacket);
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, pMsg->nServerLinkId, pMsg->nServerLinkId, tmpPacket);
                 }
             }
             else
@@ -223,7 +223,7 @@ void NFEvppNetMessage::ProcessCodeQueue(NFCodeQueue* pRecvQueue)
         NetEvppObject* pObject = GetNetObject(pCodePackage->nObjectLinkId);
         if (pObject)
         {
-            OnHandleMsgPeer(eMsgType_RECIVEDATA, pCodePackage->nConnectLinkId, pCodePackage->nObjectLinkId, *pCodePackage);
+            OnHandleMsgPeer(eMsgType_RECIVEDATA, pCodePackage->nServerLinkId, pCodePackage->nObjectLinkId, *pCodePackage);
         }
         else
         {
@@ -253,7 +253,7 @@ void NFEvppNetMessage::ProcessCodeQueue()
 *
 * @return
 */
-void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t connectLinkId)
+void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t ServerLinkId)
 {
     if (conn->loop()->context(EVPP_LOOP_CONTEXT_0_MAIN_THREAD_RECV).IsEmpty())
     {
@@ -267,7 +267,7 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
         MsgFromNetInfo msg;
         msg.nType = eMsgType_SENDBUFFER;
         msg.mTCPConPtr = conn;
-        msg.nConnectLinkId = connectLinkId;
+        msg.nServerLinkId = ServerLinkId;
         msg.pRecvBuffer = pRecvBuffer;
         while(!mMsgQueue.Enqueue(msg)) {}
     }
@@ -312,7 +312,7 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
 
         MsgFromNetInfo msg;
         msg.mTCPConPtr = conn;
-        msg.nConnectLinkId = connectLinkId;
+        msg.nServerLinkId = ServerLinkId;
         msg.nType = eMsgType_CONNECTED;
 
         //client connect
@@ -322,10 +322,10 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
              * @brief 客户端掉线，一定会清理调conn->context(), 不如程序有问题
              */
             CHECK_EXPR_ASSERT_NOT_RET(conn->context().IsEmpty(), "conn->context().IsEmpty() Error");
-            msg.nObjectLinkId = connectLinkId;
+            msg.nObjectLinkId = ServerLinkId;
             msg.mTCPConPtr->set_context(evpp::Any(msg.nObjectLinkId));
-            CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(connectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
-            pConnMap->emplace(connectLinkId, msg.mTCPConPtr);
+            CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(ServerLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
+            pConnMap->emplace(ServerLinkId, msg.mTCPConPtr);
         }
         else {
             CHECK_EXPR_ASSERT_NOT_RET(conn->context().IsEmpty(), "conn->context().IsEmpty() Error");
@@ -358,7 +358,7 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
         MsgFromNetInfo msg;
         msg.Clear();
         msg.mTCPConPtr = conn;
-        msg.nConnectLinkId = connectLinkId;
+        msg.nServerLinkId = ServerLinkId;
         msg.nType = eMsgType_DISCONNECTED;
         /**
          * @brief 处理客户端连接服务器掉线
@@ -375,7 +375,7 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
                 /**
                  * @brief   处理NFClient客户端连接服务器掉线, 这里相当于NFClient主动连接服务器，没有连接上, 这里的conn其实是一个临时的对象.
                  */
-                CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(msg.nConnectLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
+                CHECK_EXPR_ASSERT_NOT_RET(pConnMap->find(msg.nServerLinkId) == pConnMap->end(), "pConnMap->find(connectLinkId) == pConnMap->end() Error");
                 msg.nObjectLinkId = 0;
             }
         }
@@ -413,7 +413,7 @@ void NFEvppNetMessage::ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t
 *
 * @return 消息回调
 */
-void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffer* msg, uint64_t linkId, uint32_t packetparse, bool bSecurity)
+void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffer* msg, uint64_t serverLinkId, uint32_t packetparse, bool bSecurity)
 {
 	if (msg)
 	{
@@ -470,7 +470,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     NF_ASSERT(pRecvQueue != NULL);
 
                     codePackage.nMsgLen = pComBuffer->ReadableSize();
-                    codePackage.nConnectLinkId = linkId;
+                    codePackage.nServerLinkId = serverLinkId;
                     if (!conn->context().IsEmpty())
                     {
                         codePackage.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
@@ -500,7 +500,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
                     NF_ASSERT(pRecvQueue != NULL);
 
                     codePackage.nMsgLen = outLen;
-                    codePackage.nConnectLinkId = linkId;
+                    codePackage.nServerLinkId = serverLinkId;
                     if (!conn->context().IsEmpty())
                     {
                         codePackage.nObjectLinkId  = evpp::any_cast<uint64_t>(conn->context());
@@ -856,7 +856,7 @@ bool NFEvppNetMessage::Send(uint64_t usLinkId, NFDataPackage& packet, const goog
     return false;
 }
 
-void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage& packet)
+void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64_t objectLinkId, NFDataPackage& packet)
 {
 	switch (type)
 	{
@@ -898,7 +898,7 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
 
 		if (mRecvCB)
 		{
-			mRecvCB(connectionLink, objectLinkId, packet);
+			mRecvCB(serverLinkId, objectLinkId, packet);
 		}
 	}
 	break;
@@ -906,7 +906,7 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
 	{
 		if (mEventCB)
 		{
-			mEventCB(type, connectionLink, objectLinkId);
+			mEventCB(type, serverLinkId, objectLinkId);
 		}
 	}
 	break;
@@ -914,7 +914,7 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, u
 	{
 		if (mEventCB)
 		{
-			mEventCB(type, connectionLink, objectLinkId);
+			mEventCB(type, serverLinkId, objectLinkId);
 		}
 
 		if (objectLinkId > 0)

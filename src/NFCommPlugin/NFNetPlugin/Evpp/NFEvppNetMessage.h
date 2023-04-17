@@ -67,7 +67,7 @@ struct MsgFromNetInfo
     {
         nType = eMsgType_Num;
         mTCPConPtr = NULL;
-        nConnectLinkId = 0;
+        nServerLinkId = 0;
         nObjectLinkId = 0;
         pRecvBuffer = NULL;
     }
@@ -78,7 +78,7 @@ struct MsgFromNetInfo
         {
             nType = info.nType;
             mTCPConPtr = info.mTCPConPtr;
-            nConnectLinkId = info.nConnectLinkId;
+            nServerLinkId = info.nServerLinkId;
             nObjectLinkId = info.nObjectLinkId;
             pRecvBuffer = info.pRecvBuffer;
         }
@@ -90,7 +90,7 @@ struct MsgFromNetInfo
         {
             nType = info.nType;
             mTCPConPtr = info.mTCPConPtr;
-            nConnectLinkId = info.nConnectLinkId;
+            nServerLinkId = info.nServerLinkId;
             nObjectLinkId = info.nObjectLinkId;
             pRecvBuffer = info.pRecvBuffer;
         }
@@ -106,14 +106,14 @@ struct MsgFromNetInfo
     {
         nType = eMsgType_Num;
         mTCPConPtr = NULL;
-        nConnectLinkId = 0;
+        nServerLinkId = 0;
         nObjectLinkId = 0;
         pRecvBuffer = NULL;
     }
 
     eMsgType nType;
     evpp::TCPConnPtr mTCPConPtr;
-    uint64_t nConnectLinkId;
+    uint64_t nServerLinkId;
     uint64_t nObjectLinkId;
     NF_SHARE_PTR<NFBuffer> pRecvBuffer;
 };
@@ -174,14 +174,14 @@ public:
     *
     * @return
     */
-    void ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t connectLinkId);
+    void ConnectionCallback(const evpp::TCPConnPtr& conn, uint64_t ServerLinkId);
 
     /**
     * @brief 消息回调
     *
     * @return 消息回调
     */
-    void MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffer* msg, uint64_t linkId, uint32_t packetparse, bool bSecurity);
+    void MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffer* msg, uint64_t serverLinkId, uint32_t packetparse, bool bSecurity);
 
     /**
     * @brief	关闭客户端
@@ -284,7 +284,7 @@ protected:
      * @param nValue  消息头携带的值，可能是玩家ID，也可能是对方客户端连接的唯一id
      * @return
      */
-    virtual void OnHandleMsgPeer(eMsgType type, uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage& packet);
+    virtual void OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64_t objectLinkId, NFDataPackage& packet);
 
     /**
      * @brief  发送数据 不包含数据头

@@ -100,6 +100,37 @@ struct NetLuaReceiveFunctor
     LuaIntf::LuaRef m_luaFunc;
 };
 
+struct NetLuaEventFunctor
+{
+    NetLuaEventFunctor()
+    {
+    }
+
+    NetLuaEventFunctor(const LuaIntf::LuaRef &luaFunc) : m_luaFunc(luaFunc)
+    {
+    }
+
+    NetLuaEventFunctor(const NetLuaEventFunctor& functor)
+    {
+        if (this != &functor)
+        {
+            m_luaFunc = functor.m_luaFunc;
+        }
+    }
+
+    NetLuaEventFunctor& operator=(const NetLuaEventFunctor& functor)
+    {
+        if (this != &functor)
+        {
+            m_luaFunc = functor.m_luaFunc;
+        }
+
+        return *this;
+    }
+
+    LuaIntf::LuaRef m_luaFunc;
+};
+
 struct NetLuaRpcService
 {
     NetLuaRpcService()
@@ -112,7 +143,7 @@ struct NetLuaRpcService
 
     }
 
-    NetLuaRpcService(const NetLuaRpcService& functor)
+    NetLuaRpcService(const NetLuaRpcService &functor)
     {
         if (this != &functor)
         {
@@ -120,7 +151,7 @@ struct NetLuaRpcService
         }
     }
 
-    NetLuaRpcService& operator=(const NetLuaRpcService& functor)
+    NetLuaRpcService &operator=(const NetLuaRpcService &functor)
     {
         if (this != &functor)
         {
@@ -153,9 +184,9 @@ struct LuaCallBack
     }
 
     std::vector<std::vector<NetLuaReceiveFunctor>> mxReceiveCallBack;
-    std::unordered_map<uint64_t, NetEventFunctor> mxEventCallBack;
-    std::unordered_map<uint64_t, NetReceiveFunctor> mxOtherMsgCallBackList;
-    NetReceiveFunctor mxAllMsgCallBackList;
+    std::unordered_map<uint64_t, NetLuaEventFunctor> mxEventCallBack;
+    std::unordered_map<uint64_t, NetLuaReceiveFunctor> mxOtherMsgCallBackList;
+    NetLuaReceiveFunctor mxAllMsgCallBackList;
     std::unordered_map<uint32_t, std::unordered_map<std::string, HTTP_RECEIVE_FUNCTOR>> mxHttpMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<uint32_t, std::vector<HTTP_RECEIVE_FUNCTOR>> mxHttpOtherMsgCBMap; //uint32_t => NFHttpType
     std::unordered_map<std::string, HTTP_FILTER_FUNCTOR> mxHttpMsgFliterMap;
@@ -171,7 +202,7 @@ public:
     /**
      *@brief 构造函数
      */
-    NFLuaEventObj(NFIPluginManager* p) : NFObject(p)
+    NFLuaEventObj(NFIPluginManager *p) : NFObject(p)
     {
 
     }
@@ -265,6 +296,30 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 
 public:
+    /*
+     * 添加连接事件，掉线事件的处理函数
+     * */
+    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const LuaIntf::LuaRef &luaFunc, bool createCo = false);
+
+    /*
+     * 未没有注册过的消息，添加一个统一处理的回调函数
+     * */
+    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const LuaIntf::LuaRef &luaFunc, bool createCo);
+
+    /*
+    * 对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
+    * */
+    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, const LuaIntf::LuaRef &luaFunc, bool createCo);
+
+public:
+    /*
+        处理客户端链接事件和未注册消息
+    */
+    virtual int OnHandleServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
+
+    virtual int OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
+
+    virtual int OnHandleAllOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
 public:
     virtual int SendMsgToMasterServer(NF_SERVER_TYPES eSendTyp, uint32_t nMsgId, const std::string &xData, uint64_t nParam1 = 0,
                                       uint64_t nParam2 = 0);
@@ -317,9 +372,10 @@ public:
 
     virtual int SendTransToSnsServer(NF_SERVER_TYPES eType, uint32_t nMsgId, const std::string &xData, uint32_t req_trans_id = 0,
                                      uint32_t rsp_trans_id = 0);
+
 public:
     virtual bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
-                                     const LuaIntf::LuaRef &luaFunc, bool createCo = false);
+                               const LuaIntf::LuaRef &luaFunc, bool createCo = false);
 
     virtual std::tuple<std::string, int>
     GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
@@ -327,12 +383,17 @@ public:
 
     virtual int OnHandleAddRpcService(uint64_t unLinkId, uint32_t msgId, const std::string &reqType, const std::string &request,
                                       const std::string &rspType, std::string &respone);
+
 public:
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage);
-public:
-    virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& msgTypeName, const std::string& msgData);
 
-    virtual bool Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& strLuaFunc, const NFLuaRef &luaFunc);
+public:
+    virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &msgTypeName,
+                             const std::string &msgData);
+
+    virtual bool
+    Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc, const NFLuaRef &luaFunc);
+
 public:
     virtual const std::string &GetAppName() const;
 
@@ -397,6 +458,10 @@ public:
 
     virtual NFServerConfig *GetAppConfig(uint32_t serverType);
 
+    virtual uint64_t GetClientLinkId(uint32_t serverType);
+
+    virtual uint64_t GetServerLinkId(uint32_t serverType);
+
 public:
     bool Register();
 
@@ -421,12 +486,12 @@ public:
     virtual void UpdateMonth();
 
 protected:
-    std::unordered_map<uint64_t, NFLuaTimer*> m_luaTimerMap;
-    NFObjectPool<NFLuaTimer>* m_luaTimerPool;
+    std::unordered_map<uint64_t, NFLuaTimer *> m_luaTimerMap;
+    NFObjectPool<NFLuaTimer> *m_luaTimerPool;
     uint32_t m_luaTimerIndex;
 protected:
-    std::unordered_map<SEventKey, NFLuaEventObj*> m_luaEventMap;
-    NFObjectPool<NFLuaEventObj>* m_luaEventPool;
+    std::unordered_map<SEventKey, NFLuaEventObj *> m_luaEventMap;
+    NFObjectPool<NFLuaEventObj> *m_luaEventPool;
 protected:
     std::vector<LuaCallBack> mxLuaCallBack;
 };

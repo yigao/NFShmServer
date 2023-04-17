@@ -324,6 +324,8 @@ bool NFCLuaScriptModule::Register()
             .addFunction("IsInited", &NFCLuaScriptModule::IsInited)
             .addFunction("IsServerStopping", &NFCLuaScriptModule::IsServerStopping)
             .addFunction("GetAppConfig", &NFCLuaScriptModule::GetAppConfig)
+            .addFunction("GetClientLinkId", &NFCLuaScriptModule::GetClientLinkId)
+            .addFunction("GetServerLinkId", &NFCLuaScriptModule::GetServerLinkId)
             .addFunction("AddRpcService", &NFCLuaScriptModule::AddRpcService)
             .addFunction("GetRpcService", &NFCLuaScriptModule::GetRpcService)
             .addFunction("FireExecute", &NFCLuaScriptModule::FireExecute)
@@ -502,7 +504,17 @@ bool NFCLuaScriptModule::IsServerStopping()
 
 NFServerConfig *NFCLuaScriptModule::GetAppConfig(uint32_t serverType)
 {
-    return FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    return FindModule<NFIConfigModule>()->GetAppConfig((NF_SERVER_TYPES)serverType);
+}
+
+uint64_t NFCLuaScriptModule::GetClientLinkId(uint32_t serverType)
+{
+    return FindModule<NFIMessageModule>()->GetClientLinkId((NF_SERVER_TYPES)serverType);
+}
+
+uint64_t NFCLuaScriptModule::GetServerLinkId(uint32_t serverType)
+{
+    return FindModule<NFIMessageModule>()->GetServerLinkId((NF_SERVER_TYPES)serverType);
 }
 
 void NFCLuaScriptModule::UpdateSec()
@@ -929,3 +941,67 @@ bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint3
 
     return false;
 }
+
+bool NFCLuaScriptModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const LuaIntf::LuaRef &luaFunc, bool createCo)
+{
+    CHECK_EXPR(luaFunc.isFunction(), false, "AddEventCallBack Lua Func Fail, is not a function");
+
+    if (FindModule<NFIMessageModule>()->AddEventCallBack(eType, linkId, this, &NFCLuaScriptModule::OnHandleServerSocketEvent, createCo))
+    {
+        if (eType < mxLuaCallBack.size())
+        {
+            mxLuaCallBack[eType].mxEventCallBack[linkId] = NetLuaEventFunctor(luaFunc);
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool NFCLuaScriptModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const LuaIntf::LuaRef &luaFunc, bool createCo)
+{
+    CHECK_EXPR(luaFunc.isFunction(), false, "AddOtherCallBack Lua Func Fail, is not a function");
+
+    if (FindModule<NFIMessageModule>()->AddOtherCallBack(eType, linkId, this, &NFCLuaScriptModule::OnHandleServerOtherMessage, createCo))
+    {
+        if (eType < mxLuaCallBack.size())
+        {
+            mxLuaCallBack[eType].mxOtherMsgCallBackList[linkId] = NetLuaReceiveFunctor(luaFunc);
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool NFCLuaScriptModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, const LuaIntf::LuaRef &luaFunc, bool createCo)
+{
+    CHECK_EXPR(luaFunc.isFunction(), false, "AddOtherCallBack Lua Func Fail, is not a function");
+
+    if (FindModule<NFIMessageModule>()->AddAllMsgCallBack(eType, this, &NFCLuaScriptModule::OnHandleServerOtherMessage, createCo))
+    {
+        if (eType < mxLuaCallBack.size())
+        {
+            mxLuaCallBack[eType].mxAllMsgCallBackList = NetLuaReceiveFunctor(luaFunc);
+            return true;
+        }
+    }
+
+    return false;
+}
+
+int NFCLuaScriptModule::OnHandleServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
+{
+    return 0;
+}
+
+int NFCLuaScriptModule::OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPackage &packet)
+{
+    return 0;
+}
+
+int NFCLuaScriptModule::OnHandleAllOtherMessage(uint64_t unLinkId, NFDataPackage &packet)
+{
+    return 0;
+}
+

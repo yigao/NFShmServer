@@ -80,7 +80,7 @@ public:
 	*/
 	virtual void CloseLinkId(uint64_t usLinkId);
 
-    virtual void OnHandleMsgPeer(eMsgType type, uint64_t conntionLinkId, uint64_t objectLinkId, NFDataPackage& package);
+    virtual void OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64_t objectLinkId, NFDataPackage& package);
 
     virtual int ResumeConnect() override;
 private:
