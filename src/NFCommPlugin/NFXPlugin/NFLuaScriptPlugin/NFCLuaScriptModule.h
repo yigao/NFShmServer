@@ -315,9 +315,9 @@ public:
     /*
         处理客户端链接事件和未注册消息
     */
-    virtual int OnHandleServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
+    virtual int OnHandleServerSocketEvent(eMsgType nEvent, uint64_t unLinkId, uint64_t serverLinkId);
 
-    virtual int OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
+    virtual int OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPackage &packet, uint64_t serverLinkId);
 
     virtual int OnHandleAllOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
 public:

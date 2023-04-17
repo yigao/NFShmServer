@@ -726,3 +726,128 @@ end
 
 
 ----------------------------------------rpc service---------------------------------------------------------------------------------------------------------------
+function LuaNFrame.GetClientLinkId(serverType)
+	if type(serverType) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+		return 0
+    end
+
+    return CPPNFrame:GetClientLinkId(serverType)
+end
+
+function LuaNFrame.GetServerLinkId(serverType)
+	if type(serverType) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+		return 0
+    end
+
+    return CPPNFrame:GetClientLinkId(serverType)
+end
+
+--添加连接事件，掉线事件的处理函数
+function  LuaNFrame.AddEventCallBack(serverType, linkId,  luaFunc, createCo)
+	if type(serverType) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+		return
+    end
+
+	if type(linkId) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
+		return
+    end
+
+	if type(luaFunc) ~= "function" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		return
+    end
+
+	if type(createCo) ~= "boolean" then
+		createCo = false
+    end
+
+    return CPPNFrame:AddEventCallBack(serverType, linkId,  luaFunc, createCo)
+end
+
+--未没有注册过的消息，添加一个统一处理的回调函数
+function  LuaNFrame.AddOtherCallBack(serverType, linkId, luaFunc, createCo)
+	if type(serverType) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+		return
+    end
+
+	if type(linkId) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
+		return
+    end
+
+	if type(luaFunc) ~= "function" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		return
+    end
+
+	if type(createCo) ~= "boolean" then
+		createCo = false
+    end
+
+    return CPPNFrame:AddOtherCallBack(serverType, linkId, luaFunc, createCo)
+end
+ 
+--对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
+function  LuaNFrame.AddAllMsgCallBack(serverType, luaFunc, createCo)
+	if type(serverType) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
+		return
+    end
+
+	if type(linkId) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "linkId Para Error")
+		return
+    end
+
+	if type(luaFunc) ~= "function" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		return
+    end
+
+	if type(createCo) ~= "boolean" then
+		createCo = false
+    end
+
+    return CPPNFrame:AddAllMsgCallBack(serverType, luaFunc, createCo)
+end
+
+function LuaNFrame.DispatchSocketEvent(luaFunc,  nEvent, unLinkId)
+	local function TcpExecute()
+		luaFunc(nEvent, unLinkId)
+	end
+	
+	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
+
+	if not status then
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchSocketEvent error, nEvent:"..nEvent.." unlinkId:"..unLinkId, msg)
+    end
+end
+
+function LuaNFrame.DispatchOtherMessage(luaFunc,  unLinkId, packet)
+	local function TcpExecute()
+		luaFunc(unLinkId, packet)
+	end
+	
+	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
+
+	if not status then
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchOtherMessage error, packet:"..packet:ToString(), msg)
+    end
+end
+
+function LuaNFrame.DispatchAllOtherMessage(luaFunc,  unLinkId, packet)
+	local function TcpExecute()
+		luaFunc(unLinkId, packet)
+	end
+	
+	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
+
+	if not status then
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchAllOtherMessage error, packet:"..packet:ToString(), msg)
+    end
+end

@@ -258,3 +258,25 @@ function CPPNFrame:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc
     return self.luaModule:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc, luaFunc)
 end
 ----------------------------------------event system---------------------------------------------------------------------------------------------------------------
+function CPPNFrame:GetClientLinkId(serverType)
+    return self.luaModule:GetClientLinkId(serverType)
+end
+
+function CPPNFrame:GetServerLinkId(serverType)
+    return self.luaModule:GetClientLinkId(serverType)
+end
+
+--添加连接事件，掉线事件的处理函数
+function  CPPNFrame:AddEventCallBack(serverType, linkId,  luaFunc, createCo)
+    return self.luaModule:AddEventCallBack(serverType, linkId,  luaFunc, createCo)
+end
+
+--未没有注册过的消息，添加一个统一处理的回调函数
+function  CPPNFrame:AddOtherCallBack(serverType, linkId, luaFunc, createCo)
+    return self.luaModule:AddOtherCallBack(serverType, linkId, luaFunc, createCo)
+end
+ 
+--对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
+function  CPPNFrame:AddAllMsgCallBack(serverType, luaFunc, createCo)
+    return self.luaModule:AddAllMsgCallBack(serverType, luaFunc, createCo)
+end
