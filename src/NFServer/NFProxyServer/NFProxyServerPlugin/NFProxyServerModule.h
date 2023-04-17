@@ -28,17 +28,8 @@ public:
 
 	virtual bool OnDynamicPlugin() override;
 
-    virtual void SetOtherServerMsgHandle(const NET_RECEIVE_FUNCTOR& func) override { m_otherServerMsgHandle = func; }
-
     virtual uint32_t GetClientMsgServer(uint32_t msgId) override;
-public:
-    /**
-     * @brief 处理Server未注册的消息
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    virtual int OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPackage &packet) override;
+
 public:
     /**
      * @brief 处理来自NFProxyAgentServer服务器的注册,有可能是NFProxyAgentServer的注册，也可能是NFProxyAgentServer转发的继承NFWorkServerModule的业务服务器的注册
@@ -75,6 +66,5 @@ public:
     int TestSendProxyMsgToOtherServer(uint64_t dstBusId);
     int OnHandleTestOtherSendMsg(uint64_t unLinkId, NFDataPackage& packet);
 public:
-    NET_RECEIVE_FUNCTOR m_otherServerMsgHandle;
     std::vector<uint32_t> m_clientMsgToServerMap;
 };

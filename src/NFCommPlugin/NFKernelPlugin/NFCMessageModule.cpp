@@ -325,7 +325,7 @@ bool NFCMessageModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, 
 {
     if (eType < mxCallBack.size())
     {
-        CHECK_EXPR(!mxCallBack[eType].mxOtherMsgCallBackList[linkId].m_pFunctor, false, "serverType:{} linkId:{} Exist, AddOtherCallBack Failed..........", eType, linkId);
+        NFLogWarningIf(mxCallBack[eType].mxOtherMsgCallBackList[linkId].m_pFunctor, NF_LOG_SYSTEMLOG, 0, "serverType:{} linkId:{} Exist, this is replace old func..........", eType, linkId);
         mxCallBack[eType].mxOtherMsgCallBackList[linkId] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
@@ -336,7 +336,7 @@ bool NFCMessageModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, NFIDynamicModule
 {
     if (eType < mxCallBack.size())
     {
-        CHECK_EXPR(!mxCallBack[eType].mxAllMsgCallBackList.m_pFunctor, false, "serverType:{} Exist, AddAllMsgCallBack Failed..........", eType);
+        NFLogWarningIf(mxCallBack[eType].mxAllMsgCallBackList.m_pFunctor, NF_LOG_SYSTEMLOG, 0, "serverType:{} Exist, this is replace old func..........", eType);
         mxCallBack[eType].mxAllMsgCallBackList = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
