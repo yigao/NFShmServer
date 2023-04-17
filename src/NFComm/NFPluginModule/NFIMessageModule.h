@@ -625,6 +625,10 @@ public:
 
     virtual void SetServerLinkId(NF_SERVER_TYPES eSendType, uint64_t linkId) = 0;
 
+    virtual uint64_t GetClientLinkId(NF_SERVER_TYPES eSendType) const = 0;
+
+    virtual void SetClientLinkId(NF_SERVER_TYPES eSendType, uint64_t linkId) = 0;
+
     virtual std::vector<NF_SHARE_PTR<NFServerData>>
     GetServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes) = 0;
 

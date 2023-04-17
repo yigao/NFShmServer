@@ -70,7 +70,7 @@ NF_MYSQL_DB_NAME="proto_ff_cgzone"..NF_ST_ZONE_ID
 --数据库用户名
 NF_MYSQL_USER="root"
 --数据库密码
-NF_MYSQL_PASSWORD="cg2016"
+NF_MYSQL_PASSWORD="root"
 
 ----开服时间,单位秒
 GlobalOpenTime = 1678204800

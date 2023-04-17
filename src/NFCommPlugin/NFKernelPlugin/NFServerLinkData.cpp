@@ -140,6 +140,16 @@ void ServerLinkData::DelServerLink(uint64_t linkId) {
 
 void ServerLinkData::SetServerLinkId(uint64_t linkId) { m_serverLinkId = linkId; }
 
+uint64_t ServerLinkData::GetClientLinkId() const
+{
+    return m_clientLinkId;
+}
+
+void ServerLinkData::SetClientLinkId(uint64_t linkId)
+{
+    m_clientLinkId = linkId;
+}
+
 std::vector<NF_SHARE_PTR<NFServerData>> ServerLinkData::GetServerByServerType(NF_SERVER_TYPES serverTypes) {
     return mServerList[serverTypes];
 }

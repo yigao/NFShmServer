@@ -205,6 +205,7 @@ struct ServerLinkData {
     ServerLinkData() {
         mServerType = NF_ST_NONE;
         m_serverLinkId = 0;
+        m_clientLinkId = 0;
         mServerList.resize(NF_ST_MAX);
         mServerListMap.resize(NF_ST_MAX);
     }
@@ -218,10 +219,15 @@ struct ServerLinkData {
     NFServerData m_masterServerData;
     NF_SERVER_TYPES mServerType;
     uint64_t m_serverLinkId;
+    uint64_t m_clientLinkId;
 
     uint64_t GetServerLinkId() const;
 
     void SetServerLinkId(uint64_t linkId);
+
+    uint64_t GetClientLinkId() const;
+
+    void SetClientLinkId(uint64_t linkId);
 
     NF_SHARE_PTR<NFServerData> GetServerByServerId(uint32_t busId);
 

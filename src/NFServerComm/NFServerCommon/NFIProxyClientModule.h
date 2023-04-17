@@ -24,6 +24,4 @@ public:
 	{
 
 	}
-
-	virtual int OnHandleOtherServerOtherMessage(uint64_t unLinkId, const NFDataPackage& packet) = 0;
 };

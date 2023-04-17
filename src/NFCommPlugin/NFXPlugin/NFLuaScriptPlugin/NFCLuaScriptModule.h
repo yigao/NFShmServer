@@ -165,13 +165,13 @@ struct LuaCallBack
 /**
  *@brief Lua事件系统对象
  */
-class NFLuaEventObj : public NFEventObj
+class NFLuaEventObj : public NFObject
 {
 public:
     /**
      *@brief 构造函数
      */
-    NFLuaEventObj(NFIPluginManager *pPluginManager) : NFEventObj(pPluginManager)
+    NFLuaEventObj(NFIPluginManager* p) : NFObject(p)
     {
 
     }
@@ -184,8 +184,6 @@ public:
 
     }
 
-public:
-    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage);
 public:
     std::list<NFLuaRef> m_luaFuncList;
 };

@@ -1130,6 +1130,18 @@ uint64_t NFCMessageModule::GetServerLinkId(NF_SERVER_TYPES eSendType) const
     return mServerLinkData[eSendType].GetServerLinkId();
 }
 
+uint64_t NFCMessageModule::GetClientLinkId(NF_SERVER_TYPES eSendType) const
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), 0, "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetClientLinkId();
+}
+
+void NFCMessageModule::SetClientLinkId(NF_SERVER_TYPES eSendType, uint64_t linkId)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), , "eType error:{}", (int) eSendType);
+    mServerLinkData[eSendType].SetClientLinkId(linkId);
+}
+
 std::vector<NF_SHARE_PTR<NFServerData>> NFCMessageModule::GetServerByServerType(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes)
 {
     CHECK_EXPR(eSendType < mServerLinkData.size(), std::vector<NF_SHARE_PTR < NFServerData>>(), "eType error:{}", (int) eSendType);

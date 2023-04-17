@@ -9,3 +9,15 @@ message emailSender
   optional string title = 2;
   optional string msg = 3;
 }
+
+message PacketMsg {
+  optional uint32 cmd = 1[(yd_fieldoptions.field_use_stl)=true];
+  optional uint32 serverType = 2;
+  optional uint32 upper_limit = 3;
+  optional uint32 min_interval = 4;
+  optional uint32 control_time = 5;
+}
+
+message ServerPacketMsg {
+  repeated PacketMsg PacketMsg = 1[(yd_fieldoptions.field_use_stl)=true];
+}
