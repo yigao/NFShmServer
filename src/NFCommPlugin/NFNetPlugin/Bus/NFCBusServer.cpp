@@ -138,8 +138,73 @@ void NFCBusServer::ProcessMsgLogicThread()
     if (pShmRecord->m_nOwner)
     {
         NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
+        NFShmChannel *pConnectChannel = &head->m_nConnectChannel;
         NFShmChannel *pChannel = &head->m_nShmChannel;
         size_t left_times = max_times;
+        mxConnectBuffer.Clear();
+        while(true)
+        {
+            size_t recv_len = 0;
+            int ret = ShmRecv(pConnectChannel, mxConnectBuffer.WriteAddr(), mxConnectBuffer.WritableSize(), &recv_len);
+
+            if (ret == EN_NFBUS_ERR_NO_DATA) {
+                break;
+            }
+
+            mxConnectBuffer.Produce(recv_len);
+
+            // 回调收到数据事件
+            if (ret < 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Shm Recv Error:{}", ret)
+                break;
+            }
+            else
+            {
+                while (true)
+                {
+                    char* outData = nullptr;
+                    uint32_t outLen = 0;
+                    uint32_t allLen = 0;
+                    NFDataPackage dataPacket;
+                    int ret = NFIPacketParse::DeCode(pShmRecord->mPacketParseType, mxConnectBuffer.ReadAddr(), mxConnectBuffer.ReadableSize(), outData, outLen, allLen, dataPacket);
+                    if (ret < 0)
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "nfbus parse data failed!");
+                        mxConnectBuffer.Clear();
+                        break;
+                    }
+                    else if (ret > 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        mxConnectBuffer.Consume(allLen);
+
+                        dataPacket.nBuffer = outData;
+                        dataPacket.nMsgLen = outLen;
+
+
+                        if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
+                        {
+                            m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
+                        }
+                        else if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
+                        {
+                            m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
+                        }
+                        else
+                        {
+                            m_busMsgPeerCb(eMsgType_RECIVEDATA, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
+                        }
+
+                        continue;
+                    }
+                }
+            }
+        }
+
         mxBuffer.Clear();
         while(left_times-- > 0)
         {

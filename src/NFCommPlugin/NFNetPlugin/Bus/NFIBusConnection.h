@@ -48,6 +48,7 @@ public:
         m_pShmRecord = NULL;
         m_nLastActionChannelPtr = NULL;
         mxBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
+        mxConnectBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
     }
 
     ~NFIBusConnection()
@@ -159,18 +160,6 @@ public:
     virtual bool Send(NFDataPackage& packet, const google::protobuf::Message& xData) = 0;
 
 protected:
-    /**
-     * @brief 发送数据
-     * @return int
-     */
-    int ShmSend(const void *buf, size_t len);
-
-    /**
-     * @brief 接受数据
-     * @return int
-     */
-    int ShmRecv(void *buf, size_t len, size_t *recv_size);
-
     /**
      * @brief 发送数据
      * @return int
@@ -338,6 +327,7 @@ protected:
 protected:
     NFShmRecordType *m_pShmRecord = NULL;
     NFBuffer mxBuffer;
+    NFBuffer mxConnectBuffer;
     NFMessageFlag m_bindFlag;
     BusMsgPeerCallback m_busMsgPeerCb;
 

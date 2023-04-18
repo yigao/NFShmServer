@@ -760,42 +760,6 @@ int NFWorkServerModule::OnHandleRouteAgentServerReport(const proto_ff::ServerInf
 
     pRouteAgentServerData->mServerInfo = xData;
 
-    if (pConfig->LinkMode == "bus")
-    {
-        FindModule<NFINamingModule>()->WatchBusUrls(m_serverType, NF_ST_ROUTE_AGENT_SERVER,
-                                                    [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
-                                                    {
-                                                        if (errCode != 0)
-                                                        {
-                                                            NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                                                       "Server Watch, RouteAgentServer Dump, errCode:{} name:{} serverInfo:{}",
-                                                                       errCode, name, xData.DebugString());
-                                                            return;
-                                                        }
-                                                        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server Watch RouteAgentServer name:{} serverInfo:{}", name,
-                                                                  xData.DebugString());
-
-                                                        OnHandleRouteAgentServerReport(xData);
-                                                    });
-    }
-    else
-    {
-        FindModule<NFINamingModule>()->WatchTcpUrls(m_serverType, NF_ST_ROUTE_AGENT_SERVER,
-                                                    [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
-                                                    {
-                                                        if (errCode != 0)
-                                                        {
-                                                            NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                                                       "Server Watch, RouteAgentServer Dump, errCode:{} name:{} serverInfo:{}",
-                                                                       errCode, name, xData.DebugString());
-                                                            return;
-                                                        }
-                                                        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server Watch RouteAgentServer name:{} serverInfo:{}", name,
-                                                                  xData.DebugString());
-
-                                                        OnHandleRouteAgentServerReport(xData);
-                                                    });
-    }
     return 0;
 }
 
