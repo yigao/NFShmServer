@@ -22,6 +22,13 @@
 NFCBusMessage::NFCBusMessage(NFIPluginManager *p, NF_SERVER_TYPES serverType) : NFINetMessage(p, serverType)
 {
     m_bindConnect = NULL;
+#ifdef NF_DEBUG_MODE
+    SetTimer(ENUM_SERVER_CLIENT_TIMER_HEART, ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH*3);
+    SetTimer(ENUM_SERVER_TIMER_CHECK_HEART, ENUM_SERVER_TIMER_CHECK_HEART_TIME_LONGTH);
+#else
+    SetTimer(ENUM_SERVER_CLIENT_TIMER_HEART, ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH*3);
+    SetTimer(ENUM_SERVER_TIMER_CHECK_HEART, ENUM_SERVER_TIMER_CHECK_HEART_TIME_LONGTH);
+#endif
 }
 
 NFCBusMessage::~NFCBusMessage()
@@ -193,6 +200,40 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64
     {
         case eMsgType_RECIVEDATA:
         {
+            if (packet.mModuleId == 0)
+            {
+                if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT)
+                {
+                    auto pConn = m_busConnectMap.GetElement(fromLinkId);
+                    if (pConn)
+                    {
+                        pConn->SetLastHeartBeatTime(NFGetTime());
+                        pConn->SendBusHeartBeatRspMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
+                        return;
+                    }
+                    else
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "BusMessage OnHandleMsgPeer Error, busId:{} can't find",
+                                   NFServerIDUtil::GetBusNameFromBusID(fromBusId));
+                    }
+                }
+
+                if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)
+                {
+                    auto pConn = m_busConnectMap.GetElement(fromLinkId);
+                    if (pConn)
+                    {
+                        pConn->SetLastHeartBeatTime(NFGetTime());
+                        return;
+                    }
+                    else
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "BusMessage OnHandleMsgPeer Error, busId:{} can't find",
+                                   NFServerIDUtil::GetBusNameFromBusID(fromBusId));
+                    }
+                }
+            }
+
             if (mRecvCB)
             {
                 auto pConn = m_busConnectMap.GetElement(fromLinkId);
@@ -214,7 +255,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64
         {
             NFMessageFlag flag;
             flag.mBusId = packet.nParam1;
-            flag.mBusLength = packet.nParam1;
+            flag.mBusLength = packet.nParam2;
             flag.bActivityConnect = false;
             if ((uint64_t) fromBusId != flag.mBusId)
             {
@@ -255,6 +296,16 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64
             break;
         case eMsgType_DISCONNECTED:
         {
+            auto pConn = m_busConnectMap.GetElement(fromLinkId);
+            if (pConn)
+            {
+                if (mEventCB)
+                {
+                    packet.nServerLinkId = m_bindConnect->GetLinkId();
+                    packet.nObjectLinkId = pConn->GetLinkId();
+                    mEventCB(type, serverLinkId, pConn->GetLinkId());
+                }
+            }
         }
             break;
         default:
@@ -304,7 +355,7 @@ int NFCBusMessage::ResumeConnect()
                 if (bActivityConnect)
                 {
                     NFDataPackage packet;
-                    packet.nSendBusLinkId = pServerData->mUnlinkId;
+                    packet.nSendBusLinkId = GetUnLinkId(NF_IS_BUS, serverType, flag.mBusId, 0);
                     packet.mModuleId = 0;
                     packet.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
                     packet.nParam1 = flag.mBusId;
@@ -326,5 +377,95 @@ int NFCBusMessage::ResumeConnect()
     }
 
     return 0;
+}
+
+int NFCBusMessage::OnTimer(uint32_t nTimerID)
+{
+    if (nTimerID == ENUM_SERVER_CLIENT_TIMER_HEART)
+    {
+        SendHeartMsg();
+    }
+    else if (nTimerID == ENUM_SERVER_TIMER_CHECK_HEART)
+    {
+        CheckServerHeartBeat();
+    }
+    return 0;
+}
+
+void NFCBusMessage::SendHeartMsg()
+{
+    auto pConn = m_busConnectMap.First();
+    while (pConn)
+    {
+        if (pConn->IsActivityConnect() && pConn->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
+        {
+            pConn->SendBusHeartBeatMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
+        }
+        pConn = m_busConnectMap.Next();
+    }
+}
+
+void NFCBusMessage::CheckServerHeartBeat()
+{
+    uint64_t nowTime = NFGetTime();
+    auto pConn = m_busConnectMap.First();
+    while (pConn)
+    {
+        if (pConn->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
+        {
+            if (pConn->IsActivityConnect())
+            {
+                //debug 30min
+#ifdef NF_DEBUG_MODE
+                if (pConn->GetLastHeartBeatTime() > 0 && nowTime - pConn->GetLastHeartBeatTime() > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
+                {
+                    pConn->CloseLinkId();
+
+                    NFDataPackage packet;
+                    packet.nSendBusLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
+                    packet.nServerLinkId = GetUnLinkId(NF_IS_BUS, mServerType, m_bindConnect->GetBusId(), 0);
+                    packet.nObjectLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, packet.nObjectLinkId, packet.nObjectLinkId, packet);
+                }
+#else
+                if (pConn->GetLastHeartBeatTime() > 0 && nowTime - pConn->GetLastHeartBeatTime() > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
+                {
+                    pConn->CloseLinkId();
+
+                    NFDataPackage packet;
+                    packet.nSendBusLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, packet);
+                }
+#endif
+            }
+            else {
+#ifdef NF_DEBUG_MODE
+                if (pConn->GetLastHeartBeatTime() > 0 && nowTime - pConn->GetLastHeartBeatTime() > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
+                {
+                    pConn->CloseLinkId();
+
+                    NFDataPackage packet;
+                    packet.nSendBusLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
+                    packet.nServerLinkId = GetUnLinkId(NF_IS_BUS, mServerType, m_bindConnect->GetBusId(), 0);
+                    packet.nObjectLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, packet.nServerLinkId, packet.nObjectLinkId, packet);
+                }
+#else
+                if (pConn->GetLastHeartBeatTime() > 0 && nowTime - pConn->GetLastHeartBeatTime() > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
+                {
+                    pConn->CloseLinkId();
+
+                    NFDataPackage packet;
+                    packet.nSendBusLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
+                    packet.nServerLinkId = GetUnLinkId(NF_IS_BUS, mServerType, m_bindConnect->GetBusId(), 0);
+                    packet.nObjectLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, packet.nServerLinkId, packet.nObjectLinkId, packet);
+                }
+#endif
+            }
+
+        }
+        pConn = m_busConnectMap.Next();
+    }
 }
 

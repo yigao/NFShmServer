@@ -49,6 +49,7 @@ public:
         m_nLastActionChannelPtr = NULL;
         mxBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
         mxConnectBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
+        mLastHeartBeatTime = 0;
     }
 
     ~NFIBusConnection()
@@ -64,6 +65,12 @@ public:
 
     int SendBusConnectMsg(uint64_t busId, uint64_t busLength);
     int SendBusConnectRspMsg(uint64_t busId, uint64_t busLength);
+    int SendBusHeartBeatMsg(uint64_t busId, uint64_t busLength);
+    int SendBusHeartBeatRspMsg(uint64_t busId, uint64_t busLength);
+
+    virtual void SetLastHeartBeatTime(uint64_t updateTime) { mLastHeartBeatTime = updateTime; }
+
+    virtual uint64_t GetLastHeartBeatTime() const { return mLastHeartBeatTime; }
 
     /**
      * @brief 获得连接IP
@@ -330,6 +337,11 @@ protected:
     NFBuffer mxConnectBuffer;
     NFMessageFlag m_bindFlag;
     BusMsgPeerCallback m_busMsgPeerCb;
+
+    /**
+    * @brief 心跳包更新时间
+    */
+    uint64_t mLastHeartBeatTime;
 
     /**
      * @brief 调试辅助信息

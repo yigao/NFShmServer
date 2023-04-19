@@ -82,6 +82,8 @@ public:
 
 	virtual void SetLinkId(uint64_t id) { mUnLinkId = id; }
 	virtual uint64_t GetLinkId() const { return mUnLinkId; }
+
+    virtual bool IsActivityConnect() const { return mFlag.bActivityConnect; }
 protected:
 	evpp::ConnectionCallback mConnCallback;
 

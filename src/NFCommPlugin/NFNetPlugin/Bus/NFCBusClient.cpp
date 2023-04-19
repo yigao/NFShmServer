@@ -181,7 +181,18 @@ bool NFCBusClient::Send(NFDataPackage& packet, const char* msg, uint32_t nLen)
 
 
     NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
-    NFShmChannel *pChannel = &head->m_nShmChannel;
+    NFShmChannel *pChannel = NULL;//&head->m_nShmChannel;
+    if (packet.mModuleId == 0 && (packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ
+            || packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP
+            || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT
+            || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP))
+    {
+        pChannel = &head->m_nConnectChannel;
+    }
+    else {
+        pChannel = &head->m_nShmChannel;
+    }
+
     if (pChannel)
     {
         return Send(pChannel, pShmRecord->mPacketParseType, packet, msg, nLen);

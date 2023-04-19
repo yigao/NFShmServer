@@ -217,7 +217,7 @@ public:
 
     int OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t objectLinkId, NFDataPackage &packet);
 
-    int OnSocketNetEvent(eMsgType nEvent, uint64_t connectionLink, uint64_t objectLinkId);
+    int OnSocketNetEvent(eMsgType nEvent, uint64_t serverLinkId, uint64_t objectLinkId);
 
     int OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, const proto_ff::Proto_SvrPkg& svrPkg);
 public:

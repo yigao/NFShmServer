@@ -34,11 +34,11 @@ NFEvppNetMessage::NFEvppNetMessage(NFIPluginManager* p, NF_SERVER_TYPES serverTy
 	mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
     mxRecvBuffer.AssureSpace(MAX_RECV_BUFFER_SIZE);
 #ifdef NF_DEBUG_MODE
-	SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH*10);
-	SetTimer(ENUM_EVPP_SERVER_TIMER_CHECK_HEART, ENUM_EVPP_SERVER_TIMER_CHECK_HEART_TIME_LONGTH*10);
+    SetTimer(ENUM_SERVER_CLIENT_TIMER_HEART, ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH*3);
+    SetTimer(ENUM_SERVER_TIMER_CHECK_HEART, ENUM_SERVER_TIMER_CHECK_HEART_TIME_LONGTH);
 #else
-    SetTimer(ENUM_EVPP_CLIENT_TIMER_HEART, ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH);
-	SetTimer(ENUM_EVPP_SERVER_TIMER_CHECK_HEART, ENUM_EVPP_SERVER_TIMER_CHECK_HEART_TIME_LONGTH);
+    SetTimer(ENUM_SERVER_CLIENT_TIMER_HEART, ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH*3);
+	SetTimer(ENUM_SERVER_TIMER_CHECK_HEART, ENUM_SERVER_TIMER_CHECK_HEART_TIME_LONGTH);
 #endif
     m_httpServer = NULL;
 #if defined(EVPP_HTTP_SERVER_SUPPORTS_SSL)
@@ -995,11 +995,11 @@ bool NFEvppNetMessage::Send(NetEvppObject* pObject, NFDataPackage& codePackage, 
 
 int NFEvppNetMessage::OnTimer(uint32_t nTimerID)
 {
-	if (nTimerID == ENUM_EVPP_CLIENT_TIMER_HEART)
+	if (nTimerID == ENUM_SERVER_CLIENT_TIMER_HEART)
 	{
 		SendHeartMsg();
 	}
-	else if (nTimerID == ENUM_EVPP_SERVER_TIMER_CHECK_HEART)
+	else if (nTimerID == ENUM_SERVER_TIMER_CHECK_HEART)
 	{
 		CheckServerHeartBeat();
 	}
@@ -1030,12 +1030,12 @@ void NFEvppNetMessage::CheckServerHeartBeat()
 		{
 		    //debug 30min
 #ifdef NF_DEBUG_MODE
-			if (nowTime - pObject->mLastHeartBeatTime > ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH * 30 * 60)
+			if (pObject->mLastHeartBeatTime > 0 && nowTime - pObject->mLastHeartBeatTime > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 30 * 60)
 			{
 				pObject->CloseObject();
 			}
 #else
-            if (nowTime - pObject->mLastHeartBeatTime > ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH * 3)
+            if (pObject->mLastHeartBeatTime > 0 && nowTime - pObject->mLastHeartBeatTime > ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
 			{
 				pObject->CloseObject();
 			}

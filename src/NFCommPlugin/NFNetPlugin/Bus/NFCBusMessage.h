@@ -83,6 +83,12 @@ public:
     virtual void OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64_t objectLinkId, NFDataPackage& package);
 
     virtual int ResumeConnect() override;
+
+    virtual int OnTimer(uint32_t nTimerID) override;
+
+    virtual void SendHeartMsg();
+
+    virtual void CheckServerHeartBeat();
 private:
     NFMapEx<uint64_t, NFIBusConnection> m_busConnectMap;
     NF_SHARE_PTR<NFIBusConnection> m_bindConnect;

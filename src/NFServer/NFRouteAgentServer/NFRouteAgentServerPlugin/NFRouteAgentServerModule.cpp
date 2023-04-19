@@ -198,7 +198,6 @@ int NFCRouteAgentServerModule::OnRouteAgentSocketEvent(eMsgType nEvent, uint64_t
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 	if (nEvent == eMsgType_CONNECTED)
 	{
-
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{

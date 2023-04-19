@@ -36,6 +36,14 @@
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
+enum EnumServerHeartTimer
+{
+    ENUM_SERVER_CLIENT_TIMER_HEART = 1, //定时发送心跳
+    ENUM_SERVER_TIMER_CHECK_HEART = 2, //服务器定时坚持心跳包
+    ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH = 1000, //定时发送心跳时间长度 1000ms
+    ENUM_SERVER_TIMER_CHECK_HEART_TIME_LONGTH = 1000, //定时发送心跳时间长度 3000ms
+};
+
 class NFINetMessage : public NFIDynamicModule
 {
 	friend class NFCNetMessageDriverModule;

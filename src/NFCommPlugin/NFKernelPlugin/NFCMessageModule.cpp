@@ -868,12 +868,12 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
     return 0;
 }
 
-int NFCMessageModule::OnSocketNetEvent(eMsgType nEvent, uint64_t connectionLink, uint64_t objectLinkId)
+int NFCMessageModule::OnSocketNetEvent(eMsgType nEvent, uint64_t serverLinkId, uint64_t objectLinkId)
 {
     uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
     if (eServerType < mxCallBack.size())
     {
-        auto iter = mxCallBack[eServerType].mxEventCallBack.find(connectionLink);
+        auto iter = mxCallBack[eServerType].mxEventCallBack.find(serverLinkId);
         if (iter != mxCallBack[eServerType].mxEventCallBack.end())
         {
             NET_EVENT_FUNCTOR &pFun = iter->second.m_pFunctor;
