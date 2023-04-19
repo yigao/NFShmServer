@@ -58,20 +58,8 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="shm bus">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/Common.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/BusPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusClient.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusClient.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusMessage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusMessage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFIBusConnection.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFIBusConnection.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFIBusConnection.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFIBusConnection.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Evpp/NFEvppNetMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Evpp/NFEvppNetMessage.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Evpp/NFEvppNetMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Evpp/NFEvppNetMessage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIConnection.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFIConnection.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFINetMessage.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/NFINetMessage.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -706,14 +694,7 @@
       <workItem from="1681435038498" duration="18947000" />
       <workItem from="1681518992007" duration="5615000" />
       <workItem from="1681693264649" duration="46221000" />
-      <workItem from="1681865890508" duration="20228000" />
-    </task>
-    <task id="LOCAL-00611" summary="rpc service">
-      <created>1681292023149</created>
-      <option name="number" value="00611" />
-      <option name="presentableId" value="LOCAL-00611" />
-      <option name="project" value="LOCAL" />
-      <updated>1681292023149</updated>
+      <workItem from="1681865890508" duration="23133000" />
     </task>
     <task id="LOCAL-00612" summary="rpc service">
       <created>1681293068302</created>
@@ -1051,7 +1032,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681890296902</updated>
     </task>
-    <option name="localTasksCounter" value="660" />
+    <task id="LOCAL-00660" summary="shm bus">
+      <created>1681891909312</created>
+      <option name="number" value="00660" />
+      <option name="presentableId" value="LOCAL-00660" />
+      <option name="project" value="LOCAL" />
+      <updated>1681891909312</updated>
+    </task>
+    <option name="localTasksCounter" value="661" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1303,6 +1291,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp</url>
+          <line>132</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
