@@ -214,3 +214,13 @@ bool NFCBusClient::Send(NFDataPackage& packet, const google::protobuf::Message& 
 
     return Send(packet, mxSendBuffer.ReadAddr(), mxSendBuffer.ReadableSize());
 }
+
+bool NFCBusClient::IsConnected()
+{
+    return m_isConnected;
+}
+
+void NFCBusClient::SetConnected(bool connected)
+{
+    m_isConnected = connected;
+}

@@ -27,6 +27,7 @@ public:
     {
         m_bindFlag = bindFlag;
         mxSendBuffer.AssureSpace(MAX_SEND_BUFFER_SIZE);
+        m_isConnected = false;
     }
 
     virtual ~NFCBusClient();
@@ -38,6 +39,10 @@ public:
     virtual bool Shut() override;
 
     virtual bool Finalize() override;
+
+    virtual bool IsConnected() override;
+
+    virtual void SetConnected(bool connected) override;
 public:
     /**
     * @brief	初始化
@@ -59,4 +64,5 @@ public:
     virtual bool Send(NFShmChannel *pChannel, int packetParseType, NFDataPackage& packet, const char* msg, uint32_t nLen);
 private:
     NFBuffer mxSendBuffer;
+    bool m_isConnected;
 };

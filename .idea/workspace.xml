@@ -162,7 +162,7 @@
       <recent name="$PROJECT_DIR$/Install/ScriptModule/LuaLogic" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake 应用程序.NFLoginServerPlugin">
+  <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -706,14 +706,7 @@
       <workItem from="1681435038498" duration="18947000" />
       <workItem from="1681518992007" duration="5615000" />
       <workItem from="1681693264649" duration="46221000" />
-      <workItem from="1681865890508" duration="17393000" />
-    </task>
-    <task id="LOCAL-00610" summary="rpc service">
-      <created>1681291967190</created>
-      <option name="number" value="00610" />
-      <option name="presentableId" value="LOCAL-00610" />
-      <option name="project" value="LOCAL" />
-      <updated>1681291967190</updated>
+      <workItem from="1681865890508" duration="20228000" />
     </task>
     <task id="LOCAL-00611" summary="rpc service">
       <created>1681292023149</created>
@@ -1051,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681802821443</updated>
     </task>
-    <option name="localTasksCounter" value="659" />
+    <task id="LOCAL-00659" summary="shm bus">
+      <created>1681890296902</created>
+      <option name="number" value="00659" />
+      <option name="presentableId" value="LOCAL-00659" />
+      <option name="project" value="LOCAL" />
+      <updated>1681890296902</updated>
+    </task>
+    <option name="localTasksCounter" value="660" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1303,68 +1303,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
-          <line>967</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
-          <line>985</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
-          <line>1037</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp</url>
-          <line>258</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp</url>
-          <line>768</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp</url>
-          <line>553</line>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
-          <line>211</line>
-          <option name="timeStamp" value="65" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
-          <line>203</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp</url>
-          <line>250</line>
-          <option name="timeStamp" value="78" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp</url>
-          <line>546</line>
-          <option name="timeStamp" value="80" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusMessage.cpp</url>
-          <line>421</line>
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp</url>
-          <line>353</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

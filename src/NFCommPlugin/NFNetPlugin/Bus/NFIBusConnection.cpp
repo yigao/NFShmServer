@@ -42,6 +42,7 @@ std::string NFIBusConnection::GetLinkIp()
 */
 void NFIBusConnection::CloseLinkId()
 {
+    SetConnected(false);
 }
 
 /**

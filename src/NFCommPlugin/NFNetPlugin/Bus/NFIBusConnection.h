@@ -88,6 +88,10 @@ public:
     */
     virtual void CloseLinkId();
 
+    virtual bool IsConnected() { return true; }
+
+    virtual void SetConnected(bool connected) { return; }
+
     /**
     * @brief 通过key找到相应的共享内存
     */

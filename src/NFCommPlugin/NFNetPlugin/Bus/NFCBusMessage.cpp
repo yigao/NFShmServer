@@ -272,6 +272,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64
 
             if (pConn)
             {
+                pConn->SetConnected(true);
                 if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                 {
                     pConn->SendBusConnectRspMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
@@ -397,7 +398,7 @@ void NFCBusMessage::SendHeartMsg()
     auto pConn = m_busConnectMap.First();
     while (pConn)
     {
-        if (pConn->IsActivityConnect() && pConn->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
+        if (pConn->IsActivityConnect() && pConn->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT && pConn->IsConnected())
         {
             pConn->SendBusHeartBeatMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
         }
@@ -434,7 +435,9 @@ void NFCBusMessage::CheckServerHeartBeat()
 
                     NFDataPackage packet;
                     packet.nSendBusLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
-                    OnHandleMsgPeer(eMsgType_DISCONNECTED, packet.nSendBusLinkId, packet.nSendBusLinkId, packet);
+                    packet.nServerLinkId = GetUnLinkId(NF_IS_BUS, mServerType, m_bindConnect->GetBusId(), 0);
+                    packet.nObjectLinkId = GetUnLinkId(NF_IS_BUS, mServerType, pConn->GetBusId(), 0);
+                    OnHandleMsgPeer(eMsgType_DISCONNECTED, packet.nObjectLinkId, packet.nObjectLinkId, packet);
                 }
 #endif
             }
