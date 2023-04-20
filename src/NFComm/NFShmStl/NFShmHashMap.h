@@ -9,6 +9,7 @@
 
 #pragma once
 
+#include "NFShmStl.h"
 #include "NFShmHashTable.h"
 #include "NFShmPair.h"
 #include "NFShmList.h"

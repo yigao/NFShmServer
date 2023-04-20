@@ -237,11 +237,7 @@ public:
             {
                 if (m_node[i].m_valid)
                 {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-                    new (&m_node[i].m_data) Tp();
-#else
                     std::_Construct(&m_node[i].m_data);
-#endif
                 }
             }
         }
@@ -258,11 +254,7 @@ public:
         {
             if (m_node[i].m_valid)
             {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-                (&(m_node[i].m_data))->~Tp();
-#else
                 std::_Destroy(&(m_node[i].m_data));
-#endif
             }
             m_node[i].m_next = i + 1;
             m_node[i].m_prev = 0;
@@ -272,11 +264,7 @@ public:
 
         if (m_node[MAX_SIZE].m_valid)
         {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-            (&(m_node[MAX_SIZE].m_data))->~Tp();
-#else
             std::_Destroy(&(m_node[MAX_SIZE].m_data));
-#endif
         }
         m_node[MAX_SIZE].m_next = MAX_SIZE;
         m_node[MAX_SIZE].m_prev = MAX_SIZE;
@@ -330,12 +318,8 @@ protected:
     {
         ptrdiff_t iSelf = m_freeStart;
         m_freeStart = m_node[m_freeStart].m_next;
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        new (&m_node[iSelf].m_data) Tp(__x);
-#else
-        std::_Construct(&m_node[iSelf].m_data, __x);
-#endif
 
+        std::_Construct(&m_node[iSelf].m_data, __x);
 
         NF_ASSERT(!m_node[iSelf].m_valid);
         m_node[iSelf].m_valid = true;
@@ -347,11 +331,8 @@ protected:
     {
         ptrdiff_t iSelf = m_freeStart;
         m_freeStart = m_node[m_freeStart].m_next;
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        new (&m_node[iSelf].m_data) Tp();
-#else
+
         std::_Construct(&m_node[iSelf].m_data, Tp());
-#endif
 
         NF_ASSERT(!m_node[iSelf].m_valid);
         m_node[iSelf].m_valid = true;
@@ -369,11 +350,8 @@ protected:
     {
         NF_ASSERT(pNode);
         NF_ASSERT(pNode->m_valid);
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        (&(pNode->m_data))->~Tp();
-#else
-        std::_Destroy(&(pNode->m_data));
-#endif
+
+		std::_Destroy(&(pNode->m_data));
 
         pNode->m_valid = false;
         pNode->m_next = m_freeStart;
@@ -691,17 +669,14 @@ protected:
     }
 
     template<class _InputIterator>
-    void _M_insert_dispatch(iterator __pos,
-                            _InputIterator __first, _InputIterator __last,
-                            __false_type);
+	void _M_insert_dispatch(iterator __pos, _InputIterator __first, _InputIterator __last, std::__false_type);
 
 
     template<class _Integer>
-    void _M_assign_dispatch(_Integer __n, _Integer __val, __true_type) { _M_fill_assign((size_type) __n, (Tp) __val); }
+    void _M_assign_dispatch(_Integer __n, _Integer __val, std::__true_type) { _M_fill_assign((size_type) __n, (Tp) __val); }
 
     template<class _InputIterator>
-    void _M_assign_dispatch(_InputIterator __first, _InputIterator __last,
-                            __false_type);
+    void _M_assign_dispatch(_InputIterator __first, _InputIterator __last, std::__false_type);
 
     void _M_fill_assign(size_type __n, const Tp &__val);
 
@@ -735,9 +710,7 @@ inline bool operator<(const NFShmList<Tp, MAX_SIZE> &__x,
 
 template<class _Tp, size_t MAX_SIZE>
 template<class _InputIter>
-void NFShmList<_Tp, MAX_SIZE>::_M_insert_dispatch(iterator __position,
-                                                  _InputIter __first, _InputIter __last,
-                                                  std::__false_type)
+void NFShmList<_Tp, MAX_SIZE>::_M_insert_dispatch(iterator __position, _InputIter __first, _InputIter __last, std::__false_type)
 {
     for (; __first != __last; ++__first)
         insert(__position, *__first);
@@ -821,9 +794,7 @@ void NFShmList<_Tp, MAX_SIZEc>::_M_fill_assign(size_type __n, const _Tp &__val)
 
 template<class _Tp, size_t MAX_SIZEc>
 template<class _InputIter>
-void
-NFShmList<_Tp, MAX_SIZEc>::_M_assign_dispatch(_InputIter __first2, _InputIter __last2,
-                                              std::__false_type)
+void NFShmList<_Tp, MAX_SIZEc>::_M_assign_dispatch(_InputIter __first2, _InputIter __last2, std::__false_type)
 {
     iterator __first1 = begin();
     iterator __last1 = end();

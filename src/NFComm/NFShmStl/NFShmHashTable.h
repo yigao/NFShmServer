@@ -677,11 +677,7 @@ private:
             pNode->m_valid = true;
             pNode->m_next = -1;
 
-#if NF_PLATFORM == NF_PLATFORM_WIN
-            new (&pNode->m_value) Tp(__obj);
-#else
             std::_Construct(&pNode->m_value, __obj);
-#endif
         }
 
         return pNode;
@@ -694,11 +690,9 @@ private:
     void _M_delete_node(_Node *__n)
     {
         __n->m_valid = false;
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        (&__n->m_value)->~Tp();
-#else
+
         std::_Destroy(&__n->m_value);
-#endif
+
         _M_put_node(__n);
     }
 

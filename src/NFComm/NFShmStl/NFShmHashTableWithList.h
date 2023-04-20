@@ -634,11 +634,11 @@ public:
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "first idx end");
 
         std::string str;
-        for (auto iter = begin(); iter != end(); iter++)
-        {
-            str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self, count(m_get_key(*iter)),
-                             iter.m_curNode->m_next);
-        }
+        //for (auto iter = begin(); iter != end(); iter++)
+        //{
+        //    str += NF_FORMAT(" (first idx:{} buckets idx:{} num:{} next:{}) ", _M_bkt_num(*iter), iter.m_curNode->m_self, count(m_get_key(*iter)),
+        //                     iter.m_curNode->m_next);
+        //}
 
         std::string freeStr;
         for (auto freeNode = get_node(m_firstFreeIdx); freeNode != NULL; freeNode = get_node(freeNode->m_next))
@@ -720,11 +720,7 @@ private:
             pNode->m_list_pos = iter.m_node->m_self;
             NF_ASSERT(*m_bucketsListIdx.GetIterator(pNode->m_list_pos) == (int)pNode->m_self);
 
-#if NF_PLATFORM == NF_PLATFORM_WIN
-            new (&pNode->m_value) Tp(__obj);
-#else
             std::_Construct(&pNode->m_value, __obj);
-#endif
         }
 
         return pNode;
@@ -742,11 +738,8 @@ private:
         __n->m_valid = false;
         m_bucketsListIdx.erase(m_bucketsListIdx.GetIterator(__n->m_list_pos));
         __n->m_list_pos = -1;
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        (&__n->m_value)->~Tp();
-#else
+
         std::_Destroy(&__n->m_value);
-#endif
 
         _M_put_node(__n);
     }

@@ -10,6 +10,7 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include <stdio.h>
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 namespace std
@@ -19,21 +20,10 @@ namespace std
      * Constructs an object in existing memory by invoking an allocated
      * object's constructor with an initializer.
      */
-#if __cplusplus >= 201103L
     template<typename _T1, typename... _Args>
     inline void
     _Construct(_T1* __p, _Args&&... __args)
     { ::new(static_cast<void*>(__p)) _T1(std::forward<_Args>(__args)...); }
-#else
-    template<typename _T1, typename _T2>
-    inline void
-    _Construct(_T1* __p, const _T2& __value)
-    {
-      // _GLIBCXX_RESOLVE_LIB_DEFECTS
-      // 402. wrong new expression in [some_]allocator::construct
-      ::new(static_cast<void*>(__p)) _T1(__value);
-    }
-#endif
 
     /**
      * Destroy the object pointed to by a pointer type.
@@ -104,7 +94,7 @@ namespace std
 
     ///////////////////////////stl_function.h////////////////////////////
     template<typename _Arg, typename _Result>
-    struct unary_function
+    struct stl_unary_function
     {
         /// @c argument_type is the type of the argument
         typedef _Arg 	argument_type;
@@ -114,8 +104,8 @@ namespace std
     };
 
     template<typename _Tp>
-    struct _Identity
-            : public unary_function<_Tp,_Tp>
+    struct stl__Identity
+            : public stl_unary_function<_Tp,_Tp>
     {
         _Tp&
         operator()(_Tp& __x) const
@@ -128,7 +118,7 @@ namespace std
 
     template<typename _Pair>
     struct _Select1st
-            : public unary_function<_Pair, typename _Pair::first_type>
+            : public stl_unary_function<_Pair, typename _Pair::first_type>
     {
         typename _Pair::first_type&
         operator()(_Pair& __x) const
@@ -138,7 +128,6 @@ namespace std
         operator()(const _Pair& __x) const
         { return __x.first; }
 
-#if __cplusplus >= 201103L
         template<typename _Pair2>
         typename _Pair2::first_type&
         operator()(_Pair2& __x) const
@@ -148,7 +137,6 @@ namespace std
         const typename _Pair2::first_type&
         operator()(const _Pair2& __x) const
         { return __x.first; }
-#endif
     };
 
     ///////////////////////cpp_type_traits.h////////////////////////////////////
@@ -252,7 +240,6 @@ namespace std
     };
 # endif
 
-#if __cplusplus >= 201103L
     template<>
     struct __is_integer<char16_t>
     {
@@ -266,7 +253,6 @@ namespace std
         enum { __value = 1 };
         typedef __true_type __type;
     };
-#endif
 
     template<>
     struct __is_integer<short>
@@ -383,14 +369,6 @@ namespace std
         typedef __false_type __type;
     };
 
-    template<typename _Iterator, typename _Container>
-    struct __is_normal_iterator< __gnu_cxx::__normal_iterator<_Iterator,
-            _Container> >
-    {
-        enum { __value = 1 };
-        typedef __true_type __type;
-    };
-
     //
     // An arithmetic type is an integer type or a floating point type
     //
@@ -479,7 +457,6 @@ namespace std
         typedef __false_type __type;
     };
 
-#if __cplusplus >= 201103L
     template<typename _Iterator>
     class move_iterator;
 
@@ -489,7 +466,6 @@ namespace std
         enum { __value = 1 };
         typedef __true_type __type;
     };
-#endif
 } // namespace std
 
 

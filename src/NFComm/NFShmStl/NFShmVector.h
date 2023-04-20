@@ -12,6 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFShmStl.h"
 #include <iterator>
 #include <algorithm>
 #include <vector>
@@ -55,11 +56,7 @@ public:
         {
             for(size_t i = 0; i < m_size; i++)
             {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-                new (m_data+i) Tp();
-#else
                 std::_Construct(m_data+i);
-#endif
             }
         }
 
@@ -171,12 +168,8 @@ public:
     template<class _InputIterator>
     NFShmVector(_InputIterator __first, _InputIterator __last)
     {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        _M_initialize_aux(__first, __last, std::numeric_limits<_InputIterator>::is_integer);
-#else
         typedef typename std::__is_integer<_InputIterator>::__type _Integral;
         _M_initialize_aux(__first, __last, _Integral());
-#endif
     }
 
     ~NFShmVector()
@@ -265,12 +258,8 @@ public:
     template<class _InputIterator>
     void assign(_InputIterator __first, _InputIterator __last)
     {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        _M_assign_dispatch(__first, __last, std::numeric_limits<_InputIterator>::is_integer);
-#else
         typedef typename std::__is_integer<_InputIterator>::__type _Integral;
         _M_assign_dispatch(__first, __last, _Integral());
-#endif
     }
 
     reference front()
@@ -312,11 +301,7 @@ public:
     {
         if (m_data + m_size != m_data + MAX_SIZE)
         {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-            new (m_data + m_size) Tp(__x);
-#else
             std::_Construct(m_data + m_size, __x);
-#endif
             ++m_size;
             return 0;
         }
@@ -336,11 +321,7 @@ public:
     {
         if (m_data + m_size != m_data + MAX_SIZE)
         {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-            new (m_data + m_size) Tp();
-#else
             std::_Construct(m_data + m_size);
-#endif
             ++m_size;
             return 0;
         }
@@ -366,11 +347,7 @@ public:
         size_type __n = __position - begin();
         if (m_data + m_size != m_data + MAX_SIZE && __position == end())
         {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-            new (m_data + m_size) Tp(__x);
-#else
             std::_Construct(m_data + m_size, __x);
-#endif
             ++m_size;
         }
         else
@@ -393,11 +370,7 @@ public:
         size_type __n = __position - begin();
         if (m_data + m_size != m_data + MAX_SIZE && __position == end())
         {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-            new (m_data + m_size) Tp();
-#else
             std::_Construct(m_data + m_size);
-#endif
             ++m_size;
         }
         else
@@ -416,12 +389,8 @@ public:
     template<class _InputIterator>
     void insert(iterator __pos, _InputIterator __first, _InputIterator __last)
     {
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        _M_insert_dispatch(__pos, __first, __last, std::numeric_limits<_InputIterator>::is_integer);
-#else
         typedef typename std::__is_integer<_InputIterator>::__type _Integral;
         _M_insert_dispatch(__pos, __first, __last, _Integral());
-#endif
     }
 
     void insert(iterator __pos, size_type __n, const Tp &__x) { _M_fill_insert(__pos, __n, __x); }
@@ -429,11 +398,7 @@ public:
     void pop_back()
     {
         --m_size;
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        (m_data + m_size)->~Tp();
-#else
         std::_Destroy(m_data + m_size);
-#endif
     }
 
     /**
@@ -451,11 +416,7 @@ public:
         if (__position + 1 != end())
             std::copy(__position + 1, m_data + m_size, __position);
         --m_size;
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        (m_data + m_size)->~Tp();
-#else
         std::_Destroy(m_data + m_size);
-#endif
         return __position;
     }
 
@@ -471,14 +432,7 @@ public:
     iterator erase(iterator __first, iterator __last)
     {
         iterator __i = std::copy(__last, m_data + m_size, __first);
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        for (iterator __first = __i; __first != (m_data + m_size); ++__first)
-        {
-           __first->~Tp();
-        }
-#else
         std::_Destroy(__i, m_data + m_size);
-#endif
 
         m_size = m_size - (__last - __first);
         return __first;
@@ -660,11 +614,7 @@ protected:
     void _M_fill_assign(size_type __n, const Tp &__val);
 
     template<class _Integer>
-#if NF_PLATFORM == NF_PLATFORM_WIN
-    void _M_initialize_aux(_Integer __n, _Integer __value, std::true_type)
-#else
     void _M_initialize_aux(_Integer __n, _Integer __value, std::__true_type)
-#endif
     {
         if (__n > MAX_SIZE)
         {
@@ -678,13 +628,8 @@ protected:
     }
 
     template<class _InputIterator>
-#if NF_PLATFORM == NF_PLATFORM_WIN
-    void _M_initialize_aux(_InputIterator __first, _InputIterator __last,
-                           std::false_type)
-#else
     void _M_initialize_aux(_InputIterator __first, _InputIterator __last,
                            std::__false_type)
-#endif
     {
         _M_range_initialize(__first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
     }
@@ -731,21 +676,13 @@ protected:
 
 
     template<class _Integer>
-#if NF_PLATFORM == NF_PLATFORM_WIN
-    void _M_assign_dispatch(_Integer __n, _Integer __val, std::true_type)
-#else
     void _M_assign_dispatch(_Integer __n, _Integer __val, std::__true_type)
-#endif
     {
         _M_fill_assign((size_type) __n, (Tp) __val);
     }
 
     template<class _InputIter>
-#if NF_PLATFORM == NF_PLATFORM_WIN
-    void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::false_type)
-#else
     void _M_assign_dispatch(_InputIter __first, _InputIter __last, std::__false_type)
-#endif
     {
         _M_assign_aux(__first, __last, typename std::iterator_traits<_InputIter>::iterator_category());
     }
@@ -759,27 +696,16 @@ protected:
                        std::forward_iterator_tag);
 
     template<class _Integer>
-#if NF_PLATFORM == NF_PLATFORM_WIN
-    void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __val,
-                            std::true_type)
-#else
     void _M_insert_dispatch(iterator __pos, _Integer __n, _Integer __val,
                             std::__true_type)
-#endif
     {
         _M_fill_insert(__pos, (size_type) __n, (Tp) __val);
     }
 
     template<class _InputIterator>
-#if NF_PLATFORM == NF_PLATFORM_WIN
-    void _M_insert_dispatch(iterator __pos,
-                            _InputIterator __first, _InputIterator __last,
-                            std::false_type)
-#else
     void _M_insert_dispatch(iterator __pos,
                             _InputIterator __first, _InputIterator __last,
                             std::__false_type)
-#endif
     {
         _M_range_insert(__pos, __first, __last, typename std::iterator_traits<_InputIterator>::iterator_category());
     }
@@ -812,14 +738,7 @@ NFShmVector<_Tp, MAX_SIZE>::operator=(const NFShmVector<_Tp, MAX_SIZE> &__x)
         if (size() >= __xlen)
         {
             iterator __i = std::copy(__x.begin(), __x.end(), begin());
-#if NF_PLATFORM == NF_PLATFORM_WIN
-            for (iterator __first = __i; __first != (m_data + m_size); ++__first)
-        {
-           __first->~Tp();
-        }
-#else
             std::_Destroy(__i, m_data + m_size);
-#endif
         }
         else
         {
@@ -862,11 +781,7 @@ template<class _Tp, size_t MAX_SIZE>
 int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position, const _Tp &__x)
 {
     CHECK_EXPR(m_data + m_size != m_data + MAX_SIZE, -1, "The Vector No Enough Space!");
-#if NF_PLATFORM == NF_PLATFORM_WIN
-    new (m_data + m_size) _Tp(*(m_data + m_size - 1));
-#else
     std::_Construct(m_data + m_size, *(m_data + m_size - 1));
-#endif
 
     ++m_size;
     _Tp __x_copy = __x;
@@ -879,11 +794,7 @@ template<class _Tp, size_t MAX_SIZE>
 int NFShmVector<_Tp, MAX_SIZE>::_M_insert_aux(iterator __position)
 {
     CHECK_EXPR(m_data + m_size != m_data + MAX_SIZE, -1, "The Vector No Enough Space!");
-#if NF_PLATFORM == NF_PLATFORM_WIN
-    new (m_data + m_size) _Tp(*(m_data + m_size - 1));
-#else
     std::_Construct(m_data + m_size, *(m_data + m_size - 1));
-#endif
 
     ++m_size;
     std::copy_backward(__position, m_data + m_size - 2, m_data + m_size - 1);
@@ -992,14 +903,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_ForwardIter __first, _ForwardIte
     if (__len > capacity())
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "__len > capacity(), some copy not success");
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        for (iterator __first = m_data; __first != (m_data + m_size); ++__first)
-        {
-           __first->~Tp();
-        }
-#else
         std::_Destroy(m_data, m_data + m_size);
-#endif
 
         auto finish = std::uninitialized_copy_n(__first, MAX_SIZE, m_data);
         m_size = finish - begin();
@@ -1007,14 +911,7 @@ void NFShmVector<_Tp, MAX_SIZE>::_M_assign_aux(_ForwardIter __first, _ForwardIte
     else if (size() >= __len)
     {
         iterator __new_finish = std::copy(__first, __last, m_data);
-#if NF_PLATFORM == NF_PLATFORM_WIN
-        for (iterator __first = __new_finish; __first != (m_data + m_size); ++__first)
-        {
-           __first->~Tp();
-        }
-#else
         std::_Destroy(__new_finish, m_data + m_size);
-#endif
 
         m_size = __new_finish - begin();
     }
