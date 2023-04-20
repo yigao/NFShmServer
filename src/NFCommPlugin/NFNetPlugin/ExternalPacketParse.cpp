@@ -153,10 +153,18 @@ int ExternalPacketParse::EnCodeImpl(const NFDataPackage& recvPackage, const char
 // 使用 lzf 算法 压缩、解压
 int ExternalPacketParse::CompressImpl(const char* inBuffer, int inLen, void *outBuffer, unsigned int outSize)
 {
+#if NF_PLATFORM == NF_PLATFORM_LINUX
     return lzf_compress(inBuffer, inLen, outBuffer, outSize);
+#else
+    return 0;
+#endif
 }
 
 int ExternalPacketParse::DecompressImpl(const char* inBuffer, int inLen, void *outBuffer, int outSize)
 {
+#if NF_PLATFORM == NF_PLATFORM_LINUX
     return lzf_decompress(inBuffer, inLen, outBuffer, outSize);
+#else
+    return 0;
+#endif
 }

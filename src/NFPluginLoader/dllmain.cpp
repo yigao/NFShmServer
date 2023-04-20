@@ -28,7 +28,7 @@
 #pragma comment( lib, "advapi32.lib" )
 
 ////////////////////////////////////////////////////////////////
-
+#pragma comment( lib, "libcurl.lib" )
 #pragma comment( lib, "event.lib" )
 #pragma comment( lib, "event_core.lib" )
 #pragma comment( lib, "libprotobuf.lib" )
@@ -36,7 +36,6 @@
 #pragma comment( lib, "user32.lib")
 #pragma comment( lib, "Dbghelp.lib" )
 #pragma comment( lib, "mysqlclient.lib" )
-#pragma comment( lib, "libcurl.lib" )
 //////////////////////////////////////////////////////////////////
 #pragma comment( lib, "common.lib" )
 #pragma comment( lib, "evpp.lib" )
@@ -50,11 +49,6 @@
 #pragma comment( lib, "NFShmCore.lib" )
 #pragma comment( lib, "NFPluginManager.lib" )
 
-
-////////////////////////////////////////////////////////////////
-#pragma comment( lib, "NFKernelPlugin.lib" )
-#pragma comment( lib, "NFNetPlugin.lib" )
-#pragma comment( lib, "NFShmPlugin.lib" )
 #else
 /////////////////////////////////////////////////////////////////
 #endif

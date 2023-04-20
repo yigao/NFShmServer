@@ -662,6 +662,7 @@ NFCNetModule::HttpPost(NF_SERVER_TYPES serverType, const string &strUri, const s
 
 int NFCNetModule::SendEmail(NF_SERVER_TYPES serverType, const std::string& title, const std::string& subject, const string &content)
 {
+#if NF_PLATFORM == NF_PLATFORM_LINUX
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     CHECK_NULL(pConfig);
 
@@ -684,4 +685,7 @@ int NFCNetModule::SendEmail(NF_SERVER_TYPES serverType, const std::string& title
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Send Message(title:{} subject:{}) To Email:{} Success", title, subject, pConfig->recvEmail);
         return 0;
     }
+#else
+    return 0;
+#endif
 }

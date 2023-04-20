@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,51 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusClient.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusMessage.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusServer.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFIBusConnection.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Encrypt.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NetEvppObject.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFCHttpClient.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFCHttpServer.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppClient.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppNetMessage.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppServer.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\ExternalPacketParse.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\InternalPacketParse.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetModule.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIPacketParse.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFNetPlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerComm\NFServerCommonPlugin\NFServerCommonPlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerComm\NFServerCommonPlugin\NFServerMessageModule.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFBusDefine.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFBusHash.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFBusShm.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusClient.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusMessage.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFCBusServer.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Bus\NFIBusConnection.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Encrypt.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NetEvppObject.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFCHttpClient.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFCHttpServer.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppClient.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppNetMessage.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppServer.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\ExternalPacketParse.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\InternalPacketParse.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetModule.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIConnection.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFINetMessage.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIPacketParse.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFNetDefine.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFNetPlugin.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFServerCommonPlugin\NFServerCommonPlugin.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFServerCommonPlugin\NFServerMessageModule.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\..\src\NFServerComm\NFServerCommonPlugin\CMakeLists.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{33C6EBBF-2919-427C-90B5-92CD9F9CFCAA}</ProjectGuid>
-    <RootNamespace>NFNetPlugin</RootNamespace>
+    <ProjectGuid>{CC65C6D7-D465-4402-990C-AB5C59A1BA46}</ProjectGuid>
+    <RootNamespace>NFCommLogicPlugin</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -84,7 +53,7 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
@@ -116,8 +85,8 @@
     <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
     <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+    <OutDir>$(SolutionDir)../Build/$(Configuration)/Lib/</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -126,10 +95,10 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>
       </ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\LuaBind\lua;$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\thirdparty/libevent/include;$(SolutionDir)..\thirdparty/libevent/win/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\src\NFComm\NFKernelMessage;$(SolutionDir)..\thirdparty\LuaBind\lua;$(SolutionDir)..\src\NFServerComm\NFServerMessage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -170,10 +139,10 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>
       </ConformanceMode>
-      <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\LuaBind\lua;$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;WIN64;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
+      <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

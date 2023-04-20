@@ -18,6 +18,24 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFCDescStoreModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFDescStorePlugin.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFDescStoreTrans.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFIDescStore.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFResFileDb.cpp" />
+    <ClCompile Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFResMysqlDb.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFCDescStoreModule.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFDescStoreDefine.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFDescStorePlugin.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFDescStoreTrans.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFIDescStore.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFIDescStoreModule.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFResFileDb.h" />
+    <ClInclude Include="..\..\..\src\NFServerComm\NFDescStorePlugin\NFResMysqlDb.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{057FC0B6-0CEF-47D5-B0AB-6A8EA8ED5150}</ProjectGuid>
@@ -85,7 +103,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>
       </ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\src\NFComm\NFKernelMessage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\src\NFComm\NFKernelMessage;$(SolutionDir)..\thirdparty\LuaBind\lua;$(SolutionDir)..\src\NFServerComm\NFServerMessage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
       <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>

@@ -32,7 +32,7 @@ LoadPlugin =
 			"NFNetPlugin",
 			--"NFShmPlugin",
 
-			"NFServerCommonPlugin",
+			--"NFServerCommonPlugin",
 			--"NFDescStorePlugin",
 			--"NFCommLogicPlugin",
 			"NFLuaScriptPlugin",
@@ -63,7 +63,7 @@ LoadPlugin =
 			"NFLogicServerPlugin",
 			--"NFLogicServerPlayerPlugin",
 
-			--"NFWebServerPlugin",
+			"NFWebServerPlugin",
 			--"NFWebServerLogicPlugin",
 
 			--"NFMonitorServerPlugin",
