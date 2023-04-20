@@ -62,15 +62,15 @@ NF_NAMING_HOST="127.0.0.1:2181,127.0.0.1:2182"
 NF_NAMING_PATH="99Puke"
 
 --数据库IP
-NF_MYSQL_IP= "192.168.70.10" --"47.97.189.234"
+NF_MYSQL_IP= "47.97.189.234"--"192.168.70.10" --"47.97.189.234"
 --数据库端口
-NF_MYSQL_PORT= 3306 --6060
+NF_MYSQL_PORT= 6060 --3306 --6060
 --数据库名字
 NF_MYSQL_DB_NAME="proto_ff_cgzone"..NF_ST_ZONE_ID
 --数据库用户名
 NF_MYSQL_USER="root"
 --数据库密码
-NF_MYSQL_PASSWORD= "cg2016" --"root"
+NF_MYSQL_PASSWORD= "root" --"cg2016" --"root"
 
 ----开服时间,单位秒
 GlobalOpenTime = 1678204800
