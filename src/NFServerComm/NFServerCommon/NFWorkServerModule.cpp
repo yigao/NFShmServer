@@ -492,43 +492,6 @@ int NFWorkServerModule::OnHandleProxyAgentServerReport(const proto_ff::ServerInf
 
     pServerData->mServerInfo = xData;
 
-    if (pConfig->LinkMode == "bus")
-    {
-        FindModule<NFINamingModule>()->WatchBusUrls(m_serverType, NF_ST_PROXY_AGENT_SERVER,
-                                                    [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
-                                                    {
-                                                        if (errCode != 0)
-                                                        {
-                                                            NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                                                       "Server Watch ProxyAgentServer Dump, errCode:{} name:{} serverInfo:{}",
-                                                                       errCode, name, xData.DebugString());
-                                                            return;
-                                                        }
-                                                        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server Watch ProxyAgentServer name:{} serverInfo:{}", name,
-                                                                  xData.DebugString());
-
-                                                        OnHandleProxyAgentServerReport(xData);
-                                                    });
-    }
-    else
-    {
-        FindModule<NFINamingModule>()->WatchTcpUrls(m_serverType, NF_ST_PROXY_AGENT_SERVER,
-                                                    [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
-                                                    {
-                                                        if (errCode != 0)
-                                                        {
-                                                            NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                                                       "Server Watch, ProxyAgentServer Dump, errCode:{} name:{} serverInfo:{}",
-                                                                       errCode, name, xData.DebugString());
-                                                            return;
-                                                        }
-                                                        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server Watch ProxyAgentServer name:{} serverInfo:{}", name,
-                                                                  xData.DebugString());
-
-                                                        OnHandleProxyAgentServerReport(xData);
-                                                    });
-    }
-
     return 0;
 }
 
@@ -633,28 +596,6 @@ int NFWorkServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRepo
 
     m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER);
 
-    FindModule<NFINamingModule>()->WatchTcpUrls(m_serverType, NF_ST_STORE_SERVER,
-                                                [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
-                                                {
-                                                    if (errCode != 0)
-                                                    {
-                                                        NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                                                   "LoginServer Watch, StoreServer Dump, errCode:{} name:{} serverInfo:{}", errCode,
-                                                                   name, xData.DebugString());
-                                                        auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(m_serverType,
-                                                                                                                               xData.bus_id());
-                                                        if (pServerData)
-                                                        {
-                                                            FindModule<NFIMessageModule>()->CloseServer(m_serverType, NF_ST_STORE_SERVER,
-                                                                                                        xData.bus_id(), 0);
-                                                        }
-                                                        return;
-                                                    }
-                                                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_serverType Watch StoreServer name:{} serverInfo:{}", name,
-                                                              xData.DebugString());
-
-                                                    OnHandleStoreServerReport(xData);
-                                                });
     return 0;
 }
 
@@ -669,28 +610,6 @@ int NFWorkServerModule::OnHandleWorldServerReport(const proto_ff::ServerInfoRepo
 
     m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER);
 
-    FindModule<NFINamingModule>()->WatchTcpUrls(m_serverType, NF_ST_WORLD_SERVER,
-                                                [this](const string &name, const proto_ff::ServerInfoReport &xData, int32_t errCode)
-                                                {
-                                                    if (errCode != 0)
-                                                    {
-                                                        NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                                                   "LoginServer Watch, WorldServer Dump, errCode:{} name:{} serverInfo:{}", errCode,
-                                                                   name, xData.DebugString());
-                                                        auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(m_serverType,
-                                                                                                                               xData.bus_id());
-                                                        if (pServerData)
-                                                        {
-                                                            FindModule<NFIMessageModule>()->CloseServer(m_serverType, NF_ST_WORLD_SERVER,
-                                                                                                        xData.bus_id(), 0);
-                                                        }
-                                                        return;
-                                                    }
-                                                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "m_serverType Watch WorldServer name:{} serverInfo:{}", name,
-                                                              xData.DebugString());
-
-                                                    OnHandleWorldServerReport(xData);
-                                                });
     return 0;
 }
 

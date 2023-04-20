@@ -125,30 +125,6 @@ bool NFCRouteAgentServerModule::Init()
     }
 #endif
 
-    FindModule<NFINamingModule>()->WatchTcpUrls(NF_ST_ROUTE_AGENT_SERVER, NF_ST_MASTER_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
-        if (errCode != 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "RouteAgentServer Watch MasterServer name:{} serverInfo:{} errCode:{}", name, xData.DebugString(), errCode);
-
-            return;
-        }
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "RouteAgentServer Watch MasterServer name:{} serverInfo:{} errCode:{}", name, xData.DebugString(), errCode);
-
-        int32_t ret = ConnectMasterServer(xData);
-        CHECK_EXPR(ret == 0, , "ConnectMasterServer Failed, url:{}", xData.DebugString());
-    });
-
-    FindModule<NFINamingModule>()->WatchTcpUrls(NF_ST_ROUTE_AGENT_SERVER, NF_ST_ROUTE_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
-        if (errCode != 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "RouteAgentServer Watch RouteServer name:{} serverInfo:{} errCode:{}", name, xData.DebugString(), errCode);
-            return;
-        }
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "RouteAgentServer Watch RouteServer name:{} serverInfo:{} errCode:{}", name, xData.DebugString(), errCode);
-
-        OnHandleRouteServerReport(xData);
-    });
-
     return true;
 }
 
