@@ -62,7 +62,7 @@ function LuaNFrame.InitScript(luaModule)
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/lua/?.lua"
 	package.path = package.path .. ";../../ScriptModule/LuaNFrame/luaprotobuf/?.lua"
 
-	require("LuaPanda").start("127.0.0.1",8818)
+	--require("LuaPanda").start("127.0.0.1",8818)
 
 	--初始化LuaNFrame
 	LuaNFrame.InitLoad()
