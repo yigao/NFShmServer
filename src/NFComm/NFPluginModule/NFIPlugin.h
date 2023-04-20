@@ -22,10 +22,10 @@
     assert((TIsDerived<className, classBaseName>::Result)); \
     NFIModule* pRegisterModule##className= new className(pManager); \
     pRegisterModule##className->m_strName = (#className);             \
-    pManager->AddModule(typeid(classBaseName).name(), pRegisterModule##className );AddModule( typeid(classBaseName).name(), pRegisterModule##className );
+    pManager->AddModule(#classBaseName, pRegisterModule##className );AddModule(#classBaseName, pRegisterModule##className );
 
 #define UNREGISTER_MODULE(pManager, classBaseName, className) \
-   NFIModule* pUnRegisterModule##className =  dynamic_cast<NFIModule*>( pManager->FindModule( typeid(classBaseName).name() )); \
+   NFIModule* pUnRegisterModule##className =  dynamic_cast<NFIModule*>( pManager->FindModule( #classBaseName )); \
 	pManager->RemoveModule( #classBaseName );RemoveModule(#classBaseName); delete pUnRegisterModule##className;
 
 #define REGISTER_STATIC_PLUGIN(pManager, className)  pManager->RegisteredStaticPlugin(#className, [] (NFIPluginManager* pMan) ->NFIPlugin* { return NF_NEW className(pMan);});
