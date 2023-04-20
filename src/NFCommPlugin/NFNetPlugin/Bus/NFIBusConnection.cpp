@@ -13,6 +13,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFNetPackagePool.h"
+#include "NFComm/NFCore/NFServerIDUtil.h"
 #include "../NFIPacketParse.h"
 #include <string.h>
 #include <sstream>
@@ -517,7 +518,7 @@ int NFIBusConnection::OpenShmBuffer(key_t shm_key, size_t len, void **data, size
 
     char shm_file_name[64] = { 0 };
     // Use Global\\ prefix requires the SeCreateGlobalPrivilege privilege, so we do not use it
-    std::string shmFileName = NF_FORMAT("nfbus_{}.bus", shm_key);
+    std::string shmFileName = NF_FORMAT("nfbus_{}.bus", NFServerIDUtil::GetBusNameFromBusID(shm_key));
     std::wstring wShmFileName = NFStringUtility::s2ws(shmFileName);
 
     // 首先尝试直接打开
