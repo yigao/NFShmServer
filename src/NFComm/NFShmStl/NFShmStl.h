@@ -15,6 +15,14 @@
 #if NF_PLATFORM == NF_PLATFORM_WIN
 namespace std
 {
+    //////////////////////////move.h//////////////////////////////////////
+      template<typename _Tp>
+    inline _Tp*
+    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    {
+      return reinterpret_cast<_Tp*>
+	(&const_cast<char&>(reinterpret_cast<const volatile char&>(__r)));
+    }
     ///////////////////////////stl_construct.h////////////////////////////
     /**
      * Constructs an object in existing memory by invoking an allocated
@@ -466,6 +474,7 @@ namespace std
         enum { __value = 1 };
         typedef __true_type __type;
     };
+
 } // namespace std
 
 
