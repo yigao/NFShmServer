@@ -18,7 +18,7 @@ namespace std
     //////////////////////////move.h//////////////////////////////////////
       template<typename _Tp>
     inline _Tp*
-    __addressof(_Tp& __r) _GLIBCXX_NOEXCEPT
+    __addressof(_Tp& __r)
     {
       return reinterpret_cast<_Tp*>
 	(&const_cast<char&>(reinterpret_cast<const volatile char&>(__r)));
