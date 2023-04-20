@@ -459,7 +459,8 @@ namespace std
 
 } // namespace std
 
-
+#else
+#define stl__Identity _Identity
 
 
 #endif

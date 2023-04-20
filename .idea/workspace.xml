@@ -56,8 +56,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="win">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="win stl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmStl.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmStl.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -690,14 +691,7 @@
       <workItem from="1681865890508" duration="24775000" />
       <workItem from="1681951932417" duration="1413000" />
       <workItem from="1681959929567" duration="707000" />
-      <workItem from="1681970219214" duration="2244000" />
-    </task>
-    <task id="LOCAL-00616" summary="rpc service">
-      <created>1681297819834</created>
-      <option name="number" value="00616" />
-      <option name="presentableId" value="LOCAL-00616" />
-      <option name="project" value="LOCAL" />
-      <updated>1681297819834</updated>
+      <workItem from="1681970219214" duration="4910000" />
     </task>
     <task id="LOCAL-00617" summary="rpc service">
       <created>1681298178474</created>
@@ -1035,7 +1029,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681970908634</updated>
     </task>
-    <option name="localTasksCounter" value="665" />
+    <task id="LOCAL-00665" summary="win stl">
+      <created>1681973010570</created>
+      <option name="number" value="00665" />
+      <option name="presentableId" value="LOCAL-00665" />
+      <option name="project" value="LOCAL" />
+      <updated>1681973010570</updated>
+    </task>
+    <option name="localTasksCounter" value="666" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1258,7 +1259,6 @@
       <path value="$PROJECT_DIR$/game/oldMMO" />
       <path value="$PROJECT_DIR$/game/MMO" />
     </ignored-roots>
-    <MESSAGE value="scene" />
     <MESSAGE value="login" />
     <MESSAGE value="enter scene" />
     <MESSAGE value="leave scene" />
@@ -1283,7 +1283,8 @@
     <MESSAGE value="proxy client" />
     <MESSAGE value="shm bus" />
     <MESSAGE value="win" />
-    <option name="LAST_COMMIT_MESSAGE" value="win" />
+    <MESSAGE value="win stl" />
+    <option name="LAST_COMMIT_MESSAGE" value="win stl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
