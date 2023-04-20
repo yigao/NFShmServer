@@ -14,7 +14,6 @@
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFSeqOP.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmBitMap.hpp" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmDefine.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmMgr.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmNodeList.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.h" />
@@ -31,22 +30,45 @@
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTickByRunIndexOP.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTransBase.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFTypeDefines.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmDyVector.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashMap.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashMapWithList.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashSet.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashTable.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashTableWithList.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmList.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmPair.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmString.h" />
-    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmVector.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmDyVector.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashMap.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashMapWithList.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashSet.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashTable.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashTableWithList.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmList.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmPair.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmString.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmVector.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmStl.h">
+      <Filter>NFShmStl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFArrayQueue.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFCSharedMem.cpp" />
-    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmMgr.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmNodeList.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmObj.cpp" />
@@ -54,5 +76,11 @@
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmOldHashTable.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFTickByRunIndexOP.cpp" />
     <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFTransBase.cpp" />
+    <ClCompile Include="..\..\..\src\NFComm\NFShmCore\NFShmHashObjectMgr.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="NFShmStl">
+      <UniqueIdentifier>{9576bac0-cad3-4746-b167-55739222c023}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

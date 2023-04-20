@@ -328,9 +328,6 @@ int checkVector()
             NFShmVector<std::string, 5> sv2(sv.begin(), sv.end());
             printVector(sv2);
 
-            NFShmVector<std::string, 0> sv2_s_0(sv.begin(), sv.end());
-            printVector(sv2_s_0);
-
             NFShmVector<std::string, 2> sv2_s_1(sv.begin(), sv.end());
             printVector(sv2_s_1);
 
@@ -355,9 +352,6 @@ int checkVector()
         }
 
         {
-            NFShmVector<std::string, 0> sv3_1(sv);
-            printVector(sv3_1);
-
             NFShmVector<std::string, 2> sv3_2(sv);
             printVector(sv3_2);
 
@@ -402,10 +396,6 @@ int checkVector()
         NFShmVector<std::string, 5> cv1;
         cv1.assign(cv.begin(), cv.end());
         printVector(cv1);
-
-        NFShmVector<std::string, 0> cv1_0;
-        cv1_0.assign(cv.begin(), cv.end());
-        printVector(cv1_0);
 
         NFShmVector<std::string, 5> cv1_1 = {"x", "y", "z"};
         cv1_1.assign(cv.begin(), cv.end());
@@ -896,7 +886,7 @@ int checkAlgoList()
 
 int checkHashTable()
 {
-    NFShmHashTableWithList<int, int, 10, std::hash<int>, std::_Identity<int>, std::equal_to<int>> hashtable;
+    NFShmHashTableWithList<int, int, 10, std::hash<int>, std::stl__Identity<int>, std::equal_to<int>> hashtable;
 
     for(int i = 0; i < 10; i++)
     {

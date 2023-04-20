@@ -82,24 +82,6 @@ namespace std
      * destroy() even if _Tp has a trivial destructor.
      */
 
-    template<typename _ForwardIterator, typename _Allocator>
-    void
-    _Destroy(_ForwardIterator __first, _ForwardIterator __last,
-             _Allocator& __alloc)
-    {
-        typedef __gnu_cxx::__alloc_traits<_Allocator> __traits;
-        for (; __first != __last; ++__first)
-            __traits::destroy(__alloc, std::__addressof(*__first));
-    }
-
-    template<typename _ForwardIterator, typename _Tp>
-    inline void
-    _Destroy(_ForwardIterator __first, _ForwardIterator __last,
-             allocator<_Tp>&)
-    {
-        _Destroy(__first, __last);
-    }
-
     ///////////////////////////stl_function.h////////////////////////////
     template<typename _Arg, typename _Result>
     struct stl_unary_function

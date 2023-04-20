@@ -58,6 +58,7 @@
     <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmHashTableWithList.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmList.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmPair.h" />
+    <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmStl.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmString.h" />
     <ClInclude Include="..\..\..\src\NFComm\NFShmStl\NFShmVector.h" />
   </ItemGroup>
