@@ -1279,6 +1279,7 @@ const google::protobuf::Descriptor *NFProtobufCommon::FindDynamicMessageTypeByNa
     {
         return google::protobuf::DescriptorPool::generated_pool()->FindMessageTypeByName(full_name);
     }
+    return pDesc;
 }
 
 ::google::protobuf::Message *NFProtobufCommon::CreateDynamicMessageByName(const std::string &full_name)
