@@ -519,7 +519,7 @@ function LuaNFrame.SendTransToLogicServer(eServerType, nDstId, nMsgID, nMsgType,
     CPPNFrame:SendTransToLogicServer(eServerType, nDstId, nMsgID, xData, req_trans_id, rsp_trans_id)
 end
 
-function LuaNFrame.SendMsgToSnsServer(eServerType, nModuleId, nMsgType, nMsgData, xData, nParam1, nParam2)
+function LuaNFrame.SendMsgToSnsServer(eServerType, nModuleId, nMsgType, nMsgData, nParam1, nParam2)
     if type(eServerType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
 		return
@@ -562,7 +562,7 @@ function LuaNFrame.SendMsgToSnsServer(eServerType, nModuleId, nMsgType, nMsgData
     CPPNFrame:SendMsgToSnsServer(eServerType, nModuleId, nMsgID, xData, nParam1, nParam2)
 end
 
-function LuaNFrame.SendTransToSnsServer(eServerType, nMsgID, xData, req_trans_id, rsp_trans_id)
+function LuaNFrame.SendTransToSnsServer(eServerType, nMsgID, nMsgType, nMsgData, req_trans_id, rsp_trans_id)
     if type(eServerType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
 		return

@@ -375,6 +375,7 @@ bool NFCLuaScriptModule::Register()
             .addFunction("GetServerLinkId", &NFCLuaScriptModule::GetServerLinkId)
             .addFunction("AddRpcService", &NFCLuaScriptModule::AddRpcService)
             .addFunction("GetRpcService", &NFCLuaScriptModule::GetRpcService)
+            .addFunction("FireCppExecute", &NFCLuaScriptModule::FireCppExecute)
             .addFunction("FireExecute", &NFCLuaScriptModule::FireExecute)
             .addFunction("Subscribe", &NFCLuaScriptModule::Subscribe)
             .endClass();
@@ -934,8 +935,8 @@ NFCLuaScriptModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t b
     return 0;
 }
 
-void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &msgTypeName,
-                                const std::string &msgData)
+void NFCLuaScriptModule::FireCppExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &msgTypeName,
+                                        const std::string &msgData)
 {
     proto_ff::NFEventScriptData data;
     data.set_event_type(msgTypeName);
@@ -943,7 +944,7 @@ void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uin
     NFIDynamicModule::FireExecute(serverType, nEventID, bySrcType, nSrcID, data);
 }
 
-void NFCLuaScriptModule::FireLuaExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc)
+void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaData)
 {
     SEventKey skey;
     skey.nServerType = serverType;
@@ -955,7 +956,7 @@ void NFCLuaScriptModule::FireLuaExecute(uint32_t serverType, uint32_t nEventID, 
     * @brief 先执行完全匹配的
     */
     if (skey.nSrcID != 0) {
-        bool bRes = m_eventTemplate.Fire(skey, luaFunc);
+        bool bRes = m_eventTemplate.Fire(skey, luaData);
         if (!bRes) {
             return;
         }
@@ -967,7 +968,7 @@ void NFCLuaScriptModule::FireLuaExecute(uint32_t serverType, uint32_t nEventID, 
     * 订阅时将nSrcId=0，会受到所有玩家产生的该类事件
     */
     skey.nSrcID = 0;
-    bool bRes = m_eventTemplate.Fire(skey, luaFunc);
+    bool bRes = m_eventTemplate.Fire(skey, luaData);
     if (!bRes)
     {
         return;

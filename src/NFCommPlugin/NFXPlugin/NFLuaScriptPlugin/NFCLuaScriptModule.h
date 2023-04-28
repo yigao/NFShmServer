@@ -415,10 +415,10 @@ public:
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage);
 
 public:
-    virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &msgTypeName,
-                             const std::string &msgData);
+    virtual void FireCppExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &msgTypeName,
+                                const std::string &msgData);
 
-    virtual void FireLuaExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc);
+    virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc);
 
     virtual bool
     Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc, const NFLuaRef &luaFunc);
