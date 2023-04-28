@@ -149,30 +149,6 @@ bool NFCProxyAgentServerModule::Init()
     }
 #endif
 
-    FindModule<NFINamingModule>()->WatchTcpUrls(NF_ST_PROXY_AGENT_SERVER, NF_ST_MASTER_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
-        if (errCode != 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "ProxyAgentServer Watch, MasterServer Dump, errCdde:{} name:{} serverInfo:{}", errCode, name, xData.DebugString());
-
-            return;
-        }
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "ProxyAgentServer Watch MasterServer name:{} serverInfo:{}", name, xData.DebugString());
-
-        int32_t ret = ConnectMasterServer(xData);
-        CHECK_EXPR(ret == 0, , "ConnectMasterServer Failed, url:{}", xData.DebugString());
-    });
-
-    FindModule<NFINamingModule>()->WatchTcpUrls(NF_ST_PROXY_AGENT_SERVER, NF_ST_PROXY_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
-        if (errCode != 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "ProxyAgentServer Watch, ProxyServer Dump, errCode:{} name:{} serverInfo:{}", errCode, name, xData.DebugString());
-            return;
-        }
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "ProxyAgentServer Watch ProxyServer name:{} serverInfo:{}", name, xData.DebugString());
-
-        OnHandleProxyReport(xData);
-    });
-
     return true;
 }
 

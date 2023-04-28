@@ -713,7 +713,7 @@ int NFCMasterServerModule::HandleReloadAllSeverRsp(uint64_t unLinkId, NFDataPack
 
 bool NFCMasterServerModule::Init() {
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
-    CHECK_NULL(pConfig);
+    CHECK_EXPR(pConfig, false, "");
 
     FindModule<NFIMessageModule>()->SendWxWork(NF_ST_MASTER_SERVER, "Server:" + pConfig->ServerName + " Start Info:\n" + pConfig->ServerIp);
     return true;

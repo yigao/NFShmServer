@@ -209,16 +209,29 @@ const char *DateTimeToStrSimCN_R( time_t *mytime, char *s, int *pio )
     struct tm curr;
     localtime_r(mytime, &curr);
 
+#if NF_PLATFORM == NF_PLATFORM_WIN
     if (curr.tm_year > 50)
     {
-        len = snprintf(s, *pio, "%04d年%02d月%02d日 ",
+        len = NFSafeSnprintf(s, *pio, "%04d年%02d月%02d日 ",
                        curr.tm_year+1900, curr.tm_mon+1, curr.tm_mday);
     }
     else
     {
-        len = snprintf(s, *pio, "%04d年%02d月%02d日 ",
+        len = NFSafeSnprintf(s, *pio, "%04d年%02d月%02d日 ",
                        curr.tm_year+2000, curr.tm_mon+1, curr.tm_mday);
     }
+#else
+	if (curr.tm_year > 50)
+	{
+		len = NFSafeSnprintf(s, *pio, "%04d年%02d月%02d日",
+			curr.tm_year + 1900, curr.tm_mon + 1, curr.tm_mday);
+	}
+	else
+	{
+		len = NFSafeSnprintf(s, *pio, "%04d年%02d月%02d日",
+			curr.tm_year + 2000, curr.tm_mon + 1, curr.tm_mday);
+	}
+#endif
 
     *pio = len;
 
