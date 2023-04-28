@@ -86,7 +86,7 @@ public:
 	*/
 	virtual bool UnSubscribeAll(NFEventObjBase* pSink) override;
 private:
-	NFEventTemplate<NFEventObjBase> m_ExecuteCenter;
+	NFEventTemplate<NFEventObjBase, SEventKey> m_ExecuteCenter;
 };
 
 #endif

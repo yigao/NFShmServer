@@ -26,14 +26,14 @@
 class NFCLuaThreadModule;
 
 /**
-* @brief actor��ʱ����Ϣ����
+* @brief actor????????????
 *
 */
 class NFTimerMessage
 {
 public:
 	/**
-	* @brief ��Ϣ����
+	* @brief ???????
 	*
 	*/
 	enum MessageType
@@ -45,7 +45,7 @@ public:
 	};
 
 	/**
-	* @brief ���캯��
+	* @brief ??????
 	*
 	*/
 	NFTimerMessage()
@@ -62,31 +62,31 @@ public:
 
 public:
 	/**
-	* @brief ��Ϣ����
+	* @brief ???????
 	*
 	*/
 	int nMsgType;
 
 	/**
-	* @brief ��ʱʱ��
+	* @brief ??????
 	*
 	*/
 	int m_delayTime;
 
 	/**
-	* @brief Ҫ��ʱִ�е�LUA����
+	* @brief ??????е?LUA????
 	*
 	*/
 	std::string m_luaFunc;
 
 	/**
-	* @brief Ҫ��ʱִ�е�LUA�����Ĳ���
+	* @brief ??????е?LUA?????????
 	*
 	*/
 	std::string m_tmpParam;
 
 	/**
-	* @brief ���ô���
+	* @brief ???????
 	*
 	*/
 	uint32_t m_callCount;
@@ -96,7 +96,7 @@ class NFTcpMessage
 {
 public:
 	/**
-	* @brief ��Ϣ����
+	* @brief ???????
 	*
 	*/
 	enum MessageType
@@ -257,62 +257,62 @@ public:
 	virtual void RunGmFunction(const std::string& luaFunc, const std::vector<std::string>& vecStr) override;
 public:
 	/**
-	* @brief ���һ��work Actor���
+	* @brief ??????work Actor???
 	*
 	* @return
 	*/
 	virtual bool AddWorkActorComponent(NFITaskComponent* pComonnet);
 
 	/**
-	* @brief ���һ��tcp msg Actor���
+	* @brief ??????tcp msg Actor???
 	*
 	* @return
 	*/
 	virtual bool AddTcpMsgActorComponent(NFITaskComponent* pComonnet);
 
 	/**
-	* @brief ���һ��server loop Actor���
+	* @brief ??????server loop Actor???
 	*
 	* @return
 	*/
 	virtual bool AddServerLoopActorComponent(NFITaskComponent* pComonnet);
 
 	/**
-	* @brief ͨ��ƽ��ID���Ҫ�첽�����task
+	* @brief ??????ID???????????task
 	*
-	* @param pTask Ҫ�첽�����task
+	* @param pTask ????????task
 	* @return
 	*/
 	bool AddWorkTask(NFTask* pTask);
 
 	/**
-	* @brief ͨ��ƽ��ID���Ҫ�첽�����task
+	* @brief ??????ID???????????task
 	*
-	* @param pTask Ҫ�첽�����task
+	* @param pTask ????????task
 	* @return
 	*/
 	bool AddTcpMsgTask(NFTask* pTask);
 
 	/**
-	* @brief ѭ���첽�����task
+	* @brief ??????????task
 	*
-	* @param pTask Ҫ�첽�����task
+	* @param pTask ????????task
 	* @return
 	*/
 	bool AddProcessLoopTask(NFTask* pTask);
 
 	/**
-	* @brief ѭ���첽�����task
+	* @brief ??????????task
 	*
-	* @param pTask Ҫ�첽�����task
+	* @param pTask ????????task
 	* @return
 	*/
 	bool AddProcessTimerTask(NFTask* pTask);
 
 	/**
-	* @brief ѭ���첽�����task
+	* @brief ??????????task
 	*
-	* @param pTask Ҫ�첽�����task
+	* @param pTask ????????task
 	* @return
 	*/
 	bool AddProcessWorkTask(NFTask* pTask);
@@ -325,12 +325,12 @@ public:
 
 	void AddProcessWork(const std::string& luaFunc, const std::string& tmpParam);
 	/*
-	������߳�LUA�������Ķ�ʱ��
+	????????LUA????????????
 	*/
 	void HandleLuaTimer();
 
 	/*
-	������߳�LUA����������Ϣ
+	????????LUA???????????
 	*/
 	void HandleLuaTcpMsg();
 
@@ -343,13 +343,13 @@ public:
 	NF_SHARE_PTR<PlayerGameServerInfo> GetPlayerInfo(uint64_t playerId);
 protected:
 	/**
-	* @brief ���صĶ�ʱ����Ϣ��,
-	* actor�߳̽����ݷ�����У� ���̴߳Ӷ�����ȡ���ݴ���
+	* @brief ??????????????,
+	* actor?????????????У? ???????????????????
 	*/
 	NFQueueVector<NFTimerMessage> m_mQueue;
 
 	/*
-		��ʱ��
+		?????
 	*/
 	std::map<uint64_t, NFLuaThreadTimer*> m_luaTimerMap;
 	std::list<NFLuaThreadTimer*> m_luaTimerList;
@@ -362,48 +362,48 @@ protected:
 	NFIHttpServerModule* m_pHttpServerModule;
 protected:
 	/**
-	* @brief ���صĶ�ʱ����Ϣ��,
-	* actor�߳̽����ݷ�����У� ���̴߳Ӷ�����ȡ���ݴ���
+	* @brief ??????????????,
+	* actor?????????????У? ???????????????????
 	*/
 	NFQueueVector<NFTcpMessage> m_mTcpMsgQueue;
 
 	/**
-	* @brief server loop actor module ��ѭ�����߳�ϵͳ
+	* @brief server loop actor module ????????????
 	*/
 	NFITaskModule* m_pServerLoopTaskModule;
 
 	/**
-	* @brief server loop actor  ��ѭ�����߳�Actor
+	* @brief server loop actor  ??????????Actor
 	*/
 	int m_processLoopActorId;
 
 	/**
-	* @brief process work/timer actor module ���߳�ϵͳ
+	* @brief process work/timer actor module ???????
 	*/
 	NFITaskModule* m_pWorkTaskModule;
 
 	/**
-	* @brief actor��������
+	* @brief actor????????
 	*/
 	std::vector<int> m_vecWorkActorPool;
 
 	/**
-	* @brief tcp msg actor module ���߳�ϵͳ
+	* @brief tcp msg actor module ???????
 	*/
 	NFITaskModule* m_pTcpMsgTaskModule;
 
 	/**
-	* @brief tcp actor��������
+	* @brief tcp actor????????
 	*/
 	std::vector<int> m_vecTcpMsgActorPool;
 
 	/**
-	* @brief actor ��ɼ��ش���
+	* @brief actor ?????????
 	*/
 	uint32_t m_finishLuaLoad;
 
 	/**
-	* @brief actor ��ɳ�ʼ��ѭ������
+	* @brief actor ??????????????
 	*/
 	uint32_t m_finishInitServerLoop;
 };

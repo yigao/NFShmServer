@@ -19,7 +19,7 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFCommPlugin/NFKernelPlugin/NFServerLinkData.h"
 #include "NFComm/NFPluginModule/NFObjectPool.hpp"
-#include "NFComm/NFPluginModule/NFEventTemplate.h"
+#include "NFComm/NFPluginModule/NFEventObj.h"
 
 #include <unordered_set>
 
@@ -196,13 +196,14 @@ struct LuaCallBack
 /**
  *@brief Lua事件系统对象
  */
+ class NFCLuaScriptModule;
 class NFLuaEventObj : public NFObject
 {
 public:
     /**
      *@brief 构造函数
      */
-    NFLuaEventObj(NFIPluginManager *p) : NFObject(p)
+    NFLuaEventObj(NFIPluginManager *p, NFCLuaScriptModule* pModule) : NFObject(p), m_pModule(pModule)
     {
 
     }
@@ -214,9 +215,35 @@ public:
     {
 
     }
-
 public:
-    std::list<NFLuaRef> m_luaFuncList;
+
+    /**
+    * @brief 收到事件函数, 对收到的事件进行处理
+    *
+    * @param nEventID		事件ID
+    * @param nSrcID			事件源ID，一般都是玩家，生物唯一id
+    * @param bySrcType		事件源类型，玩家类型，怪物类型之类的
+    * @param pEventContext	发过来的事件数据
+    * @return
+    */
+    /*
+    * 由Fire的问题，导致的问题:
+    * 问题1:如果在OnExecute函数里， 调用别的对象的UnSubscribe函数, 如果key一致(也就是nEventID,nSrcID,bySrcType都一样),
+    *		可能导致将要执行的事件被删除，这可能与你预想的设计不一样
+    * 问题2:如果在OnExecute函数里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
+    *       所有的Fire事件最多迭代20次
+    */
+
+    int OnExecuteImple(const SEventKey skey, const NFLuaRef& message);
+
+    int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef& message);
+
+    int OnExecuteImple(const SEventKey skey, const std::string& msgType, const std::string& msgData);
+
+    int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& msgType, const std::string& msgData);
+public:
+    NFLuaRef m_luaFunc;
+    NFCLuaScriptModule* m_pModule;
 };
 
 class NFCLuaScriptModule
@@ -391,6 +418,8 @@ public:
     virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &msgTypeName,
                              const std::string &msgData);
 
+    virtual void FireLuaExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc);
+
     virtual bool
     Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc, const NFLuaRef &luaFunc);
 
@@ -490,8 +519,8 @@ protected:
     NFObjectPool<NFLuaTimer> *m_luaTimerPool;
     uint32_t m_luaTimerIndex;
 protected:
-    std::unordered_map<SEventKey, NFLuaEventObj *> m_luaEventMap;
     NFObjectPool<NFLuaEventObj> *m_luaEventPool;
+    NFEventTemplate<NFLuaEventObj, SEventKey> m_eventTemplate;
 protected:
     std::vector<LuaCallBack> mxLuaCallBack;
 };

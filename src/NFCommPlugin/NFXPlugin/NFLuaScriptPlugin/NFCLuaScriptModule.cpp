@@ -25,6 +25,50 @@ enum EnumLuaScriptTimer
     EnumLuaScriptTimer_ServerLoop = 0,
 };
 
+/**
+* @brief 收到事件函数, 对收到的事件进行处理
+*
+* @param nEventID		事件ID
+* @param nSrcID			事件源ID，一般都是玩家，生物唯一id
+* @param bySrcType		事件源类型，玩家类型，怪物类型之类的
+* @param pEventContext	发过来的事件数据
+* @return
+*/
+/*
+* 由Fire的问题，导致的问题:
+* 问题1:如果在OnExecute函数里， 调用别的对象的UnSubscribe函数, 如果key一致(也就是nEventID,nSrcID,bySrcType都一样),
+*		可能导致将要执行的事件被删除，这可能与你预想的设计不一样
+* 问题2:如果在OnExecute函数里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
+*       所有的Fire事件最多迭代20次
+*/
+int NFLuaEventObj::OnExecuteImple(const SEventKey skey, const NFLuaRef &message)
+{
+    return OnExecute(skey.nServerType, skey.nEventID, skey.bySrcType, skey.nSrcID, message);
+}
+
+int NFLuaEventObj::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef& message)
+{
+    if (m_luaFunc.isFunction())
+    {
+        m_pModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchEvent", m_luaFunc, serverType, nEventID, bySrcType, nSrcID, message);
+    }
+    return 0;
+}
+
+int NFLuaEventObj::OnExecuteImple(const SEventKey skey, const std::string& msgType, const std::string& msgData)
+{
+    return OnExecute(skey.nServerType, skey.nEventID, skey.bySrcType, skey.nSrcID, msgType, msgData);
+}
+
+int NFLuaEventObj::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& msgType, const std::string& msgData)
+{
+    if (m_luaFunc.isFunction())
+    {
+        m_pModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchEventStrMsg", m_luaFunc, serverType, nEventID, bySrcType, nSrcID, msgType, msgData);
+    }
+    return 0;
+}
+
 NFCLuaScriptModule::NFCLuaScriptModule(NFIPluginManager *p) : NFILuaScriptModule(p)
 {
     m_luaTimerIndex = 10000;
@@ -874,37 +918,19 @@ int NFCLuaScriptModule::OnHandleAddRpcService(uint64_t unLinkId, uint32_t msgId,
 int
 NFCLuaScriptModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
 {
+    CHECK_NULL(pMessage);
+
     SEventKey skey;
     skey.nServerType = serverType;
     skey.nEventID = nEventID;
     skey.bySrcType = bySrcType;
     skey.nSrcID = nSrcID;
 
-    std::string typeName;
-    std::string msgData;
-    const proto_ff::NFEventScriptData* pScriptData = dynamic_cast<const proto_ff::NFEventScriptData*>(pMessage);
-    if (pScriptData)
-    {
-        typeName = pScriptData->event_type();
-        msgData = pScriptData->event_data();
-    }
-    else {
-        typeName = pMessage->GetTypeName();
-        msgData = pMessage->SerializeAsString();
+    bool bRes = m_eventTemplate.Fire(skey, pMessage->GetTypeName(), pMessage->SerializeAsString());
+    if (!bRes) {
+        return -1;
     }
 
-    auto iter = m_luaEventMap.find(skey);
-    if (iter != m_luaEventMap.end())
-    {
-        for (auto it = iter->second->m_luaFuncList.begin(); it != iter->second->m_luaFuncList.end(); it++)
-        {
-            if (it->isFunction())
-            {
-                TryRunGlobalScriptFunc("LuaNFrame.DispatchEvent", *it, serverType, nEventID, bySrcType, nSrcID, typeName,
-                                       msgData);
-            }
-        }
-    }
     return 0;
 }
 
@@ -917,6 +943,37 @@ void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uin
     NFIDynamicModule::FireExecute(serverType, nEventID, bySrcType, nSrcID, data);
 }
 
+void NFCLuaScriptModule::FireLuaExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc)
+{
+    SEventKey skey;
+    skey.nServerType = serverType;
+    skey.nEventID = nEventID;
+    skey.bySrcType = bySrcType;
+    skey.nSrcID = nSrcID;
+
+    /**
+    * @brief 先执行完全匹配的
+    */
+    if (skey.nSrcID != 0) {
+        bool bRes = m_eventTemplate.Fire(skey, luaFunc);
+        if (!bRes) {
+            return;
+        }
+    }
+
+    /**
+    * @brief 再执行， 针对整个事件nEventID,类型为bySrcType
+    * 比如订阅时，订阅了所有玩家类的事件，而不是对一个玩家的事件，
+    * 订阅时将nSrcId=0，会受到所有玩家产生的该类事件
+    */
+    skey.nSrcID = 0;
+    bool bRes = m_eventTemplate.Fire(skey, luaFunc);
+    if (!bRes)
+    {
+        return;
+    }
+}
+
 bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const string &strLuaFunc,
                                    const NFLuaRef &luaFunc)
 {
@@ -926,19 +983,11 @@ bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint3
     skey.bySrcType = bySrcType;
     skey.nSrcID = nSrcID;
 
-    auto iter = m_luaEventMap.find(skey);
-    if (iter == m_luaEventMap.end())
+    auto pData = m_luaEventPool->MallocObjWithArgs(m_pObjPluginManager, this);
+    pData->m_luaFunc = luaFunc;
+
+    if (m_eventTemplate.Subscribe(pData, skey, strLuaFunc))
     {
-        if (NFIDynamicModule::Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc))
-        {
-            auto pData = m_luaEventPool->MallocObjWithArgs(m_pObjPluginManager);
-            pData->m_luaFuncList.push_back(luaFunc);
-            m_luaEventMap[skey] = pData;
-            return true;
-        }
-    }
-    else {
-        iter->second->m_luaFuncList.push_back(luaFunc);
         return true;
     }
 

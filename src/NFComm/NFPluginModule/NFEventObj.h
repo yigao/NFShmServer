@@ -14,6 +14,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "google/protobuf/message.h"
 #include "NFObject.h"
+#include "NFEventTemplate.h"
 
 class NFIPluginManager;
 
@@ -49,6 +50,74 @@ class NFIPluginManager;
 
  事件嵌套层数不能太多，如果可以，尽量不要使用事件嵌套，主要是为了避免造成死循环，目前事件最大嵌套层数支持5层
 */
+
+/**
+*@brief 事件key类
+*/
+struct SEventKey
+{
+    /**
+    *@brief 事件主要的key，主要指玩家，生物唯一id
+    */
+    uint64_t nSrcID;
+
+    /**
+    *@brief 事件Id
+    */
+    uint32_t nEventID;
+
+    /**
+    *@brief src类型, 用来区别玩家，怪物的类型
+    */
+    uint32_t bySrcType;
+
+    /**
+     * @brief 服务器类型，用来区分AllServer模式下，不同服务器的事件
+     */
+    uint32_t nServerType;
+
+    /**
+    *@brief 构造函数
+    */
+    SEventKey()
+    {
+        nSrcID = 0;
+        nEventID = 0;
+        bySrcType = 0;
+        nServerType = 0;
+    }
+
+    /**
+    *@brief 判断是否相等
+    */
+    bool operator==(const SEventKey &eventKey) const
+    {
+        return ((nServerType == eventKey.nServerType) &&
+                (nEventID == eventKey.nEventID) &&
+                (bySrcType == eventKey.bySrcType) &&
+                (nSrcID == eventKey.nSrcID));
+    }
+
+    std::string ToString() const
+    {
+        return NF_FORMAT("nServerType:{} nEventID:{}, nSrcID:{}, bySrcType:{}", nServerType, nEventID, nSrcID, bySrcType);
+    }
+};
+
+/**
+*@brief 求hash值
+*/
+namespace std
+{
+    template<>
+    struct hash<SEventKey>
+    {
+        size_t operator()(const SEventKey &eventKey) const
+        {
+            return NFHash::hash_combine(eventKey.nServerType, eventKey.nEventID, eventKey.bySrcType, eventKey.nSrcID);
+        }
+    };
+}
 
 /**
  *@brief 事件系统对象，所有想使用事件系统的都必须继承这个对象
@@ -89,6 +158,11 @@ public:
     * 问题2:如果在OnExecute函数里， Fire了别的事件，会导致迭代问题，事件系统已经了做了预付， 相同的事件，最多迭代5次，
     *       所有的Fire事件最多迭代20次
     */
+    int OnExecuteImple(const SEventKey skey, const google::protobuf::Message& message)
+    {
+        return OnExecute(skey.nServerType, skey.nEventID, skey.bySrcType, skey.nSrcID, &message);
+    }
+
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage) = 0;
 
 public:

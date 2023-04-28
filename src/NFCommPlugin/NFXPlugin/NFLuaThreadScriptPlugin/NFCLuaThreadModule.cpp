@@ -37,7 +37,7 @@ void NFLuaThreadTimer::OnTimer(uint32_t nTimerID)
 
 bool NFCLuaThreadModule::Init()
 {
-	//³õÊ¼»¯Ö÷Ñ­»·ActorÏµÍ³
+	//åˆå§‹åŒ–ä¸»å¾ªç¯Actorç³»ç»Ÿ
 	m_pServerLoopTaskModule = m_pPluginManager->CreateAloneModule<NFITaskModule>();
 	m_pServerLoopTaskModule->InitActorThread(1);
 	m_pServerLoopTaskModule->Init();
@@ -46,7 +46,7 @@ bool NFCLuaThreadModule::Init()
 	m_pWorkTaskModule = m_pPluginManager->CreateAloneModule<NFITaskModule>();
 	m_pTcpMsgTaskModule = m_pPluginManager->CreateAloneModule<NFITaskModule>();
 
-	//³õÊ¼»¯work ActorÏµÍ³
+	//åˆå§‹åŒ–work Actorç³»ç»Ÿ
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	uint32_t threadNum = std::thread::hardware_concurrency();
 #else
@@ -98,7 +98,7 @@ bool NFCLuaThreadModule::Init()
 
 	m_pWorkTaskModule->Init();
 	m_pWorkTaskModule->AfterInit();
-	//³õÊ¼»¯work ActorÏµÍ³
+	//åˆå§‹åŒ–work Actorç³»ç»Ÿ
 
 	m_pNetServerModule = FindModule<NFINetServerModule>();
 	m_pNetClientModule = FindModule<NFINetClientModule>();
@@ -185,10 +185,10 @@ void NFCLuaThreadModule::OnTimer(uint32_t nTimerID)
 			SetFixTimer(EnumLuaThreadModule_30MIN, 0, 30*60, INFINITY_CALL);
 			SetFixTimer(EnumLuaThreadModule_HOUR, 0, 3600, INFINITY_CALL);
 			SetFixTimer(EnumLuaThreadModule_DAY, 0, 24*3600, INFINITY_CALL);
-			//Ò»ÖÜ¶¨Ê±Æ÷
+			//ä¸€å‘¨å®šæ—¶å™¨
 			SetTimer(EnumLuaThreadModule_WEEK, NFTime::GetNextWeekRemainingTime()*1000, 1);
 
-			//Ò»ÔÂ¶¨Ê±Æ÷£¬¶à¼ÓÁËÒ»Ãë£¬±ÜÃâ¶¨Ê±Æ÷32msµÄÎó²î
+			//ä¸€æœˆå®šæ—¶å™¨ï¼Œå¤šåŠ äº†ä¸€ç§’ï¼Œé¿å…å®šæ—¶å™¨32msçš„è¯¯å·®
 			uint64_t monthtime = NFTime::GetNextMonthRemainingTime() + 1;
 			SetTimer(EnumLuaThreadModule_MONTH, monthtime * 1000, 1);
 
@@ -320,7 +320,7 @@ uint32_t NFCLuaThreadModule::AddTimer(uint32_t msgType, const std::string& luaFu
 }
 
 /*
-´¦Àí¶àÏß³ÌLUA·¢¹ıÀ´µÄÏûÏ¢
+å¤„ç†å¤šçº¿ç¨‹LUAå‘è¿‡æ¥çš„æ¶ˆæ¯
 */
 void NFCLuaThreadModule::HandleLuaTcpMsg()
 {
@@ -361,7 +361,7 @@ void NFCLuaThreadModule::HandleLuaTcpMsg()
 			}
 			uint32_t count = listTask.size();
 			uint64_t useTime = m_pPluginManager->EndProfiler();
-			if (useTime >= 30000) //>= 10ºÁÃë
+			if (useTime >= 30000) //>= 10æ¯«ç§’
 			{
 				NFLogError(NF_LOG_PLUGIN_MANAGER, 0, "HandleLuaTcpMsg: send tcp msg:{} use time:{} ms", listTask.size(), useTime / 1000);
 			}
@@ -728,7 +728,7 @@ void NFCLuaThreadModule::AddHttpServerMsg(uint32_t servertype, const uint32_t re
 }
 
 /**
-* @brief Ìí¼ÓÒ»¸öActor×é¼ş
+* @brief æ·»åŠ ä¸€ä¸ªActorç»„ä»¶
 *
 * @return
 */
@@ -748,7 +748,7 @@ bool NFCLuaThreadModule::AddWorkActorComponent(NFITaskComponent* pComonnet)
 }
 
 /**
-* @brief Ìí¼ÓÒ»¸ötcp msg Actor×é¼ş
+* @brief æ·»åŠ ä¸€ä¸ªtcp msg Actorç»„ä»¶
 *
 * @return
 */
@@ -768,7 +768,7 @@ bool NFCLuaThreadModule::AddTcpMsgActorComponent(NFITaskComponent* pComonnet)
 }
 
 /**
-* @brief Ìí¼ÓÒ»¸öserver loop Actor×é¼ş
+* @brief æ·»åŠ ä¸€ä¸ªserver loop Actorç»„ä»¶
 *
 * @return
 */
@@ -786,9 +786,9 @@ bool NFCLuaThreadModule::AddServerLoopActorComponent(NFITaskComponent* pComonnet
 }
 
 /**
-* @brief Í¨¹ıÆ½ºâIDÌí¼ÓÒªÒì²½´¦ÀíµÄtask
+* @brief é€šè¿‡å¹³è¡¡IDæ·»åŠ è¦å¼‚æ­¥å¤„ç†çš„task
 *
-* @param pTask ÒªÒì²½´¦ÀíµÄtask
+* @param pTask è¦å¼‚æ­¥å¤„ç†çš„task
 * @return
 */
 bool NFCLuaThreadModule::AddWorkTask(NFTask* pTask)
@@ -802,9 +802,9 @@ bool NFCLuaThreadModule::AddWorkTask(NFTask* pTask)
 }
 
 /**
-* @brief Í¨¹ıÆ½ºâIDÌí¼ÓÒªÒì²½´¦ÀíµÄtask
+* @brief é€šè¿‡å¹³è¡¡IDæ·»åŠ è¦å¼‚æ­¥å¤„ç†çš„task
 *
-* @param pTask ÒªÒì²½´¦ÀíµÄtask
+* @param pTask è¦å¼‚æ­¥å¤„ç†çš„task
 * @return
 */
 bool NFCLuaThreadModule::AddTcpMsgTask(NFTask* pTask)
@@ -818,9 +818,9 @@ bool NFCLuaThreadModule::AddTcpMsgTask(NFTask* pTask)
 }
 
 /**
-* @brief Ñ­»·Òì²½´¦ÀíµÄtask
+* @brief å¾ªç¯å¼‚æ­¥å¤„ç†çš„task
 *
-* @param pTask ÒªÒì²½´¦ÀíµÄtask
+* @param pTask è¦å¼‚æ­¥å¤„ç†çš„task
 * @return
 */
 bool NFCLuaThreadModule::AddProcessLoopTask(NFTask* pTask)
@@ -834,9 +834,9 @@ bool NFCLuaThreadModule::AddProcessLoopTask(NFTask* pTask)
 }
 
 /**
-* @brief Ñ­»·Òì²½´¦ÀíµÄtask
+* @brief å¾ªç¯å¼‚æ­¥å¤„ç†çš„task
 *
-* @param pTask ÒªÒì²½´¦ÀíµÄtask
+* @param pTask è¦å¼‚æ­¥å¤„ç†çš„task
 * @return
 */
 bool NFCLuaThreadModule::AddProcessTimerTask(NFTask* pTask)
@@ -850,9 +850,9 @@ bool NFCLuaThreadModule::AddProcessTimerTask(NFTask* pTask)
 }
 
 /**
-* @brief Ñ­»·Òì²½´¦ÀíµÄtask
+* @brief å¾ªç¯å¼‚æ­¥å¤„ç†çš„task
 *
-* @param pTask ÒªÒì²½´¦ÀíµÄtask
+* @param pTask è¦å¼‚æ­¥å¤„ç†çš„task
 * @return
 */
 bool NFCLuaThreadModule::AddProcessWorkTask(NFTask* pTask)
@@ -971,7 +971,7 @@ void NFCLuaThreadModule::UpdateWeek()
 void NFCLuaThreadModule::UpdateMonth()
 {
 	AddProcessLoopTask(new NFLuaMonthActorTask(this));
-	//Ò»ÔÂ¶¨Ê±Æ÷£¬¶à¼ÓÁËÒ»Ãë£¬±ÜÃâ¶¨Ê±Æ÷32msµÄÎó²î
+	//ä¸€æœˆå®šæ—¶å™¨ï¼Œå¤šåŠ äº†ä¸€ç§’ï¼Œé¿å…å®šæ—¶å™¨32msçš„è¯¯å·®
 	uint64_t monthtime = NFTime::GetNextMonthRemainingTime() + 1;
 	SetTimer(EnumLuaThreadModule_MONTH, monthtime * 1000, 1);
 }
