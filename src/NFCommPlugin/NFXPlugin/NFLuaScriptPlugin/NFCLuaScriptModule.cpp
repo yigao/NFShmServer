@@ -938,10 +938,14 @@ NFCLuaScriptModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t b
 void NFCLuaScriptModule::FireCppExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &msgTypeName,
                                         const std::string &msgData)
 {
-    proto_ff::NFEventScriptData data;
-    data.set_event_type(msgTypeName);
-    data.set_event_data(msgData);
-    NFIDynamicModule::FireExecute(serverType, nEventID, bySrcType, nSrcID, data);
+    ::google::protobuf::Message *pMessage = NFProtobufCommon::CreateMessageByName(msgTypeName);
+    if (pMessage)
+    {
+        if (pMessage->ParseFromString(msgData))
+        {
+            NFIDynamicModule::FireExecute(serverType, nEventID, bySrcType, nSrcID, *pMessage);
+        }
+    }
 }
 
 void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaData)
@@ -989,7 +993,10 @@ bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint3
 
     if (m_eventTemplate.Subscribe(pData, skey, strLuaFunc))
     {
-        return true;
+        if (NFIDynamicModule::Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc))
+        {
+            return true;
+        }
     }
 
     return false;
