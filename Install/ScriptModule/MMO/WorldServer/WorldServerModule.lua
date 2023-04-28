@@ -1,8 +1,13 @@
 WorldServerModule = {}
 WorldServerModule.serverIdMap = {}
 function WorldServerModule.Init()
-    --LuaNFrame.RegisterServerMessage(NF_ST_WORLD_SERVER,  "NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ",  WorldServerModule.HandleMsg, true)
-    --LuaNFrame.AddRpcService(NF_ST_WORLD_SERVER, "NF_RPC_SERVICE_GET_SERVER_INFO_REQ", "proto_ff.RpcRequestGetServerInfo", "proto_ff.ServerInfoReport", WorldServerModule.OnRpcServiceGetServerInfo)
+    LuaNFrame.RegisterServerMessage(NF_ST_WORLD_SERVER,  "NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ",  WorldServerModule.HandleMsg, true)
+    LuaNFrame.AddRpcService(NF_ST_WORLD_SERVER, "NF_RPC_SERVICE_GET_SERVER_INFO_REQ", "proto_ff.RpcRequestGetServerInfo", "proto_ff.ServerInfoReport", WorldServerModule.OnRpcServiceGetServerInfo)
+    LuaNFrame.Subscribe(NF_ST_WORLD_SERVER,  1000,  100,  0,  "WorldServerModule.EventHandle",  WorldServerModule.EventHandle);
+end
+
+function WorldServerModule.EventHandle(serverType, nEventID, bySrcType, nSrcID, message)
+    LuaNFrame.Info(NF_LOG_SYSTEMLOG, 0, "serverType:{} nEventID:{} bySrcType:{}, nSrcID:{}, msg:{}", serverType, nEventID, bySrcType, nSrcID, message);
 end
 
 function WorldServerModule.HandleMsg(msgId, packet, param1, param2)
@@ -27,6 +32,7 @@ function WorldServerModule.HandleMsg(msgId, packet, param1, param2)
     xData.server_name = pServerConfig:GetServerName()
     LuaNFrame.SendMsgToLogicServer(NF_ST_WORLD_SERVER,  packet:GetSrcId(), 0,"NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ", "proto_ff.Proto_TestOtherServerToWorldServer", xData, 3, 4);
 
+    LuaNFrame.FireExecute(NF_ST_WORLD_SERVER,  1000,  100,  111,  "proto_ff.Proto_TestSendWorldMsgToOtherServer")
 end
 
 function WorldServerModule.OnRpcServiceGetServerInfo(request, respone)

@@ -398,7 +398,7 @@ void NFCBusMessage::SendHeartMsg()
     auto pConn = m_busConnectMap.First();
     while (pConn)
     {
-        if (pConn->IsActivityConnect() && pConn->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT && pConn->IsConnected())
+        if (pConn->IsActivityConnect() && pConn->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
         {
             pConn->SendBusHeartBeatMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
         }
@@ -418,7 +418,7 @@ void NFCBusMessage::CheckServerHeartBeat()
             {
                 //debug 30min
 #ifdef NF_DEBUG_MODE
-                if (pConn->GetLastHeartBeatTime() > 0 && nowTime - pConn->GetLastHeartBeatTime() > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
+                if (pConn->GetLastHeartBeatTime() > 0 && nowTime - pConn->GetLastHeartBeatTime() > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20 * 60)
                 {
                     pConn->CloseLinkId();
 
@@ -443,7 +443,7 @@ void NFCBusMessage::CheckServerHeartBeat()
             }
             else {
 #ifdef NF_DEBUG_MODE
-                if (pConn->GetLastHeartBeatTime() > 0 && nowTime - pConn->GetLastHeartBeatTime() > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
+                if (pConn->GetLastHeartBeatTime() > 0 && nowTime - pConn->GetLastHeartBeatTime() > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20 * 60)
                 {
                     pConn->CloseLinkId();
 

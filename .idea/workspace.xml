@@ -58,10 +58,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="lua event">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaEvent.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaEvent.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/MMO/WorldServer/WorldServerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/MMO/WorldServer/WorldServerModule.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusMessage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Evpp/NFEvppNetMessage.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Evpp/NFEvppNetMessage.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -703,14 +704,7 @@
       <workItem from="1681951932417" duration="1413000" />
       <workItem from="1681959929567" duration="707000" />
       <workItem from="1681970219214" duration="5375000" />
-      <workItem from="1682642708109" duration="14447000" />
-    </task>
-    <task id="LOCAL-00620" summary="rpc service">
-      <created>1681299147418</created>
-      <option name="number" value="00620" />
-      <option name="presentableId" value="LOCAL-00620" />
-      <option name="project" value="LOCAL" />
-      <updated>1681299147418</updated>
+      <workItem from="1682642708109" duration="17131000" />
     </task>
     <task id="LOCAL-00621" summary="rpc service">
       <created>1681299473817</created>
@@ -1048,7 +1042,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682654103203</updated>
     </task>
-    <option name="localTasksCounter" value="669" />
+    <task id="LOCAL-00669" summary="lua event">
+      <created>1682666019795</created>
+      <option name="number" value="00669" />
+      <option name="presentableId" value="LOCAL-00669" />
+      <option name="project" value="LOCAL" />
+      <updated>1682666019795</updated>
+    </task>
+    <option name="localTasksCounter" value="670" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1300,6 +1301,53 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
+          <line>980</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
+          <line>940</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
+          <line>923</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
+          <line>50</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
+          <line>45</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
+          <line>59</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
+          <line>64</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp</url>
+          <line>509</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp</url>
+          <line>948</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">

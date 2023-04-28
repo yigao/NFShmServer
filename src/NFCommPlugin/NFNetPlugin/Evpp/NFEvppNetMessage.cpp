@@ -1030,7 +1030,7 @@ void NFEvppNetMessage::CheckServerHeartBeat()
 		{
 		    //debug 30min
 #ifdef NF_DEBUG_MODE
-			if (pObject->mLastHeartBeatTime > 0 && nowTime - pObject->mLastHeartBeatTime > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 30 * 60)
+			if (pObject->mLastHeartBeatTime > 0 && nowTime - pObject->mLastHeartBeatTime > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20 * 60)
 			{
 				pObject->CloseObject();
 			}
