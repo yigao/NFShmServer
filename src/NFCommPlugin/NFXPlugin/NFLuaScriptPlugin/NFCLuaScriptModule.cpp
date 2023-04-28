@@ -979,6 +979,50 @@ void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uin
     }
 }
 
+//取消订阅执行事件
+bool NFCLuaScriptModule::UnSubscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc)
+{
+    SEventKey skey;
+    skey.nServerType = serverType;
+    skey.nEventID = nEventID;
+    skey.bySrcType = bySrcType;
+    skey.nSrcID = nSrcID;
+
+    auto iter = m_luaEventMap.find(luaFunc);
+    if (iter != m_luaEventMap.end())
+    {
+        auto key_iter = iter->second.find(skey);
+        if (key_iter != iter->second.end())
+        {
+            if (m_eventTemplate.UnSubscribe(key_iter->second, key_iter->first))
+            {
+                m_luaEventPool->FreeObj(key_iter->second);
+                iter->second.erase(key_iter->first);
+            }
+            NFIDynamicModule::UnSubscribe(serverType, nEventID, bySrcType, nSrcID);
+        }
+    }
+
+    return true;
+}
+
+bool  NFCLuaScriptModule::UnSubscribeAll(const NFLuaRef &luaFunc)
+{
+    auto iter = m_luaEventMap.find(luaFunc);
+    if (iter != m_luaEventMap.end())
+    {
+        for(auto key_iter = iter->second.begin(); key_iter != iter->second.end(); key_iter++)
+        {
+            if (m_eventTemplate.UnSubscribeAll(key_iter->second))
+            {
+                m_luaEventPool->FreeObj(key_iter->second);
+                NFIDynamicModule::UnSubscribe(key_iter->first.nServerType, key_iter->first.nEventID, key_iter->first.bySrcType, key_iter->first.nSrcID);
+                iter->second.erase(key_iter->first);
+            }
+        }
+    }
+}
+
 bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const string &strLuaFunc,
                                    const NFLuaRef &luaFunc)
 {
@@ -993,10 +1037,19 @@ bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint3
 
     if (m_eventTemplate.Subscribe(pData, skey, strLuaFunc))
     {
+        m_luaEventMap[luaFunc].emplace(skey, pData);
         if (NFIDynamicModule::Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc))
         {
             return true;
         }
+        else {
+            m_luaEventMap[luaFunc].erase(skey);
+            m_eventTemplate.UnSubscribe(pData, skey);
+            m_luaEventPool->FreeObj(pData);
+        }
+    }
+    else {
+        m_luaEventPool->FreeObj(pData);
     }
 
     return false;

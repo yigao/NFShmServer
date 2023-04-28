@@ -423,6 +423,11 @@ public:
     virtual bool
     Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc, const NFLuaRef &luaFunc);
 
+    //取消订阅执行事件
+    virtual bool UnSubscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc);
+
+    //取消所有执行事件的订阅
+    virtual bool UnSubscribeAll(const NFLuaRef &luaFunc);
 public:
     virtual const std::string &GetAppName() const;
 
@@ -519,6 +524,7 @@ protected:
     NFObjectPool<NFLuaTimer> *m_luaTimerPool;
     uint32_t m_luaTimerIndex;
 protected:
+    std::map<NFLuaRef, std::unordered_map<SEventKey, NFLuaEventObj*>> m_luaEventMap;
     NFObjectPool<NFLuaEventObj> *m_luaEventPool;
     NFEventTemplate<NFLuaEventObj, SEventKey> m_eventTemplate;
 protected:
