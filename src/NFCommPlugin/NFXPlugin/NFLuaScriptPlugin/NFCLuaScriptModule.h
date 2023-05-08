@@ -58,7 +58,7 @@ public:
     }
 
     uint32_t mTimerId;
-    LuaIntf::LuaRef mLuaFunc;
+    std::string m_strLuaFunc;
     uint64_t mInterVal;
     uint32_t mCallCount;
     uint32_t mCurCallCount;
@@ -277,10 +277,10 @@ public:
     virtual void RunGmFunction(const std::string &luaFunc, const std::vector<std::string> &vecStr) override;
 
 public:
-    virtual uint32_t AddTimer(const LuaIntf::LuaRef &luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef &dataStr);
+    virtual uint32_t AddTimer(const std::string &strLuaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef &dataStr);
 
     virtual uint32_t
-    AddClocker(const LuaIntf::LuaRef &luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef &dataStr);
+    AddClocker(const std::string &strLuaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef &dataStr);
 
     virtual void StopTimer(uint32_t nTimerID);
 

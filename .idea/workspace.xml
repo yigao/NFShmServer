@@ -59,14 +59,14 @@
     <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="lua event">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/CPPNFrame.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaEvent.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaEvent.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaMessage.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaNFrame.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaNFrame.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/MMO/WorldServer/WorldServerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/MMO/WorldServer/WorldServerModule.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaTimer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/LuaNFrame/LuaTimer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/MMO/LogicServer/LogicServerModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/MMO/LogicServer/LogicServerModule.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/MMO/ProxyServer/ProxyPlayerrModule.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/MMO/ProxyServer/ProxyPlayerrModule.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/ScriptModule/init.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/ScriptModule/init.lua" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFCLuaScriptModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/NFCLuaScriptComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFXPlugin/NFLuaThreadScriptPlugin/NFCLuaScriptComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -706,14 +706,7 @@
       <workItem from="1682642708109" duration="21825000" />
       <workItem from="1683506777648" duration="325000" />
       <workItem from="1683507150399" duration="72000" />
-      <workItem from="1683507234342" duration="15143000" />
-    </task>
-    <task id="LOCAL-00624" summary="rpc service">
-      <created>1681300268888</created>
-      <option name="number" value="00624" />
-      <option name="presentableId" value="LOCAL-00624" />
-      <option name="project" value="LOCAL" />
-      <updated>1681300268888</updated>
+      <workItem from="1683507234342" duration="18566000" />
     </task>
     <task id="LOCAL-00625" summary="rpc service">
       <created>1681300536351</created>
@@ -1051,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682673360333</updated>
     </task>
-    <option name="localTasksCounter" value="673" />
+    <task id="LOCAL-00673" summary="lua event">
+      <created>1683536753376</created>
+      <option name="number" value="00673" />
+      <option name="presentableId" value="LOCAL-00673" />
+      <option name="project" value="LOCAL" />
+      <updated>1683536753376</updated>
+    </task>
+    <option name="localTasksCounter" value="674" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

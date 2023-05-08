@@ -93,7 +93,7 @@ function LuaNFrame.InitScript(luaModule)
 		--加载应用程序的Lua  Module
 		LuaNFrame.load_script_file()
 		LuaNFrame.LoadPbFile("../../ScriptModule/CommonProto/proto_server.proto.ds")
-		LuaNFrame.AddTimerMSec(LuaNFrame.Execute,  100)
+		LuaNFrame.AddTimerMSec("LuaNFrame.Execute",  100)
 
 		--启动垃圾回收
 		collectgarbage("setpause",100)

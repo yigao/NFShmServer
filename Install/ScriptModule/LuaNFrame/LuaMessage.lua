@@ -780,7 +780,7 @@ function LuaNFrame.GetServerLinkId(serverType)
 end
 
 --添加连接事件，掉线事件的处理函数
-function  LuaNFrame.AddEventCallBack(serverType, linkId,  luaFunc, createCo)
+function  LuaNFrame.AddEventCallBack(serverType, linkId,  strLuaFunc, createCo)
 	if type(serverType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
 		return
@@ -791,8 +791,14 @@ function  LuaNFrame.AddEventCallBack(serverType, linkId,  luaFunc, createCo)
 		return
     end
 
+	if type(strLuaFunc) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+    end
+
+	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
 	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
 		return
     end
 
@@ -800,11 +806,11 @@ function  LuaNFrame.AddEventCallBack(serverType, linkId,  luaFunc, createCo)
 		createCo = false
     end
 
-    return CPPNFrame:AddEventCallBack(serverType, linkId,  luaFunc, createCo)
+    return CPPNFrame:AddEventCallBack(serverType, linkId,  strLuaFunc, createCo)
 end
 
 --未没有注册过的消息，添加一个统一处理的回调函数
-function  LuaNFrame.AddOtherCallBack(serverType, linkId, luaFunc, createCo)
+function  LuaNFrame.AddOtherCallBack(serverType, linkId, strLuaFunc, createCo)
 	if type(serverType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
 		return
@@ -815,8 +821,14 @@ function  LuaNFrame.AddOtherCallBack(serverType, linkId, luaFunc, createCo)
 		return
     end
 
+	if type(strLuaFunc) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+    end
+
+	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
 	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
 		return
     end
 
@@ -824,11 +836,11 @@ function  LuaNFrame.AddOtherCallBack(serverType, linkId, luaFunc, createCo)
 		createCo = false
     end
 
-    return CPPNFrame:AddOtherCallBack(serverType, linkId, luaFunc, createCo)
+    return CPPNFrame:AddOtherCallBack(serverType, linkId, strLuaFunc, createCo)
 end
  
 --对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
-function  LuaNFrame.AddAllMsgCallBack(serverType, luaFunc, createCo)
+function  LuaNFrame.AddAllMsgCallBack(serverType, strLuaFunc, createCo)
 	if type(serverType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
 		return
@@ -839,8 +851,14 @@ function  LuaNFrame.AddAllMsgCallBack(serverType, luaFunc, createCo)
 		return
     end
 
+	if type(strLuaFunc) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+    end
+
+	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
 	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
 		return
     end
 
@@ -848,7 +866,7 @@ function  LuaNFrame.AddAllMsgCallBack(serverType, luaFunc, createCo)
 		createCo = false
     end
 
-    return CPPNFrame:AddAllMsgCallBack(serverType, luaFunc, createCo)
+    return CPPNFrame:AddAllMsgCallBack(serverType, strLuaFunc, createCo)
 end
 
 function LuaNFrame.DispatchSocketEvent(luaFunc,  strLuaFunc, nEvent, unLinkId)

@@ -1,40 +1,58 @@
 --添加服务器秒定时器
-function LuaNFrame.AddTimer(luaFunc, nInterValSec, nCallCount, dataStr)
-    if nInterValSec == nil or type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddTimer Para Error")
+function LuaNFrame.AddTimer(strLuaFunc, nInterValSec, nCallCount, dataStr)
+	if type(strLuaFunc) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+	end
+
+	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+	if type(luaFunc) ~= "function" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
+		return
+	end
+
+    if nInterValSec == nil then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nInterValSec Para Error")
 		return
 	end
 
     if nCallCount == nil then
 		nCallCount = 0;
 	elseif type(nCallCount) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddTimer Para Error:nCallCount is not number")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nCallCount is not number")
 		return
 	end
 
-	return CPPNFrame:AddTimer(luaFunc, nInterValSec*1000, nCallCount, dataStr)
+	return CPPNFrame:AddTimer(strLuaFunc, nInterValSec*1000, nCallCount, dataStr)
 end
 
 --每嗝1毫秒的定时器示例, 300ms执行testtimer函数一次,总共执行5此
 --LuaNFrame.addtimermsec("testtimer",300, 5)
-function LuaNFrame.AddTimerMSec(luaFunc, nInterValMSec, nCallCount, dataStr)
-	if nInterValMSec == nil or type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddTimerMSec Para Error")
+function LuaNFrame.AddTimerMSec(strLuaFunc, nInterValMSec, nCallCount, dataStr)
+	if type(strLuaFunc) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+	end
+
+	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+	if type(luaFunc) ~= "function" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
+		return
+	end
+
+	if type(nInterValMSec) ~= "number" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nInterValMSec Para Error")
 		return
     end
 
-    if nCallCount == nil then
-        nCallCount = 0;
-	end
-	
 	if nCallCount == nil then
 		nCallCount = 0;
 	elseif type(nCallCount) ~= "number" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "AddTimerMsec Para Error:nCallCount is not number")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nCallCount is not number")
 		return
 	end
 
-	return CPPNFrame:AddTimer(luaFunc, nInterValMSec, nCallCount, dataStr)
+	return CPPNFrame:AddTimer(strLuaFunc, nInterValMSec, nCallCount, dataStr)
 end
 
 
@@ -86,15 +104,15 @@ function LuaNFrame.AddClocker(luaFunc, sec, intervalSec, nCallCount, dataStr)
 end
 
 --执行定时函数
-function LuaNFrame.DispatchTimer(timeId, luaFunc, dataStr)
+function LuaNFrame.DispatchTimer(timeId, luaFunc, strLuaFunc, callCount, dataStr)
 	local function timerExecute()
-		luaFunc(timeId, dataStr)
+		luaFunc(timeId, callCount, dataStr)
 	end
 	
 	local status, msg = xpcall (timerExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchTimer error, func:"..__G__FUNCTION__(luaFunc).." param:"..tostring(dataStr), msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchTimer error, strLuaFunc:"..strLuaFunc.." timeId:"..timeId.." callCount:"..callCount.." param:"..tostring(dataStr), msg)
     end
 end
 

@@ -91,7 +91,10 @@ NFCLuaScriptModule::~NFCLuaScriptModule()
 int NFLuaTimer::OnTimer(uint32_t nTimerID)
 {
     mCurCallCount++;
-    m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimer", nTimerID, mLuaFunc, mDataStr);
+    LuaIntf::LuaRef luaFunc = m_pLuaScriptModule->GetGlobal(m_strLuaFunc);
+    CHECK_EXPR(luaFunc.isFunction(), -1, "strLuaFunc:{} is not function", m_strLuaFunc);
+
+    m_pLuaScriptModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchTimer", nTimerID, luaFunc, m_strLuaFunc, mCurCallCount, mDataStr);
     return 0;
 }
 
@@ -444,11 +447,13 @@ void NFCLuaScriptModule::StopClocker(uint32_t nTimerID)
     StopTimer(nTimerID);
 }
 
-uint32_t NFCLuaScriptModule::AddTimer(const LuaIntf::LuaRef &luaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef &dataStr)
+uint32_t NFCLuaScriptModule::AddTimer(const std::string &strLuaFunc, uint64_t nInterVal, uint32_t nCallCount, const NFLuaRef &dataStr)
 {
+    LuaIntf::LuaRef luaFunc = GetGlobal(strLuaFunc);
+    CHECK_EXPR(luaFunc.isFunction(), -1, "strLuaFunc:{} is not function", strLuaFunc);
     NFLuaTimer *luaTimer = m_luaTimerPool->MallocObjWithArgs(this, m_pObjPluginManager);
 
-    luaTimer->mLuaFunc = luaFunc;
+    luaTimer->m_strLuaFunc = strLuaFunc;
     luaTimer->mInterVal = nInterVal;
     luaTimer->mDataStr = dataStr;
 
@@ -471,11 +476,14 @@ uint32_t NFCLuaScriptModule::AddTimer(const LuaIntf::LuaRef &luaFunc, uint64_t n
 }
 
 uint32_t
-NFCLuaScriptModule::AddClocker(const LuaIntf::LuaRef &luaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef &dataStr)
+NFCLuaScriptModule::AddClocker(const std::string &strLuaFunc, uint64_t nStartTime, uint32_t nInterDays, uint32_t nCallCount, const NFLuaRef &dataStr)
 {
+    LuaIntf::LuaRef luaFunc = GetGlobal(strLuaFunc);
+    CHECK_EXPR(luaFunc.isFunction(), -1, "strLuaFunc:{} is not function", strLuaFunc);
+
     NFLuaTimer *luaTimer = m_luaTimerPool->MallocObjWithArgs(this, m_pObjPluginManager);
 
-    luaTimer->mLuaFunc = luaFunc;
+    luaTimer->m_strLuaFunc = strLuaFunc;
     luaTimer->mDataStr = dataStr;
 
     if (nCallCount == 0)

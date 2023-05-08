@@ -271,18 +271,18 @@ function CPPNFrame:GetServerLinkId(serverType)
 end
 
 --添加连接事件，掉线事件的处理函数
-function  CPPNFrame:AddEventCallBack(serverType, linkId,  luaFunc, createCo)
-    return self.luaModule:AddEventCallBack(serverType, linkId,  luaFunc, createCo)
+function  CPPNFrame:AddEventCallBack(serverType, linkId,  strLuaFunc, createCo)
+    return self.luaModule:AddEventCallBack(serverType, linkId,  strLuaFunc, createCo)
 end
 
 --未没有注册过的消息，添加一个统一处理的回调函数
-function  CPPNFrame:AddOtherCallBack(serverType, linkId, luaFunc, createCo)
-    return self.luaModule:AddOtherCallBack(serverType, linkId, luaFunc, createCo)
+function  CPPNFrame:AddOtherCallBack(serverType, linkId, strLuaFunc, createCo)
+    return self.luaModule:AddOtherCallBack(serverType, linkId, strLuaFunc, createCo)
 end
  
 --对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
-function  CPPNFrame:AddAllMsgCallBack(serverType, luaFunc, createCo)
-    return self.luaModule:AddAllMsgCallBack(serverType, luaFunc, createCo)
+function  CPPNFrame:AddAllMsgCallBack(serverType, strLuaFunc, createCo)
+    return self.luaModule:AddAllMsgCallBack(serverType, strLuaFunc, createCo)
 end
 
 --执行函数, 函数被字符串表达出来
