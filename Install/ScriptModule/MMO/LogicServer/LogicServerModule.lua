@@ -2,7 +2,7 @@ LogicServerModule = {}
 LogicServerModule.serverIdMap = {}
 function LogicServerModule.Init()
     LuaNFrame.RegisterServerMessage(NF_ST_LOGIC_SERVER,  "NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ",  "LogicServerModule.HandleMsg", true)
-    LuaNFrame.AddTimer("LogicServerModule.UpdateMsg",  10)
+    LuaNFrame.AddTimer("LogicServerModule.UpdateMsg",  1)
 end
 
 LogicServerModule.cur_seq = 0 
