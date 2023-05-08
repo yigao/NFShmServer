@@ -15,16 +15,12 @@
 
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFComm/NFPluginModule/NFILuaScriptModule.h"
-#include "NFComm/NFPluginModule/NFIScriptModule.h"
 
 #include "NFComm/NFPluginModule/NFILuaLoader.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFHash.hpp"
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
-#include "NFComm/NFPluginModule/NFIHttpClientModule.h"
-#include "NFComm/NFPluginModule/NFIHttpServerModule.h"
-#include "NFComm/NFPluginModule/NFIServerNetEventModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFCLuaThreadModule.h"
 
@@ -75,15 +71,9 @@ public:
 		m_param = param;
 		m_taskName = "WorkTask_Load";
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		m_pLuaThreadModule->AddFinishLoad();
@@ -109,15 +99,9 @@ public:
 		}
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -137,15 +121,9 @@ public:
 
 		m_taskName = "ServerLoopTask_Load";
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess();
 public:
 	std::string m_param;
@@ -160,15 +138,9 @@ public:
 		m_param = param;
 		m_taskName = "ServerLoopTask_init";
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess();
 public:
 	std::string m_param;
@@ -184,15 +156,9 @@ public:
 		m_taskName = "ServerLoopTask_" + param;
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess();
 public:
 	std::string m_param;
@@ -213,15 +179,9 @@ public:
 		}
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -246,15 +206,9 @@ public:
 		}
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -275,15 +229,9 @@ public:
 		m_taskName = "ProcessLoopTimerTask_" + luaFunc;
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -309,15 +257,8 @@ public:
 		m_taskName = "TcpMsgTask_Load";
 	}
 
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		m_pLuaThreadModule->AddFinishLoad();
@@ -349,15 +290,8 @@ public:
 		m_needManThreadProcess = false;
 	}
 
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -390,15 +324,8 @@ public:
 		m_needManThreadProcess = false;
 	}
 
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -428,15 +355,9 @@ public:
 		m_taskName = "HttpMsgTask_" + luaFunc + "_" + firstPath + "_" + secondPath;
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -460,15 +381,8 @@ public:
 		m_taskName = "HotfixAllLua";
 	}
 
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess();
 public:
 	std::vector<std::string> m_vecLuaFile;
@@ -485,15 +399,8 @@ public:
 		m_needManThreadProcess = false;
 	}
 
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -511,24 +418,15 @@ public:
 		m_taskName = "LuaGC";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 };
 
-/**
-**  ���߳�ִ�У�ÿһ����ִ��һ���������
-*/
 class NFLuaMinActorTask : public NFLuaThreadTask
 {
 public:
@@ -538,24 +436,15 @@ public:
 		m_taskName = "LuaMinTask";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 };
 
-/**
-**  ���߳�ִ�У�ÿ5����ִ��һ���������
-*/
 class NFLua5MinActorTask : public NFLuaThreadTask
 {
 public:
@@ -565,24 +454,15 @@ public:
 		m_taskName = "Lua5MinTask";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 };
 
-/**
-**  ���߳�ִ�У�ÿ10����ִ��һ���������
-*/
 class NFLua10MinActorTask : public NFLuaThreadTask
 {
 public:
@@ -592,24 +472,15 @@ public:
 		m_taskName = "Lua10MinTask";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 };
 
-/**
-**  ���߳�ִ�У�ÿ30����ִ��һ���������
-*/
 class NFLua30MinActorTask : public NFLuaThreadTask
 {
 public:
@@ -619,24 +490,15 @@ public:
 		m_taskName = "Lua30MinTask";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 };
 
-/**
-**  ���߳�ִ�У�ÿһСʱִ��һ���������
-*/
 class NFLuaHourActorTask : public NFLuaThreadTask
 {
 public:
@@ -646,24 +508,15 @@ public:
 		m_taskName = "LuaHourTask";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 };
 
-/**
-**  ���߳�ִ�У�ÿһ��ִ��һ���������
-*/
 class NFLuaDayActorTask : public NFLuaThreadTask
 {
 public:
@@ -673,24 +526,15 @@ public:
 		m_taskName = "LuaDayTask";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 };
 
-/**
-**  ���߳�ִ�У�ÿһ��ִ��һ���������
-*/
 class NFLuaWeekActorTask : public NFLuaThreadTask
 {
 public:
@@ -700,24 +544,15 @@ public:
 		m_taskName = "LuaWeekTask";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
 	}
 };
 
-/**
-**   ���߳�ִ�У�ÿһ��ִ��һ���������
-*/
 class NFLuaMonthActorTask : public NFLuaThreadTask
 {
 public:
@@ -727,15 +562,9 @@ public:
 		m_taskName = "LuaMonthTask";
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -752,15 +581,9 @@ public:
 		m_playerId = playerId;
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -780,15 +603,9 @@ public:
 		m_ip = ip;
 		m_needManThreadProcess = false;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;
@@ -808,15 +625,9 @@ public:
 		m_luaFunction = luaFunction;
 		m_vecParams = vecParams;
 	}
-	/**
-	**  �첽�̴߳�������������һ���߳�������
-	*/
+
 	virtual bool ThreadProcess();
 
-	/**
-	** ���̴߳������������̴߳�������ύ���������������ݷ��غ����Ƿ��������
-		����ֵ�� thread::TPTask::TPTaskState�� ��ο�TPTaskState
-	*/
 	virtual TPTaskState MainThreadProcess()
 	{
 		return TPTASK_STATE_COMPLETED;

@@ -61,7 +61,7 @@ function LuaNFrame.FireExecute(serverType, nEventID, bySrcType, nSrcID, luaData)
     CPPNFrame:FireExecute(serverType, nEventID, bySrcType, nSrcID, luaData)
 end
 
-function LuaNFrame.Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc, luaFunc)
+function LuaNFrame.Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc)
     if type(serverType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "serverType Para Error")
 		return
@@ -82,20 +82,20 @@ function LuaNFrame.Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc
 		return
     end
 
+	if LuaNFrame.IsLuaFunction(strLuaFunc) ~= true then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+    end
+	
     if type(nSrcID) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nEventID Para Error")
 		return
     end
 
-    if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
-		return
-    end
-
-    CPPNFrame:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc, luaFunc)
+    CPPNFrame:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc)
 end
 
-function LuaNFrame.DispatchEvent(luaFunc,  serverType, nEventID, bySrcType, nSrcID, message)
+function LuaNFrame.DispatchEvent(luaFunc, strLuaFunc,  serverType, nEventID, bySrcType, nSrcID, message)
 	local function TcpExecute()
 		luaFunc(serverType, nEventID, bySrcType, nSrcID, message)
 	end
@@ -103,11 +103,11 @@ function LuaNFrame.DispatchEvent(luaFunc,  serverType, nEventID, bySrcType, nSrc
 	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchEvent error, serverType:"..serverType.." nEventID:"..nEventID.." bySrcType"..bySrcType.." nSrcID:"..nSrcID, msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchEvent error, strLuaFunc:"..strLuaFunc.." serverType:"..serverType.." nEventID:"..nEventID.." bySrcType"..bySrcType.." nSrcID:"..nSrcID, msg)
     end
 end
 
-function LuaNFrame.DispatchEventStrMsg(luaFunc,  serverType, nEventID, bySrcType, nSrcID, msgType, msgData)
+function LuaNFrame.DispatchEventStrMsg(luaFunc, strLuaFunc,  serverType, nEventID, bySrcType, nSrcID, msgType, msgData)
 	local function TcpExecute()
         local reqMsg = LuaNFrame.Decode(msgType, msgData)
         if reqMsg ~= nil then
@@ -118,7 +118,7 @@ function LuaNFrame.DispatchEventStrMsg(luaFunc,  serverType, nEventID, bySrcType
 	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchEvent error, serverType:"..serverType.." nEventID:"..nEventID.." bySrcType"..bySrcType.." nSrcID:"..nSrcID.." msgType:"..msgType, msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchEvent error, strLuaFunc:"..strLuaFunc.." serverType:"..serverType.." nEventID:"..nEventID.." bySrcType"..bySrcType.." nSrcID:"..nSrcID.." msgType:"..msgType, msg)
     end
 end
 ----------------------------------------event system---------------------------------------------------------------------------------------------------------------

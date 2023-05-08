@@ -74,7 +74,7 @@ struct NetLuaReceiveFunctor
     {
     }
 
-    NetLuaReceiveFunctor(const LuaIntf::LuaRef &luaFunc) : m_luaFunc(luaFunc)
+    NetLuaReceiveFunctor(const std::string &luaFunc) : m_strLuaFunc(luaFunc)
     {
 
     }
@@ -83,7 +83,7 @@ struct NetLuaReceiveFunctor
     {
         if (this != &functor)
         {
-            m_luaFunc = functor.m_luaFunc;
+            m_strLuaFunc = functor.m_strLuaFunc;
         }
     }
 
@@ -91,13 +91,13 @@ struct NetLuaReceiveFunctor
     {
         if (this != &functor)
         {
-            m_luaFunc = functor.m_luaFunc;
+            m_strLuaFunc = functor.m_strLuaFunc;
         }
 
         return *this;
     }
 
-    LuaIntf::LuaRef m_luaFunc;
+    std::string m_strLuaFunc;
 };
 
 struct NetLuaEventFunctor
@@ -106,7 +106,7 @@ struct NetLuaEventFunctor
     {
     }
 
-    NetLuaEventFunctor(const LuaIntf::LuaRef &luaFunc) : m_luaFunc(luaFunc)
+    NetLuaEventFunctor(const std::string &luaFunc) : m_strLuaFunc(luaFunc)
     {
     }
 
@@ -114,7 +114,7 @@ struct NetLuaEventFunctor
     {
         if (this != &functor)
         {
-            m_luaFunc = functor.m_luaFunc;
+            m_strLuaFunc = functor.m_strLuaFunc;
         }
     }
 
@@ -122,13 +122,13 @@ struct NetLuaEventFunctor
     {
         if (this != &functor)
         {
-            m_luaFunc = functor.m_luaFunc;
+            m_strLuaFunc = functor.m_strLuaFunc;
         }
 
         return *this;
     }
 
-    LuaIntf::LuaRef m_luaFunc;
+    std::string m_strLuaFunc;
 };
 
 struct NetLuaRpcService
@@ -138,7 +138,7 @@ struct NetLuaRpcService
 
     }
 
-    NetLuaRpcService(const LuaIntf::LuaRef &luaFunc) : m_luaFunc(luaFunc)
+    NetLuaRpcService(const std::string &luaFunc) : m_strLuaFunc(luaFunc)
     {
 
     }
@@ -147,7 +147,7 @@ struct NetLuaRpcService
     {
         if (this != &functor)
         {
-            m_luaFunc = functor.m_luaFunc;
+            m_strLuaFunc = functor.m_strLuaFunc;
         }
     }
 
@@ -155,13 +155,13 @@ struct NetLuaRpcService
     {
         if (this != &functor)
         {
-            m_luaFunc = functor.m_luaFunc;
+            m_strLuaFunc = functor.m_strLuaFunc;
         }
 
         return *this;
     }
 
-    LuaIntf::LuaRef m_luaFunc;
+    std::string m_strLuaFunc;
 };
 
 struct LuaCallBack
@@ -242,7 +242,7 @@ public:
 
     int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& msgType, const std::string& msgData);
 public:
-    NFLuaRef m_luaFunc;
+    std::string m_strLuaFunc;
     NFCLuaScriptModule* m_pModule;
 };
 
@@ -296,7 +296,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc, bool createCo = false);
+    virtual bool RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const std::string &strLuaFunc, bool createCo = false);
 
     /**
      * @brief 注册服务器信息处理函数
@@ -304,7 +304,7 @@ public:
      * @param nMsgID
      * @return
      */
-    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc, bool createCo = false);
+    virtual bool RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const std::string &strLuaFunc, bool createCo = false);
 
     /**
      * @brief 处理客户端消息
@@ -326,17 +326,17 @@ public:
     /*
      * 添加连接事件，掉线事件的处理函数
      * */
-    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const LuaIntf::LuaRef &luaFunc, bool createCo = false);
+    virtual bool AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const std::string &strLuaFunc, bool createCo = false);
 
     /*
      * 未没有注册过的消息，添加一个统一处理的回调函数
      * */
-    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const LuaIntf::LuaRef &luaFunc, bool createCo);
+    virtual bool AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const std::string &strLuaFunc, bool createCo);
 
     /*
     * 对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
     * */
-    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, const LuaIntf::LuaRef &luaFunc, bool createCo);
+    virtual bool AddAllMsgCallBack(NF_SERVER_TYPES eType, const std::string &strLuaFunc, bool createCo);
 
 public:
     /*
@@ -402,7 +402,7 @@ public:
 
 public:
     virtual bool AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
-                               const LuaIntf::LuaRef &luaFunc, bool createCo = false);
+                               const std::string &strLuaFunc, bool createCo = false);
 
     virtual std::tuple<std::string, int>
     GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
@@ -421,13 +421,13 @@ public:
     virtual void FireExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc);
 
     virtual bool
-    Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc, const NFLuaRef &luaFunc);
+    Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc);
 
     //取消订阅执行事件
-    virtual bool UnSubscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc);
+    virtual bool UnSubscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc);
 
     //取消所有执行事件的订阅
-    virtual bool UnSubscribeAll(const NFLuaRef &luaFunc);
+    virtual bool UnSubscribeAll(const std::string &strLuaFunc);
 public:
     virtual const std::string &GetAppName() const;
 
@@ -496,6 +496,8 @@ public:
 
     virtual uint64_t GetServerLinkId(uint32_t serverType);
 
+    virtual bool IsLuaFunction(const std::string& strLuaFunc);
+    virtual LuaIntf::LuaRef GetLuaData(const std::string& strLuaFunc);
 public:
     bool Register();
 
@@ -524,7 +526,7 @@ protected:
     NFObjectPool<NFLuaTimer> *m_luaTimerPool;
     uint32_t m_luaTimerIndex;
 protected:
-    std::map<NFLuaRef, std::unordered_map<SEventKey, NFLuaEventObj*>> m_luaEventMap;
+    std::unordered_map<std::string, std::unordered_map<SEventKey, NFLuaEventObj*>> m_luaEventMap;
     NFObjectPool<NFLuaEventObj> *m_luaEventPool;
     NFEventTemplate<NFLuaEventObj, SEventKey> m_eventTemplate;
 protected:

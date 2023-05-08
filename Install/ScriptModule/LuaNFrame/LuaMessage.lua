@@ -4,14 +4,20 @@ eMsgType_DISCONNECTED = 2
 eMsgType_RECIVEDATA = 3
 eMsgType_SENDBUFFER = 4
 
-function LuaNFrame.RegisterClientMessage(eServerType, nMsgID, luaFunc, createCo)
+function LuaNFrame.RegisterClientMessage(eServerType, nMsgID,  strLuaFunc, createCo)
 	if type(eServerType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
 		return
     end
 
+	if type(strLuaFunc) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+    end
+
+	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
 	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
 		return
     end
 
@@ -25,10 +31,10 @@ function LuaNFrame.RegisterClientMessage(eServerType, nMsgID, luaFunc, createCo)
 		createCo = false
 	end
     
-	CPPNFrame:RegisterClientMessage(eServerType, nMsgID, luaFunc, createCo)
+	CPPNFrame:RegisterClientMessage(eServerType, nMsgID, strLuaFunc, createCo)
 end
 
-function LuaNFrame.RegisterServerMessage(eServerType, nMsgID, luaFunc, createCo)
+function LuaNFrame.RegisterServerMessage(eServerType, nMsgID, strLuaFunc, createCo)
 	if type(eServerType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
 		return
@@ -40,8 +46,14 @@ function LuaNFrame.RegisterServerMessage(eServerType, nMsgID, luaFunc, createCo)
 		return
     end
 
+	if type(strLuaFunc) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+    end
+
+	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
 	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
 		return
     end
 
@@ -49,11 +61,11 @@ function LuaNFrame.RegisterServerMessage(eServerType, nMsgID, luaFunc, createCo)
 		createCo = false
 	end
 	
-	CPPNFrame:RegisterServerMessage(eServerType, nMsgID, luaFunc, createCo)
+	CPPNFrame:RegisterServerMessage(eServerType, nMsgID, strLuaFunc, createCo)
 end
 
 --执行服务器协议处理函数
-function LuaNFrame.DispatchMessage(luaFunc, msgId, packet, param1, param2)
+function LuaNFrame.DispatchClientMessage(luaFunc, strLuaFunc, msgId, packet, param1, param2)
 	local function TcpExecute()
 		luaFunc(msgId, packet, param1, param2)
 	end
@@ -61,7 +73,19 @@ function LuaNFrame.DispatchMessage(luaFunc, msgId, packet, param1, param2)
 	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchMessage error, luaFunc:"..__G__FUNCTION__(luaFunc).." msgId:"..tostring(msgId), msg)
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchClientMessage error, luaFunc:"..strLuaFunc.." msgId:"..tostring(msgId), msg)
+    end
+end
+
+function LuaNFrame.DispatchServerMessage(luaFunc, strLuaFunc, msgId, packet, param1, param2)
+	local function TcpExecute()
+		luaFunc(msgId, packet, param1, param2)
+	end
+	
+	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
+
+	if not status then
+		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchServerMessage error, luaFunc:"..strLuaFunc.." msgId:"..tostring(msgId), msg)
     end
 end
 
@@ -601,7 +625,7 @@ function LuaNFrame.SendTransToSnsServer(eServerType, nMsgID, nMsgType, nMsgData,
 end
 
 ----------------------------------------rpc service---------------------------------------------------------------------------------------------------------------
-function LuaNFrame.AddRpcService(serverType, nMsgId, reqType, rspType, luaFunc, createCo)
+function LuaNFrame.AddRpcService(serverType, nMsgId, reqType, rspType, strLuaFunc, createCo)
 	if type(serverType) ~= "number" then
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "eServerType Para Error")
 		return
@@ -629,8 +653,14 @@ function LuaNFrame.AddRpcService(serverType, nMsgId, reqType, rspType, luaFunc, 
 		end
     end
 
+	if type(strLuaFunc) ~= "string" then
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc Para Error")
+		return
+    end
+
+	local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
 	if type(luaFunc) ~= "function" then
-		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "luaFunc Para Error")
+		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." Is Not a Function")
 		return
     end
 
@@ -643,7 +673,7 @@ function LuaNFrame.AddRpcService(serverType, nMsgId, reqType, rspType, luaFunc, 
 		LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "nMsgID Para Error")
 		return
     end
-    return CPPNFrame:AddRpcService(serverType, nRealMsgId, reqType, rspType, luaFunc, createCo)
+    return CPPNFrame:AddRpcService(serverType, nRealMsgId, reqType, rspType, strLuaFunc, createCo)
 end
 
 function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, reqType, request, rspType)
@@ -709,7 +739,7 @@ function LuaNFrame.GetRpcService(serverType, dstServerType, dstBusId, msgId, req
 	end
 end
 
-function LuaNFrame.DispatchRpcMessage(luaFunc,  reqType,  request,  rspType, respone)
+function LuaNFrame.DispatchRpcMessage(luaFunc,  strLuaFunc, reqType,  request,  rspType, respone)
 	local function TcpExecute()
 		local reqMsg = LuaNFrame.Decode(reqType, request)
 		local rspMsg = LuaNFrame.Defaults(rspType)
@@ -725,7 +755,7 @@ function LuaNFrame.DispatchRpcMessage(luaFunc,  reqType,  request,  rspType, res
 	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchRpcMessage error, reqType:"..reqType.." rspType:"..rspType,  msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchRpcMessage error, luaFunc:"..strLuaFunc.." reqType:"..reqType.." rspType:"..rspType,  msg)
     end
 end
 
@@ -821,7 +851,7 @@ function  LuaNFrame.AddAllMsgCallBack(serverType, luaFunc, createCo)
     return CPPNFrame:AddAllMsgCallBack(serverType, luaFunc, createCo)
 end
 
-function LuaNFrame.DispatchSocketEvent(luaFunc,  nEvent, unLinkId)
+function LuaNFrame.DispatchSocketEvent(luaFunc,  strLuaFunc, nEvent, unLinkId)
 	local function TcpExecute()
 		luaFunc(nEvent, unLinkId)
 	end
@@ -829,11 +859,11 @@ function LuaNFrame.DispatchSocketEvent(luaFunc,  nEvent, unLinkId)
 	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchSocketEvent error, nEvent:"..nEvent.." unlinkId:"..unLinkId, msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchSocketEvent error, strLuaFunc:"..strLuaFunc.." nEvent:"..nEvent.." unlinkId:"..unLinkId, msg)
     end
 end
 
-function LuaNFrame.DispatchOtherMessage(luaFunc,  unLinkId, packet)
+function LuaNFrame.DispatchOtherMessage(luaFunc,  strLuaFunc, unLinkId, packet)
 	local function TcpExecute()
 		luaFunc(unLinkId, packet)
 	end
@@ -841,11 +871,11 @@ function LuaNFrame.DispatchOtherMessage(luaFunc,  unLinkId, packet)
 	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchOtherMessage error, packet:"..packet:ToString(), msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchOtherMessage error, luaFunc"..strLuaFunc.." packet:"..packet:ToString(), msg)
     end
 end
 
-function LuaNFrame.DispatchAllOtherMessage(luaFunc,  unLinkId, packet)
+function LuaNFrame.DispatchAllOtherMessage(luaFunc,  strLuaFunc, unLinkId, packet)
 	local function TcpExecute()
 		luaFunc(unLinkId, packet)
 	end
@@ -853,6 +883,6 @@ function LuaNFrame.DispatchAllOtherMessage(luaFunc,  unLinkId, packet)
 	local status, msg = xpcall (TcpExecute, __G__TRACKBACK__)
 
 	if not status then
-		LuaNFrame.SendErrorLog(valueId, "LuaNFrame.DispatchAllOtherMessage error, packet:"..packet:ToString(), msg)
+		LuaNFrame.SendErrorLog(0, "LuaNFrame.DispatchAllOtherMessage error, luaFunc:"..strLuaFunc.." packet:"..packet:ToString(), msg)
     end
 end

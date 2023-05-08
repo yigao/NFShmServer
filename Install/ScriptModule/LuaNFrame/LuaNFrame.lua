@@ -22,6 +22,26 @@ end
 --执行函数, 函数被字符串表达出来
 --比如说，要执行LoginModule.Init函数，
 --LuaNFrame.RunStringFunction("LoginModule.Init")
+function  LuaNFrame.IsLuaFunction(strLuaFunc)
+    return CPPNFrame:IsLuaFunction(strLuaFunc)
+end
+
+function  LuaNFrame.GetLuaData(strLuaFunc)
+    return CPPNFrame:GetLuaData(strLuaFunc)
+end
+
+function  LuaNFrame.RunLuaFunction(strLuaFunc, ...)
+    local luaFunc = LuaNFrame.GetLuaData(strLuaFunc)
+    if type(luaFunc) == "function" then
+        luaFunc(...)
+    else
+        LuaNFrame.ErrorWithThread(NFLogId.NF_LOG_SYSTEMLOG, 0, 3, "strLuaFunc:"..strLuaFunc.." is not a function")
+    end
+end
+
+--执行函数, 函数被字符串表达出来
+--比如说，要执行LoginModule.Init函数，
+--LuaNFrame.RunStringFunction("LoginModule.Init")
 function LuaNFrame.RunStringFunction(strFunction,...)
     local v = _G;
     for w in string.gmatch(strFunction,"[%[%]%w_\"]+") do

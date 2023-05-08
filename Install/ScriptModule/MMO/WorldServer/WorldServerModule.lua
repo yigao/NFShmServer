@@ -1,10 +1,11 @@
 WorldServerModule = {}
 WorldServerModule.serverIdMap = {}
 function WorldServerModule.Init()
-    LuaNFrame.RegisterServerMessage(NF_ST_WORLD_SERVER,  "NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ",  WorldServerModule.HandleMsg, true)
-    LuaNFrame.AddRpcService(NF_ST_WORLD_SERVER, "NF_RPC_SERVICE_GET_SERVER_INFO_REQ", "proto_ff.RpcRequestGetServerInfo", "proto_ff.ServerInfoReport", WorldServerModule.OnRpcServiceGetServerInfo)
-    LuaNFrame.Subscribe(NF_ST_WORLD_SERVER,  1000,  100,  0,  "WorldServerModule.EventHandle",  WorldServerModule.EventHandle);
-    LuaNFrame.Subscribe(NF_ST_WORLD_SERVER,  5,  1,  0,  "WorldServerModule.EventHandle",  WorldServerModule.EventHandle);
+    LuaNFrame.RegisterServerMessage(NF_ST_WORLD_SERVER,  "NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ",  "WorldServerModule.HandleMsg", true)
+    LuaNFrame.AddRpcService(NF_ST_WORLD_SERVER, "NF_RPC_SERVICE_GET_SERVER_INFO_REQ", "proto_ff.RpcRequestGetServerInfo", "proto_ff.ServerInfoReport", "WorldServerModule.OnRpcServiceGetServerInfo")
+    LuaNFrame.Subscribe(NF_ST_WORLD_SERVER,  1000,  100,  0,  "WorldServerModule.EventHandle");
+    LuaNFrame.Subscribe(NF_ST_WORLD_SERVER,  5,  1,  0,  "WorldServerModule.EventHandle");
+    LuaNFrame.RunLuaFunction("WorldServerModule.EventHandle",  1, 1, 1, 1, "abc")
 end
 
 function WorldServerModule.EventHandle(serverType, nEventID, bySrcType, nSrcID, message)
@@ -35,8 +36,8 @@ function WorldServerModule.HandleMsg(msgId, packet, param1, param2)
 
     LuaNFrame.FireExecute(NF_ST_WORLD_SERVER,  1000,  100,  111,  "proto_ff.Proto_TestSendWorldMsgToOtherServer")
 
-    local eventData = LuaNFrame.Defaults("proto_ff.NFEventNoneData")
-    LuaNFrame.FireCppExecute(NF_ST_WORLD_SERVER,  6,  1,  0,  "proto_ff.NFEventNoneData", eventData)
+    --local eventData = LuaNFrame.Defaults("proto_ff.NFEventNoneData")
+    --LuaNFrame.FireCppExecute(NF_ST_WORLD_SERVER,  6,  1,  0,  "proto_ff.NFEventNoneData", eventData)
 end
 
 function WorldServerModule.OnRpcServiceGetServerInfo(request, respone)

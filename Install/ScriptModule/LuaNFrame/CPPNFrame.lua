@@ -258,8 +258,8 @@ function CPPNFrame:FireExecute(serverType, nEventID, bySrcType, nSrcID, luaData)
     return self.luaModule:FireExecute(serverType, nEventID, bySrcType, nSrcID, luaData)
 end
 
-function CPPNFrame:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc, luaFunc)
-    return self.luaModule:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc, luaFunc)
+function CPPNFrame:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc)
+    return self.luaModule:Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc)
 end
 ----------------------------------------event system---------------------------------------------------------------------------------------------------------------
 function CPPNFrame:GetClientLinkId(serverType)
@@ -283,4 +283,15 @@ end
 --对所有的消息添加一个统一的回调， 同过判断返回, 0表示将处理这个消息，!=0将不处理这个消息
 function  CPPNFrame:AddAllMsgCallBack(serverType, luaFunc, createCo)
     return self.luaModule:AddAllMsgCallBack(serverType, luaFunc, createCo)
+end
+
+--执行函数, 函数被字符串表达出来
+--比如说，要执行LoginModule.Init函数，
+--LuaNFrame.RunStringFunction("LoginModule.Init")
+function  CPPNFrame:IsLuaFunction(strLuaFunc)
+    return self.luaModule:IsLuaFunction(strLuaFunc)
+end
+
+function  CPPNFrame:GetLuaData(strLuaFunc)
+    return self.luaModule:GetLuaData(strLuaFunc)
 end

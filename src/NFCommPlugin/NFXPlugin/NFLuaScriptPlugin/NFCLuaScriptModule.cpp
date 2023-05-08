@@ -48,10 +48,9 @@ int NFLuaEventObj::OnExecuteImple(const SEventKey skey, const NFLuaRef &message)
 
 int NFLuaEventObj::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef& message)
 {
-    if (m_luaFunc.isFunction())
-    {
-        m_pModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchEvent", m_luaFunc, serverType, nEventID, bySrcType, nSrcID, message);
-    }
+    LuaIntf::LuaRef luaFunc = m_pModule->GetGlobal(m_strLuaFunc);
+    CHECK_EXPR(luaFunc.isFunction(), 0, "strLuaFunc:{} is not lua function", m_strLuaFunc);
+    m_pModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchEvent", luaFunc, m_strLuaFunc, serverType, nEventID, bySrcType, nSrcID, message);
     return 0;
 }
 
@@ -62,10 +61,9 @@ int NFLuaEventObj::OnExecuteImple(const SEventKey skey, const std::string& msgTy
 
 int NFLuaEventObj::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string& msgType, const std::string& msgData)
 {
-    if (m_luaFunc.isFunction())
-    {
-        m_pModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchEventStrMsg", m_luaFunc, serverType, nEventID, bySrcType, nSrcID, msgType, msgData);
-    }
+    LuaIntf::LuaRef luaFunc = m_pModule->GetGlobal(m_strLuaFunc);
+    CHECK_EXPR(luaFunc.isFunction(), 0, "strLuaFunc:{} is not lua function", m_strLuaFunc);
+    m_pModule->TryRunGlobalScriptFunc("LuaNFrame.DispatchEventStrMsg", luaFunc, m_strLuaFunc, serverType, nEventID, bySrcType, nSrcID, msgType, msgData);
     return 0;
 }
 
@@ -378,6 +376,8 @@ bool NFCLuaScriptModule::Register()
             .addFunction("FireCppExecute", &NFCLuaScriptModule::FireCppExecute)
             .addFunction("FireExecute", &NFCLuaScriptModule::FireExecute)
             .addFunction("Subscribe", &NFCLuaScriptModule::Subscribe)
+            .addFunction("IsLuaFunction", &NFCLuaScriptModule::IsLuaFunction)
+            .addFunction("GetLuaData", &NFCLuaScriptModule::GetLuaData)
             .endClass();
 
     return true;
@@ -614,8 +614,9 @@ void NFCLuaScriptModule::UpdateMonth()
     SetTimer(EnumLuaModule_MONTH, monthtime * 1000, 1);
 }
 
-bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc, bool createCo)
+bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const std::string &strLuaFunc, bool createCo)
 {
+    LuaIntf::LuaRef luaFunc = GetGlobal(strLuaFunc);
     CHECK_EXPR(luaFunc.isFunction(), false, "RegisterClientMessage Lua Func Fail, is not a function");
 
     if (NFIDynamicModule::RegisterClientMessage(eType, nMsgID, createCo))
@@ -623,7 +624,7 @@ bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t n
         if (eType < mxLuaCallBack.size())
         {
             CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
-            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_CLIENT][nMsgID] = NetLuaReceiveFunctor(luaFunc);
+            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_CLIENT][nMsgID] = NetLuaReceiveFunctor(strLuaFunc);
             return true;
         }
     }
@@ -631,8 +632,9 @@ bool NFCLuaScriptModule::RegisterClientMessage(NF_SERVER_TYPES eType, uint32_t n
     return false;
 }
 
-bool NFCLuaScriptModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const LuaIntf::LuaRef &luaFunc, bool createCo)
+bool NFCLuaScriptModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t nMsgID, const std::string &strLuaFunc, bool createCo)
 {
+    LuaIntf::LuaRef luaFunc = GetGlobal(strLuaFunc);
     CHECK_EXPR(luaFunc.isFunction(), false, "RegisterServerMessage Lua Func Fail, is not a function");
 
     if (NFIDynamicModule::RegisterServerMessage(eType, nMsgID, createCo))
@@ -640,7 +642,7 @@ bool NFCLuaScriptModule::RegisterServerMessage(NF_SERVER_TYPES eType, uint32_t n
         if (eType < mxLuaCallBack.size())
         {
             CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
-            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_SERVER][nMsgID] = NetLuaReceiveFunctor(luaFunc);
+            mxLuaCallBack[eType].mxReceiveCallBack[NF_MODULE_SERVER][nMsgID] = NetLuaReceiveFunctor(strLuaFunc);
             return true;
         }
     }
@@ -666,7 +668,8 @@ int NFCLuaScriptModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
         NetLuaReceiveFunctor &functor = mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_CLIENT][msgId];
-        TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
+        LuaIntf::LuaRef luaFunc = GetGlobal(functor.m_strLuaFunc);
+        TryRunGlobalScriptFunc("LuaNFrame.DispatchClientMessage", luaFunc, functor.m_strLuaFunc, msgId, packet, param1, param2);
     }
     return 0;
 }
@@ -689,7 +692,8 @@ int NFCLuaScriptModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
         NetLuaReceiveFunctor &functor = mxLuaCallBack[eServerType].mxReceiveCallBack[NF_MODULE_SERVER][msgId];
-        TryRunGlobalScriptFunc("LuaNFrame.DispatchMessage", functor.m_luaFunc, msgId, packet, param1, param2);
+        LuaIntf::LuaRef luaFunc = GetGlobal(functor.m_strLuaFunc);
+        TryRunGlobalScriptFunc("LuaNFrame.DispatchServerMessage", luaFunc, functor.m_strLuaFunc, msgId, packet, param1, param2);
     }
     return 0;
 }
@@ -872,18 +876,19 @@ void NFCLuaScriptModule::LuaError(uint32_t logId, uint64_t guid, const std::stri
 }
 
 bool NFCLuaScriptModule::AddRpcService(NF_SERVER_TYPES serverType, uint32_t nMsgId, const std::string &reqType, const std::string &rspType,
-                                       const LuaIntf::LuaRef &luaFunc, bool createCo)
+                                       const std::string &strLuaFunc, bool createCo)
 {
     bool ret = FindModule<NFIMessageModule>()->AddScriptRpcService(serverType, nMsgId, reqType, rspType, this,
                                                                    &NFCLuaScriptModule::OnHandleAddRpcService, createCo);
     if (ret)
     {
+        LuaIntf::LuaRef luaFunc = GetGlobal(strLuaFunc);
         CHECK_EXPR(luaFunc.isFunction(), false, "AddRpcService Lua Func Fail, is not a function");
 
         if (serverType < mxLuaCallBack.size())
         {
             CHECK_EXPR_ASSERT(nMsgId < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgId);
-            mxLuaCallBack[serverType].mxRpcCallBack[nMsgId] = NetLuaRpcService(luaFunc);
+            mxLuaCallBack[serverType].mxRpcCallBack[nMsgId] = NetLuaRpcService(strLuaFunc);
             return true;
         }
     }
@@ -908,10 +913,8 @@ int NFCLuaScriptModule::OnHandleAddRpcService(uint64_t unLinkId, uint32_t msgId,
     if (eServerType < mxLuaCallBack.size() && msgId < NF_NET_MAX_MSG_ID)
     {
         NetLuaRpcService &service = mxLuaCallBack[eServerType].mxRpcCallBack[msgId];
-        if (service.m_luaFunc.isFunction())
-        {
-            TryRunGlobalScriptFunc("LuaNFrame.DispatchRpcMessage", service.m_luaFunc, reqType, request, rspType, respone);
-        }
+        LuaIntf::LuaRef luaFunc = GetGlobal(service.m_strLuaFunc);
+        TryRunGlobalScriptFunc("LuaNFrame.DispatchRpcMessage", luaFunc, service.m_strLuaFunc, reqType, request, rspType, respone);
     }
     return 0;
 }
@@ -980,7 +983,7 @@ void NFCLuaScriptModule::FireExecute(uint32_t serverType, uint32_t nEventID, uin
 }
 
 //取消订阅执行事件
-bool NFCLuaScriptModule::UnSubscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const NFLuaRef &luaFunc)
+bool NFCLuaScriptModule::UnSubscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc)
 {
     SEventKey skey;
     skey.nServerType = serverType;
@@ -988,7 +991,7 @@ bool NFCLuaScriptModule::UnSubscribe(uint32_t serverType, uint32_t nEventID, uin
     skey.bySrcType = bySrcType;
     skey.nSrcID = nSrcID;
 
-    auto iter = m_luaEventMap.find(luaFunc);
+    auto iter = m_luaEventMap.find(strLuaFunc);
     if (iter != m_luaEventMap.end())
     {
         auto key_iter = iter->second.find(skey);
@@ -1006,9 +1009,9 @@ bool NFCLuaScriptModule::UnSubscribe(uint32_t serverType, uint32_t nEventID, uin
     return true;
 }
 
-bool  NFCLuaScriptModule::UnSubscribeAll(const NFLuaRef &luaFunc)
+bool  NFCLuaScriptModule::UnSubscribeAll(const std::string &strLuaFunc)
 {
-    auto iter = m_luaEventMap.find(luaFunc);
+    auto iter = m_luaEventMap.find(strLuaFunc);
     if (iter != m_luaEventMap.end())
     {
         for(auto key_iter = iter->second.begin(); key_iter != iter->second.end(); key_iter++)
@@ -1021,10 +1024,10 @@ bool  NFCLuaScriptModule::UnSubscribeAll(const NFLuaRef &luaFunc)
             }
         }
     }
+    return true;
 }
 
-bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const string &strLuaFunc,
-                                   const NFLuaRef &luaFunc)
+bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &strLuaFunc)
 {
     SEventKey skey;
     skey.nServerType = serverType;
@@ -1032,18 +1035,22 @@ bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint3
     skey.bySrcType = bySrcType;
     skey.nSrcID = nSrcID;
 
+    LuaIntf::LuaRef ref = GetGlobal(strLuaFunc);
+    CHECK_EXPR(ref.isFunction(), false, "strLuaFunc:{} is not lua function", strLuaFunc);
+
     auto pData = m_luaEventPool->MallocObjWithArgs(m_pObjPluginManager, this);
-    pData->m_luaFunc = luaFunc;
+    CHECK_EXPR(pData, false, "m_luaEventPool->MallocObjWithArgs Failed");
+    pData->m_strLuaFunc = strLuaFunc;
 
     if (m_eventTemplate.Subscribe(pData, skey, strLuaFunc))
     {
-        m_luaEventMap[luaFunc].emplace(skey, pData);
+        m_luaEventMap[strLuaFunc].emplace(skey, pData);
         if (NFIDynamicModule::Subscribe(serverType, nEventID, bySrcType, nSrcID, strLuaFunc))
         {
             return true;
         }
         else {
-            m_luaEventMap[luaFunc].erase(skey);
+            m_luaEventMap[strLuaFunc].erase(skey);
             m_eventTemplate.UnSubscribe(pData, skey);
             m_luaEventPool->FreeObj(pData);
         }
@@ -1055,8 +1062,9 @@ bool NFCLuaScriptModule::Subscribe(uint32_t serverType, uint32_t nEventID, uint3
     return false;
 }
 
-bool NFCLuaScriptModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const LuaIntf::LuaRef &luaFunc, bool createCo)
+bool NFCLuaScriptModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const std::string &strLuaFunc, bool createCo)
 {
+    LuaIntf::LuaRef luaFunc = GetGlobal(strLuaFunc);
     CHECK_EXPR(luaFunc.isFunction(), false, "AddEventCallBack Lua Func Fail, is not a function");
 
     NET_EVENT_FUNCTOR functor = std::bind(&NFCLuaScriptModule::OnHandleServerSocketEvent, this, std::placeholders::_1, std::placeholders::_2, linkId);
@@ -1065,7 +1073,7 @@ bool NFCLuaScriptModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId
     {
         if (eType < mxLuaCallBack.size())
         {
-            mxLuaCallBack[eType].mxEventCallBack[linkId] = NetLuaEventFunctor(luaFunc);
+            mxLuaCallBack[eType].mxEventCallBack[linkId] = NetLuaEventFunctor(strLuaFunc);
             return true;
         }
     }
@@ -1073,8 +1081,9 @@ bool NFCLuaScriptModule::AddEventCallBack(NF_SERVER_TYPES eType, uint64_t linkId
     return false;
 }
 
-bool NFCLuaScriptModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const LuaIntf::LuaRef &luaFunc, bool createCo)
+bool NFCLuaScriptModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId, const std::string &strLuaFunc, bool createCo)
 {
+    LuaIntf::LuaRef luaFunc = GetGlobal(strLuaFunc);
     CHECK_EXPR(luaFunc.isFunction(), false, "AddOtherCallBack Lua Func Fail, is not a function");
 
     NET_RECEIVE_FUNCTOR functor = std::bind(&NFCLuaScriptModule::OnHandleServerOtherMessage, this, std::placeholders::_1, std::placeholders::_2, linkId);
@@ -1083,7 +1092,7 @@ bool NFCLuaScriptModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId
     {
         if (eType < mxLuaCallBack.size())
         {
-            mxLuaCallBack[eType].mxOtherMsgCallBackList[linkId] = NetLuaReceiveFunctor(luaFunc);
+            mxLuaCallBack[eType].mxOtherMsgCallBackList[linkId] = NetLuaReceiveFunctor(strLuaFunc);
             return true;
         }
     }
@@ -1091,15 +1100,16 @@ bool NFCLuaScriptModule::AddOtherCallBack(NF_SERVER_TYPES eType, uint64_t linkId
     return false;
 }
 
-bool NFCLuaScriptModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, const LuaIntf::LuaRef &luaFunc, bool createCo)
+bool NFCLuaScriptModule::AddAllMsgCallBack(NF_SERVER_TYPES eType, const std::string &strLuaFunc, bool createCo)
 {
+    LuaIntf::LuaRef luaFunc = GetGlobal(strLuaFunc);
     CHECK_EXPR(luaFunc.isFunction(), false, "AddAllMsgCallBack Lua Func Fail, is not a function");
 
     if (FindModule<NFIMessageModule>()->AddAllMsgCallBack(eType, this, &NFCLuaScriptModule::OnHandleAllOtherMessage, createCo))
     {
         if (eType < mxLuaCallBack.size())
         {
-            mxLuaCallBack[eType].mxAllMsgCallBackList = NetLuaReceiveFunctor(luaFunc);
+            mxLuaCallBack[eType].mxAllMsgCallBackList = NetLuaReceiveFunctor(strLuaFunc);
             return true;
         }
     }
@@ -1116,10 +1126,8 @@ int NFCLuaScriptModule::OnHandleServerSocketEvent(eMsgType nEvent, uint64_t unLi
         if (iter != mxLuaCallBack[eServerType].mxEventCallBack.end())
         {
             NetLuaEventFunctor &service = iter->second;
-            if (service.m_luaFunc.isFunction())
-            {
-                TryRunGlobalScriptFunc("LuaNFrame.DispatchSocketEvent", service.m_luaFunc, nEvent, unLinkId);
-            }
+            LuaIntf::LuaRef luaFunc = GetGlobal(service.m_strLuaFunc);
+            TryRunGlobalScriptFunc("LuaNFrame.DispatchSocketEvent", luaFunc, service.m_strLuaFunc, nEvent, unLinkId);
         }
     }
     return 0;
@@ -1134,10 +1142,8 @@ int NFCLuaScriptModule::OnHandleServerOtherMessage(uint64_t unLinkId, NFDataPack
         if (iter != mxLuaCallBack[eServerType].mxOtherMsgCallBackList.end())
         {
             NetLuaReceiveFunctor &service = iter->second;
-            if (service.m_luaFunc.isFunction())
-            {
-                TryRunGlobalScriptFunc("LuaNFrame.DispatchOtherMessage", service.m_luaFunc, unLinkId, packet);
-            }
+            LuaIntf::LuaRef luaFunc = GetGlobal(service.m_strLuaFunc);
+            TryRunGlobalScriptFunc("LuaNFrame.DispatchOtherMessage", luaFunc, service.m_strLuaFunc, unLinkId, packet);
         }
     }
     return 0;
@@ -1149,11 +1155,20 @@ int NFCLuaScriptModule::OnHandleAllOtherMessage(uint64_t unLinkId, NFDataPackage
     if (eServerType < mxLuaCallBack.size())
     {
         NetLuaReceiveFunctor &service = mxLuaCallBack[eServerType].mxAllMsgCallBackList;
-        if (service.m_luaFunc.isFunction())
-        {
-            TryRunGlobalScriptFunc("LuaNFrame.DispatchAllOtherMessage", service.m_luaFunc, unLinkId, packet);
-        }
+        LuaIntf::LuaRef luaFunc = GetGlobal(service.m_strLuaFunc);
+        TryRunGlobalScriptFunc("LuaNFrame.DispatchAllOtherMessage", luaFunc, service.m_strLuaFunc, unLinkId, packet);
     }
     return 0;
 }
 
+bool NFCLuaScriptModule::IsLuaFunction(const std::string& strLuaFunc)
+{
+    LuaIntf::LuaRef ref = GetGlobal(strLuaFunc);
+    return ref.isFunction();
+}
+
+LuaIntf::LuaRef NFCLuaScriptModule::GetLuaData(const std::string& strLuaFunc)
+{
+    LuaIntf::LuaRef ref = GetGlobal(strLuaFunc);
+    return ref;
+}

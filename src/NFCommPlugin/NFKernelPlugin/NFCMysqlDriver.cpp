@@ -2324,7 +2324,7 @@ int NFCMysqlDriver::GetTableColInfo(const std::string &dbName, const std::string
     int iRet = QueryMore("information_schema.COLUMNS", keyMap, fieldVec, valueVec, errorMsg);
     if (iRet != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "QueryMore Error, dbName:{}, tableName:{} errorMsg:{]", dbName, tableName, errorMsg);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "QueryMore Error, dbName:{}, tableName:{} errorMsg:{}", dbName, tableName, errorMsg);
         return iRet;
     }
 
