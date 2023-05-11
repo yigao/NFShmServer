@@ -12,6 +12,7 @@
 #include "NFComm/NFShmStl/NFShmDyVector.h"
 #include "NFComm/NFShmStl/NFShmDyList.h"
 #include "NFComm/NFShmStl/NFShmList.h"
+#include "NFComm/NFShmStl/NFShmDyHashTable.h"
 #include "NFComm/NFShmStl/NFShmHashTable.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
