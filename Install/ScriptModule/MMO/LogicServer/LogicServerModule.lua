@@ -16,7 +16,6 @@ function LogicServerModule.UpdateMsg(nTimerId, callCount)
     xData.seq = LogicServerModule.cur_seq;
     LuaNFrame.SendMsgToWorldServer(NF_ST_LOGIC_SERVER, 0, "NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ", "proto_ff.Proto_TestOtherServerToWorldServer", xData,
                                                                1, 2);
-
 end
 
 LogicServerModule.last_seq =  -1

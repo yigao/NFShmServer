@@ -622,6 +622,265 @@ namespace p
 		}
 	};
 
+    template<typename D>
+    struct strto3
+    {
+        std::string operator()(const D &sStr)
+        {
+            stringstream sBuffer;
+            sBuffer << sStr;
+            return sStr.str();
+        }
+    };
+
+    template <>
+    struct strto3<bool>
+    {
+        std::string operator()(const bool &t)
+        {
+            char buf[2];
+            buf[0] = t ? '1' : '0';
+            buf[1] = '\0';
+            return std::string(buf);
+        }
+    };
+
+
+    template <>
+    struct strto3<char>
+    {
+        std::string operator()(const char &t)
+        {
+            char buf[2];
+            snprintf(buf, 2, "%c", t);
+            return std::string(buf);
+        }
+    };
+
+    template <>
+    struct strto3<unsigned char>
+    {
+        std::string operator()(const unsigned char &t)
+        {
+            char buf[2];
+            snprintf(buf, 2, "%c", t);
+            return std::string(buf);
+        }
+    };
+
+
+    template <>
+    struct strto3<short>
+    {
+        std::string operator()(const short &t)
+        {
+            char buf[16];
+            snprintf(buf, 16, "%d", t);
+            return std::string(buf);
+        }
+    };
+
+    template <>
+    struct strto3<unsigned short>
+    {
+        std::string operator()(const unsigned short &t)
+        {
+            char buf[16];
+            snprintf(buf, 16, "%u", t);
+            return std::string(buf);
+        }
+    };
+
+    template <>
+    struct strto3<int>
+    {
+        std::string operator()(const int &t)
+        {
+            char buf[16];
+            snprintf(buf, 16, "%d", t);
+            return std::string(buf);
+        }
+    };
+
+    template <>
+    struct strto3<unsigned int>
+    {
+        std::string operator()(const unsigned int &t)
+        {
+            char buf[16];
+            snprintf(buf, 16, "%u", t);
+            return std::string(buf);
+        }
+    };
+
+
+    template <>
+    struct strto3<long>
+    {
+        std::string operator()(const long &t)
+        {
+            char buf[32];
+            snprintf(buf, 32, "%ld", t);
+            return std::string(buf);
+        }
+    };
+
+    template <>
+    struct strto3<long long>
+    {
+        std::string operator()(const long long &t)
+        {
+            char buf[32];
+            snprintf(buf, 32, "%lld", t);
+            return std::string(buf);
+        }
+    };
+
+    template <>
+    struct strto3<unsigned long>
+    {
+        std::string operator()(const unsigned long &t)
+        {
+            char buf[32];
+            snprintf(buf, 32, "%lu", t);
+            return std::string(buf);
+        }
+    };
+
+    template <>
+    struct strto3<float>
+    {
+        std::string operator()(const float &t)
+        {
+            char buf[32];
+            snprintf(buf, 32, "%.5f", t);
+            std::string s(buf);
+
+            //去掉无效0, eg. 1.0300 -> 1.03;1.00 -> 1
+            bool bFlag = false;
+            int pos = int(s.size() - 1);
+            for (; pos > 0; --pos)
+            {
+                if (s[pos] == '0')
+                {
+                    bFlag = true;
+                    if (s[pos - 1] == '.')
+                    {
+                        //-2为了去掉"."号
+                        pos -= 2;
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (bFlag)
+                s = s.substr(0, pos + 1);
+
+            return s;
+        }
+    };
+
+
+    template <>
+    struct strto3<double>
+    {
+        std::string operator()(const double &t)
+        {
+            char buf[32];
+            snprintf(buf, 32, "%.5f", t);
+            std::string s(buf);
+
+            //去掉无效0, eg. 1.0300 -> 1.03;1.00 -> 1
+            bool bFlag = false;
+            int pos = int(s.size() - 1);
+            for (; pos > 0; --pos)
+            {
+                if (s[pos] == '0')
+                {
+                    bFlag = true;
+                    if (s[pos - 1] == '.')
+                    {
+                        //-2为了去掉"."号
+                        pos -= 2;
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (bFlag)
+                s = s.substr(0, pos + 1);
+
+            return s;
+
+        }
+    };
+
+
+    template <>
+    struct strto3<long double>
+    {
+        std::string operator()(const long double &t)
+        {
+            char buf[32];
+            snprintf(buf, 32, "%Lf", t);
+            std::string s(buf);
+
+            //去掉无效0, eg. 1.0300 -> 1.03;1.00 -> 1
+            bool bFlag = false;
+            int pos = int(s.size() - 1);
+            for (; pos > 0; --pos)
+            {
+                if (s[pos] == '0')
+                {
+                    bFlag = true;
+                    if (s[pos - 1] == '.')
+                    {
+                        //-2为了去掉"."号
+                        pos -= 2;
+                        break;
+                    }
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            if (bFlag)
+                s = s.substr(0, pos + 1);
+
+            return s;
+        }
+    };
+
+    template<typename D>
+    struct strto4
+    {
+        std::string operator()(const D &d)
+        {
+            stringstream sBuffer;
+            sBuffer << d;
+
+            return sBuffer.str();
+        }
+    };
+
+    template<>
+    struct strto4<std::string>
+    {
+        std::string operator()(const std::string &t)
+        {
+            return t;
+        }
+    };
 }
 
 template<typename T>
@@ -630,6 +889,14 @@ T NFCommon::strto(const std::string &sStr)
 	using strto_type = typename std::conditional<std::is_arithmetic<T>::value, p::strto1<T>, p::strto2<T>>::type;
 
 	return strto_type()(sStr);
+}
+
+template<typename T>
+std::string NFCommon::tostr(const T &t)
+{
+    using strto_type = typename std::conditional<std::is_arithmetic<T>::value, p::strto3<T>, p::strto4<T>>::type;
+
+    return strto_type()(t);
 }
 
 template<typename T>
@@ -713,13 +980,7 @@ std::vector<T> NFCommon::sepstr(const std::string &sStr, const std::string &sSep
 
 	return vt;
 }
-template<typename T>
-std::string NFCommon::tostr(const T &t)
-{
-	ostringstream sBuffer;
-	sBuffer << t;
-	return sBuffer.str();
-}
+
 
 template<typename T>
 std::string NFCommon::tostr(const std::vector<T> &t)

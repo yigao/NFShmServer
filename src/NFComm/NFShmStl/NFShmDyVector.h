@@ -63,14 +63,15 @@ public:
     {
         CHECK_NULL(pBuffer);
         CHECK_EXPR(iObjectCount >= 0, -1, "iObjectCount:{}",iObjectCount);
-
+        int iCountSize = CountSize(iObjectCount);
+        NF_ASSERT_MSG(bufSize >= iCountSize, "bufSize:{} iCountSize:{}", bufSize, iCountSize);
+        
         m_pBuffer = (char*)pBuffer;
         m_pSize = (size_t*)pBuffer;
         m_pMaxSize = (size_t*)(pBuffer+sizeof(size_t));
         m_pData = (Tp*)(pBuffer + sizeof(size_t) + sizeof(size_t));
 
-        int iCountSize = CountSize(iObjectCount);
-        NF_ASSERT_MSG(bufSize >= iCountSize, "bufSize:{} iCountSize:{}", bufSize, iCountSize);
+
 
         if (bResetShm)
         {

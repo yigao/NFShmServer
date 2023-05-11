@@ -10,6 +10,7 @@
 #include "NFComm/NFShmStl/NFShmPair.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmStl/NFShmDyVector.h"
+#include "NFComm/NFShmStl/NFShmDyList.h"
 #include "NFComm/NFShmStl/NFShmList.h"
 #include "NFComm/NFShmStl/NFShmHashTable.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
@@ -549,6 +550,204 @@ void printList(const NFShmList<T, MAX_SIZE> &list)
     }
 }
 
+/**
+ * list 的操作
+ */
+template<typename T>
+void printList(const NFShmDyList<T> &list)
+{
+    int i = 0;
+    for (auto iter = list.begin(); iter != list.end(); iter++, i++)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "list {}:{}", i, *iter);
+    }
+}
+
+int checkDyList()
+{
+    {
+        NFShmDyList<int> vec;
+        size_t bufsize = vec.CountSize(5);
+        char* pBuffer = (char*)malloc(bufsize);
+        vec.Init(pBuffer, bufsize, 5);
+
+        vec.push_back(0);
+        vec.push_back(1);
+        vec.push_back(2);
+        vec.push_back(3);
+        vec.push_back(4);
+        vec.push_back(5);
+
+        printList(vec);
+    }
+
+    {
+        NFShmDyList<NFShmPair<uint64_t, uint64_t>> vecPair;
+        size_t bufsize = vecPair.CountSize(5);
+        char* pBuffer = (char*)malloc(bufsize);
+        vecPair.Init(pBuffer, bufsize, 5);
+
+        vecPair.push_back(NFShmPair<uint64_t, uint64_t>(0, 0));
+        vecPair.push_back(NFShmPair<uint64_t, uint64_t>(1, 1));
+        vecPair.push_back(NFShmPair<uint64_t, uint64_t>(2, 2));
+        vecPair.push_back(NFShmPair<uint64_t, uint64_t>(3, 3));
+        vecPair.push_back(NFShmPair<uint64_t, uint64_t>(4, 4));
+        vecPair.push_back(NFShmPair<uint64_t, uint64_t>(5, 5));
+
+        int i = 0;
+        for (auto iter = vecPair.begin(); iter != vecPair.end(); iter++, i++)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "vevPair[{}] = (first:{} second:{})", i, iter->first, iter->second);
+        }
+    }
+
+    {
+        // assign
+        NFShmDyList<std::string> cv;
+        size_t cv_bufsize = cv.CountSize(5);
+        char* cv_pBuffer = (char*)malloc(cv_bufsize);
+        cv.Init(cv_pBuffer, cv_bufsize, 5);
+        cv.assign(5, "aaaa");
+        printList(cv);
+        cv.assign(3, "bbb");
+        printList(cv);
+        cv.assign(6, "ccc");
+        printList(cv);
+
+        NFShmDyList<std::string> cv1;
+        size_t cv1_bufsize = cv1.CountSize(5);
+        char* cv1_pBuffer = (char*)malloc(cv1_bufsize);
+        cv1.Init(cv1_pBuffer, cv1_bufsize, 5);
+        cv1.assign(cv.begin(), cv.end());
+        printList(cv1);
+
+        NFShmDyList<std::string> cv1_0;
+        size_t cv1_0_bufsize = cv1.CountSize(0);
+        char* cv1_0_pBuffer = (char*)malloc(cv1_0_bufsize);
+        cv1_0.Init(cv1_0_pBuffer, cv1_0_bufsize, 0);
+        cv1_0.assign(cv.begin(), cv.end());
+        printList(cv1_0);
+
+        NFShmDyList<std::string> sv;
+        size_t sv_bufsize = sv.CountSize(5);
+        char* sv_pBuffer = (char*)malloc(sv_bufsize);
+        sv.Init(sv_pBuffer, sv_bufsize, 5);
+        sv.assign(5, "a");
+        printList(sv);
+
+        // front 容器首元素
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sv.front:{}", sv.front());
+
+        // back 容器最后一个元素
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sv.back:{}", sv.back());
+
+
+        // rbegin 返回一个指向容器最后一个元素的反向迭代器
+        // rend 返回一个指向容器前端的反向迭代器
+        for (auto it = sv.rbegin(); it != sv.rend(); it++)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "reverse_iterator:{}", *it);
+        }
+
+        // empty 若容器为空则为 true ，否则为 false
+        if (sv.empty())
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container is null.");
+        }
+        else
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container is not null.");
+        }
+
+        // size	容器中的元素个数
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container size:{}", sv.size());
+
+        // max_size 元素数量的最大值
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container max_size:{}", sv.max_size());
+
+        // capacity 当前分配存储的容量
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "container capacity:{}", sv.capacity());
+
+        // resize 改变容器中可存储元素的个数
+        printList(sv);
+        sv.resize(10, "111");
+        printList(sv);
+
+        sv.resize(2, "111");
+        printList(sv);
+
+        // clear 从容器移除所有元素
+
+        // insert:三种形式
+        auto it = sv.begin();
+        it = sv.insert(it, "YES");
+        printList(sv);
+
+        sv.insert(it, 2, "NO");
+        printList(sv);
+
+        it = sv.begin();
+        it = sv.insert(it, "YES");
+        printList(sv);
+
+        sv.insert(it, 2, "NO");
+        printList(sv);
+
+        it = sv.begin();
+        NFShmVector<std::string, 10> sv5(2, "xx");
+        sv.insert(it, sv5.begin(), sv5.end());
+        printList(sv);
+
+        sv.pop_back();
+        printList(sv);
+        it = sv.begin();
+        sv.insert(it, sv5.begin(), sv5.end());
+        printList(sv);
+
+        sv.pop_back();
+        sv.pop_back();
+        printList(sv);
+        it = sv.begin();
+        sv.insert(it, sv5.begin(), sv5.end());
+        printList(sv);
+
+        it = sv.begin();
+        std::set<std::string> sv5_list = {"111", "222", "333", "444", "555"};
+        sv.insert(it, sv5_list.begin(), sv5_list.end());
+        printList(sv);
+
+        sv.pop_back();
+        printList(sv);
+        it = sv.begin();
+        sv.insert(it, sv5_list.begin(), sv5_list.end());
+        printList(sv);
+
+        sv.pop_back();
+        sv.pop_back();
+        printList(sv);
+        it = sv.begin();
+        sv.insert(it, sv5_list.begin(), sv5_list.end());
+        printList(sv);
+
+        // erase 从容器移除指定的元素
+        sv.erase(sv.begin());
+        printList(sv);
+
+        sv.erase(sv.begin(), sv.end());
+        printList(sv);
+
+        // push_back 向容器尾部插入元素
+        sv.push_back("add");
+        printList(sv);
+
+        // pop_back 移除容器的最末元素
+        sv.pop_back();
+        printList(sv);
+    }
+
+    return 0;
+}
+
 int checkList()
 {
     {
@@ -984,6 +1183,7 @@ int testMain()
     //CHECK_RET(checkAlgoList(), "checkAlgoList Failed");
     //CHECK_RET(checkHashTable(), "checkAlgoList Failed");
     //checkHashMap();
-    checkAlgoDyVector();
+    //checkAlgoDyVector();
+    checkDyList();
     return 0;
 }
