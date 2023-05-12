@@ -13,10 +13,14 @@
 #include "NFComm/NFShmStl/NFShmDyList.h"
 #include "NFComm/NFShmStl/NFShmList.h"
 #include "NFComm/NFShmStl/NFShmDyHashTable.h"
+#include "NFComm/NFShmStl/NFShmDyHashTableWithList.h"
 #include "NFComm/NFShmStl/NFShmHashTable.h"
+#include "NFComm/NFShmStl/NFShmDyHashSet.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmDyHashMap.h"
 #include "NFComm/NFShmStl/NFShmHashMapWithList.h"
+#include "NFComm/NFShmStl/NFShmDyHashMapWithList.h"
 //#include "NFComm/NFShmStl/NFShmString.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
@@ -1084,6 +1088,95 @@ int checkAlgoList()
     return 0;
 }
 
+int checkDyHashTable()
+{
+    NFShmDyHashTable<int, int, std::hash<int>, std::stl__Identity<int>, std::equal_to<int>> hashtable;
+    size_t bufsize = hashtable.CountSize(10);
+    char* pBuffer = (char*)malloc(bufsize);
+    hashtable.Init(pBuffer, bufsize, 10);
+
+    for(int i = 0; i < 11; i++)
+    {
+        int rand = NFRandInt(0, 5);
+        hashtable.insert_equal(rand);
+    }
+
+    hashtable.debug_string();
+
+    std::set<int> set;
+    for(auto iter = hashtable.begin(); iter != hashtable.end(); iter++)
+    {
+        if (set.find(*iter) != set.end()) continue;
+
+        set.insert(*iter);
+        auto it_pair = hashtable.equal_range(*iter);
+        std::string str = "find value:" + NFCommon::tostr(*iter);
+        for(auto it = it_pair.first; it != it_pair.second; it++)
+        {
+            str += NF_FORMAT(" node(self:{} valid:{} value:{} next:{})", it.m_curNode->m_self, it.m_curNode->m_valid, it.m_curNode->m_value, it.m_curNode->m_next);
+        }
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", str);
+    }
+
+    for(auto iter = set.begin(); iter != set.end(); iter++)
+    {
+        hashtable.erase(*iter);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "erase {}:", *iter);
+        hashtable.debug_string();
+    }
+    return 0;
+}
+
+int checkDyHashTableWithList()
+{
+    NFShmDyHashTableWithList<int, int, std::hash<int>, std::stl__Identity<int>, std::equal_to<int>> hashtable;
+    size_t bufsize = hashtable.CountSize(10);
+    char* pBuffer = (char*)malloc(bufsize);
+    hashtable.Init(pBuffer, bufsize, 10);
+    hashtable.set_get_list(true);
+
+    hashtable.insert_equal(10);
+    hashtable.insert_equal(8);
+    hashtable.insert_equal(8);
+    hashtable.insert_equal(20);
+    hashtable.insert_equal(50);
+    hashtable.insert_equal(22);
+    hashtable.insert_equal(33);
+
+    hashtable.debug_string();
+
+    for(auto iter = hashtable.get_list().begin(); iter != hashtable.get_list().end(); iter++)
+    {
+        auto hahs_iter = hashtable.get_iterator(*iter);
+        std::string str = "find value:" + NFCommon::tostr(*hahs_iter);
+        str += NF_FORMAT(" node(self:{} valid:{} value:{} next:{})", hahs_iter.m_curNode->m_self, hahs_iter.m_curNode->m_valid, hahs_iter.m_curNode->m_value, hahs_iter.m_curNode->m_next);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", str);
+    }
+
+    std::set<int> set;
+    for(auto iter = hashtable.begin(); iter != hashtable.end(); iter++)
+    {
+        if (set.find(*iter) != set.end()) continue;
+
+        set.insert(*iter);
+        auto it_pair = hashtable.equal_range(*iter);
+        std::string str = "find value:" + NFCommon::tostr(*iter);
+        for(auto it = it_pair.first; it != it_pair.second; it++)
+        {
+            str += NF_FORMAT(" node(self:{} valid:{} value:{} next:{})", it.m_curNode->m_self, it.m_curNode->m_valid, it.m_curNode->m_value, it.m_curNode->m_next);
+        }
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", str);
+    }
+
+    for(auto iter = set.begin(); iter != set.end(); iter++)
+    {
+        hashtable.erase(*iter);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "erase {}:", *iter);
+        hashtable.debug_string();
+    }
+    return 0;
+}
+
 int checkHashTable()
 {
     NFShmHashTableWithList<int, int, 10, std::hash<int>, std::stl__Identity<int>, std::equal_to<int>> hashtable;
@@ -1185,6 +1278,8 @@ int testMain()
     //CHECK_RET(checkHashTable(), "checkAlgoList Failed");
     //checkHashMap();
     //checkAlgoDyVector();
-    checkDyList();
+    //checkDyList();
+    checkDyHashTable();
+    checkDyHashTableWithList();
     return 0;
 }
