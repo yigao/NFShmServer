@@ -30,12 +30,12 @@ LoadPlugin =
 			"NFKernelPlugin",
 			--"NFTestPlugin",
 			"NFNetPlugin",
-			--"NFShmPlugin",
+			"NFShmPlugin",
 
 			"NFServerCommonPlugin",
-			--"NFDescStorePlugin",
-			--"NFCommLogicPlugin",
-			"NFLuaScriptPlugin",
+			"NFDescStorePlugin",
+			"NFCommLogicPlugin",
+			--"NFLuaScriptPlugin",
 
 			"NFMasterServerPlugin",
 			"NFRouteServerPlugin",

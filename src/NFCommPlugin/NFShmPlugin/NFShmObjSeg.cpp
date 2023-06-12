@@ -49,7 +49,7 @@ int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj *(*pfCr
     size_t idxSize = 0;
     char *pIdxBuffer = NULL;
     {
-        idxSize = m_idxLst.CountSize(m_iItemCount);
+        idxSize = NFShmDyList<NFShmIdx>::CountSize(m_iItemCount);
         pIdxBuffer = (char *) (m_pObjPluginManager->FindModule<NFISharedMemModule>()->CreateSegment(idxSize));
         if (!pIdxBuffer)
         {
