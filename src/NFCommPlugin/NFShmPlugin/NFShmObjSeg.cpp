@@ -33,6 +33,12 @@ NFShmObjSeg *NFShmObjSeg::CreateObject(NFIPluginManager *pPluginManager)
 
 NFShmObjSeg::NFShmObjSeg(NFIPluginManager *p) : NFObject(p)
 {
+    m_nObjSize = 0;
+    m_nMemSize = 0;
+    m_pObjs = NULL;
+    m_iItemCount = 0;
+    m_iUseHash = false;
+    m_pCreateFn = NULL;
 }
 
 int NFShmObjSeg::SetAndInitObj(size_t nObjSize, int iItemCount, NFShmObj *(*pfCreateObj)(NFIPluginManager *, void *), bool iUseHash)
