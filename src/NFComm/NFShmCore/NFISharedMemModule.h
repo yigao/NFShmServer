@@ -92,16 +92,6 @@ public:
 
     virtual const std::unordered_set<int>& GetChildrenType(int iType) = 0;
 
-    virtual NFShmObj *CreateIndexToHashKey(uint32_t indexId, uint64_t indexKey, uint64_t hashKey, int iType) = 0;
-
-    virtual NFShmObj *GetObjByIndexKey(uint32_t indexId, uint64_t indexKey, int iType) = 0;
-
-    virtual int DelIndexKey(uint32_t indexId, uint64_t indexKey, int iType) = 0;
-
-    virtual int CreateIndexByKeyValue(uint32_t indexId, uint64_t indexKey, uint64_t indexValue, int iType) = 0;
-
-    virtual uint64_t *GetIndexValueByIndexKey(uint32_t indexId, uint64_t indexKey, int iType) = 0;
-
     virtual int GetItemCount(int iType) = 0;
 
     virtual int GetUsedCount(int iType) = 0;

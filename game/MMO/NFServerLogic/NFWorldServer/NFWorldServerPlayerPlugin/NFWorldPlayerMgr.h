@@ -72,28 +72,6 @@ public:
 
 public:
     /**
-     * @brief 通过cid找到玩家
-     * @param cid 角色ID
-     * @return
-     */
-    NFWorldPlayer *GetPlayerByCid(uint64_t cid);
-
-    /**
-     * @brief 删除cid
-     * @param cid
-     * @return
-     */
-    int DeleteCidIndex(uint64_t cid);
-
-    /**
-     * @brief 建立cid到uid的索引
-     * @param cid
-     * @param uid
-     * @return
-     */
-    NFWorldPlayer *CreateCidIndexToUid(uint64_t cid, uint64_t uid);
-public:
-    /**
      * @brief 排队
      */
 

@@ -70,9 +70,9 @@ public:
         return 0;
     }
 
-    size_t CountSize(int iObjectCount)
+    static size_t CountSize(int iObjectCount)
     {
-        return m_hashTable.CountSize(iObjectCount);
+        return _Ht::CountSize(iObjectCount);
     }
 
     virtual int Init(const char* pBuffer, int bufSize, int iObjectCount, bool bResetShm = true)

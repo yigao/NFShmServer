@@ -123,13 +123,6 @@ public:
     NFPlayer *GetPlayer(uint64_t roleId);
 
     /**
-     * @brief 通过uid获取玩家数据
-     * @param uid
-     * @return
-     */
-    NFPlayer *GetPlayerByUid(uint64_t uid);
-
-    /**
      * @brief 通过roleId创建玩家数据, 如果玩家存在，返回NULL
      * @param roleId
      * @return

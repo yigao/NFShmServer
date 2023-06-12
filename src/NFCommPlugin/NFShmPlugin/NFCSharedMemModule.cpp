@@ -637,7 +637,14 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
     size_t siThisObjSegTotal = 0;
     if (!add)
     {
-        siThisObjSegTotal += pCounter->m_pidRuntimeClass.m_pObjSeg->GetAllSize();
+        siThisObjSegTotal += sizeof(NFShmObjSeg);
+        siThisObjSegTotal += sizeof(NFShmIdx) * pCounter->m_iItemCount;
+        siThisObjSegTotal += pCounter->m_nObjSize * pCounter->m_iItemCount;
+
+        if (pCounter->m_pidRuntimeClass.m_iUseHash)
+        {
+            siThisObjSegTotal += NFShmObjSeg::GetHashSize(pCounter->m_iItemCount);
+        }
 
         m_iObjSegSizeTotal += siThisObjSegTotal;
         m_iTotalObjCount += pCounter->m_iItemCount;
@@ -654,7 +661,13 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
         }
     }
     else {
-        siThisObjSegTotal += pCounter->m_pidRuntimeClass.m_pObjSeg->GetMemSize();
+        siThisObjSegTotal += sizeof(NFShmIdx) * iItemCount;
+        siThisObjSegTotal += pCounter->m_nObjSize * iItemCount;
+
+        if (pCounter->m_pidRuntimeClass.m_iUseHash)
+        {
+            siThisObjSegTotal += NFShmObjSeg::GetHashSize(iItemCount);
+        }
 
         m_iObjSegSizeTotal += siThisObjSegTotal;
         m_iTotalObjCount += iItemCount;

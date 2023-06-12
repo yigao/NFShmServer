@@ -88,11 +88,6 @@ NFPlayer *NFPlayerMgr::GetPlayer(uint64_t roleId)
     return dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(roleId, EOT_LOGIC_PLAYER_ID));
 }
 
-NFPlayer *NFPlayerMgr::GetPlayerByUid(uint64_t uid)
-{
-    return dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->GetObjByIndexKey(PLAYER_UID_INDEX, uid, EOT_LOGIC_PLAYER_ID));
-}
-
 NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t roleId, uint64_t uid, const ::proto_ff::RoleDBData &dbData)
 {
     NFPlayer *pPlayer = GetPlayer(roleId);
@@ -103,24 +98,6 @@ NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t roleId, uint64_t uid, const ::proto
 
     pPlayer->SetRoleId(roleId);
     pPlayer->SetUid(uid);
-
-    NFPlayer *pUidPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->CreateIndexToHashKey(PLAYER_UID_INDEX, uid, roleId,
-                                                                                                           EOT_LOGIC_PLAYER_ID));
-    if (!(pUidPlayer && pUidPlayer == pPlayer))
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, roleId, "CreateIndexToHashKey Failed, roleId:{}, uid:{}", roleId, uid);
-        DeletePlayer(pPlayer);
-        return NULL;
-    }
-
-    pUidPlayer = NULL;
-    pUidPlayer = GetPlayerByUid(uid);
-    if (!(pUidPlayer && pUidPlayer == pPlayer))
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, roleId, "GetPlayerByUid Failed, roleId:{}, uid:{}", roleId, uid);
-        DeletePlayer(pPlayer);
-        return NULL;
-    }
 
     int iRet = pPlayer->Init(dbData);
     if (iRet != 0)
@@ -140,8 +117,6 @@ int NFPlayerMgr::DeletePlayer(NFPlayer *pPlayer)
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, roleId:{}, uid:{}, gloablId:{}", pPlayer->GetRoleId(), pPlayer->GetUid(),
               pPlayer->GetGlobalID());
-
-    FindModule<NFISharedMemModule>()->DelIndexKey(PLAYER_UID_INDEX, pPlayer->GetUid(), EOT_LOGIC_PLAYER_ID);
 
     FindModule<NFISharedMemModule>()->DestroyObj(pPlayer);
 

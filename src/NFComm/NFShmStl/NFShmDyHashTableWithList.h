@@ -283,9 +283,9 @@ public:
     }
 
     /**
-* 计算所用内存的大小
-*/
-    size_t CountSize(int iObjectCount)
+    * 计算所用内存的大小
+    */
+    static size_t CountSize(int iObjectCount)
     {
         //    int *m_pFirstFreeIdx; //!<空闲链表头节点
         //    size_t *m_pNumElements;
@@ -294,7 +294,7 @@ public:
         //NFShmDyVector<_Node> m_buckets;
         //NFShmDyVector<int> m_bucketsFirstIdx;
         // NFShmDyList<int> m_bucketsListIdx;
-        return sizeof(int) + sizeof(size_type) + sizeof(size_t) + sizeof(bool) + m_buckets.CountSize(iObjectCount) + m_bucketsFirstIdx.CountSize(iObjectCount) + m_bucketsListIdx.CountSize(iObjectCount);
+        return sizeof(int) + sizeof(size_type) + sizeof(size_t) + sizeof(bool) + NFShmDyVector<_Node>::CountSize(iObjectCount) + NFShmDyVector<int>::CountSize(iObjectCount) + NFShmDyList<int>::CountSize(iObjectCount);
     }
 
     virtual int Init(const char* pBuffer, int bufSize, int iObjectCount, bool bResetShm = true)

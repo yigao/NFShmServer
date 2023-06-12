@@ -260,9 +260,6 @@ int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPac
     {
         m_loadLogic = true;
 
-        auto pTemPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->CreateCidIndexToUid(cid, uid);
-        CHECK_EXPR_ASSERT(pTemPlayer == pPlayer, -1, "");
-
         proto_ff::WorldToSnsLoginReq snsLoginReq;
         snsLoginReq.set_proxy_id(pPlayer->GetProxyId());
         snsLoginReq.set_logic_id(pPlayer->GetLogicId());

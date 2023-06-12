@@ -157,6 +157,8 @@ public:
     int GetMemSize() const { return m_nMemSize; }
 
     int GetAllSize() const { return m_nMemSize + sizeof(NFShmObjSeg); }
+
+    static int GetHashSize(int itemCount) { return NFShmDyHashMapWithList<uint64_t, int>::CountSize(itemCount); }
 public:
     iterator begin() { return iterator(this, m_idxLst.begin()); }
 

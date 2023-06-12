@@ -227,13 +227,6 @@ int NFWorldPlayerMgr::DeletePlayer(NFWorldPlayer *pPlayer)
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetUid(), pPlayer->GetGlobalID());
 
-    auto& mapRoleInfo = pPlayer->GetAllRoleInfo();
-    for(auto iter = mapRoleInfo.begin(); iter != mapRoleInfo.end(); iter++)
-    {
-        uint64_t roleId = iter->first;
-        DeleteCidIndex(roleId);
-    }
-
     FindModule<NFISharedMemModule>()->DestroyObj(pPlayer);
 
     return 0;
@@ -349,31 +342,6 @@ uint32_t NFWorldPlayerMgr::GetLoginQueueNum() const
 int NFWorldPlayerMgr::DeleteLoginQueue(uint64_t playerId)
 {
     return m_loginQueueMap.erase(playerId);
-}
-
-NFWorldPlayer *NFWorldPlayerMgr::CreateCidIndexToUid(uint64_t cid, uint64_t uid)
-{
-    NFWorldPlayer *pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->CreateIndexToHashKey(NF_WORLD_PLAYER_ROLE_ID_INDEX,
-                                                                                                                  cid, uid,
-                                                                                                                  EOT_WORLD_PLAYER_ID));
-    CHECK_EXPR(pPlayer, pPlayer, "CreateIndexToHashKey Failed, cid:{} uid:{}", cid, uid);
-    return pPlayer;
-}
-
-NFWorldPlayer *NFWorldPlayerMgr::GetPlayerByCid(uint64_t cid)
-{
-    NFWorldPlayer *pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetObjByIndexKey(NF_WORLD_PLAYER_ROLE_ID_INDEX,
-                                                                                                              cid, EOT_WORLD_PLAYER_ID));
-    CHECK_EXPR(pPlayer, pPlayer, "GetObjByIndexKey Failed, cid:{}", cid);
-    return pPlayer;
-}
-
-int NFWorldPlayerMgr::DeleteCidIndex(uint64_t cid)
-{
-    int ret = FindModule<NFISharedMemModule>()->DelIndexKey(NF_WORLD_PLAYER_ROLE_ID_INDEX, cid, EOT_WORLD_PLAYER_ID);
-    CHECK_RET(ret, "DelIndexKey Failed, cid:{}", cid);
-
-    return ret;
 }
 
 int NFWorldPlayerMgr::CharDBToCharSimpleDB(const proto_ff::RoleDBData &dbproto, proto_ff::LoginRoleProto &outproto)

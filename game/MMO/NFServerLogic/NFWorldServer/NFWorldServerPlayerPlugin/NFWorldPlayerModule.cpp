@@ -365,7 +365,7 @@ int NFCWorldPlayerModule::OnHandleWorldGetMapInfoReq(uint32_t msgId, NFDataPacka
     uint32_t dstGameId = NFWorldSceneMgr::Instance(m_pObjPluginManager)->GetStaticMapGameId(dstMapId);
 
     proto_ff::LogicToWorldGetMapInfoRsp rspMsg;
-    NFWorldPlayer *pPlayer = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(roleId);
+    NFWorldPlayer *pPlayer = NULL; //NFWorldPlayerMgr::Instance(m_pObjPluginManager)->GetPlayerByCid(roleId);
     if (pPlayer)
     {
         rspMsg.set_ret_code(proto_ff::RET_SUCCESS);
