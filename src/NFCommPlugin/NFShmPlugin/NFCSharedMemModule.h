@@ -233,15 +233,9 @@ public:
 
     virtual int GetFreeCount(int iType) override;
 
-    virtual int GetUsedHead(int iType) override;
-
-    virtual int GetFreeHead(int iType) override;
-
     virtual int GetGlobalID(int iType, int iIndex, NFShmObj *pObj) override;
 
     virtual int GetObjectID(int iType, NFShmObj *pObj) override;
-
-    virtual int GetNextObjectID(int iType, int iObjID) override;
 
     virtual void *AllocMemForObject(int iType) override;
 
@@ -320,7 +314,7 @@ public:
     virtual void SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj *(*pfResumeObj)(NFIPluginManager *pPluginManager, void *),
                                 NFShmObj *(*pCreatefn)(NFIPluginManager *pPluginManager),
                                 void(*pDestroy)(NFIPluginManager *pPluginManager, NFShmObj *), int parentType, const std::string &pszClassName,
-                                bool useHash = false, int indexCount = 0, int indexTime = 1, bool singleton = false) override;
+                                bool useHash = false, bool singleton = false) override;
 
     virtual size_t GetAllObjSize() override;
 

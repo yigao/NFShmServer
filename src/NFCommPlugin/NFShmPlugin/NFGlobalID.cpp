@@ -246,10 +246,10 @@ void *NFGlobalID::operator new(size_t nSize, void *pBuffer) throw()
 }
 
 int NFGlobalID::SetObjSeg(NFIPluginManager *pPluginManager, int bType, int iObjSize, int iObjCount, const std::string &className, bool useHash,
-                          int indexCount, int indexTime, bool singleton)
+                          bool singleton)
 {
     pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, iObjSize, iObjCount, NFGlobalID::ResumeObject, NFGlobalID::CreateObject,
-                                                                     NFGlobalID::DestroyObject, -1, className, useHash, indexCount, indexTime,
+                                                                     NFGlobalID::DestroyObject, -1, className, useHash,
                                                                      singleton);
     return 0;
 }

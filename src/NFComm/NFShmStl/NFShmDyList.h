@@ -498,6 +498,11 @@ public:
         return iterator(this, index);
     }
 
+    iterator GetIterator(_Node* pNode)
+    {
+        return iterator(this, pNode);
+    }
+
     /**
     * Inserts the given element at the position of the iterator's next.
     *

@@ -377,23 +377,26 @@ public:
         return iterator(get_node(idx), this);
     }
 
-    int auto_erase(int num)
+    std::vector<Key> auto_erase(int num)
     {
-        int count = 0;
+        std::vector<Key> vec;
         for(int i = 0; i < num; i++)
         {
             if (m_bucketsListIdx.size() > 0)
             {
                 auto iter = m_bucketsListIdx.begin();
-                erase(get_iterator(*iter));
-                count++;
+                auto src_iter = get_iterator(*iter);
+                if (src_iter != end())
+                {
+                    vec.push_back(src_iter->first);
+                }
             }
         }
 
-        return count;
+        return vec;
     }
 
-    const iterator get_iterator(int idx) const
+    const_iterator get_iterator(int idx) const
     {
         return const_iterator(get_node(idx), this);
     }

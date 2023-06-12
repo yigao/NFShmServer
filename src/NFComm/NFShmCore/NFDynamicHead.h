@@ -9,11 +9,9 @@
 
 #define _DECLARE_PREALLOCATED_(class_name)\
     public:\
-    static int  SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, int externalDataSize, int externalItemCount, bool singleton = false);  \
+    static int  SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, bool singleton = false);  \
     static void* operator new( size_t nSize,void *pBuffer) throw();\
     static class_name* GetObjectByID(NFIPluginManager* pPluginManager, int iID);\
-    static int GetNextObjectID(NFIPluginManager* pPluginManager, int iObjID);\
-    static int GetNextObjectID(NFIPluginManager* pPluginManager, class_name *pObj);\
     static int   GetItemCount(NFIPluginManager* pPluginManager);\
     static int   GetUsedCount(NFIPluginManager* pPluginManager);\
     static int   GetFreeCount(NFIPluginManager* pPluginManager);\
@@ -33,8 +31,8 @@
     virtual int GetUsedCount() const;\
     virtual int GetFreeCount() const;\
     virtual int GetObjectID();\
-    virtual int GetHashID();\
-    virtual void SetHashID(int Id);\
+    virtual int64_t GetHashID();\
+    virtual void SetHashID(int64_t Id);\
     virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}", #class_name, GetClassType());}\
 
 
@@ -56,14 +54,6 @@
 	{\
         return pPluginManager->FindModule<NFISharedMemModule>()->GetFreeCount(type);\
 	}\
-	int class_name::GetUsedHead(NFIPluginManager* pPluginManager)\
-	{\
-        return pPluginManager->FindModule<NFISharedMemModule>()->GetUsedHead(type);\
-	}\
-	int class_name::GetFreeHead(NFIPluginManager* pPluginManager)\
-	{\
-        return pPluginManager->FindModule<NFISharedMemModule>()->GetFreeHead(type);\
-	}                                                 \
 	std::string class_name::GetClassName() const\
 	{\
         return FindModule<NFISharedMemModule>()->GetClassName(type);\
@@ -92,23 +82,6 @@
 	{\
 		return  pBuffer;\
 	}\
-	int class_name::GetNextObjectID(NFIPluginManager* pPluginManager, int iObjID) \
-	{ \
-		if (0 > iObjID)\
-		{\
-			return -1;\
-		}\
-		return pPluginManager->FindModule<NFISharedMemModule>()->GetNextObjectID(type, iObjID);\
-	}\
-	int class_name::GetNextObjectID(NFIPluginManager* pPluginManager, class_name *pstObj) \
-	{ \
-		int iObjID = pstObj->GetObjectID();\
-		if (0 > iObjID)\
-		{\
-			return -1;\
-		}\
-		return GetNextObjectID(pPluginManager, iObjID); \
-	}\
 	int class_name::GetObjectID()\
 	{\
 		if(m_iObjectID == INVALID_ID)\
@@ -117,11 +90,11 @@
 		}\
 		return m_iObjectID;\
 	}\
-    int class_name::GetHashID()\
+    int64_t class_name::GetHashID()\
     {\
         return m_iHashID;\
     }\
-    void class_name::SetHashID(int Id)\
+    void class_name::SetHashID(int64_t Id)\
     {\
         m_iHashID = Id;\
     }\
@@ -170,21 +143,21 @@
 
 #define IMPLEMENT_IDCREATE_WITHTYPE(class_name, type, parent_class) \
 	_IMPLEMENT_PREALLOCATED_(class_name, type)\
-	int  class_name::SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, int externalDataSize, int externalItemCount, bool singleton)\
+	int  class_name::SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, bool singleton)\
 	{\
 		pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, siObjSize,iObjCount, class_name::ResumeObject,\
 													   class_name::CreateObject,class_name::DestroyObject, parent_class::GetClassType(pPluginManager),\
-													   className, useHash, externalDataSize, externalItemCount, singleton);\
+													   className, useHash, singleton);\
 		return 0;\
 	}\
 
 #define IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(class_name,type)\
 	_IMPLEMENT_PREALLOCATED_(class_name, type)\
-	int  class_name::SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, int externalDataSize, int externalItemCount, bool singleton)\
+	int  class_name::SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, bool singleton)\
 	{\
 		pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, siObjSize,iObjCount, class_name::ResumeObject,\
 													   class_name::CreateObject,class_name::DestroyObject, -1,\
-													   className, useHash, externalDataSize, externalItemCount, singleton);\
+													   className, useHash, singleton);\
 		return 0;\
 	}\
 

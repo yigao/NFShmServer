@@ -17,49 +17,12 @@ NFShmIdx::NFShmIdx()
 
 NFShmIdx::~NFShmIdx()
 {
+    Initialize();
 }
 
 void NFShmIdx::Initialize()
 {
-	m_iPrevIdx = 0;
-	m_iNextIdx = -1;
-	m_nUseFlag = 0;
 	m_uEntity.m_pAttachedObj = NULL;
-	ClearDsInfo();
-}
-
-int NFShmIdx::GetDsInfo(short nDsIdx, int *piDsVal)
-{
-	if (nDsIdx < 0 || nDsIdx >= MAXDSINFOITEM || piDsVal == NULL)
-	{
-		return -1;
-	}
-
-	*piDsVal = m_piDsInfo[nDsIdx];
-	return 0;
-}
-
-int NFShmIdx::SetDsInfo(short nDsIdx, int iDsVal)
-{
-	if (nDsIdx < 0 || nDsIdx >= MAXDSINFOITEM)
-	{
-		return -1;
-	}
-
-	m_piDsInfo[nDsIdx] = iDsVal;
-	return 0;
-}
-
-int NFShmIdx::ClearDsInfo()
-{
-	int i;
-
-	for (i = 0; i < MAXDSINFOITEM; i++)
-	{
-		m_piDsInfo[i] = IDXNULL;
-	}
-
-	return 0;
 }
 
 void *NFShmIdx::GetObjBuf()
@@ -84,37 +47,3 @@ void NFShmIdx::SetAttachedObj(NFShmObj *pObj)
 	m_uEntity.m_pAttachedObj = pObj;
 }
 
-short NFShmIdx::IsUsed()
-{
-	return m_nUseFlag;
-}
-
-int NFShmIdx::GetNextIdx()
-{
-	return m_iNextIdx;
-}
-
-void NFShmIdx::SetNextIdx(int iIdx)
-{
-	m_iNextIdx = iIdx;
-}
-
-int NFShmIdx::GetPrevIdx()
-{
-	return m_iPrevIdx;
-}
-
-void NFShmIdx::SetPrevIdx(int iIdx)
-{
-	m_iPrevIdx = iIdx;
-}
-
-void NFShmIdx::SetUsed()
-{
-	m_nUseFlag = 1;
-}
-
-void NFShmIdx::SetFree()
-{
-	m_nUseFlag = 0;
-}

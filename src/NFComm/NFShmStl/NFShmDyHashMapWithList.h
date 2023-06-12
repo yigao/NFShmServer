@@ -12,6 +12,11 @@
 #include "NFShmDyHashTableWithList.h"
 #include "NFShmPair.h"
 
+template<class Key, class Tp,
+        class HashFcn = std::hash<Key>,
+        class EqualKey = std::equal_to<Key>>
+class NFShmDyHashMapWithList;
+
 template<class Key, class Tp, class HashFcn, class EqualKey>
 class NFShmDyHashMapWithList
 {
@@ -65,6 +70,16 @@ public:
         return 0;
     }
 
+    size_t CountSize(int iObjectCount)
+    {
+        return m_hashTable.CountSize(iObjectCount);
+    }
+
+    virtual int Init(const char* pBuffer, int bufSize, int iObjectCount, bool bResetShm = true)
+    {
+        return m_hashTable.Init(pBuffer, bufSize, iObjectCount, bResetShm);
+    }
+
 public:
     size_type size() const { return m_hashTable.size(); }
 
@@ -94,12 +109,12 @@ public:
         return m_hashTable.get_iterator(idx);
     }
 
-    const iterator get_iterator(int idx) const
+    const_iterator get_iterator(int idx) const
     {
         return m_hashTable.get_iterator(idx);
     }
 
-    int auto_erase(int num)
+    std::vector<Key> auto_erase(int num)
     {
         return m_hashTable.auto_erase(num);
     }
@@ -156,6 +171,11 @@ public:
 
     size_type elems_in_bucket(size_type __n) const { return m_hashTable.elems_in_bucket(__n); }
 };
+
+template<class Key, class Tp,
+        class HashFcn = std::hash<Key>,
+        class EqualKey = std::equal_to<Key>>
+class NFShmDyHashMultiMapWithList;
 
 template<class Key, class Tp, class HashFcn, class EqualKey>
 class NFShmDyHashMultiMapWithList
@@ -214,6 +234,15 @@ public:
         return 0;
     }
 
+    size_t CountSize(int iObjectCount)
+    {
+        return m_hashTable.CountSize(iObjectCount);
+    }
+
+    virtual int Init(const char* pBuffer, int bufSize, int iObjectCount, bool bResetShm = true)
+    {
+        return m_hashTable.Init(pBuffer, bufSize, iObjectCount, bResetShm);
+    }
 public:
     size_type size() const { return m_hashTable.size(); }
 

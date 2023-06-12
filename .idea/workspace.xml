@@ -56,10 +56,19 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="shm dy list">
+    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="shm dy stl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmDyHashTable.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmDyHashTable.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFDynamicHead.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFDynamicHead.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFISharedMemModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFISharedMemModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObj.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmDyHashMapWithList.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmDyHashMapWithList.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmDyList.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmDyList.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmIdx.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmIdx.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmIdx.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmIdx.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmObjSeg.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +114,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFNetPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFShmPlugin" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
@@ -702,14 +711,16 @@
       <workItem from="1683507234342" duration="22165000" />
       <workItem from="1683631175497" duration="891000" />
       <workItem from="1683766700246" duration="28160000" />
-      <workItem from="1683875371414" duration="2049000" />
-    </task>
-    <task id="LOCAL-00629" summary="rpc service">
-      <created>1681370309440</created>
-      <option name="number" value="00629" />
-      <option name="presentableId" value="LOCAL-00629" />
-      <option name="project" value="LOCAL" />
-      <updated>1681370309440</updated>
+      <workItem from="1683875371414" duration="7083000" />
+      <workItem from="1684125372942" duration="641000" />
+      <workItem from="1684199244050" duration="8292000" />
+      <workItem from="1684293435645" duration="8004000" />
+      <workItem from="1684459034649" duration="11439000" />
+      <workItem from="1684558677664" duration="14995000" />
+      <workItem from="1684719322031" duration="708000" />
+      <workItem from="1686016123444" duration="596000" />
+      <workItem from="1686292602314" duration="526000" />
+      <workItem from="1686383879578" duration="1243000" />
     </task>
     <task id="LOCAL-00630" summary="rpc service">
       <created>1681373297360</created>
@@ -1047,7 +1058,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683799901073</updated>
     </task>
-    <option name="localTasksCounter" value="678" />
+    <task id="LOCAL-00678" summary="shm dy stl">
+      <created>1683879689791</created>
+      <option name="number" value="00678" />
+      <option name="presentableId" value="LOCAL-00678" />
+      <option name="project" value="LOCAL" />
+      <updated>1683879689791</updated>
+    </task>
+    <option name="localTasksCounter" value="679" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1270,7 +1288,6 @@
       <path value="$PROJECT_DIR$/game/oldMMO" />
       <path value="$PROJECT_DIR$/game/MMO" />
     </ignored-roots>
-    <MESSAGE value="leave scene" />
     <MESSAGE value="trans scene" />
     <MESSAGE value="grow" />
     <MESSAGE value="attr" />
@@ -1295,15 +1312,16 @@
     <MESSAGE value="win stl" />
     <MESSAGE value="lua event" />
     <MESSAGE value="shm dy list" />
-    <option name="LAST_COMMIT_MESSAGE" value="shm dy list" />
+    <MESSAGE value="shm dy stl" />
+    <option name="LAST_COMMIT_MESSAGE" value="shm dy stl" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFShmStlTest/NFShmStlTest.cpp</url>
-          <line>1091</line>
-          <option name="timeStamp" value="10" />
+          <line>1147</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

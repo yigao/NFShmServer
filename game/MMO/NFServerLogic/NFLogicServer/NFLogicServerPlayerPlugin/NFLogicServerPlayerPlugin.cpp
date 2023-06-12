@@ -80,7 +80,7 @@ bool NFLogicServerPlayerPlugin::InitShmObjectRegister()
     /**
      * @brief 通过roleId建立Hash， 同时通过uid创建索引
      */
-    REGISTER_SHM_OBJ_WITH_HASH_AND_INDEX(NFPlayer, maxOnlinePlayerNum, PLAYER_MAX_INDEX, 1);
+    REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);
     REGISTER_SHM_OBJ(NFTransPlayerBase, 0);
 

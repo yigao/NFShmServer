@@ -35,19 +35,14 @@ typedef enum
 } EN_FRAME_SHMOBJ_TYPE;
 
 #define REGISTER_SHM_OBJ(ClassName, ObjNum ) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), false, 0, 0);\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), false);\
     }while(0)
 
 #define REGISTER_SINGLETON_SHM_OBJ(ClassName) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), 1, std::string(#ClassName), false, 0, 0, true);\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), 1, std::string(#ClassName), false, true);\
     }while(0)
 
 #define REGISTER_SHM_OBJ_WITH_HASH( ClassName, ObjNum ) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), true, 0, 0);\
+        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), true);\
     }while(0)
-
-#define REGISTER_SHM_OBJ_WITH_HASH_AND_INDEX( ClassName, ObjNum , indexNum, indexTime) do{\
-        ClassName::SetObjSeg(m_pObjPluginManager, ClassName::GetClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), true, indexNum, indexTime);\
-    }while(0)
-
 

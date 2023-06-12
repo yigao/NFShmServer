@@ -73,8 +73,7 @@ public:
     virtual void SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj *(*pfResumeObj)(NFIPluginManager *pPluginManager, void *),
                                 NFShmObj *(*pCreatefn)(NFIPluginManager *pPluginManager),
                                 void(*pDestroy)(NFIPluginManager *pPluginManager, NFShmObj *), int parentType,
-                                const std::string &pszClassName, bool useHash = false, int indexCount = 0,
-                                int indexTime = 1, bool singleton = false) = 0;
+                                const std::string &pszClassName, bool useHash = false, bool singleton = false) = 0;
 
     virtual size_t GetAllObjSize() = 0;
 
@@ -109,15 +108,9 @@ public:
 
     virtual int GetFreeCount(int iType) = 0;
 
-    virtual int GetUsedHead(int iType) = 0;
-
-    virtual int GetFreeHead(int iType) = 0;
-
     virtual int GetGlobalID(int iType, int iIndex, NFShmObj *pObj) = 0;
 
     virtual int GetObjectID(int iType, NFShmObj *pObj) = 0;
-
-    virtual int GetNextObjectID(int iType, int iObjID) = 0;
 
     virtual NFShmObj *GetObj(int iType, int iIndex) = 0;
 

@@ -75,7 +75,7 @@ bool NFWorldServerPlayerPlugin::InitShmObjectRegister()
     }
 
     REGISTER_SINGLETON_SHM_OBJ(NFWorldConfig);//
-	REGISTER_SHM_OBJ_WITH_HASH_AND_INDEX(NFWorldPlayer, maxOnlinePlayerNum, NF_WORLD_PLAYER_MAX_INDEX, 2);
+	REGISTER_SHM_OBJ_WITH_HASH(NFWorldPlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFWorldPlayerMgr);//
     REGISTER_SHM_OBJ_WITH_HASH(NFWorldSession, maxOnlinePlayerNum * 2);//
     REGISTER_SINGLETON_SHM_OBJ(NFWorldSessionMgr);//
