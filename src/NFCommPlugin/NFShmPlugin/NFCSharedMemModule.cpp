@@ -117,14 +117,12 @@ bool NFCSharedMemModule::AfterOnReloadConfig()
 {
     for (int i = 0; i < (int) m_nObjSegSwapCounter.size(); i++)
     {
-        NFShmObjSeg *pObjSeg = m_nObjSegSwapCounter[i].m_pidRuntimeClass.m_pObjSeg;
+        NFShmObjSeg *pObjSeg = m_nObjSegSwapCounter[i].m_pObjSeg;
         if (pObjSeg)
         {
-            NFShmObj *pObj = pObjSeg->GetHeadObj();
-            while (pObj)
+            for(auto iter = pObjSeg->begin(); iter != pObjSeg->end(); iter++)
             {
-                pObj->AfterOnReloadConfig();
-                pObj = pObjSeg->GetNextObj(pObj);
+                iter->AfterOnReloadConfig();
             }
         }
     }
@@ -537,7 +535,7 @@ int NFCSharedMemModule::InitAllObjSeg()
     for (int i = 0; i < (int) m_nObjSegSwapCounter.size(); i++)
     {
         m_nObjSegSwapCounter[i].m_iObjType = i;
-        m_nObjSegSwapCounter[i].m_pidRuntimeClass.m_iSelfType = i;
+        m_nObjSegSwapCounter[i].m_pidRuntimeClass.m_iObjType = i;
         if (m_nObjSegSwapCounter[i].m_nObjSize > 0 && m_nObjSegSwapCounter[i].m_iItemCount > 0)
         {
             NFShmObjSeg *pObjSeg = NFShmObjSeg::CreateObject(m_pObjPluginManager);
@@ -547,7 +545,7 @@ int NFCSharedMemModule::InitAllObjSeg()
             NFShmMgr::Instance()->m_iType = i;
             iRet = pObjSeg->SetAndInitObj(pObjSegSwapCounter->m_nObjSize,
                                           pObjSegSwapCounter->m_iItemCount,
-                                          pObjSegSwapCounter->m_pFn, pObjSegSwapCounter->m_pidRuntimeClass.m_iUseHash);
+                                          pObjSegSwapCounter->m_pResumeFn, pObjSegSwapCounter->m_iUseHash);
 
             NFShmMgr::Instance()->m_pTempPluginManager = NULL;
             NFShmMgr::Instance()->m_iType = INVALID_ID;
@@ -585,14 +583,13 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
         NF_ASSERT(pCounter->m_nObjSize == nObjSize);
         NF_ASSERT(pCounter->m_iObjType == bType);
         NF_ASSERT(pCounter->m_singleton == singleton);
-        NF_ASSERT(pCounter->m_pFn == pfResumeObj);
+        NF_ASSERT(pCounter->m_pResumeFn == pfResumeObj);
         NF_ASSERT(pCounter->m_szClassName == pszClassName);
-        NF_ASSERT(pCounter->m_pidRuntimeClass.m_iSelfType == bType);
-        NF_ASSERT(pCounter->m_pidRuntimeClass.m_pCreatefn == pCreatefn);
-        NF_ASSERT(pCounter->m_pidRuntimeClass.m_pDestroyFn == pDestroy);
+        NF_ASSERT(pCounter->m_pidRuntimeClass.m_iObjType == bType);
+        NF_ASSERT(pCounter->m_pCreatefn == pCreatefn);
+        NF_ASSERT(pCounter->m_pDestroyFn == pDestroy);
 
-        NF_ASSERT(pCounter->m_pidRuntimeClass.m_pszName == pszClassName);
-        NF_ASSERT(pCounter->m_pidRuntimeClass.m_iUseHash == useHash);
+        NF_ASSERT(pCounter->m_iUseHash == useHash);
     }
     pCounter->m_nObjSize = nObjSize;
     pCounter->m_iItemCount += iItemCount;
@@ -609,12 +606,12 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
         pCounter->m_iItemCount = 1;
     }
 
-    pCounter->m_pFn = pfResumeObj;
+    pCounter->m_pResumeFn = pfResumeObj;
     pCounter->m_szClassName = pszClassName;
 
-    pCounter->m_pidRuntimeClass.m_iSelfType = bType;
-    pCounter->m_pidRuntimeClass.m_pCreatefn = pCreatefn;
-    pCounter->m_pidRuntimeClass.m_pDestroyFn = pDestroy;
+    pCounter->m_pidRuntimeClass.m_iObjType = bType;
+    pCounter->m_pCreatefn = pCreatefn;
+    pCounter->m_pDestroyFn = pDestroy;
     if (parentType < 0)
     {
         pCounter->m_pidRuntimeClass.m_pParent = NULL;
@@ -626,20 +623,20 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
         while (pParentClass)
         {
             pParentClass->m_childrenObjType.insert(bType);
-            pCounter->m_pidRuntimeClass.m_parentObjType.insert(pParentClass->m_iSelfType);
+            pCounter->m_pidRuntimeClass.m_parentObjType.insert(pParentClass->m_iObjType);
             pParentClass = pParentClass->m_pParent;
         }
     }
-    pCounter->m_pidRuntimeClass.m_pObjSeg = NULL;
-    pCounter->m_pidRuntimeClass.m_pszName = pszClassName;
-    pCounter->m_pidRuntimeClass.m_iUseHash = useHash;
+    pCounter->m_pObjSeg = NULL;
+    pCounter->m_szClassName = pszClassName;
+    pCounter->m_iUseHash = useHash;
 
     size_t siThisObjSegTotal = 0;
     if (!add)
     {
         siThisObjSegTotal += sizeof(NFShmObjSeg);
         siThisObjSegTotal += NFShmDyList<NFShmIdx>::CountSize(pCounter->m_iItemCount);
-        if (pCounter->m_pidRuntimeClass.m_iUseHash)
+        if (pCounter->m_iUseHash)
         {
             siThisObjSegTotal += NFShmObjSeg::GetHashSize(pCounter->m_iItemCount);
         }
@@ -661,7 +658,7 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
     }
     else {
         siThisObjSegTotal += NFShmDyList<NFShmIdx>::CountSize(iItemCount);
-        if (pCounter->m_pidRuntimeClass.m_iUseHash)
+        if (pCounter->m_iUseHash)
         {
             siThisObjSegTotal += NFShmObjSeg::GetHashSize(iItemCount);
         }
@@ -688,7 +685,7 @@ NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, N
 
 void NFShmObjSegSwapCounter::SetObjSeg(NFShmObjSeg *pObjSeg)
 {
-    m_pidRuntimeClass.m_pObjSeg = pObjSeg;
+    m_pObjSeg = pObjSeg;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -770,9 +767,9 @@ int NFCSharedMemModule::InitSpecialShmObj()
 NFShmObjSeg *NFCSharedMemModule::GetObjSeg(int iType)
 {
     if (iType >= 0 && iType < (int) m_nObjSegSwapCounter.size()
-        && m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+        && m_nObjSegSwapCounter[iType].m_pObjSeg)
     {
-        return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg;
+        return m_nObjSegSwapCounter[iType].m_pObjSeg;
     }
 
     return NULL;
@@ -861,15 +858,72 @@ bool NFCSharedMemModule::IsEnd(int iType, int iIndex)
 {
     assert(IsTypeValid(iType));
 
-    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+    if (m_nObjSegSwapCounter[iType].m_pObjSeg)
     {
-        return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->IsEnd(iIndex);
+        return m_nObjSegSwapCounter[iType].m_pObjSeg->IsEnd(iIndex);
     }
 
     return true;
 }
 
-bool NFCSharedMemModule::IsTypeValid(int iType)
+size_t NFCSharedMemModule::IterIncr(int iType, size_t iPos)
+{
+    assert(IsTypeValid(iType));
+
+    return m_nObjSegSwapCounter[iType].m_pObjSeg->IterIncr(iPos);
+}
+
+size_t NFCSharedMemModule::IterDecr(int iType, size_t iPos)
+{
+    assert(IsTypeValid(iType));
+
+    return m_nObjSegSwapCounter[iType].m_pObjSeg->IterDecr(iPos);
+}
+
+NFCSharedMemModule::iterator NFCSharedMemModule::IterBegin(int iType)
+{
+    assert(IsTypeValid(iType));
+
+    return iterator(this, iType, m_nObjSegSwapCounter[iType].m_pObjSeg->IterBegin());
+}
+
+NFCSharedMemModule::iterator NFCSharedMemModule::IterEnd(int iType)
+{
+    assert(IsTypeValid(iType));
+
+    return iterator(this, iType, m_nObjSegSwapCounter[iType].m_pObjSeg->IterEnd());
+}
+
+NFCSharedMemModule::const_iterator NFCSharedMemModule::IterBegin(int iType) const
+{
+    assert(IsTypeValid(iType));
+
+    return const_iterator(this, iType, m_nObjSegSwapCounter[iType].m_pObjSeg->IterBegin());
+}
+
+NFCSharedMemModule::const_iterator NFCSharedMemModule::IterEnd(int iType) const
+{
+    assert(IsTypeValid(iType));
+
+    return const_iterator(this, iType, m_nObjSegSwapCounter[iType].m_pObjSeg->IterEnd());
+}
+
+NFShmObj* NFCSharedMemModule::GetIterObj(int iType, size_t iPos)
+{
+    assert(IsTypeValid(iType));
+
+    return m_nObjSegSwapCounter[iType].m_pObjSeg->GetIterObj(iPos);
+}
+
+
+const NFShmObj* NFCSharedMemModule::GetIterObj(int iType, size_t iPos) const
+{
+    assert(IsTypeValid(iType));
+
+    return m_nObjSegSwapCounter[iType].m_pObjSeg->GetIterObj(iPos);
+}
+
+bool NFCSharedMemModule::IsTypeValid(int iType) const
 {
     if (iType < 0 || iType >= (int) m_nObjSegSwapCounter.size())
     {
@@ -906,13 +960,13 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
     assert(IsTypeValid(iType));
 
     NFShmObj *pObj = NULL;
-    if (!m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
+    if (!m_nObjSegSwapCounter[iType].m_iUseHash)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj can't not use hash");
         return NULL;
     }
 
-    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashFind(hashKey))
+    if (m_nObjSegSwapCounter[iType].m_pObjSeg->HashFind(hashKey))
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "the hash key:{} exist.........", hashKey);
         return NULL;
@@ -920,7 +974,7 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
 
     NFShmMgr::Instance()->m_pTempPluginManager = m_pObjPluginManager;
     NFShmMgr::Instance()->m_iType = iType;
-    pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pObjPluginManager);
+    pObj = m_nObjSegSwapCounter[iType].m_pCreatefn(m_pObjPluginManager);
     NFShmMgr::Instance()->m_pTempPluginManager = NULL;
     NFShmMgr::Instance()->m_iType = INVALID_ID;
     if (pObj)
@@ -930,13 +984,13 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
 
         if (iGlobalID >= 0 && iObjId >= 0)
         {
-            if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+            if (m_nObjSegSwapCounter[iType].m_pObjSeg)
             {
-                int hashRet = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashInsert(hashKey, iObjId);
+                int hashRet = m_nObjSegSwapCounter[iType].m_pObjSeg->HashInsert(hashKey, iObjId);
                 if (hashRet < 0)
                 {
                     NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID);
-                    m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
+                    m_nObjSegSwapCounter[iType].m_pDestroyFn(m_pObjPluginManager, pObj);
                     pObj = NULL;
                     NF_ASSERT(false);
                 }
@@ -955,7 +1009,7 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
         else
         {
             NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID);
-            m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
+            m_nObjSegSwapCounter[iType].m_pDestroyFn(m_pObjPluginManager, pObj);
             pObj = NULL;
             NF_ASSERT(false);
         }
@@ -972,7 +1026,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
     assert(IsTypeValid(iType));
 
     NFShmObj *pObj = NULL;
-    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
+    if (m_nObjSegSwapCounter[iType].m_iUseHash)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj use hash, create obj use CreateObjByHashKey(uint64_t hashKey, int iType)");
         return NULL;
@@ -980,7 +1034,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 
     NFShmMgr::Instance()->m_pTempPluginManager = m_pObjPluginManager;
     NFShmMgr::Instance()->m_iType = iType;
-    pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pCreatefn(m_pObjPluginManager);
+    pObj = m_nObjSegSwapCounter[iType].m_pCreatefn(m_pObjPluginManager);
     NFShmMgr::Instance()->m_pTempPluginManager = NULL;
     NFShmMgr::Instance()->m_iType = INVALID_ID;
     if (pObj)
@@ -992,7 +1046,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
         }
         else
         {
-            m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
+            m_nObjSegSwapCounter[iType].m_pDestroyFn(m_pObjPluginManager, pObj);
             pObj = NULL;
             NFLogError(NF_LOG_SYSTEMLOG, 0, "No global id available, CreateObj Failed! type:{} className:{}", iType, m_nObjSegSwapCounter[iType].m_szClassName);
             NF_ASSERT(false);
@@ -1010,13 +1064,13 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
 NFShmObj *NFCSharedMemModule::GetObjByHashKey(uint64_t hashKey, int iType)
 {
     NF_ASSERT(IsTypeValid(iType));
-    if (!m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
+    if (!m_nObjSegSwapCounter[iType].m_iUseHash)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj not use hash, get obj use GetObjFromGlobalID");
         return NULL;
     }
 
-    return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashFind(hashKey);
+    return m_nObjSegSwapCounter[iType].m_pObjSeg->HashFind(hashKey);
 }
 
 NFShmObj *NFCSharedMemModule::GetObjFromGlobalIDWithNoCheck(int iGlobalID)
@@ -1071,7 +1125,7 @@ NFShmObj *NFCSharedMemModule::GetObjFromGlobalID(int iGlobalID, int iType, int i
         return NULL;
     }
 
-    if (pRuntimeClass->m_iSelfType == iType)
+    if (pRuntimeClass->m_iObjType == iType)
     {
         return pObj;
     }
@@ -1144,14 +1198,14 @@ NFShmObj *NFCSharedMemModule::GetObjFromMiscID(int iMiscID, int iType)
             return NULL;
         }
 
-        if (pRuntimeClass->m_iSelfType == iType)
+        if (pRuntimeClass->m_iObjType == iType)
         {
             return pObj;
         }
 
         while (pRuntimeClass->m_pParent)
         {
-            if (pRuntimeClass->m_pParent->m_iSelfType == iType)
+            if (pRuntimeClass->m_pParent->m_iObjType == iType)
             {
                 return pObj;
             }
@@ -1177,9 +1231,9 @@ NFShmObj *NFCSharedMemModule::GetHeadObj(int iType)
         return NULL;
     }
 
-    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+    if (m_nObjSegSwapCounter[iType].m_pObjSeg)
     {
-        return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetHeadObj();
+        return m_nObjSegSwapCounter[iType].m_pObjSeg->GetHeadObj();
     }
 
     return NULL;
@@ -1192,9 +1246,9 @@ NFShmObj *NFCSharedMemModule::GetNextObj(int iType, NFShmObj *pObj)
         return NULL;
     }
 
-    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+    if (m_nObjSegSwapCounter[iType].m_pObjSeg)
     {
-        return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetNextObj(pObj);
+        return m_nObjSegSwapCounter[iType].m_pObjSeg->GetNextObj(pObj);
     }
 
     return NULL;
@@ -1222,16 +1276,16 @@ int NFCSharedMemModule::GetObjectID(int iType, NFShmObj *pObj)
 
 int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func)
 {
-    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+    if (m_nObjSegSwapCounter[iType].m_pObjSeg)
     {
-        if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
+        if (m_nObjSegSwapCounter[iType].m_iUseHash)
         {
             std::vector<NFShmObj *> vecObj;
-            auto& getList = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->m_hashMgr.get_list();
+            auto& getList = m_nObjSegSwapCounter[iType].m_pObjSeg->m_hashMgr.get_list();
             for(auto get_iter = getList.begin(); get_iter != getList.end(); get_iter++)
             {
-                auto obj_iter = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->m_hashMgr.get_iterator(*get_iter);
-                NFShmObj* pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetObj(obj_iter->second);
+                auto obj_iter = m_nObjSegSwapCounter[iType].m_pObjSeg->m_hashMgr.get_iterator(*get_iter);
+                NFShmObj* pObj = m_nObjSegSwapCounter[iType].m_pObjSeg->GetObj(obj_iter->second);
                 if (func)
                 {
                     if (func(pObj))
@@ -1276,11 +1330,11 @@ void NFCSharedMemModule::ClearAllObj(int iType)
 {
     if (!IsTypeValid(iType)) return;
 
-    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+    if (m_nObjSegSwapCounter[iType].m_pObjSeg)
     {
-        for (int i = 0; i < (int) m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetItemCount(); i++)
+        for (int i = 0; i < (int) m_nObjSegSwapCounter[iType].m_pObjSeg->GetItemCount(); i++)
         {
-            NFShmObj *pObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->GetObj(i);
+            NFShmObj *pObj = m_nObjSegSwapCounter[iType].m_pObjSeg->GetObj(i);
             if (pObj)
             {
                 DestroyObj(pObj);
@@ -1312,17 +1366,17 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
         return;
     }
 
-    if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg)
+    if (m_nObjSegSwapCounter[iType].m_pObjSeg)
     {
-        if (m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_iUseHash)
+        if (m_nObjSegSwapCounter[iType].m_iUseHash)
         {
-            NFShmObj* pTempObj = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashFind(iHashID);
+            NFShmObj* pTempObj = m_nObjSegSwapCounter[iType].m_pObjSeg->HashFind(iHashID);
             if (pTempObj != pObj)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, iHashID, "DestroyObj {} Error, key:{} globalId:{} type:{} index:{}", className, iHashID,
                            iGlobalID, iType, iIndex, iHashID);
             }
-            int ret = m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pObjSeg->HashErase(iHashID);
+            int ret = m_nObjSegSwapCounter[iType].m_pObjSeg->HashErase(iHashID);
             if (ret != 0)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "HashErase:{} Failed!", iHashID);
@@ -1336,7 +1390,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
 
         m_pGlobalID->ReleaseID(iGlobalID);
 
-        m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_pDestroyFn(m_pObjPluginManager, pObj);
+        m_nObjSegSwapCounter[iType].m_pDestroyFn(m_pObjPluginManager, pObj);
     }
 
     return;

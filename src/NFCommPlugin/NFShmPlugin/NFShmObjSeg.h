@@ -99,7 +99,7 @@ struct NFShmObjSegIterator
 
     bool operator!=(const NFShmObjSegIterator &__x) const
     {
-        return m_pContainer != __x.m_pContainer && m_iter == __x.m_iter;
+        return !(m_pContainer == __x.m_pContainer && m_iter == __x.m_iter);
     }
 };
 
@@ -175,6 +175,56 @@ public:
     reverse_iterator rend() { return reverse_iterator(begin()); }
 
     const_reverse_iterator rend() const { return const_reverse_iterator(begin()); }
+public:
+    /**
+     * @brief ShmObj类链表迭代器+1
+     * @param iType
+     * @param iPos
+     * @return
+     */
+    virtual size_t IterIncr(size_t iPos)
+    {
+        auto iter = m_idxLst.GetIterator(iPos);
+        iter++;
+        return iter.m_node->m_self;
+    }
+
+    /**
+     * @brief ShmObj类链表迭代器-1
+     * @param iType
+     * @param iPos
+     * @return
+     */
+    virtual size_t IterDecr(size_t iPos)
+    {
+        auto iter = m_idxLst.GetIterator(iPos);
+        iter--;
+        return iter.m_node->m_self;
+    }
+
+    virtual size_t IterBegin()
+    {
+        auto iter = m_idxLst.begin();
+        return iter.m_node->m_self;
+    }
+
+    virtual size_t IterEnd()
+    {
+        auto iter = m_idxLst.end();
+        return iter.m_node->m_self;
+    }
+
+    virtual NFShmObj* GetIterObj(size_t iPos)
+    {
+        auto iter = m_idxLst.GetIterator(iPos);
+        return iter->GetAttachedObj();
+    }
+
+    virtual const NFShmObj* GetIterObj(size_t iPos) const
+    {
+        auto iter = m_idxLst.GetIterator(iPos);
+        return iter->GetAttachedObj();
+    }
 protected:
     NFShmIdx *CreateIdx();
 

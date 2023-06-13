@@ -2,22 +2,31 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFShmCore/NFShmObjIterator.h"
+
+class NFISharedMemModule;
 
 /**
  * @brief 不要调用CreateObject，ResumeObject, DestroyObject 创建对象，会崩溃， 走系统创建函数
  */
 
 #define _DECLARE_PREALLOCATED_(class_name)\
-    public:\
+public:\
+    typedef NFShmObjIterator<class_name, class_name &, class_name *, NFISharedMemModule> iterator;\
+    typedef NFShmObjIterator<class_name, const class_name &, const class_name *, NFISharedMemModule> const_iterator;\
+    typedef std::reverse_iterator<const_iterator> const_reverse_iterator;\
+    typedef std::reverse_iterator<iterator> reverse_iterator;\
     static int  SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, bool singleton = false);  \
     static void* operator new( size_t nSize,void *pBuffer) throw();\
     static class_name* GetObjectByID(NFIPluginManager* pPluginManager, int iID);\
     static int   GetItemCount(NFIPluginManager* pPluginManager);\
     static int   GetUsedCount(NFIPluginManager* pPluginManager);\
     static int   GetFreeCount(NFIPluginManager* pPluginManager);\
-    static int   GetUsedHead(NFIPluginManager* pPluginManager);\
-    static int   GetFreeHead(NFIPluginManager* pPluginManager);\
     static std::string GetClassName(NFIPluginManager* pPluginManager) { return #class_name; }\
+    static iterator Begin(NFIPluginManager* pPluginManager);\
+    static iterator End(NFIPluginManager* pPluginManager);\
+    static reverse_iterator RBegin(NFIPluginManager* pPluginManager);\
+    static reverse_iterator REnd(NFIPluginManager* pPluginManager);\
     static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);\
     static NFShmObj * ResumeObject(NFIPluginManager* pPluginManager,void *pVoid);\
     static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);\
@@ -38,6 +47,22 @@
 
 
 #define _IMPLEMENT_PREALLOCATED_(class_name, type) \
+    class_name::iterator class_name::Begin(NFIPluginManager* pPluginManager) \
+    {\
+        return pPluginManager->FindModule<NFISharedMemModule>()->IterBegin(type); \
+    }\
+    class_name::iterator class_name::End(NFIPluginManager* pPluginManager)\
+    {\
+        return pPluginManager->FindModule<NFISharedMemModule>()->IterEnd(type);\
+    }\
+    class_name::reverse_iterator class_name::RBegin(NFIPluginManager* pPluginManager) \
+    {\
+        return reverse_iterator(End(pPluginManager)); \
+    }\
+    class_name::reverse_iterator class_name::REnd(NFIPluginManager* pPluginManager)\
+    {\
+        return reverse_iterator(Begin(pPluginManager));\
+    }\
 	class_name* class_name::GetObjectByID(NFIPluginManager* pPluginManager, int iID)\
 	{\
         return (class_name*)pPluginManager->FindModule<NFISharedMemModule>()->GetObj(type, iID);\
@@ -124,7 +149,7 @@
         pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(type, pTmp);\
 		return;\
 	}\
-    int class_name::DestroyObjAutoErase(NFIPluginManager* pPluginManager, int maxNum = INVALID_ID)\
+    int class_name::DestroyObjAutoErase(NFIPluginManager* pPluginManager, int maxNum)\
     {\
         return pPluginManager->FindModule<NFISharedMemModule>()->DestroyObjAutoErase(type, maxNum);\
     }\

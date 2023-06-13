@@ -41,6 +41,11 @@ NFShmObj* NFShmIdx::GetAttachedObj()
 	return m_uEntity.m_pAttachedObj;
 }
 
+const NFShmObj* NFShmIdx::GetAttachedObj() const
+{
+    return m_uEntity.m_pAttachedObj;
+}
+
 void NFShmIdx::SetAttachedObj(NFShmObj *pObj)
 {
 	assert(pObj);

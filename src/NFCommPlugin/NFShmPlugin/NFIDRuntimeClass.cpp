@@ -17,10 +17,6 @@
 
 NFIDRuntimeClass::NFIDRuntimeClass()
 {
-	m_pCreatefn = NULL;
-	m_pDestroyFn = NULL;
 	m_pParent = NULL;
-	m_iSelfType = -1;
-	m_pObjSeg = NULL;
-	m_iUseHash = false;
+    m_iObjType = -1;
 }

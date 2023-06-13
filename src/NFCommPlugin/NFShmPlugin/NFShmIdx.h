@@ -22,6 +22,7 @@ public:
 	~NFShmIdx();
 	void	Initialize();
 	NFShmObj*	GetAttachedObj();
+    const NFShmObj*	GetAttachedObj() const;
 	void	SetAttachedObj(NFShmObj *pObj);
 	void*	GetObjBuf();
 	void	SetObjBuf(void *pBuf);

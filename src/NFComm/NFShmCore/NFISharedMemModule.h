@@ -12,6 +12,7 @@
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFShmDefine.h"
 #include "NFTypeDefines.h"
+#include "NFShmObjIterator.h"
 
 class NFShmObj;
 
@@ -22,6 +23,13 @@ class NFShmObj;
 class NFISharedMemModule : public NFIModule
 {
 public:
+    typedef NFShmObjIterator<NFShmObj, NFShmObj &, NFShmObj *, NFISharedMemModule> iterator;
+    typedef NFShmObjIterator<NFShmObj, const NFShmObj &, const NFShmObj *, NFISharedMemModule> const_iterator;
+
+    typedef std::reverse_iterator<const_iterator> const_reverse_iterator;
+    typedef std::reverse_iterator<iterator> reverse_iterator;
+public:
+
     NFISharedMemModule(NFIPluginManager *p) : NFIModule(p)
     {
 
@@ -161,8 +169,43 @@ public:
     virtual NFShmObj *GetObjFromMiscID(int iMiscID, int iType = -1) = 0;
 
     virtual bool IsEnd(int iType, int iIndex) = 0;
+public:
+    /**
+     * @brief ShmObj类链表迭代器+1
+     * @param iType
+     * @param iPos
+     * @return
+     */
+    virtual size_t IterIncr(int iType, size_t iPos) = 0;
 
-    virtual bool IsTypeValid(int iType) = 0;
+    /**
+     * @brief ShmObj类链表迭代器-1
+     * @param iType
+     * @param iPos
+     * @return
+     */
+    virtual size_t IterDecr(int iType, size_t iPos) = 0;
+
+    virtual iterator IterBegin(int iType) = 0;
+
+    virtual iterator IterEnd(int iType) = 0;
+
+    virtual const_iterator IterBegin(int iType) const = 0;
+
+    virtual const_iterator IterEnd(int iType) const = 0;
+
+    virtual reverse_iterator IterRBegin(int iType) { return reverse_iterator(IterEnd(iType)); }
+
+    virtual reverse_iterator IterREnd(int iType) { return reverse_iterator(IterBegin(iType)); }
+
+    virtual const_reverse_iterator IterRBegin(int iType) const { return const_reverse_iterator(IterEnd(iType)); }
+
+    virtual const_reverse_iterator IterREnd(int iType) const { return const_reverse_iterator(IterBegin(iType)); }
+
+    virtual NFShmObj* GetIterObj(int iType, size_t iPos) = 0;
+    virtual const NFShmObj* GetIterObj(int iType, size_t iPos) const = 0;
+public:
+    virtual bool IsTypeValid(int iType) const = 0;
 
     virtual NFTransBase *CreateTrans(int iType) = 0;
 

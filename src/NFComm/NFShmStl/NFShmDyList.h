@@ -492,15 +492,32 @@ public:
         return &m_node[index];
     }
 
+    const _Node *GetNode(size_t index) const
+    {
+        CHECK_EXPR(index <= *m_pMaxSize, NULL, "index out of range:{}", index);
+        return &m_node[index];
+    }
+
     iterator GetIterator(size_t index)
     {
         CHECK_EXPR(index <= *m_pMaxSize, end(), "index out of range:{}", index);
         return iterator(this, index);
     }
 
+    const_iterator GetIterator(size_t index) const
+    {
+        CHECK_EXPR(index <= *m_pMaxSize, end(), "index out of range:{}", index);
+        return const_iterator(this, index);
+    }
+
     iterator GetIterator(_Node* pNode)
     {
         return iterator(this, pNode);
+    }
+
+    const_iterator GetIterator(_Node* pNode) const
+    {
+        return const_iterator(this, pNode);
     }
 
     /**

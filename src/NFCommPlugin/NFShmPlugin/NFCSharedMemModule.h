@@ -32,25 +32,36 @@ class NFShmObjSegSwapCounter
     friend class NFCSharedMemModule;
 
 public:
-    NFShmObjSegSwapCounter() :
-            m_nObjSize(0), m_iItemCount(0), m_pFn(0), m_iObjType(0), m_pidRuntimeClass(), m_singleton(false)
-    {
+    NFShmObjSegSwapCounter()
 
+    {
+        m_nObjSize = 0;
+        m_iItemCount = 0;
+        m_iObjType = 0;
+        m_iUseHash = false;
+        m_singleton = false;
+        m_pResumeFn = NULL;
+        m_pCreatefn = NULL;
+        m_pDestroyFn = NULL;
+        m_pObjSeg = NULL;
     }
 
     void SetObjSeg(NFShmObjSeg *pObjSeg);
 
-private:
+public:
+    std::string m_szClassName;
     size_t m_nObjSize;
     int m_iItemCount;
-
-    NFShmObj *(*m_pFn)(NFIPluginManager *, void *);
-
-    std::string m_szClassName;
-
     int m_iObjType;
-    NFIDRuntimeClass m_pidRuntimeClass;
+    bool m_iUseHash;
     bool m_singleton;
+    NFShmObjSeg *m_pObjSeg;
+
+    NFShmObj *(*m_pResumeFn)(NFIPluginManager *, void *);
+    NFShmObj *(*m_pCreatefn)(NFIPluginManager* pPluginManager);
+    void(*m_pDestroyFn)(NFIPluginManager* pPluginManager, NFShmObj *);
+
+    NFIDRuntimeClass m_pidRuntimeClass;
 };
 
 class NFCSharedMemModule : public NFISharedMemModule
@@ -273,7 +284,35 @@ public:
 
     virtual bool IsEnd(int iType, int iIndex) override;
 
-    virtual bool IsTypeValid(int iType) override;
+    /**
+     * @brief ShmObj类链表迭代器+1
+     * @param iType
+     * @param iPos
+     * @return
+     */
+    virtual size_t IterIncr(int iType, size_t iPos) override;
+
+    /**
+     * @brief ShmObj类链表迭代器-1
+     * @param iType
+     * @param iPos
+     * @return
+     */
+    virtual size_t IterDecr(int iType, size_t iPos) override;
+
+    virtual iterator IterBegin(int iType) override;
+
+    virtual iterator IterEnd(int iType) override;
+
+    virtual const_iterator IterBegin(int iType) const override;
+
+    virtual const_iterator IterEnd(int iType) const override;
+
+    virtual NFShmObj* GetIterObj(int iType, size_t iPos) override;
+
+    virtual const NFShmObj* GetIterObj(int iType, size_t iPos) const override;
+
+    virtual bool IsTypeValid(int iType) const override;
 
     virtual NFTransBase *CreateTrans(int iType) override;
 
