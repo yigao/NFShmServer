@@ -183,7 +183,7 @@ NFShmObj *NFGlobalID::GetObj(int iID)
             NFShmObj *pObj = m_stIDTable[inID].pObjPtr;
 
 #ifdef NF_DEBUG_MODE
-            NFShmObj *pObjGetObjFromTypeIndex = FindModule<NFISharedMemModule>()->GetObj(m_stIDTable[inID].iType, m_stIDTable[inID].iIndex);
+            NFShmObj *pObjGetObjFromTypeIndex = FindModule<NFISharedMemModule>()->GetObjByObjId(m_stIDTable[inID].iType, m_stIDTable[inID].iIndex);
             assert(pObjGetObjFromTypeIndex == pObj);
 #endif
             //理论上还是存在这种可能性，只要服务器运行时间足够久
@@ -245,12 +245,13 @@ void *NFGlobalID::operator new(size_t nSize, void *pBuffer) throw()
     return pBuffer;
 }
 
-int NFGlobalID::SetObjSeg(NFIPluginManager *pPluginManager, int bType, int iObjSize, int iObjCount, const std::string &className, bool useHash,
+int NFGlobalID::RegisterClassToObjSeg(NFIPluginManager *pPluginManager, int bType, int iObjSize, int iObjCount, const std::string &className, bool useHash,
                           bool singleton)
 {
-    pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, iObjSize, iObjCount, NFGlobalID::ResumeObject, NFGlobalID::CreateObject,
-                                                                     NFGlobalID::DestroyObject, -1, className, useHash,
-                                                                     singleton);
+    pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, iObjSize, iObjCount, NFGlobalID::ResumeObject,
+                                                                            NFGlobalID::CreateObject,
+                                                                            NFGlobalID::DestroyObject, -1, className, useHash,
+                                                                            singleton);
     return 0;
 }
 

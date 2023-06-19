@@ -570,7 +570,7 @@ int NFCSharedMemModule::InitAllObjSeg()
 }
 
 void
-NFCSharedMemModule::SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj *(*pfResumeObj)(NFIPluginManager *pPluginManager, void *),
+NFCSharedMemModule::RegisterClassToObjSeg(int bType, size_t nObjSize, int iItemCount, NFShmObj *(*pfResumeObj)(NFIPluginManager *pPluginManager, void *),
                                    NFShmObj *(*pCreatefn)(NFIPluginManager *pPluginManager),
                                    void(*pDestroy)(NFIPluginManager *pPluginManager, NFShmObj *), int parentType, const std::string &pszClassName,
                                    bool useHash, bool singleton)
@@ -716,7 +716,7 @@ int NFCSharedMemModule::InitShmObjectGlobal()
 
     if (GetInitMode() == EN_OBJ_MODE_RECOVER)
     {
-        m_pGlobalID = (NFGlobalID *) FindModule<NFISharedMemModule>()->GetObj(EOT_GLOBAL_ID, 0);
+        m_pGlobalID = (NFGlobalID *) FindModule<NFISharedMemModule>()->GetObjByObjId(EOT_GLOBAL_ID, 0);
     }
     else
     {
@@ -834,14 +834,14 @@ void NFCSharedMemModule::FreeMemForObject(int iType, void *pMem)
     return;
 }
 
-NFShmObj *NFCSharedMemModule::GetObj(int iType, int iIndex)
+NFShmObj *NFCSharedMemModule::GetObjByObjId(int iType, int iIndex)
 {
     NFShmObjSeg *pObjSeg = GetObjSeg(iType);
     if (pObjSeg)
     {
         return pObjSeg->GetObj(iIndex);
     }
-    NFLogError(NF_LOG_SYSTEMLOG, 0, "now GetObj iType:{} null objseg", iType);
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "now GetObjByObjId iType:{} null objseg", iType);
     return 0;
 }
 
@@ -906,6 +906,11 @@ NFCSharedMemModule::const_iterator NFCSharedMemModule::IterEnd(int iType) const
     assert(IsTypeValid(iType));
 
     return const_iterator(this, iType, m_nObjSegSwapCounter[iType].m_pObjSeg->IterEnd());
+}
+
+NFCSharedMemModule::iterator NFCSharedMemModule::Erase(NFCSharedMemModule::iterator iter)
+{
+    return iterator(this, iter.m_type, m_nObjSegSwapCounter[iter.m_type].m_pObjSeg->Erase(iter.m_pos));
 }
 
 NFShmObj* NFCSharedMemModule::GetIterObj(int iType, size_t iPos)
@@ -980,7 +985,7 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
     if (pObj)
     {
         int iGlobalID = pObj->GetGlobalID();
-        int iObjId = pObj->GetObjectID();
+        int iObjId = pObj->GetObjID();
 
         if (iGlobalID >= 0 && iObjId >= 0)
         {
@@ -1052,7 +1057,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
             NF_ASSERT(false);
         }
 
-        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "CreateObj Success! type:{} className:{} GlobalID:{}", iType, m_nObjSegSwapCounter[iType].m_szClassName, iID);
+        NFLogDebug(NF_LOG_SYSTEMLOG, 0, "CreateObj Success! type:{} className:{} GlobalID:{} UsedCount:{} AllCount:{}", iType, m_nObjSegSwapCounter[iType].m_szClassName, iID, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
     }
     else {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateObj Failed! type:{} className:{}", iType, m_nObjSegSwapCounter[iType].m_szClassName);
@@ -1066,7 +1071,7 @@ NFShmObj *NFCSharedMemModule::GetObjByHashKey(uint64_t hashKey, int iType)
     NF_ASSERT(IsTypeValid(iType));
     if (!m_nObjSegSwapCounter[iType].m_iUseHash)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj not use hash, get obj use GetObjFromGlobalID");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the obj not use hash, get obj use GetObjByGlobalID");
         return NULL;
     }
 
@@ -1086,18 +1091,16 @@ const std::unordered_set<int>& NFCSharedMemModule::GetChildrenType(int iType)
     return m_nObjSegSwapCounter[iType].m_pidRuntimeClass.m_childrenObjType;
 }
 
-NFShmObj *NFCSharedMemModule::GetObjFromGlobalID(int iGlobalID, int iType, int iStrongType)
+NFShmObj *NFCSharedMemModule::GetObjByGlobalID(int iType, int iGlobalID, bool withChildrenType)
 {
     NFShmObj *pObj = m_pGlobalID->GetObj(iGlobalID);
-    //return pObj;
-
-    int iRealType;
-    NFIDRuntimeClass *pRuntimeClass;
-
     if (!pObj)
     {
         return NULL;
     }
+
+    int iRealType;
+    NFIDRuntimeClass *pRuntimeClass;
 
 #if defined(_DEBUG) | defined(_DEBUG_)
     pObj->CheckMemMagicNum();
@@ -1112,7 +1115,7 @@ NFShmObj *NFCSharedMemModule::GetObjFromGlobalID(int iGlobalID, int iType, int i
 
     if ((iRealType != iType))
     {
-        if (iStrongType)
+        if (!withChildrenType)
         {
             return NULL;
         }
@@ -1157,14 +1160,14 @@ NFShmObj *NFCSharedMemModule::GetObjFromMiscID(int iMiscID, int iType)
 #if defined( _DEBUG_) | defined(_DEBUG)
         NFLogError(NF_LOG_SYSTEMLOG, 0, "advice:dont use GetObjFromMiscID get object with gloablid. {} ,type {}", iMiscID, iType);
 #endif
-        return GetObjFromGlobalID(iMiscID, iType);
+        return GetObjByGlobalID(iType, iMiscID);
     }
     else
     {
         int iIndexInID = -1;
         iTypeInID = (iMiscID & 0x7f800000) >> 23;
         iIndexInID = (iMiscID & 0x007fffff);
-        pObj = GetObj(iTypeInID, iIndexInID);
+        pObj = GetObjByObjId(iTypeInID, iIndexInID);
     }
 
     if (!pObj)
@@ -1263,14 +1266,14 @@ int NFCSharedMemModule::GetGlobalID(int iType, int iIndex, NFShmObj *pObj)
     return INVALID_ID;
 }
 
-int NFCSharedMemModule::GetObjectID(int iType, NFShmObj *pObj)
+int NFCSharedMemModule::GetObjID(int iType, NFShmObj *pObj)
 {
     NFShmObjSeg *pObjSeg = GetObjSeg(iType);
     if (pObjSeg)
     {
         return pObjSeg->GetObjId(pObj);
     }
-    NFLogError(NF_LOG_SYSTEMLOG, 0, "now GetObjectID iType:{} null objseg", iType);
+    NFLogError(NF_LOG_SYSTEMLOG, 0, "now GetObjID iType:{} null objseg", iType);
     return -1;
 }
 
@@ -1351,7 +1354,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
     int64_t iHashID = -1;
 
     iType = pObj->GetClassType();
-    iIndex = pObj->GetObjectID();
+    iIndex = pObj->GetObjID();
     iGlobalID = pObj->GetGlobalID();
     iHashID = pObj->GetHashID();
     std::string className = pObj->GetClassName();

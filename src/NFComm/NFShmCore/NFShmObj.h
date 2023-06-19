@@ -68,7 +68,7 @@ public:
 
     int GetTypeIndexID()
     {
-        return ((GetClassType() << 23) | 0x80000000) | GetObjectID();
+        return ((GetClassType() << 23) | 0x80000000) | GetObjID();
     }
 
     int GetMiscID()

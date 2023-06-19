@@ -246,13 +246,13 @@ public:
 
     virtual int GetGlobalID(int iType, int iIndex, NFShmObj *pObj) override;
 
-    virtual int GetObjectID(int iType, NFShmObj *pObj) override;
+    virtual int GetObjID(int iType, NFShmObj *pObj) override;
 
     virtual void *AllocMemForObject(int iType) override;
 
     virtual void FreeMemForObject(int iType, void *pMem) override;
 
-    virtual NFShmObj *GetObj(int iType, int iIndex) override;
+    virtual NFShmObj *GetObjByObjId(int iType, int iIndex) override;
 
     virtual NFShmObj *CreateObjByHashKey(uint64_t hashKey, int iType) override;
 
@@ -272,7 +272,7 @@ public:
 
     virtual int DestroyObjAutoErase(int iType, int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL) override;
 
-    virtual NFShmObj *GetObjFromGlobalID(int iGlobalID, int iType, int iStrongType = 1) override;
+    virtual NFShmObj *GetObjByGlobalID(int iType, int iGlobalID, bool withChildrenType = false) override;
 
     virtual NFShmObj *GetObjFromGlobalIDWithNoCheck(int iGlobalID) override;
 
@@ -308,6 +308,8 @@ public:
 
     virtual const_iterator IterEnd(int iType) const override;
 
+    virtual iterator Erase(iterator iter) override;
+
     virtual NFShmObj* GetIterObj(int iType, size_t iPos) override;
 
     virtual const NFShmObj* GetIterObj(int iType, size_t iPos) const override;
@@ -340,10 +342,10 @@ public:
 
     int InitAllObjSeg();
 
-    virtual void SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj *(*pfResumeObj)(NFIPluginManager *pPluginManager, void *),
-                                NFShmObj *(*pCreatefn)(NFIPluginManager *pPluginManager),
-                                void(*pDestroy)(NFIPluginManager *pPluginManager, NFShmObj *), int parentType, const std::string &pszClassName,
-                                bool useHash = false, bool singleton = false) override;
+    virtual void RegisterClassToObjSeg(int bType, size_t nObjSize, int iItemCount, NFShmObj *(*pfResumeObj)(NFIPluginManager *pPluginManager, void *),
+                                       NFShmObj *(*pCreatefn)(NFIPluginManager *pPluginManager),
+                                       void(*pDestroy)(NFIPluginManager *pPluginManager, NFShmObj *), int parentType, const std::string &pszClassName,
+                                       bool useHash = false, bool singleton = false) override;
 
     virtual size_t GetAllObjSize() override;
 

@@ -175,7 +175,7 @@ int NFPlayerMgr::DoTick(uint32_t dwCurRunIndex, bool bIsTickAll)
         /**
          * @brief 这样写的好处，可以在循环里删除玩家信息
          */
-        NFPlayer *pPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->GetObj(EOT_LOGIC_PLAYER_ID, m_iLastTickIndex));
+        NFPlayer *pPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->GetObjByObjId(EOT_LOGIC_PLAYER_ID, m_iLastTickIndex));
         if (pPlayer)
         {
             pPlayer->Tick();

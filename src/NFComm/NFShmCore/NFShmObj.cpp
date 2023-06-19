@@ -67,7 +67,7 @@ int NFShmObj::CreateInit()
     m_iObjType = NFShmMgr::Instance()->m_iType;
     if (m_iObjectID == INVALID_ID)
     {
-        m_iObjectID = FindModule<NFISharedMemModule>()->GetObjectID(m_iObjType, this);
+        m_iObjectID = FindModule<NFISharedMemModule>()->GetObjID(m_iObjType, this);
         NF_ASSERT(m_iObjectID != INVALID_ID);
     }
 

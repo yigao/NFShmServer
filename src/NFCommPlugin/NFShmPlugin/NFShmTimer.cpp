@@ -82,7 +82,7 @@ std::string NFShmTimer::GetDetailStructMsg()
         << " slotIndex:" << m_slotIndex
         << " waitDel:" << m_waitDel
         << " listIndex:" << m_listIndex
-        << " objID:" << GetObjectID()
+        << " objID:" << GetObjID()
         << " globalID:" << GetGlobalID();
 
 #ifdef NF_DEBUG_MODE
@@ -117,7 +117,7 @@ NFTimerRetType NFShmTimer::OnTick(int64_t tick)
             }
             m_curCallCount++;
 
-            return HandleTimer(GetObjectID(), m_curCallCount);
+            return HandleTimer(GetObjID(), m_curCallCount);
         }
         else
         {

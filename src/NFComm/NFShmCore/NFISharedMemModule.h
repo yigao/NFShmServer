@@ -78,10 +78,10 @@ public:
 
     virtual void FreeMemForObject(int iType, void *pMem) = 0;
 
-    virtual void SetObjSegParam(int bType, size_t nObjSize, int iItemCount, NFShmObj *(*pfResumeObj)(NFIPluginManager *pPluginManager, void *),
-                                NFShmObj *(*pCreatefn)(NFIPluginManager *pPluginManager),
-                                void(*pDestroy)(NFIPluginManager *pPluginManager, NFShmObj *), int parentType,
-                                const std::string &pszClassName, bool useHash = false, bool singleton = false) = 0;
+    virtual void RegisterClassToObjSeg(int bType, size_t nObjSize, int iItemCount, NFShmObj *(*pfResumeObj)(NFIPluginManager *pPluginManager, void *),
+                                       NFShmObj *(*pCreatefn)(NFIPluginManager *pPluginManager),
+                                       void(*pDestroy)(NFIPluginManager *pPluginManager, NFShmObj *), int parentType,
+                                       const std::string &pszClassName, bool useHash = false, bool singleton = false) = 0;
 
     virtual size_t GetAllObjSize() = 0;
 
@@ -108,9 +108,7 @@ public:
 
     virtual int GetGlobalID(int iType, int iIndex, NFShmObj *pObj) = 0;
 
-    virtual int GetObjectID(int iType, NFShmObj *pObj) = 0;
-
-    virtual NFShmObj *GetObj(int iType, int iIndex) = 0;
+    virtual int GetObjID(int iType, NFShmObj *pObj) = 0;
 
     virtual NFShmObj *CreateObj(int iType) = 0;
 
@@ -154,12 +152,14 @@ public:
 
     virtual int DestroyObjAutoErase(int iType, int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL) = 0;
 
-    virtual NFShmObj *GetObjFromGlobalID(int iGlobalID, int iType, int iStrongType = 1) = 0;
+    virtual NFShmObj *GetObjByObjId(int iType, int iIndex) = 0;
+
+    virtual NFShmObj *GetObjByGlobalID(int iType, int iGlobalID, bool withChildrenType = false) = 0;
 
     template<typename ShmObjType>
-    ShmObjType *GetObjFromGlobalID(int iGlobalID, int iStrongType = 1)
+    ShmObjType *GetObjByGlobalID(int iGlobalID, int iStrongType = 1)
     {
-        return dynamic_cast<ShmObjType*>(GetObjFromGlobalID(iGlobalID, ShmObjType::GetClassType(m_pObjPluginManager), iStrongType));
+        return dynamic_cast<ShmObjType*>(GetObjByGlobalID(iGlobalID, ShmObjType::GetClassType(m_pObjPluginManager), iStrongType));
     }
 
     virtual NFShmObj *GetObjFromGlobalIDWithNoCheck(int iGlobalID) = 0;
@@ -201,6 +201,8 @@ public:
     virtual const_reverse_iterator IterRBegin(int iType) const { return const_reverse_iterator(IterEnd(iType)); }
 
     virtual const_reverse_iterator IterREnd(int iType) const { return const_reverse_iterator(IterBegin(iType)); }
+
+    virtual iterator Erase(iterator iter) = 0;
 
     virtual NFShmObj* GetIterObj(int iType, size_t iPos) = 0;
     virtual const NFShmObj* GetIterObj(int iType, size_t iPos) const = 0;

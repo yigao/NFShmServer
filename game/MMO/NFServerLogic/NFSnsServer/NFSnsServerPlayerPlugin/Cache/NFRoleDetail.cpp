@@ -135,7 +135,7 @@ NFSnsPart *NFRoleDetail::GetPart(uint32_t partType)
         return nullptr;
     }
 
-    return dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(m_pPart[partType], EOT_SNS_PART_ID, 0));
+    return dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_SNS_PART_ID, m_pPart[partType], false));
 }
 
 NFRoleSimple *NFRoleDetail::GetRoleSimple() const

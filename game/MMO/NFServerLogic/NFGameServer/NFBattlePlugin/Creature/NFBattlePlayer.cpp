@@ -168,7 +168,7 @@ NFBattlePart *NFBattlePlayer::GetPart(uint32_t partType)
         return nullptr;
     }
 
-    return dynamic_cast<NFBattlePart *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(m_pPart[partType], EOT_NFBattlePart_ID, 0));
+    return dynamic_cast<NFBattlePart *>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_NFBattlePart_ID, m_pPart[partType], true));
 }
 
 int NFBattlePlayer::OnTimer(int timeId, int callcount)

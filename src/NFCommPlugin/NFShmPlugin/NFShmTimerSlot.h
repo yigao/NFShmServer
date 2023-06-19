@@ -67,7 +67,7 @@ NFShmTimerSlot(NFIPluginManager* pPluginManager):pDebugPluginManager(pPluginMana
 #if NF_DEBUG_MODE
         if (m_iType > 0)
         {
-            NFShmObj *pObjGetObjFromTypeIndex = pDebugPluginManager->FindModule<NFISharedMemModule>()->GetObj(m_iType, m_iIndex);
+            NFShmObj *pObjGetObjFromTypeIndex = pDebugPluginManager->FindModule<NFISharedMemModule>()->GetObjByObjId(m_iType, m_iIndex);
             assert(pObjGetObjFromTypeIndex == m_pObjPtr.GetPoint());
         }
 #endif

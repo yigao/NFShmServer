@@ -275,7 +275,7 @@ int NFDBObjMgr::OnDataSaved(NFDBObjTrans* pTrans, bool success)
 }
 
 NFBaseDBObj *NFDBObjMgr::GetObj(int iObjID) {
-    return dynamic_cast<NFBaseDBObj*>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(iObjID, EOT_BASE_DB_OBJ, 0));
+    return dynamic_cast<NFBaseDBObj*>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_BASE_DB_OBJ, iObjID, true));
 }
 
 int NFDBObjMgr::SaveToDB(NFBaseDBObj *pObj) {

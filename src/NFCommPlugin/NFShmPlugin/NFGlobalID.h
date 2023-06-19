@@ -36,7 +36,7 @@ public:
     int SetTypeAndIndex(int iType, int iIndex, NFShmObj *pObj);
 	int ReleaseID(int iID);
 	NFShmObj  *GetObj(int iID);
-	static int SetObjSeg(NFIPluginManager* pPluginManager, int bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, bool singleton);
+	static int RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, int iObjSize, int iObjCount, const std::string& className, bool useHash, bool singleton);
 	static void *operator new(size_t nSize, void *pBuffer) throw();
 	static NFShmObj *ResumeObject(NFIPluginManager* pPluginManager, void *pBuffer);
     static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);

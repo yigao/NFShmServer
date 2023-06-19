@@ -7,7 +7,7 @@
 class NFISharedMemModule;
 
 /**
- * @brief 不要调用CreateObject，ResumeObject, DestroyObject 创建对象，会崩溃， 走系统创建函数
+ * @brief 不要调用CreateObjectRegisterFunction，ResumeObjectRegisterFunction, DestroyObjectRegisterFunction 创建对象，会崩溃， 走系统创建函数
  */
 
 #define _DECLARE_PREALLOCATED_(class_name)\
@@ -16,9 +16,6 @@ public:\
     typedef NFShmObjIterator<class_name, const class_name &, const class_name *, NFISharedMemModule> const_iterator;\
     typedef std::reverse_iterator<const_iterator> const_reverse_iterator;\
     typedef std::reverse_iterator<iterator> reverse_iterator;\
-    static int  SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, bool singleton = false);  \
-    static void* operator new( size_t nSize,void *pBuffer) throw();\
-    static class_name* GetObjectByID(NFIPluginManager* pPluginManager, int iID);\
     static int   GetItemCount(NFIPluginManager* pPluginManager);\
     static int   GetUsedCount(NFIPluginManager* pPluginManager);\
     static int   GetFreeCount(NFIPluginManager* pPluginManager);\
@@ -27,10 +24,14 @@ public:\
     static iterator End(NFIPluginManager* pPluginManager);\
     static reverse_iterator RBegin(NFIPluginManager* pPluginManager);\
     static reverse_iterator REnd(NFIPluginManager* pPluginManager);\
-    static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);\
-    static NFShmObj * ResumeObject(NFIPluginManager* pPluginManager,void *pVoid);\
-    static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);\
-    static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum);\
+    static iterator Erase(NFIPluginManager* pPluginManager, iterator iter);\
+    static class_name* CreateObj(NFIPluginManager* pPluginManager);\
+    static class_name* CreateObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey);\
+    static void DestroyObj(NFIPluginManager* pPluginManager, class_name*);\
+    static void ClearAllObj(NFIPluginManager* pPluginManager);\
+    static class_name* GetObjByObjId(NFIPluginManager* pPluginManager, int iObjId);\
+    static class_name *GetObjByGlobalID(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType = false);\
+    static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL);\
 	static class_name* Instance(NFIPluginManager* pPluginManager);\
 	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
     static int GetClassType(NFIPluginManager* pPluginManager);      \
@@ -39,10 +40,16 @@ public:\
     virtual int GetItemCount() const;\
     virtual int GetUsedCount() const;\
     virtual int GetFreeCount() const;\
-    virtual int GetObjectID();\
+    virtual int GetObjID();\
     virtual int64_t GetHashID();\
     virtual void SetHashID(int64_t Id);\
     virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}", #class_name, GetClassType());}\
+    /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
+    static int  RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, bool singleton = false);  \
+    static void* operator new( size_t nSize,void *pBuffer) throw();\
+    static NFShmObj * CreateObjectRegisterFunction(NFIPluginManager* pPluginManager);\
+    static NFShmObj * ResumeObjectRegisterFunction(NFIPluginManager* pPluginManager,void *pVoid);\
+    static void DestroyObjectRegisterFunction(NFIPluginManager* pPluginManager,NFShmObj *pObj);\
 
 
 
@@ -63,9 +70,33 @@ public:\
     {\
         return reverse_iterator(Begin(pPluginManager));\
     }\
-	class_name* class_name::GetObjectByID(NFIPluginManager* pPluginManager, int iID)\
+    class_name::iterator class_name::Erase(NFIPluginManager* pPluginManager, class_name::iterator iter) \
+    {\
+        return pPluginManager->FindModule<NFISharedMemModule>()->Erase(iter);\
+    }\
+    class_name* class_name::CreateObj(NFIPluginManager* pPluginManager)      \
+    {\
+        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->CreateObj(type));\
+    }\
+    class_name* class_name::CreateObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey)\
+    {\
+        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->CreateObjByHashKey(hashKey, type));\
+    }\
+    void class_name::DestroyObj(NFIPluginManager* pPluginManager, class_name* pObj)\
+    {\
+        pPluginManager->FindModule<NFISharedMemModule>()->DestroyObj(pObj);\
+    }\
+    void class_name::ClearAllObj(NFIPluginManager* pPluginManager)\
+    {\
+        pPluginManager->FindModule<NFISharedMemModule>()->ClearAllObj(type);\
+    }\
+	class_name* class_name::GetObjByObjId(NFIPluginManager* pPluginManager, int iID)\
 	{\
-        return (class_name*)pPluginManager->FindModule<NFISharedMemModule>()->GetObj(type, iID);\
+        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByObjId(type, iID));\
+	}\
+    class_name *class_name::GetObjByGlobalID(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType)\
+	{\
+        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalID(type, iGlobalID, withChildrenType));\
 	}\
 	int class_name::GetItemCount(NFIPluginManager* pPluginManager)\
 	{\
@@ -103,17 +134,25 @@ public:\
     {\
         return FindModule<NFISharedMemModule>()->GetFreeCount(type);\
     }\
-    void* class_name::operator new( size_t nSize,void *pBuffer ) throw()\
-	{\
-		return  pBuffer;\
-	}\
-	int class_name::GetObjectID()\
+	int class_name::GetObjID()\
 	{\
 		if(m_iObjectID == INVALID_ID)\
 		{\
-			m_iObjectID = FindModule<NFISharedMemModule>()->GetObjectID(type, this);\
+			m_iObjectID = FindModule<NFISharedMemModule>()->GetObjID(type, this);\
 		}\
 		return m_iObjectID;\
+	}\
+    int class_name::DestroyObjAutoErase(NFIPluginManager* pPluginManager, int maxNum, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func)\
+    {\
+        return pPluginManager->FindModule<NFISharedMemModule>()->DestroyObjAutoErase(type, maxNum, func);\
+    }\
+	class_name* class_name::Instance(NFIPluginManager* pPluginManager)\
+	{\
+		return (class_name *)pPluginManager->FindModule<NFISharedMemModule>()->GetHeadObj(type);\
+	}\
+	class_name* class_name::GetInstance(NFIPluginManager* pPluginManager)\
+	{\
+		return (class_name *)pPluginManager->FindModule<NFISharedMemModule>()->GetHeadObj(type);\
 	}\
     int64_t class_name::GetHashID()\
     {\
@@ -123,7 +162,12 @@ public:\
     {\
         m_iHashID = Id;\
     }\
-	NFShmObj * class_name::CreateObject(NFIPluginManager* pPluginManager)\
+    /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
+    void* class_name::operator new( size_t nSize,void *pBuffer ) throw()\
+	{\
+		return  pBuffer;\
+	}\
+	NFShmObj * class_name::CreateObjectRegisterFunction(NFIPluginManager* pPluginManager)\
 	{\
 		class_name *pTmp = NULL;\
 		void* pVoid = pPluginManager->FindModule<NFISharedMemModule>()->AllocMemForObject(type);      \
@@ -135,13 +179,13 @@ public:\
         pTmp = new (pVoid) class_name();\
 		return pTmp;\
 	}\
-	NFShmObj * class_name::ResumeObject(NFIPluginManager* pPluginManager, void * pVoid)\
+	NFShmObj * class_name::ResumeObjectRegisterFunction(NFIPluginManager* pPluginManager, void * pVoid)\
 	{\
 		class_name *pTmp = NULL;\
 		pTmp = new (pVoid) class_name();\
 		return pTmp;\
 	}\
-	void  class_name::DestroyObject(NFIPluginManager* pPluginManager, NFShmObj *pObj)\
+	void  class_name::DestroyObjectRegisterFunction(NFIPluginManager* pPluginManager, NFShmObj *pObj)\
 	{\
 		class_name *pTmp = NULL;\
 		pTmp = (class_name*)pObj;\
@@ -149,18 +193,7 @@ public:\
         pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(type, pTmp);\
 		return;\
 	}\
-    int class_name::DestroyObjAutoErase(NFIPluginManager* pPluginManager, int maxNum)\
-    {\
-        return pPluginManager->FindModule<NFISharedMemModule>()->DestroyObjAutoErase(type, maxNum);\
-    }\
-	class_name* class_name::Instance(NFIPluginManager* pPluginManager)\
-	{\
-		return (class_name *)pPluginManager->FindModule<NFISharedMemModule>()->GetHeadObj(type);\
-	}\
-	class_name* class_name::GetInstance(NFIPluginManager* pPluginManager)\
-	{\
-		return (class_name *)pPluginManager->FindModule<NFISharedMemModule>()->GetHeadObj(type);\
-	}\
+
 
 
 #define DECLARE_IDCREATE(class_name)\
@@ -168,20 +201,20 @@ public:\
 
 #define IMPLEMENT_IDCREATE_WITHTYPE(class_name, type, parent_class) \
 	_IMPLEMENT_PREALLOCATED_(class_name, type)\
-	int  class_name::SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, bool singleton)\
+	int  class_name::RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, bool singleton)\
 	{\
-		pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, siObjSize,iObjCount, class_name::ResumeObject,\
-													   class_name::CreateObject,class_name::DestroyObject, parent_class::GetClassType(pPluginManager),\
+		pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize,iObjCount, class_name::ResumeObjectRegisterFunction,\
+													   class_name::CreateObjectRegisterFunction,class_name::DestroyObjectRegisterFunction, parent_class::GetClassType(pPluginManager),\
 													   className, useHash, singleton);\
 		return 0;\
 	}\
 
 #define IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(class_name,type)\
 	_IMPLEMENT_PREALLOCATED_(class_name, type)\
-	int  class_name::SetObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, bool singleton)\
+	int  class_name::RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, bool singleton)\
 	{\
-		pPluginManager->FindModule<NFISharedMemModule>()->SetObjSegParam(bType, siObjSize,iObjCount, class_name::ResumeObject,\
-													   class_name::CreateObject,class_name::DestroyObject, -1,\
+		pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize,iObjCount, class_name::ResumeObjectRegisterFunction,\
+													   class_name::CreateObjectRegisterFunction,class_name::DestroyObjectRegisterFunction, -1,\
 													   className, useHash, singleton);\
 		return 0;\
 	}\

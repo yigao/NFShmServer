@@ -16,6 +16,7 @@ typedef enum
 {
 	EOT_SF_BEGIN_ID = EOT_SERVER_FRAME_BEGIN_ID,
     ////////////////////////////server common////////////////////////////////////////////////
+    EOT_NFTestObj_ID,
     EOT_NFTestMgr_ID,
     EOT_SERVER_COMMON_ATTR_MGR_ID,
     EOT_SERVER_COMMON_COMFIGHT_ATTR_ID,

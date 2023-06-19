@@ -115,7 +115,7 @@ NFMap *NFScene::GetMap() const
 {
     if (m_mapGlobalId >= 0)
     {
-        return dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->GetObj(EOT_GAME_MAP_ID, m_mapGlobalId));
+        return dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->GetObjByObjId(EOT_GAME_MAP_ID, m_mapGlobalId));
     }
 
     return NFMapMgr::Instance(m_pObjPluginManager)->GetMap(m_mapId);

@@ -50,9 +50,9 @@ struct NFShmObjIterator
 
     }
 
-    reference operator*() const { return *(dynamic_cast<pointer>(m_pContainer->GetIterObj())); }
+    reference operator*() const { return *(dynamic_cast<pointer>(m_pContainer->GetIterObj(m_type, m_pos))); }
 
-    pointer operator->() const { return dynamic_cast<pointer>(m_pContainer->GetIterObj()); }
+    pointer operator->() const { return dynamic_cast<pointer>(m_pContainer->GetIterObj(m_type, m_pos)); }
 
     _Self &operator++()
     {

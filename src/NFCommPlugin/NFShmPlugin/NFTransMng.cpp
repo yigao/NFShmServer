@@ -62,7 +62,7 @@ NFTransBase *NFTransMng::CreateTrans(uint32_t bTransObjType) {
 NFTransBase *NFTransMng::GetTransBase(uint64_t ullTransID) {
     CHECK_EXPR(ullTransID < INT_MAX, NULL, "TrandID Max:{} IntMax:{}", ullTransID, INT_MAX);
 
-    return dynamic_cast<NFTransBase *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalID(ullTransID, EOT_TRANS_BASE, 0));
+    return dynamic_cast<NFTransBase *>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_TRANS_BASE, ullTransID, true));
 }
 
 NFTransBase *NFTransMng::CreateTrans_i(uint32_t bTransObjType) {

@@ -25,6 +25,7 @@
 
 #include "NFTestMgr.h"
 #include "DescStoreEx/NFGrowDescStoreEx.h"
+#include "NFTestObj.h"
 
 
 #ifdef NF_DYNAMIC_PLUGIN
@@ -74,17 +75,18 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     EOT_DESC_STORE_ALL_REGISTER_DEFINE
 
     /////////////////////////////////////////Register DescStroeEx//////////////////////////////////
-    REGISTER_DESCSTORE(NFMapDescStoreEx);
-    REGISTER_DESCSTORE(NFRoleDescStoreEx);
-    REGISTER_DESCSTORE(NFFuncUnLockDescStoreEx);
-    REGISTER_DESCSTORE(NFItemDescStoreEx);
-    REGISTER_DESCSTORE(NFMissionDescStoreEx);
-    REGISTER_DESCSTORE(NFGrowDescStoreEx);
+    //REGISTER_DESCSTORE(NFMapDescStoreEx);
+    //REGISTER_DESCSTORE(NFRoleDescStoreEx);
+    //REGISTER_DESCSTORE(NFFuncUnLockDescStoreEx);
+    //REGISTER_DESCSTORE(NFItemDescStoreEx);
+    //REGISTER_DESCSTORE(NFMissionDescStoreEx);
+    //REGISTER_DESCSTORE(NFGrowDescStoreEx);
 
 
     /////////////////////////////////////Server Common////////////////////////////////////////////
-    REGISTER_SINGLETON_SHM_OBJ(NFAttrMgr);
+    //REGISTER_SINGLETON_SHM_OBJ(NFAttrMgr);
     //REGISTER_DESCSTORE(NFTestMgr);
+    REGISTER_SHM_OBJ(NFTestObj, 100);
     /////////////////////////////////////Server Common////////////////////////////////////////////
 	return true;
 }
