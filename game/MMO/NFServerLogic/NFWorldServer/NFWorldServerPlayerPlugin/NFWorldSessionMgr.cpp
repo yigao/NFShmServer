@@ -43,7 +43,7 @@ int NFWorldSessionMgr::ResumeInit()
 
 NFWorldSession *NFWorldSessionMgr::GetSession(uint64_t clientId)
 {
-    return dynamic_cast<NFWorldSession *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(clientId, EOT_WORLD_SESSION_ID));
+    return dynamic_cast<NFWorldSession *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_WORLD_SESSION_ID, clientId));
 }
 
 NFWorldSession *NFWorldSessionMgr::CreateSession(uint64_t clientId)
@@ -51,7 +51,7 @@ NFWorldSession *NFWorldSessionMgr::CreateSession(uint64_t clientId)
     NFWorldSession *pSession= GetSession(clientId);
     CHECK_EXPR(pSession == NULL, NULL, "Create Seesion Failed, session exist, clientId:{}", clientId);
 
-    pSession = dynamic_cast<NFWorldSession *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(clientId, EOT_WORLD_SESSION_ID));
+    pSession = dynamic_cast<NFWorldSession *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_WORLD_SESSION_ID, clientId));
     CHECK_EXPR(pSession, NULL, "Create Seesion Failed, clientId:{}", clientId);
 
     pSession->SetClientId(clientId);

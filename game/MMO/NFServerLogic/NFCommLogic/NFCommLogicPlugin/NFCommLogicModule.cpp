@@ -32,24 +32,29 @@ int NFCommLogicModule::OnTimer(uint32_t nTimerID)
     {
         int objId = iter->GetObjId();
         int globalId = iter->GetGlobalId();
+        int id = iter->id;
         NFTestObj* pObj = NFTestObj::GetObjByObjId(m_pObjPluginManager, objId);
         NFTestObj* pGlobalObj = NFTestObj::GetObjByGlobalId(m_pObjPluginManager, globalId);
+        NFTestObj* pHashObj = NFTestObj::GetObjByHashKey(m_pObjPluginManager, id);
         NF_ASSERT(pObj == iter.GetObj());
         NF_ASSERT(pObj == pGlobalObj);
+        NF_ASSERT(pHashObj == pGlobalObj);
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "erase id = {}", iter->id);
         iter = NFTestObj::Erase(m_pObjPluginManager, iter);
         pObj = NFTestObj::GetObjByObjId(m_pObjPluginManager, objId);
         pGlobalObj = NFTestObj::GetObjByGlobalId(m_pObjPluginManager, globalId);
+        pHashObj = NFTestObj::GetObjByHashKey(m_pObjPluginManager, id);
         NF_ASSERT(pObj == NULL);
         NF_ASSERT(pGlobalObj == NULL);
+        NF_ASSERT(pHashObj == NULL);
     }
 
     for(int i = 0; i < 100; i++)
     {
-        NFTestObj* pObj = FindModule<NFISharedMemModule>()->CreateObj<NFTestObj>();
+        NFTestObj* pObj = NFTestObj::CreateObjByHashKey(m_pObjPluginManager, i*100);
         if (pObj)
         {
-            pObj->id = i;
+            pObj->id = i*100;
         }
     }
     for(auto iter = NFTestObj::Begin(m_pObjPluginManager); iter != NFTestObj::End(m_pObjPluginManager); iter++)

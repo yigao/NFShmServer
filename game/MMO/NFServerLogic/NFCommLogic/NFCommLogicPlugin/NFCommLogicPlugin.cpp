@@ -86,7 +86,7 @@ bool NFCommLogicPlugin::InitShmObjectRegister()
     /////////////////////////////////////Server Common////////////////////////////////////////////
     //REGISTER_SINGLETON_SHM_OBJ(NFAttrMgr);
     //REGISTER_DESCSTORE(NFTestMgr);
-    REGISTER_SHM_OBJ(NFTestObj, 100);
+    REGISTER_SHM_OBJ_WITH_HASH(NFTestObj, 100);
     /////////////////////////////////////Server Common////////////////////////////////////////////
 	return true;
 }

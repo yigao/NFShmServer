@@ -94,9 +94,9 @@ public:
     */
     virtual void SetShmInitSuccessFlag() = 0;
 
-    virtual NFShmObj *CreateObjByHashKey(uint64_t hashKey, int iType) = 0;
+    virtual NFShmObj *CreateObjByHashKey(int iType, uint64_t hashKey) = 0;
 
-    virtual NFShmObj *GetObjByHashKey(uint64_t hashKey, int iType) = 0;
+    virtual NFShmObj *GetObjByHashKey(int iType, uint64_t hashKey) = 0;
 
     virtual const std::unordered_set<int>& GetChildrenType(int iType) = 0;
 
@@ -121,13 +121,13 @@ public:
     template<typename ShmObjType>
     ShmObjType *CreateObjByHashKey(uint64_t hashKey)
     {
-        return dynamic_cast<ShmObjType*>(CreateObjByHashKey(hashKey, ShmObjType::GetClassType(m_pObjPluginManager)));
+        return dynamic_cast<ShmObjType*>(CreateObjByHashKey(ShmObjType::GetClassType(m_pObjPluginManager), hashKey));
     }
 
     template<typename ShmObjType>
     ShmObjType *GetObjByHashKey(uint64_t hashKey)
     {
-        return dynamic_cast<ShmObjType*>(GetObjByHashKey(hashKey, ShmObjType::GetClassType(m_pObjPluginManager)));
+        return dynamic_cast<ShmObjType*>(GetObjByHashKey(ShmObjType::GetClassType(m_pObjPluginManager), hashKey));
     }
 
     virtual NFShmObj *GetHeadObj(int iType) = 0;

@@ -965,7 +965,7 @@ NFTransBase *NFCSharedMemModule::GetTrans(uint64_t ullTransId)
     return NULL;
 }
 
-NFShmObj *NFCSharedMemModule::CreateObjByHashKey(uint64_t hashKey, int iType)
+NFShmObj *NFCSharedMemModule::CreateObjByHashKey(int iType, uint64_t hashKey)
 {
     assert(IsTypeValid(iType));
 
@@ -1071,7 +1071,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
     return pObj;
 }
 
-NFShmObj *NFCSharedMemModule::GetObjByHashKey(uint64_t hashKey, int iType)
+NFShmObj *NFCSharedMemModule::GetObjByHashKey(int iType, uint64_t hashKey)
 {
     NF_ASSERT(IsTypeValid(iType));
     if (!m_nObjSegSwapCounter[iType].m_iUseHash)

@@ -208,7 +208,7 @@ NFScene *NFCreature::GetScene()
         return NULL;
     }
 
-    return dynamic_cast<NFScene *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(m_sceneId, EOT_GAME_SCENE_ID));
+    return dynamic_cast<NFScene *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_GAME_SCENE_ID, m_sceneId));
 }
 
 float NFCreature::GetSpeed()

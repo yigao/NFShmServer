@@ -30,7 +30,8 @@ public:\
     static void DestroyObj(NFIPluginManager* pPluginManager, class_name*);\
     static void ClearAllObj(NFIPluginManager* pPluginManager);\
     static class_name* GetObjByObjId(NFIPluginManager* pPluginManager, int iObjId);\
-    static class_name *GetObjByGlobalId(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType = false);\
+    static class_name *GetObjByGlobalId(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType = false); \
+    static class_name *GetObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey);\
     static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL);\
 	static class_name* Instance(NFIPluginManager* pPluginManager);\
 	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
@@ -77,7 +78,7 @@ public:\
     }\
     class_name* class_name::CreateObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey)\
     {\
-        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->CreateObjByHashKey(hashKey, type));\
+        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->CreateObjByHashKey(type, hashKey));\
     }\
     void class_name::DestroyObj(NFIPluginManager* pPluginManager, class_name* pObj)\
     {\
@@ -95,6 +96,10 @@ public:\
 	{\
         return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalId(type, iGlobalID, withChildrenType));\
 	}\
+    class_name *class_name::GetObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey)\
+    {\
+        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByHashKey(type, hashKey));\
+    }\
 	int class_name::GetItemCount(NFIPluginManager* pPluginManager)\
 	{\
 	    return pPluginManager->FindModule<NFISharedMemModule>()->GetItemCount(type);\

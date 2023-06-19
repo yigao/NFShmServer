@@ -73,7 +73,7 @@ int NFMapMgr::LoadConfig()
 
 NFMap *NFMapMgr::GetMap(uint64_t mapId)
 {
-    return dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(mapId, EOT_GAME_MAP_ID));
+    return dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_GAME_MAP_ID, mapId));
 }
 
 NFMap *NFMapMgr::CreateMap(uint64_t mapId)
@@ -81,7 +81,7 @@ NFMap *NFMapMgr::CreateMap(uint64_t mapId)
     NFMap *pMap = GetMap(mapId);
     CHECK_EXPR(pMap == NULL, NULL, "CreateMap Failed, map exist, mapId:{}", mapId);
 
-    pMap = dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(mapId, EOT_GAME_MAP_ID));
+    pMap = dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_GAME_MAP_ID, mapId));
     CHECK_EXPR(pMap, NULL, "Create Map Obj Failed, mapId:{}", mapId);
 
     int iRet = pMap->Init(mapId);

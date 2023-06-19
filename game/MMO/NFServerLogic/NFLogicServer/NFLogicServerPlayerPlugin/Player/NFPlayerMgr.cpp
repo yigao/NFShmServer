@@ -85,7 +85,7 @@ int NFPlayerMgr::SavePlayerRoleDetail(NFPlayer *pPlayer, TRANS_SAVE_ROLE_DETAIL_
 
 NFPlayer *NFPlayerMgr::GetPlayer(uint64_t roleId)
 {
-    return dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(roleId, EOT_LOGIC_PLAYER_ID));
+    return dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_LOGIC_PLAYER_ID, roleId));
 }
 
 NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t roleId, uint64_t uid, const ::proto_ff::RoleDBData &dbData)
@@ -93,7 +93,7 @@ NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t roleId, uint64_t uid, const ::proto
     NFPlayer *pPlayer = GetPlayer(roleId);
     CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, roleId:{}", roleId);
 
-    pPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(roleId, EOT_LOGIC_PLAYER_ID));
+    pPlayer = dynamic_cast<NFPlayer *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_LOGIC_PLAYER_ID, roleId));
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, roleId:{}", roleId);
 
     pPlayer->SetRoleId(roleId);

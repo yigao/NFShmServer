@@ -254,9 +254,9 @@ public:
 
     virtual NFShmObj *GetObjByObjId(int iType, int iIndex) override;
 
-    virtual NFShmObj *CreateObjByHashKey(uint64_t hashKey, int iType) override;
+    virtual NFShmObj *CreateObjByHashKey(int iType, uint64_t hashKey) override;
 
-    virtual NFShmObj *GetObjByHashKey(uint64_t hashKey, int iType) override;
+    virtual NFShmObj *GetObjByHashKey(int iType, uint64_t hashKey) override;
 
     virtual NFShmObj *CreateObj(int iType) override;
 

@@ -204,7 +204,7 @@ int NFWorldPlayerMgr::SessionTick()
 
 NFWorldPlayer *NFWorldPlayerMgr::GetPlayerByUid(uint64_t uid)
 {
-    return dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(uid, EOT_WORLD_PLAYER_ID));
+    return dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_WORLD_PLAYER_ID, uid));
 }
 
 NFWorldPlayer *NFWorldPlayerMgr::CreatePlayerByUid(uint64_t uid)
@@ -212,7 +212,7 @@ NFWorldPlayer *NFWorldPlayerMgr::CreatePlayerByUid(uint64_t uid)
     NFWorldPlayer *pPlayer = GetPlayerByUid(uid);
     CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, uid:{}", uid);
 
-    pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(uid, EOT_WORLD_PLAYER_ID));
+    pPlayer = dynamic_cast<NFWorldPlayer *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_WORLD_PLAYER_ID, uid));
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", uid);
 
     pPlayer->SetUid(uid);

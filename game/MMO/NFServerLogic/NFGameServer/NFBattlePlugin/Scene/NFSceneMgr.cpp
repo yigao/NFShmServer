@@ -109,7 +109,7 @@ NFScene *NFSceneMgr::CreateScene(uint64_t mapId, uint64_t sceneId)
     NFScene* pScene = GetScene(sceneId);
     CHECK_EXPR(pScene == NULL, NULL, "GetScene Exist, mapId:{} sceneId:{}", mapId, sceneId);
 
-    pScene = dynamic_cast<NFScene *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(sceneId, EOT_GAME_SCENE_ID));
+    pScene = dynamic_cast<NFScene *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_GAME_SCENE_ID, sceneId));
     CHECK_EXPR(pScene, NULL, "Create Scene Obj Failed, mapId:{} sceneId:{}", mapId, sceneId);
 
     int retCode = pScene->Init(mapId, sceneId);
@@ -125,7 +125,7 @@ NFScene *NFSceneMgr::CreateScene(uint64_t mapId, uint64_t sceneId)
 
 NFScene* NFSceneMgr::GetScene(uint64_t sceneId)
 {
-    return dynamic_cast<NFScene *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(sceneId, EOT_GAME_SCENE_ID));
+    return dynamic_cast<NFScene *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_GAME_SCENE_ID, sceneId));
 }
 
 int NFSceneMgr::DeleteScene(NFScene *pScene)
