@@ -1300,14 +1300,12 @@ int NFCSharedMemModule::DestroyObjAutoErase(int iType, int maxNum, const DESTROY
                     {
                         vecObj.push_back(pObj);
                         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DestroyObjAutoErase Data, key:{} objId:{} type:{}", obj_iter->first, obj_iter->second, iType);
-                        break;
                     }
                 }
                 else
                 {
                     vecObj.push_back(pObj);
                     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DestroyObjAutoErase Data, key:{} objId:{} type:{}", obj_iter->first, obj_iter->second, iType);
-                    break;
                 }
 
                 if (maxNum > 0 && (int)vecObj.size() >= maxNum)

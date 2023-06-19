@@ -28,6 +28,7 @@ int NFCommLogicModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_
 
 int NFCommLogicModule::OnTimer(uint32_t nTimerID)
 {
+    NFTestObj::DestroyObjAutoErase(m_pObjPluginManager, 10);
     for(auto iter = NFTestObj::Begin(m_pObjPluginManager); iter != NFTestObj::End(m_pObjPluginManager);)
     {
         int objId = iter->GetObjId();
