@@ -206,7 +206,7 @@ void TestShmHashMap2()
             int ret = hashMap.Erase(vec[i]);
             if (ret != 0)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "hahsMap Erase failed, i:{} ", vec[i]);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "hahsMap IterNext failed, i:{} ", vec[i]);
             }
             ret = hashMap.Replace(vec[i], vec[i]*2);
             if (ret != 0)

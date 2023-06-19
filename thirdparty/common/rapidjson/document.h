@@ -1416,7 +1416,7 @@ public:
         return pos;
     }
 
-    //! Erase a member in object by its name.
+    //! IterNext a member in object by its name.
     /*! \param name Name of member to be removed.
         \return Whether the member existed.
         \note Linear time complexity.
@@ -2448,8 +2448,8 @@ public:
     GenericArray PushBack(StringRefType value, AllocatorType& allocator) const { value_.PushBack(value, allocator); return *this; }
     template <typename T> RAPIDJSON_DISABLEIF_RETURN((internal::OrExpr<internal::IsPointer<T>, internal::IsGenericValue<T> >), (const GenericArray&)) PushBack(T value, AllocatorType& allocator) const { value_.PushBack(value, allocator); return *this; }
     GenericArray PopBack() const { value_.PopBack(); return *this; }
-    ValueIterator Erase(ConstValueIterator pos) const { return value_.Erase(pos); }
-    ValueIterator Erase(ConstValueIterator first, ConstValueIterator last) const { return value_.Erase(first, last); }
+    ValueIterator Erase(ConstValueIterator pos) const { return value_.IterNext(pos); }
+    ValueIterator Erase(ConstValueIterator first, ConstValueIterator last) const { return value_.IterNext(first, last); }
 
 #if RAPIDJSON_HAS_CXX11_RANGE_FOR
     ValueIterator begin() const { return value_.Begin(); }

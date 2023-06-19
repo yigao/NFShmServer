@@ -54,6 +54,8 @@ struct NFShmObjIterator
 
     pointer operator->() const { return dynamic_cast<pointer>(m_pContainer->GetIterObj(m_type, m_pos)); }
 
+    pointer GetObj() const { return dynamic_cast<pointer>(m_pContainer->GetIterObj(m_type, m_pos)); }
+
     _Self &operator++()
     {
         this->_M_incr();
@@ -92,5 +94,17 @@ struct NFShmObjIterator
     bool operator!=(const NFShmObjIterator &__x) const
     {
         return !(m_pContainer == __x.m_pContainer && m_type == __x.m_type && m_pos == __x.m_pos);
+    }
+
+    NFShmObjIterator& operator=(const NFShmObjIterator &__x)
+    {
+        if (this != &__x)
+        {
+            m_pContainer = __x.m_pContainer;
+            m_type = __x.m_type;
+            m_pos = __x.m_pos;
+        }
+
+        return *this;
     }
 };

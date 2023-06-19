@@ -214,10 +214,10 @@ public:
         return iter.m_node->m_self;
     }
 
-    virtual size_t Erase(size_t iPos)
+    virtual size_t IterNext(size_t iPos)
     {
         auto iter = m_idxLst.GetIterator(iPos);
-        iter = m_idxLst.erase(iter);
+        iter++;
         return iter.m_node->m_self;
     }
 

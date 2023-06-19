@@ -910,7 +910,12 @@ NFCSharedMemModule::const_iterator NFCSharedMemModule::IterEnd(int iType) const
 
 NFCSharedMemModule::iterator NFCSharedMemModule::Erase(NFCSharedMemModule::iterator iter)
 {
-    return iterator(this, iter.m_type, m_nObjSegSwapCounter[iter.m_type].m_pObjSeg->Erase(iter.m_pos));
+    NFCSharedMemModule::iterator next_iter(this, iter.m_type, m_nObjSegSwapCounter[iter.m_type].m_pObjSeg->IterNext(iter.m_pos));
+    if (iter != IterEnd(iter.m_type))
+    {
+        DestroyObj(iter.GetObj());
+    }
+    return next_iter;
 }
 
 NFShmObj* NFCSharedMemModule::GetIterObj(int iType, size_t iPos)
@@ -1335,13 +1340,15 @@ void NFCSharedMemModule::ClearAllObj(int iType)
 
     if (m_nObjSegSwapCounter[iType].m_pObjSeg)
     {
-        for (int i = 0; i < (int) m_nObjSegSwapCounter[iType].m_pObjSeg->GetItemCount(); i++)
+        std::vector<NFShmObj*> vec;
+        for (auto iter = m_nObjSegSwapCounter[iType].m_pObjSeg->begin(); iter != m_nObjSegSwapCounter[iType].m_pObjSeg->end(); iter++)
         {
-            NFShmObj *pObj = m_nObjSegSwapCounter[iType].m_pObjSeg->GetObj(i);
-            if (pObj)
-            {
-                DestroyObj(pObj);
-            }
+            vec.push_back(&(*iter));
+        }
+
+        for(auto iter = vec.begin(); iter != vec.end(); iter++)
+        {
+            DestroyObj(*iter);
         }
     }
 }
@@ -1384,11 +1391,11 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "HashErase:{} Failed!", iHashID);
             }
-            NFLogDebug(NF_LOG_SYSTEMLOG, iHashID, "DestroyObj {}, key:{} globalId:{} type:{} index:{} iHashID:{}", className, iHashID, iGlobalID, iType, iIndex,
-                       iHashID);
+            NFLogDebug(NF_LOG_SYSTEMLOG, iHashID, "DestroyObj {}, key:{} globalId:{} type:{} index:{} iHashID:{} UsedNum:{} AllNum:{}", className, iHashID, iGlobalID, iType, iIndex,
+                       iHashID, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount()-1, m_nObjSegSwapCounter[iType].m_iItemCount);
         }
         else {
-            NFLogDebug(NF_LOG_SYSTEMLOG, 0, "DestroyObj {}, globalId:{} type:{} index:{}", className, iGlobalID, iType, iIndex);
+            NFLogDebug(NF_LOG_SYSTEMLOG, 0, "DestroyObj {}, globalId:{} type:{} index:{} UsedNum:{} AllNum:{}", className, iGlobalID, iType, iIndex, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount()-1, m_nObjSegSwapCounter[iType].m_iItemCount);
         }
 
         m_pGlobalID->ReleaseID(iGlobalID);
