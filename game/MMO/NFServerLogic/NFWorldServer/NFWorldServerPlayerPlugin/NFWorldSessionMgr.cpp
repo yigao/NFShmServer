@@ -56,7 +56,7 @@ NFWorldSession *NFWorldSessionMgr::CreateSession(uint64_t clientId)
 
     pSession->SetClientId(clientId);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Seesion Success, clientId:{} globalId:{}", clientId,
-              pSession->GetGlobalID());
+              pSession->GetGlobalId());
     return pSession;
 }
 

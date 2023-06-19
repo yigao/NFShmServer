@@ -150,7 +150,8 @@ int NFTransGetRole::HandleGetRoleDBRsp(proto_ff::RoleDBData& dbData)
         xData.mutable_role_info()->CopyFrom(dbData);
         CHECK_EXPR_ASSERT(xData.mutable_role_info()->cid() == m_roleId, -1, "xData.mutable_role_info()->cid():{} != m_roleId:{}", xData.mutable_role_info()->cid(), m_roleId);
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", xData.DebugString());
-        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData, GetGlobalID(), m_reqTransId);
+        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData,
+                                                                     GetGlobalId(), m_reqTransId);
     }
 
     SetFinished(0);
@@ -167,13 +168,14 @@ int NFTransGetRole::HandleTransFinished(int iRunLogicRetCode)
             xData.set_ret_code(proto_ff::RET_LOGIN_CHARACTER_CREATE_FAILED);
             xData.set_uid(m_uid);
             xData.set_cid(m_roleId);
-            FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData, GetGlobalID(), m_reqTransId);
+            FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP, xData,
+                                                                         GetGlobalId(), m_reqTransId);
         }
         else if (m_cmd == proto_ff::WORLD_TO_LOGIC_LOGIN_REQ)
         {
             proto_ff::LogicToWorldLoginRsp xMsg;
             xMsg.set_ret_code(iRunLogicRetCode);
-            FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_LOGIN_RSP, xMsg, GetGlobalID(), m_reqTransId);
+            FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_LOGIN_RSP, xMsg, GetGlobalId(), m_reqTransId);
             return 0;
         }
     }
@@ -191,7 +193,7 @@ int NFTransGetRole::HandleTransFinished(int iRunLogicRetCode)
             pData->set_zid(pPlayer->GetZid());
             auto pBase = pData->mutable_base();
             pPlayer->SetBaseData(pBase);
-            pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_LOGIN_RSP, xMsg, GetGlobalID(), m_reqTransId);
+            pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_LOGIN_RSP, xMsg, GetGlobalId(), m_reqTransId);
             return 0;
         }
     }
@@ -209,6 +211,6 @@ int NFTransGetRole::SendGetRoleInfo()
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                  proto_ff::NF_STORESVR_C2S_SELECTOBJ, 0, pServerConfig->DefaultDBName,
-                                                                 "RoleDBData", xData, GetGlobalID(), 0, m_roleId);
+                                                                 "RoleDBData", xData, GetGlobalId(), 0, m_roleId);
     return 0;
 }

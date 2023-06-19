@@ -92,7 +92,7 @@ public:
 
     int GetListNodeID()
     {
-        return dynamic_cast<NodeObjType *>( this )->GetObjID();
+        return dynamic_cast<NodeObjType *>( this )->GetObjId();
     }
 };
 
@@ -104,12 +104,12 @@ public:
 
     static NodeObjType *GetObjByListNodeID(NFIPluginManager *pPluginManager, int iListNodeID)
     {
-        return (NodeObjType *) pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalID(CLASSTYPE, iListNodeID, true);
+        return (NodeObjType *) pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalId(CLASSTYPE, iListNodeID, true);
     }
 
     int GetListNodeID()
     {
-        return dynamic_cast<NodeObjType *>( this )->GetGlobalID();
+        return dynamic_cast<NodeObjType *>( this )->GetGlobalId();
     }
 };
 
@@ -400,12 +400,12 @@ public:
 
     static NodeObjType *GetObjByListNodeID(NFIPluginManager *pPluginManager, int typeIndex, int iListNodeID)
     {
-        return (NodeObjType *) pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalID(CLASSTYPE, iListNodeID, true);
+        return (NodeObjType *) pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalId(CLASSTYPE, iListNodeID, true);
     }
 
     int GetListNodeID(int typeIndex)
     {
-        return dynamic_cast<NodeObjType *>( this )->GetGlobalID();
+        return dynamic_cast<NodeObjType *>( this )->GetGlobalId();
     }
 };
 

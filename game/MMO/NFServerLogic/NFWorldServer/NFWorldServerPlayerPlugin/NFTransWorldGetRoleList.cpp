@@ -150,7 +150,7 @@ int NFTransWorldGetRoleList::OnHandleClientLogin()
     {
         if (!pPlayer->IsInTransSceneing())
         {
-            int ret = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, NULL, proto_ff::LOGOUT_REPLACE, GetGlobalID());
+            int ret = NFWorldPlayerMgr::Instance(m_pObjPluginManager)->NotifyLogicLeave(pPlayer, NULL, proto_ff::LOGOUT_REPLACE, GetGlobalId());
             if (ret == 0)
             {
                 NFLogInfo(NF_LOG_SYSTEMLOG, m_uid, "player role:{} > 0 and not in trans scene, NotifyLogicLeave", pPlayer->GetRoleId());
@@ -248,7 +248,7 @@ int NFTransWorldGetRoleList::SendGetRoleList()
     xData.set_proxy_id(m_proxyId);
     xData.set_client_id(m_clientId);
 
-    pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST_REQ, xData, GetGlobalID());
+    pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_GET_ROLE_LIST_REQ, xData, GetGlobalId());
     return 0;
 }
 

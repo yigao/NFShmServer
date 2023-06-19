@@ -75,7 +75,7 @@ int NFTransWorldCreateRole::SendCreateRoleInfo(const proto_ff::WorldToLogicCreat
 
     pSession->SetState(EAccountState::createrole);
 
-    pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ, createRoleReq, GetGlobalID());
+    pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_CREATE_ROLE_INFO_REQ, createRoleReq, GetGlobalId());
 
     return 0;
 }

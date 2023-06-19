@@ -94,7 +94,7 @@ int NFTransSaveRoleDetail::SaveRoleDetail(TRANS_SAVE_ROLE_DETAIL_REASON iReason)
 
     iRetCode = FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                             proto_ff::NF_STORESVR_C2S_MODIFYOBJ, 0, pServerConfig->DefaultDBName,
-                                                                            "RoleDBData", xData, GetGlobalID(), pPlayer->GetCurRoleDetailSeq(), m_roleId);
+                                                                            "RoleDBData", xData, GetGlobalId(), pPlayer->GetCurRoleDetailSeq(), m_roleId);
 
     SetState(TRANS_SAVE_ROLE_DETAIL_STATE_SAVING_ROLE);
     return iRetCode;

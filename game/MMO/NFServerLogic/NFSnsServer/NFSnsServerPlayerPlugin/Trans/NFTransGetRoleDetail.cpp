@@ -86,7 +86,7 @@ int NFTransGetRoleDetail::QueryRole(uint64_t roleId) {
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                  proto_ff::NF_STORESVR_C2S_SELECTOBJ, 0, pServerConfig->DefaultDBName,
-                                                                 "RoleDBSnsDetail", xData, GetGlobalID(), 0, m_roleId);
+                                                                 "RoleDBSnsDetail", xData, GetGlobalId(), 0, m_roleId);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

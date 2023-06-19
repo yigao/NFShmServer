@@ -102,7 +102,7 @@ int NFTransGetRoleList::SendGetRoleList()
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                  proto_ff::NF_STORESVR_C2S_SELECT, 0, pServerConfig->DefaultDBName,
                                                                  "RoleDBData", fields, vk_list, "", 10,
-                                                                 GetGlobalID(), 0, m_uid);
+                                                                 GetGlobalId(), 0, m_uid);
     return 0;
 }
 
@@ -114,7 +114,7 @@ int NFTransGetRoleList::SendGetRegisterNum()
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                  proto_ff::NF_STORESVR_C2S_EXECUTE, 0, pServerConfig->DefaultDBName,
                                                                  "RoleDBData", "select count(*) as num from RoleDBData;",
-                                                                 GetGlobalID(), 0, m_uid, "GetRegisterNum_RoleDBData");
+                                                                 GetGlobalId(), 0, m_uid, "GetRegisterNum_RoleDBData");
     return 0;
 }
 
@@ -167,7 +167,8 @@ int NFTransGetRoleList::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRe
             xData.set_ret_code(err_code);
         }
 
-        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_GET_ROLE_LIST_RSP, xData, GetGlobalID(), m_reqTransId);
+        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::LOGIC_TO_WORLD_GET_ROLE_LIST_RSP, xData,
+                                                                     GetGlobalId(), m_reqTransId);
         SetFinished(0);
     }
     return 0;

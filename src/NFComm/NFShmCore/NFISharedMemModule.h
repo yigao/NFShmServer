@@ -106,9 +106,9 @@ public:
 
     virtual int GetFreeCount(int iType) = 0;
 
-    virtual int GetGlobalID(int iType, int iIndex, NFShmObj *pObj) = 0;
+    virtual int GetGlobalId(int iType, int iIndex, NFShmObj *pObj) = 0;
 
-    virtual int GetObjID(int iType, NFShmObj *pObj) = 0;
+    virtual int GetObjId(int iType, NFShmObj *pObj) = 0;
 
     virtual NFShmObj *CreateObj(int iType) = 0;
 
@@ -154,19 +154,19 @@ public:
 
     virtual NFShmObj *GetObjByObjId(int iType, int iIndex) = 0;
 
-    virtual NFShmObj *GetObjByGlobalID(int iType, int iGlobalID, bool withChildrenType = false) = 0;
+    virtual NFShmObj *GetObjByGlobalId(int iType, int iGlobalID, bool withChildrenType = false) = 0;
 
     template<typename ShmObjType>
-    ShmObjType *GetObjByGlobalID(int iGlobalID, int iStrongType = 1)
+    ShmObjType *GetObjByGlobalId(int iGlobalID, int iStrongType = 1)
     {
-        return dynamic_cast<ShmObjType*>(GetObjByGlobalID(iGlobalID, ShmObjType::GetClassType(m_pObjPluginManager), iStrongType));
+        return dynamic_cast<ShmObjType*>(GetObjByGlobalId(iGlobalID, ShmObjType::GetClassType(m_pObjPluginManager), iStrongType));
     }
 
-    virtual NFShmObj *GetObjFromGlobalIDWithNoCheck(int iGlobalID) = 0;
+    virtual NFShmObj *GetObjByGlobalIdWithNoCheck(int iGlobalID) = 0;
 
     // 根据混合ID获得对象
     // iType不为-1表示校验对象类型
-    virtual NFShmObj *GetObjFromMiscID(int iMiscID, int iType = -1) = 0;
+    virtual NFShmObj *GetObjByMiscId(int iMiscID, int iType = -1) = 0;
 
     virtual bool IsEnd(int iType, int iIndex) = 0;
 public:

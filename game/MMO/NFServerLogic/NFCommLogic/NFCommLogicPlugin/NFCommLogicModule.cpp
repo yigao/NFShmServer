@@ -30,17 +30,19 @@ int NFCommLogicModule::OnTimer(uint32_t nTimerID)
 {
     for(auto iter = NFTestObj::Begin(m_pObjPluginManager); iter != NFTestObj::End(m_pObjPluginManager);)
     {
-        if (iter->id % 2 == 0)
-        {
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "erase id = {}", iter->id);
-            iter = NFTestObj::Erase(m_pObjPluginManager, iter);
-        }
-        else {
-            iter++;
-        }
+        int objId = iter->GetObjId();
+        int globalId = iter->GetGlobalId();
+        NFTestObj* pObj = NFTestObj::GetObjByObjId(m_pObjPluginManager, objId);
+        NFTestObj* pGlobalObj = NFTestObj::GetObjByGlobalId(m_pObjPluginManager, globalId);
+        NF_ASSERT(pObj == iter.GetObj());
+        NF_ASSERT(pObj == pGlobalObj);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "erase id = {}", iter->id);
+        iter = NFTestObj::Erase(m_pObjPluginManager, iter);
+        pObj = NFTestObj::GetObjByObjId(m_pObjPluginManager, objId);
+        pGlobalObj = NFTestObj::GetObjByGlobalId(m_pObjPluginManager, globalId);
+        NF_ASSERT(pObj == NULL);
+        NF_ASSERT(pGlobalObj == NULL);
     }
-
-    NFTestObj::ClearAllObj(m_pObjPluginManager);
 
     for(int i = 0; i < 100; i++)
     {
@@ -53,6 +55,18 @@ int NFCommLogicModule::OnTimer(uint32_t nTimerID)
     for(auto iter = NFTestObj::Begin(m_pObjPluginManager); iter != NFTestObj::End(m_pObjPluginManager); iter++)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "id = {}", iter->id);
+    }
+    for(auto iter = NFTestObj::RBegin(m_pObjPluginManager); iter != NFTestObj::REnd(m_pObjPluginManager); iter++)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "id = {}", iter->id);
+    }
+    for(int i = 0; i < 100; i++)
+    {
+        NFTestObj* pObj = NFTestObj::GetObjByObjId(m_pObjPluginManager, i);
+        if (pObj)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "id = {}", pObj->id);
+        }
     }
     return 0;
 }

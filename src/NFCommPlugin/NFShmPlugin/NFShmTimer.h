@@ -46,7 +46,7 @@ public:
     void SetTimerShmObj(NFShmObj *pObj)
     {
         m_shmObj = pObj;
-        m_shmObjId = pObj->GetGlobalID();
+        m_shmObjId = pObj->GetGlobalId();
     }
 
     void PrintfDebug()

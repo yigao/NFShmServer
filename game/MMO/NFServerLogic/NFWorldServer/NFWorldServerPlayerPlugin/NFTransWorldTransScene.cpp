@@ -101,7 +101,7 @@ int NFTransWorldTransScene::OnHandleTransScene(const proto_ff::LogicToWorldEnter
         reqMsg.set_trans_type(m_transType);
 
         NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send enter scene to game server, mapId:{} sceneId:{} gameId:{}", m_mapId, m_sceneId, m_gameId);
-        pPlayer->SendTransToGameServer(proto_ff::WORLD_TO_GAME_ENTER_SCENE_REQ, reqMsg, GetGlobalID());
+        pPlayer->SendTransToGameServer(proto_ff::WORLD_TO_GAME_ENTER_SCENE_REQ, reqMsg, GetGlobalId());
     }
     else {
         return -1;
@@ -135,7 +135,7 @@ int NFTransWorldTransScene::OnHandleLeaveScene(const proto_ff::LogicToWorldLeave
         reqMsg.set_scene_id(m_sceneId);
 
         NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send leave scene to game server, mapId:{} sceneId:{} gameId:{}", m_mapId, m_sceneId, gameId);
-        pPlayer->SendTransToGameServer(proto_ff::WORLD_TO_GAME_LEAVE_SCENE_REQ, reqMsg, GetGlobalID());
+        pPlayer->SendTransToGameServer(proto_ff::WORLD_TO_GAME_LEAVE_SCENE_REQ, reqMsg, GetGlobalId());
     }
     else {
         return -1;
@@ -238,7 +238,7 @@ int NFTransWorldTransScene::OnTransFinished(int iRunLogicRetCode)
         m_pos.ToProto(*rspMsg.mutable_pos());
 
         NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send enter scene to logic server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
-        pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_ENTER_SCENE_RSP, rspMsg, GetGlobalID(), m_reqTransId);
+        pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_ENTER_SCENE_RSP, rspMsg, GetGlobalId(), m_reqTransId);
     }
     else if (m_cmd == proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ)
     {
@@ -249,7 +249,7 @@ int NFTransWorldTransScene::OnTransFinished(int iRunLogicRetCode)
         rspMsg.set_scene_id(m_sceneId);
 
         NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send leave scene to logic server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
-        pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_LEAVE_SCENE_RSP, rspMsg, GetGlobalID(), m_reqTransId);
+        pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_LEAVE_SCENE_RSP, rspMsg, GetGlobalId(), m_reqTransId);
     }
 
     return 0;

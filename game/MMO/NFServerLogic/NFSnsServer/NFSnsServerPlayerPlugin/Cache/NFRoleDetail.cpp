@@ -83,7 +83,7 @@ int NFRoleDetail::Init(const proto_ff::RoleDBSnsDetail &data)
             return -1;
         }
 
-        m_pPart[i] = pPart->GetGlobalID();
+        m_pPart[i] = pPart->GetGlobalId();
     }
 
     return 0;
@@ -135,7 +135,7 @@ NFSnsPart *NFRoleDetail::GetPart(uint32_t partType)
         return nullptr;
     }
 
-    return dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_SNS_PART_ID, m_pPart[partType], false));
+    return dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_SNS_PART_ID, m_pPart[partType], false));
 }
 
 NFRoleSimple *NFRoleDetail::GetRoleSimple() const

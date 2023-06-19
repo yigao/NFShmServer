@@ -86,7 +86,7 @@ int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
             return -1;
         }
 
-        m_pPart[i] = pPart->GetGlobalID();
+        m_pPart[i] = pPart->GetGlobalId();
     }
 
     SetState(proto_ff::state_normal);
@@ -168,7 +168,7 @@ NFBattlePart *NFBattlePlayer::GetPart(uint32_t partType)
         return nullptr;
     }
 
-    return dynamic_cast<NFBattlePart *>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_NFBattlePart_ID, m_pPart[partType], true));
+    return dynamic_cast<NFBattlePart *>(FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_NFBattlePart_ID, m_pPart[partType], true));
 }
 
 int NFBattlePlayer::OnTimer(int timeId, int callcount)

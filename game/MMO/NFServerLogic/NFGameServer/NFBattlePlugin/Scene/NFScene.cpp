@@ -85,7 +85,7 @@ int NFScene::Init(uint64_t mapId, uint64_t sceneId)
                       NF_SCENE_MAX_GRID_NUM);
 
     m_mapId = mapId;
-    m_mapGlobalId = pMap->GetGlobalID();
+    m_mapGlobalId = pMap->GetGlobalId();
     m_sceneId = sceneId;
     m_gridList.resize(m_gridMaxWidth);
     for (uint32_t w = 0; w < (uint32_t) m_gridList.size(); w++)
@@ -219,7 +219,7 @@ int NFScene::RemoveCreature(NFCreature *pCreature)
 
 NFCreature *NFScene::GetCreature(uint64_t cid)
 {
-    NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(cid));
+    NFCreature *pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjByGlobalIdWithNoCheck(cid));
     if (pCreature)
     {
         if (pCreature->Kind() == CREATURE_PLAYER)

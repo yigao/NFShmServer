@@ -288,7 +288,7 @@ bool NFTransBase::CanRelease()
 std::string NFTransBase::DebugString() const
 {
     std::string str = NF_FORMAT("GlobalID:{} Type:{} ClassName:{} ItemCount:{} UsedCount:{} FreeCount:{} CurState:{} StartTime:{} RunedTimes:{}",
-                                GetGlobalID(), GetClassType(), GetClassName(), GetItemCount(), GetUsedCount(), GetFreeCount(), m_wCurState,
+                                GetGlobalId(), GetClassType(), GetClassName(), GetItemCount(), GetUsedCount(), GetFreeCount(), m_wCurState,
                                 DateTimeToStr((int) m_dwStartTime), m_wRunedTimes);
     return str;
 }

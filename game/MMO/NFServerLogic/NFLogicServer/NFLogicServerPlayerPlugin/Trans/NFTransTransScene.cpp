@@ -132,7 +132,7 @@ int NFTransTransScene::OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataP
         rspMsg.set_cid(pPlayer->GetRoleId());
         rspMsg.set_uid(pPlayer->GetUid());
 
-        pPlayer->SendTransToWorldServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_RSP, rspMsg, GetGlobalID(), m_reqTransId);
+        pPlayer->SendTransToWorldServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_RSP, rspMsg, GetGlobalId(), m_reqTransId);
     }
 
     if (m_cmd == proto_ff::CLIENT_SCENE_TRANS_REQ)
@@ -331,7 +331,7 @@ int NFTransTransScene::SendGetMapInfoReq()
     xMsg.set_role_id(m_roleId);
 
     NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send get map info to world server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
-    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_GET_MAP_INFO_REQ, xMsg, GetGlobalID());
+    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_GET_MAP_INFO_REQ, xMsg, GetGlobalId());
     return 0;
 }
 
@@ -358,7 +358,7 @@ int NFTransTransScene::SendEnterScene()
     pPlayer->SetEnterSceneProto(*xMsg.mutable_data());
 
     NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send enter scene to world server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
-    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg, GetGlobalID());
+    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_ENTER_SCENE_REQ, xMsg, GetGlobalId());
 
     return 0;
 }
@@ -383,7 +383,7 @@ int NFTransTransScene::SendLeaveScene()
     m_pos.ToProto(*xMsg.mutable_pos());
 
     NFLogDebug(NF_LOG_SYSTEMLOG, m_roleId, "send leave scene to world server, mapId:{} sceneId:{}", m_mapId, m_sceneId);
-    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ, xMsg, GetGlobalID());
+    pPlayer->SendTransToWorldServer(proto_ff::LOGIC_TO_WORLD_LEAVE_SCENE_REQ, xMsg, GetGlobalId());
     return 0;
 }
 
@@ -424,7 +424,7 @@ int NFTransTransScene::HandleTransFinished(int iRunLogicRetCode)
                 rspMsg.set_cid(pPlayer->GetRoleId());
                 rspMsg.set_uid(pPlayer->GetUid());
 
-                pPlayer->SendTransToWorldServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_RSP, rspMsg, GetGlobalID(), m_reqTransId);
+                pPlayer->SendTransToWorldServer(proto_ff::NOTIFY_LOGIC_LEAVE_GAME_RSP, rspMsg, GetGlobalId(), m_reqTransId);
             }
         }
     }

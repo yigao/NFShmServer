@@ -168,7 +168,7 @@ int NFDescStoreTrans::OnTimer(int timeId, int callcount)
         FindModule<NFIServerMessageModule>()->SendTransToStoreServer(m_eType, 0,
                                                                      proto_ff::NF_STORESVR_C2S_SELECT, 0, m_dbName,
                                                                      m_tableName, std::vector<std::string>(), vk_list, "", 100,
-                                                                     GetGlobalID(), 0, std::hash<std::string>()(m_tableName), GetDescStoreClsName());
+                                                                     GetGlobalId(), 0, std::hash<std::string>()(m_tableName), GetDescStoreClsName());
     }
     return 0;
 }
@@ -198,7 +198,7 @@ int NFDescStoreTrans::SendGetDescStoreReq(NF_SERVER_TYPES eType, const std::stri
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(eType, 0,
                                                                  proto_ff::NF_STORESVR_C2S_SELECT, 0, m_dbName,
                                                                  table_name, std::vector<std::string>(), vk_list, "", 100,
-                                                                 GetGlobalID(), 0, std::hash<std::string>()(table_name), GetDescStoreClsName());
+                                                                 GetGlobalId(), 0, std::hash<std::string>()(table_name), GetDescStoreClsName());
 
     return 0;
 }

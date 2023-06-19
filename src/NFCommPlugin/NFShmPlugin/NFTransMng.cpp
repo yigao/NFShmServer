@@ -50,7 +50,7 @@ NFTransBase *NFTransMng::CreateTrans(uint32_t bTransObjType) {
     NFTransBase *pTransBase = CreateTrans_i(bTransObjType);
     CHECK_EXPR(pTransBase, NULL, "CreateTrans_i Failed, TransObjType:{}", bTransObjType);
 
-    m_aiTransObjIDList[m_iTotalTransNum] = pTransBase->GetGlobalID();
+    m_aiTransObjIDList[m_iTotalTransNum] = pTransBase->GetGlobalId();
     m_apTransObjList[m_iTotalTransNum] = pTransBase;
     m_iTotalTransNum++;
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Create Trans TotalNum:{} Info:{} Pointer:{}", m_iTotalTransNum,
@@ -62,7 +62,7 @@ NFTransBase *NFTransMng::CreateTrans(uint32_t bTransObjType) {
 NFTransBase *NFTransMng::GetTransBase(uint64_t ullTransID) {
     CHECK_EXPR(ullTransID < INT_MAX, NULL, "TrandID Max:{} IntMax:{}", ullTransID, INT_MAX);
 
-    return dynamic_cast<NFTransBase *>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_TRANS_BASE, ullTransID, true));
+    return dynamic_cast<NFTransBase *>(FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_TRANS_BASE, ullTransID, true));
 }
 
 NFTransBase *NFTransMng::CreateTrans_i(uint32_t bTransObjType) {
@@ -139,7 +139,7 @@ int NFTransMng::DoTick(uint32_t dwCurRunIndex, bool bIsTickAll) {
         NFTransBase *pTransBase = m_apTransObjList[m_iLastTickIndex];
 
         if (pTransBase) {
-            if (pTransBase->GetGlobalID() == m_aiTransObjIDList[m_iLastTickIndex]) {
+            if (pTransBase->GetGlobalId() == m_aiTransObjIDList[m_iLastTickIndex]) {
                 if (pTransBase->IsTimeOut()) {
                     pTransBase->SetFinished(proto_ff::ERR_CODE_SVR_SYSTEM_TIMEOUT);   //time out
                 }
@@ -155,7 +155,7 @@ int NFTransMng::DoTick(uint32_t dwCurRunIndex, bool bIsTickAll) {
                 }
             } else {
                 NFLogFatal(NF_LOG_SYSTEMLOG, 0, "Trans Index Err ObjGlobalID:{} != IndexGlobalID:{} ObjPointer:{}",
-                           pTransBase->GetGlobalID(),
+                           pTransBase->GetGlobalId(),
                            m_aiTransObjIDList[m_iTotalTransNum], (void *) pTransBase);
             }
 

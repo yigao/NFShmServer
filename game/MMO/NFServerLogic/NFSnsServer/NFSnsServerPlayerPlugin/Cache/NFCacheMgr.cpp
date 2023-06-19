@@ -78,7 +78,7 @@ NFRoleSimple *NFCacheMgr::CreateRoleSimple(uint64_t roleId)
 
     pRoleSimple->SetRoleId(roleId);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Role Simple Success, userId:{} globalId:{}", roleId,
-              pRoleSimple->GetGlobalID());
+              pRoleSimple->GetGlobalId());
     return pRoleSimple;
 }
 
@@ -86,7 +86,7 @@ int NFCacheMgr::DeleteRoleSimple(NFRoleSimple *pRoleSimple)
 {
     CHECK_NULL(pRoleSimple);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Simple Info, RoleId:{}, gloablId:{}", pRoleSimple->GetRoleId(), pRoleSimple->GetGlobalID());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Simple Info, RoleId:{}, gloablId:{}", pRoleSimple->GetRoleId(), pRoleSimple->GetGlobalId());
 
     FindModule<NFISharedMemModule>()->DestroyObj(pRoleSimple);
 
@@ -147,7 +147,7 @@ NFRoleDetail *NFCacheMgr::CreateRoleDetail(uint64_t roleId)
 
     pRoleDetail->SetRoleId(roleId);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Role Detail Success, userId:{} globalId:{}", roleId,
-              pRoleDetail->GetGlobalID());
+              pRoleDetail->GetGlobalId());
     return pRoleDetail;
 }
 
@@ -155,7 +155,7 @@ int NFCacheMgr::DeleteRoleDetail(NFRoleDetail *pRoleDetail)
 {
     CHECK_NULL(pRoleDetail);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleDetail->GetRoleId(), pRoleDetail->GetGlobalID());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleDetail->GetRoleId(), pRoleDetail->GetGlobalId());
 
     FindModule<NFISharedMemModule>()->DestroyObj(pRoleDetail);
 

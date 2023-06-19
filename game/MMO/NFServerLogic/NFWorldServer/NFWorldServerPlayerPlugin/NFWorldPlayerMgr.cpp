@@ -217,7 +217,7 @@ NFWorldPlayer *NFWorldPlayerMgr::CreatePlayerByUid(uint64_t uid)
 
     pPlayer->SetUid(uid);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Player Success, uid:{} globalId:{}", uid,
-              pPlayer->GetGlobalID());
+              pPlayer->GetGlobalId());
     return pPlayer;
 }
 
@@ -225,7 +225,7 @@ int NFWorldPlayerMgr::DeletePlayer(NFWorldPlayer *pPlayer)
 {
     CHECK_NULL(pPlayer);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetUid(), pPlayer->GetGlobalID());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetUid(), pPlayer->GetGlobalId());
 
     FindModule<NFISharedMemModule>()->DestroyObj(pPlayer);
 

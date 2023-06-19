@@ -161,7 +161,7 @@ int NFTransRoleLogin::OnRoleLoginRes(int iRunLogicRetCode)
     rspMsg.set_uid(m_simpleInfo.uid);
     if (iRunLogicRetCode != 0)
     {
-        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_SNS_SERVER, proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg, GetGlobalID(), m_reqTrans);
+        FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_SNS_SERVER, proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg, GetGlobalId(), m_reqTrans);
         return 0;
     }
 
@@ -174,7 +174,7 @@ int NFTransRoleLogin::OnRoleLoginRes(int iRunLogicRetCode)
     pRoleSimple->SetProxyId(m_proxyId);
     pRoleSimple->SetClientId(m_clientId);
 
-    pRoleSimple->SendTransToWorldServer(proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg, GetGlobalID(), m_reqTrans);
+    pRoleSimple->SendTransToWorldServer(proto_ff::SNS_TO_WORLD_LOGIN_RSP, rspMsg, GetGlobalId(), m_reqTrans);
     return 0;
 }
 
@@ -190,7 +190,7 @@ int NFTransRoleLogin::HandleGetRoleDetailRes(int iRunLogicRetCode, uint64_t role
 
         return FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                             proto_ff::NF_STORESVR_C2S_INSERT, 0, pServerConfig->DefaultDBName,
-                                                                            "RoleDBSnsDetail", xData, GetGlobalID(), 0, roleId);
+                                                                            "RoleDBSnsDetail", xData, GetGlobalId(), 0, roleId);
     }
     else {
         return NFTransCacheBase::HandleGetRoleDetailRes(iRunLogicRetCode, roleId);

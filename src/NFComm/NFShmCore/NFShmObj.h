@@ -56,26 +56,41 @@ public:
         return m_bIsInRecycle;
     }
 
-    int GetGlobalID() const
+    int GetObjId() const
     {
-        return m_iGlobalID;
+        return m_iObjId;
     }
 
-    void SetGlobalID(int iID)
+    int64_t GetHashId()
     {
-        m_iGlobalID = iID;
+        return m_iHashId;
+    }
+
+    void SetHashId(int64_t Id)
+    {
+        m_iHashId = Id;
+    }
+
+    int GetGlobalId() const
+    {
+        return m_iGlobalId;
+    }
+
+    void SetGlobalId(int iID)
+    {
+        m_iGlobalId = iID;
     }
 
     int GetTypeIndexID()
     {
-        return ((GetClassType() << 23) | 0x80000000) | GetObjID();
+        return ((GetClassType() << 23) | 0x80000000) | GetObjId();
     }
 
     int GetMiscID()
     {
-        if (m_iGlobalID >= 0)
+        if (m_iGlobalId >= 0)
         {
-            return m_iGlobalID;
+            return m_iGlobalId;
         }
         else
         {
@@ -203,10 +218,10 @@ public:
 #if defined(_DEBUG) | defined(_DEBUG_)
     int m_iMagicCheckNum;
 #endif
-    int m_iGlobalID;
-    int m_iObjectID;
+    int m_iGlobalId;
+    int m_iObjId;
     int m_iObjSeq;
-    int64_t m_iHashID;
+    int64_t m_iHashId;
     int m_iObjType;
 
     bool m_bIsInRecycle;

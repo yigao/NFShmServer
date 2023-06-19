@@ -42,17 +42,17 @@ NFShmObj::~NFShmObj()
     CheckMemMagicNum();
 
     //m_iMagicCheckNum = 0;
-    if (m_iGlobalID != INVALID_ID)
+    if (m_iGlobalId != INVALID_ID)
     {
         //有globalid的对象删除没有使用CIDRuntimeClass::DestroyObj会发生这种问题，这是不允许的
-        NFShmObj *pObj = FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(m_iGlobalID);
+        NFShmObj *pObj = FindModule<NFISharedMemModule>()->GetObjByGlobalIdWithNoCheck(m_iGlobalId);
         assert(pObj == NULL);
     }
 #endif
-    m_iGlobalID = INVALID_ID;
+    m_iGlobalId = INVALID_ID;
     m_iObjSeq = INVALID_ID;
-    m_iObjectID = INVALID_ID;
-    m_iHashID = INVALID_ID;
+    m_iObjId = INVALID_ID;
+    m_iHashId = INVALID_ID;
     m_iObjType = INVALID_ID;
 }
 
@@ -62,22 +62,22 @@ int NFShmObj::CreateInit()
     m_iMagicCheckNum = OBJECT_MAGIC_CHECK_NUMBER;
 #endif
 
-    m_iObjectID = INVALID_ID;
-    m_iGlobalID = INVALID_ID;
+    m_iObjId = INVALID_ID;
+    m_iGlobalId = INVALID_ID;
     m_iObjType = NFShmMgr::Instance()->m_iType;
-    if (m_iObjectID == INVALID_ID)
+    if (m_iObjId == INVALID_ID)
     {
-        m_iObjectID = FindModule<NFISharedMemModule>()->GetObjID(m_iObjType, this);
-        NF_ASSERT(m_iObjectID != INVALID_ID);
+        m_iObjId = FindModule<NFISharedMemModule>()->GetObjId(m_iObjType, this);
+        NF_ASSERT(m_iObjId != INVALID_ID);
     }
 
-    int iID = FindModule<NFISharedMemModule>()->GetGlobalID(m_iObjType, m_iObjectID, this);
+    int iID = FindModule<NFISharedMemModule>()->GetGlobalId(m_iObjType, m_iObjId, this);
     if (iID >= 0)
     {
-        m_iGlobalID = iID;
+        m_iGlobalId = iID;
     }
 
-    m_iHashID = INVALID_ID;
+    m_iHashId = INVALID_ID;
     m_iObjSeq = FindModule<NFISharedMemModule>()->IncreaseObjSeqNum();
 
     m_bIsInRecycle = false;

@@ -30,7 +30,7 @@ public:\
     static void DestroyObj(NFIPluginManager* pPluginManager, class_name*);\
     static void ClearAllObj(NFIPluginManager* pPluginManager);\
     static class_name* GetObjByObjId(NFIPluginManager* pPluginManager, int iObjId);\
-    static class_name *GetObjByGlobalID(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType = false);\
+    static class_name *GetObjByGlobalId(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType = false);\
     static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL);\
 	static class_name* Instance(NFIPluginManager* pPluginManager);\
 	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
@@ -40,9 +40,6 @@ public:\
     virtual int GetItemCount() const;\
     virtual int GetUsedCount() const;\
     virtual int GetFreeCount() const;\
-    virtual int GetObjID();\
-    virtual int64_t GetHashID();\
-    virtual void SetHashID(int64_t Id);\
     virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}", #class_name, GetClassType());}\
     /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
     static int  RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, bool singleton = false);  \
@@ -94,9 +91,9 @@ public:\
 	{\
         return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByObjId(type, iID));\
 	}\
-    class_name *class_name::GetObjByGlobalID(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType)\
+    class_name *class_name::GetObjByGlobalId(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType)\
 	{\
-        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalID(type, iGlobalID, withChildrenType));\
+        return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalId(type, iGlobalID, withChildrenType));\
 	}\
 	int class_name::GetItemCount(NFIPluginManager* pPluginManager)\
 	{\
@@ -134,14 +131,6 @@ public:\
     {\
         return FindModule<NFISharedMemModule>()->GetFreeCount(type);\
     }\
-	int class_name::GetObjID()\
-	{\
-		if(m_iObjectID == INVALID_ID)\
-		{\
-			m_iObjectID = FindModule<NFISharedMemModule>()->GetObjID(type, this);\
-		}\
-		return m_iObjectID;\
-	}\
     int class_name::DestroyObjAutoErase(NFIPluginManager* pPluginManager, int maxNum, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func)\
     {\
         return pPluginManager->FindModule<NFISharedMemModule>()->DestroyObjAutoErase(type, maxNum, func);\
@@ -154,14 +143,6 @@ public:\
 	{\
 		return (class_name *)pPluginManager->FindModule<NFISharedMemModule>()->GetHeadObj(type);\
 	}\
-    int64_t class_name::GetHashID()\
-    {\
-        return m_iHashID;\
-    }\
-    void class_name::SetHashID(int64_t Id)\
-    {\
-        m_iHashID = Id;\
-    }\
     /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
     void* class_name::operator new( size_t nSize,void *pBuffer ) throw()\
 	{\

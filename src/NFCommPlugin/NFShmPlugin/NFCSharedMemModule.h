@@ -244,9 +244,9 @@ public:
 
     virtual int GetFreeCount(int iType) override;
 
-    virtual int GetGlobalID(int iType, int iIndex, NFShmObj *pObj) override;
+    virtual int GetGlobalId(int iType, int iIndex, NFShmObj *pObj) override;
 
-    virtual int GetObjID(int iType, NFShmObj *pObj) override;
+    virtual int GetObjId(int iType, NFShmObj *pObj) override;
 
     virtual void *AllocMemForObject(int iType) override;
 
@@ -272,13 +272,13 @@ public:
 
     virtual int DestroyObjAutoErase(int iType, int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL) override;
 
-    virtual NFShmObj *GetObjByGlobalID(int iType, int iGlobalID, bool withChildrenType = false) override;
+    virtual NFShmObj *GetObjByGlobalId(int iType, int iGlobalID, bool withChildrenType = false) override;
 
-    virtual NFShmObj *GetObjFromGlobalIDWithNoCheck(int iGlobalID) override;
+    virtual NFShmObj *GetObjByGlobalIdWithNoCheck(int iGlobalID) override;
 
     // 根据混合ID获得对象
     // iType不为-1表示校验对象类型
-    virtual NFShmObj *GetObjFromMiscID(int iMiscID, int iType = -1) override;
+    virtual NFShmObj *GetObjByMiscId(int iMiscID, int iType = -1) override;
 
     virtual NFIDRuntimeClass *GetIDRuntimeClass(int iType);
 

@@ -65,7 +65,7 @@ NFCreature::~NFCreature()
 
 int NFCreature::CreateInit()
 {
-    m_cid = GetGlobalID();     //生物实例id
+    m_cid = GetGlobalId();     //生物实例id
     m_kind = 0;     //实体类型
     m_sceneId = 0;                //场景id
     m_mapId = 0;                  //地图模板id

@@ -49,7 +49,7 @@ NFCreature *NFCreatureMgr::GetCreature(uint64_t cid)
         /**
          * @brief iStrongType = 0 的时候， 需要查找NFShmObj之间继承关系， 只有NFCreature的子类才能获得对象
          */
-        pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_GAME_CREATURE_ID, cid, true));
+        pCreature = dynamic_cast<NFCreature *>(FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_GAME_CREATURE_ID, cid, true));
     }
 
     return pCreature;

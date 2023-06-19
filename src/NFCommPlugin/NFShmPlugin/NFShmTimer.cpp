@@ -82,8 +82,8 @@ std::string NFShmTimer::GetDetailStructMsg()
         << " slotIndex:" << m_slotIndex
         << " waitDel:" << m_waitDel
         << " listIndex:" << m_listIndex
-        << " objID:" << GetObjID()
-        << " globalID:" << GetGlobalID();
+        << " objID:" << GetObjId()
+        << " globalID:" << GetGlobalId();
 
 #ifdef NF_DEBUG_MODE
       oss << " shmobj gloablid:" << m_shmObjId;
@@ -117,7 +117,7 @@ NFTimerRetType NFShmTimer::OnTick(int64_t tick)
             }
             m_curCallCount++;
 
-            return HandleTimer(GetObjID(), m_curCallCount);
+            return HandleTimer(GetObjId(), m_curCallCount);
         }
         else
         {
@@ -139,8 +139,8 @@ NFTimerRetType NFShmTimer::HandleTimer(int timeId, int callcount)
 #if NF_DEBUG_MODE
     if (m_shmObjId >= 0)
     {
-        NF_ASSERT(m_shmObjId == m_shmObj->GetGlobalID());
-        NFShmObj *pObjGetObjFromTypeIndex = m_pObjPluginManager->FindModule<NFISharedMemModule>()->GetObjFromGlobalIDWithNoCheck(m_shmObjId);
+        NF_ASSERT(m_shmObjId == m_shmObj->GetGlobalId());
+        NFShmObj *pObjGetObjFromTypeIndex = m_pObjPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalIdWithNoCheck(m_shmObjId);
         NF_ASSERT(pObjGetObjFromTypeIndex == m_shmObj.GetPoint());
     }
 #endif

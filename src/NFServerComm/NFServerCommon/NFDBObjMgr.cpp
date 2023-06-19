@@ -131,14 +131,14 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj) {
 
     if (pObj->IsDataInited())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "data already inited:{} name:{}", pObj->GetGlobalID(), pObj->GetClassName())
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "data already inited:{} name:{}", pObj->GetGlobalId(), pObj->GetClassName())
         return -1;
     }
 
     NFDBObjTrans* pTrans = dynamic_cast<NFDBObjTrans*>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_DB_OBJ));
     CHECK_EXPR(pTrans, -1, "Create NFDBObjTrans:EOT_TRANS_DB_OBJ Failed! use num:{}", NFDBObjTrans::GetUsedCount(m_pObjPluginManager));
 
-    int iRet = pTrans->Init(pObj->GetServerType(), pObj->GetGlobalID(), pObj->GetCurSeq());
+    int iRet = pTrans->Init(pObj->GetServerType(), pObj->GetGlobalId(), pObj->GetCurSeq());
     CHECK_EXPR(iRet == 0, -1, "Init Trans Failed!");
 
     google::protobuf::Message* pMessage = pObj->CreateTempProtobufData();
@@ -148,18 +148,18 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj) {
     {
         NF_SAFE_DELETE(pMessage);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Make LoadData Failed:{} iRet:{}", pObj->GetClassName(), iRet);
-        m_failedObjList.PushBack(pObj->GetGlobalID());
+        m_failedObjList.PushBack(pObj->GetGlobalId());
         return iRet;
     }
 
     pObj->SetLastDBOpTime(NFTime::Now().UnixSec());
-    pObj->SetTransID(pTrans->GetGlobalID());
+    pObj->SetTransID(pTrans->GetGlobalId());
     iRet = pTrans->Load(pObj->GetTableID(), pObj->GetDBWrapName(), pObj->GetModeKey(), pMessage);
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "Load db ob from tableid:{} tablename:{} transName:{} iRet:{}", pObj->GetTableID(), pObj->GetDBWrapName(), pTrans->GetClassName(), iRet);
     NF_SAFE_DELETE(pMessage);
     if (iRet != 0)
     {
-        m_failedObjList.PushBack(pObj->GetGlobalID());
+        m_failedObjList.PushBack(pObj->GetGlobalId());
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Make LoadData Failed:{} iRet:{}", pObj->GetClassName(), iRet);
         return iRet;
     }
@@ -230,7 +230,7 @@ int NFDBObjMgr::OnDataLoaded(int iObjID, int32_t err_code, const std::string* ms
     }
     else
     {
-        m_runningObjList.PushBack(pObj->GetGlobalID());
+        m_runningObjList.PushBack(pObj->GetGlobalId());
     }
 
     return 0;
@@ -275,7 +275,7 @@ int NFDBObjMgr::OnDataSaved(NFDBObjTrans* pTrans, bool success)
 }
 
 NFBaseDBObj *NFDBObjMgr::GetObj(int iObjID) {
-    return dynamic_cast<NFBaseDBObj*>(FindModule<NFISharedMemModule>()->GetObjByGlobalID(EOT_BASE_DB_OBJ, iObjID, true));
+    return dynamic_cast<NFBaseDBObj*>(FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_BASE_DB_OBJ, iObjID, true));
 }
 
 int NFDBObjMgr::SaveToDB(NFBaseDBObj *pObj) {
@@ -284,14 +284,14 @@ int NFDBObjMgr::SaveToDB(NFBaseDBObj *pObj) {
 
     if (!pObj->IsDataInited())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "data not init:{} name:{}", pObj->GetGlobalID(), pObj->GetClassName())
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "data not init:{} name:{}", pObj->GetGlobalId(), pObj->GetClassName())
         return -1;
     }
 
     NFDBObjTrans* pTrans = dynamic_cast<NFDBObjTrans*>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_DB_OBJ));
     CHECK_EXPR(pTrans, -1, "Create NFDBObjTrans:EOT_TRANS_DB_OBJ Failed! use num:{}", NFDBObjTrans::GetUsedCount(m_pObjPluginManager));
 
-    int iRet = pTrans->Init(pObj->GetServerType(), pObj->GetGlobalID(), pObj->GetCurSeq());
+    int iRet = pTrans->Init(pObj->GetServerType(), pObj->GetGlobalId(), pObj->GetCurSeq());
     CHECK_EXPR(iRet == 0, -1, "Init Trans Failed!");
 
     google::protobuf::Message* pMessage = pObj->CreateTempProtobufData();
@@ -304,7 +304,7 @@ int NFDBObjMgr::SaveToDB(NFBaseDBObj *pObj) {
         return iRet;
     }
 
-    pObj->SetTransID(pTrans->GetGlobalID());
+    pObj->SetTransID(pTrans->GetGlobalId());
     if (pObj->GetNeedInsertDB())
     {
         iRet = pTrans->Insert(pObj->GetTableID(), pObj->GetDBWrapName(), pObj->GetModeKey(), pMessage);

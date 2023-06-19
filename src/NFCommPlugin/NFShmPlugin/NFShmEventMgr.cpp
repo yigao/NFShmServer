@@ -57,7 +57,7 @@ int NFShmEventMgr::ResumeInit()
 int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const std::string &desc)
 {
     if (nullptr == pSink) return -1;
-    CHECK_EXPR_ASSERT(pSink->GetGlobalID() != INVALID_ID, -1, "NFShmObj GetGlobalID == INVALID_ID, desc:{}", desc);
+    CHECK_EXPR_ASSERT(pSink->GetGlobalId() != INVALID_ID, -1, "NFShmObj GetGlobalId == INVALID_ID, desc:{}", desc);
 
     NFShmEventKey skey;
     skey.nServerType = nServerType;
@@ -70,10 +70,10 @@ int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t nEv
     *       这个指针的的集合里，如果skey已经存在，
     *       说明已经存入，直接退出
     */
-    auto pObjList = m_shmObjAllSubscribe.Find(pSink->GetGlobalID());
+    auto pObjList = m_shmObjAllSubscribe.Find(pSink->GetGlobalId());
     if (pObjList == NULL)
     {
-        pObjList = m_shmObjAllSubscribe.Insert(pSink->GetGlobalID());
+        pObjList = m_shmObjAllSubscribe.Insert(pSink->GetGlobalId());
         CHECK_EXPR(pObjList, -1, "m_shmobjAllSubscribe Insert Failed, Space Not Enough, desc:{}", desc);
     }
 
@@ -104,14 +104,14 @@ int NFShmEventMgr::Subscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t nEv
     pInfo->pSink = pSink;
     pInfo->szDesc = desc;
     pInfo->m_eventKey = skey;
-    pInfo->m_shmObjId = pSink->GetGlobalID();
+    pInfo->m_shmObjId = pSink->GetGlobalId();
 
     int ret = pObjList->AddNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pInfo);
     CHECK_EXPR_ASSERT(ret == 0, -1, "AddNode Failed, desc:{}", desc);
     ret = pEventKeyList->AddNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_EVENT_KEY_INDEX_0, pInfo);
     CHECK_EXPR_ASSERT(ret == 0, -1, "AddNode Failed, desc:{}", desc);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShmObj:{} ShmObjType:{} Subscribe:{}", pSink->GetGlobalID(), pSink->GetClassName(), pInfo->ToString());
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShmObj:{} ShmObjType:{} Subscribe:{}", pSink->GetGlobalId(), pSink->GetClassName(), pInfo->ToString());
     return 0;
 }
 
@@ -139,7 +139,7 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t n
     *		存在的话，删除对应的key, 如果pSink集合为空的话，
     *       删除pSink
     */
-    auto pShmObjList = m_shmObjAllSubscribe.Find(pSink->GetGlobalID());
+    auto pShmObjList = m_shmObjAllSubscribe.Find(pSink->GetGlobalId());
     if (pShmObjList == NULL)
     {
         return -1;
@@ -148,13 +148,13 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t n
     auto pNode = pShmObjList->GetHeadNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1);
     while (pNode)
     {
-        CHECK_EXPR_ASSERT(pNode->m_shmObjId == pSink->GetGlobalID(), -1, "");
+        CHECK_EXPR_ASSERT(pNode->m_shmObjId == pSink->GetGlobalId(), -1, "");
         if (pNode->m_eventKey == skey)
         {
             auto pLastNode = pNode;
             pNode = pShmObjList->GetNextNodeObj(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pNode);
             pShmObjList->RemoveNode(m_pObjPluginManager, NF_SHM_SUBSCRIBEINFO_SHM_OBJ_INDEX_1, pLastNode);
-            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShmObj:{} ShmObjType:{} Delete Subscribe:{}", pSink->GetGlobalID(), pSink->GetClassName(), pLastNode->ToString());
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShmObj:{} ShmObjType:{} Delete Subscribe:{}", pSink->GetGlobalId(), pSink->GetClassName(), pLastNode->ToString());
             DelEventKeyListSubcribeInfo(pLastNode);
         }
         else
@@ -165,7 +165,7 @@ int NFShmEventMgr::UnSubscribe(NFShmObj *pSink, uint32_t nServerType, uint32_t n
 
     if (pShmObjList->IsEmpty())
     {
-        m_shmObjAllSubscribe.Erase(pSink->GetGlobalID());
+        m_shmObjAllSubscribe.Erase(pSink->GetGlobalId());
     }
 
     return 0;
@@ -181,7 +181,7 @@ int NFShmEventMgr::UnSubscribeAll(NFShmObj *pSink)
 {
     if (nullptr == pSink) return -1;
 
-    return UnSubscribeAll(pSink->GetGlobalID());
+    return UnSubscribeAll(pSink->GetGlobalId());
 }
 
 int NFShmEventMgr::UnSubscribeAll(int globalId)

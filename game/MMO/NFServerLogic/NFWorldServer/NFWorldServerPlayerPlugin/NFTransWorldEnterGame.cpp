@@ -195,7 +195,7 @@ int NFTransWorldEnterGame::SendLoadRoleInfo(const proto_ff::WorldToLogicLoginReq
 
     pSession->SetState(EAccountState::loadrole);
 
-    pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_LOGIN_REQ, req, GetGlobalID());
+    pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_LOGIN_REQ, req, GetGlobalId());
 
     return 0;
 }
@@ -266,7 +266,7 @@ int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPac
         snsLoginReq.set_client_id(pPlayer->GetClientId());
         snsLoginReq.mutable_simple_data()->CopyFrom(xData.simple_data());
 
-        pPlayer->SendTransToSnsServer(proto_ff::WORLD_TO_SNS_LOGIN_REQ, snsLoginReq, GetGlobalID());
+        pPlayer->SendTransToSnsServer(proto_ff::WORLD_TO_SNS_LOGIN_REQ, snsLoginReq, GetGlobalId());
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");

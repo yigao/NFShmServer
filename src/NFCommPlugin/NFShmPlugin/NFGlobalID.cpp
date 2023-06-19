@@ -88,7 +88,7 @@ int NFGlobalID::ResumeInit()
 
 int NFGlobalID::SetTypeAndIndex(int iType, int iIndex, NFShmObj *pObj)
 {
-    int iID = pObj->GetGlobalID();
+    int iID = pObj->GetGlobalId();
     int inID = (iID & MAX_GLOBALID_NUM_MASK);
 
     if (likely(inID >= 0))
@@ -187,10 +187,10 @@ NFShmObj *NFGlobalID::GetObj(int iID)
             assert(pObjGetObjFromTypeIndex == pObj);
 #endif
             //理论上还是存在这种可能性，只要服务器运行时间足够久
-            if (pObj && pObj->GetGlobalID() != iID)
+            if (pObj && pObj->GetGlobalId() != iID)
             {
                 /*发生这种情况说明上层逻辑不对，对象不存在已经很久了，为什么还去Get呢.*/
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "id {} in({},{},{})", pObj->GetGlobalID(), m_stIDTable[inID].iID, m_stIDTable[inID].iIndex,
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "id {} in({},{},{})", pObj->GetGlobalId(), m_stIDTable[inID].iID, m_stIDTable[inID].iIndex,
                            m_stIDTable[inID].iType);
                 debug_assert();
                 return NULL;

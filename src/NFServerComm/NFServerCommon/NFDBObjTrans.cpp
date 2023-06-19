@@ -50,7 +50,7 @@ int NFDBObjTrans::Init(NF_SERVER_TYPES eType, int iObjID, uint32_t iSeqOP) {
 int NFDBObjTrans::Insert(uint32_t eTableID, const std::string &sTableName, uint64_t iModKey,
                          google::protobuf::Message *data) {
     CHECK_NULL(data);
-    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "InsertToDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalID(), data->DebugString());
+    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "InsertToDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalId(), data->DebugString());
 
     m_iDBOP = proto_ff::NF_STORESVR_C2S_INSERT;
 
@@ -73,7 +73,7 @@ int NFDBObjTrans::Insert(uint32_t eTableID, const std::string &sTableName, uint6
 int NFDBObjTrans::Save(uint32_t eTableID, const string &sTableName, uint64_t iModKey,
                        google::protobuf::Message *data) {
     CHECK_NULL(data);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SaveToDB, tableId:{} tableName:{} trans:{} ", eTableID, sTableName, GetGlobalID());
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SaveToDB, tableId:{} tableName:{} trans:{} ", eTableID, sTableName, GetGlobalId());
 
     m_iDBOP = proto_ff::NF_STORESVR_C2S_MODIFYOBJ;
     int iRetCode = 0;
@@ -95,7 +95,7 @@ int NFDBObjTrans::Save(uint32_t eTableID, const string &sTableName, uint64_t iMo
 int NFDBObjTrans::Load(uint32_t eTableID, const string &sTableName, uint64_t iModKey,
                        google::protobuf::Message *data) {
     CHECK_NULL(data);
-    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "LoadFromDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalID(), data->DebugString());
+    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "LoadFromDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalId(), data->DebugString());
 
     m_iDBOP = proto_ff::NF_STORESVR_C2S_SELECTOBJ;
     int iRetCode = 0;

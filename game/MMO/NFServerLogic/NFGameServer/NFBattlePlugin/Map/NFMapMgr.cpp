@@ -92,7 +92,7 @@ NFMap *NFMapMgr::CreateMap(uint64_t mapId)
         return NULL;
     }
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, mapId, "Create Map Success, mapId:{} globalId:{}", mapId, pMap->GetGlobalID());
+    NFLogInfo(NF_LOG_SYSTEMLOG, mapId, "Create Map Success, mapId:{} globalId:{}", mapId, pMap->GetGlobalId());
     return pMap;
 }
 
@@ -101,7 +101,7 @@ int NFMapMgr::DeleteMap(NFMap *pMap)
     CHECK_NULL(pMap);
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Map Info, mapId:{}, gloablId:{}", pMap->GetMapId(),
-              pMap->GetGlobalID());
+              pMap->GetGlobalId());
 
     FindModule<NFISharedMemModule>()->DestroyObj(pMap);
 

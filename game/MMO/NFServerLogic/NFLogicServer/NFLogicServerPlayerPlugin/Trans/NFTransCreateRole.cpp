@@ -105,7 +105,7 @@ int NFTransCreateRole::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq
 
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                  proto_ff::NF_STORESVR_C2S_INSERT, 0, pServerConfig->DefaultDBName,
-                                                                 "RoleDBData", xData, GetGlobalID(), 0, m_roleId);
+                                                                 "RoleDBData", xData, GetGlobalId(), 0, m_roleId);
     return 0;
 }
 
