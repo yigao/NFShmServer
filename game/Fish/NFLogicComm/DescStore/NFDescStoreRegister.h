@@ -1,0 +1,3 @@
+#define EOT_DESC_STORE_ALL_REGISTER_DEFINE \
+REGISTER_DESCSTORE(ConstantConstantDesc);\
+
