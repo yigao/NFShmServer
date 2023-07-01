@@ -67,10 +67,6 @@ public:
 
     void SetIpAddr(const string &ipAddr);
 
-    uint64_t GetRoleId() const;
-
-    void SetRoleId(uint64_t roleId);
-
 private:
     uint64_t m_linkId;
     uint32_t m_worldBusId;
@@ -80,6 +76,5 @@ private:
     bool m_online;
     bool m_isLogin;
     uint64_t m_uid;
-    uint64_t m_roleId;
     std::string m_ipAddr;
 };

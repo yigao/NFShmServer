@@ -12,7 +12,7 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFILuaLoader.h"
-#include "NFServerLogicMessage/common_logic.pb.h"
+#include "NFServerLogicMessage/ServerConfig.pb.h"
 #include "NFServerLogicMessage/ClientServerCmd.pb.h"
 #include "proto_svr_common.pb.h"
 

@@ -1,0 +1,69 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+import "ComDefine.proto";
+
+
+
+// 空消息
+message EmptyMessage
+{}
+
+//通用键值对结构
+message ComPair
+{
+  optional uint32 key = 1;
+  optional uint32 value = 2;
+}
+
+
+
+
+message ComPair64
+{
+  optional uint64 key = 1;
+  optional uint64 value = 2;
+}
+
+//通用键值对结构
+message ComPairBool
+{
+  optional uint32 key = 1;
+  optional bool value = 2;
+}
+
+message ComItem
+{
+  optional uint64 item_id = 1;
+  optional uint64 item_num = 2;
+}
+
+message ComItemWithType
+{
+  optional uint64 item_id = 1;
+  optional uint64 item_num = 2;
+  optional uint32 type = 3;
+}
+
+
+//位置
+message Vector3PB{
+  required float x	=1;		//x坐标
+  required float y	=2;		//y坐标
+  required float z	=3;		//z坐标
+}
+
+//方向(只有 x, z 坐标)
+message Vector2PB{
+  required float x	=1;
+  required float y	=2;
+}
+
+//64位属性通信结构
+message Attr64
+{
+  required uint32 id = 1;    //属性索引id
+  required int64 value = 2;   //属性值
+}

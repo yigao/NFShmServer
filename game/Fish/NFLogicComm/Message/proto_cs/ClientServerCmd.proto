@@ -1,0 +1,129 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+//客户端和服务器之间的协议ID
+enum ClientServerCmd
+{
+  //1011--1100游戏//////////////////////////////////////////////////////////////////////////////////
+  NF_CS_Msg_Get_Room_Info_Req = 1011;
+  NF_SC_Msg_Get_Room_Info_Rsp = 1012;
+
+  NF_CS_MSG_EnterGame_AUTO_JOIN_Req = 1013; //自动撮桌加入游戏
+  NF_CS_MSG_EnterGame_AUTO_JOIN_Rsp = 1014;
+
+  NF_CS_MSG_DeskListReq   = 1015;
+  NF_SC_MSG_DeskListRsp   = 1016;
+  NF_CS_MSG_ChairCheckReq = 1017;
+  NF_SC_MSG_ChairCheckRsp = 1018;
+
+  NF_CS_MSG_EnterGameReq   = 1019;
+  NF_SC_MSG_EnterGameRsp   = 1020;
+
+  NF_CS_MSG_ExitRoomReq    = 1021;
+  NF_SC_MSG_ExitRoomRsp    = 1022;
+
+  NF_CS_MSG_ExitGameReq    = 1023;
+  NF_SC_MSG_ExitGameRsp    = 1024;
+
+  NF_CS_MSG_UserRecomeReq  = 1025;
+  NF_SC_MSG_UserRecomeRsp  = 1026;
+
+  NF_SC_MSG_GamePlayerLeave = 1028;
+
+  NF_SC_MSG_MoneyChangeNotify = 1030;
+  NF_SC_MSG_PaoMaDengNotify = 1031;
+
+  NF_CS_MSG_RedeemCodeReq = 1032;
+  NF_SC_MSG_RedeemCodeRsp = 1033;
+  //////////////////////////////////////////////////////////////////////////////////
+
+  //////////////1100----1149/////////////////////////////
+  NF_CS_Msg_ReConnect_REQ = 1005;
+  NF_SC_Msg_ReConnect_RSP = 1006;
+
+  NF_SC_Msg_KitPlayer_Notify = 1007;
+
+  NF_CS_Msg_HeartBeat_REQ = 1009;
+  NF_SC_Msg_HeartBeat_RSP = 1010;
+
+  NF_CS_MSG_AccountLoginReq = 1101; //账号登陆 Proto_CSAccountLoginReq
+  NF_SC_MSG_AccountLoginRsp = 1102; //登陆返回 Proto_SCAccountLoginRsp
+
+  NF_CS_MSG_UserLoginReq = 1103; //玩家ID登陆 Proto_CSUserLoginReq
+  NF_SC_MSG_UserLoginRsp = 1104; //玩家ID登陆 Proto_SCUserLoginRsp
+
+  NF_CS_MSG_RegisterAccountReq = 1105; //注册帐号 Proto_CSAccountLoginReq
+  NF_SC_MSG_RegisterAccountRsp = 1106; //注册帐号 Proto_SCAccountLoginRsp
+
+  NF_CS_MSG_LoginServer_PhoneAutoCodeReq = 1107; //请求手机验证码
+  NF_SC_MSG_LoginServer_PhoneAutoCodeRsp = 1108; //请求手机验证码
+
+  NF_CS_MSG_LoginServer_CheckPhoneCodeReq = 1109; //校验手机验证码
+  NF_SC_MSG_LoginServer_CheckPhoneCodeRsp = 1110; //校验手机验证码
+
+  NF_CS_MSG_CHANGE_PASSWORD_REQ = 1111; //修改账号密码
+  NF_SC_MSG_CHANGE_PASSWORD_RESP = 1112; //修改账号密码
+
+  NF_SC_MSG_LoginServer_NotifyPhoneCheck = 1113; //通知需要手机验证
+
+  NF_CS_MSG_PlayerPhoneAutoCodeReq = 1130; //玩家请求手机验证码
+  NF_SC_MSG_PlayerPhoneAutoCodeRsp = 1131; //玩家请求手机验证码
+
+  NF_CS_MSG_PlayerCheckPhoneCodeReq = 1132; //玩家校验手机验证码
+  NF_SC_MSG_PlayerCheckPhoneCodeRsp = 1133; //玩家校验手机验证码
+
+  NF_CS_MSG_ChangeFaceReq = 1134; //修改头像 Proto_CSChangeFaceReq
+  NF_SC_MSG_ChangeFaceRsp = 1135; //修改头像返回 Proto_SCChangeFaceRsp
+
+  NF_CS_MSG_ChangeNickNameReq = 1136; //修改头像 Proto_CSChangeNameReq
+  NF_SC_MSG_ChangeNickNameRsp = 1137; //修改头像返回 Proto_SCChangeNameRsp
+
+  NF_CS_MSG_BIND_PHONE_REQ = 1138; //绑定手机号码
+  NF_CS_MSG_BIND_PHONE_RSP = 1139; //绑定手机号码
+  NF_CS_MSG_PHONE_CHANG_BAND_PASSWORD_REQ = 1140; //手机验证修改银行密码
+  NF_CS_MSG_PHONE_CHANG_BAND_PASSWORD_RSP = 1141; //手机验证修改银行密码
+
+  NF_CS_QUERY_USER_SIMPLE_DATA_REQ = 1198; //获取玩家简单数据 Proto_CSQueryUserReq
+  NF_SC_QUERY_USER_SIMPLE_DATA_RSP = 1199; //获取玩家简单数据 Proto_SCQueryUserRsp
+
+  //1150--1169邮件//////////////////////////////////////////////////////////////////////////////////
+  NF_CS_SNS_MAIL_LIST_REQ = 1150; //请求邮件列表Proto_CSMailListReq
+  NF_SC_SNS_MAIL_LIST_RSP = 1151; //邮件数据返回Proto_CSMailListRsp
+  NF_CS_SNS_MAIL_READ_REQ = 1152;	//请求读取邮件Proto_CSMailReadReq
+  NF_SC_SNS_MAIL_READ_RSP = 1153; //读取邮件结果返回Proto_CSMailReadRsp
+  NF_CS_SNS_MAIL_DEL_REQ  = 1154; //请求删除邮件Proto_CSMailDelReq
+  NF_SC_SNS_MAIL_DEL_RSP  = 1155; //删除邮件结果返回Proto_CSMailDelRsp
+  NF_SC_SNS_MAIL_AUTO_PUSH_RSP      = 1156; //系统自动推送邮件Proto_CSMailAutoPushRsp
+
+  NF_CS_SNS_MAIL_GET_ITEM_REQ		= 1157;			// 获取邮件物品Proto_CSMailGetItemReq
+  NF_SC_SNS_MAIL_GET_ITEM_RSP		= 1158;			//获取邮件物品返回Proto_CSMailGetItemRsp
+  //////////////////////////////////////////////////////////////////////////////////
+
+  //1170-1189 银行//////////////////////////////////////////////////////////////////////////////////
+  NF_CS_BANK_GET_DATA_REQ = 1170; //获取玩家银行数据Proto_CSBankGetDataReq
+  NF_SC_BANK_GET_DATA_RSP = 1171; //获取玩家银行数据Proto_SCBankGetDataRsp
+
+  NF_CS_BANK_SAVE_MONEY_REQ = 1172;//存款请求Proto_CSBankSaveMoneyReq
+  NF_SC_BANK_SAVE_MONEY_RSP = 1173;//存款请求Proto_SCBankSaveMoneyRsp
+
+  NF_CS_BANK_GET_MONEY_REQ = 1174; //取款请求Proto_CSBankGetMoneyReq
+  NF_SC_BANK_GET_MONEY_RSP = 1175; //取款请求Proto_SCBankGetMoneyRsp
+
+  NF_CS_BANK_SET_PASSWORD_REQ = 1176; //修改以后密码Proto_CSBankSetPasswordReq
+  NF_SC_BANK_SET_PASSWORD_RSP = 1177; //修改以后密码Proto_SCBankSetPasswordRsp
+
+  NF_CS_BANK_GIVE_BANK_JETTON_REQ = 1178; //赠送金币Proto_CSBankGiveMoneyReq
+  NF_SC_BANK_GIVE_BANK_JETTON_RSP = 1179; //赠送金币Proto_CSBankGiveMoneyRsp
+  NF_SC_BANK_GIVE_BANK_JETTON_AUTO_PUSH_RSP = 1180; //玩家被赠送金币通知
+
+  NF_CS_BANK_GET_RECORD_REQ = 1181; //获取赠送记录Proto_CSBankGetRecordReq
+  NF_SC_BANK_GET_RECORD_RSP = 1182; //获取赠送记录Proto_SCBankGetRecordRsp
+  //////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////1200-1220rank///////////////////////////////////////////////
+  NF_CS_GET_COMMON_RANK_REQ	  = 1200;
+  NF_CS_GET_COMMON_RANK_RSP	  = 1201;
+  ////////////////////////////////rank///////////////////////////////////////////////
+
+  CLIENT_SERVER_MAX_CMD = 5000;	//最大协议ID
+};

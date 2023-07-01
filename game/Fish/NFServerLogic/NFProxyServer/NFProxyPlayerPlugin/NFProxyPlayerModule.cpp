@@ -21,11 +21,7 @@
 #include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFPluginModule/NFCommLogic.h"
-#include "CSLogin.pb.h"
 #include "ServerInternal.pb.h"
-#include "ServerInternal2.pb.h"
-#include "NFLogicCommon/NFLogicCommonDefine.h"
-#include "ServerInternalCmd2.pb.h"
 
 NFCProxyPlayerModule::NFCProxyPlayerModule(NFIPluginManager *p) : NFIProxyPlayerModule(p)
 {

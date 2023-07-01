@@ -98,13 +98,3 @@ void NFProxyPlayerInfo::SetIpAddr(const string &ipAddr)
 {
     m_ipAddr = ipAddr;
 }
-
-uint64_t NFProxyPlayerInfo::GetRoleId() const
-{
-    return m_roleId;
-}
-
-void NFProxyPlayerInfo::SetRoleId(uint64_t charId)
-{
-    m_roleId = charId;
-}

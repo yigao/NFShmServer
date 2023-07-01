@@ -10,7 +10,7 @@
 #pragma once
 
 
-#include "NFServerLogicMessage/common_logic.pb.h"
+#include "NFServerLogicMessage/ServerConfig.pb.h"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFServerLogicMessage/ClientServerCmd.pb.h"
 #include "NFPackageConfig.h"
