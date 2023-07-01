@@ -39,6 +39,11 @@ ${PROTOCGEN_FILE_PATH}/monster.pb.h ${PROTOCGEN_FILE_PATH}/monster.pb.cc ${PROTO
 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/monster.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
 	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/monster.proto.ds  --proto_fname=monster.proto --out_path=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/monster.pb.h ${PROTOCGEN_FILE_PATH}/monster.pb.cc ${PROTOCGEN_FILE_PATH}/monster_s.h ${PROTOCGEN_FILE_PATH}/monster_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/mount.pb.h ${PROTOCGEN_FILE_PATH}/mount.pb.cc ${PROTOCGEN_FILE_PATH}/mount_s.h ${PROTOCGEN_FILE_PATH}/mount_s.cpp ${PROTOCGEN_FILE_PATH}/mount.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/mount.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/mount.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/mount.proto.ds  --proto_fname=mount.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/mount.pb.h ${PROTOCGEN_FILE_PATH}/mount.pb.cc ${PROTOCGEN_FILE_PATH}/mount_s.h ${PROTOCGEN_FILE_PATH}/mount_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
 ${PROTOCGEN_FILE_PATH}/area.pb.h ${PROTOCGEN_FILE_PATH}/area.pb.cc ${PROTOCGEN_FILE_PATH}/area_s.h ${PROTOCGEN_FILE_PATH}/area_s.cpp ${PROTOCGEN_FILE_PATH}/area.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/area.proto
 	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/area.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
@@ -124,6 +129,11 @@ ${PROTOCGEN_FILE_PATH}/mail.pb.h ${PROTOCGEN_FILE_PATH}/mail.pb.cc ${PROTOCGEN_F
 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/mail.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
 	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/mail.proto.ds  --proto_fname=mail.proto --out_path=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/mail.pb.h ${PROTOCGEN_FILE_PATH}/mail.pb.cc ${PROTOCGEN_FILE_PATH}/mail_s.h ${PROTOCGEN_FILE_PATH}/mail_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/mall.pb.h ${PROTOCGEN_FILE_PATH}/mall.pb.cc ${PROTOCGEN_FILE_PATH}/mall_s.h ${PROTOCGEN_FILE_PATH}/mall_s.cpp ${PROTOCGEN_FILE_PATH}/mall.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/mall.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/mall.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/mall.proto.ds  --proto_fname=mall.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/mall.pb.h ${PROTOCGEN_FILE_PATH}/mall.pb.cc ${PROTOCGEN_FILE_PATH}/mall_s.h ${PROTOCGEN_FILE_PATH}/mall_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
 ${PROTOCGEN_FILE_PATH}/chat.pb.h ${PROTOCGEN_FILE_PATH}/chat.pb.cc ${PROTOCGEN_FILE_PATH}/chat_s.h ${PROTOCGEN_FILE_PATH}/chat_s.cpp ${PROTOCGEN_FILE_PATH}/chat.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/chat.proto
 	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/chat.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
@@ -189,8 +199,133 @@ ${PROTOCGEN_FILE_PATH}/perActivity.pb.h ${PROTOCGEN_FILE_PATH}/perActivity.pb.cc
 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/perActivity.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
 	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/perActivity.proto.ds  --proto_fname=perActivity.proto --out_path=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/perActivity.pb.h ${PROTOCGEN_FILE_PATH}/perActivity.pb.cc ${PROTOCGEN_FILE_PATH}/perActivity_s.h ${PROTOCGEN_FILE_PATH}/perActivity_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/daily.pb.h ${PROTOCGEN_FILE_PATH}/daily.pb.cc ${PROTOCGEN_FILE_PATH}/daily_s.h ${PROTOCGEN_FILE_PATH}/daily_s.cpp ${PROTOCGEN_FILE_PATH}/daily.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/daily.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/daily.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/daily.proto.ds  --proto_fname=daily.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/daily.pb.h ${PROTOCGEN_FILE_PATH}/daily.pb.cc ${PROTOCGEN_FILE_PATH}/daily_s.h ${PROTOCGEN_FILE_PATH}/daily_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
 ${PROTOCGEN_FILE_PATH}/back.pb.h ${PROTOCGEN_FILE_PATH}/back.pb.cc ${PROTOCGEN_FILE_PATH}/back_s.h ${PROTOCGEN_FILE_PATH}/back_s.cpp ${PROTOCGEN_FILE_PATH}/back.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/back.proto
 	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/back.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
 	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/back.proto.ds  --proto_fname=back.proto --out_path=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/back.pb.h ${PROTOCGEN_FILE_PATH}/back.pb.cc ${PROTOCGEN_FILE_PATH}/back_s.h ${PROTOCGEN_FILE_PATH}/back_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/set.pb.h ${PROTOCGEN_FILE_PATH}/set.pb.cc ${PROTOCGEN_FILE_PATH}/set_s.h ${PROTOCGEN_FILE_PATH}/set_s.cpp ${PROTOCGEN_FILE_PATH}/set.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/set.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/set.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/set.proto.ds  --proto_fname=set.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/set.pb.h ${PROTOCGEN_FILE_PATH}/set.pb.cc ${PROTOCGEN_FILE_PATH}/set_s.h ${PROTOCGEN_FILE_PATH}/set_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/team.pb.h ${PROTOCGEN_FILE_PATH}/team.pb.cc ${PROTOCGEN_FILE_PATH}/team_s.h ${PROTOCGEN_FILE_PATH}/team_s.cpp ${PROTOCGEN_FILE_PATH}/team.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/team.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/team.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/team.proto.ds  --proto_fname=team.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/team.pb.h ${PROTOCGEN_FILE_PATH}/team.pb.cc ${PROTOCGEN_FILE_PATH}/team_s.h ${PROTOCGEN_FILE_PATH}/team_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/box.pb.h ${PROTOCGEN_FILE_PATH}/box.pb.cc ${PROTOCGEN_FILE_PATH}/box_s.h ${PROTOCGEN_FILE_PATH}/box_s.cpp ${PROTOCGEN_FILE_PATH}/box.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/box.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/box.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/box.proto.ds  --proto_fname=box.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/box.pb.h ${PROTOCGEN_FILE_PATH}/box.pb.cc ${PROTOCGEN_FILE_PATH}/box_s.h ${PROTOCGEN_FILE_PATH}/box_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/task.pb.h ${PROTOCGEN_FILE_PATH}/task.pb.cc ${PROTOCGEN_FILE_PATH}/task_s.h ${PROTOCGEN_FILE_PATH}/task_s.cpp ${PROTOCGEN_FILE_PATH}/task.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/task.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/task.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/task.proto.ds  --proto_fname=task.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/task.pb.h ${PROTOCGEN_FILE_PATH}/task.pb.cc ${PROTOCGEN_FILE_PATH}/task_s.h ${PROTOCGEN_FILE_PATH}/task_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/taskdynamic.pb.h ${PROTOCGEN_FILE_PATH}/taskdynamic.pb.cc ${PROTOCGEN_FILE_PATH}/taskdynamic_s.h ${PROTOCGEN_FILE_PATH}/taskdynamic_s.cpp ${PROTOCGEN_FILE_PATH}/taskdynamic.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/taskdynamic.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/taskdynamic.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/taskdynamic.proto.ds  --proto_fname=taskdynamic.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/taskdynamic.pb.h ${PROTOCGEN_FILE_PATH}/taskdynamic.pb.cc ${PROTOCGEN_FILE_PATH}/taskdynamic_s.h ${PROTOCGEN_FILE_PATH}/taskdynamic_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/taskreward.pb.h ${PROTOCGEN_FILE_PATH}/taskreward.pb.cc ${PROTOCGEN_FILE_PATH}/taskreward_s.h ${PROTOCGEN_FILE_PATH}/taskreward_s.cpp ${PROTOCGEN_FILE_PATH}/taskreward.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/taskreward.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/taskreward.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/taskreward.proto.ds  --proto_fname=taskreward.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/taskreward.pb.h ${PROTOCGEN_FILE_PATH}/taskreward.pb.cc ${PROTOCGEN_FILE_PATH}/taskreward_s.h ${PROTOCGEN_FILE_PATH}/taskreward_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/tasktracker.pb.h ${PROTOCGEN_FILE_PATH}/tasktracker.pb.cc ${PROTOCGEN_FILE_PATH}/tasktracker_s.h ${PROTOCGEN_FILE_PATH}/tasktracker_s.cpp ${PROTOCGEN_FILE_PATH}/tasktracker.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/tasktracker.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/tasktracker.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/tasktracker.proto.ds  --proto_fname=tasktracker.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/tasktracker.pb.h ${PROTOCGEN_FILE_PATH}/tasktracker.pb.cc ${PROTOCGEN_FILE_PATH}/tasktracker_s.h ${PROTOCGEN_FILE_PATH}/tasktracker_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/flash.pb.h ${PROTOCGEN_FILE_PATH}/flash.pb.cc ${PROTOCGEN_FILE_PATH}/flash_s.h ${PROTOCGEN_FILE_PATH}/flash_s.cpp ${PROTOCGEN_FILE_PATH}/flash.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/flash.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/flash.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/flash.proto.ds  --proto_fname=flash.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/flash.pb.h ${PROTOCGEN_FILE_PATH}/flash.pb.cc ${PROTOCGEN_FILE_PATH}/flash_s.h ${PROTOCGEN_FILE_PATH}/flash_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/button.pb.h ${PROTOCGEN_FILE_PATH}/button.pb.cc ${PROTOCGEN_FILE_PATH}/button_s.h ${PROTOCGEN_FILE_PATH}/button_s.cpp ${PROTOCGEN_FILE_PATH}/button.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/button.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/button.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/button.proto.ds  --proto_fname=button.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/button.pb.h ${PROTOCGEN_FILE_PATH}/button.pb.cc ${PROTOCGEN_FILE_PATH}/button_s.h ${PROTOCGEN_FILE_PATH}/button_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/vip.pb.h ${PROTOCGEN_FILE_PATH}/vip.pb.cc ${PROTOCGEN_FILE_PATH}/vip_s.h ${PROTOCGEN_FILE_PATH}/vip_s.cpp ${PROTOCGEN_FILE_PATH}/vip.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/vip.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/vip.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/vip.proto.ds  --proto_fname=vip.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/vip.pb.h ${PROTOCGEN_FILE_PATH}/vip.pb.cc ${PROTOCGEN_FILE_PATH}/vip_s.h ${PROTOCGEN_FILE_PATH}/vip_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/arena.pb.h ${PROTOCGEN_FILE_PATH}/arena.pb.cc ${PROTOCGEN_FILE_PATH}/arena_s.h ${PROTOCGEN_FILE_PATH}/arena_s.cpp ${PROTOCGEN_FILE_PATH}/arena.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/arena.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/arena.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/arena.proto.ds  --proto_fname=arena.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/arena.pb.h ${PROTOCGEN_FILE_PATH}/arena.pb.cc ${PROTOCGEN_FILE_PATH}/arena_s.h ${PROTOCGEN_FILE_PATH}/arena_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/pet.pb.h ${PROTOCGEN_FILE_PATH}/pet.pb.cc ${PROTOCGEN_FILE_PATH}/pet_s.h ${PROTOCGEN_FILE_PATH}/pet_s.cpp ${PROTOCGEN_FILE_PATH}/pet.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/pet.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/pet.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/pet.proto.ds  --proto_fname=pet.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/pet.pb.h ${PROTOCGEN_FILE_PATH}/pet.pb.cc ${PROTOCGEN_FILE_PATH}/pet_s.h ${PROTOCGEN_FILE_PATH}/pet_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/avatar.pb.h ${PROTOCGEN_FILE_PATH}/avatar.pb.cc ${PROTOCGEN_FILE_PATH}/avatar_s.h ${PROTOCGEN_FILE_PATH}/avatar_s.cpp ${PROTOCGEN_FILE_PATH}/avatar.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/avatar.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/avatar.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/avatar.proto.ds  --proto_fname=avatar.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/avatar.pb.h ${PROTOCGEN_FILE_PATH}/avatar.pb.cc ${PROTOCGEN_FILE_PATH}/avatar_s.h ${PROTOCGEN_FILE_PATH}/avatar_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/assist.pb.h ${PROTOCGEN_FILE_PATH}/assist.pb.cc ${PROTOCGEN_FILE_PATH}/assist_s.h ${PROTOCGEN_FILE_PATH}/assist_s.cpp ${PROTOCGEN_FILE_PATH}/assist.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/assist.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/assist.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/assist.proto.ds  --proto_fname=assist.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/assist.pb.h ${PROTOCGEN_FILE_PATH}/assist.pb.cc ${PROTOCGEN_FILE_PATH}/assist_s.h ${PROTOCGEN_FILE_PATH}/assist_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/moneyReward.pb.h ${PROTOCGEN_FILE_PATH}/moneyReward.pb.cc ${PROTOCGEN_FILE_PATH}/moneyReward_s.h ${PROTOCGEN_FILE_PATH}/moneyReward_s.cpp ${PROTOCGEN_FILE_PATH}/moneyReward.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/moneyReward.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/moneyReward.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/moneyReward.proto.ds  --proto_fname=moneyReward.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/moneyReward.pb.h ${PROTOCGEN_FILE_PATH}/moneyReward.pb.cc ${PROTOCGEN_FILE_PATH}/moneyReward_s.h ${PROTOCGEN_FILE_PATH}/moneyReward_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/escort.pb.h ${PROTOCGEN_FILE_PATH}/escort.pb.cc ${PROTOCGEN_FILE_PATH}/escort_s.h ${PROTOCGEN_FILE_PATH}/escort_s.cpp ${PROTOCGEN_FILE_PATH}/escort.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/escort.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/escort.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/escort.proto.ds  --proto_fname=escort.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/escort.pb.h ${PROTOCGEN_FILE_PATH}/escort.pb.cc ${PROTOCGEN_FILE_PATH}/escort_s.h ${PROTOCGEN_FILE_PATH}/escort_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/guild.pb.h ${PROTOCGEN_FILE_PATH}/guild.pb.cc ${PROTOCGEN_FILE_PATH}/guild_s.h ${PROTOCGEN_FILE_PATH}/guild_s.cpp ${PROTOCGEN_FILE_PATH}/guild.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/guild.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/guild.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/guild.proto.ds  --proto_fname=guild.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/guild.pb.h ${PROTOCGEN_FILE_PATH}/guild.pb.cc ${PROTOCGEN_FILE_PATH}/guild_s.h ${PROTOCGEN_FILE_PATH}/guild_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/collect.pb.h ${PROTOCGEN_FILE_PATH}/collect.pb.cc ${PROTOCGEN_FILE_PATH}/collect_s.h ${PROTOCGEN_FILE_PATH}/collect_s.cpp ${PROTOCGEN_FILE_PATH}/collect.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/collect.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/collect.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/collect.proto.ds  --proto_fname=collect.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/collect.pb.h ${PROTOCGEN_FILE_PATH}/collect.pb.cc ${PROTOCGEN_FILE_PATH}/collect_s.h ${PROTOCGEN_FILE_PATH}/collect_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/title.pb.h ${PROTOCGEN_FILE_PATH}/title.pb.cc ${PROTOCGEN_FILE_PATH}/title_s.h ${PROTOCGEN_FILE_PATH}/title_s.cpp ${PROTOCGEN_FILE_PATH}/title.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/title.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/title.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/title.proto.ds  --proto_fname=title.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/title.pb.h ${PROTOCGEN_FILE_PATH}/title.pb.cc ${PROTOCGEN_FILE_PATH}/title_s.h ${PROTOCGEN_FILE_PATH}/title_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/godevil.pb.h ${PROTOCGEN_FILE_PATH}/godevil.pb.cc ${PROTOCGEN_FILE_PATH}/godevil_s.h ${PROTOCGEN_FILE_PATH}/godevil_s.cpp ${PROTOCGEN_FILE_PATH}/godevil.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/godevil.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/godevil.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/godevil.proto.ds  --proto_fname=godevil.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/godevil.pb.h ${PROTOCGEN_FILE_PATH}/godevil.pb.cc ${PROTOCGEN_FILE_PATH}/godevil_s.h ${PROTOCGEN_FILE_PATH}/godevil_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/occupation.pb.h ${PROTOCGEN_FILE_PATH}/occupation.pb.cc ${PROTOCGEN_FILE_PATH}/occupation_s.h ${PROTOCGEN_FILE_PATH}/occupation_s.cpp ${PROTOCGEN_FILE_PATH}/occupation.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/occupation.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/occupation.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/occupation.proto.ds  --proto_fname=occupation.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/occupation.pb.h ${PROTOCGEN_FILE_PATH}/occupation.pb.cc ${PROTOCGEN_FILE_PATH}/occupation_s.h ${PROTOCGEN_FILE_PATH}/occupation_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/Godvalley.pb.h ${PROTOCGEN_FILE_PATH}/Godvalley.pb.cc ${PROTOCGEN_FILE_PATH}/Godvalley_s.h ${PROTOCGEN_FILE_PATH}/Godvalley_s.cpp ${PROTOCGEN_FILE_PATH}/Godvalley.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/Godvalley.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/Godvalley.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/Godvalley.proto.ds  --proto_fname=Godvalley.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/Godvalley.pb.h ${PROTOCGEN_FILE_PATH}/Godvalley.pb.cc ${PROTOCGEN_FILE_PATH}/Godvalley_s.h ${PROTOCGEN_FILE_PATH}/Godvalley_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/recharge.pb.h ${PROTOCGEN_FILE_PATH}/recharge.pb.cc ${PROTOCGEN_FILE_PATH}/recharge_s.h ${PROTOCGEN_FILE_PATH}/recharge_s.cpp ${PROTOCGEN_FILE_PATH}/recharge.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/recharge.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/recharge.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/recharge.proto.ds  --proto_fname=recharge.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/recharge.pb.h ${PROTOCGEN_FILE_PATH}/recharge.pb.cc ${PROTOCGEN_FILE_PATH}/recharge_s.h ${PROTOCGEN_FILE_PATH}/recharge_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+${PROTOCGEN_FILE_PATH}/shenequip.pb.h ${PROTOCGEN_FILE_PATH}/shenequip.pb.cc ${PROTOCGEN_FILE_PATH}/shenequip_s.h ${PROTOCGEN_FILE_PATH}/shenequip_s.cpp ${PROTOCGEN_FILE_PATH}/shenequip.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/shenequip.proto
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/shenequip.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/shenequip.proto.ds  --proto_fname=shenequip.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/shenequip.pb.h ${PROTOCGEN_FILE_PATH}/shenequip.pb.cc ${PROTOCGEN_FILE_PATH}/shenequip_s.h ${PROTOCGEN_FILE_PATH}/shenequip_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/

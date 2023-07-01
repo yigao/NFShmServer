@@ -46,6 +46,12 @@ ${PROTOCGEN_FILE_PATH}/monster.proto ${PROTOCGEN_FILE_PATH}/monster_gen.makefile
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/monster.proto ${PROTOCGEN_FILE_PATH}/monster_gen.makefile" --dst=${RESDB_META_PATH}/
 
 
+${PROTOCGEN_FILE_PATH}/mount.proto ${PROTOCGEN_FILE_PATH}/mount_gen.makefile:${RESDB_EXCELMMO_PATH}/mount.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/mount.proto ${PROTOCGEN_FILE_PATH}/mount_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
 ${PROTOCGEN_FILE_PATH}/area.proto ${PROTOCGEN_FILE_PATH}/area_gen.makefile:${RESDB_EXCELMMO_PATH}/area.xlsx
 	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
@@ -148,6 +154,12 @@ ${PROTOCGEN_FILE_PATH}/mail.proto ${PROTOCGEN_FILE_PATH}/mail_gen.makefile:${RES
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/mail.proto ${PROTOCGEN_FILE_PATH}/mail_gen.makefile" --dst=${RESDB_META_PATH}/
 
 
+${PROTOCGEN_FILE_PATH}/mall.proto ${PROTOCGEN_FILE_PATH}/mall_gen.makefile:${RESDB_EXCELMMO_PATH}/mall.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/mall.proto ${PROTOCGEN_FILE_PATH}/mall_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
 ${PROTOCGEN_FILE_PATH}/chat.proto ${PROTOCGEN_FILE_PATH}/chat_gen.makefile:${RESDB_EXCELMMO_PATH}/chat.xlsx
 	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
@@ -226,9 +238,159 @@ ${PROTOCGEN_FILE_PATH}/perActivity.proto ${PROTOCGEN_FILE_PATH}/perActivity_gen.
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/perActivity.proto ${PROTOCGEN_FILE_PATH}/perActivity_gen.makefile" --dst=${RESDB_META_PATH}/
 
 
+${PROTOCGEN_FILE_PATH}/daily.proto ${PROTOCGEN_FILE_PATH}/daily_gen.makefile:${RESDB_EXCELMMO_PATH}/daily.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/daily.proto ${PROTOCGEN_FILE_PATH}/daily_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
 ${PROTOCGEN_FILE_PATH}/back.proto ${PROTOCGEN_FILE_PATH}/back_gen.makefile:${RESDB_EXCELMMO_PATH}/back.xlsx
 	mkdir -p ${PROTOCGEN_FILE_PATH}
 	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/back.proto ${PROTOCGEN_FILE_PATH}/back_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/set.proto ${PROTOCGEN_FILE_PATH}/set_gen.makefile:${RESDB_EXCELMMO_PATH}/set.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/set.proto ${PROTOCGEN_FILE_PATH}/set_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/team.proto ${PROTOCGEN_FILE_PATH}/team_gen.makefile:${RESDB_EXCELMMO_PATH}/team.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/team.proto ${PROTOCGEN_FILE_PATH}/team_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/box.proto ${PROTOCGEN_FILE_PATH}/box_gen.makefile:${RESDB_EXCELMMO_PATH}/box.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/box.proto ${PROTOCGEN_FILE_PATH}/box_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/task.proto ${PROTOCGEN_FILE_PATH}/task_gen.makefile:${RESDB_EXCELMMO_PATH}/task.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/task.proto ${PROTOCGEN_FILE_PATH}/task_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/taskdynamic.proto ${PROTOCGEN_FILE_PATH}/taskdynamic_gen.makefile:${RESDB_EXCELMMO_PATH}/taskdynamic.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/taskdynamic.proto ${PROTOCGEN_FILE_PATH}/taskdynamic_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/taskreward.proto ${PROTOCGEN_FILE_PATH}/taskreward_gen.makefile:${RESDB_EXCELMMO_PATH}/taskreward.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/taskreward.proto ${PROTOCGEN_FILE_PATH}/taskreward_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/tasktracker.proto ${PROTOCGEN_FILE_PATH}/tasktracker_gen.makefile:${RESDB_EXCELMMO_PATH}/tasktracker.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/tasktracker.proto ${PROTOCGEN_FILE_PATH}/tasktracker_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/flash.proto ${PROTOCGEN_FILE_PATH}/flash_gen.makefile:${RESDB_EXCELMMO_PATH}/flash.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/flash.proto ${PROTOCGEN_FILE_PATH}/flash_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/button.proto ${PROTOCGEN_FILE_PATH}/button_gen.makefile:${RESDB_EXCELMMO_PATH}/button.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/button.proto ${PROTOCGEN_FILE_PATH}/button_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/vip.proto ${PROTOCGEN_FILE_PATH}/vip_gen.makefile:${RESDB_EXCELMMO_PATH}/vip.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/vip.proto ${PROTOCGEN_FILE_PATH}/vip_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/arena.proto ${PROTOCGEN_FILE_PATH}/arena_gen.makefile:${RESDB_EXCELMMO_PATH}/arena.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/arena.proto ${PROTOCGEN_FILE_PATH}/arena_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/pet.proto ${PROTOCGEN_FILE_PATH}/pet_gen.makefile:${RESDB_EXCELMMO_PATH}/pet.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/pet.proto ${PROTOCGEN_FILE_PATH}/pet_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/avatar.proto ${PROTOCGEN_FILE_PATH}/avatar_gen.makefile:${RESDB_EXCELMMO_PATH}/avatar.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/avatar.proto ${PROTOCGEN_FILE_PATH}/avatar_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/assist.proto ${PROTOCGEN_FILE_PATH}/assist_gen.makefile:${RESDB_EXCELMMO_PATH}/assist.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/assist.proto ${PROTOCGEN_FILE_PATH}/assist_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/moneyReward.proto ${PROTOCGEN_FILE_PATH}/moneyReward_gen.makefile:${RESDB_EXCELMMO_PATH}/moneyReward.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/moneyReward.proto ${PROTOCGEN_FILE_PATH}/moneyReward_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/escort.proto ${PROTOCGEN_FILE_PATH}/escort_gen.makefile:${RESDB_EXCELMMO_PATH}/escort.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/escort.proto ${PROTOCGEN_FILE_PATH}/escort_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/guild.proto ${PROTOCGEN_FILE_PATH}/guild_gen.makefile:${RESDB_EXCELMMO_PATH}/guild.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/guild.proto ${PROTOCGEN_FILE_PATH}/guild_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/collect.proto ${PROTOCGEN_FILE_PATH}/collect_gen.makefile:${RESDB_EXCELMMO_PATH}/collect.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/collect.proto ${PROTOCGEN_FILE_PATH}/collect_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/title.proto ${PROTOCGEN_FILE_PATH}/title_gen.makefile:${RESDB_EXCELMMO_PATH}/title.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/title.proto ${PROTOCGEN_FILE_PATH}/title_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/godevil.proto ${PROTOCGEN_FILE_PATH}/godevil_gen.makefile:${RESDB_EXCELMMO_PATH}/godevil.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/godevil.proto ${PROTOCGEN_FILE_PATH}/godevil_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/occupation.proto ${PROTOCGEN_FILE_PATH}/occupation_gen.makefile:${RESDB_EXCELMMO_PATH}/occupation.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/occupation.proto ${PROTOCGEN_FILE_PATH}/occupation_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/Godvalley.proto ${PROTOCGEN_FILE_PATH}/Godvalley_gen.makefile:${RESDB_EXCELMMO_PATH}/Godvalley.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/Godvalley.proto ${PROTOCGEN_FILE_PATH}/Godvalley_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/recharge.proto ${PROTOCGEN_FILE_PATH}/recharge_gen.makefile:${RESDB_EXCELMMO_PATH}/recharge.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/recharge.proto ${PROTOCGEN_FILE_PATH}/recharge_gen.makefile" --dst=${RESDB_META_PATH}/
+
+
+${PROTOCGEN_FILE_PATH}/shenequip.proto ${PROTOCGEN_FILE_PATH}/shenequip_gen.makefile:${RESDB_EXCELMMO_PATH}/shenequip.xlsx
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
+	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/shenequip.proto ${PROTOCGEN_FILE_PATH}/shenequip_gen.makefile" --dst=${RESDB_META_PATH}/
 
 

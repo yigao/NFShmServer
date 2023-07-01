@@ -1,12 +1,14 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
-ADD_SUBDIRECTORY("NFProxyServer")
-#ADD_SUBDIRECTORY("NFLoginServer")
-#ADD_SUBDIRECTORY("NFWorldServer")
-#ADD_SUBDIRECTORY("NFLogicServer")
-#ADD_SUBDIRECTORY("NFSnsServer")
-#ADD_SUBDIRECTORY("NFWebServer")
-#ADD_SUBDIRECTORY("NFGameServer")
+SET(SERVER_INCLUDE_DIR
+        "${CMAKE_SOURCE_DIR}/game/Fish/NFLogicCommon"
+        "${CMAKE_SOURCE_DIR}/game/Fish/NFServerLogic"
+        "${CMAKE_SOURCE_DIR}/src/NFServerComm/NFServerMessage")
+
+include_directories( ${INCLUDE_DIR} ${SERVER_INCLUDE_DIR})
+
+#ADD_SUBDIRECTORY("NFLogicComm")
+ADD_SUBDIRECTORY("NFServerLogic")
 
 
 

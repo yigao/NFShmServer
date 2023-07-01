@@ -1,8 +1,8 @@
-﻿// -------------------------------------------------------------------------
+// -------------------------------------------------------------------------
 //    @FileName         :    NFProxyServerPlayerPlugin.h
-//    @Author           :    xxxxx
-//    @Date             :   xxxx-xx-xx
-//    @Email			:    xxxxxxxxx@xxx.xxx
+//    @Author           :    Gao.Yi
+//    @Date             :   2022-09-18
+//    @Email			:    445267987@qq.com
 //    @Module           :    NFProxyServerPlugin
 //
 // -------------------------------------------------------------------------
@@ -14,10 +14,10 @@
 #include <string>
 
 //////////////////////////////////////////////////////////////////////////
-class NFProxyClientPlugin: public NFIPlugin
+class NFProxyPlayerPlugin: public NFIPlugin
 {
 public:
-	explicit NFProxyClientPlugin(NFIPluginManager* p):NFIPlugin(p)
+	explicit NFProxyPlayerPlugin(NFIPluginManager* p): NFIPlugin(p)
 	{
 	}
 
