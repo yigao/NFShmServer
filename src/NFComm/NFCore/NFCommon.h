@@ -629,7 +629,7 @@ namespace p
         {
             stringstream sBuffer;
             sBuffer << sStr;
-            return sStr.str();
+            return sBuffer.str();
         }
     };
 
