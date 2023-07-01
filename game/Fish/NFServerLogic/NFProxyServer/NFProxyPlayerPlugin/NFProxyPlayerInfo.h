@@ -24,7 +24,6 @@ public:
         m_logicBusId = 0;
         m_disconnectTime = 0;
         m_online = true;
-        m_roleId = 0;
     }
 
     virtual ~NFProxyPlayerInfo()
