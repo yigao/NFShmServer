@@ -83,3 +83,44 @@ enum Proto_CS_ErrorCode {
   ERR_CODE_USER_MONEY_TOO_MUCH              		  = 11004; //玩家等级过高,不能进入此房间
   ERR_CODE_DESK_NOT_EXIST                   		  = 11005; //桌子错误
 }
+
+
+// 账号类型
+enum Proto_AccountType {
+  E_VISITOR       = 0;
+  E_ACCOUNT   = 1;
+  E_WECHAT		= 2;
+  E_PHONE			= 3;
+  E_ROBOT     = 10;
+};
+
+// 性别
+enum Proto_SexType {
+  E_MALE          = 0;
+  E_FEMALE        = 1;
+}
+
+// 平台类型
+enum Proto_PlatType {
+  E_PLAT_NONE		= 0;
+  E_PLAT_ANDROID  = 1;
+  E_PLAT_IOS      = 2;
+  E_PLAT_WP       = 3;
+  E_PLAT_MAX 		= 4;
+}
+
+// 网络类型
+enum Proto_NetworkType {
+  E_NETWORK_2G    = 0;
+  E_NETWORK_3G    = 1;
+  E_NETWORK_4G    = 2;
+  E_NETWORK_WIFI  = 3;
+}
+
+//登录状态
+enum Proto_PlayerCreateState
+{
+  E_CREATE_SUCESS = 0;
+  E_CREATE_REGIST_NAME = 1;
+  E_CREATE_WAIT_NAME = 2;
+}

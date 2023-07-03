@@ -84,9 +84,16 @@ public:
      * 处理心跳包
      */
     int OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPackage &packet);
+public:
+    /**
+     * @brief 账号登陆
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleAccountLoginFromClient(uint64_t unLinkId, NFDataPackage &packet);
 private:
     NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
     NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
     NFPackageConfig m_packetConfig;
-
 };

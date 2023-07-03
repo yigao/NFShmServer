@@ -22,6 +22,11 @@ namespace {
 
 const ::google::protobuf::EnumDescriptor* PingConfig_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_CS_ErrorCode_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Proto_AccountType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Proto_SexType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Proto_PlatType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Proto_NetworkType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* Proto_PlayerCreateState_descriptor_ = NULL;
 
 }  // namespace
 
@@ -34,6 +39,11 @@ void protobuf_AssignDesc_ComDefine_2eproto() {
   GOOGLE_CHECK(file != NULL);
   PingConfig_descriptor_ = file->enum_type(0);
   Proto_CS_ErrorCode_descriptor_ = file->enum_type(1);
+  Proto_AccountType_descriptor_ = file->enum_type(2);
+  Proto_SexType_descriptor_ = file->enum_type(3);
+  Proto_PlatType_descriptor_ = file->enum_type(4);
+  Proto_NetworkType_descriptor_ = file->enum_type(5);
+  Proto_PlayerCreateState_descriptor_ = file->enum_type(6);
 }
 
 namespace {
@@ -114,7 +124,18 @@ void protobuf_AddDesc_ComDefine_2eproto() {
     "E_USER_IN_GAMEING\020\371U\022%\n ERR_CODE_CHAIR_H"
     "AS_OTHER_PLAYTER\020\372U\022\035\n\030ERR_CODE_CHAIR_NO"
     "T_RIGHT\020\373U\022!\n\034ERR_CODE_USER_MONEY_TOO_MU"
-    "CH\020\374U\022\034\n\027ERR_CODE_DESK_NOT_EXIST\020\375U", 2155);
+    "CH\020\374U\022\034\n\027ERR_CODE_DESK_NOT_EXIST\020\375U*Y\n\021P"
+    "roto_AccountType\022\r\n\tE_VISITOR\020\000\022\r\n\tE_ACC"
+    "OUNT\020\001\022\014\n\010E_WECHAT\020\002\022\013\n\007E_PHONE\020\003\022\013\n\007E_R"
+    "OBOT\020\n*)\n\rProto_SexType\022\n\n\006E_MALE\020\000\022\014\n\010E"
+    "_FEMALE\020\001*d\n\016Proto_PlatType\022\017\n\013E_PLAT_NO"
+    "NE\020\000\022\022\n\016E_PLAT_ANDROID\020\001\022\016\n\nE_PLAT_IOS\020\002"
+    "\022\r\n\tE_PLAT_WP\020\003\022\016\n\nE_PLAT_MAX\020\004*]\n\021Proto"
+    "_NetworkType\022\020\n\014E_NETWORK_2G\020\000\022\020\n\014E_NETW"
+    "ORK_3G\020\001\022\020\n\014E_NETWORK_4G\020\002\022\022\n\016E_NETWORK_"
+    "WIFI\020\003*`\n\027Proto_PlayerCreateState\022\023\n\017E_C"
+    "REATE_SUCESS\020\000\022\030\n\024E_CREATE_REGIST_NAME\020\001"
+    "\022\026\n\022E_CREATE_WAIT_NAME\020\002", 2584);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ComDefine.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ComDefine_2eproto);
@@ -202,6 +223,85 @@ bool Proto_CS_ErrorCode_IsValid(int value) {
     case 11003:
     case 11004:
     case 11005:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* Proto_AccountType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_AccountType_descriptor_;
+}
+bool Proto_AccountType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 10:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* Proto_SexType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_SexType_descriptor_;
+}
+bool Proto_SexType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* Proto_PlatType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_PlatType_descriptor_;
+}
+bool Proto_PlatType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* Proto_NetworkType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_NetworkType_descriptor_;
+}
+bool Proto_NetworkType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* Proto_PlayerCreateState_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_PlayerCreateState_descriptor_;
+}
+bool Proto_PlayerCreateState_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
       return true;
     default:
       return false;

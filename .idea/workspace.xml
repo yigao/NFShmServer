@@ -30,93 +30,87 @@
       <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerCommon" />
       <config projectName="ShmNFrame" targetName="NFProxyAgentServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFProxyPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFMasterServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFFishRobotPlugin" />
       <config projectName="ShmNFrame" targetName="NFStoreServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFDescStorePlugin" />
       <config projectName="ShmNFrame" targetName="NFTestPlugin" />
       <config projectName="ShmNFrame" targetName="Sqlite3" />
       <config projectName="ShmNFrame" targetName="NFDescStore" />
+      <config projectName="ShmNFrame" targetName="NFFishProxyPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFLoginServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerCommonPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
       <config projectName="ShmNFrame" targetName="NFWebServerPlugin" />
     </generated>
   </component>
-  <component name="CMakeSettings" AUTO_RELOAD="true">
+  <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" ENABLED="true" GENERATION_DIR="Build/build64_debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-G &quot;Unix Makefiles&quot; -DCMAKE_BUILD_TYPE=DynamicDebug" />
-      <configuration PROFILE_NAME="Release" ENABLED="false" GENERATION_DIR="Build/build64_release" CONFIG_NAME="Release" GENERATION_OPTIONS="-DCMAKE_BUILD_TYPE=DynamicRelease" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" GENERATION_DIR="Build" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_BUILD_TYPE=DynamicDebug" NO_GENERATOR="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="fish">
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFFishRobotPlugin.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFFishRobotPlugin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFRobotModule.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFRobotModule.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFStatusAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/proto_cs/CSLogin.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/NFShmServer.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dianwan.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/mmo-nfshm-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/mmo-nfshm-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2022_11_6_3_27____.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_10_8_上午11_31_取消提交了变更_[默认变更列表]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_11_15_下午10_19_取消提交了变更_[默认变更列表]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_11_6_下午3_27_取消提交了变更_[默认变更列表]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_11_6_下午3_27_取消提交了变更_[默认变更列表]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2022_9_27_下午11_10_取消提交了变更_[默认变更列表]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_22-10-31_上午8_42_取消提交了变更_[默认变更列表]/MMO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_22-11-14_上午8_25_取消提交了变更_[默认变更列表]/MMO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_22-11-14_上午8_25_取消提交了变更_[默认变更列表]1/MMO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_22-11-14_上午8_25_取消提交了变更_[默认变更列表]2/MMO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_22-11-7_上午8_32_取消提交了变更_[默认变更列表]/MMO" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_22-12-6_上午10_15_取消提交了变更_[默认变更列表]/MMO" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFPackageConfig.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFPackageConfig.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFPackageMng.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFPackageMng.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerInfo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerInfo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerInfo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/Fish/Sql/CommonLogic.proto.ds" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/Fish/Sql/CommonLogic.proto.ds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/common/ComDefine.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/common/ComDefine.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ComDefine.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ComDefine.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/protoc_gen.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFFishProxyPlayerPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFFishProxyPlayerPlugin.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager">
-    <option name="groupingKeys">
-      <option value="directory" />
-    </option>
-  </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
-    <option name="clangWarnings" value="-Wno-unused-variable,-Wno-infinite-recursion,-Wno-array-bounds,-Werror=implicit-function-declaration,-Wshadow,-Wno-shadow-field-in-constructor-modified,-Wno-shadow-ivar,-Wuninitialized,-Wunused-label,-Wunused-lambda-capture,-Wno-inconsistent-missing-override" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
-  <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--tags" />
-        <option name="title" value="All" />
-      </GitPushTagMode>
-    </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
-  </component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="selectedUrlAndAccountId">
-      <UrlAndAccount>
-        <option name="accountId" value="45894cda-87c5-4976-a6d3-49dad2b6a142" />
-        <option name="url" value="https://github.com/yigao/NFShmServer.git" />
-      </UrlAndAccount>
-    </option>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFProxyPlayerPlugin" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="configuration" value="0-DynamicDebug-NFFishProxyPlayerPlugin" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
     <option name="majorVersion" value="2022" />
     <option name="minorVersion" value="3" />
   </component>
-  <component name="ProjectId" id="1ujzzYRcDPHLLows0GpEXsI7QMX" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2Rxpmftku9zAAeWgEzNys6bjB8Y" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -129,40 +123,24 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/gaoyi/mmo-nfshm-server/game/Fish/NFLogicComm/Message/common",
+    "last_opened_file_path": "/home/gaoyi/mmo-nfshm-server/Install",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.general",
+    "settings.editor.selected.configurable": "CMakeSettings",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/common" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFLogicComm" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon" />
-      <recent name="$PROJECT_DIR$/game/Fish" />
-      <recent name="$PROJECT_DIR$/thirdparty/LuaBind/lua-fmt" />
-      <recent name="$PROJECT_DIR$/Install/ScriptModule" />
-      <recent name="$PROJECT_DIR$/Install/ScriptModule/MMO" />
+      <recent name="$PROJECT_DIR$/Install" />
+      <recent name="$PROJECT_DIR$/game/Fish/NFFishRobot" />
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -178,12 +156,17 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFGameServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFGameServerPlugin" CONFIG_NAME="Debug">
+    <configuration name="NFFishProxyPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFFishProxyPlayerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFGlobalServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=MasterServer --ID=1.1.1.0 --Config=../../Config --Plugin=../../GlobalPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFGlobalServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
+    <configuration name="NFFishRobotPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFFishRobotPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFGameServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFGameServerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -194,11 +177,6 @@
       </method>
     </configuration>
     <configuration name="NFLogicCommon" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFLogicCommon" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFLogicServerPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=LogicServer --ID=15.100.10.1 --Config=../../Config --Plugin=../../TcpPlugin_server2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFLogicServerPlayerPlugin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -218,12 +196,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFMasterServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=MasterServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMasterServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFMessageDefine" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMessageDefine" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
+    <configuration name="NFMasterServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMasterServerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -233,7 +206,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.13.1.1 --Config=../../Config/MMO --Plugin=../../BusPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -248,17 +221,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFProxyPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFProxyPlayerPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NFProxyServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFProxyServerPlugin" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFRobotPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=RobotServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../TcpPlugin --Param=33,1,127.0.0.1,7051 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFRobotPlugin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -303,7 +266,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFStoreServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=StoreServer --ID=1.13.6.1 --Config=../../Config/MMO --Plugin=../../TcpPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFStoreServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
+    <configuration name="NFStoreServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFStoreServerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -318,12 +281,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFWorldServerPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=WorldServer --ID=1.13.8.1 --Config=../../Config/MMO --Plugin=../../BusPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlayerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NFWorldServerPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=WorldServer --ID=15.100.3.1 --Config=../../Config --Plugin=../../Plugin2 --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlugin" CONFIG_NAME="Debug" RUN_PATH="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader">
+    <configuration name="NFWorldServerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFWorldServerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -343,106 +301,20 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="excel2bin_mmo_quick" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="mmo-nfshm-server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python2.7" />
-      <option name="SDK_NAME" value="Python 2.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/excel_2_bin" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo_quick.py" />
-      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/ExcelMMO/facade.xlsx --proto_ds=$PROJECT_DIR$/Build/game/MMO/NFLogicComm/makefile/temp/facade.proto.ds --proto_package=proto_ff --proto_sheet_msgname=Sheet_FacadeDisplay --excel_sheetname=display --proto_msgname=E_FacadeDisplay --start_row=4 --out_path=$PROJECT_DIR$/Install/Config/MMO/Data/" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="excel2bin_new" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="NFShmServer" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python2.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2bin_new.py" />
-      <option name="PARAMETERS" value="--excel=Excel/Constant.xls --proto_ds=makefiles/temp/ResMeta.proto.ds --proto_package=proto_ff --proto_sheet_msgname=Sheet_ConstDesc --excel_sheetname=Constant --proto_msgname=ConstDesc --start_row=3 --out_path=Install/Config/Data" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="excel2proto" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="mmo-nfshm-server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="/usr/bin/python2.7" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/excel_2_bin" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" />
-      <option name="PARAMETERS" value="--excel=$PROJECT_DIR$/game/MMO/Excel/box.xlsx --out_path=$PROJECT_DIR$/game/MMO/NFLogicComm/Message/ResMetaS/" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="lua.app" factoryName="Lua Application">
-      <option name="program" value="/usr/bin/lua" />
-      <option name="file" value="" />
-      <option name="workingDir" value="$PROJECT_DIR$/src/NFGameLogic/NFGameFishPlugin_2004/NFFishTypeLightningJellyFish.cpp" />
-      <option name="debuggerType" value="2" />
-      <option name="params" value="" />
-      <option name="charset" value="UTF-8" />
-      <option name="showConsole" value="true" />
-      <method v="2" />
-    </configuration>
-    <configuration name="emmy_debug" type="lua.emmy.debugger" factoryName="Emmy Debugger(NEW)">
-      <module name="mmo-nfshm-server" />
-      <option name="TYPE" value="1" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="9966" />
-      <option name="PIPE" value="emmy" />
-      <option name="WIN_ARCH" value="1" />
-      <method v="2" />
-    </configuration>
-    <configuration name="nf_script" type="lua.mobdebug" factoryName="Lua Remote(Mobdebug)">
-      <module name="mmo-nfshm-server" />
-      <option name="PORT" value="7004" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="CMake 应用程序.NFGlobalServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFLogicServerPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFFishRobotPlugin" />
       <item itemvalue="CMake 应用程序.NFDescStore" />
       <item itemvalue="CMake 应用程序.NFLogicCommon" />
       <item itemvalue="CMake 应用程序.NFServerLogicMessage" />
-      <item itemvalue="CMake 应用程序.NFProxyPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFFishProxyPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFKernelPlugin" />
       <item itemvalue="CMake 应用程序.NFNetPlugin" />
       <item itemvalue="CMake 应用程序.NFShmPlugin" />
       <item itemvalue="CMake 应用程序.NFLuaScriptPlugin" />
-      <item itemvalue="CMake 应用程序.NFWorldServerPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFPluginLoader" />
+      <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
       <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyClientPlugin" />
@@ -450,12 +322,6 @@
       <item itemvalue="CMake 应用程序.NFRouteAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteServerPlugin" />
       <item itemvalue="CMake 应用程序.NFSnsServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFMessageDefine" />
-      <item itemvalue="CMake 应用程序.NFPluginLoader" />
-      <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFRobotPlugin" />
       <item itemvalue="CMake 应用程序.NFStoreServerPlugin" />
       <item itemvalue="CMake 应用程序.NFWebServerPlugin" />
       <item itemvalue="CMake 应用程序.NFWorldServerPlugin" />
@@ -467,867 +333,23 @@
       <item itemvalue="CMake 应用程序.evpp" />
       <item itemvalue="CMake 应用程序.mysqlpp" />
       <item itemvalue="CMake 应用程序.Sqlite3" />
-      <item itemvalue="Emmy Debugger(NEW).emmy_debug" />
-      <item itemvalue="Lua Remote(Mobdebug).nf_script" />
-      <item itemvalue="Python.excel2bin_mmo_quick" />
-      <item itemvalue="Python.excel2bin_new" />
-      <item itemvalue="Python.excel2proto" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration>$PROJECT_DIR$/../.subversion</configuration>
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="bfc154c0-ce35-4c6f-a6b9-b4a7f4d48cf5" name="默认变更列表" comment="" />
-      <created>1625194049912</created>
+      <changelist id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="" />
+      <created>1688201746781</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1625194049912</updated>
-      <workItem from="1625194052445" duration="1765000" />
-      <workItem from="1625196189084" duration="14228000" />
-      <workItem from="1625290408827" duration="12307000" />
-      <workItem from="1625623443677" duration="8053000" />
-      <workItem from="1625636571549" duration="3290000" />
-      <workItem from="1625727785574" duration="13835000" />
-      <workItem from="1625810208378" duration="150000" />
-      <workItem from="1625810455568" duration="42000" />
-      <workItem from="1625810589335" duration="587000" />
-      <workItem from="1625901193166" duration="5088000" />
-      <workItem from="1625968303694" duration="23340000" />
-      <workItem from="1626072312954" duration="1910000" />
-      <workItem from="1626083475958" duration="1791000" />
-      <workItem from="1626085412911" duration="27501000" />
-      <workItem from="1626168092522" duration="3537000" />
-      <workItem from="1626335577238" duration="7613000" />
-      <workItem from="1626401682089" duration="1728000" />
-      <workItem from="1626661631765" duration="3963000" />
-      <workItem from="1627285430993" duration="2551000" />
-      <workItem from="1627298045540" duration="2167000" />
-      <workItem from="1627302865799" duration="1951000" />
-      <workItem from="1630031388736" duration="26000" />
-      <workItem from="1630031434543" duration="42000" />
-      <workItem from="1630031477601" duration="13000" />
-      <workItem from="1632297359921" duration="271000" />
-      <workItem from="1632297666157" duration="5544000" />
-      <workItem from="1632461798544" duration="55000" />
-      <workItem from="1633026258306" duration="3067000" />
-      <workItem from="1634370756344" duration="15000" />
-      <workItem from="1635333767349" duration="1364000" />
-      <workItem from="1654652542312" duration="5893000" />
-      <workItem from="1654660697861" duration="34802000" />
-      <workItem from="1654736205434" duration="2659000" />
-      <workItem from="1654738989887" duration="2658000" />
-      <workItem from="1654741675973" duration="1504000" />
-      <workItem from="1654749881573" duration="1982000" />
-      <workItem from="1654752346426" duration="50974000" />
-      <workItem from="1654910432686" duration="5182000" />
-      <workItem from="1654940688676" duration="8596000" />
-      <workItem from="1655087437489" duration="19827000" />
-      <workItem from="1655131259867" duration="2209000" />
-      <workItem from="1655169199475" duration="17370000" />
-      <workItem from="1655216703923" duration="4470000" />
-      <workItem from="1655221217362" duration="1668000" />
-      <workItem from="1655380540421" duration="187000" />
-      <workItem from="1655380822806" duration="174000" />
-      <workItem from="1655729978316" duration="5715000" />
-      <workItem from="1655782948316" duration="5759000" />
-      <workItem from="1655863482468" duration="3691000" />
-      <workItem from="1655885625821" duration="10216000" />
-      <workItem from="1655907203407" duration="10518000" />
-      <workItem from="1655949562544" duration="7916000" />
-      <workItem from="1655971298218" duration="5701000" />
-      <workItem from="1655978242966" duration="2796000" />
-      <workItem from="1656113819505" duration="5521000" />
-      <workItem from="1658384883124" duration="731000" />
-      <workItem from="1663051250691" duration="7194000" />
-      <workItem from="1663115791352" duration="37094000" />
-      <workItem from="1663202783660" duration="30103000" />
-      <workItem from="1663235833757" duration="8850000" />
-      <workItem from="1663289012502" duration="17739000" />
-      <workItem from="1663320007549" duration="6112000" />
-      <workItem from="1663338610780" duration="2740000" />
-      <workItem from="1664069237413" duration="26364000" />
-      <workItem from="1664376452474" duration="2985000" />
-      <workItem from="1665208367446" duration="16800000" />
-      <workItem from="1665275205916" duration="50000" />
-      <workItem from="1665275284547" duration="20580000" />
-      <workItem from="1665362066297" duration="35465000" />
-      <workItem from="1665448702691" duration="31088000" />
-      <workItem from="1665481483079" duration="4756000" />
-      <workItem from="1665542504686" duration="3544000" />
-      <workItem from="1665546109694" duration="21810000" />
-      <workItem from="1665725573969" duration="19351000" />
-      <workItem from="1665968471548" duration="50000" />
-      <workItem from="1665968543175" duration="13000" />
-      <workItem from="1665968656493" duration="4722000" />
-      <workItem from="1666658920469" duration="580000" />
-      <workItem from="1666666633326" duration="4949000" />
-      <workItem from="1666671989814" duration="337000" />
-      <workItem from="1666675715332" duration="833000" />
-      <workItem from="1666676574248" duration="550000" />
-      <workItem from="1666677336986" duration="73000" />
-      <workItem from="1666677540505" duration="576000" />
-      <workItem from="1666678126082" duration="308000" />
-      <workItem from="1666678440847" duration="344000" />
-      <workItem from="1666678806480" duration="13793000" />
-      <workItem from="1666917133250" duration="22897000" />
-      <workItem from="1666944301851" duration="7467000" />
-      <workItem from="1667176756489" duration="10603000" />
-      <workItem from="1667353525728" duration="27819000" />
-      <workItem from="1667436700299" duration="32060000" />
-      <workItem from="1667522811350" duration="33060000" />
-      <workItem from="1667610490797" duration="29652000" />
-      <workItem from="1667781062399" duration="4468000" />
-      <workItem from="1667987023116" duration="1046000" />
-      <workItem from="1668040239183" duration="2000" />
-      <workItem from="1668040438790" duration="2000" />
-      <workItem from="1668043719211" duration="15529000" />
-      <workItem from="1668126455261" duration="25419000" />
-      <workItem from="1668385461982" duration="29971000" />
-      <workItem from="1668471859633" duration="6844000" />
-      <workItem from="1668493810369" duration="15762000" />
-      <workItem from="1668593928138" duration="4255000" />
-      <workItem from="1668818984205" duration="27909000" />
-      <workItem from="1668990878768" duration="17663000" />
-      <workItem from="1669076987311" duration="3964000" />
-      <workItem from="1669164321747" duration="128000" />
-      <workItem from="1669164464053" duration="409000" />
-      <workItem from="1669165497629" duration="3164000" />
-      <workItem from="1669424665839" duration="21981000" />
-      <workItem from="1669453194949" duration="3078000" />
-      <workItem from="1669510578212" duration="8607000" />
-      <workItem from="1669597391139" duration="16142000" />
-      <workItem from="1669681470007" duration="1826000" />
-      <workItem from="1669715802930" duration="2701000" />
-      <workItem from="1669769328842" duration="8000" />
-      <workItem from="1669769774760" duration="32851000" />
-      <workItem from="1669942244170" duration="11269000" />
-      <workItem from="1670029533057" duration="21221000" />
-      <workItem from="1670287724273" duration="18286000" />
-      <workItem from="1670375193524" duration="13148000" />
-      <workItem from="1670461160186" duration="2401000" />
-      <workItem from="1670463620307" duration="11167000" />
-      <workItem from="1670545553058" duration="1526000" />
-      <workItem from="1670806076179" duration="579000" />
-      <workItem from="1670893311355" duration="42000" />
-      <workItem from="1672729861555" duration="6829000" />
-      <workItem from="1673572629264" duration="1276000" />
-      <workItem from="1673594575286" duration="599000" />
-      <workItem from="1675050793583" duration="17884000" />
-      <workItem from="1675126612744" duration="28407000" />
-      <workItem from="1675212922107" duration="27677000" />
-      <workItem from="1675300597443" duration="28254000" />
-      <workItem from="1675386433125" duration="17607000" />
-      <workItem from="1675644180912" duration="14621000" />
-      <workItem from="1675732081719" duration="2043000" />
-      <workItem from="1675740552954" duration="959000" />
-      <workItem from="1675741539443" duration="29000" />
-      <workItem from="1675741578690" duration="3654000" />
-      <workItem from="1675753566021" duration="4449000" />
-      <workItem from="1675817815686" duration="22766000" />
-      <workItem from="1675905074487" duration="24449000" />
-      <workItem from="1675993680632" duration="10456000" />
-      <workItem from="1676077154273" duration="13055000" />
-      <workItem from="1676250033452" duration="23914000" />
-      <workItem from="1676336881587" duration="3141000" />
-      <workItem from="1676368581079" duration="5395000" />
-      <workItem from="1676423881874" duration="6003000" />
-      <workItem from="1676446659023" duration="57754000" />
-      <workItem from="1676618133666" duration="1000" />
-      <workItem from="1676618761580" duration="10132000" />
-      <workItem from="1676633099829" duration="223000" />
-      <workItem from="1676633339232" duration="1694000" />
-      <workItem from="1676680625632" duration="8890000" />
-      <workItem from="1676854993686" duration="30435000" />
-      <workItem from="1676940906606" duration="43791000" />
-      <workItem from="1677114042431" duration="23804000" />
-      <workItem from="1677200403379" duration="25249000" />
-      <workItem from="1677239327163" duration="519000" />
-      <workItem from="1677285939602" duration="23041000" />
-      <workItem from="1677459916756" duration="41210000" />
-      <workItem from="1677641365640" duration="25592000" />
-      <workItem from="1677738990329" duration="12968000" />
-      <workItem from="1677804377201" duration="27030000" />
-      <workItem from="1677837825973" duration="4278000" />
-      <workItem from="1677893806780" duration="21669000" />
-      <workItem from="1678079487195" duration="66071000" />
-      <workItem from="1678323004058" duration="35358000" />
-      <workItem from="1678418797150" duration="51201000" />
-      <workItem from="1678669760792" duration="29634000" />
-      <workItem from="1678753919750" duration="50064000" />
-      <workItem from="1678927795516" duration="14918000" />
-      <workItem from="1679014162204" duration="30604000" />
-      <workItem from="1679054253578" duration="28000" />
-      <workItem from="1679287244120" duration="31170000" />
-      <workItem from="1679446064457" duration="98914000" />
-      <workItem from="1679704166075" duration="13742000" />
-      <workItem from="1679722414436" duration="11975000" />
-      <workItem from="1679893898145" duration="79298000" />
-      <workItem from="1680136485583" duration="26480000" />
-      <workItem from="1680483236675" duration="45831000" />
-      <workItem from="1680591532138" duration="10437000" />
-      <workItem from="1680741106126" duration="5188000" />
-      <workItem from="1680746577546" duration="19446000" />
-      <workItem from="1680831230525" duration="51695000" />
-      <workItem from="1681088835777" duration="27704000" />
-      <workItem from="1681205716943" duration="9230000" />
-      <workItem from="1681268831855" duration="63503000" />
-      <workItem from="1681435038498" duration="18947000" />
-      <workItem from="1681518992007" duration="5615000" />
-      <workItem from="1681693264649" duration="46221000" />
-      <workItem from="1681865890508" duration="24775000" />
-      <workItem from="1681951932417" duration="1413000" />
-      <workItem from="1681959929567" duration="707000" />
-      <workItem from="1681970219214" duration="5375000" />
-      <workItem from="1682642708109" duration="21825000" />
-      <workItem from="1683506777648" duration="325000" />
-      <workItem from="1683507150399" duration="72000" />
-      <workItem from="1683507234342" duration="22165000" />
-      <workItem from="1683631175497" duration="891000" />
-      <workItem from="1683766700246" duration="28160000" />
-      <workItem from="1683875371414" duration="7083000" />
-      <workItem from="1684125372942" duration="641000" />
-      <workItem from="1684199244050" duration="8292000" />
-      <workItem from="1684293435645" duration="8004000" />
-      <workItem from="1684459034649" duration="11439000" />
-      <workItem from="1684558677664" duration="14995000" />
-      <workItem from="1684719322031" duration="708000" />
-      <workItem from="1686016123444" duration="596000" />
-      <workItem from="1686292602314" duration="526000" />
-      <workItem from="1686383879578" duration="1243000" />
-      <workItem from="1686530653650" duration="12231000" />
-      <workItem from="1686617483664" duration="12111000" />
-      <workItem from="1686710904007" duration="290000" />
-      <workItem from="1687143594538" duration="20624000" />
-      <workItem from="1687223165482" duration="3974000" />
-      <workItem from="1687742828675" duration="3175000" />
-      <workItem from="1687837477015" duration="2232000" />
-      <workItem from="1688178118414" duration="372000" />
-      <workItem from="1688178501130" duration="4020000" />
-      <workItem from="1688182548324" duration="2796000" />
-      <workItem from="1688191751398" duration="484000" />
-      <workItem from="1688192246655" duration="2618000" />
+      <updated>1688201746781</updated>
+      <workItem from="1688201751342" duration="972000" />
+      <workItem from="1688204299548" duration="45000" />
+      <workItem from="1688345617726" duration="6159000" />
     </task>
-    <task id="LOCAL-00643" summary="ubuntu lib">
-      <created>1681386005752</created>
-      <option name="number" value="00643" />
-      <option name="presentableId" value="LOCAL-00643" />
-      <option name="project" value="LOCAL" />
-      <updated>1681386005752</updated>
-    </task>
-    <task id="LOCAL-00644" summary="ubuntu lib">
-      <created>1681431695363</created>
-      <option name="number" value="00644" />
-      <option name="presentableId" value="LOCAL-00644" />
-      <option name="project" value="LOCAL" />
-      <updated>1681431695363</updated>
-    </task>
-    <task id="LOCAL-00645" summary="ubuntu lib">
-      <created>1681432544305</created>
-      <option name="number" value="00645" />
-      <option name="presentableId" value="LOCAL-00645" />
-      <option name="project" value="LOCAL" />
-      <updated>1681432544305</updated>
-    </task>
-    <task id="LOCAL-00646" summary="ubuntu lib">
-      <created>1681433784149</created>
-      <option name="number" value="00646" />
-      <option name="presentableId" value="LOCAL-00646" />
-      <option name="project" value="LOCAL" />
-      <updated>1681433784149</updated>
-    </task>
-    <task id="LOCAL-00647" summary="ubuntu lib">
-      <created>1681435979059</created>
-      <option name="number" value="00647" />
-      <option name="presentableId" value="LOCAL-00647" />
-      <option name="project" value="LOCAL" />
-      <updated>1681435979059</updated>
-    </task>
-    <task id="LOCAL-00648" summary="lua">
-      <created>1681439534220</created>
-      <option name="number" value="00648" />
-      <option name="presentableId" value="LOCAL-00648" />
-      <option name="project" value="LOCAL" />
-      <updated>1681439534220</updated>
-    </task>
-    <task id="LOCAL-00649" summary="lua">
-      <created>1681465073410</created>
-      <option name="number" value="00649" />
-      <option name="presentableId" value="LOCAL-00649" />
-      <option name="project" value="LOCAL" />
-      <updated>1681465073410</updated>
-    </task>
-    <task id="LOCAL-00650" summary="lua">
-      <created>1681523863566</created>
-      <option name="number" value="00650" />
-      <option name="presentableId" value="LOCAL-00650" />
-      <option name="project" value="LOCAL" />
-      <updated>1681523863566</updated>
-    </task>
-    <task id="LOCAL-00651" summary="cmake">
-      <created>1681696719403</created>
-      <option name="number" value="00651" />
-      <option name="presentableId" value="LOCAL-00651" />
-      <option name="project" value="LOCAL" />
-      <updated>1681696719403</updated>
-    </task>
-    <task id="LOCAL-00652" summary="proxy client">
-      <created>1681703451151</created>
-      <option name="number" value="00652" />
-      <option name="presentableId" value="LOCAL-00652" />
-      <option name="project" value="LOCAL" />
-      <updated>1681703451151</updated>
-    </task>
-    <task id="LOCAL-00653" summary="proxy client">
-      <created>1681709734883</created>
-      <option name="number" value="00653" />
-      <option name="presentableId" value="LOCAL-00653" />
-      <option name="project" value="LOCAL" />
-      <updated>1681709734883</updated>
-    </task>
-    <task id="LOCAL-00654" summary="proxy client">
-      <created>1681711145475</created>
-      <option name="number" value="00654" />
-      <option name="presentableId" value="LOCAL-00654" />
-      <option name="project" value="LOCAL" />
-      <updated>1681711145475</updated>
-    </task>
-    <task id="LOCAL-00655" summary="proxy client">
-      <created>1681717182033</created>
-      <option name="number" value="00655" />
-      <option name="presentableId" value="LOCAL-00655" />
-      <option name="project" value="LOCAL" />
-      <updated>1681717182033</updated>
-    </task>
-    <task id="LOCAL-00656" summary="proxy client">
-      <created>1681719402849</created>
-      <option name="number" value="00656" />
-      <option name="presentableId" value="LOCAL-00656" />
-      <option name="project" value="LOCAL" />
-      <updated>1681719402849</updated>
-    </task>
-    <task id="LOCAL-00657" summary="proxy client">
-      <created>1681723745995</created>
-      <option name="number" value="00657" />
-      <option name="presentableId" value="LOCAL-00657" />
-      <option name="project" value="LOCAL" />
-      <updated>1681723745995</updated>
-    </task>
-    <task id="LOCAL-00658" summary="shm bus">
-      <created>1681802821443</created>
-      <option name="number" value="00658" />
-      <option name="presentableId" value="LOCAL-00658" />
-      <option name="project" value="LOCAL" />
-      <updated>1681802821443</updated>
-    </task>
-    <task id="LOCAL-00659" summary="shm bus">
-      <created>1681890296902</created>
-      <option name="number" value="00659" />
-      <option name="presentableId" value="LOCAL-00659" />
-      <option name="project" value="LOCAL" />
-      <updated>1681890296902</updated>
-    </task>
-    <task id="LOCAL-00660" summary="shm bus">
-      <created>1681891909312</created>
-      <option name="number" value="00660" />
-      <option name="presentableId" value="LOCAL-00660" />
-      <option name="project" value="LOCAL" />
-      <updated>1681891909312</updated>
-    </task>
-    <task id="LOCAL-00661" summary="shm bus">
-      <created>1681904249958</created>
-      <option name="number" value="00661" />
-      <option name="presentableId" value="LOCAL-00661" />
-      <option name="project" value="LOCAL" />
-      <updated>1681904249958</updated>
-    </task>
-    <task id="LOCAL-00662" summary="win">
-      <created>1681953186221</created>
-      <option name="number" value="00662" />
-      <option name="presentableId" value="LOCAL-00662" />
-      <option name="project" value="LOCAL" />
-      <updated>1681953186221</updated>
-    </task>
-    <task id="LOCAL-00663" summary="win">
-      <created>1681953296587</created>
-      <option name="number" value="00663" />
-      <option name="presentableId" value="LOCAL-00663" />
-      <option name="project" value="LOCAL" />
-      <updated>1681953296587</updated>
-    </task>
-    <task id="LOCAL-00664" summary="win">
-      <created>1681970908633</created>
-      <option name="number" value="00664" />
-      <option name="presentableId" value="LOCAL-00664" />
-      <option name="project" value="LOCAL" />
-      <updated>1681970908634</updated>
-    </task>
-    <task id="LOCAL-00665" summary="win stl">
-      <created>1681973010570</created>
-      <option name="number" value="00665" />
-      <option name="presentableId" value="LOCAL-00665" />
-      <option name="project" value="LOCAL" />
-      <updated>1681973010570</updated>
-    </task>
-    <task id="LOCAL-00666" summary="win stl">
-      <created>1681977622400</created>
-      <option name="number" value="00666" />
-      <option name="presentableId" value="LOCAL-00666" />
-      <option name="project" value="LOCAL" />
-      <updated>1681977622400</updated>
-    </task>
-    <task id="LOCAL-00667" summary="win stl">
-      <created>1682644964720</created>
-      <option name="number" value="00667" />
-      <option name="presentableId" value="LOCAL-00667" />
-      <option name="project" value="LOCAL" />
-      <updated>1682644964720</updated>
-    </task>
-    <task id="LOCAL-00668" summary="lua event">
-      <created>1682654103203</created>
-      <option name="number" value="00668" />
-      <option name="presentableId" value="LOCAL-00668" />
-      <option name="project" value="LOCAL" />
-      <updated>1682654103203</updated>
-    </task>
-    <task id="LOCAL-00669" summary="lua event">
-      <created>1682666019795</created>
-      <option name="number" value="00669" />
-      <option name="presentableId" value="LOCAL-00669" />
-      <option name="project" value="LOCAL" />
-      <updated>1682666019795</updated>
-    </task>
-    <task id="LOCAL-00670" summary="lua event">
-      <created>1682669389819</created>
-      <option name="number" value="00670" />
-      <option name="presentableId" value="LOCAL-00670" />
-      <option name="project" value="LOCAL" />
-      <updated>1682669389820</updated>
-    </task>
-    <task id="LOCAL-00671" summary="lua event">
-      <created>1682671369795</created>
-      <option name="number" value="00671" />
-      <option name="presentableId" value="LOCAL-00671" />
-      <option name="project" value="LOCAL" />
-      <updated>1682671369795</updated>
-    </task>
-    <task id="LOCAL-00672" summary="lua event">
-      <created>1682673360333</created>
-      <option name="number" value="00672" />
-      <option name="presentableId" value="LOCAL-00672" />
-      <option name="project" value="LOCAL" />
-      <updated>1682673360333</updated>
-    </task>
-    <task id="LOCAL-00673" summary="lua event">
-      <created>1683536753376</created>
-      <option name="number" value="00673" />
-      <option name="presentableId" value="LOCAL-00673" />
-      <option name="project" value="LOCAL" />
-      <updated>1683536753376</updated>
-    </task>
-    <task id="LOCAL-00674" summary="lua event">
-      <created>1683540283414</created>
-      <option name="number" value="00674" />
-      <option name="presentableId" value="LOCAL-00674" />
-      <option name="project" value="LOCAL" />
-      <updated>1683540283414</updated>
-    </task>
-    <task id="LOCAL-00675" summary="lua event">
-      <created>1683540346267</created>
-      <option name="number" value="00675" />
-      <option name="presentableId" value="LOCAL-00675" />
-      <option name="project" value="LOCAL" />
-      <updated>1683540346267</updated>
-    </task>
-    <task id="LOCAL-00676" summary="shm dy list">
-      <created>1683796172377</created>
-      <option name="number" value="00676" />
-      <option name="presentableId" value="LOCAL-00676" />
-      <option name="project" value="LOCAL" />
-      <updated>1683796172402</updated>
-    </task>
-    <task id="LOCAL-00677" summary="shm dy list">
-      <created>1683799901073</created>
-      <option name="number" value="00677" />
-      <option name="presentableId" value="LOCAL-00677" />
-      <option name="project" value="LOCAL" />
-      <updated>1683799901073</updated>
-    </task>
-    <task id="LOCAL-00678" summary="shm dy stl">
-      <created>1683879689791</created>
-      <option name="number" value="00678" />
-      <option name="presentableId" value="LOCAL-00678" />
-      <option name="project" value="LOCAL" />
-      <updated>1683879689791</updated>
-    </task>
-    <task id="LOCAL-00679" summary="shm dy stl">
-      <created>1686534318512</created>
-      <option name="number" value="00679" />
-      <option name="presentableId" value="LOCAL-00679" />
-      <option name="project" value="LOCAL" />
-      <updated>1686534318513</updated>
-    </task>
-    <task id="LOCAL-00680" summary="shm dy stl">
-      <created>1686536780475</created>
-      <option name="number" value="00680" />
-      <option name="presentableId" value="LOCAL-00680" />
-      <option name="project" value="LOCAL" />
-      <updated>1686536780475</updated>
-    </task>
-    <task id="LOCAL-00681" summary="shm dy stl">
-      <created>1686538281567</created>
-      <option name="number" value="00681" />
-      <option name="presentableId" value="LOCAL-00681" />
-      <option name="project" value="LOCAL" />
-      <updated>1686538281567</updated>
-    </task>
-    <task id="LOCAL-00682" summary="shm dy stl">
-      <created>1686539999549</created>
-      <option name="number" value="00682" />
-      <option name="presentableId" value="LOCAL-00682" />
-      <option name="project" value="LOCAL" />
-      <updated>1686539999549</updated>
-    </task>
-    <task id="LOCAL-00683" summary="shm dy stl">
-      <created>1686628183960</created>
-      <option name="number" value="00683" />
-      <option name="presentableId" value="LOCAL-00683" />
-      <option name="project" value="LOCAL" />
-      <updated>1686628183960</updated>
-    </task>
-    <task id="LOCAL-00684" summary="shm dy stl">
-      <created>1687160142565</created>
-      <option name="number" value="00684" />
-      <option name="presentableId" value="LOCAL-00684" />
-      <option name="project" value="LOCAL" />
-      <updated>1687160142565</updated>
-    </task>
-    <task id="LOCAL-00685" summary="shm dy stl">
-      <created>1687163035507</created>
-      <option name="number" value="00685" />
-      <option name="presentableId" value="LOCAL-00685" />
-      <option name="project" value="LOCAL" />
-      <updated>1687163035507</updated>
-    </task>
-    <task id="LOCAL-00686" summary="shm dy stl">
-      <created>1687165942500</created>
-      <option name="number" value="00686" />
-      <option name="presentableId" value="LOCAL-00686" />
-      <option name="project" value="LOCAL" />
-      <updated>1687165942500</updated>
-    </task>
-    <task id="LOCAL-00687" summary="shm dy stl">
-      <created>1687167828221</created>
-      <option name="number" value="00687" />
-      <option name="presentableId" value="LOCAL-00687" />
-      <option name="project" value="LOCAL" />
-      <updated>1687167828221</updated>
-    </task>
-    <task id="LOCAL-00688" summary="shm dy stl">
-      <created>1687168281715</created>
-      <option name="number" value="00688" />
-      <option name="presentableId" value="LOCAL-00688" />
-      <option name="project" value="LOCAL" />
-      <updated>1687168281715</updated>
-    </task>
-    <task id="LOCAL-00689" summary="win">
-      <created>1688179395727</created>
-      <option name="number" value="00689" />
-      <option name="presentableId" value="LOCAL-00689" />
-      <option name="project" value="LOCAL" />
-      <updated>1688179395727</updated>
-    </task>
-    <task id="LOCAL-00690" summary="fish">
-      <created>1688183215856</created>
-      <option name="number" value="00690" />
-      <option name="presentableId" value="LOCAL-00690" />
-      <option name="project" value="LOCAL" />
-      <updated>1688183215856</updated>
-    </task>
-    <task id="LOCAL-00691" summary="fish">
-      <created>1688190849681</created>
-      <option name="number" value="00691" />
-      <option name="presentableId" value="LOCAL-00691" />
-      <option name="project" value="LOCAL" />
-      <updated>1688190849681</updated>
-    </task>
-    <option name="localTasksCounter" value="692" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnknownFeatures">
-    <option featureType="com.intellij.fileTypeFactory" implementationName="*.java" />
-  </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-        <option value="Space.CommitStatus" />
-      </list>
-    </option>
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="469eeb2e-025f-42d0-bce3-3dba4e8d0845">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/home/gaoyi/mmo-nfshm-server/src/NFComm/NFPluginModule" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="871ef196-8fbc-4cc6-b263-8d357150973e">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="roots">
-                    <value>
-                      <list>
-                        <option value="$PROJECT_DIR$" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="9a81d70b-7ca6-4945-a4d1-3d8b69bf0064">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/home/gaoyi/mmo-nfshm-server/game/oldMMO" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-        <entry key="c90c0d1c-5074-46c2-8aff-edbdd77618b9">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/home/gaoyi/mmo-nfshm-server/game/MMO/ExcelMMO" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="e6bed79f-9738-4e61-a63a-01d4c945a57e">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="roots">
-                    <value>
-                      <list>
-                        <option value="$PROJECT_DIR$" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="ece55e9d-b1cf-4934-a051-26bba0db119b">
-          <value>
-            <State />
-          </value>
-        </entry>
-        <entry key="ed9bba0b-7bf1-47e6-b9bd-84347852dd6b">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="structure">
-                    <value>
-                      <list>
-                        <option value="dir:/home/gaoyi/mmo-nfshm-server/game/MMO/NFServerLogic" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-        <entry key="f029ee8b-9941-4347-93a5-2cfb22438154">
-          <value>
-            <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="roots">
-                    <value>
-                      <list>
-                        <option value="$PROJECT_DIR$/game/MMO" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="871ef196-8fbc-4cc6-b263-8d357150973e" value="TOOL_WINDOW" />
-        <entry key="ed9bba0b-7bf1-47e6-b9bd-84347852dd6b" value="TOOL_WINDOW" />
-        <entry key="f029ee8b-9941-4347-93a5-2cfb22438154" value="TOOL_WINDOW" />
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/game/oldMMO" />
-      <path value="$PROJECT_DIR$/game/MMO" />
-    </ignored-roots>
-    <MESSAGE value="grow" />
-    <MESSAGE value="attr" />
-    <MESSAGE value="item" />
-    <MESSAGE value="friend" />
-    <MESSAGE value="store server" />
-    <MESSAGE value="stop server" />
-    <MESSAGE value="error system" />
-    <MESSAGE value="store server rpc" />
-    <MESSAGE value="plugin" />
-    <MESSAGE value="relation" />
-    <MESSAGE value="shm stl" />
-    <MESSAGE value="lua fmt" />
-    <MESSAGE value="protoc" />
-    <MESSAGE value="rpc service" />
-    <MESSAGE value="ubuntu lib" />
-    <MESSAGE value="lua" />
-    <MESSAGE value="cmake" />
-    <MESSAGE value="proxy client" />
-    <MESSAGE value="shm bus" />
-    <MESSAGE value="win stl" />
-    <MESSAGE value="lua event" />
-    <MESSAGE value="shm dy list" />
-    <MESSAGE value="shm dy stl" />
-    <MESSAGE value="win" />
-    <MESSAGE value="fish" />
-    <option name="LAST_COMMIT_MESSAGE" value="fish" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFCommLogic/NFCommLogicPlugin/NFCommLogicModule.cpp</url>
-          <line>30</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp</url>
-          <line>1286</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-      </breakpoints>
-      <default-breakpoints>
-        <breakpoint type="python-exception">
-          <properties notifyOnTerminate="true" exception="BaseException">
-            <option name="notifyOnTerminate" value="true" />
-          </properties>
-        </breakpoint>
-      </default-breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

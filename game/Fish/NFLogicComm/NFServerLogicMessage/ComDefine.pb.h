@@ -127,6 +127,110 @@ inline bool Proto_CS_ErrorCode_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<Proto_CS_ErrorCode>(
     Proto_CS_ErrorCode_descriptor(), name, value);
 }
+enum Proto_AccountType {
+  E_VISITOR = 0,
+  E_ACCOUNT = 1,
+  E_WECHAT = 2,
+  E_PHONE = 3,
+  E_ROBOT = 10
+};
+bool Proto_AccountType_IsValid(int value);
+const Proto_AccountType Proto_AccountType_MIN = E_VISITOR;
+const Proto_AccountType Proto_AccountType_MAX = E_ROBOT;
+const int Proto_AccountType_ARRAYSIZE = Proto_AccountType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Proto_AccountType_descriptor();
+inline const ::std::string& Proto_AccountType_Name(Proto_AccountType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Proto_AccountType_descriptor(), value);
+}
+inline bool Proto_AccountType_Parse(
+    const ::std::string& name, Proto_AccountType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Proto_AccountType>(
+    Proto_AccountType_descriptor(), name, value);
+}
+enum Proto_SexType {
+  E_MALE = 0,
+  E_FEMALE = 1
+};
+bool Proto_SexType_IsValid(int value);
+const Proto_SexType Proto_SexType_MIN = E_MALE;
+const Proto_SexType Proto_SexType_MAX = E_FEMALE;
+const int Proto_SexType_ARRAYSIZE = Proto_SexType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Proto_SexType_descriptor();
+inline const ::std::string& Proto_SexType_Name(Proto_SexType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Proto_SexType_descriptor(), value);
+}
+inline bool Proto_SexType_Parse(
+    const ::std::string& name, Proto_SexType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Proto_SexType>(
+    Proto_SexType_descriptor(), name, value);
+}
+enum Proto_PlatType {
+  E_PLAT_NONE = 0,
+  E_PLAT_ANDROID = 1,
+  E_PLAT_IOS = 2,
+  E_PLAT_WP = 3,
+  E_PLAT_MAX = 4
+};
+bool Proto_PlatType_IsValid(int value);
+const Proto_PlatType Proto_PlatType_MIN = E_PLAT_NONE;
+const Proto_PlatType Proto_PlatType_MAX = E_PLAT_MAX;
+const int Proto_PlatType_ARRAYSIZE = Proto_PlatType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Proto_PlatType_descriptor();
+inline const ::std::string& Proto_PlatType_Name(Proto_PlatType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Proto_PlatType_descriptor(), value);
+}
+inline bool Proto_PlatType_Parse(
+    const ::std::string& name, Proto_PlatType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Proto_PlatType>(
+    Proto_PlatType_descriptor(), name, value);
+}
+enum Proto_NetworkType {
+  E_NETWORK_2G = 0,
+  E_NETWORK_3G = 1,
+  E_NETWORK_4G = 2,
+  E_NETWORK_WIFI = 3
+};
+bool Proto_NetworkType_IsValid(int value);
+const Proto_NetworkType Proto_NetworkType_MIN = E_NETWORK_2G;
+const Proto_NetworkType Proto_NetworkType_MAX = E_NETWORK_WIFI;
+const int Proto_NetworkType_ARRAYSIZE = Proto_NetworkType_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Proto_NetworkType_descriptor();
+inline const ::std::string& Proto_NetworkType_Name(Proto_NetworkType value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Proto_NetworkType_descriptor(), value);
+}
+inline bool Proto_NetworkType_Parse(
+    const ::std::string& name, Proto_NetworkType* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Proto_NetworkType>(
+    Proto_NetworkType_descriptor(), name, value);
+}
+enum Proto_PlayerCreateState {
+  E_CREATE_SUCESS = 0,
+  E_CREATE_REGIST_NAME = 1,
+  E_CREATE_WAIT_NAME = 2
+};
+bool Proto_PlayerCreateState_IsValid(int value);
+const Proto_PlayerCreateState Proto_PlayerCreateState_MIN = E_CREATE_SUCESS;
+const Proto_PlayerCreateState Proto_PlayerCreateState_MAX = E_CREATE_WAIT_NAME;
+const int Proto_PlayerCreateState_ARRAYSIZE = Proto_PlayerCreateState_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Proto_PlayerCreateState_descriptor();
+inline const ::std::string& Proto_PlayerCreateState_Name(Proto_PlayerCreateState value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Proto_PlayerCreateState_descriptor(), value);
+}
+inline bool Proto_PlayerCreateState_Parse(
+    const ::std::string& name, Proto_PlayerCreateState* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Proto_PlayerCreateState>(
+    Proto_PlayerCreateState_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -151,6 +255,26 @@ inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::PingConfig>() {
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_CS_ErrorCode>() {
   return ::proto_ff::Proto_CS_ErrorCode_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_AccountType>() {
+  return ::proto_ff::Proto_AccountType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_SexType>() {
+  return ::proto_ff::Proto_SexType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_PlatType>() {
+  return ::proto_ff::Proto_PlatType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_NetworkType>() {
+  return ::proto_ff::Proto_NetworkType_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_PlayerCreateState>() {
+  return ::proto_ff::Proto_PlayerCreateState_descriptor();
 }
 
 }  // namespace google
