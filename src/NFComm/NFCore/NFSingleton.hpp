@@ -72,7 +72,7 @@ public:
     {
         if (m_pInstance)
         {
-            NF_SAFE_RELEASE(m_pInstance);
+            NF_SAFE_DELETE(m_pInstance);
         }
 
         m_pInstance = pNewInstance;

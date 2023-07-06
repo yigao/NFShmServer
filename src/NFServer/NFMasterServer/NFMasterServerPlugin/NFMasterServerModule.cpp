@@ -154,6 +154,12 @@ int NFCMasterServerModule::OnServerRegisterRpcService(uint64_t unLinkId, proto_f
             SynServerToOthers(pServerData);
             SynOtherServerToServer(pServerData);
         }
+
+        if (xData.server_type() == NF_ST_PROXY_SERVER)
+        {
+            FindModule<NFIMessageModule>()->SendWxWork(NF_ST_MASTER_SERVER, "Proxy Server, External Ip:" + xData.external_server_ip() + " Port:" + NFCommon::tostr(xData.external_server_port()) + "\n");
+        }
+
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
     }
 
@@ -200,6 +206,11 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
             {
                 SynOtherServerToServer(pServerData);
             }
+
+            if (xData.server_type() == NF_ST_PROXY_SERVER)
+            {
+                FindModule<NFIMessageModule>()->SendWxWork(NF_ST_MASTER_SERVER, "Proxy Server, External Ip:" + xData.external_server_ip() + " Port:" + NFCommon::tostr(xData.external_server_port()) + "\n");
+            }
 #endif
         }
         else {
@@ -212,6 +223,11 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
             {
                 SynServerToOthers(pServerData);
                 SynOtherServerToServer(pServerData);
+            }
+
+            if (xData.server_type() == NF_ST_PROXY_SERVER)
+            {
+                FindModule<NFIMessageModule>()->SendWxWork(NF_ST_MASTER_SERVER, "Proxy Server, External Ip:" + xData.external_server_ip() + " Port:" + NFCommon::tostr(xData.external_server_port()) + "\n");
             }
 #endif
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());

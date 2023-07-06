@@ -756,7 +756,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "RpcServiec nMsgId:{} use time:{} ms, too long", svrPkg.msg_id(), useTime / 1000);
                     }
-                    NFLogTrace(NF_LOG_RECV_MSG, 0, "RpcServiec:{} nMsgId:{} packet:{} use time:{} us",
+                    NFLogTrace(NF_LOG_RECV_MSG, 0, "RpcServiec nMsgId:{} packet:{} use time:{} us",
                                svrPkg.msg_id(), packet.ToString(), useTime);
 
                     return 0;
@@ -927,6 +927,27 @@ NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES rec
             Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
         }
     }
+    else if (eSendType == NF_ST_PROXY_SERVER)
+    {
+        NF_SHARE_PTR<NFServerData> pServerData = GetServerByServerId(eSendType, dstBusId);
+        if (pServerData)
+        {
+            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
+        }
+    }
+    else if (recvType == NF_ST_PROXY_SERVER)
+    {
+        auto pServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(eSendType, NF_ST_PROXY_AGENT_SERVER);
+        if (pServerData)
+        {
+            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
+            return 0;
+        }
+
+        pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(eSendType, dstBusId);
+        CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", dstBusId);
+        FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
+    }
     else
     {
         Send(linkData.m_routeData.mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
@@ -960,6 +981,14 @@ int NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES
         if (pServerData)
         {
             Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, sendLinkId, destServerLinkId);
+        }
+    }
+    else if (eSendType == NF_ST_PROXY_SERVER)
+    {
+        NF_SHARE_PTR<NFServerData> pServerData = GetServerByServerId(eSendType, dstBusId);
+        if (pServerData)
+        {
+            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
         }
     }
     else

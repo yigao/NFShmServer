@@ -20,7 +20,7 @@ NFCRobotModule::NFCRobotModule(NFIPluginManager* p):NFIDynamicModule(p)
     m_startId = 10000;
     m_robotNum = 1;
     m_serverIp = "127.0.0.1";
-    m_port = 6051;
+    m_port = 8013;
     NFStringUtility::SplitStringToVector(param, ",", vecParam);
     if (vecParam.size() >= 2)
     {
@@ -44,7 +44,7 @@ NFCRobotModule::~NFCRobotModule()
 
 bool NFCRobotModule::Init()
 {
-    SetTimer(1, 100, m_robotNum);
+    SetTimer(1, 10000, m_robotNum);
     return true;
 }
 
@@ -85,6 +85,7 @@ int NFCRobotModule::OnTimer(uint32_t nTimerID)
     NFTestRobot* pRobot = CreateRobot();
     std::string url = NF_FORMAT("tcp://{}:{}", m_serverIp, m_port);
     pRobot->ConnectServer(url);
+    return 0;
 }
 
 bool NFCRobotModule::Execute()

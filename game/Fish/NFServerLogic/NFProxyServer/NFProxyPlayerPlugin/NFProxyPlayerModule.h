@@ -61,14 +61,15 @@ public:
     int OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
 
     int OnHandleClientDisconnect(uint64_t unLinkId);
-
+public:
     /*
      * 处理客户端连接超时
      * */
     int HandleProxyClientTick();
     int HandlePlayerTick();
 
-
+    int KickPlayer(uint64_t unLinkId);
+public:
 
     /**
      * @brief 处理其他服务器发给客户的 信息

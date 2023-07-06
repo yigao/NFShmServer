@@ -28,10 +28,7 @@ StoreServer = {
              MysqlUser = NF_MYSQL_USER,
              MysqlPassword = NF_MYSQL_PASSWORD,
              TBConfList = {
-                  {TableName="RoleDBData", TableCount=1},
-                  {TableName="RoleDBSnsDetail", TableCount=1},
-                  {TableName="dbServerMgr", TableCount=1},
-                  {TableName="tbServerMgr", TableCount=1},
+                  {TableName="tbAccountTable", TableCount=1},
              },
         },
         RouteConfig = {
@@ -64,10 +61,6 @@ StoreServer = {
              MysqlUser = NF_MYSQL_USER,
              MysqlPassword = NF_MYSQL_PASSWORD,
              TBConfList = {
-                  {TableName="RoleDBData", TableCount=1},
-                  {TableName="RoleDBSnsDetail", TableCount=1},
-                  {TableName="dbServerMgr", TableCount=1},
-                  {TableName="tbServerMgr", TableCount=1},
              },
         },
         RouteConfig = {

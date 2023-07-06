@@ -8,10 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include <NFComm/NFCore/NFTime.h>
-#include <Com.pb.h>
-#include <ComDefine.pb.h>
 #include <ClientServerCmd.pb.h>
-#include <ClientServer.pb.h>
 #include <NFComm/NFPluginModule/NFCheck.h>
 #include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
 #include <ServerInternalCmd.pb.h>
@@ -20,9 +17,8 @@
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
 #include "NFComm/NFCore/NFRandom.hpp"
-#include "NFComm/NFPluginModule/NFCommLogic.h"
-#include "ServerInternal.pb.h"
 #include "CSLogin.pb.h"
+#include "NFLogicCommon/NFLogicBindRpcService.h"
 
 NFCProxyPlayerModule::NFCProxyPlayerModule(NFIPluginManager *p) : NFIProxyPlayerModule(p)
 {
@@ -38,8 +34,9 @@ bool NFCProxyPlayerModule::Awake()
     SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////来自客户端的协议////////////////////////////////////////
-    RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_MSG_AccountLoginReq);
-
+    RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_MSG_AccountLoginReq, true);
+    RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_Msg_HeartBeat_REQ);
+    RegisterClientMessage(NF_ST_PROXY_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT);
 
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
@@ -130,6 +127,11 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
 
     switch (packet.nMsgId)
     {
+        case NF_SERVER_TO_SERVER_HEART_BEAT:
+        {
+            FindModule<NFIMessageModule>()->Send(unLinkId, NF_SERVER_TO_SERVER_HEART_BEAT_RSP, NULL, 0);
+
+        }
         case proto_ff::NF_CS_Msg_HeartBeat_REQ:
         {
             OnHandleClientHeartBeat(unLinkId, packet);
@@ -531,14 +533,39 @@ int NFCProxyPlayerModule::OnHandleAccountLoginFromClient(uint64_t unLinkId, NFDa
     if (pServerData)
     {
         uint32_t loginId = pServerData->mServerInfo.bus_id();
+        proto_ff::Proto_SCAccountLoginRsp respone;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_CS_MSG_AccountLoginReq>(NF_ST_PROXY_SERVER, NF_ST_LOGIN_SERVER, loginId, cgMsg, respone);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ Failed!");
+            return 0;
+        }
 
-        FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, loginId, packet.nMsgId, cgMsg, unLinkId);
+        pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+        if (pLinkInfo == nullptr)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "clientLinkId:{} not exist, client maybe disconnect!", unLinkId);
+            return 0;
+        }
+
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_AccountLoginRsp, respone);
     }
     else
     {
+        KickPlayer(unLinkId);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Get Login Server Bus Id Failed");
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCProxyPlayerModule::KickPlayer(uint64_t unLinkId)
+{
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "kick linkId:{}", unLinkId);
+    proto_ff::Proto_SCKetPlayerNotify kitMsg;
+    kitMsg.set_result(0);
+    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_KitPlayer_Notify, kitMsg);
+    FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
     return 0;
 }

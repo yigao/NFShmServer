@@ -1564,17 +1564,24 @@ int NFCMysqlDriver::QueryOne(const std::string &strTableName, const std::map<std
     NFMYSQLTRYBEGIN
         mysqlpp::Query query = pConnection->query();
         query << "SELECT ";
-        for (auto iter = fieldVec.begin(); iter != fieldVec.end(); ++iter)
+        if (fieldVec.size() > 0)
         {
-            if (iter == fieldVec.begin())
+            for (auto iter = fieldVec.begin(); iter != fieldVec.end(); ++iter)
             {
-                query << *iter;
-            }
-            else
-            {
-                query << "," << *iter;
+                if (iter == fieldVec.begin())
+                {
+                    query << *iter;
+                }
+                else
+                {
+                    query << "," << *iter;
+                }
             }
         }
+        else {
+            query << "*";
+        }
+
 
         query << " FROM " << strTableName << " WHERE ";
         for (auto iter = keyMap.begin(); iter != keyMap.end(); ++iter)

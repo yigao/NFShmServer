@@ -1010,7 +1010,7 @@ void  NFEvppNetMessage::SendHeartMsg()
 {
 	for (size_t i = 0; i < m_connectionList.size(); i++)
 	{
-		if (m_connectionList[i] && m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT)
+		if (m_connectionList[i] && m_connectionList[i]->GetConnectionType() == NF_CONNECTION_TYPE_TCP_CLIENT && GetNetObject(m_connectionList[i]->GetLinkId()) != nullptr)
 		{
             NFDataPackage packet;
             packet.mModuleId = 0;

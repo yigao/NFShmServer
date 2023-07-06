@@ -30,7 +30,7 @@ ProxyServer = {
             MasterIp = NF_MASTER_IP,
             MasterPort = NF_MASTER_PORT,
         },
-        Security = true,
+        Security = false,
         ParseType = 1,
 	};
 
@@ -57,7 +57,7 @@ ProxyServer = {
             MasterIp = NF_MASTER_IP,
             MasterPort = NF_MASTER_PORT,
         },
-        Security = true,
+        Security = false,
         ParseType = 1,
     };
 };

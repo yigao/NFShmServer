@@ -44,12 +44,35 @@ public:
 	int OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 	int OnHandleProxyOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
     int OnHandleAccountLogin(uint64_t unLinkId, NFDataPackage &packet);
-	int LoginServer();
-    int SendBeatHeart();
+
 
     int OnTimer(uint32_t nTimerID);
     int SendMsgToServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int OnHandlePlazeStatus();
+public:
+    /**
+     * @brief 游客直接登录
+     * @return
+     */
+    int VisitorLogin();
+
+    /**
+     * @brief 账号登录
+     * @return
+     */
+    int AccountLogin();
+
+    /**
+     * @brief 注册账号
+     * @return
+     */
+    int RegisterAccount();
+
+    /**
+     * @brief 发心跳包
+     * @return
+     */
+    int SendBeatHeart();
 public:
     uint64_t m_phonenum;
 	std::string m_account;

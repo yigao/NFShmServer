@@ -157,6 +157,17 @@ public:
 
 public:
     ///////////////////////store server select obj////////////////////////////////////////////////////////////////////////
+    /**
+     * @brief 调用StoreServer的selectobj rpc， 查询数据库里的一条数据,  通过protobuf结构data传数据的key, 并通过protobuf结构data存储返回来的结果。这个函数必须在携程里调用数。
+     * @tparam DataType     代表要查询的表的protobuf结构,
+     * @param eType         服务器类型
+     * @param mod_key       用来作为多线程查询的哈希一致性的key,0表示随机
+     * @param data          作为输入存储查询的key, 作为输出存储查询的结果
+     * @param vecFields     要查询的列，不填意味着查询所有的列
+     * @param dstBusId      指定负责查询的storeserver
+     * @param dbname        指定要查询的数据库
+     * @return
+     */
     template<typename DataType>
     int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data,
                                const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,

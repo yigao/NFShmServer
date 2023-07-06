@@ -10,6 +10,8 @@
 
 #include "NFShmDefine.h"
 #include "NFDynamicHead.h"
+#include "NFTypeDefines.h"
+#include "NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFObject.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
 

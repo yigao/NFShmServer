@@ -92,6 +92,7 @@ int NFTestRobot::OnHandleAccountLogin(uint64_t unLinkId, NFDataPackage &packet)
     } else {
         mStatus = NF_TEST_ROBOT_LOGIN_FAILED;
         NFLogError(NF_LOG_SYSTEMLOG, 0, "robot:{} account login failed", m_robotId);
+        RegisterAccount();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
@@ -118,7 +119,8 @@ int NFTestRobot::OnHandlePlazeStatus()
 {
 	if (mStatus == NF_TEST_ROBOT_CONNECT_SUCCESS)
 	{
-		LoginServer();
+        //VisitorLogin();
+        AccountLogin();
 	}
 
 	if (mStatus >= NF_TEST_ROBOT_CONNECT_SUCCESS)
@@ -156,12 +158,12 @@ int NFTestRobot::SendMsgToServer(uint32_t nMsgId, const google::protobuf::Messag
     return 0;
 }
 
-int NFTestRobot::LoginServer()
+int NFTestRobot::VisitorLogin()
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     mStatus = NF_TEST_ROBOT_START_LOGIN;
-    m_account = "robot_" + NFCommon::tostr(m_robotId);
-    m_password = "robot_" + NFCommon::tostr(m_robotId);
+    m_account = "robot_visitor_" + NFCommon::tostr(m_robotId);
+    m_password = "robot_visitor_" + NFCommon::tostr(m_robotId);
 
     m_accoutLoginTime = NFGetTime();
     proto_ff::Proto_CSAccountLoginReq xMsg;
@@ -170,6 +172,40 @@ int NFTestRobot::LoginServer()
     xMsg.set_login_type(proto_ff::E_VISITOR);
 
     SendMsgToServer(proto_ff::NF_CS_MSG_AccountLoginReq, xMsg);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFTestRobot::AccountLogin()
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    mStatus = NF_TEST_ROBOT_START_LOGIN;
+    m_account = "robot_acc_" + NFCommon::tostr(m_robotId);
+    m_password = "robot_acc_" + NFCommon::tostr(m_robotId);
+
+    m_accoutLoginTime = NFGetTime();
+    proto_ff::Proto_CSAccountLoginReq xMsg;
+    xMsg.set_account(m_account);
+    xMsg.set_password(m_password);
+    xMsg.set_login_type(proto_ff::E_ACCOUNT);
+
+    SendMsgToServer(proto_ff::NF_CS_MSG_AccountLoginReq, xMsg);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFTestRobot::RegisterAccount()
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    mStatus = NF_TEST_ROBOT_START_LOGIN;
+    m_account = "robot_acc_" + NFCommon::tostr(m_robotId);
+    m_password = "robot_acc_" + NFCommon::tostr(m_robotId);
+
+    proto_ff::Proto_CSRegisterAccountReq xMsg;
+    xMsg.set_account(m_account);
+    xMsg.set_password(m_password);
+
+    SendMsgToServer(proto_ff::NF_CS_MSG_RegisterAccountReq, xMsg);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
