@@ -5,14 +5,14 @@ package proto_ff;
 enum Proto_SvrLogicMsgID
 {
   ///////////////////////////login/////////////////////////////////////
-  NF_WTL_PLAYER_LOGIN_REQ = 130;      //world to logic, login msg
-  NF_LTW_PLAYER_LOGIN_RSP = 131;      //logic to world, login rsp msg
-  NF_PTW_PLAYER_LOGIN_REQ = 132;      //proxy to world, login msg
-  NF_WTP_PLAYER_LOGIN_RSP = 133;      //world to proxy, login rsp msg
-  NF_LTS_PLAYER_LOGIN_REQ = 134;      //logic to sns, login msg
-  NF_STL_PLAYER_LOGIN_RSP = 135;     //sns to logic, login rsp msg
-  NF_LTS_PLAYER_LOGOUT_REQ = 136;      //logic to sns, logout msg
-  NF_STL_PLAYER_LOGOUT_RSP = 137;     //sns to logic, logout msg
-  NF_LTW_PLAYER_LOGOUT_REQ = 138;     //logic to world, logout msg
-  NF_WTL_PLAYER_LOGOUT_NOTIFY = 139;  //world to logic, notify msg
+  NF_PTW_PLAYER_LOGIN_REQ = 100;      //proxy to world, login msg
+  NF_WTP_PLAYER_LOGIN_RSP = 101;      //world to proxy, login rsp msg
+  NF_WTL_PLAYER_LOGIN_REQ = 102;      //world to logic, login msg
+  NF_LTW_PLAYER_LOGIN_RSP = 103;      //logic to world, login rsp msg
+  NF_LTS_PLAYER_LOGIN_REQ = 104;      //logic to sns, login msg
+  NF_STL_PLAYER_LOGIN_RSP = 105;     //sns to logic, login rsp msg
+  NF_LTS_PLAYER_LOGOUT_REQ = 106;      //logic to sns, logout msg
+  NF_STL_PLAYER_LOGOUT_RSP = 107;     //sns to logic, logout msg
+  NF_LTW_PLAYER_LOGOUT_REQ = 108;     //logic to world, logout msg
+  NF_WTL_PLAYER_LOGOUT_NOTIFY = 109;  //world to logic, notify msg
 }

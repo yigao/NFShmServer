@@ -58,16 +58,15 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027ServerInternalCmd.proto\022\010proto_ff*\310\002\n\023"
-    "Proto_SvrLogicMsgID\022\034\n\027NF_WTL_PLAYER_LOG"
-    "IN_REQ\020\202\001\022\034\n\027NF_LTW_PLAYER_LOGIN_RSP\020\203\001\022"
-    "\034\n\027NF_PTW_PLAYER_LOGIN_REQ\020\204\001\022\034\n\027NF_WTP_"
-    "PLAYER_LOGIN_RSP\020\205\001\022\034\n\027NF_LTS_PLAYER_LOG"
-    "IN_REQ\020\206\001\022\034\n\027NF_STL_PLAYER_LOGIN_RSP\020\207\001\022"
-    "\035\n\030NF_LTS_PLAYER_LOGOUT_REQ\020\210\001\022\035\n\030NF_STL"
-    "_PLAYER_LOGOUT_RSP\020\211\001\022\035\n\030NF_LTW_PLAYER_L"
-    "OGOUT_REQ\020\212\001\022 \n\033NF_WTL_PLAYER_LOGOUT_NOT"
-    "IFY\020\213\001", 366);
+    "\n\027ServerInternalCmd.proto\022\010proto_ff*\276\002\n\023"
+    "Proto_SvrLogicMsgID\022\033\n\027NF_PTW_PLAYER_LOG"
+    "IN_REQ\020d\022\033\n\027NF_WTP_PLAYER_LOGIN_RSP\020e\022\033\n"
+    "\027NF_WTL_PLAYER_LOGIN_REQ\020f\022\033\n\027NF_LTW_PLA"
+    "YER_LOGIN_RSP\020g\022\033\n\027NF_LTS_PLAYER_LOGIN_R"
+    "EQ\020h\022\033\n\027NF_STL_PLAYER_LOGIN_RSP\020i\022\034\n\030NF_"
+    "LTS_PLAYER_LOGOUT_REQ\020j\022\034\n\030NF_STL_PLAYER"
+    "_LOGOUT_RSP\020k\022\034\n\030NF_LTW_PLAYER_LOGOUT_RE"
+    "Q\020l\022\037\n\033NF_WTL_PLAYER_LOGOUT_NOTIFY\020m", 356);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd_2eproto);
@@ -85,16 +84,16 @@ const ::google::protobuf::EnumDescriptor* Proto_SvrLogicMsgID_descriptor() {
 }
 bool Proto_SvrLogicMsgID_IsValid(int value) {
   switch(value) {
-    case 130:
-    case 131:
-    case 132:
-    case 133:
-    case 134:
-    case 135:
-    case 136:
-    case 137:
-    case 138:
-    case 139:
+    case 100:
+    case 101:
+    case 102:
+    case 103:
+    case 104:
+    case 105:
+    case 106:
+    case 107:
+    case 108:
+    case 109:
       return true;
     default:
       return false;

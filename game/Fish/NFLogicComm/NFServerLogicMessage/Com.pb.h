@@ -44,6 +44,8 @@ class ComItemWithType;
 class Vector3PB;
 class Vector2PB;
 class Attr64;
+class Proto_UserLoginExternalData;
+class Proto_UserDetailCommonData;
 
 // ===================================================================
 
@@ -873,6 +875,405 @@ class Attr64 : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Attr64* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Proto_UserLoginExternalData : public ::google::protobuf::Message {
+ public:
+  Proto_UserLoginExternalData();
+  virtual ~Proto_UserLoginExternalData();
+
+  Proto_UserLoginExternalData(const Proto_UserLoginExternalData& from);
+
+  inline Proto_UserLoginExternalData& operator=(const Proto_UserLoginExternalData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_UserLoginExternalData& default_instance();
+
+  void Swap(Proto_UserLoginExternalData* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_UserLoginExternalData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_UserLoginExternalData& from);
+  void MergeFrom(const Proto_UserLoginExternalData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 aread_id = 1;
+  inline bool has_aread_id() const;
+  inline void clear_aread_id();
+  static const int kAreadIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 aread_id() const;
+  inline void set_aread_id(::google::protobuf::uint32 value);
+
+  // optional uint32 agent_id = 2;
+  inline bool has_agent_id() const;
+  inline void clear_agent_id();
+  static const int kAgentIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 agent_id() const;
+  inline void set_agent_id(::google::protobuf::uint32 value);
+
+  // optional uint32 channel_id = 3;
+  inline bool has_channel_id() const;
+  inline void clear_channel_id();
+  static const int kChannelIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 channel_id() const;
+  inline void set_channel_id(::google::protobuf::uint32 value);
+
+  // optional uint64 referral_code = 4;
+  inline bool has_referral_code() const;
+  inline void clear_referral_code();
+  static const int kReferralCodeFieldNumber = 4;
+  inline ::google::protobuf::uint64 referral_code() const;
+  inline void set_referral_code(::google::protobuf::uint64 value);
+
+  // optional string platform_os = 5;
+  inline bool has_platform_os() const;
+  inline void clear_platform_os();
+  static const int kPlatformOsFieldNumber = 5;
+  inline const ::std::string& platform_os() const;
+  inline void set_platform_os(const ::std::string& value);
+  inline void set_platform_os(const char* value);
+  inline void set_platform_os(const char* value, size_t size);
+  inline ::std::string* mutable_platform_os();
+  inline ::std::string* release_platform_os();
+  inline void set_allocated_platform_os(::std::string* platform_os);
+
+  // optional string country = 6;
+  inline bool has_country() const;
+  inline void clear_country();
+  static const int kCountryFieldNumber = 6;
+  inline const ::std::string& country() const;
+  inline void set_country(const ::std::string& value);
+  inline void set_country(const char* value);
+  inline void set_country(const char* value, size_t size);
+  inline ::std::string* mutable_country();
+  inline ::std::string* release_country();
+  inline void set_allocated_country(::std::string* country);
+
+  // optional string province = 7;
+  inline bool has_province() const;
+  inline void clear_province();
+  static const int kProvinceFieldNumber = 7;
+  inline const ::std::string& province() const;
+  inline void set_province(const ::std::string& value);
+  inline void set_province(const char* value);
+  inline void set_province(const char* value, size_t size);
+  inline ::std::string* mutable_province();
+  inline ::std::string* release_province();
+  inline void set_allocated_province(::std::string* province);
+
+  // optional string city = 8;
+  inline bool has_city() const;
+  inline void clear_city();
+  static const int kCityFieldNumber = 8;
+  inline const ::std::string& city() const;
+  inline void set_city(const ::std::string& value);
+  inline void set_city(const char* value);
+  inline void set_city(const char* value, size_t size);
+  inline ::std::string* mutable_city();
+  inline ::std::string* release_city();
+  inline void set_allocated_city(::std::string* city);
+
+  // optional string phone_mode = 9;
+  inline bool has_phone_mode() const;
+  inline void clear_phone_mode();
+  static const int kPhoneModeFieldNumber = 9;
+  inline const ::std::string& phone_mode() const;
+  inline void set_phone_mode(const ::std::string& value);
+  inline void set_phone_mode(const char* value);
+  inline void set_phone_mode(const char* value, size_t size);
+  inline ::std::string* mutable_phone_mode();
+  inline ::std::string* release_phone_mode();
+  inline void set_allocated_phone_mode(::std::string* phone_mode);
+
+  // optional string device_id = 10;
+  inline bool has_device_id() const;
+  inline void clear_device_id();
+  static const int kDeviceIdFieldNumber = 10;
+  inline const ::std::string& device_id() const;
+  inline void set_device_id(const ::std::string& value);
+  inline void set_device_id(const char* value);
+  inline void set_device_id(const char* value, size_t size);
+  inline ::std::string* mutable_device_id();
+  inline ::std::string* release_device_id();
+  inline void set_allocated_device_id(::std::string* device_id);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_UserLoginExternalData)
+ private:
+  inline void set_has_aread_id();
+  inline void clear_has_aread_id();
+  inline void set_has_agent_id();
+  inline void clear_has_agent_id();
+  inline void set_has_channel_id();
+  inline void clear_has_channel_id();
+  inline void set_has_referral_code();
+  inline void clear_has_referral_code();
+  inline void set_has_platform_os();
+  inline void clear_has_platform_os();
+  inline void set_has_country();
+  inline void clear_has_country();
+  inline void set_has_province();
+  inline void clear_has_province();
+  inline void set_has_city();
+  inline void clear_has_city();
+  inline void set_has_phone_mode();
+  inline void clear_has_phone_mode();
+  inline void set_has_device_id();
+  inline void clear_has_device_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 aread_id_;
+  ::google::protobuf::uint32 agent_id_;
+  ::google::protobuf::uint64 referral_code_;
+  ::std::string* platform_os_;
+  ::std::string* country_;
+  ::std::string* province_;
+  ::std::string* city_;
+  ::std::string* phone_mode_;
+  ::std::string* device_id_;
+  ::google::protobuf::uint32 channel_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(10 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_UserLoginExternalData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_UserDetailCommonData : public ::google::protobuf::Message {
+ public:
+  Proto_UserDetailCommonData();
+  virtual ~Proto_UserDetailCommonData();
+
+  Proto_UserDetailCommonData(const Proto_UserDetailCommonData& from);
+
+  inline Proto_UserDetailCommonData& operator=(const Proto_UserDetailCommonData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_UserDetailCommonData& default_instance();
+
+  void Swap(Proto_UserDetailCommonData* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_UserDetailCommonData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_UserDetailCommonData& from);
+  void MergeFrom(const Proto_UserDetailCommonData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string nick_name = 1;
+  inline bool has_nick_name() const;
+  inline void clear_nick_name();
+  static const int kNickNameFieldNumber = 1;
+  inline const ::std::string& nick_name() const;
+  inline void set_nick_name(const ::std::string& value);
+  inline void set_nick_name(const char* value);
+  inline void set_nick_name(const char* value, size_t size);
+  inline ::std::string* mutable_nick_name();
+  inline ::std::string* release_nick_name();
+  inline void set_allocated_nick_name(::std::string* nick_name);
+
+  // optional uint32 face_id = 2;
+  inline bool has_face_id() const;
+  inline void clear_face_id();
+  static const int kFaceIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 face_id() const;
+  inline void set_face_id(::google::protobuf::uint32 value);
+
+  // optional uint32 gender = 3;
+  inline bool has_gender() const;
+  inline void clear_gender();
+  static const int kGenderFieldNumber = 3;
+  inline ::google::protobuf::uint32 gender() const;
+  inline void set_gender(::google::protobuf::uint32 value);
+
+  // optional uint64 jetton = 4;
+  inline bool has_jetton() const;
+  inline void clear_jetton();
+  static const int kJettonFieldNumber = 4;
+  inline ::google::protobuf::uint64 jetton() const;
+  inline void set_jetton(::google::protobuf::uint64 value);
+
+  // optional uint64 bank_jetton = 5;
+  inline bool has_bank_jetton() const;
+  inline void clear_bank_jetton();
+  static const int kBankJettonFieldNumber = 5;
+  inline ::google::protobuf::uint64 bank_jetton() const;
+  inline void set_bank_jetton(::google::protobuf::uint64 value);
+
+  // optional uint64 agent_id = 6;
+  inline bool has_agent_id() const;
+  inline void clear_agent_id();
+  static const int kAgentIdFieldNumber = 6;
+  inline ::google::protobuf::uint64 agent_id() const;
+  inline void set_agent_id(::google::protobuf::uint64 value);
+
+  // optional uint64 phonenum = 7;
+  inline bool has_phonenum() const;
+  inline void clear_phonenum();
+  static const int kPhonenumFieldNumber = 7;
+  inline ::google::protobuf::uint64 phonenum() const;
+  inline void set_phonenum(::google::protobuf::uint64 value);
+
+  // optional uint32 vip_level = 8;
+  inline bool has_vip_level() const;
+  inline void clear_vip_level();
+  static const int kVipLevelFieldNumber = 8;
+  inline ::google::protobuf::uint32 vip_level() const;
+  inline void set_vip_level(::google::protobuf::uint32 value);
+
+  // optional uint32 aread_id = 9;
+  inline bool has_aread_id() const;
+  inline void clear_aread_id();
+  static const int kAreadIdFieldNumber = 9;
+  inline ::google::protobuf::uint32 aread_id() const;
+  inline void set_aread_id(::google::protobuf::uint32 value);
+
+  // optional uint64 referrer_id = 10;
+  inline bool has_referrer_id() const;
+  inline void clear_referrer_id();
+  static const int kReferrerIdFieldNumber = 10;
+  inline ::google::protobuf::uint64 referrer_id() const;
+  inline void set_referrer_id(::google::protobuf::uint64 value);
+
+  // optional bool first_recharge = 11;
+  inline bool has_first_recharge() const;
+  inline void clear_first_recharge();
+  static const int kFirstRechargeFieldNumber = 11;
+  inline bool first_recharge() const;
+  inline void set_first_recharge(bool value);
+
+  // optional uint64 show_userid = 12;
+  inline bool has_show_userid() const;
+  inline void clear_show_userid();
+  static const int kShowUseridFieldNumber = 12;
+  inline ::google::protobuf::uint64 show_userid() const;
+  inline void set_show_userid(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_UserDetailCommonData)
+ private:
+  inline void set_has_nick_name();
+  inline void clear_has_nick_name();
+  inline void set_has_face_id();
+  inline void clear_has_face_id();
+  inline void set_has_gender();
+  inline void clear_has_gender();
+  inline void set_has_jetton();
+  inline void clear_has_jetton();
+  inline void set_has_bank_jetton();
+  inline void clear_has_bank_jetton();
+  inline void set_has_agent_id();
+  inline void clear_has_agent_id();
+  inline void set_has_phonenum();
+  inline void clear_has_phonenum();
+  inline void set_has_vip_level();
+  inline void clear_has_vip_level();
+  inline void set_has_aread_id();
+  inline void clear_has_aread_id();
+  inline void set_has_referrer_id();
+  inline void clear_has_referrer_id();
+  inline void set_has_first_recharge();
+  inline void clear_has_first_recharge();
+  inline void set_has_show_userid();
+  inline void clear_has_show_userid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* nick_name_;
+  ::google::protobuf::uint32 face_id_;
+  ::google::protobuf::uint32 gender_;
+  ::google::protobuf::uint64 jetton_;
+  ::google::protobuf::uint64 bank_jetton_;
+  ::google::protobuf::uint64 agent_id_;
+  ::google::protobuf::uint64 phonenum_;
+  ::google::protobuf::uint32 vip_level_;
+  ::google::protobuf::uint32 aread_id_;
+  ::google::protobuf::uint64 referrer_id_;
+  ::google::protobuf::uint64 show_userid_;
+  bool first_recharge_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_UserDetailCommonData* default_instance_;
+};
 // ===================================================================
 
 
@@ -1306,6 +1707,834 @@ inline ::google::protobuf::int64 Attr64::value() const {
 inline void Attr64::set_value(::google::protobuf::int64 value) {
   set_has_value();
   value_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_UserLoginExternalData
+
+// optional uint32 aread_id = 1;
+inline bool Proto_UserLoginExternalData::has_aread_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_aread_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_UserLoginExternalData::clear_has_aread_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_UserLoginExternalData::clear_aread_id() {
+  aread_id_ = 0u;
+  clear_has_aread_id();
+}
+inline ::google::protobuf::uint32 Proto_UserLoginExternalData::aread_id() const {
+  return aread_id_;
+}
+inline void Proto_UserLoginExternalData::set_aread_id(::google::protobuf::uint32 value) {
+  set_has_aread_id();
+  aread_id_ = value;
+}
+
+// optional uint32 agent_id = 2;
+inline bool Proto_UserLoginExternalData::has_agent_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_agent_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_UserLoginExternalData::clear_has_agent_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_UserLoginExternalData::clear_agent_id() {
+  agent_id_ = 0u;
+  clear_has_agent_id();
+}
+inline ::google::protobuf::uint32 Proto_UserLoginExternalData::agent_id() const {
+  return agent_id_;
+}
+inline void Proto_UserLoginExternalData::set_agent_id(::google::protobuf::uint32 value) {
+  set_has_agent_id();
+  agent_id_ = value;
+}
+
+// optional uint32 channel_id = 3;
+inline bool Proto_UserLoginExternalData::has_channel_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_channel_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_UserLoginExternalData::clear_has_channel_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_UserLoginExternalData::clear_channel_id() {
+  channel_id_ = 0u;
+  clear_has_channel_id();
+}
+inline ::google::protobuf::uint32 Proto_UserLoginExternalData::channel_id() const {
+  return channel_id_;
+}
+inline void Proto_UserLoginExternalData::set_channel_id(::google::protobuf::uint32 value) {
+  set_has_channel_id();
+  channel_id_ = value;
+}
+
+// optional uint64 referral_code = 4;
+inline bool Proto_UserLoginExternalData::has_referral_code() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_referral_code() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_UserLoginExternalData::clear_has_referral_code() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Proto_UserLoginExternalData::clear_referral_code() {
+  referral_code_ = GOOGLE_ULONGLONG(0);
+  clear_has_referral_code();
+}
+inline ::google::protobuf::uint64 Proto_UserLoginExternalData::referral_code() const {
+  return referral_code_;
+}
+inline void Proto_UserLoginExternalData::set_referral_code(::google::protobuf::uint64 value) {
+  set_has_referral_code();
+  referral_code_ = value;
+}
+
+// optional string platform_os = 5;
+inline bool Proto_UserLoginExternalData::has_platform_os() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_platform_os() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_UserLoginExternalData::clear_has_platform_os() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_UserLoginExternalData::clear_platform_os() {
+  if (platform_os_ != &::google::protobuf::internal::kEmptyString) {
+    platform_os_->clear();
+  }
+  clear_has_platform_os();
+}
+inline const ::std::string& Proto_UserLoginExternalData::platform_os() const {
+  return *platform_os_;
+}
+inline void Proto_UserLoginExternalData::set_platform_os(const ::std::string& value) {
+  set_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    platform_os_ = new ::std::string;
+  }
+  platform_os_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_platform_os(const char* value) {
+  set_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    platform_os_ = new ::std::string;
+  }
+  platform_os_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_platform_os(const char* value, size_t size) {
+  set_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    platform_os_ = new ::std::string;
+  }
+  platform_os_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_UserLoginExternalData::mutable_platform_os() {
+  set_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    platform_os_ = new ::std::string;
+  }
+  return platform_os_;
+}
+inline ::std::string* Proto_UserLoginExternalData::release_platform_os() {
+  clear_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = platform_os_;
+    platform_os_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_UserLoginExternalData::set_allocated_platform_os(::std::string* platform_os) {
+  if (platform_os_ != &::google::protobuf::internal::kEmptyString) {
+    delete platform_os_;
+  }
+  if (platform_os) {
+    set_has_platform_os();
+    platform_os_ = platform_os;
+  } else {
+    clear_has_platform_os();
+    platform_os_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string country = 6;
+inline bool Proto_UserLoginExternalData::has_country() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_country() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Proto_UserLoginExternalData::clear_has_country() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Proto_UserLoginExternalData::clear_country() {
+  if (country_ != &::google::protobuf::internal::kEmptyString) {
+    country_->clear();
+  }
+  clear_has_country();
+}
+inline const ::std::string& Proto_UserLoginExternalData::country() const {
+  return *country_;
+}
+inline void Proto_UserLoginExternalData::set_country(const ::std::string& value) {
+  set_has_country();
+  if (country_ == &::google::protobuf::internal::kEmptyString) {
+    country_ = new ::std::string;
+  }
+  country_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_country(const char* value) {
+  set_has_country();
+  if (country_ == &::google::protobuf::internal::kEmptyString) {
+    country_ = new ::std::string;
+  }
+  country_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_country(const char* value, size_t size) {
+  set_has_country();
+  if (country_ == &::google::protobuf::internal::kEmptyString) {
+    country_ = new ::std::string;
+  }
+  country_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_UserLoginExternalData::mutable_country() {
+  set_has_country();
+  if (country_ == &::google::protobuf::internal::kEmptyString) {
+    country_ = new ::std::string;
+  }
+  return country_;
+}
+inline ::std::string* Proto_UserLoginExternalData::release_country() {
+  clear_has_country();
+  if (country_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = country_;
+    country_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_UserLoginExternalData::set_allocated_country(::std::string* country) {
+  if (country_ != &::google::protobuf::internal::kEmptyString) {
+    delete country_;
+  }
+  if (country) {
+    set_has_country();
+    country_ = country;
+  } else {
+    clear_has_country();
+    country_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string province = 7;
+inline bool Proto_UserLoginExternalData::has_province() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_province() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Proto_UserLoginExternalData::clear_has_province() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void Proto_UserLoginExternalData::clear_province() {
+  if (province_ != &::google::protobuf::internal::kEmptyString) {
+    province_->clear();
+  }
+  clear_has_province();
+}
+inline const ::std::string& Proto_UserLoginExternalData::province() const {
+  return *province_;
+}
+inline void Proto_UserLoginExternalData::set_province(const ::std::string& value) {
+  set_has_province();
+  if (province_ == &::google::protobuf::internal::kEmptyString) {
+    province_ = new ::std::string;
+  }
+  province_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_province(const char* value) {
+  set_has_province();
+  if (province_ == &::google::protobuf::internal::kEmptyString) {
+    province_ = new ::std::string;
+  }
+  province_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_province(const char* value, size_t size) {
+  set_has_province();
+  if (province_ == &::google::protobuf::internal::kEmptyString) {
+    province_ = new ::std::string;
+  }
+  province_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_UserLoginExternalData::mutable_province() {
+  set_has_province();
+  if (province_ == &::google::protobuf::internal::kEmptyString) {
+    province_ = new ::std::string;
+  }
+  return province_;
+}
+inline ::std::string* Proto_UserLoginExternalData::release_province() {
+  clear_has_province();
+  if (province_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = province_;
+    province_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_UserLoginExternalData::set_allocated_province(::std::string* province) {
+  if (province_ != &::google::protobuf::internal::kEmptyString) {
+    delete province_;
+  }
+  if (province) {
+    set_has_province();
+    province_ = province;
+  } else {
+    clear_has_province();
+    province_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string city = 8;
+inline bool Proto_UserLoginExternalData::has_city() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_city() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void Proto_UserLoginExternalData::clear_has_city() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void Proto_UserLoginExternalData::clear_city() {
+  if (city_ != &::google::protobuf::internal::kEmptyString) {
+    city_->clear();
+  }
+  clear_has_city();
+}
+inline const ::std::string& Proto_UserLoginExternalData::city() const {
+  return *city_;
+}
+inline void Proto_UserLoginExternalData::set_city(const ::std::string& value) {
+  set_has_city();
+  if (city_ == &::google::protobuf::internal::kEmptyString) {
+    city_ = new ::std::string;
+  }
+  city_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_city(const char* value) {
+  set_has_city();
+  if (city_ == &::google::protobuf::internal::kEmptyString) {
+    city_ = new ::std::string;
+  }
+  city_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_city(const char* value, size_t size) {
+  set_has_city();
+  if (city_ == &::google::protobuf::internal::kEmptyString) {
+    city_ = new ::std::string;
+  }
+  city_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_UserLoginExternalData::mutable_city() {
+  set_has_city();
+  if (city_ == &::google::protobuf::internal::kEmptyString) {
+    city_ = new ::std::string;
+  }
+  return city_;
+}
+inline ::std::string* Proto_UserLoginExternalData::release_city() {
+  clear_has_city();
+  if (city_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = city_;
+    city_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_UserLoginExternalData::set_allocated_city(::std::string* city) {
+  if (city_ != &::google::protobuf::internal::kEmptyString) {
+    delete city_;
+  }
+  if (city) {
+    set_has_city();
+    city_ = city;
+  } else {
+    clear_has_city();
+    city_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string phone_mode = 9;
+inline bool Proto_UserLoginExternalData::has_phone_mode() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_phone_mode() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void Proto_UserLoginExternalData::clear_has_phone_mode() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void Proto_UserLoginExternalData::clear_phone_mode() {
+  if (phone_mode_ != &::google::protobuf::internal::kEmptyString) {
+    phone_mode_->clear();
+  }
+  clear_has_phone_mode();
+}
+inline const ::std::string& Proto_UserLoginExternalData::phone_mode() const {
+  return *phone_mode_;
+}
+inline void Proto_UserLoginExternalData::set_phone_mode(const ::std::string& value) {
+  set_has_phone_mode();
+  if (phone_mode_ == &::google::protobuf::internal::kEmptyString) {
+    phone_mode_ = new ::std::string;
+  }
+  phone_mode_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_phone_mode(const char* value) {
+  set_has_phone_mode();
+  if (phone_mode_ == &::google::protobuf::internal::kEmptyString) {
+    phone_mode_ = new ::std::string;
+  }
+  phone_mode_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_phone_mode(const char* value, size_t size) {
+  set_has_phone_mode();
+  if (phone_mode_ == &::google::protobuf::internal::kEmptyString) {
+    phone_mode_ = new ::std::string;
+  }
+  phone_mode_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_UserLoginExternalData::mutable_phone_mode() {
+  set_has_phone_mode();
+  if (phone_mode_ == &::google::protobuf::internal::kEmptyString) {
+    phone_mode_ = new ::std::string;
+  }
+  return phone_mode_;
+}
+inline ::std::string* Proto_UserLoginExternalData::release_phone_mode() {
+  clear_has_phone_mode();
+  if (phone_mode_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = phone_mode_;
+    phone_mode_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_UserLoginExternalData::set_allocated_phone_mode(::std::string* phone_mode) {
+  if (phone_mode_ != &::google::protobuf::internal::kEmptyString) {
+    delete phone_mode_;
+  }
+  if (phone_mode) {
+    set_has_phone_mode();
+    phone_mode_ = phone_mode;
+  } else {
+    clear_has_phone_mode();
+    phone_mode_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string device_id = 10;
+inline bool Proto_UserLoginExternalData::has_device_id() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void Proto_UserLoginExternalData::set_has_device_id() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void Proto_UserLoginExternalData::clear_has_device_id() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void Proto_UserLoginExternalData::clear_device_id() {
+  if (device_id_ != &::google::protobuf::internal::kEmptyString) {
+    device_id_->clear();
+  }
+  clear_has_device_id();
+}
+inline const ::std::string& Proto_UserLoginExternalData::device_id() const {
+  return *device_id_;
+}
+inline void Proto_UserLoginExternalData::set_device_id(const ::std::string& value) {
+  set_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    device_id_ = new ::std::string;
+  }
+  device_id_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_device_id(const char* value) {
+  set_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    device_id_ = new ::std::string;
+  }
+  device_id_->assign(value);
+}
+inline void Proto_UserLoginExternalData::set_device_id(const char* value, size_t size) {
+  set_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    device_id_ = new ::std::string;
+  }
+  device_id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_UserLoginExternalData::mutable_device_id() {
+  set_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    device_id_ = new ::std::string;
+  }
+  return device_id_;
+}
+inline ::std::string* Proto_UserLoginExternalData::release_device_id() {
+  clear_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = device_id_;
+    device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_UserLoginExternalData::set_allocated_device_id(::std::string* device_id) {
+  if (device_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete device_id_;
+  }
+  if (device_id) {
+    set_has_device_id();
+    device_id_ = device_id;
+  } else {
+    clear_has_device_id();
+    device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Proto_UserDetailCommonData
+
+// optional string nick_name = 1;
+inline bool Proto_UserDetailCommonData::has_nick_name() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_nick_name() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_UserDetailCommonData::clear_has_nick_name() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_UserDetailCommonData::clear_nick_name() {
+  if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
+    nick_name_->clear();
+  }
+  clear_has_nick_name();
+}
+inline const ::std::string& Proto_UserDetailCommonData::nick_name() const {
+  return *nick_name_;
+}
+inline void Proto_UserDetailCommonData::set_nick_name(const ::std::string& value) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(value);
+}
+inline void Proto_UserDetailCommonData::set_nick_name(const char* value) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(value);
+}
+inline void Proto_UserDetailCommonData::set_nick_name(const char* value, size_t size) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_UserDetailCommonData::mutable_nick_name() {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  return nick_name_;
+}
+inline ::std::string* Proto_UserDetailCommonData::release_nick_name() {
+  clear_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nick_name_;
+    nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_UserDetailCommonData::set_allocated_nick_name(::std::string* nick_name) {
+  if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete nick_name_;
+  }
+  if (nick_name) {
+    set_has_nick_name();
+    nick_name_ = nick_name;
+  } else {
+    clear_has_nick_name();
+    nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 face_id = 2;
+inline bool Proto_UserDetailCommonData::has_face_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_face_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_UserDetailCommonData::clear_has_face_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_UserDetailCommonData::clear_face_id() {
+  face_id_ = 0u;
+  clear_has_face_id();
+}
+inline ::google::protobuf::uint32 Proto_UserDetailCommonData::face_id() const {
+  return face_id_;
+}
+inline void Proto_UserDetailCommonData::set_face_id(::google::protobuf::uint32 value) {
+  set_has_face_id();
+  face_id_ = value;
+}
+
+// optional uint32 gender = 3;
+inline bool Proto_UserDetailCommonData::has_gender() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_gender() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_UserDetailCommonData::clear_has_gender() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_UserDetailCommonData::clear_gender() {
+  gender_ = 0u;
+  clear_has_gender();
+}
+inline ::google::protobuf::uint32 Proto_UserDetailCommonData::gender() const {
+  return gender_;
+}
+inline void Proto_UserDetailCommonData::set_gender(::google::protobuf::uint32 value) {
+  set_has_gender();
+  gender_ = value;
+}
+
+// optional uint64 jetton = 4;
+inline bool Proto_UserDetailCommonData::has_jetton() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_jetton() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_UserDetailCommonData::clear_has_jetton() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Proto_UserDetailCommonData::clear_jetton() {
+  jetton_ = GOOGLE_ULONGLONG(0);
+  clear_has_jetton();
+}
+inline ::google::protobuf::uint64 Proto_UserDetailCommonData::jetton() const {
+  return jetton_;
+}
+inline void Proto_UserDetailCommonData::set_jetton(::google::protobuf::uint64 value) {
+  set_has_jetton();
+  jetton_ = value;
+}
+
+// optional uint64 bank_jetton = 5;
+inline bool Proto_UserDetailCommonData::has_bank_jetton() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_bank_jetton() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_UserDetailCommonData::clear_has_bank_jetton() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_UserDetailCommonData::clear_bank_jetton() {
+  bank_jetton_ = GOOGLE_ULONGLONG(0);
+  clear_has_bank_jetton();
+}
+inline ::google::protobuf::uint64 Proto_UserDetailCommonData::bank_jetton() const {
+  return bank_jetton_;
+}
+inline void Proto_UserDetailCommonData::set_bank_jetton(::google::protobuf::uint64 value) {
+  set_has_bank_jetton();
+  bank_jetton_ = value;
+}
+
+// optional uint64 agent_id = 6;
+inline bool Proto_UserDetailCommonData::has_agent_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_agent_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Proto_UserDetailCommonData::clear_has_agent_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Proto_UserDetailCommonData::clear_agent_id() {
+  agent_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_agent_id();
+}
+inline ::google::protobuf::uint64 Proto_UserDetailCommonData::agent_id() const {
+  return agent_id_;
+}
+inline void Proto_UserDetailCommonData::set_agent_id(::google::protobuf::uint64 value) {
+  set_has_agent_id();
+  agent_id_ = value;
+}
+
+// optional uint64 phonenum = 7;
+inline bool Proto_UserDetailCommonData::has_phonenum() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_phonenum() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Proto_UserDetailCommonData::clear_has_phonenum() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void Proto_UserDetailCommonData::clear_phonenum() {
+  phonenum_ = GOOGLE_ULONGLONG(0);
+  clear_has_phonenum();
+}
+inline ::google::protobuf::uint64 Proto_UserDetailCommonData::phonenum() const {
+  return phonenum_;
+}
+inline void Proto_UserDetailCommonData::set_phonenum(::google::protobuf::uint64 value) {
+  set_has_phonenum();
+  phonenum_ = value;
+}
+
+// optional uint32 vip_level = 8;
+inline bool Proto_UserDetailCommonData::has_vip_level() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_vip_level() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void Proto_UserDetailCommonData::clear_has_vip_level() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void Proto_UserDetailCommonData::clear_vip_level() {
+  vip_level_ = 0u;
+  clear_has_vip_level();
+}
+inline ::google::protobuf::uint32 Proto_UserDetailCommonData::vip_level() const {
+  return vip_level_;
+}
+inline void Proto_UserDetailCommonData::set_vip_level(::google::protobuf::uint32 value) {
+  set_has_vip_level();
+  vip_level_ = value;
+}
+
+// optional uint32 aread_id = 9;
+inline bool Proto_UserDetailCommonData::has_aread_id() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_aread_id() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void Proto_UserDetailCommonData::clear_has_aread_id() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void Proto_UserDetailCommonData::clear_aread_id() {
+  aread_id_ = 0u;
+  clear_has_aread_id();
+}
+inline ::google::protobuf::uint32 Proto_UserDetailCommonData::aread_id() const {
+  return aread_id_;
+}
+inline void Proto_UserDetailCommonData::set_aread_id(::google::protobuf::uint32 value) {
+  set_has_aread_id();
+  aread_id_ = value;
+}
+
+// optional uint64 referrer_id = 10;
+inline bool Proto_UserDetailCommonData::has_referrer_id() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_referrer_id() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void Proto_UserDetailCommonData::clear_has_referrer_id() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void Proto_UserDetailCommonData::clear_referrer_id() {
+  referrer_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_referrer_id();
+}
+inline ::google::protobuf::uint64 Proto_UserDetailCommonData::referrer_id() const {
+  return referrer_id_;
+}
+inline void Proto_UserDetailCommonData::set_referrer_id(::google::protobuf::uint64 value) {
+  set_has_referrer_id();
+  referrer_id_ = value;
+}
+
+// optional bool first_recharge = 11;
+inline bool Proto_UserDetailCommonData::has_first_recharge() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_first_recharge() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void Proto_UserDetailCommonData::clear_has_first_recharge() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void Proto_UserDetailCommonData::clear_first_recharge() {
+  first_recharge_ = false;
+  clear_has_first_recharge();
+}
+inline bool Proto_UserDetailCommonData::first_recharge() const {
+  return first_recharge_;
+}
+inline void Proto_UserDetailCommonData::set_first_recharge(bool value) {
+  set_has_first_recharge();
+  first_recharge_ = value;
+}
+
+// optional uint64 show_userid = 12;
+inline bool Proto_UserDetailCommonData::has_show_userid() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void Proto_UserDetailCommonData::set_has_show_userid() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void Proto_UserDetailCommonData::clear_has_show_userid() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void Proto_UserDetailCommonData::clear_show_userid() {
+  show_userid_ = GOOGLE_ULONGLONG(0);
+  clear_has_show_userid();
+}
+inline ::google::protobuf::uint64 Proto_UserDetailCommonData::show_userid() const {
+  return show_userid_;
+}
+inline void Proto_UserDetailCommonData::set_show_userid(::google::protobuf::uint64 value) {
+  set_has_show_userid();
+  show_userid_ = value;
 }
 
 

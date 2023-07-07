@@ -716,6 +716,7 @@ int NFCProxyPlayerModule::OnHandleUserLoginFromClient(uint64_t unLinkId, NFDataP
     loginReq.set_user_id(pPlayerInfo->GetPlayerId());
     loginReq.set_account(pPlayerInfo->GetAccount());
     loginReq.set_client_ip(pLinkInfo->GetIpAddr());
+    loginReq.mutable_ext_data()->CopyFrom(cgMsg.ext_data());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     if (pConfig)
@@ -723,9 +724,52 @@ int NFCProxyPlayerModule::OnHandleUserLoginFromClient(uint64_t unLinkId, NFDataP
         loginReq.set_proxy_bus_id(pConfig->GetBusId());
     }
 
-/*    FindModule<NFIMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->mWorldBusId,
-                                                  proto_ff::NF_PTW_PLAYER_LOGIN_MSG, loginReq,
-                                                  pPlayerInfo->mPlayerId);*/
+    proto_ff::Proto_WTPPlayerLoginRsp respone;
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_PTW_PLAYER_LOGIN_REQ>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, pPlayerInfo->GetWorldBusId(), loginReq, respone);
+    if (iRet != 0)
+    {
+        proto_ff::Proto_SCUserLoginRsp rspMsg;
+        rspMsg.set_result(iRet);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_UserLoginRsp, rspMsg);
+
+        KickPlayer(unLinkId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_PTW_PLAYER_LOGIN_REQ Failed!");
+        return 0;
+    }
+
+    NF_SHARE_PTR<NFServerData> pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, respone.logic_bus_id());
+    if (pLogicServer == NULL || pLogicServer->mUnlinkId <= 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "proxy do not connect logic server:{}", pPlayerInfo->GetLogicBusId());
+        proto_ff::Proto_SCUserLoginRsp rspMsg;
+        rspMsg.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_UserLoginRsp, rspMsg);
+
+        KickPlayer(unLinkId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_PTW_PLAYER_LOGIN_REQ Failed!");
+        return 0;
+    }
+
+    /**
+     * @brief 异步后需要重新查找
+     */
+    pPlayerInfo = mPlayerLinkInfo.GetElement(respone.user_id());
+    CHECK_PLAYER_EXPR(respone.user_id(), pPlayerInfo, -1,
+                      "Player:{} login rsp form world server success, but can't find playerinfo in the proxy server",
+                      respone.user_id());
+
+    pPlayerInfo->SetIsLogin(true);
+    pPlayerInfo->SetGameBusId(respone.game_bus_id());
+    pPlayerInfo->SetLogicBusId(respone.logic_bus_id());
+
+    proto_ff::Proto_SCUserLoginRsp rspMsg;
+    rspMsg.set_result(respone.result());
+    rspMsg.set_user_id(respone.user_id());
+    rspMsg.mutable_detail_data()->CopyFrom(respone.detail_data());
+
+    NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "Player:{} Login World Success!", pPlayerInfo->GetPlayerId());
+
+    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_UserLoginRsp, rspMsg);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

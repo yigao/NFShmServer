@@ -147,7 +147,7 @@ void NFCBusServer::ProcessMsgLogicThread()
             size_t recv_len = 0;
             int ret = ShmRecv(pConnectChannel, mxConnectBuffer.WriteAddr(), mxConnectBuffer.WritableSize(), &recv_len);
 
-            if (ret == EN_NFBUS_ERR_NO_DATA) {
+            if (ret == proto_ff::ERR_CODE_NFBUS_ERR_NO_DATA) {
                 break;
             }
 
@@ -211,7 +211,7 @@ void NFCBusServer::ProcessMsgLogicThread()
             size_t recv_len = 0;
             int ret = ShmRecv(pChannel, mxBuffer.WriteAddr(), mxBuffer.WritableSize(), &recv_len);
 
-            if (ret == EN_NFBUS_ERR_NO_DATA) {
+            if (ret == proto_ff::ERR_CODE_NFBUS_ERR_NO_DATA) {
                 break;
             }
 

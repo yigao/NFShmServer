@@ -147,5 +147,53 @@ namespace proto_ff_s {
 	};
 	typedef struct Attr64_s Attr64_t;
 
+	struct Proto_UserLoginExternalData_s : public NFDescStoreSeqOP {
+		Proto_UserLoginExternalData_s();
+		virtual ~Proto_UserLoginExternalData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t aread_id;
+		uint32_t agent_id;
+		uint32_t channel_id;
+		uint64_t referral_code;
+		NFShmString<32> platform_os;
+		NFShmString<32> country;
+		NFShmString<32> province;
+		NFShmString<32> city;
+		NFShmString<32> phone_mode;
+		NFShmString<32> device_id;
+
+		virtual void write_to_pbmsg(::proto_ff::Proto_UserLoginExternalData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Proto_UserLoginExternalData & msg);
+		static ::proto_ff::Proto_UserLoginExternalData* new_pbmsg(){ return new ::proto_ff::Proto_UserLoginExternalData(); }
+		static ::proto_ff::Proto_UserLoginExternalData make_pbmsg(){ return ::proto_ff::Proto_UserLoginExternalData(); }
+	};
+	typedef struct Proto_UserLoginExternalData_s Proto_UserLoginExternalData_t;
+
+	struct Proto_UserDetailCommonData_s : public NFDescStoreSeqOP {
+		Proto_UserDetailCommonData_s();
+		virtual ~Proto_UserDetailCommonData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmString<32> nick_name;
+		uint32_t face_id;
+		uint32_t gender;
+		uint64_t jetton;
+		uint64_t bank_jetton;
+		uint64_t agent_id;
+		uint64_t phonenum;
+		uint32_t vip_level;
+		uint32_t aread_id;
+		uint64_t referrer_id;
+		bool first_recharge;
+		uint64_t show_userid;
+
+		virtual void write_to_pbmsg(::proto_ff::Proto_UserDetailCommonData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Proto_UserDetailCommonData & msg);
+		static ::proto_ff::Proto_UserDetailCommonData* new_pbmsg(){ return new ::proto_ff::Proto_UserDetailCommonData(); }
+		static ::proto_ff::Proto_UserDetailCommonData make_pbmsg(){ return ::proto_ff::Proto_UserDetailCommonData(); }
+	};
+	typedef struct Proto_UserDetailCommonData_s Proto_UserDetailCommonData_t;
+
 }
 

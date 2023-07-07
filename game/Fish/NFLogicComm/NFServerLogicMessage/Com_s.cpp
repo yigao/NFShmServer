@@ -263,4 +263,109 @@ void Attr64_s::read_from_pbmsg(const ::proto_ff::Attr64 & msg) {
 	value = msg.value();
 }
 
+Proto_UserLoginExternalData_s::Proto_UserLoginExternalData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Proto_UserLoginExternalData_s::CreateInit() {
+	aread_id = (uint32_t)0;
+	agent_id = (uint32_t)0;
+	channel_id = (uint32_t)0;
+	referral_code = (uint64_t)0;
+	return 0;
+}
+
+int Proto_UserLoginExternalData_s::ResumeInit() {
+	return 0;
+}
+
+void Proto_UserLoginExternalData_s::write_to_pbmsg(::proto_ff::Proto_UserLoginExternalData & msg) const {
+	msg.set_aread_id((uint32_t)aread_id);
+	msg.set_agent_id((uint32_t)agent_id);
+	msg.set_channel_id((uint32_t)channel_id);
+	msg.set_referral_code((uint64_t)referral_code);
+	msg.set_platform_os((const char*)platform_os.data());
+	msg.set_country((const char*)country.data());
+	msg.set_province((const char*)province.data());
+	msg.set_city((const char*)city.data());
+	msg.set_phone_mode((const char*)phone_mode.data());
+	msg.set_device_id((const char*)device_id.data());
+}
+
+void Proto_UserLoginExternalData_s::read_from_pbmsg(const ::proto_ff::Proto_UserLoginExternalData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Proto_UserLoginExternalData_s));
+	aread_id = msg.aread_id();
+	agent_id = msg.agent_id();
+	channel_id = msg.channel_id();
+	referral_code = msg.referral_code();
+	platform_os = msg.platform_os();
+	country = msg.country();
+	province = msg.province();
+	city = msg.city();
+	phone_mode = msg.phone_mode();
+	device_id = msg.device_id();
+}
+
+Proto_UserDetailCommonData_s::Proto_UserDetailCommonData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Proto_UserDetailCommonData_s::CreateInit() {
+	face_id = (uint32_t)0;
+	gender = (uint32_t)0;
+	jetton = (uint64_t)0;
+	bank_jetton = (uint64_t)0;
+	agent_id = (uint64_t)0;
+	phonenum = (uint64_t)0;
+	vip_level = (uint32_t)0;
+	aread_id = (uint32_t)0;
+	referrer_id = (uint64_t)0;
+	first_recharge = (bool)0;
+	show_userid = (uint64_t)0;
+	return 0;
+}
+
+int Proto_UserDetailCommonData_s::ResumeInit() {
+	return 0;
+}
+
+void Proto_UserDetailCommonData_s::write_to_pbmsg(::proto_ff::Proto_UserDetailCommonData & msg) const {
+	msg.set_nick_name((const char*)nick_name.data());
+	msg.set_face_id((uint32_t)face_id);
+	msg.set_gender((uint32_t)gender);
+	msg.set_jetton((uint64_t)jetton);
+	msg.set_bank_jetton((uint64_t)bank_jetton);
+	msg.set_agent_id((uint64_t)agent_id);
+	msg.set_phonenum((uint64_t)phonenum);
+	msg.set_vip_level((uint32_t)vip_level);
+	msg.set_aread_id((uint32_t)aread_id);
+	msg.set_referrer_id((uint64_t)referrer_id);
+	msg.set_first_recharge((bool)first_recharge);
+	msg.set_show_userid((uint64_t)show_userid);
+}
+
+void Proto_UserDetailCommonData_s::read_from_pbmsg(const ::proto_ff::Proto_UserDetailCommonData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Proto_UserDetailCommonData_s));
+	nick_name = msg.nick_name();
+	face_id = msg.face_id();
+	gender = msg.gender();
+	jetton = msg.jetton();
+	bank_jetton = msg.bank_jetton();
+	agent_id = msg.agent_id();
+	phonenum = msg.phonenum();
+	vip_level = msg.vip_level();
+	aread_id = msg.aread_id();
+	referrer_id = msg.referrer_id();
+	first_recharge = msg.first_recharge();
+	show_userid = msg.show_userid();
+}
+
 }

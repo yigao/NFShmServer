@@ -17,6 +17,7 @@ message Proto_PTWUserLoginReq
   optional string account = 2;
   optional uint32 proxy_bus_id = 3; //proxy bus id
   optional string client_ip = 4;
+  optional Proto_UserLoginExternalData ext_data = 5;
 }
 
 message Proto_WTPPlayerLoginRsp
@@ -27,6 +28,7 @@ message Proto_WTPPlayerLoginRsp
   optional uint32 room_id = 4;
   optional uint32 game_bus_id = 5;
   optional uint32 logic_bus_id = 6;
+  optional Proto_UserDetailCommonData detail_data = 7;
 }
 
 message Proto_WorldToLogicLoginReq
@@ -37,10 +39,12 @@ message Proto_WorldToLogicLoginReq
   optional uint32 game_bus_id = 4;
   optional uint32 proxy_bus_id = 5;
   optional string client_ip = 7;
+  optional Proto_UserLoginExternalData ext_data = 8;
 }
 
 message Proto_LogicToWorldLoginRsp
 {
   optional uint32 result = 1;
   optional uint64 user_id = 2;
+  optional Proto_UserDetailCommonData detail_data = 7;
 }

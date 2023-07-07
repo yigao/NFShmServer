@@ -28,9 +28,6 @@ bool NFCAccountLoginModule::Awake()
 {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////来自客户端的协议////////////////////////////////////////
-    RegisterClientMessage(NF_ST_LOGIN_SERVER, proto_ff::NF_CS_MSG_RegisterAccountReq);
-    RegisterClientMessage(NF_ST_LOGIN_SERVER, proto_ff::NF_CS_MSG_CHANGE_PASSWORD_REQ);
-
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_AccountLoginReq>(NF_ST_LOGIN_SERVER, this, &NFCAccountLoginModule::OnRpcServiceAccountLogin, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_RegisterAccountReq>(NF_ST_LOGIN_SERVER, this, &NFCAccountLoginModule::OnRpcServiceRegisterAccount, true);
 
@@ -69,14 +66,6 @@ int NFCAccountLoginModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackag
 
     switch (packet.nMsgId)
     {
-        case proto_ff::NF_CS_MSG_RegisterAccountReq:
-        {
-            break;
-        }
-        case proto_ff::NF_CS_MSG_CHANGE_PASSWORD_REQ:
-        {
-            break;
-        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Client MsgId:{} Register, But Not Handle, Package:{}", packet.nMsgId, packet.ToString());

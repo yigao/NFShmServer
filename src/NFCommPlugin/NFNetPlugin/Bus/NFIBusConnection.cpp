@@ -317,53 +317,53 @@ int NFIBusConnection::AttachShmCheck(void *buffer, size_t len)
     // 缓冲区最小长度为数据头+空洞node的长度
     if (len < sizeof(NFShmChannelHead) + NFShmBlock::node_data_size + NFShmBlock::node_head_size)
     {
-        return EN_NFBUS_ERR_CHANNEL_SIZE_TOO_SMALL;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_SIZE_TOO_SMALL;
     }
 
     NFShmChannelHead *head = (NFShmChannelHead *) buffer;
 
     if (0 != strncmp(SHM_CHANNEL_NAME, head->m_nShmChannel.m_nNodeMagic, strlen(SHM_CHANNEL_NAME)))
     {
-        return EN_NFBUS_ERR_CHANNEL_BUFFER_INVALID;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_BUFFER_INVALID;
     }
 
     if (0 != strncmp(SHM_CHANNEL_NAME, head->m_nConnectChannel.m_nNodeMagic, strlen(SHM_CHANNEL_NAME)))
     {
-        return EN_NFBUS_ERR_CHANNEL_BUFFER_INVALID;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_BUFFER_INVALID;
     }
 
     // check channel version
     if (SHM_CHANNEL_VERSION != head->m_nShmChannel.m_channelVersion)
     {
-        return EN_NFBUS_ERR_CHANNEL_UNSUPPORTED_VERSION;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_UNSUPPORTED_VERSION;
     }
 
     if (NFBUS_MACRO_DATA_ALIGN_SIZE != head->m_nShmChannel.m_channelAlignSize)
     {
-        return EN_NFBUS_ERR_CHANNEL_ALIGN_SIZE_MISMATCH;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_ALIGN_SIZE_MISMATCH;
     }
 
     if (sizeof(size_t) != head->m_nShmChannel.m_channelHostSize)
     {
-        return EN_NFBUS_ERR_CHANNEL_ARCH_SIZE_T_MISMATCH;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_ARCH_SIZE_T_MISMATCH;
     }
 
     if (SHM_CHANNEL_VERSION != head->m_nConnectChannel.m_channelVersion)
     {
-        return EN_NFBUS_ERR_CHANNEL_UNSUPPORTED_VERSION;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_UNSUPPORTED_VERSION;
     }
 
     if (NFBUS_MACRO_DATA_ALIGN_SIZE != head->m_nConnectChannel.m_channelAlignSize)
     {
-        return EN_NFBUS_ERR_CHANNEL_ALIGN_SIZE_MISMATCH;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_ALIGN_SIZE_MISMATCH;
     }
 
     if (sizeof(size_t) != head->m_nConnectChannel.m_channelHostSize)
     {
-        return EN_NFBUS_ERR_CHANNEL_ARCH_SIZE_T_MISMATCH;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_ARCH_SIZE_T_MISMATCH;
     }
 
-    return EN_NFBUS_ERR_SUCCESS;
+    return proto_ff::ERR_CODE_SVR_OK;
 }
 
 int NFIBusConnection::AttachShm(key_t shm_key, size_t len)
@@ -388,7 +388,7 @@ int NFIBusConnection::InitShmBuffer(void *buffer, size_t len)
 {
     // 缓冲区最小长度为数据头+空洞node的长度
     if (len < sizeof(NFShmChannelHead) + (NFShmBlock::connect_shm_size) + (NFShmBlock::node_data_size + NFShmBlock::node_head_size))
-        return EN_NFBUS_ERR_CHANNEL_SIZE_TOO_SMALL;
+        return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_SIZE_TOO_SMALL;
 
     memset(buffer, 0x00, len);
     NFShmChannelHead *head = (NFShmChannelHead *) buffer;
@@ -455,7 +455,7 @@ int NFIBusConnection::InitShmBuffer(void *buffer, size_t len)
     head->m_nShmChannel.m_channelHostSize = static_cast<uint16_t>(sizeof(size_t));
     ////////////////////////////////////m_nShmChannel//////////////////////////////////////////////////////////
 
-    return EN_NFBUS_ERR_SUCCESS;
+    return proto_ff::ERR_CODE_SVR_OK;
 }
 
 int NFIBusConnection::InitShm(key_t shm_key, size_t len)
@@ -507,7 +507,7 @@ int NFIBusConnection::OpenShmBuffer(key_t shm_key, size_t len, void **data, size
         if (data) *data = (void *) m_pShmRecord->m_nBuffer;
         if (real_size) *real_size = m_pShmRecord->m_nSize;
         ++m_pShmRecord->m_ReferenceCount;
-        return EN_NFBUS_ERR_SUCCESS;
+        return proto_ff::ERR_CODE_SVR_OK;
     }
 
 #ifdef _WIN32
@@ -531,7 +531,7 @@ int NFIBusConnection::OpenShmBuffer(key_t shm_key, size_t len, void **data, size
 
         if (NULL == shm_record.m_nBuffer) {
             CloseHandle(shm_record.m_nHandle);
-            return EN_NFBUS_ERR_SHM_GET_FAILED;
+            return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
         }
 
         if (data) *data = (void *)shm_record.m_nBuffer;
@@ -548,28 +548,28 @@ int NFIBusConnection::OpenShmBuffer(key_t shm_key, size_t len, void **data, size
 
         *m_pShmRecord = shm_record;
 
-        return EN_NFBUS_ERR_SUCCESS;
+        return proto_ff::ERR_CODE_SVR_OK;
     }
 
     // 如果允许创建则创建
-    if (!create) return EN_NFBUS_ERR_SHM_GET_FAILED;
+    if (!create) return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
 
     HANDLE hFileID = CreateFile(wShmFileName.c_str(), GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, OPEN_ALWAYS, FILE_FLAG_SEQUENTIAL_SCAN, NULL);
 
     if (hFileID == nullptr)
     {
-        return EN_NFBUS_ERR_SHM_GET_FAILED;
+        return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
     }
 
     shm_record.m_nHandle = CreateFileMapping(hFileID, nullptr, PAGE_READWRITE, 0, static_cast<DWORD>(len), wShmFileName.c_str());
 
-    if (NULL == shm_record.m_nHandle) return EN_NFBUS_ERR_SHM_GET_FAILED;
+    if (NULL == shm_record.m_nHandle) return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
 
     shm_record.m_nBuffer = (LPTSTR)MapViewOfFile(shm_record.m_nHandle,   // handle to map object
         FILE_MAP_ALL_ACCESS, // read/write permission
         0, 0, len);
 
-    if (NULL == shm_record.m_nBuffer) return EN_NFBUS_ERR_SHM_GET_FAILED;
+    if (NULL == shm_record.m_nBuffer) return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
 
     shm_record.m_nSize = len;
     shm_record.m_ReferenceCount = 1;
@@ -624,14 +624,14 @@ int NFIBusConnection::OpenShmBuffer(key_t shm_key, size_t len, void **data, size
         shm_record.m_nShmFd = shm_open(shm_record.m_nShmPath.c_str(), open_flag, S_IRWXU | S_IRGRP | S_IWGRP | S_IROTH | S_IWOTH);
         if (-1 == shm_record.m_nShmFd)
         {
-            return EN_NFBUS_ERR_SHM_GET_FAILED;
+            return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
         }
 
         struct stat statbuf;
         if (0 != fstat(shm_record.m_nShmFd, &statbuf))
         {
             shm_unlink(shm_record.m_nShmPath.c_str());
-            return EN_NFBUS_ERR_SHM_GET_FAILED;
+            return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
         }
 
         if (statbuf.st_size <= 0)
@@ -639,13 +639,13 @@ int NFIBusConnection::OpenShmBuffer(key_t shm_key, size_t len, void **data, size
             if (0 != ftruncate(shm_record.m_nShmFd, (off_t) len))
             {
                 shm_unlink(shm_record.m_nShmPath.c_str());
-                return EN_NFBUS_ERR_SHM_GET_FAILED;
+                return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
             }
 
             if (0 != fstat(shm_record.m_nShmFd, &statbuf))
             {
                 shm_unlink(shm_record.m_nShmPath.c_str());
-                return EN_NFBUS_ERR_SHM_GET_FAILED;
+                return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
             }
 
             shm_record.m_nSize = static_cast<size_t>(statbuf.st_size);
@@ -662,18 +662,18 @@ int NFIBusConnection::OpenShmBuffer(key_t shm_key, size_t len, void **data, size
         if (MAP_FAILED == shm_record.m_nBuffer)
         {
             shm_unlink(shm_record.m_nShmPath.c_str());
-            return EN_NFBUS_ERR_SHM_MAP_FAILED;
+            return proto_ff::ERR_CODE_NFBUS_ERR_SHM_MAP_FAILED;
         }
     }
     else
     {
         shm_record.m_nShmFd = 0;
         shm_record.m_nShmId = shmget(shm_key, len, shmflag);
-        if (-1 == shm_record.m_nShmId) return EN_NFBUS_ERR_SHM_GET_FAILED;
+        if (-1 == shm_record.m_nShmId) return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
 
         // 获取实际长度
         struct shmid_ds shm_info;
-        if (shmctl(shm_record.m_nShmId, IPC_STAT, &shm_info)) return EN_NFBUS_ERR_SHM_GET_FAILED;
+        if (shmctl(shm_record.m_nShmId, IPC_STAT, &shm_info)) return proto_ff::ERR_CODE_NFBUS_ERR_SHM_GET_FAILED;
 
         shm_record.m_nSize = shm_info.shm_segsz;
 
@@ -702,12 +702,12 @@ int NFIBusConnection::OpenShmBuffer(key_t shm_key, size_t len, void **data, size
     *m_pShmRecord = shm_record;
 #endif
 
-    return EN_NFBUS_ERR_SUCCESS;
+    return proto_ff::ERR_CODE_SVR_OK;
 }
 
 int NFIBusConnection::ShmSend(NFShmChannel *channel, const void *buf, size_t len)
 {
-    if (NULL == channel) return EN_NFBUS_ERR_PARAMS;
+    if (NULL == channel) return proto_ff::ERR_CODE_NFBUS_ERR_PARAMS;
 
     int ret = 0;
     size_t left_try_times = channel->m_nConf.m_nWriteRetryTimes;
@@ -716,7 +716,7 @@ int NFIBusConnection::ShmSend(NFShmChannel *channel, const void *buf, size_t len
         ret = ShmRealSend(channel, buf, len);
 
         // 原子操作序列冲突，重试
-        if (EN_NFBUS_ERR_NODE_BAD_BLOCK_CSEQ_ID == ret || EN_NFBUS_ERR_NODE_BAD_BLOCK_WSEQ_ID == ret)
+        if (proto_ff::ERR_CODE_NFBUS_ERR_NODE_BAD_BLOCK_CSEQ_ID == ret || proto_ff::ERR_CODE_NFBUS_ERR_NODE_BAD_BLOCK_WSEQ_ID == ret)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "ShmSend 原子操作序列冲突，重试 ");
             ++channel->m_nWriteRetryCount;
@@ -731,9 +731,9 @@ int NFIBusConnection::ShmSend(NFShmChannel *channel, const void *buf, size_t len
 
 int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size_t *recv_size)
 {
-    if (NULL == channel) return EN_NFBUS_ERR_PARAMS;
+    if (NULL == channel) return proto_ff::ERR_CODE_NFBUS_ERR_PARAMS;
 
-    int ret = EN_NFBUS_ERR_SUCCESS;
+    int ret = proto_ff::ERR_CODE_SVR_OK;
 
     void *buffer_start = NULL;
     size_t buffer_len = 0;
@@ -752,7 +752,7 @@ int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size
 
         if (read_begin_cur == write_cur)
         {
-            ret = ret ? ret : EN_NFBUS_ERR_NO_DATA;
+            ret = ret ? ret : proto_ff::ERR_CODE_NFBUS_ERR_NO_DATA;
             break;
         }
 
@@ -812,7 +812,7 @@ int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size
             if (!channel->m_nFirstFailedWritingTime)
             {
                 channel->m_nFirstFailedWritingTime = cnow;
-                ret = ret ? ret : EN_NFBUS_ERR_NO_DATA;
+                ret = ret ? ret : proto_ff::ERR_CODE_NFBUS_ERR_NO_DATA;
                 break;
             }
 
@@ -835,7 +835,7 @@ int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size
             }
 
             // 未到超时时间
-            ret = ret ? ret : EN_NFBUS_ERR_NO_DATA;
+            ret = ret ? ret : proto_ff::ERR_CODE_NFBUS_ERR_NO_DATA;
             break;
         }
 
@@ -846,7 +846,7 @@ int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size
         if (!block_head->m_nBufferSize ||
             block_head->m_nBufferSize >= channel->m_nAreaEndOffset - channel->m_nAreaDataOffset - channel->m_nConf.m_nProtectMemorySize)
         {
-            ret = ret ? ret : EN_NFBUS_ERR_NODE_BAD_BLOCK_BUFF_SIZE;
+            ret = ret ? ret : proto_ff::ERR_CODE_NFBUS_ERR_NODE_BAD_BLOCK_BUFF_SIZE;
 
             read_begin_cur = GetNextIndex(channel, read_begin_cur, 1);
             node_head->m_nFlag = 0;
@@ -859,7 +859,7 @@ int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size
         // 写出的缓冲区不足
         if (block_head->m_nBufferSize > len)
         {
-            ret = ret ? ret : EN_NFBUS_ERR_BUFF_LIMIT;
+            ret = ret ? ret : proto_ff::ERR_CODE_NFBUS_ERR_BUFF_LIMIT;
             if (recv_size) *recv_size = block_head->m_nBufferSize;
 
             break;
@@ -892,7 +892,7 @@ int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size
             size_t nodes_num = GetNodeRangeCount(channel, read_begin_cur, read_end_cur);
             if (CalcNodeNum(channel, block_head->m_nBufferSize) != nodes_num)
             {
-                ret = ret ? ret : EN_NFBUS_ERR_NODE_BAD_BLOCK_NODE_NUM;
+                ret = ret ? ret : proto_ff::ERR_CODE_NFBUS_ERR_NODE_BAD_BLOCK_NODE_NUM;
                 read_begin_cur = GetNextIndex(channel, read_begin_cur, 1);
                 // 上面的循环已经重置过flag了
 
@@ -941,7 +941,7 @@ int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size
         if (fast_check != block_head->m_nFastCheck)
         {
             ++channel->m_nReadCheckHashFailedCount;
-            ret = ret ? ret : EN_NFBUS_ERR_BAD_DATA;
+            ret = ret ? ret : proto_ff::ERR_CODE_NFBUS_ERR_BAD_DATA;
         }
 
     } while (false);
@@ -963,15 +963,15 @@ int NFIBusConnection::ShmRecv(NFShmChannel *channel, void *buf, size_t len, size
 
 int NFIBusConnection::ShmRealSend(NFShmChannel *channel, const void *buf, size_t len)
 {
-    if (NULL == channel) return EN_NFBUS_ERR_PARAMS;
+    if (NULL == channel) return proto_ff::ERR_CODE_NFBUS_ERR_PARAMS;
 
-    if (0 == len) return EN_NFBUS_ERR_SUCCESS;
+    if (0 == len) return proto_ff::ERR_CODE_SVR_OK;
 
     size_t node_count = CalcNodeNum(channel, len);
     // 要写入的数据比可用的缓冲区还大
     if (node_count >= channel->m_nNodeCount - channel->m_nConf.m_nProtectNodeCount)
     {
-        return EN_NFBUS_ERR_BUFF_LIMIT;
+        return proto_ff::ERR_CODE_NFBUS_ERR_BUFF_LIMIT;
     }
 
     // 获取操作序号
@@ -991,7 +991,7 @@ int NFIBusConnection::ShmRealSend(NFShmChannel *channel, const void *buf, size_t
         size_t available_node = GetAvailableNodeCount(channel, read_cur, write_cur);
         if (node_count > available_node)
         {
-            return EN_NFBUS_ERR_BUFF_LIMIT;
+            return proto_ff::ERR_CODE_NFBUS_ERR_BUFF_LIMIT;
         }
 
         // 新的尾部node游标
@@ -1075,18 +1075,18 @@ int NFIBusConnection::ShmRealSend(NFShmChannel *channel, const void *buf, size_t
         if (opr_seq != first_node_head->m_nOperationSeq)
         {
             ++channel->m_nWriteCheckSequenceFailedCount;
-            return EN_NFBUS_ERR_NODE_BAD_BLOCK_CSEQ_ID;
+            return proto_ff::ERR_CODE_NFBUS_ERR_NODE_BAD_BLOCK_CSEQ_ID;
         }
     }
 
-    return EN_NFBUS_ERR_SUCCESS;
+    return proto_ff::ERR_CODE_SVR_OK;
 }
 
 int NFIBusConnection::SetWriteTimeout(NFShmChannel *channel, uint64_t ms)
 {
-    if (NULL == channel) return EN_NFBUS_ERR_PARAMS;
+    if (NULL == channel) return proto_ff::ERR_CODE_NFBUS_ERR_PARAMS;
     channel->m_nConf.m_nConfSendTimeoutMs = ms;
-    return EN_NFBUS_ERR_SUCCESS;
+    return proto_ff::ERR_CODE_SVR_OK;
 }
 
 uint64_t NFIBusConnection::GetWriteTimeout(NFShmChannel *channel)
@@ -1097,9 +1097,9 @@ uint64_t NFIBusConnection::GetWriteTimeout(NFShmChannel *channel)
 
 int NFIBusConnection::SetWriteRetryTimes(NFShmChannel *channel, size_t times)
 {
-    if (NULL == channel) return EN_NFBUS_ERR_PARAMS;
+    if (NULL == channel) return proto_ff::ERR_CODE_NFBUS_ERR_PARAMS;
     channel->m_nConf.m_nWriteRetryTimes = times;
-    return EN_NFBUS_ERR_SUCCESS;
+    return proto_ff::ERR_CODE_SVR_OK;
 }
 
 size_t NFIBusConnection::GetWriteRetryTimes(NFShmChannel *channel)
@@ -1169,7 +1169,7 @@ int NFIBusConnection::CloseShmBuffer()
     if (m_pShmRecord->m_ReferenceCount > 1)
     {
         --m_pShmRecord->m_ReferenceCount;
-        return EN_NFBUS_ERR_SUCCESS;
+        return proto_ff::ERR_CODE_SVR_OK;
     } else
     {
         m_pShmRecord->m_ReferenceCount = 0;
@@ -1186,20 +1186,20 @@ int NFIBusConnection::CloseShmBuffer()
     {
         int res = shmdt(record.m_nBuffer);
         if (-1 == res) {
-            return EN_NFBUS_ERR_SHM_CLOSE_FAILED;
+            return proto_ff::ERR_CODE_NFBUS_ERR_SHM_CLOSE_FAILED;
         }
     }
     else if (record.m_nShmFd != 0)
     {
         if (0 != munmap(record.m_nBuffer, record.m_nSize)) {
             shm_unlink(record.m_nShmPath.c_str());
-            return EN_NFBUS_ERR_SHM_CLOSE_FAILED;
+            return proto_ff::ERR_CODE_NFBUS_ERR_SHM_CLOSE_FAILED;
         }
         shm_unlink(record.m_nShmPath.c_str());
     }
 #endif
 
-    return EN_NFBUS_ERR_SUCCESS;
+    return proto_ff::ERR_CODE_SVR_OK;
 }
 
 void NFIBusConnection::SetMsgPeerCallback(const BusMsgPeerCallback &cb)

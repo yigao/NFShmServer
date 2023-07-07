@@ -23,12 +23,6 @@ namespace {
 const ::google::protobuf::Descriptor* Proto_UserSimpleData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_UserSimpleData_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Proto_UserLoginExternalData_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Proto_UserLoginExternalData_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Proto_UserDetailCommonData_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Proto_UserDetailCommonData_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Proto_CSReconnectReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_CSReconnectReq_reflection_ = NULL;
@@ -163,57 +157,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_UserSimpleData));
-  Proto_UserLoginExternalData_descriptor_ = file->message_type(1);
-  static const int Proto_UserLoginExternalData_offsets_[10] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, aread_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, agent_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, channel_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, referral_code_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, platform_os_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, country_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, province_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, city_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, phone_mode_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, device_id_),
-  };
-  Proto_UserLoginExternalData_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Proto_UserLoginExternalData_descriptor_,
-      Proto_UserLoginExternalData::default_instance_,
-      Proto_UserLoginExternalData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserLoginExternalData, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Proto_UserLoginExternalData));
-  Proto_UserDetailCommonData_descriptor_ = file->message_type(2);
-  static const int Proto_UserDetailCommonData_offsets_[12] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, nick_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, face_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, gender_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, jetton_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, bank_jetton_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, agent_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, phonenum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, vip_level_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, aread_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, referrer_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, first_recharge_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, show_userid_),
-  };
-  Proto_UserDetailCommonData_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Proto_UserDetailCommonData_descriptor_,
-      Proto_UserDetailCommonData::default_instance_,
-      Proto_UserDetailCommonData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserDetailCommonData, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Proto_UserDetailCommonData));
-  Proto_CSReconnectReq_descriptor_ = file->message_type(3);
+  Proto_CSReconnectReq_descriptor_ = file->message_type(1);
   static const int Proto_CSReconnectReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSReconnectReq, userid_),
   };
@@ -228,7 +172,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSReconnectReq));
-  Proto_SCReconnectRsp_descriptor_ = file->message_type(4);
+  Proto_SCReconnectRsp_descriptor_ = file->message_type(2);
   static const int Proto_SCReconnectRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCReconnectRsp, result_),
   };
@@ -243,7 +187,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCReconnectRsp));
-  Proto_CSHeartBeatReq_descriptor_ = file->message_type(5);
+  Proto_CSHeartBeatReq_descriptor_ = file->message_type(3);
   static const int Proto_CSHeartBeatReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSHeartBeatReq, userid_),
   };
@@ -258,7 +202,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSHeartBeatReq));
-  Proto_SCHeartBeatRsp_descriptor_ = file->message_type(6);
+  Proto_SCHeartBeatRsp_descriptor_ = file->message_type(4);
   static const int Proto_SCHeartBeatRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCHeartBeatRsp, result_),
   };
@@ -273,12 +217,11 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCHeartBeatRsp));
-  Proto_CSRegisterAccountReq_descriptor_ = file->message_type(7);
-  static const int Proto_CSRegisterAccountReq_offsets_[7] = {
+  Proto_CSRegisterAccountReq_descriptor_ = file->message_type(5);
+  static const int Proto_CSRegisterAccountReq_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, password_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, nick_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, ext_data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, is_phone_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, device_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, contract_info_),
@@ -294,7 +237,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSRegisterAccountReq));
-  Proto_SCRegisterAccountRsp_descriptor_ = file->message_type(8);
+  Proto_SCRegisterAccountRsp_descriptor_ = file->message_type(6);
   static const int Proto_SCRegisterAccountRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCRegisterAccountRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCRegisterAccountRsp, user_id_),
@@ -313,7 +256,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCRegisterAccountRsp));
-  Proto_CSServerIP_descriptor_ = file->message_type(9);
+  Proto_CSServerIP_descriptor_ = file->message_type(7);
   static const int Proto_CSServerIP_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSServerIP, ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSServerIP, port_),
@@ -329,7 +272,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSServerIP));
-  Proto_CSAccountLoginReq_descriptor_ = file->message_type(10);
+  Proto_CSAccountLoginReq_descriptor_ = file->message_type(8);
   static const int Proto_CSAccountLoginReq_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSAccountLoginReq, login_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSAccountLoginReq, account_),
@@ -348,7 +291,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSAccountLoginReq));
-  Proto_SCAccountLoginRsp_descriptor_ = file->message_type(11);
+  Proto_SCAccountLoginRsp_descriptor_ = file->message_type(9);
   static const int Proto_SCAccountLoginRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCAccountLoginRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCAccountLoginRsp, user_id_),
@@ -367,7 +310,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCAccountLoginRsp));
-  Proto_CSUserLoginReq_descriptor_ = file->message_type(12);
+  Proto_CSUserLoginReq_descriptor_ = file->message_type(10);
   static const int Proto_CSUserLoginReq_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSUserLoginReq, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSUserLoginReq, user_id_),
@@ -386,7 +329,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSUserLoginReq));
-  Proto_SCUserLoginRsp_descriptor_ = file->message_type(13);
+  Proto_SCUserLoginRsp_descriptor_ = file->message_type(11);
   static const int Proto_SCUserLoginRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCUserLoginRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCUserLoginRsp, user_id_),
@@ -403,7 +346,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCUserLoginRsp));
-  Proto_CSChangeFaceReq_descriptor_ = file->message_type(14);
+  Proto_CSChangeFaceReq_descriptor_ = file->message_type(12);
   static const int Proto_CSChangeFaceReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSChangeFaceReq, face_id_),
   };
@@ -418,7 +361,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSChangeFaceReq));
-  Proto_SCChangeFaceRsp_descriptor_ = file->message_type(15);
+  Proto_SCChangeFaceRsp_descriptor_ = file->message_type(13);
   static const int Proto_SCChangeFaceRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCChangeFaceRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCChangeFaceRsp, face_id_),
@@ -434,7 +377,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCChangeFaceRsp));
-  Proto_CSChangeNickNameReq_descriptor_ = file->message_type(16);
+  Proto_CSChangeNickNameReq_descriptor_ = file->message_type(14);
   static const int Proto_CSChangeNickNameReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSChangeNickNameReq, nick_name_),
   };
@@ -449,7 +392,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSChangeNickNameReq));
-  Proto_SCChangNickNameRsp_descriptor_ = file->message_type(17);
+  Proto_SCChangNickNameRsp_descriptor_ = file->message_type(15);
   static const int Proto_SCChangNickNameRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCChangNickNameRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCChangNickNameRsp, nick_name_),
@@ -465,7 +408,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCChangNickNameRsp));
-  Proto_CSQueryUserReq_descriptor_ = file->message_type(18);
+  Proto_CSQueryUserReq_descriptor_ = file->message_type(16);
   static const int Proto_CSQueryUserReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSQueryUserReq, query_user_id_),
   };
@@ -480,7 +423,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSQueryUserReq));
-  Proto_SCQueryUserRsp_descriptor_ = file->message_type(19);
+  Proto_SCQueryUserRsp_descriptor_ = file->message_type(17);
   static const int Proto_SCQueryUserRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCQueryUserRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCQueryUserRsp, query_user_list_),
@@ -496,7 +439,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCQueryUserRsp));
-  Proto_CS_LoginServer_PhoneAutoCodeReq_descriptor_ = file->message_type(20);
+  Proto_CS_LoginServer_PhoneAutoCodeReq_descriptor_ = file->message_type(18);
   static const int Proto_CS_LoginServer_PhoneAutoCodeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_LoginServer_PhoneAutoCodeReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_LoginServer_PhoneAutoCodeReq, code_type_),
@@ -512,7 +455,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_LoginServer_PhoneAutoCodeReq));
-  Proto_SC_LoginServer_PhoneAutoCodeRsp_descriptor_ = file->message_type(21);
+  Proto_SC_LoginServer_PhoneAutoCodeRsp_descriptor_ = file->message_type(19);
   static const int Proto_SC_LoginServer_PhoneAutoCodeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_PhoneAutoCodeRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_PhoneAutoCodeRsp, phone_num_),
@@ -529,7 +472,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_LoginServer_PhoneAutoCodeRsp));
-  Proto_CS_LoginServer_CheckPhoneCodeReq_descriptor_ = file->message_type(22);
+  Proto_CS_LoginServer_CheckPhoneCodeReq_descriptor_ = file->message_type(20);
   static const int Proto_CS_LoginServer_CheckPhoneCodeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_LoginServer_CheckPhoneCodeReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_LoginServer_CheckPhoneCodeReq, auth_code_),
@@ -545,7 +488,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_LoginServer_CheckPhoneCodeReq));
-  Proto_SC_LoginServer_CheckPhoneCodeRsp_descriptor_ = file->message_type(23);
+  Proto_SC_LoginServer_CheckPhoneCodeRsp_descriptor_ = file->message_type(21);
   static const int Proto_SC_LoginServer_CheckPhoneCodeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_CheckPhoneCodeRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_CheckPhoneCodeRsp, phone_num_),
@@ -562,7 +505,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_LoginServer_CheckPhoneCodeRsp));
-  Proto_CS_ChangePasswordReq_descriptor_ = file->message_type(24);
+  Proto_CS_ChangePasswordReq_descriptor_ = file->message_type(22);
   static const int Proto_CS_ChangePasswordReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_ChangePasswordReq, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_ChangePasswordReq, new_password_),
@@ -579,7 +522,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_ChangePasswordReq));
-  Proto_SC_ChangePasswordRsp_descriptor_ = file->message_type(25);
+  Proto_SC_ChangePasswordRsp_descriptor_ = file->message_type(23);
   static const int Proto_SC_ChangePasswordRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_ChangePasswordRsp, result_),
   };
@@ -594,7 +537,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_ChangePasswordRsp));
-  Proto_SC_LoginServer_NotifyPhoneCheck_descriptor_ = file->message_type(26);
+  Proto_SC_LoginServer_NotifyPhoneCheck_descriptor_ = file->message_type(24);
   static const int Proto_SC_LoginServer_NotifyPhoneCheck_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_NotifyPhoneCheck, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_NotifyPhoneCheck, phone_num_),
@@ -610,7 +553,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_LoginServer_NotifyPhoneCheck));
-  Proto_CS_Player_PhoneAutoCodeReq_descriptor_ = file->message_type(27);
+  Proto_CS_Player_PhoneAutoCodeReq_descriptor_ = file->message_type(25);
   static const int Proto_CS_Player_PhoneAutoCodeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_PhoneAutoCodeReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_PhoneAutoCodeReq, code_type_),
@@ -626,7 +569,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_Player_PhoneAutoCodeReq));
-  Proto_SC_Player_PhoneAutoCodeRsp_descriptor_ = file->message_type(28);
+  Proto_SC_Player_PhoneAutoCodeRsp_descriptor_ = file->message_type(26);
   static const int Proto_SC_Player_PhoneAutoCodeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_PhoneAutoCodeRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_PhoneAutoCodeRsp, phone_num_),
@@ -643,7 +586,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_Player_PhoneAutoCodeRsp));
-  Proto_CS_Player_CheckPhoneCodeReq_descriptor_ = file->message_type(29);
+  Proto_CS_Player_CheckPhoneCodeReq_descriptor_ = file->message_type(27);
   static const int Proto_CS_Player_CheckPhoneCodeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_CheckPhoneCodeReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_CheckPhoneCodeReq, auth_code_),
@@ -659,7 +602,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_Player_CheckPhoneCodeReq));
-  Proto_SC_Player_CheckPhoneCodeRsp_descriptor_ = file->message_type(30);
+  Proto_SC_Player_CheckPhoneCodeRsp_descriptor_ = file->message_type(28);
   static const int Proto_SC_Player_CheckPhoneCodeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_CheckPhoneCodeRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_CheckPhoneCodeRsp, phone_num_),
@@ -676,7 +619,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_Player_CheckPhoneCodeRsp));
-  Proto_CS_Player_BindPhoneReq_descriptor_ = file->message_type(31);
+  Proto_CS_Player_BindPhoneReq_descriptor_ = file->message_type(29);
   static const int Proto_CS_Player_BindPhoneReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_BindPhoneReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_BindPhoneReq, nick_name_),
@@ -694,7 +637,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_Player_BindPhoneReq));
-  Proto_SC_Player_BindPhoneRsp_descriptor_ = file->message_type(32);
+  Proto_SC_Player_BindPhoneRsp_descriptor_ = file->message_type(30);
   static const int Proto_SC_Player_BindPhoneRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_BindPhoneRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_BindPhoneRsp, phone_num_),
@@ -711,7 +654,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_Player_BindPhoneRsp));
-  Proto_CS_PhoneChangeBandPasswordReq_descriptor_ = file->message_type(33);
+  Proto_CS_PhoneChangeBandPasswordReq_descriptor_ = file->message_type(31);
   static const int Proto_CS_PhoneChangeBandPasswordReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_PhoneChangeBandPasswordReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_PhoneChangeBandPasswordReq, new_password_),
@@ -727,7 +670,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_PhoneChangeBandPasswordReq));
-  Proto_SC_PhoneChangeBandPasswordRsp_descriptor_ = file->message_type(34);
+  Proto_SC_PhoneChangeBandPasswordRsp_descriptor_ = file->message_type(32);
   static const int Proto_SC_PhoneChangeBandPasswordRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_PhoneChangeBandPasswordRsp, result_),
   };
@@ -742,7 +685,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_PhoneChangeBandPasswordRsp));
-  Proto_CSCheckContractInfoReq_descriptor_ = file->message_type(35);
+  Proto_CSCheckContractInfoReq_descriptor_ = file->message_type(33);
   static const int Proto_CSCheckContractInfoReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSCheckContractInfoReq, contract_info_),
   };
@@ -757,7 +700,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSCheckContractInfoReq));
-  Proto_SCCheckContractInfoRsp_descriptor_ = file->message_type(36);
+  Proto_SCCheckContractInfoRsp_descriptor_ = file->message_type(34);
   static const int Proto_SCCheckContractInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCCheckContractInfoRsp, result_),
   };
@@ -772,7 +715,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCCheckContractInfoRsp));
-  Proto_SCKetPlayerNotify_descriptor_ = file->message_type(37);
+  Proto_SCKetPlayerNotify_descriptor_ = file->message_type(35);
   static const int Proto_SCKetPlayerNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCKetPlayerNotify, result_),
   };
@@ -801,10 +744,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_UserSimpleData_descriptor_, &Proto_UserSimpleData::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Proto_UserLoginExternalData_descriptor_, &Proto_UserLoginExternalData::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Proto_UserDetailCommonData_descriptor_, &Proto_UserDetailCommonData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_CSReconnectReq_descriptor_, &Proto_CSReconnectReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -882,10 +821,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 void protobuf_ShutdownFile_CSLogin_2eproto() {
   delete Proto_UserSimpleData::default_instance_;
   delete Proto_UserSimpleData_reflection_;
-  delete Proto_UserLoginExternalData::default_instance_;
-  delete Proto_UserLoginExternalData_reflection_;
-  delete Proto_UserDetailCommonData::default_instance_;
-  delete Proto_UserDetailCommonData_reflection_;
   delete Proto_CSReconnectReq::default_instance_;
   delete Proto_CSReconnectReq_reflection_;
   delete Proto_SCReconnectRsp::default_instance_;
@@ -970,95 +905,79 @@ void protobuf_AddDesc_CSLogin_2eproto() {
     "\n\rCSLogin.proto\022\010proto_ff\032\tCom.proto\032\017Co"
     "mDefine.proto\"c\n\024Proto_UserSimpleData\022\016\n"
     "\006userid\030\001 \001(\004\022\020\n\010nickname\030\002 \001(\t\022\014\n\004face\030"
-    "\003 \001(\r\022\016\n\006gender\030\004 \001(\r\022\013\n\003age\030\005 \001(\r\"\331\001\n\033P"
-    "roto_UserLoginExternalData\022\020\n\010aread_id\030\001"
-    " \001(\r\022\020\n\010agent_id\030\002 \001(\r\022\022\n\nchannel_id\030\003 \001"
-    "(\r\022\025\n\rreferral_code\030\004 \001(\004\022\023\n\013platform_os"
-    "\030\005 \001(\t\022\017\n\007country\030\006 \001(\t\022\020\n\010province\030\007 \001("
-    "\t\022\014\n\004city\030\010 \001(\t\022\022\n\nphone_mode\030\t \001(\t\022\021\n\td"
-    "evice_id\030\n \001(\t\"\200\002\n\032Proto_UserDetailCommo"
-    "nData\022\021\n\tnick_name\030\001 \001(\t\022\017\n\007face_id\030\002 \001("
-    "\r\022\016\n\006gender\030\003 \001(\r\022\016\n\006jetton\030\004 \001(\004\022\023\n\013ban"
-    "k_jetton\030\005 \001(\004\022\020\n\010agent_id\030\006 \001(\004\022\020\n\010phon"
-    "enum\030\007 \001(\004\022\021\n\tvip_level\030\010 \001(\r\022\020\n\010aread_i"
-    "d\030\t \001(\r\022\023\n\013referrer_id\030\n \001(\004\022\026\n\016first_re"
-    "charge\030\013 \001(\010\022\023\n\013show_userid\030\014 \001(\004\"&\n\024Pro"
-    "to_CSReconnectReq\022\016\n\006userid\030\001 \001(\004\"&\n\024Pro"
-    "to_SCReconnectRsp\022\016\n\006result\030\001 \001(\005\"&\n\024Pro"
-    "to_CSHeartBeatReq\022\016\n\006userid\030\001 \001(\005\"&\n\024Pro"
-    "to_SCHeartBeatRsp\022\016\n\006result\030\001 \001(\005\"\307\001\n\032Pr"
-    "oto_CSRegisterAccountReq\022\017\n\007account\030\001 \001("
-    "\t\022\020\n\010password\030\002 \001(\t\022\021\n\tnick_name\030\003 \001(\t\0227"
-    "\n\010ext_data\030\004 \001(\0132%.proto_ff.Proto_UserLo"
-    "ginExternalData\022\020\n\010is_phone\030\005 \001(\010\022\021\n\tdev"
-    "ice_id\030\006 \001(\t\022\025\n\rcontract_info\030\007 \001(\t\"\224\001\n\032"
-    "Proto_SCRegisterAccountRsp\022\016\n\006result\030\001 \001"
-    "(\005\022\017\n\007user_id\030\002 \001(\004\022\022\n\nlogin_time\030\003 \001(\004\022"
-    "\r\n\005token\030\004 \001(\t\0222\n\016server_ip_list\030\005 \003(\0132\032"
-    ".proto_ff.Proto_CSServerIP\",\n\020Proto_CSSe"
-    "rverIP\022\n\n\002ip\030\001 \001(\t\022\014\n\004port\030\002 \001(\r\"z\n\027Prot"
-    "o_CSAccountLoginReq\022\022\n\nlogin_type\030\001 \001(\r\022"
-    "\017\n\007account\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\021\n\tde"
-    "vice_id\030\004 \001(\t\022\025\n\rcontract_info\030\005 \001(\t\"\221\001\n"
-    "\027Proto_SCAccountLoginRsp\022\016\n\006result\030\001 \001(\005"
-    "\022\017\n\007user_id\030\002 \001(\004\022\022\n\nlogin_time\030\003 \001(\004\022\r\n"
-    "\005token\030\004 \001(\t\0222\n\016server_ip_list\030\005 \003(\0132\032.p"
-    "roto_ff.Proto_CSServerIP\"\224\001\n\024Proto_CSUse"
-    "rLoginReq\022\017\n\007account\030\001 \001(\t\022\017\n\007user_id\030\002 "
-    "\001(\004\022\022\n\nlogin_time\030\003 \001(\004\022\r\n\005token\030\004 \001(\t\0227"
-    "\n\010ext_data\030\005 \001(\0132%.proto_ff.Proto_UserLo"
-    "ginExternalData\"r\n\024Proto_SCUserLoginRsp\022"
-    "\016\n\006result\030\001 \001(\005\022\017\n\007user_id\030\002 \001(\004\0229\n\013deta"
-    "il_data\030\003 \001(\0132$.proto_ff.Proto_UserDetai"
-    "lCommonData\"(\n\025Proto_CSChangeFaceReq\022\017\n\007"
-    "face_id\030\001 \001(\r\"8\n\025Proto_SCChangeFaceRsp\022\016"
-    "\n\006result\030\001 \001(\005\022\017\n\007face_id\030\002 \001(\005\".\n\031Proto"
-    "_CSChangeNickNameReq\022\021\n\tnick_name\030\001 \001(\t\""
-    "=\n\030Proto_SCChangNickNameRsp\022\016\n\006result\030\001 "
-    "\001(\005\022\021\n\tnick_name\030\002 \001(\t\"-\n\024Proto_CSQueryU"
-    "serReq\022\025\n\rquery_user_id\030\001 \003(\004\"_\n\024Proto_S"
-    "CQueryUserRsp\022\016\n\006result\030\001 \001(\005\0227\n\017query_u"
-    "ser_list\030\002 \003(\0132\036.proto_ff.Proto_UserSimp"
-    "leData\"M\n%Proto_CS_LoginServer_PhoneAuto"
-    "CodeReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tcode_type\030"
-    "\002 \001(\r\"]\n%Proto_SC_LoginServer_PhoneAutoC"
+    "\003 \001(\r\022\016\n\006gender\030\004 \001(\r\022\013\n\003age\030\005 \001(\r\"&\n\024Pr"
+    "oto_CSReconnectReq\022\016\n\006userid\030\001 \001(\004\"&\n\024Pr"
+    "oto_SCReconnectRsp\022\016\n\006result\030\001 \001(\005\"&\n\024Pr"
+    "oto_CSHeartBeatReq\022\016\n\006userid\030\001 \001(\005\"&\n\024Pr"
+    "oto_SCHeartBeatRsp\022\016\n\006result\030\001 \001(\005\"\216\001\n\032P"
+    "roto_CSRegisterAccountReq\022\017\n\007account\030\001 \001"
+    "(\t\022\020\n\010password\030\002 \001(\t\022\021\n\tnick_name\030\003 \001(\t\022"
+    "\020\n\010is_phone\030\005 \001(\010\022\021\n\tdevice_id\030\006 \001(\t\022\025\n\r"
+    "contract_info\030\007 \001(\t\"\224\001\n\032Proto_SCRegister"
+    "AccountRsp\022\016\n\006result\030\001 \001(\005\022\017\n\007user_id\030\002 "
+    "\001(\004\022\022\n\nlogin_time\030\003 \001(\004\022\r\n\005token\030\004 \001(\t\0222"
+    "\n\016server_ip_list\030\005 \003(\0132\032.proto_ff.Proto_"
+    "CSServerIP\",\n\020Proto_CSServerIP\022\n\n\002ip\030\001 \001"
+    "(\t\022\014\n\004port\030\002 \001(\r\"z\n\027Proto_CSAccountLogin"
+    "Req\022\022\n\nlogin_type\030\001 \001(\r\022\017\n\007account\030\002 \001(\t"
+    "\022\020\n\010password\030\003 \001(\t\022\021\n\tdevice_id\030\004 \001(\t\022\025\n"
+    "\rcontract_info\030\005 \001(\t\"\221\001\n\027Proto_SCAccount"
+    "LoginRsp\022\016\n\006result\030\001 \001(\005\022\017\n\007user_id\030\002 \001("
+    "\004\022\022\n\nlogin_time\030\003 \001(\004\022\r\n\005token\030\004 \001(\t\0222\n\016"
+    "server_ip_list\030\005 \003(\0132\032.proto_ff.Proto_CS"
+    "ServerIP\"\224\001\n\024Proto_CSUserLoginReq\022\017\n\007acc"
+    "ount\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\004\022\022\n\nlogin_tim"
+    "e\030\003 \001(\004\022\r\n\005token\030\004 \001(\t\0227\n\010ext_data\030\005 \001(\013"
+    "2%.proto_ff.Proto_UserLoginExternalData\""
+    "r\n\024Proto_SCUserLoginRsp\022\016\n\006result\030\001 \001(\005\022"
+    "\017\n\007user_id\030\002 \001(\004\0229\n\013detail_data\030\003 \001(\0132$."
+    "proto_ff.Proto_UserDetailCommonData\"(\n\025P"
+    "roto_CSChangeFaceReq\022\017\n\007face_id\030\001 \001(\r\"8\n"
+    "\025Proto_SCChangeFaceRsp\022\016\n\006result\030\001 \001(\005\022\017"
+    "\n\007face_id\030\002 \001(\005\".\n\031Proto_CSChangeNickNam"
+    "eReq\022\021\n\tnick_name\030\001 \001(\t\"=\n\030Proto_SCChang"
+    "NickNameRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tnick_name"
+    "\030\002 \001(\t\"-\n\024Proto_CSQueryUserReq\022\025\n\rquery_"
+    "user_id\030\001 \003(\004\"_\n\024Proto_SCQueryUserRsp\022\016\n"
+    "\006result\030\001 \001(\005\0227\n\017query_user_list\030\002 \003(\0132\036"
+    ".proto_ff.Proto_UserSimpleData\"M\n%Proto_"
+    "CS_LoginServer_PhoneAutoCodeReq\022\021\n\tphone"
+    "_num\030\001 \001(\004\022\021\n\tcode_type\030\002 \001(\r\"]\n%Proto_S"
+    "C_LoginServer_PhoneAutoCodeRsp\022\016\n\006result"
+    "\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tcode_type\030\003"
+    " \001(\r\"N\n&Proto_CS_LoginServer_CheckPhoneC"
+    "odeReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tauth_code\030\002"
+    " \001(\r\"^\n&Proto_SC_LoginServer_CheckPhoneC"
     "odeRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tphone_num\030\002 \001("
-    "\004\022\021\n\tcode_type\030\003 \001(\r\"N\n&Proto_CS_LoginSe"
-    "rver_CheckPhoneCodeReq\022\021\n\tphone_num\030\001 \001("
-    "\004\022\021\n\tauth_code\030\002 \001(\r\"^\n&Proto_SC_LoginSe"
-    "rver_CheckPhoneCodeRsp\022\016\n\006result\030\001 \001(\005\022\021"
-    "\n\tphone_num\030\002 \001(\004\022\021\n\tcode_type\030\003 \001(\r\"V\n\032"
-    "Proto_CS_ChangePasswordReq\022\017\n\007account\030\001 "
-    "\001(\t\022\024\n\014new_password\030\002 \001(\t\022\021\n\tdevice_id\030\003"
-    " \001(\t\",\n\032Proto_SC_ChangePasswordRsp\022\016\n\006re"
-    "sult\030\001 \001(\005\"J\n%Proto_SC_LoginServer_Notif"
-    "yPhoneCheck\022\016\n\006result\030\001 \001(\005\022\021\n\tphone_num"
-    "\030\002 \001(\004\"H\n Proto_CS_Player_PhoneAutoCodeR"
-    "eq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tcode_type\030\002 \001(\r"
-    "\"X\n Proto_SC_Player_PhoneAutoCodeRsp\022\016\n\006"
-    "result\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tcode_"
-    "type\030\003 \001(\r\"I\n!Proto_CS_Player_CheckPhone"
-    "CodeReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tauth_code\030"
-    "\002 \001(\r\"Y\n!Proto_SC_Player_CheckPhoneCodeR"
-    "sp\022\016\n\006result\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n"
-    "\tcode_type\030\003 \001(\r\"i\n\034Proto_CS_Player_Bind"
-    "PhoneReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tnick_name"
-    "\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\021\n\tdevice_id\030\004 "
-    "\001(\t\"T\n\034Proto_SC_Player_BindPhoneRsp\022\016\n\006r"
-    "esult\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tnick_n"
-    "ame\030\003 \001(\t\"N\n#Proto_CS_PhoneChangeBandPas"
-    "swordReq\022\021\n\tphone_num\030\001 \001(\004\022\024\n\014new_passw"
-    "ord\030\002 \001(\t\"5\n#Proto_SC_PhoneChangeBandPas"
-    "swordRsp\022\016\n\006result\030\001 \001(\005\"5\n\034Proto_CSChec"
-    "kContractInfoReq\022\025\n\rcontract_info\030\001 \001(\t\""
-    ".\n\034Proto_SCCheckContractInfoRsp\022\016\n\006resul"
-    "t\030\001 \001(\005\")\n\027Proto_SCKetPlayerNotify\022\016\n\006re"
-    "sult\030\001 \001(\005", 3450);
+    "\004\022\021\n\tcode_type\030\003 \001(\r\"V\n\032Proto_CS_ChangeP"
+    "asswordReq\022\017\n\007account\030\001 \001(\t\022\024\n\014new_passw"
+    "ord\030\002 \001(\t\022\021\n\tdevice_id\030\003 \001(\t\",\n\032Proto_SC"
+    "_ChangePasswordRsp\022\016\n\006result\030\001 \001(\005\"J\n%Pr"
+    "oto_SC_LoginServer_NotifyPhoneCheck\022\016\n\006r"
+    "esult\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\"H\n Proto_"
+    "CS_Player_PhoneAutoCodeReq\022\021\n\tphone_num\030"
+    "\001 \001(\004\022\021\n\tcode_type\030\002 \001(\r\"X\n Proto_SC_Pla"
+    "yer_PhoneAutoCodeRsp\022\016\n\006result\030\001 \001(\005\022\021\n\t"
+    "phone_num\030\002 \001(\004\022\021\n\tcode_type\030\003 \001(\r\"I\n!Pr"
+    "oto_CS_Player_CheckPhoneCodeReq\022\021\n\tphone"
+    "_num\030\001 \001(\004\022\021\n\tauth_code\030\002 \001(\r\"Y\n!Proto_S"
+    "C_Player_CheckPhoneCodeRsp\022\016\n\006result\030\001 \001"
+    "(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tcode_type\030\003 \001(\r"
+    "\"i\n\034Proto_CS_Player_BindPhoneReq\022\021\n\tphon"
+    "e_num\030\001 \001(\004\022\021\n\tnick_name\030\002 \001(\t\022\020\n\010passwo"
+    "rd\030\003 \001(\t\022\021\n\tdevice_id\030\004 \001(\t\"T\n\034Proto_SC_"
+    "Player_BindPhoneRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tp"
+    "hone_num\030\002 \001(\004\022\021\n\tnick_name\030\003 \001(\t\"N\n#Pro"
+    "to_CS_PhoneChangeBandPasswordReq\022\021\n\tphon"
+    "e_num\030\001 \001(\004\022\024\n\014new_password\030\002 \001(\t\"5\n#Pro"
+    "to_SC_PhoneChangeBandPasswordRsp\022\016\n\006resu"
+    "lt\030\001 \001(\005\"5\n\034Proto_CSCheckContractInfoReq"
+    "\022\025\n\rcontract_info\030\001 \001(\t\".\n\034Proto_SCCheck"
+    "ContractInfoRsp\022\016\n\006result\030\001 \001(\005\")\n\027Proto"
+    "_SCKetPlayerNotify\022\016\n\006result\030\001 \001(\005", 2914);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSLogin.proto", &protobuf_RegisterTypes);
   Proto_UserSimpleData::default_instance_ = new Proto_UserSimpleData();
-  Proto_UserLoginExternalData::default_instance_ = new Proto_UserLoginExternalData();
-  Proto_UserDetailCommonData::default_instance_ = new Proto_UserDetailCommonData();
   Proto_CSReconnectReq::default_instance_ = new Proto_CSReconnectReq();
   Proto_SCReconnectRsp::default_instance_ = new Proto_SCReconnectRsp();
   Proto_CSHeartBeatReq::default_instance_ = new Proto_CSHeartBeatReq();
@@ -1095,8 +1014,6 @@ void protobuf_AddDesc_CSLogin_2eproto() {
   Proto_SCCheckContractInfoRsp::default_instance_ = new Proto_SCCheckContractInfoRsp();
   Proto_SCKetPlayerNotify::default_instance_ = new Proto_SCKetPlayerNotify();
   Proto_UserSimpleData::default_instance_->InitAsDefaultInstance();
-  Proto_UserLoginExternalData::default_instance_->InitAsDefaultInstance();
-  Proto_UserDetailCommonData::default_instance_->InitAsDefaultInstance();
   Proto_CSReconnectReq::default_instance_->InitAsDefaultInstance();
   Proto_SCReconnectRsp::default_instance_->InitAsDefaultInstance();
   Proto_CSHeartBeatReq::default_instance_->InitAsDefaultInstance();
@@ -1523,1351 +1440,6 @@ void Proto_UserSimpleData::Swap(Proto_UserSimpleData* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_UserSimpleData_descriptor_;
   metadata.reflection = Proto_UserSimpleData_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Proto_UserLoginExternalData::kAreadIdFieldNumber;
-const int Proto_UserLoginExternalData::kAgentIdFieldNumber;
-const int Proto_UserLoginExternalData::kChannelIdFieldNumber;
-const int Proto_UserLoginExternalData::kReferralCodeFieldNumber;
-const int Proto_UserLoginExternalData::kPlatformOsFieldNumber;
-const int Proto_UserLoginExternalData::kCountryFieldNumber;
-const int Proto_UserLoginExternalData::kProvinceFieldNumber;
-const int Proto_UserLoginExternalData::kCityFieldNumber;
-const int Proto_UserLoginExternalData::kPhoneModeFieldNumber;
-const int Proto_UserLoginExternalData::kDeviceIdFieldNumber;
-#endif  // !_MSC_VER
-
-Proto_UserLoginExternalData::Proto_UserLoginExternalData()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Proto_UserLoginExternalData::InitAsDefaultInstance() {
-}
-
-Proto_UserLoginExternalData::Proto_UserLoginExternalData(const Proto_UserLoginExternalData& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Proto_UserLoginExternalData::SharedCtor() {
-  _cached_size_ = 0;
-  aread_id_ = 0u;
-  agent_id_ = 0u;
-  channel_id_ = 0u;
-  referral_code_ = GOOGLE_ULONGLONG(0);
-  platform_os_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  country_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  province_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  city_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  phone_mode_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Proto_UserLoginExternalData::~Proto_UserLoginExternalData() {
-  SharedDtor();
-}
-
-void Proto_UserLoginExternalData::SharedDtor() {
-  if (platform_os_ != &::google::protobuf::internal::kEmptyString) {
-    delete platform_os_;
-  }
-  if (country_ != &::google::protobuf::internal::kEmptyString) {
-    delete country_;
-  }
-  if (province_ != &::google::protobuf::internal::kEmptyString) {
-    delete province_;
-  }
-  if (city_ != &::google::protobuf::internal::kEmptyString) {
-    delete city_;
-  }
-  if (phone_mode_ != &::google::protobuf::internal::kEmptyString) {
-    delete phone_mode_;
-  }
-  if (device_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete device_id_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void Proto_UserLoginExternalData::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Proto_UserLoginExternalData::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Proto_UserLoginExternalData_descriptor_;
-}
-
-const Proto_UserLoginExternalData& Proto_UserLoginExternalData::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_CSLogin_2eproto();
-  return *default_instance_;
-}
-
-Proto_UserLoginExternalData* Proto_UserLoginExternalData::default_instance_ = NULL;
-
-Proto_UserLoginExternalData* Proto_UserLoginExternalData::New() const {
-  return new Proto_UserLoginExternalData;
-}
-
-void Proto_UserLoginExternalData::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    aread_id_ = 0u;
-    agent_id_ = 0u;
-    channel_id_ = 0u;
-    referral_code_ = GOOGLE_ULONGLONG(0);
-    if (has_platform_os()) {
-      if (platform_os_ != &::google::protobuf::internal::kEmptyString) {
-        platform_os_->clear();
-      }
-    }
-    if (has_country()) {
-      if (country_ != &::google::protobuf::internal::kEmptyString) {
-        country_->clear();
-      }
-    }
-    if (has_province()) {
-      if (province_ != &::google::protobuf::internal::kEmptyString) {
-        province_->clear();
-      }
-    }
-    if (has_city()) {
-      if (city_ != &::google::protobuf::internal::kEmptyString) {
-        city_->clear();
-      }
-    }
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (has_phone_mode()) {
-      if (phone_mode_ != &::google::protobuf::internal::kEmptyString) {
-        phone_mode_->clear();
-      }
-    }
-    if (has_device_id()) {
-      if (device_id_ != &::google::protobuf::internal::kEmptyString) {
-        device_id_->clear();
-      }
-    }
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Proto_UserLoginExternalData::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 aread_id = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &aread_id_)));
-          set_has_aread_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_agent_id;
-        break;
-      }
-
-      // optional uint32 agent_id = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_agent_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &agent_id_)));
-          set_has_agent_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_channel_id;
-        break;
-      }
-
-      // optional uint32 channel_id = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_channel_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &channel_id_)));
-          set_has_channel_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_referral_code;
-        break;
-      }
-
-      // optional uint64 referral_code = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_referral_code:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &referral_code_)));
-          set_has_referral_code();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_platform_os;
-        break;
-      }
-
-      // optional string platform_os = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_platform_os:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_platform_os()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->platform_os().data(), this->platform_os().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(50)) goto parse_country;
-        break;
-      }
-
-      // optional string country = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_country:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_country()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->country().data(), this->country().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(58)) goto parse_province;
-        break;
-      }
-
-      // optional string province = 7;
-      case 7: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_province:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_province()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->province().data(), this->province().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(66)) goto parse_city;
-        break;
-      }
-
-      // optional string city = 8;
-      case 8: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_city:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_city()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->city().data(), this->city().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(74)) goto parse_phone_mode;
-        break;
-      }
-
-      // optional string phone_mode = 9;
-      case 9: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_phone_mode:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_phone_mode()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->phone_mode().data(), this->phone_mode().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(82)) goto parse_device_id;
-        break;
-      }
-
-      // optional string device_id = 10;
-      case 10: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_device_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_device_id()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->device_id().data(), this->device_id().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Proto_UserLoginExternalData::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint32 aread_id = 1;
-  if (has_aread_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->aread_id(), output);
-  }
-
-  // optional uint32 agent_id = 2;
-  if (has_agent_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->agent_id(), output);
-  }
-
-  // optional uint32 channel_id = 3;
-  if (has_channel_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->channel_id(), output);
-  }
-
-  // optional uint64 referral_code = 4;
-  if (has_referral_code()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->referral_code(), output);
-  }
-
-  // optional string platform_os = 5;
-  if (has_platform_os()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->platform_os().data(), this->platform_os().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->platform_os(), output);
-  }
-
-  // optional string country = 6;
-  if (has_country()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->country().data(), this->country().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      6, this->country(), output);
-  }
-
-  // optional string province = 7;
-  if (has_province()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->province().data(), this->province().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      7, this->province(), output);
-  }
-
-  // optional string city = 8;
-  if (has_city()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->city().data(), this->city().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      8, this->city(), output);
-  }
-
-  // optional string phone_mode = 9;
-  if (has_phone_mode()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->phone_mode().data(), this->phone_mode().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      9, this->phone_mode(), output);
-  }
-
-  // optional string device_id = 10;
-  if (has_device_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->device_id().data(), this->device_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      10, this->device_id(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Proto_UserLoginExternalData::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional uint32 aread_id = 1;
-  if (has_aread_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->aread_id(), target);
-  }
-
-  // optional uint32 agent_id = 2;
-  if (has_agent_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->agent_id(), target);
-  }
-
-  // optional uint32 channel_id = 3;
-  if (has_channel_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->channel_id(), target);
-  }
-
-  // optional uint64 referral_code = 4;
-  if (has_referral_code()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->referral_code(), target);
-  }
-
-  // optional string platform_os = 5;
-  if (has_platform_os()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->platform_os().data(), this->platform_os().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->platform_os(), target);
-  }
-
-  // optional string country = 6;
-  if (has_country()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->country().data(), this->country().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        6, this->country(), target);
-  }
-
-  // optional string province = 7;
-  if (has_province()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->province().data(), this->province().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->province(), target);
-  }
-
-  // optional string city = 8;
-  if (has_city()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->city().data(), this->city().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        8, this->city(), target);
-  }
-
-  // optional string phone_mode = 9;
-  if (has_phone_mode()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->phone_mode().data(), this->phone_mode().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        9, this->phone_mode(), target);
-  }
-
-  // optional string device_id = 10;
-  if (has_device_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->device_id().data(), this->device_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        10, this->device_id(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Proto_UserLoginExternalData::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint32 aread_id = 1;
-    if (has_aread_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->aread_id());
-    }
-
-    // optional uint32 agent_id = 2;
-    if (has_agent_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->agent_id());
-    }
-
-    // optional uint32 channel_id = 3;
-    if (has_channel_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->channel_id());
-    }
-
-    // optional uint64 referral_code = 4;
-    if (has_referral_code()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->referral_code());
-    }
-
-    // optional string platform_os = 5;
-    if (has_platform_os()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->platform_os());
-    }
-
-    // optional string country = 6;
-    if (has_country()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->country());
-    }
-
-    // optional string province = 7;
-    if (has_province()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->province());
-    }
-
-    // optional string city = 8;
-    if (has_city()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->city());
-    }
-
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional string phone_mode = 9;
-    if (has_phone_mode()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->phone_mode());
-    }
-
-    // optional string device_id = 10;
-    if (has_device_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->device_id());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Proto_UserLoginExternalData::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Proto_UserLoginExternalData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_UserLoginExternalData*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Proto_UserLoginExternalData::MergeFrom(const Proto_UserLoginExternalData& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_aread_id()) {
-      set_aread_id(from.aread_id());
-    }
-    if (from.has_agent_id()) {
-      set_agent_id(from.agent_id());
-    }
-    if (from.has_channel_id()) {
-      set_channel_id(from.channel_id());
-    }
-    if (from.has_referral_code()) {
-      set_referral_code(from.referral_code());
-    }
-    if (from.has_platform_os()) {
-      set_platform_os(from.platform_os());
-    }
-    if (from.has_country()) {
-      set_country(from.country());
-    }
-    if (from.has_province()) {
-      set_province(from.province());
-    }
-    if (from.has_city()) {
-      set_city(from.city());
-    }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_phone_mode()) {
-      set_phone_mode(from.phone_mode());
-    }
-    if (from.has_device_id()) {
-      set_device_id(from.device_id());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Proto_UserLoginExternalData::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Proto_UserLoginExternalData::CopyFrom(const Proto_UserLoginExternalData& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Proto_UserLoginExternalData::IsInitialized() const {
-
-  return true;
-}
-
-void Proto_UserLoginExternalData::Swap(Proto_UserLoginExternalData* other) {
-  if (other != this) {
-    std::swap(aread_id_, other->aread_id_);
-    std::swap(agent_id_, other->agent_id_);
-    std::swap(channel_id_, other->channel_id_);
-    std::swap(referral_code_, other->referral_code_);
-    std::swap(platform_os_, other->platform_os_);
-    std::swap(country_, other->country_);
-    std::swap(province_, other->province_);
-    std::swap(city_, other->city_);
-    std::swap(phone_mode_, other->phone_mode_);
-    std::swap(device_id_, other->device_id_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Proto_UserLoginExternalData::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Proto_UserLoginExternalData_descriptor_;
-  metadata.reflection = Proto_UserLoginExternalData_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Proto_UserDetailCommonData::kNickNameFieldNumber;
-const int Proto_UserDetailCommonData::kFaceIdFieldNumber;
-const int Proto_UserDetailCommonData::kGenderFieldNumber;
-const int Proto_UserDetailCommonData::kJettonFieldNumber;
-const int Proto_UserDetailCommonData::kBankJettonFieldNumber;
-const int Proto_UserDetailCommonData::kAgentIdFieldNumber;
-const int Proto_UserDetailCommonData::kPhonenumFieldNumber;
-const int Proto_UserDetailCommonData::kVipLevelFieldNumber;
-const int Proto_UserDetailCommonData::kAreadIdFieldNumber;
-const int Proto_UserDetailCommonData::kReferrerIdFieldNumber;
-const int Proto_UserDetailCommonData::kFirstRechargeFieldNumber;
-const int Proto_UserDetailCommonData::kShowUseridFieldNumber;
-#endif  // !_MSC_VER
-
-Proto_UserDetailCommonData::Proto_UserDetailCommonData()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Proto_UserDetailCommonData::InitAsDefaultInstance() {
-}
-
-Proto_UserDetailCommonData::Proto_UserDetailCommonData(const Proto_UserDetailCommonData& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Proto_UserDetailCommonData::SharedCtor() {
-  _cached_size_ = 0;
-  nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  face_id_ = 0u;
-  gender_ = 0u;
-  jetton_ = GOOGLE_ULONGLONG(0);
-  bank_jetton_ = GOOGLE_ULONGLONG(0);
-  agent_id_ = GOOGLE_ULONGLONG(0);
-  phonenum_ = GOOGLE_ULONGLONG(0);
-  vip_level_ = 0u;
-  aread_id_ = 0u;
-  referrer_id_ = GOOGLE_ULONGLONG(0);
-  first_recharge_ = false;
-  show_userid_ = GOOGLE_ULONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Proto_UserDetailCommonData::~Proto_UserDetailCommonData() {
-  SharedDtor();
-}
-
-void Proto_UserDetailCommonData::SharedDtor() {
-  if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete nick_name_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void Proto_UserDetailCommonData::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Proto_UserDetailCommonData::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Proto_UserDetailCommonData_descriptor_;
-}
-
-const Proto_UserDetailCommonData& Proto_UserDetailCommonData::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_CSLogin_2eproto();
-  return *default_instance_;
-}
-
-Proto_UserDetailCommonData* Proto_UserDetailCommonData::default_instance_ = NULL;
-
-Proto_UserDetailCommonData* Proto_UserDetailCommonData::New() const {
-  return new Proto_UserDetailCommonData;
-}
-
-void Proto_UserDetailCommonData::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (has_nick_name()) {
-      if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
-        nick_name_->clear();
-      }
-    }
-    face_id_ = 0u;
-    gender_ = 0u;
-    jetton_ = GOOGLE_ULONGLONG(0);
-    bank_jetton_ = GOOGLE_ULONGLONG(0);
-    agent_id_ = GOOGLE_ULONGLONG(0);
-    phonenum_ = GOOGLE_ULONGLONG(0);
-    vip_level_ = 0u;
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    aread_id_ = 0u;
-    referrer_id_ = GOOGLE_ULONGLONG(0);
-    first_recharge_ = false;
-    show_userid_ = GOOGLE_ULONGLONG(0);
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Proto_UserDetailCommonData::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string nick_name = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_nick_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->nick_name().data(), this->nick_name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_face_id;
-        break;
-      }
-
-      // optional uint32 face_id = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_face_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &face_id_)));
-          set_has_face_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_gender;
-        break;
-      }
-
-      // optional uint32 gender = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_gender:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &gender_)));
-          set_has_gender();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_jetton;
-        break;
-      }
-
-      // optional uint64 jetton = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_jetton:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &jetton_)));
-          set_has_jetton();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_bank_jetton;
-        break;
-      }
-
-      // optional uint64 bank_jetton = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_bank_jetton:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &bank_jetton_)));
-          set_has_bank_jetton();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(48)) goto parse_agent_id;
-        break;
-      }
-
-      // optional uint64 agent_id = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_agent_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &agent_id_)));
-          set_has_agent_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(56)) goto parse_phonenum;
-        break;
-      }
-
-      // optional uint64 phonenum = 7;
-      case 7: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_phonenum:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &phonenum_)));
-          set_has_phonenum();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(64)) goto parse_vip_level;
-        break;
-      }
-
-      // optional uint32 vip_level = 8;
-      case 8: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_vip_level:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &vip_level_)));
-          set_has_vip_level();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(72)) goto parse_aread_id;
-        break;
-      }
-
-      // optional uint32 aread_id = 9;
-      case 9: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_aread_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &aread_id_)));
-          set_has_aread_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(80)) goto parse_referrer_id;
-        break;
-      }
-
-      // optional uint64 referrer_id = 10;
-      case 10: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_referrer_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &referrer_id_)));
-          set_has_referrer_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(88)) goto parse_first_recharge;
-        break;
-      }
-
-      // optional bool first_recharge = 11;
-      case 11: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_first_recharge:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &first_recharge_)));
-          set_has_first_recharge();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(96)) goto parse_show_userid;
-        break;
-      }
-
-      // optional uint64 show_userid = 12;
-      case 12: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_show_userid:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &show_userid_)));
-          set_has_show_userid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Proto_UserDetailCommonData::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional string nick_name = 1;
-  if (has_nick_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nick_name().data(), this->nick_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      1, this->nick_name(), output);
-  }
-
-  // optional uint32 face_id = 2;
-  if (has_face_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->face_id(), output);
-  }
-
-  // optional uint32 gender = 3;
-  if (has_gender()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->gender(), output);
-  }
-
-  // optional uint64 jetton = 4;
-  if (has_jetton()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->jetton(), output);
-  }
-
-  // optional uint64 bank_jetton = 5;
-  if (has_bank_jetton()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(5, this->bank_jetton(), output);
-  }
-
-  // optional uint64 agent_id = 6;
-  if (has_agent_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->agent_id(), output);
-  }
-
-  // optional uint64 phonenum = 7;
-  if (has_phonenum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(7, this->phonenum(), output);
-  }
-
-  // optional uint32 vip_level = 8;
-  if (has_vip_level()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->vip_level(), output);
-  }
-
-  // optional uint32 aread_id = 9;
-  if (has_aread_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(9, this->aread_id(), output);
-  }
-
-  // optional uint64 referrer_id = 10;
-  if (has_referrer_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(10, this->referrer_id(), output);
-  }
-
-  // optional bool first_recharge = 11;
-  if (has_first_recharge()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(11, this->first_recharge(), output);
-  }
-
-  // optional uint64 show_userid = 12;
-  if (has_show_userid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(12, this->show_userid(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Proto_UserDetailCommonData::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional string nick_name = 1;
-  if (has_nick_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nick_name().data(), this->nick_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->nick_name(), target);
-  }
-
-  // optional uint32 face_id = 2;
-  if (has_face_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->face_id(), target);
-  }
-
-  // optional uint32 gender = 3;
-  if (has_gender()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->gender(), target);
-  }
-
-  // optional uint64 jetton = 4;
-  if (has_jetton()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->jetton(), target);
-  }
-
-  // optional uint64 bank_jetton = 5;
-  if (has_bank_jetton()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(5, this->bank_jetton(), target);
-  }
-
-  // optional uint64 agent_id = 6;
-  if (has_agent_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->agent_id(), target);
-  }
-
-  // optional uint64 phonenum = 7;
-  if (has_phonenum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(7, this->phonenum(), target);
-  }
-
-  // optional uint32 vip_level = 8;
-  if (has_vip_level()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->vip_level(), target);
-  }
-
-  // optional uint32 aread_id = 9;
-  if (has_aread_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(9, this->aread_id(), target);
-  }
-
-  // optional uint64 referrer_id = 10;
-  if (has_referrer_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(10, this->referrer_id(), target);
-  }
-
-  // optional bool first_recharge = 11;
-  if (has_first_recharge()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(11, this->first_recharge(), target);
-  }
-
-  // optional uint64 show_userid = 12;
-  if (has_show_userid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(12, this->show_userid(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Proto_UserDetailCommonData::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional string nick_name = 1;
-    if (has_nick_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->nick_name());
-    }
-
-    // optional uint32 face_id = 2;
-    if (has_face_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->face_id());
-    }
-
-    // optional uint32 gender = 3;
-    if (has_gender()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->gender());
-    }
-
-    // optional uint64 jetton = 4;
-    if (has_jetton()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->jetton());
-    }
-
-    // optional uint64 bank_jetton = 5;
-    if (has_bank_jetton()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->bank_jetton());
-    }
-
-    // optional uint64 agent_id = 6;
-    if (has_agent_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->agent_id());
-    }
-
-    // optional uint64 phonenum = 7;
-    if (has_phonenum()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->phonenum());
-    }
-
-    // optional uint32 vip_level = 8;
-    if (has_vip_level()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->vip_level());
-    }
-
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    // optional uint32 aread_id = 9;
-    if (has_aread_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->aread_id());
-    }
-
-    // optional uint64 referrer_id = 10;
-    if (has_referrer_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->referrer_id());
-    }
-
-    // optional bool first_recharge = 11;
-    if (has_first_recharge()) {
-      total_size += 1 + 1;
-    }
-
-    // optional uint64 show_userid = 12;
-    if (has_show_userid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->show_userid());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Proto_UserDetailCommonData::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Proto_UserDetailCommonData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_UserDetailCommonData*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Proto_UserDetailCommonData::MergeFrom(const Proto_UserDetailCommonData& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_nick_name()) {
-      set_nick_name(from.nick_name());
-    }
-    if (from.has_face_id()) {
-      set_face_id(from.face_id());
-    }
-    if (from.has_gender()) {
-      set_gender(from.gender());
-    }
-    if (from.has_jetton()) {
-      set_jetton(from.jetton());
-    }
-    if (from.has_bank_jetton()) {
-      set_bank_jetton(from.bank_jetton());
-    }
-    if (from.has_agent_id()) {
-      set_agent_id(from.agent_id());
-    }
-    if (from.has_phonenum()) {
-      set_phonenum(from.phonenum());
-    }
-    if (from.has_vip_level()) {
-      set_vip_level(from.vip_level());
-    }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    if (from.has_aread_id()) {
-      set_aread_id(from.aread_id());
-    }
-    if (from.has_referrer_id()) {
-      set_referrer_id(from.referrer_id());
-    }
-    if (from.has_first_recharge()) {
-      set_first_recharge(from.first_recharge());
-    }
-    if (from.has_show_userid()) {
-      set_show_userid(from.show_userid());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Proto_UserDetailCommonData::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Proto_UserDetailCommonData::CopyFrom(const Proto_UserDetailCommonData& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Proto_UserDetailCommonData::IsInitialized() const {
-
-  return true;
-}
-
-void Proto_UserDetailCommonData::Swap(Proto_UserDetailCommonData* other) {
-  if (other != this) {
-    std::swap(nick_name_, other->nick_name_);
-    std::swap(face_id_, other->face_id_);
-    std::swap(gender_, other->gender_);
-    std::swap(jetton_, other->jetton_);
-    std::swap(bank_jetton_, other->bank_jetton_);
-    std::swap(agent_id_, other->agent_id_);
-    std::swap(phonenum_, other->phonenum_);
-    std::swap(vip_level_, other->vip_level_);
-    std::swap(aread_id_, other->aread_id_);
-    std::swap(referrer_id_, other->referrer_id_);
-    std::swap(first_recharge_, other->first_recharge_);
-    std::swap(show_userid_, other->show_userid_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Proto_UserDetailCommonData::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Proto_UserDetailCommonData_descriptor_;
-  metadata.reflection = Proto_UserDetailCommonData_reflection_;
   return metadata;
 }
 
@@ -3710,7 +2282,6 @@ void Proto_SCHeartBeatRsp::Swap(Proto_SCHeartBeatRsp* other) {
 const int Proto_CSRegisterAccountReq::kAccountFieldNumber;
 const int Proto_CSRegisterAccountReq::kPasswordFieldNumber;
 const int Proto_CSRegisterAccountReq::kNickNameFieldNumber;
-const int Proto_CSRegisterAccountReq::kExtDataFieldNumber;
 const int Proto_CSRegisterAccountReq::kIsPhoneFieldNumber;
 const int Proto_CSRegisterAccountReq::kDeviceIdFieldNumber;
 const int Proto_CSRegisterAccountReq::kContractInfoFieldNumber;
@@ -3722,7 +2293,6 @@ Proto_CSRegisterAccountReq::Proto_CSRegisterAccountReq()
 }
 
 void Proto_CSRegisterAccountReq::InitAsDefaultInstance() {
-  ext_data_ = const_cast< ::proto_ff::Proto_UserLoginExternalData*>(&::proto_ff::Proto_UserLoginExternalData::default_instance());
 }
 
 Proto_CSRegisterAccountReq::Proto_CSRegisterAccountReq(const Proto_CSRegisterAccountReq& from)
@@ -3736,7 +2306,6 @@ void Proto_CSRegisterAccountReq::SharedCtor() {
   account_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  ext_data_ = NULL;
   is_phone_ = false;
   device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   contract_info_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
@@ -3764,7 +2333,6 @@ void Proto_CSRegisterAccountReq::SharedDtor() {
     delete contract_info_;
   }
   if (this != default_instance_) {
-    delete ext_data_;
   }
 }
 
@@ -3805,9 +2373,6 @@ void Proto_CSRegisterAccountReq::Clear() {
       if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
         nick_name_->clear();
       }
-    }
-    if (has_ext_data()) {
-      if (ext_data_ != NULL) ext_data_->::proto_ff::Proto_UserLoginExternalData::Clear();
     }
     is_phone_ = false;
     if (has_device_id()) {
@@ -3874,20 +2439,6 @@ bool Proto_CSRegisterAccountReq::MergePartialFromCodedStream(
           ::google::protobuf::internal::WireFormat::VerifyUTF8String(
             this->nick_name().data(), this->nick_name().length(),
             ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(34)) goto parse_ext_data;
-        break;
-      }
-
-      // optional .proto_ff.Proto_UserLoginExternalData ext_data = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ext_data:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_ext_data()));
         } else {
           goto handle_uninterpreted;
         }
@@ -3990,12 +2541,6 @@ void Proto_CSRegisterAccountReq::SerializeWithCachedSizes(
       3, this->nick_name(), output);
   }
 
-  // optional .proto_ff.Proto_UserLoginExternalData ext_data = 4;
-  if (has_ext_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      4, this->ext_data(), output);
-  }
-
   // optional bool is_phone = 5;
   if (has_is_phone()) {
     ::google::protobuf::internal::WireFormatLite::WriteBool(5, this->is_phone(), output);
@@ -4057,13 +2602,6 @@ void Proto_CSRegisterAccountReq::SerializeWithCachedSizes(
         3, this->nick_name(), target);
   }
 
-  // optional .proto_ff.Proto_UserLoginExternalData ext_data = 4;
-  if (has_ext_data()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        4, this->ext_data(), target);
-  }
-
   // optional bool is_phone = 5;
   if (has_is_phone()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(5, this->is_phone(), target);
@@ -4121,13 +2659,6 @@ int Proto_CSRegisterAccountReq::ByteSize() const {
           this->nick_name());
     }
 
-    // optional .proto_ff.Proto_UserLoginExternalData ext_data = 4;
-    if (has_ext_data()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->ext_data());
-    }
-
     // optional bool is_phone = 5;
     if (has_is_phone()) {
       total_size += 1 + 1;
@@ -4183,9 +2714,6 @@ void Proto_CSRegisterAccountReq::MergeFrom(const Proto_CSRegisterAccountReq& fro
     if (from.has_nick_name()) {
       set_nick_name(from.nick_name());
     }
-    if (from.has_ext_data()) {
-      mutable_ext_data()->::proto_ff::Proto_UserLoginExternalData::MergeFrom(from.ext_data());
-    }
     if (from.has_is_phone()) {
       set_is_phone(from.is_phone());
     }
@@ -4221,7 +2749,6 @@ void Proto_CSRegisterAccountReq::Swap(Proto_CSRegisterAccountReq* other) {
     std::swap(account_, other->account_);
     std::swap(password_, other->password_);
     std::swap(nick_name_, other->nick_name_);
-    std::swap(ext_data_, other->ext_data_);
     std::swap(is_phone_, other->is_phone_);
     std::swap(device_id_, other->device_id_);
     std::swap(contract_info_, other->contract_info_);

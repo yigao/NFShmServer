@@ -155,6 +155,15 @@ class Proto_PTWUserLoginReq : public ::google::protobuf::Message {
   inline ::std::string* release_client_ip();
   inline void set_allocated_client_ip(::std::string* client_ip);
 
+  // optional .proto_ff.Proto_UserLoginExternalData ext_data = 5;
+  inline bool has_ext_data() const;
+  inline void clear_ext_data();
+  static const int kExtDataFieldNumber = 5;
+  inline const ::proto_ff::Proto_UserLoginExternalData& ext_data() const;
+  inline ::proto_ff::Proto_UserLoginExternalData* mutable_ext_data();
+  inline ::proto_ff::Proto_UserLoginExternalData* release_ext_data();
+  inline void set_allocated_ext_data(::proto_ff::Proto_UserLoginExternalData* ext_data);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_PTWUserLoginReq)
  private:
   inline void set_has_user_id();
@@ -165,16 +174,19 @@ class Proto_PTWUserLoginReq : public ::google::protobuf::Message {
   inline void clear_has_proxy_bus_id();
   inline void set_has_client_ip();
   inline void clear_has_client_ip();
+  inline void set_has_ext_data();
+  inline void clear_has_ext_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 user_id_;
   ::std::string* account_;
   ::std::string* client_ip_;
+  ::proto_ff::Proto_UserLoginExternalData* ext_data_;
   ::google::protobuf::uint32 proxy_bus_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -281,6 +293,15 @@ class Proto_WTPPlayerLoginRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 logic_bus_id() const;
   inline void set_logic_bus_id(::google::protobuf::uint32 value);
 
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
+  inline bool has_detail_data() const;
+  inline void clear_detail_data();
+  static const int kDetailDataFieldNumber = 7;
+  inline const ::proto_ff::Proto_UserDetailCommonData& detail_data() const;
+  inline ::proto_ff::Proto_UserDetailCommonData* mutable_detail_data();
+  inline ::proto_ff::Proto_UserDetailCommonData* release_detail_data();
+  inline void set_allocated_detail_data(::proto_ff::Proto_UserDetailCommonData* detail_data);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTPPlayerLoginRsp)
  private:
   inline void set_has_result();
@@ -295,6 +316,8 @@ class Proto_WTPPlayerLoginRsp : public ::google::protobuf::Message {
   inline void clear_has_game_bus_id();
   inline void set_has_logic_bus_id();
   inline void clear_has_logic_bus_id();
+  inline void set_has_detail_data();
+  inline void clear_has_detail_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -303,10 +326,11 @@ class Proto_WTPPlayerLoginRsp : public ::google::protobuf::Message {
   ::google::protobuf::uint32 game_id_;
   ::google::protobuf::uint32 room_id_;
   ::google::protobuf::uint32 game_bus_id_;
+  ::proto_ff::Proto_UserDetailCommonData* detail_data_;
   ::google::protobuf::uint32 logic_bus_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -418,6 +442,15 @@ class Proto_WorldToLogicLoginReq : public ::google::protobuf::Message {
   inline ::std::string* release_client_ip();
   inline void set_allocated_client_ip(::std::string* client_ip);
 
+  // optional .proto_ff.Proto_UserLoginExternalData ext_data = 8;
+  inline bool has_ext_data() const;
+  inline void clear_ext_data();
+  static const int kExtDataFieldNumber = 8;
+  inline const ::proto_ff::Proto_UserLoginExternalData& ext_data() const;
+  inline ::proto_ff::Proto_UserLoginExternalData* mutable_ext_data();
+  inline ::proto_ff::Proto_UserLoginExternalData* release_ext_data();
+  inline void set_allocated_ext_data(::proto_ff::Proto_UserLoginExternalData* ext_data);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_WorldToLogicLoginReq)
  private:
   inline void set_has_user_id();
@@ -432,6 +465,8 @@ class Proto_WorldToLogicLoginReq : public ::google::protobuf::Message {
   inline void clear_has_proxy_bus_id();
   inline void set_has_client_ip();
   inline void clear_has_client_ip();
+  inline void set_has_ext_data();
+  inline void clear_has_ext_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -441,9 +476,10 @@ class Proto_WorldToLogicLoginReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 game_bus_id_;
   ::google::protobuf::uint32 proxy_bus_id_;
   ::std::string* client_ip_;
+  ::proto_ff::Proto_UserLoginExternalData* ext_data_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -522,20 +558,32 @@ class Proto_LogicToWorldLoginRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 user_id() const;
   inline void set_user_id(::google::protobuf::uint64 value);
 
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
+  inline bool has_detail_data() const;
+  inline void clear_detail_data();
+  static const int kDetailDataFieldNumber = 7;
+  inline const ::proto_ff::Proto_UserDetailCommonData& detail_data() const;
+  inline ::proto_ff::Proto_UserDetailCommonData* mutable_detail_data();
+  inline ::proto_ff::Proto_UserDetailCommonData* release_detail_data();
+  inline void set_allocated_detail_data(::proto_ff::Proto_UserDetailCommonData* detail_data);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_LogicToWorldLoginRsp)
  private:
   inline void set_has_result();
   inline void clear_has_result();
   inline void set_has_user_id();
   inline void clear_has_user_id();
+  inline void set_has_detail_data();
+  inline void clear_has_detail_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 user_id_;
+  ::proto_ff::Proto_UserDetailCommonData* detail_data_;
   ::google::protobuf::uint32 result_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -735,6 +783,44 @@ inline void Proto_PTWUserLoginReq::set_allocated_client_ip(::std::string* client
   }
 }
 
+// optional .proto_ff.Proto_UserLoginExternalData ext_data = 5;
+inline bool Proto_PTWUserLoginReq::has_ext_data() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_PTWUserLoginReq::set_has_ext_data() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_PTWUserLoginReq::clear_has_ext_data() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_PTWUserLoginReq::clear_ext_data() {
+  if (ext_data_ != NULL) ext_data_->::proto_ff::Proto_UserLoginExternalData::Clear();
+  clear_has_ext_data();
+}
+inline const ::proto_ff::Proto_UserLoginExternalData& Proto_PTWUserLoginReq::ext_data() const {
+  return ext_data_ != NULL ? *ext_data_ : *default_instance_->ext_data_;
+}
+inline ::proto_ff::Proto_UserLoginExternalData* Proto_PTWUserLoginReq::mutable_ext_data() {
+  set_has_ext_data();
+  if (ext_data_ == NULL) ext_data_ = new ::proto_ff::Proto_UserLoginExternalData;
+  return ext_data_;
+}
+inline ::proto_ff::Proto_UserLoginExternalData* Proto_PTWUserLoginReq::release_ext_data() {
+  clear_has_ext_data();
+  ::proto_ff::Proto_UserLoginExternalData* temp = ext_data_;
+  ext_data_ = NULL;
+  return temp;
+}
+inline void Proto_PTWUserLoginReq::set_allocated_ext_data(::proto_ff::Proto_UserLoginExternalData* ext_data) {
+  delete ext_data_;
+  ext_data_ = ext_data;
+  if (ext_data) {
+    set_has_ext_data();
+  } else {
+    clear_has_ext_data();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // Proto_WTPPlayerLoginRsp
@@ -869,6 +955,44 @@ inline ::google::protobuf::uint32 Proto_WTPPlayerLoginRsp::logic_bus_id() const 
 inline void Proto_WTPPlayerLoginRsp::set_logic_bus_id(::google::protobuf::uint32 value) {
   set_has_logic_bus_id();
   logic_bus_id_ = value;
+}
+
+// optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
+inline bool Proto_WTPPlayerLoginRsp::has_detail_data() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void Proto_WTPPlayerLoginRsp::set_has_detail_data() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Proto_WTPPlayerLoginRsp::clear_has_detail_data() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void Proto_WTPPlayerLoginRsp::clear_detail_data() {
+  if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
+  clear_has_detail_data();
+}
+inline const ::proto_ff::Proto_UserDetailCommonData& Proto_WTPPlayerLoginRsp::detail_data() const {
+  return detail_data_ != NULL ? *detail_data_ : *default_instance_->detail_data_;
+}
+inline ::proto_ff::Proto_UserDetailCommonData* Proto_WTPPlayerLoginRsp::mutable_detail_data() {
+  set_has_detail_data();
+  if (detail_data_ == NULL) detail_data_ = new ::proto_ff::Proto_UserDetailCommonData;
+  return detail_data_;
+}
+inline ::proto_ff::Proto_UserDetailCommonData* Proto_WTPPlayerLoginRsp::release_detail_data() {
+  clear_has_detail_data();
+  ::proto_ff::Proto_UserDetailCommonData* temp = detail_data_;
+  detail_data_ = NULL;
+  return temp;
+}
+inline void Proto_WTPPlayerLoginRsp::set_allocated_detail_data(::proto_ff::Proto_UserDetailCommonData* detail_data) {
+  delete detail_data_;
+  detail_data_ = detail_data;
+  if (detail_data) {
+    set_has_detail_data();
+  } else {
+    clear_has_detail_data();
+  }
 }
 
 // -------------------------------------------------------------------
@@ -1055,6 +1179,44 @@ inline void Proto_WorldToLogicLoginReq::set_allocated_client_ip(::std::string* c
   }
 }
 
+// optional .proto_ff.Proto_UserLoginExternalData ext_data = 8;
+inline bool Proto_WorldToLogicLoginReq::has_ext_data() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void Proto_WorldToLogicLoginReq::set_has_ext_data() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Proto_WorldToLogicLoginReq::clear_has_ext_data() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void Proto_WorldToLogicLoginReq::clear_ext_data() {
+  if (ext_data_ != NULL) ext_data_->::proto_ff::Proto_UserLoginExternalData::Clear();
+  clear_has_ext_data();
+}
+inline const ::proto_ff::Proto_UserLoginExternalData& Proto_WorldToLogicLoginReq::ext_data() const {
+  return ext_data_ != NULL ? *ext_data_ : *default_instance_->ext_data_;
+}
+inline ::proto_ff::Proto_UserLoginExternalData* Proto_WorldToLogicLoginReq::mutable_ext_data() {
+  set_has_ext_data();
+  if (ext_data_ == NULL) ext_data_ = new ::proto_ff::Proto_UserLoginExternalData;
+  return ext_data_;
+}
+inline ::proto_ff::Proto_UserLoginExternalData* Proto_WorldToLogicLoginReq::release_ext_data() {
+  clear_has_ext_data();
+  ::proto_ff::Proto_UserLoginExternalData* temp = ext_data_;
+  ext_data_ = NULL;
+  return temp;
+}
+inline void Proto_WorldToLogicLoginReq::set_allocated_ext_data(::proto_ff::Proto_UserLoginExternalData* ext_data) {
+  delete ext_data_;
+  ext_data_ = ext_data;
+  if (ext_data) {
+    set_has_ext_data();
+  } else {
+    clear_has_ext_data();
+  }
+}
+
 // -------------------------------------------------------------------
 
 // Proto_LogicToWorldLoginRsp
@@ -1101,6 +1263,44 @@ inline ::google::protobuf::uint64 Proto_LogicToWorldLoginRsp::user_id() const {
 inline void Proto_LogicToWorldLoginRsp::set_user_id(::google::protobuf::uint64 value) {
   set_has_user_id();
   user_id_ = value;
+}
+
+// optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
+inline bool Proto_LogicToWorldLoginRsp::has_detail_data() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_LogicToWorldLoginRsp::set_has_detail_data() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_LogicToWorldLoginRsp::clear_has_detail_data() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_LogicToWorldLoginRsp::clear_detail_data() {
+  if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
+  clear_has_detail_data();
+}
+inline const ::proto_ff::Proto_UserDetailCommonData& Proto_LogicToWorldLoginRsp::detail_data() const {
+  return detail_data_ != NULL ? *detail_data_ : *default_instance_->detail_data_;
+}
+inline ::proto_ff::Proto_UserDetailCommonData* Proto_LogicToWorldLoginRsp::mutable_detail_data() {
+  set_has_detail_data();
+  if (detail_data_ == NULL) detail_data_ = new ::proto_ff::Proto_UserDetailCommonData;
+  return detail_data_;
+}
+inline ::proto_ff::Proto_UserDetailCommonData* Proto_LogicToWorldLoginRsp::release_detail_data() {
+  clear_has_detail_data();
+  ::proto_ff::Proto_UserDetailCommonData* temp = detail_data_;
+  detail_data_ = NULL;
+  return temp;
+}
+inline void Proto_LogicToWorldLoginRsp::set_allocated_detail_data(::proto_ff::Proto_UserDetailCommonData* detail_data) {
+  delete detail_data_;
+  detail_data_ = detail_data;
+  if (detail_data) {
+    set_has_detail_data();
+  } else {
+    clear_has_detail_data();
+  }
 }
 
 
