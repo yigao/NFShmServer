@@ -22,7 +22,10 @@
 #include <google/protobuf/generated_message_util.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 // @@protoc_insertion_point(includes)
+
+namespace proto_ff {
 
 // Internal implementation detail -- do not call these.
 void  protobuf_AddDesc_ServerInternalCmd_2eproto();
@@ -30,6 +33,33 @@ void protobuf_AssignDesc_ServerInternalCmd_2eproto();
 void protobuf_ShutdownFile_ServerInternalCmd_2eproto();
 
 
+enum Proto_SvrLogicMsgID {
+  NF_WTL_PLAYER_LOGIN_REQ = 130,
+  NF_LTW_PLAYER_LOGIN_RSP = 131,
+  NF_PTW_PLAYER_LOGIN_REQ = 132,
+  NF_WTP_PLAYER_LOGIN_RSP = 133,
+  NF_LTS_PLAYER_LOGIN_REQ = 134,
+  NF_STL_PLAYER_LOGIN_RSP = 135,
+  NF_LTS_PLAYER_LOGOUT_REQ = 136,
+  NF_STL_PLAYER_LOGOUT_RSP = 137,
+  NF_LTW_PLAYER_LOGOUT_REQ = 138,
+  NF_WTL_PLAYER_LOGOUT_NOTIFY = 139
+};
+bool Proto_SvrLogicMsgID_IsValid(int value);
+const Proto_SvrLogicMsgID Proto_SvrLogicMsgID_MIN = NF_WTL_PLAYER_LOGIN_REQ;
+const Proto_SvrLogicMsgID Proto_SvrLogicMsgID_MAX = NF_WTL_PLAYER_LOGOUT_NOTIFY;
+const int Proto_SvrLogicMsgID_ARRAYSIZE = Proto_SvrLogicMsgID_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* Proto_SvrLogicMsgID_descriptor();
+inline const ::std::string& Proto_SvrLogicMsgID_Name(Proto_SvrLogicMsgID value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    Proto_SvrLogicMsgID_descriptor(), value);
+}
+inline bool Proto_SvrLogicMsgID_Parse(
+    const ::std::string& name, Proto_SvrLogicMsgID* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<Proto_SvrLogicMsgID>(
+    Proto_SvrLogicMsgID_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -41,10 +71,16 @@ void protobuf_ShutdownFile_ServerInternalCmd_2eproto();
 
 // @@protoc_insertion_point(namespace_scope)
 
+}  // namespace proto_ff
+
 #ifndef SWIG
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_SvrLogicMsgID>() {
+  return ::proto_ff::Proto_SvrLogicMsgID_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf

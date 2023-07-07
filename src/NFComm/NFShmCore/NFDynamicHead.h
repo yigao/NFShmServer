@@ -6,6 +6,7 @@
 
 class NFISharedMemModule;
 
+
 /**
  * @brief 不要调用CreateObjectRegisterFunction，ResumeObjectRegisterFunction, DestroyObjectRegisterFunction 创建对象，会崩溃， 走系统创建函数
  */
@@ -26,12 +27,12 @@ public:\
     static reverse_iterator REnd(NFIPluginManager* pPluginManager);\
     static iterator Erase(NFIPluginManager* pPluginManager, iterator iter);\
     static class_name* CreateObj(NFIPluginManager* pPluginManager);\
-    static class_name* CreateObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey);\
+    static class_name* CreateObjByHashKey(NFIPluginManager* pPluginManager, ShmObjHashKey hashKey);\
     static void DestroyObj(NFIPluginManager* pPluginManager, class_name*);\
     static void ClearAllObj(NFIPluginManager* pPluginManager);\
     static class_name* GetObjByObjId(NFIPluginManager* pPluginManager, int iObjId);\
     static class_name *GetObjByGlobalId(NFIPluginManager* pPluginManager, int iGlobalID, bool withChildrenType = false); \
-    static class_name *GetObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey);\
+    static class_name *GetObjByHashKey(NFIPluginManager* pPluginManager, ShmObjHashKey hashKey);\
     static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL);\
 	static class_name* Instance(NFIPluginManager* pPluginManager);\
 	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
@@ -76,7 +77,7 @@ public:\
     {\
         return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->CreateObj(type));\
     }\
-    class_name* class_name::CreateObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey)\
+    class_name* class_name::CreateObjByHashKey(NFIPluginManager* pPluginManager, ShmObjHashKey hashKey)\
     {\
         return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->CreateObjByHashKey(type, hashKey));\
     }\
@@ -96,7 +97,7 @@ public:\
 	{\
         return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByGlobalId(type, iGlobalID, withChildrenType));\
 	}\
-    class_name *class_name::GetObjByHashKey(NFIPluginManager* pPluginManager, uint64_t hashKey)\
+    class_name *class_name::GetObjByHashKey(NFIPluginManager* pPluginManager, ShmObjHashKey hashKey)\
     {\
         return dynamic_cast<class_name*>(pPluginManager->FindModule<NFISharedMemModule>()->GetObjByHashKey(type, hashKey));\
     }\

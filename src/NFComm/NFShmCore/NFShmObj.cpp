@@ -52,7 +52,7 @@ NFShmObj::~NFShmObj()
     m_iGlobalId = INVALID_ID;
     m_iObjSeq = INVALID_ID;
     m_iObjId = INVALID_ID;
-    m_iHashId = INVALID_ID;
+    m_iHashKey = INVALID_ID;
     m_iObjType = INVALID_ID;
 }
 
@@ -77,7 +77,7 @@ int NFShmObj::CreateInit()
         m_iGlobalId = iID;
     }
 
-    m_iHashId = INVALID_ID;
+    m_iHashKey = INVALID_ID;
     m_iObjSeq = FindModule<NFISharedMemModule>()->IncreaseObjSeqNum();
 
     m_bIsInRecycle = false;

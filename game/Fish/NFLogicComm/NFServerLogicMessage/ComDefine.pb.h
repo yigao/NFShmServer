@@ -231,6 +231,28 @@ inline bool Proto_PlayerCreateState_Parse(
   return ::google::protobuf::internal::ParseNamedEnum<Proto_PlayerCreateState>(
     Proto_PlayerCreateState_descriptor(), name, value);
 }
+enum PlayerStatus {
+  PLAYER_STATUS_NONE = 0,
+  PLAYER_STATUS_ONLINE = 1,
+  PLAYER_STATUS_OFFLINE = 2,
+  PLAYER_STATUS_LOGOUT = 3,
+  PLAYER_STATUS_DEAD = 4
+};
+bool PlayerStatus_IsValid(int value);
+const PlayerStatus PlayerStatus_MIN = PLAYER_STATUS_NONE;
+const PlayerStatus PlayerStatus_MAX = PLAYER_STATUS_DEAD;
+const int PlayerStatus_ARRAYSIZE = PlayerStatus_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* PlayerStatus_descriptor();
+inline const ::std::string& PlayerStatus_Name(PlayerStatus value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    PlayerStatus_descriptor(), value);
+}
+inline bool PlayerStatus_Parse(
+    const ::std::string& name, PlayerStatus* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<PlayerStatus>(
+    PlayerStatus_descriptor(), name, value);
+}
 // ===================================================================
 
 
@@ -275,6 +297,10 @@ inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_NetworkType>()
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::Proto_PlayerCreateState>() {
   return ::proto_ff::Proto_PlayerCreateState_descriptor();
+}
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::PlayerStatus>() {
+  return ::proto_ff::PlayerStatus_descriptor();
 }
 
 }  // namespace google

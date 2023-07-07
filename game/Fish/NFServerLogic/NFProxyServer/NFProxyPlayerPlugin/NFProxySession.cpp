@@ -19,14 +19,14 @@ void NFProxySession::SetLinkId(uint64_t linkId)
     m_linkId = linkId;
 }
 
-uint64_t NFProxySession::GetUid() const
+uint64_t NFProxySession::GetPlayerId() const
 {
-    return m_uid;
+    return m_playerId;
 }
 
-void NFProxySession::SetUid(uint64_t playerId)
+void NFProxySession::SetPlayerId(uint64_t playerId)
 {
-    NFProxySession::m_uid = playerId;
+    m_playerId = playerId;
 }
 
 const string &NFProxySession::GetIpAddr() const

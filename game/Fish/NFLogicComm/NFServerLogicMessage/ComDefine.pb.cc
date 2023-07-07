@@ -27,6 +27,7 @@ const ::google::protobuf::EnumDescriptor* Proto_SexType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_PlatType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_NetworkType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_PlayerCreateState_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* PlayerStatus_descriptor_ = NULL;
 
 }  // namespace
 
@@ -44,6 +45,7 @@ void protobuf_AssignDesc_ComDefine_2eproto() {
   Proto_PlatType_descriptor_ = file->enum_type(4);
   Proto_NetworkType_descriptor_ = file->enum_type(5);
   Proto_PlayerCreateState_descriptor_ = file->enum_type(6);
+  PlayerStatus_descriptor_ = file->enum_type(7);
 }
 
 namespace {
@@ -135,7 +137,11 @@ void protobuf_AddDesc_ComDefine_2eproto() {
     "ORK_3G\020\001\022\020\n\014E_NETWORK_4G\020\002\022\022\n\016E_NETWORK_"
     "WIFI\020\003*`\n\027Proto_PlayerCreateState\022\023\n\017E_C"
     "REATE_SUCESS\020\000\022\030\n\024E_CREATE_REGIST_NAME\020\001"
-    "\022\026\n\022E_CREATE_WAIT_NAME\020\002", 2584);
+    "\022\026\n\022E_CREATE_WAIT_NAME\020\002*\215\001\n\014PlayerStatu"
+    "s\022\026\n\022PLAYER_STATUS_NONE\020\000\022\030\n\024PLAYER_STAT"
+    "US_ONLINE\020\001\022\031\n\025PLAYER_STATUS_OFFLINE\020\002\022\030"
+    "\n\024PLAYER_STATUS_LOGOUT\020\003\022\026\n\022PLAYER_STATU"
+    "S_DEAD\020\004", 2728);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ComDefine.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ComDefine_2eproto);
@@ -302,6 +308,23 @@ bool Proto_PlayerCreateState_IsValid(int value) {
     case 0:
     case 1:
     case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* PlayerStatus_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PlayerStatus_descriptor_;
+}
+bool PlayerStatus_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
       return true;
     default:
       return false;

@@ -94,9 +94,9 @@ public:
     */
     virtual void SetShmInitSuccessFlag() = 0;
 
-    virtual NFShmObj *CreateObjByHashKey(int iType, uint64_t hashKey) = 0;
+    virtual NFShmObj *CreateObjByHashKey(int iType, ShmObjHashKey hashKey) = 0;
 
-    virtual NFShmObj *GetObjByHashKey(int iType, uint64_t hashKey) = 0;
+    virtual NFShmObj *GetObjByHashKey(int iType, ShmObjHashKey hashKey) = 0;
 
     virtual const std::unordered_set<int>& GetChildrenType(int iType) = 0;
 

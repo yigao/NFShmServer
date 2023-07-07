@@ -18,7 +18,7 @@ public:
     {
         m_linkId = 0;
         m_isLogin = false;
-        m_uid = 0;
+        m_playerId = 0;
         m_worldBusId = 0;
         m_gameBusId = 0;
         m_logicBusId = 0;
@@ -58,14 +58,17 @@ public:
 
     void SetIsLogin(bool isLogin);
 
-    uint64_t GetUid() const;
+    uint64_t GetPlayerId() const;
 
-    void SetUid(uint64_t uid);
+    void SetPlayerId(uint64_t uid);
 
     const string &GetIpAddr() const;
 
     void SetIpAddr(const string &ipAddr);
 
+    const std::string& GetAccount() const;
+
+    void SetAccount(const std::string& account);
 private:
     uint64_t m_linkId;
     uint32_t m_worldBusId;
@@ -74,6 +77,7 @@ private:
     uint64_t m_disconnectTime;
     bool m_online;
     bool m_isLogin;
-    uint64_t m_uid;
+    uint64_t m_playerId;
     std::string m_ipAddr;
+    std::string m_account;
 };

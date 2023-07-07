@@ -173,7 +173,7 @@ int NFShmObjSeg::FormatObj()
     return 0;
 }
 
-int NFShmObjSeg::HashInsert(uint64_t key, int objId)
+int NFShmObjSeg::HashInsert(ShmObjHashKey key, int objId)
 {
     auto iter = m_hashMgr.find(key);
     if (iter == m_hashMgr.end())
@@ -188,7 +188,7 @@ int NFShmObjSeg::HashInsert(uint64_t key, int objId)
     return INVALID_ID;
 }
 
-NFShmObj *NFShmObjSeg::HashFind(uint64_t key)
+NFShmObj *NFShmObjSeg::HashFind(ShmObjHashKey key)
 {
     auto iter = m_hashMgr.find(key);
     if (iter != m_hashMgr.end())
@@ -200,7 +200,7 @@ NFShmObj *NFShmObjSeg::HashFind(uint64_t key)
     return NULL;
 }
 
-int NFShmObjSeg::HashErase(uint64_t key)
+int NFShmObjSeg::HashErase(ShmObjHashKey key)
 {
     size_t count = m_hashMgr.erase(key);
     if (count > 0)

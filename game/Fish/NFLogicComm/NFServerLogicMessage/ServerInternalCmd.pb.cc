@@ -16,8 +16,11 @@
 #include <google/protobuf/wire_format.h>
 // @@protoc_insertion_point(includes)
 
+namespace proto_ff {
+
 namespace {
 
+const ::google::protobuf::EnumDescriptor* Proto_SvrLogicMsgID_descriptor_ = NULL;
 
 }  // namespace
 
@@ -28,6 +31,7 @@ void protobuf_AssignDesc_ServerInternalCmd_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "ServerInternalCmd.proto");
   GOOGLE_CHECK(file != NULL);
+  Proto_SvrLogicMsgID_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -54,7 +58,16 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027ServerInternalCmd.proto", 25);
+    "\n\027ServerInternalCmd.proto\022\010proto_ff*\310\002\n\023"
+    "Proto_SvrLogicMsgID\022\034\n\027NF_WTL_PLAYER_LOG"
+    "IN_REQ\020\202\001\022\034\n\027NF_LTW_PLAYER_LOGIN_RSP\020\203\001\022"
+    "\034\n\027NF_PTW_PLAYER_LOGIN_REQ\020\204\001\022\034\n\027NF_WTP_"
+    "PLAYER_LOGIN_RSP\020\205\001\022\034\n\027NF_LTS_PLAYER_LOG"
+    "IN_REQ\020\206\001\022\034\n\027NF_STL_PLAYER_LOGIN_RSP\020\207\001\022"
+    "\035\n\030NF_LTS_PLAYER_LOGOUT_REQ\020\210\001\022\035\n\030NF_STL"
+    "_PLAYER_LOGOUT_RSP\020\211\001\022\035\n\030NF_LTW_PLAYER_L"
+    "OGOUT_REQ\020\212\001\022 \n\033NF_WTL_PLAYER_LOGOUT_NOT"
+    "IFY\020\213\001", 366);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd_2eproto);
@@ -66,7 +79,31 @@ struct StaticDescriptorInitializer_ServerInternalCmd_2eproto {
     protobuf_AddDesc_ServerInternalCmd_2eproto();
   }
 } static_descriptor_initializer_ServerInternalCmd_2eproto_;
+const ::google::protobuf::EnumDescriptor* Proto_SvrLogicMsgID_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_SvrLogicMsgID_descriptor_;
+}
+bool Proto_SvrLogicMsgID_IsValid(int value) {
+  switch(value) {
+    case 130:
+    case 131:
+    case 132:
+    case 133:
+    case 134:
+    case 135:
+    case 136:
+    case 137:
+    case 138:
+    case 139:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // @@protoc_insertion_point(namespace_scope)
+
+}  // namespace proto_ff
 
 // @@protoc_insertion_point(global_scope)

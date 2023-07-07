@@ -965,7 +965,7 @@ NFTransBase *NFCSharedMemModule::GetTrans(uint64_t ullTransId)
     return NULL;
 }
 
-NFShmObj *NFCSharedMemModule::CreateObjByHashKey(int iType, uint64_t hashKey)
+NFShmObj *NFCSharedMemModule::CreateObjByHashKey(int iType, ShmObjHashKey hashKey)
 {
     assert(IsTypeValid(iType));
 
@@ -1006,7 +1006,7 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(int iType, uint64_t hashKey)
                 }
                 else
                 {
-                    pObj->SetHashId(hashKey);
+                    pObj->SetHashKey(hashKey);
                 }
 
                 NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Success! hashKey:{} type:{} className:{} GlobalID:{} objId:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID, iObjId);
@@ -1071,7 +1071,7 @@ NFShmObj *NFCSharedMemModule::CreateObj(int iType)
     return pObj;
 }
 
-NFShmObj *NFCSharedMemModule::GetObjByHashKey(int iType, uint64_t hashKey)
+NFShmObj *NFCSharedMemModule::GetObjByHashKey(int iType, ShmObjHashKey hashKey)
 {
     NF_ASSERT(IsTypeValid(iType));
     if (!m_nObjSegSwapCounter[iType].m_iUseHash)
@@ -1361,7 +1361,7 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
     iType = pObj->GetClassType();
     iIndex = pObj->GetObjId();
     iGlobalID = pObj->GetGlobalId();
-    iHashID = pObj->GetHashId();
+    iHashID = pObj->GetHashKey();
     std::string className = pObj->GetClassName();
 
     if (iType < 0 || iType >= (int) m_nObjSegSwapCounter.size())

@@ -40,14 +40,47 @@ public:
         m_loginLinkId = 0;
 	}
 
-	int ConnectServer(const std::string& url);
-	int OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
-	int OnHandleProxyOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
-
-
     int OnTimer(uint32_t nTimerID);
     int SendMsgToServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int OnHandlePlazeStatus();
+public:
+    /**
+     * @brief 连接登录服
+     * @param url
+     * @return
+     */
+	int ConnectLoginServer(const std::string& url);
+
+    /**
+     * @brief 处理登录连接
+     * @param nEvent
+     * @param unLinkId
+     * @return
+     */
+	int OnLoginServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
+public:
+    /**
+     * @brief 连接游戏服务器
+     * @param ip
+     * @param port
+     * @return
+     */
+	int ConnectGameServer(const std::string& ip, int port);
+
+    /**
+     * @brief 关闭连接
+     * @return
+     */
+	int CloseGameServer();
+
+    /**
+     * @brief 处理游戏服务器连接
+     * @param nEvent
+     * @param unLinkId
+     * @return
+     */
+    int OnGameServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
+public:
 public:
     /**
      * @brief 游客直接登录
@@ -72,7 +105,21 @@ public:
      * @return
      */
     int SendBeatHeart();
+
+    /**
+     * @brief 玩家登录
+     * @return
+     */
+    int UserLoginServer();
 public:
+    /**
+     * @brief 处理机器人收到的协议
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleRobotAllMessage(uint64_t unLinkId, NFDataPackage &packet);
+
     /**
      * @brief 账号登录
      * @param unLinkId

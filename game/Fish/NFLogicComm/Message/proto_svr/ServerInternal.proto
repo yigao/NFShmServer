@@ -1,0 +1,46 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+import "Com.proto";
+
+
+enum Proto_AccountState
+{
+  E_ACCOUNTSTATE_OK = 0;        // 状态ok
+  E_ACCOUNTSTATE_FREEZE = 1;        // 冻结，有时间周期
+  E_ACCOUNTSTATE_FORBIT = 2;        // 禁止，无限期
+}
+
+message Proto_PTWUserLoginReq
+{
+  optional uint64 user_id = 1;
+  optional string account = 2;
+  optional uint32 proxy_bus_id = 3; //proxy bus id
+  optional string client_ip = 4;
+}
+
+message Proto_WTPPlayerLoginRsp
+{
+  optional int32 result = 1;
+  optional uint64 user_id = 2;
+  optional uint32 game_id = 3;
+  optional uint32 room_id = 4;
+  optional uint32 game_bus_id = 5;
+  optional uint32 logic_bus_id = 6;
+}
+
+message Proto_WorldToLogicLoginReq
+{
+  optional uint64 user_id = 1;
+  optional uint32 game_id = 2;
+  optional uint32 room_id = 3;
+  optional uint32 game_bus_id = 4;
+  optional uint32 proxy_bus_id = 5;
+  optional string client_ip = 7;
+}
+
+message Proto_LogicToWorldLoginRsp
+{
+  optional uint32 result = 1;
+  optional uint64 user_id = 2;
+}

@@ -33,6 +33,7 @@ bool NFCAccountLoginModule::Awake()
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_AccountLoginReq>(NF_ST_LOGIN_SERVER, this, &NFCAccountLoginModule::OnRpcServiceAccountLogin, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_RegisterAccountReq>(NF_ST_LOGIN_SERVER, this, &NFCAccountLoginModule::OnRpcServiceRegisterAccount, true);
+
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
 	return true;
@@ -200,7 +201,7 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
     respone.set_result(proto_ff::ERR_CODE_OK);
     respone.set_user_id(pLogin->mPlayerId);
     respone.set_login_time(pLogin->mLastLoginTime);
-    respone.set_token(NFLogicCommon::GetLoginToken(pLogin->mAccount.GetString(), pLogin->mPlayerId, pLogin->mLastLoginTime, LOGIN_TOKEN));
+    respone.set_token(NFLogicCommon::GetLoginToken(pLogin->mAccount.GetString(), pLogin->mPlayerId, pLogin->mLastLoginTime, FISH_LOGIN_TOKEN));
 
     std::vector<NF_SHARE_PTR<NFServerData>> pServerList = FindModule<NFIMessageModule>()->GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
     for(int i = 0; i < (int)pServerList.size(); i++)
@@ -267,7 +268,7 @@ int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegiste
     respone.set_result(proto_ff::ERR_CODE_OK);
     respone.set_user_id(pLogin->mPlayerId);
     respone.set_login_time(pLogin->mLastLoginTime);
-    respone.set_token(NFLogicCommon::GetLoginToken(pLogin->mAccount.GetString(), pLogin->mPlayerId, pLogin->mLastLoginTime, LOGIN_TOKEN));
+    respone.set_token(NFLogicCommon::GetLoginToken(pLogin->mAccount.GetString(), pLogin->mPlayerId, pLogin->mLastLoginTime, FISH_LOGIN_TOKEN));
 
     std::vector<NF_SHARE_PTR<NFServerData>> pServerList = FindModule<NFIMessageModule>()->GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
     for(int i = 0; i < (int)pServerList.size(); i++)

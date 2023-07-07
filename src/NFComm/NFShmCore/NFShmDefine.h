@@ -49,3 +49,5 @@ inline void debug_assert()
 
 class NFShmObj;
 typedef std::function<bool(NFShmObj* pObj)> DESTROY_SHM_AUTO_ERASE_FUNCTION;
+
+typedef uint64_t ShmObjHashKey;

@@ -13,7 +13,7 @@
 
 //一个登录服最大同时登录账号数
 #define ONE_LOGIN_SERVER_MAX_LOGIN_ACCOUNT 10000
-#define LOGIN_TOKEN "ShmNFrame"
+#define FISH_LOGIN_TOKEN "Fish_ShmNFrame"
 
 /**
  * @brief 账号存在最大时间

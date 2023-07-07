@@ -128,11 +128,11 @@ public:
 
     int CreateObject();
 public:
-    int HashInsert(uint64_t key, int objId);
+    int HashInsert(ShmObjHashKey key, int objId);
 
-    NFShmObj *HashFind(uint64_t key);
+    NFShmObj *HashFind(ShmObjHashKey key);
 
-    int HashErase(uint64_t key);
+    int HashErase(ShmObjHashKey key);
 public:
     NFShmObj *GetObj(int iIdx);
 
@@ -247,7 +247,7 @@ private:
     size_t m_nMemSize;
     NFShmDyList<NFShmIdx> m_idxLst;
     NFShmObj *m_pObjs;
-    NFShmDyHashMapWithList<uint64_t, int> m_hashMgr;
+    NFShmDyHashMapWithList<ShmObjHashKey, int> m_hashMgr;
     int m_iItemCount;
     bool m_iUseHash;
 

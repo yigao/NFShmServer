@@ -84,7 +84,7 @@ int NFCRobotModule::OnTimer(uint32_t nTimerID)
 {
     NFTestRobot* pRobot = CreateRobot();
     std::string url = NF_FORMAT("tcp://{}:{}", m_serverIp, m_port);
-    pRobot->ConnectServer(url);
+    pRobot->ConnectLoginServer(url);
     return 0;
 }
 

@@ -63,14 +63,14 @@ public:
         return m_iObjId;
     }
 
-    int64_t GetHashId()
+    ShmObjHashKey GetHashKey()
     {
-        return m_iHashId;
+        return m_iHashKey;
     }
 
-    void SetHashId(int64_t Id)
+    void SetHashKey(ShmObjHashKey Id)
     {
-        m_iHashId = Id;
+        m_iHashKey = Id;
     }
 
     int GetGlobalId() const
@@ -223,7 +223,7 @@ public:
     int m_iGlobalId;
     int m_iObjId;
     int m_iObjSeq;
-    int64_t m_iHashId;
+    ShmObjHashKey m_iHashKey;
     int m_iObjType;
 
     bool m_bIsInRecycle;

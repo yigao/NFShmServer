@@ -79,14 +79,14 @@ void NFProxyPlayerInfo::SetIsLogin(bool isLogin)
     m_isLogin = isLogin;
 }
 
-uint64_t NFProxyPlayerInfo::GetUid() const
+uint64_t NFProxyPlayerInfo::GetPlayerId() const
 {
-    return m_uid;
+    return m_playerId;
 }
 
-void NFProxyPlayerInfo::SetUid(uint64_t uid)
+void NFProxyPlayerInfo::SetPlayerId(uint64_t uid)
 {
-    m_uid = uid;
+    m_playerId = uid;
 }
 
 const string &NFProxyPlayerInfo::GetIpAddr() const
@@ -97,4 +97,14 @@ const string &NFProxyPlayerInfo::GetIpAddr() const
 void NFProxyPlayerInfo::SetIpAddr(const string &ipAddr)
 {
     m_ipAddr = ipAddr;
+}
+
+const std::string& NFProxyPlayerInfo::GetAccount() const
+{
+    return m_account;
+}
+
+void NFProxyPlayerInfo::SetAccount(const std::string& account)
+{
+    m_account = account;
 }
