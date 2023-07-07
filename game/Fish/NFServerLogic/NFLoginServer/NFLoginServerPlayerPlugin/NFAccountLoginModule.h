@@ -42,5 +42,19 @@ public:
      */
     virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
 public:
+    /**
+     * @brief 处理账号登录
+     * @param request
+     * @param respone
+     * @return
+     */
     int OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLoginReq& request, proto_ff::Proto_SCAccountLoginRsp& respone);
+
+    /**
+     * @brief 处理账号注册账号
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegisterAccountReq& request, proto_ff::Proto_SCRegisterAccountRsp& respone);
 };

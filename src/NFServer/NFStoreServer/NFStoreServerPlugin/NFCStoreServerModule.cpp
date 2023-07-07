@@ -300,6 +300,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_sel_res &select_res) mutable
                      {
+                         select_res.mutable_sel_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY);
@@ -340,6 +341,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_selobj_res &select_res) mutable
                      {
+                         select_res.mutable_sel_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY &&
@@ -390,6 +392,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res) mutable
                      {
+                         select_res.mutable_ins_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -431,6 +434,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_del_res &select_res) mutable
                      {
+                         select_res.mutable_del_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -472,6 +476,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_delobj_res &select_res) mutable
                      {
+                         select_res.mutable_del_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -513,6 +518,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_mod_res &select_res) mutable
                      {
+                         select_res.mutable_mod_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -554,6 +560,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_modobj_res &select_res) mutable
                      {
+                         select_res.mutable_mod_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -595,6 +602,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_update_res &select_res) mutable
                      {
+                         select_res.mutable_mod_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -636,6 +644,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res) mutable
                      {
+                         select_res.mutable_modins_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -665,6 +674,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_execute_res &select_res) mutable
                      {
+                         select_res.mutable_exe_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -722,7 +732,7 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0,
-                                "SelectByCond, But Coroutine Status Error..........Not Yielding");
+                                "SelectObj, But Coroutine Status Error..........Not Yielding");
                      return;
                  }
 
@@ -735,19 +745,20 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
                      }
                      else
                      {
-                         iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN;
+                         iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECTFAILED;
+                         NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", iRet);
                      }
-
-                     NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", iRet);
+                     select_res.mutable_sel_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SelectObj Success select_res:{}",
                                 select_res.Utf8DebugString());
                  }
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 respone.CopyFrom(select_res);
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -799,15 +810,17 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &requ
                  {
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY;
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectByCond Failed, iRet:{}", iRet);
+                     select_res.mutable_sel_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SelectByCond Success select_res:{}",
                                 select_res.Utf8DebugString());
                  }
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 respone.CopyFrom(select_res);
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -875,14 +888,16 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_INSERTFAILED;
+                     select_res.mutable_ins_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SelectObj Success select_res:{}", select_res.Utf8DebugString());
                  }
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 respone.CopyFrom(select_res);
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -931,14 +946,16 @@ int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "ModifyObj Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED;
+                     select_res.mutable_mod_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ModifyObj Success select_res:{}", select_res.Utf8DebugString());
                  }
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 respone.CopyFrom(select_res);
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -987,14 +1004,16 @@ int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &requ
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "ModifyByCond Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED;
+                     select_res.mutable_mod_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ModifyByCond Success select_res:{}", select_res.Utf8DebugString());
                  }
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 respone.CopyFrom(select_res);
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -1043,14 +1062,16 @@ int NFCStoreServerModule::OnHandleUpdateRpc(storesvr_sqldata::storesvr_update &r
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "UpdateByCond Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
+                     select_res.mutable_mod_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "UpdateByCond Success select_res:{}", select_res.Utf8DebugString());
                  }
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 respone.CopyFrom(select_res);
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -1099,14 +1120,16 @@ int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_update
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "UpdateObj Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
+                     select_res.mutable_modins_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "UpdateObj Success select_res:{}", select_res.Utf8DebugString());
                  }
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 respone.CopyFrom(select_res);
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -1143,14 +1166,16 @@ int NFCStoreServerModule::OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute 
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "Execute Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN;
+                     select_res.mutable_exe_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Execute Success select_res:{}", select_res.Utf8DebugString());
                  }
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 respone.CopyFrom(select_res);
+
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -1189,15 +1214,16 @@ int NFCStoreServerModule::OnHandleExecuteMoreRpc(storesvr_sqldata::storesvr_exec
                  {
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY;
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "ExecuteMore Failed, iRet:{}", iRet);
+                     select_res.mutable_exe_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ExecuteMore Success select_res:{}",
                                 select_res.Utf8DebugString());
                  }
+                 respone.CopyFrom(select_res);
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -1265,14 +1291,15 @@ int NFCStoreServerModule::OnHandleDeleteRpc(storesvr_sqldata::storesvr_del &requ
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteByCond Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
+                     select_res.mutable_del_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DeleteByCond Success select_res:{}", select_res.Utf8DebugString());
                  }
+                 respone.CopyFrom(select_res);
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)
@@ -1321,14 +1348,15 @@ int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteObj Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_DELETEFAILED;
+                     select_res.mutable_del_opres()->set_err_code(iRet);
                  }
                  else
                  {
-                     respone.CopyFrom(select_res);
                      NFLogTrace(NF_LOG_SYSTEMLOG, 0, "DeleteObj Success select_res:{}", select_res.Utf8DebugString());
                  }
+                 respone.CopyFrom(select_res);
 
-                 FindModule<NFICoroutineModule>()->Resume(coId, iRet);
+                 FindModule<NFICoroutineModule>()->Resume(coId, 0);
              });
 
     if (iRet != 0)

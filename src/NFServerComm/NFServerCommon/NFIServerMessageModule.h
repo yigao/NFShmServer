@@ -194,14 +194,21 @@ public:
         storesvr_sqldata::storesvr_selobj_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_SELECTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                       selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.sel_opres().err_code() == 0)
         {
             data.ParseFromString(selobjRes.sel_record());
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.sel_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.sel_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::E_STORESVR_C2S_SELECTOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.sel_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
         }
         return iRet;
     }
@@ -293,7 +300,7 @@ public:
         {
             iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
             CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
-            if (iRet == 0)
+            if (iRet == 0 && selRes.sel_opres().err_code() == 0)
             {
                 for (int i = 0; i < (int) selRes.sel_records_size(); i++)
                 {
@@ -309,8 +316,16 @@ public:
             }
             else
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::E_STORESVR_C2S_SELECTOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
-                           selRes.sel_opres().errmsg());
+                if (iRet == 0)
+                {
+                    iRet = selRes.sel_opres().err_code();
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::E_STORESVR_C2S_SELECT Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                               selRes.sel_opres().errmsg());
+                }
+                else {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+                }
+
                 break;
             }
         } while (true);
@@ -377,13 +392,20 @@ public:
         storesvr_sqldata::storesvr_insertobj_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_INSERTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                       selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.ins_opres().err_code() == 0)
         {
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_INSERTOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.ins_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.ins_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_INSERTOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.ins_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
         }
         return iRet;
     }
@@ -435,13 +457,20 @@ public:
         storesvr_sqldata::storesvr_modobj_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_MODIFYOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                       selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.mod_opres().err_code() == 0)
         {
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_MODIFYOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.mod_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.mod_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_MODIFYOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.mod_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
         }
         return iRet;
     }
@@ -488,13 +517,20 @@ public:
         storesvr_sqldata::storesvr_updateobj_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_UPDATEOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                       selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.modins_opres().err_code() == 0)
         {
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_MODINSOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.modins_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.modins_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_UPDATEOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.modins_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
         }
         return iRet;
     }
@@ -541,13 +577,20 @@ public:
         storesvr_sqldata::storesvr_delobj_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_DELETEOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                       selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.del_opres().err_code() == 0)
         {
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_DELETEOBJ iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.del_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.del_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_DELETEOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.del_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
         }
         return iRet;
     }
@@ -597,13 +640,20 @@ public:
         storesvr_sqldata::storesvr_del_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_DELETE>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                    selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.del_opres().err_code() == 0)
         {
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_DELETE iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.del_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.del_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_DELETE Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.del_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
         }
         return iRet;
     }
@@ -653,13 +703,20 @@ public:
         storesvr_sqldata::storesvr_mod_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_MODIFY>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                    selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.mod_opres().err_code() == 0)
         {
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_MODIFY iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.mod_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.mod_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_MODIFY Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.mod_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
         }
         return iRet;
     }
@@ -712,13 +769,20 @@ public:
         storesvr_sqldata::storesvr_update_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_UPDATE>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                    selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.mod_opres().err_code() == 0)
         {
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_MODINS iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.mod_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.mod_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_MODINS Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.mod_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
         }
         return iRet;
     }
@@ -770,14 +834,22 @@ public:
         storesvr_sqldata::storesvr_execute_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_EXECUTE>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
                                                                                                     selobjRes);
-        if (iRet == 0)
+        if (iRet == 0 && selobjRes.exe_opres().err_code() == 0)
         {
             data.ParseFromString(selobjRes.sel_records());
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_EXECUTE iRet:{} errMsg:{}", GetErrorStr(iRet),
-                       selobjRes.exe_opres().errmsg());
+            if (iRet == 0)
+            {
+                iRet = selobjRes.exe_opres().err_code();
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_EXECUTE Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                           selobjRes.exe_opres().errmsg());
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+            }
+
         }
         return iRet;
     }
@@ -859,7 +931,7 @@ public:
         {
             iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
             CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
-            if (iRet == 0)
+            if (iRet == 0 && selRes.exe_opres().err_code() == 0)
             {
                 for (int i = 0; i < (int) selRes.sel_records_size(); i++)
                 {
@@ -875,8 +947,16 @@ public:
             }
             else
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, proto_ff::NF_STORESVR_C2S_EXECUTE_MORE iRet:{} errMsg:{}", GetErrorStr(iRet),
-                           selRes.exe_opres().errmsg());
+                if (iRet == 0)
+                {
+                    iRet = selRes.exe_opres().err_code();
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_EXECUTE_MORE Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                               selRes.exe_opres().errmsg());
+                }
+                else {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
+                }
+
                 break;
             }
         } while (true);

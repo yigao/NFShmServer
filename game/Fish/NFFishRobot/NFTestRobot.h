@@ -43,7 +43,6 @@ public:
 	int ConnectServer(const std::string& url);
 	int OnProxyServerSocketEvent(eMsgType nEvent, uint64_t unLinkId);
 	int OnHandleProxyOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
-    int OnHandleAccountLogin(uint64_t unLinkId, NFDataPackage &packet);
 
 
     int OnTimer(uint32_t nTimerID);
@@ -73,6 +72,22 @@ public:
      * @return
      */
     int SendBeatHeart();
+public:
+    /**
+     * @brief 账号登录
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleAccountLogin(uint64_t unLinkId, NFDataPackage &packet);
+
+    /**
+     * @brief 注册账号
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleAccountRegister(uint64_t unLinkId, NFDataPackage &packet);
 public:
     uint64_t m_phonenum;
 	std::string m_account;

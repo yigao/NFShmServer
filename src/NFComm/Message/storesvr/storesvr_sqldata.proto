@@ -49,7 +49,8 @@ message storesvr_baseinfo {
 
 message storesvr_opres {
   optional uint64 mod_key = 1;
-  optional string errmsg = 2; // 失败的错误原因
+  optional int32 err_code = 2;
+  optional string errmsg = 3; // 失败的错误原因
 };
 
 //--------------------------------------------------------------------------------------------------

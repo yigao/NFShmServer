@@ -32,6 +32,7 @@ bool NFCAccountLoginModule::Awake()
     RegisterClientMessage(NF_ST_LOGIN_SERVER, proto_ff::NF_CS_MSG_CHANGE_PASSWORD_REQ);
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_AccountLoginReq>(NF_ST_LOGIN_SERVER, this, &NFCAccountLoginModule::OnRpcServiceAccountLogin, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_RegisterAccountReq>(NF_ST_LOGIN_SERVER, this, &NFCAccountLoginModule::OnRpcServiceRegisterAccount, true);
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
 	return true;
@@ -179,6 +180,86 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
                 return 0;
             }
         }
+    }
+
+    if (request.login_type() == proto_ff::E_ACCOUNT)
+    {
+        if (request.password() != pLogin->mPassword.ToString())
+        {
+            respone.set_result(proto_ff::ERR_CODE_ACCOUNT_PASSWORD_ERROR);
+            return 0;
+        }
+    }
+    else {
+        respone.set_result(proto_ff::ERR_CODE_ACCOUNT_PASSWORD_ERROR);
+        return 0;
+    }
+
+    pLogin->mLastLoginTime = NFTime::Now().UnixSec();
+
+    respone.set_result(proto_ff::ERR_CODE_OK);
+    respone.set_user_id(pLogin->mPlayerId);
+    respone.set_login_time(pLogin->mLastLoginTime);
+    respone.set_token(NFLogicCommon::GetLoginToken(pLogin->mAccount.GetString(), pLogin->mPlayerId, pLogin->mLastLoginTime, LOGIN_TOKEN));
+
+    std::vector<NF_SHARE_PTR<NFServerData>> pServerList = FindModule<NFIMessageModule>()->GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
+    for(int i = 0; i < (int)pServerList.size(); i++)
+    {
+        NF_SHARE_PTR<NFServerData> pServer = pServerList[i];
+        if (pServer)
+        {
+            proto_ff::Proto_CSServerIP* pIp = respone.add_server_ip_list();
+            pIp->set_ip(pServer->mServerInfo.external_server_ip());
+            pIp->set_port(pServer->mServerInfo.external_server_port());
+        }
+    }
+
+    return 0;
+}
+
+int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegisterAccountReq& request, proto_ff::Proto_SCRegisterAccountRsp& respone)
+{
+    NFAccountLogin* pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->FindAccount(request.account());
+    if (pLogin == NULL)
+    {
+        proto_ff::tbAccountTable insertObj;
+        insertObj.set_account(request.account());
+        insertObj.set_password(request.password());
+        insertObj.set_account_type(proto_ff::E_ACCOUNT);
+        insertObj.set_device_id(request.device_id());
+        insertObj.set_phonenum(0);
+
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Ready Create Account InTo Mysql:{}", insertObj.DebugString());
+
+        int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()), insertObj);
+        if (iRet != 0)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Failed, iRet:{}", request.account(), GetErrorStr(iRet));
+            respone.set_result(iRet);
+            return 0;
+        }
+
+        proto_ff::tbAccountTable selectobj;
+        selectobj.set_account(request.account());
+        iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()), selectobj);
+        if (iRet != 0)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Success, But Select Account Failed, iRet:{}", request.account(), GetErrorStr(iRet));
+            respone.set_result(iRet);
+            return 0;
+        }
+
+        pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->CreateAccount(selectobj.account(), selectobj.password(), selectobj.player_id(), selectobj.account_type(), selectobj.device_id(), selectobj.phonenum());
+        if (pLogin == NULL)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFAccountLoginMgr CreateAccount:{} Failed", request.account());
+            respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+            return 0;
+        }
+    }
+    else {
+        respone.set_result(proto_ff::ERR_CODE_ACCOUNT_ALREADY_EXIST_NO_RESITER);
+        return 0;
     }
 
     pLogin->mLastLoginTime = NFTime::Now().UnixSec();

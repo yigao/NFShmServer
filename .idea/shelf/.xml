@@ -1,9 +1,0 @@
-<changelist name="更改" date="1688634866876" recycled="false">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/更改/shelved.patch" />
-  <option name="DESCRIPTION" value="更改" />
-  <binary>
-    <option name="BEFORE_PATH" value="Install/Config/Fish/Sql/CommonLogic.proto.ds" />
-    <option name="AFTER_PATH" value="Install/Config/Fish/Sql/CommonLogic.proto.ds" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/更改/CommonLogic.proto.ds" />
-  </binary>
-</changelist>

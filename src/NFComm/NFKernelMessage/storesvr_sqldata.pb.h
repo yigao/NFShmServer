@@ -589,10 +589,17 @@ class storesvr_opres : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 mod_key() const;
   inline void set_mod_key(::google::protobuf::uint64 value);
 
-  // optional string errmsg = 2;
+  // optional int32 err_code = 2;
+  inline bool has_err_code() const;
+  inline void clear_err_code();
+  static const int kErrCodeFieldNumber = 2;
+  inline ::google::protobuf::int32 err_code() const;
+  inline void set_err_code(::google::protobuf::int32 value);
+
+  // optional string errmsg = 3;
   inline bool has_errmsg() const;
   inline void clear_errmsg();
-  static const int kErrmsgFieldNumber = 2;
+  static const int kErrmsgFieldNumber = 3;
   inline const ::std::string& errmsg() const;
   inline void set_errmsg(const ::std::string& value);
   inline void set_errmsg(const char* value);
@@ -605,6 +612,8 @@ class storesvr_opres : public ::google::protobuf::Message {
  private:
   inline void set_has_mod_key();
   inline void clear_has_mod_key();
+  inline void set_has_err_code();
+  inline void clear_has_err_code();
   inline void set_has_errmsg();
   inline void clear_has_errmsg();
 
@@ -612,9 +621,10 @@ class storesvr_opres : public ::google::protobuf::Message {
 
   ::google::protobuf::uint64 mod_key_;
   ::std::string* errmsg_;
+  ::google::protobuf::int32 err_code_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_storesvr_5fsqldata_2eproto();
   friend void protobuf_AssignDesc_storesvr_5fsqldata_2eproto();
@@ -3880,15 +3890,37 @@ inline void storesvr_opres::set_mod_key(::google::protobuf::uint64 value) {
   mod_key_ = value;
 }
 
-// optional string errmsg = 2;
-inline bool storesvr_opres::has_errmsg() const {
+// optional int32 err_code = 2;
+inline bool storesvr_opres::has_err_code() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_opres::set_has_errmsg() {
+inline void storesvr_opres::set_has_err_code() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_opres::clear_has_errmsg() {
+inline void storesvr_opres::clear_has_err_code() {
   _has_bits_[0] &= ~0x00000002u;
+}
+inline void storesvr_opres::clear_err_code() {
+  err_code_ = 0;
+  clear_has_err_code();
+}
+inline ::google::protobuf::int32 storesvr_opres::err_code() const {
+  return err_code_;
+}
+inline void storesvr_opres::set_err_code(::google::protobuf::int32 value) {
+  set_has_err_code();
+  err_code_ = value;
+}
+
+// optional string errmsg = 3;
+inline bool storesvr_opres::has_errmsg() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void storesvr_opres::set_has_errmsg() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void storesvr_opres::clear_has_errmsg() {
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void storesvr_opres::clear_errmsg() {
   if (errmsg_ != &::google::protobuf::internal::kEmptyString) {

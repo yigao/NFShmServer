@@ -174,8 +174,9 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(storesvr_baseinfo));
   storesvr_opres_descriptor_ = file->message_type(3);
-  static const int storesvr_opres_offsets_[2] = {
+  static const int storesvr_opres_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_opres, mod_key_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_opres, err_code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_opres, errmsg_),
   };
   storesvr_opres_reflection_ =
@@ -746,97 +747,97 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
     "nds\030\003 \001(\t\"\202\001\n\021storesvr_baseinfo\022\016\n\006dbnam"
     "e\030\001 \001(\t\022\016\n\006tbname\030\002 \001(\t\022\016\n\006clname\030\003 \001(\t\022"
     "\022\n\nsel_fields\030\004 \003(\t\022\023\n\013max_records\030\005 \001(\r"
-    "\022\024\n\014package_name\030\006 \001(\t\"1\n\016storesvr_opres"
-    "\022\017\n\007mod_key\030\001 \001(\004\022\016\n\006errmsg\030\002 \001(\t\"}\n\014sto"
-    "resvr_sel\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_s"
-    "qldata.storesvr_baseinfo\0226\n\010sel_cond\030\002 \001"
-    "(\0132$.storesvr_sqldata.storesvr_wherecond"
-    "\"\274\001\n\020storesvr_sel_res\0225\n\010baseinfo\030\001 \001(\0132"
-    "#.storesvr_sqldata.storesvr_baseinfo\0223\n\t"
-    "sel_opres\030\002 \001(\0132 .storesvr_sqldata.store"
-    "svr_opres\022\024\n\014is_lastbatch\030\003 \001(\010\022\021\n\trow_c"
-    "ount\030\004 \001(\005\022\023\n\013sel_records\030\005 \003(\014\"m\n\017store"
-    "svr_selobj\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_"
-    "sqldata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001"
-    "(\004\022\022\n\nsel_record\030\003 \001(\014\"\225\001\n\023storesvr_selo"
-    "bj_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqld"
-    "ata.storesvr_baseinfo\0223\n\tsel_opres\030\002 \001(\013"
-    "2 .storesvr_sqldata.storesvr_opres\022\022\n\nse"
-    "l_record\030\003 \001(\014\"p\n\022storesvr_insertobj\0225\n\010"
-    "baseinfo\030\001 \001(\0132#.storesvr_sqldata.stores"
-    "vr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\nins_reco"
-    "rd\030\003 \001(\014\"\204\001\n\026storesvr_insertobj_res\0225\n\010b"
-    "aseinfo\030\001 \001(\0132#.storesvr_sqldata.storesv"
-    "r_baseinfo\0223\n\tins_opres\030\002 \001(\0132 .storesvr"
-    "_sqldata.storesvr_opres\"m\n\017storesvr_inse"
-    "rt\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata."
-    "storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\nin"
-    "s_record\030\003 \003(\014\"\201\001\n\023storesvr_insert_res\0225"
-    "\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.stor"
-    "esvr_baseinfo\0223\n\tins_opres\030\002 \001(\0132 .store"
-    "svr_sqldata.storesvr_opres\"}\n\014storesvr_d"
-    "el\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata."
-    "storesvr_baseinfo\0226\n\010del_cond\030\002 \001(\0132$.st"
-    "oresvr_sqldata.storesvr_wherecond\"~\n\020sto"
-    "resvr_del_res\0225\n\010baseinfo\030\001 \001(\0132#.stores"
-    "vr_sqldata.storesvr_baseinfo\0223\n\tdel_opre"
-    "s\030\002 \001(\0132 .storesvr_sqldata.storesvr_opre"
-    "s\"m\n\017storesvr_delobj\0225\n\010baseinfo\030\001 \001(\0132#"
-    ".storesvr_sqldata.storesvr_baseinfo\022\017\n\007m"
-    "od_key\030\002 \001(\004\022\022\n\ndel_record\030\003 \001(\014\"\201\001\n\023sto"
-    "resvr_delobj_res\0225\n\010baseinfo\030\001 \001(\0132#.sto"
-    "resvr_sqldata.storesvr_baseinfo\0223\n\tdel_o"
-    "pres\030\002 \001(\0132 .storesvr_sqldata.storesvr_o"
-    "pres\"\221\001\n\014storesvr_mod\0225\n\010baseinfo\030\001 \001(\0132"
-    "#.storesvr_sqldata.storesvr_baseinfo\0226\n\010"
-    "mod_cond\030\002 \001(\0132$.storesvr_sqldata.stores"
-    "vr_wherecond\022\022\n\nmod_record\030\003 \001(\014\"~\n\020stor"
-    "esvr_mod_res\0225\n\010baseinfo\030\001 \001(\0132#.storesv"
-    "r_sqldata.storesvr_baseinfo\0223\n\tmod_opres"
-    "\030\002 \001(\0132 .storesvr_sqldata.storesvr_opres"
-    "\"m\n\017storesvr_modobj\0225\n\010baseinfo\030\001 \001(\0132#."
-    "storesvr_sqldata.storesvr_baseinfo\022\017\n\007mo"
-    "d_key\030\002 \001(\004\022\022\n\nmod_record\030\003 \001(\014\"\201\001\n\023stor"
-    "esvr_modobj_res\0225\n\010baseinfo\030\001 \001(\0132#.stor"
-    "esvr_sqldata.storesvr_baseinfo\0223\n\tmod_op"
-    "res\030\002 \001(\0132 .storesvr_sqldata.storesvr_op"
-    "res\"\224\001\n\017storesvr_update\0225\n\010baseinfo\030\001 \001("
-    "\0132#.storesvr_sqldata.storesvr_baseinfo\0226"
-    "\n\010mod_cond\030\002 \001(\0132$.storesvr_sqldata.stor"
-    "esvr_wherecond\022\022\n\nmod_record\030\003 \001(\014\"\201\001\n\023s"
-    "toresvr_update_res\0225\n\010baseinfo\030\001 \001(\0132#.s"
-    "toresvr_sqldata.storesvr_baseinfo\0223\n\tmod"
-    "_opres\030\002 \001(\0132 .storesvr_sqldata.storesvr"
-    "_opres\"s\n\022storesvr_updateobj\0225\n\010baseinfo"
+    "\022\024\n\014package_name\030\006 \001(\t\"C\n\016storesvr_opres"
+    "\022\017\n\007mod_key\030\001 \001(\004\022\020\n\010err_code\030\002 \001(\005\022\016\n\006e"
+    "rrmsg\030\003 \001(\t\"}\n\014storesvr_sel\0225\n\010baseinfo\030"
+    "\001 \001(\0132#.storesvr_sqldata.storesvr_basein"
+    "fo\0226\n\010sel_cond\030\002 \001(\0132$.storesvr_sqldata."
+    "storesvr_wherecond\"\274\001\n\020storesvr_sel_res\022"
+    "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
+    "resvr_baseinfo\0223\n\tsel_opres\030\002 \001(\0132 .stor"
+    "esvr_sqldata.storesvr_opres\022\024\n\014is_lastba"
+    "tch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\023\n\013sel_reco"
+    "rds\030\005 \003(\014\"m\n\017storesvr_selobj\0225\n\010baseinfo"
     "\030\001 \001(\0132#.storesvr_sqldata.storesvr_basei"
-    "nfo\022\017\n\007mod_key\030\002 \001(\004\022\025\n\rmodins_record\030\003 "
-    "\001(\014\"\207\001\n\026storesvr_updateobj_res\0225\n\010basein"
+    "nfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\nsel_record\030\003 \001(\014"
+    "\"\225\001\n\023storesvr_selobj_res\0225\n\010baseinfo\030\001 \001"
+    "(\0132#.storesvr_sqldata.storesvr_baseinfo\022"
+    "3\n\tsel_opres\030\002 \001(\0132 .storesvr_sqldata.st"
+    "oresvr_opres\022\022\n\nsel_record\030\003 \001(\014\"p\n\022stor"
+    "esvr_insertobj\0225\n\010baseinfo\030\001 \001(\0132#.store"
+    "svr_sqldata.storesvr_baseinfo\022\017\n\007mod_key"
+    "\030\002 \001(\004\022\022\n\nins_record\030\003 \001(\014\"\204\001\n\026storesvr_"
+    "insertobj_res\0225\n\010baseinfo\030\001 \001(\0132#.stores"
+    "vr_sqldata.storesvr_baseinfo\0223\n\tins_opre"
+    "s\030\002 \001(\0132 .storesvr_sqldata.storesvr_opre"
+    "s\"m\n\017storesvr_insert\0225\n\010baseinfo\030\001 \001(\0132#"
+    ".storesvr_sqldata.storesvr_baseinfo\022\017\n\007m"
+    "od_key\030\002 \001(\004\022\022\n\nins_record\030\003 \003(\014\"\201\001\n\023sto"
+    "resvr_insert_res\0225\n\010baseinfo\030\001 \001(\0132#.sto"
+    "resvr_sqldata.storesvr_baseinfo\0223\n\tins_o"
+    "pres\030\002 \001(\0132 .storesvr_sqldata.storesvr_o"
+    "pres\"}\n\014storesvr_del\0225\n\010baseinfo\030\001 \001(\0132#"
+    ".storesvr_sqldata.storesvr_baseinfo\0226\n\010d"
+    "el_cond\030\002 \001(\0132$.storesvr_sqldata.storesv"
+    "r_wherecond\"~\n\020storesvr_del_res\0225\n\010basei"
+    "nfo\030\001 \001(\0132#.storesvr_sqldata.storesvr_ba"
+    "seinfo\0223\n\tdel_opres\030\002 \001(\0132 .storesvr_sql"
+    "data.storesvr_opres\"m\n\017storesvr_delobj\0225"
+    "\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.stor"
+    "esvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\ndel_re"
+    "cord\030\003 \001(\014\"\201\001\n\023storesvr_delobj_res\0225\n\010ba"
+    "seinfo\030\001 \001(\0132#.storesvr_sqldata.storesvr"
+    "_baseinfo\0223\n\tdel_opres\030\002 \001(\0132 .storesvr_"
+    "sqldata.storesvr_opres\"\221\001\n\014storesvr_mod\022"
+    "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
+    "resvr_baseinfo\0226\n\010mod_cond\030\002 \001(\0132$.store"
+    "svr_sqldata.storesvr_wherecond\022\022\n\nmod_re"
+    "cord\030\003 \001(\014\"~\n\020storesvr_mod_res\0225\n\010basein"
     "fo\030\001 \001(\0132#.storesvr_sqldata.storesvr_bas"
-    "einfo\0226\n\014modins_opres\030\002 \001(\0132 .storesvr_s"
-    "qldata.storesvr_opres\"r\n\020storesvr_execut"
+    "einfo\0223\n\tmod_opres\030\002 \001(\0132 .storesvr_sqld"
+    "ata.storesvr_opres\"m\n\017storesvr_modobj\0225\n"
+    "\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.store"
+    "svr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\nmod_rec"
+    "ord\030\003 \001(\014\"\201\001\n\023storesvr_modobj_res\0225\n\010bas"
+    "einfo\030\001 \001(\0132#.storesvr_sqldata.storesvr_"
+    "baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .storesvr_s"
+    "qldata.storesvr_opres\"\224\001\n\017storesvr_updat"
     "e\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
-    "toresvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\026\n\016exe"
-    "cute_record\030\003 \001(\014\"\227\001\n\024storesvr_execute_r"
-    "es\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata."
-    "storesvr_baseinfo\0223\n\texe_opres\030\002 \001(\0132 .s"
-    "toresvr_sqldata.storesvr_opres\022\023\n\013sel_re"
-    "cords\030\003 \001(\014\"w\n\025storesvr_execute_more\0225\n\010"
+    "toresvr_baseinfo\0226\n\010mod_cond\030\002 \001(\0132$.sto"
+    "resvr_sqldata.storesvr_wherecond\022\022\n\nmod_"
+    "record\030\003 \001(\014\"\201\001\n\023storesvr_update_res\0225\n\010"
     "baseinfo\030\001 \001(\0132#.storesvr_sqldata.stores"
-    "vr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\026\n\016execute_"
-    "record\030\003 \001(\014\"\305\001\n\031storesvr_execute_more_r"
-    "es\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata."
-    "storesvr_baseinfo\0223\n\texe_opres\030\002 \001(\0132 .s"
-    "toresvr_sqldata.storesvr_opres\022\024\n\014is_las"
-    "tbatch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\023\n\013sel_r"
-    "ecords\030\005 \003(\014*R\n\027storesvr_logic_operator\022"
-    "\021\n\rE_LOGICOP_AND\020\001\022\020\n\014E_LOGICOP_OR\020\002\022\022\n\016"
-    "E_LOGICOP_NONE\020\003*\230\001\n\025storesvr_cmp_operat"
-    "or\022\021\n\rE_CMPOP_EQUAL\020\001\022\023\n\017E_CMPOP_GREATER"
-    "\020\002\022\020\n\014E_CMPOP_LESS\020\003\022\030\n\024E_CMPOP_GREATERE"
-    "QUAL\020\004\022\025\n\021E_CMPOP_LESSEQUAL\020\005\022\024\n\020E_CMPOP"
-    "_NOTEQUAL\020\006*E\n\024storesvr_column_type\022\027\n\023E"
-    "_COLUMNTYPE_STRING\020\001\022\024\n\020E_COLUMNTYPE_NUM"
-    "\020\002", 4162);
+    "vr_baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .storesv"
+    "r_sqldata.storesvr_opres\"s\n\022storesvr_upd"
+    "ateobj\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqld"
+    "ata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\025"
+    "\n\rmodins_record\030\003 \001(\014\"\207\001\n\026storesvr_updat"
+    "eobj_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
+    "ldata.storesvr_baseinfo\0226\n\014modins_opres\030"
+    "\002 \001(\0132 .storesvr_sqldata.storesvr_opres\""
+    "r\n\020storesvr_execute\0225\n\010baseinfo\030\001 \001(\0132#."
+    "storesvr_sqldata.storesvr_baseinfo\022\017\n\007mo"
+    "d_key\030\002 \001(\004\022\026\n\016execute_record\030\003 \001(\014\"\227\001\n\024"
+    "storesvr_execute_res\0225\n\010baseinfo\030\001 \001(\0132#"
+    ".storesvr_sqldata.storesvr_baseinfo\0223\n\te"
+    "xe_opres\030\002 \001(\0132 .storesvr_sqldata.stores"
+    "vr_opres\022\023\n\013sel_records\030\003 \001(\014\"w\n\025storesv"
+    "r_execute_more\0225\n\010baseinfo\030\001 \001(\0132#.store"
+    "svr_sqldata.storesvr_baseinfo\022\017\n\007mod_key"
+    "\030\002 \001(\004\022\026\n\016execute_record\030\003 \001(\014\"\305\001\n\031store"
+    "svr_execute_more_res\0225\n\010baseinfo\030\001 \001(\0132#"
+    ".storesvr_sqldata.storesvr_baseinfo\0223\n\te"
+    "xe_opres\030\002 \001(\0132 .storesvr_sqldata.stores"
+    "vr_opres\022\024\n\014is_lastbatch\030\003 \001(\010\022\021\n\trow_co"
+    "unt\030\004 \001(\005\022\023\n\013sel_records\030\005 \003(\014*R\n\027stores"
+    "vr_logic_operator\022\021\n\rE_LOGICOP_AND\020\001\022\020\n\014"
+    "E_LOGICOP_OR\020\002\022\022\n\016E_LOGICOP_NONE\020\003*\230\001\n\025s"
+    "toresvr_cmp_operator\022\021\n\rE_CMPOP_EQUAL\020\001\022"
+    "\023\n\017E_CMPOP_GREATER\020\002\022\020\n\014E_CMPOP_LESS\020\003\022\030"
+    "\n\024E_CMPOP_GREATEREQUAL\020\004\022\025\n\021E_CMPOP_LESS"
+    "EQUAL\020\005\022\024\n\020E_CMPOP_NOTEQUAL\020\006*E\n\024storesv"
+    "r_column_type\022\027\n\023E_COLUMNTYPE_STRING\020\001\022\024"
+    "\n\020E_COLUMNTYPE_NUM\020\002", 4180);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "storesvr_sqldata.proto", &protobuf_RegisterTypes);
   storesvr_vk::default_instance_ = new storesvr_vk();
@@ -2165,6 +2166,7 @@ void storesvr_baseinfo::Swap(storesvr_baseinfo* other) {
 
 #ifndef _MSC_VER
 const int storesvr_opres::kModKeyFieldNumber;
+const int storesvr_opres::kErrCodeFieldNumber;
 const int storesvr_opres::kErrmsgFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2185,6 +2187,7 @@ storesvr_opres::storesvr_opres(const storesvr_opres& from)
 void storesvr_opres::SharedCtor() {
   _cached_size_ = 0;
   mod_key_ = GOOGLE_ULONGLONG(0);
+  err_code_ = 0;
   errmsg_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -2225,6 +2228,7 @@ storesvr_opres* storesvr_opres::New() const {
 void storesvr_opres::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     mod_key_ = GOOGLE_ULONGLONG(0);
+    err_code_ = 0;
     if (has_errmsg()) {
       if (errmsg_ != &::google::protobuf::internal::kEmptyString) {
         errmsg_->clear();
@@ -2252,12 +2256,28 @@ bool storesvr_opres::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_errmsg;
+        if (input->ExpectTag(16)) goto parse_err_code;
         break;
       }
 
-      // optional string errmsg = 2;
+      // optional int32 err_code = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_err_code:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &err_code_)));
+          set_has_err_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_errmsg;
+        break;
+      }
+
+      // optional string errmsg = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_errmsg:
@@ -2296,13 +2316,18 @@ void storesvr_opres::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->mod_key(), output);
   }
 
-  // optional string errmsg = 2;
+  // optional int32 err_code = 2;
+  if (has_err_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->err_code(), output);
+  }
+
+  // optional string errmsg = 3;
   if (has_errmsg()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->errmsg().data(), this->errmsg().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->errmsg(), output);
+      3, this->errmsg(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2318,14 +2343,19 @@ void storesvr_opres::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->mod_key(), target);
   }
 
-  // optional string errmsg = 2;
+  // optional int32 err_code = 2;
+  if (has_err_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->err_code(), target);
+  }
+
+  // optional string errmsg = 3;
   if (has_errmsg()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->errmsg().data(), this->errmsg().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->errmsg(), target);
+        3, this->errmsg(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2346,7 +2376,14 @@ int storesvr_opres::ByteSize() const {
           this->mod_key());
     }
 
-    // optional string errmsg = 2;
+    // optional int32 err_code = 2;
+    if (has_err_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->err_code());
+    }
+
+    // optional string errmsg = 3;
     if (has_errmsg()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
@@ -2383,6 +2420,9 @@ void storesvr_opres::MergeFrom(const storesvr_opres& from) {
     if (from.has_mod_key()) {
       set_mod_key(from.mod_key());
     }
+    if (from.has_err_code()) {
+      set_err_code(from.err_code());
+    }
     if (from.has_errmsg()) {
       set_errmsg(from.errmsg());
     }
@@ -2410,6 +2450,7 @@ bool storesvr_opres::IsInitialized() const {
 void storesvr_opres::Swap(storesvr_opres* other) {
   if (other != this) {
     std::swap(mod_key_, other->mod_key_);
+    std::swap(err_code_, other->err_code_);
     std::swap(errmsg_, other->errmsg_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

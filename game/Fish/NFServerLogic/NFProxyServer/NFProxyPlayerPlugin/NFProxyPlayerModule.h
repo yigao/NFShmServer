@@ -93,6 +93,14 @@ public:
      * @return
      */
     int OnHandleAccountLoginFromClient(uint64_t unLinkId, NFDataPackage &packet);
+
+    /**
+     * @brief 账号注册
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleRegisterLoginFromClient(uint64_t unLinkId, NFDataPackage &packet);
 private:
     NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
     NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo

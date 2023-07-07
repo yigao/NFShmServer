@@ -14,3 +14,4 @@
 #include "CSLogin.pb.h"
 
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_AccountLoginReq, proto_ff::Proto_CSAccountLoginReq, proto_ff::Proto_SCAccountLoginRsp)
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_RegisterAccountReq, proto_ff::Proto_CSRegisterAccountReq, proto_ff::Proto_SCRegisterAccountRsp)

@@ -35,6 +35,8 @@ bool NFCProxyPlayerModule::Awake()
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////来自客户端的协议////////////////////////////////////////
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_MSG_AccountLoginReq, true);
+    RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_MSG_RegisterAccountReq, true);
+
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_Msg_HeartBeat_REQ);
     RegisterClientMessage(NF_ST_PROXY_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT);
 
@@ -140,6 +142,11 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
         case proto_ff::NF_CS_MSG_AccountLoginReq:
         {
             OnHandleAccountLoginFromClient(unLinkId, packet);
+            break;
+        }
+        case proto_ff::NF_CS_MSG_RegisterAccountReq:
+        {
+            OnHandleRegisterLoginFromClient(unLinkId, packet);
             break;
         }
         default:
@@ -549,6 +556,49 @@ int NFCProxyPlayerModule::OnHandleAccountLoginFromClient(uint64_t unLinkId, NFDa
         }
 
         FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_AccountLoginRsp, respone);
+    }
+    else
+    {
+        KickPlayer(unLinkId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Get Login Server Bus Id Failed");
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCProxyPlayerModule::OnHandleRegisterLoginFromClient(uint64_t unLinkId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::Proto_CSRegisterAccountReq cgMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, cgMsg);
+
+    NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+    CHECK_NULL(pLinkInfo);
+
+    std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
+
+    auto pServerData = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_PROXY_SERVER,
+                                                                                 NF_ST_LOGIN_SERVER, cgMsg.account());
+    if (pServerData)
+    {
+        uint32_t loginId = pServerData->mServerInfo.bus_id();
+        proto_ff::Proto_SCRegisterAccountRsp respone;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_CS_MSG_RegisterAccountReq>(NF_ST_PROXY_SERVER, NF_ST_LOGIN_SERVER, loginId, cgMsg, respone);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ Failed!");
+            return 0;
+        }
+
+        pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+        if (pLinkInfo == nullptr)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, 0, "clientLinkId:{} not exist, client maybe disconnect!", unLinkId);
+            return 0;
+        }
+
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_RegisterAccountRsp, respone);
     }
     else
     {

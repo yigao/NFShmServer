@@ -59,6 +59,10 @@ int NFTestRobot::OnHandleProxyOtherMessage(uint64_t unLinkId, NFDataPackage &pac
     {
 	    OnHandleAccountLogin(unLinkId, packet);
     }
+    else if (nMsgId == proto_ff::NF_SC_MSG_RegisterAccountRsp)
+    {
+        OnHandleAccountRegister(unLinkId, packet);
+    }
 	else if (nMsgId == proto_ff::NF_SC_Msg_HeartBeat_RSP)
     {
 
@@ -93,6 +97,34 @@ int NFTestRobot::OnHandleAccountLogin(uint64_t unLinkId, NFDataPackage &packet)
         mStatus = NF_TEST_ROBOT_LOGIN_FAILED;
         NFLogError(NF_LOG_SYSTEMLOG, 0, "robot:{} account login failed", m_robotId);
         RegisterAccount();
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFTestRobot::OnHandleAccountRegister(uint64_t unLinkId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+
+    proto_ff::Proto_SCRegisterAccountRsp gcMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, gcMsg);
+
+    if (gcMsg.result() == 0)
+    {
+        m_playerId = gcMsg.user_id();
+        m_loginTime = gcMsg.login_time();
+        m_token = gcMsg.token();
+        mStatus = NF_TEST_ROBOT_LOGIN_SUCCESS;
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "robot:{} account register success", m_robotId);
+        if (gcMsg.server_ip_list_size() > 0)
+        {
+            //int index = NFRandInt(0, gcMsg.server_ip_list_size());
+            //ConnectGameServer(gcMsg.server_ip_list(index).ip(), gcMsg.server_ip_list(index).port());
+        }
+    } else {
+        mStatus = NF_TEST_ROBOT_LOGIN_FAILED;
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "robot:{} register login failed", m_robotId);
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
