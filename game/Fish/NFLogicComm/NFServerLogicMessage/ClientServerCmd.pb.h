@@ -35,6 +35,7 @@ void protobuf_ShutdownFile_ClientServerCmd_2eproto();
 
 
 enum ClientServerCmd {
+  E_CS_ERROR = 1000,
   NF_CS_Msg_Get_Room_Info_Req = 1011,
   NF_SC_Msg_Get_Room_Info_Rsp = 1012,
   NF_CS_MSG_EnterGame_AUTO_JOIN_Req = 1013,
@@ -115,7 +116,7 @@ enum ClientServerCmd {
   CLIENT_SERVER_MAX_CMD = 5000
 };
 bool ClientServerCmd_IsValid(int value);
-const ClientServerCmd ClientServerCmd_MIN = NF_CS_Msg_ReConnect_REQ;
+const ClientServerCmd ClientServerCmd_MIN = E_CS_ERROR;
 const ClientServerCmd ClientServerCmd_MAX = CLIENT_SERVER_MAX_CMD;
 const int ClientServerCmd_ARRAYSIZE = ClientServerCmd_MAX + 1;
 

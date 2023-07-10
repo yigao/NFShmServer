@@ -5,7 +5,10 @@ import "yd_fieldoptions.proto";
 //客户端和服务器之间的协议ID
 enum ClientServerCmd
 {
+  E_CS_ERROR = 1000;
+
   //1011--1100游戏//////////////////////////////////////////////////////////////////////////////////
+
   NF_CS_Msg_Get_Room_Info_Req = 1011;
   NF_SC_Msg_Get_Room_Info_Rsp = 1012;
 

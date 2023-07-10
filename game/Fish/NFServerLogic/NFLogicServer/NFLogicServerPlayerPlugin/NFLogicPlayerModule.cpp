@@ -9,8 +9,8 @@
 
 #include "NFLogicPlayerModule.h"
 
-#include "NFPlayer.h"
-#include "NFPlayerMgr.h"
+#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h"
+#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h"
 #include "ServerInternalCmd.pb.h"
 #include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "DBProto.pb.h"
@@ -159,7 +159,7 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
                     return 0;
                 }
 
-                pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(selectobj.player_id());
+                pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(selectobj.player_id(), selectobj, true);
                 if (pPlayer == NULL)
                 {
                     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayerMgr CreatePlayer:{} Failed", request.user_id());
@@ -176,7 +176,7 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
         }
         else
         {
-            pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(selectobj.player_id());
+            pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(selectobj.player_id(), selectobj, false);
             if (pPlayer == NULL)
             {
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayerMgr CreatePlayer:{} Failed", request.user_id());
@@ -188,15 +188,7 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
 
     CHECK_NULL(pPlayer);
 
-    int iRet = pPlayer->Init(selectobj);
-    if (iRet != 0)
-    {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayer:{} Init:{} Failed", request.user_id(), GetErrorStr(iRet));
-        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
-        return 0;
-    }
-
-    iRet = pPlayer->OnLogin();
+    int iRet = pPlayer->OnLogin();
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayer:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));

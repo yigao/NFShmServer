@@ -10,6 +10,7 @@
 #include "NFPlayerMgr.h"
 #include "NFPlayer.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFComm/NFPluginModule/NFError.h"
 #include <map>
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerMgr, EOT_LOGIC_PLAYER_MGR_ID, NFShmObj)
@@ -32,7 +33,10 @@ NFPlayerMgr::~NFPlayerMgr()
 }
 
 int NFPlayerMgr::CreateInit() {
-    m_playerTickTimer = SetTimer(1000, 0, 0, 0, 1, 0);
+    m_playerTickTimer = SetTimer(100, 0, 0, 0, 1, 0);
+    m_dayTickTimer = SetDayCalender(0, 0, 0, 0);
+    m_weekTickTimer = SetWeekCalender(0, 1, 0, 0, 0);
+    m_monthTickTimer = SetMonthCalender(0, 1, 0, 0, 0);
     return 0;
 }
 
@@ -45,13 +49,25 @@ int NFPlayerMgr::OnTimer(int timeId, int callcount)
 {
     if (m_playerTickTimer == timeId)
     {
-        UserTick();
+        Tick();
+    }
+    else if (m_dayTickTimer == timeId)
+    {
+        DailyZeroUpdate();
+    }
+    else if (m_weekTickTimer == timeId)
+    {
+        WeekZeroUpdate();
+    }
+    else if (m_monthTickTimer == timeId)
+    {
+        MonthZeroUpdate();
     }
 
     return 0;
 }
 
-int NFPlayerMgr::UserTick()
+int NFPlayerMgr::Tick()
 {
     std::vector<uint64_t> willRemovePlayer;
     for(auto iter = NFPlayer::Begin(m_pObjPluginManager); iter != NFPlayer::End(m_pObjPluginManager); iter++)
@@ -82,7 +98,7 @@ NFPlayer *NFPlayerMgr::GetPlayer(uint64_t playerId)
     return dynamic_cast<NFPlayer*>(NFPlayer::GetObjByHashKey(m_pObjPluginManager, playerId));
 }
 
-NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t playerId)
+NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t playerId, const proto_ff::tbFishPlayerData& dbData, bool bCreatePlayer)
 {
     NFPlayer *pPlayer = GetPlayer(playerId);
     CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, palyerId:{}", playerId);
@@ -91,7 +107,15 @@ NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t playerId)
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", playerId);
 
     pPlayer->SetPlayerId(playerId);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Player Success, playerId:{} globalId:{}", playerId,
+    int iRet = pPlayer->Init(dbData, bCreatePlayer);
+    if (iRet != 0)
+    {
+        NFPlayer::DestroyObj(m_pObjPluginManager, pPlayer);
+        NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "Create Player Failed,  playerId:{} Init Failed, iRet:{}", playerId, GetErrorStr(iRet));
+        return NULL;
+    }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Create Player Success, playerId:{} globalId:{}", playerId,
               pPlayer->GetGlobalId());
     return pPlayer;
 }
@@ -104,5 +128,35 @@ int NFPlayerMgr::DeletePlayer(NFPlayer *pPlayer)
 
     NFPlayer::DestroyObj(m_pObjPluginManager, pPlayer);
 
+    return 0;
+}
+
+int NFPlayerMgr::DailyZeroUpdate()
+{
+    for(auto iter = NFPlayer::Begin(m_pObjPluginManager); iter != NFPlayer::End(m_pObjPluginManager); iter++)
+    {
+        NFPlayer* pPlayer = &(*iter);
+        pPlayer->DailyZeroUpdate();
+    }
+    return 0;
+}
+
+int NFPlayerMgr::WeekZeroUpdate()
+{
+    for(auto iter = NFPlayer::Begin(m_pObjPluginManager); iter != NFPlayer::End(m_pObjPluginManager); iter++)
+    {
+        NFPlayer* pPlayer = &(*iter);
+        pPlayer->WeekZeroUpdate();
+    }
+    return 0;
+}
+
+int NFPlayerMgr::MonthZeroUpdate()
+{
+    for(auto iter = NFPlayer::Begin(m_pObjPluginManager); iter != NFPlayer::End(m_pObjPluginManager); iter++)
+    {
+        NFPlayer* pPlayer = &(*iter);
+        pPlayer->MonthZeroUpdate();
+    }
     return 0;
 }

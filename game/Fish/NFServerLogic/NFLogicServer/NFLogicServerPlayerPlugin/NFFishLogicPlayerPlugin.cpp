@@ -12,8 +12,8 @@
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFLogicPlayerModule.h"
-#include "NFPlayerMgr.h"
-#include "NFPlayer.h"
+#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h"
+#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -63,5 +63,7 @@ bool NFFishLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
 
+    REGISTER_SHM_OBJ(NFTransPlayerBase, 1);
+    REGISTER_SHM_OBJ(NFTransSaveDB, maxOnlinePlayerNum);
     return true;
 }

@@ -10,6 +10,7 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFShmObj.h"
+#include "NFComm/NFShmCore/NFShmMgr.h"
 
 enum
 {

@@ -2,3 +2,10 @@ package proto_ff;
 
 import "yd_fieldoptions.proto";
 import "Com.proto";
+
+message Proto_CSErrorRsp
+{
+  optional uint64 user_id = 1;
+  optional uint32 req_msg_id  = 2;	//请求的命令号
+  optional int32 error = 3; 	//错误码
+}

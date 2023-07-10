@@ -11,13 +11,8 @@
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFShmDefine.h"
-
-class NFShmObj;
-class NFISharedMemModule;
-class NFTransBase;
-class NFShmObj;
-class NFIPluginManager;
 
 /**
  * @brief 由于C++类的构造函数，析构函数调用虚函数的问题，又不想NFShmObj类的构造函数含有太多的参数，所以用这个类来传一些临时的参数
