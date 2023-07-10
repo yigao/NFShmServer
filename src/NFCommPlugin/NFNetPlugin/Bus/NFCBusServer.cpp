@@ -156,7 +156,7 @@ void NFCBusServer::ProcessMsgLogicThread()
             // 回调收到数据事件
             if (ret < 0)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "Shm Recv Error:{}", ret)
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Shm Recv Error:{}", GetErrorStr(ret));
                 break;
             }
             else

@@ -211,6 +211,6 @@ int NFCCoroutineModule::MakeCoroutine(const std::function<void()> &func)
 
     pTask->Init(func);
     int64_t coid = pTask->Start(true);
-    return coid < 0 ? -1 : 0;
+    return coid < 0 ? -1 : coid;
 }
 

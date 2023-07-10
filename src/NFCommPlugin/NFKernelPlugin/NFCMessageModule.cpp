@@ -380,7 +380,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
             if (callBack.mxAllMsgCallBackList.m_createCo)
             {
                 NET_RECEIVE_FUNCTOR &pFun = callBack.mxAllMsgCallBackList.m_pFunctor;
-                int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                int coId = FindModule<NFICoroutineModule>()->MakeCoroutine(
                         [pFun, objectLinkId, packet]
                         {
                             //从消息层传过来的包中的数据，会在处理函数执行完后销毁掉，所以携程必须复制一份，以防万一yield后又用到。
@@ -390,7 +390,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                             pFun(objectLinkId, tempPackage);
                         });
 
-                if (iRet != 0)
+                if (coId == INVALID_ID)
                 {
                     return 0;
                 }
@@ -415,7 +415,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                 int iRet = 0;
                 if (netFunctor.m_createCo)
                 {
-                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                    int coId = FindModule<NFICoroutineModule>()->MakeCoroutine(
                             [objectLinkId, packet, pFun]
                             {
                                 //从消息层传过来的包中的数据，会在处理函数执行完后销毁掉，所以携程必须复制一份，以防万一yield后又用到。
@@ -424,6 +424,10 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                                 tempPackage.nBuffer = (char*)tempCopyBuffer.data();
                                 pFun(objectLinkId, tempPackage);
                             });
+                    if (coId == INVALID_ID)
+                    {
+                        iRet = proto_ff::ERR_CODE_RPC_TASK_OVERLOAD;
+                    }
                 }
                 else {
                     iRet = pFun(objectLinkId, packet);
@@ -470,7 +474,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                 int iRet = 0;
                 if (iterator2->second.m_createCo)
                 {
-                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                    int coId = FindModule<NFICoroutineModule>()->MakeCoroutine(
                             [objectLinkId, packet, pFun]
                             {
                                 //从消息层传过来的包中的数据，会在处理函数执行完后销毁掉，所以携程必须复制一份，以防万一yield后又用到。
@@ -479,6 +483,10 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                                 tempPackage.nBuffer = (char*)tempCopyBuffer.data();
                                 pFun(objectLinkId, tempPackage);
                             });
+                    if (coId == INVALID_ID)
+                    {
+                        iRet = proto_ff::ERR_CODE_RPC_TASK_OVERLOAD;
+                    }
                 }
                 else {
                     iRet = pFun(objectLinkId, packet);
@@ -788,7 +796,7 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
                 if (netRpcService.m_createCo)
                 {
                     NFIRpcService* pRpcService = netRpcService.m_pRpcService;
-                    iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                    int coId = FindModule<NFICoroutineModule>()->MakeCoroutine(
                             [this, pRpcService, objectLinkId, reqSvrPkg]()
                             {
                                 int iRet = pRpcService->run(objectLinkId, reqSvrPkg);
@@ -813,6 +821,10 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
                                                                                     proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, rspSvrPkg);
                                 }
                             });
+                    if (coId == INVALID_ID)
+                    {
+                        iRet = proto_ff::ERR_CODE_RPC_TASK_OVERLOAD;
+                    }
                 }
                 else
                 {
@@ -881,11 +893,11 @@ int NFCMessageModule::OnSocketNetEvent(eMsgType nEvent, uint64_t serverLinkId, u
             {
                 if (iter->second.m_createCo)
                 {
-                    int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                    int coId = FindModule<NFICoroutineModule>()->MakeCoroutine(
                             [pFun, nEvent, objectLinkId]{
                                 pFun(nEvent, objectLinkId);
                             });
-                    CHECK_RET(iRet, "nEvent:{}", nEvent);
+                    CHECK_EXPR(coId != INVALID_ID, proto_ff::ERR_CODE_RPC_TASK_OVERLOAD, "nEvent:{}", nEvent);
                 }
                 else {
                     int iRet = pFun(nEvent, objectLinkId);
