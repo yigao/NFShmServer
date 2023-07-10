@@ -12,7 +12,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include <map>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFLogicPlayerMgr, EOT_WORLD_PLAYER_MGR_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFLogicPlayerMgr, EOT_LOGIC_PLAYER_MGR_ID, NFShmObj)
 
 NFLogicPlayerMgr::NFLogicPlayerMgr() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {

@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFLogicServerPlayerPlugin.h"
+#include "NFFishLogicPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"

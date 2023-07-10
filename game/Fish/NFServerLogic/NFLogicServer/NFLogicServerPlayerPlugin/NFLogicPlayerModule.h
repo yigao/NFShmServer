@@ -47,5 +47,5 @@ public:
      * @param respone
      * @return
      */
-    int OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone);
+    int OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLoginReq& request, proto_ff::Proto_LogicToWorldLoginRsp& respone);
 };

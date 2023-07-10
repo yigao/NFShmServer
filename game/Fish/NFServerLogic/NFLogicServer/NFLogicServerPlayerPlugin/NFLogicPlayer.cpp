@@ -11,7 +11,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFLogicPlayer, EOT_WORLD_PLAYER_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFLogicPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
 NFLogicPlayer::NFLogicPlayer()
 {

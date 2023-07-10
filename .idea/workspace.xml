@@ -54,20 +54,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish user login">
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicServerPlayerPlugin.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicServerPlayerPlugin.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFWorldPlayer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFWorldPlayer.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFWorldPlayerMgr.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFWorldPlayerMgr.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFWorldPlayerModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayerMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayerMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicServerPlayerPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicServerPlayerPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +81,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFFishProxyPlayerPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFFishLogicPlayerPlugin" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -351,7 +345,7 @@
       <workItem from="1688201751342" duration="972000" />
       <workItem from="1688204299548" duration="45000" />
       <workItem from="1688345617726" duration="6159000" />
-      <workItem from="1688951872390" duration="4124000" />
+      <workItem from="1688951872390" duration="4794000" />
     </task>
     <task id="LOCAL-00001" summary="fish login">
       <created>1688635177701</created>
@@ -388,7 +382,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688955620410</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fish user login">
+      <created>1688956567675</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688956567675</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -409,13 +410,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
-          <line>95</line>
+          <line>94</line>
           <option name="timeStamp" value="81" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
-          <line>147</line>
+          <line>146</line>
           <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/../proj_rise_af/server/code/include/Common/MissionDefine.h</url>
+          <line>42</line>
+          <option name="timeStamp" value="83" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
