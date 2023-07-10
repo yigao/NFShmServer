@@ -53,6 +53,7 @@ int NFPlayerMgr::OnTimer(int timeId, int callcount)
     }
     else if (m_dayTickTimer == timeId)
     {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "time:{}", NFTime::Now().GetFormatTime());
         DailyZeroUpdate();
     }
     else if (m_weekTickTimer == timeId)

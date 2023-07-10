@@ -26,6 +26,7 @@ enum NFConsoleMsgEnum
     NFConsoleMsg_ProductFile = 5, //类节点头文件
     NFConsoleMsg_HotfixLua = 6, //类节点头文件
     NFConsoleMsg_HotfixAllLua = 7, //类节点头文件
+    NFConsoleMsg_SetTime = 8, //
 };
 
 struct NFConsoleMsg

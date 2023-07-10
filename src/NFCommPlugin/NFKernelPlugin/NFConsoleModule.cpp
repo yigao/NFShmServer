@@ -16,6 +16,7 @@
 #include "NFComm/NFPluginModule/NFIPlugin.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFMD5.h"
+#include "NFComm/NFCore/NFTime.h"
 
 NFCConsoleModule::NFCConsoleModule(NFIPluginManager* p): NFIConsoleModule(p)
 {
@@ -61,6 +62,7 @@ bool NFCConsoleModule::Awake()
 			mCmdParser.Add("Reload", 0, "Reload plugin config");
 
 			mCmdParser.Add<std::string>("Dynamic", 0, "Dynamic Load Plugin", false, "xxPlugin");
+            mCmdParser.Add<std::string>("SetTime", 0, "GM Set Time year:month:day:hour:minute:second", false, "time");
 		}
 		catch (NFCmdLine::NFCmdLine_Error& e)
 		{
@@ -173,6 +175,18 @@ void NFCConsoleModule::BackThreadLoop()
 					mQueueMsg.Push(msg);
 				}
 			}
+
+            if (mCmdParser.Exist("SetTime"))
+            {
+                std::string strTime = mCmdParser.Get<std::string>("SetTime");
+                if (!strTime.empty())
+                {
+                    NFConsoleMsg msg;
+                    msg.mMsgType = NFConsoleMsg_SetTime;
+                    msg.mParam1 = strTime;
+                    mQueueMsg.Push(msg);
+                }
+            }
 
 			if (mCmdParser.Exist("Reload"))
 			{
@@ -298,6 +312,18 @@ int NFCConsoleModule::OnTimer(uint32_t nTimerID)
 		{
 			
 		}
+        else if (msg.mMsgType == NFConsoleMsg_SetTime)
+        {
+            std::vector<int> vec;
+            NFStringUtility::SplitStringToVector(msg.mParam1, ":", vec);
+            if (vec.size() >= 6)
+            {
+                NFTime::GmSetTime(vec[0], vec[1], vec[2], vec[3], vec[4], vec[5]);
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "SetTime Error, Format is not right:{}", msg.mParam1);
+            }
+        }
 	}
     return 0;
 }

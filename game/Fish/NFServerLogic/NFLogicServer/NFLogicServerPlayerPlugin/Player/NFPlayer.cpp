@@ -178,6 +178,7 @@ int NFPlayer::OnLogin()
 
 int NFPlayer::OnLogout()
 {
+    m_lastLogoutTime = NFTime::Now().UnixSec();
     return 0;
 }
 
