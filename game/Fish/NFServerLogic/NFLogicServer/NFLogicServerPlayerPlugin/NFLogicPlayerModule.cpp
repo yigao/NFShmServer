@@ -120,23 +120,13 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
                 insertObj.set_age(18);
                 insertObj.set_gender(0);
                 insertObj.set_regdate(NFTime::Now().UnixSec());
-                insertObj.set_is_ban(0);
-                insertObj.set_no_transfer(0);
 
                 insertObj.set_faceid(1);
                 insertObj.set_jetton(1000000);
 
                 insertObj.set_regdate(NFTime::Now().UnixSec());
                 insertObj.set_phonenum(0);
-                insertObj.set_channel_id(request.ext_data().channel_id());
-                insertObj.set_platform_os(request.ext_data().platform_os());
                 insertObj.set_ip(request.client_ip());
-                insertObj.set_phone_model(request.ext_data().phone_mode());
-                insertObj.set_is_ban(0);
-                insertObj.set_no_transfer(0);
-                insertObj.set_device_id(request.ext_data().device_id());
-                insertObj.set_reg_ip(request.client_ip());
-                insertObj.set_reg_device_id(request.ext_data().device_id());
 
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Ready Create Player InTo Mysql:{}", insertObj.DebugString());
 

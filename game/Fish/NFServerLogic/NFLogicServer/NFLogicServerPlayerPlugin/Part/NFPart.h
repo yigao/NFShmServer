@@ -18,9 +18,7 @@
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "DBProto.pb.h"
-#include "CSPlayer.pb.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
-#include "DBProto2.pb.h"
 
 class NFPlayer;
 
@@ -38,31 +36,37 @@ public:
 public:
     //******************part调用生物接口******************
     //生物init调用
-    virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
+    virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer);
 
     //生物uint调用
     virtual int UnInit();
 
 public:
     /**
+     * @brief
+     * @param data
+     * @return
+     */
+    virtual int LoadFromDB(const proto_ff::tbFishPlayerData& data) { return 0; }
+
+    /**
+     * @brief
+     * @return
+     */
+    virtual int InitConfig(const proto_ff::tbFishPlayerData& data) { return 0; }
+
+    /**
      * @brief 存储DB部件入口
      * @param proto
      * @return
      */
-    virtual int SaveDB(proto_ff::RoleDBData &dbData) { return 0; }
+    virtual int SaveDB(proto_ff::tbFishPlayerData &dbData) { return 0; }
 
     /**
      * @brief 登陆入口
      * @return
      */
     virtual int OnLogin() { return 0; }
-
-    /**
-     * @brief  登陆入口
-     * @param playerInfo
-     * @return
-     */
-    virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo) { return 0; };
 
     /**
      * @brief 登出入口
@@ -82,32 +86,6 @@ public:
      */
     virtual int OnReconnect() { return 0; }
 
-    /**
-     * @brief
-     * @param outproto
-     */
-    virtual void SetFacadeProto(proto_ff::RoleFacadeProto &outproto) {}
-
-    /**
-     * @brief 进入场景携带的数据
-     * @param outproto
-     */
-    virtual void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto) { }
-
-    ////////////////////////////////// 每日每周刷新接口 ///////////////////////////////////
-    /**
-     * @brief 每日刷新接口
-     * @param unixSec
-     * @return
-     */
-    virtual int DailyUpdate(uint64_t unixSec) { return 0; }
-
-    /**
-     * @brief 每周刷新接口
-     * @param unixSec
-     * @return
-     */
-    virtual int WeekUpdate(uint64_t unixSec) { return 0; }
     ////////////////////////////////// 每日零点 每周一零点 刷新接口 ///////////////////////////////////
     /**
      * @brief 每日零点 刷新接口
@@ -128,7 +106,7 @@ public:
      * @brief update
      * @param tick
      */
-    virtual int Update(uint64_t tick) { return 0; }
+    virtual int Update() { return 0; }
 
 public:
     /**
@@ -148,9 +126,9 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
 public:
-    static int RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+    static int RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType, bool createCo);
 
-    static int RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+    static int RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType, bool createCo);
 
 public:
     //部件类型

@@ -57,31 +57,18 @@ void protobuf_AssignDesc_DBProto_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(tbFishAccountTable));
   tbFishPlayerData_descriptor_ = file->message_type(1);
-  static const int tbFishPlayerData_offsets_[24] = {
+  static const int tbFishPlayerData_offsets_[11] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, player_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, nickname_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, faceid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, regdate_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, gender_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, age_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, email_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, phonenum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, jetton_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, last_login_time_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, last_logout_time_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, channel_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, platform_os_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, phone_model_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, first_recharge_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, vip_level_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, game_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, room_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, is_ban_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, no_transfer_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, reg_ip_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, device_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishPlayerData, reg_device_id_),
   };
   tbFishPlayerData_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -138,36 +125,17 @@ void protobuf_AddDesc_DBProto_2eproto() {
     "\310\202\024\200\001\272\304\023\006\345\257\206\347\240\201\022&\n\014account_type\030\004 \001(\rB\020\272"
     "\304\023\014\350\264\246\345\217\267\347\261\273\345\236\213\022)\n\tdevice_id\030\005 \001(\tB\026\220\301\024\200"
     "\001\310\202\024\200\001\272\304\023\010\350\256\276\345\244\207ID\022\"\n\010phonenum\030\006 \001(\004B\020\272\304"
-    "\023\014\346\211\213\346\234\272\345\217\267\347\240\201\"\231\t\n\020tbFishPlayerData\022#\n\tp"
+    "\023\014\346\211\213\346\234\272\345\217\267\347\240\201\"\246\003\n\020tbFishPlayerData\022#\n\tp"
     "layer_id\030\001 \001(\004B\020\300\202\024\002\272\304\023\010\347\216\251\345\256\266ID\022(\n\010nick"
     "name\030\002 \001(\tB\026\300\202\024\003\220\301\024@\310\202\024@\272\304\023\006\346\230\265\347\247\260\022\032\n\006fa"
     "ceid\030\003 \001(\rB\n\272\304\023\006\345\244\264\345\203\217\022!\n\007regdate\030\004 \001(\004B"
     "\020\272\304\023\014\346\263\250\345\206\214\346\227\266\351\227\264\022\032\n\006gender\030\005 \001(\rB\n\272\304\023\006\346"
-    "\200\247\345\210\253\022\027\n\003age\030\006 \001(\rB\n\272\304\023\006\345\271\264\351\276\204\022!\n\005email\030"
-    "\007 \001(\tB\022\220\301\024@\310\202\024@\272\304\023\006\351\202\256\344\273\266\022\"\n\010phonenum\030\010 "
-    "\001(\004B\020\272\304\023\014\346\211\213\346\234\272\345\217\267\347\240\201\022\032\n\006jetton\030\t \001(\004B\n\272"
-    "\304\023\006\351\207\221\345\270\201\022 \n\002ip\030\020 \001(\tB\024\220\301\024@\310\202\024@\272\304\023\010IP\345\234\260"
-    "\345\235\200\0225\n\017last_login_time\030\021 \001(\004B\034\272\304\023\030\346\234\200\350\277\221"
-    "\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264\0226\n\020last_logout_time\030\022"
-    " \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\351\200\200\345\207\272\346\227\266\351\227\264\022 \n\nch"
-    "annel_id\030\024 \001(\rB\014\272\304\023\010\346\270\240\351\201\223id\022-\n\013platform"
-    "_os\030\025 \001(\tB\030\220\301\024@\310\202\024@\272\304\023\014\346\211\213\346\234\272\347\263\273\347\273\237\022-\n\013p"
-    "hone_model\030\026 \001(\tB\030\220\301\024@\310\202\024@\272\304\023\014\346\211\213\346\234\272\345\236\213\345"
-    "\217\267\022.\n\016first_recharge\030\027 \001(\010B\026\272\304\023\022\351\246\226\345\206\262:0"
-    "=\345\220\246,1=\346\230\257\022\021\n\tvip_level\030\032 \001(\r\022\274\001\n\007game_i"
-    "d\030\035 \001(\rB\252\001\300\202\024\003\272\304\023\241\001\346\270\270\346\210\217ID:1001=\346\260\264\346\236\234\347"
-    "\216\233\344\270\275,1002=\345\271\270\350\277\220\350\275\254\350\275\256,1003=\346\260\264\346\265\222\344\274\240,1"
-    "004=\351\274\240\346\235\245\345\256\235,1005=\347\246\217\346\230\237\351\253\230\347\205\247,2001=\345\244\247"
-    "\351\227\271\345\244\251\347\251\2722,2002=\345\244\247\351\227\271\345\244\251\347\251\272,2003=\346\254\242\344\271\220"
-    "\346\215\225\351\261\2743D,2004=\346\265\267\347\216\213\022]\n\007room_id\030\036 \001(\rBL\300"
-    "\202\024\003\272\304\023D\346\210\277\351\227\264ID:1=\344\275\223\351\252\214\345\234\272,2=\345\210\235\347\272\247\345\234\272,"
-    "3=\346\231\256\351\200\232\345\234\272,4=\344\270\255\347\272\247\345\234\272,5=\351\253\230\347\272\247\345\234\272\022,\n\006i"
-    "s_ban\030/ \001(\rB\034\272\304\023\030\345\260\201\345\217\267:0=\346\255\243\345\270\270,1=\345\260\201\345\217"
-    "\267\0221\n\013no_transfer\0300 \001(\rB\034\272\304\023\030\350\275\254\350\264\246:0=\346\255\243"
-    "\345\270\270,1=\347\246\201\346\255\242\022*\n\006reg_ip\0301 \001(\tB\032\220\301\024@\310\202\024@\272\304"
-    "\023\016\346\263\250\345\206\214IP\345\234\260\345\235\200\022*\n\tdevice_id\0302 \001(\tB\027\220\301\024"
-    "\200\001\310\202\024\200\001\272\304\023\t\346\234\272\345\231\250\347\240\201\0224\n\rreg_device_id\0303 "
-    "\001(\tB\035\220\301\024\200\001\310\202\024\200\001\272\304\023\017\346\263\250\345\206\214\346\234\272\345\231\250\347\240\201", 1514);
+    "\200\247\345\210\253\022\027\n\003age\030\006 \001(\rB\n\272\304\023\006\345\271\264\351\276\204\022\"\n\010phonen"
+    "um\030\010 \001(\004B\020\272\304\023\014\346\211\213\346\234\272\345\217\267\347\240\201\022\032\n\006jetton\030\t \001"
+    "(\004B\n\272\304\023\006\351\207\221\345\270\201\022 \n\002ip\030\013 \001(\tB\024\220\301\024@\310\202\024@\272\304\023\010"
+    "IP\345\234\260\345\235\200\0225\n\017last_login_time\030\014 \001(\004B\034\272\304\023\030\346"
+    "\234\200\350\277\221\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264\0226\n\020last_logout_t"
+    "ime\030\r \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\351\200\200\345\207\272\346\227\266\351\227\264", 759);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProto.proto", &protobuf_RegisterTypes);
   tbFishAccountTable::default_instance_ = new tbFishAccountTable();
@@ -652,24 +620,11 @@ const int tbFishPlayerData::kFaceidFieldNumber;
 const int tbFishPlayerData::kRegdateFieldNumber;
 const int tbFishPlayerData::kGenderFieldNumber;
 const int tbFishPlayerData::kAgeFieldNumber;
-const int tbFishPlayerData::kEmailFieldNumber;
 const int tbFishPlayerData::kPhonenumFieldNumber;
 const int tbFishPlayerData::kJettonFieldNumber;
 const int tbFishPlayerData::kIpFieldNumber;
 const int tbFishPlayerData::kLastLoginTimeFieldNumber;
 const int tbFishPlayerData::kLastLogoutTimeFieldNumber;
-const int tbFishPlayerData::kChannelIdFieldNumber;
-const int tbFishPlayerData::kPlatformOsFieldNumber;
-const int tbFishPlayerData::kPhoneModelFieldNumber;
-const int tbFishPlayerData::kFirstRechargeFieldNumber;
-const int tbFishPlayerData::kVipLevelFieldNumber;
-const int tbFishPlayerData::kGameIdFieldNumber;
-const int tbFishPlayerData::kRoomIdFieldNumber;
-const int tbFishPlayerData::kIsBanFieldNumber;
-const int tbFishPlayerData::kNoTransferFieldNumber;
-const int tbFishPlayerData::kRegIpFieldNumber;
-const int tbFishPlayerData::kDeviceIdFieldNumber;
-const int tbFishPlayerData::kRegDeviceIdFieldNumber;
 #endif  // !_MSC_VER
 
 tbFishPlayerData::tbFishPlayerData()
@@ -694,24 +649,11 @@ void tbFishPlayerData::SharedCtor() {
   regdate_ = GOOGLE_ULONGLONG(0);
   gender_ = 0u;
   age_ = 0u;
-  email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   phonenum_ = GOOGLE_ULONGLONG(0);
   jetton_ = GOOGLE_ULONGLONG(0);
   ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   last_login_time_ = GOOGLE_ULONGLONG(0);
   last_logout_time_ = GOOGLE_ULONGLONG(0);
-  channel_id_ = 0u;
-  platform_os_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  phone_model_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  first_recharge_ = false;
-  vip_level_ = 0u;
-  game_id_ = 0u;
-  room_id_ = 0u;
-  is_ban_ = 0u;
-  no_transfer_ = 0u;
-  reg_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  reg_device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -723,26 +665,8 @@ void tbFishPlayerData::SharedDtor() {
   if (nickname_ != &::google::protobuf::internal::kEmptyString) {
     delete nickname_;
   }
-  if (email_ != &::google::protobuf::internal::kEmptyString) {
-    delete email_;
-  }
   if (ip_ != &::google::protobuf::internal::kEmptyString) {
     delete ip_;
-  }
-  if (platform_os_ != &::google::protobuf::internal::kEmptyString) {
-    delete platform_os_;
-  }
-  if (phone_model_ != &::google::protobuf::internal::kEmptyString) {
-    delete phone_model_;
-  }
-  if (reg_ip_ != &::google::protobuf::internal::kEmptyString) {
-    delete reg_ip_;
-  }
-  if (device_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete device_id_;
-  }
-  if (reg_device_id_ != &::google::protobuf::internal::kEmptyString) {
-    delete reg_device_id_;
   }
   if (this != default_instance_) {
   }
@@ -781,15 +705,10 @@ void tbFishPlayerData::Clear() {
     regdate_ = GOOGLE_ULONGLONG(0);
     gender_ = 0u;
     age_ = 0u;
-    if (has_email()) {
-      if (email_ != &::google::protobuf::internal::kEmptyString) {
-        email_->clear();
-      }
-    }
     phonenum_ = GOOGLE_ULONGLONG(0);
+    jetton_ = GOOGLE_ULONGLONG(0);
   }
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
-    jetton_ = GOOGLE_ULONGLONG(0);
     if (has_ip()) {
       if (ip_ != &::google::protobuf::internal::kEmptyString) {
         ip_->clear();
@@ -797,40 +716,6 @@ void tbFishPlayerData::Clear() {
     }
     last_login_time_ = GOOGLE_ULONGLONG(0);
     last_logout_time_ = GOOGLE_ULONGLONG(0);
-    channel_id_ = 0u;
-    if (has_platform_os()) {
-      if (platform_os_ != &::google::protobuf::internal::kEmptyString) {
-        platform_os_->clear();
-      }
-    }
-    if (has_phone_model()) {
-      if (phone_model_ != &::google::protobuf::internal::kEmptyString) {
-        phone_model_->clear();
-      }
-    }
-    first_recharge_ = false;
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    vip_level_ = 0u;
-    game_id_ = 0u;
-    room_id_ = 0u;
-    is_ban_ = 0u;
-    no_transfer_ = 0u;
-    if (has_reg_ip()) {
-      if (reg_ip_ != &::google::protobuf::internal::kEmptyString) {
-        reg_ip_->clear();
-      }
-    }
-    if (has_device_id()) {
-      if (device_id_ != &::google::protobuf::internal::kEmptyString) {
-        device_id_->clear();
-      }
-    }
-    if (has_reg_device_id()) {
-      if (reg_device_id_ != &::google::protobuf::internal::kEmptyString) {
-        reg_device_id_->clear();
-      }
-    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -934,23 +819,6 @@ bool tbFishPlayerData::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_email;
-        break;
-      }
-
-      // optional string email = 7;
-      case 7: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_email:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_email()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->email().data(), this->email().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
         if (input->ExpectTag(64)) goto parse_phonenum;
         break;
       }
@@ -983,12 +851,12 @@ bool tbFishPlayerData::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(130)) goto parse_ip;
+        if (input->ExpectTag(90)) goto parse_ip;
         break;
       }
 
-      // optional string ip = 16;
-      case 16: {
+      // optional string ip = 11;
+      case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_ip:
@@ -1000,12 +868,12 @@ bool tbFishPlayerData::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(136)) goto parse_last_login_time;
+        if (input->ExpectTag(96)) goto parse_last_login_time;
         break;
       }
 
-      // optional uint64 last_login_time = 17;
-      case 17: {
+      // optional uint64 last_login_time = 12;
+      case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_last_login_time:
@@ -1016,12 +884,12 @@ bool tbFishPlayerData::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(144)) goto parse_last_logout_time;
+        if (input->ExpectTag(104)) goto parse_last_logout_time;
         break;
       }
 
-      // optional uint64 last_logout_time = 18;
-      case 18: {
+      // optional uint64 last_logout_time = 13;
+      case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_last_logout_time:
@@ -1029,203 +897,6 @@ bool tbFishPlayerData::MergePartialFromCodedStream(
                    ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
                  input, &last_logout_time_)));
           set_has_last_logout_time();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(160)) goto parse_channel_id;
-        break;
-      }
-
-      // optional uint32 channel_id = 20;
-      case 20: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_channel_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &channel_id_)));
-          set_has_channel_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(170)) goto parse_platform_os;
-        break;
-      }
-
-      // optional string platform_os = 21;
-      case 21: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_platform_os:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_platform_os()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->platform_os().data(), this->platform_os().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(178)) goto parse_phone_model;
-        break;
-      }
-
-      // optional string phone_model = 22;
-      case 22: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_phone_model:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_phone_model()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->phone_model().data(), this->phone_model().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(184)) goto parse_first_recharge;
-        break;
-      }
-
-      // optional bool first_recharge = 23;
-      case 23: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_first_recharge:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &first_recharge_)));
-          set_has_first_recharge();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(208)) goto parse_vip_level;
-        break;
-      }
-
-      // optional uint32 vip_level = 26;
-      case 26: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_vip_level:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &vip_level_)));
-          set_has_vip_level();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(232)) goto parse_game_id;
-        break;
-      }
-
-      // optional uint32 game_id = 29;
-      case 29: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_game_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &game_id_)));
-          set_has_game_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(240)) goto parse_room_id;
-        break;
-      }
-
-      // optional uint32 room_id = 30;
-      case 30: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_room_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &room_id_)));
-          set_has_room_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(376)) goto parse_is_ban;
-        break;
-      }
-
-      // optional uint32 is_ban = 47;
-      case 47: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_is_ban:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &is_ban_)));
-          set_has_is_ban();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(384)) goto parse_no_transfer;
-        break;
-      }
-
-      // optional uint32 no_transfer = 48;
-      case 48: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_no_transfer:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &no_transfer_)));
-          set_has_no_transfer();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(394)) goto parse_reg_ip;
-        break;
-      }
-
-      // optional string reg_ip = 49;
-      case 49: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_reg_ip:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_reg_ip()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->reg_ip().data(), this->reg_ip().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(402)) goto parse_device_id;
-        break;
-      }
-
-      // optional string device_id = 50;
-      case 50: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_device_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_device_id()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->device_id().data(), this->device_id().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(410)) goto parse_reg_device_id;
-        break;
-      }
-
-      // optional string reg_device_id = 51;
-      case 51: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_reg_device_id:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_reg_device_id()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->reg_device_id().data(), this->reg_device_id().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1285,15 +956,6 @@ void tbFishPlayerData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->age(), output);
   }
 
-  // optional string email = 7;
-  if (has_email()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->email().data(), this->email().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      7, this->email(), output);
-  }
-
   // optional uint64 phonenum = 8;
   if (has_phonenum()) {
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(8, this->phonenum(), output);
@@ -1304,103 +966,23 @@ void tbFishPlayerData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(9, this->jetton(), output);
   }
 
-  // optional string ip = 16;
+  // optional string ip = 11;
   if (has_ip()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->ip().data(), this->ip().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      16, this->ip(), output);
+      11, this->ip(), output);
   }
 
-  // optional uint64 last_login_time = 17;
+  // optional uint64 last_login_time = 12;
   if (has_last_login_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(17, this->last_login_time(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(12, this->last_login_time(), output);
   }
 
-  // optional uint64 last_logout_time = 18;
+  // optional uint64 last_logout_time = 13;
   if (has_last_logout_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(18, this->last_logout_time(), output);
-  }
-
-  // optional uint32 channel_id = 20;
-  if (has_channel_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(20, this->channel_id(), output);
-  }
-
-  // optional string platform_os = 21;
-  if (has_platform_os()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->platform_os().data(), this->platform_os().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      21, this->platform_os(), output);
-  }
-
-  // optional string phone_model = 22;
-  if (has_phone_model()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->phone_model().data(), this->phone_model().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      22, this->phone_model(), output);
-  }
-
-  // optional bool first_recharge = 23;
-  if (has_first_recharge()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(23, this->first_recharge(), output);
-  }
-
-  // optional uint32 vip_level = 26;
-  if (has_vip_level()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(26, this->vip_level(), output);
-  }
-
-  // optional uint32 game_id = 29;
-  if (has_game_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(29, this->game_id(), output);
-  }
-
-  // optional uint32 room_id = 30;
-  if (has_room_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(30, this->room_id(), output);
-  }
-
-  // optional uint32 is_ban = 47;
-  if (has_is_ban()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(47, this->is_ban(), output);
-  }
-
-  // optional uint32 no_transfer = 48;
-  if (has_no_transfer()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(48, this->no_transfer(), output);
-  }
-
-  // optional string reg_ip = 49;
-  if (has_reg_ip()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->reg_ip().data(), this->reg_ip().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      49, this->reg_ip(), output);
-  }
-
-  // optional string device_id = 50;
-  if (has_device_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->device_id().data(), this->device_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      50, this->device_id(), output);
-  }
-
-  // optional string reg_device_id = 51;
-  if (has_reg_device_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->reg_device_id().data(), this->reg_device_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      51, this->reg_device_id(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(13, this->last_logout_time(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1446,16 +1028,6 @@ void tbFishPlayerData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->age(), target);
   }
 
-  // optional string email = 7;
-  if (has_email()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->email().data(), this->email().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        7, this->email(), target);
-  }
-
   // optional uint64 phonenum = 8;
   if (has_phonenum()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(8, this->phonenum(), target);
@@ -1466,109 +1038,24 @@ void tbFishPlayerData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(9, this->jetton(), target);
   }
 
-  // optional string ip = 16;
+  // optional string ip = 11;
   if (has_ip()) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->ip().data(), this->ip().length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        16, this->ip(), target);
+        11, this->ip(), target);
   }
 
-  // optional uint64 last_login_time = 17;
+  // optional uint64 last_login_time = 12;
   if (has_last_login_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(17, this->last_login_time(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(12, this->last_login_time(), target);
   }
 
-  // optional uint64 last_logout_time = 18;
+  // optional uint64 last_logout_time = 13;
   if (has_last_logout_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(18, this->last_logout_time(), target);
-  }
-
-  // optional uint32 channel_id = 20;
-  if (has_channel_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(20, this->channel_id(), target);
-  }
-
-  // optional string platform_os = 21;
-  if (has_platform_os()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->platform_os().data(), this->platform_os().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        21, this->platform_os(), target);
-  }
-
-  // optional string phone_model = 22;
-  if (has_phone_model()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->phone_model().data(), this->phone_model().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        22, this->phone_model(), target);
-  }
-
-  // optional bool first_recharge = 23;
-  if (has_first_recharge()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(23, this->first_recharge(), target);
-  }
-
-  // optional uint32 vip_level = 26;
-  if (has_vip_level()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(26, this->vip_level(), target);
-  }
-
-  // optional uint32 game_id = 29;
-  if (has_game_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(29, this->game_id(), target);
-  }
-
-  // optional uint32 room_id = 30;
-  if (has_room_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(30, this->room_id(), target);
-  }
-
-  // optional uint32 is_ban = 47;
-  if (has_is_ban()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(47, this->is_ban(), target);
-  }
-
-  // optional uint32 no_transfer = 48;
-  if (has_no_transfer()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(48, this->no_transfer(), target);
-  }
-
-  // optional string reg_ip = 49;
-  if (has_reg_ip()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->reg_ip().data(), this->reg_ip().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        49, this->reg_ip(), target);
-  }
-
-  // optional string device_id = 50;
-  if (has_device_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->device_id().data(), this->device_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        50, this->device_id(), target);
-  }
-
-  // optional string reg_device_id = 51;
-  if (has_reg_device_id()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->reg_device_id().data(), this->reg_device_id().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        51, this->reg_device_id(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(13, this->last_logout_time(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1624,13 +1111,6 @@ int tbFishPlayerData::ByteSize() const {
           this->age());
     }
 
-    // optional string email = 7;
-    if (has_email()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->email());
-    }
-
     // optional uint64 phonenum = 8;
     if (has_phonenum()) {
       total_size += 1 +
@@ -1638,8 +1118,6 @@ int tbFishPlayerData::ByteSize() const {
           this->phonenum());
     }
 
-  }
-  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     // optional uint64 jetton = 9;
     if (has_jetton()) {
       total_size += 1 +
@@ -1647,109 +1125,27 @@ int tbFishPlayerData::ByteSize() const {
           this->jetton());
     }
 
-    // optional string ip = 16;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional string ip = 11;
     if (has_ip()) {
-      total_size += 2 +
+      total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->ip());
     }
 
-    // optional uint64 last_login_time = 17;
+    // optional uint64 last_login_time = 12;
     if (has_last_login_time()) {
-      total_size += 2 +
+      total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->last_login_time());
     }
 
-    // optional uint64 last_logout_time = 18;
+    // optional uint64 last_logout_time = 13;
     if (has_last_logout_time()) {
-      total_size += 2 +
+      total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->last_logout_time());
-    }
-
-    // optional uint32 channel_id = 20;
-    if (has_channel_id()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->channel_id());
-    }
-
-    // optional string platform_os = 21;
-    if (has_platform_os()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->platform_os());
-    }
-
-    // optional string phone_model = 22;
-    if (has_phone_model()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->phone_model());
-    }
-
-    // optional bool first_recharge = 23;
-    if (has_first_recharge()) {
-      total_size += 2 + 1;
-    }
-
-  }
-  if (_has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    // optional uint32 vip_level = 26;
-    if (has_vip_level()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->vip_level());
-    }
-
-    // optional uint32 game_id = 29;
-    if (has_game_id()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->game_id());
-    }
-
-    // optional uint32 room_id = 30;
-    if (has_room_id()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->room_id());
-    }
-
-    // optional uint32 is_ban = 47;
-    if (has_is_ban()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->is_ban());
-    }
-
-    // optional uint32 no_transfer = 48;
-    if (has_no_transfer()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->no_transfer());
-    }
-
-    // optional string reg_ip = 49;
-    if (has_reg_ip()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->reg_ip());
-    }
-
-    // optional string device_id = 50;
-    if (has_device_id()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->device_id());
-    }
-
-    // optional string reg_device_id = 51;
-    if (has_reg_device_id()) {
-      total_size += 2 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->reg_device_id());
     }
 
   }
@@ -1797,17 +1193,14 @@ void tbFishPlayerData::MergeFrom(const tbFishPlayerData& from) {
     if (from.has_age()) {
       set_age(from.age());
     }
-    if (from.has_email()) {
-      set_email(from.email());
-    }
     if (from.has_phonenum()) {
       set_phonenum(from.phonenum());
     }
-  }
-  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_jetton()) {
       set_jetton(from.jetton());
     }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     if (from.has_ip()) {
       set_ip(from.ip());
     }
@@ -1816,44 +1209,6 @@ void tbFishPlayerData::MergeFrom(const tbFishPlayerData& from) {
     }
     if (from.has_last_logout_time()) {
       set_last_logout_time(from.last_logout_time());
-    }
-    if (from.has_channel_id()) {
-      set_channel_id(from.channel_id());
-    }
-    if (from.has_platform_os()) {
-      set_platform_os(from.platform_os());
-    }
-    if (from.has_phone_model()) {
-      set_phone_model(from.phone_model());
-    }
-    if (from.has_first_recharge()) {
-      set_first_recharge(from.first_recharge());
-    }
-  }
-  if (from._has_bits_[16 / 32] & (0xffu << (16 % 32))) {
-    if (from.has_vip_level()) {
-      set_vip_level(from.vip_level());
-    }
-    if (from.has_game_id()) {
-      set_game_id(from.game_id());
-    }
-    if (from.has_room_id()) {
-      set_room_id(from.room_id());
-    }
-    if (from.has_is_ban()) {
-      set_is_ban(from.is_ban());
-    }
-    if (from.has_no_transfer()) {
-      set_no_transfer(from.no_transfer());
-    }
-    if (from.has_reg_ip()) {
-      set_reg_ip(from.reg_ip());
-    }
-    if (from.has_device_id()) {
-      set_device_id(from.device_id());
-    }
-    if (from.has_reg_device_id()) {
-      set_reg_device_id(from.reg_device_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1884,24 +1239,11 @@ void tbFishPlayerData::Swap(tbFishPlayerData* other) {
     std::swap(regdate_, other->regdate_);
     std::swap(gender_, other->gender_);
     std::swap(age_, other->age_);
-    std::swap(email_, other->email_);
     std::swap(phonenum_, other->phonenum_);
     std::swap(jetton_, other->jetton_);
     std::swap(ip_, other->ip_);
     std::swap(last_login_time_, other->last_login_time_);
     std::swap(last_logout_time_, other->last_logout_time_);
-    std::swap(channel_id_, other->channel_id_);
-    std::swap(platform_os_, other->platform_os_);
-    std::swap(phone_model_, other->phone_model_);
-    std::swap(first_recharge_, other->first_recharge_);
-    std::swap(vip_level_, other->vip_level_);
-    std::swap(game_id_, other->game_id_);
-    std::swap(room_id_, other->room_id_);
-    std::swap(is_ban_, other->is_ban_);
-    std::swap(no_transfer_, other->no_transfer_);
-    std::swap(reg_ip_, other->reg_ip_);
-    std::swap(device_id_, other->device_id_);
-    std::swap(reg_device_id_, other->reg_device_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

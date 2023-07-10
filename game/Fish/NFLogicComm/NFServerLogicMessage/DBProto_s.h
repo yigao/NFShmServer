@@ -42,24 +42,11 @@ namespace proto_ff_s {
 		uint64_t regdate;
 		uint32_t gender;
 		uint32_t age;
-		NFShmString<64> email;
 		uint64_t phonenum;
 		uint64_t jetton;
 		NFShmString<64> ip;
 		uint64_t last_login_time;
 		uint64_t last_logout_time;
-		uint32_t channel_id;
-		NFShmString<64> platform_os;
-		NFShmString<64> phone_model;
-		bool first_recharge;
-		uint32_t vip_level;
-		uint32_t game_id;
-		uint32_t room_id;
-		uint32_t is_ban;
-		uint32_t no_transfer;
-		NFShmString<64> reg_ip;
-		NFShmString<128> device_id;
-		NFShmString<128> reg_device_id;
 
 		virtual void write_to_pbmsg(::proto_ff::tbFishPlayerData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbFishPlayerData & msg);

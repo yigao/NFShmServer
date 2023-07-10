@@ -14,6 +14,7 @@
 #include "NFLogicPlayerModule.h"
 #include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h"
 #include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h"
+#include "Part/NFPartModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -46,11 +47,13 @@ std::string NFFishLogicPlayerPlugin::GetPluginName()
 void NFFishLogicPlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
 }
 
 void NFFishLogicPlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
 }
 
 bool NFFishLogicPlayerPlugin::InitShmObjectRegister()

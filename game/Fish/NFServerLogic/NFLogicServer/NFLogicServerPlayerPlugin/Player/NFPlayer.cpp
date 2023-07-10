@@ -15,6 +15,7 @@
 #include "ClientServerCmd.pb.h"
 #include "ClientServer.pb.h"
 #include "NFComm/NFCore/NFRandom.hpp"
+#include "Part/NFPart.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -48,6 +49,13 @@ int NFPlayer::CreateInit()
     m_lastSavingDBTime = 0;
     m_iTransNum = 0;
     m_saveDBTimer = INVALID_ID;
+    m_lastLoginTime = 0;
+    m_faceId = 0;
+    m_regDate = 0;
+    m_gender = 0;
+    m_age = 0;
+    m_phonenum = 0;
+    m_jetton = 0;
     return 0;
 }
 
@@ -140,50 +148,86 @@ void  NFPlayer::Tick()
     }
 }
 
-int NFPlayer::Init(const proto_ff::tbFishPlayerData& data, bool bCreatePlayer)
+int NFPlayer::Init(const proto_ff::tbFishPlayerData& dbData, bool bCreatePlayer)
 {
+    SetStatus(proto_ff::PLAYER_STATUS_NONE);
+    if (bCreatePlayer)
+    {
+        InitConfig(dbData);
+    }
+    else {
+        LoadFromDB(dbData);
+    }
+
+    std::vector<NFPart*> vec;
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        m_pPart[i] = CreatePart(i, dbData, bCreatePlayer);
+        if (nullptr == m_pPart[i])
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Player Init, Create Part Failed, playerId:{} part:{}", m_playerId, i);
+            for(int i = 0; i < (int)vec.size(); i++)
+            {
+                FindModule<NFISharedMemModule>()->DestroyObj(vec[i]);
+            }
+            return -1;
+        }
+        vec.push_back(m_pPart[i].GetPoint());
+    }
+
     /**
      * @brief
      */
     uint32_t startMS = NFRandInt(1000, LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME*1000);
     m_saveDBTimer = SetTimer(LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000, 0, 0, 0, 0, startMS);
 
-    if (bCreatePlayer)
+    return 0;
+}
+
+int NFPlayer::UnInit()
+{
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
-        LoadFromDB(data);
-    }
-    else {
-        InitConfig(data);
+        RecylePart(m_pPart[i]);
     }
 
-    MarkDirty();
     return 0;
 }
 
 int NFPlayer::LoadFromDB(const proto_ff::tbFishPlayerData& data)
 {
+    m_regDate = data.regdate();
+    m_ipAddr = data.ip();
+    m_faceId = data.faceid();
+    m_gender = data.gender();
+    m_age = data.age();
+    m_phonenum = data.phonenum();
+    m_jetton = data.jetton();
     return 0;
 }
 
 int NFPlayer::InitConfig(const proto_ff::tbFishPlayerData& data)
 {
+    LoadFromDB(data);
     return 0;
 }
 
 int NFPlayer::OnLogin()
 {
     SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
+    m_lastLoginTime = NFTime::Now().UnixSec();
+    MarkDirty();
     return 0;
 }
 
 int NFPlayer::OnLogout()
 {
-    m_lastLogoutTime = NFTime::Now().UnixSec();
     return 0;
 }
 
 int NFPlayer::OnDisconnect()
 {
+    m_lastDiconnectTime = NFTime::Now().UnixSec();
     return 0;
 }
 
@@ -199,6 +243,13 @@ int NFPlayer::Update()
 
 int NFPlayer::SaveDB(proto_ff::tbFishPlayerData& data)
 {
+    data.set_regdate(m_regDate);
+    data.set_ip(m_ipAddr.ToString());
+    data.set_faceid(m_faceId);
+    data.set_gender(m_gender);
+    data.set_age(m_age);
+    data.set_phonenum(m_phonenum);
+    data.set_jetton(m_jetton);
     return 0;
 }
 
@@ -305,5 +356,48 @@ int NFPlayer::OnSaveDB(bool success, uint32_t seq)
     {
         ClearUrgent();
     }
+    return 0;
+}
+
+NFPart *NFPlayer::GetPart(uint32_t partType)
+{
+    if (partType > PART_NONE && partType < (uint32_t) m_pPart.size())
+    {
+        return m_pPart[partType].GetPoint();
+    }
+
+    return NULL;
+}
+
+NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer)
+{
+    NFPart *pPart = NULL;
+    switch (partType)
+    {
+        default:
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Create Part Failed, partType Not Handle:{}", partType);
+            break;
+        }
+    }
+
+    if (pPart)
+    {
+        int iRet = pPart->Init(this, partType, dbData, bCreatePlayer);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "{}::Init Failed", pPart->GetClassName());
+            FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+            return NULL;
+        }
+    }
+    return pPart;
+}
+
+int NFPlayer::RecylePart(NFPart *pPart)
+{
+    CHECK_NULL(pPart);
+    pPart->UnInit();
+    FindModule<NFISharedMemModule>()->DestroyObj(pPart);
     return 0;
 }

@@ -17,7 +17,12 @@
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "Trans/NFTransSaveDB.h"
+#include "NFLogicCommon/NFLoginDefine.h"
+#include "NFComm/NFShmCore/NFShmPtr.h"
+#include "NFLogicCommon/NFPlayerDefine.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 
+class NFPart;
 class NFPlayer : public NFShmObj, public NFSeqOP
 {
 public:
@@ -33,6 +38,8 @@ public:
 
 public:
     virtual int Init(const proto_ff::tbFishPlayerData& data, bool bCreatePlayer = false);
+
+    virtual int UnInit();
 
     /**
      * @brief
@@ -135,13 +142,40 @@ public:
     int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+public:
+public:
+    template<typename PART>
+    PART *GetPart(uint32_t partType)
+    {
+        return dynamic_cast<PART *>(GetPart(partType));
+    }
+
+    NFPart *GetPart(uint32_t partType);
+
+    NFPart *CreatePart(uint32_t partType, const ::proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer);
+
+    int RecylePart(NFPart *pPart);
+private:
+    NFShmVector<NFShmPtr<NFPart>, PART_MAX> m_pPart;
 private:
     uint64_t m_playerId;
     uint32_t m_proxyId;
     proto_ff::PlayerStatus m_iStatus;
     uint64_t m_createTime;
     uint64_t m_lastDiconnectTime;
+private:
+    NFCommonStr m_nickName;
+    NFCommonStr m_ipAddr;
+    uint32_t m_faceId;
+    uint64_t m_regDate;
+    uint32_t m_gender;
+    uint32_t m_age;
+    uint64_t m_phonenum;
+    uint64_t m_lastLoginTime;
     uint64_t m_lastLogoutTime;
+private:
+    uint64_t m_jetton;
+private:
     uint32_t m_gameId;
     uint32_t m_roomId;
 private:
