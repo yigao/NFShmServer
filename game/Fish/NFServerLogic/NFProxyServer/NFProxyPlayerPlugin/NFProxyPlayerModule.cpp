@@ -733,22 +733,22 @@ int NFCProxyPlayerModule::OnHandleUserLoginFromClient(uint64_t unLinkId, NFDataP
         FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_UserLoginRsp, rspMsg);
 
         KickPlayer(unLinkId);
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_PTW_PLAYER_LOGIN_REQ Failed!");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_PTW_PLAYER_LOGIN_REQ Failed! iRet:{}", GetErrorStr(iRet));
         return 0;
     }
 
-    NF_SHARE_PTR<NFServerData> pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, respone.logic_bus_id());
-    if (pLogicServer == NULL || pLogicServer->mUnlinkId <= 0)
+    if (respone.result() != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "proxy do not connect logic server:{}", pPlayerInfo->GetLogicBusId());
         proto_ff::Proto_SCUserLoginRsp rspMsg;
-        rspMsg.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        rspMsg.set_result(respone.result());
         FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_UserLoginRsp, rspMsg);
 
         KickPlayer(unLinkId);
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_PTW_PLAYER_LOGIN_REQ Failed!");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_PTW_PLAYER_LOGIN_REQ result:{}!", GetErrorStr(respone.result()));
         return 0;
     }
+
+
 
     /**
      * @brief 异步后需要重新查找
