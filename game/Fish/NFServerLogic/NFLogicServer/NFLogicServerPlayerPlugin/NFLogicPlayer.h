@@ -14,12 +14,12 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "ComDefine.pb.h"
 
-class NFWorldPlayer : public NFShmObj
+class NFLogicPlayer : public NFShmObj
 {
 public:
-    NFWorldPlayer();
+    NFLogicPlayer();
 
-    virtual ~NFWorldPlayer();
+    virtual ~NFLogicPlayer();
 
     int CreateInit();
     int ResumeInit();
@@ -71,5 +71,5 @@ private:
 
     bool m_gameLock;
     int m_gameLockTimeId;
-DECLARE_IDCREATE(NFWorldPlayer)
+DECLARE_IDCREATE(NFLogicPlayer)
 };

@@ -9,15 +9,15 @@
 
 #pragma once
 
-#include "NFWorldPlayerMgr.h"
+#include "NFLogicPlayerMgr.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 #include "ServerInternal.pb.h"
 
-class NFCWorldPlayerModule : public NFIDynamicModule
+class NFCLogicPlayerModule : public NFIDynamicModule
 {
 public:
-	explicit NFCWorldPlayerModule(NFIPluginManager* p);
-	virtual ~NFCWorldPlayerModule();
+	explicit NFCLogicPlayerModule(NFIPluginManager* p);
+	virtual ~NFCLogicPlayerModule();
 
 	virtual bool Awake() override;
 
@@ -47,5 +47,5 @@ public:
      * @param respone
      * @return
      */
-    int OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone);
+    int OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone);
 };

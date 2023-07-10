@@ -13,12 +13,12 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include <vector>
 
-class NFWorldPlayer;
-class NFWorldPlayerMgr : public NFShmObj {
+class NFLogicPlayer;
+class NFLogicPlayerMgr : public NFShmObj {
 public:
-    NFWorldPlayerMgr();
+    NFLogicPlayerMgr();
 
-    virtual ~NFWorldPlayerMgr();
+    virtual ~NFLogicPlayerMgr();
 
     int CreateInit();
 
@@ -28,13 +28,13 @@ public:
     int UserTick();
     virtual int OnTimer(int timeId, int callcount) override;
 
-    NFWorldPlayer *GetPlayer(uint64_t playerId);
+    NFLogicPlayer *GetPlayer(uint64_t playerId);
 
-    NFWorldPlayer *CreatePlayer(uint64_t playerId);
+    NFLogicPlayer *CreatePlayer(uint64_t playerId);
 
-    int DeletePlayer(NFWorldPlayer *pPlayer);
+    int DeletePlayer(NFLogicPlayer *pPlayer);
 
 private:
     int m_playerTickTimer;
-DECLARE_IDCREATE(NFWorldPlayerMgr)
+DECLARE_IDCREATE(NFLogicPlayerMgr)
 };

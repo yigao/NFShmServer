@@ -7,39 +7,40 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFWorldPlayerModule.h"
+#include "NFLogicPlayerModule.h"
 
-#include "NFWorldPlayer.h"
-#include "NFWorldPlayerMgr.h"
+#include "NFLogicPlayer.h"
+#include "NFLogicPlayerMgr.h"
 #include "ServerInternalCmd.pb.h"
 #include "NFLogicCommon/NFLogicBindRpcService.h"
 
-NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p) {
+NFCLogicPlayerModule::NFCLogicPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p) {
 
 }
 
-NFCWorldPlayerModule::~NFCWorldPlayerModule() {
+NFCLogicPlayerModule::~NFCLogicPlayerModule() {
 }
 
-bool NFCWorldPlayerModule::Awake() {
+bool NFCLogicPlayerModule::Awake() {
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, this, &NFCWorldPlayerModule::OnRpcServiceUserLogin, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, this,
+                                                                                     &NFCLogicPlayerModule::OnRpcServicePlayerLogin, true);
     //////////player enter game////////////////////////////////////
     return true;
 }
 
-bool NFCWorldPlayerModule::Execute()
+bool NFCLogicPlayerModule::Execute()
 {
 	return true;
 }
 
-bool NFCWorldPlayerModule::OnDynamicPlugin()
+bool NFCLogicPlayerModule::OnDynamicPlugin()
 {
 	return true;
 }
 
-int NFCWorldPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
+int NFCLogicPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
     if (!m_pObjPluginManager->IsInited())
     {
@@ -65,7 +66,7 @@ int NFCWorldPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
 }
 
 
-int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
+int NFCLogicPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
     if (!m_pObjPluginManager->IsInited())
     {
@@ -90,14 +91,14 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
     return 0;
 }
 
-int NFCWorldPlayerModule::OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone)
+int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.user_id());
+    NFLogicPlayer *pPlayerInfo = NFLogicPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.user_id());
     if (pPlayerInfo == nullptr) {
-        if (NFWorldPlayer::GetFreeCount(m_pObjPluginManager) > 0)
+        if (NFLogicPlayer::GetFreeCount(m_pObjPluginManager) > 0)
         {
-            pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->CreatePlayer(request.user_id());
+            pPlayerInfo = NFLogicPlayerMgr::GetInstance(m_pObjPluginManager)->CreatePlayer(request.user_id());
             if (pPlayerInfo == NULL)
             {
                 respone.set_result(proto_ff::ERR_CODE_WORLD_MAX_PLAYER_COUNT);
@@ -164,7 +165,7 @@ int NFCWorldPlayerModule::OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq&
     /**
      * @brief must find playerInfo again, the playerinfo maybe not exist
      */
-    pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.user_id());
+    pPlayerInfo = NFLogicPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.user_id());
     if (pPlayerInfo == NULL)
     {
         respone.set_result(proto_ff::ERR_CODE_SYSTEM_TIMEOUT);

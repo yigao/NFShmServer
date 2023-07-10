@@ -7,13 +7,13 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFWorldPlayer.h"
+#include "NFLogicPlayer.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldPlayer, EOT_WORLD_PLAYER_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFLogicPlayer, EOT_WORLD_PLAYER_ID, NFShmObj)
 
-NFWorldPlayer::NFWorldPlayer()
+NFLogicPlayer::NFLogicPlayer()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -25,7 +25,7 @@ NFWorldPlayer::NFWorldPlayer()
     }
 }
 
-NFWorldPlayer::~NFWorldPlayer()
+NFLogicPlayer::~NFLogicPlayer()
 {
     if (m_gameLockTimeId != INVALID_ID)
     {
@@ -42,7 +42,7 @@ NFWorldPlayer::~NFWorldPlayer()
     }
 }
 
-int NFWorldPlayer::CreateInit()
+int NFLogicPlayer::CreateInit()
 {
     m_playerId = 0;
     m_proxyId = 0;
@@ -61,12 +61,12 @@ int NFWorldPlayer::CreateInit()
     return 0;
 }
 
-int NFWorldPlayer::ResumeInit()
+int NFLogicPlayer::ResumeInit()
 {
     return 0;
 }
 
-int NFWorldPlayer::OnTimer(int timeId, int callcount)
+int NFLogicPlayer::OnTimer(int timeId, int callcount)
 {
     if (timeId == m_roomLockTimeId)
     {
@@ -81,13 +81,13 @@ int NFWorldPlayer::OnTimer(int timeId, int callcount)
     return 0;
 }
 
-void NFWorldPlayer::LockRoom()
+void NFLogicPlayer::LockRoom()
 {
     m_roomLockTimeId = SetTimer(0, 0, 1, 0);
     m_roomLock = true;
 }
 
-void NFWorldPlayer::ClearLockRoom()
+void NFLogicPlayer::ClearLockRoom()
 {
     if (m_roomLockTimeId != INVALID_ID) {
         DeleteTimer(m_roomLockTimeId);
@@ -96,13 +96,13 @@ void NFWorldPlayer::ClearLockRoom()
     m_roomLockTimeId = INVALID_ID;
 }
 
-void NFWorldPlayer::LockGame()
+void NFLogicPlayer::LockGame()
 {
     m_gameLockTimeId = SetTimer(0, 0, 1, 0);
     m_gameLock = true;
 }
 
-void NFWorldPlayer::ClearLockGame()
+void NFLogicPlayer::ClearLockGame()
 {
     if (m_gameLockTimeId != INVALID_ID) {
         DeleteTimer(m_gameLockTimeId);
@@ -111,7 +111,7 @@ void NFWorldPlayer::ClearLockGame()
     m_gameLockTimeId = INVALID_ID;
 }
 
-void  NFWorldPlayer::Tick()
+void  NFLogicPlayer::Tick()
 {
     switch (m_iStatus)
     {

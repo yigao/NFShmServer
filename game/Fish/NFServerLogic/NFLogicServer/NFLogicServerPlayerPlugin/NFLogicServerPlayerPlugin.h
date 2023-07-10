@@ -1,9 +1,9 @@
 ﻿// -------------------------------------------------------------------------
-//    @FileName         :    NFGameServerPlugin.h
+//    @FileName         :    NFLogicServerPlayerPlugin.h
 //    @Author           :    gaoyi
 //    @Date             :   2023-07-10
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFGameServerPlugin
+//    @Module           :    NFLogicServerPlayerPlugin
 //
 // -------------------------------------------------------------------------
 
@@ -14,10 +14,10 @@
 #include <string>
 
 //////////////////////////////////////////////////////////////////////////
-class NFFishWorldPlayerPlugin : public NFIPlugin
+class NFFishLogicPlayerPlugin : public NFIPlugin
 {
 public:
-	explicit NFFishWorldPlayerPlugin(NFIPluginManager* p):NFIPlugin(p)
+	explicit NFFishLogicPlayerPlugin(NFIPluginManager* p):NFIPlugin(p)
 	{
 	}
 

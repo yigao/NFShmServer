@@ -1,8 +1,8 @@
 ﻿// -------------------------------------------------------------------------
 //    @FileName         :    NFGameServerPlugin.cpp
-//    @Author           :    xxxxx
-//    @Date             :   xxxx-xx-xx
-//    @Email			:    xxxxxxxxx@xxx.xxx
+//    @Author           :    gaoyi
+//    @Date             :   2023-07-10
+//    @Email			:    445267987@qq.com
 //    @Module           :    NFGameServerPlugin
 //
 // -------------------------------------------------------------------------
