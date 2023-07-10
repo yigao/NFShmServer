@@ -7,13 +7,13 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFLogicPlayer.h"
+#include "NFPlayer.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFLogicPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
-NFLogicPlayer::NFLogicPlayer()
+NFPlayer::NFPlayer()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -25,93 +25,36 @@ NFLogicPlayer::NFLogicPlayer()
     }
 }
 
-NFLogicPlayer::~NFLogicPlayer()
+NFPlayer::~NFPlayer()
 {
-    if (m_gameLockTimeId != INVALID_ID)
-    {
-        DeleteTimer(m_gameLockTimeId);
-        m_gameLockTimeId = INVALID_ID;
-        m_gameLock = false;
-    }
 
-    if (m_roomLockTimeId != INVALID_ID)
-    {
-        DeleteTimer(m_roomLockTimeId);
-        m_roomLockTimeId = INVALID_ID;
-        m_roomLock = false;
-    }
 }
 
-int NFLogicPlayer::CreateInit()
+int NFPlayer::CreateInit()
 {
     m_playerId = 0;
     m_proxyId = 0;
     m_gameId = 0;
     m_roomId = 0;
-    m_roomLock = false;
-    m_roomLockTimeId = 0;
-    m_logicId = 0;
     m_iStatus = proto_ff::PLAYER_STATUS_NONE;
     m_lastDiconnectTime = 0;
     m_createTime = NFTime::Now().UnixSec();
     m_lastLogoutTime = 0;
 
-    m_gameLock = false;
-    m_gameLockTimeId = INVALID_ID;
     return 0;
 }
 
-int NFLogicPlayer::ResumeInit()
+int NFPlayer::ResumeInit()
 {
     return 0;
 }
 
-int NFLogicPlayer::OnTimer(int timeId, int callcount)
+int NFPlayer::OnTimer(int timeId, int callcount)
 {
-    if (timeId == m_roomLockTimeId)
-    {
-        ClearLockRoom();
-    }
-
-    if (timeId == m_gameLockTimeId)
-    {
-        ClearLockGame();
-    }
-
     return 0;
 }
 
-void NFLogicPlayer::LockRoom()
-{
-    m_roomLockTimeId = SetTimer(0, 0, 1, 0);
-    m_roomLock = true;
-}
-
-void NFLogicPlayer::ClearLockRoom()
-{
-    if (m_roomLockTimeId != INVALID_ID) {
-        DeleteTimer(m_roomLockTimeId);
-    }
-    m_roomLock = false;
-    m_roomLockTimeId = INVALID_ID;
-}
-
-void NFLogicPlayer::LockGame()
-{
-    m_gameLockTimeId = SetTimer(0, 0, 1, 0);
-    m_gameLock = true;
-}
-
-void NFLogicPlayer::ClearLockGame()
-{
-    if (m_gameLockTimeId != INVALID_ID) {
-        DeleteTimer(m_gameLockTimeId);
-    }
-    m_gameLock = false;
-    m_gameLockTimeId = INVALID_ID;
-}
-
-void  NFLogicPlayer::Tick()
+void  NFPlayer::Tick()
 {
     switch (m_iStatus)
     {
@@ -162,6 +105,51 @@ void  NFLogicPlayer::Tick()
         }
         break;
     }
+}
+
+int NFPlayer::Init(const proto_ff::tbFishPlayerData& data)
+{
+    return 0;
+}
+
+int NFPlayer::OnLogin()
+{
+    return 0;
+}
+
+int NFPlayer::OnLogout()
+{
+    return 0;
+}
+
+int NFPlayer::OnDisconnect()
+{
+    return 0;
+}
+
+int NFPlayer::OnReconnect()
+{
+    return 0;
+}
+
+int NFPlayer::Update(uint64_t tick)
+{
+    return 0;
+}
+
+int NFPlayer::DailyZeroUpdate(uint64_t unixSec)
+{
+    return 0;
+}
+
+int NFPlayer::WeekZeroUpdate(uint64_t unixSec)
+{
+    return 0;
+}
+
+int NFPlayer::MonthZeroUpdate(uint64_t unixSec)
+{
+    return 0;
 }
 
 

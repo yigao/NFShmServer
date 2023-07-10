@@ -35,18 +35,19 @@ void  protobuf_AddDesc_DBProto_2eproto();
 void protobuf_AssignDesc_DBProto_2eproto();
 void protobuf_ShutdownFile_DBProto_2eproto();
 
-class tbAccountTable;
+class tbFishAccountTable;
+class tbFishPlayerData;
 
 // ===================================================================
 
-class tbAccountTable : public ::google::protobuf::Message {
+class tbFishAccountTable : public ::google::protobuf::Message {
  public:
-  tbAccountTable();
-  virtual ~tbAccountTable();
+  tbFishAccountTable();
+  virtual ~tbFishAccountTable();
 
-  tbAccountTable(const tbAccountTable& from);
+  tbFishAccountTable(const tbFishAccountTable& from);
 
-  inline tbAccountTable& operator=(const tbAccountTable& from) {
+  inline tbFishAccountTable& operator=(const tbFishAccountTable& from) {
     CopyFrom(from);
     return *this;
   }
@@ -60,17 +61,17 @@ class tbAccountTable : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const tbAccountTable& default_instance();
+  static const tbFishAccountTable& default_instance();
 
-  void Swap(tbAccountTable* other);
+  void Swap(tbFishAccountTable* other);
 
   // implements Message ----------------------------------------------
 
-  tbAccountTable* New() const;
+  tbFishAccountTable* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const tbAccountTable& from);
-  void MergeFrom(const tbAccountTable& from);
+  void CopyFrom(const tbFishAccountTable& from);
+  void MergeFrom(const tbFishAccountTable& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -150,7 +151,7 @@ class tbAccountTable : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 phonenum() const;
   inline void set_phonenum(::google::protobuf::uint64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.tbAccountTable)
+  // @@protoc_insertion_point(class_scope:proto_ff.tbFishAccountTable)
  private:
   inline void set_has_player_id();
   inline void clear_has_player_id();
@@ -182,85 +183,437 @@ class tbAccountTable : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_DBProto_2eproto();
 
   void InitAsDefaultInstance();
-  static tbAccountTable* default_instance_;
+  static tbFishAccountTable* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class tbFishPlayerData : public ::google::protobuf::Message {
+ public:
+  tbFishPlayerData();
+  virtual ~tbFishPlayerData();
+
+  tbFishPlayerData(const tbFishPlayerData& from);
+
+  inline tbFishPlayerData& operator=(const tbFishPlayerData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const tbFishPlayerData& default_instance();
+
+  void Swap(tbFishPlayerData* other);
+
+  // implements Message ----------------------------------------------
+
+  tbFishPlayerData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const tbFishPlayerData& from);
+  void MergeFrom(const tbFishPlayerData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional string nickname = 2;
+  inline bool has_nickname() const;
+  inline void clear_nickname();
+  static const int kNicknameFieldNumber = 2;
+  inline const ::std::string& nickname() const;
+  inline void set_nickname(const ::std::string& value);
+  inline void set_nickname(const char* value);
+  inline void set_nickname(const char* value, size_t size);
+  inline ::std::string* mutable_nickname();
+  inline ::std::string* release_nickname();
+  inline void set_allocated_nickname(::std::string* nickname);
+
+  // optional uint32 faceid = 3;
+  inline bool has_faceid() const;
+  inline void clear_faceid();
+  static const int kFaceidFieldNumber = 3;
+  inline ::google::protobuf::uint32 faceid() const;
+  inline void set_faceid(::google::protobuf::uint32 value);
+
+  // optional uint64 regdate = 4;
+  inline bool has_regdate() const;
+  inline void clear_regdate();
+  static const int kRegdateFieldNumber = 4;
+  inline ::google::protobuf::uint64 regdate() const;
+  inline void set_regdate(::google::protobuf::uint64 value);
+
+  // optional uint32 gender = 5;
+  inline bool has_gender() const;
+  inline void clear_gender();
+  static const int kGenderFieldNumber = 5;
+  inline ::google::protobuf::uint32 gender() const;
+  inline void set_gender(::google::protobuf::uint32 value);
+
+  // optional uint32 age = 6;
+  inline bool has_age() const;
+  inline void clear_age();
+  static const int kAgeFieldNumber = 6;
+  inline ::google::protobuf::uint32 age() const;
+  inline void set_age(::google::protobuf::uint32 value);
+
+  // optional string email = 7;
+  inline bool has_email() const;
+  inline void clear_email();
+  static const int kEmailFieldNumber = 7;
+  inline const ::std::string& email() const;
+  inline void set_email(const ::std::string& value);
+  inline void set_email(const char* value);
+  inline void set_email(const char* value, size_t size);
+  inline ::std::string* mutable_email();
+  inline ::std::string* release_email();
+  inline void set_allocated_email(::std::string* email);
+
+  // optional uint64 phonenum = 8;
+  inline bool has_phonenum() const;
+  inline void clear_phonenum();
+  static const int kPhonenumFieldNumber = 8;
+  inline ::google::protobuf::uint64 phonenum() const;
+  inline void set_phonenum(::google::protobuf::uint64 value);
+
+  // optional uint64 jetton = 9;
+  inline bool has_jetton() const;
+  inline void clear_jetton();
+  static const int kJettonFieldNumber = 9;
+  inline ::google::protobuf::uint64 jetton() const;
+  inline void set_jetton(::google::protobuf::uint64 value);
+
+  // optional string ip = 16;
+  inline bool has_ip() const;
+  inline void clear_ip();
+  static const int kIpFieldNumber = 16;
+  inline const ::std::string& ip() const;
+  inline void set_ip(const ::std::string& value);
+  inline void set_ip(const char* value);
+  inline void set_ip(const char* value, size_t size);
+  inline ::std::string* mutable_ip();
+  inline ::std::string* release_ip();
+  inline void set_allocated_ip(::std::string* ip);
+
+  // optional uint64 last_login_time = 17;
+  inline bool has_last_login_time() const;
+  inline void clear_last_login_time();
+  static const int kLastLoginTimeFieldNumber = 17;
+  inline ::google::protobuf::uint64 last_login_time() const;
+  inline void set_last_login_time(::google::protobuf::uint64 value);
+
+  // optional uint64 last_logout_time = 18;
+  inline bool has_last_logout_time() const;
+  inline void clear_last_logout_time();
+  static const int kLastLogoutTimeFieldNumber = 18;
+  inline ::google::protobuf::uint64 last_logout_time() const;
+  inline void set_last_logout_time(::google::protobuf::uint64 value);
+
+  // optional uint32 channel_id = 20;
+  inline bool has_channel_id() const;
+  inline void clear_channel_id();
+  static const int kChannelIdFieldNumber = 20;
+  inline ::google::protobuf::uint32 channel_id() const;
+  inline void set_channel_id(::google::protobuf::uint32 value);
+
+  // optional string platform_os = 21;
+  inline bool has_platform_os() const;
+  inline void clear_platform_os();
+  static const int kPlatformOsFieldNumber = 21;
+  inline const ::std::string& platform_os() const;
+  inline void set_platform_os(const ::std::string& value);
+  inline void set_platform_os(const char* value);
+  inline void set_platform_os(const char* value, size_t size);
+  inline ::std::string* mutable_platform_os();
+  inline ::std::string* release_platform_os();
+  inline void set_allocated_platform_os(::std::string* platform_os);
+
+  // optional string phone_model = 22;
+  inline bool has_phone_model() const;
+  inline void clear_phone_model();
+  static const int kPhoneModelFieldNumber = 22;
+  inline const ::std::string& phone_model() const;
+  inline void set_phone_model(const ::std::string& value);
+  inline void set_phone_model(const char* value);
+  inline void set_phone_model(const char* value, size_t size);
+  inline ::std::string* mutable_phone_model();
+  inline ::std::string* release_phone_model();
+  inline void set_allocated_phone_model(::std::string* phone_model);
+
+  // optional bool first_recharge = 23;
+  inline bool has_first_recharge() const;
+  inline void clear_first_recharge();
+  static const int kFirstRechargeFieldNumber = 23;
+  inline bool first_recharge() const;
+  inline void set_first_recharge(bool value);
+
+  // optional uint32 vip_level = 26;
+  inline bool has_vip_level() const;
+  inline void clear_vip_level();
+  static const int kVipLevelFieldNumber = 26;
+  inline ::google::protobuf::uint32 vip_level() const;
+  inline void set_vip_level(::google::protobuf::uint32 value);
+
+  // optional uint32 game_id = 29;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 29;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // optional uint32 room_id = 30;
+  inline bool has_room_id() const;
+  inline void clear_room_id();
+  static const int kRoomIdFieldNumber = 30;
+  inline ::google::protobuf::uint32 room_id() const;
+  inline void set_room_id(::google::protobuf::uint32 value);
+
+  // optional uint32 is_ban = 47;
+  inline bool has_is_ban() const;
+  inline void clear_is_ban();
+  static const int kIsBanFieldNumber = 47;
+  inline ::google::protobuf::uint32 is_ban() const;
+  inline void set_is_ban(::google::protobuf::uint32 value);
+
+  // optional uint32 no_transfer = 48;
+  inline bool has_no_transfer() const;
+  inline void clear_no_transfer();
+  static const int kNoTransferFieldNumber = 48;
+  inline ::google::protobuf::uint32 no_transfer() const;
+  inline void set_no_transfer(::google::protobuf::uint32 value);
+
+  // optional string reg_ip = 49;
+  inline bool has_reg_ip() const;
+  inline void clear_reg_ip();
+  static const int kRegIpFieldNumber = 49;
+  inline const ::std::string& reg_ip() const;
+  inline void set_reg_ip(const ::std::string& value);
+  inline void set_reg_ip(const char* value);
+  inline void set_reg_ip(const char* value, size_t size);
+  inline ::std::string* mutable_reg_ip();
+  inline ::std::string* release_reg_ip();
+  inline void set_allocated_reg_ip(::std::string* reg_ip);
+
+  // optional string device_id = 50;
+  inline bool has_device_id() const;
+  inline void clear_device_id();
+  static const int kDeviceIdFieldNumber = 50;
+  inline const ::std::string& device_id() const;
+  inline void set_device_id(const ::std::string& value);
+  inline void set_device_id(const char* value);
+  inline void set_device_id(const char* value, size_t size);
+  inline ::std::string* mutable_device_id();
+  inline ::std::string* release_device_id();
+  inline void set_allocated_device_id(::std::string* device_id);
+
+  // optional string reg_device_id = 51;
+  inline bool has_reg_device_id() const;
+  inline void clear_reg_device_id();
+  static const int kRegDeviceIdFieldNumber = 51;
+  inline const ::std::string& reg_device_id() const;
+  inline void set_reg_device_id(const ::std::string& value);
+  inline void set_reg_device_id(const char* value);
+  inline void set_reg_device_id(const char* value, size_t size);
+  inline ::std::string* mutable_reg_device_id();
+  inline ::std::string* release_reg_device_id();
+  inline void set_allocated_reg_device_id(::std::string* reg_device_id);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.tbFishPlayerData)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_nickname();
+  inline void clear_has_nickname();
+  inline void set_has_faceid();
+  inline void clear_has_faceid();
+  inline void set_has_regdate();
+  inline void clear_has_regdate();
+  inline void set_has_gender();
+  inline void clear_has_gender();
+  inline void set_has_age();
+  inline void clear_has_age();
+  inline void set_has_email();
+  inline void clear_has_email();
+  inline void set_has_phonenum();
+  inline void clear_has_phonenum();
+  inline void set_has_jetton();
+  inline void clear_has_jetton();
+  inline void set_has_ip();
+  inline void clear_has_ip();
+  inline void set_has_last_login_time();
+  inline void clear_has_last_login_time();
+  inline void set_has_last_logout_time();
+  inline void clear_has_last_logout_time();
+  inline void set_has_channel_id();
+  inline void clear_has_channel_id();
+  inline void set_has_platform_os();
+  inline void clear_has_platform_os();
+  inline void set_has_phone_model();
+  inline void clear_has_phone_model();
+  inline void set_has_first_recharge();
+  inline void clear_has_first_recharge();
+  inline void set_has_vip_level();
+  inline void clear_has_vip_level();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+  inline void set_has_room_id();
+  inline void clear_has_room_id();
+  inline void set_has_is_ban();
+  inline void clear_has_is_ban();
+  inline void set_has_no_transfer();
+  inline void clear_has_no_transfer();
+  inline void set_has_reg_ip();
+  inline void clear_has_reg_ip();
+  inline void set_has_device_id();
+  inline void clear_has_device_id();
+  inline void set_has_reg_device_id();
+  inline void clear_has_reg_device_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::std::string* nickname_;
+  ::google::protobuf::uint64 regdate_;
+  ::google::protobuf::uint32 faceid_;
+  ::google::protobuf::uint32 gender_;
+  ::std::string* email_;
+  ::google::protobuf::uint64 phonenum_;
+  ::google::protobuf::uint64 jetton_;
+  ::google::protobuf::uint32 age_;
+  ::google::protobuf::uint32 channel_id_;
+  ::std::string* ip_;
+  ::google::protobuf::uint64 last_login_time_;
+  ::google::protobuf::uint64 last_logout_time_;
+  ::std::string* platform_os_;
+  ::std::string* phone_model_;
+  bool first_recharge_;
+  ::google::protobuf::uint32 vip_level_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint32 room_id_;
+  ::google::protobuf::uint32 is_ban_;
+  ::google::protobuf::uint32 no_transfer_;
+  ::std::string* reg_ip_;
+  ::std::string* device_id_;
+  ::std::string* reg_device_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(24 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static tbFishPlayerData* default_instance_;
 };
 // ===================================================================
 
 
 // ===================================================================
 
-// tbAccountTable
+// tbFishAccountTable
 
 // optional uint64 player_id = 1;
-inline bool tbAccountTable::has_player_id() const {
+inline bool tbFishAccountTable::has_player_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void tbAccountTable::set_has_player_id() {
+inline void tbFishAccountTable::set_has_player_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void tbAccountTable::clear_has_player_id() {
+inline void tbFishAccountTable::clear_has_player_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void tbAccountTable::clear_player_id() {
+inline void tbFishAccountTable::clear_player_id() {
   player_id_ = GOOGLE_ULONGLONG(0);
   clear_has_player_id();
 }
-inline ::google::protobuf::uint64 tbAccountTable::player_id() const {
+inline ::google::protobuf::uint64 tbFishAccountTable::player_id() const {
   return player_id_;
 }
-inline void tbAccountTable::set_player_id(::google::protobuf::uint64 value) {
+inline void tbFishAccountTable::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }
 
 // optional string account = 2;
-inline bool tbAccountTable::has_account() const {
+inline bool tbFishAccountTable::has_account() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void tbAccountTable::set_has_account() {
+inline void tbFishAccountTable::set_has_account() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void tbAccountTable::clear_has_account() {
+inline void tbFishAccountTable::clear_has_account() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void tbAccountTable::clear_account() {
+inline void tbFishAccountTable::clear_account() {
   if (account_ != &::google::protobuf::internal::kEmptyString) {
     account_->clear();
   }
   clear_has_account();
 }
-inline const ::std::string& tbAccountTable::account() const {
+inline const ::std::string& tbFishAccountTable::account() const {
   return *account_;
 }
-inline void tbAccountTable::set_account(const ::std::string& value) {
+inline void tbFishAccountTable::set_account(const ::std::string& value) {
   set_has_account();
   if (account_ == &::google::protobuf::internal::kEmptyString) {
     account_ = new ::std::string;
   }
   account_->assign(value);
 }
-inline void tbAccountTable::set_account(const char* value) {
+inline void tbFishAccountTable::set_account(const char* value) {
   set_has_account();
   if (account_ == &::google::protobuf::internal::kEmptyString) {
     account_ = new ::std::string;
   }
   account_->assign(value);
 }
-inline void tbAccountTable::set_account(const char* value, size_t size) {
+inline void tbFishAccountTable::set_account(const char* value, size_t size) {
   set_has_account();
   if (account_ == &::google::protobuf::internal::kEmptyString) {
     account_ = new ::std::string;
   }
   account_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tbAccountTable::mutable_account() {
+inline ::std::string* tbFishAccountTable::mutable_account() {
   set_has_account();
   if (account_ == &::google::protobuf::internal::kEmptyString) {
     account_ = new ::std::string;
   }
   return account_;
 }
-inline ::std::string* tbAccountTable::release_account() {
+inline ::std::string* tbFishAccountTable::release_account() {
   clear_has_account();
   if (account_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -270,7 +623,7 @@ inline ::std::string* tbAccountTable::release_account() {
     return temp;
   }
 }
-inline void tbAccountTable::set_allocated_account(::std::string* account) {
+inline void tbFishAccountTable::set_allocated_account(::std::string* account) {
   if (account_ != &::google::protobuf::internal::kEmptyString) {
     delete account_;
   }
@@ -284,53 +637,53 @@ inline void tbAccountTable::set_allocated_account(::std::string* account) {
 }
 
 // optional string password = 3;
-inline bool tbAccountTable::has_password() const {
+inline bool tbFishAccountTable::has_password() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void tbAccountTable::set_has_password() {
+inline void tbFishAccountTable::set_has_password() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void tbAccountTable::clear_has_password() {
+inline void tbFishAccountTable::clear_has_password() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void tbAccountTable::clear_password() {
+inline void tbFishAccountTable::clear_password() {
   if (password_ != &::google::protobuf::internal::kEmptyString) {
     password_->clear();
   }
   clear_has_password();
 }
-inline const ::std::string& tbAccountTable::password() const {
+inline const ::std::string& tbFishAccountTable::password() const {
   return *password_;
 }
-inline void tbAccountTable::set_password(const ::std::string& value) {
+inline void tbFishAccountTable::set_password(const ::std::string& value) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(value);
 }
-inline void tbAccountTable::set_password(const char* value) {
+inline void tbFishAccountTable::set_password(const char* value) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(value);
 }
-inline void tbAccountTable::set_password(const char* value, size_t size) {
+inline void tbFishAccountTable::set_password(const char* value, size_t size) {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   password_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tbAccountTable::mutable_password() {
+inline ::std::string* tbFishAccountTable::mutable_password() {
   set_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     password_ = new ::std::string;
   }
   return password_;
 }
-inline ::std::string* tbAccountTable::release_password() {
+inline ::std::string* tbFishAccountTable::release_password() {
   clear_has_password();
   if (password_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -340,7 +693,7 @@ inline ::std::string* tbAccountTable::release_password() {
     return temp;
   }
 }
-inline void tbAccountTable::set_allocated_password(::std::string* password) {
+inline void tbFishAccountTable::set_allocated_password(::std::string* password) {
   if (password_ != &::google::protobuf::internal::kEmptyString) {
     delete password_;
   }
@@ -354,75 +707,75 @@ inline void tbAccountTable::set_allocated_password(::std::string* password) {
 }
 
 // optional uint32 account_type = 4;
-inline bool tbAccountTable::has_account_type() const {
+inline bool tbFishAccountTable::has_account_type() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void tbAccountTable::set_has_account_type() {
+inline void tbFishAccountTable::set_has_account_type() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void tbAccountTable::clear_has_account_type() {
+inline void tbFishAccountTable::clear_has_account_type() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void tbAccountTable::clear_account_type() {
+inline void tbFishAccountTable::clear_account_type() {
   account_type_ = 0u;
   clear_has_account_type();
 }
-inline ::google::protobuf::uint32 tbAccountTable::account_type() const {
+inline ::google::protobuf::uint32 tbFishAccountTable::account_type() const {
   return account_type_;
 }
-inline void tbAccountTable::set_account_type(::google::protobuf::uint32 value) {
+inline void tbFishAccountTable::set_account_type(::google::protobuf::uint32 value) {
   set_has_account_type();
   account_type_ = value;
 }
 
 // optional string device_id = 5;
-inline bool tbAccountTable::has_device_id() const {
+inline bool tbFishAccountTable::has_device_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void tbAccountTable::set_has_device_id() {
+inline void tbFishAccountTable::set_has_device_id() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void tbAccountTable::clear_has_device_id() {
+inline void tbFishAccountTable::clear_has_device_id() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void tbAccountTable::clear_device_id() {
+inline void tbFishAccountTable::clear_device_id() {
   if (device_id_ != &::google::protobuf::internal::kEmptyString) {
     device_id_->clear();
   }
   clear_has_device_id();
 }
-inline const ::std::string& tbAccountTable::device_id() const {
+inline const ::std::string& tbFishAccountTable::device_id() const {
   return *device_id_;
 }
-inline void tbAccountTable::set_device_id(const ::std::string& value) {
+inline void tbFishAccountTable::set_device_id(const ::std::string& value) {
   set_has_device_id();
   if (device_id_ == &::google::protobuf::internal::kEmptyString) {
     device_id_ = new ::std::string;
   }
   device_id_->assign(value);
 }
-inline void tbAccountTable::set_device_id(const char* value) {
+inline void tbFishAccountTable::set_device_id(const char* value) {
   set_has_device_id();
   if (device_id_ == &::google::protobuf::internal::kEmptyString) {
     device_id_ = new ::std::string;
   }
   device_id_->assign(value);
 }
-inline void tbAccountTable::set_device_id(const char* value, size_t size) {
+inline void tbFishAccountTable::set_device_id(const char* value, size_t size) {
   set_has_device_id();
   if (device_id_ == &::google::protobuf::internal::kEmptyString) {
     device_id_ = new ::std::string;
   }
   device_id_->assign(reinterpret_cast<const char*>(value), size);
 }
-inline ::std::string* tbAccountTable::mutable_device_id() {
+inline ::std::string* tbFishAccountTable::mutable_device_id() {
   set_has_device_id();
   if (device_id_ == &::google::protobuf::internal::kEmptyString) {
     device_id_ = new ::std::string;
   }
   return device_id_;
 }
-inline ::std::string* tbAccountTable::release_device_id() {
+inline ::std::string* tbFishAccountTable::release_device_id() {
   clear_has_device_id();
   if (device_id_ == &::google::protobuf::internal::kEmptyString) {
     return NULL;
@@ -432,7 +785,7 @@ inline ::std::string* tbAccountTable::release_device_id() {
     return temp;
   }
 }
-inline void tbAccountTable::set_allocated_device_id(::std::string* device_id) {
+inline void tbFishAccountTable::set_allocated_device_id(::std::string* device_id) {
   if (device_id_ != &::google::protobuf::internal::kEmptyString) {
     delete device_id_;
   }
@@ -446,25 +799,941 @@ inline void tbAccountTable::set_allocated_device_id(::std::string* device_id) {
 }
 
 // optional uint64 phonenum = 6;
-inline bool tbAccountTable::has_phonenum() const {
+inline bool tbFishAccountTable::has_phonenum() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void tbAccountTable::set_has_phonenum() {
+inline void tbFishAccountTable::set_has_phonenum() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void tbAccountTable::clear_has_phonenum() {
+inline void tbFishAccountTable::clear_has_phonenum() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void tbAccountTable::clear_phonenum() {
+inline void tbFishAccountTable::clear_phonenum() {
   phonenum_ = GOOGLE_ULONGLONG(0);
   clear_has_phonenum();
 }
-inline ::google::protobuf::uint64 tbAccountTable::phonenum() const {
+inline ::google::protobuf::uint64 tbFishAccountTable::phonenum() const {
   return phonenum_;
 }
-inline void tbAccountTable::set_phonenum(::google::protobuf::uint64 value) {
+inline void tbFishAccountTable::set_phonenum(::google::protobuf::uint64 value) {
   set_has_phonenum();
   phonenum_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// tbFishPlayerData
+
+// optional uint64 player_id = 1;
+inline bool tbFishPlayerData::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void tbFishPlayerData::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void tbFishPlayerData::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void tbFishPlayerData::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 tbFishPlayerData::player_id() const {
+  return player_id_;
+}
+inline void tbFishPlayerData::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional string nickname = 2;
+inline bool tbFishPlayerData::has_nickname() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void tbFishPlayerData::set_has_nickname() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void tbFishPlayerData::clear_has_nickname() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void tbFishPlayerData::clear_nickname() {
+  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
+    nickname_->clear();
+  }
+  clear_has_nickname();
+}
+inline const ::std::string& tbFishPlayerData::nickname() const {
+  return *nickname_;
+}
+inline void tbFishPlayerData::set_nickname(const ::std::string& value) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(value);
+}
+inline void tbFishPlayerData::set_nickname(const char* value) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(value);
+}
+inline void tbFishPlayerData::set_nickname(const char* value, size_t size) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishPlayerData::mutable_nickname() {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  return nickname_;
+}
+inline ::std::string* tbFishPlayerData::release_nickname() {
+  clear_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nickname_;
+    nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishPlayerData::set_allocated_nickname(::std::string* nickname) {
+  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
+    delete nickname_;
+  }
+  if (nickname) {
+    set_has_nickname();
+    nickname_ = nickname;
+  } else {
+    clear_has_nickname();
+    nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 faceid = 3;
+inline bool tbFishPlayerData::has_faceid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void tbFishPlayerData::set_has_faceid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void tbFishPlayerData::clear_has_faceid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void tbFishPlayerData::clear_faceid() {
+  faceid_ = 0u;
+  clear_has_faceid();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::faceid() const {
+  return faceid_;
+}
+inline void tbFishPlayerData::set_faceid(::google::protobuf::uint32 value) {
+  set_has_faceid();
+  faceid_ = value;
+}
+
+// optional uint64 regdate = 4;
+inline bool tbFishPlayerData::has_regdate() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void tbFishPlayerData::set_has_regdate() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void tbFishPlayerData::clear_has_regdate() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void tbFishPlayerData::clear_regdate() {
+  regdate_ = GOOGLE_ULONGLONG(0);
+  clear_has_regdate();
+}
+inline ::google::protobuf::uint64 tbFishPlayerData::regdate() const {
+  return regdate_;
+}
+inline void tbFishPlayerData::set_regdate(::google::protobuf::uint64 value) {
+  set_has_regdate();
+  regdate_ = value;
+}
+
+// optional uint32 gender = 5;
+inline bool tbFishPlayerData::has_gender() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void tbFishPlayerData::set_has_gender() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void tbFishPlayerData::clear_has_gender() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void tbFishPlayerData::clear_gender() {
+  gender_ = 0u;
+  clear_has_gender();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::gender() const {
+  return gender_;
+}
+inline void tbFishPlayerData::set_gender(::google::protobuf::uint32 value) {
+  set_has_gender();
+  gender_ = value;
+}
+
+// optional uint32 age = 6;
+inline bool tbFishPlayerData::has_age() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void tbFishPlayerData::set_has_age() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void tbFishPlayerData::clear_has_age() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void tbFishPlayerData::clear_age() {
+  age_ = 0u;
+  clear_has_age();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::age() const {
+  return age_;
+}
+inline void tbFishPlayerData::set_age(::google::protobuf::uint32 value) {
+  set_has_age();
+  age_ = value;
+}
+
+// optional string email = 7;
+inline bool tbFishPlayerData::has_email() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void tbFishPlayerData::set_has_email() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void tbFishPlayerData::clear_has_email() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void tbFishPlayerData::clear_email() {
+  if (email_ != &::google::protobuf::internal::kEmptyString) {
+    email_->clear();
+  }
+  clear_has_email();
+}
+inline const ::std::string& tbFishPlayerData::email() const {
+  return *email_;
+}
+inline void tbFishPlayerData::set_email(const ::std::string& value) {
+  set_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    email_ = new ::std::string;
+  }
+  email_->assign(value);
+}
+inline void tbFishPlayerData::set_email(const char* value) {
+  set_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    email_ = new ::std::string;
+  }
+  email_->assign(value);
+}
+inline void tbFishPlayerData::set_email(const char* value, size_t size) {
+  set_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    email_ = new ::std::string;
+  }
+  email_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishPlayerData::mutable_email() {
+  set_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    email_ = new ::std::string;
+  }
+  return email_;
+}
+inline ::std::string* tbFishPlayerData::release_email() {
+  clear_has_email();
+  if (email_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = email_;
+    email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishPlayerData::set_allocated_email(::std::string* email) {
+  if (email_ != &::google::protobuf::internal::kEmptyString) {
+    delete email_;
+  }
+  if (email) {
+    set_has_email();
+    email_ = email;
+  } else {
+    clear_has_email();
+    email_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint64 phonenum = 8;
+inline bool tbFishPlayerData::has_phonenum() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void tbFishPlayerData::set_has_phonenum() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void tbFishPlayerData::clear_has_phonenum() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void tbFishPlayerData::clear_phonenum() {
+  phonenum_ = GOOGLE_ULONGLONG(0);
+  clear_has_phonenum();
+}
+inline ::google::protobuf::uint64 tbFishPlayerData::phonenum() const {
+  return phonenum_;
+}
+inline void tbFishPlayerData::set_phonenum(::google::protobuf::uint64 value) {
+  set_has_phonenum();
+  phonenum_ = value;
+}
+
+// optional uint64 jetton = 9;
+inline bool tbFishPlayerData::has_jetton() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void tbFishPlayerData::set_has_jetton() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void tbFishPlayerData::clear_has_jetton() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void tbFishPlayerData::clear_jetton() {
+  jetton_ = GOOGLE_ULONGLONG(0);
+  clear_has_jetton();
+}
+inline ::google::protobuf::uint64 tbFishPlayerData::jetton() const {
+  return jetton_;
+}
+inline void tbFishPlayerData::set_jetton(::google::protobuf::uint64 value) {
+  set_has_jetton();
+  jetton_ = value;
+}
+
+// optional string ip = 16;
+inline bool tbFishPlayerData::has_ip() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void tbFishPlayerData::set_has_ip() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void tbFishPlayerData::clear_has_ip() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void tbFishPlayerData::clear_ip() {
+  if (ip_ != &::google::protobuf::internal::kEmptyString) {
+    ip_->clear();
+  }
+  clear_has_ip();
+}
+inline const ::std::string& tbFishPlayerData::ip() const {
+  return *ip_;
+}
+inline void tbFishPlayerData::set_ip(const ::std::string& value) {
+  set_has_ip();
+  if (ip_ == &::google::protobuf::internal::kEmptyString) {
+    ip_ = new ::std::string;
+  }
+  ip_->assign(value);
+}
+inline void tbFishPlayerData::set_ip(const char* value) {
+  set_has_ip();
+  if (ip_ == &::google::protobuf::internal::kEmptyString) {
+    ip_ = new ::std::string;
+  }
+  ip_->assign(value);
+}
+inline void tbFishPlayerData::set_ip(const char* value, size_t size) {
+  set_has_ip();
+  if (ip_ == &::google::protobuf::internal::kEmptyString) {
+    ip_ = new ::std::string;
+  }
+  ip_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishPlayerData::mutable_ip() {
+  set_has_ip();
+  if (ip_ == &::google::protobuf::internal::kEmptyString) {
+    ip_ = new ::std::string;
+  }
+  return ip_;
+}
+inline ::std::string* tbFishPlayerData::release_ip() {
+  clear_has_ip();
+  if (ip_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = ip_;
+    ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishPlayerData::set_allocated_ip(::std::string* ip) {
+  if (ip_ != &::google::protobuf::internal::kEmptyString) {
+    delete ip_;
+  }
+  if (ip) {
+    set_has_ip();
+    ip_ = ip;
+  } else {
+    clear_has_ip();
+    ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint64 last_login_time = 17;
+inline bool tbFishPlayerData::has_last_login_time() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void tbFishPlayerData::set_has_last_login_time() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void tbFishPlayerData::clear_has_last_login_time() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void tbFishPlayerData::clear_last_login_time() {
+  last_login_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_last_login_time();
+}
+inline ::google::protobuf::uint64 tbFishPlayerData::last_login_time() const {
+  return last_login_time_;
+}
+inline void tbFishPlayerData::set_last_login_time(::google::protobuf::uint64 value) {
+  set_has_last_login_time();
+  last_login_time_ = value;
+}
+
+// optional uint64 last_logout_time = 18;
+inline bool tbFishPlayerData::has_last_logout_time() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void tbFishPlayerData::set_has_last_logout_time() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void tbFishPlayerData::clear_has_last_logout_time() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void tbFishPlayerData::clear_last_logout_time() {
+  last_logout_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_last_logout_time();
+}
+inline ::google::protobuf::uint64 tbFishPlayerData::last_logout_time() const {
+  return last_logout_time_;
+}
+inline void tbFishPlayerData::set_last_logout_time(::google::protobuf::uint64 value) {
+  set_has_last_logout_time();
+  last_logout_time_ = value;
+}
+
+// optional uint32 channel_id = 20;
+inline bool tbFishPlayerData::has_channel_id() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void tbFishPlayerData::set_has_channel_id() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void tbFishPlayerData::clear_has_channel_id() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void tbFishPlayerData::clear_channel_id() {
+  channel_id_ = 0u;
+  clear_has_channel_id();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::channel_id() const {
+  return channel_id_;
+}
+inline void tbFishPlayerData::set_channel_id(::google::protobuf::uint32 value) {
+  set_has_channel_id();
+  channel_id_ = value;
+}
+
+// optional string platform_os = 21;
+inline bool tbFishPlayerData::has_platform_os() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void tbFishPlayerData::set_has_platform_os() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void tbFishPlayerData::clear_has_platform_os() {
+  _has_bits_[0] &= ~0x00002000u;
+}
+inline void tbFishPlayerData::clear_platform_os() {
+  if (platform_os_ != &::google::protobuf::internal::kEmptyString) {
+    platform_os_->clear();
+  }
+  clear_has_platform_os();
+}
+inline const ::std::string& tbFishPlayerData::platform_os() const {
+  return *platform_os_;
+}
+inline void tbFishPlayerData::set_platform_os(const ::std::string& value) {
+  set_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    platform_os_ = new ::std::string;
+  }
+  platform_os_->assign(value);
+}
+inline void tbFishPlayerData::set_platform_os(const char* value) {
+  set_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    platform_os_ = new ::std::string;
+  }
+  platform_os_->assign(value);
+}
+inline void tbFishPlayerData::set_platform_os(const char* value, size_t size) {
+  set_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    platform_os_ = new ::std::string;
+  }
+  platform_os_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishPlayerData::mutable_platform_os() {
+  set_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    platform_os_ = new ::std::string;
+  }
+  return platform_os_;
+}
+inline ::std::string* tbFishPlayerData::release_platform_os() {
+  clear_has_platform_os();
+  if (platform_os_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = platform_os_;
+    platform_os_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishPlayerData::set_allocated_platform_os(::std::string* platform_os) {
+  if (platform_os_ != &::google::protobuf::internal::kEmptyString) {
+    delete platform_os_;
+  }
+  if (platform_os) {
+    set_has_platform_os();
+    platform_os_ = platform_os;
+  } else {
+    clear_has_platform_os();
+    platform_os_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string phone_model = 22;
+inline bool tbFishPlayerData::has_phone_model() const {
+  return (_has_bits_[0] & 0x00004000u) != 0;
+}
+inline void tbFishPlayerData::set_has_phone_model() {
+  _has_bits_[0] |= 0x00004000u;
+}
+inline void tbFishPlayerData::clear_has_phone_model() {
+  _has_bits_[0] &= ~0x00004000u;
+}
+inline void tbFishPlayerData::clear_phone_model() {
+  if (phone_model_ != &::google::protobuf::internal::kEmptyString) {
+    phone_model_->clear();
+  }
+  clear_has_phone_model();
+}
+inline const ::std::string& tbFishPlayerData::phone_model() const {
+  return *phone_model_;
+}
+inline void tbFishPlayerData::set_phone_model(const ::std::string& value) {
+  set_has_phone_model();
+  if (phone_model_ == &::google::protobuf::internal::kEmptyString) {
+    phone_model_ = new ::std::string;
+  }
+  phone_model_->assign(value);
+}
+inline void tbFishPlayerData::set_phone_model(const char* value) {
+  set_has_phone_model();
+  if (phone_model_ == &::google::protobuf::internal::kEmptyString) {
+    phone_model_ = new ::std::string;
+  }
+  phone_model_->assign(value);
+}
+inline void tbFishPlayerData::set_phone_model(const char* value, size_t size) {
+  set_has_phone_model();
+  if (phone_model_ == &::google::protobuf::internal::kEmptyString) {
+    phone_model_ = new ::std::string;
+  }
+  phone_model_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishPlayerData::mutable_phone_model() {
+  set_has_phone_model();
+  if (phone_model_ == &::google::protobuf::internal::kEmptyString) {
+    phone_model_ = new ::std::string;
+  }
+  return phone_model_;
+}
+inline ::std::string* tbFishPlayerData::release_phone_model() {
+  clear_has_phone_model();
+  if (phone_model_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = phone_model_;
+    phone_model_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishPlayerData::set_allocated_phone_model(::std::string* phone_model) {
+  if (phone_model_ != &::google::protobuf::internal::kEmptyString) {
+    delete phone_model_;
+  }
+  if (phone_model) {
+    set_has_phone_model();
+    phone_model_ = phone_model;
+  } else {
+    clear_has_phone_model();
+    phone_model_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional bool first_recharge = 23;
+inline bool tbFishPlayerData::has_first_recharge() const {
+  return (_has_bits_[0] & 0x00008000u) != 0;
+}
+inline void tbFishPlayerData::set_has_first_recharge() {
+  _has_bits_[0] |= 0x00008000u;
+}
+inline void tbFishPlayerData::clear_has_first_recharge() {
+  _has_bits_[0] &= ~0x00008000u;
+}
+inline void tbFishPlayerData::clear_first_recharge() {
+  first_recharge_ = false;
+  clear_has_first_recharge();
+}
+inline bool tbFishPlayerData::first_recharge() const {
+  return first_recharge_;
+}
+inline void tbFishPlayerData::set_first_recharge(bool value) {
+  set_has_first_recharge();
+  first_recharge_ = value;
+}
+
+// optional uint32 vip_level = 26;
+inline bool tbFishPlayerData::has_vip_level() const {
+  return (_has_bits_[0] & 0x00010000u) != 0;
+}
+inline void tbFishPlayerData::set_has_vip_level() {
+  _has_bits_[0] |= 0x00010000u;
+}
+inline void tbFishPlayerData::clear_has_vip_level() {
+  _has_bits_[0] &= ~0x00010000u;
+}
+inline void tbFishPlayerData::clear_vip_level() {
+  vip_level_ = 0u;
+  clear_has_vip_level();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::vip_level() const {
+  return vip_level_;
+}
+inline void tbFishPlayerData::set_vip_level(::google::protobuf::uint32 value) {
+  set_has_vip_level();
+  vip_level_ = value;
+}
+
+// optional uint32 game_id = 29;
+inline bool tbFishPlayerData::has_game_id() const {
+  return (_has_bits_[0] & 0x00020000u) != 0;
+}
+inline void tbFishPlayerData::set_has_game_id() {
+  _has_bits_[0] |= 0x00020000u;
+}
+inline void tbFishPlayerData::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00020000u;
+}
+inline void tbFishPlayerData::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::game_id() const {
+  return game_id_;
+}
+inline void tbFishPlayerData::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// optional uint32 room_id = 30;
+inline bool tbFishPlayerData::has_room_id() const {
+  return (_has_bits_[0] & 0x00040000u) != 0;
+}
+inline void tbFishPlayerData::set_has_room_id() {
+  _has_bits_[0] |= 0x00040000u;
+}
+inline void tbFishPlayerData::clear_has_room_id() {
+  _has_bits_[0] &= ~0x00040000u;
+}
+inline void tbFishPlayerData::clear_room_id() {
+  room_id_ = 0u;
+  clear_has_room_id();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::room_id() const {
+  return room_id_;
+}
+inline void tbFishPlayerData::set_room_id(::google::protobuf::uint32 value) {
+  set_has_room_id();
+  room_id_ = value;
+}
+
+// optional uint32 is_ban = 47;
+inline bool tbFishPlayerData::has_is_ban() const {
+  return (_has_bits_[0] & 0x00080000u) != 0;
+}
+inline void tbFishPlayerData::set_has_is_ban() {
+  _has_bits_[0] |= 0x00080000u;
+}
+inline void tbFishPlayerData::clear_has_is_ban() {
+  _has_bits_[0] &= ~0x00080000u;
+}
+inline void tbFishPlayerData::clear_is_ban() {
+  is_ban_ = 0u;
+  clear_has_is_ban();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::is_ban() const {
+  return is_ban_;
+}
+inline void tbFishPlayerData::set_is_ban(::google::protobuf::uint32 value) {
+  set_has_is_ban();
+  is_ban_ = value;
+}
+
+// optional uint32 no_transfer = 48;
+inline bool tbFishPlayerData::has_no_transfer() const {
+  return (_has_bits_[0] & 0x00100000u) != 0;
+}
+inline void tbFishPlayerData::set_has_no_transfer() {
+  _has_bits_[0] |= 0x00100000u;
+}
+inline void tbFishPlayerData::clear_has_no_transfer() {
+  _has_bits_[0] &= ~0x00100000u;
+}
+inline void tbFishPlayerData::clear_no_transfer() {
+  no_transfer_ = 0u;
+  clear_has_no_transfer();
+}
+inline ::google::protobuf::uint32 tbFishPlayerData::no_transfer() const {
+  return no_transfer_;
+}
+inline void tbFishPlayerData::set_no_transfer(::google::protobuf::uint32 value) {
+  set_has_no_transfer();
+  no_transfer_ = value;
+}
+
+// optional string reg_ip = 49;
+inline bool tbFishPlayerData::has_reg_ip() const {
+  return (_has_bits_[0] & 0x00200000u) != 0;
+}
+inline void tbFishPlayerData::set_has_reg_ip() {
+  _has_bits_[0] |= 0x00200000u;
+}
+inline void tbFishPlayerData::clear_has_reg_ip() {
+  _has_bits_[0] &= ~0x00200000u;
+}
+inline void tbFishPlayerData::clear_reg_ip() {
+  if (reg_ip_ != &::google::protobuf::internal::kEmptyString) {
+    reg_ip_->clear();
+  }
+  clear_has_reg_ip();
+}
+inline const ::std::string& tbFishPlayerData::reg_ip() const {
+  return *reg_ip_;
+}
+inline void tbFishPlayerData::set_reg_ip(const ::std::string& value) {
+  set_has_reg_ip();
+  if (reg_ip_ == &::google::protobuf::internal::kEmptyString) {
+    reg_ip_ = new ::std::string;
+  }
+  reg_ip_->assign(value);
+}
+inline void tbFishPlayerData::set_reg_ip(const char* value) {
+  set_has_reg_ip();
+  if (reg_ip_ == &::google::protobuf::internal::kEmptyString) {
+    reg_ip_ = new ::std::string;
+  }
+  reg_ip_->assign(value);
+}
+inline void tbFishPlayerData::set_reg_ip(const char* value, size_t size) {
+  set_has_reg_ip();
+  if (reg_ip_ == &::google::protobuf::internal::kEmptyString) {
+    reg_ip_ = new ::std::string;
+  }
+  reg_ip_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishPlayerData::mutable_reg_ip() {
+  set_has_reg_ip();
+  if (reg_ip_ == &::google::protobuf::internal::kEmptyString) {
+    reg_ip_ = new ::std::string;
+  }
+  return reg_ip_;
+}
+inline ::std::string* tbFishPlayerData::release_reg_ip() {
+  clear_has_reg_ip();
+  if (reg_ip_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = reg_ip_;
+    reg_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishPlayerData::set_allocated_reg_ip(::std::string* reg_ip) {
+  if (reg_ip_ != &::google::protobuf::internal::kEmptyString) {
+    delete reg_ip_;
+  }
+  if (reg_ip) {
+    set_has_reg_ip();
+    reg_ip_ = reg_ip;
+  } else {
+    clear_has_reg_ip();
+    reg_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string device_id = 50;
+inline bool tbFishPlayerData::has_device_id() const {
+  return (_has_bits_[0] & 0x00400000u) != 0;
+}
+inline void tbFishPlayerData::set_has_device_id() {
+  _has_bits_[0] |= 0x00400000u;
+}
+inline void tbFishPlayerData::clear_has_device_id() {
+  _has_bits_[0] &= ~0x00400000u;
+}
+inline void tbFishPlayerData::clear_device_id() {
+  if (device_id_ != &::google::protobuf::internal::kEmptyString) {
+    device_id_->clear();
+  }
+  clear_has_device_id();
+}
+inline const ::std::string& tbFishPlayerData::device_id() const {
+  return *device_id_;
+}
+inline void tbFishPlayerData::set_device_id(const ::std::string& value) {
+  set_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    device_id_ = new ::std::string;
+  }
+  device_id_->assign(value);
+}
+inline void tbFishPlayerData::set_device_id(const char* value) {
+  set_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    device_id_ = new ::std::string;
+  }
+  device_id_->assign(value);
+}
+inline void tbFishPlayerData::set_device_id(const char* value, size_t size) {
+  set_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    device_id_ = new ::std::string;
+  }
+  device_id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishPlayerData::mutable_device_id() {
+  set_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    device_id_ = new ::std::string;
+  }
+  return device_id_;
+}
+inline ::std::string* tbFishPlayerData::release_device_id() {
+  clear_has_device_id();
+  if (device_id_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = device_id_;
+    device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishPlayerData::set_allocated_device_id(::std::string* device_id) {
+  if (device_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete device_id_;
+  }
+  if (device_id) {
+    set_has_device_id();
+    device_id_ = device_id;
+  } else {
+    clear_has_device_id();
+    device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional string reg_device_id = 51;
+inline bool tbFishPlayerData::has_reg_device_id() const {
+  return (_has_bits_[0] & 0x00800000u) != 0;
+}
+inline void tbFishPlayerData::set_has_reg_device_id() {
+  _has_bits_[0] |= 0x00800000u;
+}
+inline void tbFishPlayerData::clear_has_reg_device_id() {
+  _has_bits_[0] &= ~0x00800000u;
+}
+inline void tbFishPlayerData::clear_reg_device_id() {
+  if (reg_device_id_ != &::google::protobuf::internal::kEmptyString) {
+    reg_device_id_->clear();
+  }
+  clear_has_reg_device_id();
+}
+inline const ::std::string& tbFishPlayerData::reg_device_id() const {
+  return *reg_device_id_;
+}
+inline void tbFishPlayerData::set_reg_device_id(const ::std::string& value) {
+  set_has_reg_device_id();
+  if (reg_device_id_ == &::google::protobuf::internal::kEmptyString) {
+    reg_device_id_ = new ::std::string;
+  }
+  reg_device_id_->assign(value);
+}
+inline void tbFishPlayerData::set_reg_device_id(const char* value) {
+  set_has_reg_device_id();
+  if (reg_device_id_ == &::google::protobuf::internal::kEmptyString) {
+    reg_device_id_ = new ::std::string;
+  }
+  reg_device_id_->assign(value);
+}
+inline void tbFishPlayerData::set_reg_device_id(const char* value, size_t size) {
+  set_has_reg_device_id();
+  if (reg_device_id_ == &::google::protobuf::internal::kEmptyString) {
+    reg_device_id_ = new ::std::string;
+  }
+  reg_device_id_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishPlayerData::mutable_reg_device_id() {
+  set_has_reg_device_id();
+  if (reg_device_id_ == &::google::protobuf::internal::kEmptyString) {
+    reg_device_id_ = new ::std::string;
+  }
+  return reg_device_id_;
+}
+inline ::std::string* tbFishPlayerData::release_reg_device_id() {
+  clear_has_reg_device_id();
+  if (reg_device_id_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = reg_device_id_;
+    reg_device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishPlayerData::set_allocated_reg_device_id(::std::string* reg_device_id) {
+  if (reg_device_id_ != &::google::protobuf::internal::kEmptyString) {
+    delete reg_device_id_;
+  }
+  if (reg_device_id) {
+    set_has_reg_device_id();
+    reg_device_id_ = reg_device_id;
+  } else {
+    clear_has_reg_device_id();
+    reg_device_id_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 

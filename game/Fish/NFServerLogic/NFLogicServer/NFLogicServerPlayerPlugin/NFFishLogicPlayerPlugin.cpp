@@ -12,6 +12,8 @@
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFLogicPlayerModule.h"
+#include "NFPlayerMgr.h"
+#include "NFPlayer.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -57,6 +59,9 @@ bool NFFishLogicPlayerPlugin::InitShmObjectRegister()
     NF_ASSERT(pConfig);
 
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum();
+
+    REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
+    REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
 
     return true;
 }

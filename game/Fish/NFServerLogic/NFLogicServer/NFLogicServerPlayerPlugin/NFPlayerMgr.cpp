@@ -7,14 +7,14 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFLogicPlayerMgr.h"
-#include "NFLogicPlayer.h"
+#include "NFPlayerMgr.h"
+#include "NFPlayer.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include <map>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFLogicPlayerMgr, EOT_LOGIC_PLAYER_MGR_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerMgr, EOT_LOGIC_PLAYER_MGR_ID, NFShmObj)
 
-NFLogicPlayerMgr::NFLogicPlayerMgr() {
+NFPlayerMgr::NFPlayerMgr() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {
@@ -22,7 +22,7 @@ NFLogicPlayerMgr::NFLogicPlayerMgr() {
     }
 }
 
-NFLogicPlayerMgr::~NFLogicPlayerMgr()
+NFPlayerMgr::~NFPlayerMgr()
 {
     if (m_playerTickTimer != INVALID_ID)
     {
@@ -31,17 +31,17 @@ NFLogicPlayerMgr::~NFLogicPlayerMgr()
     }
 }
 
-int NFLogicPlayerMgr::CreateInit() {
+int NFPlayerMgr::CreateInit() {
     m_playerTickTimer = SetTimer(1000, 0, 0, 0, 1, 0);
     return 0;
 }
 
 
-int NFLogicPlayerMgr::ResumeInit() {
+int NFPlayerMgr::ResumeInit() {
     return 0;
 }
 
-int NFLogicPlayerMgr::OnTimer(int timeId, int callcount)
+int NFPlayerMgr::OnTimer(int timeId, int callcount)
 {
     if (m_playerTickTimer == timeId)
     {
@@ -51,12 +51,12 @@ int NFLogicPlayerMgr::OnTimer(int timeId, int callcount)
     return 0;
 }
 
-int NFLogicPlayerMgr::UserTick()
+int NFPlayerMgr::UserTick()
 {
     std::vector<uint64_t> willRemovePlayer;
-    for(auto iter = NFLogicPlayer::Begin(m_pObjPluginManager); iter != NFLogicPlayer::End(m_pObjPluginManager); iter++)
+    for(auto iter = NFPlayer::Begin(m_pObjPluginManager); iter != NFPlayer::End(m_pObjPluginManager); iter++)
     {
-        NFLogicPlayer* pPlayer = &(*iter);
+        NFPlayer* pPlayer = &(*iter);
         pPlayer->Tick();
         if (pPlayer->GetStatus() == proto_ff::PLAYER_STATUS_DEAD)
         {
@@ -66,7 +66,7 @@ int NFLogicPlayerMgr::UserTick()
 
     for(int i = 0; i < (int)willRemovePlayer.size(); i++)
     {
-        NFLogicPlayer* pPlayer = GetPlayer(willRemovePlayer[i]);
+        NFPlayer* pPlayer = GetPlayer(willRemovePlayer[i]);
         if (pPlayer)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player:{} be erase from memory", pPlayer->GetPlayerId());
@@ -77,17 +77,17 @@ int NFLogicPlayerMgr::UserTick()
 }
 
 
-NFLogicPlayer *NFLogicPlayerMgr::GetPlayer(uint64_t playerId)
+NFPlayer *NFPlayerMgr::GetPlayer(uint64_t playerId)
 {
-    return dynamic_cast<NFLogicPlayer*>(NFLogicPlayer::GetObjByHashKey(m_pObjPluginManager, playerId));
+    return dynamic_cast<NFPlayer*>(NFPlayer::GetObjByHashKey(m_pObjPluginManager, playerId));
 }
 
-NFLogicPlayer *NFLogicPlayerMgr::CreatePlayer(uint64_t playerId)
+NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t playerId)
 {
-    NFLogicPlayer *pPlayer = GetPlayer(playerId);
+    NFPlayer *pPlayer = GetPlayer(playerId);
     CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, palyerId:{}", playerId);
 
-    pPlayer = dynamic_cast<NFLogicPlayer *>(NFLogicPlayer::CreateObjByHashKey(m_pObjPluginManager, playerId));
+    pPlayer = dynamic_cast<NFPlayer *>(NFPlayer::CreateObjByHashKey(m_pObjPluginManager, playerId));
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", playerId);
 
     pPlayer->SetPlayerId(playerId);
@@ -96,13 +96,13 @@ NFLogicPlayer *NFLogicPlayerMgr::CreatePlayer(uint64_t playerId)
     return pPlayer;
 }
 
-int NFLogicPlayerMgr::DeletePlayer(NFLogicPlayer *pPlayer)
+int NFPlayerMgr::DeletePlayer(NFPlayer *pPlayer)
 {
     CHECK_NULL(pPlayer);
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetPlayerId(), pPlayer->GetGlobalId());
 
-    NFLogicPlayer::DestroyObj(m_pObjPluginManager, pPlayer);
+    NFPlayer::DestroyObj(m_pObjPluginManager, pPlayer);
 
     return 0;
 }

@@ -28,7 +28,8 @@ StoreServer = {
              MysqlUser = NF_MYSQL_USER,
              MysqlPassword = NF_MYSQL_PASSWORD,
              TBConfList = {
-                  {TableName="tbAccountTable", TableCount=1},
+                  {TableName="tbFishAccountTable", TableCount=1},
+                  {TableName="tbFishPlayerData", TableCount=1},
              },
         },
         RouteConfig = {

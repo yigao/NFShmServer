@@ -12,9 +12,9 @@
 
 namespace proto_ff_s {
 
-	struct tbAccountTable_s : public NFDescStoreSeqOP {
-		tbAccountTable_s();
-		virtual ~tbAccountTable_s(){}
+	struct tbFishAccountTable_s : public NFDescStoreSeqOP {
+		tbFishAccountTable_s();
+		virtual ~tbFishAccountTable_s(){}
 		int CreateInit();
 		int ResumeInit();
 		uint64_t player_id;
@@ -24,12 +24,49 @@ namespace proto_ff_s {
 		NFShmString<128> device_id;
 		uint64_t phonenum;
 
-		virtual void write_to_pbmsg(::proto_ff::tbAccountTable & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::tbAccountTable & msg);
-		static ::proto_ff::tbAccountTable* new_pbmsg(){ return new ::proto_ff::tbAccountTable(); }
-		static ::proto_ff::tbAccountTable make_pbmsg(){ return ::proto_ff::tbAccountTable(); }
+		virtual void write_to_pbmsg(::proto_ff::tbFishAccountTable & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbFishAccountTable & msg);
+		static ::proto_ff::tbFishAccountTable* new_pbmsg(){ return new ::proto_ff::tbFishAccountTable(); }
+		static ::proto_ff::tbFishAccountTable make_pbmsg(){ return ::proto_ff::tbFishAccountTable(); }
 	};
-	typedef struct tbAccountTable_s tbAccountTable_t;
+	typedef struct tbFishAccountTable_s tbFishAccountTable_t;
+
+	struct tbFishPlayerData_s : public NFDescStoreSeqOP {
+		tbFishPlayerData_s();
+		virtual ~tbFishPlayerData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t player_id;
+		NFShmString<64> nickname;
+		uint32_t faceid;
+		uint64_t regdate;
+		uint32_t gender;
+		uint32_t age;
+		NFShmString<64> email;
+		uint64_t phonenum;
+		uint64_t jetton;
+		NFShmString<64> ip;
+		uint64_t last_login_time;
+		uint64_t last_logout_time;
+		uint32_t channel_id;
+		NFShmString<64> platform_os;
+		NFShmString<64> phone_model;
+		bool first_recharge;
+		uint32_t vip_level;
+		uint32_t game_id;
+		uint32_t room_id;
+		uint32_t is_ban;
+		uint32_t no_transfer;
+		NFShmString<64> reg_ip;
+		NFShmString<128> device_id;
+		NFShmString<128> reg_device_id;
+
+		virtual void write_to_pbmsg(::proto_ff::tbFishPlayerData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbFishPlayerData & msg);
+		static ::proto_ff::tbFishPlayerData* new_pbmsg(){ return new ::proto_ff::tbFishPlayerData(); }
+		static ::proto_ff::tbFishPlayerData make_pbmsg(){ return ::proto_ff::tbFishPlayerData(); }
+	};
+	typedef struct tbFishPlayerData_s tbFishPlayerData_t;
 
 }
 

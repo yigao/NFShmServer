@@ -103,7 +103,7 @@ int NFCAccountLoginModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackag
 
 int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLoginReq& request, proto_ff::Proto_SCAccountLoginRsp& respone)
 {
-    proto_ff::tbAccountTable selectobj;
+    proto_ff::tbFishAccountTable selectobj;
     NFAccountLogin* pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->FindAccount(request.account());
     if (pLogin == NULL)
     {
@@ -115,7 +115,7 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
             {
                 if (request.login_type() == proto_ff::E_VISITOR || request.login_type() == proto_ff::E_WECHAT)
                 {
-                    proto_ff::tbAccountTable insertObj;
+                    proto_ff::tbFishAccountTable insertObj;
                     insertObj.set_account(request.account());
                     insertObj.set_password(request.password());
                     insertObj.set_account_type(request.login_type());
@@ -212,7 +212,7 @@ int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegiste
     NFAccountLogin* pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->FindAccount(request.account());
     if (pLogin == NULL)
     {
-        proto_ff::tbAccountTable insertObj;
+        proto_ff::tbFishAccountTable insertObj;
         insertObj.set_account(request.account());
         insertObj.set_password(request.password());
         insertObj.set_account_type(proto_ff::E_ACCOUNT);
@@ -229,7 +229,7 @@ int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegiste
             return 0;
         }
 
-        proto_ff::tbAccountTable selectobj;
+        proto_ff::tbFishAccountTable selectobj;
         selectobj.set_account(request.account());
         iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()), selectobj);
         if (iRet != 0)

@@ -97,3 +97,5 @@ message Proto_UserDetailCommonData
   optional bool first_recharge = 11; //是否首冲
   optional uint64 show_userid = 12; //代理靓号
 }
+
+

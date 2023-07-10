@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include "NFLogicPlayerMgr.h"
+#include "NFPlayerMgr.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 #include "ServerInternal.pb.h"
 
