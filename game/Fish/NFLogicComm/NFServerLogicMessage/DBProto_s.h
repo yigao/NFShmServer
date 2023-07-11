@@ -37,7 +37,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t player_id;
-		NFShmString<64> nickname;
+		NFShmString<128> nickname;
 		uint32_t faceid;
 		uint64_t regdate;
 		uint32_t gender;

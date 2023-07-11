@@ -859,10 +859,26 @@ class pbPluginConfig : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 servertype() const;
   inline void set_servertype(::google::protobuf::uint32 value);
 
-  // repeated string ServerPlugins = 2;
+  // repeated string FramePlugins = 2;
+  inline int frameplugins_size() const;
+  inline void clear_frameplugins();
+  static const int kFramePluginsFieldNumber = 2;
+  inline const ::std::string& frameplugins(int index) const;
+  inline ::std::string* mutable_frameplugins(int index);
+  inline void set_frameplugins(int index, const ::std::string& value);
+  inline void set_frameplugins(int index, const char* value);
+  inline void set_frameplugins(int index, const char* value, size_t size);
+  inline ::std::string* add_frameplugins();
+  inline void add_frameplugins(const ::std::string& value);
+  inline void add_frameplugins(const char* value);
+  inline void add_frameplugins(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& frameplugins() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_frameplugins();
+
+  // repeated string ServerPlugins = 3;
   inline int serverplugins_size() const;
   inline void clear_serverplugins();
-  static const int kServerPluginsFieldNumber = 2;
+  static const int kServerPluginsFieldNumber = 3;
   inline const ::std::string& serverplugins(int index) const;
   inline ::std::string* mutable_serverplugins(int index);
   inline void set_serverplugins(int index, const ::std::string& value);
@@ -875,10 +891,26 @@ class pbPluginConfig : public ::google::protobuf::Message {
   inline const ::google::protobuf::RepeatedPtrField< ::std::string>& serverplugins() const;
   inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_serverplugins();
 
-  // repeated .proto_ff.pbAllServerConfig ServerList = 3;
+  // repeated string WorkPlugins = 4;
+  inline int workplugins_size() const;
+  inline void clear_workplugins();
+  static const int kWorkPluginsFieldNumber = 4;
+  inline const ::std::string& workplugins(int index) const;
+  inline ::std::string* mutable_workplugins(int index);
+  inline void set_workplugins(int index, const ::std::string& value);
+  inline void set_workplugins(int index, const char* value);
+  inline void set_workplugins(int index, const char* value, size_t size);
+  inline ::std::string* add_workplugins();
+  inline void add_workplugins(const ::std::string& value);
+  inline void add_workplugins(const char* value);
+  inline void add_workplugins(const char* value, size_t size);
+  inline const ::google::protobuf::RepeatedPtrField< ::std::string>& workplugins() const;
+  inline ::google::protobuf::RepeatedPtrField< ::std::string>* mutable_workplugins();
+
+  // repeated .proto_ff.pbAllServerConfig ServerList = 5;
   inline int serverlist_size() const;
   inline void clear_serverlist();
-  static const int kServerListFieldNumber = 3;
+  static const int kServerListFieldNumber = 5;
   inline const ::proto_ff::pbAllServerConfig& serverlist(int index) const;
   inline ::proto_ff::pbAllServerConfig* mutable_serverlist(int index);
   inline ::proto_ff::pbAllServerConfig* add_serverlist();
@@ -894,12 +926,14 @@ class pbPluginConfig : public ::google::protobuf::Message {
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
+  ::google::protobuf::RepeatedPtrField< ::std::string> frameplugins_;
   ::google::protobuf::RepeatedPtrField< ::std::string> serverplugins_;
+  ::google::protobuf::RepeatedPtrField< ::std::string> workplugins_;
   ::google::protobuf::RepeatedPtrField< ::proto_ff::pbAllServerConfig > serverlist_;
   ::google::protobuf::uint32 servertype_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
   friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
@@ -3210,7 +3244,51 @@ inline void pbPluginConfig::set_servertype(::google::protobuf::uint32 value) {
   servertype_ = value;
 }
 
-// repeated string ServerPlugins = 2;
+// repeated string FramePlugins = 2;
+inline int pbPluginConfig::frameplugins_size() const {
+  return frameplugins_.size();
+}
+inline void pbPluginConfig::clear_frameplugins() {
+  frameplugins_.Clear();
+}
+inline const ::std::string& pbPluginConfig::frameplugins(int index) const {
+  return frameplugins_.Get(index);
+}
+inline ::std::string* pbPluginConfig::mutable_frameplugins(int index) {
+  return frameplugins_.Mutable(index);
+}
+inline void pbPluginConfig::set_frameplugins(int index, const ::std::string& value) {
+  frameplugins_.Mutable(index)->assign(value);
+}
+inline void pbPluginConfig::set_frameplugins(int index, const char* value) {
+  frameplugins_.Mutable(index)->assign(value);
+}
+inline void pbPluginConfig::set_frameplugins(int index, const char* value, size_t size) {
+  frameplugins_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbPluginConfig::add_frameplugins() {
+  return frameplugins_.Add();
+}
+inline void pbPluginConfig::add_frameplugins(const ::std::string& value) {
+  frameplugins_.Add()->assign(value);
+}
+inline void pbPluginConfig::add_frameplugins(const char* value) {
+  frameplugins_.Add()->assign(value);
+}
+inline void pbPluginConfig::add_frameplugins(const char* value, size_t size) {
+  frameplugins_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+pbPluginConfig::frameplugins() const {
+  return frameplugins_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+pbPluginConfig::mutable_frameplugins() {
+  return &frameplugins_;
+}
+
+// repeated string ServerPlugins = 3;
 inline int pbPluginConfig::serverplugins_size() const {
   return serverplugins_.size();
 }
@@ -3254,7 +3332,51 @@ pbPluginConfig::mutable_serverplugins() {
   return &serverplugins_;
 }
 
-// repeated .proto_ff.pbAllServerConfig ServerList = 3;
+// repeated string WorkPlugins = 4;
+inline int pbPluginConfig::workplugins_size() const {
+  return workplugins_.size();
+}
+inline void pbPluginConfig::clear_workplugins() {
+  workplugins_.Clear();
+}
+inline const ::std::string& pbPluginConfig::workplugins(int index) const {
+  return workplugins_.Get(index);
+}
+inline ::std::string* pbPluginConfig::mutable_workplugins(int index) {
+  return workplugins_.Mutable(index);
+}
+inline void pbPluginConfig::set_workplugins(int index, const ::std::string& value) {
+  workplugins_.Mutable(index)->assign(value);
+}
+inline void pbPluginConfig::set_workplugins(int index, const char* value) {
+  workplugins_.Mutable(index)->assign(value);
+}
+inline void pbPluginConfig::set_workplugins(int index, const char* value, size_t size) {
+  workplugins_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbPluginConfig::add_workplugins() {
+  return workplugins_.Add();
+}
+inline void pbPluginConfig::add_workplugins(const ::std::string& value) {
+  workplugins_.Add()->assign(value);
+}
+inline void pbPluginConfig::add_workplugins(const char* value) {
+  workplugins_.Add()->assign(value);
+}
+inline void pbPluginConfig::add_workplugins(const char* value, size_t size) {
+  workplugins_.Add()->assign(reinterpret_cast<const char*>(value), size);
+}
+inline const ::google::protobuf::RepeatedPtrField< ::std::string>&
+pbPluginConfig::workplugins() const {
+  return workplugins_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::std::string>*
+pbPluginConfig::mutable_workplugins() {
+  return &workplugins_;
+}
+
+// repeated .proto_ff.pbAllServerConfig ServerList = 5;
 inline int pbPluginConfig::serverlist_size() const {
   return serverlist_.size();
 }

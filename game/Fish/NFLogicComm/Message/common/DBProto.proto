@@ -16,7 +16,7 @@ message tbFishAccountTable
 message tbFishPlayerData
 {
   optional uint64 player_id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "玩家ID"]; //UserID用户ID
-  optional string nickname = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=64, (yd_fieldoptions.db_field_bufsize)=64, (yd_fieldoptions.db_field_comment) = "昵称"];
+  optional string nickname = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];
   optional uint32 faceid = 3[(yd_fieldoptions.db_field_comment) = "头像"];
   optional uint64 regdate = 4[(yd_fieldoptions.db_field_comment) = "注册时间"]; //
   optional uint32 gender = 5[(yd_fieldoptions.db_field_comment) = "性别"]; //

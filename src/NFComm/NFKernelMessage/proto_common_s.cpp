@@ -182,8 +182,14 @@ int pbPluginConfig_s::ResumeInit() {
 
 void pbPluginConfig_s::write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const {
 	msg.set_servertype((uint32_t)ServerType);
+	for(int32_t i = 0; i < (int32_t)FramePlugins.size(); ++i) {
+		msg.add_frameplugins(FramePlugins[i]);
+	}
 	for(int32_t i = 0; i < (int32_t)ServerPlugins.size(); ++i) {
 		msg.add_serverplugins(ServerPlugins[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)WorkPlugins.size(); ++i) {
+		msg.add_workplugins(WorkPlugins[i]);
 	}
 	for(int32_t i = 0; i < (int32_t)ServerList.size(); ++i) {
 		::proto_ff::pbAllServerConfig* temp_serverlist = msg.add_serverlist();
@@ -193,9 +199,17 @@ void pbPluginConfig_s::write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const {
 
 void pbPluginConfig_s::read_from_pbmsg(const ::proto_ff::pbPluginConfig & msg) {
 	ServerType = msg.servertype();
+	FramePlugins.resize(msg.frameplugins_size());
+	for(int32_t i = 0; i < (int32_t)FramePlugins.size(); ++i) {
+		FramePlugins[i] = msg.frameplugins(i);
+	}
 	ServerPlugins.resize(msg.serverplugins_size());
 	for(int32_t i = 0; i < (int32_t)ServerPlugins.size(); ++i) {
 		ServerPlugins[i] = msg.serverplugins(i);
+	}
+	WorkPlugins.resize(msg.workplugins_size());
+	for(int32_t i = 0; i < (int32_t)WorkPlugins.size(); ++i) {
+		WorkPlugins[i] = msg.workplugins(i);
 	}
 	ServerList.resize(msg.serverlist_size());
 	for(int32_t i = 0; i < (int32_t)ServerList.size(); ++i) {

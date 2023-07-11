@@ -150,7 +150,7 @@ bool NFCConfigModule::LoadPluginConfig()
         NFProtobufCommon::LuaToProtoMessage(serverPluginRef, &pbPluginConfig);
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} plugin config:\n{}", serverPluginName, pbPluginConfig.DebugString());
 
-		if (pbPluginConfig.serverplugins_size() <= 0)
+		if (pbPluginConfig.frameplugins_size() <= 0 && pbPluginConfig.serverplugins_size() <= 0 && pbPluginConfig.workplugins_size() <= 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
 			           DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);

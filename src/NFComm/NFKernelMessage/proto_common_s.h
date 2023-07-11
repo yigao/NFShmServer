@@ -108,7 +108,9 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint32_t ServerType;
+		std::vector<std::string> FramePlugins;
 		std::vector<std::string> ServerPlugins;
+		std::vector<std::string> WorkPlugins;
 		std::vector<struct pbAllServerConfig_s> ServerList;
 
 		virtual void write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const;

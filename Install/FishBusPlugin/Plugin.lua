@@ -24,7 +24,7 @@ LoadPlugin =
 	},
 
 	AllServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
@@ -33,40 +33,40 @@ LoadPlugin =
 
 			"NFServerCommonPlugin",
 			"NFDescStorePlugin",
+		};
+
+
+		ServerPlugins = {
+			"NFMasterServerPlugin",
+			"NFRouteServerPlugin",
+			"NFRouteAgentServerPlugin",
+			"NFStoreServerPlugin",
+			"NFProxyServerPlugin",
+			"NFProxyClientPlugin",
+			"NFProxyAgentServerPlugin",
+			"NFLoginServerPlugin",
+			"NFGameServerPlugin",
+			"NFWorldServerPlugin",
+			"NFSnsServerPlugin",
+			"NFLogicServerPlugin",
+			--"NFWebServerPlugin",
+
+			--"NFMonitorServerPlugin",
+		};
+
+		WorkPlugins = {
 			--"NFCommLogicPlugin",
 			--"NFLuaScriptPlugin",
 
 			"NFFishRobotPlugin",
 
-			"NFMasterServerPlugin",
-			"NFRouteServerPlugin",
-			"NFRouteAgentServerPlugin",
-
-			"NFStoreServerPlugin",
-
-			"NFProxyServerPlugin",
-			"NFProxyClientPlugin",
 			"NFFishProxyPlayerPlugin",
-
-			"NFProxyAgentServerPlugin",
-
-			"NFLoginServerPlugin",
 			"NFFishLoginPlayerPlugin",
-
-			"NFGameServerPlugin",
-
-			"NFWorldServerPlugin",
 			"NFFishWorldPlayerPlugin",
-
-			"NFSnsServerPlugin",
-
-			"NFLogicServerPlugin",
+			"NFFishSnsPlayerPlugin",
 			"NFFishLogicPlayerPlugin",
-
-			--"NFWebServerPlugin",
-
-			--"NFMonitorServerPlugin",
 		};
+
 		ServerType = NF_ST_NONE;
 		ServerList = {
 			{Server="MasterServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_MASTER_SERVER..".1", ServerType=NF_ST_MASTER_SERVER},

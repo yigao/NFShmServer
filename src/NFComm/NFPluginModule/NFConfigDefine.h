@@ -14,7 +14,9 @@
 #include "NFComm/NFKernelMessage/proto_common_s.h"
 
 #define DEFINE_LUA_STRING_LOAD_PLUGIN			"LoadPlugin"
+#define DEFINE_LUA_STRING_FRAME_PLUGINS         "FramePlugins"
 #define DEFINE_LUA_STRING_SERVER_PLUGINS		"ServerPlugins"
+#define DEFINE_LUA_STRING_WORK_PLUGINS          "WorkPlugins"
 
 #define DEFINE_LUA_STRING_LOG_LEVEL				"LogLevel"					//log等级配置
 #define DEFINE_LUA_STRING_LOG_FLUSH_LEVEL		"LogFlushLevel"				//log刷新等级配置

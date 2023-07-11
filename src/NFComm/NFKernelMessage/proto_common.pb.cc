@@ -159,9 +159,11 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbAllServerConfig));
   pbPluginConfig_descriptor_ = file->message_type(5);
-  static const int pbPluginConfig_offsets_[3] = {
+  static const int pbPluginConfig_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, servertype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, frameplugins_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, serverplugins_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, workplugins_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbPluginConfig, serverlist_),
   };
   pbPluginConfig_reflection_ =
@@ -366,48 +368,49 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "\301\024\001\022\022\n\nMasterPort\030\002 \001(\r\022\022\n\nNamingHost\030\003 "
     "\001(\t\022\022\n\nNamingPath\030\004 \001(\t\022\022\n\nRouteAgent\030\005 "
     "\001(\t\"I\n\021pbAllServerConfig\022\024\n\006Server\030\001 \001(\t"
-    "B\004\240\301\024\001\022\n\n\002ID\030\002 \001(\t\022\022\n\nServerType\030\003 \001(\r\"r"
-    "\n\016pbPluginConfig\022\030\n\nServerType\030\001 \001(\rB\004\240\301"
-    "\024\001\022\025\n\rServerPlugins\030\002 \003(\t\022/\n\nServerList\030"
-    "\003 \003(\0132\033.proto_ff.pbAllServerConfig\"<\n\rpb"
-    "TableConfig\022\027\n\tTableName\030\001 \001(\tB\004\240\301\024\001\022\022\n\n"
-    "TableCount\030\002 \001(\r\"\200\007\n\020pbNFServerConfig\022\026\n"
-    "\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022\n\nServerType\030\002 \001("
-    "\r\022\022\n\nServerName\030\003 \001(\t\022\r\n\005BusId\030\004 \001(\r\022\021\n\t"
-    "BusLength\030\005 \001(\r\022\020\n\010LinkMode\030\007 \001(\t\022\013\n\003Url"
-    "\030\010 \001(\t\022\023\n\013IdleSleepUS\030\t \001(\r\022\034\n\024HandleMsg"
-    "NumPerFrame\030\n \001(\r\022\026\n\016ServerOpenTime\030\013 \001("
-    "\004\022\023\n\013LoadProtoDs\030\014 \001(\t\022\020\n\010ServerIp\030\024 \001(\t"
-    "\022\022\n\nServerPort\030\025 \001(\r\022\030\n\020ExternalServerIp"
-    "\030\026 \001(\t\022\032\n\022ExternalServerPort\030\027 \001(\r\022\020\n\010Ht"
-    "tpPort\030\030 \001(\r\022\025\n\rMaxConnectNum\030\031 \001(\r\022\025\n\rW"
-    "orkThreadNum\030\032 \001(\r\022\024\n\014NetThreadNum\030\033 \001(\r"
-    "\022\020\n\010Security\030\034 \001(\010\022\021\n\tWebSocket\030\035 \001(\010\022\021\n"
-    "\tParseType\030\036 \001(\r\022,\n\013RouteConfig\0302 \001(\0132\027."
-    "proto_ff.pbRouteConfig\022,\n\013MysqlConfig\030F "
-    "\001(\0132\027.proto_ff.pbMysqlConfig\022\025\n\rDefaultD"
-    "BName\030K \001(\t\022\023\n\013CrossDBName\030L \001(\t\022,\n\013Redi"
-    "sConfig\030P \001(\0132\027.proto_ff.pbRedisConfig\022\021"
-    "\n\tsendEmail\030[ \001(\t\022\025\n\rsendEmailPass\030\\ \001(\t"
-    "\022\024\n\014sendEmailUrl\030] \001(\t\022\025\n\rsendEmailPort\030"
-    "^ \001(\t\022\021\n\trecvEmail\030_ \001(\t\022\024\n\014wxWorkdRobot"
-    "\030` \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030\n\020He"
-    "artBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAliveT"
-    "imeout\030f \001(\r\022\025\n\rClientVersion\030g \001(\r\"_\n\017w"
-    "xWorkRobotText\022\025\n\007content\030\001 \001(\tB\004\240\301\024\001\022\026\n"
-    "\016mentioned_list\030\002 \003(\t\022\035\n\025mentioned_mobil"
-    "e_list\030\003 \003(\t\"U\n\023wxWorkRobotHttpPost\022\025\n\007m"
-    "sgtype\030\001 \001(\tB\004\240\301\024\001\022\'\n\004text\030\002 \001(\0132\031.proto"
-    "_ff.wxWorkRobotText*\361\002\n\016NF_SERVER_TYPE\022\016"
-    "\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVER\020\001\022"
-    "\026\n\022NF_ST_ROUTE_SERVER\020\002\022\034\n\030NF_ST_ROUTE_A"
-    "GENT_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020\004\022\034\n"
-    "\030NF_ST_PROXY_AGENT_SERVER\020\005\022\026\n\022NF_ST_STO"
-    "RE_SERVER\020\006\022\026\n\022NF_ST_LOGIN_SERVER\020\007\022\026\n\022N"
-    "F_ST_WORLD_SERVER\020\010\022\026\n\022NF_ST_LOGIC_SERVE"
-    "R\020\t\022\025\n\021NF_ST_GAME_SERVER\020\n\022\024\n\020NF_ST_SNS_"
-    "SERVER\020\013\022\024\n\020NF_ST_WEB_SERVER\020\014\022\030\n\024NF_ST_"
-    "MONITOR_SERVER\020\022\022\r\n\tNF_ST_MAX\020\024", 2591);
+    "B\004\240\301\024\001\022\n\n\002ID\030\002 \001(\t\022\022\n\nServerType\030\003 \001(\r\"\235"
+    "\001\n\016pbPluginConfig\022\030\n\nServerType\030\001 \001(\rB\004\240"
+    "\301\024\001\022\024\n\014FramePlugins\030\002 \003(\t\022\025\n\rServerPlugi"
+    "ns\030\003 \003(\t\022\023\n\013WorkPlugins\030\004 \003(\t\022/\n\nServerL"
+    "ist\030\005 \003(\0132\033.proto_ff.pbAllServerConfig\"<"
+    "\n\rpbTableConfig\022\027\n\tTableName\030\001 \001(\tB\004\240\301\024\001"
+    "\022\022\n\nTableCount\030\002 \001(\r\"\200\007\n\020pbNFServerConfi"
+    "g\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022\n\nServerType\030"
+    "\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r\n\005BusId\030\004 \001(\r"
+    "\022\021\n\tBusLength\030\005 \001(\r\022\020\n\010LinkMode\030\007 \001(\t\022\013\n"
+    "\003Url\030\010 \001(\t\022\023\n\013IdleSleepUS\030\t \001(\r\022\034\n\024Handl"
+    "eMsgNumPerFrame\030\n \001(\r\022\026\n\016ServerOpenTime\030"
+    "\013 \001(\004\022\023\n\013LoadProtoDs\030\014 \001(\t\022\020\n\010ServerIp\030\024"
+    " \001(\t\022\022\n\nServerPort\030\025 \001(\r\022\030\n\020ExternalServ"
+    "erIp\030\026 \001(\t\022\032\n\022ExternalServerPort\030\027 \001(\r\022\020"
+    "\n\010HttpPort\030\030 \001(\r\022\025\n\rMaxConnectNum\030\031 \001(\r\022"
+    "\025\n\rWorkThreadNum\030\032 \001(\r\022\024\n\014NetThreadNum\030\033"
+    " \001(\r\022\020\n\010Security\030\034 \001(\010\022\021\n\tWebSocket\030\035 \001("
+    "\010\022\021\n\tParseType\030\036 \001(\r\022,\n\013RouteConfig\0302 \001("
+    "\0132\027.proto_ff.pbRouteConfig\022,\n\013MysqlConfi"
+    "g\030F \001(\0132\027.proto_ff.pbMysqlConfig\022\025\n\rDefa"
+    "ultDBName\030K \001(\t\022\023\n\013CrossDBName\030L \001(\t\022,\n\013"
+    "RedisConfig\030P \001(\0132\027.proto_ff.pbRedisConf"
+    "ig\022\021\n\tsendEmail\030[ \001(\t\022\025\n\rsendEmailPass\030\\"
+    " \001(\t\022\024\n\014sendEmailUrl\030] \001(\t\022\025\n\rsendEmailP"
+    "ort\030^ \001(\t\022\021\n\trecvEmail\030_ \001(\t\022\024\n\014wxWorkdR"
+    "obot\030` \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030"
+    "\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAl"
+    "iveTimeout\030f \001(\r\022\025\n\rClientVersion\030g \001(\r\""
+    "_\n\017wxWorkRobotText\022\025\n\007content\030\001 \001(\tB\004\240\301\024"
+    "\001\022\026\n\016mentioned_list\030\002 \003(\t\022\035\n\025mentioned_m"
+    "obile_list\030\003 \003(\t\"U\n\023wxWorkRobotHttpPost\022"
+    "\025\n\007msgtype\030\001 \001(\tB\004\240\301\024\001\022\'\n\004text\030\002 \001(\0132\031.p"
+    "roto_ff.wxWorkRobotText*\361\002\n\016NF_SERVER_TY"
+    "PE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVE"
+    "R\020\001\022\026\n\022NF_ST_ROUTE_SERVER\020\002\022\034\n\030NF_ST_ROU"
+    "TE_AGENT_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020"
+    "\004\022\034\n\030NF_ST_PROXY_AGENT_SERVER\020\005\022\026\n\022NF_ST"
+    "_STORE_SERVER\020\006\022\026\n\022NF_ST_LOGIN_SERVER\020\007\022"
+    "\026\n\022NF_ST_WORLD_SERVER\020\010\022\026\n\022NF_ST_LOGIC_S"
+    "ERVER\020\t\022\025\n\021NF_ST_GAME_SERVER\020\n\022\024\n\020NF_ST_"
+    "SNS_SERVER\020\013\022\024\n\020NF_ST_WEB_SERVER\020\014\022\030\n\024NF"
+    "_ST_MONITOR_SERVER\020\022\022\r\n\tNF_ST_MAX\020\024", 2635);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -2686,7 +2689,9 @@ void pbAllServerConfig::Swap(pbAllServerConfig* other) {
 
 #ifndef _MSC_VER
 const int pbPluginConfig::kServerTypeFieldNumber;
+const int pbPluginConfig::kFramePluginsFieldNumber;
 const int pbPluginConfig::kServerPluginsFieldNumber;
+const int pbPluginConfig::kWorkPluginsFieldNumber;
 const int pbPluginConfig::kServerListFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2744,7 +2749,9 @@ void pbPluginConfig::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     servertype_ = 0u;
   }
+  frameplugins_.Clear();
   serverplugins_.Clear();
+  workplugins_.Clear();
   serverlist_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2767,12 +2774,31 @@ bool pbPluginConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_ServerPlugins;
+        if (input->ExpectTag(18)) goto parse_FramePlugins;
         break;
       }
 
-      // repeated string ServerPlugins = 2;
+      // repeated string FramePlugins = 2;
       case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_FramePlugins:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_frameplugins()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->frameplugins(this->frameplugins_size() - 1).data(),
+            this->frameplugins(this->frameplugins_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_FramePlugins;
+        if (input->ExpectTag(26)) goto parse_ServerPlugins;
+        break;
+      }
+
+      // repeated string ServerPlugins = 3;
+      case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_ServerPlugins:
@@ -2785,13 +2811,32 @@ bool pbPluginConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_ServerPlugins;
-        if (input->ExpectTag(26)) goto parse_ServerList;
+        if (input->ExpectTag(26)) goto parse_ServerPlugins;
+        if (input->ExpectTag(34)) goto parse_WorkPlugins;
         break;
       }
 
-      // repeated .proto_ff.pbAllServerConfig ServerList = 3;
-      case 3: {
+      // repeated string WorkPlugins = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_WorkPlugins:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->add_workplugins()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->workplugins(this->workplugins_size() - 1).data(),
+            this->workplugins(this->workplugins_size() - 1).length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_WorkPlugins;
+        if (input->ExpectTag(42)) goto parse_ServerList;
+        break;
+      }
+
+      // repeated .proto_ff.pbAllServerConfig ServerList = 5;
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_ServerList:
@@ -2800,7 +2845,7 @@ bool pbPluginConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_ServerList;
+        if (input->ExpectTag(42)) goto parse_ServerList;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2828,19 +2873,37 @@ void pbPluginConfig::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->servertype(), output);
   }
 
-  // repeated string ServerPlugins = 2;
+  // repeated string FramePlugins = 2;
+  for (int i = 0; i < this->frameplugins_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->frameplugins(i).data(), this->frameplugins(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->frameplugins(i), output);
+  }
+
+  // repeated string ServerPlugins = 3;
   for (int i = 0; i < this->serverplugins_size(); i++) {
   ::google::protobuf::internal::WireFormat::VerifyUTF8String(
     this->serverplugins(i).data(), this->serverplugins(i).length(),
     ::google::protobuf::internal::WireFormat::SERIALIZE);
     ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->serverplugins(i), output);
+      3, this->serverplugins(i), output);
   }
 
-  // repeated .proto_ff.pbAllServerConfig ServerList = 3;
+  // repeated string WorkPlugins = 4;
+  for (int i = 0; i < this->workplugins_size(); i++) {
+  ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+    this->workplugins(i).data(), this->workplugins(i).length(),
+    ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      4, this->workplugins(i), output);
+  }
+
+  // repeated .proto_ff.pbAllServerConfig ServerList = 5;
   for (int i = 0; i < this->serverlist_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->serverlist(i), output);
+      5, this->serverlist(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2856,20 +2919,38 @@ void pbPluginConfig::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->servertype(), target);
   }
 
-  // repeated string ServerPlugins = 2;
+  // repeated string FramePlugins = 2;
+  for (int i = 0; i < this->frameplugins_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->frameplugins(i).data(), this->frameplugins(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(2, this->frameplugins(i), target);
+  }
+
+  // repeated string ServerPlugins = 3;
   for (int i = 0; i < this->serverplugins_size(); i++) {
     ::google::protobuf::internal::WireFormat::VerifyUTF8String(
       this->serverplugins(i).data(), this->serverplugins(i).length(),
       ::google::protobuf::internal::WireFormat::SERIALIZE);
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteStringToArray(2, this->serverplugins(i), target);
+      WriteStringToArray(3, this->serverplugins(i), target);
   }
 
-  // repeated .proto_ff.pbAllServerConfig ServerList = 3;
+  // repeated string WorkPlugins = 4;
+  for (int i = 0; i < this->workplugins_size(); i++) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->workplugins(i).data(), this->workplugins(i).length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteStringToArray(4, this->workplugins(i), target);
+  }
+
+  // repeated .proto_ff.pbAllServerConfig ServerList = 5;
   for (int i = 0; i < this->serverlist_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        3, this->serverlist(i), target);
+        5, this->serverlist(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2891,14 +2972,28 @@ int pbPluginConfig::ByteSize() const {
     }
 
   }
-  // repeated string ServerPlugins = 2;
+  // repeated string FramePlugins = 2;
+  total_size += 1 * this->frameplugins_size();
+  for (int i = 0; i < this->frameplugins_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->frameplugins(i));
+  }
+
+  // repeated string ServerPlugins = 3;
   total_size += 1 * this->serverplugins_size();
   for (int i = 0; i < this->serverplugins_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
       this->serverplugins(i));
   }
 
-  // repeated .proto_ff.pbAllServerConfig ServerList = 3;
+  // repeated string WorkPlugins = 4;
+  total_size += 1 * this->workplugins_size();
+  for (int i = 0; i < this->workplugins_size(); i++) {
+    total_size += ::google::protobuf::internal::WireFormatLite::StringSize(
+      this->workplugins(i));
+  }
+
+  // repeated .proto_ff.pbAllServerConfig ServerList = 5;
   total_size += 1 * this->serverlist_size();
   for (int i = 0; i < this->serverlist_size(); i++) {
     total_size +=
@@ -2931,7 +3026,9 @@ void pbPluginConfig::MergeFrom(const ::google::protobuf::Message& from) {
 
 void pbPluginConfig::MergeFrom(const pbPluginConfig& from) {
   GOOGLE_CHECK_NE(&from, this);
+  frameplugins_.MergeFrom(from.frameplugins_);
   serverplugins_.MergeFrom(from.serverplugins_);
+  workplugins_.MergeFrom(from.workplugins_);
   serverlist_.MergeFrom(from.serverlist_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_servertype()) {
@@ -2961,7 +3058,9 @@ bool pbPluginConfig::IsInitialized() const {
 void pbPluginConfig::Swap(pbPluginConfig* other) {
   if (other != this) {
     std::swap(servertype_, other->servertype_);
+    frameplugins_.Swap(&other->frameplugins_);
     serverplugins_.Swap(&other->serverplugins_);
+    workplugins_.Swap(&other->workplugins_);
     serverlist_.Swap(&other->serverlist_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);

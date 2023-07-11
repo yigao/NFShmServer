@@ -236,11 +236,23 @@ bool NFCPluginManager::LoadPluginConfig()
 		return false;
 	}
 
-	for (size_t i = 0; i < pConfig->ServerPlugins.size(); i++)
+	for (size_t i = 0; i < pConfig->FramePlugins.size(); i++)
 	{
-		std::string strPluginName = pConfig->ServerPlugins[i];
+		std::string strPluginName = pConfig->FramePlugins[i];
 		m_nPluginNameVec.push_back(strPluginName);
 	}
+
+    for (size_t i = 0; i < pConfig->ServerPlugins.size(); i++)
+    {
+        std::string strPluginName = pConfig->ServerPlugins[i];
+        m_nPluginNameVec.push_back(strPluginName);
+    }
+
+    for (size_t i = 0; i < pConfig->WorkPlugins.size(); i++)
+    {
+        std::string strPluginName = pConfig->WorkPlugins[i];
+        m_nPluginNameVec.push_back(strPluginName);
+    }
 
 	return true;
 }

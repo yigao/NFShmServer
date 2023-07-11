@@ -46,6 +46,7 @@ class Vector2PB;
 class Attr64;
 class Proto_UserLoginExternalData;
 class Proto_UserDetailCommonData;
+class pbFishPlayerSimpleData;
 
 // ===================================================================
 
@@ -1273,6 +1274,153 @@ class Proto_UserDetailCommonData : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Proto_UserDetailCommonData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class pbFishPlayerSimpleData : public ::google::protobuf::Message {
+ public:
+  pbFishPlayerSimpleData();
+  virtual ~pbFishPlayerSimpleData();
+
+  pbFishPlayerSimpleData(const pbFishPlayerSimpleData& from);
+
+  inline pbFishPlayerSimpleData& operator=(const pbFishPlayerSimpleData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const pbFishPlayerSimpleData& default_instance();
+
+  void Swap(pbFishPlayerSimpleData* other);
+
+  // implements Message ----------------------------------------------
+
+  pbFishPlayerSimpleData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const pbFishPlayerSimpleData& from);
+  void MergeFrom(const pbFishPlayerSimpleData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional string nickname = 2;
+  inline bool has_nickname() const;
+  inline void clear_nickname();
+  static const int kNicknameFieldNumber = 2;
+  inline const ::std::string& nickname() const;
+  inline void set_nickname(const ::std::string& value);
+  inline void set_nickname(const char* value);
+  inline void set_nickname(const char* value, size_t size);
+  inline ::std::string* mutable_nickname();
+  inline ::std::string* release_nickname();
+  inline void set_allocated_nickname(::std::string* nickname);
+
+  // optional uint32 faceid = 3;
+  inline bool has_faceid() const;
+  inline void clear_faceid();
+  static const int kFaceidFieldNumber = 3;
+  inline ::google::protobuf::uint32 faceid() const;
+  inline void set_faceid(::google::protobuf::uint32 value);
+
+  // optional uint32 gender = 5;
+  inline bool has_gender() const;
+  inline void clear_gender();
+  static const int kGenderFieldNumber = 5;
+  inline ::google::protobuf::uint32 gender() const;
+  inline void set_gender(::google::protobuf::uint32 value);
+
+  // optional uint32 age = 6;
+  inline bool has_age() const;
+  inline void clear_age();
+  static const int kAgeFieldNumber = 6;
+  inline ::google::protobuf::uint32 age() const;
+  inline void set_age(::google::protobuf::uint32 value);
+
+  // optional uint64 phonenum = 8;
+  inline bool has_phonenum() const;
+  inline void clear_phonenum();
+  static const int kPhonenumFieldNumber = 8;
+  inline ::google::protobuf::uint64 phonenum() const;
+  inline void set_phonenum(::google::protobuf::uint64 value);
+
+  // optional uint64 last_login_time = 12;
+  inline bool has_last_login_time() const;
+  inline void clear_last_login_time();
+  static const int kLastLoginTimeFieldNumber = 12;
+  inline ::google::protobuf::uint64 last_login_time() const;
+  inline void set_last_login_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.pbFishPlayerSimpleData)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_nickname();
+  inline void clear_has_nickname();
+  inline void set_has_faceid();
+  inline void clear_has_faceid();
+  inline void set_has_gender();
+  inline void clear_has_gender();
+  inline void set_has_age();
+  inline void clear_has_age();
+  inline void set_has_phonenum();
+  inline void clear_has_phonenum();
+  inline void set_has_last_login_time();
+  inline void clear_has_last_login_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::std::string* nickname_;
+  ::google::protobuf::uint32 faceid_;
+  ::google::protobuf::uint32 gender_;
+  ::google::protobuf::uint64 phonenum_;
+  ::google::protobuf::uint64 last_login_time_;
+  ::google::protobuf::uint32 age_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static pbFishPlayerSimpleData* default_instance_;
 };
 // ===================================================================
 
@@ -2535,6 +2683,212 @@ inline ::google::protobuf::uint64 Proto_UserDetailCommonData::show_userid() cons
 inline void Proto_UserDetailCommonData::set_show_userid(::google::protobuf::uint64 value) {
   set_has_show_userid();
   show_userid_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// pbFishPlayerSimpleData
+
+// optional uint64 player_id = 1;
+inline bool pbFishPlayerSimpleData::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void pbFishPlayerSimpleData::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void pbFishPlayerSimpleData::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void pbFishPlayerSimpleData::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 pbFishPlayerSimpleData::player_id() const {
+  return player_id_;
+}
+inline void pbFishPlayerSimpleData::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional string nickname = 2;
+inline bool pbFishPlayerSimpleData::has_nickname() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void pbFishPlayerSimpleData::set_has_nickname() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void pbFishPlayerSimpleData::clear_has_nickname() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void pbFishPlayerSimpleData::clear_nickname() {
+  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
+    nickname_->clear();
+  }
+  clear_has_nickname();
+}
+inline const ::std::string& pbFishPlayerSimpleData::nickname() const {
+  return *nickname_;
+}
+inline void pbFishPlayerSimpleData::set_nickname(const ::std::string& value) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(value);
+}
+inline void pbFishPlayerSimpleData::set_nickname(const char* value) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(value);
+}
+inline void pbFishPlayerSimpleData::set_nickname(const char* value, size_t size) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* pbFishPlayerSimpleData::mutable_nickname() {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  return nickname_;
+}
+inline ::std::string* pbFishPlayerSimpleData::release_nickname() {
+  clear_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nickname_;
+    nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void pbFishPlayerSimpleData::set_allocated_nickname(::std::string* nickname) {
+  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
+    delete nickname_;
+  }
+  if (nickname) {
+    set_has_nickname();
+    nickname_ = nickname;
+  } else {
+    clear_has_nickname();
+    nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 faceid = 3;
+inline bool pbFishPlayerSimpleData::has_faceid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbFishPlayerSimpleData::set_has_faceid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbFishPlayerSimpleData::clear_has_faceid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbFishPlayerSimpleData::clear_faceid() {
+  faceid_ = 0u;
+  clear_has_faceid();
+}
+inline ::google::protobuf::uint32 pbFishPlayerSimpleData::faceid() const {
+  return faceid_;
+}
+inline void pbFishPlayerSimpleData::set_faceid(::google::protobuf::uint32 value) {
+  set_has_faceid();
+  faceid_ = value;
+}
+
+// optional uint32 gender = 5;
+inline bool pbFishPlayerSimpleData::has_gender() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void pbFishPlayerSimpleData::set_has_gender() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void pbFishPlayerSimpleData::clear_has_gender() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void pbFishPlayerSimpleData::clear_gender() {
+  gender_ = 0u;
+  clear_has_gender();
+}
+inline ::google::protobuf::uint32 pbFishPlayerSimpleData::gender() const {
+  return gender_;
+}
+inline void pbFishPlayerSimpleData::set_gender(::google::protobuf::uint32 value) {
+  set_has_gender();
+  gender_ = value;
+}
+
+// optional uint32 age = 6;
+inline bool pbFishPlayerSimpleData::has_age() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void pbFishPlayerSimpleData::set_has_age() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void pbFishPlayerSimpleData::clear_has_age() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void pbFishPlayerSimpleData::clear_age() {
+  age_ = 0u;
+  clear_has_age();
+}
+inline ::google::protobuf::uint32 pbFishPlayerSimpleData::age() const {
+  return age_;
+}
+inline void pbFishPlayerSimpleData::set_age(::google::protobuf::uint32 value) {
+  set_has_age();
+  age_ = value;
+}
+
+// optional uint64 phonenum = 8;
+inline bool pbFishPlayerSimpleData::has_phonenum() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void pbFishPlayerSimpleData::set_has_phonenum() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void pbFishPlayerSimpleData::clear_has_phonenum() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void pbFishPlayerSimpleData::clear_phonenum() {
+  phonenum_ = GOOGLE_ULONGLONG(0);
+  clear_has_phonenum();
+}
+inline ::google::protobuf::uint64 pbFishPlayerSimpleData::phonenum() const {
+  return phonenum_;
+}
+inline void pbFishPlayerSimpleData::set_phonenum(::google::protobuf::uint64 value) {
+  set_has_phonenum();
+  phonenum_ = value;
+}
+
+// optional uint64 last_login_time = 12;
+inline bool pbFishPlayerSimpleData::has_last_login_time() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void pbFishPlayerSimpleData::set_has_last_login_time() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void pbFishPlayerSimpleData::clear_has_last_login_time() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void pbFishPlayerSimpleData::clear_last_login_time() {
+  last_login_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_last_login_time();
+}
+inline ::google::protobuf::uint64 pbFishPlayerSimpleData::last_login_time() const {
+  return last_login_time_;
+}
+inline void pbFishPlayerSimpleData::set_last_login_time(::google::protobuf::uint64 value) {
+  set_has_last_login_time();
+  last_login_time_ = value;
 }
 
 
