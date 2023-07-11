@@ -36,7 +36,7 @@ LoadPlugin =
 			--"NFCommLogicPlugin",
 			--"NFLuaScriptPlugin",
 
-			--"NFFishRobotPlugin",
+			"NFFishRobotPlugin",
 
 			"NFMasterServerPlugin",
 			"NFRouteServerPlugin",
