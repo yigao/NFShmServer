@@ -610,7 +610,7 @@ EVENT2_EXPORT_SYMBOL
 void evbuffer_file_segment_free(struct evbuffer_file_segment *seg);
 
 /**
-   Add cleanup callback and argument for the callback to an
+   AddTrans cleanup callback and argument for the callback to an
    evbuffer_file_segment.
 
    The cleanup callback will be invoked when no more references to the
@@ -891,7 +891,7 @@ struct evbuffer_cb_info {
 typedef void (*evbuffer_cb_func)(struct evbuffer *buffer, const struct evbuffer_cb_info *info, void *arg);
 
 struct evbuffer_cb_entry;
-/** Add a new callback to an evbuffer.
+/** AddTrans a new callback to an evbuffer.
 
   Subsequent calls to evbuffer_add_cb() add new callbacks.  To remove this
   callback, call evbuffer_remove_cb or evbuffer_remove_cb_entry.

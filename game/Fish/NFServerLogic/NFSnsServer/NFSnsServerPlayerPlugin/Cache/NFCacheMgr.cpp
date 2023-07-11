@@ -11,6 +11,7 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "LoadCache/NFLoadCacheMgr.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFCacheMgr, EOT_SNS_CACHE_MGR_ID, NFShmObj)
 
@@ -43,7 +44,7 @@ int NFCacheMgr::ResumeInit()
 int NFCacheMgr::ReleaseSimpleCount(int num)
 {
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "rolesimple release count :{} maxcount :{} usecount :{}", num, NFPlayerSimple::GetItemCount(m_pObjPluginManager), NFPlayerSimple::GetUsedCount(m_pObjPluginManager));
-    FindModule<NFISharedMemModule>()->DestroyObjAutoErase(EOT_SNS_ROLE_SIMPLE_ID, NFPlayerSimple::GetItemCount(m_pObjPluginManager) >= num ? NFPlayerSimple::GetItemCount(m_pObjPluginManager) - num : 0, [](NFShmObj* pObj) -> bool {
+    NFPlayerSimple::DestroyObjAutoErase(m_pObjPluginManager, num, [](NFShmObj* pObj) -> bool {
         NFPlayerSimple *pUser = dynamic_cast<NFPlayerSimple*>(pObj);
         if (pUser)
         {
@@ -59,13 +60,13 @@ int NFCacheMgr::ReleaseSimpleCount(int num)
 
 NFPlayerSimple *NFCacheMgr::GetRoleSimple(uint64_t roleId)
 {
-    return dynamic_cast<NFPlayerSimple*>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_SNS_ROLE_SIMPLE_ID, roleId));
+    return NFPlayerSimple::GetObjByHashKey(m_pObjPluginManager, roleId);
 }
 
-NFPlayerSimple *NFCacheMgr::CreateRoleSimple(uint64_t roleId)
+NFPlayerSimple *NFCacheMgr::CreateRoleSimple(uint64_t playerId)
 {
-    NFPlayerSimple *pRoleSimple = GetRoleSimple(roleId);
-    CHECK_EXPR(pRoleSimple == NULL, NULL, "Create Role Simple Failed, data exist, roleId:{}", roleId);
+    NFPlayerSimple *pRoleSimple = GetRoleSimple(playerId);
+    CHECK_EXPR(pRoleSimple == NULL, NULL, "Create Role Simple Failed, data exist, roleId:{}", playerId);
 
     if (NFPlayerSimple::GetItemCount(m_pObjPluginManager) - NFPlayerSimple::GetUsedCount(m_pObjPluginManager) <=
         NFPlayerSimple::GetItemCount(m_pObjPluginManager) * 0.1)
@@ -73,11 +74,11 @@ NFPlayerSimple *NFCacheMgr::CreateRoleSimple(uint64_t roleId)
         ReleaseSimpleCount(NFPlayerSimple::GetItemCount(m_pObjPluginManager) * 0.1);
     }
 
-    pRoleSimple = dynamic_cast<NFPlayerSimple *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_SNS_ROLE_SIMPLE_ID, roleId));
-    CHECK_EXPR(pRoleSimple, NULL, "Create Role Simple Obj Failed, playerID:{}", roleId);
+    pRoleSimple = NFPlayerSimple::CreateObjByHashKey(m_pObjPluginManager, playerId);
+    CHECK_EXPR(pRoleSimple, NULL, "Create Role Simple Obj Failed, playerID:{}", playerId);
 
-    pRoleSimple->SetRoleId(roleId);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Role Simple Success, userId:{} globalId:{}", roleId,
+    pRoleSimple->SetPlayerId(playerId);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "AddTrans Role Simple Success, userId:{} globalId:{}", playerId,
               pRoleSimple->GetGlobalId());
     return pRoleSimple;
 }
@@ -88,7 +89,7 @@ int NFCacheMgr::DeleteRoleSimple(NFPlayerSimple *pRoleSimple)
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Simple Info, RoleId:{}, gloablId:{}", pRoleSimple->GetPlayerId(), pRoleSimple->GetGlobalId());
 
-    FindModule<NFISharedMemModule>()->DestroyObj(pRoleSimple);
+    NFPlayerSimple::DestroyObj(m_pObjPluginManager, pRoleSimple);
 
     return 0;
 }
@@ -112,7 +113,7 @@ NFPlayerSimple *NFCacheMgr::QueryRoleSimple(uint64_t role_id, bool query)
 int NFCacheMgr::ReleaseDetailCount(int num)
 {
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "role detail release count :{} maxcount :{} usecount :{}", num, NFPlayerDetail::GetItemCount(m_pObjPluginManager), NFPlayerDetail::GetUsedCount(m_pObjPluginManager));
-    FindModule<NFISharedMemModule>()->DestroyObjAutoErase(EOT_SNS_ROLE_DETAIL_ID, NFPlayerDetail::GetItemCount(m_pObjPluginManager) >= num ? NFPlayerDetail::GetItemCount(m_pObjPluginManager) - num : 0, [](NFShmObj* pObj) -> bool {
+    NFPlayerDetail::DestroyObjAutoErase(m_pObjPluginManager, num, [](NFShmObj* pObj) -> bool {
         NFPlayerDetail *pUser = dynamic_cast<NFPlayerDetail*>(pObj);
         if (pUser)
         {
@@ -126,15 +127,15 @@ int NFCacheMgr::ReleaseDetailCount(int num)
     return 0;
 }
 
-NFPlayerDetail *NFCacheMgr::GetRoleDetail(uint64_t roleId)
+NFPlayerDetail *NFCacheMgr::GetRoleDetail(uint64_t playerId)
 {
-    return dynamic_cast<NFPlayerDetail*>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_SNS_ROLE_DETAIL_ID, roleId));
+    return NFPlayerDetail::GetObjByHashKey(m_pObjPluginManager, playerId);
 }
 
-NFPlayerDetail *NFCacheMgr::CreateRoleDetail(uint64_t roleId)
+NFPlayerDetail *NFCacheMgr::CreateRoleDetail(uint64_t playerId)
 {
-    NFPlayerDetail *pRoleDetail= GetRoleDetail(roleId);
-    CHECK_EXPR(pRoleDetail == NULL, NULL, "Create Role Detail Failed, data exist, roleId:{}", roleId);
+    NFPlayerDetail *pRoleDetail= GetRoleDetail(playerId);
+    CHECK_EXPR(pRoleDetail == NULL, NULL, "Create Role Detail Failed, data exist, roleId:{}", playerId);
 
     if (NFPlayerDetail::GetItemCount(m_pObjPluginManager) - NFPlayerDetail::GetUsedCount(m_pObjPluginManager) <=
         NFPlayerDetail::GetItemCount(m_pObjPluginManager) * 0.1)
@@ -142,11 +143,11 @@ NFPlayerDetail *NFCacheMgr::CreateRoleDetail(uint64_t roleId)
         ReleaseDetailCount(NFPlayerDetail::GetItemCount(m_pObjPluginManager) * 0.1);
     }
 
-    pRoleDetail = dynamic_cast<NFPlayerDetail *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_SNS_ROLE_DETAIL_ID, roleId));
-    CHECK_EXPR(pRoleDetail, NULL, "Create Role Detail Obj Failed, playerID:{}", roleId);
+    pRoleDetail = NFPlayerDetail::CreateObjByHashKey(m_pObjPluginManager, playerId);
+    CHECK_EXPR(pRoleDetail, NULL, "Create Role Detail Obj Failed, playerID:{}", playerId);
 
-    pRoleDetail->SetRoleId(roleId);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Role Detail Success, userId:{} globalId:{}", roleId,
+    pRoleDetail->SetPlayerId(playerId);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "AddTrans Role Detail Success, userId:{} globalId:{}", playerId,
               pRoleDetail->GetGlobalId());
     return pRoleDetail;
 }
@@ -157,7 +158,7 @@ int NFCacheMgr::DeleteRoleDetail(NFPlayerDetail *pRoleDetail)
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleDetail->GetRoleId(), pRoleDetail->GetGlobalId());
 
-    FindModule<NFISharedMemModule>()->DestroyObj(pRoleDetail);
+    NFPlayerDetail::DestroyObj(m_pObjPluginManager, pRoleDetail);
 
     return 0;
 }

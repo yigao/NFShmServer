@@ -30,6 +30,8 @@ public:
 public:
     uint64_t GetPlayerId() const;
 
+    void SetPlayerId(uint64_t playerId);
+
     uint32_t GetProxyId() const;
 
     void SetProxyId(uint32_t proxyId);
@@ -96,6 +98,8 @@ public:
     /**
      * @brief 线上系统，更在线有关
      */
+
+    uint64_t m_playerId;
 
     /**
      * @brief

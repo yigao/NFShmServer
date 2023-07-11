@@ -221,7 +221,7 @@ public:
         return lua_gc(L, what, data);
     }
 	/**
-	* Add the lua PackagePath
+	* AddTrans the lua PackagePath
 	*/
 	bool addPackagePath(const std::string& str_)
 	{

@@ -96,7 +96,7 @@ struct evdns_base *evdns_get_global_base(void);
 void evdns_shutdown(int fail_requests);
 
 /**
-  Add a nameserver.
+  AddTrans a nameserver.
 
   The address should be an IPv4 address in network byte order.
   The type of address is chosen so that it matches in_addr.s_addr.
@@ -158,7 +158,7 @@ int evdns_clear_nameservers_and_suspend(void);
 int evdns_resume(void);
 
 /**
-  Add a nameserver.
+  AddTrans a nameserver.
 
   This wraps the evdns_nameserver_add() function by parsing a string as an IP
   address and adds it as a nameserver.
@@ -290,7 +290,7 @@ int evdns_resolv_conf_parse(int flags, const char *const filename);
 void evdns_search_clear(void);
 
 /**
-  Add a domain to the list of search domains
+  AddTrans a domain to the list of search domains
 
   @deprecated This function is deprecated because it does not allow the
     caller to specify which evdns_base it applies to.  The recommended

@@ -14,3 +14,16 @@ enum PartType
     PART_NONE = 0,
     PART_MAX,
 };
+
+enum BattlePartType
+{
+    BATTLE_PART_NONE = 0,
+    BATTLE_PART_MOVE,
+    BATTLE_PART_MAX,
+};
+
+enum SnsPartType
+{
+    SNS_PART_NONE = 0,
+    SNS_PART_MAX,
+};

@@ -1159,7 +1159,7 @@ public:
     ConstMemberIterator FindMember(const std::basic_string<Ch>& name) const { return FindMember(StringRef(name)); }
 #endif
 
-    //! Add a member (name-value pair) to the object.
+    //! AddTrans a member (name-value pair) to the object.
     /*! \param name A string value as name of member.
         \param value Value of any type.
         \param allocator    Allocator for reallocating memory. It must be the same one as used before. Commonly use GenericDocument::GetAllocator().
@@ -1192,7 +1192,7 @@ public:
         return *this;
     }
 
-    //! Add a constant string value as member (name-value pair) to the object.
+    //! AddTrans a constant string value as member (name-value pair) to the object.
     /*! \param name A string value as name of member.
         \param value constant string reference as value of member.
         \param allocator    Allocator for reallocating memory. It must be the same one as used before. Commonly use GenericDocument::GetAllocator().
@@ -1222,7 +1222,7 @@ public:
     }
 #endif
 
-    //! Add any primitive value as member (name-value pair) to the object.
+    //! AddTrans any primitive value as member (name-value pair) to the object.
     /*! \tparam T Either \ref Type, \c int, \c unsigned, \c int64_t, \c uint64_t
         \param name A string value as name of member.
         \param value Value of primitive type \c T as value of member
@@ -1263,7 +1263,7 @@ public:
 #endif // RAPIDJSON_HAS_CXX11_RVALUE_REFS
 
 
-    //! Add a member (name-value pair) to the object.
+    //! AddTrans a member (name-value pair) to the object.
     /*! \param name A constant string reference as name of member.
         \param value Value of any type.
         \param allocator    Allocator for reallocating memory. It must be the same one as used before. Commonly use GenericDocument::GetAllocator().
@@ -1278,7 +1278,7 @@ public:
         return AddMember(n, value, allocator);
     }
 
-    //! Add a constant string value as member (name-value pair) to the object.
+    //! AddTrans a constant string value as member (name-value pair) to the object.
     /*! \param name A constant string reference as name of member.
         \param value constant string reference as value of member.
         \param allocator    Allocator for reallocating memory. It must be the same one as used before. Commonly use GenericDocument::GetAllocator().
@@ -1292,7 +1292,7 @@ public:
         return AddMember(name, v, allocator);
     }
 
-    //! Add any primitive value as member (name-value pair) to the object.
+    //! AddTrans any primitive value as member (name-value pair) to the object.
     /*! \tparam T Either \ref Type, \c int, \c unsigned, \c int64_t, \c uint64_t
         \param name A constant string reference as name of member.
         \param value Value of primitive type \c T as value of member

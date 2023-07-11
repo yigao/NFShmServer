@@ -12,7 +12,6 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFPlayerSimple.h"
 #include "NFPlayerDetail.h"
@@ -44,10 +43,10 @@ public:
 
     /**
      * @brief
-     * @param roleId
+     * @param playerId
      * @return
      */
-    NFPlayerSimple *CreateRoleSimple(uint64_t roleId);
+    NFPlayerSimple *CreateRoleSimple(uint64_t playerId);
 
     /**
      * @brief
@@ -72,10 +71,10 @@ public:
 
     /**
      * @brief
-     * @param roleId
+     * @param playerId
      * @return
      */
-    NFPlayerDetail *CreateRoleDetail(uint64_t roleId);
+    NFPlayerDetail *CreateRoleDetail(uint64_t playerId);
 
     /**
      * @brief

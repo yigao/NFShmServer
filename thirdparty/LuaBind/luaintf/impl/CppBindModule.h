@@ -353,7 +353,7 @@ public:
     }
 
     /**
-     * Add or replace a constant value.
+     * AddTrans or replace a constant value.
      */
     template <typename V>
     CppBindModule<PARENT>& addConstant(const char* name, const V& v)
@@ -368,7 +368,7 @@ public:
     }
 
     /**
-     * Add or replace a non-const variable.
+     * AddTrans or replace a non-const variable.
      * The value return to lua is pass-by-value, that will create a local copy in lua.
      * This is different from addVariableRef, which is pass-by-reference, and allow direct access to the variable.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -386,7 +386,7 @@ public:
     }
 
     /**
-     * Add or replace a const read-only variable.
+     * AddTrans or replace a const read-only variable.
      * The value return to lua is pass-by-value, that will create a local copy in lua.
      * This is different from addVariableRef, which is pass-by-reference, and allow direct access to the variable.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -400,7 +400,7 @@ public:
     }
 
     /**
-     * Add or replace a non-const variable.
+     * AddTrans or replace a non-const variable.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -419,7 +419,7 @@ public:
     }
 
     /**
-     * Add or replace a non-const variable.
+     * AddTrans or replace a non-const variable.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -434,7 +434,7 @@ public:
     }
 
     /**
-     * Add or replace a const read-only variable.
+     * AddTrans or replace a const read-only variable.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -448,7 +448,7 @@ public:
     }
 
     /**
-     * Add or replace a read-write property.
+     * AddTrans or replace a read-write property.
      */
     template <typename FG, typename FS>
     CppBindModule<PARENT>& addProperty(const char* name, const FG& get, const FS& set)
@@ -461,7 +461,7 @@ public:
     }
 
     /**
-     * Add or replace a read-only property.
+     * AddTrans or replace a read-only property.
      */
     template <typename FN>
     CppBindModule<PARENT>& addProperty(const char* name, const FN& get)
@@ -473,7 +473,7 @@ public:
     }
 
     /**
-     * Add or replace a function.
+     * AddTrans or replace a function.
      */
     template <typename FN>
     CppBindModule<PARENT>& addFunction(const char* name, const FN& proc)
@@ -484,7 +484,7 @@ public:
     }
 
     /**
-     * Add or replace a function, user can specify augument spec.
+     * AddTrans or replace a function, user can specify augument spec.
      */
     template <typename FN, typename ARGS>
     CppBindModule<PARENT>& addFunction(const char* name, const FN& proc, ARGS)
@@ -495,7 +495,7 @@ public:
     }
 
     /**
-     * Add or replace a factory function.
+     * AddTrans or replace a factory function.
      */
     template <typename FN>
     CppBindModule<PARENT>& addFactory(const FN& proc)
@@ -506,7 +506,7 @@ public:
     }
 
     /**
-     * Add or replace a factory function, user can specify augument spec.
+     * AddTrans or replace a factory function, user can specify augument spec.
      */
     template <typename FN, typename ARGS>
     CppBindModule<PARENT>& addFactory(const FN& proc, ARGS)
@@ -517,7 +517,7 @@ public:
     }
 
     /**
-     * Add or replace a factory function, that forward call to sub module factory (or class constructor).
+     * AddTrans or replace a factory function, that forward call to sub module factory (or class constructor).
      */
     CppBindModule<PARENT>& addFactory(const char* name)
     {
@@ -635,7 +635,7 @@ public:
     }
 
     /**
-     * Add or replace a function.
+     * AddTrans or replace a function.
      */
     template <typename FN>
     LuaBinding& addFunction(const char* name, const FN& proc)
@@ -646,7 +646,7 @@ public:
     }
 
     /**
-     * Add or replace a function, user can specify augument spec.
+     * AddTrans or replace a function, user can specify augument spec.
      */
     template <typename FN, typename ARGS>
     LuaBinding& addFunction(const char* name, const FN& proc, ARGS)

@@ -864,7 +864,7 @@ EVENT2_EXPORT_SYMBOL
 void bufferevent_rate_limit_group_free(struct bufferevent_rate_limit_group *);
 
 /**
-   Add 'bev' to the list of bufferevents whose aggregate reading and writing
+   AddTrans 'bev' to the list of bufferevents whose aggregate reading and writing
    is restricted by 'g'.  If 'g' is NULL, remove 'bev' from its current group.
 
    A bufferevent may belong to no more than one rate-limit group at a time.

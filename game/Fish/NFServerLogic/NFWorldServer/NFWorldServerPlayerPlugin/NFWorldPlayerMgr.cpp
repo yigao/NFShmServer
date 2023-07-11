@@ -91,7 +91,7 @@ NFWorldPlayer *NFWorldPlayerMgr::CreatePlayer(uint64_t playerId)
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", playerId);
 
     pPlayer->SetPlayerId(playerId);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Player Success, playerId:{} globalId:{}", playerId,
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "AddTrans Player Success, playerId:{} globalId:{}", playerId,
               pPlayer->GetGlobalId());
     return pPlayer;
 }

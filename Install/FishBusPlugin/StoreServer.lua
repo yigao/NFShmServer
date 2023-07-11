@@ -30,6 +30,7 @@ StoreServer = {
              TBConfList = {
                   {TableName="tbFishAccountTable", TableCount=1},
                   {TableName="tbFishPlayerData", TableCount=1},
+                  {TableName="tbFishSnsPlayerData", TableCount=1},
              },
         },
         RouteConfig = {

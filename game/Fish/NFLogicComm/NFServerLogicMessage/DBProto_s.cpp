@@ -94,4 +94,30 @@ void tbFishPlayerData_s::read_from_pbmsg(const ::proto_ff::tbFishPlayerData & ms
 	last_logout_time = msg.last_logout_time();
 }
 
+tbFishSnsPlayerData_s::tbFishSnsPlayerData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int tbFishSnsPlayerData_s::CreateInit() {
+	player_id = (uint64_t)0;
+	return 0;
+}
+
+int tbFishSnsPlayerData_s::ResumeInit() {
+	return 0;
+}
+
+void tbFishSnsPlayerData_s::write_to_pbmsg(::proto_ff::tbFishSnsPlayerData & msg) const {
+	msg.set_player_id((uint64_t)player_id);
+}
+
+void tbFishSnsPlayerData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbFishSnsPlayerData_s));
+	player_id = msg.player_id();
+}
+
 }

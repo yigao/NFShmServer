@@ -278,7 +278,7 @@ uint64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string
 				return linkId;
 			}
 
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "Add Server Failed!");
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "AddTrans Server Failed!");
 		}
 		else if (addr.mScheme == "bus")
 		{
@@ -314,7 +314,7 @@ uint64_t NFCNetModule::BindServer(NF_SERVER_TYPES eServerType, const std::string
 				return linkId;
 			}
 
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "Add Server Failed!");
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "AddTrans Server Failed!");
 		}
 	}
 	return 0;

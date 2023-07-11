@@ -96,7 +96,7 @@ public:
 		return *this;
 	}
 
-	/// \brief Add another value to this object
+	/// \brief AddTrans another value to this object
 	this_type& operator +=(int v)
 	{
 		value_ += static_cast<value_type>(v);
@@ -167,7 +167,7 @@ public:
 		return *this;
 	}
 
-	/// \brief Add one to this value and return that value
+	/// \brief AddTrans one to this value and return that value
 	this_type& operator ++()
 	{
 		++value_;
@@ -181,7 +181,7 @@ public:
 		return *this;
 	}
 
-	/// \brief Add one to this value and return the previous value
+	/// \brief AddTrans one to this value and return the previous value
 	this_type operator ++(int)
 	{
 		this_type tmp = value_;

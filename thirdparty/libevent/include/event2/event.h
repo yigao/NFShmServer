@@ -1206,7 +1206,7 @@ EVENT2_EXPORT_SYMBOL
 int event_base_once(struct event_base *, evutil_socket_t, short, event_callback_fn, void *, const struct timeval *);
 
 /**
-  Add an event to the set of pending events.
+  AddTrans an event to the set of pending events.
 
   The function event_add() schedules the execution of the event 'ev' when the
   condition specified by event_assign() or event_new() occurs, or when the time

@@ -13,13 +13,11 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
-#include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFLoadCacheDataInfo.h"
-#include "NFComm/NFShmCore/NFShmStaticList.hpp"
+#include "NFComm/NFShmStl/NFShmList.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
 
-#define SNS_GET_ROLE_SIMPLE_INFO_QUEUE 20000
-#define SNS_GETTING_ROLE_SIZE 300
+#define SNS_GET_PLAYER_SIMPLE_INFO_QUEUE 20000
+#define SNS_GETTING_PLAYER_SIZE 300
 #define SNS_CALLBACK_TRANS_RUN_TIMES 20
 
 class NFLoadCacheData
@@ -39,9 +37,13 @@ public:
             return *this;
 
         m_roleId = data.m_roleId;
-        for(auto iter = data.m_roleInfo.Begin(); iter != data.m_roleInfo.End(); iter++)
+        for(auto iter = data.m_transInfo.begin(); iter != data.m_transInfo.end(); iter++)
         {
-            m_roleInfo.PushBack(*iter);
+            m_transInfo.emplace(iter->first, iter->second);
+        }
+        for(auto iter = data.m_rpcInfo.begin(); iter != data.m_rpcInfo.end(); iter++)
+        {
+            m_rpcInfo.emplace(iter->first, iter->second);
         }
         return *this;
     }
@@ -53,8 +55,17 @@ public:
      * @param rtime
      * @return
      */
-    int Add(uint32_t transId, uint64_t time);
+    int AddTrans(uint32_t transId, uint64_t time);
+
+    /**
+     * @brief 添加rpc
+     * @param rpcId
+     * @param time
+     * @return
+     */
+    int AddRpc(uint32_t rpcId, uint64_t time);
 public:
     uint64_t m_roleId;
-    NFShmStaticList<NFLoadCacheDataInfo, SNS_CALLBACK_TRANS_RUN_TIMES> m_roleInfo;
+    NFShmHashMap<uint32_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_transInfo;
+    NFShmHashMap<uint32_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_rpcInfo;
 };

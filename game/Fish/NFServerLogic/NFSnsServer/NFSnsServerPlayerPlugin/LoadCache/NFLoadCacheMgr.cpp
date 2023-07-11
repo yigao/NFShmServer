@@ -9,13 +9,10 @@
 
 #include "NFLoadCacheMgr.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "Trans/NFQueryRole.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "Trans/NFTransCacheBase.h"
 #include "Cache/NFCacheMgr.h"
-#include "Trans/NFTransGetRoleSimple.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "Trans/NFTransGetRoleDetail.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFLoadCacheMgr, EOT_SNS_LOAD_CACHE_MGR_ID, NFShmObj)
 
@@ -38,9 +35,6 @@ NFLoadCacheMgr::~NFLoadCacheMgr()
 int NFLoadCacheMgr::CreateInit()
 {
     flag = true;
-
-    m_roleSimpleWaitLoadMap.CreateInit();
-    m_roleSimpleLoadingMap.CreateInit();
 
     m_refreshTimer = SetTimer(100, 0, 0, 0, 1, 0);
     return 0;
@@ -68,11 +62,11 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
     for (auto loadIter = m_roleSimpleLoadingMap.Begin(); loadIter != m_roleSimpleLoadingMap.End();)
     {
         auto pInfo = loadIter->second;
-        for (auto roleIter = pInfo->m_roleInfo.Begin(); roleIter != pInfo->m_roleInfo.End();)
+        for (auto roleIter = pInfo->m_transInfo.Begin(); roleIter != pInfo->m_transInfo.End();)
         {
             if ((timeNow - roleIter->m_loadTime) >= TRANS_SNS_BASE_TIMEOUT)
             {
-                roleIter = pInfo->m_roleInfo.Erase(roleIter);
+                roleIter = pInfo->m_transInfo.Erase(roleIter);
             }
             else
             {
@@ -80,7 +74,7 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
             }
         }
 
-        if (pInfo->m_roleInfo.IsEmpty())
+        if (pInfo->m_transInfo.IsEmpty())
         {
             loadIter = m_roleSimpleLoadingMap.Erase(loadIter);
         }
@@ -123,11 +117,11 @@ int NFLoadCacheMgr::RefreshDetailQueue()
     for (auto loadIter = m_roleDetailLoadingMap.Begin(); loadIter != m_roleDetailLoadingMap.End();)
     {
         auto pInfo = loadIter->second;
-        for (auto roleIter = pInfo->m_roleInfo.Begin(); roleIter != pInfo->m_roleInfo.End();)
+        for (auto roleIter = pInfo->m_transInfo.Begin(); roleIter != pInfo->m_transInfo.End();)
         {
             if ((timeNow - roleIter->m_loadTime) >= TRANS_SNS_BASE_TIMEOUT)
             {
-                roleIter = pInfo->m_roleInfo.Erase(roleIter);
+                roleIter = pInfo->m_transInfo.Erase(roleIter);
             }
             else
             {
@@ -135,7 +129,7 @@ int NFLoadCacheMgr::RefreshDetailQueue()
             }
         }
 
-        if (pInfo->m_roleInfo.IsEmpty())
+        if (pInfo->m_transInfo.IsEmpty())
         {
             loadIter = m_roleDetailLoadingMap.Erase(loadIter);
         }
@@ -178,7 +172,7 @@ int NFLoadCacheMgr::HandleGetRoleSimpleTransFinished(int iRunLogicRetCode, uint6
     if (pLoadingData)
     {
         // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
-        for (auto iter = pLoadingData->m_roleInfo.Begin(); iter != pLoadingData->m_roleInfo.End(); iter++)
+        for (auto iter = pLoadingData->m_transInfo.Begin(); iter != pLoadingData->m_transInfo.End(); iter++)
         {
             if (iter->m_transId > 0 && (timeNow - iter->m_loadTime) < TRANS_ACTIVE_TIMEOUT)
             {
@@ -209,7 +203,7 @@ int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t tim
         transId = -1;
     }
 
-    auto pLoadingData = m_roleSimpleLoadingMap.Find(roleId);
+    auto pLoadingData = m_roleSimpleLoadingMap.find(roleId);
     if (pLoadingData)
     {
         pLoadingData->Add(transId, time);
@@ -222,7 +216,7 @@ int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t tim
         auto pRoleInfo = m_roleSimpleLoadingMap.Insert(roleId);
         NF_ASSERT(pRoleInfo);
         pRoleInfo->m_roleId = roleId;
-        pRoleInfo->Add(transId, time);
+        pRoleInfo->AddTrans(transId, time);
 
         int retCode = TransGetRoleSimpleInfo(pRoleInfo);
         if (retCode != 0)
@@ -235,9 +229,9 @@ int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t tim
         NFLoadCacheData *pstFind = m_roleSimpleWaitLoadMap.Find(roleId);
         if (pstFind)
         {
-            if (pstFind->Add(transId, time) != 0)
+            if (pstFind->AddTrans(transId, time) != 0)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "pstFind->Add(transId, time) Failed");
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "pstFind->AddTrans(transId, time) Failed");
                 return -1;
             }
         }
@@ -257,9 +251,9 @@ int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t tim
             }
 
             pTmpData->m_roleId = roleId;
-            if (pTmpData->Add(transId, time))
+            if (pTmpData->AddTrans(transId, time))
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFLoadCacheData Add Failed, roleId:{}", roleId);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFLoadCacheData AddTrans Failed, roleId:{}", roleId);
                 return -1;
             }
         }
@@ -319,7 +313,7 @@ int NFLoadCacheMgr::GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t tim
     auto pLoadingData = m_roleDetailLoadingMap.Find(roleId);
     if (pLoadingData)
     {
-        pLoadingData->Add(transId, time);
+        pLoadingData->AddTrans(transId, time);
         return 0;
     }
 
@@ -329,7 +323,7 @@ int NFLoadCacheMgr::GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t tim
         auto pRoleInfo = m_roleDetailLoadingMap.Insert(roleId);
         NF_ASSERT(pRoleInfo);
         pRoleInfo->m_roleId = roleId;
-        pRoleInfo->Add(transId, time);
+        pRoleInfo->AddTrans(transId, time);
 
         int retCode = TransGetRoleDetailInfo(pRoleInfo);
         if (retCode != 0)
@@ -342,9 +336,9 @@ int NFLoadCacheMgr::GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t tim
         NFLoadCacheData *pstFind = m_roleDetailWaitLoadMap.Find(roleId);
         if (pstFind)
         {
-            if (pstFind->Add(transId, time) != 0)
+            if (pstFind->AddTrans(transId, time) != 0)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "pstFind->Add(transId, time) Failed");
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "pstFind->AddTrans(transId, time) Failed");
                 return -1;
             }
         }
@@ -364,9 +358,9 @@ int NFLoadCacheMgr::GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t tim
             }
 
             pTmpData->m_roleId = roleId;
-            if (pTmpData->Add(transId, time))
+            if (pTmpData->AddTrans(transId, time))
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFLoadCacheData Add Failed, roleId:{}", roleId);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFLoadCacheData AddTrans Failed, roleId:{}", roleId);
                 return -1;
             }
         }
@@ -401,7 +395,7 @@ int NFLoadCacheMgr::HandleGetRoleDetailTransFinished(int iRunLogicRetCode, uint6
     if (pLoadingData)
     {
         // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
-        for (auto iter = pLoadingData->m_roleInfo.Begin(); iter != pLoadingData->m_roleInfo.End(); iter++)
+        for (auto iter = pLoadingData->m_transInfo.Begin(); iter != pLoadingData->m_transInfo.End(); iter++)
         {
             if (iter->m_transId > 0 && (timeNow - iter->m_loadTime) < TRANS_ACTIVE_TIMEOUT)
             {

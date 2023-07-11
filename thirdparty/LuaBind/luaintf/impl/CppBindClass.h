@@ -504,7 +504,7 @@ public:
     }
 
     /**
-     * Add or replace a static constant value.
+     * AddTrans or replace a static constant value.
      */
     template <typename V>
     CppBindClass<T, PARENT>& addConstant(const char* name, const V& v)
@@ -519,7 +519,7 @@ public:
     }
 
     /**
-     * Add or replace a static non-const data member.
+     * AddTrans or replace a static non-const data member.
      * The value return to lua is pass-by-value, that will create a local copy in lua.
      * This is different from addStaticVariableRef, which is pass-by-reference, and allow direct access to the variable.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -537,7 +537,7 @@ public:
     }
 
     /**
-     * Add or replace a static const data member.
+     * AddTrans or replace a static const data member.
      * The value return to lua is pass-by-value, that will create a local copy in lua.
      * This is different from addStaticVariableRef, which is pass-by-reference, and allow direct access to the variable.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -551,7 +551,7 @@ public:
     }
 
     /**
-     * Add or replace a static non-const data member.
+     * AddTrans or replace a static non-const data member.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addStaticVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -570,7 +570,7 @@ public:
     }
 
     /**
-     * Add or replace a static non-const data member.
+     * AddTrans or replace a static non-const data member.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addStaticVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -585,7 +585,7 @@ public:
     }
 
     /**
-     * Add or replace a static const data member.
+     * AddTrans or replace a static const data member.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addStaticVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -599,7 +599,7 @@ public:
     }
 
     /**
-     * Add or replace a read-write property.
+     * AddTrans or replace a read-write property.
      */
     template <typename FG, typename FS>
     CppBindClass<T, PARENT>& addStaticProperty(const char* name, const FG& get, const FS& set)
@@ -612,7 +612,7 @@ public:
     }
 
     /**
-     * Add or replace a read-only property.
+     * AddTrans or replace a read-only property.
      */
     template <typename FN>
     CppBindClass<T, PARENT>& addStaticProperty(const char* name, const FN& get)
@@ -624,7 +624,7 @@ public:
     }
 
     /**
-     * Add or replace a static member function.
+     * AddTrans or replace a static member function.
      */
     template <typename FN>
     CppBindClass<T, PARENT>& addStaticFunction(const char* name, const FN& proc)
@@ -635,7 +635,7 @@ public:
     }
 
     /**
-     * Add or replace a static member function, user can specify augument spec.
+     * AddTrans or replace a static member function, user can specify augument spec.
      */
     template <typename FN, typename ARGS>
     CppBindClass<T, PARENT>& addStaticFunction(const char* name, const FN& proc, ARGS)
@@ -646,7 +646,7 @@ public:
     }
 
     /**
-     * Add or replace a constructor function. Argument spec is needed to match the constructor:
+     * AddTrans or replace a constructor function. Argument spec is needed to match the constructor:
      *
      * addConstructor(LUA_ARGS(int, int))
      *
@@ -663,7 +663,7 @@ public:
     }
 
     /**
-     * Add or replace a constructor function, the object is stored via the given SP container.
+     * AddTrans or replace a constructor function, the object is stored via the given SP container.
      * The SP class is usually a shared pointer class. Argument spec is needed to match the constructor:
      *
      * addConstructor(LUA_SP(std::shared_ptr<OBJ>), LUA_ARGS(int, int))
@@ -679,7 +679,7 @@ public:
     }
 
     /**
-     * Add or replace a constructor function, with custom deleter.
+     * AddTrans or replace a constructor function, with custom deleter.
      * You can use LUA_DEL macro to specify deleter. For example, MyClass with release() function
      * and MyClassDeleter as deleter:
      *
@@ -711,7 +711,7 @@ public:
     }
 
     /**
-     * Add or replace a factory function, that is a normal/static function that
+     * AddTrans or replace a factory function, that is a normal/static function that
      * return the object, pointer or smart pointer of the type:
      *
      * static std::shared_ptr<OBJ> create_obj(ARG1_TYPE arg1, ARG2_TYPE arg2);
@@ -730,7 +730,7 @@ public:
     }
 
     /**
-     * Add or replace a factory function, that is a normal/static function that
+     * AddTrans or replace a factory function, that is a normal/static function that
      * return the object, pointer or smart pointer of the type:
      *
      * static std::shared_ptr<OBJ> create_obj(ARG1_TYPE arg1, ARG2_TYPE arg2);
@@ -749,7 +749,7 @@ public:
     }
 
     /**
-     * Add or replace a non-const data member.
+     * AddTrans or replace a non-const data member.
      * The value return to lua is pass-by-value, that will create a local copy in lua.
      * This is different from addVariableRef, which is pass-by-reference, and allow direct access to the variable.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -767,7 +767,7 @@ public:
     }
 
     /**
-     * Add or replace a const read-only data member.
+     * AddTrans or replace a const read-only data member.
      * The value return to lua is pass-by-value, that will create a local copy in lua.
      * This is different from addVariableRef, which is pass-by-reference, and allow direct access to the variable.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -781,7 +781,7 @@ public:
     }
 
     /**
-     * Add or replace a non-const data member.
+     * AddTrans or replace a non-const data member.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -802,7 +802,7 @@ public:
     }
 
     /**
-     * Add or replace a non-const data member.
+     * AddTrans or replace a non-const data member.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -819,7 +819,7 @@ public:
     }
 
     /**
-     * Add or replace a read-only data member.
+     * AddTrans or replace a read-only data member.
      * The value return to lua is pass-by-reference, and allow direct access to the variable.
      * This is different from addVariable, which is pass-by-value, and will create a local copy upon access.
      * This apply only to the class type, the primitive types are always pass-by-value.
@@ -833,7 +833,7 @@ public:
     }
 
     /**
-     * Add or replace a property member.
+     * AddTrans or replace a property member.
      */
     template <typename FG, typename FS>
     CppBindClass<T, PARENT>& addProperty(const char* name, const FG& get, const FS& set)
@@ -846,7 +846,7 @@ public:
     }
 
     /**
-     * Add or replace a property member.
+     * AddTrans or replace a property member.
      * This overridden function allow you to specify non-const and const version of getter.
      */
     template <typename FG, typename FGC, typename FS>
@@ -863,7 +863,7 @@ public:
     }
 
     /**
-     * Add or replace a read-only property member.
+     * AddTrans or replace a read-only property member.
      */
     template <typename FN>
     CppBindClass<T, PARENT>& addProperty(const char* name, const FN& get)
@@ -872,7 +872,7 @@ public:
     }
 
     /**
-     * Add or replace a read-only property member.
+     * AddTrans or replace a read-only property member.
      */
     template <typename FN>
     CppBindClass<T, PARENT>& addPropertyReadOnly(const char* name, const FN& get)
@@ -884,7 +884,7 @@ public:
     }
 
     /**
-     * Add or replace a read-only property member.
+     * AddTrans or replace a read-only property member.
      * This overridden function allow you to specify non-const and const version of getter.
      */
     template <typename FN, typename FNC>
@@ -900,7 +900,7 @@ public:
     }
 
     /**
-     * Add or replace a member function.
+     * AddTrans or replace a member function.
      */
     template <typename FN>
     CppBindClass<T, PARENT>& addFunction(const char* name, const FN& proc)
@@ -911,7 +911,7 @@ public:
     }
 
     /**
-     * Add or replace a member function, user can specify augument spec.
+     * AddTrans or replace a member function, user can specify augument spec.
      */
     template <typename FN, typename ARGS>
     CppBindClass<T, PARENT>& addFunction(const char* name, const FN& proc, ARGS)
@@ -922,7 +922,7 @@ public:
     }
 
     /**
-    * Add or replace a operator [] for accessing by index.
+    * AddTrans or replace a operator [] for accessing by index.
     */
     template <typename FG, typename FS>
     CppBindClass<T, PARENT>& addIndexer(const FG& get, const FS& set)
@@ -936,7 +936,7 @@ public:
     }
 
     /**
-    * Add or replace a readonly operator [] for accessing by index.
+    * AddTrans or replace a readonly operator [] for accessing by index.
     */
     template <typename FN>
     CppBindClass<T, PARENT>& addIndexer(const FN& get)
@@ -947,7 +947,7 @@ public:
     }
 
     /**
-     * Add or replace a meta function, meta function is static function attached to object.
+     * AddTrans or replace a meta function, meta function is static function attached to object.
      * It is usually used to implement infix operator for the class, that the first operand may
      * or may not be the object.
      *
@@ -962,7 +962,7 @@ public:
     }
 
     /**
-     * Add or replace a meta function, meta function is static function attached to object.
+     * AddTrans or replace a meta function, meta function is static function attached to object.
      * It is usually used to implement infix operator for the class, that the first operand may
      * or may not be the object.
      *

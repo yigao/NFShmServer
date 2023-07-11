@@ -261,7 +261,7 @@ const char *evdns_err_to_string(int err);
 
 
 /**
-  Add a nameserver.
+  AddTrans a nameserver.
 
   The address should be an IPv4 address in network byte order.
   The type of address is chosen so that it matches in_addr.s_addr.
@@ -317,7 +317,7 @@ EVENT2_EXPORT_SYMBOL
 int evdns_base_resume(struct evdns_base *base);
 
 /**
-  Add a nameserver by string address.
+  AddTrans a nameserver by string address.
 
   This function parses a n IPv4 or IPv6 address from a string and adds it as a
   nameserver.  It supports the following formats:
@@ -338,7 +338,7 @@ int evdns_base_nameserver_ip_add(struct evdns_base *base,
     const char *ip_as_string);
 
 /**
-   Add a nameserver by sockaddr.
+   AddTrans a nameserver by sockaddr.
  **/
 EVENT2_EXPORT_SYMBOL
 int
@@ -503,7 +503,7 @@ void evdns_base_search_clear(struct evdns_base *base);
 
 
 /**
-  Add a domain to the list of search domains
+  AddTrans a domain to the list of search domains
 
   @param domain the domain to be added to the search list
  */

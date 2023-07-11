@@ -335,7 +335,7 @@ EVENT2_EXPORT_SYMBOL
 int evhttp_remove_virtual_host(struct evhttp* http, struct evhttp* vhost);
 
 /**
-   Add a server alias to an http object. The http object can be a virtual
+   AddTrans a server alias to an http object. The http object can be a virtual
    host or the main server.
 
    @param http the evhttp object

@@ -10,6 +10,7 @@
 #include "NFPlayerDetail.h"
 #include "Part/NFSnsPart.h"
 #include "NFCacheMgr.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
 
@@ -31,7 +32,7 @@ NFPlayerDetail::~NFPlayerDetail()
 
 int NFPlayerDetail::CreateInit()
 {
-    m_cid = 0;
+    m_playerId = 0;
     m_pPart.resize(SNS_PART_MAX);
     return 0;
 }
@@ -43,12 +44,12 @@ int NFPlayerDetail::ResumeInit()
 
 uint64_t NFPlayerDetail::GetRoleId() const
 {
-    return m_cid;
+    return m_playerId;
 }
 
-void NFPlayerDetail::SetRoleId(uint64_t roleId)
+void NFPlayerDetail::SetPlayerId(uint64_t roleId)
 {
-    m_cid = roleId;
+    m_playerId = roleId;
 }
 
 bool NFPlayerDetail::CanDelete()
@@ -66,10 +67,10 @@ void NFPlayerDetail::SetIsInited(bool isInited)
     m_isInited = isInited;
 }
 
-int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail &data)
+int NFPlayerDetail::Init(const proto_ff::tbFishSnsPlayerData &data)
 {
     m_isInited = true;
-    m_cid = data.cid();
+    m_playerId = data.player_id();
 
     ResetCurSeq();
     m_isInited = true;
@@ -79,7 +80,7 @@ int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail &data)
         NFSnsPart *pPart = CreatePart(i, data);
         if (nullptr == pPart)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Player Init, Create Part Failed, roleId:{} part:{}", m_cid, i);
+            NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Player Init, Create Part Failed, roleId:{} part:{}", m_playerId, i);
             return -1;
         }
 
@@ -89,19 +90,14 @@ int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail &data)
     return 0;
 }
 
-NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::RoleDBSnsDetail &data)
+NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::tbFishSnsPlayerData &data)
 {
     NFSnsPart *pPart = NULL;
     switch (partType)
     {
-        case SNS_PART_RELATION:
-        {
-            pPart = dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_SNS_RelationPart_ID));
-            break;
-        }
         default:
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Create Part Failed, partType Not Handle:{}", partType);
+            NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Create Part Failed, partType Not Handle:{}", partType);
             break;
         }
     }
@@ -140,5 +136,5 @@ NFSnsPart *NFPlayerDetail::GetPart(uint32_t partType)
 
 NFPlayerSimple *NFPlayerDetail::GetRoleSimple() const
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleSimple(m_cid);
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleSimple(m_playerId);
 }

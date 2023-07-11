@@ -78,7 +78,7 @@ for (my $i = 1; $i < $max_parameters; ++$i) {
 }
 print OUT "\n";
 
-## Add mysql_query_define1 macro
+## AddTrans mysql_query_define1 macro
 print OUT "#define mysql_query_define1(FUNC) \\\n";
 for (my $i = 1; $i < $max_parameters; ++$i) {
 	print OUT "\ttemplate <class T> void FUNC(T& container";

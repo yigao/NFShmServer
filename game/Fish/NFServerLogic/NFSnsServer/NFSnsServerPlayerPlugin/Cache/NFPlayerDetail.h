@@ -17,6 +17,7 @@
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "AllProtocol.h"
+#include "NFLogicCommon/NFPlayerDefine.h"
 
 class NFSnsPart;
 class NFPlayerSimple;
@@ -34,7 +35,7 @@ public:
 public:
     uint64_t GetRoleId() const;
 
-    void SetRoleId(uint64_t roleId);
+    void SetPlayerId(uint64_t roleId);
 
 public:
     bool IsInited() const;
@@ -45,9 +46,9 @@ public:
     bool CanDelete();
 
 public:
-    int Init(const proto_ff::RoleDBSnsDetail &data);
+    int Init(const proto_ff::tbFishSnsPlayerData &data);
 public:
-    NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBSnsDetail &data);
+    NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::tbFishSnsPlayerData &data);
     int RecylePart(NFSnsPart *pPart);
     //获取对应部件指针
     virtual NFSnsPart *GetPart(uint32_t partType);
@@ -62,7 +63,7 @@ private:
     /**
      * @brief
      */
-    uint64_t m_cid;
+    uint64_t m_playerId;
 public:
     NFShmVector<int, SNS_PART_MAX> m_pPart;
 DECLARE_IDCREATE(NFPlayerDetail)

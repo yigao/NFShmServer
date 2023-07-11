@@ -28,7 +28,7 @@ NFLoadCacheData::~NFLoadCacheData()
 int NFLoadCacheData::CreateInit()
 {
     m_roleId = 0;
-    m_roleInfo.CreateInit();
+    m_transInfo.CreateInit();
     return 0;
 }
 
@@ -37,22 +37,40 @@ int NFLoadCacheData::ResumeInit()
     return 0;
 }
 
-int NFLoadCacheData::Add(uint32_t transId, uint64_t time)
+int NFLoadCacheData::AddTrans(uint32_t transId, uint64_t time)
 {
     if (transId > 0) {
-        for (auto iter = m_roleInfo.Begin(); iter != m_roleInfo.End(); iter++) {
-            if (transId == iter->m_transId) {
-                return 0;
-            }
+        auto iter = m_transInfo.find(transId);
+        if (iter != m_transInfo.end())
+        {
+            return 0;
         }
     }
 
-    if (!m_roleInfo.Full()) {
-        auto pInfo = m_roleInfo.PushBack();
-        pInfo->m_transId = transId;
-        pInfo->m_loadTime = time;
+    if (!m_transInfo.full()) {
+        m_transInfo.emplace(transId, time);
     } else {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "get role info trans cache full:{} {}", m_roleId, m_roleInfo.GetSize());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "get role info trans cache full:{} {}", m_roleId, m_transInfo.size());
+        return -1;
+    }
+
+    return 0;
+}
+
+int NFLoadCacheData::AddRpc(uint32_t rpcId, uint64_t time)
+{
+    if (rpcId > 0) {
+        auto iter = m_rpcInfo.find(rpcId);
+        if (iter != m_rpcInfo.end())
+        {
+            return 0;
+        }
+    }
+
+    if (!m_rpcInfo.full()) {
+        m_rpcInfo.emplace(rpcId, time);
+    } else {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "get role info rpc cache full:{} {}", m_roleId, m_transInfo.size());
         return -1;
     }
 

@@ -55,5 +55,19 @@ namespace proto_ff_s {
 	};
 	typedef struct tbFishPlayerData_s tbFishPlayerData_t;
 
+	struct tbFishSnsPlayerData_s : public NFDescStoreSeqOP {
+		tbFishSnsPlayerData_s();
+		virtual ~tbFishSnsPlayerData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t player_id;
+
+		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerData & msg);
+		static ::proto_ff::tbFishSnsPlayerData* new_pbmsg(){ return new ::proto_ff::tbFishSnsPlayerData(); }
+		static ::proto_ff::tbFishSnsPlayerData make_pbmsg(){ return ::proto_ff::tbFishSnsPlayerData(); }
+	};
+	typedef struct tbFishSnsPlayerData_s tbFishSnsPlayerData_t;
+
 }
 

@@ -31,6 +31,7 @@ NFPlayerSimple::~NFPlayerSimple()
 
 int NFPlayerSimple::CreateInit()
 {
+    m_playerId = 0;
     m_proxyId = 0;
     m_clientId = 0;
     m_gameId = 0;
@@ -56,7 +57,12 @@ int NFPlayerSimple::ResumeInit()
 
 uint64_t NFPlayerSimple::GetPlayerId() const
 {
-    return m_simpleData.player_id;
+    return m_playerId;
+}
+
+void NFPlayerSimple::SetPlayerId(uint64_t playerId)
+{
+    m_playerId = playerId;
 }
 
 uint32_t NFPlayerSimple::GetProxyId() const

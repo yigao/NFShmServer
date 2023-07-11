@@ -13,11 +13,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
-#include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFLoadCacheData.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
-#include "NFComm/NFShmCore/NFShmStaticList.hpp"
 #include "Cache/NFPlayerSimple.h"
 
 class NFLoadCacheMgr : public NFShmObj
@@ -72,10 +68,10 @@ private:
     int m_refreshTimer;
     bool flag;
 private:
-    NFShmOldHashMap<uint64_t, NFLoadCacheData, SNS_GET_ROLE_SIMPLE_INFO_QUEUE> m_roleSimpleWaitLoadMap;
-    NFShmOldHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_ROLE_SIZE> m_roleSimpleLoadingMap;
+    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GET_PLAYER_SIMPLE_INFO_QUEUE> m_roleSimpleWaitLoadMap;
+    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_PLAYER_SIZE> m_roleSimpleLoadingMap;
 private:
-    NFShmOldHashMap<uint64_t, NFLoadCacheData, SNS_GET_ROLE_SIMPLE_INFO_QUEUE> m_roleDetailWaitLoadMap;
-    NFShmOldHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_ROLE_SIZE> m_roleDetailLoadingMap;
+    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GET_PLAYER_SIMPLE_INFO_QUEUE> m_roleDetailWaitLoadMap;
+    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_PLAYER_SIZE> m_roleDetailLoadingMap;
 DECLARE_IDCREATE(NFLoadCacheMgr)
 };

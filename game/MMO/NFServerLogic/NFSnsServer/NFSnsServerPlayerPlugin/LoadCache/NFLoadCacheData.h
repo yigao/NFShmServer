@@ -53,7 +53,7 @@ public:
      * @param rtime
      * @return
      */
-    int Add(uint32_t transId, uint64_t time);
+    int AddTrans(uint32_t transId, uint64_t time);
 public:
     uint64_t m_roleId;
     NFShmStaticList<NFLoadCacheDataInfo, SNS_CALLBACK_TRANS_RUN_TIMES> m_roleInfo;
