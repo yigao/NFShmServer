@@ -124,7 +124,7 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
     respone.set_result(0);
 
     NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.user_id());
-    if (pPlayer)
+    if (pPlayer == NULL)
     {
         respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
         return 0;
