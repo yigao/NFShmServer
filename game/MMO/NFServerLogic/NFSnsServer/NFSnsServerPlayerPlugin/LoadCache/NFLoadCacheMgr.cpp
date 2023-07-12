@@ -199,7 +199,7 @@ int NFLoadCacheMgr::HandleGetRoleSimpleTransFinished(int iRunLogicRetCode, uint6
     return 0;
 }
 
-int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t time)
+int NFLoadCacheMgr::GetPlayerSimpleInfo(uint64_t roleId, int transId, uint64_t time)
 {
     if (roleId <= 0)
         return 0;
@@ -306,7 +306,7 @@ int NFLoadCacheMgr::TransGetRoleSimpleInfo(NFLoadCacheData *data)
     return 0;
 }
 
-int NFLoadCacheMgr::GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t time)
+int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t time)
 {
     if (roleId <= 0)
         return 0;

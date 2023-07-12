@@ -65,7 +65,7 @@ protected:
     uint16_t m_wCurState;
     uint16_t m_wRunedTimes;
     int m_iRunLogicRetCode;
-    int m_rpcId;
+    int64_t m_rpcId;
 DECLARE_IDCREATE(NFTransBase)
 };
 

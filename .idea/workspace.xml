@@ -55,14 +55,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish user login">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransPlayerBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransPlayerBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransPlayerBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransPlayerBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheData.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheData.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheData.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/LoadCache/NFLoadCacheMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Part/NFSnsPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Part/NFSnsPart.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFQueryRole.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFQueryRole.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFQueryRole.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFQueryRole.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransCacheBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransCacheBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransCacheBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransCacheBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleDetail.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleDetail.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleDetail.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleSimple.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleSimple.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleSimple.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleSimple.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransRoleLogin.cpp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransRoleLogin.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFTransBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFTransBase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFTransBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFTransBase.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmVector.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmStl/NFShmVector.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -359,7 +376,7 @@
       <workItem from="1688204299548" duration="45000" />
       <workItem from="1688345617726" duration="6159000" />
       <workItem from="1688951872390" duration="33979000" />
-      <workItem from="1689036977342" duration="17066000" />
+      <workItem from="1689036977342" duration="23620000" />
     </task>
     <task id="LOCAL-00001" summary="fish login">
       <created>1688635177701</created>
@@ -466,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1689068211088</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="fish user login">
+      <created>1689128562742</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1689128562742</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

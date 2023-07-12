@@ -29,6 +29,7 @@ int NFLoadCacheData::CreateInit()
 {
     m_playerId = 0;
     m_transInfo.CreateInit();
+    m_bFinished = false;
     return 0;
 }
 
@@ -57,7 +58,7 @@ int NFLoadCacheData::AddTrans(uint32_t transId, uint64_t time)
     return 0;
 }
 
-int NFLoadCacheData::AddRpc(uint32_t rpcId, uint64_t time)
+int NFLoadCacheData::AddRpc(int64_t rpcId, uint64_t time)
 {
     if (rpcId > 0) {
         auto iter = m_rpcInfo.find(rpcId);

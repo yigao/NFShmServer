@@ -116,7 +116,7 @@ public:
         return task;
     }
 
-    virtual int MakeCoroutine(const std::function<void()> &func) override;
+    virtual int64_t MakeCoroutine(const std::function<void()> &func) override;
 private:
     NFCoroutineSchedule *m_pCorSched;
 };

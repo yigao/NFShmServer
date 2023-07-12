@@ -83,7 +83,7 @@ NFPlayerSimple *NFCacheMgr::CreatePlayerSimple(uint64_t playerId)
     return pRoleSimple;
 }
 
-int NFCacheMgr::DeleteRoleSimple(NFPlayerSimple *pRoleSimple)
+int NFCacheMgr::DeletePlayerSimple(NFPlayerSimple *pRoleSimple)
 {
     CHECK_NULL(pRoleSimple);
 
@@ -94,7 +94,7 @@ int NFCacheMgr::DeleteRoleSimple(NFPlayerSimple *pRoleSimple)
     return 0;
 }
 
-NFPlayerSimple *NFCacheMgr::QueryRoleSimple(uint64_t role_id, bool query)
+NFPlayerSimple *NFCacheMgr::QueryPlayerSimple(uint64_t role_id)
 {
     NFPlayerSimple *pSimple = GetPlayerSimple(role_id);
     if (pSimple)
@@ -102,12 +102,19 @@ NFPlayerSimple *NFCacheMgr::QueryRoleSimple(uint64_t role_id, bool query)
         return pSimple;
     }
 
-    if (query == true)
+    NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimpleInfo(role_id, 0, NFTime::Now().UnixSec());
+    return NULL;
+}
+
+NFPlayerSimple* NFCacheMgr::QueryPlayerSimpleByRpc(uint64_t role_id)
+{
+    NFPlayerSimple *pSimple = GetPlayerSimple(role_id);
+    if (pSimple)
     {
-        NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleSimpleInfo(role_id, 0, NFTime::Now().UnixSec());
+        return pSimple;
     }
 
-    return NULL;
+    return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimpleInfoByRpc(role_id, NFTime::Now().UnixSec());
 }
 
 int NFCacheMgr::ReleaseDetailCount(int num)
@@ -127,14 +134,14 @@ int NFCacheMgr::ReleaseDetailCount(int num)
     return 0;
 }
 
-NFPlayerDetail *NFCacheMgr::GetRoleDetail(uint64_t playerId)
+NFPlayerDetail *NFCacheMgr::GetPlayerDetail(uint64_t roleId)
 {
-    return NFPlayerDetail::GetObjByHashKey(m_pObjPluginManager, playerId);
+    return NFPlayerDetail::GetObjByHashKey(m_pObjPluginManager, roleId);
 }
 
 NFPlayerDetail *NFCacheMgr::CreateRoleDetail(uint64_t playerId)
 {
-    NFPlayerDetail *pRoleDetail= GetRoleDetail(playerId);
+    NFPlayerDetail *pRoleDetail= GetPlayerDetail(playerId);
     CHECK_EXPR(pRoleDetail == NULL, NULL, "Create Role Detail Failed, data exist, roleId:{}", playerId);
 
     if (NFPlayerDetail::GetItemCount(m_pObjPluginManager) - NFPlayerDetail::GetUsedCount(m_pObjPluginManager) <=

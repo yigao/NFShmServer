@@ -48,7 +48,7 @@ int NFTransGetRoleDetail::QueryRole(uint64_t playerId) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     m_playerId = playerId;
 
-    auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetail(m_playerId);
+    auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_playerId);
     if (pRoleDetail)
     {
         SetFinished(0);
@@ -63,7 +63,7 @@ int NFTransGetRoleDetail::QueryRole(uint64_t playerId) {
     m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_playerId, xData, [this](int rpcRetCode, proto_ff::tbFishSnsPlayerData &respone) {
         if (rpcRetCode == 0)
         {
-            auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetail(m_playerId);
+            auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_playerId);
             if (pRoleDetail)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "the player:{} detail exist after selectobj, some wrong error", m_playerId);

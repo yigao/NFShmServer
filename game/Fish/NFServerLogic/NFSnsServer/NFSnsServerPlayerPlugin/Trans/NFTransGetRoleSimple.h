@@ -28,8 +28,6 @@ public:
 
     int ResumeInit();
 public:
-    int ProQueryRoleRes(const storesvr_sqldata::storesvr_selobj_res* pSelectRsp, int32_t err_code, int iTransID);
-public:
     int QueryRole(uint64_t playerId);
 
     int OnTransFinished(int iRunLogicRetCode);

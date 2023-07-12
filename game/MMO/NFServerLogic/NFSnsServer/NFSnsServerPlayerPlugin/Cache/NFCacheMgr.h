@@ -68,7 +68,7 @@ public:
      * @param roleId
      * @return
      */
-    NFRoleDetail *GetRoleDetail(uint64_t roleId);
+    NFRoleDetail *GetPlayerDetail(uint64_t roleId);
 
     /**
      * @brief
@@ -90,7 +90,7 @@ public:
      * @param query 找不到是否查询数据库
      * @return
      */
-    NFRoleSimple* QueryRoleSimple(uint64_t role_id, bool query=true);
+    NFRoleSimple* QueryPlayerSimple(uint64_t role_id, bool query= true);
 private:
 DECLARE_IDCREATE(NFCacheMgr)
 };

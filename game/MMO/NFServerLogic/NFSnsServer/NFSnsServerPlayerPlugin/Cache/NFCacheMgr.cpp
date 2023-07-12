@@ -93,7 +93,7 @@ int NFCacheMgr::DeleteRoleSimple(NFRoleSimple *pRoleSimple)
     return 0;
 }
 
-NFRoleSimple *NFCacheMgr::QueryRoleSimple(uint64_t role_id, bool query)
+NFRoleSimple *NFCacheMgr::QueryPlayerSimple(uint64_t role_id, bool query)
 {
     NFRoleSimple *pSimple = GetRoleSimple(role_id);
     if (pSimple)
@@ -126,7 +126,7 @@ int NFCacheMgr::ReleaseDetailCount(int num)
     return 0;
 }
 
-NFRoleDetail *NFCacheMgr::GetRoleDetail(uint64_t roleId)
+NFRoleDetail *NFCacheMgr::GetPlayerDetail(uint64_t roleId)
 {
     return dynamic_cast<NFRoleDetail*>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_SNS_ROLE_DETAIL_ID, roleId));
 }

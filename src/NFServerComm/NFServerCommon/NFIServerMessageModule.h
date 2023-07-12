@@ -214,7 +214,7 @@ public:
     }
 
     template<class DataType, typename ResponFunc>
-    int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &func,
+    int64_t GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &func,
                                const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
                                const std::string &dbname = "")
     {
@@ -228,12 +228,12 @@ public:
 
 private:
     template<class DataType, typename ResponFunc>
-    int GetRpcSelectObjServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &responFunc,
+    int64_t GetRpcSelectObjServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &responFunc,
                                     void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
                                     const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
                                     const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      DataType respone = data;
@@ -337,7 +337,7 @@ public:
     }
 
     template<class DataType, typename ResponFunc>
-    int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &func,
+    int64_t GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &func,
                             const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
                             int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
     {
@@ -347,13 +347,13 @@ public:
 
 private:
     template<class DataType, typename ResponFunc>
-    int GetRpcSelectServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &responFunc,
+    int64_t GetRpcSelectServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &responFunc,
                                  void (ResponFunc::*pf)(int rpcRetCode, std::vector<DataType> &respone) const,
                                  const std::vector<std::string> &vecFields = std::vector<std::string>(),
                                  const std::string &where_addtional_conds = "", int max_records = 100, uint32_t dstBusId = 0,
                                  const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      std::vector<DataType> respone;
@@ -411,10 +411,10 @@ public:
     }
 
     template<class DataType>
-    int GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+    int64_t GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
                                uint32_t dstBusId = 0, const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      int rpcRetCode = GetRpcInsertObjService(eType, mod_key, data, dstBusId, dbname);
@@ -476,10 +476,10 @@ public:
     }
 
     template<class DataType>
-    int GetRpcModifyObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+    int64_t GetRpcModifyObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
                                uint32_t dstBusId = 0, const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      int rpcRetCode = GetRpcModifyObjService(eType, mod_key, data, dstBusId, dbname);
@@ -536,10 +536,10 @@ public:
     }
 
     template<class DataType>
-    int GetRpcUpdateObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+    int64_t GetRpcUpdateObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
                                uint32_t dstBusId = 0, const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      int rpcRetCode = GetRpcUpdateObjService(eType, mod_key, data, dstBusId, dbname);
@@ -596,10 +596,10 @@ public:
     }
 
     template<class DataType>
-    int GetRpcDeleteObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+    int64_t GetRpcDeleteObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
                                uint32_t dstBusId = 0, const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      int rpcRetCode = GetRpcDeleteObjService(eType, mod_key, data, dstBusId, dbname);
@@ -659,11 +659,11 @@ public:
     }
 
     template<class DataType>
-    int GetRpcDeleteService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+    int64_t GetRpcDeleteService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
                             const std::string &where_addtional_conds = "",
                             uint32_t dstBusId = 0, const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      int rpcRetCode = GetRpcDeleteService(eType, mod_key, data, where_addtional_conds, dstBusId, dbname);
@@ -722,14 +722,14 @@ public:
     }
 
     template<class DataType>
-    int GetRpcModifyService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+    int64_t GetRpcModifyService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
                             const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
                             const std::string &where_addtional_conds = "",
                             uint32_t
                             dstBusId = 0,
                             const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      int rpcRetCode = GetRpcModifyService(eType, mod_key, data, vk_list, where_addtional_conds, dstBusId, dbname);
@@ -788,14 +788,14 @@ public:
     }
 
     template<class DataType>
-    int GetRpcUpdateService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
+    int64_t GetRpcUpdateService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
                             const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
                             const std::string &where_addtional_conds = "",
                             uint32_t
                             dstBusId = 0,
                             const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      int rpcRetCode = GetRpcUpdateService(eType, mod_key, data, vk_list, where_addtional_conds, dstBusId, dbname);
@@ -863,12 +863,12 @@ public:
 
 private:
     template<class DataType, typename ResponFunc>
-    int GetRpcExecuteServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql,
+    int64_t GetRpcExecuteServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql,
                                   const ResponFunc &responFunc, void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
                                   uint32_t dstBusId = 0,
                                   const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      DataType respone;
@@ -968,7 +968,7 @@ public:
     }
 
     template<typename ResponFunc>
-    int GetRpcExecuteMoreService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql, const ResponFunc &func,
+    int64_t GetRpcExecuteMoreService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql, const ResponFunc &func,
                             int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         return GetRpcExecuteMoreServiceInner(eType, mod_key, sql, func, &ResponFunc::operator(), max_records, dstBusId,
@@ -977,12 +977,12 @@ public:
 
 private:
     template<class DataType, typename ResponFunc>
-    int GetRpcExecuteMoreServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql, const ResponFunc &responFunc,
+    int64_t GetRpcExecuteMoreServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql, const ResponFunc &responFunc,
                                  void (ResponFunc::*pf)(int rpcRetCode, std::vector<DataType> &respone) const,
                                  int max_records = 100, uint32_t dstBusId = 0,
                                  const std::string &dbname = "")
     {
-        int iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
+        int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      std::vector<DataType> respone;

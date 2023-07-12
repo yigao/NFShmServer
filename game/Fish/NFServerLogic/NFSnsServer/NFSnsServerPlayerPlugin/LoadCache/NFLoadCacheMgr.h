@@ -32,14 +32,19 @@ public:
     int RefreshDetailQueue();
 public:
     // 接口没有做RoleSimple检测,需要自己提前检测（如TransSnsBase）
-    int GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t time);
+    int GetPlayerSimpleInfo(uint64_t playerId, int transId, uint64_t time);
+
+    NFPlayerSimple* GetPlayerSimpleInfoByRpc(uint64_t playerId, uint64_t time);
 
     // 接口会去check是否RoleSimple已经存在，存在会直接返回
-    int GetCheckedRoleSimpleInfo(uint64_t roleId);
+    int GetCheckedRoleSimpleInfo(uint64_t playerId);
 
-    int TransGetRoleSimpleInfo(NFLoadCacheData *data);
+    int TransGetRoleSimpleInfo(uint64_t playerId);
+
+    NFPlayerSimple* RpcGetRoleSimpleInfo(uint64_t playerId);
 
     int HandleGetRoleSimpleTransFinished(int iRunLogicRetCode, uint64_t roleId);
+    int HandleGetRoleSimpleRpcFinished(int iRunLogicRetCode, uint64_t roleId);
 public:
     /**
      * @brief
@@ -48,7 +53,7 @@ public:
      * @param time
      * @return
      */
-    int GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t time);
+    int GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t time);
 
     /**
      * @brief
@@ -68,10 +73,10 @@ private:
     int m_refreshTimer;
     bool flag;
 private:
-    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GET_PLAYER_SIMPLE_INFO_QUEUE> m_roleSimpleWaitLoadMap;
-    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_PLAYER_SIZE> m_roleSimpleLoadingMap;
+    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GET_PLAYER_SIMPLE_INFO_QUEUE> m_playerSimpleWaitLoadMap;
+    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_PLAYER_SIZE> m_playerSimpleLoadingMap;
 private:
-    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GET_PLAYER_SIMPLE_INFO_QUEUE> m_roleDetailWaitLoadMap;
-    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_PLAYER_SIZE> m_roleDetailLoadingMap;
+    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GET_PLAYER_SIMPLE_INFO_QUEUE> m_playerDetailWaitLoadMap;
+    NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_PLAYER_SIZE> m_playerDetailLoadingMap;
 DECLARE_IDCREATE(NFLoadCacheMgr)
 };

@@ -112,14 +112,14 @@ int NFTransCacheBase::QueryRoleSimple()
             continue;
         }
 
-        if (NFCacheMgr::GetInstance(m_pObjPluginManager)->QueryRoleSimple(m_query.m_queryRoleList[i], false))
+        if (NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(m_query.m_queryRoleList[i]))
         {
             AddQueryedSimpleNum();
         }
         else
         {
-            NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleSimpleInfo(m_query.m_queryRoleList[i], GetGlobalId(),
-                                                                                m_dwKeepAliveTime);
+            NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimpleInfo(m_query.m_queryRoleList[i], GetGlobalId(),
+                                                                                  m_dwKeepAliveTime);
         }
     }
 
@@ -154,7 +154,7 @@ int NFTransCacheBase::QueryRoleDetail()
             continue;
         }
 
-        NFPlayerDetail* pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetail(m_query.m_queryRoleList[i]);
+        NFPlayerDetail* pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_query.m_queryRoleList[i]);
         if (pRoleDetail)
         {
             AddQueryedDetailNum();
@@ -162,8 +162,8 @@ int NFTransCacheBase::QueryRoleDetail()
         }
         else
         {
-            NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetailInfo(m_query.m_queryRoleList[i], GetGlobalId(),
-                                                                                m_dwKeepAliveTime);
+            NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetailInfo(m_query.m_queryRoleList[i], GetGlobalId(),
+                                                                                  m_dwKeepAliveTime);
         }
     }
 

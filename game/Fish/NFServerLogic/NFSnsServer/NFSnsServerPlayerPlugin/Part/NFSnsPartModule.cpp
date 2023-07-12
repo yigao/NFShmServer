@@ -38,7 +38,7 @@ bool NFSnsPartModule::OnDynamicPlugin()
 
 int NFSnsPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
-    NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleDetail(playerId);
+    NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerDetail(playerId);
     if (pPlayer)
     {
         if (msgId < m_clientMsgToPartMap.size() && m_clientMsgToPartMap[msgId]  != 0)
@@ -61,7 +61,7 @@ int NFSnsPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet
 
 int NFSnsPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
-    NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleDetail(playerId);
+    NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerDetail(playerId);
     if (pPlayer)
     {
         if (msgId < m_serverMsgToPartMap.size() && m_serverMsgToPartMap[msgId]  != 0)

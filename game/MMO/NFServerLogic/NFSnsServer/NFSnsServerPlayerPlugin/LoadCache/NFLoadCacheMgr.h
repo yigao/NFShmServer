@@ -36,7 +36,7 @@ public:
     int RefreshDetailQueue();
 public:
     // 接口没有做RoleSimple检测,需要自己提前检测（如TransSnsBase）
-    int GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t time);
+    int GetPlayerSimpleInfo(uint64_t roleId, int transId, uint64_t time);
 
     // 接口会去check是否RoleSimple已经存在，存在会直接返回
     int GetCheckedRoleSimpleInfo(uint64_t roleId);
@@ -52,7 +52,7 @@ public:
      * @param time
      * @return
      */
-    int GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t time);
+    int GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t time);
 
     /**
      * @brief
