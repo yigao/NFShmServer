@@ -34,3 +34,8 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_PTW_PLAYER_LOGIN_REQ, proto_ff::Proto_PTWUs
  * @brief 玩家登录rpc, world server to logic server
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTL_PLAYER_LOGIN_REQ, proto_ff::Proto_WorldToLogicLoginReq, proto_ff::Proto_LogicToWorldLoginRsp)
+
+/**
+ * @brief 玩家登录rpc, world server to sns server
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTS_PLAYER_LOGIN_REQ, proto_ff::Proto_WTSLoginReq, proto_ff::Proto_STWLoginRsp)

@@ -86,7 +86,7 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
 
             for (auto iter = pLoadingData->m_rpcInfo.begin(); iter != pLoadingData->m_rpcInfo.end(); iter++)
             {
-                if (iter->first > 0 && (timeNow - iter->second) < DEFINE_RPC_SERVICE_TIME_OUT_MS)
+                if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
                 {
                     FindModule<NFICoroutineModule>()->Resume(iter->first, 0);
                 }
@@ -120,7 +120,7 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
             }
         }
 
-        if (pInfo->m_transInfo.empty())
+        if (pInfo->m_transInfo.empty() && pInfo->m_rpcInfo.empty())
         {
             loadIter = m_playerSimpleLoadingMap.erase(loadIter);
         }

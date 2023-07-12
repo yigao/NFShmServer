@@ -63,5 +63,6 @@ bool NFFishWorldPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ_WITH_HASH(NFWorldPlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFWorldPlayerMgr);//
 
+
 	return true;
 }

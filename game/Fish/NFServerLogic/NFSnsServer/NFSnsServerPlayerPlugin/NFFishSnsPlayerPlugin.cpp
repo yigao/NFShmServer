@@ -10,6 +10,14 @@
 #include "NFFishSnsPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
+#include "NFSnsPlayerModule.h"
+#include "Cache/NFCacheMgr.h"
+#include "Part/NFSnsPartModule.h"
+#include "Part/NFSnsPart.h"
+#include "LoadCache/NFLoadCacheMgr.h"
+#include "Trans/NFTransGetRoleSimple.h"
+#include "Trans/NFTransGetRoleDetail.h"
+#include "Trans/NFTransCacheBase.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -41,12 +49,14 @@ std::string NFFishSnsPlayerPlugin::GetPluginName()
 
 void NFFishSnsPlayerPlugin::Install()
 {
-	//REGISTER_MODULE(m_pObjPluginManager, NFCOnlineModule, NFCOnlineModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFCSnsPlayerModule, NFCSnsPlayerModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
 }
 
 void NFFishSnsPlayerPlugin::Uninstall()
 {
-	//UNREGISTER_MODULE(m_pObjPluginManager, NFCOnlineModule, NFCOnlineModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFCSnsPlayerModule, NFCSnsPlayerModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
 }
 
 bool NFFishSnsPlayerPlugin::InitShmObjectRegister()
@@ -55,6 +65,15 @@ bool NFFishSnsPlayerPlugin::InitShmObjectRegister()
     NF_ASSERT(pConfig);
 
     uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
+    REGISTER_SINGLETON_SHM_OBJ(NFCacheMgr);//
+    REGISTER_SINGLETON_SHM_OBJ(NFLoadCacheMgr);//
 
+    REGISTER_SHM_OBJ_WITH_HASH(NFPlayerSimple, maxOnlinePlayerNum);//
+    REGISTER_SHM_OBJ_WITH_HASH(NFPlayerDetail, maxOnlinePlayerNum);//
+
+    REGISTER_SHM_OBJ(NFSnsPart,1);
+    REGISTER_SHM_OBJ(NFTransCacheBase,1);
+    REGISTER_SHM_OBJ(NFTransGetRoleSimple,maxOnlinePlayerNum/10);
+    REGISTER_SHM_OBJ(NFTransGetRoleDetail,maxOnlinePlayerNum/10);
     return true;
 }

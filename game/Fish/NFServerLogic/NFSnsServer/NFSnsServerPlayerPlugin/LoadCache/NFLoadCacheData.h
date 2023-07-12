@@ -67,6 +67,6 @@ public:
 public:
     uint64_t m_playerId;
     NFShmHashMap<uint32_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_transInfo;
-    NFShmHashMap<uint32_t, int64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_rpcInfo;
+    NFShmHashMap<int64_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_rpcInfo;
     bool m_bFinished;
 };

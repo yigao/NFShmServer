@@ -40,6 +40,8 @@ class Proto_PTWUserLoginReq;
 class Proto_WTPPlayerLoginRsp;
 class Proto_WorldToLogicLoginReq;
 class Proto_LogicToWorldLoginRsp;
+class Proto_WTSLoginReq;
+class Proto_STWLoginRsp;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -591,6 +593,235 @@ class Proto_LogicToWorldLoginRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Proto_LogicToWorldLoginRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_WTSLoginReq : public ::google::protobuf::Message {
+ public:
+  Proto_WTSLoginReq();
+  virtual ~Proto_WTSLoginReq();
+
+  Proto_WTSLoginReq(const Proto_WTSLoginReq& from);
+
+  inline Proto_WTSLoginReq& operator=(const Proto_WTSLoginReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_WTSLoginReq& default_instance();
+
+  void Swap(Proto_WTSLoginReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_WTSLoginReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_WTSLoginReq& from);
+  void MergeFrom(const Proto_WTSLoginReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 user_id = 1;
+  inline bool has_user_id() const;
+  inline void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 user_id() const;
+  inline void set_user_id(::google::protobuf::uint64 value);
+
+  // optional uint32 game_id = 2;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // optional uint32 room_id = 3;
+  inline bool has_room_id() const;
+  inline void clear_room_id();
+  static const int kRoomIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 room_id() const;
+  inline void set_room_id(::google::protobuf::uint32 value);
+
+  // optional uint32 game_bus_id = 4;
+  inline bool has_game_bus_id() const;
+  inline void clear_game_bus_id();
+  static const int kGameBusIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 game_bus_id() const;
+  inline void set_game_bus_id(::google::protobuf::uint32 value);
+
+  // optional uint32 proxy_bus_id = 5;
+  inline bool has_proxy_bus_id() const;
+  inline void clear_proxy_bus_id();
+  static const int kProxyBusIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 proxy_bus_id() const;
+  inline void set_proxy_bus_id(::google::protobuf::uint32 value);
+
+  // optional string client_ip = 7;
+  inline bool has_client_ip() const;
+  inline void clear_client_ip();
+  static const int kClientIpFieldNumber = 7;
+  inline const ::std::string& client_ip() const;
+  inline void set_client_ip(const ::std::string& value);
+  inline void set_client_ip(const char* value);
+  inline void set_client_ip(const char* value, size_t size);
+  inline ::std::string* mutable_client_ip();
+  inline ::std::string* release_client_ip();
+  inline void set_allocated_client_ip(::std::string* client_ip);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTSLoginReq)
+ private:
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+  inline void set_has_room_id();
+  inline void clear_has_room_id();
+  inline void set_has_game_bus_id();
+  inline void clear_has_game_bus_id();
+  inline void set_has_proxy_bus_id();
+  inline void clear_has_proxy_bus_id();
+  inline void set_has_client_ip();
+  inline void clear_has_client_ip();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 user_id_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint32 room_id_;
+  ::google::protobuf::uint32 game_bus_id_;
+  ::google::protobuf::uint32 proxy_bus_id_;
+  ::std::string* client_ip_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_WTSLoginReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_STWLoginRsp : public ::google::protobuf::Message {
+ public:
+  Proto_STWLoginRsp();
+  virtual ~Proto_STWLoginRsp();
+
+  Proto_STWLoginRsp(const Proto_STWLoginRsp& from);
+
+  inline Proto_STWLoginRsp& operator=(const Proto_STWLoginRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_STWLoginRsp& default_instance();
+
+  void Swap(Proto_STWLoginRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_STWLoginRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_STWLoginRsp& from);
+  void MergeFrom(const Proto_STWLoginRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::uint32 result() const;
+  inline void set_result(::google::protobuf::uint32 value);
+
+  // optional uint64 user_id = 2;
+  inline bool has_user_id() const;
+  inline void clear_user_id();
+  static const int kUserIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 user_id() const;
+  inline void set_user_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_STWLoginRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 user_id_;
+  ::google::protobuf::uint32 result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_STWLoginRsp* default_instance_;
 };
 // ===================================================================
 
@@ -1301,6 +1532,238 @@ inline void Proto_LogicToWorldLoginRsp::set_allocated_detail_data(::proto_ff::Pr
   } else {
     clear_has_detail_data();
   }
+}
+
+// -------------------------------------------------------------------
+
+// Proto_WTSLoginReq
+
+// optional uint64 user_id = 1;
+inline bool Proto_WTSLoginReq::has_user_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_user_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_WTSLoginReq::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_WTSLoginReq::clear_user_id() {
+  user_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint64 Proto_WTSLoginReq::user_id() const {
+  return user_id_;
+}
+inline void Proto_WTSLoginReq::set_user_id(::google::protobuf::uint64 value) {
+  set_has_user_id();
+  user_id_ = value;
+}
+
+// optional uint32 game_id = 2;
+inline bool Proto_WTSLoginReq::has_game_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_game_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_WTSLoginReq::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_WTSLoginReq::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 Proto_WTSLoginReq::game_id() const {
+  return game_id_;
+}
+inline void Proto_WTSLoginReq::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// optional uint32 room_id = 3;
+inline bool Proto_WTSLoginReq::has_room_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_room_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_WTSLoginReq::clear_has_room_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_WTSLoginReq::clear_room_id() {
+  room_id_ = 0u;
+  clear_has_room_id();
+}
+inline ::google::protobuf::uint32 Proto_WTSLoginReq::room_id() const {
+  return room_id_;
+}
+inline void Proto_WTSLoginReq::set_room_id(::google::protobuf::uint32 value) {
+  set_has_room_id();
+  room_id_ = value;
+}
+
+// optional uint32 game_bus_id = 4;
+inline bool Proto_WTSLoginReq::has_game_bus_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_game_bus_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_WTSLoginReq::clear_has_game_bus_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Proto_WTSLoginReq::clear_game_bus_id() {
+  game_bus_id_ = 0u;
+  clear_has_game_bus_id();
+}
+inline ::google::protobuf::uint32 Proto_WTSLoginReq::game_bus_id() const {
+  return game_bus_id_;
+}
+inline void Proto_WTSLoginReq::set_game_bus_id(::google::protobuf::uint32 value) {
+  set_has_game_bus_id();
+  game_bus_id_ = value;
+}
+
+// optional uint32 proxy_bus_id = 5;
+inline bool Proto_WTSLoginReq::has_proxy_bus_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_proxy_bus_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_WTSLoginReq::clear_has_proxy_bus_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_WTSLoginReq::clear_proxy_bus_id() {
+  proxy_bus_id_ = 0u;
+  clear_has_proxy_bus_id();
+}
+inline ::google::protobuf::uint32 Proto_WTSLoginReq::proxy_bus_id() const {
+  return proxy_bus_id_;
+}
+inline void Proto_WTSLoginReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
+  set_has_proxy_bus_id();
+  proxy_bus_id_ = value;
+}
+
+// optional string client_ip = 7;
+inline bool Proto_WTSLoginReq::has_client_ip() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_client_ip() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void Proto_WTSLoginReq::clear_has_client_ip() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void Proto_WTSLoginReq::clear_client_ip() {
+  if (client_ip_ != &::google::protobuf::internal::kEmptyString) {
+    client_ip_->clear();
+  }
+  clear_has_client_ip();
+}
+inline const ::std::string& Proto_WTSLoginReq::client_ip() const {
+  return *client_ip_;
+}
+inline void Proto_WTSLoginReq::set_client_ip(const ::std::string& value) {
+  set_has_client_ip();
+  if (client_ip_ == &::google::protobuf::internal::kEmptyString) {
+    client_ip_ = new ::std::string;
+  }
+  client_ip_->assign(value);
+}
+inline void Proto_WTSLoginReq::set_client_ip(const char* value) {
+  set_has_client_ip();
+  if (client_ip_ == &::google::protobuf::internal::kEmptyString) {
+    client_ip_ = new ::std::string;
+  }
+  client_ip_->assign(value);
+}
+inline void Proto_WTSLoginReq::set_client_ip(const char* value, size_t size) {
+  set_has_client_ip();
+  if (client_ip_ == &::google::protobuf::internal::kEmptyString) {
+    client_ip_ = new ::std::string;
+  }
+  client_ip_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_WTSLoginReq::mutable_client_ip() {
+  set_has_client_ip();
+  if (client_ip_ == &::google::protobuf::internal::kEmptyString) {
+    client_ip_ = new ::std::string;
+  }
+  return client_ip_;
+}
+inline ::std::string* Proto_WTSLoginReq::release_client_ip() {
+  clear_has_client_ip();
+  if (client_ip_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = client_ip_;
+    client_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_WTSLoginReq::set_allocated_client_ip(::std::string* client_ip) {
+  if (client_ip_ != &::google::protobuf::internal::kEmptyString) {
+    delete client_ip_;
+  }
+  if (client_ip) {
+    set_has_client_ip();
+    client_ip_ = client_ip;
+  } else {
+    clear_has_client_ip();
+    client_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Proto_STWLoginRsp
+
+// optional uint32 result = 1;
+inline bool Proto_STWLoginRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_STWLoginRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_STWLoginRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_STWLoginRsp::clear_result() {
+  result_ = 0u;
+  clear_has_result();
+}
+inline ::google::protobuf::uint32 Proto_STWLoginRsp::result() const {
+  return result_;
+}
+inline void Proto_STWLoginRsp::set_result(::google::protobuf::uint32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional uint64 user_id = 2;
+inline bool Proto_STWLoginRsp::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_STWLoginRsp::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_STWLoginRsp::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_STWLoginRsp::clear_user_id() {
+  user_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint64 Proto_STWLoginRsp::user_id() const {
+  return user_id_;
+}
+inline void Proto_STWLoginRsp::set_user_id(::google::protobuf::uint64 value) {
+  set_has_user_id();
+  user_id_ = value;
 }
 
 

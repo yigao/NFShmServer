@@ -12,6 +12,10 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "AllProtocol.h"
+#include "NFLogicCommon/NFLogicBindRpcService.h"
+#include "Cache/NFPlayerSimple.h"
+#include "Cache/NFCacheMgr.h"
 
 NFCSnsPlayerModule::NFCSnsPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -26,7 +30,8 @@ bool NFCSnsPlayerModule::Awake()
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     ///////////world msg//////////////////////////////////////////////////////////
-
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_WTS_PLAYER_LOGIN_REQ>(NF_ST_SNS_SERVER, this,
+                                                                                     &NFCSnsPlayerModule::OnRpcServicePlayerLogin, true);
     ///////////logic msg//////////////////////////////////////////////////////////
     return true;
 }
@@ -112,29 +117,27 @@ int NFCSnsPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
     return 0;
 }
 
-int NFCSnsPlayerModule::OnHandlePlayerDisconnect(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2n)
+int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& request, proto_ff::Proto_STWLoginRsp& respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    respone.set_user_id(request.user_id());
+    respone.set_result(0);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
+    NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.user_id());
+    if (pPlayer)
+    {
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
 
-int NFCSnsPlayerModule::OnHandlePlayerReconnect(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
-{
-    return 0;
-}
+    int iRet = pPlayer->OnLogin(true);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayer:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
 
-int NFCSnsPlayerModule::OnHandlePlayerLogin(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
-
-int NFCSnsPlayerModule::OnHandlePlayerLogout(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

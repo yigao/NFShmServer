@@ -161,6 +161,21 @@ int NFCWorldPlayerModule::OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq&
         return 0;
     }
 
+    proto_ff::Proto_WTSLoginReq reqSnsMsg;
+    reqSnsMsg.set_user_id(pPlayerInfo->GetPlayerId());
+    reqSnsMsg.set_game_id(pPlayerInfo->m_gameId);
+    reqSnsMsg.set_room_id(pPlayerInfo->m_roomId);
+    reqSnsMsg.set_proxy_bus_id(pPlayerInfo->GetProxyId());
+    reqSnsMsg.set_client_ip(request.client_ip());
+    proto_ff::Proto_STWLoginRsp rspSnsMsg;
+    iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTS_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, NF_ST_SNS_SERVER, 0, reqSnsMsg, rspSnsMsg);
+    if (iRet != 0)
+    {
+        respone.set_result(iRet);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTL_PLAYER_LOGIN_REQ Failed! iRet:{}", GetErrorStr(iRet));
+        return 0;
+    }
+
     /**
      * @brief must find playerInfo again, the playerinfo maybe not exist
      */

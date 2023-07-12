@@ -327,10 +327,10 @@ int NFIBusConnection::AttachShmCheck(void *buffer, size_t len)
         return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_BUFFER_INVALID;
     }
 
-    if (0 != strncmp(SHM_CHANNEL_NAME, head->m_nConnectChannel.m_nNodeMagic, strlen(SHM_CHANNEL_NAME)))
+/*    if (0 != strncmp(SHM_CHANNEL_NAME, head->m_nConnectChannel.m_nNodeMagic, strlen(SHM_CHANNEL_NAME)))
     {
         return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_BUFFER_INVALID;
-    }
+    }*/
 
     // check channel version
     if (SHM_CHANNEL_VERSION != head->m_nShmChannel.m_channelVersion)
@@ -348,7 +348,7 @@ int NFIBusConnection::AttachShmCheck(void *buffer, size_t len)
         return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_ARCH_SIZE_T_MISMATCH;
     }
 
-    if (SHM_CHANNEL_VERSION != head->m_nConnectChannel.m_channelVersion)
+/*    if (SHM_CHANNEL_VERSION != head->m_nConnectChannel.m_channelVersion)
     {
         return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_UNSUPPORTED_VERSION;
     }
@@ -361,7 +361,7 @@ int NFIBusConnection::AttachShmCheck(void *buffer, size_t len)
     if (sizeof(size_t) != head->m_nConnectChannel.m_channelHostSize)
     {
         return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_ARCH_SIZE_T_MISMATCH;
-    }
+    }*/
 
     return proto_ff::ERR_CODE_SVR_OK;
 }
@@ -387,14 +387,16 @@ int NFIBusConnection::AttachShm(key_t shm_key, size_t len)
 int NFIBusConnection::InitShmBuffer(void *buffer, size_t len)
 {
     // 缓冲区最小长度为数据头+空洞node的长度
-    if (len < sizeof(NFShmChannelHead) + (NFShmBlock::connect_shm_size) + (NFShmBlock::node_data_size + NFShmBlock::node_head_size))
+    //if (len < sizeof(NFShmChannelHead) + (NFShmBlock::connect_shm_size) + (NFShmBlock::node_data_size + NFShmBlock::node_head_size))
+    //    return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_SIZE_TOO_SMALL;
+    if (len < sizeof(NFShmChannelHead) + (NFShmBlock::node_data_size + NFShmBlock::node_head_size))
         return proto_ff::ERR_CODE_NFBUS_ERR_CHANNEL_SIZE_TOO_SMALL;
 
     memset(buffer, 0x00, len);
     NFShmChannelHead *head = (NFShmChannelHead *) buffer;
     ////////////////////////////////////m_nConnectChannel//////////////////////////////////////////////////////////
     // 节点计算
-    head->m_nConnectChannel.m_nNodeSize = NFShmBlock::node_data_size;
+/*    head->m_nConnectChannel.m_nNodeSize = NFShmBlock::node_data_size;
     {
         head->m_nConnectChannel.m_nNodeSizeBinPower = 0;
         size_t node_size = head->m_nConnectChannel.m_nNodeSize;
@@ -421,7 +423,7 @@ int NFIBusConnection::InitShmBuffer(void *buffer, size_t len)
 
     head->m_nConnectChannel.m_channelVersion = SHM_CHANNEL_VERSION;
     head->m_nConnectChannel.m_channelAlignSize = NFBUS_MACRO_DATA_ALIGN_SIZE;
-    head->m_nConnectChannel.m_channelHostSize = static_cast<uint16_t>(sizeof(size_t));
+    head->m_nConnectChannel.m_channelHostSize = static_cast<uint16_t>(sizeof(size_t));*/
     ////////////////////////////////////m_nConnectChannel//////////////////////////////////////////////////////////
     ////////////////////////////////////m_nShmChannel//////////////////////////////////////////////////////////
     // 节点计算
@@ -435,12 +437,14 @@ int NFIBusConnection::InitShmBuffer(void *buffer, size_t len)
             ++head->m_nShmChannel.m_nNodeSizeBinPower;
         }
     }
-    head->m_nShmChannel.m_nNodeCount = (len - NFShmBlock::channel_head_size - NFShmBlock::connect_shm_size) / (head->m_nShmChannel.m_nNodeSize + NFShmBlock::node_head_size);
+    //head->m_nShmChannel.m_nNodeCount = (len - NFShmBlock::channel_head_size - NFShmBlock::connect_shm_size) / (head->m_nShmChannel.m_nNodeSize + NFShmBlock::node_head_size);
+    head->m_nShmChannel.m_nNodeCount = (len - NFShmBlock::channel_head_size) / (head->m_nShmChannel.m_nNodeSize + NFShmBlock::node_head_size);
 
     // 偏移位置计算
     head->m_nShmChannel.m_nAreaChannelOffset = (char *) &head->m_nShmChannel - (char *) buffer;
     head->m_nShmChannel.m_nAreaHeadOffset = sizeof(NFShmChannelHead);
-    head->m_nShmChannel.m_nAreaDataOffset = head->m_nConnectChannel.m_nAreaEndOffset + head->m_nShmChannel.m_nNodeCount * NFShmBlock::node_head_size;
+    //head->m_nShmChannel.m_nAreaDataOffset = head->m_nConnectChannel.m_nAreaEndOffset + head->m_nShmChannel.m_nNodeCount * NFShmBlock::node_head_size;
+    head->m_nShmChannel.m_nAreaDataOffset = head->m_nShmChannel.m_nAreaHeadOffset + head->m_nShmChannel.m_nNodeCount * NFShmBlock::node_head_size;
     head->m_nShmChannel.m_nAreaEndOffset = head->m_nShmChannel.m_nAreaDataOffset + head->m_nShmChannel.m_nNodeCount * head->m_nShmChannel.m_nNodeSize;
 
     // 配置初始化

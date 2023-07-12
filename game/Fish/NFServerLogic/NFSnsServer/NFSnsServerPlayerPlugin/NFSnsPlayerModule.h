@@ -11,6 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
+#include "AllProtocol.h"
 
 class NFCSnsPlayerModule : public NFIDynamicModule
 {
@@ -46,11 +47,11 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
 
 public:
-    int OnHandlePlayerLogin(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
-
-    int OnHandlePlayerLogout(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
-
-    int OnHandlePlayerDisconnect(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2n);
-
-    int OnHandlePlayerReconnect(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
+    /**
+     * @brief 玩家登录
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& request, proto_ff::Proto_STWLoginRsp& respone);
 };
