@@ -57,15 +57,15 @@ int NFCacheMgr::ReleaseSimpleCount(int num)
     return 0;
 }
 
-NFRoleSimple *NFCacheMgr::GetRoleSimple(uint64_t roleId)
+NFRoleSimple *NFCacheMgr::GetPlayerSimple(uint64_t roleId)
 {
     return dynamic_cast<NFRoleSimple*>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_SNS_ROLE_SIMPLE_ID, roleId));
 }
 
-NFRoleSimple *NFCacheMgr::CreateRoleSimple(uint64_t roleId)
+NFRoleSimple *NFCacheMgr::CreatePlayerSimple(uint64_t playerId)
 {
-    NFRoleSimple *pRoleSimple = GetRoleSimple(roleId);
-    CHECK_EXPR(pRoleSimple == NULL, NULL, "Create Role Simple Failed, data exist, roleId:{}", roleId);
+    NFRoleSimple *pRoleSimple = GetRoleSimple(playerId);
+    CHECK_EXPR(pRoleSimple == NULL, NULL, "Create Role Simple Failed, data exist, roleId:{}", playerId);
 
     if (NFRoleSimple::GetItemCount(m_pObjPluginManager) - NFRoleSimple::GetUsedCount(m_pObjPluginManager) <=
         NFRoleSimple::GetItemCount(m_pObjPluginManager) * 0.1)
@@ -73,11 +73,11 @@ NFRoleSimple *NFCacheMgr::CreateRoleSimple(uint64_t roleId)
         ReleaseSimpleCount(NFRoleSimple::GetItemCount(m_pObjPluginManager) * 0.1);
     }
 
-    pRoleSimple = dynamic_cast<NFRoleSimple *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_SNS_ROLE_SIMPLE_ID, roleId));
-    CHECK_EXPR(pRoleSimple, NULL, "Create Role Simple Obj Failed, playerID:{}", roleId);
+    pRoleSimple = dynamic_cast<NFRoleSimple *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_SNS_ROLE_SIMPLE_ID, playerId));
+    CHECK_EXPR(pRoleSimple, NULL, "Create Role Simple Obj Failed, playerID:{}", playerId);
 
-    pRoleSimple->SetRoleId(roleId);
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Role Simple Success, userId:{} globalId:{}", roleId,
+    pRoleSimple->SetRoleId(playerId);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Role Simple Success, userId:{} globalId:{}", playerId,
               pRoleSimple->GetGlobalId());
     return pRoleSimple;
 }

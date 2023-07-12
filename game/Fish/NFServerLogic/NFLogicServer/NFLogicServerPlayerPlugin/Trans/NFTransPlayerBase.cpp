@@ -43,7 +43,6 @@ int NFTransPlayerBase::CreateInit()
     m_fromBusId = 0;
     m_bHasIncreasedCount = false;
     m_reqTransId = 0;
-    m_rpcId = INVALID_ID;
     return 0;
 }
 
@@ -91,16 +90,6 @@ int NFTransPlayerBase::Init(NFPlayer *pPlayer, uint32_t cmd, uint32_t fromBusId,
 NFPlayer *NFTransPlayerBase::GetPlayer()
 {
     return NFPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(m_playerId);
-}
-
-bool NFTransPlayerBase::IsTimeOut()
-{
-    if (m_rpcId > 0 && !FindModule<NFICoroutineModule>()->IsDead(m_rpcId))
-    {
-        return false;
-    }
-
-    return NFTransBase::IsTimeOut();
 }
 
 int NFTransPlayerBase::OnTimeOut()

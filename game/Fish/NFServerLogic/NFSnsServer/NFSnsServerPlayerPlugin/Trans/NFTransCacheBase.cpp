@@ -11,6 +11,7 @@
 #include "LoadCache/NFLoadCacheMgr.h"
 #include "Cache/NFCacheMgr.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransCacheBase, EOT_SNS_TRANS_CACHE_BASE_ID, NFTransBase)
 
@@ -32,7 +33,6 @@ NFTransCacheBase::~NFTransCacheBase()
 
 int NFTransCacheBase::CreateInit()
 {
-    m_query.CreateInit();
     m_bNotify = false;
     m_reqTrans = 0;
     m_bGetDetail= true;
@@ -104,7 +104,7 @@ int NFTransCacheBase::QueryRoleSimple(uint64_t roleID)
 int NFTransCacheBase::QueryRoleSimple()
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    for (int i = 0; i < m_query.m_queryRoleList.GetSize(); i++)
+    for (int i = 0; i < (int)m_query.m_queryRoleList.size(); i++)
     {
         if (m_query.m_queryRoleList[i] == 0)
         {
@@ -148,13 +148,13 @@ int NFTransCacheBase::QueryRole_CallBack(NFQueryRole &query)
 int NFTransCacheBase::QueryRoleDetail()
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    for (int i = 0; i < m_query.m_queryRoleList.GetSize(); i++) {
+    for (int i = 0; i < (int)m_query.m_queryRoleList.size(); i++) {
         if (m_query.m_queryRoleList[i] == 0) {
             AddQueryedDetailNum();
             continue;
         }
 
-        NFRoleDetail* pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetail(m_query.m_queryRoleList[i]);
+        NFPlayerDetail* pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetail(m_query.m_queryRoleList[i]);
         if (pRoleDetail)
         {
             AddQueryedDetailNum();

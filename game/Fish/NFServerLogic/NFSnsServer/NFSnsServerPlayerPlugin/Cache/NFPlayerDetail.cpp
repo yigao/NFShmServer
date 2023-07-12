@@ -136,5 +136,5 @@ NFSnsPart *NFPlayerDetail::GetPart(uint32_t partType)
 
 NFPlayerSimple *NFPlayerDetail::GetRoleSimple() const
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleSimple(m_playerId);
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
 }

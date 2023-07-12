@@ -27,7 +27,6 @@ NFQueryRole::~NFQueryRole()
 
 int NFQueryRole::CreateInit()
 {
-    m_queryRoleList.CreateInit();
     m_queryedNum = 0;
     m_roleId = 0;
     m_queryedDetailNum = 0;
@@ -41,9 +40,15 @@ int NFQueryRole::ResumeInit()
 
 int NFQueryRole::Add(uint64_t roleId)
 {
-    if (roleId == 0 || m_queryRoleList.IsFull())
+    if (roleId == 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "query role list full, add failed, ownerId:{}", m_roleId);
+        NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "query role:{} failed, ownerId:{}", roleId, m_roleId);
+        return -1;
+    }
+
+    if (m_queryRoleList.full())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "query role list full, add role:{} failed, ownerId:{}", roleId, m_roleId);
         return -1;
     }
 
@@ -52,6 +57,6 @@ int NFQueryRole::Add(uint64_t roleId)
         m_roleId = roleId;
     }
 
-    m_queryRoleList.Add(roleId);
+    m_queryRoleList.push_back(roleId);
     return 0;
 }

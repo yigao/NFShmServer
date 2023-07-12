@@ -58,14 +58,14 @@ int NFCacheMgr::ReleaseSimpleCount(int num)
     return 0;
 }
 
-NFPlayerSimple *NFCacheMgr::GetRoleSimple(uint64_t roleId)
+NFPlayerSimple *NFCacheMgr::GetPlayerSimple(uint64_t roleId)
 {
     return NFPlayerSimple::GetObjByHashKey(m_pObjPluginManager, roleId);
 }
 
-NFPlayerSimple *NFCacheMgr::CreateRoleSimple(uint64_t playerId)
+NFPlayerSimple *NFCacheMgr::CreatePlayerSimple(uint64_t playerId)
 {
-    NFPlayerSimple *pRoleSimple = GetRoleSimple(playerId);
+    NFPlayerSimple *pRoleSimple = GetPlayerSimple(playerId);
     CHECK_EXPR(pRoleSimple == NULL, NULL, "Create Role Simple Failed, data exist, roleId:{}", playerId);
 
     if (NFPlayerSimple::GetItemCount(m_pObjPluginManager) - NFPlayerSimple::GetUsedCount(m_pObjPluginManager) <=
@@ -96,7 +96,7 @@ int NFCacheMgr::DeleteRoleSimple(NFPlayerSimple *pRoleSimple)
 
 NFPlayerSimple *NFCacheMgr::QueryRoleSimple(uint64_t role_id, bool query)
 {
-    NFPlayerSimple *pSimple = GetRoleSimple(role_id);
+    NFPlayerSimple *pSimple = GetPlayerSimple(role_id);
     if (pSimple)
     {
         return pSimple;

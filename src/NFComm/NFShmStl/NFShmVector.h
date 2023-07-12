@@ -205,6 +205,8 @@ public:
 
     bool empty() const { return begin() == end(); }
 
+    bool full() const { return size() >= MAX_SIZE;}
+
     reference operator[](size_type __n)
     {
         NF_ASSERT_MSG(__n < MAX_SIZE, "__n:{} >= MAX_SIZE:{}, the server dump", __n, MAX_SIZE);

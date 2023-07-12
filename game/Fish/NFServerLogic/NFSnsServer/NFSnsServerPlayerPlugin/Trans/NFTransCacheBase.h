@@ -13,7 +13,6 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFQueryRole.h"
 
@@ -118,11 +117,11 @@ public:
 
     void AddQueryedSimpleNum() { m_query.m_queryedNum++; }
 
-    bool IsQuerySimpleFinished() { return m_query.m_queryedNum >= m_query.m_queryRoleList.GetSize(); }
+    bool IsQuerySimpleFinished() { return m_query.m_queryedNum >= (int)m_query.m_queryRoleList.size(); }
 
     void AddQueryedDetailNum() { m_query.m_queryedDetailNum++; }
 
-    bool IsQueryDetailFinished() { return m_query.m_queryedDetailNum >= m_query.m_queryRoleList.GetSize(); }
+    bool IsQueryDetailFinished() { return m_query.m_queryedDetailNum >= (int)m_query.m_queryRoleList.size(); }
 protected:
     NFQueryRole m_query;
     bool m_bNotify;

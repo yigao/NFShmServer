@@ -27,7 +27,7 @@ NFLoadCacheData::~NFLoadCacheData()
 
 int NFLoadCacheData::CreateInit()
 {
-    m_roleId = 0;
+    m_playerId = 0;
     m_transInfo.CreateInit();
     return 0;
 }
@@ -50,7 +50,7 @@ int NFLoadCacheData::AddTrans(uint32_t transId, uint64_t time)
     if (!m_transInfo.full()) {
         m_transInfo.emplace(transId, time);
     } else {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "get role info trans cache full:{} {}", m_roleId, m_transInfo.size());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "get role info trans cache full:{} {}", m_playerId, m_transInfo.size());
         return -1;
     }
 
@@ -70,7 +70,7 @@ int NFLoadCacheData::AddRpc(uint32_t rpcId, uint64_t time)
     if (!m_rpcInfo.full()) {
         m_rpcInfo.emplace(rpcId, time);
     } else {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "get role info rpc cache full:{} {}", m_roleId, m_transInfo.size());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "get role info rpc cache full:{} {}", m_playerId, m_transInfo.size());
         return -1;
     }
 

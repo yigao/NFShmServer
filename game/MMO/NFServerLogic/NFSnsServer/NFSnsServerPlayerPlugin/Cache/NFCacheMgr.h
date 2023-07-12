@@ -40,14 +40,14 @@ public:
      * @param roleId
      * @return
      */
-    NFRoleSimple *GetRoleSimple(uint64_t roleId);
+    NFRoleSimple *GetPlayerSimple(uint64_t roleId);
 
     /**
      * @brief
      * @param roleId
      * @return
      */
-    NFRoleSimple *CreateRoleSimple(uint64_t roleId);
+    NFRoleSimple *CreatePlayerSimple(uint64_t roleId);
 
     /**
      * @brief

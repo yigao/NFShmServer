@@ -39,14 +39,14 @@ public:
      * @param roleId
      * @return
      */
-    NFPlayerSimple *GetRoleSimple(uint64_t roleId);
+    NFPlayerSimple *GetPlayerSimple(uint64_t roleId);
 
     /**
      * @brief
      * @param playerId
      * @return
      */
-    NFPlayerSimple *CreateRoleSimple(uint64_t playerId);
+    NFPlayerSimple *CreatePlayerSimple(uint64_t playerId);
 
     /**
      * @brief

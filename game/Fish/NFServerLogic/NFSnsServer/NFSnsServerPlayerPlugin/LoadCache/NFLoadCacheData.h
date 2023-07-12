@@ -36,7 +36,7 @@ public:
         if (this == &data)
             return *this;
 
-        m_roleId = data.m_roleId;
+        m_playerId = data.m_playerId;
         for(auto iter = data.m_transInfo.begin(); iter != data.m_transInfo.end(); iter++)
         {
             m_transInfo.emplace(iter->first, iter->second);
@@ -65,7 +65,7 @@ public:
      */
     int AddRpc(uint32_t rpcId, uint64_t time);
 public:
-    uint64_t m_roleId;
+    uint64_t m_playerId;
     NFShmHashMap<uint32_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_transInfo;
     NFShmHashMap<uint32_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_rpcInfo;
 };

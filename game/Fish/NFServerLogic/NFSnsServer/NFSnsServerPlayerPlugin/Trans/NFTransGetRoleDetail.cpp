@@ -13,6 +13,7 @@
 #include "Cache/NFCacheMgr.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransGetRoleDetail, EOT_SNS_TRANS_GET_ROLE_DETAIL_ID, NFTransBase)
 
@@ -34,7 +35,7 @@ NFTransGetRoleDetail::~NFTransGetRoleDetail()
 
 int NFTransGetRoleDetail::CreateInit()
 {
-    m_roleId = 0;
+    m_playerId = 0;
     return 0;
 }
 
@@ -43,35 +44,11 @@ int NFTransGetRoleDetail::ResumeInit()
     return 0;
 }
 
-
-int NFTransGetRoleDetail::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq) {
+int NFTransGetRoleDetail::QueryRole(uint64_t playerId) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
+    m_playerId = playerId;
 
-int NFTransGetRoleDetail::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
-                                         uint32_t seq,
-                                         int32_t err_code) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-
-    int iRetCode = 0;
-    if (cmd == proto_ff::NF_STORESVR_S2C_SELECTOBJ) {
-        iRetCode = ProQueryRoleRes((const storesvr_sqldata::storesvr_selobj_res *)pSSMsgRes, err_code, seq);
-    }
-    else
-    {
-        iRetCode = -1;
-    }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return iRetCode;
-}
-
-int NFTransGetRoleDetail::QueryRole(uint64_t roleId) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    m_roleId = roleId;
-
-    auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetail(m_roleId);
+    auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetail(m_playerId);
     if (pRoleDetail)
     {
         SetFinished(0);
@@ -81,50 +58,48 @@ int NFTransGetRoleDetail::QueryRole(uint64_t roleId) {
     auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     CHECK_EXPR_ASSERT(pServerConfig, -1, "FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER) Failed");
 
-    proto_ff::RoleDBSnsDetail xData;
-    xData.set_cid(m_roleId);
-
-    FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
-                                                                 proto_ff::NF_STORESVR_C2S_SELECTOBJ, 0, pServerConfig->DefaultDBName,
-                                                                 "RoleDBSnsDetail", xData, GetGlobalId(), 0, m_roleId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
-    return 0;
-}
-
-int NFTransGetRoleDetail::ProQueryRoleRes(const storesvr_sqldata::storesvr_selobj_res *pSelectRsp, int32_t err_code,
-                                          int iTransID) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-
-    if (err_code == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY) {
-        return proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
-    }
-
-    if (err_code == proto_ff::ERR_CODE_SVR_OK)
-    {
-        proto_ff::RoleDBSnsDetail detailData;
-        bool ok = detailData.ParsePartialFromString(pSelectRsp->sel_record());
-        CHECK_EXPR(ok, -1, "ParseFromString Faield!");
-
-        NFRoleDetail *pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreateRoleDetail(m_roleId);
-        CHECK_EXPR(pRoleDetail, -1, "CreateRoleDetail Failed");
-
-        if (!pRoleDetail->IsInited())
+    proto_ff::tbFishSnsPlayerData xData;
+    xData.set_player_id(m_playerId);
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_playerId, xData, [this](int rpcRetCode, proto_ff::tbFishSnsPlayerData &respone) {
+        if (rpcRetCode == 0)
         {
-            pRoleDetail->Init(detailData);
-        }
-    }
-    else
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "trans get user detail data error:{}", err_code);
-        return -1;
-    }
+            auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetRoleDetail(m_playerId);
+            if (pRoleDetail)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "the player:{} detail exist after selectobj, some wrong error", m_playerId);
+                SetFinished(0);
+                return;
+            }
 
-    SetFinished(0);
+            pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreateRoleDetail(m_playerId);
+            if (pRoleDetail == NULL)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "NFCacheMgr CreateRoleDetail Failed");
+                SetFinished(proto_ff::ERR_CODE_SVR_SYSTEM_ERROR);
+                return;
+            }
+
+            if (!pRoleDetail->IsInited())
+            {
+                pRoleDetail->Init(respone);
+            }
+
+            SetFinished(0);
+            return;
+        }
+
+        SetFinished(rpcRetCode);
+    });
+
+    if (m_rpcId == INVALID_ID)
+    {
+        return proto_ff::ERR_CODE_RPC_SYSTEM_ERROR;
+    }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
 
 int NFTransGetRoleDetail::OnTransFinished(int iRunLogicRetCode) {
-    NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->HandleGetRoleDetailTransFinished(iRunLogicRetCode, m_roleId);
+    NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->HandleGetRoleDetailTransFinished(iRunLogicRetCode, m_playerId);
     return 0;
 }

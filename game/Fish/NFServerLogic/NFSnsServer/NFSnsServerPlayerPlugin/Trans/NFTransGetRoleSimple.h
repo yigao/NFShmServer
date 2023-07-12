@@ -13,7 +13,6 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "storesvr_sqldata.pb.h"
@@ -29,17 +28,12 @@ public:
 
     int ResumeInit();
 public:
-    virtual int HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq);
-
-    virtual int HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
-                               uint32_t seq, int32_t err_code);
-
     int ProQueryRoleRes(const storesvr_sqldata::storesvr_selobj_res* pSelectRsp, int32_t err_code, int iTransID);
 public:
-    int QueryRole(uint64_t roleId);
+    int QueryRole(uint64_t playerId);
 
     int OnTransFinished(int iRunLogicRetCode);
 private:
-    uint64_t m_roleId;
+    uint64_t m_playerId;
 DECLARE_IDCREATE(NFTransGetRoleSimple)
 };

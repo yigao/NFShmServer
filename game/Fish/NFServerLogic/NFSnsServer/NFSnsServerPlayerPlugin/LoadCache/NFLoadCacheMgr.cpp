@@ -13,6 +13,10 @@
 #include "Cache/NFCacheMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "Trans/NFQueryRole.h"
+#include "Trans/NFTransGetRoleSimple.h"
+#include "Trans/NFTransGetRoleDetail.h"
+#include "Trans/NFTransCacheBase.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFLoadCacheMgr, EOT_SNS_LOAD_CACHE_MGR_ID, NFShmObj)
 
@@ -59,14 +63,14 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
 {
     uint64_t timeNow = NFTime::Now().UnixSec();
 
-    for (auto loadIter = m_roleSimpleLoadingMap.Begin(); loadIter != m_roleSimpleLoadingMap.End();)
+    for (auto loadIter = m_roleSimpleLoadingMap.begin(); loadIter != m_roleSimpleLoadingMap.end();)
     {
-        auto pInfo = loadIter->second;
-        for (auto roleIter = pInfo->m_transInfo.Begin(); roleIter != pInfo->m_transInfo.End();)
+        auto pInfo = &loadIter->second;
+        for (auto roleIter = pInfo->m_transInfo.begin(); roleIter != pInfo->m_transInfo.end();)
         {
-            if ((timeNow - roleIter->m_loadTime) >= TRANS_SNS_BASE_TIMEOUT)
+            if ((timeNow - roleIter->second) >= TRANS_SNS_BASE_TIMEOUT)
             {
-                roleIter = pInfo->m_transInfo.Erase(roleIter);
+                roleIter = pInfo->m_transInfo.erase(roleIter);
             }
             else
             {
@@ -74,9 +78,9 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
             }
         }
 
-        if (pInfo->m_transInfo.IsEmpty())
+        if (pInfo->m_transInfo.empty())
         {
-            loadIter = m_roleSimpleLoadingMap.Erase(loadIter);
+            loadIter = m_roleSimpleLoadingMap.erase(loadIter);
         }
         else
         {
@@ -84,21 +88,25 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
         }
     }
 
-    while (!m_roleSimpleLoadingMap.IsFull() && !m_roleSimpleWaitLoadMap.IsEmpty() && NFTransGetRoleSimple::GetFreeCount(m_pObjPluginManager) > 0)
+    while (!m_roleSimpleLoadingMap.full() && !m_roleSimpleWaitLoadMap.empty() && NFTransGetRoleSimple::GetFreeCount(m_pObjPluginManager) > 0)
     {
-        auto waitIter = m_roleSimpleWaitLoadMap.Begin();
-        auto pWaitLoadData = waitIter->second;
+        auto waitIter = m_roleSimpleWaitLoadMap.begin();
+        auto pWaitLoadData = &waitIter->second;
         CHECK_EXPR_ASSERT(pWaitLoadData, -1, "m_roleWaitLoadMap Begin Failed");
 
-        auto pNewLoading = m_roleSimpleLoadingMap.Find(pWaitLoadData->m_roleId);
-        if (pNewLoading == NULL)
+        NFLoadCacheData* pNewLoading = NULL;
+        auto pNewLoading_iter = m_roleSimpleLoadingMap.find(pWaitLoadData->m_playerId);
+        if (pNewLoading_iter == m_roleSimpleLoadingMap.end())
         {
-            pNewLoading = m_roleSimpleLoadingMap.Insert(pWaitLoadData->m_roleId);
-            CHECK_EXPR_ASSERT(pNewLoading, -1, "m_RoleLoadingMap.Insert RoleId:{} Failed", pWaitLoadData->m_roleId);
+            pNewLoading = &m_roleSimpleLoadingMap[pWaitLoadData->m_playerId];
+            CHECK_EXPR_ASSERT(pNewLoading, -1, "m_RoleLoadingMap.Insert RoleId:{} Failed", pWaitLoadData->m_playerId);
+        }
+        else {
+            pNewLoading = &pNewLoading_iter->second;
         }
 
         *pNewLoading = *pWaitLoadData;
-        m_roleSimpleWaitLoadMap.Erase(waitIter);
+        m_roleSimpleWaitLoadMap.erase(waitIter);
 
         int retCode = TransGetRoleSimpleInfo(pNewLoading);
         if (retCode != 0)
@@ -114,14 +122,14 @@ int NFLoadCacheMgr::RefreshDetailQueue()
 {
     uint64_t timeNow = NFTime::Now().UnixSec();
 
-    for (auto loadIter = m_roleDetailLoadingMap.Begin(); loadIter != m_roleDetailLoadingMap.End();)
+    for (auto loadIter = m_roleDetailLoadingMap.begin(); loadIter != m_roleDetailLoadingMap.end();)
     {
-        auto pInfo = loadIter->second;
-        for (auto roleIter = pInfo->m_transInfo.Begin(); roleIter != pInfo->m_transInfo.End();)
+        auto pInfo = &loadIter->second;
+        for (auto roleIter = pInfo->m_transInfo.begin(); roleIter != pInfo->m_transInfo.end();)
         {
-            if ((timeNow - roleIter->m_loadTime) >= TRANS_SNS_BASE_TIMEOUT)
+            if ((timeNow - roleIter->second) >= TRANS_SNS_BASE_TIMEOUT)
             {
-                roleIter = pInfo->m_transInfo.Erase(roleIter);
+                roleIter = pInfo->m_transInfo.erase(roleIter);
             }
             else
             {
@@ -129,9 +137,9 @@ int NFLoadCacheMgr::RefreshDetailQueue()
             }
         }
 
-        if (pInfo->m_transInfo.IsEmpty())
+        if (pInfo->m_transInfo.empty())
         {
-            loadIter = m_roleDetailLoadingMap.Erase(loadIter);
+            loadIter = m_roleDetailLoadingMap.erase(loadIter);
         }
         else
         {
@@ -139,21 +147,24 @@ int NFLoadCacheMgr::RefreshDetailQueue()
         }
     }
 
-    while (!m_roleDetailLoadingMap.IsFull() && !m_roleDetailWaitLoadMap.IsEmpty() && NFTransGetRoleDetail::GetFreeCount(m_pObjPluginManager) > 0)
+    while (!m_roleDetailLoadingMap.full() && !m_roleDetailWaitLoadMap.empty() && NFTransGetRoleDetail::GetFreeCount(m_pObjPluginManager) > 0)
     {
-        auto waitIter = m_roleDetailWaitLoadMap.Begin();
-        auto pWaitLoadData = waitIter->second;
-        CHECK_EXPR_ASSERT(pWaitLoadData, -1, "m_roleWaitLoadMap.GetByIndex Index:{} Failed", *waitIter.m_staticListIter);
+        auto waitIter = m_roleDetailWaitLoadMap.begin();
+        auto pWaitLoadData = &waitIter->second;
 
-        auto pNewLoading = m_roleDetailLoadingMap.Find(pWaitLoadData->m_roleId);
-        if (pNewLoading == NULL)
+        NFLoadCacheData* pNewLoading = NULL;
+        auto pNewLoading_iter = m_roleDetailLoadingMap.find(pWaitLoadData->m_playerId);
+        if (pNewLoading_iter == m_roleDetailLoadingMap.end())
         {
-            pNewLoading = m_roleDetailLoadingMap.Insert(pWaitLoadData->m_roleId);
-            CHECK_EXPR_ASSERT(pNewLoading, -1, "m_RoleLoadingMap.Insert RoleId:{} Failed", pWaitLoadData->m_roleId);
+            pNewLoading = &m_roleDetailLoadingMap[pWaitLoadData->m_playerId];
+            CHECK_EXPR_ASSERT(pNewLoading, -1, "m_RoleLoadingMap.Insert RoleId:{} Failed", pWaitLoadData->m_playerId);
+        }
+        else {
+            pNewLoading = &pNewLoading_iter->second;
         }
 
         *pNewLoading = *pWaitLoadData;
-        m_roleDetailWaitLoadMap.Erase(waitIter);
+        m_roleDetailWaitLoadMap.erase(waitIter);
 
         int retCode = TransGetRoleDetailInfo(pNewLoading);
         if (retCode != 0)
@@ -168,15 +179,16 @@ int NFLoadCacheMgr::RefreshDetailQueue()
 int NFLoadCacheMgr::HandleGetRoleSimpleTransFinished(int iRunLogicRetCode, uint64_t roleId)
 {
     uint32_t timeNow = NFTime::Now().UnixSec();
-    auto pLoadingData = m_roleSimpleLoadingMap.Find(roleId);
-    if (pLoadingData)
+    auto pLoadingData_iter = m_roleSimpleLoadingMap.find(roleId);
+    if (pLoadingData_iter != m_roleSimpleLoadingMap.end())
     {
+        auto pLoadingData = &pLoadingData_iter->second;
         // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
-        for (auto iter = pLoadingData->m_transInfo.Begin(); iter != pLoadingData->m_transInfo.End(); iter++)
+        for (auto iter = pLoadingData->m_transInfo.begin(); iter != pLoadingData->m_transInfo.end(); iter++)
         {
-            if (iter->m_transId > 0 && (timeNow - iter->m_loadTime) < TRANS_ACTIVE_TIMEOUT)
+            if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
             {
-                NFTransBase *pTransBase = FindModule<NFISharedMemModule>()->GetTrans(iter->m_transId);
+                NFTransBase *pTransBase = FindModule<NFISharedMemModule>()->GetTrans(iter->first);
                 if (pTransBase)
                 {
                     NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
@@ -185,7 +197,7 @@ int NFLoadCacheMgr::HandleGetRoleSimpleTransFinished(int iRunLogicRetCode, uint6
             }
         }
 
-        m_roleSimpleLoadingMap.Erase(roleId);
+        m_roleSimpleLoadingMap.erase(roleId);
     }
 
     RefreshSimpleQueue();
@@ -204,18 +216,18 @@ int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t tim
     }
 
     auto pLoadingData = m_roleSimpleLoadingMap.find(roleId);
-    if (pLoadingData)
+    if (pLoadingData != m_roleSimpleLoadingMap.end())
     {
-        pLoadingData->Add(transId, time);
+        pLoadingData->second.AddTrans(transId, time);
         return 0;
     }
 
-    if (!m_roleSimpleLoadingMap.IsFull() && m_roleSimpleWaitLoadMap.IsEmpty()
+    if (!m_roleSimpleLoadingMap.full() && m_roleSimpleWaitLoadMap.empty()
         && NFTransGetRoleSimple::GetFreeCount(m_pObjPluginManager) > 0)
     {
-        auto pRoleInfo = m_roleSimpleLoadingMap.Insert(roleId);
+        auto pRoleInfo = &m_roleSimpleLoadingMap[roleId];
         NF_ASSERT(pRoleInfo);
-        pRoleInfo->m_roleId = roleId;
+        pRoleInfo->m_playerId = roleId;
         pRoleInfo->AddTrans(transId, time);
 
         int retCode = TransGetRoleSimpleInfo(pRoleInfo);
@@ -226,10 +238,10 @@ int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t tim
     }
     else
     {
-        NFLoadCacheData *pstFind = m_roleSimpleWaitLoadMap.Find(roleId);
-        if (pstFind)
+        auto pstFind_iter = m_roleSimpleWaitLoadMap.find(roleId);
+        if (pstFind_iter != m_roleSimpleWaitLoadMap.end())
         {
-            if (pstFind->AddTrans(transId, time) != 0)
+            if (pstFind_iter->second.AddTrans(transId, time) != 0)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "pstFind->AddTrans(transId, time) Failed");
                 return -1;
@@ -237,20 +249,20 @@ int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t tim
         }
         else
         {
-            if (m_roleSimpleWaitLoadMap.IsFull())
+            if (m_roleSimpleWaitLoadMap.full())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "m_roleWaitLoadMap full");
                 return -1;
             }
 
-            NFLoadCacheData *pTmpData = m_roleSimpleWaitLoadMap.Insert(roleId);
+            NFLoadCacheData *pTmpData = &m_roleSimpleWaitLoadMap[roleId];
             if (pTmpData == NULL)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "m_sRoleStatic Insert Failed, roleId:{}", roleId);
                 return -1;
             }
 
-            pTmpData->m_roleId = roleId;
+            pTmpData->m_playerId = roleId;
             if (pTmpData->AddTrans(transId, time))
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "NFLoadCacheData AddTrans Failed, roleId:{}", roleId);
@@ -264,10 +276,10 @@ int NFLoadCacheMgr::GetRoleSimpleInfo(uint64_t roleId, int transId, uint64_t tim
 
 int NFLoadCacheMgr::GetCheckedRoleSimpleInfo(uint64_t roleId)
 {
-    NFRoleSimple *pSimple = NFCacheMgr::Instance(m_pObjPluginManager)->QueryRoleSimple(roleId, false);
+    NFPlayerSimple *pSimple = NFCacheMgr::Instance(m_pObjPluginManager)->QueryRoleSimple(roleId, false);
     if(pSimple)
     {
-        NFRoleDetail* pDetail = NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleDetail(roleId);
+        NFPlayerDetail* pDetail = NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleDetail(roleId);
         if(pDetail)
         {
             return 0;
@@ -291,9 +303,9 @@ int NFLoadCacheMgr::TransGetRoleSimpleInfo(NFLoadCacheData *data)
         return -1;
     }
 
-    if (pTrans->QueryRole(data->m_roleId) != 0)
+    if (pTrans->QueryRole(data->m_playerId) != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "query role error {}", data->m_roleId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "query role error {}", data->m_playerId);
         pTrans->SetFinished(-1);
     }
 
@@ -310,19 +322,19 @@ int NFLoadCacheMgr::GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t tim
         transId = -1;
     }
 
-    auto pLoadingData = m_roleDetailLoadingMap.Find(roleId);
-    if (pLoadingData)
+    auto pLoadingData_iter = m_roleDetailLoadingMap.find(roleId);
+    if (pLoadingData_iter != m_roleDetailLoadingMap.end())
     {
-        pLoadingData->AddTrans(transId, time);
+        pLoadingData_iter->second.AddTrans(transId, time);
         return 0;
     }
 
-    if (!m_roleDetailLoadingMap.IsFull() && m_roleDetailWaitLoadMap.IsEmpty()
+    if (!m_roleDetailLoadingMap.full() && m_roleDetailWaitLoadMap.empty()
         && NFTransGetRoleDetail::GetFreeCount(m_pObjPluginManager) > 0)
     {
-        auto pRoleInfo = m_roleDetailLoadingMap.Insert(roleId);
+        auto pRoleInfo = &m_roleDetailLoadingMap[roleId];
         NF_ASSERT(pRoleInfo);
-        pRoleInfo->m_roleId = roleId;
+        pRoleInfo->m_playerId = roleId;
         pRoleInfo->AddTrans(transId, time);
 
         int retCode = TransGetRoleDetailInfo(pRoleInfo);
@@ -333,10 +345,10 @@ int NFLoadCacheMgr::GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t tim
     }
     else
     {
-        NFLoadCacheData *pstFind = m_roleDetailWaitLoadMap.Find(roleId);
-        if (pstFind)
+        auto pstFind_iter = m_roleDetailWaitLoadMap.find(roleId);
+        if (pstFind_iter != m_roleDetailWaitLoadMap.end())
         {
-            if (pstFind->AddTrans(transId, time) != 0)
+            if (pstFind_iter->second.AddTrans(transId, time) != 0)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "pstFind->AddTrans(transId, time) Failed");
                 return -1;
@@ -344,20 +356,20 @@ int NFLoadCacheMgr::GetRoleDetailInfo(uint64_t roleId, int transId, uint32_t tim
         }
         else
         {
-            if (m_roleDetailWaitLoadMap.IsFull())
+            if (m_roleDetailWaitLoadMap.full())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "m_roleDetailWaitLoadMap full");
                 return -1;
             }
 
-            NFLoadCacheData *pTmpData = m_roleDetailWaitLoadMap.Insert(roleId);
+            NFLoadCacheData *pTmpData = &m_roleDetailWaitLoadMap[roleId];
             if (pTmpData == NULL)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "m_roleDetailWaitLoadMap Insert Failed, roleId:{}", roleId);
                 return -1;
             }
 
-            pTmpData->m_roleId = roleId;
+            pTmpData->m_playerId = roleId;
             if (pTmpData->AddTrans(transId, time))
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "NFLoadCacheData AddTrans Failed, roleId:{}", roleId);
@@ -379,9 +391,9 @@ int NFLoadCacheMgr::TransGetRoleDetailInfo(NFLoadCacheData *data)
         return -1;
     }
 
-    if (pTrans->QueryRole(data->m_roleId) != 0)
+    if (pTrans->QueryRole(data->m_playerId) != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "query role error {}", data->m_roleId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "query role error {}", data->m_playerId);
         pTrans->SetFinished(-1);
     }
 
@@ -391,15 +403,15 @@ int NFLoadCacheMgr::TransGetRoleDetailInfo(NFLoadCacheData *data)
 int NFLoadCacheMgr::HandleGetRoleDetailTransFinished(int iRunLogicRetCode, uint64_t roleId)
 {
     uint32_t timeNow = NFTime::Now().UnixSec();
-    auto pLoadingData = m_roleDetailLoadingMap.Find(roleId);
-    if (pLoadingData)
+    auto pLoadingData_iter = m_roleDetailLoadingMap.find(roleId);
+    if (pLoadingData_iter != m_roleDetailLoadingMap.end())
     {
         // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
-        for (auto iter = pLoadingData->m_transInfo.Begin(); iter != pLoadingData->m_transInfo.End(); iter++)
+        for (auto iter = pLoadingData_iter->second.m_transInfo.begin(); iter != pLoadingData_iter->second.m_transInfo.end(); iter++)
         {
-            if (iter->m_transId > 0 && (timeNow - iter->m_loadTime) < TRANS_ACTIVE_TIMEOUT)
+            if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
             {
-                NFTransBase *pTransBase = FindModule<NFISharedMemModule>()->GetTrans(iter->m_transId);
+                NFTransBase *pTransBase = FindModule<NFISharedMemModule>()->GetTrans(iter->first);
                 if (pTransBase)
                 {
                     NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
@@ -408,7 +420,7 @@ int NFLoadCacheMgr::HandleGetRoleDetailTransFinished(int iRunLogicRetCode, uint6
             }
         }
 
-        m_roleDetailLoadingMap.Erase(roleId);
+        m_roleDetailLoadingMap.erase(roleId);
     }
 
     RefreshDetailQueue();

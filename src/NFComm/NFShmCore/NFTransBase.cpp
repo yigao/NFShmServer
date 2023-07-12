@@ -17,6 +17,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFError.h"
+#include "NFComm/NFPluginModule/NFICoroutineModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransBase, EOT_TRANS_BASE, NFShmObj)
 
@@ -44,6 +45,7 @@ int NFTransBase::CreateInit()
     m_bIsFinished = false;
     m_wRunedTimes = 0;
     m_iRunLogicRetCode = 0;
+    m_rpcId = INVALID_ID;
     Init();
     return 0;
 }
@@ -295,6 +297,11 @@ std::string NFTransBase::DebugString() const
 
 bool NFTransBase::IsTimeOut()
 {
+    if (m_rpcId > 0 && !FindModule<NFICoroutineModule>()->IsDead(m_rpcId))
+    {
+        return false;
+    }
+
     if (NFTime::Now().UnixSec() >= m_dwKeepAliveTime + TRANS_ACTIVE_TIMEOUT)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "This Trans TimeOut Info:{}", DebugString());

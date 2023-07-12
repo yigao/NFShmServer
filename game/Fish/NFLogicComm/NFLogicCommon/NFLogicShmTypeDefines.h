@@ -24,10 +24,12 @@ typedef enum
     EOT_SNS_ROLE_DETAIL_ID,
     EOT_SNS_CACHE_MGR_ID,
     EOT_SNS_LOAD_CACHE_MGR_ID,
-    EOT_SNS_PART_ID,
     ////////////////////////////sns trans server/////////////////////////////
-
-    ////////////////////////////sns server/////////////////////////////
+    EOT_SNS_TRANS_CACHE_BASE_ID,
+    EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID,
+    EOT_SNS_TRANS_GET_ROLE_DETAIL_ID,
+    ////////////////////////////sns part server/////////////////////////////
+    EOT_SNS_PART_ID,
 
 	////////////////////////////sns server/////////////////////////////
 

@@ -122,7 +122,7 @@ int NFSnsPart::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Mes
 
 NFPlayerSimple *NFSnsPart::GetPlayerSimple()
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetRoleSimple(m_playerId);
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
 }
 
 

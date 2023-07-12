@@ -11,11 +11,8 @@
 
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
-#include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFComm/NFShmCore/NFArray.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 
 #define MAX_QUERY_ROLE  120
 #define TRANS_SNS_BASE_TIMEOUT 60
@@ -53,7 +50,7 @@ public:
     /**
      * @brief 被查询的角色队列
      */
-    NFArray<uint64_t, MAX_QUERY_ROLE> m_queryRoleList;
+    NFShmVector<uint64_t, MAX_QUERY_ROLE> m_queryRoleList;
 
     /**
      * @brief 已经查询到的数量

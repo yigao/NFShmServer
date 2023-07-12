@@ -28,14 +28,12 @@ public:
     NFPlayer *GetPlayer();
 
 	virtual int OnTimeOut();
-    virtual bool IsTimeOut();
 	virtual int OnTransFinished(int iRunLogicRetCode);
 protected:
 	uint32_t m_cmd;
 	uint64_t m_playerId;
 	uint32_t m_fromBusId;
 	uint32_t m_reqTransId;
-    int m_rpcId;
 	bool m_bHasIncreasedCount;
 	DECLARE_IDCREATE(NFTransPlayerBase)
 };
