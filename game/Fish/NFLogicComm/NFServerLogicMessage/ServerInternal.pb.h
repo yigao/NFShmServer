@@ -697,6 +697,13 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   inline ::std::string* release_client_ip();
   inline void set_allocated_client_ip(::std::string* client_ip);
 
+  // optional uint32 logic_bus_id = 8;
+  inline bool has_logic_bus_id() const;
+  inline void clear_logic_bus_id();
+  static const int kLogicBusIdFieldNumber = 8;
+  inline ::google::protobuf::uint32 logic_bus_id() const;
+  inline void set_logic_bus_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTSLoginReq)
  private:
   inline void set_has_user_id();
@@ -711,6 +718,8 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   inline void clear_has_proxy_bus_id();
   inline void set_has_client_ip();
   inline void clear_has_client_ip();
+  inline void set_has_logic_bus_id();
+  inline void clear_has_logic_bus_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -720,9 +729,10 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 game_bus_id_;
   ::google::protobuf::uint32 proxy_bus_id_;
   ::std::string* client_ip_;
+  ::google::protobuf::uint32 logic_bus_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -1716,6 +1726,28 @@ inline void Proto_WTSLoginReq::set_allocated_client_ip(::std::string* client_ip)
     clear_has_client_ip();
     client_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   }
+}
+
+// optional uint32 logic_bus_id = 8;
+inline bool Proto_WTSLoginReq::has_logic_bus_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_logic_bus_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void Proto_WTSLoginReq::clear_has_logic_bus_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void Proto_WTSLoginReq::clear_logic_bus_id() {
+  logic_bus_id_ = 0u;
+  clear_has_logic_bus_id();
+}
+inline ::google::protobuf::uint32 Proto_WTSLoginReq::logic_bus_id() const {
+  return logic_bus_id_;
+}
+inline void Proto_WTSLoginReq::set_logic_bus_id(::google::protobuf::uint32 value) {
+  set_has_logic_bus_id();
+  logic_bus_id_ = value;
 }
 
 // -------------------------------------------------------------------

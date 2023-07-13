@@ -57,6 +57,7 @@ message Proto_WTSLoginReq
   optional uint32 game_bus_id = 4;
   optional uint32 proxy_bus_id = 5;
   optional string client_ip = 7;
+  optional uint32 logic_bus_id = 8;
 }
 
 message Proto_STWLoginRsp

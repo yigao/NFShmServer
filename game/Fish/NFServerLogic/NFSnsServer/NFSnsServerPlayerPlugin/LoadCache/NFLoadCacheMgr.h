@@ -30,6 +30,7 @@ public:
     virtual int OnTimer(int timeId, int callcount) override;
     int RefreshSimpleQueue();
     int RefreshDetailQueue();
+    int RefreshRpcQueue();
 public:
     // 接口没有做RoleSimple检测,需要自己提前检测（如TransSnsBase）
     int GetPlayerSimpleInfo(uint64_t playerId, int transId, uint64_t time);
@@ -78,5 +79,7 @@ private:
 private:
     NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GET_PLAYER_SIMPLE_INFO_QUEUE> m_playerDetailWaitLoadMap;
     NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GETTING_PLAYER_SIZE> m_playerDetailLoadingMap;
+private:
+    NFShmHashMap<int64_t, int32_t, SNS_GETTING_PLAYER_SIZE> m_waitResumeRpcMap;
 DECLARE_IDCREATE(NFLoadCacheMgr)
 };

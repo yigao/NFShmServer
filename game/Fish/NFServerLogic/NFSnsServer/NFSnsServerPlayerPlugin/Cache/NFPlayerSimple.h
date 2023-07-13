@@ -66,13 +66,45 @@ public:
     int Init(const proto_ff::pbFishPlayerSimpleData &dbData);
 
 public:
-    int OnLogin(bool isLoadDB);
+    /**
+     * @brief 登陆入口
+     * @return
+     */
+    virtual int OnLogin();
 
-    int OnLogout();
+    /**
+     * @brief 登出入口
+     * @return
+     */
+    virtual int OnLogout();
 
-    int OnDisconnect(uint32_t reason);
+    /**
+     * @brief 掉线入口
+     * @return
+     */
+    virtual int OnDisconnect();
 
-    int OnReconnect();
+    /**
+     * @brief 重连入口
+     * @return
+     */
+    virtual int OnReconnect();
+
+public:
+    ////////////////////////////////// 每日每周刷新接口 ///////////////////////////////////
+    /**
+     * @brief 每日刷新接口
+     * @param unixSec
+     * @return
+     */
+    virtual int DailyUpdate(uint64_t unixSec) { return 0; }
+
+    /**
+     * @brief 每周刷新接口
+     * @param unixSec
+     * @return
+     */
+    virtual int WeekUpdate(uint64_t unixSec) { return 0; };
 
 public:
     bool CanDelete();
@@ -105,8 +137,6 @@ public:
      * @brief
      */
     uint32_t m_proxyId;
-
-    uint64_t m_clientId;
 
     /**
      * @brief

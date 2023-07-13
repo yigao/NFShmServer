@@ -56,11 +56,12 @@ int NFLoadCacheMgr::OnTimer(int timeId, int callcount)
     {
         RefreshSimpleQueue();
         RefreshDetailQueue();
+        RefreshRpcQueue();
     }
     return 0;
 }
 
-int NFLoadCacheMgr::RefreshSimpleQueue()
+int NFLoadCacheMgr::RefreshRpcQueue()
 {
     uint64_t timeNow = NFTime::Now().UnixSec();
 
@@ -86,7 +87,7 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
 
             for (auto iter = pLoadingData->m_rpcInfo.begin(); iter != pLoadingData->m_rpcInfo.end(); iter++)
             {
-                if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
+                if (iter->first > 0)
                 {
                     FindModule<NFICoroutineModule>()->Resume(iter->first, 0);
                 }
@@ -95,6 +96,24 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
             loadIter = m_playerSimpleLoadingMap.erase(loadIter);
             continue;
         }
+    }
+
+    for(auto iter = m_waitResumeRpcMap.begin(); iter != m_waitResumeRpcMap.end(); )
+    {
+        FindModule<NFICoroutineModule>()->Resume(iter->first, iter->second);
+        iter = m_waitResumeRpcMap.erase(iter);
+    }
+
+    return 0;
+}
+
+int NFLoadCacheMgr::RefreshSimpleQueue()
+{
+    uint64_t timeNow = NFTime::Now().UnixSec();
+
+    for (auto loadIter = m_playerSimpleLoadingMap.begin(); loadIter != m_playerSimpleLoadingMap.end();)
+    {
+        auto pInfo = &loadIter->second;
 
         for (auto roleIter = pInfo->m_transInfo.begin(); roleIter != pInfo->m_transInfo.end();)
         {
@@ -256,9 +275,21 @@ int NFLoadCacheMgr::HandleGetRoleSimpleTransFinished(int iRunLogicRetCode, uint6
 
         for (auto iter = pLoadingData->m_rpcInfo.begin(); iter != pLoadingData->m_rpcInfo.end(); iter++)
         {
-            if (iter->first > 0 && (timeNow - iter->second) < DEFINE_RPC_SERVICE_TIME_OUT_MS)
+            if (iter->first > 0)
             {
-                FindModule<NFICoroutineModule>()->Resume(iter->first, iRunLogicRetCode);
+                if (m_waitResumeRpcMap.find(iter->first) != m_waitResumeRpcMap.end())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the rpc is in the m_waitResumeRpcMap, playerId:{} rpc:{} ", pLoadingData_iter->first, iter->first)
+                }
+                else {
+                    if (m_waitResumeRpcMap.full())
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the m_waitResumeRpcMap full, playerId:{} rpc:{} ", pLoadingData_iter->first, iter->first)
+                    }
+                    else {
+                        m_waitResumeRpcMap.emplace(iter->first, iRunLogicRetCode);
+                    }
+                }
             }
         }
 

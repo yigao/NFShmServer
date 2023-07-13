@@ -38,6 +38,7 @@ bool NFCSnsPlayerModule::Awake()
 
 bool NFCSnsPlayerModule::Init()
 {
+    //SetTimer(1, 10000, 1);
     return true;
 }
 
@@ -49,6 +50,16 @@ bool NFCSnsPlayerModule::Execute()
 bool NFCSnsPlayerModule::OnDynamicPlugin()
 {
     return true;
+}
+
+int NFCSnsPlayerModule::OnTimer(uint32_t nTimerID)
+{
+    NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimple(10000);
+    FindModule<NFICoroutineModule>()->MakeCoroutine([this]{
+        NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(10000);
+    });
+
+    return 0;
 }
 
 int NFCSnsPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
@@ -69,13 +80,13 @@ int NFCSnsPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
 {
     if (!m_pObjPluginManager->IsInited())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Sns Server not inited, drop client msg:{}", packet.ToString());
         return -1;
     }
 
     if (m_pObjPluginManager->IsServerStopping())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Sns Server is Stopping, drop client msg:{}", packet.ToString());
         return -1;
     }
 
@@ -95,13 +106,13 @@ int NFCSnsPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
 {
     if (!m_pObjPluginManager->IsInited())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Sns Server not inited, drop client msg:{}", packet.ToString());
         return -1;
     }
 
     if (m_pObjPluginManager->IsServerStopping())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Sns Server is Stopping, drop client msg:{}", packet.ToString());
         return -1;
     }
 
@@ -130,7 +141,13 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
         return 0;
     }
 
-    int iRet = pPlayer->OnLogin(true);
+    pPlayer->SetProxyId(request.proxy_bus_id());
+    pPlayer->SetLogicId(request.logic_bus_id());
+    pPlayer->SetGameId(request.game_id());
+    pPlayer->SetIsOnline(true);
+
+
+    int iRet = pPlayer->OnLogin();
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayer:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));

@@ -128,13 +128,14 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_LogicToWorldLoginRsp));
   Proto_WTSLoginReq_descriptor_ = file->message_type(4);
-  static const int Proto_WTSLoginReq_offsets_[6] = {
+  static const int Proto_WTSLoginReq_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, game_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, room_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, game_bus_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, proxy_bus_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, client_ip_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, logic_bus_id_),
   };
   Proto_WTSLoginReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -234,14 +235,15 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "_UserLoginExternalData\"x\n\032Proto_LogicToW"
     "orldLoginRsp\022\016\n\006result\030\001 \001(\r\022\017\n\007user_id\030"
     "\002 \001(\004\0229\n\013detail_data\030\007 \001(\0132$.proto_ff.Pr"
-    "oto_UserDetailCommonData\"\204\001\n\021Proto_WTSLo"
+    "oto_UserDetailCommonData\"\232\001\n\021Proto_WTSLo"
     "ginReq\022\017\n\007user_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r"
     "\022\017\n\007room_id\030\003 \001(\r\022\023\n\013game_bus_id\030\004 \001(\r\022\024"
-    "\n\014proxy_bus_id\030\005 \001(\r\022\021\n\tclient_ip\030\007 \001(\t\""
-    "4\n\021Proto_STWLoginRsp\022\016\n\006result\030\001 \001(\r\022\017\n\007"
-    "user_id\030\002 \001(\004*a\n\022Proto_AccountState\022\025\n\021E"
-    "_ACCOUNTSTATE_OK\020\000\022\031\n\025E_ACCOUNTSTATE_FRE"
-    "EZE\020\001\022\031\n\025E_ACCOUNTSTATE_FORBIT\020\002", 1032);
+    "\n\014proxy_bus_id\030\005 \001(\r\022\021\n\tclient_ip\030\007 \001(\t\022"
+    "\024\n\014logic_bus_id\030\010 \001(\r\"4\n\021Proto_STWLoginR"
+    "sp\022\016\n\006result\030\001 \001(\r\022\017\n\007user_id\030\002 \001(\004*a\n\022P"
+    "roto_AccountState\022\025\n\021E_ACCOUNTSTATE_OK\020\000"
+    "\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOUNT"
+    "STATE_FORBIT\020\002", 1054);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -1913,6 +1915,7 @@ const int Proto_WTSLoginReq::kRoomIdFieldNumber;
 const int Proto_WTSLoginReq::kGameBusIdFieldNumber;
 const int Proto_WTSLoginReq::kProxyBusIdFieldNumber;
 const int Proto_WTSLoginReq::kClientIpFieldNumber;
+const int Proto_WTSLoginReq::kLogicBusIdFieldNumber;
 #endif  // !_MSC_VER
 
 Proto_WTSLoginReq::Proto_WTSLoginReq()
@@ -1937,6 +1940,7 @@ void Proto_WTSLoginReq::SharedCtor() {
   game_bus_id_ = 0u;
   proxy_bus_id_ = 0u;
   client_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  logic_bus_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1985,6 +1989,7 @@ void Proto_WTSLoginReq::Clear() {
         client_ip_->clear();
       }
     }
+    logic_bus_id_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2088,6 +2093,22 @@ bool Proto_WTSLoginReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(64)) goto parse_logic_bus_id;
+        break;
+      }
+
+      // optional uint32 logic_bus_id = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_logic_bus_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &logic_bus_id_)));
+          set_has_logic_bus_id();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2144,6 +2165,11 @@ void Proto_WTSLoginReq::SerializeWithCachedSizes(
       7, this->client_ip(), output);
   }
 
+  // optional uint32 logic_bus_id = 8;
+  if (has_logic_bus_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->logic_bus_id(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2185,6 +2211,11 @@ void Proto_WTSLoginReq::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         7, this->client_ip(), target);
+  }
+
+  // optional uint32 logic_bus_id = 8;
+  if (has_logic_bus_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->logic_bus_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2240,6 +2271,13 @@ int Proto_WTSLoginReq::ByteSize() const {
           this->client_ip());
     }
 
+    // optional uint32 logic_bus_id = 8;
+    if (has_logic_bus_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->logic_bus_id());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -2285,6 +2323,9 @@ void Proto_WTSLoginReq::MergeFrom(const Proto_WTSLoginReq& from) {
     if (from.has_client_ip()) {
       set_client_ip(from.client_ip());
     }
+    if (from.has_logic_bus_id()) {
+      set_logic_bus_id(from.logic_bus_id());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2314,6 +2355,7 @@ void Proto_WTSLoginReq::Swap(Proto_WTSLoginReq* other) {
     std::swap(game_bus_id_, other->game_bus_id_);
     std::swap(proxy_bus_id_, other->proxy_bus_id_);
     std::swap(client_ip_, other->client_ip_);
+    std::swap(logic_bus_id_, other->logic_bus_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

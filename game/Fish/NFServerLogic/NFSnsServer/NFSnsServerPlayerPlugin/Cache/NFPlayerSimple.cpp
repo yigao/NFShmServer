@@ -33,7 +33,6 @@ int NFPlayerSimple::CreateInit()
 {
     m_playerId = 0;
     m_proxyId = 0;
-    m_clientId = 0;
     m_gameId = 0;
     m_isOnline = false;
     m_isInited = false;
@@ -73,16 +72,6 @@ uint32_t NFPlayerSimple::GetProxyId() const
 void NFPlayerSimple::SetProxyId(uint32_t proxyId)
 {
     m_proxyId = proxyId;
-}
-
-uint64_t NFPlayerSimple::GetClientId() const
-{
-    return m_clientId;
-}
-
-void NFPlayerSimple::SetClientId(uint64_t clientId)
-{
-    m_clientId = clientId;
 }
 
 uint32_t NFPlayerSimple::GetLogicId() const
@@ -130,7 +119,7 @@ void NFPlayerSimple::ReadFromPB(const proto_ff::pbFishPlayerSimpleData& dbData)
     m_simpleData.read_from_pbmsg(dbData);
 }
 
-int NFPlayerSimple::OnLogin(bool isLoadDB)
+int NFPlayerSimple::OnLogin()
 {
     return 0;
 }
@@ -140,7 +129,7 @@ int NFPlayerSimple::OnLogout()
     return 0;
 }
 
-int NFPlayerSimple::OnDisconnect(uint32_t reason)
+int NFPlayerSimple::OnDisconnect()
 {
     return 0;
 }
@@ -152,7 +141,7 @@ int NFPlayerSimple::OnReconnect()
 
 int NFPlayerSimple::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_SNS_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, m_simpleData.player_id, m_clientId);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_SNS_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, m_simpleData.player_id, 0);
     return 0;
 }
 

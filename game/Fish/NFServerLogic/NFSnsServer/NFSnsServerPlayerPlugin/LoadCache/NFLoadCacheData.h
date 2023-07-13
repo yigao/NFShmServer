@@ -55,7 +55,7 @@ public:
      * @param rtime
      * @return
      */
-    int AddTrans(uint32_t transId, uint64_t time);
+    int AddTrans(int32_t transId, uint64_t time);
 
     /**
      * @brief 添加rpc
@@ -66,7 +66,7 @@ public:
     int AddRpc(int64_t rpcId, uint64_t time);
 public:
     uint64_t m_playerId;
-    NFShmHashMap<uint32_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_transInfo;
+    NFShmHashMap<int32_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_transInfo;
     NFShmHashMap<int64_t, uint64_t, SNS_CALLBACK_TRANS_RUN_TIMES> m_rpcInfo;
     bool m_bFinished;
 };

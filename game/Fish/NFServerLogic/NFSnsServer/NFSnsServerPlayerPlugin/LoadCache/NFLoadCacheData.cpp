@@ -38,7 +38,7 @@ int NFLoadCacheData::ResumeInit()
     return 0;
 }
 
-int NFLoadCacheData::AddTrans(uint32_t transId, uint64_t time)
+int NFLoadCacheData::AddTrans(int transId, uint64_t time)
 {
     if (transId > 0) {
         auto iter = m_transInfo.find(transId);
