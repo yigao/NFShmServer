@@ -96,6 +96,9 @@ int NFLoadCacheMgr::RefreshRpcQueue()
             loadIter = m_playerSimpleLoadingMap.erase(loadIter);
             continue;
         }
+        else {
+            loadIter++;
+        }
     }
 
     for(auto iter = m_waitResumeRpcMap.begin(); iter != m_waitResumeRpcMap.end(); )

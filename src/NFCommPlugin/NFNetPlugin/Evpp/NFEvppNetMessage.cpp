@@ -441,8 +441,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 			}
 			else
 			{
-                if (!(codePackage.mModuleId == 0 && (codePackage.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT
-                                                    || codePackage.nMsgId == NF_CLIENT_TO_SERVER_HEART_BEAT_RSP || codePackage.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT || codePackage.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)))
+                if (!NFGlobalSystem::Instance()->IsFilterMsg(codePackage.mModuleId, codePackage.nMsgId))
                 {
                     NFLogTrace(NF_LOG_RECV_MSG, 0, "recv msg:{} ", codePackage.ToString());
                 }

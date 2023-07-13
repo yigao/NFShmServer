@@ -15,6 +15,11 @@
 
 NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m_serverStopping(false), m_serverKilling(false), m_hotfixServer(false)
 {
+    mDebugMsgMap.resize(NF_MODULE_MAX);
+    RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT);
+    RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
+    RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_REQ);
+    RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_RSP);
 }
 
 NFGlobalSystem::~NFGlobalSystem()
@@ -116,4 +121,23 @@ void NFGlobalSystem::ReleaseSingleton()
     NFProtobufCommon::Instance()->ReleaseInstance();
     //最后释放
     NFGlobalSystem::Instance()->ReleaseInstance();
+}
+
+bool NFGlobalSystem::RegisterFilterMsg(uint32_t moduleId, uint32_t msgId)
+{
+    if (moduleId < (uint32_t)mDebugMsgMap.size())
+    {
+        mDebugMsgMap[moduleId].insert(msgId);
+        return true;
+    }
+    return false;
+}
+
+bool NFGlobalSystem::IsFilterMsg(uint32_t moduleId, uint32_t msgId)
+{
+    if (moduleId < (uint32_t)mDebugMsgMap.size())
+    {
+        return mDebugMsgMap[moduleId].find(msgId) != mDebugMsgMap[moduleId].end();
+    }
+    return false;
 }

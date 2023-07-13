@@ -15,6 +15,7 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFServerLinkData.h"
 #include <stdint.h>
+#include <unordered_set>
 
 class NFCMessageModule : public NFIMessageModule
 {
@@ -253,7 +254,6 @@ protected:
 
     virtual NFWebStatus OnHttpFilterPack(uint32_t serverType, const NFIHttpHandle &req);
 
-public:
 
 protected:
     NFINetModule *m_netModule;
@@ -261,4 +261,5 @@ protected:
     std::vector<CallBack> mxCallBack;
 
     std::vector<ServerLinkData> mServerLinkData;
+
 };

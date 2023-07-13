@@ -12,6 +12,7 @@
 #include "NFComm/NFKernelMessage/proto_common.pb.h"
 #include "NFILuaLoader.h"
 #include <vector>
+#include <unordered_set>
 
 class NFIPluginManager;
 
@@ -64,6 +65,10 @@ public:
      *
      * */
     void SetHotfixServer(bool hotfixExitApp);
+
+public:
+    virtual bool RegisterFilterMsg(uint32_t moduleId, uint32_t msgId);
+    virtual bool IsFilterMsg(uint32_t moduleId, uint32_t msgId);
 public:
     /**
      * @brief �ͷ�singleton��Դ
@@ -78,6 +83,8 @@ private:
     bool m_serverStopping;
     bool m_serverKilling;
     bool m_hotfixServer;
+
+    std::vector<std::unordered_set<uint32_t>> mDebugMsgMap;
 public:
     bool IsMoreServer() const
     {
