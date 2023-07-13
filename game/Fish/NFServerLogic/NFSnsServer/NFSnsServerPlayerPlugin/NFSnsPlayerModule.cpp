@@ -133,7 +133,6 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
     respone.set_user_id(request.user_id());
     respone.set_result(0);
 
-    SetTimer(1, 1, 1);
     NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.user_id());
     if (pPlayer == NULL)
     {
