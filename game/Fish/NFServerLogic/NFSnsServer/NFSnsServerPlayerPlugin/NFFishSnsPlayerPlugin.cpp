@@ -18,6 +18,8 @@
 #include "Trans/NFTransGetPlayerSimple.h"
 #include "Trans/NFTransGetPlayerDetail.h"
 #include "Trans/NFTransCacheBase.h"
+#include "Trans/NFSnsTransSaveSimpleDB.h"
+#include "Trans/NFSnsTransSaveDetailDB.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -75,5 +77,7 @@ bool NFFishSnsPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFTransCacheBase,1);
     REGISTER_SHM_OBJ(NFTransGetPlayerSimple, maxOnlinePlayerNum / 10);
     REGISTER_SHM_OBJ(NFTransGetPlayerDetail, maxOnlinePlayerNum / 10);
+    REGISTER_SHM_OBJ(NFSnsTransSaveSimpleDB, maxOnlinePlayerNum / 10);
+    REGISTER_SHM_OBJ(NFSnsTransSaveDetailDB, maxOnlinePlayerNum / 10);
     return true;
 }
