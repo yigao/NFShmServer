@@ -65,7 +65,20 @@ public:
     void SetGameId(uint32_t gameId);
 
 public:
-    int Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData);
+    /**
+     * @brief
+     * @param dbData
+     * @param bCreatePlayer
+     * @return
+     */
+    virtual int Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData, bool bCreatePlayer = false);
+
+    /**
+     * @brief
+     * @return
+     */
+    virtual int UnInit();
+public:
     /**
      * @brief
      * @param data

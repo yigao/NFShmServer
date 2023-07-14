@@ -325,11 +325,6 @@ int Proto_UserDetailCommonData_s::CreateInit() {
 	bank_jetton = (uint64_t)0;
 	agent_id = (uint64_t)0;
 	phonenum = (uint64_t)0;
-	vip_level = (uint32_t)0;
-	aread_id = (uint32_t)0;
-	referrer_id = (uint64_t)0;
-	first_recharge = (bool)0;
-	show_userid = (uint64_t)0;
 	return 0;
 }
 
@@ -345,11 +340,6 @@ void Proto_UserDetailCommonData_s::write_to_pbmsg(::proto_ff::Proto_UserDetailCo
 	msg.set_bank_jetton((uint64_t)bank_jetton);
 	msg.set_agent_id((uint64_t)agent_id);
 	msg.set_phonenum((uint64_t)phonenum);
-	msg.set_vip_level((uint32_t)vip_level);
-	msg.set_aread_id((uint32_t)aread_id);
-	msg.set_referrer_id((uint64_t)referrer_id);
-	msg.set_first_recharge((bool)first_recharge);
-	msg.set_show_userid((uint64_t)show_userid);
 }
 
 void Proto_UserDetailCommonData_s::read_from_pbmsg(const ::proto_ff::Proto_UserDetailCommonData & msg) {
@@ -361,11 +351,37 @@ void Proto_UserDetailCommonData_s::read_from_pbmsg(const ::proto_ff::Proto_UserD
 	bank_jetton = msg.bank_jetton();
 	agent_id = msg.agent_id();
 	phonenum = msg.phonenum();
-	vip_level = msg.vip_level();
-	aread_id = msg.aread_id();
-	referrer_id = msg.referrer_id();
-	first_recharge = msg.first_recharge();
-	show_userid = msg.show_userid();
+}
+
+Proto_LTSSyncData_s::Proto_LTSSyncData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Proto_LTSSyncData_s::CreateInit() {
+	create_player_db_data = (bool)0;
+	face_id = (uint32_t)0;
+	return 0;
+}
+
+int Proto_LTSSyncData_s::ResumeInit() {
+	return 0;
+}
+
+void Proto_LTSSyncData_s::write_to_pbmsg(::proto_ff::Proto_LTSSyncData & msg) const {
+	msg.set_create_player_db_data((bool)create_player_db_data);
+	msg.set_nick_name((const char*)nick_name.data());
+	msg.set_face_id((uint32_t)face_id);
+}
+
+void Proto_LTSSyncData_s::read_from_pbmsg(const ::proto_ff::Proto_LTSSyncData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Proto_LTSSyncData_s));
+	create_player_db_data = msg.create_player_db_data();
+	nick_name = msg.nick_name();
+	face_id = msg.face_id();
 }
 
 }

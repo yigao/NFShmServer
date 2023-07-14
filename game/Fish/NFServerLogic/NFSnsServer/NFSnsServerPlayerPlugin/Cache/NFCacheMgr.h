@@ -68,6 +68,13 @@ public:
      * @return
      */
     NFPlayerSimple* QueryPlayerSimpleByRpc(uint64_t role_id);
+
+    /**
+     * @brief 创建玩家DB数据 通过rpc异步去数据库插入数据
+     * @param role_id
+     * @return
+     */
+    NFPlayerSimple* CreatePlayerSimpleDBDataByRpc(const proto_ff::tbFishSnsPlayerSimpleData& dbData);
 public:
     /**
      * @brief
@@ -88,14 +95,14 @@ public:
      * @param playerId
      * @return
      */
-    NFPlayerDetail *CreateRoleDetail(uint64_t playerId);
+    NFPlayerDetail *CreatePlayerDetail(uint64_t playerId);
 
     /**
      * @brief
      * @param pRoleDetail
      * @return
      */
-    int DeleteRoleDetail(NFPlayerDetail *pRoleDetail);
+    int DeletePlayerDetail(NFPlayerDetail *pRoleDetail);
 
     /**
      * @brief
@@ -103,6 +110,13 @@ public:
      * @return
      */
     NFPlayerDetail* QueryPlayerDetailByRpc(uint64_t role_id);
+
+    /**
+     * @brief 创建玩家DB数据 通过rpc异步去数据库插入数据
+     * @param role_id
+     * @return
+     */
+    NFPlayerDetail* CreatePlayerDetailDBDataByRpc(const proto_ff::tbFishSnsPlayerDetailData& dbData);
 private:
 DECLARE_IDCREATE(NFCacheMgr)
 };

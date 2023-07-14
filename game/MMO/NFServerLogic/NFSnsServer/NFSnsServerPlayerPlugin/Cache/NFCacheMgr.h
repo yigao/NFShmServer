@@ -75,7 +75,7 @@ public:
      * @param roleId
      * @return
      */
-    NFRoleDetail *CreateRoleDetail(uint64_t roleId);
+    NFRoleDetail *CreatePlayerDetail(uint64_t roleId);
 
     /**
      * @brief

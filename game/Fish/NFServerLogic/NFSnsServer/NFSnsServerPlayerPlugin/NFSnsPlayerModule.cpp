@@ -136,8 +136,23 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
     NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.user_id());
     if (pPlayer == NULL)
     {
-        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
-        return 0;
+        if (request.sns_sync().create_player_db_data())
+        {
+            proto_ff::tbFishSnsPlayerSimpleData dbSimpleData;
+            dbSimpleData.set_player_id(request.user_id());
+            dbSimpleData.set_nickname(request.sns_sync().nick_name());
+            dbSimpleData.set_faceid(request.sns_sync().face_id());
+            pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbSimpleData);
+            if (pPlayer == NULL)
+            {
+                respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+                return 0;
+            }
+        }
+        else {
+            respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+            return 0;
+        }
     }
 
     pPlayer->SetProxyId(request.proxy_bus_id());
@@ -157,9 +172,24 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
     NFPlayerDetail* pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(request.user_id());
     if (pPlayerDetail == NULL)
     {
-        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
-        return 0;
+        if (request.sns_sync().create_player_db_data())
+        {
+            proto_ff::tbFishSnsPlayerDetailData dbDetailData;
+            dbDetailData.set_player_id(request.user_id());
+            pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerDetailDBDataByRpc(dbDetailData);
+            if (pPlayerDetail == NULL)
+            {
+                respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+                return 0;
+            }
+        }
+        else {
+            respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+            return 0;
+        }
     }
+
+    pPlayerDetail->OnLogin();
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

@@ -560,10 +560,19 @@ class Proto_LogicToWorldLoginRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 user_id() const;
   inline void set_user_id(::google::protobuf::uint64 value);
 
-  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
+  // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
+  inline bool has_sns_sync() const;
+  inline void clear_sns_sync();
+  static const int kSnsSyncFieldNumber = 3;
+  inline const ::proto_ff::Proto_LTSSyncData& sns_sync() const;
+  inline ::proto_ff::Proto_LTSSyncData* mutable_sns_sync();
+  inline ::proto_ff::Proto_LTSSyncData* release_sns_sync();
+  inline void set_allocated_sns_sync(::proto_ff::Proto_LTSSyncData* sns_sync);
+
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
   inline bool has_detail_data() const;
   inline void clear_detail_data();
-  static const int kDetailDataFieldNumber = 7;
+  static const int kDetailDataFieldNumber = 4;
   inline const ::proto_ff::Proto_UserDetailCommonData& detail_data() const;
   inline ::proto_ff::Proto_UserDetailCommonData* mutable_detail_data();
   inline ::proto_ff::Proto_UserDetailCommonData* release_detail_data();
@@ -575,17 +584,20 @@ class Proto_LogicToWorldLoginRsp : public ::google::protobuf::Message {
   inline void clear_has_result();
   inline void set_has_user_id();
   inline void clear_has_user_id();
+  inline void set_has_sns_sync();
+  inline void clear_has_sns_sync();
   inline void set_has_detail_data();
   inline void clear_has_detail_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 user_id_;
+  ::proto_ff::Proto_LTSSyncData* sns_sync_;
   ::proto_ff::Proto_UserDetailCommonData* detail_data_;
   ::google::protobuf::uint32 result_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -704,6 +716,15 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 logic_bus_id() const;
   inline void set_logic_bus_id(::google::protobuf::uint32 value);
 
+  // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
+  inline bool has_sns_sync() const;
+  inline void clear_sns_sync();
+  static const int kSnsSyncFieldNumber = 9;
+  inline const ::proto_ff::Proto_LTSSyncData& sns_sync() const;
+  inline ::proto_ff::Proto_LTSSyncData* mutable_sns_sync();
+  inline ::proto_ff::Proto_LTSSyncData* release_sns_sync();
+  inline void set_allocated_sns_sync(::proto_ff::Proto_LTSSyncData* sns_sync);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTSLoginReq)
  private:
   inline void set_has_user_id();
@@ -720,6 +741,8 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   inline void clear_has_client_ip();
   inline void set_has_logic_bus_id();
   inline void clear_has_logic_bus_id();
+  inline void set_has_sns_sync();
+  inline void clear_has_sns_sync();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -729,10 +752,11 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 game_bus_id_;
   ::google::protobuf::uint32 proxy_bus_id_;
   ::std::string* client_ip_;
+  ::proto_ff::Proto_LTSSyncData* sns_sync_;
   ::google::protobuf::uint32 logic_bus_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -1506,15 +1530,53 @@ inline void Proto_LogicToWorldLoginRsp::set_user_id(::google::protobuf::uint64 v
   user_id_ = value;
 }
 
-// optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
-inline bool Proto_LogicToWorldLoginRsp::has_detail_data() const {
+// optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
+inline bool Proto_LogicToWorldLoginRsp::has_sns_sync() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Proto_LogicToWorldLoginRsp::set_has_detail_data() {
+inline void Proto_LogicToWorldLoginRsp::set_has_sns_sync() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Proto_LogicToWorldLoginRsp::clear_has_detail_data() {
+inline void Proto_LogicToWorldLoginRsp::clear_has_sns_sync() {
   _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_LogicToWorldLoginRsp::clear_sns_sync() {
+  if (sns_sync_ != NULL) sns_sync_->::proto_ff::Proto_LTSSyncData::Clear();
+  clear_has_sns_sync();
+}
+inline const ::proto_ff::Proto_LTSSyncData& Proto_LogicToWorldLoginRsp::sns_sync() const {
+  return sns_sync_ != NULL ? *sns_sync_ : *default_instance_->sns_sync_;
+}
+inline ::proto_ff::Proto_LTSSyncData* Proto_LogicToWorldLoginRsp::mutable_sns_sync() {
+  set_has_sns_sync();
+  if (sns_sync_ == NULL) sns_sync_ = new ::proto_ff::Proto_LTSSyncData;
+  return sns_sync_;
+}
+inline ::proto_ff::Proto_LTSSyncData* Proto_LogicToWorldLoginRsp::release_sns_sync() {
+  clear_has_sns_sync();
+  ::proto_ff::Proto_LTSSyncData* temp = sns_sync_;
+  sns_sync_ = NULL;
+  return temp;
+}
+inline void Proto_LogicToWorldLoginRsp::set_allocated_sns_sync(::proto_ff::Proto_LTSSyncData* sns_sync) {
+  delete sns_sync_;
+  sns_sync_ = sns_sync;
+  if (sns_sync) {
+    set_has_sns_sync();
+  } else {
+    clear_has_sns_sync();
+  }
+}
+
+// optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
+inline bool Proto_LogicToWorldLoginRsp::has_detail_data() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_LogicToWorldLoginRsp::set_has_detail_data() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_LogicToWorldLoginRsp::clear_has_detail_data() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void Proto_LogicToWorldLoginRsp::clear_detail_data() {
   if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
@@ -1748,6 +1810,44 @@ inline ::google::protobuf::uint32 Proto_WTSLoginReq::logic_bus_id() const {
 inline void Proto_WTSLoginReq::set_logic_bus_id(::google::protobuf::uint32 value) {
   set_has_logic_bus_id();
   logic_bus_id_ = value;
+}
+
+// optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
+inline bool Proto_WTSLoginReq::has_sns_sync() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_sns_sync() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void Proto_WTSLoginReq::clear_has_sns_sync() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void Proto_WTSLoginReq::clear_sns_sync() {
+  if (sns_sync_ != NULL) sns_sync_->::proto_ff::Proto_LTSSyncData::Clear();
+  clear_has_sns_sync();
+}
+inline const ::proto_ff::Proto_LTSSyncData& Proto_WTSLoginReq::sns_sync() const {
+  return sns_sync_ != NULL ? *sns_sync_ : *default_instance_->sns_sync_;
+}
+inline ::proto_ff::Proto_LTSSyncData* Proto_WTSLoginReq::mutable_sns_sync() {
+  set_has_sns_sync();
+  if (sns_sync_ == NULL) sns_sync_ = new ::proto_ff::Proto_LTSSyncData;
+  return sns_sync_;
+}
+inline ::proto_ff::Proto_LTSSyncData* Proto_WTSLoginReq::release_sns_sync() {
+  clear_has_sns_sync();
+  ::proto_ff::Proto_LTSSyncData* temp = sns_sync_;
+  sns_sync_ = NULL;
+  return temp;
+}
+inline void Proto_WTSLoginReq::set_allocated_sns_sync(::proto_ff::Proto_LTSSyncData* sns_sync) {
+  delete sns_sync_;
+  sns_sync_ = sns_sync;
+  if (sns_sync) {
+    set_has_sns_sync();
+  } else {
+    clear_has_sns_sync();
+  }
 }
 
 // -------------------------------------------------------------------

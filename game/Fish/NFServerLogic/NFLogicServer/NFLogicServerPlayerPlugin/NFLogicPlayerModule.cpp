@@ -102,6 +102,8 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     respone.set_user_id(request.user_id());
     respone.set_result(0);
+    auto pSnsSync = respone.mutable_sns_sync();
+    pSnsSync->set_create_player_db_data(false);
 
     proto_ff::tbFishPlayerData selectobj;
     NFPlayer* pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(request.user_id());
@@ -114,6 +116,8 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
         {
             if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
             {
+                pSnsSync->set_create_player_db_data(true);
+
                 proto_ff::tbFishPlayerData insertObj;
                 insertObj.set_player_id(request.user_id());
                 insertObj.set_nickname("gaoyi");
@@ -185,6 +189,9 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
         respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
         return 0;
     }
+
+    pSnsSync->set_nick_name(pPlayer->GetNickName());
+    pSnsSync->set_face_id(pPlayer->GetFaceId());
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

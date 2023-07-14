@@ -46,7 +46,8 @@ message Proto_LogicToWorldLoginRsp
 {
   optional uint32 result = 1;
   optional uint64 user_id = 2;
-  optional Proto_UserDetailCommonData detail_data = 7;
+  optional Proto_LTSSyncData sns_sync = 3;
+  optional Proto_UserDetailCommonData detail_data = 4;
 }
 
 message Proto_WTSLoginReq
@@ -58,6 +59,7 @@ message Proto_WTSLoginReq
   optional uint32 proxy_bus_id = 5;
   optional string client_ip = 7;
   optional uint32 logic_bus_id = 8;
+  optional Proto_LTSSyncData sns_sync = 9;
 }
 
 message Proto_STWLoginRsp

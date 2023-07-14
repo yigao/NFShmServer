@@ -190,10 +190,21 @@ bool NFPlayerSimple::CanDelete()
     return true;
 }
 
-int NFPlayerSimple::Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData)
+int NFPlayerSimple::Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData, bool bCreatePlayer)
 {
     m_isInited = true;
-    m_simpleData.read_from_pbmsg(dbData);
+    if (bCreatePlayer)
+    {
+        InitConfig(dbData);
+    }
+    else {
+        LoadFromDB(dbData);
+    }
+    return 0;
+}
+
+int NFPlayerSimple::UnInit()
+{
     return 0;
 }
 
@@ -243,17 +254,20 @@ void NFPlayerSimple::SetClientId(uint64_t clientId)
 
 }
 
-int NFPlayerSimple::LoadFromDB(const proto_ff::tbFishSnsPlayerSimpleData &data)
+int NFPlayerSimple::LoadFromDB(const proto_ff::tbFishSnsPlayerSimpleData &dbData)
 {
+    m_simpleData.read_from_pbmsg(dbData);
     return 0;
 }
 
-int NFPlayerSimple::SaveDB(proto_ff::tbFishSnsPlayerSimpleData &data)
+int NFPlayerSimple::SaveDB(proto_ff::tbFishSnsPlayerSimpleData &dbData)
 {
+    m_simpleData.write_to_pbmsg(dbData);
     return 0;
 }
 
-int NFPlayerSimple::InitConfig(const proto_ff::tbFishSnsPlayerSimpleData &data)
+int NFPlayerSimple::InitConfig(const proto_ff::tbFishSnsPlayerSimpleData &dbData)
 {
+    m_simpleData.read_from_pbmsg(dbData);
     return 0;
 }

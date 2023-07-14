@@ -128,6 +128,10 @@ public:
     void SetRoomId(uint32_t roomId) { m_roomId = roomId; }
     uint64_t GetLastLogoutTime() const { return m_lastLogoutTime; }
     void SetLastLogtouTime(uint64_t logoutTime) { m_lastLogoutTime = logoutTime; }
+
+    std::string GetNickName() const { return m_nickName.ToString(); }
+    void SetNickName(std::string nickName) { m_nickName = nickName; }
+    uint32_t GetFaceId() const { return m_faceId; }
 public:
     /**
      * @brief

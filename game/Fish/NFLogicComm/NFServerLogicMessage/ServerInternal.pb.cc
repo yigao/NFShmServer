@@ -111,9 +111,10 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_WorldToLogicLoginReq));
   Proto_LogicToWorldLoginRsp_descriptor_ = file->message_type(3);
-  static const int Proto_LogicToWorldLoginRsp_offsets_[3] = {
+  static const int Proto_LogicToWorldLoginRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, sns_sync_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, detail_data_),
   };
   Proto_LogicToWorldLoginRsp_reflection_ =
@@ -128,7 +129,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_LogicToWorldLoginRsp));
   Proto_WTSLoginReq_descriptor_ = file->message_type(4);
-  static const int Proto_WTSLoginReq_offsets_[7] = {
+  static const int Proto_WTSLoginReq_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, game_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, room_id_),
@@ -136,6 +137,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, proxy_bus_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, client_ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, logic_bus_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, sns_sync_),
   };
   Proto_WTSLoginReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -232,18 +234,20 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\023\n\013game_bus_id\030\004"
     " \001(\r\022\024\n\014proxy_bus_id\030\005 \001(\r\022\021\n\tclient_ip\030"
     "\007 \001(\t\0227\n\010ext_data\030\010 \001(\0132%.proto_ff.Proto"
-    "_UserLoginExternalData\"x\n\032Proto_LogicToW"
-    "orldLoginRsp\022\016\n\006result\030\001 \001(\r\022\017\n\007user_id\030"
-    "\002 \001(\004\0229\n\013detail_data\030\007 \001(\0132$.proto_ff.Pr"
-    "oto_UserDetailCommonData\"\232\001\n\021Proto_WTSLo"
-    "ginReq\022\017\n\007user_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r"
-    "\022\017\n\007room_id\030\003 \001(\r\022\023\n\013game_bus_id\030\004 \001(\r\022\024"
-    "\n\014proxy_bus_id\030\005 \001(\r\022\021\n\tclient_ip\030\007 \001(\t\022"
-    "\024\n\014logic_bus_id\030\010 \001(\r\"4\n\021Proto_STWLoginR"
-    "sp\022\016\n\006result\030\001 \001(\r\022\017\n\007user_id\030\002 \001(\004*a\n\022P"
-    "roto_AccountState\022\025\n\021E_ACCOUNTSTATE_OK\020\000"
-    "\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOUNT"
-    "STATE_FORBIT\020\002", 1054);
+    "_UserLoginExternalData\"\247\001\n\032Proto_LogicTo"
+    "WorldLoginRsp\022\016\n\006result\030\001 \001(\r\022\017\n\007user_id"
+    "\030\002 \001(\004\022-\n\010sns_sync\030\003 \001(\0132\033.proto_ff.Prot"
+    "o_LTSSyncData\0229\n\013detail_data\030\004 \001(\0132$.pro"
+    "to_ff.Proto_UserDetailCommonData\"\311\001\n\021Pro"
+    "to_WTSLoginReq\022\017\n\007user_id\030\001 \001(\004\022\017\n\007game_"
+    "id\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\023\n\013game_bus_id"
+    "\030\004 \001(\r\022\024\n\014proxy_bus_id\030\005 \001(\r\022\021\n\tclient_i"
+    "p\030\007 \001(\t\022\024\n\014logic_bus_id\030\010 \001(\r\022-\n\010sns_syn"
+    "c\030\t \001(\0132\033.proto_ff.Proto_LTSSyncData\"4\n\021"
+    "Proto_STWLoginRsp\022\016\n\006result\030\001 \001(\r\022\017\n\007use"
+    "r_id\030\002 \001(\004*a\n\022Proto_AccountState\022\025\n\021E_AC"
+    "COUNTSTATE_OK\020\000\022\031\n\025E_ACCOUNTSTATE_FREEZE"
+    "\020\001\022\031\n\025E_ACCOUNTSTATE_FORBIT\020\002", 1149);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -1618,6 +1622,7 @@ void Proto_WorldToLogicLoginReq::Swap(Proto_WorldToLogicLoginReq* other) {
 #ifndef _MSC_VER
 const int Proto_LogicToWorldLoginRsp::kResultFieldNumber;
 const int Proto_LogicToWorldLoginRsp::kUserIdFieldNumber;
+const int Proto_LogicToWorldLoginRsp::kSnsSyncFieldNumber;
 const int Proto_LogicToWorldLoginRsp::kDetailDataFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1627,6 +1632,7 @@ Proto_LogicToWorldLoginRsp::Proto_LogicToWorldLoginRsp()
 }
 
 void Proto_LogicToWorldLoginRsp::InitAsDefaultInstance() {
+  sns_sync_ = const_cast< ::proto_ff::Proto_LTSSyncData*>(&::proto_ff::Proto_LTSSyncData::default_instance());
   detail_data_ = const_cast< ::proto_ff::Proto_UserDetailCommonData*>(&::proto_ff::Proto_UserDetailCommonData::default_instance());
 }
 
@@ -1640,6 +1646,7 @@ void Proto_LogicToWorldLoginRsp::SharedCtor() {
   _cached_size_ = 0;
   result_ = 0u;
   user_id_ = GOOGLE_ULONGLONG(0);
+  sns_sync_ = NULL;
   detail_data_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1650,6 +1657,7 @@ Proto_LogicToWorldLoginRsp::~Proto_LogicToWorldLoginRsp() {
 
 void Proto_LogicToWorldLoginRsp::SharedDtor() {
   if (this != default_instance_) {
+    delete sns_sync_;
     delete detail_data_;
   }
 }
@@ -1679,6 +1687,9 @@ void Proto_LogicToWorldLoginRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     result_ = 0u;
     user_id_ = GOOGLE_ULONGLONG(0);
+    if (has_sns_sync()) {
+      if (sns_sync_ != NULL) sns_sync_->::proto_ff::Proto_LTSSyncData::Clear();
+    }
     if (has_detail_data()) {
       if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
     }
@@ -1720,12 +1731,26 @@ bool Proto_LogicToWorldLoginRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(58)) goto parse_detail_data;
+        if (input->ExpectTag(26)) goto parse_sns_sync;
         break;
       }
 
-      // optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
-      case 7: {
+      // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sns_sync:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_sns_sync()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(34)) goto parse_detail_data;
+        break;
+      }
+
+      // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_detail_data:
@@ -1766,10 +1791,16 @@ void Proto_LogicToWorldLoginRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->user_id(), output);
   }
 
-  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
+  // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
+  if (has_sns_sync()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      3, this->sns_sync(), output);
+  }
+
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
   if (has_detail_data()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      7, this->detail_data(), output);
+      4, this->detail_data(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1790,11 +1821,18 @@ void Proto_LogicToWorldLoginRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->user_id(), target);
   }
 
-  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
+  // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
+  if (has_sns_sync()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        3, this->sns_sync(), target);
+  }
+
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
   if (has_detail_data()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        7, this->detail_data(), target);
+        4, this->detail_data(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1822,7 +1860,14 @@ int Proto_LogicToWorldLoginRsp::ByteSize() const {
           this->user_id());
     }
 
-    // optional .proto_ff.Proto_UserDetailCommonData detail_data = 7;
+    // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
+    if (has_sns_sync()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->sns_sync());
+    }
+
+    // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
     if (has_detail_data()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
@@ -1862,6 +1907,9 @@ void Proto_LogicToWorldLoginRsp::MergeFrom(const Proto_LogicToWorldLoginRsp& fro
     if (from.has_user_id()) {
       set_user_id(from.user_id());
     }
+    if (from.has_sns_sync()) {
+      mutable_sns_sync()->::proto_ff::Proto_LTSSyncData::MergeFrom(from.sns_sync());
+    }
     if (from.has_detail_data()) {
       mutable_detail_data()->::proto_ff::Proto_UserDetailCommonData::MergeFrom(from.detail_data());
     }
@@ -1890,6 +1938,7 @@ void Proto_LogicToWorldLoginRsp::Swap(Proto_LogicToWorldLoginRsp* other) {
   if (other != this) {
     std::swap(result_, other->result_);
     std::swap(user_id_, other->user_id_);
+    std::swap(sns_sync_, other->sns_sync_);
     std::swap(detail_data_, other->detail_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -1916,6 +1965,7 @@ const int Proto_WTSLoginReq::kGameBusIdFieldNumber;
 const int Proto_WTSLoginReq::kProxyBusIdFieldNumber;
 const int Proto_WTSLoginReq::kClientIpFieldNumber;
 const int Proto_WTSLoginReq::kLogicBusIdFieldNumber;
+const int Proto_WTSLoginReq::kSnsSyncFieldNumber;
 #endif  // !_MSC_VER
 
 Proto_WTSLoginReq::Proto_WTSLoginReq()
@@ -1924,6 +1974,7 @@ Proto_WTSLoginReq::Proto_WTSLoginReq()
 }
 
 void Proto_WTSLoginReq::InitAsDefaultInstance() {
+  sns_sync_ = const_cast< ::proto_ff::Proto_LTSSyncData*>(&::proto_ff::Proto_LTSSyncData::default_instance());
 }
 
 Proto_WTSLoginReq::Proto_WTSLoginReq(const Proto_WTSLoginReq& from)
@@ -1941,6 +1992,7 @@ void Proto_WTSLoginReq::SharedCtor() {
   proxy_bus_id_ = 0u;
   client_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   logic_bus_id_ = 0u;
+  sns_sync_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1953,6 +2005,7 @@ void Proto_WTSLoginReq::SharedDtor() {
     delete client_ip_;
   }
   if (this != default_instance_) {
+    delete sns_sync_;
   }
 }
 
@@ -1990,6 +2043,9 @@ void Proto_WTSLoginReq::Clear() {
       }
     }
     logic_bus_id_ = 0u;
+    if (has_sns_sync()) {
+      if (sns_sync_ != NULL) sns_sync_->::proto_ff::Proto_LTSSyncData::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2109,6 +2165,20 @@ bool Proto_WTSLoginReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(74)) goto parse_sns_sync;
+        break;
+      }
+
+      // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_sns_sync:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_sns_sync()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2170,6 +2240,12 @@ void Proto_WTSLoginReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->logic_bus_id(), output);
   }
 
+  // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
+  if (has_sns_sync()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, this->sns_sync(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2216,6 +2292,13 @@ void Proto_WTSLoginReq::SerializeWithCachedSizes(
   // optional uint32 logic_bus_id = 8;
   if (has_logic_bus_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->logic_bus_id(), target);
+  }
+
+  // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
+  if (has_sns_sync()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        9, this->sns_sync(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2278,6 +2361,13 @@ int Proto_WTSLoginReq::ByteSize() const {
           this->logic_bus_id());
     }
 
+    // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
+    if (has_sns_sync()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->sns_sync());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -2326,6 +2416,9 @@ void Proto_WTSLoginReq::MergeFrom(const Proto_WTSLoginReq& from) {
     if (from.has_logic_bus_id()) {
       set_logic_bus_id(from.logic_bus_id());
     }
+    if (from.has_sns_sync()) {
+      mutable_sns_sync()->::proto_ff::Proto_LTSSyncData::MergeFrom(from.sns_sync());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2356,6 +2449,7 @@ void Proto_WTSLoginReq::Swap(Proto_WTSLoginReq* other) {
     std::swap(proxy_bus_id_, other->proxy_bus_id_);
     std::swap(client_ip_, other->client_ip_);
     std::swap(logic_bus_id_, other->logic_bus_id_);
+    std::swap(sns_sync_, other->sns_sync_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

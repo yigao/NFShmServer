@@ -109,7 +109,7 @@ int NFPlayerDetail::UnInit()
 {
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
-        RecylePart(m_pPart[i]);
+        RecylePart(m_pPart[i].GetPoint());
     }
 
     return 0;

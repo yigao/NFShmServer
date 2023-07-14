@@ -89,6 +89,7 @@ int NFCacheMgr::DeletePlayerSimple(NFPlayerSimple *pRoleSimple)
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Simple Info, RoleId:{}, gloablId:{}", pRoleSimple->GetPlayerId(), pRoleSimple->GetGlobalId());
 
+    pRoleSimple->UnInit();
     NFPlayerSimple::DestroyObj(m_pObjPluginManager, pRoleSimple);
 
     return 0;
@@ -115,6 +116,16 @@ NFPlayerSimple* NFCacheMgr::QueryPlayerSimpleByRpc(uint64_t role_id)
     }
 
     return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimpleInfoByRpc(role_id, NFTime::Now().UnixSec());
+}
+
+NFPlayerSimple* NFCacheMgr::CreatePlayerSimpleDBDataByRpc(const proto_ff::tbFishSnsPlayerSimpleData& dbData)
+{
+    return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbData);
+}
+
+NFPlayerDetail* NFCacheMgr::CreatePlayerDetailDBDataByRpc(const proto_ff::tbFishSnsPlayerDetailData& dbData)
+{
+    return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerDetailDBDataByRpc(dbData);
 }
 
 NFPlayerDetail* NFCacheMgr::QueryPlayerDetailByRpc(uint64_t role_id)
@@ -150,7 +161,7 @@ NFPlayerDetail *NFCacheMgr::GetPlayerDetail(uint64_t roleId)
     return NFPlayerDetail::GetObjByHashKey(m_pObjPluginManager, roleId);
 }
 
-NFPlayerDetail *NFCacheMgr::CreateRoleDetail(uint64_t playerId)
+NFPlayerDetail *NFCacheMgr::CreatePlayerDetail(uint64_t playerId)
 {
     NFPlayerDetail *pRoleDetail= GetPlayerDetail(playerId);
     CHECK_EXPR(pRoleDetail == NULL, NULL, "Create Role Detail Failed, data exist, roleId:{}", playerId);
@@ -170,12 +181,13 @@ NFPlayerDetail *NFCacheMgr::CreateRoleDetail(uint64_t playerId)
     return pRoleDetail;
 }
 
-int NFCacheMgr::DeleteRoleDetail(NFPlayerDetail *pRoleDetail)
+int NFCacheMgr::DeletePlayerDetail(NFPlayerDetail *pRoleDetail)
 {
     CHECK_NULL(pRoleDetail);
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleDetail->GetPlayerId(), pRoleDetail->GetGlobalId());
 
+    pRoleDetail->UnInit();
     NFPlayerDetail::DestroyObj(m_pObjPluginManager, pRoleDetail);
 
     return 0;

@@ -71,10 +71,10 @@ int NFTransGetPlayerDetail::QueryRole(uint64_t playerId) {
                 return;
             }
 
-            pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreateRoleDetail(m_playerId);
+            pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerDetail(m_playerId);
             if (pRoleDetail == NULL)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "NFCacheMgr CreateRoleDetail Failed");
+                NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "NFCacheMgr CreatePlayerDetail Failed");
                 SetFinished(proto_ff::ERR_CODE_SVR_SYSTEM_ERROR);
                 return;
             }

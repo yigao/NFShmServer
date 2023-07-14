@@ -182,11 +182,6 @@ namespace proto_ff_s {
 		uint64_t bank_jetton;
 		uint64_t agent_id;
 		uint64_t phonenum;
-		uint32_t vip_level;
-		uint32_t aread_id;
-		uint64_t referrer_id;
-		bool first_recharge;
-		uint64_t show_userid;
 
 		virtual void write_to_pbmsg(::proto_ff::Proto_UserDetailCommonData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Proto_UserDetailCommonData & msg);
@@ -194,6 +189,22 @@ namespace proto_ff_s {
 		static ::proto_ff::Proto_UserDetailCommonData make_pbmsg(){ return ::proto_ff::Proto_UserDetailCommonData(); }
 	};
 	typedef struct Proto_UserDetailCommonData_s Proto_UserDetailCommonData_t;
+
+	struct Proto_LTSSyncData_s : public NFDescStoreSeqOP {
+		Proto_LTSSyncData_s();
+		virtual ~Proto_LTSSyncData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		bool create_player_db_data;
+		NFShmString<32> nick_name;
+		uint32_t face_id;
+
+		virtual void write_to_pbmsg(::proto_ff::Proto_LTSSyncData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Proto_LTSSyncData & msg);
+		static ::proto_ff::Proto_LTSSyncData* new_pbmsg(){ return new ::proto_ff::Proto_LTSSyncData(); }
+		static ::proto_ff::Proto_LTSSyncData make_pbmsg(){ return ::proto_ff::Proto_LTSSyncData(); }
+	};
+	typedef struct Proto_LTSSyncData_s Proto_LTSSyncData_t;
 
 }
 

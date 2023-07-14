@@ -46,6 +46,7 @@ class Vector2PB;
 class Attr64;
 class Proto_UserLoginExternalData;
 class Proto_UserDetailCommonData;
+class Proto_LTSSyncData;
 
 // ===================================================================
 
@@ -1187,41 +1188,6 @@ class Proto_UserDetailCommonData : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 phonenum() const;
   inline void set_phonenum(::google::protobuf::uint64 value);
 
-  // optional uint32 vip_level = 8;
-  inline bool has_vip_level() const;
-  inline void clear_vip_level();
-  static const int kVipLevelFieldNumber = 8;
-  inline ::google::protobuf::uint32 vip_level() const;
-  inline void set_vip_level(::google::protobuf::uint32 value);
-
-  // optional uint32 aread_id = 9;
-  inline bool has_aread_id() const;
-  inline void clear_aread_id();
-  static const int kAreadIdFieldNumber = 9;
-  inline ::google::protobuf::uint32 aread_id() const;
-  inline void set_aread_id(::google::protobuf::uint32 value);
-
-  // optional uint64 referrer_id = 10;
-  inline bool has_referrer_id() const;
-  inline void clear_referrer_id();
-  static const int kReferrerIdFieldNumber = 10;
-  inline ::google::protobuf::uint64 referrer_id() const;
-  inline void set_referrer_id(::google::protobuf::uint64 value);
-
-  // optional bool first_recharge = 11;
-  inline bool has_first_recharge() const;
-  inline void clear_first_recharge();
-  static const int kFirstRechargeFieldNumber = 11;
-  inline bool first_recharge() const;
-  inline void set_first_recharge(bool value);
-
-  // optional uint64 show_userid = 12;
-  inline bool has_show_userid() const;
-  inline void clear_show_userid();
-  static const int kShowUseridFieldNumber = 12;
-  inline ::google::protobuf::uint64 show_userid() const;
-  inline void set_show_userid(::google::protobuf::uint64 value);
-
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_UserDetailCommonData)
  private:
   inline void set_has_nick_name();
@@ -1238,16 +1204,6 @@ class Proto_UserDetailCommonData : public ::google::protobuf::Message {
   inline void clear_has_agent_id();
   inline void set_has_phonenum();
   inline void clear_has_phonenum();
-  inline void set_has_vip_level();
-  inline void clear_has_vip_level();
-  inline void set_has_aread_id();
-  inline void clear_has_aread_id();
-  inline void set_has_referrer_id();
-  inline void clear_has_referrer_id();
-  inline void set_has_first_recharge();
-  inline void clear_has_first_recharge();
-  inline void set_has_show_userid();
-  inline void clear_has_show_userid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -1258,14 +1214,9 @@ class Proto_UserDetailCommonData : public ::google::protobuf::Message {
   ::google::protobuf::uint64 bank_jetton_;
   ::google::protobuf::uint64 agent_id_;
   ::google::protobuf::uint64 phonenum_;
-  ::google::protobuf::uint32 vip_level_;
-  ::google::protobuf::uint32 aread_id_;
-  ::google::protobuf::uint64 referrer_id_;
-  ::google::protobuf::uint64 show_userid_;
-  bool first_recharge_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(12 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_Com_2eproto();
   friend void protobuf_AssignDesc_Com_2eproto();
@@ -1273,6 +1224,113 @@ class Proto_UserDetailCommonData : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Proto_UserDetailCommonData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_LTSSyncData : public ::google::protobuf::Message {
+ public:
+  Proto_LTSSyncData();
+  virtual ~Proto_LTSSyncData();
+
+  Proto_LTSSyncData(const Proto_LTSSyncData& from);
+
+  inline Proto_LTSSyncData& operator=(const Proto_LTSSyncData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_LTSSyncData& default_instance();
+
+  void Swap(Proto_LTSSyncData* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_LTSSyncData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_LTSSyncData& from);
+  void MergeFrom(const Proto_LTSSyncData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional bool create_player_db_data = 1;
+  inline bool has_create_player_db_data() const;
+  inline void clear_create_player_db_data();
+  static const int kCreatePlayerDbDataFieldNumber = 1;
+  inline bool create_player_db_data() const;
+  inline void set_create_player_db_data(bool value);
+
+  // optional string nick_name = 2;
+  inline bool has_nick_name() const;
+  inline void clear_nick_name();
+  static const int kNickNameFieldNumber = 2;
+  inline const ::std::string& nick_name() const;
+  inline void set_nick_name(const ::std::string& value);
+  inline void set_nick_name(const char* value);
+  inline void set_nick_name(const char* value, size_t size);
+  inline ::std::string* mutable_nick_name();
+  inline ::std::string* release_nick_name();
+  inline void set_allocated_nick_name(::std::string* nick_name);
+
+  // optional uint32 face_id = 3;
+  inline bool has_face_id() const;
+  inline void clear_face_id();
+  static const int kFaceIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 face_id() const;
+  inline void set_face_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_LTSSyncData)
+ private:
+  inline void set_has_create_player_db_data();
+  inline void clear_has_create_player_db_data();
+  inline void set_has_nick_name();
+  inline void clear_has_nick_name();
+  inline void set_has_face_id();
+  inline void clear_has_face_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::std::string* nick_name_;
+  bool create_player_db_data_;
+  ::google::protobuf::uint32 face_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_LTSSyncData* default_instance_;
 };
 // ===================================================================
 
@@ -2427,114 +2485,122 @@ inline void Proto_UserDetailCommonData::set_phonenum(::google::protobuf::uint64 
   phonenum_ = value;
 }
 
-// optional uint32 vip_level = 8;
-inline bool Proto_UserDetailCommonData::has_vip_level() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
+// -------------------------------------------------------------------
+
+// Proto_LTSSyncData
+
+// optional bool create_player_db_data = 1;
+inline bool Proto_LTSSyncData::has_create_player_db_data() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Proto_UserDetailCommonData::set_has_vip_level() {
-  _has_bits_[0] |= 0x00000080u;
+inline void Proto_LTSSyncData::set_has_create_player_db_data() {
+  _has_bits_[0] |= 0x00000001u;
 }
-inline void Proto_UserDetailCommonData::clear_has_vip_level() {
-  _has_bits_[0] &= ~0x00000080u;
+inline void Proto_LTSSyncData::clear_has_create_player_db_data() {
+  _has_bits_[0] &= ~0x00000001u;
 }
-inline void Proto_UserDetailCommonData::clear_vip_level() {
-  vip_level_ = 0u;
-  clear_has_vip_level();
+inline void Proto_LTSSyncData::clear_create_player_db_data() {
+  create_player_db_data_ = false;
+  clear_has_create_player_db_data();
 }
-inline ::google::protobuf::uint32 Proto_UserDetailCommonData::vip_level() const {
-  return vip_level_;
+inline bool Proto_LTSSyncData::create_player_db_data() const {
+  return create_player_db_data_;
 }
-inline void Proto_UserDetailCommonData::set_vip_level(::google::protobuf::uint32 value) {
-  set_has_vip_level();
-  vip_level_ = value;
+inline void Proto_LTSSyncData::set_create_player_db_data(bool value) {
+  set_has_create_player_db_data();
+  create_player_db_data_ = value;
 }
 
-// optional uint32 aread_id = 9;
-inline bool Proto_UserDetailCommonData::has_aread_id() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
+// optional string nick_name = 2;
+inline bool Proto_LTSSyncData::has_nick_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void Proto_UserDetailCommonData::set_has_aread_id() {
-  _has_bits_[0] |= 0x00000100u;
+inline void Proto_LTSSyncData::set_has_nick_name() {
+  _has_bits_[0] |= 0x00000002u;
 }
-inline void Proto_UserDetailCommonData::clear_has_aread_id() {
-  _has_bits_[0] &= ~0x00000100u;
+inline void Proto_LTSSyncData::clear_has_nick_name() {
+  _has_bits_[0] &= ~0x00000002u;
 }
-inline void Proto_UserDetailCommonData::clear_aread_id() {
-  aread_id_ = 0u;
-  clear_has_aread_id();
+inline void Proto_LTSSyncData::clear_nick_name() {
+  if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
+    nick_name_->clear();
+  }
+  clear_has_nick_name();
 }
-inline ::google::protobuf::uint32 Proto_UserDetailCommonData::aread_id() const {
-  return aread_id_;
+inline const ::std::string& Proto_LTSSyncData::nick_name() const {
+  return *nick_name_;
 }
-inline void Proto_UserDetailCommonData::set_aread_id(::google::protobuf::uint32 value) {
-  set_has_aread_id();
-  aread_id_ = value;
+inline void Proto_LTSSyncData::set_nick_name(const ::std::string& value) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(value);
+}
+inline void Proto_LTSSyncData::set_nick_name(const char* value) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(value);
+}
+inline void Proto_LTSSyncData::set_nick_name(const char* value, size_t size) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_LTSSyncData::mutable_nick_name() {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  return nick_name_;
+}
+inline ::std::string* Proto_LTSSyncData::release_nick_name() {
+  clear_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nick_name_;
+    nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_LTSSyncData::set_allocated_nick_name(::std::string* nick_name) {
+  if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete nick_name_;
+  }
+  if (nick_name) {
+    set_has_nick_name();
+    nick_name_ = nick_name;
+  } else {
+    clear_has_nick_name();
+    nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
-// optional uint64 referrer_id = 10;
-inline bool Proto_UserDetailCommonData::has_referrer_id() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
+// optional uint32 face_id = 3;
+inline bool Proto_LTSSyncData::has_face_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Proto_UserDetailCommonData::set_has_referrer_id() {
-  _has_bits_[0] |= 0x00000200u;
+inline void Proto_LTSSyncData::set_has_face_id() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void Proto_UserDetailCommonData::clear_has_referrer_id() {
-  _has_bits_[0] &= ~0x00000200u;
+inline void Proto_LTSSyncData::clear_has_face_id() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-inline void Proto_UserDetailCommonData::clear_referrer_id() {
-  referrer_id_ = GOOGLE_ULONGLONG(0);
-  clear_has_referrer_id();
+inline void Proto_LTSSyncData::clear_face_id() {
+  face_id_ = 0u;
+  clear_has_face_id();
 }
-inline ::google::protobuf::uint64 Proto_UserDetailCommonData::referrer_id() const {
-  return referrer_id_;
+inline ::google::protobuf::uint32 Proto_LTSSyncData::face_id() const {
+  return face_id_;
 }
-inline void Proto_UserDetailCommonData::set_referrer_id(::google::protobuf::uint64 value) {
-  set_has_referrer_id();
-  referrer_id_ = value;
-}
-
-// optional bool first_recharge = 11;
-inline bool Proto_UserDetailCommonData::has_first_recharge() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void Proto_UserDetailCommonData::set_has_first_recharge() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void Proto_UserDetailCommonData::clear_has_first_recharge() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void Proto_UserDetailCommonData::clear_first_recharge() {
-  first_recharge_ = false;
-  clear_has_first_recharge();
-}
-inline bool Proto_UserDetailCommonData::first_recharge() const {
-  return first_recharge_;
-}
-inline void Proto_UserDetailCommonData::set_first_recharge(bool value) {
-  set_has_first_recharge();
-  first_recharge_ = value;
-}
-
-// optional uint64 show_userid = 12;
-inline bool Proto_UserDetailCommonData::has_show_userid() const {
-  return (_has_bits_[0] & 0x00000800u) != 0;
-}
-inline void Proto_UserDetailCommonData::set_has_show_userid() {
-  _has_bits_[0] |= 0x00000800u;
-}
-inline void Proto_UserDetailCommonData::clear_has_show_userid() {
-  _has_bits_[0] &= ~0x00000800u;
-}
-inline void Proto_UserDetailCommonData::clear_show_userid() {
-  show_userid_ = GOOGLE_ULONGLONG(0);
-  clear_has_show_userid();
-}
-inline ::google::protobuf::uint64 Proto_UserDetailCommonData::show_userid() const {
-  return show_userid_;
-}
-inline void Proto_UserDetailCommonData::set_show_userid(::google::protobuf::uint64 value) {
-  set_has_show_userid();
-  show_userid_ = value;
+inline void Proto_LTSSyncData::set_face_id(::google::protobuf::uint32 value) {
+  set_has_face_id();
+  face_id_ = value;
 }
 
 
