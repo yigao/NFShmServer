@@ -11,6 +11,8 @@
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
+#include "Trans/NFSnsTransSaveSimpleDB.h"
+#include "Trans/NFSnsTransSaveDetailDB.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerSimple, EOT_SNS_ROLE_SIMPLE_ID, NFShmObj)
 
@@ -209,11 +211,10 @@ int NFPlayerSimple::SaveToDB(bool bForce)
 
 int NFPlayerSimple::SendTransToDB()
 {
-    NFTransSaveDB* pSave = (NFTransSaveDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_SAVE_PLAYER);
-    CHECK_EXPR(pSave, -1, "Create Trans:NFTransSaveDB Failed! ");
+    NFSnsTransSaveSimpleDB* pSave = (NFSnsTransSaveSimpleDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE);
+    CHECK_EXPR(pSave, -1, "Create Trans:NFSnsTransSaveSimpleDB Failed! ");
 
-    pSave->Init(this, 0);
-    int iRet = pSave->SaveDB();
+    int iRet = pSave->SaveDB(this);
     if (iRet != 0)
     {
         pSave->SetFinished(iRet);

@@ -28,7 +28,6 @@ public:
 	virtual int HandleTransFinished(int iRunLogicRetCode);
 public:
 	int SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason = TRANS_SAVEROLEDETAIL_NORMAL);
-	int ProSaveDBRes(uint32_t err_code, uint32_t seq);
 private:
 	TRANS_SAVEROLEDETAIL_REASON m_reason;
     uint32_t m_curSeq;

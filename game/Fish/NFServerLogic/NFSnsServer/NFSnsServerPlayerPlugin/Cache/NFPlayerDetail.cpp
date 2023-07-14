@@ -12,6 +12,7 @@
 #include "NFCacheMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
+#include "Trans/NFSnsTransSaveDetailDB.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
 
@@ -44,7 +45,7 @@ int NFPlayerDetail::ResumeInit()
     return 0;
 }
 
-uint64_t NFPlayerDetail::GetRoleId() const
+uint64_t NFPlayerDetail::GetPlayerId() const
 {
     return m_playerId;
 }
@@ -216,11 +217,10 @@ int NFPlayerDetail::SaveToDB(bool bForce)
 
 int NFPlayerDetail::SendTransToDB()
 {
-    NFTransSaveDB* pSave = (NFTransSaveDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_SAVE_PLAYER);
+    NFSnsTransSaveDetailDB* pSave = (NFSnsTransSaveDetailDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_SAVE_PLAYER_DETAIL);
     CHECK_EXPR(pSave, -1, "Create Trans:NFTransSaveDB Failed! ");
 
-    pSave->Init(this, 0);
-    int iRet = pSave->SaveDB(iReason);
+    int iRet = pSave->SaveDB(this);
     if (iRet != 0)
     {
         pSave->SetFinished(iRet);

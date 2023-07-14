@@ -18,18 +18,17 @@ class NFSnsTransSaveSimpleDB : public NFTransBase {
 public:
     NFSnsTransSaveSimpleDB();
 
-	virtual ~NFSnsTransSaveSimpleDB();
+    virtual ~NFSnsTransSaveSimpleDB();
 
-	int CreateInit();
+    int CreateInit();
 
-	int ResumeInit();
+    int ResumeInit();
 
-	virtual int HandleTransFinished(int iRunLogicRetCode);
+    virtual int HandleTransFinished(int iRunLogicRetCode);
 public:
-	int SaveDB(NFPlayerSimple* pPlayer);
-	int ProSaveDBRes(uint32_t err_code, uint32_t seq);
+    int SaveDB(NFPlayerSimple* pPlayer);
 private:
     uint32_t m_curSeq;
     uint32_t m_playerId;
-	DECLARE_IDCREATE(NFSnsTransSaveSimpleDB)
+DECLARE_IDCREATE(NFSnsTransSaveSimpleDB)
 };

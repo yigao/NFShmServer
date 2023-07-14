@@ -47,7 +47,7 @@ int NFSnsPart::Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::
 {
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
     m_pMaster = pMaster;
-    m_playerId = pMaster->GetRoleId();
+    m_playerId = pMaster->GetPlayerId();
     m_partType = partType;
 
     if (bCreatePlayer)

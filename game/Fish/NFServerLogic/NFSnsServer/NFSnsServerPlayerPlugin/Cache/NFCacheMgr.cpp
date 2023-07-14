@@ -174,7 +174,7 @@ int NFCacheMgr::DeleteRoleDetail(NFPlayerDetail *pRoleDetail)
 {
     CHECK_NULL(pRoleDetail);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleDetail->GetRoleId(), pRoleDetail->GetGlobalId());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleDetail->GetPlayerId(), pRoleDetail->GetGlobalId());
 
     NFPlayerDetail::DestroyObj(m_pObjPluginManager, pRoleDetail);
 

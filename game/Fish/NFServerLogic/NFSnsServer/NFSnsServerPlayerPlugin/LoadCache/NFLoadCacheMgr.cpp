@@ -14,8 +14,8 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "Trans/NFQueryRole.h"
-#include "Trans/NFTransGetRoleSimple.h"
-#include "Trans/NFTransGetRoleDetail.h"
+#include "Trans/NFTransGetPlayerSimple.h"
+#include "Trans/NFTransGetPlayerDetail.h"
 #include "Trans/NFTransCacheBase.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
@@ -118,7 +118,7 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
         }
     }
 
-    while (!m_playerSimpleLoadingMap.full() && !m_playerSimpleWaitLoadMap.empty() && NFTransGetRoleSimple::GetFreeCount(m_pObjPluginManager) > 0)
+    while (!m_playerSimpleLoadingMap.full() && !m_playerSimpleWaitLoadMap.empty() && NFTransGetPlayerSimple::GetFreeCount(m_pObjPluginManager) > 0)
     {
         auto waitIter = m_playerSimpleWaitLoadMap.begin();
         auto pWaitLoadData = &waitIter->second;
@@ -177,7 +177,7 @@ int NFLoadCacheMgr::RefreshDetailQueue()
         }
     }
 
-    while (!m_playerDetailLoadingMap.full() && !m_playerDetailWaitLoadMap.empty() && NFTransGetRoleDetail::GetFreeCount(m_pObjPluginManager) > 0)
+    while (!m_playerDetailLoadingMap.full() && !m_playerDetailWaitLoadMap.empty() && NFTransGetPlayerDetail::GetFreeCount(m_pObjPluginManager) > 0)
     {
         auto waitIter = m_playerDetailWaitLoadMap.begin();
         auto pWaitLoadData = &waitIter->second;
@@ -400,7 +400,7 @@ int NFLoadCacheMgr::GetPlayerSimpleInfo(uint64_t playerId, int transId, uint64_t
     }
 
     if (!m_playerSimpleLoadingMap.full() && m_playerSimpleWaitLoadMap.empty()
-        && NFTransGetRoleSimple::GetFreeCount(m_pObjPluginManager) > 0)
+        && NFTransGetPlayerSimple::GetFreeCount(m_pObjPluginManager) > 0)
     {
         auto pRoleInfo = &m_playerSimpleLoadingMap[playerId];
         NF_ASSERT(pRoleInfo);
@@ -472,11 +472,11 @@ int NFLoadCacheMgr::GetCheckedRoleSimpleInfo(uint64_t playerId)
 
 int NFLoadCacheMgr::TransGetPlayerSimpleInfo(uint64_t playerId)
 {
-    NFTransGetRoleSimple *pTrans = (NFTransGetRoleSimple *) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID);
+    NFTransGetPlayerSimple *pTrans = (NFTransGetPlayerSimple *) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID);
     if (!pTrans)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, " Create Trans NFTransGetRoleSimple Failed! UsedItem:{}",
-                   NFTransGetRoleSimple::GetUsedCount(m_pObjPluginManager));
+                   NFTransGetPlayerSimple::GetUsedCount(m_pObjPluginManager));
         return -1;
     }
 
@@ -493,10 +493,9 @@ NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t playerId)
 {
     CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerSimpleInfo Must Int the Coroutine");
 
-    proto_ff::tbFishPlayerData xData;
+    proto_ff::tbFishSnsPlayerSimpleData xData;
     xData.set_player_id(playerId);
-    std::vector<std::string> vecFields = {"player_id", "nickname", "gender", "faceid", "phonenum", "age", "last_login_time"};
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, playerId, xData, vecFields);
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, playerId, xData);
     if (iRet != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, playerId, "GetRpcSelectObjService Failed, iRet:{}", GetErrorStr(iRet));
@@ -518,15 +517,7 @@ NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t playerId)
         else {
             if (!pPlayerSimple->IsInited())
             {
-                proto_ff::pbFishPlayerSimpleData data;
-                data.set_player_id(xData.player_id());
-                data.set_nickname(xData.nickname());
-                data.set_gender(xData.gender());
-                data.set_faceid(xData.faceid());
-                data.set_phonenum(xData.phonenum());
-                data.set_age(xData.age());
-                data.set_last_login_time(xData.last_login_time());
-                pPlayerSimple->Init(data);
+                pPlayerSimple->Init(xData);
             }
         }
     }
@@ -552,7 +543,7 @@ int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t t
     }
 
     if (!m_playerDetailLoadingMap.full() && m_playerDetailWaitLoadMap.empty()
-        && NFTransGetRoleDetail::GetFreeCount(m_pObjPluginManager) > 0)
+        && NFTransGetPlayerDetail::GetFreeCount(m_pObjPluginManager) > 0)
     {
         auto pRoleInfo = &m_playerDetailLoadingMap[roleId];
         NF_ASSERT(pRoleInfo);
@@ -609,11 +600,11 @@ int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t t
 
 int NFLoadCacheMgr::TransGetRoleDetailInfo(uint64_t playerId)
 {
-    NFTransGetRoleDetail *pTrans = (NFTransGetRoleDetail *) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_GET_ROLE_DETAIL_ID);
+    NFTransGetPlayerDetail *pTrans = (NFTransGetPlayerDetail *) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_GET_ROLE_DETAIL_ID);
     if (!pTrans)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, " Create Trans NFTransGetRoleDetail Failed! UsedItem:{}",
-                   NFTransGetRoleDetail::GetUsedCount(m_pObjPluginManager));
+                   NFTransGetPlayerDetail::GetUsedCount(m_pObjPluginManager));
         return -1;
     }
 
@@ -630,7 +621,7 @@ NFPlayerDetail* NFLoadCacheMgr::RpcGetPlayerDetailInfo(uint64_t playerId)
 {
     CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerDetailInfo Must Int the Coroutine");
 
-    proto_ff::tbFishSnsPlayerData xData;
+    proto_ff::tbFishSnsPlayerDetailData xData;
     xData.set_player_id(playerId);
     int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, playerId, xData);
     if (iRet != 0)

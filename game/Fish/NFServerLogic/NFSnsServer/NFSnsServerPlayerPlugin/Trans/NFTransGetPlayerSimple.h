@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFTransGetRoleDetail.h
+//    @FileName         :    NFTransGetRoleRimple.h
 //    @Author           :    gaoyi
-//    @Date             :    22-11-5
+//    @Date             :    22-11-4
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFTransGetRoleDetail
+//    @Module           :    NFTransGetRoleRimple
 //
 // -------------------------------------------------------------------------
 
@@ -14,15 +14,15 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "storesvr_sqldata.pb.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
+#include "storesvr_sqldata.pb.h"
 
-class NFTransGetRoleDetail : public NFTransBase
+class NFTransGetPlayerSimple : public NFTransBase
 {
 public:
-    NFTransGetRoleDetail();
+    NFTransGetPlayerSimple();
 
-    virtual ~NFTransGetRoleDetail();
+    virtual ~NFTransGetPlayerSimple();
 
     int CreateInit();
 
@@ -33,5 +33,5 @@ public:
     int OnTransFinished(int iRunLogicRetCode);
 private:
     uint64_t m_playerId;
-DECLARE_IDCREATE(NFTransGetRoleDetail)
+DECLARE_IDCREATE(NFTransGetPlayerSimple)
 };

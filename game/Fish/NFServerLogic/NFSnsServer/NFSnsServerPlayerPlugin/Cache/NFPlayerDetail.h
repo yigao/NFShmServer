@@ -36,7 +36,7 @@ public:
     int ResumeInit();
 
 public:
-    uint64_t GetRoleId() const;
+    uint64_t GetPlayerId() const;
 
     void SetPlayerId(uint64_t roleId);
 

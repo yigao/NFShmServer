@@ -13,9 +13,9 @@
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "Trans/NFTransCacheBase.h"
 #include "Cache/NFCacheMgr.h"
-#include "Trans/NFTransGetRoleSimple.h"
+#include "Trans/NFTransGetPlayerSimple.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
-#include "Trans/NFTransGetRoleDetail.h"
+#include "Trans/NFTransGetPlayerDetail.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFLoadCacheMgr, EOT_SNS_LOAD_CACHE_MGR_ID, NFShmObj)
 

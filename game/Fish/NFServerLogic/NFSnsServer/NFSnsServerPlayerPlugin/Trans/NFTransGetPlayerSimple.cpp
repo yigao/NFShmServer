@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFTransGetRoleSimple.h"
+#include "NFTransGetPlayerSimple.h"
 #include "LoadCache/NFLoadCacheMgr.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
@@ -15,9 +15,9 @@
 #include "Cache/NFCacheMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransGetRoleSimple, EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID, NFTransBase)
+IMPLEMENT_IDCREATE_WITHTYPE(NFTransGetPlayerSimple, EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID, NFTransBase)
 
-NFTransGetRoleSimple::NFTransGetRoleSimple() : NFTransBase()
+NFTransGetPlayerSimple::NFTransGetPlayerSimple() : NFTransBase()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -29,22 +29,22 @@ NFTransGetRoleSimple::NFTransGetRoleSimple() : NFTransBase()
     }
 }
 
-NFTransGetRoleSimple::~NFTransGetRoleSimple()
+NFTransGetPlayerSimple::~NFTransGetPlayerSimple()
 {
 }
 
-int NFTransGetRoleSimple::CreateInit()
+int NFTransGetPlayerSimple::CreateInit()
 {
     m_playerId = 0;
     return 0;
 }
 
-int NFTransGetRoleSimple::ResumeInit()
+int NFTransGetPlayerSimple::ResumeInit()
 {
     return 0;
 }
 
-int NFTransGetRoleSimple::QueryRole(uint64_t playerId) {
+int NFTransGetPlayerSimple::QueryRole(uint64_t playerId) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     m_playerId = playerId;
 
@@ -95,7 +95,7 @@ int NFTransGetRoleSimple::QueryRole(uint64_t playerId) {
     return 0;
 }
 
-int NFTransGetRoleSimple::OnTransFinished(int iRunLogicRetCode) {
+int NFTransGetPlayerSimple::OnTransFinished(int iRunLogicRetCode) {
     NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->HandleGetRoleSimpleTransFinished(iRunLogicRetCode, m_playerId);
     return 0;
 }

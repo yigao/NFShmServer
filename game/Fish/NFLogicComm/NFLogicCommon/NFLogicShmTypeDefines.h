@@ -29,6 +29,7 @@ typedef enum
     EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID,
     EOT_SNS_TRANS_GET_ROLE_DETAIL_ID,
     EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE,
+    EOT_SNS_TRANS_SAVE_PLAYER_DETAIL,
     ////////////////////////////sns part server/////////////////////////////
     EOT_SNS_PART_ID,
 

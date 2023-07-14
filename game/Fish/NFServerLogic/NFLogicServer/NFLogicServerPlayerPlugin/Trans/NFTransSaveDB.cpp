@@ -75,6 +75,11 @@ int NFTransSaveDB::SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason)
         SetFinished(rpcRetCode);
     });
 
+    if (m_rpcId == INVALID_ID)
+    {
+        return proto_ff::ERR_CODE_RPC_SYSTEM_ERROR;
+    }
+
 	return 0;
 }
 
