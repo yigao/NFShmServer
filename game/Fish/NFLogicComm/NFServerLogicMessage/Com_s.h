@@ -195,25 +195,5 @@ namespace proto_ff_s {
 	};
 	typedef struct Proto_UserDetailCommonData_s Proto_UserDetailCommonData_t;
 
-	struct pbFishPlayerSimpleData_s : public NFDescStoreSeqOP {
-		pbFishPlayerSimpleData_s();
-		virtual ~pbFishPlayerSimpleData_s(){}
-		int CreateInit();
-		int ResumeInit();
-		uint64_t player_id;
-		NFShmString<128> nickname;
-		uint32_t faceid;
-		uint32_t gender;
-		uint32_t age;
-		uint64_t phonenum;
-		uint64_t last_login_time;
-
-		virtual void write_to_pbmsg(::proto_ff::pbFishPlayerSimpleData & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::pbFishPlayerSimpleData & msg);
-		static ::proto_ff::pbFishPlayerSimpleData* new_pbmsg(){ return new ::proto_ff::pbFishPlayerSimpleData(); }
-		static ::proto_ff::pbFishPlayerSimpleData make_pbmsg(){ return ::proto_ff::pbFishPlayerSimpleData(); }
-	};
-	typedef struct pbFishPlayerSimpleData_s pbFishPlayerSimpleData_t;
-
 }
 

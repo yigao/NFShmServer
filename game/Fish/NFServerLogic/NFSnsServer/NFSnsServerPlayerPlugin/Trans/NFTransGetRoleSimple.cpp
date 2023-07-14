@@ -54,10 +54,9 @@ int NFTransGetRoleSimple::QueryRole(uint64_t playerId) {
         return 0;
     }
 
-    proto_ff::tbFishPlayerData xData;
+    proto_ff::tbFishSnsPlayerSimpleData xData;
     xData.set_player_id(m_playerId);
-    std::vector<std::string> vecFields = {"player_id", "nickname", "gender", "faceid", "phonenum", "age", "last_login_time"};
-    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_playerId, xData, [this](int rpcRetCode, proto_ff::tbFishPlayerData &respone) {
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_playerId, xData, [this](int rpcRetCode, proto_ff::tbFishSnsPlayerSimpleData &respone) {
         if (rpcRetCode == 0)
         {
             NFPlayerSimple* pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
@@ -78,15 +77,7 @@ int NFTransGetRoleSimple::QueryRole(uint64_t playerId) {
 
             if (!pPlayerSimple->IsInited())
             {
-                proto_ff::pbFishPlayerSimpleData data;
-                data.set_player_id(respone.player_id());
-                data.set_nickname(respone.nickname());
-                data.set_gender(respone.gender());
-                data.set_faceid(respone.faceid());
-                data.set_phonenum(respone.phonenum());
-                data.set_age(respone.age());
-                data.set_last_login_time(respone.last_login_time());
-                pPlayerSimple->Init(data);
+                pPlayerSimple->Init(respone);
             }
 
             SetFinished(0);
@@ -94,7 +85,7 @@ int NFTransGetRoleSimple::QueryRole(uint64_t playerId) {
         }
 
         SetFinished(rpcRetCode);
-    }, vecFields);
+    });
 
     if (m_rpcId == INVALID_ID)
     {

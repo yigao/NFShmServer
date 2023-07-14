@@ -50,26 +50,67 @@ public:
 
     /**
      * @brief
+     * @param data
+     * @return
+     */
+    virtual int SaveDB(proto_ff::tbFishPlayerData& data);
+
+    /**
+     * @brief
      * @return
      */
     virtual int InitConfig(const proto_ff::tbFishPlayerData& data);
 
-    //登入
-    virtual int OnLogin();
-    //生物登出入口
-    virtual int OnLogout();
-    //断开连接
-    virtual int OnDisconnect();
-    //重新连接
-    virtual int OnReconnect();
-    //生物update
+    /**
+     * @brief
+     * @return
+     */
     virtual int Update();
-    //存储DB
-    virtual int SaveDB(proto_ff::tbFishPlayerData& data);
 
-    ////////////////////////////////// 每日零点 每周一零点 刷新接口 ///////////////////////////////////
+    /**
+     * @brief 登陆入口
+     * @return
+     */
+    virtual int OnLogin();
+
+    /**
+     * @brief 登出入口
+     * @return
+     */
+    virtual int OnLogout();
+
+    /**
+     * @brief 掉线入口
+     * @return
+     */
+    virtual int OnDisconnect();
+
+    /**
+     * @brief 重连入口
+     * @return
+     */
+    virtual int OnReconnect();
+
+    ////////////////////////////////// 每日每周刷新接口 ///////////////////////////////////
+    /**
+     * @brief 每日刷新接口
+     * @param unixSec
+     * @return
+     */
     virtual int DailyZeroUpdate();
+
+    /**
+     * @brief 每周刷新接口
+     * @param unixSec
+     * @return
+     */
     virtual int WeekZeroUpdate();
+
+    /**
+     * @brief 每月刷新接口
+     * @param unixSec
+     * @return
+     */
     virtual int MonthZeroUpdate();
 
 public:
@@ -142,7 +183,6 @@ public:
     int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-public:
 public:
     template<typename PART>
     PART *GetPart(uint32_t partType)

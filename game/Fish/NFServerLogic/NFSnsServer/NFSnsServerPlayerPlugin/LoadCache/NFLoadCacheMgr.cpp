@@ -42,6 +42,7 @@ int NFLoadCacheMgr::CreateInit()
     flag = true;
 
     m_refreshTimer = SetTimer(100, 0, 0, 0, 1, 0);
+    m_refreshRpcTimer = SetTimer(30, 0, 0, 0, 1, 0);
     return 0;
 }
 
@@ -56,6 +57,9 @@ int NFLoadCacheMgr::OnTimer(int timeId, int callcount)
     {
         RefreshSimpleQueue();
         RefreshDetailQueue();
+    }
+    else if (timeId == m_refreshRpcTimer)
+    {
         RefreshRpcQueue();
     }
     return 0;
@@ -63,44 +67,6 @@ int NFLoadCacheMgr::OnTimer(int timeId, int callcount)
 
 int NFLoadCacheMgr::RefreshRpcQueue()
 {
-    uint64_t timeNow = NFTime::Now().UnixSec();
-
-    for (auto loadIter = m_playerSimpleLoadingMap.begin(); loadIter != m_playerSimpleLoadingMap.end();)
-    {
-        auto pInfo = &loadIter->second;
-        if (pInfo->m_bFinished)
-        {
-            auto pLoadingData = &loadIter->second;
-            // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
-            for (auto iter = pLoadingData->m_transInfo.begin(); iter != pLoadingData->m_transInfo.end(); iter++)
-            {
-                if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
-                {
-                    NFTransBase *pTransBase = FindModule<NFISharedMemModule>()->GetTrans(iter->first);
-                    if (pTransBase)
-                    {
-                        NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
-                        pTransRoleBase->HandleGetRoleSimpleRes(0, loadIter->first);
-                    }
-                }
-            }
-
-            for (auto iter = pLoadingData->m_rpcInfo.begin(); iter != pLoadingData->m_rpcInfo.end(); iter++)
-            {
-                if (iter->first > 0)
-                {
-                    FindModule<NFICoroutineModule>()->Resume(iter->first, 0);
-                }
-            }
-
-            loadIter = m_playerSimpleLoadingMap.erase(loadIter);
-            continue;
-        }
-        else {
-            loadIter++;
-        }
-    }
-
     for(auto iter = m_waitResumeRpcMap.begin(); iter != m_waitResumeRpcMap.end(); )
     {
         FindModule<NFICoroutineModule>()->Resume(iter->first, iter->second);
@@ -172,7 +138,7 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
         *pNewLoading = *pWaitLoadData;
         m_playerSimpleWaitLoadMap.erase(waitIter);
 
-        int retCode = TransGetRoleSimpleInfo(pNewLoading->m_playerId);
+        int retCode = TransGetPlayerSimpleInfo(pNewLoading->m_playerId);
         if (retCode != 0)
         {
             return retCode;
@@ -230,7 +196,7 @@ int NFLoadCacheMgr::RefreshDetailQueue()
         *pNewLoading = *pWaitLoadData;
         m_playerDetailWaitLoadMap.erase(waitIter);
 
-        int retCode = TransGetRoleDetailInfo(pNewLoading);
+        int retCode = TransGetRoleDetailInfo(pNewLoading->m_playerId);
         if (retCode != 0)
         {
             return retCode;
@@ -242,14 +208,49 @@ int NFLoadCacheMgr::RefreshDetailQueue()
 
 int NFLoadCacheMgr::HandleGetRoleSimpleRpcFinished(int iRunLogicRetCode, uint64_t roleId)
 {
-    if (iRunLogicRetCode == 0)
+    uint32_t timeNow = NFTime::Now().UnixSec();
+    auto pLoadingData_iter = m_playerSimpleLoadingMap.find(roleId);
+    if (pLoadingData_iter != m_playerSimpleLoadingMap.end())
     {
-        auto pLoadingData_iter = m_playerSimpleLoadingMap.find(roleId);
-        if (pLoadingData_iter != m_playerSimpleLoadingMap.end())
+        auto pLoadingData = &pLoadingData_iter->second;
+        // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
+        for (auto iter = pLoadingData->m_transInfo.begin(); iter != pLoadingData->m_transInfo.end(); iter++)
         {
-            pLoadingData_iter->second.m_bFinished = true;
+            if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
+            {
+                NFTransBase *pTransBase = FindModule<NFISharedMemModule>()->GetTrans(iter->first);
+                if (pTransBase)
+                {
+                    NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
+                    pTransRoleBase->HandleGetRoleSimpleRes(iRunLogicRetCode, roleId);
+                }
+            }
         }
+
+        for (auto iter = pLoadingData->m_rpcInfo.begin(); iter != pLoadingData->m_rpcInfo.end(); iter++)
+        {
+            if (iter->first > 0)
+            {
+                if (m_waitResumeRpcMap.find(iter->first) != m_waitResumeRpcMap.end())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the rpc is in the m_waitResumeRpcMap, playerId:{} rpc:{} ", pLoadingData_iter->first, iter->first)
+                }
+                else {
+                    if (m_waitResumeRpcMap.full())
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the m_waitResumeRpcMap full, playerId:{} rpc:{} ", pLoadingData_iter->first, iter->first)
+                    }
+                    else {
+                        m_waitResumeRpcMap.emplace(iter->first, iRunLogicRetCode);
+                    }
+                }
+            }
+        }
+
+        m_playerSimpleLoadingMap.erase(roleId);
     }
+
+    RefreshSimpleQueue();
 
     return 0;
 }
@@ -337,7 +338,46 @@ NFPlayerSimple* NFLoadCacheMgr::GetPlayerSimpleInfoByRpc(uint64_t playerId, uint
         pRoleInfo->m_playerId = playerId;
         //这里不需要存储当前rpc
         pRoleInfo->AddRpc(-1, time);
-        return RpcGetRoleSimpleInfo(playerId);
+        return RpcGetPlayerSimpleInfo(playerId);
+    }
+
+    return NULL;
+}
+
+NFPlayerDetail* NFLoadCacheMgr::GetPlayerDetailInfoByRpc(uint64_t playerId, uint64_t time)
+{
+    CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call GetPlayerDetailInfoByRpc Must Int the Coroutine");
+    CHECK_EXPR(playerId > 0, NULL, "playerId:{} error", playerId);
+
+    int64_t rpcId = FindModule<NFICoroutineModule>()->CurrentTaskId();
+
+    auto pLoadingData = m_playerDetailLoadingMap.find(playerId);
+    if (pLoadingData != m_playerDetailLoadingMap.end())
+    {
+        int iRet = pLoadingData->second.AddRpc(rpcId, time);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "AddRpc error, iRet:{}", GetErrorStr(iRet));
+            return NULL;
+        }
+
+        iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "NFICoroutineModule yield error, iRet:{}", GetErrorStr(iRet));
+        }
+
+        return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerDetail(playerId);
+    }
+
+    if (!m_playerDetailLoadingMap.full() && m_playerDetailWaitLoadMap.empty())
+    {
+        auto pRoleInfo = &m_playerDetailLoadingMap[playerId];
+        NF_ASSERT(pRoleInfo);
+        pRoleInfo->m_playerId = playerId;
+        //这里不需要存储当前rpc
+        pRoleInfo->AddRpc(-1, time);
+        return RpcGetPlayerDetailInfo(playerId);
     }
 
     return NULL;
@@ -367,7 +407,7 @@ int NFLoadCacheMgr::GetPlayerSimpleInfo(uint64_t playerId, int transId, uint64_t
         pRoleInfo->m_playerId = playerId;
         pRoleInfo->AddTrans(transId, time);
 
-        int retCode = TransGetRoleSimpleInfo(playerId);
+        int retCode = TransGetPlayerSimpleInfo(playerId);
         if (retCode != 0)
         {
             return -1;
@@ -430,7 +470,7 @@ int NFLoadCacheMgr::GetCheckedRoleSimpleInfo(uint64_t playerId)
     return GetPlayerSimpleInfo(playerId, 0, NFTime::Now().UnixSec());
 }
 
-int NFLoadCacheMgr::TransGetRoleSimpleInfo(uint64_t playerId)
+int NFLoadCacheMgr::TransGetPlayerSimpleInfo(uint64_t playerId)
 {
     NFTransGetRoleSimple *pTrans = (NFTransGetRoleSimple *) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID);
     if (!pTrans)
@@ -449,9 +489,9 @@ int NFLoadCacheMgr::TransGetRoleSimpleInfo(uint64_t playerId)
     return 0;
 }
 
-NFPlayerSimple* NFLoadCacheMgr::RpcGetRoleSimpleInfo(uint64_t playerId)
+NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t playerId)
 {
-    CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetRoleSimpleInfo Must Int the Coroutine");
+    CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerSimpleInfo Must Int the Coroutine");
 
     proto_ff::tbFishPlayerData xData;
     xData.set_player_id(playerId);
@@ -508,8 +548,7 @@ int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t t
     auto pLoadingData_iter = m_playerDetailLoadingMap.find(roleId);
     if (pLoadingData_iter != m_playerDetailLoadingMap.end())
     {
-        pLoadingData_iter->second.AddTrans(transId, time);
-        return 0;
+        return pLoadingData_iter->second.AddTrans(transId, time);
     }
 
     if (!m_playerDetailLoadingMap.full() && m_playerDetailWaitLoadMap.empty()
@@ -518,9 +557,13 @@ int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t t
         auto pRoleInfo = &m_playerDetailLoadingMap[roleId];
         NF_ASSERT(pRoleInfo);
         pRoleInfo->m_playerId = roleId;
-        pRoleInfo->AddTrans(transId, time);
+        if (pRoleInfo->AddTrans(transId, time) != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "pRoleInfo->AddTrans(transId, time) Failed");
+            return -1;
+        }
 
-        int retCode = TransGetRoleDetailInfo(pRoleInfo);
+        int retCode = TransGetRoleDetailInfo(pRoleInfo->m_playerId);
         if (retCode != 0)
         {
             return -1;
@@ -564,7 +607,7 @@ int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t t
     return 0;
 }
 
-int NFLoadCacheMgr::TransGetRoleDetailInfo(NFLoadCacheData *data)
+int NFLoadCacheMgr::TransGetRoleDetailInfo(uint64_t playerId)
 {
     NFTransGetRoleDetail *pTrans = (NFTransGetRoleDetail *) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_GET_ROLE_DETAIL_ID);
     if (!pTrans)
@@ -574,13 +617,50 @@ int NFLoadCacheMgr::TransGetRoleDetailInfo(NFLoadCacheData *data)
         return -1;
     }
 
-    if (pTrans->QueryRole(data->m_playerId) != 0)
+    if (pTrans->QueryRole(playerId) != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "query role error {}", data->m_playerId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "query role error {}", playerId);
         pTrans->SetFinished(-1);
     }
 
     return 0;
+}
+
+NFPlayerDetail* NFLoadCacheMgr::RpcGetPlayerDetailInfo(uint64_t playerId)
+{
+    CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerDetailInfo Must Int the Coroutine");
+
+    proto_ff::tbFishSnsPlayerData xData;
+    xData.set_player_id(playerId);
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, playerId, xData);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "GetRpcSelectObjService Failed, iRet:{}", GetErrorStr(iRet));
+        return NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(playerId);
+    }
+
+    NFPlayerDetail* pPlayerDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(playerId);
+    if (pPlayerDetail)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "the player:{} detail exist after selectobj, some wrong error", playerId);
+    }
+    else {
+        pPlayerDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(playerId);
+        if (pPlayerDetail == NULL)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, playerId, "NFCacheMgr GetPlayerDetail Failed");
+            return NULL;
+        }
+        else {
+            if (!pPlayerDetail->IsInited())
+            {
+                pPlayerDetail->Init(xData);
+            }
+        }
+    }
+
+    HandleGetRoleDetailRpcFinished(0, playerId);
+    return pPlayerDetail;
 }
 
 int NFLoadCacheMgr::HandleGetRoleDetailTransFinished(int iRunLogicRetCode, uint64_t roleId)
@@ -599,6 +679,74 @@ int NFLoadCacheMgr::HandleGetRoleDetailTransFinished(int iRunLogicRetCode, uint6
                 {
                     NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
                     pTransRoleBase->HandleGetRoleDetailRes(iRunLogicRetCode, roleId);
+                }
+            }
+        }
+
+        for (auto iter = pLoadingData_iter->second.m_rpcInfo.begin(); iter != pLoadingData_iter->second.m_rpcInfo.end(); iter++)
+        {
+            if (iter->first > 0)
+            {
+                if (m_waitResumeRpcMap.find(iter->first) != m_waitResumeRpcMap.end())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the rpc is in the m_waitResumeRpcMap, playerId:{} rpc:{} ", pLoadingData_iter->first, iter->first)
+                }
+                else {
+                    if (m_waitResumeRpcMap.full())
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the m_waitResumeRpcMap full, playerId:{} rpc:{} ", pLoadingData_iter->first, iter->first)
+                    }
+                    else {
+                        m_waitResumeRpcMap.emplace(iter->first, iRunLogicRetCode);
+                    }
+                }
+            }
+        }
+
+        m_playerDetailLoadingMap.erase(roleId);
+    }
+
+    RefreshDetailQueue();
+
+    return 0;
+}
+
+int NFLoadCacheMgr::HandleGetRoleDetailRpcFinished(int iRunLogicRetCode, uint64_t roleId)
+{
+    uint32_t timeNow = NFTime::Now().UnixSec();
+    auto pLoadingData_iter = m_playerDetailLoadingMap.find(roleId);
+    if (pLoadingData_iter != m_playerDetailLoadingMap.end())
+    {
+        // 判断时间，是确保返回的时候，transid没有失效，而且transid对应的obj也是对的
+        for (auto iter = pLoadingData_iter->second.m_transInfo.begin(); iter != pLoadingData_iter->second.m_transInfo.end(); iter++)
+        {
+            if (iter->first > 0 && (timeNow - iter->second) < TRANS_ACTIVE_TIMEOUT)
+            {
+                NFTransBase *pTransBase = FindModule<NFISharedMemModule>()->GetTrans(iter->first);
+                if (pTransBase)
+                {
+                    NFTransCacheBase *pTransRoleBase = dynamic_cast<NFTransCacheBase *>(pTransBase);
+                    pTransRoleBase->HandleGetRoleDetailRes(iRunLogicRetCode, roleId);
+                }
+            }
+        }
+
+        for (auto iter = pLoadingData_iter->second.m_rpcInfo.begin(); iter != pLoadingData_iter->second.m_rpcInfo.end(); iter++)
+        {
+            if (iter->first > 0)
+            {
+                if (m_waitResumeRpcMap.find(iter->first) != m_waitResumeRpcMap.end())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the rpc is in the m_waitResumeRpcMap, playerId:{} rpc:{} ", pLoadingData_iter->first, iter->first)
+                }
+                else {
+                    if (m_waitResumeRpcMap.full())
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the m_waitResumeRpcMap full, playerId:{} rpc:{} ", pLoadingData_iter->first, iter->first)
+                    }
+                    else {
+                        m_waitResumeRpcMap.emplace(iter->first, iRunLogicRetCode);
+                    }
                 }
             }
         }

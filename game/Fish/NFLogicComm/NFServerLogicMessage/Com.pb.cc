@@ -53,9 +53,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_UserDetailCommonData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_UserDetailCommonData_reflection_ = NULL;
-const ::google::protobuf::Descriptor* pbFishPlayerSimpleData_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  pbFishPlayerSimpleData_reflection_ = NULL;
 
 }  // namespace
 
@@ -260,27 +257,6 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_UserDetailCommonData));
-  pbFishPlayerSimpleData_descriptor_ = file->message_type(11);
-  static const int pbFishPlayerSimpleData_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, player_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, nickname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, faceid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, gender_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, age_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, phonenum_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, last_login_time_),
-  };
-  pbFishPlayerSimpleData_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      pbFishPlayerSimpleData_descriptor_,
-      pbFishPlayerSimpleData::default_instance_,
-      pbFishPlayerSimpleData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbFishPlayerSimpleData, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(pbFishPlayerSimpleData));
 }
 
 namespace {
@@ -315,8 +291,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Proto_UserLoginExternalData_descriptor_, &Proto_UserLoginExternalData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_UserDetailCommonData_descriptor_, &Proto_UserDetailCommonData::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    pbFishPlayerSimpleData_descriptor_, &pbFishPlayerSimpleData::default_instance());
 }
 
 }  // namespace
@@ -344,8 +318,6 @@ void protobuf_ShutdownFile_Com_2eproto() {
   delete Proto_UserLoginExternalData_reflection_;
   delete Proto_UserDetailCommonData::default_instance_;
   delete Proto_UserDetailCommonData_reflection_;
-  delete pbFishPlayerSimpleData::default_instance_;
-  delete pbFishPlayerSimpleData_reflection_;
 }
 
 void protobuf_AddDesc_Com_2eproto() {
@@ -379,13 +351,7 @@ void protobuf_AddDesc_Com_2eproto() {
     "jetton\030\005 \001(\004\022\020\n\010agent_id\030\006 \001(\004\022\020\n\010phonen"
     "um\030\007 \001(\004\022\021\n\tvip_level\030\010 \001(\r\022\020\n\010aread_id\030"
     "\t \001(\r\022\023\n\013referrer_id\030\n \001(\004\022\026\n\016first_rech"
-    "arge\030\013 \001(\010\022\023\n\013show_userid\030\014 \001(\004\"\360\001\n\026pbFi"
-    "shPlayerSimpleData\022\021\n\tplayer_id\030\001 \001(\004\022\027\n"
-    "\010nickname\030\002 \001(\tB\005\220\301\024\200\001\022\032\n\006faceid\030\003 \001(\rB\n"
-    "\272\304\023\006\345\244\264\345\203\217\022\032\n\006gender\030\005 \001(\rB\n\272\304\023\006\346\200\247\345\210\253\022\027"
-    "\n\003age\030\006 \001(\rB\n\272\304\023\006\345\271\264\351\276\204\022\"\n\010phonenum\030\010 \001("
-    "\004B\020\272\304\023\014\346\211\213\346\234\272\345\217\267\347\240\201\0225\n\017last_login_time\030\014"
-    " \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264", 1154);
+    "arge\030\013 \001(\010\022\023\n\013show_userid\030\014 \001(\004", 911);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Com.proto", &protobuf_RegisterTypes);
   EmptyMessage::default_instance_ = new EmptyMessage();
@@ -399,7 +365,6 @@ void protobuf_AddDesc_Com_2eproto() {
   Attr64::default_instance_ = new Attr64();
   Proto_UserLoginExternalData::default_instance_ = new Proto_UserLoginExternalData();
   Proto_UserDetailCommonData::default_instance_ = new Proto_UserDetailCommonData();
-  pbFishPlayerSimpleData::default_instance_ = new pbFishPlayerSimpleData();
   EmptyMessage::default_instance_->InitAsDefaultInstance();
   ComPair::default_instance_->InitAsDefaultInstance();
   ComPair64::default_instance_->InitAsDefaultInstance();
@@ -411,7 +376,6 @@ void protobuf_AddDesc_Com_2eproto() {
   Attr64::default_instance_->InitAsDefaultInstance();
   Proto_UserLoginExternalData::default_instance_->InitAsDefaultInstance();
   Proto_UserDetailCommonData::default_instance_->InitAsDefaultInstance();
-  pbFishPlayerSimpleData::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Com_2eproto);
 }
 
@@ -3974,471 +3938,6 @@ void Proto_UserDetailCommonData::Swap(Proto_UserDetailCommonData* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_UserDetailCommonData_descriptor_;
   metadata.reflection = Proto_UserDetailCommonData_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int pbFishPlayerSimpleData::kPlayerIdFieldNumber;
-const int pbFishPlayerSimpleData::kNicknameFieldNumber;
-const int pbFishPlayerSimpleData::kFaceidFieldNumber;
-const int pbFishPlayerSimpleData::kGenderFieldNumber;
-const int pbFishPlayerSimpleData::kAgeFieldNumber;
-const int pbFishPlayerSimpleData::kPhonenumFieldNumber;
-const int pbFishPlayerSimpleData::kLastLoginTimeFieldNumber;
-#endif  // !_MSC_VER
-
-pbFishPlayerSimpleData::pbFishPlayerSimpleData()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void pbFishPlayerSimpleData::InitAsDefaultInstance() {
-}
-
-pbFishPlayerSimpleData::pbFishPlayerSimpleData(const pbFishPlayerSimpleData& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void pbFishPlayerSimpleData::SharedCtor() {
-  _cached_size_ = 0;
-  player_id_ = GOOGLE_ULONGLONG(0);
-  nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  faceid_ = 0u;
-  gender_ = 0u;
-  age_ = 0u;
-  phonenum_ = GOOGLE_ULONGLONG(0);
-  last_login_time_ = GOOGLE_ULONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-pbFishPlayerSimpleData::~pbFishPlayerSimpleData() {
-  SharedDtor();
-}
-
-void pbFishPlayerSimpleData::SharedDtor() {
-  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
-    delete nickname_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void pbFishPlayerSimpleData::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* pbFishPlayerSimpleData::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return pbFishPlayerSimpleData_descriptor_;
-}
-
-const pbFishPlayerSimpleData& pbFishPlayerSimpleData::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
-  return *default_instance_;
-}
-
-pbFishPlayerSimpleData* pbFishPlayerSimpleData::default_instance_ = NULL;
-
-pbFishPlayerSimpleData* pbFishPlayerSimpleData::New() const {
-  return new pbFishPlayerSimpleData;
-}
-
-void pbFishPlayerSimpleData::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    player_id_ = GOOGLE_ULONGLONG(0);
-    if (has_nickname()) {
-      if (nickname_ != &::google::protobuf::internal::kEmptyString) {
-        nickname_->clear();
-      }
-    }
-    faceid_ = 0u;
-    gender_ = 0u;
-    age_ = 0u;
-    phonenum_ = GOOGLE_ULONGLONG(0);
-    last_login_time_ = GOOGLE_ULONGLONG(0);
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool pbFishPlayerSimpleData::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint64 player_id = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &player_id_)));
-          set_has_player_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_nickname;
-        break;
-      }
-
-      // optional string nickname = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_nickname:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_nickname()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->nickname().data(), this->nickname().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_faceid;
-        break;
-      }
-
-      // optional uint32 faceid = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_faceid:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &faceid_)));
-          set_has_faceid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_gender;
-        break;
-      }
-
-      // optional uint32 gender = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_gender:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &gender_)));
-          set_has_gender();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(48)) goto parse_age;
-        break;
-      }
-
-      // optional uint32 age = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_age:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &age_)));
-          set_has_age();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(64)) goto parse_phonenum;
-        break;
-      }
-
-      // optional uint64 phonenum = 8;
-      case 8: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_phonenum:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &phonenum_)));
-          set_has_phonenum();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(96)) goto parse_last_login_time;
-        break;
-      }
-
-      // optional uint64 last_login_time = 12;
-      case 12: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_last_login_time:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &last_login_time_)));
-          set_has_last_login_time();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void pbFishPlayerSimpleData::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint64 player_id = 1;
-  if (has_player_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->player_id(), output);
-  }
-
-  // optional string nickname = 2;
-  if (has_nickname()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nickname().data(), this->nickname().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->nickname(), output);
-  }
-
-  // optional uint32 faceid = 3;
-  if (has_faceid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->faceid(), output);
-  }
-
-  // optional uint32 gender = 5;
-  if (has_gender()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->gender(), output);
-  }
-
-  // optional uint32 age = 6;
-  if (has_age()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->age(), output);
-  }
-
-  // optional uint64 phonenum = 8;
-  if (has_phonenum()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(8, this->phonenum(), output);
-  }
-
-  // optional uint64 last_login_time = 12;
-  if (has_last_login_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(12, this->last_login_time(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* pbFishPlayerSimpleData::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional uint64 player_id = 1;
-  if (has_player_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->player_id(), target);
-  }
-
-  // optional string nickname = 2;
-  if (has_nickname()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nickname().data(), this->nickname().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->nickname(), target);
-  }
-
-  // optional uint32 faceid = 3;
-  if (has_faceid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->faceid(), target);
-  }
-
-  // optional uint32 gender = 5;
-  if (has_gender()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->gender(), target);
-  }
-
-  // optional uint32 age = 6;
-  if (has_age()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->age(), target);
-  }
-
-  // optional uint64 phonenum = 8;
-  if (has_phonenum()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(8, this->phonenum(), target);
-  }
-
-  // optional uint64 last_login_time = 12;
-  if (has_last_login_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(12, this->last_login_time(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int pbFishPlayerSimpleData::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint64 player_id = 1;
-    if (has_player_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->player_id());
-    }
-
-    // optional string nickname = 2;
-    if (has_nickname()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->nickname());
-    }
-
-    // optional uint32 faceid = 3;
-    if (has_faceid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->faceid());
-    }
-
-    // optional uint32 gender = 5;
-    if (has_gender()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->gender());
-    }
-
-    // optional uint32 age = 6;
-    if (has_age()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->age());
-    }
-
-    // optional uint64 phonenum = 8;
-    if (has_phonenum()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->phonenum());
-    }
-
-    // optional uint64 last_login_time = 12;
-    if (has_last_login_time()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->last_login_time());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void pbFishPlayerSimpleData::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const pbFishPlayerSimpleData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const pbFishPlayerSimpleData*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void pbFishPlayerSimpleData::MergeFrom(const pbFishPlayerSimpleData& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_player_id()) {
-      set_player_id(from.player_id());
-    }
-    if (from.has_nickname()) {
-      set_nickname(from.nickname());
-    }
-    if (from.has_faceid()) {
-      set_faceid(from.faceid());
-    }
-    if (from.has_gender()) {
-      set_gender(from.gender());
-    }
-    if (from.has_age()) {
-      set_age(from.age());
-    }
-    if (from.has_phonenum()) {
-      set_phonenum(from.phonenum());
-    }
-    if (from.has_last_login_time()) {
-      set_last_login_time(from.last_login_time());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void pbFishPlayerSimpleData::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void pbFishPlayerSimpleData::CopyFrom(const pbFishPlayerSimpleData& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool pbFishPlayerSimpleData::IsInitialized() const {
-
-  return true;
-}
-
-void pbFishPlayerSimpleData::Swap(pbFishPlayerSimpleData* other) {
-  if (other != this) {
-    std::swap(player_id_, other->player_id_);
-    std::swap(nickname_, other->nickname_);
-    std::swap(faceid_, other->faceid_);
-    std::swap(gender_, other->gender_);
-    std::swap(age_, other->age_);
-    std::swap(phonenum_, other->phonenum_);
-    std::swap(last_login_time_, other->last_login_time_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata pbFishPlayerSimpleData::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = pbFishPlayerSimpleData_descriptor_;
-  metadata.reflection = pbFishPlayerSimpleData_reflection_;
   return metadata;
 }
 

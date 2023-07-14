@@ -55,19 +55,40 @@ namespace proto_ff_s {
 	};
 	typedef struct tbFishPlayerData_s tbFishPlayerData_t;
 
-	struct tbFishSnsPlayerData_s : public NFDescStoreSeqOP {
-		tbFishSnsPlayerData_s();
-		virtual ~tbFishSnsPlayerData_s(){}
+	struct tbFishSnsPlayerSimpleData_s : public NFDescStoreSeqOP {
+		tbFishSnsPlayerSimpleData_s();
+		virtual ~tbFishSnsPlayerSimpleData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t player_id;
+		NFShmString<128> nickname;
+		uint32_t faceid;
+		uint64_t bank_jetton;
+		uint64_t bank_password;
+		uint64_t last_login_time;
+		uint64_t last_logout_time;
+		uint64_t agent;
+
+		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerSimpleData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerSimpleData & msg);
+		static ::proto_ff::tbFishSnsPlayerSimpleData* new_pbmsg(){ return new ::proto_ff::tbFishSnsPlayerSimpleData(); }
+		static ::proto_ff::tbFishSnsPlayerSimpleData make_pbmsg(){ return ::proto_ff::tbFishSnsPlayerSimpleData(); }
+	};
+	typedef struct tbFishSnsPlayerSimpleData_s tbFishSnsPlayerSimpleData_t;
+
+	struct tbFishSnsPlayerDetailData_s : public NFDescStoreSeqOP {
+		tbFishSnsPlayerDetailData_s();
+		virtual ~tbFishSnsPlayerDetailData_s(){}
 		int CreateInit();
 		int ResumeInit();
 		uint64_t player_id;
 
-		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerData & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerData & msg);
-		static ::proto_ff::tbFishSnsPlayerData* new_pbmsg(){ return new ::proto_ff::tbFishSnsPlayerData(); }
-		static ::proto_ff::tbFishSnsPlayerData make_pbmsg(){ return ::proto_ff::tbFishSnsPlayerData(); }
+		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerDetailData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg);
+		static ::proto_ff::tbFishSnsPlayerDetailData* new_pbmsg(){ return new ::proto_ff::tbFishSnsPlayerDetailData(); }
+		static ::proto_ff::tbFishSnsPlayerDetailData make_pbmsg(){ return ::proto_ff::tbFishSnsPlayerDetailData(); }
 	};
-	typedef struct tbFishSnsPlayerData_s tbFishSnsPlayerData_t;
+	typedef struct tbFishSnsPlayerDetailData_s tbFishSnsPlayerDetailData_t;
 
 }
 

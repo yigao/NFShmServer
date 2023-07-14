@@ -10,6 +10,7 @@
 #include "NFPlayerSimple.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFLogicCommon/NFLogicCommon.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerSimple, EOT_SNS_ROLE_SIMPLE_ID, NFShmObj)
 
@@ -36,6 +37,7 @@ int NFPlayerSimple::CreateInit()
     m_gameId = 0;
     m_isOnline = false;
     m_isInited = false;
+    m_lastSavingDBTime = 0;
     return 0;
 }
 
@@ -104,17 +106,17 @@ void NFPlayerSimple::SetIsOnline(bool isOnline)
     m_isOnline = isOnline;
 }
 
-const proto_ff_s::pbFishPlayerSimpleData_s &NFPlayerSimple::GetBaseData() const
+const proto_ff_s::tbFishSnsPlayerSimpleData_s &NFPlayerSimple::GetBaseData() const
 {
     return m_simpleData;
 }
 
-void NFPlayerSimple::SetBaseData(const proto_ff_s::pbFishPlayerSimpleData_s &baseData)
+void NFPlayerSimple::SetBaseData(const proto_ff_s::tbFishSnsPlayerSimpleData_s &baseData)
 {
     m_simpleData = baseData;
 }
 
-void NFPlayerSimple::ReadFromPB(const proto_ff::pbFishPlayerSimpleData& dbData)
+void NFPlayerSimple::ReadFromPB(const proto_ff::tbFishSnsPlayerSimpleData& dbData)
 {
     m_simpleData.read_from_pbmsg(dbData);
 }
@@ -186,9 +188,71 @@ bool NFPlayerSimple::CanDelete()
     return true;
 }
 
-int NFPlayerSimple::Init(const proto_ff::pbFishPlayerSimpleData &dbData)
+int NFPlayerSimple::Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData)
 {
     m_isInited = true;
     m_simpleData.read_from_pbmsg(dbData);
+    return 0;
+}
+
+int NFPlayerSimple::SaveToDB(bool bForce)
+{
+    if (IsUrgentNeedSave())
+    {
+        if (bForce || NFTime::Now().UnixSec() - m_lastSavingDBTime >= LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME)
+        {
+            SendTransToDB();
+        }
+    }
+    return 0;
+}
+
+int NFPlayerSimple::SendTransToDB()
+{
+    NFTransSaveDB* pSave = (NFTransSaveDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_SAVE_PLAYER);
+    CHECK_EXPR(pSave, -1, "Create Trans:NFTransSaveDB Failed! ");
+
+    pSave->Init(this, 0);
+    int iRet = pSave->SaveDB();
+    if (iRet != 0)
+    {
+        pSave->SetFinished(iRet);
+    }
+
+    return iRet;
+}
+
+int NFPlayerSimple::OnSaveDB(bool success, uint32_t seq)
+{
+    m_lastSavingDBTime = 0;
+    if (success && seq == GetCurSeq())
+    {
+        ClearUrgent();
+    }
+    return 0;
+}
+
+uint64_t NFPlayerSimple::GetClientId() const
+{
+    return 0;
+}
+
+void NFPlayerSimple::SetClientId(uint64_t clientId)
+{
+
+}
+
+int NFPlayerSimple::LoadFromDB(const proto_ff::tbFishSnsPlayerSimpleData &data)
+{
+    return 0;
+}
+
+int NFPlayerSimple::SaveDB(proto_ff::tbFishSnsPlayerSimpleData &data)
+{
+    return 0;
+}
+
+int NFPlayerSimple::InitConfig(const proto_ff::tbFishSnsPlayerSimpleData &data)
+{
     return 0;
 }

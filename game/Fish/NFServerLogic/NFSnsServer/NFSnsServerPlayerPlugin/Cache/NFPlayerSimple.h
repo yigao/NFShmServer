@@ -15,8 +15,10 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "AllProtocol.h"
+#include "NFComm/NFShmCore/NFTransBase.h"
+#include "NFComm/NFCore/NFTime.h"
 
-class NFPlayerSimple : public NFShmObj
+class NFPlayerSimple : public NFShmObj, public NFSeqOP
 {
 public:
     NFPlayerSimple();
@@ -44,11 +46,11 @@ public:
 
     void SetIsOnline(bool isOnline);
 
-    const proto_ff_s::pbFishPlayerSimpleData_s &GetBaseData() const;
+    const proto_ff_s::tbFishSnsPlayerSimpleData_s &GetBaseData() const;
 
-    void SetBaseData(const proto_ff_s::pbFishPlayerSimpleData_s &baseData);
+    void SetBaseData(const proto_ff_s::tbFishSnsPlayerSimpleData_s &baseData);
 
-    void ReadFromPB(const proto_ff::pbFishPlayerSimpleData &dbData);
+    void ReadFromPB(const proto_ff::tbFishSnsPlayerSimpleData &dbData);
 
     bool IsInited() const;
 
@@ -63,8 +65,26 @@ public:
     void SetGameId(uint32_t gameId);
 
 public:
-    int Init(const proto_ff::pbFishPlayerSimpleData &dbData);
+    int Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData);
+    /**
+     * @brief
+     * @param data
+     * @return
+     */
+    virtual int LoadFromDB(const proto_ff::tbFishSnsPlayerSimpleData& data);
 
+    /**
+     * @brief
+     * @param data
+     * @return
+     */
+    virtual int SaveDB(proto_ff::tbFishSnsPlayerSimpleData& data);
+
+    /**
+     * @brief
+     * @return
+     */
+    virtual int InitConfig(const proto_ff::tbFishSnsPlayerSimpleData& data);
 public:
     /**
      * @brief 登陆入口
@@ -97,15 +117,21 @@ public:
      * @param unixSec
      * @return
      */
-    virtual int DailyUpdate(uint64_t unixSec) { return 0; }
+    virtual int DailyZeroUpdate() { return 0; }
 
     /**
      * @brief 每周刷新接口
      * @param unixSec
      * @return
      */
-    virtual int WeekUpdate(uint64_t unixSec) { return 0; };
+    virtual int WeekZeroUpdate() { return 0; };
 
+    /**
+     * @brief 每月刷新接口
+     * @param unixSec
+     * @return
+     */
+    virtual int MonthZeroUpdate() { return 0; };
 public:
     bool CanDelete();
 
@@ -120,7 +146,37 @@ public:
 
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
+public:
+    /**
+     * @brief save db
+     * @return
+     */
+    uint64_t GetLastSaveDBTime() const { return m_lastSavingDBTime; }
+    void SetLastSaveDBTime(uint64_t saveTime) { m_lastSavingDBTime = saveTime; }
+    bool IsInSaving() { return m_lastSavingDBTime > 0 && m_lastSavingDBTime + TRANS_ACTIVE_TIMEOUT + 5 >= (uint64_t)NFTime::Now().UnixSec(); }
 
+    /**
+     * @brief
+     * @param iReason
+     * @return
+     */
+    int SendTransToDB();
+
+    /**
+     * @brief
+     * @param iReason
+     * @param bForce
+     * @return
+     */
+    int SaveToDB(bool bForce = false);
+
+    /**
+     * @brief
+     * @param success
+     * @param seq
+     * @return
+     */
+    int OnSaveDB(bool success, uint32_t seq);
 private:
     /**
      * @brief
@@ -153,7 +209,11 @@ public:
      */
     bool m_isOnline;
 private:
-    proto_ff_s::pbFishPlayerSimpleData_s m_simpleData;
-
+    proto_ff_s::tbFishSnsPlayerSimpleData_s m_simpleData;
+private:
+    /**
+     * @brief 存db的时间
+     */
+    uint64_t m_lastSavingDBTime;
 DECLARE_IDCREATE(NFPlayerSimple)
 };

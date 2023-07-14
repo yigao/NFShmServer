@@ -11,6 +11,7 @@
 #include "Part/NFSnsPart.h"
 #include "NFCacheMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFLogicCommon/NFLogicCommon.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
 
@@ -34,6 +35,7 @@ int NFPlayerDetail::CreateInit()
 {
     m_playerId = 0;
     m_pPart.resize(SNS_PART_MAX);
+    m_lastSavingDBTime = 0;
     return 0;
 }
 
@@ -67,7 +69,7 @@ void NFPlayerDetail::SetIsInited(bool isInited)
     m_isInited = isInited;
 }
 
-int NFPlayerDetail::Init(const proto_ff::tbFishSnsPlayerData &data)
+int NFPlayerDetail::Init(const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer)
 {
     m_isInited = true;
     m_playerId = data.player_id();
@@ -75,22 +77,44 @@ int NFPlayerDetail::Init(const proto_ff::tbFishSnsPlayerData &data)
     ResetCurSeq();
     m_isInited = true;
 
+    if (bCreatePlayer)
+    {
+        InitConfig(data);
+    }
+    else {
+        LoadFromDB(data);
+    }
+
+    std::vector<NFSnsPart*> vec;
     for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
-        NFSnsPart *pPart = CreatePart(i, data);
-        if (nullptr == pPart)
+        m_pPart[i] = CreatePart(i, data, bCreatePlayer);
+        if (nullptr == m_pPart[i])
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Player Init, Create Part Failed, roleId:{} part:{}", m_playerId, i);
+            for(int i = 0; i < (int)vec.size(); i++)
+            {
+                FindModule<NFISharedMemModule>()->DestroyObj(vec[i]);
+            }
             return -1;
         }
-
-        m_pPart[i] = pPart->GetGlobalId();
+        vec.push_back(m_pPart[i].GetPoint());
     }
 
     return 0;
 }
 
-NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::tbFishSnsPlayerData &data)
+int NFPlayerDetail::UnInit()
+{
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        RecylePart(m_pPart[i]);
+    }
+
+    return 0;
+}
+
+NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer)
 {
     NFSnsPart *pPart = NULL;
     switch (partType)
@@ -104,8 +128,7 @@ NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::tbFishS
 
     if (pPart)
     {
-        pPart->InitBase(this, partType);
-        int iRet = pPart->Init(data);
+        int iRet = pPart->Init(this, partType, data, bCreatePlayer);
         if (iRet != 0)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "{}::Init Failed", pPart->GetClassName());
@@ -126,15 +149,94 @@ int NFPlayerDetail::RecylePart(NFSnsPart *pPart)
 
 NFSnsPart *NFPlayerDetail::GetPart(uint32_t partType)
 {
-    if (partType <= 0 || partType >= m_pPart.size())
+    if (partType > PART_NONE && partType < (uint32_t) m_pPart.size())
     {
-        return nullptr;
+        return m_pPart[partType].GetPoint();
     }
 
-    return dynamic_cast<NFSnsPart *>(FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_SNS_PART_ID, m_pPart[partType], false));
+    return NULL;
 }
 
 NFPlayerSimple *NFPlayerDetail::GetRoleSimple() const
 {
     return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
 }
+
+int NFPlayerDetail::OnLogin()
+{
+    return 0;
+}
+
+int NFPlayerDetail::OnLogout()
+{
+    return 0;
+}
+
+int NFPlayerDetail::OnDisconnect()
+{
+    return 0;
+}
+
+int NFPlayerDetail::OnReconnect()
+{
+    return 0;
+}
+
+int NFPlayerDetail::LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData &data)
+{
+    return 0;
+}
+
+int NFPlayerDetail::SaveDB(proto_ff::tbFishSnsPlayerDetailData &data)
+{
+    return 0;
+}
+
+int NFPlayerDetail::InitConfig(const proto_ff::tbFishSnsPlayerDetailData &data)
+{
+    return 0;
+}
+
+int NFPlayerDetail::Update()
+{
+    return 0;
+}
+
+int NFPlayerDetail::SaveToDB(bool bForce)
+{
+    if (IsUrgentNeedSave())
+    {
+        if (bForce || NFTime::Now().UnixSec() - m_lastSavingDBTime >= LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME)
+        {
+            SendTransToDB();
+        }
+    }
+    return 0;
+}
+
+int NFPlayerDetail::SendTransToDB()
+{
+    NFTransSaveDB* pSave = (NFTransSaveDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_SAVE_PLAYER);
+    CHECK_EXPR(pSave, -1, "Create Trans:NFTransSaveDB Failed! ");
+
+    pSave->Init(this, 0);
+    int iRet = pSave->SaveDB(iReason);
+    if (iRet != 0)
+    {
+        pSave->SetFinished(iRet);
+    }
+
+    return iRet;
+}
+
+int NFPlayerDetail::OnSaveDB(bool success, uint32_t seq)
+{
+    m_lastSavingDBTime = 0;
+    if (success && seq == GetCurSeq())
+    {
+        ClearUrgent();
+    }
+    return 0;
+}
+
+

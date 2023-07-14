@@ -137,6 +137,7 @@ public:
     virtual uint32_t GetCurRoleDetailSeq() const;
 protected:
     NFShmPtr<NFPlayer> m_pMaster;
+    uint64_t m_playerId;
     uint32_t m_partType;
 private:
 DECLARE_IDCREATE(NFPart)

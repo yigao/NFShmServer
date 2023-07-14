@@ -54,6 +54,20 @@ public:
      * @return
      */
     int DeletePlayerSimple(NFPlayerSimple *pRoleSimple);
+
+    /**
+     * @brief 获取角色数据，如果找不到,通过trans异步去数据库拉取数据
+     * @param role_id
+     * @return
+     */
+    NFPlayerSimple* QueryPlayerSimple(uint64_t role_id);
+
+    /**
+     * @brief 获取角色数据，如果找不到,通过rpc异步去数据库拉取数据
+     * @param role_id
+     * @return
+     */
+    NFPlayerSimple* QueryPlayerSimpleByRpc(uint64_t role_id);
 public:
     /**
      * @brief
@@ -82,20 +96,13 @@ public:
      * @return
      */
     int DeleteRoleDetail(NFPlayerDetail *pRoleDetail);
-public:
-    /**
-     * @brief 获取角色数据，如果找不到,通过trans异步去数据库拉取数据
-     * @param role_id
-     * @return
-     */
-    NFPlayerSimple* QueryPlayerSimple(uint64_t role_id);
 
     /**
-     * @brief 获取角色数据，如果找不到,通过rpc异步去数据库拉取数据
+     * @brief
      * @param role_id
      * @return
      */
-    NFPlayerSimple* QueryPlayerSimpleByRpc(uint64_t role_id);
+    NFPlayerDetail* QueryPlayerDetailByRpc(uint64_t role_id);
 private:
 DECLARE_IDCREATE(NFCacheMgr)
 };

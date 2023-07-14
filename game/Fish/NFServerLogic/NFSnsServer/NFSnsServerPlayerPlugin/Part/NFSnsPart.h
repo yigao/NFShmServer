@@ -31,12 +31,21 @@ public:
 
     int ResumeInit();
 public:
-    int InitBase(NFPlayerDetail *pMaster, uint32_t partType);
-public:
-    virtual int Init(const proto_ff::tbFishSnsPlayerData &data);
+    /**
+     * @brief
+     * @param pMaster
+     * @param partType
+     * @param data
+     * @param bCreatePlayer
+     * @return
+     */
+    virtual int Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer);
 
+    /**
+     * @brief
+     * @return
+     */
     virtual int UnInit();
-
 public:
     /**
      * @brief 处理客户端消息
@@ -59,6 +68,19 @@ public:
     static int RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
 
 public:
+    /**
+     * @brief
+     * @param data
+     * @return
+     */
+    virtual int LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData& data) { return 0; }
+
+    /**
+     * @brief
+     * @return
+     */
+    virtual int InitConfig(const proto_ff::tbFishSnsPlayerDetailData& data) { return 0; }
+
     /**
      * @brief 登陆入口
      * @return

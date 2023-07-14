@@ -117,6 +117,17 @@ NFPlayerSimple* NFCacheMgr::QueryPlayerSimpleByRpc(uint64_t role_id)
     return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimpleInfoByRpc(role_id, NFTime::Now().UnixSec());
 }
 
+NFPlayerDetail* NFCacheMgr::QueryPlayerDetailByRpc(uint64_t role_id)
+{
+    NFPlayerDetail* pDetail = GetPlayerDetail(role_id);
+    if (pDetail)
+    {
+        return pDetail;
+    }
+
+    return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetailInfoByRpc(role_id, NFTime::Now().UnixSec());
+}
+
 int NFCacheMgr::ReleaseDetailCount(int num)
 {
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "role detail release count :{} maxcount :{} usecount :{}", num, NFPlayerDetail::GetItemCount(m_pObjPluginManager), NFPlayerDetail::GetUsedCount(m_pObjPluginManager));

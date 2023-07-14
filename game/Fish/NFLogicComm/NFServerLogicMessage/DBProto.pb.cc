@@ -26,9 +26,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* tbFishPlayerData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   tbFishPlayerData_reflection_ = NULL;
-const ::google::protobuf::Descriptor* tbFishSnsPlayerData_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* tbFishSnsPlayerSimpleData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  tbFishSnsPlayerData_reflection_ = NULL;
+  tbFishSnsPlayerSimpleData_reflection_ = NULL;
+const ::google::protobuf::Descriptor* tbFishSnsPlayerDetailData_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  tbFishSnsPlayerDetailData_reflection_ = NULL;
 
 }  // namespace
 
@@ -84,21 +87,43 @@ void protobuf_AssignDesc_DBProto_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(tbFishPlayerData));
-  tbFishSnsPlayerData_descriptor_ = file->message_type(2);
-  static const int tbFishSnsPlayerData_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerData, player_id_),
+  tbFishSnsPlayerSimpleData_descriptor_ = file->message_type(2);
+  static const int tbFishSnsPlayerSimpleData_offsets_[8] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, nickname_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, faceid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, bank_jetton_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, bank_password_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, last_login_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, last_logout_time_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, agent_),
   };
-  tbFishSnsPlayerData_reflection_ =
+  tbFishSnsPlayerSimpleData_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      tbFishSnsPlayerData_descriptor_,
-      tbFishSnsPlayerData::default_instance_,
-      tbFishSnsPlayerData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerData, _unknown_fields_),
+      tbFishSnsPlayerSimpleData_descriptor_,
+      tbFishSnsPlayerSimpleData::default_instance_,
+      tbFishSnsPlayerSimpleData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerSimpleData, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(tbFishSnsPlayerData));
+      sizeof(tbFishSnsPlayerSimpleData));
+  tbFishSnsPlayerDetailData_descriptor_ = file->message_type(3);
+  static const int tbFishSnsPlayerDetailData_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerDetailData, player_id_),
+  };
+  tbFishSnsPlayerDetailData_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      tbFishSnsPlayerDetailData_descriptor_,
+      tbFishSnsPlayerDetailData::default_instance_,
+      tbFishSnsPlayerDetailData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerDetailData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerDetailData, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(tbFishSnsPlayerDetailData));
 }
 
 namespace {
@@ -116,7 +141,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     tbFishPlayerData_descriptor_, &tbFishPlayerData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    tbFishSnsPlayerData_descriptor_, &tbFishSnsPlayerData::default_instance());
+    tbFishSnsPlayerSimpleData_descriptor_, &tbFishSnsPlayerSimpleData::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    tbFishSnsPlayerDetailData_descriptor_, &tbFishSnsPlayerDetailData::default_instance());
 }
 
 }  // namespace
@@ -126,8 +153,10 @@ void protobuf_ShutdownFile_DBProto_2eproto() {
   delete tbFishAccountTable_reflection_;
   delete tbFishPlayerData::default_instance_;
   delete tbFishPlayerData_reflection_;
-  delete tbFishSnsPlayerData::default_instance_;
-  delete tbFishSnsPlayerData_reflection_;
+  delete tbFishSnsPlayerSimpleData::default_instance_;
+  delete tbFishSnsPlayerSimpleData_reflection_;
+  delete tbFishSnsPlayerDetailData::default_instance_;
+  delete tbFishSnsPlayerDetailData_reflection_;
 }
 
 void protobuf_AddDesc_DBProto_2eproto() {
@@ -158,16 +187,27 @@ void protobuf_AddDesc_DBProto_2eproto() {
     "\023\010IP\345\234\260\345\235\200\0225\n\017last_login_time\030\014 \001(\004B\034\272\304\023"
     "\030\346\234\200\350\277\221\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264\0226\n\020last_logout"
     "_time\030\r \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\351\200\200\345\207\272\346\227\266\351\227"
-    "\264\":\n\023tbFishSnsPlayerData\022#\n\tplayer_id\030\001 "
-    "\001(\004B\020\300\202\024\002\272\304\023\010\347\216\251\345\256\266ID", 821);
+    "\264\"\354\002\n\031tbFishSnsPlayerSimpleData\022#\n\tplaye"
+    "r_id\030\001 \001(\004B\020\300\202\024\002\272\304\023\010\347\216\251\345\256\266ID\022*\n\010nickname"
+    "\030\002 \001(\tB\030\300\202\024\003\220\301\024\200\001\310\202\024\200\001\272\304\023\006\346\230\265\347\247\260\022\032\n\006face"
+    "id\030\003 \001(\rB\n\272\304\023\006\345\244\264\345\203\217\022%\n\013bank_jetton\030\t \001("
+    "\004B\020\272\304\023\014\351\223\266\350\241\214\351\207\221\345\270\201\022\'\n\rbank_password\030\n \001"
+    "(\004B\020\272\304\023\014\351\223\266\350\241\214\345\257\206\347\240\201\0225\n\017last_login_time\030"
+    "\014 \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264\0226\n\020l"
+    "ast_logout_time\030\r \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\351"
+    "\200\200\345\207\272\346\227\266\351\227\264\022#\n\005agent\030\024 \001(\004B\024\300\202\024\003\272\304\023\014\344\270\212\347"
+    "\272\247\344\273\243\347\220\206\"@\n\031tbFishSnsPlayerDetailData\022#\n"
+    "\tplayer_id\030\001 \001(\004B\020\300\202\024\002\272\304\023\010\347\216\251\345\256\266ID", 1194);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProto.proto", &protobuf_RegisterTypes);
   tbFishAccountTable::default_instance_ = new tbFishAccountTable();
   tbFishPlayerData::default_instance_ = new tbFishPlayerData();
-  tbFishSnsPlayerData::default_instance_ = new tbFishSnsPlayerData();
+  tbFishSnsPlayerSimpleData::default_instance_ = new tbFishSnsPlayerSimpleData();
+  tbFishSnsPlayerDetailData::default_instance_ = new tbFishSnsPlayerDetailData();
   tbFishAccountTable::default_instance_->InitAsDefaultInstance();
   tbFishPlayerData::default_instance_->InitAsDefaultInstance();
-  tbFishSnsPlayerData::default_instance_->InitAsDefaultInstance();
+  tbFishSnsPlayerSimpleData::default_instance_->InitAsDefaultInstance();
+  tbFishSnsPlayerDetailData::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_DBProto_2eproto);
 }
 
@@ -1288,60 +1328,565 @@ void tbFishPlayerData::Swap(tbFishPlayerData* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int tbFishSnsPlayerData::kPlayerIdFieldNumber;
+const int tbFishSnsPlayerSimpleData::kPlayerIdFieldNumber;
+const int tbFishSnsPlayerSimpleData::kNicknameFieldNumber;
+const int tbFishSnsPlayerSimpleData::kFaceidFieldNumber;
+const int tbFishSnsPlayerSimpleData::kBankJettonFieldNumber;
+const int tbFishSnsPlayerSimpleData::kBankPasswordFieldNumber;
+const int tbFishSnsPlayerSimpleData::kLastLoginTimeFieldNumber;
+const int tbFishSnsPlayerSimpleData::kLastLogoutTimeFieldNumber;
+const int tbFishSnsPlayerSimpleData::kAgentFieldNumber;
 #endif  // !_MSC_VER
 
-tbFishSnsPlayerData::tbFishSnsPlayerData()
+tbFishSnsPlayerSimpleData::tbFishSnsPlayerSimpleData()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void tbFishSnsPlayerData::InitAsDefaultInstance() {
+void tbFishSnsPlayerSimpleData::InitAsDefaultInstance() {
 }
 
-tbFishSnsPlayerData::tbFishSnsPlayerData(const tbFishSnsPlayerData& from)
+tbFishSnsPlayerSimpleData::tbFishSnsPlayerSimpleData(const tbFishSnsPlayerSimpleData& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void tbFishSnsPlayerData::SharedCtor() {
+void tbFishSnsPlayerSimpleData::SharedCtor() {
+  _cached_size_ = 0;
+  player_id_ = GOOGLE_ULONGLONG(0);
+  nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  faceid_ = 0u;
+  bank_jetton_ = GOOGLE_ULONGLONG(0);
+  bank_password_ = GOOGLE_ULONGLONG(0);
+  last_login_time_ = GOOGLE_ULONGLONG(0);
+  last_logout_time_ = GOOGLE_ULONGLONG(0);
+  agent_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+tbFishSnsPlayerSimpleData::~tbFishSnsPlayerSimpleData() {
+  SharedDtor();
+}
+
+void tbFishSnsPlayerSimpleData::SharedDtor() {
+  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
+    delete nickname_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void tbFishSnsPlayerSimpleData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* tbFishSnsPlayerSimpleData::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return tbFishSnsPlayerSimpleData_descriptor_;
+}
+
+const tbFishSnsPlayerSimpleData& tbFishSnsPlayerSimpleData::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBProto_2eproto();
+  return *default_instance_;
+}
+
+tbFishSnsPlayerSimpleData* tbFishSnsPlayerSimpleData::default_instance_ = NULL;
+
+tbFishSnsPlayerSimpleData* tbFishSnsPlayerSimpleData::New() const {
+  return new tbFishSnsPlayerSimpleData;
+}
+
+void tbFishSnsPlayerSimpleData::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    player_id_ = GOOGLE_ULONGLONG(0);
+    if (has_nickname()) {
+      if (nickname_ != &::google::protobuf::internal::kEmptyString) {
+        nickname_->clear();
+      }
+    }
+    faceid_ = 0u;
+    bank_jetton_ = GOOGLE_ULONGLONG(0);
+    bank_password_ = GOOGLE_ULONGLONG(0);
+    last_login_time_ = GOOGLE_ULONGLONG(0);
+    last_logout_time_ = GOOGLE_ULONGLONG(0);
+    agent_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool tbFishSnsPlayerSimpleData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 player_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &player_id_)));
+          set_has_player_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_nickname;
+        break;
+      }
+
+      // optional string nickname = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_nickname:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_nickname()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->nickname().data(), this->nickname().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_faceid;
+        break;
+      }
+
+      // optional uint32 faceid = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_faceid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &faceid_)));
+          set_has_faceid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(72)) goto parse_bank_jetton;
+        break;
+      }
+
+      // optional uint64 bank_jetton = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bank_jetton:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &bank_jetton_)));
+          set_has_bank_jetton();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(80)) goto parse_bank_password;
+        break;
+      }
+
+      // optional uint64 bank_password = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bank_password:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &bank_password_)));
+          set_has_bank_password();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(96)) goto parse_last_login_time;
+        break;
+      }
+
+      // optional uint64 last_login_time = 12;
+      case 12: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_last_login_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &last_login_time_)));
+          set_has_last_login_time();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(104)) goto parse_last_logout_time;
+        break;
+      }
+
+      // optional uint64 last_logout_time = 13;
+      case 13: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_last_logout_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &last_logout_time_)));
+          set_has_last_logout_time();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(160)) goto parse_agent;
+        break;
+      }
+
+      // optional uint64 agent = 20;
+      case 20: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_agent:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &agent_)));
+          set_has_agent();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void tbFishSnsPlayerSimpleData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->player_id(), output);
+  }
+
+  // optional string nickname = 2;
+  if (has_nickname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->nickname().data(), this->nickname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      2, this->nickname(), output);
+  }
+
+  // optional uint32 faceid = 3;
+  if (has_faceid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->faceid(), output);
+  }
+
+  // optional uint64 bank_jetton = 9;
+  if (has_bank_jetton()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(9, this->bank_jetton(), output);
+  }
+
+  // optional uint64 bank_password = 10;
+  if (has_bank_password()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(10, this->bank_password(), output);
+  }
+
+  // optional uint64 last_login_time = 12;
+  if (has_last_login_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(12, this->last_login_time(), output);
+  }
+
+  // optional uint64 last_logout_time = 13;
+  if (has_last_logout_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(13, this->last_logout_time(), output);
+  }
+
+  // optional uint64 agent = 20;
+  if (has_agent()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(20, this->agent(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* tbFishSnsPlayerSimpleData::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->player_id(), target);
+  }
+
+  // optional string nickname = 2;
+  if (has_nickname()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->nickname().data(), this->nickname().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->nickname(), target);
+  }
+
+  // optional uint32 faceid = 3;
+  if (has_faceid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->faceid(), target);
+  }
+
+  // optional uint64 bank_jetton = 9;
+  if (has_bank_jetton()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(9, this->bank_jetton(), target);
+  }
+
+  // optional uint64 bank_password = 10;
+  if (has_bank_password()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(10, this->bank_password(), target);
+  }
+
+  // optional uint64 last_login_time = 12;
+  if (has_last_login_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(12, this->last_login_time(), target);
+  }
+
+  // optional uint64 last_logout_time = 13;
+  if (has_last_logout_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(13, this->last_logout_time(), target);
+  }
+
+  // optional uint64 agent = 20;
+  if (has_agent()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(20, this->agent(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int tbFishSnsPlayerSimpleData::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 player_id = 1;
+    if (has_player_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->player_id());
+    }
+
+    // optional string nickname = 2;
+    if (has_nickname()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->nickname());
+    }
+
+    // optional uint32 faceid = 3;
+    if (has_faceid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->faceid());
+    }
+
+    // optional uint64 bank_jetton = 9;
+    if (has_bank_jetton()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->bank_jetton());
+    }
+
+    // optional uint64 bank_password = 10;
+    if (has_bank_password()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->bank_password());
+    }
+
+    // optional uint64 last_login_time = 12;
+    if (has_last_login_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->last_login_time());
+    }
+
+    // optional uint64 last_logout_time = 13;
+    if (has_last_logout_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->last_logout_time());
+    }
+
+    // optional uint64 agent = 20;
+    if (has_agent()) {
+      total_size += 2 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->agent());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void tbFishSnsPlayerSimpleData::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const tbFishSnsPlayerSimpleData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const tbFishSnsPlayerSimpleData*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void tbFishSnsPlayerSimpleData::MergeFrom(const tbFishSnsPlayerSimpleData& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_player_id()) {
+      set_player_id(from.player_id());
+    }
+    if (from.has_nickname()) {
+      set_nickname(from.nickname());
+    }
+    if (from.has_faceid()) {
+      set_faceid(from.faceid());
+    }
+    if (from.has_bank_jetton()) {
+      set_bank_jetton(from.bank_jetton());
+    }
+    if (from.has_bank_password()) {
+      set_bank_password(from.bank_password());
+    }
+    if (from.has_last_login_time()) {
+      set_last_login_time(from.last_login_time());
+    }
+    if (from.has_last_logout_time()) {
+      set_last_logout_time(from.last_logout_time());
+    }
+    if (from.has_agent()) {
+      set_agent(from.agent());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void tbFishSnsPlayerSimpleData::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void tbFishSnsPlayerSimpleData::CopyFrom(const tbFishSnsPlayerSimpleData& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool tbFishSnsPlayerSimpleData::IsInitialized() const {
+
+  return true;
+}
+
+void tbFishSnsPlayerSimpleData::Swap(tbFishSnsPlayerSimpleData* other) {
+  if (other != this) {
+    std::swap(player_id_, other->player_id_);
+    std::swap(nickname_, other->nickname_);
+    std::swap(faceid_, other->faceid_);
+    std::swap(bank_jetton_, other->bank_jetton_);
+    std::swap(bank_password_, other->bank_password_);
+    std::swap(last_login_time_, other->last_login_time_);
+    std::swap(last_logout_time_, other->last_logout_time_);
+    std::swap(agent_, other->agent_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata tbFishSnsPlayerSimpleData::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = tbFishSnsPlayerSimpleData_descriptor_;
+  metadata.reflection = tbFishSnsPlayerSimpleData_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int tbFishSnsPlayerDetailData::kPlayerIdFieldNumber;
+#endif  // !_MSC_VER
+
+tbFishSnsPlayerDetailData::tbFishSnsPlayerDetailData()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void tbFishSnsPlayerDetailData::InitAsDefaultInstance() {
+}
+
+tbFishSnsPlayerDetailData::tbFishSnsPlayerDetailData(const tbFishSnsPlayerDetailData& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void tbFishSnsPlayerDetailData::SharedCtor() {
   _cached_size_ = 0;
   player_id_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-tbFishSnsPlayerData::~tbFishSnsPlayerData() {
+tbFishSnsPlayerDetailData::~tbFishSnsPlayerDetailData() {
   SharedDtor();
 }
 
-void tbFishSnsPlayerData::SharedDtor() {
+void tbFishSnsPlayerDetailData::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void tbFishSnsPlayerData::SetCachedSize(int size) const {
+void tbFishSnsPlayerDetailData::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* tbFishSnsPlayerData::descriptor() {
+const ::google::protobuf::Descriptor* tbFishSnsPlayerDetailData::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return tbFishSnsPlayerData_descriptor_;
+  return tbFishSnsPlayerDetailData_descriptor_;
 }
 
-const tbFishSnsPlayerData& tbFishSnsPlayerData::default_instance() {
+const tbFishSnsPlayerDetailData& tbFishSnsPlayerDetailData::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_DBProto_2eproto();
   return *default_instance_;
 }
 
-tbFishSnsPlayerData* tbFishSnsPlayerData::default_instance_ = NULL;
+tbFishSnsPlayerDetailData* tbFishSnsPlayerDetailData::default_instance_ = NULL;
 
-tbFishSnsPlayerData* tbFishSnsPlayerData::New() const {
-  return new tbFishSnsPlayerData;
+tbFishSnsPlayerDetailData* tbFishSnsPlayerDetailData::New() const {
+  return new tbFishSnsPlayerDetailData;
 }
 
-void tbFishSnsPlayerData::Clear() {
+void tbFishSnsPlayerDetailData::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     player_id_ = GOOGLE_ULONGLONG(0);
   }
@@ -1349,7 +1894,7 @@ void tbFishSnsPlayerData::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool tbFishSnsPlayerData::MergePartialFromCodedStream(
+bool tbFishSnsPlayerDetailData::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -1386,7 +1931,7 @@ bool tbFishSnsPlayerData::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void tbFishSnsPlayerData::SerializeWithCachedSizes(
+void tbFishSnsPlayerDetailData::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional uint64 player_id = 1;
   if (has_player_id()) {
@@ -1399,7 +1944,7 @@ void tbFishSnsPlayerData::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* tbFishSnsPlayerData::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* tbFishSnsPlayerDetailData::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional uint64 player_id = 1;
   if (has_player_id()) {
@@ -1413,7 +1958,7 @@ void tbFishSnsPlayerData::SerializeWithCachedSizes(
   return target;
 }
 
-int tbFishSnsPlayerData::ByteSize() const {
+int tbFishSnsPlayerDetailData::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1436,10 +1981,10 @@ int tbFishSnsPlayerData::ByteSize() const {
   return total_size;
 }
 
-void tbFishSnsPlayerData::MergeFrom(const ::google::protobuf::Message& from) {
+void tbFishSnsPlayerDetailData::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const tbFishSnsPlayerData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const tbFishSnsPlayerData*>(
+  const tbFishSnsPlayerDetailData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const tbFishSnsPlayerDetailData*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1448,7 +1993,7 @@ void tbFishSnsPlayerData::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void tbFishSnsPlayerData::MergeFrom(const tbFishSnsPlayerData& from) {
+void tbFishSnsPlayerDetailData::MergeFrom(const tbFishSnsPlayerDetailData& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_player_id()) {
@@ -1458,24 +2003,24 @@ void tbFishSnsPlayerData::MergeFrom(const tbFishSnsPlayerData& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void tbFishSnsPlayerData::CopyFrom(const ::google::protobuf::Message& from) {
+void tbFishSnsPlayerDetailData::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void tbFishSnsPlayerData::CopyFrom(const tbFishSnsPlayerData& from) {
+void tbFishSnsPlayerDetailData::CopyFrom(const tbFishSnsPlayerDetailData& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool tbFishSnsPlayerData::IsInitialized() const {
+bool tbFishSnsPlayerDetailData::IsInitialized() const {
 
   return true;
 }
 
-void tbFishSnsPlayerData::Swap(tbFishSnsPlayerData* other) {
+void tbFishSnsPlayerDetailData::Swap(tbFishSnsPlayerDetailData* other) {
   if (other != this) {
     std::swap(player_id_, other->player_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -1484,11 +2029,11 @@ void tbFishSnsPlayerData::Swap(tbFishSnsPlayerData* other) {
   }
 }
 
-::google::protobuf::Metadata tbFishSnsPlayerData::GetMetadata() const {
+::google::protobuf::Metadata tbFishSnsPlayerDetailData::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tbFishSnsPlayerData_descriptor_;
-  metadata.reflection = tbFishSnsPlayerData_reflection_;
+  metadata.descriptor = tbFishSnsPlayerDetailData_descriptor_;
+  metadata.reflection = tbFishSnsPlayerDetailData_reflection_;
   return metadata;
 }
 

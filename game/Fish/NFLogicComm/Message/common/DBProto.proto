@@ -28,7 +28,19 @@ message tbFishPlayerData
   optional uint64 last_logout_time = 13[(yd_fieldoptions.db_field_comment) = "最近一次退出时间"];
 }
 
-message tbFishSnsPlayerData
+message tbFishSnsPlayerSimpleData
+{
+  optional uint64 player_id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "玩家ID"]; //UserID用户ID
+  optional string nickname = 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.db_field_comment) = "昵称"];
+  optional uint32 faceid = 3[(yd_fieldoptions.db_field_comment) = "头像"];
+  optional uint64 bank_jetton = 9[(yd_fieldoptions.db_field_comment) = "银行金币"];
+  optional uint64 bank_password = 10[(yd_fieldoptions.db_field_comment) = "银行密码"];
+  optional uint64 last_login_time = 12[(yd_fieldoptions.db_field_comment) = "最近一次登录时间"];
+  optional uint64 last_logout_time = 13[(yd_fieldoptions.db_field_comment) = "最近一次退出时间"];
+  optional uint64 agent = 20[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "上级代理"];
+}
+
+message tbFishSnsPlayerDetailData
 {
   optional uint64 player_id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "玩家ID"]; //UserID用户ID
 }

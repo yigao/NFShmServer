@@ -58,9 +58,9 @@ int NFTransGetRoleDetail::QueryRole(uint64_t playerId) {
     auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     CHECK_EXPR_ASSERT(pServerConfig, -1, "FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER) Failed");
 
-    proto_ff::tbFishSnsPlayerData xData;
+    proto_ff::tbFishSnsPlayerDetailData xData;
     xData.set_player_id(m_playerId);
-    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_playerId, xData, [this](int rpcRetCode, proto_ff::tbFishSnsPlayerData &respone) {
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_playerId, xData, [this](int rpcRetCode, proto_ff::tbFishSnsPlayerDetailData &respone) {
         if (rpcRetCode == 0)
         {
             auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_playerId);

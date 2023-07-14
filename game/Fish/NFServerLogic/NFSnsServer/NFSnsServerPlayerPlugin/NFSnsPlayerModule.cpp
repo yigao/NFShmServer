@@ -154,6 +154,13 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
         return 0;
     }
 
+    NFPlayerDetail* pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(request.user_id());
+    if (pPlayerDetail == NULL)
+    {
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }

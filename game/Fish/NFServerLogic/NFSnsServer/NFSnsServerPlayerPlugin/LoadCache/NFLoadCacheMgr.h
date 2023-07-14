@@ -15,6 +15,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLoadCacheData.h"
 #include "Cache/NFPlayerSimple.h"
+#include "Cache/NFPlayerDetail.h"
 
 class NFLoadCacheMgr : public NFShmObj
 {
@@ -40,11 +41,34 @@ public:
     // 接口会去check是否RoleSimple已经存在，存在会直接返回
     int GetCheckedRoleSimpleInfo(uint64_t playerId);
 
-    int TransGetRoleSimpleInfo(uint64_t playerId);
+    /**
+     * @brief
+     * @param playerId
+     * @return
+     */
+    int TransGetPlayerSimpleInfo(uint64_t playerId);
 
-    NFPlayerSimple* RpcGetRoleSimpleInfo(uint64_t playerId);
+    /**
+     * @brief
+     * @param playerId
+     * @return
+     */
+    NFPlayerSimple* RpcGetPlayerSimpleInfo(uint64_t playerId);
 
+    /**
+     * @brief
+     * @param iRunLogicRetCode
+     * @param roleId
+     * @return
+     */
     int HandleGetRoleSimpleTransFinished(int iRunLogicRetCode, uint64_t roleId);
+
+    /**
+     * @brief
+     * @param iRunLogicRetCode
+     * @param roleId
+     * @return
+     */
     int HandleGetRoleSimpleRpcFinished(int iRunLogicRetCode, uint64_t roleId);
 public:
     /**
@@ -58,10 +82,25 @@ public:
 
     /**
      * @brief
+     * @param playerId
+     * @param time
+     * @return
+     */
+    NFPlayerDetail* GetPlayerDetailInfoByRpc(uint64_t playerId, uint64_t time);
+
+    /**
+     * @brief
      * @param data
      * @return
      */
-    int TransGetRoleDetailInfo(NFLoadCacheData *data);
+    int TransGetRoleDetailInfo(uint64_t playerId);
+
+    /**
+     * @brief
+     * @param playerId
+     * @return
+     */
+    NFPlayerDetail* RpcGetPlayerDetailInfo(uint64_t playerId);
 
     /**
      * @brief
@@ -70,8 +109,17 @@ public:
      * @return
      */
     int HandleGetRoleDetailTransFinished(int iRunLogicRetCode, uint64_t roleId);
+
+    /**
+     * @brief
+     * @param iRunLogicRetCode
+     * @param roleId
+     * @return
+     */
+    int HandleGetRoleDetailRpcFinished(int iRunLogicRetCode, uint64_t roleId);
 private:
     int m_refreshTimer;
+    int m_refreshRpcTimer;
     bool flag;
 private:
     NFShmHashMap<uint64_t, NFLoadCacheData, SNS_GET_PLAYER_SIMPLE_INFO_QUEUE> m_playerSimpleWaitLoadMap;

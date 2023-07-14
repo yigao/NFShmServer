@@ -11,15 +11,14 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFTransPlayerBase.h"
 #include "NFLogicCommon/NFPlayerDefine.h"
 
-
-class NFTransSaveDB : public NFTransPlayerBase {
+class NFPlayerSimple;
+class NFSnsTransSaveSimpleDB : public NFTransBase {
 public:
-	NFTransSaveDB();
+    NFSnsTransSaveSimpleDB();
 
-	virtual ~NFTransSaveDB();
+	virtual ~NFSnsTransSaveSimpleDB();
 
 	int CreateInit();
 
@@ -27,10 +26,10 @@ public:
 
 	virtual int HandleTransFinished(int iRunLogicRetCode);
 public:
-	int SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason = TRANS_SAVEROLEDETAIL_NORMAL);
+	int SaveDB(NFPlayerSimple* pPlayer);
 	int ProSaveDBRes(uint32_t err_code, uint32_t seq);
 private:
-	TRANS_SAVEROLEDETAIL_REASON m_reason;
     uint32_t m_curSeq;
-	DECLARE_IDCREATE(NFTransSaveDB)
+    uint32_t m_playerId;
+	DECLARE_IDCREATE(NFSnsTransSaveSimpleDB)
 };
