@@ -77,13 +77,13 @@ message NotifyPlayerDisconnect
 
 ////////////////////////////////////reconnect///////////////////////////////
 
-message NotifyPlayerReconnectReq
+message PTWPlayerReconnectReq
 {
   optional uint64 player_id = 1;
   optional uint32 proxy_bus_id = 2;
 }
 
-message NotifyPlayerReconnctRsp
+message WTPPlayerReconnctRsp
 {
   optional int32 result = 1;
   optional uint64 player_id = 2;
@@ -93,7 +93,7 @@ message NotifyPlayerReconnctRsp
   optional uint32 logic_bus_id = 6;
 }
 
-message WTLNotifyPlayerReconnectReq
+message WTLPlayerReconnectReq
 {
   optional uint64 player_id = 1;
   optional uint32 game_id = 2;
@@ -102,30 +102,36 @@ message WTLNotifyPlayerReconnectReq
   optional uint32 proxy_bus_id = 6;
 }
 
-message LTWNotifyPlayerReconnectRsp
+message LTWPlayerReconnectRsp
 {
   optional int32 result = 1;
   optional uint64 player_id = 2;
 }
 
-message WTGNotifyPlayerReconnectReq
+message WTGPlayerReconnectReq
 {
   optional uint64 player_id = 1;
   optional uint32 proxy_bus_id = 2;
   optional uint32 logic_bus_id = 3;
 }
 
-message GTWNotifyPlayerReconnectRsp
+message GTWPlayerReconnectRsp
 {
   optional int32 result = 1;
   optional uint64 player_id = 2;
 }
 
-message LTSNotifyPlayerReconnectReq
+message WTSPlayerReconnectReq
 {
   optional uint64 player_id = 1;
   optional uint32 logic_bus_id = 2;
   optional uint32 game_bus_id = 3;
   optional uint64 last_login_time = 4;
   optional uint64 last_logout_time = 5;
+}
+
+message STWPlayerReconnectRsp
+{
+  optional int32 result = 1;
+  optional uint64 player_id = 2;
 }

@@ -43,13 +43,14 @@ class Proto_LogicToWorldLoginRsp;
 class Proto_WTSLoginReq;
 class Proto_STWLoginRsp;
 class NotifyPlayerDisconnect;
-class NotifyPlayerReconnectReq;
-class NotifyPlayerReconnctRsp;
-class WTLNotifyPlayerReconnectReq;
-class LTWNotifyPlayerReconnectRsp;
-class WTGNotifyPlayerReconnectReq;
-class GTWNotifyPlayerReconnectRsp;
-class LTSNotifyPlayerReconnectReq;
+class PTWPlayerReconnectReq;
+class WTPPlayerReconnctRsp;
+class WTLPlayerReconnectReq;
+class LTWPlayerReconnectRsp;
+class WTGPlayerReconnectReq;
+class GTWPlayerReconnectRsp;
+class WTSPlayerReconnectReq;
+class STWPlayerReconnectRsp;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -949,14 +950,14 @@ class NotifyPlayerDisconnect : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class NotifyPlayerReconnectReq : public ::google::protobuf::Message {
+class PTWPlayerReconnectReq : public ::google::protobuf::Message {
  public:
-  NotifyPlayerReconnectReq();
-  virtual ~NotifyPlayerReconnectReq();
+  PTWPlayerReconnectReq();
+  virtual ~PTWPlayerReconnectReq();
 
-  NotifyPlayerReconnectReq(const NotifyPlayerReconnectReq& from);
+  PTWPlayerReconnectReq(const PTWPlayerReconnectReq& from);
 
-  inline NotifyPlayerReconnectReq& operator=(const NotifyPlayerReconnectReq& from) {
+  inline PTWPlayerReconnectReq& operator=(const PTWPlayerReconnectReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -970,17 +971,17 @@ class NotifyPlayerReconnectReq : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const NotifyPlayerReconnectReq& default_instance();
+  static const PTWPlayerReconnectReq& default_instance();
 
-  void Swap(NotifyPlayerReconnectReq* other);
+  void Swap(PTWPlayerReconnectReq* other);
 
   // implements Message ----------------------------------------------
 
-  NotifyPlayerReconnectReq* New() const;
+  PTWPlayerReconnectReq* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const NotifyPlayerReconnectReq& from);
-  void MergeFrom(const NotifyPlayerReconnectReq& from);
+  void CopyFrom(const PTWPlayerReconnectReq& from);
+  void MergeFrom(const PTWPlayerReconnectReq& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1017,7 +1018,7 @@ class NotifyPlayerReconnectReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 proxy_bus_id() const;
   inline void set_proxy_bus_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.NotifyPlayerReconnectReq)
+  // @@protoc_insertion_point(class_scope:proto_ff.PTWPlayerReconnectReq)
  private:
   inline void set_has_player_id();
   inline void clear_has_player_id();
@@ -1037,18 +1038,18 @@ class NotifyPlayerReconnectReq : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ServerInternal_2eproto();
 
   void InitAsDefaultInstance();
-  static NotifyPlayerReconnectReq* default_instance_;
+  static PTWPlayerReconnectReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class NotifyPlayerReconnctRsp : public ::google::protobuf::Message {
+class WTPPlayerReconnctRsp : public ::google::protobuf::Message {
  public:
-  NotifyPlayerReconnctRsp();
-  virtual ~NotifyPlayerReconnctRsp();
+  WTPPlayerReconnctRsp();
+  virtual ~WTPPlayerReconnctRsp();
 
-  NotifyPlayerReconnctRsp(const NotifyPlayerReconnctRsp& from);
+  WTPPlayerReconnctRsp(const WTPPlayerReconnctRsp& from);
 
-  inline NotifyPlayerReconnctRsp& operator=(const NotifyPlayerReconnctRsp& from) {
+  inline WTPPlayerReconnctRsp& operator=(const WTPPlayerReconnctRsp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1062,17 +1063,17 @@ class NotifyPlayerReconnctRsp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const NotifyPlayerReconnctRsp& default_instance();
+  static const WTPPlayerReconnctRsp& default_instance();
 
-  void Swap(NotifyPlayerReconnctRsp* other);
+  void Swap(WTPPlayerReconnctRsp* other);
 
   // implements Message ----------------------------------------------
 
-  NotifyPlayerReconnctRsp* New() const;
+  WTPPlayerReconnctRsp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const NotifyPlayerReconnctRsp& from);
-  void MergeFrom(const NotifyPlayerReconnctRsp& from);
+  void CopyFrom(const WTPPlayerReconnctRsp& from);
+  void MergeFrom(const WTPPlayerReconnctRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1137,7 +1138,7 @@ class NotifyPlayerReconnctRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 logic_bus_id() const;
   inline void set_logic_bus_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.NotifyPlayerReconnctRsp)
+  // @@protoc_insertion_point(class_scope:proto_ff.WTPPlayerReconnctRsp)
  private:
   inline void set_has_result();
   inline void clear_has_result();
@@ -1169,18 +1170,18 @@ class NotifyPlayerReconnctRsp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ServerInternal_2eproto();
 
   void InitAsDefaultInstance();
-  static NotifyPlayerReconnctRsp* default_instance_;
+  static WTPPlayerReconnctRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class WTLNotifyPlayerReconnectReq : public ::google::protobuf::Message {
+class WTLPlayerReconnectReq : public ::google::protobuf::Message {
  public:
-  WTLNotifyPlayerReconnectReq();
-  virtual ~WTLNotifyPlayerReconnectReq();
+  WTLPlayerReconnectReq();
+  virtual ~WTLPlayerReconnectReq();
 
-  WTLNotifyPlayerReconnectReq(const WTLNotifyPlayerReconnectReq& from);
+  WTLPlayerReconnectReq(const WTLPlayerReconnectReq& from);
 
-  inline WTLNotifyPlayerReconnectReq& operator=(const WTLNotifyPlayerReconnectReq& from) {
+  inline WTLPlayerReconnectReq& operator=(const WTLPlayerReconnectReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1194,17 +1195,17 @@ class WTLNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const WTLNotifyPlayerReconnectReq& default_instance();
+  static const WTLPlayerReconnectReq& default_instance();
 
-  void Swap(WTLNotifyPlayerReconnectReq* other);
+  void Swap(WTLPlayerReconnectReq* other);
 
   // implements Message ----------------------------------------------
 
-  WTLNotifyPlayerReconnectReq* New() const;
+  WTLPlayerReconnectReq* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const WTLNotifyPlayerReconnectReq& from);
-  void MergeFrom(const WTLNotifyPlayerReconnectReq& from);
+  void CopyFrom(const WTLPlayerReconnectReq& from);
+  void MergeFrom(const WTLPlayerReconnectReq& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1262,7 +1263,7 @@ class WTLNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 proxy_bus_id() const;
   inline void set_proxy_bus_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.WTLNotifyPlayerReconnectReq)
+  // @@protoc_insertion_point(class_scope:proto_ff.WTLPlayerReconnectReq)
  private:
   inline void set_has_player_id();
   inline void clear_has_player_id();
@@ -1291,18 +1292,18 @@ class WTLNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ServerInternal_2eproto();
 
   void InitAsDefaultInstance();
-  static WTLNotifyPlayerReconnectReq* default_instance_;
+  static WTLPlayerReconnectReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class LTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
+class LTWPlayerReconnectRsp : public ::google::protobuf::Message {
  public:
-  LTWNotifyPlayerReconnectRsp();
-  virtual ~LTWNotifyPlayerReconnectRsp();
+  LTWPlayerReconnectRsp();
+  virtual ~LTWPlayerReconnectRsp();
 
-  LTWNotifyPlayerReconnectRsp(const LTWNotifyPlayerReconnectRsp& from);
+  LTWPlayerReconnectRsp(const LTWPlayerReconnectRsp& from);
 
-  inline LTWNotifyPlayerReconnectRsp& operator=(const LTWNotifyPlayerReconnectRsp& from) {
+  inline LTWPlayerReconnectRsp& operator=(const LTWPlayerReconnectRsp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1316,17 +1317,17 @@ class LTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LTWNotifyPlayerReconnectRsp& default_instance();
+  static const LTWPlayerReconnectRsp& default_instance();
 
-  void Swap(LTWNotifyPlayerReconnectRsp* other);
+  void Swap(LTWPlayerReconnectRsp* other);
 
   // implements Message ----------------------------------------------
 
-  LTWNotifyPlayerReconnectRsp* New() const;
+  LTWPlayerReconnectRsp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LTWNotifyPlayerReconnectRsp& from);
-  void MergeFrom(const LTWNotifyPlayerReconnectRsp& from);
+  void CopyFrom(const LTWPlayerReconnectRsp& from);
+  void MergeFrom(const LTWPlayerReconnectRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1363,7 +1364,7 @@ class LTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 player_id() const;
   inline void set_player_id(::google::protobuf::uint64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.LTWNotifyPlayerReconnectRsp)
+  // @@protoc_insertion_point(class_scope:proto_ff.LTWPlayerReconnectRsp)
  private:
   inline void set_has_result();
   inline void clear_has_result();
@@ -1383,18 +1384,18 @@ class LTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ServerInternal_2eproto();
 
   void InitAsDefaultInstance();
-  static LTWNotifyPlayerReconnectRsp* default_instance_;
+  static LTWPlayerReconnectRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class WTGNotifyPlayerReconnectReq : public ::google::protobuf::Message {
+class WTGPlayerReconnectReq : public ::google::protobuf::Message {
  public:
-  WTGNotifyPlayerReconnectReq();
-  virtual ~WTGNotifyPlayerReconnectReq();
+  WTGPlayerReconnectReq();
+  virtual ~WTGPlayerReconnectReq();
 
-  WTGNotifyPlayerReconnectReq(const WTGNotifyPlayerReconnectReq& from);
+  WTGPlayerReconnectReq(const WTGPlayerReconnectReq& from);
 
-  inline WTGNotifyPlayerReconnectReq& operator=(const WTGNotifyPlayerReconnectReq& from) {
+  inline WTGPlayerReconnectReq& operator=(const WTGPlayerReconnectReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1408,17 +1409,17 @@ class WTGNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const WTGNotifyPlayerReconnectReq& default_instance();
+  static const WTGPlayerReconnectReq& default_instance();
 
-  void Swap(WTGNotifyPlayerReconnectReq* other);
+  void Swap(WTGPlayerReconnectReq* other);
 
   // implements Message ----------------------------------------------
 
-  WTGNotifyPlayerReconnectReq* New() const;
+  WTGPlayerReconnectReq* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const WTGNotifyPlayerReconnectReq& from);
-  void MergeFrom(const WTGNotifyPlayerReconnectReq& from);
+  void CopyFrom(const WTGPlayerReconnectReq& from);
+  void MergeFrom(const WTGPlayerReconnectReq& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1462,7 +1463,7 @@ class WTGNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 logic_bus_id() const;
   inline void set_logic_bus_id(::google::protobuf::uint32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.WTGNotifyPlayerReconnectReq)
+  // @@protoc_insertion_point(class_scope:proto_ff.WTGPlayerReconnectReq)
  private:
   inline void set_has_player_id();
   inline void clear_has_player_id();
@@ -1485,18 +1486,18 @@ class WTGNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ServerInternal_2eproto();
 
   void InitAsDefaultInstance();
-  static WTGNotifyPlayerReconnectReq* default_instance_;
+  static WTGPlayerReconnectReq* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class GTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
+class GTWPlayerReconnectRsp : public ::google::protobuf::Message {
  public:
-  GTWNotifyPlayerReconnectRsp();
-  virtual ~GTWNotifyPlayerReconnectRsp();
+  GTWPlayerReconnectRsp();
+  virtual ~GTWPlayerReconnectRsp();
 
-  GTWNotifyPlayerReconnectRsp(const GTWNotifyPlayerReconnectRsp& from);
+  GTWPlayerReconnectRsp(const GTWPlayerReconnectRsp& from);
 
-  inline GTWNotifyPlayerReconnectRsp& operator=(const GTWNotifyPlayerReconnectRsp& from) {
+  inline GTWPlayerReconnectRsp& operator=(const GTWPlayerReconnectRsp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1510,17 +1511,17 @@ class GTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const GTWNotifyPlayerReconnectRsp& default_instance();
+  static const GTWPlayerReconnectRsp& default_instance();
 
-  void Swap(GTWNotifyPlayerReconnectRsp* other);
+  void Swap(GTWPlayerReconnectRsp* other);
 
   // implements Message ----------------------------------------------
 
-  GTWNotifyPlayerReconnectRsp* New() const;
+  GTWPlayerReconnectRsp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const GTWNotifyPlayerReconnectRsp& from);
-  void MergeFrom(const GTWNotifyPlayerReconnectRsp& from);
+  void CopyFrom(const GTWPlayerReconnectRsp& from);
+  void MergeFrom(const GTWPlayerReconnectRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1557,7 +1558,7 @@ class GTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 player_id() const;
   inline void set_player_id(::google::protobuf::uint64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.GTWNotifyPlayerReconnectRsp)
+  // @@protoc_insertion_point(class_scope:proto_ff.GTWPlayerReconnectRsp)
  private:
   inline void set_has_result();
   inline void clear_has_result();
@@ -1577,18 +1578,18 @@ class GTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ServerInternal_2eproto();
 
   void InitAsDefaultInstance();
-  static GTWNotifyPlayerReconnectRsp* default_instance_;
+  static GTWPlayerReconnectRsp* default_instance_;
 };
 // -------------------------------------------------------------------
 
-class LTSNotifyPlayerReconnectReq : public ::google::protobuf::Message {
+class WTSPlayerReconnectReq : public ::google::protobuf::Message {
  public:
-  LTSNotifyPlayerReconnectReq();
-  virtual ~LTSNotifyPlayerReconnectReq();
+  WTSPlayerReconnectReq();
+  virtual ~WTSPlayerReconnectReq();
 
-  LTSNotifyPlayerReconnectReq(const LTSNotifyPlayerReconnectReq& from);
+  WTSPlayerReconnectReq(const WTSPlayerReconnectReq& from);
 
-  inline LTSNotifyPlayerReconnectReq& operator=(const LTSNotifyPlayerReconnectReq& from) {
+  inline WTSPlayerReconnectReq& operator=(const WTSPlayerReconnectReq& from) {
     CopyFrom(from);
     return *this;
   }
@@ -1602,17 +1603,17 @@ class LTSNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const LTSNotifyPlayerReconnectReq& default_instance();
+  static const WTSPlayerReconnectReq& default_instance();
 
-  void Swap(LTSNotifyPlayerReconnectReq* other);
+  void Swap(WTSPlayerReconnectReq* other);
 
   // implements Message ----------------------------------------------
 
-  LTSNotifyPlayerReconnectReq* New() const;
+  WTSPlayerReconnectReq* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const LTSNotifyPlayerReconnectReq& from);
-  void MergeFrom(const LTSNotifyPlayerReconnectReq& from);
+  void CopyFrom(const WTSPlayerReconnectReq& from);
+  void MergeFrom(const WTSPlayerReconnectReq& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1670,7 +1671,7 @@ class LTSNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 last_logout_time() const;
   inline void set_last_logout_time(::google::protobuf::uint64 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.LTSNotifyPlayerReconnectReq)
+  // @@protoc_insertion_point(class_scope:proto_ff.WTSPlayerReconnectReq)
  private:
   inline void set_has_player_id();
   inline void clear_has_player_id();
@@ -1699,7 +1700,99 @@ class LTSNotifyPlayerReconnectReq : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ServerInternal_2eproto();
 
   void InitAsDefaultInstance();
-  static LTSNotifyPlayerReconnectReq* default_instance_;
+  static WTSPlayerReconnectReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class STWPlayerReconnectRsp : public ::google::protobuf::Message {
+ public:
+  STWPlayerReconnectRsp();
+  virtual ~STWPlayerReconnectRsp();
+
+  STWPlayerReconnectRsp(const STWPlayerReconnectRsp& from);
+
+  inline STWPlayerReconnectRsp& operator=(const STWPlayerReconnectRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const STWPlayerReconnectRsp& default_instance();
+
+  void Swap(STWPlayerReconnectRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  STWPlayerReconnectRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const STWPlayerReconnectRsp& from);
+  void MergeFrom(const STWPlayerReconnectRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // optional uint64 player_id = 2;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.STWPlayerReconnectRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::int32 result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static STWPlayerReconnectRsp* default_instance_;
 };
 // ===================================================================
 
@@ -2770,580 +2863,628 @@ inline void NotifyPlayerDisconnect::set_player_id(::google::protobuf::uint64 val
 
 // -------------------------------------------------------------------
 
-// NotifyPlayerReconnectReq
+// PTWPlayerReconnectReq
 
 // optional uint64 player_id = 1;
-inline bool NotifyPlayerReconnectReq::has_player_id() const {
+inline bool PTWPlayerReconnectReq::has_player_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NotifyPlayerReconnectReq::set_has_player_id() {
+inline void PTWPlayerReconnectReq::set_has_player_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NotifyPlayerReconnectReq::clear_has_player_id() {
+inline void PTWPlayerReconnectReq::clear_has_player_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NotifyPlayerReconnectReq::clear_player_id() {
+inline void PTWPlayerReconnectReq::clear_player_id() {
   player_id_ = GOOGLE_ULONGLONG(0);
   clear_has_player_id();
 }
-inline ::google::protobuf::uint64 NotifyPlayerReconnectReq::player_id() const {
+inline ::google::protobuf::uint64 PTWPlayerReconnectReq::player_id() const {
   return player_id_;
 }
-inline void NotifyPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
+inline void PTWPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }
 
 // optional uint32 proxy_bus_id = 2;
-inline bool NotifyPlayerReconnectReq::has_proxy_bus_id() const {
+inline bool PTWPlayerReconnectReq::has_proxy_bus_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void NotifyPlayerReconnectReq::set_has_proxy_bus_id() {
+inline void PTWPlayerReconnectReq::set_has_proxy_bus_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void NotifyPlayerReconnectReq::clear_has_proxy_bus_id() {
+inline void PTWPlayerReconnectReq::clear_has_proxy_bus_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void NotifyPlayerReconnectReq::clear_proxy_bus_id() {
+inline void PTWPlayerReconnectReq::clear_proxy_bus_id() {
   proxy_bus_id_ = 0u;
   clear_has_proxy_bus_id();
 }
-inline ::google::protobuf::uint32 NotifyPlayerReconnectReq::proxy_bus_id() const {
+inline ::google::protobuf::uint32 PTWPlayerReconnectReq::proxy_bus_id() const {
   return proxy_bus_id_;
 }
-inline void NotifyPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
+inline void PTWPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
   set_has_proxy_bus_id();
   proxy_bus_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// NotifyPlayerReconnctRsp
+// WTPPlayerReconnctRsp
 
 // optional int32 result = 1;
-inline bool NotifyPlayerReconnctRsp::has_result() const {
+inline bool WTPPlayerReconnctRsp::has_result() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void NotifyPlayerReconnctRsp::set_has_result() {
+inline void WTPPlayerReconnctRsp::set_has_result() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void NotifyPlayerReconnctRsp::clear_has_result() {
+inline void WTPPlayerReconnctRsp::clear_has_result() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void NotifyPlayerReconnctRsp::clear_result() {
+inline void WTPPlayerReconnctRsp::clear_result() {
   result_ = 0;
   clear_has_result();
 }
-inline ::google::protobuf::int32 NotifyPlayerReconnctRsp::result() const {
+inline ::google::protobuf::int32 WTPPlayerReconnctRsp::result() const {
   return result_;
 }
-inline void NotifyPlayerReconnctRsp::set_result(::google::protobuf::int32 value) {
+inline void WTPPlayerReconnctRsp::set_result(::google::protobuf::int32 value) {
   set_has_result();
   result_ = value;
 }
 
 // optional uint64 player_id = 2;
-inline bool NotifyPlayerReconnctRsp::has_player_id() const {
+inline bool WTPPlayerReconnctRsp::has_player_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void NotifyPlayerReconnctRsp::set_has_player_id() {
+inline void WTPPlayerReconnctRsp::set_has_player_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void NotifyPlayerReconnctRsp::clear_has_player_id() {
+inline void WTPPlayerReconnctRsp::clear_has_player_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void NotifyPlayerReconnctRsp::clear_player_id() {
+inline void WTPPlayerReconnctRsp::clear_player_id() {
   player_id_ = GOOGLE_ULONGLONG(0);
   clear_has_player_id();
 }
-inline ::google::protobuf::uint64 NotifyPlayerReconnctRsp::player_id() const {
+inline ::google::protobuf::uint64 WTPPlayerReconnctRsp::player_id() const {
   return player_id_;
 }
-inline void NotifyPlayerReconnctRsp::set_player_id(::google::protobuf::uint64 value) {
+inline void WTPPlayerReconnctRsp::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }
 
 // optional uint32 game_id = 3;
-inline bool NotifyPlayerReconnctRsp::has_game_id() const {
+inline bool WTPPlayerReconnctRsp::has_game_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void NotifyPlayerReconnctRsp::set_has_game_id() {
+inline void WTPPlayerReconnctRsp::set_has_game_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void NotifyPlayerReconnctRsp::clear_has_game_id() {
+inline void WTPPlayerReconnctRsp::clear_has_game_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void NotifyPlayerReconnctRsp::clear_game_id() {
+inline void WTPPlayerReconnctRsp::clear_game_id() {
   game_id_ = 0u;
   clear_has_game_id();
 }
-inline ::google::protobuf::uint32 NotifyPlayerReconnctRsp::game_id() const {
+inline ::google::protobuf::uint32 WTPPlayerReconnctRsp::game_id() const {
   return game_id_;
 }
-inline void NotifyPlayerReconnctRsp::set_game_id(::google::protobuf::uint32 value) {
+inline void WTPPlayerReconnctRsp::set_game_id(::google::protobuf::uint32 value) {
   set_has_game_id();
   game_id_ = value;
 }
 
 // optional uint32 room_id = 4;
-inline bool NotifyPlayerReconnctRsp::has_room_id() const {
+inline bool WTPPlayerReconnctRsp::has_room_id() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void NotifyPlayerReconnctRsp::set_has_room_id() {
+inline void WTPPlayerReconnctRsp::set_has_room_id() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void NotifyPlayerReconnctRsp::clear_has_room_id() {
+inline void WTPPlayerReconnctRsp::clear_has_room_id() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void NotifyPlayerReconnctRsp::clear_room_id() {
+inline void WTPPlayerReconnctRsp::clear_room_id() {
   room_id_ = 0u;
   clear_has_room_id();
 }
-inline ::google::protobuf::uint32 NotifyPlayerReconnctRsp::room_id() const {
+inline ::google::protobuf::uint32 WTPPlayerReconnctRsp::room_id() const {
   return room_id_;
 }
-inline void NotifyPlayerReconnctRsp::set_room_id(::google::protobuf::uint32 value) {
+inline void WTPPlayerReconnctRsp::set_room_id(::google::protobuf::uint32 value) {
   set_has_room_id();
   room_id_ = value;
 }
 
 // optional uint32 game_bus_id = 5;
-inline bool NotifyPlayerReconnctRsp::has_game_bus_id() const {
+inline bool WTPPlayerReconnctRsp::has_game_bus_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void NotifyPlayerReconnctRsp::set_has_game_bus_id() {
+inline void WTPPlayerReconnctRsp::set_has_game_bus_id() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void NotifyPlayerReconnctRsp::clear_has_game_bus_id() {
+inline void WTPPlayerReconnctRsp::clear_has_game_bus_id() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void NotifyPlayerReconnctRsp::clear_game_bus_id() {
+inline void WTPPlayerReconnctRsp::clear_game_bus_id() {
   game_bus_id_ = 0u;
   clear_has_game_bus_id();
 }
-inline ::google::protobuf::uint32 NotifyPlayerReconnctRsp::game_bus_id() const {
+inline ::google::protobuf::uint32 WTPPlayerReconnctRsp::game_bus_id() const {
   return game_bus_id_;
 }
-inline void NotifyPlayerReconnctRsp::set_game_bus_id(::google::protobuf::uint32 value) {
+inline void WTPPlayerReconnctRsp::set_game_bus_id(::google::protobuf::uint32 value) {
   set_has_game_bus_id();
   game_bus_id_ = value;
 }
 
 // optional uint32 logic_bus_id = 6;
-inline bool NotifyPlayerReconnctRsp::has_logic_bus_id() const {
+inline bool WTPPlayerReconnctRsp::has_logic_bus_id() const {
   return (_has_bits_[0] & 0x00000020u) != 0;
 }
-inline void NotifyPlayerReconnctRsp::set_has_logic_bus_id() {
+inline void WTPPlayerReconnctRsp::set_has_logic_bus_id() {
   _has_bits_[0] |= 0x00000020u;
 }
-inline void NotifyPlayerReconnctRsp::clear_has_logic_bus_id() {
+inline void WTPPlayerReconnctRsp::clear_has_logic_bus_id() {
   _has_bits_[0] &= ~0x00000020u;
 }
-inline void NotifyPlayerReconnctRsp::clear_logic_bus_id() {
+inline void WTPPlayerReconnctRsp::clear_logic_bus_id() {
   logic_bus_id_ = 0u;
   clear_has_logic_bus_id();
 }
-inline ::google::protobuf::uint32 NotifyPlayerReconnctRsp::logic_bus_id() const {
+inline ::google::protobuf::uint32 WTPPlayerReconnctRsp::logic_bus_id() const {
   return logic_bus_id_;
 }
-inline void NotifyPlayerReconnctRsp::set_logic_bus_id(::google::protobuf::uint32 value) {
+inline void WTPPlayerReconnctRsp::set_logic_bus_id(::google::protobuf::uint32 value) {
   set_has_logic_bus_id();
   logic_bus_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// WTLNotifyPlayerReconnectReq
+// WTLPlayerReconnectReq
 
 // optional uint64 player_id = 1;
-inline bool WTLNotifyPlayerReconnectReq::has_player_id() const {
+inline bool WTLPlayerReconnectReq::has_player_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void WTLNotifyPlayerReconnectReq::set_has_player_id() {
+inline void WTLPlayerReconnectReq::set_has_player_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_has_player_id() {
+inline void WTLPlayerReconnectReq::clear_has_player_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_player_id() {
+inline void WTLPlayerReconnectReq::clear_player_id() {
   player_id_ = GOOGLE_ULONGLONG(0);
   clear_has_player_id();
 }
-inline ::google::protobuf::uint64 WTLNotifyPlayerReconnectReq::player_id() const {
+inline ::google::protobuf::uint64 WTLPlayerReconnectReq::player_id() const {
   return player_id_;
 }
-inline void WTLNotifyPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
+inline void WTLPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }
 
 // optional uint32 game_id = 2;
-inline bool WTLNotifyPlayerReconnectReq::has_game_id() const {
+inline bool WTLPlayerReconnectReq::has_game_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void WTLNotifyPlayerReconnectReq::set_has_game_id() {
+inline void WTLPlayerReconnectReq::set_has_game_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_has_game_id() {
+inline void WTLPlayerReconnectReq::clear_has_game_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_game_id() {
+inline void WTLPlayerReconnectReq::clear_game_id() {
   game_id_ = 0u;
   clear_has_game_id();
 }
-inline ::google::protobuf::uint32 WTLNotifyPlayerReconnectReq::game_id() const {
+inline ::google::protobuf::uint32 WTLPlayerReconnectReq::game_id() const {
   return game_id_;
 }
-inline void WTLNotifyPlayerReconnectReq::set_game_id(::google::protobuf::uint32 value) {
+inline void WTLPlayerReconnectReq::set_game_id(::google::protobuf::uint32 value) {
   set_has_game_id();
   game_id_ = value;
 }
 
 // optional uint32 room_id = 3;
-inline bool WTLNotifyPlayerReconnectReq::has_room_id() const {
+inline bool WTLPlayerReconnectReq::has_room_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void WTLNotifyPlayerReconnectReq::set_has_room_id() {
+inline void WTLPlayerReconnectReq::set_has_room_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_has_room_id() {
+inline void WTLPlayerReconnectReq::clear_has_room_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_room_id() {
+inline void WTLPlayerReconnectReq::clear_room_id() {
   room_id_ = 0u;
   clear_has_room_id();
 }
-inline ::google::protobuf::uint32 WTLNotifyPlayerReconnectReq::room_id() const {
+inline ::google::protobuf::uint32 WTLPlayerReconnectReq::room_id() const {
   return room_id_;
 }
-inline void WTLNotifyPlayerReconnectReq::set_room_id(::google::protobuf::uint32 value) {
+inline void WTLPlayerReconnectReq::set_room_id(::google::protobuf::uint32 value) {
   set_has_room_id();
   room_id_ = value;
 }
 
 // optional uint32 game_bus_id = 4;
-inline bool WTLNotifyPlayerReconnectReq::has_game_bus_id() const {
+inline bool WTLPlayerReconnectReq::has_game_bus_id() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void WTLNotifyPlayerReconnectReq::set_has_game_bus_id() {
+inline void WTLPlayerReconnectReq::set_has_game_bus_id() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_has_game_bus_id() {
+inline void WTLPlayerReconnectReq::clear_has_game_bus_id() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_game_bus_id() {
+inline void WTLPlayerReconnectReq::clear_game_bus_id() {
   game_bus_id_ = 0u;
   clear_has_game_bus_id();
 }
-inline ::google::protobuf::uint32 WTLNotifyPlayerReconnectReq::game_bus_id() const {
+inline ::google::protobuf::uint32 WTLPlayerReconnectReq::game_bus_id() const {
   return game_bus_id_;
 }
-inline void WTLNotifyPlayerReconnectReq::set_game_bus_id(::google::protobuf::uint32 value) {
+inline void WTLPlayerReconnectReq::set_game_bus_id(::google::protobuf::uint32 value) {
   set_has_game_bus_id();
   game_bus_id_ = value;
 }
 
 // optional uint32 proxy_bus_id = 6;
-inline bool WTLNotifyPlayerReconnectReq::has_proxy_bus_id() const {
+inline bool WTLPlayerReconnectReq::has_proxy_bus_id() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void WTLNotifyPlayerReconnectReq::set_has_proxy_bus_id() {
+inline void WTLPlayerReconnectReq::set_has_proxy_bus_id() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_has_proxy_bus_id() {
+inline void WTLPlayerReconnectReq::clear_has_proxy_bus_id() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void WTLNotifyPlayerReconnectReq::clear_proxy_bus_id() {
+inline void WTLPlayerReconnectReq::clear_proxy_bus_id() {
   proxy_bus_id_ = 0u;
   clear_has_proxy_bus_id();
 }
-inline ::google::protobuf::uint32 WTLNotifyPlayerReconnectReq::proxy_bus_id() const {
+inline ::google::protobuf::uint32 WTLPlayerReconnectReq::proxy_bus_id() const {
   return proxy_bus_id_;
 }
-inline void WTLNotifyPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
+inline void WTLPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
   set_has_proxy_bus_id();
   proxy_bus_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// LTWNotifyPlayerReconnectRsp
+// LTWPlayerReconnectRsp
 
 // optional int32 result = 1;
-inline bool LTWNotifyPlayerReconnectRsp::has_result() const {
+inline bool LTWPlayerReconnectRsp::has_result() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LTWNotifyPlayerReconnectRsp::set_has_result() {
+inline void LTWPlayerReconnectRsp::set_has_result() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LTWNotifyPlayerReconnectRsp::clear_has_result() {
+inline void LTWPlayerReconnectRsp::clear_has_result() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LTWNotifyPlayerReconnectRsp::clear_result() {
+inline void LTWPlayerReconnectRsp::clear_result() {
   result_ = 0;
   clear_has_result();
 }
-inline ::google::protobuf::int32 LTWNotifyPlayerReconnectRsp::result() const {
+inline ::google::protobuf::int32 LTWPlayerReconnectRsp::result() const {
   return result_;
 }
-inline void LTWNotifyPlayerReconnectRsp::set_result(::google::protobuf::int32 value) {
+inline void LTWPlayerReconnectRsp::set_result(::google::protobuf::int32 value) {
   set_has_result();
   result_ = value;
 }
 
 // optional uint64 player_id = 2;
-inline bool LTWNotifyPlayerReconnectRsp::has_player_id() const {
+inline bool LTWPlayerReconnectRsp::has_player_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LTWNotifyPlayerReconnectRsp::set_has_player_id() {
+inline void LTWPlayerReconnectRsp::set_has_player_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LTWNotifyPlayerReconnectRsp::clear_has_player_id() {
+inline void LTWPlayerReconnectRsp::clear_has_player_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void LTWNotifyPlayerReconnectRsp::clear_player_id() {
+inline void LTWPlayerReconnectRsp::clear_player_id() {
   player_id_ = GOOGLE_ULONGLONG(0);
   clear_has_player_id();
 }
-inline ::google::protobuf::uint64 LTWNotifyPlayerReconnectRsp::player_id() const {
+inline ::google::protobuf::uint64 LTWPlayerReconnectRsp::player_id() const {
   return player_id_;
 }
-inline void LTWNotifyPlayerReconnectRsp::set_player_id(::google::protobuf::uint64 value) {
+inline void LTWPlayerReconnectRsp::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// WTGNotifyPlayerReconnectReq
+// WTGPlayerReconnectReq
 
 // optional uint64 player_id = 1;
-inline bool WTGNotifyPlayerReconnectReq::has_player_id() const {
+inline bool WTGPlayerReconnectReq::has_player_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void WTGNotifyPlayerReconnectReq::set_has_player_id() {
+inline void WTGPlayerReconnectReq::set_has_player_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void WTGNotifyPlayerReconnectReq::clear_has_player_id() {
+inline void WTGPlayerReconnectReq::clear_has_player_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void WTGNotifyPlayerReconnectReq::clear_player_id() {
+inline void WTGPlayerReconnectReq::clear_player_id() {
   player_id_ = GOOGLE_ULONGLONG(0);
   clear_has_player_id();
 }
-inline ::google::protobuf::uint64 WTGNotifyPlayerReconnectReq::player_id() const {
+inline ::google::protobuf::uint64 WTGPlayerReconnectReq::player_id() const {
   return player_id_;
 }
-inline void WTGNotifyPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
+inline void WTGPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }
 
 // optional uint32 proxy_bus_id = 2;
-inline bool WTGNotifyPlayerReconnectReq::has_proxy_bus_id() const {
+inline bool WTGPlayerReconnectReq::has_proxy_bus_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void WTGNotifyPlayerReconnectReq::set_has_proxy_bus_id() {
+inline void WTGPlayerReconnectReq::set_has_proxy_bus_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void WTGNotifyPlayerReconnectReq::clear_has_proxy_bus_id() {
+inline void WTGPlayerReconnectReq::clear_has_proxy_bus_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void WTGNotifyPlayerReconnectReq::clear_proxy_bus_id() {
+inline void WTGPlayerReconnectReq::clear_proxy_bus_id() {
   proxy_bus_id_ = 0u;
   clear_has_proxy_bus_id();
 }
-inline ::google::protobuf::uint32 WTGNotifyPlayerReconnectReq::proxy_bus_id() const {
+inline ::google::protobuf::uint32 WTGPlayerReconnectReq::proxy_bus_id() const {
   return proxy_bus_id_;
 }
-inline void WTGNotifyPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
+inline void WTGPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
   set_has_proxy_bus_id();
   proxy_bus_id_ = value;
 }
 
 // optional uint32 logic_bus_id = 3;
-inline bool WTGNotifyPlayerReconnectReq::has_logic_bus_id() const {
+inline bool WTGPlayerReconnectReq::has_logic_bus_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void WTGNotifyPlayerReconnectReq::set_has_logic_bus_id() {
+inline void WTGPlayerReconnectReq::set_has_logic_bus_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void WTGNotifyPlayerReconnectReq::clear_has_logic_bus_id() {
+inline void WTGPlayerReconnectReq::clear_has_logic_bus_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void WTGNotifyPlayerReconnectReq::clear_logic_bus_id() {
+inline void WTGPlayerReconnectReq::clear_logic_bus_id() {
   logic_bus_id_ = 0u;
   clear_has_logic_bus_id();
 }
-inline ::google::protobuf::uint32 WTGNotifyPlayerReconnectReq::logic_bus_id() const {
+inline ::google::protobuf::uint32 WTGPlayerReconnectReq::logic_bus_id() const {
   return logic_bus_id_;
 }
-inline void WTGNotifyPlayerReconnectReq::set_logic_bus_id(::google::protobuf::uint32 value) {
+inline void WTGPlayerReconnectReq::set_logic_bus_id(::google::protobuf::uint32 value) {
   set_has_logic_bus_id();
   logic_bus_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// GTWNotifyPlayerReconnectRsp
+// GTWPlayerReconnectRsp
 
 // optional int32 result = 1;
-inline bool GTWNotifyPlayerReconnectRsp::has_result() const {
+inline bool GTWPlayerReconnectRsp::has_result() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void GTWNotifyPlayerReconnectRsp::set_has_result() {
+inline void GTWPlayerReconnectRsp::set_has_result() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void GTWNotifyPlayerReconnectRsp::clear_has_result() {
+inline void GTWPlayerReconnectRsp::clear_has_result() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void GTWNotifyPlayerReconnectRsp::clear_result() {
+inline void GTWPlayerReconnectRsp::clear_result() {
   result_ = 0;
   clear_has_result();
 }
-inline ::google::protobuf::int32 GTWNotifyPlayerReconnectRsp::result() const {
+inline ::google::protobuf::int32 GTWPlayerReconnectRsp::result() const {
   return result_;
 }
-inline void GTWNotifyPlayerReconnectRsp::set_result(::google::protobuf::int32 value) {
+inline void GTWPlayerReconnectRsp::set_result(::google::protobuf::int32 value) {
   set_has_result();
   result_ = value;
 }
 
 // optional uint64 player_id = 2;
-inline bool GTWNotifyPlayerReconnectRsp::has_player_id() const {
+inline bool GTWPlayerReconnectRsp::has_player_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void GTWNotifyPlayerReconnectRsp::set_has_player_id() {
+inline void GTWPlayerReconnectRsp::set_has_player_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void GTWNotifyPlayerReconnectRsp::clear_has_player_id() {
+inline void GTWPlayerReconnectRsp::clear_has_player_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void GTWNotifyPlayerReconnectRsp::clear_player_id() {
+inline void GTWPlayerReconnectRsp::clear_player_id() {
   player_id_ = GOOGLE_ULONGLONG(0);
   clear_has_player_id();
 }
-inline ::google::protobuf::uint64 GTWNotifyPlayerReconnectRsp::player_id() const {
+inline ::google::protobuf::uint64 GTWPlayerReconnectRsp::player_id() const {
   return player_id_;
 }
-inline void GTWNotifyPlayerReconnectRsp::set_player_id(::google::protobuf::uint64 value) {
+inline void GTWPlayerReconnectRsp::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }
 
 // -------------------------------------------------------------------
 
-// LTSNotifyPlayerReconnectReq
+// WTSPlayerReconnectReq
 
 // optional uint64 player_id = 1;
-inline bool LTSNotifyPlayerReconnectReq::has_player_id() const {
+inline bool WTSPlayerReconnectReq::has_player_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void LTSNotifyPlayerReconnectReq::set_has_player_id() {
+inline void WTSPlayerReconnectReq::set_has_player_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_has_player_id() {
+inline void WTSPlayerReconnectReq::clear_has_player_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_player_id() {
+inline void WTSPlayerReconnectReq::clear_player_id() {
   player_id_ = GOOGLE_ULONGLONG(0);
   clear_has_player_id();
 }
-inline ::google::protobuf::uint64 LTSNotifyPlayerReconnectReq::player_id() const {
+inline ::google::protobuf::uint64 WTSPlayerReconnectReq::player_id() const {
   return player_id_;
 }
-inline void LTSNotifyPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
+inline void WTSPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }
 
 // optional uint32 logic_bus_id = 2;
-inline bool LTSNotifyPlayerReconnectReq::has_logic_bus_id() const {
+inline bool WTSPlayerReconnectReq::has_logic_bus_id() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LTSNotifyPlayerReconnectReq::set_has_logic_bus_id() {
+inline void WTSPlayerReconnectReq::set_has_logic_bus_id() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_has_logic_bus_id() {
+inline void WTSPlayerReconnectReq::clear_has_logic_bus_id() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_logic_bus_id() {
+inline void WTSPlayerReconnectReq::clear_logic_bus_id() {
   logic_bus_id_ = 0u;
   clear_has_logic_bus_id();
 }
-inline ::google::protobuf::uint32 LTSNotifyPlayerReconnectReq::logic_bus_id() const {
+inline ::google::protobuf::uint32 WTSPlayerReconnectReq::logic_bus_id() const {
   return logic_bus_id_;
 }
-inline void LTSNotifyPlayerReconnectReq::set_logic_bus_id(::google::protobuf::uint32 value) {
+inline void WTSPlayerReconnectReq::set_logic_bus_id(::google::protobuf::uint32 value) {
   set_has_logic_bus_id();
   logic_bus_id_ = value;
 }
 
 // optional uint32 game_bus_id = 3;
-inline bool LTSNotifyPlayerReconnectReq::has_game_bus_id() const {
+inline bool WTSPlayerReconnectReq::has_game_bus_id() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void LTSNotifyPlayerReconnectReq::set_has_game_bus_id() {
+inline void WTSPlayerReconnectReq::set_has_game_bus_id() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_has_game_bus_id() {
+inline void WTSPlayerReconnectReq::clear_has_game_bus_id() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_game_bus_id() {
+inline void WTSPlayerReconnectReq::clear_game_bus_id() {
   game_bus_id_ = 0u;
   clear_has_game_bus_id();
 }
-inline ::google::protobuf::uint32 LTSNotifyPlayerReconnectReq::game_bus_id() const {
+inline ::google::protobuf::uint32 WTSPlayerReconnectReq::game_bus_id() const {
   return game_bus_id_;
 }
-inline void LTSNotifyPlayerReconnectReq::set_game_bus_id(::google::protobuf::uint32 value) {
+inline void WTSPlayerReconnectReq::set_game_bus_id(::google::protobuf::uint32 value) {
   set_has_game_bus_id();
   game_bus_id_ = value;
 }
 
 // optional uint64 last_login_time = 4;
-inline bool LTSNotifyPlayerReconnectReq::has_last_login_time() const {
+inline bool WTSPlayerReconnectReq::has_last_login_time() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void LTSNotifyPlayerReconnectReq::set_has_last_login_time() {
+inline void WTSPlayerReconnectReq::set_has_last_login_time() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_has_last_login_time() {
+inline void WTSPlayerReconnectReq::clear_has_last_login_time() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_last_login_time() {
+inline void WTSPlayerReconnectReq::clear_last_login_time() {
   last_login_time_ = GOOGLE_ULONGLONG(0);
   clear_has_last_login_time();
 }
-inline ::google::protobuf::uint64 LTSNotifyPlayerReconnectReq::last_login_time() const {
+inline ::google::protobuf::uint64 WTSPlayerReconnectReq::last_login_time() const {
   return last_login_time_;
 }
-inline void LTSNotifyPlayerReconnectReq::set_last_login_time(::google::protobuf::uint64 value) {
+inline void WTSPlayerReconnectReq::set_last_login_time(::google::protobuf::uint64 value) {
   set_has_last_login_time();
   last_login_time_ = value;
 }
 
 // optional uint64 last_logout_time = 5;
-inline bool LTSNotifyPlayerReconnectReq::has_last_logout_time() const {
+inline bool WTSPlayerReconnectReq::has_last_logout_time() const {
   return (_has_bits_[0] & 0x00000010u) != 0;
 }
-inline void LTSNotifyPlayerReconnectReq::set_has_last_logout_time() {
+inline void WTSPlayerReconnectReq::set_has_last_logout_time() {
   _has_bits_[0] |= 0x00000010u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_has_last_logout_time() {
+inline void WTSPlayerReconnectReq::clear_has_last_logout_time() {
   _has_bits_[0] &= ~0x00000010u;
 }
-inline void LTSNotifyPlayerReconnectReq::clear_last_logout_time() {
+inline void WTSPlayerReconnectReq::clear_last_logout_time() {
   last_logout_time_ = GOOGLE_ULONGLONG(0);
   clear_has_last_logout_time();
 }
-inline ::google::protobuf::uint64 LTSNotifyPlayerReconnectReq::last_logout_time() const {
+inline ::google::protobuf::uint64 WTSPlayerReconnectReq::last_logout_time() const {
   return last_logout_time_;
 }
-inline void LTSNotifyPlayerReconnectReq::set_last_logout_time(::google::protobuf::uint64 value) {
+inline void WTSPlayerReconnectReq::set_last_logout_time(::google::protobuf::uint64 value) {
   set_has_last_logout_time();
   last_logout_time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// STWPlayerReconnectRsp
+
+// optional int32 result = 1;
+inline bool STWPlayerReconnectRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void STWPlayerReconnectRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void STWPlayerReconnectRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void STWPlayerReconnectRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 STWPlayerReconnectRsp::result() const {
+  return result_;
+}
+inline void STWPlayerReconnectRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional uint64 player_id = 2;
+inline bool STWPlayerReconnectRsp::has_player_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void STWPlayerReconnectRsp::set_has_player_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void STWPlayerReconnectRsp::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void STWPlayerReconnectRsp::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 STWPlayerReconnectRsp::player_id() const {
+  return player_id_;
+}
+inline void STWPlayerReconnectRsp::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
 }
 
 

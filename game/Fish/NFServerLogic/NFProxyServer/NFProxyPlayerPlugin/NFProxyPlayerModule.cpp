@@ -47,6 +47,7 @@ bool NFCProxyPlayerModule::Awake()
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_MSG_UserLoginReq, true);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_Msg_HeartBeat_REQ);
     RegisterClientMessage(NF_ST_PROXY_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT);
+    RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_Msg_ReConnect_REQ, true);
 
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
@@ -159,7 +160,12 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
         }
         case proto_ff::NF_CS_MSG_UserLoginReq:
         {
-            OnHandleUserLoginFromClient(unLinkId, packet);
+            OnHandlePlayerLoginFromClient(unLinkId, packet);
+            break;
+        }
+        case proto_ff::NF_CS_Msg_ReConnect_REQ:
+        {
+            OnHandlePlayerReconnectFromClient(unLinkId, packet);
             break;
         }
         default:
@@ -654,17 +660,17 @@ int NFCProxyPlayerModule::OnHandleRegisterLoginFromClient(uint64_t unLinkId, NFD
     return 0;
 }
 
-int NFCProxyPlayerModule::KickPlayer(uint64_t unLinkId)
+int NFCProxyPlayerModule::KickPlayer(uint64_t unLinkId, int reason)
 {
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "kick linkId:{}", unLinkId);
     proto_ff::Proto_SCKetPlayerNotify kitMsg;
-    kitMsg.set_result(0);
+    kitMsg.set_result(reason);
     FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_KitPlayer_Notify, kitMsg);
     FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
     return 0;
 }
 
-int NFCProxyPlayerModule::OnHandleUserLoginFromClient(uint64_t unLinkId, NFDataPackage &packet)
+int NFCProxyPlayerModule::OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
     proto_ff::Proto_CSUserLoginReq cgMsg;
@@ -807,6 +813,134 @@ int NFCProxyPlayerModule::OnHandleUserLoginFromClient(uint64_t unLinkId, NFDataP
     NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "Player:{} Login World Success!", pPlayerInfo->GetPlayerId());
 
     FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_UserLoginRsp, rspMsg);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCProxyPlayerModule::OnHandlePlayerReconnectFromClient(uint64_t unLinkId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    proto_ff::Proto_CSReconnectReq cgMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, cgMsg);
+
+    std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
+    NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+    CHECK_NULL(pLinkInfo);
+
+    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerLinkInfo = mPlayerLinkInfo.GetElement(cgMsg.userid());
+    if (pPlayerLinkInfo == nullptr) {
+        NFLogError(NF_LOG_SYSTEMLOG, cgMsg.userid(), "Player:{} reconnect proxy server, reconnect failed!",
+                  cgMsg.userid());
+        proto_ff::Proto_SCReconnectRsp gcMsg;
+        gcMsg.set_result(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
+        return 0;
+    }
+
+    if (pPlayerLinkInfo->IsLogin() == false)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cgMsg.userid(), "Player:{} reconnect proxy server, islogin == false, reconnect failed!",
+                  cgMsg.userid());
+        proto_ff::Proto_SCReconnectRsp gcMsg;
+        gcMsg.set_result(proto_ff::ERR_CODE_SYSTEM_TIMEOUT);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
+        return 0;
+    }
+
+    if (pPlayerLinkInfo->GetLinkId() > 0) {
+        if (pPlayerLinkInfo->GetLinkId() == unLinkId) {
+            NFLogError(NF_LOG_SYSTEMLOG, cgMsg.userid(),
+                      "Player:{} reconnect proxy server, but unlink not change! some wrong!", cgMsg.userid());
+        } else {
+            NFLogInfo(NF_LOG_SYSTEMLOG, cgMsg.userid(), "Player:{} reconnect proxy server, but unlink exist",
+                      cgMsg.userid());
+            auto pOtherInfo = mClientLinkInfo.GetElement(pPlayerLinkInfo->GetLinkId());
+            if (pOtherInfo) {
+                //disconnect, but new connect first, close old connect
+                pOtherInfo->SetPlayerId(0);
+
+                KickPlayer(pPlayerLinkInfo->GetLinkId(), proto_ff::ERR_CODE_OTHER_PLACE_LOGIN_ACCOUNT);
+            }
+        }
+    }
+
+    pPlayerLinkInfo->SetLinkId(unLinkId);
+    pPlayerLinkInfo->SetIpAddr(ip);
+    pPlayerLinkInfo->SetOnline(true);
+
+    pLinkInfo->SetPlayerId(pPlayerLinkInfo->GetPlayerId());
+    pLinkInfo->SetIpAddr(ip);
+
+    proto_ff::PTWPlayerReconnectReq reconnectReq;
+    reconnectReq.set_player_id(pPlayerLinkInfo->GetPlayerId());
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
+    {
+        reconnectReq.set_proxy_bus_id(pConfig->GetBusId());
+    }
+
+    proto_ff::WTPPlayerReconnctRsp respone;
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_PTW_PLAYER_RECONNECT_MSG_REQ>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, pPlayerLinkInfo->GetWorldBusId(), reconnectReq, respone);
+    if (iRet != 0)
+    {
+        proto_ff::Proto_SCReconnectRsp gcMsg;
+        gcMsg.set_result(iRet);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
+        return 0;
+    }
+
+    if (respone.result() != 0)
+    {
+        proto_ff::Proto_SCReconnectRsp gcMsg;
+        gcMsg.set_result(respone.result());
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
+        return 0;
+    }
+
+    pPlayerLinkInfo = mPlayerLinkInfo.GetElement(respone.player_id());
+    if (pPlayerLinkInfo == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, respone.player_id(), "Player:{} reconnect rsp form wolrd server failed, can't find player info in the proxy server",
+                   respone.player_id());
+
+        proto_ff::Proto_SCReconnectRsp gcMsg;
+        gcMsg.set_result(respone.result());
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
+
+        KickPlayer(unLinkId, 0);
+        return 0;
+    }
+
+    pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+    if (pLinkInfo == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, respone.player_id(), "Player:{} reconnect rsp form wolrd server failed, can't find player link:{} in the proxy server",
+                   respone.player_id(), unLinkId);
+
+        NotifyPlayerDisconnect(unLinkId, pPlayerLinkInfo);
+        return 0;
+    }
+
+
+    pPlayerLinkInfo->SetIsLogin(true);
+    pPlayerLinkInfo->SetGameBusId(respone.game_id());
+    pPlayerLinkInfo->SetLogicBusId(respone.logic_bus_id());
+
+    NF_SHARE_PTR<NFServerData> pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, pPlayerLinkInfo->GetLogicBusId());
+    if (pLogicServer == NULL)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, pPlayerLinkInfo->GetLogicBusId(), "proxy donot connect logic server:{}", pPlayerLinkInfo->GetLogicBusId());
+        proto_ff::Proto_SCReconnectRsp gcMsg;
+        gcMsg.set_result(-1);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
+
+        KickPlayer(unLinkId, 0);
+        return 0;
+    }
+
+    proto_ff::Proto_SCReconnectRsp gcMsg;
+    gcMsg.set_result(0);
+    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

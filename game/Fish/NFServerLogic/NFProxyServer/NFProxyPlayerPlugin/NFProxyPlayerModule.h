@@ -76,7 +76,7 @@ public:
     int HandleProxyClientTick();
     int HandlePlayerTick();
 
-    int KickPlayer(uint64_t unLinkId);
+    int KickPlayer(uint64_t unLinkId, int reason = 0);
 public:
 
     /**
@@ -116,7 +116,15 @@ public:
      * @param packet
      * @return
      */
-    int OnHandleUserLoginFromClient(uint64_t unLinkId, NFDataPackage &packet);
+    int OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDataPackage &packet);
+
+    /**
+     * @brief 断线重连
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandlePlayerReconnectFromClient(uint64_t unLinkId, NFDataPackage &packet);
 private:
     NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
     NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo

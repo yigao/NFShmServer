@@ -39,3 +39,23 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTL_PLAYER_LOGIN_REQ, proto_ff::Proto_World
  * @brief 玩家登录rpc, world server to sns server
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTS_PLAYER_LOGIN_REQ, proto_ff::Proto_WTSLoginReq, proto_ff::Proto_STWLoginRsp)
+
+/**
+ * @brief 玩家重连rpc, proxy server to world server
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_PTW_PLAYER_RECONNECT_MSG_REQ, proto_ff::PTWPlayerReconnectReq, proto_ff::WTPPlayerReconnctRsp)
+
+/**
+ * @brief 玩家重连rpc, world server to logic server
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTLPlayerReconnectReq, proto_ff::LTWPlayerReconnectRsp)
+
+/**
+ * @brief 玩家重连rpc, world server to sns server
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTSPlayerReconnectReq, proto_ff::STWPlayerReconnectRsp)
+
+/**
+ * @brief 玩家重连rpc, world server to game server
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTG_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTGPlayerReconnectReq, proto_ff::GTWPlayerReconnectRsp)
