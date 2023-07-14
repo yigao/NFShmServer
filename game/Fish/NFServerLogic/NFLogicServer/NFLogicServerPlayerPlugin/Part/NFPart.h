@@ -92,15 +92,21 @@ public:
      * @param unixSec
      * @return
      */
-    virtual int DailyZeroUpdate(uint64_t unixSec) { return 0; }
+    virtual int DailyZeroUpdate() { return 0; }
 
     /**
      * @brief 每日零点 刷新接口
      * @param unixSec
      * @return
      */
-    virtual int WeekZeroUpdate(uint64_t unixSec) { return 0; }
+    virtual int WeekZeroUpdate() { return 0; }
 
+    /**
+     * @brief 每月刷新接口
+     * @param unixSec
+     * @return
+     */
+    virtual int MonthZeroUpdate() { return 0; };
 public:
     /**
      * @brief update

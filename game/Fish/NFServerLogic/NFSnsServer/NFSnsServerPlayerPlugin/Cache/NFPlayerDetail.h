@@ -164,21 +164,21 @@ public:
      * @param unixSec
      * @return
      */
-    virtual int DailyZeroUpdate() { return 0; }
+    virtual int DailyZeroUpdate();
 
     /**
      * @brief 每周刷新接口
      * @param unixSec
      * @return
      */
-    virtual int WeekZeroUpdate() { return 0; };
+    virtual int WeekZeroUpdate();
 
     /**
      * @brief 每月刷新接口
      * @param unixSec
      * @return
      */
-    virtual int MonthZeroUpdate() { return 0; };
+    virtual int MonthZeroUpdate();
 private:
     /**
      * @brief

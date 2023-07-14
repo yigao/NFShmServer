@@ -188,7 +188,10 @@ int NFPlayer::UnInit()
 {
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
-        RecylePart(m_pPart[i]);
+        if (m_pPart[i])
+        {
+            RecylePart(m_pPart[i]);
+        }
     }
 
     return 0;
@@ -217,27 +220,63 @@ int NFPlayer::OnLogin()
     SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
     m_lastLoginTime = NFTime::Now().UnixSec();
     MarkDirty();
+
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnLogin();
+        }
+    }
     return 0;
 }
 
 int NFPlayer::OnLogout()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnLogout();
+        }
+    }
     return 0;
 }
 
 int NFPlayer::OnDisconnect()
 {
     m_lastDiconnectTime = NFTime::Now().UnixSec();
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnDisconnect();
+        }
+    }
     return 0;
 }
 
 int NFPlayer::OnReconnect()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnReconnect();
+        }
+    }
     return 0;
 }
 
 int NFPlayer::Update()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->Update();
+        }
+    }
     return 0;
 }
 
@@ -255,16 +294,37 @@ int NFPlayer::SaveDB(proto_ff::tbFishPlayerData& data)
 
 int NFPlayer::DailyZeroUpdate()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->DailyZeroUpdate();
+        }
+    }
     return 0;
 }
 
 int NFPlayer::WeekZeroUpdate()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->WeekZeroUpdate();
+        }
+    }
     return 0;
 }
 
 int NFPlayer::MonthZeroUpdate()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->MonthZeroUpdate();
+        }
+    }
     return 0;
 }
 

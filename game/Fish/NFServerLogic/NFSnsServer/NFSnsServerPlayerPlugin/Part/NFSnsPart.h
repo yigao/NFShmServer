@@ -106,35 +106,27 @@ public:
     virtual int OnReconnect() { return 0; }
 
 public:
-    ////////////////////////////////// 每日每周刷新接口 ///////////////////////////////////
-    /**
-     * @brief 每日刷新接口
-     * @param unixSec
-     * @return
-     */
-    virtual int DailyUpdate(uint64_t unixSec) { return 0; }
-
-    /**
-     * @brief 每周刷新接口
-     * @param unixSec
-     * @return
-     */
-    virtual int WeekUpdate(uint64_t unixSec) { return 0; }
     ////////////////////////////////// 每日零点 每周一零点 刷新接口 ///////////////////////////////////
     /**
      * @brief 每日零点 刷新接口
      * @param unixSec
      * @return
      */
-    virtual int DailyZeroUpdate(uint64_t unixSec) { return 0; }
+    virtual int DailyZeroUpdate() { return 0; }
 
     /**
      * @brief 每日零点 刷新接口
      * @param unixSec
      * @return
      */
-    virtual int WeekZeroUpdate(uint64_t unixSec) { return 0; }
+    virtual int WeekZeroUpdate() { return 0; }
 
+    /**
+     * @brief 每月刷新接口
+     * @param unixSec
+     * @return
+     */
+    virtual int MonthZeroUpdate()  { return 0; }
 public:
     /**
      * @brief update

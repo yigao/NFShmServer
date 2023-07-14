@@ -109,7 +109,10 @@ int NFPlayerDetail::UnInit()
 {
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
-        RecylePart(m_pPart[i].GetPoint());
+        if (m_pPart[i])
+        {
+            RecylePart(m_pPart[i]);
+        }
     }
 
     return 0;
@@ -165,21 +168,49 @@ NFPlayerSimple *NFPlayerDetail::GetRoleSimple() const
 
 int NFPlayerDetail::OnLogin()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnLogin();
+        }
+    }
     return 0;
 }
 
 int NFPlayerDetail::OnLogout()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnLogout();
+        }
+    }
     return 0;
 }
 
 int NFPlayerDetail::OnDisconnect()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnDisconnect();
+        }
+    }
     return 0;
 }
 
 int NFPlayerDetail::OnReconnect()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnReconnect();
+        }
+    }
     return 0;
 }
 
@@ -190,6 +221,7 @@ int NFPlayerDetail::LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData &data)
 
 int NFPlayerDetail::SaveDB(proto_ff::tbFishSnsPlayerDetailData &data)
 {
+    data.set_player_id(GetPlayerId());
     return 0;
 }
 
@@ -235,6 +267,42 @@ int NFPlayerDetail::OnSaveDB(bool success, uint32_t seq)
     if (success && seq == GetCurSeq())
     {
         ClearUrgent();
+    }
+    return 0;
+}
+
+int NFPlayerDetail::DailyZeroUpdate()
+{
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->DailyZeroUpdate();
+        }
+    }
+    return 0;
+}
+
+int NFPlayerDetail::WeekZeroUpdate()
+{
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->WeekZeroUpdate();
+        }
+    }
+    return 0;
+}
+
+int NFPlayerDetail::MonthZeroUpdate()
+{
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->MonthZeroUpdate();
+        }
     }
     return 0;
 }
