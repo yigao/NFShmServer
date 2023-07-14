@@ -22,6 +22,7 @@ typedef enum
 	////////////////////////////sns server/////////////////////////////
     EOT_SNS_ROLE_SIMPLE_ID,
     EOT_SNS_ROLE_DETAIL_ID,
+    EOT_PLAYER_ONLINE_ID,
     EOT_SNS_CACHE_MGR_ID,
     EOT_SNS_LOAD_CACHE_MGR_ID,
     ////////////////////////////sns trans server/////////////////////////////

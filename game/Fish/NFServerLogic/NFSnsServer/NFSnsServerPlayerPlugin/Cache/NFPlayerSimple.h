@@ -34,18 +34,6 @@ public:
 
     void SetPlayerId(uint64_t playerId);
 
-    uint32_t GetProxyId() const;
-
-    void SetProxyId(uint32_t proxyId);
-
-    uint64_t GetClientId() const;
-
-    void SetClientId(uint64_t clientId);
-
-    bool IsOnline() const;
-
-    void SetIsOnline(bool isOnline);
-
     const proto_ff_s::tbFishSnsPlayerSimpleData_s &GetBaseData() const;
 
     void SetBaseData(const proto_ff_s::tbFishSnsPlayerSimpleData_s &baseData);
@@ -55,15 +43,6 @@ public:
     bool IsInited() const;
 
     void SetIsInited(bool isInited);
-
-    uint32_t GetLogicId() const;
-
-    void SetLogicId(uint32_t logicId);
-
-    uint32_t GetGameId() const;
-
-    void SetGameId(uint32_t gameId);
-
 public:
     /**
      * @brief
@@ -148,17 +127,7 @@ public:
 public:
     bool CanDelete();
 
-public:
-    int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
 
-    int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-    int SendTransToLogicServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-    int SendTransToWorldServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
-
-    int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-    int SendTransToGameServer(uint32_t msgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
 public:
     /**
      * @brief save db
@@ -201,26 +170,6 @@ public:
      */
 
     uint64_t m_playerId;
-
-    /**
-     * @brief
-     */
-    uint32_t m_proxyId;
-
-    /**
-     * @brief
-     */
-    uint32_t m_logicId;
-
-    /**
-     * @brief
-     */
-    uint32_t m_gameId;
-
-    /**
-     * @brief
-     */
-    bool m_isOnline;
 private:
     proto_ff_s::tbFishSnsPlayerSimpleData_s m_simpleData;
 private:

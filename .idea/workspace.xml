@@ -55,11 +55,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish user login">
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerOnline.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerOnline.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerDetail.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFCacheMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerSimple.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerSimple.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerSimple.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Cache/NFPlayerSimple.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -359,7 +362,7 @@
       <workItem from="1689158968360" duration="4502000" />
       <workItem from="1689209838287" duration="8823000" />
       <workItem from="1689219609885" duration="2256000" />
-      <workItem from="1689305445706" duration="13024000" />
+      <workItem from="1689305445706" duration="14065000" />
     </task>
     <task id="LOCAL-00001" summary="fish login">
       <created>1688635177701</created>
@@ -536,7 +539,21 @@
       <option name="project" value="LOCAL" />
       <updated>1689323319765</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="fish user login">
+      <created>1689324094760</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1689324094760</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fish user login">
+      <created>1689324205575</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1689324205575</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

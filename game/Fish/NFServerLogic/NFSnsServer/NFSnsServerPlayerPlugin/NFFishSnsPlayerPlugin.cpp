@@ -72,6 +72,7 @@ bool NFFishSnsPlayerPlugin::InitShmObjectRegister()
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerSimple, maxOnlinePlayerNum);//
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerDetail, maxOnlinePlayerNum);//
+    REGISTER_SHM_OBJ_WITH_HASH(NFPlayerOnline, maxOnlinePlayerNum);//
 
     REGISTER_SHM_OBJ(NFSnsPart,1);
     REGISTER_SHM_OBJ(NFTransCacheBase,1);

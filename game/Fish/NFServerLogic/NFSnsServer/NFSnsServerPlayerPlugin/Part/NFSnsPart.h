@@ -20,6 +20,7 @@
 
 class NFPlayerDetail;
 class NFPlayerSimple;
+class NFPlayerOnline;
 class NFSnsPart : public NFShmObj, public NFSeqOP
 {
 public:
@@ -149,6 +150,7 @@ public:
     virtual uint32_t GetCurRoleDetailSeq() const;
 public:
     NFPlayerSimple* GetPlayerSimple();
+    NFPlayerOnline* GetPlayerOnline();
 protected:
     NFShmPtr<NFPlayerDetail> m_pMaster;
     uint64_t m_playerId;

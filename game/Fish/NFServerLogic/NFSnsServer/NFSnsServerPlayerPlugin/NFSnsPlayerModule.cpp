@@ -133,8 +133,24 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
     respone.set_user_id(request.user_id());
     respone.set_result(0);
 
-    NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.user_id());
-    if (pPlayer == NULL)
+    NFPlayerOnline* pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(request.user_id());
+    if (pPlayerOnline == NULL)
+    {
+        pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerOnline(request.user_id());
+        if (pPlayerOnline == NULL)
+        {
+            respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+            return 0;
+        }
+    }
+
+    pPlayerOnline->SetProxyId(request.proxy_bus_id());
+    pPlayerOnline->SetLogicId(request.logic_bus_id());
+    pPlayerOnline->SetGameId(request.game_id());
+    pPlayerOnline->SetIsOnline(true);
+
+    NFPlayerSimple* pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.user_id());
+    if (pPlayerSimple == NULL)
     {
         if (request.sns_sync().create_player_db_data())
         {
@@ -142,8 +158,8 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
             dbSimpleData.set_player_id(request.user_id());
             dbSimpleData.set_nickname(request.sns_sync().nick_name());
             dbSimpleData.set_faceid(request.sns_sync().face_id());
-            pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbSimpleData);
-            if (pPlayer == NULL)
+            pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbSimpleData);
+            if (pPlayerSimple == NULL)
             {
                 respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
                 return 0;
@@ -153,20 +169,6 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
             respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
             return 0;
         }
-    }
-
-    pPlayer->SetProxyId(request.proxy_bus_id());
-    pPlayer->SetLogicId(request.logic_bus_id());
-    pPlayer->SetGameId(request.game_id());
-    pPlayer->SetIsOnline(true);
-
-
-    int iRet = pPlayer->OnLogin();
-    if (iRet != 0)
-    {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayer:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));
-        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
-        return 0;
     }
 
     NFPlayerDetail* pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(request.user_id());
@@ -189,7 +191,29 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
         }
     }
 
-    pPlayerDetail->OnLogin();
+    int iRet = pPlayerOnline->OnLogin();
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerOnline:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    iRet = pPlayerSimple->OnLogin();
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerSimple:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    iRet = pPlayerDetail->OnLogin();
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerDetail:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

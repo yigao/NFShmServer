@@ -15,6 +15,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFPlayerSimple.h"
 #include "NFPlayerDetail.h"
+#include "NFPlayerOnline.h"
 
 class NFCacheMgr : public NFShmObj
 {
@@ -29,6 +30,27 @@ public:
 public:
     /**
      * @brief
+     * @param player
+     * @return
+     */
+    NFPlayerOnline *GetPlayerOnline(uint64_t player);
+
+    /**
+     * @brief
+     * @param playerId
+     * @return
+     */
+    NFPlayerOnline *CreatePlayerOnline(uint64_t playerId);
+
+    /**
+     * @brief
+     * @param pRoleSimple
+     * @return
+     */
+    int DeletePlayerOnline(NFPlayerOnline *pRoleSimple);
+public:
+    /**
+     * @brief
      * @param num
      * @return
      */
@@ -39,7 +61,7 @@ public:
      * @param roleId
      * @return
      */
-    NFPlayerSimple *GetPlayerSimple(uint64_t roleId);
+    NFPlayerSimple *GetPlayerSimple(uint64_t player);
 
     /**
      * @brief

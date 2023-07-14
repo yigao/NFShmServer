@@ -95,7 +95,7 @@ int NFSnsPart::RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t 
 
 int NFSnsPart::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    auto *pMaster = GetPlayerSimple();
+    auto *pMaster = GetPlayerOnline();
     CHECK_NULL(pMaster);
 
     return pMaster->SendMsgToClient(nMsgId, xData);
@@ -103,7 +103,7 @@ int NFSnsPart::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message 
 
 int NFSnsPart::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    auto *pMaster = GetPlayerSimple();
+    auto *pMaster = GetPlayerOnline();
     CHECK_NULL(pMaster);
 
     return pMaster->SendMsgToGameServer(nMsgId, xData);
@@ -111,7 +111,7 @@ int NFSnsPart::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Mess
 
 int NFSnsPart::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    auto *pMaster = GetPlayerSimple();
+    auto *pMaster = GetPlayerOnline();
     CHECK_NULL(pMaster);
 
     return pMaster->SendMsgToWorldServer(nMsgId, xData);
@@ -119,7 +119,7 @@ int NFSnsPart::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Mes
 
 int NFSnsPart::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    auto *pMaster = GetPlayerSimple();
+    auto *pMaster = GetPlayerOnline();
     CHECK_NULL(pMaster);
 
     return pMaster->SendMsgToLogicServer(nMsgId, xData);
@@ -130,4 +130,8 @@ NFPlayerSimple *NFSnsPart::GetPlayerSimple()
     return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
 }
 
+NFPlayerOnline* NFSnsPart::GetPlayerOnline()
+{
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(m_playerId);
+}
 
