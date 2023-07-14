@@ -56,4 +56,14 @@ public:
      * @return
      */
     int OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& request, proto_ff::Proto_STWLoginRsp& respone);
+
+    /**
+     * @brief 玩家掉线
+     * @param msgId
+     * @param packet
+     * @param param1
+     * @param param2
+     * @return
+     */
+    int OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 };

@@ -42,6 +42,14 @@ class Proto_WorldToLogicLoginReq;
 class Proto_LogicToWorldLoginRsp;
 class Proto_WTSLoginReq;
 class Proto_STWLoginRsp;
+class NotifyPlayerDisconnect;
+class NotifyPlayerReconnectReq;
+class NotifyPlayerReconnctRsp;
+class WTLNotifyPlayerReconnectReq;
+class LTWNotifyPlayerReconnectRsp;
+class WTGNotifyPlayerReconnectReq;
+class GTWNotifyPlayerReconnectRsp;
+class LTSNotifyPlayerReconnectReq;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -856,6 +864,842 @@ class Proto_STWLoginRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Proto_STWLoginRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyPlayerDisconnect : public ::google::protobuf::Message {
+ public:
+  NotifyPlayerDisconnect();
+  virtual ~NotifyPlayerDisconnect();
+
+  NotifyPlayerDisconnect(const NotifyPlayerDisconnect& from);
+
+  inline NotifyPlayerDisconnect& operator=(const NotifyPlayerDisconnect& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyPlayerDisconnect& default_instance();
+
+  void Swap(NotifyPlayerDisconnect* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyPlayerDisconnect* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyPlayerDisconnect& from);
+  void MergeFrom(const NotifyPlayerDisconnect& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyPlayerDisconnect)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyPlayerDisconnect* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyPlayerReconnectReq : public ::google::protobuf::Message {
+ public:
+  NotifyPlayerReconnectReq();
+  virtual ~NotifyPlayerReconnectReq();
+
+  NotifyPlayerReconnectReq(const NotifyPlayerReconnectReq& from);
+
+  inline NotifyPlayerReconnectReq& operator=(const NotifyPlayerReconnectReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyPlayerReconnectReq& default_instance();
+
+  void Swap(NotifyPlayerReconnectReq* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyPlayerReconnectReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyPlayerReconnectReq& from);
+  void MergeFrom(const NotifyPlayerReconnectReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional uint32 proxy_bus_id = 2;
+  inline bool has_proxy_bus_id() const;
+  inline void clear_proxy_bus_id();
+  static const int kProxyBusIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 proxy_bus_id() const;
+  inline void set_proxy_bus_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyPlayerReconnectReq)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_proxy_bus_id();
+  inline void clear_has_proxy_bus_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::uint32 proxy_bus_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyPlayerReconnectReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class NotifyPlayerReconnctRsp : public ::google::protobuf::Message {
+ public:
+  NotifyPlayerReconnctRsp();
+  virtual ~NotifyPlayerReconnctRsp();
+
+  NotifyPlayerReconnctRsp(const NotifyPlayerReconnctRsp& from);
+
+  inline NotifyPlayerReconnctRsp& operator=(const NotifyPlayerReconnctRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const NotifyPlayerReconnctRsp& default_instance();
+
+  void Swap(NotifyPlayerReconnctRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  NotifyPlayerReconnctRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const NotifyPlayerReconnctRsp& from);
+  void MergeFrom(const NotifyPlayerReconnctRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // optional uint64 player_id = 2;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional uint32 game_id = 3;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // optional uint32 room_id = 4;
+  inline bool has_room_id() const;
+  inline void clear_room_id();
+  static const int kRoomIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 room_id() const;
+  inline void set_room_id(::google::protobuf::uint32 value);
+
+  // optional uint32 game_bus_id = 5;
+  inline bool has_game_bus_id() const;
+  inline void clear_game_bus_id();
+  static const int kGameBusIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 game_bus_id() const;
+  inline void set_game_bus_id(::google::protobuf::uint32 value);
+
+  // optional uint32 logic_bus_id = 6;
+  inline bool has_logic_bus_id() const;
+  inline void clear_logic_bus_id();
+  static const int kLogicBusIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 logic_bus_id() const;
+  inline void set_logic_bus_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.NotifyPlayerReconnctRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+  inline void set_has_room_id();
+  inline void clear_has_room_id();
+  inline void set_has_game_bus_id();
+  inline void clear_has_game_bus_id();
+  inline void set_has_logic_bus_id();
+  inline void clear_has_logic_bus_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::int32 result_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint32 room_id_;
+  ::google::protobuf::uint32 game_bus_id_;
+  ::google::protobuf::uint32 logic_bus_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static NotifyPlayerReconnctRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class WTLNotifyPlayerReconnectReq : public ::google::protobuf::Message {
+ public:
+  WTLNotifyPlayerReconnectReq();
+  virtual ~WTLNotifyPlayerReconnectReq();
+
+  WTLNotifyPlayerReconnectReq(const WTLNotifyPlayerReconnectReq& from);
+
+  inline WTLNotifyPlayerReconnectReq& operator=(const WTLNotifyPlayerReconnectReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WTLNotifyPlayerReconnectReq& default_instance();
+
+  void Swap(WTLNotifyPlayerReconnectReq* other);
+
+  // implements Message ----------------------------------------------
+
+  WTLNotifyPlayerReconnectReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WTLNotifyPlayerReconnectReq& from);
+  void MergeFrom(const WTLNotifyPlayerReconnectReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional uint32 game_id = 2;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // optional uint32 room_id = 3;
+  inline bool has_room_id() const;
+  inline void clear_room_id();
+  static const int kRoomIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 room_id() const;
+  inline void set_room_id(::google::protobuf::uint32 value);
+
+  // optional uint32 game_bus_id = 4;
+  inline bool has_game_bus_id() const;
+  inline void clear_game_bus_id();
+  static const int kGameBusIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 game_bus_id() const;
+  inline void set_game_bus_id(::google::protobuf::uint32 value);
+
+  // optional uint32 proxy_bus_id = 6;
+  inline bool has_proxy_bus_id() const;
+  inline void clear_proxy_bus_id();
+  static const int kProxyBusIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 proxy_bus_id() const;
+  inline void set_proxy_bus_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WTLNotifyPlayerReconnectReq)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+  inline void set_has_room_id();
+  inline void clear_has_room_id();
+  inline void set_has_game_bus_id();
+  inline void clear_has_game_bus_id();
+  inline void set_has_proxy_bus_id();
+  inline void clear_has_proxy_bus_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint32 room_id_;
+  ::google::protobuf::uint32 game_bus_id_;
+  ::google::protobuf::uint32 proxy_bus_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static WTLNotifyPlayerReconnectReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
+ public:
+  LTWNotifyPlayerReconnectRsp();
+  virtual ~LTWNotifyPlayerReconnectRsp();
+
+  LTWNotifyPlayerReconnectRsp(const LTWNotifyPlayerReconnectRsp& from);
+
+  inline LTWNotifyPlayerReconnectRsp& operator=(const LTWNotifyPlayerReconnectRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LTWNotifyPlayerReconnectRsp& default_instance();
+
+  void Swap(LTWNotifyPlayerReconnectRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  LTWNotifyPlayerReconnectRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LTWNotifyPlayerReconnectRsp& from);
+  void MergeFrom(const LTWNotifyPlayerReconnectRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // optional uint64 player_id = 2;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LTWNotifyPlayerReconnectRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::int32 result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static LTWNotifyPlayerReconnectRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class WTGNotifyPlayerReconnectReq : public ::google::protobuf::Message {
+ public:
+  WTGNotifyPlayerReconnectReq();
+  virtual ~WTGNotifyPlayerReconnectReq();
+
+  WTGNotifyPlayerReconnectReq(const WTGNotifyPlayerReconnectReq& from);
+
+  inline WTGNotifyPlayerReconnectReq& operator=(const WTGNotifyPlayerReconnectReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const WTGNotifyPlayerReconnectReq& default_instance();
+
+  void Swap(WTGNotifyPlayerReconnectReq* other);
+
+  // implements Message ----------------------------------------------
+
+  WTGNotifyPlayerReconnectReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const WTGNotifyPlayerReconnectReq& from);
+  void MergeFrom(const WTGNotifyPlayerReconnectReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional uint32 proxy_bus_id = 2;
+  inline bool has_proxy_bus_id() const;
+  inline void clear_proxy_bus_id();
+  static const int kProxyBusIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 proxy_bus_id() const;
+  inline void set_proxy_bus_id(::google::protobuf::uint32 value);
+
+  // optional uint32 logic_bus_id = 3;
+  inline bool has_logic_bus_id() const;
+  inline void clear_logic_bus_id();
+  static const int kLogicBusIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 logic_bus_id() const;
+  inline void set_logic_bus_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.WTGNotifyPlayerReconnectReq)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_proxy_bus_id();
+  inline void clear_has_proxy_bus_id();
+  inline void set_has_logic_bus_id();
+  inline void clear_has_logic_bus_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::uint32 proxy_bus_id_;
+  ::google::protobuf::uint32 logic_bus_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static WTGNotifyPlayerReconnectReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GTWNotifyPlayerReconnectRsp : public ::google::protobuf::Message {
+ public:
+  GTWNotifyPlayerReconnectRsp();
+  virtual ~GTWNotifyPlayerReconnectRsp();
+
+  GTWNotifyPlayerReconnectRsp(const GTWNotifyPlayerReconnectRsp& from);
+
+  inline GTWNotifyPlayerReconnectRsp& operator=(const GTWNotifyPlayerReconnectRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GTWNotifyPlayerReconnectRsp& default_instance();
+
+  void Swap(GTWNotifyPlayerReconnectRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  GTWNotifyPlayerReconnectRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GTWNotifyPlayerReconnectRsp& from);
+  void MergeFrom(const GTWNotifyPlayerReconnectRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // optional uint64 player_id = 2;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GTWNotifyPlayerReconnectRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::int32 result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static GTWNotifyPlayerReconnectRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LTSNotifyPlayerReconnectReq : public ::google::protobuf::Message {
+ public:
+  LTSNotifyPlayerReconnectReq();
+  virtual ~LTSNotifyPlayerReconnectReq();
+
+  LTSNotifyPlayerReconnectReq(const LTSNotifyPlayerReconnectReq& from);
+
+  inline LTSNotifyPlayerReconnectReq& operator=(const LTSNotifyPlayerReconnectReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LTSNotifyPlayerReconnectReq& default_instance();
+
+  void Swap(LTSNotifyPlayerReconnectReq* other);
+
+  // implements Message ----------------------------------------------
+
+  LTSNotifyPlayerReconnectReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LTSNotifyPlayerReconnectReq& from);
+  void MergeFrom(const LTSNotifyPlayerReconnectReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional uint32 logic_bus_id = 2;
+  inline bool has_logic_bus_id() const;
+  inline void clear_logic_bus_id();
+  static const int kLogicBusIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 logic_bus_id() const;
+  inline void set_logic_bus_id(::google::protobuf::uint32 value);
+
+  // optional uint32 game_bus_id = 3;
+  inline bool has_game_bus_id() const;
+  inline void clear_game_bus_id();
+  static const int kGameBusIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 game_bus_id() const;
+  inline void set_game_bus_id(::google::protobuf::uint32 value);
+
+  // optional uint64 last_login_time = 4;
+  inline bool has_last_login_time() const;
+  inline void clear_last_login_time();
+  static const int kLastLoginTimeFieldNumber = 4;
+  inline ::google::protobuf::uint64 last_login_time() const;
+  inline void set_last_login_time(::google::protobuf::uint64 value);
+
+  // optional uint64 last_logout_time = 5;
+  inline bool has_last_logout_time() const;
+  inline void clear_last_logout_time();
+  static const int kLastLogoutTimeFieldNumber = 5;
+  inline ::google::protobuf::uint64 last_logout_time() const;
+  inline void set_last_logout_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LTSNotifyPlayerReconnectReq)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_logic_bus_id();
+  inline void clear_has_logic_bus_id();
+  inline void set_has_game_bus_id();
+  inline void clear_has_game_bus_id();
+  inline void set_has_last_login_time();
+  inline void clear_has_last_login_time();
+  inline void set_has_last_logout_time();
+  inline void clear_has_last_logout_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::uint32 logic_bus_id_;
+  ::google::protobuf::uint32 game_bus_id_;
+  ::google::protobuf::uint64 last_login_time_;
+  ::google::protobuf::uint64 last_logout_time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static LTSNotifyPlayerReconnectReq* default_instance_;
 };
 // ===================================================================
 
@@ -1896,6 +2740,610 @@ inline ::google::protobuf::uint64 Proto_STWLoginRsp::user_id() const {
 inline void Proto_STWLoginRsp::set_user_id(::google::protobuf::uint64 value) {
   set_has_user_id();
   user_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyPlayerDisconnect
+
+// optional uint64 player_id = 1;
+inline bool NotifyPlayerDisconnect::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyPlayerDisconnect::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyPlayerDisconnect::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyPlayerDisconnect::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 NotifyPlayerDisconnect::player_id() const {
+  return player_id_;
+}
+inline void NotifyPlayerDisconnect::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyPlayerReconnectReq
+
+// optional uint64 player_id = 1;
+inline bool NotifyPlayerReconnectReq::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyPlayerReconnectReq::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyPlayerReconnectReq::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyPlayerReconnectReq::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 NotifyPlayerReconnectReq::player_id() const {
+  return player_id_;
+}
+inline void NotifyPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional uint32 proxy_bus_id = 2;
+inline bool NotifyPlayerReconnectReq::has_proxy_bus_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyPlayerReconnectReq::set_has_proxy_bus_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyPlayerReconnectReq::clear_has_proxy_bus_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyPlayerReconnectReq::clear_proxy_bus_id() {
+  proxy_bus_id_ = 0u;
+  clear_has_proxy_bus_id();
+}
+inline ::google::protobuf::uint32 NotifyPlayerReconnectReq::proxy_bus_id() const {
+  return proxy_bus_id_;
+}
+inline void NotifyPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
+  set_has_proxy_bus_id();
+  proxy_bus_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// NotifyPlayerReconnctRsp
+
+// optional int32 result = 1;
+inline bool NotifyPlayerReconnctRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void NotifyPlayerReconnctRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void NotifyPlayerReconnctRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void NotifyPlayerReconnctRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 NotifyPlayerReconnctRsp::result() const {
+  return result_;
+}
+inline void NotifyPlayerReconnctRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional uint64 player_id = 2;
+inline bool NotifyPlayerReconnctRsp::has_player_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void NotifyPlayerReconnctRsp::set_has_player_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void NotifyPlayerReconnctRsp::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void NotifyPlayerReconnctRsp::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 NotifyPlayerReconnctRsp::player_id() const {
+  return player_id_;
+}
+inline void NotifyPlayerReconnctRsp::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional uint32 game_id = 3;
+inline bool NotifyPlayerReconnctRsp::has_game_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void NotifyPlayerReconnctRsp::set_has_game_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void NotifyPlayerReconnctRsp::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void NotifyPlayerReconnctRsp::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 NotifyPlayerReconnctRsp::game_id() const {
+  return game_id_;
+}
+inline void NotifyPlayerReconnctRsp::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// optional uint32 room_id = 4;
+inline bool NotifyPlayerReconnctRsp::has_room_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void NotifyPlayerReconnctRsp::set_has_room_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void NotifyPlayerReconnctRsp::clear_has_room_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void NotifyPlayerReconnctRsp::clear_room_id() {
+  room_id_ = 0u;
+  clear_has_room_id();
+}
+inline ::google::protobuf::uint32 NotifyPlayerReconnctRsp::room_id() const {
+  return room_id_;
+}
+inline void NotifyPlayerReconnctRsp::set_room_id(::google::protobuf::uint32 value) {
+  set_has_room_id();
+  room_id_ = value;
+}
+
+// optional uint32 game_bus_id = 5;
+inline bool NotifyPlayerReconnctRsp::has_game_bus_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void NotifyPlayerReconnctRsp::set_has_game_bus_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void NotifyPlayerReconnctRsp::clear_has_game_bus_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void NotifyPlayerReconnctRsp::clear_game_bus_id() {
+  game_bus_id_ = 0u;
+  clear_has_game_bus_id();
+}
+inline ::google::protobuf::uint32 NotifyPlayerReconnctRsp::game_bus_id() const {
+  return game_bus_id_;
+}
+inline void NotifyPlayerReconnctRsp::set_game_bus_id(::google::protobuf::uint32 value) {
+  set_has_game_bus_id();
+  game_bus_id_ = value;
+}
+
+// optional uint32 logic_bus_id = 6;
+inline bool NotifyPlayerReconnctRsp::has_logic_bus_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void NotifyPlayerReconnctRsp::set_has_logic_bus_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void NotifyPlayerReconnctRsp::clear_has_logic_bus_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void NotifyPlayerReconnctRsp::clear_logic_bus_id() {
+  logic_bus_id_ = 0u;
+  clear_has_logic_bus_id();
+}
+inline ::google::protobuf::uint32 NotifyPlayerReconnctRsp::logic_bus_id() const {
+  return logic_bus_id_;
+}
+inline void NotifyPlayerReconnctRsp::set_logic_bus_id(::google::protobuf::uint32 value) {
+  set_has_logic_bus_id();
+  logic_bus_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// WTLNotifyPlayerReconnectReq
+
+// optional uint64 player_id = 1;
+inline bool WTLNotifyPlayerReconnectReq::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WTLNotifyPlayerReconnectReq::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 WTLNotifyPlayerReconnectReq::player_id() const {
+  return player_id_;
+}
+inline void WTLNotifyPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional uint32 game_id = 2;
+inline bool WTLNotifyPlayerReconnectReq::has_game_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WTLNotifyPlayerReconnectReq::set_has_game_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 WTLNotifyPlayerReconnectReq::game_id() const {
+  return game_id_;
+}
+inline void WTLNotifyPlayerReconnectReq::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// optional uint32 room_id = 3;
+inline bool WTLNotifyPlayerReconnectReq::has_room_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WTLNotifyPlayerReconnectReq::set_has_room_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_has_room_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_room_id() {
+  room_id_ = 0u;
+  clear_has_room_id();
+}
+inline ::google::protobuf::uint32 WTLNotifyPlayerReconnectReq::room_id() const {
+  return room_id_;
+}
+inline void WTLNotifyPlayerReconnectReq::set_room_id(::google::protobuf::uint32 value) {
+  set_has_room_id();
+  room_id_ = value;
+}
+
+// optional uint32 game_bus_id = 4;
+inline bool WTLNotifyPlayerReconnectReq::has_game_bus_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void WTLNotifyPlayerReconnectReq::set_has_game_bus_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_has_game_bus_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_game_bus_id() {
+  game_bus_id_ = 0u;
+  clear_has_game_bus_id();
+}
+inline ::google::protobuf::uint32 WTLNotifyPlayerReconnectReq::game_bus_id() const {
+  return game_bus_id_;
+}
+inline void WTLNotifyPlayerReconnectReq::set_game_bus_id(::google::protobuf::uint32 value) {
+  set_has_game_bus_id();
+  game_bus_id_ = value;
+}
+
+// optional uint32 proxy_bus_id = 6;
+inline bool WTLNotifyPlayerReconnectReq::has_proxy_bus_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void WTLNotifyPlayerReconnectReq::set_has_proxy_bus_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_has_proxy_bus_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void WTLNotifyPlayerReconnectReq::clear_proxy_bus_id() {
+  proxy_bus_id_ = 0u;
+  clear_has_proxy_bus_id();
+}
+inline ::google::protobuf::uint32 WTLNotifyPlayerReconnectReq::proxy_bus_id() const {
+  return proxy_bus_id_;
+}
+inline void WTLNotifyPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
+  set_has_proxy_bus_id();
+  proxy_bus_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LTWNotifyPlayerReconnectRsp
+
+// optional int32 result = 1;
+inline bool LTWNotifyPlayerReconnectRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LTWNotifyPlayerReconnectRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LTWNotifyPlayerReconnectRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LTWNotifyPlayerReconnectRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 LTWNotifyPlayerReconnectRsp::result() const {
+  return result_;
+}
+inline void LTWNotifyPlayerReconnectRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional uint64 player_id = 2;
+inline bool LTWNotifyPlayerReconnectRsp::has_player_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LTWNotifyPlayerReconnectRsp::set_has_player_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LTWNotifyPlayerReconnectRsp::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LTWNotifyPlayerReconnectRsp::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 LTWNotifyPlayerReconnectRsp::player_id() const {
+  return player_id_;
+}
+inline void LTWNotifyPlayerReconnectRsp::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// WTGNotifyPlayerReconnectReq
+
+// optional uint64 player_id = 1;
+inline bool WTGNotifyPlayerReconnectReq::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void WTGNotifyPlayerReconnectReq::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void WTGNotifyPlayerReconnectReq::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void WTGNotifyPlayerReconnectReq::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 WTGNotifyPlayerReconnectReq::player_id() const {
+  return player_id_;
+}
+inline void WTGNotifyPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional uint32 proxy_bus_id = 2;
+inline bool WTGNotifyPlayerReconnectReq::has_proxy_bus_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void WTGNotifyPlayerReconnectReq::set_has_proxy_bus_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void WTGNotifyPlayerReconnectReq::clear_has_proxy_bus_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void WTGNotifyPlayerReconnectReq::clear_proxy_bus_id() {
+  proxy_bus_id_ = 0u;
+  clear_has_proxy_bus_id();
+}
+inline ::google::protobuf::uint32 WTGNotifyPlayerReconnectReq::proxy_bus_id() const {
+  return proxy_bus_id_;
+}
+inline void WTGNotifyPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
+  set_has_proxy_bus_id();
+  proxy_bus_id_ = value;
+}
+
+// optional uint32 logic_bus_id = 3;
+inline bool WTGNotifyPlayerReconnectReq::has_logic_bus_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void WTGNotifyPlayerReconnectReq::set_has_logic_bus_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void WTGNotifyPlayerReconnectReq::clear_has_logic_bus_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void WTGNotifyPlayerReconnectReq::clear_logic_bus_id() {
+  logic_bus_id_ = 0u;
+  clear_has_logic_bus_id();
+}
+inline ::google::protobuf::uint32 WTGNotifyPlayerReconnectReq::logic_bus_id() const {
+  return logic_bus_id_;
+}
+inline void WTGNotifyPlayerReconnectReq::set_logic_bus_id(::google::protobuf::uint32 value) {
+  set_has_logic_bus_id();
+  logic_bus_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GTWNotifyPlayerReconnectRsp
+
+// optional int32 result = 1;
+inline bool GTWNotifyPlayerReconnectRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GTWNotifyPlayerReconnectRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GTWNotifyPlayerReconnectRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GTWNotifyPlayerReconnectRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 GTWNotifyPlayerReconnectRsp::result() const {
+  return result_;
+}
+inline void GTWNotifyPlayerReconnectRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional uint64 player_id = 2;
+inline bool GTWNotifyPlayerReconnectRsp::has_player_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GTWNotifyPlayerReconnectRsp::set_has_player_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GTWNotifyPlayerReconnectRsp::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GTWNotifyPlayerReconnectRsp::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 GTWNotifyPlayerReconnectRsp::player_id() const {
+  return player_id_;
+}
+inline void GTWNotifyPlayerReconnectRsp::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LTSNotifyPlayerReconnectReq
+
+// optional uint64 player_id = 1;
+inline bool LTSNotifyPlayerReconnectReq::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LTSNotifyPlayerReconnectReq::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 LTSNotifyPlayerReconnectReq::player_id() const {
+  return player_id_;
+}
+inline void LTSNotifyPlayerReconnectReq::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional uint32 logic_bus_id = 2;
+inline bool LTSNotifyPlayerReconnectReq::has_logic_bus_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LTSNotifyPlayerReconnectReq::set_has_logic_bus_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_has_logic_bus_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_logic_bus_id() {
+  logic_bus_id_ = 0u;
+  clear_has_logic_bus_id();
+}
+inline ::google::protobuf::uint32 LTSNotifyPlayerReconnectReq::logic_bus_id() const {
+  return logic_bus_id_;
+}
+inline void LTSNotifyPlayerReconnectReq::set_logic_bus_id(::google::protobuf::uint32 value) {
+  set_has_logic_bus_id();
+  logic_bus_id_ = value;
+}
+
+// optional uint32 game_bus_id = 3;
+inline bool LTSNotifyPlayerReconnectReq::has_game_bus_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LTSNotifyPlayerReconnectReq::set_has_game_bus_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_has_game_bus_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_game_bus_id() {
+  game_bus_id_ = 0u;
+  clear_has_game_bus_id();
+}
+inline ::google::protobuf::uint32 LTSNotifyPlayerReconnectReq::game_bus_id() const {
+  return game_bus_id_;
+}
+inline void LTSNotifyPlayerReconnectReq::set_game_bus_id(::google::protobuf::uint32 value) {
+  set_has_game_bus_id();
+  game_bus_id_ = value;
+}
+
+// optional uint64 last_login_time = 4;
+inline bool LTSNotifyPlayerReconnectReq::has_last_login_time() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LTSNotifyPlayerReconnectReq::set_has_last_login_time() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_has_last_login_time() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_last_login_time() {
+  last_login_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_last_login_time();
+}
+inline ::google::protobuf::uint64 LTSNotifyPlayerReconnectReq::last_login_time() const {
+  return last_login_time_;
+}
+inline void LTSNotifyPlayerReconnectReq::set_last_login_time(::google::protobuf::uint64 value) {
+  set_has_last_login_time();
+  last_login_time_ = value;
+}
+
+// optional uint64 last_logout_time = 5;
+inline bool LTSNotifyPlayerReconnectReq::has_last_logout_time() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void LTSNotifyPlayerReconnectReq::set_has_last_logout_time() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_has_last_logout_time() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void LTSNotifyPlayerReconnectReq::clear_last_logout_time() {
+  last_logout_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_last_logout_time();
+}
+inline ::google::protobuf::uint64 LTSNotifyPlayerReconnectReq::last_logout_time() const {
+  return last_logout_time_;
+}
+inline void LTSNotifyPlayerReconnectReq::set_last_logout_time(::google::protobuf::uint64 value) {
+  set_has_last_logout_time();
+  last_logout_time_ = value;
 }
 
 

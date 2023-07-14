@@ -58,7 +58,7 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027ServerInternalCmd.proto\022\010proto_ff*\276\002\n\023"
+    "\n\027ServerInternalCmd.proto\022\010proto_ff*\306\003\n\023"
     "Proto_SvrLogicMsgID\022\033\n\027NF_PTW_PLAYER_LOG"
     "IN_REQ\020d\022\033\n\027NF_WTP_PLAYER_LOGIN_RSP\020e\022\033\n"
     "\027NF_WTL_PLAYER_LOGIN_REQ\020f\022\033\n\027NF_LTW_PLA"
@@ -66,7 +66,11 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
     "EQ\020h\022\033\n\027NF_STW_PLAYER_LOGIN_RSP\020i\022\034\n\030NF_"
     "WTS_PLAYER_LOGOUT_REQ\020j\022\034\n\030NF_STW_PLAYER"
     "_LOGOUT_RSP\020k\022\034\n\030NF_LTW_PLAYER_LOGOUT_RE"
-    "Q\020l\022\037\n\033NF_WTL_PLAYER_LOGOUT_NOTIFY\020m", 356);
+    "Q\020l\022\037\n\033NF_WTL_PLAYER_LOGOUT_NOTIFY\020m\022 \n\034"
+    "NF_PTW_PLAYER_DISCONNECT_MSG\020n\022 \n\034NF_WTL"
+    "_PLAYER_DISCONNECT_MSG\020o\022 \n\034NF_WTS_PLAYE"
+    "R_DISCONNECT_MSG\020p\022 \n\034NF_WTG_PLAYER_DISC"
+    "ONNECT_MSG\020q", 492);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd_2eproto);
@@ -94,6 +98,10 @@ bool Proto_SvrLogicMsgID_IsValid(int value) {
     case 107:
     case 108:
     case 109:
+    case 110:
+    case 111:
+    case 112:
+    case 113:
       return true;
     default:
       return false;

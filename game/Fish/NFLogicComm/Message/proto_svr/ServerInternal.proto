@@ -11,6 +11,8 @@ enum Proto_AccountState
   E_ACCOUNTSTATE_FORBIT = 2;        // 禁止，无限期
 }
 
+////////////////////////////////login/////////////////////////////////
+
 message Proto_PTWUserLoginReq
 {
   optional uint64 user_id = 1;
@@ -66,4 +68,64 @@ message Proto_STWLoginRsp
 {
   optional uint32 result = 1;
   optional uint64 user_id = 2;
+}
+////////////////////////////////////disconnect///////////////////////////////
+message NotifyPlayerDisconnect
+{
+  optional uint64 player_id = 1;
+}
+
+////////////////////////////////////reconnect///////////////////////////////
+
+message NotifyPlayerReconnectReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 proxy_bus_id = 2;
+}
+
+message NotifyPlayerReconnctRsp
+{
+  optional int32 result = 1;
+  optional uint64 player_id = 2;
+  optional uint32 game_id = 3;
+  optional uint32 room_id = 4;
+  optional uint32 game_bus_id = 5;
+  optional uint32 logic_bus_id = 6;
+}
+
+message WTLNotifyPlayerReconnectReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 game_id = 2;
+  optional uint32 room_id = 3;
+  optional uint32 game_bus_id = 4;
+  optional uint32 proxy_bus_id = 6;
+}
+
+message LTWNotifyPlayerReconnectRsp
+{
+  optional int32 result = 1;
+  optional uint64 player_id = 2;
+}
+
+message WTGNotifyPlayerReconnectReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 proxy_bus_id = 2;
+  optional uint32 logic_bus_id = 3;
+}
+
+message GTWNotifyPlayerReconnectRsp
+{
+  optional int32 result = 1;
+  optional uint64 player_id = 2;
+}
+
+message LTSNotifyPlayerReconnectReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 logic_bus_id = 2;
+  optional uint32 game_bus_id = 3;
+  optional uint64 last_login_time = 4;
+  optional uint64 last_logout_time = 5;
 }

@@ -32,6 +32,8 @@ bool NFCSnsPlayerModule::Awake()
     ///////////world msg//////////////////////////////////////////////////////////
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_WTS_PLAYER_LOGIN_REQ>(NF_ST_SNS_SERVER, this,
                                                                                      &NFCSnsPlayerModule::OnRpcServicePlayerLogin, true);
+
+    RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG);
     ///////////logic msg//////////////////////////////////////////////////////////
     return true;
 }
@@ -75,7 +77,7 @@ int NFCSnsPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32
     return 0;
 }
 
-int NFCSnsPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
+int NFCSnsPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
     if (!m_pObjPluginManager->IsInited())
     {
@@ -117,6 +119,11 @@ int NFCSnsPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
 
     switch (msgId)
     {
+        case proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG:
+        {
+            OnHandlePlayerDisconnectMsg(msgId, packet, param1, param2);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Server Internal MsgId:{} Register, But Not Handle, Package:{}", msgId, packet.ToString());
@@ -158,6 +165,7 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
             dbSimpleData.set_player_id(request.user_id());
             dbSimpleData.set_nickname(request.sns_sync().nick_name());
             dbSimpleData.set_faceid(request.sns_sync().face_id());
+            dbSimpleData.set_bank_jetton(0);
             pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbSimpleData);
             if (pPlayerSimple == NULL)
             {
@@ -214,6 +222,39 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
         respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
         return 0;
     }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCSnsPlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+
+    proto_ff::NotifyPlayerDisconnect xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFPlayerOnline* pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(xMsg.player_id());
+    if (pPlayerOnline)
+    {
+        pPlayerOnline->SetProxyId(0);
+        pPlayerOnline->SetIsOnline(false);
+        pPlayerOnline->OnDisconnect();
+    }
+
+    NFPlayerSimple* pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(xMsg.player_id());
+    if (pPlayerSimple)
+    {
+        pPlayerSimple->OnDisconnect();
+    }
+
+    NFPlayerDetail* pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerDetail(xMsg.player_id());
+    if (pPlayerDetail)
+    {
+        pPlayerDetail->OnDisconnect();
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} disconnect..............", xMsg.player_id());
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

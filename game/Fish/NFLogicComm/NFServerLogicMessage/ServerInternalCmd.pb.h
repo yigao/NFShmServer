@@ -43,11 +43,15 @@ enum Proto_SvrLogicMsgID {
   NF_WTS_PLAYER_LOGOUT_REQ = 106,
   NF_STW_PLAYER_LOGOUT_RSP = 107,
   NF_LTW_PLAYER_LOGOUT_REQ = 108,
-  NF_WTL_PLAYER_LOGOUT_NOTIFY = 109
+  NF_WTL_PLAYER_LOGOUT_NOTIFY = 109,
+  NF_PTW_PLAYER_DISCONNECT_MSG = 110,
+  NF_WTL_PLAYER_DISCONNECT_MSG = 111,
+  NF_WTS_PLAYER_DISCONNECT_MSG = 112,
+  NF_WTG_PLAYER_DISCONNECT_MSG = 113
 };
 bool Proto_SvrLogicMsgID_IsValid(int value);
 const Proto_SvrLogicMsgID Proto_SvrLogicMsgID_MIN = NF_PTW_PLAYER_LOGIN_REQ;
-const Proto_SvrLogicMsgID Proto_SvrLogicMsgID_MAX = NF_WTL_PLAYER_LOGOUT_NOTIFY;
+const Proto_SvrLogicMsgID Proto_SvrLogicMsgID_MAX = NF_WTG_PLAYER_DISCONNECT_MSG;
 const int Proto_SvrLogicMsgID_ARRAYSIZE = Proto_SvrLogicMsgID_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Proto_SvrLogicMsgID_descriptor();

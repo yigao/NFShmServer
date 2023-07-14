@@ -32,6 +32,8 @@ bool NFCLogicPlayerModule::Awake()
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_WTL_PLAYER_LOGIN_REQ>(NF_ST_LOGIC_SERVER, this,
                                                                                      &NFCLogicPlayerModule::OnRpcServicePlayerLogin, true);
+
+    RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_PLAYER_DISCONNECT_MSG);
     //////////player enter game////////////////////////////////////
     return true;
 }
@@ -46,7 +48,7 @@ bool NFCLogicPlayerModule::OnDynamicPlugin()
     return true;
 }
 
-int NFCLogicPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
+int NFCLogicPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
     if (!m_pObjPluginManager->IsInited())
     {
@@ -72,7 +74,7 @@ int NFCLogicPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
 }
 
 
-int NFCLogicPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
+int NFCLogicPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
     if (!m_pObjPluginManager->IsInited())
     {
@@ -88,6 +90,11 @@ int NFCLogicPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 
     switch (packet.nMsgId)
     {
+        case proto_ff::NF_WTL_PLAYER_DISCONNECT_MSG:
+        {
+            OnHandlePlayerDisconnectMsg(msgId, packet, param1, param2);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Server MsgId:{} Register, But Not Handle, Package:{}", packet.nMsgId, packet.ToString());
@@ -197,4 +204,22 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
     return 0;
 }
 
+int NFCLogicPlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+
+    proto_ff::NotifyPlayerDisconnect xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFPlayer* pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(xMsg.player_id());
+    if (pPlayer)
+    {
+        pPlayer->OnDisconnect();
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} disconnect..............", xMsg.player_id());
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
 

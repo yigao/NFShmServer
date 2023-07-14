@@ -385,14 +385,45 @@ int NFCProxyPlayerModule::OnHandleClientDisconnect(uint64_t unLinkId)
         if (pLinkInfo->GetPlayerId() > 0)
         {
             NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(pLinkInfo->GetPlayerId());
-            if (pPlayerInfo && pPlayerInfo->GetLinkId() == unLinkId)
+            if (pPlayerInfo)
             {
+                if (pPlayerInfo->GetLinkId() == unLinkId)
+                {
+                    NotifyPlayerDisconnect(unLinkId, pPlayerInfo);
+                }
+                else if (pPlayerInfo->GetLinkId() > 0)
+                {
+                    NF_SHARE_PTR<NFProxySession> pOtherLinkInfo = mClientLinkInfo.GetElement(pPlayerInfo->GetLinkId());
+                    if (pOtherLinkInfo == NULL)
+                    {
+                        NotifyPlayerDisconnect(unLinkId, pPlayerInfo);
+                    }
+                }
             }
         }
         mClientLinkInfo.RemoveElement(unLinkId);
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCProxyPlayerModule::NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo)
+{
+    CHECK_NULL(pPlayerInfo);
+    pPlayerInfo->SetLinkId(0);
+    pPlayerInfo->SetOnline(false);
+    pPlayerInfo->SetDisconnectTime(NFTime::Now().UnixSec());
+
+    if (pPlayerInfo->GetWorldBusId() > 0)
+    {
+        proto_ff::NotifyPlayerDisconnect xMsg;
+        xMsg.set_player_id(pPlayerInfo->GetPlayerId());
+        FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetWorldBusId(), NF_MODULE_SERVER,
+                                                                  proto_ff::NF_PTW_PLAYER_DISCONNECT_MSG, xMsg, pPlayerInfo->GetPlayerId());
+    }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "player:{} link:{} disconenct.........", pPlayerInfo->GetPlayerId(), unLinkId);
     return 0;
 }
 
@@ -714,6 +745,7 @@ int NFCProxyPlayerModule::OnHandleUserLoginFromClient(uint64_t unLinkId, NFDataP
 
             KickPlayer(pPlayerInfo->GetLinkId());
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Get World Bus Id Failed!");
+            return 0;
         }
     }
 

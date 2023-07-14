@@ -48,4 +48,12 @@ public:
      * @return
      */
     int OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone);
+
+    /**
+     * @brief 玩家掉线
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataPackage& packet);
 };

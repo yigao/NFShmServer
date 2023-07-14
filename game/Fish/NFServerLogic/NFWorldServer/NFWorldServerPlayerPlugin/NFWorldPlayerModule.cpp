@@ -13,6 +13,7 @@
 #include "NFWorldPlayerMgr.h"
 #include "ServerInternalCmd.pb.h"
 #include "NFLogicCommon/NFLogicBindRpcService.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p) {
 
@@ -25,6 +26,9 @@ bool NFCWorldPlayerModule::Awake() {
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, this, &NFCWorldPlayerModule::OnRpcServiceUserLogin, true);
+
+    RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_PTW_PLAYER_DISCONNECT_MSG);
+
     //////////player enter game////////////////////////////////////
     return true;
 }
@@ -81,6 +85,11 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 
     switch (packet.nMsgId)
     {
+        case proto_ff::NF_PTW_PLAYER_DISCONNECT_MSG:
+        {
+            OnHandlePlayerDisconnectMsg(unLinkId, packet);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Server MsgId:{} Register, But Not Handle, Package:{}", packet.nMsgId, packet.ToString());
@@ -212,4 +221,29 @@ int NFCWorldPlayerModule::OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq&
     return 0;
 }
 
+int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataPackage& packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
+    proto_ff::NotifyPlayerDisconnect xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(xMsg.player_id());
+    CHECK_PLAYER_EXPR(xMsg.player_id(), pPlayerInfo, -1, "disconnect, can't find player pInfo, playerId:{}",
+                      xMsg.player_id());
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} disconnect..............", xMsg.player_id());
+
+    pPlayerInfo->SetProxyId(0);
+    pPlayerInfo->SetStatus(proto_ff::PLAYER_STATUS_OFFLINE);
+    pPlayerInfo->SetLastDisconnectTime(NFTime::Now().UnixSec());
+
+    if (pPlayerInfo->GetLogicId() > 0)
+    {
+        FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetLogicId(), proto_ff::NF_WTL_PLAYER_DISCONNECT_MSG, xMsg);
+    }
+
+    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG, xMsg);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}

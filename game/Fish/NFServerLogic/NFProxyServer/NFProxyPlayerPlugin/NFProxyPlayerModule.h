@@ -61,6 +61,14 @@ public:
     int OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage &packet);
 
     int OnHandleClientDisconnect(uint64_t unLinkId);
+
+    /**
+     * @brief 通知中心服玩家掉线
+     * @param unLinkId
+     * @param pPlayerInfo
+     * @return
+     */
+    int NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo);
 public:
     /*
      * 处理客户端连接超时

@@ -31,7 +31,7 @@ public:
      * @param packet
      * @return
      */
-    virtual int OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet) override;
+    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
 
     /**
      * @brief 处理来自服务器的信息
@@ -39,7 +39,7 @@ public:
      * @param packet
      * @return
      */
-    virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
+    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
 public:
     /**
      * @brief 玩家登录
@@ -48,4 +48,14 @@ public:
      * @return
      */
     int OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLoginReq& request, proto_ff::Proto_LogicToWorldLoginRsp& respone);
+
+    /**
+     * @brief 玩家掉线
+     * @param msgId
+     * @param packet
+     * @param param1
+     * @param param2
+     * @return
+     */
+    int OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 };
