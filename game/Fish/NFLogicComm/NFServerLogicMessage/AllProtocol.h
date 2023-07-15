@@ -22,3 +22,6 @@
 #include "ClientServerCmd.pb.h"
 #include "ServerInternal.pb.h"
 #include "ServerInternalCmd.pb.h"
+
+#include "CSLogin.pb.h"
+#include "CSJetton.pb.h"

@@ -1,0 +1,108 @@
+package proto_ff;
+
+import "Com.proto";
+import "ComDefine.proto";
+
+message tbGiveBankJetton
+{
+  required uint64 id			= 1; //唯一ID
+  optional uint64 user_id = 2;
+  optional string user_name = 3;
+  optional uint64 give_user_id = 4;
+  optional string give_user_name = 5;
+  optional uint64 give_jetton = 6;
+  optional uint64 create_time = 7;
+}
+
+//获取玩家银行数据NF_CS_BANK_GET_DATA_REQ = 1170;
+message Proto_CSBankGetDataReq
+{
+  optional string bank_password = 1;
+}
+
+//获取玩家银行数据NNF_SC_BANK_GET_DATA_RSP = 1171;
+message Proto_SCBankGetDataRsp
+{
+  optional int32 result = 1;//0:success !=0 fail
+  optional uint64 jetton = 2;
+  optional uint64 bank_jetton = 3;
+}
+
+//NF_CS_BANK_SAVE_MONEY_REQ = 1172 存款请求
+message Proto_CSBankSaveMoneyReq
+{
+  optional uint64 save_jetton = 1;
+}
+
+//NF_SC_BANK_SAVE_MONEY_RSP = 1173;//存款请求
+message Proto_SCBankSaveMoneyRsp
+{
+  optional int32 result = 1;//0:success !=0 fail
+  optional uint64 jetton = 2;
+  optional uint64 bank_jetton = 3;
+}
+
+//NF_CS_BANK_GET_MONEY_REQ = 1174; //取款请求
+message Proto_CSBankGetMoneyReq
+{
+  optional uint64 get_jetton = 1;
+}
+
+//NF_SC_BANK_GET_MONEY_RSP = 1175; //取款请求
+message Proto_SCBankGetMoneyRsp
+{
+  optional int32 result = 1;//0:success !=0 fail
+  optional uint64 jetton = 2;
+  optional uint64 bank_jetton = 3;
+}
+
+//NF_CS_BANK_SET_PASSWORD_REQ = 1176; //修改以后密码
+message Proto_CSBankSetPasswordReq
+{
+  optional string old_password = 1;
+  optional string new_password = 2;
+}
+
+//NF_SC_BANK_SET_PASSWORD_RSP = 1177; //修改以后密码
+message Proto_SCBankSetPasswordRsp
+{
+  optional int32 result = 1;//0:success !=0 fail
+}
+
+//NF_CS_BANK_GIVE_BANK_JETTON_REQ = 1178; //赠送金币
+message Proto_CSBankGiveMoneyReq
+{
+  optional uint64 give_user_id = 1;
+  optional uint64 give_jetton = 2;
+}
+
+//NF_SC_BANK_GIVE_BANK_JETTON_RSP = 1179; //赠送金币
+message Proto_CSBankGiveMoneyRsp
+{
+  optional int32 result = 1;//0:success !=0 fail
+  optional tbGiveBankJetton record = 2;
+  optional uint64 jetton = 3;
+  optional uint64 bank_jetton = 4;
+}
+
+//NF_SC_BANK_GIVE_BANK_JETTON_AUTO_PUSH_RSP = 1180; //玩家被赠送金币通知
+message Proto_SCBankGiveJettonAutoPushRsp
+{
+  optional tbGiveBankJetton record = 2;
+  optional uint64 jetton = 3;
+  optional uint64 bank_jetton = 4;
+}
+
+//NF_CS_BANK_GET_RECORD_REQ = 1181; //获取赠送记录
+message Proto_CSBankGetRecordReq
+{
+  optional uint32 begin = 1;	 //每次最少10条，从1开始 begin=1 end = 10
+  optional uint32 end = 2;
+}
+
+//NF_SC_BANK_GET_RECORD_RSP = 1182; //获取赠送记录
+message Proto_SCBankGetRecordRsp
+{
+  optional int32 result = 1;//0:success !=0 fail
+  repeated tbGiveBankJetton record = 2;
+}

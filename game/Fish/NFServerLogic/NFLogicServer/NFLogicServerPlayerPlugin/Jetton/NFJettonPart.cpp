@@ -65,7 +65,11 @@ int NFJettonPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
     switch(msgId)
     {
-
+        case proto_ff::NF_CS_BANK_GET_DATA_REQ:
+        {
+            OnHandleGetBankDataReq(msgId, packet);
+            break;
+        }
     }
     return 0;
 }
@@ -92,4 +96,17 @@ int NFJettonPart::SaveDB(proto_ff::tbFishPlayerData &dbData)
     return 0;
 }
 
+int NFJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+
+    proto_ff::Proto_CSBankGetDataReq xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    proto_ff::Proto_SCBankGetDataRsp rspMsg;
+    rspMsg.set_result(0);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
 

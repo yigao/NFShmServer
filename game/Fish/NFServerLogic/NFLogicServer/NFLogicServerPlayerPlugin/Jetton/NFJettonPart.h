@@ -134,6 +134,14 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
+public:
+    /**
+     * @brief 获取银行筹码数据
+     * @param msgId
+     * @param packet
+     * @return
+     */
+    int OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet);
 private:
     uint64_t m_jetton;
 private:
