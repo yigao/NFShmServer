@@ -67,9 +67,9 @@ std::string NFTransSaveRoleDetail::DebugString() const
 
 int NFTransSaveRoleDetail::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
@@ -104,7 +104,7 @@ int NFTransSaveRoleDetail::HandleDBMsgRes(const google::protobuf::Message *pSSMs
                                   uint32_t seq,
                                   int32_t err_code)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     int iRetCode = 0;
     if (cmd == proto_ff::NF_STORESVR_S2C_MODIFYOBJ)
     {
@@ -118,13 +118,13 @@ int NFTransSaveRoleDetail::HandleDBMsgRes(const google::protobuf::Message *pSSMs
                    err_code);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return iRetCode;
 }
 
 int NFTransSaveRoleDetail::HandleSaveRoleDetailRes(uint32_t err_code, uint32_t seq)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     if (err_code != 0)
     {
         return proto_ff::ERR_CODE_SVR_SYSTEM_DATABASE_ERROR;
@@ -141,7 +141,7 @@ int NFTransSaveRoleDetail::HandleSaveRoleDetailRes(uint32_t err_code, uint32_t s
     SetFinished(0);
     SetState(TRANS_SAVE_ROLE_DETAIL_FIN_OK);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

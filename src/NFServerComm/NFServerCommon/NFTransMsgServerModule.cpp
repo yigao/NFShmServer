@@ -132,7 +132,7 @@ int NFTransMsgServerModule::ConnectMasterServer()
 
 int NFTransMsgServerModule::OnServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     if (nEvent == eMsgType_CONNECTED)
     {
 
@@ -141,7 +141,7 @@ int NFTransMsgServerModule::OnServerSocketEvent(eMsgType nEvent, uint64_t unLink
     {
         OnHandleServerDisconnect(unLinkId);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

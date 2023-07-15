@@ -45,7 +45,7 @@ int NFTransGetPlayerSimple::ResumeInit()
 }
 
 int NFTransGetPlayerSimple::QueryRole(uint64_t playerId) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     m_playerId = playerId;
 
     if (NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(m_playerId))
@@ -91,7 +91,7 @@ int NFTransGetPlayerSimple::QueryRole(uint64_t playerId) {
     {
         return proto_ff::ERR_CODE_RPC_SYSTEM_ERROR;
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

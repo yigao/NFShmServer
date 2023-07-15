@@ -92,7 +92,7 @@ int NFCWorldServerModule::OnHandleOtherServerReportFromMasterServer(const proto_
 
 int NFCWorldServerModule::OnHandleLogicReport(const proto_ff::ServerInfoReport& xData)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     CHECK_EXPR(xData.server_type() == NF_ST_LOGIC_SERVER, -1, "xData.server_type() == NF_ST_LOGIC_SERVER");
 
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_WORLD_SERVER, xData.bus_id());
@@ -102,13 +102,13 @@ int NFCWorldServerModule::OnHandleLogicReport(const proto_ff::ServerInfoReport& 
     }
 
     pServerData->mServerInfo = xData;
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
     proto_ff::Proto_TestOtherServerToWorldServer xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -139,7 +139,7 @@ int NFCWorldServerModule::OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPa
                                                         proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, xData, 3, 4);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

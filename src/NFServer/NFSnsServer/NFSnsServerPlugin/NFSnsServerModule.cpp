@@ -87,7 +87,7 @@ int NFCSnsServerModule::TestOtherServerToWorldServer()
     static int req = 0;
     for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
         CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
 
@@ -96,7 +96,7 @@ int NFCSnsServerModule::TestOtherServerToWorldServer()
         xData.set_server_name(pConfig->ServerName);
         xData.set_seq(++req);
         FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_SNS_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     }
 #endif
     if (!m_pObjPluginManager->IsInited())
@@ -152,7 +152,7 @@ int NFCSnsServerModule::TestOtherServerToWorldServer()
 
 int NFCSnsServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
     static int last_seq = -1;
 
@@ -168,6 +168,6 @@ int NFCSnsServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPack
         last_seq = xMsg.seq();
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }

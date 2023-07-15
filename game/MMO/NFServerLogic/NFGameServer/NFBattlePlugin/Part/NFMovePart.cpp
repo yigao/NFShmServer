@@ -119,7 +119,7 @@ int NFMovePart::RetisterServerMessage(NFIPluginManager *pPluginManager)
 
 int NFMovePart::ClientMoveReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::MoveReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
@@ -253,7 +253,7 @@ int NFMovePart::ClientMoveReq(uint32_t msgId, NFDataPackage &packet)
         proto_ff::NFEventNoneData stopMoveEvent;
         FireExecute(NF_ST_GAME_SERVER, EVENT_END_MOVE, pMaster->Kind(), pMaster->Cid(), stopMoveEvent);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
@@ -845,7 +845,7 @@ int NFMovePart::ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet)
 
 int NFMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::PlayerSeatReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
@@ -913,7 +913,7 @@ int NFMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
     rsp.set_online_all_exp(0);
 
     pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_SEAT_RSP, rsp);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

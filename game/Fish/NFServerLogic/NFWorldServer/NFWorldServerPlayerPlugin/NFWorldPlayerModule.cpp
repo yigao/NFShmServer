@@ -25,7 +25,11 @@ NFCWorldPlayerModule::~NFCWorldPlayerModule() {
 bool NFCWorldPlayerModule::Awake() {
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, this, &NFCWorldPlayerModule::OnRpcServiceUserLogin, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, this,
+                                                                                     &NFCWorldPlayerModule::OnRpcServicePlayerLogin, true);
+
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, this,
+                                                                                     &NFCWorldPlayerModule::OnRpcServicePlayerReconnect, true);
 
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_PTW_PLAYER_DISCONNECT_MSG);
 
@@ -99,9 +103,9 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
     return 0;
 }
 
-int NFCWorldPlayerModule::OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone)
+int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.user_id());
     if (pPlayerInfo == nullptr) {
         if (NFWorldPlayer::GetFreeCount(m_pObjPluginManager) > 0)
@@ -217,13 +221,20 @@ int NFCWorldPlayerModule::OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq&
         respone.set_result(rspLogicMsg.result());
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
+int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconnectReq& request, proto_ff::WTPPlayerReconnctRsp& respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
     proto_ff::NotifyPlayerDisconnect xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -244,6 +255,6 @@ int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataP
     }
 
     FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG, xMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }

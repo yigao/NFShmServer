@@ -345,14 +345,14 @@ void NFPlayer::DecreaseTransNum()
 
 int NFPlayer::SendErrToClient(uint32_t nMsgId, proto_ff::Proto_CS_ErrorCode errCode)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
     proto_ff::Proto_CSErrorRsp rspMsg;
     rspMsg.set_req_msg_id(nMsgId);
     rspMsg.set_error(errCode);
 
     SendMsgToClient(proto_ff::E_CS_ERROR, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

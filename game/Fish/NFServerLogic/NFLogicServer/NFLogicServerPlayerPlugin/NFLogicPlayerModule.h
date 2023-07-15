@@ -50,6 +50,14 @@ public:
     int OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLoginReq& request, proto_ff::Proto_LogicToWorldLoginRsp& respone);
 
     /**
+     * @brief 玩家重连
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServicePlayerReconnect(proto_ff::WTLPlayerReconnectReq& request, proto_ff::LTWPlayerReconnectRsp& respone);
+
+    /**
      * @brief 玩家掉线
      * @param msgId
      * @param packet

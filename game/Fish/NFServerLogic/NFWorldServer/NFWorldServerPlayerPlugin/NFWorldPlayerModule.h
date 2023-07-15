@@ -47,7 +47,15 @@ public:
      * @param respone
      * @return
      */
-    int OnRpcServiceUserLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone);
+    int OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone);
+
+    /**
+     * @brief 玩家重连
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconnectReq& request, proto_ff::WTPPlayerReconnctRsp& respone);
 
     /**
      * @brief 玩家掉线

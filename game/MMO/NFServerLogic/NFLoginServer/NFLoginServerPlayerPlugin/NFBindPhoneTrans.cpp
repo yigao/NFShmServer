@@ -101,7 +101,7 @@ int NFBindPhoneTrans::Init(uint32_t busId, uint64_t clientLinkId, uint32_t cmd)
 
 int NFBindPhoneTrans::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
 
     int iRetCode = HandleGetBaseInfoMsgParam(pCSMsgReq);
     if (iRetCode) {
@@ -113,7 +113,7 @@ int NFBindPhoneTrans::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq)
         return iRetCode;
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
@@ -194,7 +194,7 @@ int NFBindPhoneTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes,
                                       uint32_t seq,
                                       uint32_t err_code)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
     int iRetCode = 0;
     if (cmd == proto_ff::E_STORESVR_S2C_SELECTOBJ)
     {
@@ -207,13 +207,13 @@ int NFBindPhoneTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes,
         }
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return iRetCode;
 }
 
 int NFBindPhoneTrans::ProGetBaseInfoRes(const storesvr_sqldata::storesvr_selobj_res* pSelRsp, uint32_t cmd, uint32_t table_id, uint32_t err_code)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
 
     if (err_code != 0)
     {
@@ -260,13 +260,13 @@ int NFBindPhoneTrans::ProGetBaseInfoRes(const storesvr_sqldata::storesvr_selobj_
         }
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return proto_ff::ERR_CODE_SYSTEM_ERROR;
 }
 
 int NFBindPhoneTrans::ProGetBaseInfoReq()
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
 
     proto_ff::tbAccountTable accountInfo;
     accountInfo.set_account(NFCommon::tostr(m_phoneNum));
@@ -274,13 +274,13 @@ int NFBindPhoneTrans::ProGetBaseInfoReq()
     FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                            proto_ff::E_STORESVR_C2S_SELECTOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                            GetGlobalID(), 0, m_phoneNum);
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFBindPhoneTrans::HandleGetBaseInfoMsgParam(const google::protobuf::Message *pCSMsgReq)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
     int iRetCode = 0;
     switch (mCmd)
     {
@@ -301,13 +301,13 @@ int NFBindPhoneTrans::HandleGetBaseInfoMsgParam(const google::protobuf::Message 
         }
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return iRetCode;
 }
 
 int NFBindPhoneTrans::ProPhoneCheckCodeInfoReq(const proto_login::Proto_CS_LoginServer_CheckPhoneCodeReq *pCSMsgReq)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
     CHECK_EXPR(pCSMsgReq, -1, "pLoginReq = NULL");
 
     m_phoneNum = pCSMsgReq->phone_num();
@@ -327,13 +327,13 @@ int NFBindPhoneTrans::ProPhoneCheckCodeInfoReq(const proto_login::Proto_CS_Login
 
     FindModule<NFIMessageModule>()->SendTransToWebServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTWeb_PHONE_CHECK_CODE_REQ, reqMsg, GetGlobalID());
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFBindPhoneTrans::ProPhoneAutoCodeInfoReq(const proto_login::Proto_CS_LoginServer_PhoneAutoCodeReq *pCSMsgReq)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
     CHECK_EXPR(pCSMsgReq, -1, "pLoginReq = NULL");
 
     m_phoneNum = pCSMsgReq->phone_num();
@@ -347,13 +347,13 @@ int NFBindPhoneTrans::ProPhoneAutoCodeInfoReq(const proto_login::Proto_CS_LoginS
 
     pLogin->m_codeType = pCSMsgReq->code_type();
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFBindPhoneTrans::HandleGetBaseInfoRes(NFPhoneAutoCode *pUserLogin)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
     int iRetCode = 0;
     switch (mCmd)
     {
@@ -369,13 +369,13 @@ int NFBindPhoneTrans::HandleGetBaseInfoRes(NFPhoneAutoCode *pUserLogin)
         }
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return iRetCode;
 }
 
 int NFBindPhoneTrans::ProPhoneAutoCodeRes()
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- begin --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
     NFPhoneAutoCode* pLogin = NFPhoneAutoCodeMgr::Instance()->FindPhone(m_phoneNum);
     CHECK_NULL(pLogin);
 
@@ -387,6 +387,6 @@ int NFBindPhoneTrans::ProPhoneAutoCodeRes()
 
     FindModule<NFIMessageModule>()->SendTransToWebServer(NF_ST_LOGIN_SERVER, proto_ff::NF_LTWeb_PHONE_AUTH_CODE_REQ, reqMsg, GetGlobalID());
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "-- end --");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }

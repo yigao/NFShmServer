@@ -46,15 +46,15 @@ int NFTransGetRoleSimple::ResumeInit()
 
 
 int NFTransGetRoleSimple::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFTransGetRoleSimple::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
                                             uint32_t seq,
                                             int32_t err_code) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
     int iRetCode = 0;
     if (cmd == proto_ff::NF_STORESVR_S2C_SELECTOBJ) {
@@ -64,12 +64,12 @@ int NFTransGetRoleSimple::HandleDBMsgRes(const google::protobuf::Message *pSSMsg
     {
         iRetCode = -1;
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return iRetCode;
 }
 
 int NFTransGetRoleSimple::QueryRole(uint64_t roleId) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     m_roleId = roleId;
 
     if (NFCacheMgr::GetInstance(m_pObjPluginManager)->QueryRoleSimple(m_roleId, false))
@@ -87,13 +87,13 @@ int NFTransGetRoleSimple::QueryRole(uint64_t roleId) {
     FindModule<NFIServerMessageModule>()->SendTransToStoreServer(NF_ST_LOGIC_SERVER, 0,
                                                                  proto_ff::NF_STORESVR_C2S_SELECTOBJ, 0, pServerConfig->DefaultDBName,
                                                                  "RoleDBData", xData, GetGlobalId(), 0, m_roleId, "RoleDBSimpleData");
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFTransGetRoleSimple::ProQueryRoleRes(const storesvr_sqldata::storesvr_selobj_res *pSelectRsp, int32_t err_code,
                                              int iTransID) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
     if (err_code == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY) {
         return proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
@@ -120,7 +120,7 @@ int NFTransGetRoleSimple::ProQueryRoleRes(const storesvr_sqldata::storesvr_selob
     }
 
     SetFinished(0);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

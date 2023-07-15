@@ -100,7 +100,7 @@ proto_ff_s::TitleInfo_s *NFTitlePart::GetTitleInfo(uint64_t titleId)
 
 int NFTitlePart::OnHandleTitleInfoReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::CGTitleInfoReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -113,13 +113,13 @@ int NFTitlePart::OnHandleTitleInfoReq(uint32_t msgId, NFDataPackage &packet)
     }
 
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_TITLE_INFO_RSP, rsp);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFTitlePart::OnHandleTitleActiveReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::CGTitleInfoActiveReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -177,13 +177,13 @@ int NFTitlePart::OnHandleTitleActiveReq(uint32_t msgId, NFDataPackage &packet)
     pInfo->write_to_pbmsg(*rsp.mutable_data());
 
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_TITLE_ACTIVE_RSP, rsp);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFTitlePart::OnHandleTitleStarLvReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::CGTitleStarLvReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -253,13 +253,13 @@ int NFTitlePart::OnHandleTitleStarLvReq(uint32_t msgId, NFDataPackage &packet)
     MarkDirty();
 
     m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_TITLE_STAR_LV_RSP, rsp);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFTitlePart::OnHandleTitleDressReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::CGTitleDressReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -289,18 +289,18 @@ int NFTitlePart::OnHandleTitleDressReq(uint32_t msgId, NFDataPackage &packet)
     m_curWearingTitle = 0;
     MarkDirty();
     OnDress(xData.title_id());
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFTitlePart::OnHandleTitleUnDressReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::CGTitleUnDressReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
     UnDress(xData.title_id());
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

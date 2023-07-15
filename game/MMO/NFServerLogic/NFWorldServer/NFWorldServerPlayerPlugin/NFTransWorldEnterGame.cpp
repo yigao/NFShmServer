@@ -221,7 +221,7 @@ int NFTransWorldEnterGame::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage
 
 int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::LogicToWorldLoginRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -269,13 +269,13 @@ int NFTransWorldEnterGame::OnHandleLogicLoginRsp(uint32_t msgId, const NFDataPac
         pPlayer->SendTransToSnsServer(proto_ff::WORLD_TO_SNS_LOGIN_REQ, snsLoginReq, GetGlobalId());
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return retCode;
 }
 
 int NFTransWorldEnterGame::OnHandleSnsLoginRsp(uint32_t msgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::SnsToWorldLoginRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -317,7 +317,7 @@ int NFTransWorldEnterGame::OnHandleSnsLoginRsp(uint32_t msgId, const NFDataPacka
         SetFinished(0);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return retCode;
 }
 

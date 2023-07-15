@@ -162,7 +162,7 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
 
 int NFCProxyPlayerModule::OnHandleLeaveGame(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::NotifyGateLeaveGame2 xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -190,7 +190,7 @@ int NFCProxyPlayerModule::OnHandleLeaveGame(uint64_t unLinkId, NFDataPackage &pa
 
     LeaveGame(pLinkInfo, leaveFlag);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
@@ -254,7 +254,7 @@ int NFCProxyPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 */
 int NFCProxyPlayerModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     if (nEvent == eMsgType_CONNECTED)
     {
         std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
@@ -280,7 +280,7 @@ int NFCProxyPlayerModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unL
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "client ip:{} port:{} link:{} disconnected proxy server!", ip, port, unLinkId);
         OnHandleClientDisconnect(unLinkId);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
@@ -289,7 +289,7 @@ int NFCProxyPlayerModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unL
 */
 int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
     std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 
@@ -422,13 +422,13 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
         }
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFCProxyPlayerModule::OnHandleClientDisconnect(uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
     if (pLinkInfo)
     {
@@ -443,7 +443,7 @@ int NFCProxyPlayerModule::OnHandleClientDisconnect(uint64_t unLinkId)
         mClientLinkInfo.RemoveElement(unLinkId);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
@@ -492,7 +492,7 @@ int NFCProxyPlayerModule::OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPacka
 
 int NFCProxyPlayerModule::OnHandleClientLogin(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::ClientLoginReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -593,7 +593,7 @@ int NFCProxyPlayerModule::OnHandleClientLogin(uint64_t unLinkId, NFDataPackage &
         NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find world server, the packet:{} drop msg", packet.ToString());
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

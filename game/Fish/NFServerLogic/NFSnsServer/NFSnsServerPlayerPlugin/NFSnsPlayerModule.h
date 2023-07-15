@@ -58,6 +58,14 @@ public:
     int OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& request, proto_ff::Proto_STWLoginRsp& respone);
 
     /**
+     * @brief 玩家重连
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServicePlayerReconnect(proto_ff::WTSPlayerReconnectReq& request, proto_ff::STWPlayerReconnectRsp& respone);
+
+    /**
      * @brief 玩家掉线
      * @param msgId
      * @param packet

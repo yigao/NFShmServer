@@ -32,6 +32,8 @@ bool NFCLogicPlayerModule::Awake()
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_WTL_PLAYER_LOGIN_REQ>(NF_ST_LOGIC_SERVER, this,
                                                                                      &NFCLogicPlayerModule::OnRpcServicePlayerLogin, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ>(NF_ST_LOGIC_SERVER, this,
+                                                                                     &NFCLogicPlayerModule::OnRpcServicePlayerReconnect, true);
 
     RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_WTL_PLAYER_DISCONNECT_MSG);
     //////////player enter game////////////////////////////////////
@@ -106,7 +108,7 @@ int NFCLogicPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
 
 int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLoginReq &request, proto_ff::Proto_LogicToWorldLoginRsp &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     respone.set_user_id(request.user_id());
     respone.set_result(0);
     auto pSnsSync = respone.mutable_sns_sync();
@@ -200,13 +202,18 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
     pSnsSync->set_nick_name(pPlayer->GetNickName());
     pSnsSync->set_face_id(pPlayer->GetFaceId());
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
+int NFCLogicPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTLPlayerReconnectReq& request, proto_ff::LTWPlayerReconnectRsp& respone)
+{
     return 0;
 }
 
 int NFCLogicPlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
     proto_ff::NotifyPlayerDisconnect xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -219,7 +226,7 @@ int NFCLogicPlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPack
 
     NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} disconnect..............", xMsg.player_id());
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

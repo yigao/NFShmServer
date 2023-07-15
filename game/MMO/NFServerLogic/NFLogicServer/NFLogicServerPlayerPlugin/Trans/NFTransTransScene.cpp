@@ -81,7 +81,7 @@ int NFTransTransScene::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackage &pa
 
 int NFTransTransScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::WorldToLogicEnterSceneRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -109,13 +109,13 @@ int NFTransTransScene::OnHandleWorldEnterSceneRsp(uint32_t nMsgId, const NFDataP
     }
 
     SetFinished(0);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFTransTransScene::OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::WorldToLogicLeaveSceneRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -146,13 +146,13 @@ int NFTransTransScene::OnHandleWorldLeaveSceneRsp(uint32_t nMsgId, const NFDataP
         SetFinished(0);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
 int NFTransTransScene::OnHandleGetMapInfoRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     proto_ff::LogicToWorldGetMapInfoRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -192,7 +192,7 @@ int NFTransTransScene::OnHandleGetMapInfoRsp(uint32_t nMsgId, const NFDataPackag
         }
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
