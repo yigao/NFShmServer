@@ -54,13 +54,13 @@ int NFCLogicPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &p
 {
     if (!m_pObjPluginManager->IsInited())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server not inited, drop client msg:{}", packet.ToString());
         return -1;
     }
 
     if (m_pObjPluginManager->IsServerStopping())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server is Stopping, drop client msg:{}", packet.ToString());
         return -1;
     }
 
@@ -80,13 +80,13 @@ int NFCLogicPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
 {
     if (!m_pObjPluginManager->IsInited())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server not inited, drop client msg:{}", packet.ToString());
         return -1;
     }
 
     if (m_pObjPluginManager->IsServerStopping())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server is Stopping, drop client msg:{}", packet.ToString());
         return -1;
     }
 

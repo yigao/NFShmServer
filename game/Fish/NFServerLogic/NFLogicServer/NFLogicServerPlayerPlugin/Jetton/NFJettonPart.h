@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFPart.h
+//    @FileName         :    NFJettonPart.h
 //    @Author           :    gaoyi
-//    @Date             :    22-10-31
+//    @Date             :    23-7-15
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFPart
+//    @Module           :    NFJettonPart
 //
 // -------------------------------------------------------------------------
 
@@ -13,26 +13,19 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFComm/NFShmCore/NFSeqOP.h"
-#include "NFComm/NFCore/NFTime.h"
-#include "DBProto.pb.h"
-#include "NFComm/NFShmCore/NFShmPtr.h"
+#include "Part/NFPart.h"
 
-class NFPlayer;
-
-class NFPart : public NFShmObj, public NFSeqOP
+class NFJettonPart : public NFPart
 {
 public:
-    NFPart();
+    NFJettonPart();
 
-    virtual ~NFPart();
+    virtual ~NFJettonPart();
 
     int CreateInit();
 
     int ResumeInit();
-
 public:
     //******************part调用接口******************
     /**
@@ -56,20 +49,20 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::tbFishPlayerData& data) { return 0; }
+    virtual int LoadFromDB(const proto_ff::tbFishPlayerData& data);
 
     /**
      * @brief 从配置中初始化数据
      * @return
      */
-    virtual int InitConfig(const proto_ff::tbFishPlayerData& data) { return 0; }
+    virtual int InitConfig(const proto_ff::tbFishPlayerData& data);
 
     /**
      * @brief 存储DB部件入口
      * @param proto
      * @return
      */
-    virtual int SaveDB(proto_ff::tbFishPlayerData &dbData) { return 0; }
+    virtual int SaveDB(proto_ff::tbFishPlayerData &dbData);
 
     /**
      * @brief 登陆入口
@@ -141,33 +134,8 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
-
-public:
-    /**
-     * @brief
-     * @param nMsgID
-     * @param createCo
-     * @return
-     */
-    virtual int RegisterClientMessage(uint32_t nMsgID, bool createCo);
-
-    /**
-     * @brief
-     * @param nMsgID
-     * @param createCo
-     * @return
-     */
-    virtual int RegisterServerMessage(uint32_t nMsgID, bool createCo);
-public:
-    //部件类型
-    uint32_t PartType() { return m_partType; }
-    void SetPartType(uint32_t partType) { m_partType = partType; }
-public:
-    virtual uint32_t GetCurRoleDetailSeq() const;
-protected:
-    NFShmPtr<NFPlayer> m_pMaster;
-    uint64_t m_playerId;
-    uint32_t m_partType;
 private:
-DECLARE_IDCREATE(NFPart)
+    uint64_t m_jetton;
+private:
+DECLARE_IDCREATE(NFJettonPart)
 };

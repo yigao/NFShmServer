@@ -12,10 +12,10 @@
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "NFPlayerMgr.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-#include "ClientServerCmd.pb.h"
-#include "ClientServer.pb.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "Part/NFPart.h"
+#include "AllProtocol.h"
+#include "Jetton/NFJettonPart.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -55,7 +55,6 @@ int NFPlayer::CreateInit()
     m_gender = 0;
     m_age = 0;
     m_phonenum = 0;
-    m_jetton = 0;
     return 0;
 }
 
@@ -73,30 +72,29 @@ int NFPlayer::OnTimer(int timeId, int callcount)
     return 0;
 }
 
-void  NFPlayer::Tick()
+void NFPlayer::Tick()
 {
     switch (m_iStatus)
     {
         case proto_ff::PLAYER_STATUS_NONE:
         {
-            if ((uint64_t)NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
+            if ((uint64_t) NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
                 break;
 
             if (m_iTransNum > 0)
             {
-                if ((uint64_t)NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
+                if ((uint64_t) NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
             }
 
             if (IsInGaming())
             {
-                if ((uint64_t)NFTime::Now().UnixSec() - m_createTime <  LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
+                if ((uint64_t) NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
             }
 
-            SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
-            SetLastLogtouTime(NFTime::Now().UnixSec());
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetPlayerId(), "player:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_LOGOUT", GetPlayerId());
+            SetStatus(proto_ff::PLAYER_STATUS_DEAD);
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetPlayerId(), "player:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_DEAD", GetPlayerId());
         }
             break;
         case proto_ff::PLAYER_STATUS_ONLINE:
@@ -106,23 +104,24 @@ void  NFPlayer::Tick()
             break;
         case proto_ff::PLAYER_STATUS_OFFLINE:
         {
-            if ((uint64_t)NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
+            if ((uint64_t) NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
                 break;
 
             if (m_iTransNum > 0)
             {
-                if ((uint64_t)NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
+                if ((uint64_t) NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
             }
 
             if (IsInGaming())
             {
-                if ((uint64_t)NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
+                if ((uint64_t) NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
             }
 
             SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             SetLastLogtouTime(NFTime::Now().UnixSec());
+            MarkDirty();
             NFLogInfo(NF_LOG_SYSTEMLOG, GetPlayerId(), "player:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetPlayerId());
         }
             break;
@@ -138,7 +137,8 @@ void  NFPlayer::Tick()
             }
             else if (!IsInSaving())
             {
-                if (m_lastSavingDBTime + LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME < (uint64_t)NFTime::Now().UnixSec() && m_lastSavingDBTime + 86400 > (uint64_t)NFTime::Now().UnixSec())
+                if ((m_lastSavingDBTime + LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME < (uint64_t) NFTime::Now().UnixSec() &&
+                    m_lastSavingDBTime + 86400 > (uint64_t) NFTime::Now().UnixSec()) || m_pObjPluginManager->IsServerStopping())
                 {
                     SendTransToDB(TRANS_SAVEROLEDETAIL_LOGOUT);
                 }
@@ -148,25 +148,26 @@ void  NFPlayer::Tick()
     }
 }
 
-int NFPlayer::Init(const proto_ff::tbFishPlayerData& dbData, bool bCreatePlayer)
+int NFPlayer::Init(const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer)
 {
     SetStatus(proto_ff::PLAYER_STATUS_NONE);
     if (bCreatePlayer)
     {
         InitConfig(dbData);
     }
-    else {
+    else
+    {
         LoadFromDB(dbData);
     }
 
-    std::vector<NFPart*> vec;
+    std::vector<NFPart *> vec;
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
         m_pPart[i] = CreatePart(i, dbData, bCreatePlayer);
         if (nullptr == m_pPart[i])
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Player Init, Create Part Failed, playerId:{} part:{}", m_playerId, i);
-            for(int i = 0; i < (int)vec.size(); i++)
+            for (int i = 0; i < (int) vec.size(); i++)
             {
                 FindModule<NFISharedMemModule>()->DestroyObj(vec[i]);
             }
@@ -178,7 +179,7 @@ int NFPlayer::Init(const proto_ff::tbFishPlayerData& dbData, bool bCreatePlayer)
     /**
      * @brief
      */
-    uint32_t startMS = NFRandInt(1000, LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME*1000);
+    uint32_t startMS = NFRandInt(1000, LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000);
     m_saveDBTimer = SetTimer(LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000, 0, 0, 0, 0, startMS);
 
     return 0;
@@ -197,7 +198,7 @@ int NFPlayer::UnInit()
     return 0;
 }
 
-int NFPlayer::LoadFromDB(const proto_ff::tbFishPlayerData& data)
+int NFPlayer::LoadFromDB(const proto_ff::tbFishPlayerData &data)
 {
     m_regDate = data.regdate();
     m_ipAddr = data.ip();
@@ -205,11 +206,10 @@ int NFPlayer::LoadFromDB(const proto_ff::tbFishPlayerData& data)
     m_gender = data.gender();
     m_age = data.age();
     m_phonenum = data.phonenum();
-    m_jetton = data.jetton();
     return 0;
 }
 
-int NFPlayer::InitConfig(const proto_ff::tbFishPlayerData& data)
+int NFPlayer::InitConfig(const proto_ff::tbFishPlayerData &data)
 {
     LoadFromDB(data);
     return 0;
@@ -240,6 +240,12 @@ int NFPlayer::OnLogout()
             m_pPart[i]->OnLogout();
         }
     }
+
+    proto_ff::Proto_LTWLogoutNotify notify;
+    notify.set_player_id(m_playerId);
+    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGOUT_NOTIFY, notify);
+
+    SetStatus(proto_ff::PLAYER_STATUS_DEAD);
     return 0;
 }
 
@@ -280,7 +286,7 @@ int NFPlayer::Update()
     return 0;
 }
 
-int NFPlayer::SaveDB(proto_ff::tbFishPlayerData& data)
+int NFPlayer::SaveDB(proto_ff::tbFishPlayerData &data)
 {
     data.set_regdate(m_regDate);
     data.set_ip(m_ipAddr.ToString());
@@ -288,7 +294,13 @@ int NFPlayer::SaveDB(proto_ff::tbFishPlayerData& data)
     data.set_gender(m_gender);
     data.set_age(m_age);
     data.set_phonenum(m_phonenum);
-    data.set_jetton(m_jetton);
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->SaveDB(data);
+        }
+    }
     return 0;
 }
 
@@ -364,19 +376,22 @@ int NFPlayer::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &
     return iRet;
 }
 
-int NFPlayer::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData) {
+int NFPlayer::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
     int iRet = FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, nMsgId, xData);
     NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "SendMsgToSnsServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
 }
 
-int NFPlayer::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData) {
+int NFPlayer::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
     int iRet = FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, nMsgId, xData);
     NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "SendMsgToWorldServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
 }
 
-int NFPlayer::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData) {
+int NFPlayer::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData)
+{
     int iRet = FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_LOGIC_SERVER, m_gameId, nMsgId, xData);
     NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "SendMsgToGameServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
@@ -396,7 +411,7 @@ int NFPlayer::SaveToDB(TRANS_SAVEROLEDETAIL_REASON iReason, bool bForce)
 
 int NFPlayer::SendTransToDB(TRANS_SAVEROLEDETAIL_REASON iReason)
 {
-    NFTransSaveDB* pSave = (NFTransSaveDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_SAVE_PLAYER);
+    NFTransSaveDB *pSave = (NFTransSaveDB *) FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_SAVE_PLAYER);
     CHECK_EXPR(pSave, -1, "Create Trans:NFTransSaveDB Failed! ");
 
     pSave->Init(this, 0);
@@ -412,11 +427,36 @@ int NFPlayer::SendTransToDB(TRANS_SAVEROLEDETAIL_REASON iReason)
 int NFPlayer::OnSaveDB(bool success, uint32_t seq)
 {
     m_lastSavingDBTime = 0;
-    if (success && seq == GetCurSeq())
+    if (success && seq == GetAllSeq())
     {
-        ClearUrgent();
+        ClearAllSeq();
     }
     return 0;
+}
+
+uint32_t NFPlayer::GetAllSeq()
+{
+    uint32_t seq = GetCurSeq();
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            seq += m_pPart[i]->GetCurSeq();
+        }
+    }
+    return seq;
+}
+
+void NFPlayer::ClearAllSeq()
+{
+    ClearUrgent();
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->ClearUrgent();
+        }
+    }
 }
 
 NFPart *NFPlayer::GetPart(uint32_t partType)
@@ -429,18 +469,32 @@ NFPart *NFPlayer::GetPart(uint32_t partType)
     return NULL;
 }
 
-NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer)
+NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType)
 {
     NFPart *pPart = NULL;
     switch (partType)
     {
+        case PART_JETTON:
+        {
+            pPart = NFJettonPart::CreateObj(pObjPluginManager);
+            break;
+        }
         default:
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Create Part Failed, partType Not Handle:{}", partType);
             break;
         }
     }
 
+    if (pPart)
+    {
+        pPart->SetPartType(partType);
+    }
+    return pPart;
+}
+
+NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer)
+{
+    NFPart *pPart = CreatePart(m_pObjPluginManager, partType);
     if (pPart)
     {
         int iRet = pPart->Init(this, partType, dbData, bCreatePlayer);
@@ -450,6 +504,9 @@ NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::tbFishPlayerData
             FindModule<NFISharedMemModule>()->DestroyObj(pPart);
             return NULL;
         }
+    }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Create Part Failed, partType Not Handle:{}", partType);
     }
     return pPart;
 }

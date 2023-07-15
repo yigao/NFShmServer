@@ -40,6 +40,7 @@ typedef enum
 
     //////////////////////////logic part////////////////////////
     EOT_LOGIC_PART_ID,
+    EOT_NFJettonPart_ID,
     //////////////////////////logic trans////////////////////////
     EOT_TRANS_LOGIC_USER_BASE,
     EOT_TRANS_SAVE_PLAYER,

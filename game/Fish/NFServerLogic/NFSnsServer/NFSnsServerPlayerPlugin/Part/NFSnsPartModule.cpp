@@ -23,6 +23,15 @@ NFSnsPartModule::~NFSnsPartModule()
 
 bool NFSnsPartModule::Awake()
 {
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
+    {
+        auto pPart = NFPlayerDetail::CreatePart(m_pObjPluginManager, i);
+        if (pPart)
+        {
+            pPart->RegisterMessage();
+            FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+        }
+    }
     return true;
 }
 
@@ -79,18 +88,18 @@ int NFSnsPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet
     return 0;
 }
 
-int NFSnsPartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType)
+int NFSnsPartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo)
 {
     CHECK_EXPR_ASSERT(nMsgID < m_clientMsgToPartMap.size(), -1, "");
-    RegisterClientMessage(NF_ST_SNS_SERVER, nMsgID);
+    RegisterClientMessage(NF_ST_SNS_SERVER, nMsgID, createCo);
     m_clientMsgToPartMap[nMsgID] = partType;
     return 0;
 }
 
-int NFSnsPartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType)
+int NFSnsPartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo)
 {
     CHECK_EXPR_ASSERT(nMsgID < m_serverMsgToPartMap.size(), -1, "");
-    RegisterServerMessage(NF_ST_SNS_SERVER, nMsgID);
+    RegisterServerMessage(NF_ST_SNS_SERVER, nMsgID, createCo);
     m_serverMsgToPartMap[nMsgID] = partType;
     return 0;
 }

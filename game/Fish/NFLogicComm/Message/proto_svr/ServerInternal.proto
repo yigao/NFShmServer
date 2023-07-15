@@ -134,3 +134,20 @@ message STWPlayerReconnectRsp
   optional int32 result = 1;
   optional uint64 player_id = 2;
 }
+
+/////////////////////////////////////////////logout////////////////////////////////////////////////
+message Proto_LTWLogoutNotify
+{
+  optional uint64 player_id = 1;
+}
+
+message Proto_WTLLogoutNotify
+{
+  optional uint64 player_id = 1;
+}
+
+message Proto_WTSLogoutNotify
+{
+  optional uint64 player_id = 1;
+}
+

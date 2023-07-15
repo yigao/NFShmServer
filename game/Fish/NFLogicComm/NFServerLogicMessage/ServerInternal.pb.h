@@ -51,6 +51,9 @@ class WTGPlayerReconnectReq;
 class GTWPlayerReconnectRsp;
 class WTSPlayerReconnectReq;
 class STWPlayerReconnectRsp;
+class Proto_LTWLogoutNotify;
+class Proto_WTLLogoutNotify;
+class Proto_WTSLogoutNotify;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -1784,6 +1787,252 @@ class STWPlayerReconnectRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static STWPlayerReconnectRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Proto_LTWLogoutNotify : public ::google::protobuf::Message {
+ public:
+  Proto_LTWLogoutNotify();
+  virtual ~Proto_LTWLogoutNotify();
+
+  Proto_LTWLogoutNotify(const Proto_LTWLogoutNotify& from);
+
+  inline Proto_LTWLogoutNotify& operator=(const Proto_LTWLogoutNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_LTWLogoutNotify& default_instance();
+
+  void Swap(Proto_LTWLogoutNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_LTWLogoutNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_LTWLogoutNotify& from);
+  void MergeFrom(const Proto_LTWLogoutNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_LTWLogoutNotify)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_LTWLogoutNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_WTLLogoutNotify : public ::google::protobuf::Message {
+ public:
+  Proto_WTLLogoutNotify();
+  virtual ~Proto_WTLLogoutNotify();
+
+  Proto_WTLLogoutNotify(const Proto_WTLLogoutNotify& from);
+
+  inline Proto_WTLLogoutNotify& operator=(const Proto_WTLLogoutNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_WTLLogoutNotify& default_instance();
+
+  void Swap(Proto_WTLLogoutNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_WTLLogoutNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_WTLLogoutNotify& from);
+  void MergeFrom(const Proto_WTLLogoutNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTLLogoutNotify)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_WTLLogoutNotify* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_WTSLogoutNotify : public ::google::protobuf::Message {
+ public:
+  Proto_WTSLogoutNotify();
+  virtual ~Proto_WTSLogoutNotify();
+
+  Proto_WTSLogoutNotify(const Proto_WTSLogoutNotify& from);
+
+  inline Proto_WTSLogoutNotify& operator=(const Proto_WTSLogoutNotify& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_WTSLogoutNotify& default_instance();
+
+  void Swap(Proto_WTSLogoutNotify* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_WTSLogoutNotify* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_WTSLogoutNotify& from);
+  void MergeFrom(const Proto_WTSLogoutNotify& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTSLogoutNotify)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_WTSLogoutNotify* default_instance_;
+};
 // ===================================================================
 
 
@@ -3451,6 +3700,84 @@ inline ::google::protobuf::uint64 STWPlayerReconnectRsp::player_id() const {
   return player_id_;
 }
 inline void STWPlayerReconnectRsp::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_LTWLogoutNotify
+
+// optional uint64 player_id = 1;
+inline bool Proto_LTWLogoutNotify::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_LTWLogoutNotify::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_LTWLogoutNotify::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_LTWLogoutNotify::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 Proto_LTWLogoutNotify::player_id() const {
+  return player_id_;
+}
+inline void Proto_LTWLogoutNotify::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_WTLLogoutNotify
+
+// optional uint64 player_id = 1;
+inline bool Proto_WTLLogoutNotify::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_WTLLogoutNotify::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_WTLLogoutNotify::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_WTLLogoutNotify::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 Proto_WTLLogoutNotify::player_id() const {
+  return player_id_;
+}
+inline void Proto_WTLLogoutNotify::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_WTSLogoutNotify
+
+// optional uint64 player_id = 1;
+inline bool Proto_WTSLogoutNotify::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_WTSLogoutNotify::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_WTSLogoutNotify::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_WTSLogoutNotify::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 Proto_WTSLogoutNotify::player_id() const {
+  return player_id_;
+}
+inline void Proto_WTSLogoutNotify::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
 }

@@ -36,6 +36,7 @@ bool NFCSnsPlayerModule::Awake()
                                                                                      &NFCSnsPlayerModule::OnRpcServicePlayerReconnect, true);
 
     RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG);
+    RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_LOGOUT_NOTIFY);
     ///////////logic msg//////////////////////////////////////////////////////////
     return true;
 }
@@ -124,6 +125,11 @@ int NFCSnsPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
         case proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG:
         {
             OnHandlePlayerDisconnectMsg(msgId, packet, param1, param2);
+            break;
+        }
+        case proto_ff::NF_WTS_PLAYER_LOGOUT_NOTIFY:
+        {
+            OnHandlePlayerLogoutNotify(msgId, packet, param1, param2);
             break;
         }
         default:
@@ -319,6 +325,38 @@ int NFCSnsPlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackag
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} disconnect..............", xMsg.player_id());
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
+int NFCSnsPlayerModule::OnHandlePlayerLogoutNotify(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+
+    proto_ff::Proto_WTSLogoutNotify xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFPlayerOnline* pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(xMsg.player_id());
+    if (pPlayerOnline)
+    {
+        pPlayerOnline->OnLogout();
+        NFPlayerSimple* pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(xMsg.player_id());
+        if (pPlayerSimple)
+        {
+            pPlayerSimple->OnLogout();
+        }
+
+        NFPlayerDetail* pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerDetail(xMsg.player_id());
+        if (pPlayerDetail)
+        {
+            pPlayerDetail->OnLogout();
+        }
+
+        NFCacheMgr::Instance(m_pObjPluginManager)->DeletePlayerOnline(pPlayerOnline);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} logout..............", xMsg.player_id());
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;

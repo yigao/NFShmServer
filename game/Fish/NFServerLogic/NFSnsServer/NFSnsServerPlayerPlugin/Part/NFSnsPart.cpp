@@ -66,11 +66,6 @@ int NFSnsPart::UnInit()
     return 0;
 }
 
-uint32_t NFSnsPart::GetCurRoleDetailSeq() const
-{
-    return GetCurSeq();
-}
-
 int NFSnsPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
     NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "client part package not handle:{}", packet.ToString());
@@ -83,14 +78,14 @@ int NFSnsPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
     return 0;
 }
 
-int NFSnsPart::RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType)
+int NFSnsPart::RegisterClientMessage(uint32_t nMsgID, bool createCo)
 {
-    return pPluginManager->FindModule<NFSnsPartModule>()->RegisterClientPartMsg(nMsgID, partType);
+    return FindModule<NFSnsPartModule>()->RegisterClientPartMsg(nMsgID, m_partType, createCo);
 }
 
-int NFSnsPart::RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType)
+int NFSnsPart::RegisterServerMessage(uint32_t nMsgID, bool createCo)
 {
-    return pPluginManager->FindModule<NFSnsPartModule>()->RegisterServerPartMsg(nMsgID, partType);
+    return FindModule<NFSnsPartModule>()->RegisterServerPartMsg(nMsgID, m_partType, createCo);
 }
 
 int NFSnsPart::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
@@ -134,4 +129,10 @@ NFPlayerOnline* NFSnsPart::GetPlayerOnline()
 {
     return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(m_playerId);
 }
+
+int NFSnsPart::RegisterMessage()
+{
+    return 0;
+}
+
 

@@ -94,9 +94,41 @@ public:
      * @return
      */
     int OnSaveDB(bool success, uint32_t seq);
+
+    /**
+     * @brief
+     * @return
+     */
+    uint32_t GetAllSeq();
+
+    /**
+     * @brief
+     */
+    void ClearAllSeq();
 public:
+    /**
+     * @brief 创建Part
+     * @param partType
+     * @param data
+     * @param bCreatePlayer
+     * @return
+     */
     NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer);
+
+    /**
+     * @brief 静态函数 创建Part
+     * @param partType
+     * @return
+     */
+    static NFSnsPart* CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType);
+
+    /**
+     * @brief 释放Part
+     * @param pPart
+     * @return
+     */
     int RecylePart(NFSnsPart *pPart);
+
     //获取对应部件指针
     virtual NFSnsPart *GetPart(uint32_t partType);
 

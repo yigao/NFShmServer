@@ -65,6 +65,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* STWPlayerReconnectRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   STWPlayerReconnectRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_LTWLogoutNotify_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_LTWLogoutNotify_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_WTLLogoutNotify_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_WTLLogoutNotify_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_WTSLogoutNotify_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_WTSLogoutNotify_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_AccountState_descriptor_ = NULL;
 
 }  // namespace
@@ -346,6 +355,51 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(STWPlayerReconnectRsp));
+  Proto_LTWLogoutNotify_descriptor_ = file->message_type(15);
+  static const int Proto_LTWLogoutNotify_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTWLogoutNotify, player_id_),
+  };
+  Proto_LTWLogoutNotify_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_LTWLogoutNotify_descriptor_,
+      Proto_LTWLogoutNotify::default_instance_,
+      Proto_LTWLogoutNotify_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTWLogoutNotify, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTWLogoutNotify, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_LTWLogoutNotify));
+  Proto_WTLLogoutNotify_descriptor_ = file->message_type(16);
+  static const int Proto_WTLLogoutNotify_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTLLogoutNotify, player_id_),
+  };
+  Proto_WTLLogoutNotify_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_WTLLogoutNotify_descriptor_,
+      Proto_WTLLogoutNotify::default_instance_,
+      Proto_WTLLogoutNotify_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTLLogoutNotify, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTLLogoutNotify, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_WTLLogoutNotify));
+  Proto_WTSLogoutNotify_descriptor_ = file->message_type(17);
+  static const int Proto_WTSLogoutNotify_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLogoutNotify, player_id_),
+  };
+  Proto_WTSLogoutNotify_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_WTSLogoutNotify_descriptor_,
+      Proto_WTSLogoutNotify::default_instance_,
+      Proto_WTSLogoutNotify_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLogoutNotify, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLogoutNotify, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_WTSLogoutNotify));
   Proto_AccountState_descriptor_ = file->enum_type(0);
 }
 
@@ -389,6 +443,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
     WTSPlayerReconnectReq_descriptor_, &WTSPlayerReconnectReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     STWPlayerReconnectRsp_descriptor_, &STWPlayerReconnectRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_LTWLogoutNotify_descriptor_, &Proto_LTWLogoutNotify::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_WTLLogoutNotify_descriptor_, &Proto_WTLLogoutNotify::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_WTSLogoutNotify_descriptor_, &Proto_WTSLogoutNotify::default_instance());
 }
 
 }  // namespace
@@ -424,6 +484,12 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete WTSPlayerReconnectReq_reflection_;
   delete STWPlayerReconnectRsp::default_instance_;
   delete STWPlayerReconnectRsp_reflection_;
+  delete Proto_LTWLogoutNotify::default_instance_;
+  delete Proto_LTWLogoutNotify_reflection_;
+  delete Proto_WTLLogoutNotify::default_instance_;
+  delete Proto_WTLLogoutNotify_reflection_;
+  delete Proto_WTSLogoutNotify::default_instance_;
+  delete Proto_WTSLogoutNotify_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -479,10 +545,13 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "ReconnectReq\022\021\n\tplayer_id\030\001 \001(\004\022\024\n\014logic"
     "_bus_id\030\002 \001(\r\022\023\n\013game_bus_id\030\003 \001(\r\022\024\n\014pr"
     "oxy_bus_id\030\004 \001(\r\":\n\025STWPlayerReconnectRs"
-    "p\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\004*a\n\022"
-    "Proto_AccountState\022\025\n\021E_ACCOUNTSTATE_OK\020"
-    "\000\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOUN"
-    "TSTATE_FORBIT\020\002", 1895);
+    "p\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\004\"*\n\025"
+    "Proto_LTWLogoutNotify\022\021\n\tplayer_id\030\001 \001(\004"
+    "\"*\n\025Proto_WTLLogoutNotify\022\021\n\tplayer_id\030\001"
+    " \001(\004\"*\n\025Proto_WTSLogoutNotify\022\021\n\tplayer_"
+    "id\030\001 \001(\004*a\n\022Proto_AccountState\022\025\n\021E_ACCO"
+    "UNTSTATE_OK\020\000\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001"
+    "\022\031\n\025E_ACCOUNTSTATE_FORBIT\020\002", 2027);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -500,6 +569,9 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   GTWPlayerReconnectRsp::default_instance_ = new GTWPlayerReconnectRsp();
   WTSPlayerReconnectReq::default_instance_ = new WTSPlayerReconnectReq();
   STWPlayerReconnectRsp::default_instance_ = new STWPlayerReconnectRsp();
+  Proto_LTWLogoutNotify::default_instance_ = new Proto_LTWLogoutNotify();
+  Proto_WTLLogoutNotify::default_instance_ = new Proto_WTLLogoutNotify();
+  Proto_WTSLogoutNotify::default_instance_ = new Proto_WTSLogoutNotify();
   Proto_PTWUserLoginReq::default_instance_->InitAsDefaultInstance();
   Proto_WTPPlayerLoginRsp::default_instance_->InitAsDefaultInstance();
   Proto_WorldToLogicLoginReq::default_instance_->InitAsDefaultInstance();
@@ -515,6 +587,9 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   GTWPlayerReconnectRsp::default_instance_->InitAsDefaultInstance();
   WTSPlayerReconnectReq::default_instance_->InitAsDefaultInstance();
   STWPlayerReconnectRsp::default_instance_->InitAsDefaultInstance();
+  Proto_LTWLogoutNotify::default_instance_->InitAsDefaultInstance();
+  Proto_WTLLogoutNotify::default_instance_->InitAsDefaultInstance();
+  Proto_WTSLogoutNotify::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -5554,6 +5629,630 @@ void STWPlayerReconnectRsp::Swap(STWPlayerReconnectRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = STWPlayerReconnectRsp_descriptor_;
   metadata.reflection = STWPlayerReconnectRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_LTWLogoutNotify::kPlayerIdFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_LTWLogoutNotify::Proto_LTWLogoutNotify()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_LTWLogoutNotify::InitAsDefaultInstance() {
+}
+
+Proto_LTWLogoutNotify::Proto_LTWLogoutNotify(const Proto_LTWLogoutNotify& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_LTWLogoutNotify::SharedCtor() {
+  _cached_size_ = 0;
+  player_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_LTWLogoutNotify::~Proto_LTWLogoutNotify() {
+  SharedDtor();
+}
+
+void Proto_LTWLogoutNotify::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_LTWLogoutNotify::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_LTWLogoutNotify::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_LTWLogoutNotify_descriptor_;
+}
+
+const Proto_LTWLogoutNotify& Proto_LTWLogoutNotify::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_LTWLogoutNotify* Proto_LTWLogoutNotify::default_instance_ = NULL;
+
+Proto_LTWLogoutNotify* Proto_LTWLogoutNotify::New() const {
+  return new Proto_LTWLogoutNotify;
+}
+
+void Proto_LTWLogoutNotify::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    player_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_LTWLogoutNotify::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 player_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &player_id_)));
+          set_has_player_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_LTWLogoutNotify::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->player_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_LTWLogoutNotify::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->player_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_LTWLogoutNotify::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 player_id = 1;
+    if (has_player_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->player_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_LTWLogoutNotify::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_LTWLogoutNotify* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_LTWLogoutNotify*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_LTWLogoutNotify::MergeFrom(const Proto_LTWLogoutNotify& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_player_id()) {
+      set_player_id(from.player_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_LTWLogoutNotify::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_LTWLogoutNotify::CopyFrom(const Proto_LTWLogoutNotify& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_LTWLogoutNotify::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_LTWLogoutNotify::Swap(Proto_LTWLogoutNotify* other) {
+  if (other != this) {
+    std::swap(player_id_, other->player_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_LTWLogoutNotify::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_LTWLogoutNotify_descriptor_;
+  metadata.reflection = Proto_LTWLogoutNotify_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_WTLLogoutNotify::kPlayerIdFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_WTLLogoutNotify::Proto_WTLLogoutNotify()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_WTLLogoutNotify::InitAsDefaultInstance() {
+}
+
+Proto_WTLLogoutNotify::Proto_WTLLogoutNotify(const Proto_WTLLogoutNotify& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_WTLLogoutNotify::SharedCtor() {
+  _cached_size_ = 0;
+  player_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_WTLLogoutNotify::~Proto_WTLLogoutNotify() {
+  SharedDtor();
+}
+
+void Proto_WTLLogoutNotify::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_WTLLogoutNotify::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_WTLLogoutNotify::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_WTLLogoutNotify_descriptor_;
+}
+
+const Proto_WTLLogoutNotify& Proto_WTLLogoutNotify::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_WTLLogoutNotify* Proto_WTLLogoutNotify::default_instance_ = NULL;
+
+Proto_WTLLogoutNotify* Proto_WTLLogoutNotify::New() const {
+  return new Proto_WTLLogoutNotify;
+}
+
+void Proto_WTLLogoutNotify::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    player_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_WTLLogoutNotify::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 player_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &player_id_)));
+          set_has_player_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_WTLLogoutNotify::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->player_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_WTLLogoutNotify::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->player_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_WTLLogoutNotify::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 player_id = 1;
+    if (has_player_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->player_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_WTLLogoutNotify::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_WTLLogoutNotify* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_WTLLogoutNotify*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_WTLLogoutNotify::MergeFrom(const Proto_WTLLogoutNotify& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_player_id()) {
+      set_player_id(from.player_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_WTLLogoutNotify::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_WTLLogoutNotify::CopyFrom(const Proto_WTLLogoutNotify& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_WTLLogoutNotify::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_WTLLogoutNotify::Swap(Proto_WTLLogoutNotify* other) {
+  if (other != this) {
+    std::swap(player_id_, other->player_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_WTLLogoutNotify::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_WTLLogoutNotify_descriptor_;
+  metadata.reflection = Proto_WTLLogoutNotify_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_WTSLogoutNotify::kPlayerIdFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_WTSLogoutNotify::Proto_WTSLogoutNotify()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_WTSLogoutNotify::InitAsDefaultInstance() {
+}
+
+Proto_WTSLogoutNotify::Proto_WTSLogoutNotify(const Proto_WTSLogoutNotify& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_WTSLogoutNotify::SharedCtor() {
+  _cached_size_ = 0;
+  player_id_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_WTSLogoutNotify::~Proto_WTSLogoutNotify() {
+  SharedDtor();
+}
+
+void Proto_WTSLogoutNotify::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_WTSLogoutNotify::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_WTSLogoutNotify::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_WTSLogoutNotify_descriptor_;
+}
+
+const Proto_WTSLogoutNotify& Proto_WTSLogoutNotify::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_WTSLogoutNotify* Proto_WTSLogoutNotify::default_instance_ = NULL;
+
+Proto_WTSLogoutNotify* Proto_WTSLogoutNotify::New() const {
+  return new Proto_WTSLogoutNotify;
+}
+
+void Proto_WTSLogoutNotify::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    player_id_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_WTSLogoutNotify::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 player_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &player_id_)));
+          set_has_player_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_WTSLogoutNotify::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->player_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_WTSLogoutNotify::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->player_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_WTSLogoutNotify::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 player_id = 1;
+    if (has_player_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->player_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_WTSLogoutNotify::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_WTSLogoutNotify* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_WTSLogoutNotify*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_WTSLogoutNotify::MergeFrom(const Proto_WTSLogoutNotify& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_player_id()) {
+      set_player_id(from.player_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_WTSLogoutNotify::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_WTSLogoutNotify::CopyFrom(const Proto_WTSLogoutNotify& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_WTSLogoutNotify::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_WTSLogoutNotify::Swap(Proto_WTSLogoutNotify* other) {
+  if (other != this) {
+    std::swap(player_id_, other->player_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_WTSLogoutNotify::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_WTSLogoutNotify_descriptor_;
+  metadata.reflection = Proto_WTSLogoutNotify_reflection_;
   return metadata;
 }
 

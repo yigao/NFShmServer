@@ -118,6 +118,24 @@ int NFPlayerDetail::UnInit()
     return 0;
 }
 
+NFSnsPart* NFPlayerDetail::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType)
+{
+    NFSnsPart *pPart = NULL;
+    switch (partType)
+    {
+        default:
+        {
+            break;
+        }
+    }
+
+    if (pPart)
+    {
+        pPart->SetPartType(partType);
+    }
+    return pPart;
+}
+
 NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer)
 {
     NFSnsPart *pPart = NULL;
@@ -264,11 +282,36 @@ int NFPlayerDetail::SendTransToDB()
 int NFPlayerDetail::OnSaveDB(bool success, uint32_t seq)
 {
     m_lastSavingDBTime = 0;
-    if (success && seq == GetCurSeq())
+    if (success && seq == GetAllSeq())
     {
-        ClearUrgent();
+        ClearAllSeq();
     }
     return 0;
+}
+
+uint32_t NFPlayerDetail::GetAllSeq()
+{
+    uint32_t seq = GetCurSeq();
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            seq += m_pPart[i]->GetCurSeq();
+        }
+    }
+    return seq;
+}
+
+void NFPlayerDetail::ClearAllSeq()
+{
+    ClearUrgent();
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->ClearUrgent();
+        }
+    }
 }
 
 int NFPlayerDetail::DailyZeroUpdate()

@@ -64,4 +64,26 @@ public:
      * @return
      */
     int OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataPackage& packet);
+
+    /**
+     * @brief 玩家登出
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandlePlayerLogoutNotify(uint64_t unLinkId, NFDataPackage& packet);
+
+    /**
+     * @brief
+     * @param playerId
+     * @return
+     */
+    int NotifySnsPlayerLogout(uint64_t playerId);
+
+    /**
+     * @brief
+     * @param playerId
+     * @return
+     */
+    int NotifyLogicPlayerLogout(uint64_t playerId);
 };

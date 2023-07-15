@@ -49,6 +49,12 @@ public:
     virtual int UnInit();
 public:
     /**
+     * @brief 注册要处理的消息
+     * @return
+     */
+    virtual int RegisterMessage();
+public:
+    /**
      * @brief 处理客户端消息
      * @param unLinkId
      * @param packet
@@ -63,10 +69,23 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
-public:
-    static int RegisterClientPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
 
-    static int RegisterServerPartMsg(NFIPluginManager *pPluginManager, uint32_t nMsgID, uint32_t partType);
+public:
+    /**
+     * @brief
+     * @param nMsgID
+     * @param createCo
+     * @return
+     */
+    int RegisterClientMessage(uint32_t nMsgID, bool createCo);
+
+    /**
+     * @brief
+     * @param nMsgID
+     * @param createCo
+     * @return
+     */
+    int RegisterServerMessage(uint32_t nMsgID, bool createCo);
 
 public:
     /**
@@ -146,8 +165,7 @@ public:
 public:
     //部件类型
     uint32_t PartType() { return m_partType; }
-public:
-    virtual uint32_t GetCurRoleDetailSeq() const;
+    void SetPartType(uint32_t partType) { m_partType = partType; }
 public:
     NFPlayerSimple* GetPlayerSimple();
     NFPlayerOnline* GetPlayerOnline();

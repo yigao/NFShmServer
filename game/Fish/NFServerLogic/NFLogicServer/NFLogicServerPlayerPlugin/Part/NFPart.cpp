@@ -67,14 +67,14 @@ int NFPart::UnInit()
     return 0;
 }
 
-int NFPart::RegisterClientPartMsg(NFIPluginManager* pPluginManager, uint32_t nMsgID, uint32_t partType, bool createCo)
+int NFPart::RegisterClientMessage(uint32_t nMsgID, bool createCo)
 {
-    return pPluginManager->FindModule<NFPartModule>()->RegisterClientPartMsg(nMsgID, partType, createCo);
+    return FindModule<NFPartModule>()->RegisterClientPartMsg(nMsgID, m_partType, createCo);
 }
 
-int NFPart::RegisterServerPartMsg(NFIPluginManager* pPluginManager, uint32_t nMsgID, uint32_t partType, bool createCo)
+int NFPart::RegisterServerMessage(uint32_t nMsgID, bool createCo)
 {
-    return pPluginManager->FindModule<NFPartModule>()->RegisterServerPartMsg(nMsgID, partType, createCo);
+    return FindModule<NFPartModule>()->RegisterServerPartMsg(nMsgID, m_partType, createCo);
 }
 
 int NFPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
@@ -92,4 +92,9 @@ int NFPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 uint32_t NFPart::GetCurRoleDetailSeq() const
 {
     return GetCurSeq();
+}
+
+int NFPart::RegisterMessage()
+{
+    return 0;
 }

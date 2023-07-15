@@ -44,7 +44,7 @@ int NFSnsTransSaveDetailDB::SaveDB(NFPlayerDetail* pPlayer)
     CHECK_EXPR(pPlayer, -1, "Save Failed! Can't find player data, userId:{}", m_playerId);
 
     m_playerId = pPlayer->GetPlayerId();
-    m_curSeq = pPlayer->GetCurSeq();
+    m_curSeq = pPlayer->GetAllSeq();
     pPlayer->SetLastSaveDBTime(NFTime::Now().UnixSec());
 
     proto_ff::tbFishSnsPlayerDetailData tbData;

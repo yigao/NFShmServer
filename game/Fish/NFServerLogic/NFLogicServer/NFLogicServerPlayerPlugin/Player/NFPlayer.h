@@ -175,6 +175,17 @@ public:
      * @return
      */
     int OnSaveDB(bool success, uint32_t seq);
+
+    /**
+     * @brief
+     * @return
+     */
+    uint32_t GetAllSeq();
+
+    /**
+     * @brief
+     */
+    void ClearAllSeq();
 public:
     /**
      * @brief
@@ -196,8 +207,27 @@ public:
 
     NFPart *GetPart(uint32_t partType);
 
+    /**
+     * @brief 创建Part
+     * @param partType
+     * @param dbData
+     * @param bCreatePlayer
+     * @return
+     */
     NFPart *CreatePart(uint32_t partType, const ::proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer);
 
+    /**
+     * @brief 静态函数 创建Part
+     * @param partType
+     * @return
+     */
+    static NFPart* CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType);
+
+    /**
+     * @brief 释放Part
+     * @param pPart
+     * @return
+     */
     int RecylePart(NFPart *pPart);
 private:
     NFShmVector<NFShmPtr<NFPart>, PART_MAX> m_pPart;
@@ -217,8 +247,6 @@ private:
     uint64_t m_phonenum;
     uint64_t m_lastLoginTime;
     uint64_t m_lastLogoutTime;
-private:
-    uint64_t m_jetton;
 private:
     uint32_t m_gameId;
     uint32_t m_roomId;

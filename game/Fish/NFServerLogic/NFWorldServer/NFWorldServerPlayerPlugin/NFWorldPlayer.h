@@ -28,6 +28,7 @@ public:
     virtual int OnTimer(int timeId, int callcount);
 
     proto_ff::PlayerStatus GetStatus() const { return m_iStatus; }
+    std::string GetStatusName() const { return proto_ff::PlayerStatus_Name(m_iStatus); }
     void SetStatus(proto_ff::PlayerStatus status) { m_iStatus = status; }
     uint64_t GetLastDisconnectTime() const { return m_lastDiconnectTime; }
     void SetLastDisconnectTime(uint64_t distime) { m_lastDiconnectTime = distime; }

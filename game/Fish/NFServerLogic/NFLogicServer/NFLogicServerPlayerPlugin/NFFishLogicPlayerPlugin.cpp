@@ -15,6 +15,7 @@
 #include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h"
 #include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h"
 #include "Part/NFPartModule.h"
+#include "Jetton/NFJettonPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -64,6 +65,7 @@ bool NFFishLogicPlayerPlugin::InitShmObjectRegister()
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum();
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFJettonPart, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
 
     REGISTER_SHM_OBJ(NFTransPlayerBase, 1);

@@ -50,7 +50,7 @@ int NFTransSaveDB::SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason)
 	CHECK_EXPR(pPlayer, -1, "Save Failed! Can't find player data, userId:{}", m_playerId);
 	
 	m_reason = iReason;
-    m_curSeq = pPlayer->GetCurSeq();
+    m_curSeq = pPlayer->GetAllSeq();
     pPlayer->SetLastSaveDBTime(NFTime::Now().UnixSec());
 
 	proto_ff::tbFishPlayerData tbData;

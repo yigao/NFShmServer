@@ -27,6 +27,15 @@ NFPartModule::~NFPartModule()
 
 bool NFPartModule::Awake()
 {
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        auto pPart = NFPlayer::CreatePart(m_pObjPluginManager, i);
+        if (pPart)
+        {
+            pPart->RegisterMessage();
+            FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+        }
+    }
     return true;
 }
 
@@ -42,6 +51,18 @@ bool NFPartModule::OnDynamicPlugin()
 
 int NFPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
+    if (!m_pObjPluginManager->IsInited())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server not inited, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+
+    if (m_pObjPluginManager->IsServerStopping())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server is Stopping, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+
     NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(playerId);
     if (pPlayer)
     {
@@ -62,6 +83,18 @@ int NFPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, u
 
 int NFPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
+    if (!m_pObjPluginManager->IsInited())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server not inited, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+
+    if (m_pObjPluginManager->IsServerStopping())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server is Stopping, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+
     NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(playerId);
     if (pPlayer)
     {
@@ -83,7 +116,7 @@ int NFPartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType, bool
     RegisterClientMessage(NF_ST_LOGIC_SERVER, nMsgID, createCo);
     if (m_clientMsgToPartMap[nMsgID] != 0)
     {
-        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "RegisterClientPartMsg nMsgId:{} has be registtered by part:{}, can't be registerd by part:{}", nMsgID, m_clientMsgToPartMap[nMsgID], partType);
+        NFLogWarning(NF_LOG_SYSTEMLOG, 0, "RegisterClientMsg nMsgId:{} has be registtered by part:{}, can't be registerd by part:{}", nMsgID, m_clientMsgToPartMap[nMsgID], partType);
         return 0;
     }
     m_clientMsgToPartMap[nMsgID] = partType;
