@@ -20,6 +20,9 @@ NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m
     RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
     RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_REQ);
     RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_RSP);
+    RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
+    RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
+    RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT);
 }
 
 NFGlobalSystem::~NFGlobalSystem()

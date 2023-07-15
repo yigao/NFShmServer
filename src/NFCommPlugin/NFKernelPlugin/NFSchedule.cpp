@@ -263,7 +263,6 @@ int NFSchedule::CoroutineStatus(int64_t id)
 
     // 如果在协程哈希表中没有找到，或者找到的协程内容为空
     if (pos == co_hash_map.end()) {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "cann't find coroutine {}", id);
         return NF_COROUTINE_DEAD;
     }
 

@@ -126,8 +126,7 @@ message WTSPlayerReconnectReq
   optional uint64 player_id = 1;
   optional uint32 logic_bus_id = 2;
   optional uint32 game_bus_id = 3;
-  optional uint64 last_login_time = 4;
-  optional uint64 last_logout_time = 5;
+  optional uint32 proxy_bus_id = 4;
 }
 
 message STWPlayerReconnectRsp

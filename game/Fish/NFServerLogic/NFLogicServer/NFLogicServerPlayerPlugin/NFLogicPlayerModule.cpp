@@ -208,6 +208,21 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
 
 int NFCLogicPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTLPlayerReconnectReq& request, proto_ff::LTWPlayerReconnectRsp& respone)
 {
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    respone.set_player_id(request.player_id());
+    respone.set_result(proto_ff::ERR_CODE_OK);
+
+    NFPlayer* pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(request.player_id());
+    if (pPlayer == NULL)
+    {
+        respone.set_result(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
+        return 0;
+    }
+
+    pPlayer->SetProxyId(request.proxy_bus_id());
+    pPlayer->OnReconnect();
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

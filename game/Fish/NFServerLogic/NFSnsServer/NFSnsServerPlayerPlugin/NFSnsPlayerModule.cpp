@@ -231,6 +231,63 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
 
 int NFCSnsPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTSPlayerReconnectReq& request, proto_ff::STWPlayerReconnectRsp& respone)
 {
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    respone.set_result(0);
+
+    NFPlayerOnline* pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(request.player_id());
+    if (pPlayerOnline == NULL)
+    {
+        pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerOnline(request.player_id());
+        if (pPlayerOnline == NULL)
+        {
+            respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+            return 0;
+        }
+    }
+
+    pPlayerOnline->SetProxyId(request.proxy_bus_id());
+    pPlayerOnline->SetLogicId(request.logic_bus_id());
+    pPlayerOnline->SetIsOnline(true);
+
+    NFPlayerSimple* pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.player_id());
+    if (pPlayerSimple == NULL)
+    {
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    NFPlayerDetail* pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(request.player_id());
+    if (pPlayerDetail == NULL)
+    {
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    int iRet = pPlayerOnline->OnReconnect();
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerOnline:{} OnReconnect:{} Failed", request.player_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    iRet = pPlayerSimple->OnReconnect();
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerSimple:{} OnReconnect:{} Failed", request.player_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    iRet = pPlayerDetail->OnReconnect();
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerDetail:{} OnReconnect:{} Failed", request.player_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 

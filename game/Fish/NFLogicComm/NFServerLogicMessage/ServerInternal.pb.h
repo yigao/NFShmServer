@@ -1657,19 +1657,12 @@ class WTSPlayerReconnectReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 game_bus_id() const;
   inline void set_game_bus_id(::google::protobuf::uint32 value);
 
-  // optional uint64 last_login_time = 4;
-  inline bool has_last_login_time() const;
-  inline void clear_last_login_time();
-  static const int kLastLoginTimeFieldNumber = 4;
-  inline ::google::protobuf::uint64 last_login_time() const;
-  inline void set_last_login_time(::google::protobuf::uint64 value);
-
-  // optional uint64 last_logout_time = 5;
-  inline bool has_last_logout_time() const;
-  inline void clear_last_logout_time();
-  static const int kLastLogoutTimeFieldNumber = 5;
-  inline ::google::protobuf::uint64 last_logout_time() const;
-  inline void set_last_logout_time(::google::protobuf::uint64 value);
+  // optional uint32 proxy_bus_id = 4;
+  inline bool has_proxy_bus_id() const;
+  inline void clear_proxy_bus_id();
+  static const int kProxyBusIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 proxy_bus_id() const;
+  inline void set_proxy_bus_id(::google::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:proto_ff.WTSPlayerReconnectReq)
  private:
@@ -1679,21 +1672,18 @@ class WTSPlayerReconnectReq : public ::google::protobuf::Message {
   inline void clear_has_logic_bus_id();
   inline void set_has_game_bus_id();
   inline void clear_has_game_bus_id();
-  inline void set_has_last_login_time();
-  inline void clear_has_last_login_time();
-  inline void set_has_last_logout_time();
-  inline void clear_has_last_logout_time();
+  inline void set_has_proxy_bus_id();
+  inline void clear_has_proxy_bus_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 player_id_;
   ::google::protobuf::uint32 logic_bus_id_;
   ::google::protobuf::uint32 game_bus_id_;
-  ::google::protobuf::uint64 last_login_time_;
-  ::google::protobuf::uint64 last_logout_time_;
+  ::google::protobuf::uint32 proxy_bus_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -3395,48 +3385,26 @@ inline void WTSPlayerReconnectReq::set_game_bus_id(::google::protobuf::uint32 va
   game_bus_id_ = value;
 }
 
-// optional uint64 last_login_time = 4;
-inline bool WTSPlayerReconnectReq::has_last_login_time() const {
+// optional uint32 proxy_bus_id = 4;
+inline bool WTSPlayerReconnectReq::has_proxy_bus_id() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void WTSPlayerReconnectReq::set_has_last_login_time() {
+inline void WTSPlayerReconnectReq::set_has_proxy_bus_id() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void WTSPlayerReconnectReq::clear_has_last_login_time() {
+inline void WTSPlayerReconnectReq::clear_has_proxy_bus_id() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void WTSPlayerReconnectReq::clear_last_login_time() {
-  last_login_time_ = GOOGLE_ULONGLONG(0);
-  clear_has_last_login_time();
+inline void WTSPlayerReconnectReq::clear_proxy_bus_id() {
+  proxy_bus_id_ = 0u;
+  clear_has_proxy_bus_id();
 }
-inline ::google::protobuf::uint64 WTSPlayerReconnectReq::last_login_time() const {
-  return last_login_time_;
+inline ::google::protobuf::uint32 WTSPlayerReconnectReq::proxy_bus_id() const {
+  return proxy_bus_id_;
 }
-inline void WTSPlayerReconnectReq::set_last_login_time(::google::protobuf::uint64 value) {
-  set_has_last_login_time();
-  last_login_time_ = value;
-}
-
-// optional uint64 last_logout_time = 5;
-inline bool WTSPlayerReconnectReq::has_last_logout_time() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void WTSPlayerReconnectReq::set_has_last_logout_time() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void WTSPlayerReconnectReq::clear_has_last_logout_time() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void WTSPlayerReconnectReq::clear_last_logout_time() {
-  last_logout_time_ = GOOGLE_ULONGLONG(0);
-  clear_has_last_logout_time();
-}
-inline ::google::protobuf::uint64 WTSPlayerReconnectReq::last_logout_time() const {
-  return last_logout_time_;
-}
-inline void WTSPlayerReconnectReq::set_last_logout_time(::google::protobuf::uint64 value) {
-  set_has_last_logout_time();
-  last_logout_time_ = value;
+inline void WTSPlayerReconnectReq::set_proxy_bus_id(::google::protobuf::uint32 value) {
+  set_has_proxy_bus_id();
+  proxy_bus_id_ = value;
 }
 
 // -------------------------------------------------------------------

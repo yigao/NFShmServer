@@ -228,6 +228,88 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
 int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconnectReq& request, proto_ff::WTPPlayerReconnctRsp& respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.player_id());
+    if (!pPlayerInfo) {
+        respone.set_result(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
+        return 0;
+    }
+
+    if (pPlayerInfo->GetProxyId() != request.proxy_bus_id())
+    {
+
+    }
+
+    pPlayerInfo->SetProxyId(request.proxy_bus_id());
+    pPlayerInfo->SetStatus(proto_ff::PLAYER_STATUS_OFFLINE);
+    pPlayerInfo->SetLastDisconnectTime(NFTime::Now().UnixSec());
+
+    if (pPlayerInfo->GetLogicId() <= 0)
+    {
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    proto_ff::WTLPlayerReconnectReq logicReqMsg;
+    logicReqMsg.set_player_id(pPlayerInfo->GetPlayerId());
+    logicReqMsg.set_game_id(pPlayerInfo->m_gameId);
+    logicReqMsg.set_room_id(pPlayerInfo->m_roomId);
+    logicReqMsg.set_proxy_bus_id(pPlayerInfo->GetProxyId());
+    proto_ff::LTWPlayerReconnectRsp logicRspMsg;
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pPlayerInfo->GetLogicId(), logicReqMsg, logicRspMsg);
+    if (iRet != 0)
+    {
+        respone.set_result(iRet);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ Failed! iRet:{}", GetErrorStr(iRet));
+        return 0;
+    }
+
+    if (logicRspMsg.result() != 0)
+    {
+        respone.set_result(logicRspMsg.result());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ Failed! logicRspMsg.result:{}", GetErrorStr(logicRspMsg.result()));
+        return 0;
+    }
+
+    pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.player_id());
+    if (!pPlayerInfo) {
+        respone.set_result(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
+        return 0;
+    }
+
+    proto_ff::WTSPlayerReconnectReq snsReqMsg;
+    snsReqMsg.set_player_id(pPlayerInfo->GetPlayerId());
+    snsReqMsg.set_proxy_bus_id(pPlayerInfo->GetProxyId());
+    snsReqMsg.set_logic_bus_id(pPlayerInfo->GetLogicId());
+    proto_ff::STWPlayerReconnectRsp snsRspMsg;
+    iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, NF_ST_SNS_SERVER, 0, snsReqMsg, snsRspMsg);
+    if (iRet != 0)
+    {
+        respone.set_result(iRet);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ Failed! iRet:{}", GetErrorStr(iRet));
+        return 0;
+    }
+
+    if (snsRspMsg.result() != 0)
+    {
+        respone.set_result(snsRspMsg.result());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ Failed! snsRspMsg.result:{}", GetErrorStr(snsRspMsg.result()));
+        return 0;
+    }
+
+    pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.player_id());
+    if (!pPlayerInfo) {
+        respone.set_result(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
+        return 0;
+    }
+
+    pPlayerInfo->SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
+
+    respone.set_result(0);
+    respone.set_player_id(pPlayerInfo->GetPlayerId());
+    respone.set_game_id(pPlayerInfo->m_gameId);
+    respone.set_room_id(pPlayerInfo->m_roomId);
+    respone.set_logic_bus_id(pPlayerInfo->GetLogicId());
+
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
