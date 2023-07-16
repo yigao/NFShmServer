@@ -28,7 +28,6 @@ NFLoadCacheData::~NFLoadCacheData()
 int NFLoadCacheData::CreateInit()
 {
     m_playerId = 0;
-    m_transInfo.CreateInit();
     m_bFinished = false;
     return 0;
 }

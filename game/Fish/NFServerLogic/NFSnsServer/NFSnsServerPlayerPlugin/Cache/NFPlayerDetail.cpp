@@ -107,7 +107,7 @@ int NFPlayerDetail::Init(const proto_ff::tbFishSnsPlayerDetailData &data, bool b
 
 int NFPlayerDetail::UnInit()
 {
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
         {
@@ -186,7 +186,7 @@ NFPlayerSimple *NFPlayerDetail::GetRoleSimple() const
 
 int NFPlayerDetail::OnLogin()
 {
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
         {
@@ -198,7 +198,7 @@ int NFPlayerDetail::OnLogin()
 
 int NFPlayerDetail::OnLogout()
 {
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
         {
@@ -210,7 +210,7 @@ int NFPlayerDetail::OnLogout()
 
 int NFPlayerDetail::OnDisconnect()
 {
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
         {
@@ -222,7 +222,7 @@ int NFPlayerDetail::OnDisconnect()
 
 int NFPlayerDetail::OnReconnect()
 {
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
         {
@@ -316,7 +316,7 @@ void NFPlayerDetail::ClearAllSeq()
 
 int NFPlayerDetail::DailyZeroUpdate()
 {
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
         {
@@ -328,7 +328,7 @@ int NFPlayerDetail::DailyZeroUpdate()
 
 int NFPlayerDetail::WeekZeroUpdate()
 {
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
         {
@@ -340,7 +340,7 @@ int NFPlayerDetail::WeekZeroUpdate()
 
 int NFPlayerDetail::MonthZeroUpdate()
 {
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
         {
