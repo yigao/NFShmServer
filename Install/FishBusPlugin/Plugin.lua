@@ -58,7 +58,7 @@ LoadPlugin =
 			--"NFCommLogicPlugin",
 			--"NFLuaScriptPlugin",
 
-			"NFFishRobotPlugin",
+			--"NFFishRobotPlugin",
 
 			"NFFishProxyPlayerPlugin",
 			"NFFishLoginPlayerPlugin",

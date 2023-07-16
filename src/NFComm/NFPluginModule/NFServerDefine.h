@@ -126,7 +126,7 @@ enum PacketParseType
 {
     PACKET_PARSE_TYPE_INTERNAL = 0,        //内网协议
     PACKET_PARSE_TYPE_EXTERNAL = 1,        //默认外部协议
-    PACKET_PARSE_TYPE_OLD_EXTERNAL = 2,        //老的外部协议
+    PACKET_PARSE_TYPE_FISH_EXTERNAL = 2,        //老的外部协议
 };
 
 enum

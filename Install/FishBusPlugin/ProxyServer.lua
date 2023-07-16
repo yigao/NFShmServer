@@ -15,7 +15,7 @@ ProxyServer = {
         MaxConnectNum = NF_EXTERN_MAX_CONNECT,
         NetThreadNum = 5,
         WorkThreadNum = 1,
-        ParseType = 1, --0是内网协议，1是外网协议
+        ParseType = 2, --0是内网协议，1是外网协议
         ServerIp = NF_EXTER_SERVER_IP,
         ServerPort = NF_INTER_SERVER_PORT+NF_ST_PROXY_SERVER*10+1,
 	    ExternalServerIp = NF_EXTER_SERVER_IP,
@@ -31,7 +31,6 @@ ProxyServer = {
             MasterPort = NF_MASTER_PORT,
         },
         Security = false,
-        ParseType = 1,
 	};
 
     ProxyServer_4_2 = {
@@ -58,6 +57,5 @@ ProxyServer = {
             MasterPort = NF_MASTER_PORT,
         },
         Security = false,
-        ParseType = 1,
     };
 };

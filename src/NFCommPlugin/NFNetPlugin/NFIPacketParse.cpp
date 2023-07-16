@@ -10,8 +10,9 @@
 #include "NFIPacketParse.h"
 #include "InternalPacketParse.h"
 #include "ExternalPacketParse.h"
+#include "FishExternalPacketParse.h"
 
-std::vector<NFIPacketParse*> NFIPacketParse::m_pPacketParse = { CreatePacketParse(PACKET_PARSE_TYPE_INTERNAL), CreatePacketParse(PACKET_PARSE_TYPE_EXTERNAL), CreatePacketParse(PACKET_PARSE_TYPE_OLD_EXTERNAL) };
+std::vector<NFIPacketParse*> NFIPacketParse::m_pPacketParse = { CreatePacketParse(PACKET_PARSE_TYPE_INTERNAL), CreatePacketParse(PACKET_PARSE_TYPE_EXTERNAL), CreatePacketParse(PACKET_PARSE_TYPE_FISH_EXTERNAL) };
 
 void NFIPacketParse::DeletePacketParse(NFIPacketParse* pPacketParse)
 {
@@ -37,9 +38,13 @@ NFIPacketParse* NFIPacketParse::CreatePacketParse(int parseType)
 	{
 		return NF_NEW ExternalPacketParse();
 	}
+    else if (parseType == PACKET_PARSE_TYPE_FISH_EXTERNAL)
+    {
+        return NF_NEW FishExternalPacketParse();
+    }
 	else
 	{
-		return NF_NEW InternalPacketParse();
+        return NF_NEW InternalPacketParse();
 	}
 }
 

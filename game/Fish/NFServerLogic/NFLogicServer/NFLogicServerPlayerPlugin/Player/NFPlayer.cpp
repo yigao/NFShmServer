@@ -55,6 +55,7 @@ int NFPlayer::CreateInit()
     m_gender = 0;
     m_age = 0;
     m_phonenum = 0;
+    m_pPart.resize(PART_MAX);
     return 0;
 }
 

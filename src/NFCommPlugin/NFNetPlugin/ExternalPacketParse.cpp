@@ -116,13 +116,13 @@ int ExternalPacketParse::DeCodeImpl(const char* strData, uint32_t unLen, char*& 
 	uint32_t moduleId = (uint32_t)packHead->GetModule();
     uint32_t tmpMsgId = (uint32_t)packHead->GetCmd();
 
-	if (msgSize >= MAX_RECV_BUFFER_SIZE) //-V560
+	if (msgSize >= MAX_RECV_BUFFER_SIZE || msgSize < sizeof(ExternalMsg)) //-V560
 	{
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "net server parse data failed, msgSize:{}, moduleId:{} msgId:{}", msgSize, moduleId, tmpMsgId);
 		return -1;
 	}
 
-	if (msgSize > unLen)
+	if (msgSize > unLen )
 	{
 		return 1;
 	}

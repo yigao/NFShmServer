@@ -180,10 +180,6 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
             return 0;
         }
     }
-    else {
-        respone.set_result(proto_ff::ERR_CODE_ACCOUNT_PASSWORD_ERROR);
-        return 0;
-    }
 
     pLogin->mLastLoginTime = NFTime::Now().UnixSec();
 
