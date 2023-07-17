@@ -13,6 +13,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
+#include "Jetton/NFSnsJettonPart.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
 
@@ -123,6 +124,11 @@ NFSnsPart* NFPlayerDetail::CreatePart(NFIPluginManager* pObjPluginManager, uint3
     NFSnsPart *pPart = NULL;
     switch (partType)
     {
+        case SNS_JETTON_PART:
+        {
+            pPart = NFSnsJettonPart::CreateObj(pObjPluginManager);
+            break;
+        }
         default:
         {
             break;

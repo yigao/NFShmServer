@@ -10,10 +10,7 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFIRpcService.h"
-#include "ClientServerCmd.pb.h"
-#include "CSLogin.pb.h"
-#include "ServerInternal.pb.h"
-#include "ServerInternalCmd.pb.h"
+#include "AllProtocol.h"
 
 /**
  * @brief 账号登录rpc, proxy server to login server
@@ -59,3 +56,8 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTS
  * @brief 玩家重连rpc, world server to game server
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTG_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTGPlayerReconnectReq, proto_ff::GTWPlayerReconnectRsp)
+
+/**
+ * @brief 获取玩家筹码数据rpc, logic server to sns server
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_BANK_GET_DATA_REQ, proto_ff::Proto_CSBankGetDataReq, proto_ff::Proto_SCBankGetDataRsp)

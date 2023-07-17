@@ -63,8 +63,6 @@ namespace proto_ff_s {
 		uint64_t player_id;
 		NFShmString<128> nickname;
 		uint32_t faceid;
-		uint64_t bank_jetton;
-		uint64_t bank_password;
 		uint64_t last_login_time;
 		uint64_t last_logout_time;
 		uint64_t agent;
@@ -82,6 +80,8 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		uint64_t player_id;
+		uint64_t bank_jetton;
+		uint64_t bank_password;
 
 		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerDetailData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg);

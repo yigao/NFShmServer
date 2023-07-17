@@ -20,6 +20,7 @@
 #include "Trans/NFTransCacheBase.h"
 #include "Trans/NFSnsTransSaveSimpleDB.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
+#include "Jetton/NFSnsJettonPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -71,10 +72,12 @@ bool NFFishSnsPlayerPlugin::InitShmObjectRegister()
     REGISTER_SINGLETON_SHM_OBJ(NFLoadCacheMgr);//
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerSimple, maxOnlinePlayerNum);//
-    REGISTER_SHM_OBJ_WITH_HASH(NFPlayerDetail, maxOnlinePlayerNum);//
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerOnline, maxOnlinePlayerNum);//
 
+    REGISTER_SHM_OBJ_WITH_HASH(NFPlayerDetail, maxOnlinePlayerNum);//
     REGISTER_SHM_OBJ(NFSnsPart,1);
+    REGISTER_SHM_OBJ(NFSnsJettonPart,maxOnlinePlayerNum);
+
     REGISTER_SHM_OBJ(NFTransCacheBase,1);
     REGISTER_SHM_OBJ(NFTransGetPlayerSimple, maxOnlinePlayerNum / 10);
     REGISTER_SHM_OBJ(NFTransGetPlayerDetail, maxOnlinePlayerNum / 10);

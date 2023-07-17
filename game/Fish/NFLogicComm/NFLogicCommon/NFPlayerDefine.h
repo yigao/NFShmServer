@@ -26,6 +26,7 @@ enum BattlePartType
 enum SnsPartType
 {
     SNS_PART_NONE = 0,
+    SNS_JETTON_PART = 1,
     SNS_PART_MAX,
 };
 

@@ -10,8 +10,9 @@
 #include "NFJettonPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "AllProtocol.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFJettonPart, EOT_NFJettonPart_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFJettonPart, EOT_NFJettonPart_ID, NFPart)
 
 NFJettonPart::NFJettonPart()
 {
@@ -104,8 +105,8 @@ int NFJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet)
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     proto_ff::Proto_SCBankGetDataRsp rspMsg;
-    rspMsg.set_result(0);
-
+    rspMsg.set_jetton(m_jetton);
+    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, msgId, xMsg);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }

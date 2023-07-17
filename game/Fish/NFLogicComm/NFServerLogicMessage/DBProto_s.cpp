@@ -105,8 +105,6 @@ tbFishSnsPlayerSimpleData_s::tbFishSnsPlayerSimpleData_s() {
 int tbFishSnsPlayerSimpleData_s::CreateInit() {
 	player_id = (uint64_t)0;
 	faceid = (uint32_t)0;
-	bank_jetton = (uint64_t)0;
-	bank_password = (uint64_t)0;
 	last_login_time = (uint64_t)0;
 	last_logout_time = (uint64_t)0;
 	agent = (uint64_t)0;
@@ -121,8 +119,6 @@ void tbFishSnsPlayerSimpleData_s::write_to_pbmsg(::proto_ff::tbFishSnsPlayerSimp
 	msg.set_player_id((uint64_t)player_id);
 	msg.set_nickname((const char*)nickname.data());
 	msg.set_faceid((uint32_t)faceid);
-	msg.set_bank_jetton((uint64_t)bank_jetton);
-	msg.set_bank_password((uint64_t)bank_password);
 	msg.set_last_login_time((uint64_t)last_login_time);
 	msg.set_last_logout_time((uint64_t)last_logout_time);
 	msg.set_agent((uint64_t)agent);
@@ -133,8 +129,6 @@ void tbFishSnsPlayerSimpleData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPla
 	player_id = msg.player_id();
 	nickname = msg.nickname();
 	faceid = msg.faceid();
-	bank_jetton = msg.bank_jetton();
-	bank_password = msg.bank_password();
 	last_login_time = msg.last_login_time();
 	last_logout_time = msg.last_logout_time();
 	agent = msg.agent();
@@ -150,6 +144,8 @@ tbFishSnsPlayerDetailData_s::tbFishSnsPlayerDetailData_s() {
 
 int tbFishSnsPlayerDetailData_s::CreateInit() {
 	player_id = (uint64_t)0;
+	bank_jetton = (uint64_t)0;
+	bank_password = (uint64_t)0;
 	return 0;
 }
 
@@ -159,11 +155,15 @@ int tbFishSnsPlayerDetailData_s::ResumeInit() {
 
 void tbFishSnsPlayerDetailData_s::write_to_pbmsg(::proto_ff::tbFishSnsPlayerDetailData & msg) const {
 	msg.set_player_id((uint64_t)player_id);
+	msg.set_bank_jetton((uint64_t)bank_jetton);
+	msg.set_bank_password((uint64_t)bank_password);
 }
 
 void tbFishSnsPlayerDetailData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg) {
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbFishSnsPlayerDetailData_s));
 	player_id = msg.player_id();
+	bank_jetton = msg.bank_jetton();
+	bank_password = msg.bank_password();
 }
 
 }
