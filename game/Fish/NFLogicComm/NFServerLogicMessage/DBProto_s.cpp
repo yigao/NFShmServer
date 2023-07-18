@@ -145,7 +145,6 @@ tbFishSnsPlayerDetailData_s::tbFishSnsPlayerDetailData_s() {
 int tbFishSnsPlayerDetailData_s::CreateInit() {
 	player_id = (uint64_t)0;
 	bank_jetton = (uint64_t)0;
-	bank_password = (uint64_t)0;
 	return 0;
 }
 
@@ -156,7 +155,7 @@ int tbFishSnsPlayerDetailData_s::ResumeInit() {
 void tbFishSnsPlayerDetailData_s::write_to_pbmsg(::proto_ff::tbFishSnsPlayerDetailData & msg) const {
 	msg.set_player_id((uint64_t)player_id);
 	msg.set_bank_jetton((uint64_t)bank_jetton);
-	msg.set_bank_password((uint64_t)bank_password);
+	msg.set_bank_password((const char*)bank_password.data());
 }
 
 void tbFishSnsPlayerDetailData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg) {

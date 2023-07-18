@@ -81,7 +81,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		uint64_t player_id;
 		uint64_t bank_jetton;
-		uint64_t bank_password;
+		NFShmString<128> bank_password;
 
 		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerDetailData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg);

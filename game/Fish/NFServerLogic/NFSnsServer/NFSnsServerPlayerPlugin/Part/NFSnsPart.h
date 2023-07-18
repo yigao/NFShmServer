@@ -77,7 +77,7 @@ public:
      * @param createCo
      * @return
      */
-    int RegisterClientMessage(uint32_t nMsgID, bool createCo);
+    int RegisterClientMessage(uint32_t nMsgID, bool createCo = false);
 
     /**
      * @brief
@@ -85,7 +85,7 @@ public:
      * @param createCo
      * @return
      */
-    int RegisterServerMessage(uint32_t nMsgID, bool createCo);
+    int RegisterServerMessage(uint32_t nMsgID, bool createCo = false);
 
 public:
     /**
@@ -100,6 +100,13 @@ public:
      * @return
      */
     virtual int InitConfig(const proto_ff::tbFishSnsPlayerDetailData& data) { return 0; }
+
+    /**
+     * @brief 存储DB部件入口
+     * @param proto
+     * @return
+     */
+    virtual int SaveDB(proto_ff::tbFishSnsPlayerDetailData &dbData) { return 0; }
 
     /**
      * @brief 登陆入口
@@ -129,30 +136,26 @@ public:
     ////////////////////////////////// 每日零点 每周一零点 刷新接口 ///////////////////////////////////
     /**
      * @brief 每日零点 刷新接口
-     * @param unixSec
      * @return
      */
     virtual int DailyZeroUpdate() { return 0; }
 
     /**
      * @brief 每日零点 刷新接口
-     * @param unixSec
      * @return
      */
     virtual int WeekZeroUpdate() { return 0; }
 
     /**
      * @brief 每月刷新接口
-     * @param unixSec
      * @return
      */
     virtual int MonthZeroUpdate()  { return 0; }
 public:
     /**
      * @brief update
-     * @param tick
      */
-    virtual int Update(uint64_t tick) { return 0; }
+    virtual int Update() { return 0; }
 
 public:
     virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);

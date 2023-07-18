@@ -586,12 +586,17 @@ class tbFishSnsPlayerDetailData : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 bank_jetton() const;
   inline void set_bank_jetton(::google::protobuf::uint64 value);
 
-  // optional uint64 bank_password = 10;
+  // optional string bank_password = 10;
   inline bool has_bank_password() const;
   inline void clear_bank_password();
   static const int kBankPasswordFieldNumber = 10;
-  inline ::google::protobuf::uint64 bank_password() const;
-  inline void set_bank_password(::google::protobuf::uint64 value);
+  inline const ::std::string& bank_password() const;
+  inline void set_bank_password(const ::std::string& value);
+  inline void set_bank_password(const char* value);
+  inline void set_bank_password(const char* value, size_t size);
+  inline ::std::string* mutable_bank_password();
+  inline ::std::string* release_bank_password();
+  inline void set_allocated_bank_password(::std::string* bank_password);
 
   // @@protoc_insertion_point(class_scope:proto_ff.tbFishSnsPlayerDetailData)
  private:
@@ -606,7 +611,7 @@ class tbFishSnsPlayerDetailData : public ::google::protobuf::Message {
 
   ::google::protobuf::uint64 player_id_;
   ::google::protobuf::uint64 bank_jetton_;
-  ::google::protobuf::uint64 bank_password_;
+  ::std::string* bank_password_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
@@ -1475,7 +1480,7 @@ inline void tbFishSnsPlayerDetailData::set_bank_jetton(::google::protobuf::uint6
   bank_jetton_ = value;
 }
 
-// optional uint64 bank_password = 10;
+// optional string bank_password = 10;
 inline bool tbFishSnsPlayerDetailData::has_bank_password() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1486,15 +1491,63 @@ inline void tbFishSnsPlayerDetailData::clear_has_bank_password() {
   _has_bits_[0] &= ~0x00000004u;
 }
 inline void tbFishSnsPlayerDetailData::clear_bank_password() {
-  bank_password_ = GOOGLE_ULONGLONG(0);
+  if (bank_password_ != &::google::protobuf::internal::kEmptyString) {
+    bank_password_->clear();
+  }
   clear_has_bank_password();
 }
-inline ::google::protobuf::uint64 tbFishSnsPlayerDetailData::bank_password() const {
+inline const ::std::string& tbFishSnsPlayerDetailData::bank_password() const {
+  return *bank_password_;
+}
+inline void tbFishSnsPlayerDetailData::set_bank_password(const ::std::string& value) {
+  set_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    bank_password_ = new ::std::string;
+  }
+  bank_password_->assign(value);
+}
+inline void tbFishSnsPlayerDetailData::set_bank_password(const char* value) {
+  set_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    bank_password_ = new ::std::string;
+  }
+  bank_password_->assign(value);
+}
+inline void tbFishSnsPlayerDetailData::set_bank_password(const char* value, size_t size) {
+  set_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    bank_password_ = new ::std::string;
+  }
+  bank_password_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbFishSnsPlayerDetailData::mutable_bank_password() {
+  set_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    bank_password_ = new ::std::string;
+  }
   return bank_password_;
 }
-inline void tbFishSnsPlayerDetailData::set_bank_password(::google::protobuf::uint64 value) {
-  set_has_bank_password();
-  bank_password_ = value;
+inline ::std::string* tbFishSnsPlayerDetailData::release_bank_password() {
+  clear_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = bank_password_;
+    bank_password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbFishSnsPlayerDetailData::set_allocated_bank_password(::std::string* bank_password) {
+  if (bank_password_ != &::google::protobuf::internal::kEmptyString) {
+    delete bank_password_;
+  }
+  if (bank_password) {
+    set_has_bank_password();
+    bank_password_ = bank_password;
+  } else {
+    clear_has_bank_password();
+    bank_password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 

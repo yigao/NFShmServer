@@ -151,3 +151,8 @@ message Proto_WTSLogoutNotify
   optional uint64 player_id = 1;
 }
 
+message Proto_LTSBankGetDataReq
+{
+  optional uint64 jetton = 1;
+  optional string bank_password = 2;
+}

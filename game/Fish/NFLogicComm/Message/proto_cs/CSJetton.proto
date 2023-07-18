@@ -20,7 +20,7 @@ message Proto_CSBankGetDataReq
   optional string bank_password = 1;
 }
 
-//获取玩家银行数据NNF_SC_BANK_GET_DATA_RSP = 1171;
+//获取玩家银行数据NF_SC_BANK_GET_DATA_RSP = 1171;
 message Proto_SCBankGetDataRsp
 {
   optional int32 result = 1;//0:success !=0 fail

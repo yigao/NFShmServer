@@ -54,6 +54,7 @@ class STWPlayerReconnectRsp;
 class Proto_LTWLogoutNotify;
 class Proto_WTLLogoutNotify;
 class Proto_WTSLogoutNotify;
+class Proto_LTSBankGetDataReq;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -2033,6 +2034,103 @@ class Proto_WTSLogoutNotify : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Proto_WTSLogoutNotify* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Proto_LTSBankGetDataReq : public ::google::protobuf::Message {
+ public:
+  Proto_LTSBankGetDataReq();
+  virtual ~Proto_LTSBankGetDataReq();
+
+  Proto_LTSBankGetDataReq(const Proto_LTSBankGetDataReq& from);
+
+  inline Proto_LTSBankGetDataReq& operator=(const Proto_LTSBankGetDataReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_LTSBankGetDataReq& default_instance();
+
+  void Swap(Proto_LTSBankGetDataReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_LTSBankGetDataReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_LTSBankGetDataReq& from);
+  void MergeFrom(const Proto_LTSBankGetDataReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 jetton = 1;
+  inline bool has_jetton() const;
+  inline void clear_jetton();
+  static const int kJettonFieldNumber = 1;
+  inline ::google::protobuf::uint64 jetton() const;
+  inline void set_jetton(::google::protobuf::uint64 value);
+
+  // optional string bank_password = 2;
+  inline bool has_bank_password() const;
+  inline void clear_bank_password();
+  static const int kBankPasswordFieldNumber = 2;
+  inline const ::std::string& bank_password() const;
+  inline void set_bank_password(const ::std::string& value);
+  inline void set_bank_password(const char* value);
+  inline void set_bank_password(const char* value, size_t size);
+  inline ::std::string* mutable_bank_password();
+  inline ::std::string* release_bank_password();
+  inline void set_allocated_bank_password(::std::string* bank_password);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_LTSBankGetDataReq)
+ private:
+  inline void set_has_jetton();
+  inline void clear_has_jetton();
+  inline void set_has_bank_password();
+  inline void clear_has_bank_password();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 jetton_;
+  ::std::string* bank_password_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_LTSBankGetDataReq* default_instance_;
+};
 // ===================================================================
 
 
@@ -3780,6 +3878,102 @@ inline ::google::protobuf::uint64 Proto_WTSLogoutNotify::player_id() const {
 inline void Proto_WTSLogoutNotify::set_player_id(::google::protobuf::uint64 value) {
   set_has_player_id();
   player_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_LTSBankGetDataReq
+
+// optional uint64 jetton = 1;
+inline bool Proto_LTSBankGetDataReq::has_jetton() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_LTSBankGetDataReq::set_has_jetton() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_LTSBankGetDataReq::clear_has_jetton() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_LTSBankGetDataReq::clear_jetton() {
+  jetton_ = GOOGLE_ULONGLONG(0);
+  clear_has_jetton();
+}
+inline ::google::protobuf::uint64 Proto_LTSBankGetDataReq::jetton() const {
+  return jetton_;
+}
+inline void Proto_LTSBankGetDataReq::set_jetton(::google::protobuf::uint64 value) {
+  set_has_jetton();
+  jetton_ = value;
+}
+
+// optional string bank_password = 2;
+inline bool Proto_LTSBankGetDataReq::has_bank_password() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_LTSBankGetDataReq::set_has_bank_password() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_LTSBankGetDataReq::clear_has_bank_password() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_LTSBankGetDataReq::clear_bank_password() {
+  if (bank_password_ != &::google::protobuf::internal::kEmptyString) {
+    bank_password_->clear();
+  }
+  clear_has_bank_password();
+}
+inline const ::std::string& Proto_LTSBankGetDataReq::bank_password() const {
+  return *bank_password_;
+}
+inline void Proto_LTSBankGetDataReq::set_bank_password(const ::std::string& value) {
+  set_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    bank_password_ = new ::std::string;
+  }
+  bank_password_->assign(value);
+}
+inline void Proto_LTSBankGetDataReq::set_bank_password(const char* value) {
+  set_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    bank_password_ = new ::std::string;
+  }
+  bank_password_->assign(value);
+}
+inline void Proto_LTSBankGetDataReq::set_bank_password(const char* value, size_t size) {
+  set_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    bank_password_ = new ::std::string;
+  }
+  bank_password_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_LTSBankGetDataReq::mutable_bank_password() {
+  set_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    bank_password_ = new ::std::string;
+  }
+  return bank_password_;
+}
+inline ::std::string* Proto_LTSBankGetDataReq::release_bank_password() {
+  clear_has_bank_password();
+  if (bank_password_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = bank_password_;
+    bank_password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_LTSBankGetDataReq::set_allocated_bank_password(::std::string* bank_password) {
+  if (bank_password_ != &::google::protobuf::internal::kEmptyString) {
+    delete bank_password_;
+  }
+  if (bank_password) {
+    set_has_bank_password();
+    bank_password_ = bank_password;
+  } else {
+    clear_has_bank_password();
+    bank_password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
 }
 
 

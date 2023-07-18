@@ -474,9 +474,8 @@ int NFCProxyPlayerModule::HandleProxyClientTick()
 int NFCProxyPlayerModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
     uint64_t playerId = packet.nParam1;
-    uint64_t clientId = packet.nParam2;
     NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo = mPlayerLinkInfo.GetElement(playerId);
-    if (pPlayerInfo && clientId == pPlayerInfo->GetLinkId())
+    if (pPlayerInfo)
     {
         NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(pPlayerInfo->GetLinkId());
         if (pLinkInfo == NULL)

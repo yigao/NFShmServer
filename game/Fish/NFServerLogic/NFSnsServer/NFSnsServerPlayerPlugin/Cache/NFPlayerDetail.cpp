@@ -144,16 +144,7 @@ NFSnsPart* NFPlayerDetail::CreatePart(NFIPluginManager* pObjPluginManager, uint3
 
 NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer)
 {
-    NFSnsPart *pPart = NULL;
-    switch (partType)
-    {
-        default:
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Create Part Failed, partType Not Handle:{}", partType);
-            break;
-        }
-    }
-
+    NFSnsPart *pPart = CreatePart(m_pObjPluginManager, partType);
     if (pPart)
     {
         int iRet = pPart->Init(this, partType, data, bCreatePlayer);
@@ -246,6 +237,13 @@ int NFPlayerDetail::LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData &data)
 int NFPlayerDetail::SaveDB(proto_ff::tbFishSnsPlayerDetailData &data)
 {
     data.set_player_id(GetPlayerId());
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->SaveDB(data);
+        }
+    }
     return 0;
 }
 
@@ -256,6 +254,13 @@ int NFPlayerDetail::InitConfig(const proto_ff::tbFishSnsPlayerDetailData &data)
 
 int NFPlayerDetail::Update()
 {
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->Update();
+        }
+    }
     return 0;
 }
 

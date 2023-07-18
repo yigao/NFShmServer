@@ -194,10 +194,11 @@ void protobuf_AddDesc_DBProto_2eproto() {
     "\014 \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264\0226\n\020l"
     "ast_logout_time\030\r \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\351"
     "\200\200\345\207\272\346\227\266\351\227\264\022#\n\005agent\030\024 \001(\004B\024\300\202\024\003\272\304\023\014\344\270\212\347"
-    "\272\247\344\273\243\347\220\206\"\220\001\n\031tbFishSnsPlayerDetailData\022#"
+    "\272\247\344\273\243\347\220\206\"\232\001\n\031tbFishSnsPlayerDetailData\022#"
     "\n\tplayer_id\030\001 \001(\004B\020\300\202\024\002\272\304\023\010\347\216\251\345\256\266ID\022%\n\013b"
-    "ank_jetton\030\t \001(\004B\020\272\304\023\014\351\223\266\350\241\214\351\207\221\345\270\201\022\'\n\rba"
-    "nk_password\030\n \001(\004B\020\272\304\023\014\351\223\266\350\241\214\345\257\206\347\240\201", 1195);
+    "ank_jetton\030\t \001(\004B\020\272\304\023\014\351\223\266\350\241\214\351\207\221\345\270\201\0221\n\rba"
+    "nk_password\030\n \001(\tB\032\220\301\024\200\001\310\202\024\200\001\272\304\023\014\351\223\266\350\241\214\345"
+    "\257\206\347\240\201", 1205);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProto.proto", &protobuf_RegisterTypes);
   tbFishAccountTable::default_instance_ = new tbFishAccountTable();
@@ -1776,7 +1777,7 @@ void tbFishSnsPlayerDetailData::SharedCtor() {
   _cached_size_ = 0;
   player_id_ = GOOGLE_ULONGLONG(0);
   bank_jetton_ = GOOGLE_ULONGLONG(0);
-  bank_password_ = GOOGLE_ULONGLONG(0);
+  bank_password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1785,6 +1786,9 @@ tbFishSnsPlayerDetailData::~tbFishSnsPlayerDetailData() {
 }
 
 void tbFishSnsPlayerDetailData::SharedDtor() {
+  if (bank_password_ != &::google::protobuf::internal::kEmptyString) {
+    delete bank_password_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -1814,7 +1818,11 @@ void tbFishSnsPlayerDetailData::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     player_id_ = GOOGLE_ULONGLONG(0);
     bank_jetton_ = GOOGLE_ULONGLONG(0);
-    bank_password_ = GOOGLE_ULONGLONG(0);
+    if (has_bank_password()) {
+      if (bank_password_ != &::google::protobuf::internal::kEmptyString) {
+        bank_password_->clear();
+      }
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -1853,19 +1861,20 @@ bool tbFishSnsPlayerDetailData::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(80)) goto parse_bank_password;
+        if (input->ExpectTag(82)) goto parse_bank_password;
         break;
       }
 
-      // optional uint64 bank_password = 10;
+      // optional string bank_password = 10;
       case 10: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
          parse_bank_password:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &bank_password_)));
-          set_has_bank_password();
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_bank_password()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->bank_password().data(), this->bank_password().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
         } else {
           goto handle_uninterpreted;
         }
@@ -1901,9 +1910,13 @@ void tbFishSnsPlayerDetailData::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(9, this->bank_jetton(), output);
   }
 
-  // optional uint64 bank_password = 10;
+  // optional string bank_password = 10;
   if (has_bank_password()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(10, this->bank_password(), output);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->bank_password().data(), this->bank_password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      10, this->bank_password(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1924,9 +1937,14 @@ void tbFishSnsPlayerDetailData::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(9, this->bank_jetton(), target);
   }
 
-  // optional uint64 bank_password = 10;
+  // optional string bank_password = 10;
   if (has_bank_password()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(10, this->bank_password(), target);
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->bank_password().data(), this->bank_password().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        10, this->bank_password(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1954,10 +1972,10 @@ int tbFishSnsPlayerDetailData::ByteSize() const {
           this->bank_jetton());
     }
 
-    // optional uint64 bank_password = 10;
+    // optional string bank_password = 10;
     if (has_bank_password()) {
       total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+        ::google::protobuf::internal::WireFormatLite::StringSize(
           this->bank_password());
     }
 

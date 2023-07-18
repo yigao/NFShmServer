@@ -173,7 +173,6 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
             dbSimpleData.set_player_id(request.user_id());
             dbSimpleData.set_nickname(request.sns_sync().nick_name());
             dbSimpleData.set_faceid(request.sns_sync().face_id());
-            dbSimpleData.set_bank_jetton(0);
             pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbSimpleData);
             if (pPlayerSimple == NULL)
             {
