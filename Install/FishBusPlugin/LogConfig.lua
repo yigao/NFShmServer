@@ -6,8 +6,8 @@ NF_LOG_LEVEL_WARN = 3  --    warn = 3,
 NF_LOG_LEVEL_ERROR = 4 --    err = 4,
 
 
-LogLevel = NF_LOG_LEVEL_DEBUG;				--log等级配置		当前日志输出级别，大于此等于级别的才会输出到console
-LogFlushLevel = NF_LOG_LEVEL_DEBUG;			--log刷新等级配置, 当前日志输出级别，大于此等于级别的才会刷新到LOG文件里
+LogLevel = NF_LOG_LEVEL_TRACE;				--log等级配置		当前日志输出级别，大于此等于级别的才会输出到console
+LogFlushLevel = NF_LOG_LEVEL_TRACE;			--log刷新等级配置, 当前日志输出级别，大于此等于级别的才会刷新到LOG文件里
 
 
 NFLogId = {

@@ -28,7 +28,9 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
+public:
+    //must be virtual
+    virtual int OnTimer(int timeId, int callcount);
 public:
     uint64_t GetPlayerId() const;
 
@@ -177,5 +179,9 @@ private:
      * @brief 存db的时间
      */
     uint64_t m_lastSavingDBTime;
+    /**
+     * @brief
+     */
+    int m_saveDBTimer;
 DECLARE_IDCREATE(NFPlayerSimple)
 };

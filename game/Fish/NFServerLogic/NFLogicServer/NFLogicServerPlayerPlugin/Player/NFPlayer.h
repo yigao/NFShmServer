@@ -152,6 +152,7 @@ public:
     uint64_t GetLastSaveDBTime() const { return m_lastSavingDBTime; }
     void SetLastSaveDBTime(uint64_t saveTime) { m_lastSavingDBTime = saveTime; }
     bool IsInSaving() { return m_lastSavingDBTime > 0 && m_lastSavingDBTime + TRANS_ACTIVE_TIMEOUT + 5 >= (uint64_t)NFTime::Now().UnixSec(); }
+    bool IsNeedSave();
 
     /**
      * @brief

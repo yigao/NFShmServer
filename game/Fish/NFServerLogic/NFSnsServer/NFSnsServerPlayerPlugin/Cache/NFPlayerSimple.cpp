@@ -13,6 +13,7 @@
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "Trans/NFSnsTransSaveSimpleDB.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerSimple, EOT_SNS_ROLE_SIMPLE_ID, NFShmObj)
 
@@ -38,6 +39,7 @@ int NFPlayerSimple::CreateInit()
 
     m_isInited = false;
     m_lastSavingDBTime = 0;
+    m_saveDBTimer = INVALID_ID;
     return 0;
 }
 
@@ -53,6 +55,15 @@ void NFPlayerSimple::SetIsInited(bool isInited)
 
 int NFPlayerSimple::ResumeInit()
 {
+    return 0;
+}
+
+int NFPlayerSimple::OnTimer(int timeId, int callcount)
+{
+    if (timeId == m_saveDBTimer)
+    {
+        SaveToDB();
+    }
     return 0;
 }
 
@@ -117,6 +128,12 @@ int NFPlayerSimple::Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData, bool
     else {
         LoadFromDB(dbData);
     }
+
+    /**
+     * @brief
+     */
+    uint32_t startMS = NFRandInt(1000, LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000);
+    m_saveDBTimer = SetTimer(LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000, 0, 0, 0, 0, startMS);
     return 0;
 }
 

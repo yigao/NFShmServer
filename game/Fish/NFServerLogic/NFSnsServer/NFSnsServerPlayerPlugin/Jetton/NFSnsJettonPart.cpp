@@ -101,7 +101,8 @@ int NFSnsJettonPart::LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData &data)
 int NFSnsJettonPart::InitConfig(const proto_ff::tbFishSnsPlayerDetailData &data)
 {
     m_bankJetton = 0;
-    m_bankPassword = "8888";
+    m_bankPassword = "888888";
+    MarkDirty();
     return 0;
 }
 
@@ -133,6 +134,8 @@ int NFSnsJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packe
             return 0;
         }
     }
+
+    m_isCanUseBank = true;
     rspMsg.set_jetton(xMsg.jetton());
     rspMsg.set_bank_jetton(m_bankJetton);
     pPlayerOnline->SendMsgToClient(proto_ff::NF_SC_BANK_GET_DATA_RSP, rspMsg);
@@ -140,4 +143,26 @@ int NFSnsJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packe
     return 0;
 }
 
+int NFSnsJettonPart::AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerAddBankJettonRsp* pResponse)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    CHECK_NULL(pRequest);
+    CHECK_NULL(pResponse);
+
+    if (m_isCanUseBank == false)
+    {
+        pResponse->set_ret_code(proto_ff::ERR_CODE_BANK_PASSWORD_NOT_RIGHT);
+        return 0;
+    }
+
+    m_bankJetton += pRequest->add_jetton();
+    MarkDirty();
+
+    pResponse->set_ret_code(0);
+    pResponse->set_add_jetton(pRequest->add_jetton());
+    pResponse->set_bank_jetton(m_bankJetton);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
 

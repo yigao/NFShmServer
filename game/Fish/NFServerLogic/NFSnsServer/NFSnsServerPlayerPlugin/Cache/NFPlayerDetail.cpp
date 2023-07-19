@@ -14,6 +14,7 @@
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
 #include "Jetton/NFSnsJettonPart.h"
+#include "NFComm/NFCore/NFRandom.hpp"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
 
@@ -38,6 +39,7 @@ int NFPlayerDetail::CreateInit()
     m_playerId = 0;
     m_pPart.resize(SNS_PART_MAX);
     m_lastSavingDBTime = 0;
+    m_saveDBTimer = INVALID_ID;
     return 0;
 }
 
@@ -103,6 +105,12 @@ int NFPlayerDetail::Init(const proto_ff::tbFishSnsPlayerDetailData &data, bool b
         vec.push_back(m_pPart[i].GetPoint());
     }
 
+    /**
+     * @brief
+     */
+    uint32_t startMS = NFRandInt(1000, LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000);
+    m_saveDBTimer = SetTimer(LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME * 1000, 0, 0, 0, 0, startMS);
+
     return 0;
 }
 
@@ -163,6 +171,15 @@ int NFPlayerDetail::RecylePart(NFSnsPart *pPart)
     CHECK_NULL(pPart);
     pPart->UnInit();
     FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+    return 0;
+}
+
+int NFPlayerDetail::OnTimer(int timeId, int callcount)
+{
+    if (timeId == m_saveDBTimer)
+    {
+        SaveToDB();
+    }
     return 0;
 }
 
@@ -264,9 +281,28 @@ int NFPlayerDetail::Update()
     return 0;
 }
 
-int NFPlayerDetail::SaveToDB(bool bForce)
+bool NFPlayerDetail::IsNeedSave()
 {
     if (IsUrgentNeedSave())
+    {
+        return true;
+    }
+
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
+    {
+        if (m_pPart[i] && m_pPart[i]->IsUrgentNeedSave())
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
+int NFPlayerDetail::SaveToDB(bool bForce)
+{
+    if (IsNeedSave())
     {
         if (bForce || NFTime::Now().UnixSec() - m_lastSavingDBTime >= LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME)
         {

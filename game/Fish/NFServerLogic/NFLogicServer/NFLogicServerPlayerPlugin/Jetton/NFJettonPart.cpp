@@ -94,7 +94,9 @@ int NFJettonPart::LoadFromDB(const proto_ff::tbFishPlayerData &data)
 
 int NFJettonPart::InitConfig(const proto_ff::tbFishPlayerData &data)
 {
-    return NFPart::InitConfig(data);
+    m_jetton = 1000000;
+    MarkDirty();
+    return 0;
 }
 
 int NFJettonPart::SaveDB(proto_ff::tbFishPlayerData &dbData)
@@ -114,7 +116,7 @@ int NFJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet)
     rspMsg.set_jetton(m_jetton);
     rspMsg.set_bank_password(xMsg.bank_password());
 
-    m_pMaster->SendMsgToSnsServer(msgId, xMsg);
+    m_pMaster->SendMsgToSnsServer(msgId, rspMsg);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
@@ -138,7 +140,7 @@ int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet
     proto_ff::Proto_LTS_PlayerAddBankJettonReq reqRpc;
     reqRpc.set_add_jetton(xMsg.save_jetton());
     proto_ff::Proto_STL_PlayerAddBankJettonRsp rspRpc;
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(NF_ST_LOGIC_SERVER, NF_ST_SNS_SERVER, 0, reqRpc, rspRpc);
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(NF_ST_LOGIC_SERVER, NF_ST_SNS_SERVER, 0, reqRpc, rspRpc, m_pMaster->GetPlayerId());
     if (iRet != 0)
     {
         rspMsg.set_result(iRet);
@@ -152,6 +154,12 @@ int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet
         m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
         return 0;
     }
+
+    m_jetton -= xMsg.save_jetton();
+    MarkDirty();
+
+    rspMsg.set_jetton(m_jetton);
+    rspMsg.set_bank_jetton(rspRpc.bank_jetton());
 
     m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");

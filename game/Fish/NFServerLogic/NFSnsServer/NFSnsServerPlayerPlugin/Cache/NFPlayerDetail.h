@@ -47,7 +47,9 @@ public:
 
 public:
     bool CanDelete();
-
+public:
+    //must be virtual
+    virtual int OnTimer(int timeId, int callcount);
 public:
     /**
      * @brief
@@ -71,6 +73,7 @@ public:
     uint64_t GetLastSaveDBTime() const { return m_lastSavingDBTime; }
     void SetLastSaveDBTime(uint64_t saveTime) { m_lastSavingDBTime = saveTime; }
     bool IsInSaving() { return m_lastSavingDBTime > 0 && m_lastSavingDBTime + TRANS_ACTIVE_TIMEOUT + 5 >= (uint64_t)NFTime::Now().UnixSec(); }
+    bool IsNeedSave();
 
     /**
      * @brief
@@ -226,6 +229,11 @@ private:
      * @brief 存db的时间
      */
     uint64_t m_lastSavingDBTime;
+
+    /**
+     * @brief
+     */
+    int m_saveDBTimer;
 private:
     NFShmVector<NFShmPtr<NFSnsPart>, PART_MAX> m_pPart;
 DECLARE_IDCREATE(NFPlayerDetail)

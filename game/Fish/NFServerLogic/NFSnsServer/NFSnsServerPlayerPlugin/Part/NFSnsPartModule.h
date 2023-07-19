@@ -63,7 +63,7 @@ public:
     {
         CHECK_EXPR_ASSERT(msgId < m_rpcMsgToPartMap.size(), -1, "");
         AddRpcService<msgId, RequestType, ResponeType>(NF_ST_SNS_SERVER, createCo);
-        m_clientMsgToPartMap[msgId] = partType;
+        m_rpcMsgToPartMap[msgId] = partType;
         return 0;
     }
 private:

@@ -385,7 +385,7 @@ public:
      * @return
      */
     template<size_t msgId, typename RequestType, typename ResponeType>
-    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone)
+    int GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone, uint64_t param1 = 0, uint64_t param2 = 0)
     {
         STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);
         static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class RequestType must is google::protobuf::Message");
@@ -404,7 +404,7 @@ public:
         svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
         svrPkg.mutable_rpc_info()->set_is_script_rpc(false);
 
-        SendMsgToServer(serverType, dstServerType, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg);
+        SendMsgToServer(serverType, dstServerType, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD, svrPkg, param1, param2);
 
         int32_t iRet = FindModule<NFICoroutineModule>()->SetUserData(&respone);
         CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
@@ -431,9 +431,9 @@ public:
      */
     template<size_t msgId, typename RequestType, typename ResponFunc>
     int64_t
-    GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, const ResponFunc &rpcCb)
+    GetRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, const ResponFunc &rpcCb, uint64_t param1 = 0, uint64_t param2 = 0)
     {
-        return GetRpcServiceInner<msgId>(serverType, dstServerType, dstBusId, request, rpcCb, &ResponFunc::operator());
+        return GetRpcServiceInner<msgId>(serverType, dstServerType, dstBusId, request, rpcCb, &ResponFunc::operator(), param1, param2);
     }
 
     int GetScriptRpcService(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, uint32_t msgId, const std::string &reqType,
@@ -501,7 +501,7 @@ private:
      */
     template<size_t msgId, typename RequestType, typename ResponFunc, typename ResponeType>
     int64_t GetRpcServiceInner(NF_SERVER_TYPES serverType, NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request,
-                           const ResponFunc &responFunc, void (ResponFunc::*pf)(int rpcRetCode, ResponeType &respone) const)
+                           const ResponFunc &responFunc, void (ResponFunc::*pf)(int rpcRetCode, ResponeType &respone) const, uint64_t param1 = 0, uint64_t param2 = 0)
     {
         return FindModule<NFICoroutineModule>()->MakeCoroutine(
                 [=]()
@@ -510,7 +510,7 @@ private:
                     int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(serverType,
                                                                                     dstServerType,
                                                                                     dstBusId, request,
-                                                                                    respone);
+                                                                                    respone, param1, param2);
                     (responFunc.*pf)(iRet, respone);
                 });
     }

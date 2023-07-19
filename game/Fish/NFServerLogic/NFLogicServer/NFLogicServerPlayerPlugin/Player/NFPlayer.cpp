@@ -398,9 +398,25 @@ int NFPlayer::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Messa
     return iRet;
 }
 
-int NFPlayer::SaveToDB(TRANS_SAVEROLEDETAIL_REASON iReason, bool bForce)
+bool NFPlayer::IsNeedSave()
 {
     if (IsUrgentNeedSave())
+    {
+        return true;
+    }
+
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i] && m_pPart[i]->IsUrgentNeedSave())
+        {
+            return true;
+        }
+    }
+}
+
+int NFPlayer::SaveToDB(TRANS_SAVEROLEDETAIL_REASON iReason, bool bForce)
+{
+    if (IsNeedSave())
     {
         if (bForce || NFTime::Now().UnixSec() - m_lastSavingDBTime >= LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME)
         {
