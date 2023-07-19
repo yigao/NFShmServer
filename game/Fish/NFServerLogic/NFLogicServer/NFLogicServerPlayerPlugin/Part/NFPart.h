@@ -13,7 +13,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-
+#include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "NFComm/NFCore/NFTime.h"
@@ -149,7 +149,7 @@ public:
      * @param createCo
      * @return
      */
-    virtual int RegisterClientMessage(uint32_t nMsgID, bool createCo);
+    virtual int RegisterClientMessage(uint32_t nMsgID, bool createCo = false);
 
     /**
      * @brief
@@ -157,7 +157,7 @@ public:
      * @param createCo
      * @return
      */
-    virtual int RegisterServerMessage(uint32_t nMsgID, bool createCo);
+    virtual int RegisterServerMessage(uint32_t nMsgID, bool createCo = false);
 public:
     //部件类型
     uint32_t PartType() { return m_partType; }

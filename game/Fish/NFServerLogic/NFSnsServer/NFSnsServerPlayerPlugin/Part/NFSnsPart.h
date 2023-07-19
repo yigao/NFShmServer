@@ -17,6 +17,10 @@
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "AllProtocol.h"
+#include "NFComm/NFPluginModule/NFIRpcService.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFSnsPartModule.h"
+#include "NFLogicCommon/NFLogicBindRpcService.h"
 
 class NFPlayerDetail;
 class NFPlayerSimple;
@@ -70,6 +74,16 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
+    /** 处理服务器之间的rpc，这里负责转发玩家part的rpc
+     * @brief
+     * @param msgId
+     * @param pRequest
+     * @param pRespone
+     * @param param1
+     * @param param2
+     * @return
+     */
+    virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone);
 public:
     /**
      * @brief
@@ -87,6 +101,21 @@ public:
      */
     int RegisterServerMessage(uint32_t nMsgID, bool createCo = false);
 
+    /**
+     * @brief 添加rpc服务， 这里的handleRecieve只是用来强绑定Request和Respone的类型，如果类型对不上，编译期间就会报错
+     * @tparam msgId
+     * @tparam BaseType
+     * @tparam RequestType
+     * @tparam ResponeType
+     * @param handleRecieve
+     * @param createCo
+     * @return
+     */
+    template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
+    int AddRpcService(int (BaseType::*handleRecieve)(RequestType* pRequest, ResponeType* pRespone), bool createCo = false)
+    {
+        return FindModule<NFSnsPartModule>()->AddPartRpcService<msgId, RequestType, ResponeType>(m_partType, createCo);
+    }
 public:
     /**
      * @brief

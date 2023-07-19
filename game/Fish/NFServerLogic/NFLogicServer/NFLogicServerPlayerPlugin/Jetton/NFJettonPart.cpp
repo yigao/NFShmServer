@@ -54,7 +54,7 @@ int NFJettonPart::UnInit()
 
 int NFJettonPart::RegisterMessage()
 {
-    RegisterClientMessage(proto_ff::NF_CS_BANK_GET_DATA_REQ, true);
+    RegisterClientMessage(proto_ff::NF_CS_BANK_GET_DATA_REQ);
     RegisterClientMessage(proto_ff::NF_CS_BANK_SAVE_MONEY_REQ, true);
     RegisterClientMessage(proto_ff::NF_CS_BANK_GET_MONEY_REQ, true);
     RegisterClientMessage(proto_ff::NF_CS_BANK_SET_PASSWORD_REQ, true);
@@ -70,6 +70,11 @@ int NFJettonPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
         case proto_ff::NF_CS_BANK_GET_DATA_REQ:
         {
             OnHandleGetBankDataReq(msgId, packet);
+            break;
+        }
+        case proto_ff::NF_CS_BANK_SAVE_MONEY_REQ:
+        {
+            OnHandleBankSaveMoneyReq(msgId, packet);
             break;
         }
     }
@@ -110,6 +115,45 @@ int NFJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet)
     rspMsg.set_bank_password(xMsg.bank_password());
 
     m_pMaster->SendMsgToSnsServer(msgId, xMsg);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
+int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+
+    proto_ff::Proto_CSBankSaveMoneyReq xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    proto_ff::Proto_SCBankSaveMoneyRsp rspMsg;
+    rspMsg.set_result(0);
+    if (xMsg.save_jetton() > m_jetton)
+    {
+        rspMsg.set_result(proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH);
+        m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
+        return 0;
+    }
+
+    proto_ff::Proto_LTS_PlayerAddBankJettonReq reqRpc;
+    reqRpc.set_add_jetton(xMsg.save_jetton());
+    proto_ff::Proto_STL_PlayerAddBankJettonRsp rspRpc;
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(NF_ST_LOGIC_SERVER, NF_ST_SNS_SERVER, 0, reqRpc, rspRpc);
+    if (iRet != 0)
+    {
+        rspMsg.set_result(iRet);
+        m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
+        return 0;
+    }
+
+    if (rspRpc.ret_code() != 0)
+    {
+        rspMsg.set_result(rspRpc.ret_code());
+        m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
+        return 0;
+    }
+
+    m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }

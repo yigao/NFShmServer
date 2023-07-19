@@ -26,7 +26,7 @@ public:
 
     }
 
-    virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg) = 0;
+    virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg, uint64_t param1, uint64_t param2) = 0;
 };
 
 /**

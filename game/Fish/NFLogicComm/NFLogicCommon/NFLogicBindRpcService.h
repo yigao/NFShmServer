@@ -58,6 +58,6 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTS
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTG_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTGPlayerReconnectReq, proto_ff::GTWPlayerReconnectRsp)
 
 /**
- * @brief 获取玩家筹码数据rpc, logic server to sns server
+ * @brief logic减少sns银行筹码, logic server to sns server
  */
-DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_BANK_GET_DATA_REQ, proto_ff::Proto_CSBankGetDataReq, proto_ff::Proto_SCBankGetDataRsp)
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC, proto_ff::Proto_LTS_PlayerAddBankJettonReq, proto_ff::Proto_STL_PlayerAddBankJettonRsp)

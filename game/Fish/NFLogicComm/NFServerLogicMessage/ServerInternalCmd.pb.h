@@ -54,11 +54,13 @@ enum Proto_SvrLogicMsgID {
   NF_WTS_PLAYER_RECONNECT_MSG_REQ = 124,
   NF_STW_PLAYER_RECONNECT_MSG_RSP = 125,
   NF_WTG_PLAYER_RECONNECT_MSG_REQ = 126,
-  NF_GTW_PLAYER_RECONNECT_MSG_RSP = 127
+  NF_GTW_PLAYER_RECONNECT_MSG_RSP = 127,
+  NF_LTS_PLAYER_ADD_BANK_JETTON_RPC = 500,
+  NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC = 501
 };
 bool Proto_SvrLogicMsgID_IsValid(int value);
 const Proto_SvrLogicMsgID Proto_SvrLogicMsgID_MIN = NF_PTW_PLAYER_LOGIN_REQ;
-const Proto_SvrLogicMsgID Proto_SvrLogicMsgID_MAX = NF_GTW_PLAYER_RECONNECT_MSG_RSP;
+const Proto_SvrLogicMsgID Proto_SvrLogicMsgID_MAX = NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC;
 const int Proto_SvrLogicMsgID_ARRAYSIZE = Proto_SvrLogicMsgID_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* Proto_SvrLogicMsgID_descriptor();

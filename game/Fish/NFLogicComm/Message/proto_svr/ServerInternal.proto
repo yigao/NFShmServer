@@ -156,3 +156,30 @@ message Proto_LTSBankGetDataReq
   optional uint64 jetton = 1;
   optional string bank_password = 2;
 }
+
+///////////////////////bank jetton////////////////////////////////
+//NF_LTS_PLAYER_ADD_BANK_JETTON_RPC = 500; logi添加sns银行筹码
+message Proto_LTS_PlayerAddBankJettonReq
+{
+  optional uint64 add_jetton = 1;
+}
+
+message Proto_STL_PlayerAddBankJettonRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 add_jetton = 2;
+  optional uint64 bank_jetton = 3;
+}
+
+//NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC = 501; logic减少sns银行筹码
+message Proto_LTS_PlayerReduceBankJettonReq
+{
+  optional uint64 reduce_jetton = 1;
+}
+
+message Proto_STL_PlayerReduceBankJettonRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 reduce_jetton = 2;
+  optional uint64 bank_jetton = 3;
+}

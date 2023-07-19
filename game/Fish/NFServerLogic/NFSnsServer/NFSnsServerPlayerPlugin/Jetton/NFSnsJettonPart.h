@@ -65,6 +65,17 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
+
+    /** 处理服务器之间的rpc，这里负责转发玩家part的rpc
+     * @brief
+     * @param msgId
+     * @param pRequest
+     * @param pRespone
+     * @param param1
+     * @param param2
+     * @return
+     */
+    virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone);
 public:
     /**
      * @brief
@@ -142,6 +153,8 @@ public:
      * @brief update
      */
     virtual int Update() { return 0; }
+public:
+    int AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerAddBankJettonRsp* pResone);
 private:
     uint64_t m_bankJetton;
     NFCommonStr m_bankPassword;

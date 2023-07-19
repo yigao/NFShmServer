@@ -142,6 +142,8 @@ public:
      * @return
      */
     int OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet);
+
+    int OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet);
 private:
     uint64_t m_jetton;
 private:

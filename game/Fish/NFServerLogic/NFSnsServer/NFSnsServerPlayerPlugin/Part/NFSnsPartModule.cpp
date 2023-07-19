@@ -15,6 +15,7 @@ NFSnsPartModule::NFSnsPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
     m_clientMsgToPartMap.resize(10000);
     m_serverMsgToPartMap.resize(10000);
+    m_rpcMsgToPartMap.resize(10000);
 }
 
 NFSnsPartModule::~NFSnsPartModule()
@@ -63,7 +64,7 @@ int NFSnsPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet
         }
     }
     else {
-        NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find player by roleId:{}, drop the msg:{}", playerId, packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find player by playerId:{}, drop the msg:{}", playerId, packet.ToString());
     }
     return 0;
 }
@@ -80,13 +81,40 @@ int NFSnsPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet
             {
                 return pPart->OnHandleServerMessage(msgId, packet);
             }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg:{}", msgId, m_serverMsgToPartMap[msgId], packet.ToString());
+            }
         }
     }
     else {
-        NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find player by roleId:{}, drop the msg:{}", playerId, packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find player by playerId:{}, drop the msg:{}", playerId, packet.ToString());
     }
     return 0;
 }
+
+int NFSnsPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t playerId, uint64_t param2)
+{
+    NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerDetail(playerId);
+    if (pPlayer)
+    {
+        if (msgId < m_rpcMsgToPartMap.size() && m_rpcMsgToPartMap[msgId]  != 0)
+        {
+            NFSnsPart* pPart = pPlayer->GetPart(m_rpcMsgToPartMap[msgId]);
+            if (pPart)
+            {
+                return pPart->OnHandleRpcMessage(msgId, pRequest, pRespone);
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_rpcMsgToPartMap[msgId]);
+            }
+        }
+    }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find player by playerId:{}, drop the msg:{}", playerId, msgId);
+    }
+    return proto_ff::ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED;
+}
+
 
 int NFSnsPartModule::RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo)
 {

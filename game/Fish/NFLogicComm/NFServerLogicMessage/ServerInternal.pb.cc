@@ -77,6 +77,18 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_LTSBankGetDataReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_LTSBankGetDataReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_LTS_PlayerAddBankJettonReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_LTS_PlayerAddBankJettonReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_STL_PlayerAddBankJettonRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_STL_PlayerAddBankJettonRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_LTS_PlayerReduceBankJettonReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_LTS_PlayerReduceBankJettonReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_STL_PlayerReduceBankJettonRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_STL_PlayerReduceBankJettonRsp_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_AccountState_descriptor_ = NULL;
 
 }  // namespace
@@ -419,6 +431,70 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_LTSBankGetDataReq));
+  Proto_LTS_PlayerAddBankJettonReq_descriptor_ = file->message_type(19);
+  static const int Proto_LTS_PlayerAddBankJettonReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTS_PlayerAddBankJettonReq, add_jetton_),
+  };
+  Proto_LTS_PlayerAddBankJettonReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_LTS_PlayerAddBankJettonReq_descriptor_,
+      Proto_LTS_PlayerAddBankJettonReq::default_instance_,
+      Proto_LTS_PlayerAddBankJettonReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTS_PlayerAddBankJettonReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTS_PlayerAddBankJettonReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_LTS_PlayerAddBankJettonReq));
+  Proto_STL_PlayerAddBankJettonRsp_descriptor_ = file->message_type(20);
+  static const int Proto_STL_PlayerAddBankJettonRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerAddBankJettonRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerAddBankJettonRsp, add_jetton_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerAddBankJettonRsp, bank_jetton_),
+  };
+  Proto_STL_PlayerAddBankJettonRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_STL_PlayerAddBankJettonRsp_descriptor_,
+      Proto_STL_PlayerAddBankJettonRsp::default_instance_,
+      Proto_STL_PlayerAddBankJettonRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerAddBankJettonRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerAddBankJettonRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_STL_PlayerAddBankJettonRsp));
+  Proto_LTS_PlayerReduceBankJettonReq_descriptor_ = file->message_type(21);
+  static const int Proto_LTS_PlayerReduceBankJettonReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTS_PlayerReduceBankJettonReq, reduce_jetton_),
+  };
+  Proto_LTS_PlayerReduceBankJettonReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_LTS_PlayerReduceBankJettonReq_descriptor_,
+      Proto_LTS_PlayerReduceBankJettonReq::default_instance_,
+      Proto_LTS_PlayerReduceBankJettonReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTS_PlayerReduceBankJettonReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTS_PlayerReduceBankJettonReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_LTS_PlayerReduceBankJettonReq));
+  Proto_STL_PlayerReduceBankJettonRsp_descriptor_ = file->message_type(22);
+  static const int Proto_STL_PlayerReduceBankJettonRsp_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerReduceBankJettonRsp, ret_code_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerReduceBankJettonRsp, reduce_jetton_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerReduceBankJettonRsp, bank_jetton_),
+  };
+  Proto_STL_PlayerReduceBankJettonRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_STL_PlayerReduceBankJettonRsp_descriptor_,
+      Proto_STL_PlayerReduceBankJettonRsp::default_instance_,
+      Proto_STL_PlayerReduceBankJettonRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerReduceBankJettonRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STL_PlayerReduceBankJettonRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_STL_PlayerReduceBankJettonRsp));
   Proto_AccountState_descriptor_ = file->enum_type(0);
 }
 
@@ -470,6 +546,14 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Proto_WTSLogoutNotify_descriptor_, &Proto_WTSLogoutNotify::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_LTSBankGetDataReq_descriptor_, &Proto_LTSBankGetDataReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_LTS_PlayerAddBankJettonReq_descriptor_, &Proto_LTS_PlayerAddBankJettonReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_STL_PlayerAddBankJettonRsp_descriptor_, &Proto_STL_PlayerAddBankJettonRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_LTS_PlayerReduceBankJettonReq_descriptor_, &Proto_LTS_PlayerReduceBankJettonReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_STL_PlayerReduceBankJettonRsp_descriptor_, &Proto_STL_PlayerReduceBankJettonRsp::default_instance());
 }
 
 }  // namespace
@@ -513,6 +597,14 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete Proto_WTSLogoutNotify_reflection_;
   delete Proto_LTSBankGetDataReq::default_instance_;
   delete Proto_LTSBankGetDataReq_reflection_;
+  delete Proto_LTS_PlayerAddBankJettonReq::default_instance_;
+  delete Proto_LTS_PlayerAddBankJettonReq_reflection_;
+  delete Proto_STL_PlayerAddBankJettonRsp::default_instance_;
+  delete Proto_STL_PlayerAddBankJettonRsp_reflection_;
+  delete Proto_LTS_PlayerReduceBankJettonReq::default_instance_;
+  delete Proto_LTS_PlayerReduceBankJettonReq_reflection_;
+  delete Proto_STL_PlayerReduceBankJettonRsp::default_instance_;
+  delete Proto_STL_PlayerReduceBankJettonRsp_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -573,10 +665,18 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "\"*\n\025Proto_WTLLogoutNotify\022\021\n\tplayer_id\030\001"
     " \001(\004\"*\n\025Proto_WTSLogoutNotify\022\021\n\tplayer_"
     "id\030\001 \001(\004\"@\n\027Proto_LTSBankGetDataReq\022\016\n\006j"
-    "etton\030\001 \001(\004\022\025\n\rbank_password\030\002 \001(\t*a\n\022Pr"
-    "oto_AccountState\022\025\n\021E_ACCOUNTSTATE_OK\020\000\022"
-    "\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOUNTS"
-    "TATE_FORBIT\020\002", 2093);
+    "etton\030\001 \001(\004\022\025\n\rbank_password\030\002 \001(\t\"6\n Pr"
+    "oto_LTS_PlayerAddBankJettonReq\022\022\n\nadd_je"
+    "tton\030\001 \001(\004\"]\n Proto_STL_PlayerAddBankJet"
+    "tonRsp\022\020\n\010ret_code\030\001 \001(\005\022\022\n\nadd_jetton\030\002"
+    " \001(\004\022\023\n\013bank_jetton\030\003 \001(\004\"<\n#Proto_LTS_P"
+    "layerReduceBankJettonReq\022\025\n\rreduce_jetto"
+    "n\030\001 \001(\004\"c\n#Proto_STL_PlayerReduceBankJet"
+    "tonRsp\022\020\n\010ret_code\030\001 \001(\005\022\025\n\rreduce_jetto"
+    "n\030\002 \001(\004\022\023\n\013bank_jetton\030\003 \001(\004*a\n\022Proto_Ac"
+    "countState\022\025\n\021E_ACCOUNTSTATE_OK\020\000\022\031\n\025E_A"
+    "CCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOUNTSTATE_F"
+    "ORBIT\020\002", 2407);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -598,6 +698,10 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_WTLLogoutNotify::default_instance_ = new Proto_WTLLogoutNotify();
   Proto_WTSLogoutNotify::default_instance_ = new Proto_WTSLogoutNotify();
   Proto_LTSBankGetDataReq::default_instance_ = new Proto_LTSBankGetDataReq();
+  Proto_LTS_PlayerAddBankJettonReq::default_instance_ = new Proto_LTS_PlayerAddBankJettonReq();
+  Proto_STL_PlayerAddBankJettonRsp::default_instance_ = new Proto_STL_PlayerAddBankJettonRsp();
+  Proto_LTS_PlayerReduceBankJettonReq::default_instance_ = new Proto_LTS_PlayerReduceBankJettonReq();
+  Proto_STL_PlayerReduceBankJettonRsp::default_instance_ = new Proto_STL_PlayerReduceBankJettonRsp();
   Proto_PTWUserLoginReq::default_instance_->InitAsDefaultInstance();
   Proto_WTPPlayerLoginRsp::default_instance_->InitAsDefaultInstance();
   Proto_WorldToLogicLoginReq::default_instance_->InitAsDefaultInstance();
@@ -617,6 +721,10 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_WTLLogoutNotify::default_instance_->InitAsDefaultInstance();
   Proto_WTSLogoutNotify::default_instance_->InitAsDefaultInstance();
   Proto_LTSBankGetDataReq::default_instance_->InitAsDefaultInstance();
+  Proto_LTS_PlayerAddBankJettonReq::default_instance_->InitAsDefaultInstance();
+  Proto_STL_PlayerAddBankJettonRsp::default_instance_->InitAsDefaultInstance();
+  Proto_LTS_PlayerReduceBankJettonReq::default_instance_->InitAsDefaultInstance();
+  Proto_STL_PlayerReduceBankJettonRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -6545,6 +6653,998 @@ void Proto_LTSBankGetDataReq::Swap(Proto_LTSBankGetDataReq* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_LTSBankGetDataReq_descriptor_;
   metadata.reflection = Proto_LTSBankGetDataReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_LTS_PlayerAddBankJettonReq::kAddJettonFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_LTS_PlayerAddBankJettonReq::Proto_LTS_PlayerAddBankJettonReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::InitAsDefaultInstance() {
+}
+
+Proto_LTS_PlayerAddBankJettonReq::Proto_LTS_PlayerAddBankJettonReq(const Proto_LTS_PlayerAddBankJettonReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::SharedCtor() {
+  _cached_size_ = 0;
+  add_jetton_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_LTS_PlayerAddBankJettonReq::~Proto_LTS_PlayerAddBankJettonReq() {
+  SharedDtor();
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_LTS_PlayerAddBankJettonReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_LTS_PlayerAddBankJettonReq_descriptor_;
+}
+
+const Proto_LTS_PlayerAddBankJettonReq& Proto_LTS_PlayerAddBankJettonReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_LTS_PlayerAddBankJettonReq* Proto_LTS_PlayerAddBankJettonReq::default_instance_ = NULL;
+
+Proto_LTS_PlayerAddBankJettonReq* Proto_LTS_PlayerAddBankJettonReq::New() const {
+  return new Proto_LTS_PlayerAddBankJettonReq;
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    add_jetton_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_LTS_PlayerAddBankJettonReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 add_jetton = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &add_jetton_)));
+          set_has_add_jetton();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 add_jetton = 1;
+  if (has_add_jetton()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->add_jetton(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_LTS_PlayerAddBankJettonReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 add_jetton = 1;
+  if (has_add_jetton()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->add_jetton(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_LTS_PlayerAddBankJettonReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 add_jetton = 1;
+    if (has_add_jetton()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->add_jetton());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_LTS_PlayerAddBankJettonReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_LTS_PlayerAddBankJettonReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::MergeFrom(const Proto_LTS_PlayerAddBankJettonReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_add_jetton()) {
+      set_add_jetton(from.add_jetton());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::CopyFrom(const Proto_LTS_PlayerAddBankJettonReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_LTS_PlayerAddBankJettonReq::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_LTS_PlayerAddBankJettonReq::Swap(Proto_LTS_PlayerAddBankJettonReq* other) {
+  if (other != this) {
+    std::swap(add_jetton_, other->add_jetton_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_LTS_PlayerAddBankJettonReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_LTS_PlayerAddBankJettonReq_descriptor_;
+  metadata.reflection = Proto_LTS_PlayerAddBankJettonReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_STL_PlayerAddBankJettonRsp::kRetCodeFieldNumber;
+const int Proto_STL_PlayerAddBankJettonRsp::kAddJettonFieldNumber;
+const int Proto_STL_PlayerAddBankJettonRsp::kBankJettonFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_STL_PlayerAddBankJettonRsp::Proto_STL_PlayerAddBankJettonRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::InitAsDefaultInstance() {
+}
+
+Proto_STL_PlayerAddBankJettonRsp::Proto_STL_PlayerAddBankJettonRsp(const Proto_STL_PlayerAddBankJettonRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  add_jetton_ = GOOGLE_ULONGLONG(0);
+  bank_jetton_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_STL_PlayerAddBankJettonRsp::~Proto_STL_PlayerAddBankJettonRsp() {
+  SharedDtor();
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_STL_PlayerAddBankJettonRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_STL_PlayerAddBankJettonRsp_descriptor_;
+}
+
+const Proto_STL_PlayerAddBankJettonRsp& Proto_STL_PlayerAddBankJettonRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_STL_PlayerAddBankJettonRsp* Proto_STL_PlayerAddBankJettonRsp::default_instance_ = NULL;
+
+Proto_STL_PlayerAddBankJettonRsp* Proto_STL_PlayerAddBankJettonRsp::New() const {
+  return new Proto_STL_PlayerAddBankJettonRsp;
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    add_jetton_ = GOOGLE_ULONGLONG(0);
+    bank_jetton_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_STL_PlayerAddBankJettonRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_add_jetton;
+        break;
+      }
+
+      // optional uint64 add_jetton = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_add_jetton:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &add_jetton_)));
+          set_has_add_jetton();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_bank_jetton;
+        break;
+      }
+
+      // optional uint64 bank_jetton = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bank_jetton:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &bank_jetton_)));
+          set_has_bank_jetton();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional uint64 add_jetton = 2;
+  if (has_add_jetton()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->add_jetton(), output);
+  }
+
+  // optional uint64 bank_jetton = 3;
+  if (has_bank_jetton()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->bank_jetton(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_STL_PlayerAddBankJettonRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional uint64 add_jetton = 2;
+  if (has_add_jetton()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->add_jetton(), target);
+  }
+
+  // optional uint64 bank_jetton = 3;
+  if (has_bank_jetton()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->bank_jetton(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_STL_PlayerAddBankJettonRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional uint64 add_jetton = 2;
+    if (has_add_jetton()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->add_jetton());
+    }
+
+    // optional uint64 bank_jetton = 3;
+    if (has_bank_jetton()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->bank_jetton());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_STL_PlayerAddBankJettonRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_STL_PlayerAddBankJettonRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::MergeFrom(const Proto_STL_PlayerAddBankJettonRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_add_jetton()) {
+      set_add_jetton(from.add_jetton());
+    }
+    if (from.has_bank_jetton()) {
+      set_bank_jetton(from.bank_jetton());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::CopyFrom(const Proto_STL_PlayerAddBankJettonRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_STL_PlayerAddBankJettonRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_STL_PlayerAddBankJettonRsp::Swap(Proto_STL_PlayerAddBankJettonRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(add_jetton_, other->add_jetton_);
+    std::swap(bank_jetton_, other->bank_jetton_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_STL_PlayerAddBankJettonRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_STL_PlayerAddBankJettonRsp_descriptor_;
+  metadata.reflection = Proto_STL_PlayerAddBankJettonRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_LTS_PlayerReduceBankJettonReq::kReduceJettonFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_LTS_PlayerReduceBankJettonReq::Proto_LTS_PlayerReduceBankJettonReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::InitAsDefaultInstance() {
+}
+
+Proto_LTS_PlayerReduceBankJettonReq::Proto_LTS_PlayerReduceBankJettonReq(const Proto_LTS_PlayerReduceBankJettonReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::SharedCtor() {
+  _cached_size_ = 0;
+  reduce_jetton_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_LTS_PlayerReduceBankJettonReq::~Proto_LTS_PlayerReduceBankJettonReq() {
+  SharedDtor();
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_LTS_PlayerReduceBankJettonReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_LTS_PlayerReduceBankJettonReq_descriptor_;
+}
+
+const Proto_LTS_PlayerReduceBankJettonReq& Proto_LTS_PlayerReduceBankJettonReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_LTS_PlayerReduceBankJettonReq* Proto_LTS_PlayerReduceBankJettonReq::default_instance_ = NULL;
+
+Proto_LTS_PlayerReduceBankJettonReq* Proto_LTS_PlayerReduceBankJettonReq::New() const {
+  return new Proto_LTS_PlayerReduceBankJettonReq;
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    reduce_jetton_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_LTS_PlayerReduceBankJettonReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 reduce_jetton = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &reduce_jetton_)));
+          set_has_reduce_jetton();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 reduce_jetton = 1;
+  if (has_reduce_jetton()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->reduce_jetton(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_LTS_PlayerReduceBankJettonReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 reduce_jetton = 1;
+  if (has_reduce_jetton()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->reduce_jetton(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_LTS_PlayerReduceBankJettonReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 reduce_jetton = 1;
+    if (has_reduce_jetton()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->reduce_jetton());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_LTS_PlayerReduceBankJettonReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_LTS_PlayerReduceBankJettonReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::MergeFrom(const Proto_LTS_PlayerReduceBankJettonReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_reduce_jetton()) {
+      set_reduce_jetton(from.reduce_jetton());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::CopyFrom(const Proto_LTS_PlayerReduceBankJettonReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_LTS_PlayerReduceBankJettonReq::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_LTS_PlayerReduceBankJettonReq::Swap(Proto_LTS_PlayerReduceBankJettonReq* other) {
+  if (other != this) {
+    std::swap(reduce_jetton_, other->reduce_jetton_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_LTS_PlayerReduceBankJettonReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_LTS_PlayerReduceBankJettonReq_descriptor_;
+  metadata.reflection = Proto_LTS_PlayerReduceBankJettonReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_STL_PlayerReduceBankJettonRsp::kRetCodeFieldNumber;
+const int Proto_STL_PlayerReduceBankJettonRsp::kReduceJettonFieldNumber;
+const int Proto_STL_PlayerReduceBankJettonRsp::kBankJettonFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_STL_PlayerReduceBankJettonRsp::Proto_STL_PlayerReduceBankJettonRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::InitAsDefaultInstance() {
+}
+
+Proto_STL_PlayerReduceBankJettonRsp::Proto_STL_PlayerReduceBankJettonRsp(const Proto_STL_PlayerReduceBankJettonRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::SharedCtor() {
+  _cached_size_ = 0;
+  ret_code_ = 0;
+  reduce_jetton_ = GOOGLE_ULONGLONG(0);
+  bank_jetton_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_STL_PlayerReduceBankJettonRsp::~Proto_STL_PlayerReduceBankJettonRsp() {
+  SharedDtor();
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_STL_PlayerReduceBankJettonRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_STL_PlayerReduceBankJettonRsp_descriptor_;
+}
+
+const Proto_STL_PlayerReduceBankJettonRsp& Proto_STL_PlayerReduceBankJettonRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_STL_PlayerReduceBankJettonRsp* Proto_STL_PlayerReduceBankJettonRsp::default_instance_ = NULL;
+
+Proto_STL_PlayerReduceBankJettonRsp* Proto_STL_PlayerReduceBankJettonRsp::New() const {
+  return new Proto_STL_PlayerReduceBankJettonRsp;
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    ret_code_ = 0;
+    reduce_jetton_ = GOOGLE_ULONGLONG(0);
+    bank_jetton_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_STL_PlayerReduceBankJettonRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 ret_code = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_code_)));
+          set_has_ret_code();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_reduce_jetton;
+        break;
+      }
+
+      // optional uint64 reduce_jetton = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_reduce_jetton:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &reduce_jetton_)));
+          set_has_reduce_jetton();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_bank_jetton;
+        break;
+      }
+
+      // optional uint64 bank_jetton = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bank_jetton:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &bank_jetton_)));
+          set_has_bank_jetton();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_code(), output);
+  }
+
+  // optional uint64 reduce_jetton = 2;
+  if (has_reduce_jetton()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->reduce_jetton(), output);
+  }
+
+  // optional uint64 bank_jetton = 3;
+  if (has_bank_jetton()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(3, this->bank_jetton(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_STL_PlayerReduceBankJettonRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 ret_code = 1;
+  if (has_ret_code()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_code(), target);
+  }
+
+  // optional uint64 reduce_jetton = 2;
+  if (has_reduce_jetton()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->reduce_jetton(), target);
+  }
+
+  // optional uint64 bank_jetton = 3;
+  if (has_bank_jetton()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(3, this->bank_jetton(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_STL_PlayerReduceBankJettonRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 ret_code = 1;
+    if (has_ret_code()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_code());
+    }
+
+    // optional uint64 reduce_jetton = 2;
+    if (has_reduce_jetton()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->reduce_jetton());
+    }
+
+    // optional uint64 bank_jetton = 3;
+    if (has_bank_jetton()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->bank_jetton());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_STL_PlayerReduceBankJettonRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_STL_PlayerReduceBankJettonRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::MergeFrom(const Proto_STL_PlayerReduceBankJettonRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_code()) {
+      set_ret_code(from.ret_code());
+    }
+    if (from.has_reduce_jetton()) {
+      set_reduce_jetton(from.reduce_jetton());
+    }
+    if (from.has_bank_jetton()) {
+      set_bank_jetton(from.bank_jetton());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::CopyFrom(const Proto_STL_PlayerReduceBankJettonRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_STL_PlayerReduceBankJettonRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_STL_PlayerReduceBankJettonRsp::Swap(Proto_STL_PlayerReduceBankJettonRsp* other) {
+  if (other != this) {
+    std::swap(ret_code_, other->ret_code_);
+    std::swap(reduce_jetton_, other->reduce_jetton_);
+    std::swap(bank_jetton_, other->bank_jetton_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_STL_PlayerReduceBankJettonRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_STL_PlayerReduceBankJettonRsp_descriptor_;
+  metadata.reflection = Proto_STL_PlayerReduceBankJettonRsp_reflection_;
   return metadata;
 }
 

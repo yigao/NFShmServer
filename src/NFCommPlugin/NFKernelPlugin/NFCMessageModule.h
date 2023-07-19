@@ -220,7 +220,7 @@ public:
 
     int OnSocketNetEvent(eMsgType nEvent, uint64_t serverLinkId, uint64_t objectLinkId);
 
-    int OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, const proto_ff::Proto_SvrPkg& svrPkg);
+    int OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, const proto_ff::Proto_SvrPkg& svrPkg, uint64_t param1, uint64_t param2);
 public:
     virtual bool ResponseHttpMsg(NF_SERVER_TYPES serverType, const NFIHttpHandle &req, const std::string &strMsg,
                                  NFWebStatus code = NFWebStatus::WEB_OK, const std::string &reason = "OK");

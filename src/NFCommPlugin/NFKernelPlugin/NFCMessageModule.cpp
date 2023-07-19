@@ -763,7 +763,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                 }
                 else
                 {
-                    OnHandleRpcService(connectionLink, objectLinkId, svrPkg);
+                    OnHandleRpcService(connectionLink, objectLinkId, svrPkg, packet.nParam1, packet.nParam2);
                     uint64_t useTime = NFGetMicroSecondTime() - startTime;
                     if (useTime / 1000 > 33)
                     {
@@ -783,7 +783,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
     return 0;
 }
 
-int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, const proto_ff::Proto_SvrPkg &reqSvrPkg)
+int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objectLinkId, const proto_ff::Proto_SvrPkg &reqSvrPkg, uint64_t param1, uint64_t param2)
 {
     int iRet = 0;
     uint32_t nMsgId = reqSvrPkg.msg_id();
@@ -802,9 +802,9 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
                 {
                     NFIRpcService *pRpcService = netRpcService.m_pRpcService;
                     int64_t coId = FindModule<NFICoroutineModule>()->MakeCoroutine(
-                            [this, pRpcService, objectLinkId, reqSvrPkg]()
+                            [this, pRpcService, objectLinkId, reqSvrPkg, param1, param2]()
                             {
-                                int iRet = pRpcService->run(objectLinkId, reqSvrPkg);
+                                int iRet = pRpcService->run(objectLinkId, reqSvrPkg, param1, param2);
                                 if (iRet != 0)
                                 {
                                     uint32_t eServerType = GetServerTypeFromUnlinkId(objectLinkId);
@@ -833,7 +833,7 @@ int NFCMessageModule::OnHandleRpcService(uint64_t connectionLink, uint64_t objec
                 }
                 else
                 {
-                    iRet = netRpcService.m_pRpcService->run(objectLinkId, reqSvrPkg);
+                    iRet = netRpcService.m_pRpcService->run(objectLinkId, reqSvrPkg, param1, param2);
                 }
                 netRpcService.m_iCount++;
                 uint64_t useTime = NFGetMicroSecondTime() - startTime;
