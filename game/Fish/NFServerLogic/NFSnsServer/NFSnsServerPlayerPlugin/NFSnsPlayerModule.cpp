@@ -292,6 +292,8 @@ int NFCSnsPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTSPlayerReconnect
         return 0;
     }
 
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerDetail->GetPlayerId(), "player:{} reconnect success", pPlayerDetail->GetPlayerId());
+
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }

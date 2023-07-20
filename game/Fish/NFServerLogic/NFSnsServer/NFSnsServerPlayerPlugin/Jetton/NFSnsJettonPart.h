@@ -154,7 +154,21 @@ public:
      */
     virtual int Update() { return 0; }
 public:
-    int AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerAddBankJettonRsp* pResone);
+    /**
+     * @brief 增加银行筹码rpc
+     * @param pRequest
+     * @param pResone
+     * @return
+     */
+    int AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerAddBankJettonRsp* pResponse);
+
+    /**
+     * @brief 减少银行筹码rpc
+     * @param pRequest
+     * @param pResone
+     * @return
+     */
+    int ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerReduceBankJettonRsp* pResponse);
 private:
     uint64_t m_bankJetton;
     NFCommonStr m_bankPassword;

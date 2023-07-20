@@ -222,6 +222,8 @@ int NFCLogicPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTLPlayerReconne
     pPlayer->SetProxyId(request.proxy_bus_id());
     pPlayer->OnReconnect();
 
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player:{} reconnect success", pPlayer->GetPlayerId());
+
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }

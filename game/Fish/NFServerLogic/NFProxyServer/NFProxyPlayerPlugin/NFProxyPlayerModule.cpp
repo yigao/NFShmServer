@@ -918,7 +918,7 @@ int NFCProxyPlayerModule::OnHandlePlayerReconnectFromClient(uint64_t unLinkId, N
     NF_SHARE_PTR<NFServerData> pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, pPlayerLinkInfo->GetLogicBusId());
     if (pLogicServer == NULL)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, pPlayerLinkInfo->GetLogicBusId(), "proxy donot connect logic server:{}", pPlayerLinkInfo->GetLogicBusId());
+        NFLogError(NF_LOG_SYSTEMLOG, pPlayerLinkInfo->GetPlayerId(), "proxy donot connect logic server:{}", pPlayerLinkInfo->GetLogicBusId());
         proto_ff::Proto_SCReconnectRsp gcMsg;
         gcMsg.set_result(-1);
         FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
@@ -926,6 +926,8 @@ int NFCProxyPlayerModule::OnHandlePlayerReconnectFromClient(uint64_t unLinkId, N
         KickPlayer(unLinkId, 0);
         return 0;
     }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerLinkInfo->GetPlayerId(), "player:{} reconnect success", pPlayerLinkInfo->GetPlayerId());
 
     proto_ff::Proto_SCReconnectRsp gcMsg;
     gcMsg.set_result(0);

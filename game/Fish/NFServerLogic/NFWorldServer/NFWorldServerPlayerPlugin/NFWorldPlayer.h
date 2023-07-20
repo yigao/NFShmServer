@@ -46,16 +46,6 @@ public:
     void SetLastLogtouTime(uint64_t logoutTime) { m_lastLogoutTime = logoutTime; }
     bool IsInGaming() { return m_gameId > 0 && m_roomId > 0; }
 
-    bool IsRoomLock() const { return m_roomLock; }
-    void SetRoomLock(bool roomLock) { m_roomLock = roomLock; }
-    void LockRoom();
-    void ClearLockRoom();
-
-    bool IsGameLock() const { return m_gameLock; }
-    void SetgameLock(bool gameLock) { m_gameLock = gameLock; }
-    void LockGame();
-    void ClearLockGame();
-
     uint32_t m_gameId;
     uint32_t m_roomId;
 private:
@@ -66,11 +56,5 @@ private:
     uint64_t m_createTime;
     uint64_t m_lastDiconnectTime;
     uint64_t m_lastLogoutTime;
-
-    bool m_roomLock;
-    int m_roomLockTimeId;
-
-    bool m_gameLock;
-    int m_gameLockTimeId;
 DECLARE_IDCREATE(NFWorldPlayer)
 };

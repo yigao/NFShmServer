@@ -310,6 +310,8 @@ int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconne
 
     pPlayerInfo->SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
 
+    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player:{} reconnect success", pPlayerInfo->GetPlayerId());
+
     respone.set_result(0);
     respone.set_player_id(pPlayerInfo->GetPlayerId());
     respone.set_game_id(pPlayerInfo->m_gameId);

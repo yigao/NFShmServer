@@ -82,7 +82,7 @@ void NFPlayer::Tick()
             if ((uint64_t) NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
                 break;
 
-            if (m_iTransNum > 0)
+            if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_playerId))
             {
                 if ((uint64_t) NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
@@ -108,7 +108,7 @@ void NFPlayer::Tick()
             if ((uint64_t) NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
                 break;
 
-            if (m_iTransNum > 0)
+            if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_playerId))
             {
                 if ((uint64_t) NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
@@ -129,6 +129,11 @@ void NFPlayer::Tick()
         case proto_ff::PLAYER_STATUS_LOGOUT:
         default:
         {
+            if (FindModule<NFICoroutineModule>()->IsExistUserCo(m_playerId))
+            {
+                break;
+            }
+
             if (!IsUrgentNeedSave())
             {
                 if (m_iTransNum <= 0)
@@ -412,6 +417,8 @@ bool NFPlayer::IsNeedSave()
             return true;
         }
     }
+
+    return false;
 }
 
 int NFPlayer::SaveToDB(TRANS_SAVEROLEDETAIL_REASON iReason, bool bForce)

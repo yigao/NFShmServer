@@ -94,7 +94,7 @@ int NFSnsPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet
 
 int NFSnsPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t playerId, uint64_t param2)
 {
-    NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerDetail(playerId);
+    NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(playerId);
     if (pPlayer)
     {
         if (msgId < m_rpcMsgToPartMap.size() && m_rpcMsgToPartMap[msgId]  != 0)

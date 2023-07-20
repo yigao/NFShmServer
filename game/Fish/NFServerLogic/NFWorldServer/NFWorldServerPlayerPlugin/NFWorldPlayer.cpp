@@ -27,19 +27,7 @@ NFWorldPlayer::NFWorldPlayer()
 
 NFWorldPlayer::~NFWorldPlayer()
 {
-    if (m_gameLockTimeId != INVALID_ID)
-    {
-        DeleteTimer(m_gameLockTimeId);
-        m_gameLockTimeId = INVALID_ID;
-        m_gameLock = false;
-    }
 
-    if (m_roomLockTimeId != INVALID_ID)
-    {
-        DeleteTimer(m_roomLockTimeId);
-        m_roomLockTimeId = INVALID_ID;
-        m_roomLock = false;
-    }
 }
 
 int NFWorldPlayer::CreateInit()
@@ -48,16 +36,12 @@ int NFWorldPlayer::CreateInit()
     m_proxyId = 0;
     m_gameId = 0;
     m_roomId = 0;
-    m_roomLock = false;
-    m_roomLockTimeId = 0;
     m_logicId = 0;
     m_iStatus = proto_ff::PLAYER_STATUS_NONE;
     m_lastDiconnectTime = 0;
     m_createTime = NFTime::Now().UnixSec();
     m_lastLogoutTime = 0;
 
-    m_gameLock = false;
-    m_gameLockTimeId = INVALID_ID;
     return 0;
 }
 
@@ -68,47 +52,7 @@ int NFWorldPlayer::ResumeInit()
 
 int NFWorldPlayer::OnTimer(int timeId, int callcount)
 {
-    if (timeId == m_roomLockTimeId)
-    {
-        ClearLockRoom();
-    }
-
-    if (timeId == m_gameLockTimeId)
-    {
-        ClearLockGame();
-    }
-
     return 0;
-}
-
-void NFWorldPlayer::LockRoom()
-{
-    m_roomLockTimeId = SetTimer(0, 0, 1, 0);
-    m_roomLock = true;
-}
-
-void NFWorldPlayer::ClearLockRoom()
-{
-    if (m_roomLockTimeId != INVALID_ID) {
-        DeleteTimer(m_roomLockTimeId);
-    }
-    m_roomLock = false;
-    m_roomLockTimeId = INVALID_ID;
-}
-
-void NFWorldPlayer::LockGame()
-{
-    m_gameLockTimeId = SetTimer(0, 0, 1, 0);
-    m_gameLock = true;
-}
-
-void NFWorldPlayer::ClearLockGame()
-{
-    if (m_gameLockTimeId != INVALID_ID) {
-        DeleteTimer(m_gameLockTimeId);
-    }
-    m_gameLock = false;
-    m_gameLockTimeId = INVALID_ID;
 }
 
 void  NFWorldPlayer::Tick()

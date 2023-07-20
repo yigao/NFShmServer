@@ -143,6 +143,7 @@ int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet
     int iRet = GetRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(NF_ST_SNS_SERVER, 0, reqRpc, rspRpc);
     if (iRet != 0)
     {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "GetRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC> Failed, iRet:{}", GetErrorStr(iRet));
         rspMsg.set_result(iRet);
         m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
         return 0;
@@ -150,7 +151,35 @@ int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet
 
     if (rspRpc.ret_code() != 0)
     {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "GetRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC> Failed, rspRpc.ret_code():{}", GetErrorStr(rspRpc.ret_code()));
         rspMsg.set_result(rspRpc.ret_code());
+        m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
+        return 0;
+    }
+
+    if (rspRpc.add_jetton() > m_jetton)
+    {
+        proto_ff::Proto_LTS_PlayerReduceBankJettonReq reduceReqRpc;
+        reduceReqRpc.set_reduce_jetton(rspRpc.add_jetton());
+        proto_ff::Proto_STL_PlayerReduceBankJettonRsp reduceRspRpc;
+        iRet = GetRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC>(NF_ST_SNS_SERVER, 0, reduceReqRpc, reduceRspRpc);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "rspRpc.add_jetton() > m_jetton GetRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC> Failed, iRet:{}", GetErrorStr(iRet));
+            rspMsg.set_result(iRet);
+            m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
+            return 0;
+        }
+
+        if (reduceRspRpc.ret_code() != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "rspRpc.add_jetton() > m_jetton GetRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC> Failed, rspRpc.ret_code():{}", GetErrorStr(rspRpc.ret_code()));
+            rspMsg.set_result(reduceRspRpc.ret_code());
+            m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
+            return 0;
+        }
+
+        rspMsg.set_result(proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH);
         m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
         return 0;
     }

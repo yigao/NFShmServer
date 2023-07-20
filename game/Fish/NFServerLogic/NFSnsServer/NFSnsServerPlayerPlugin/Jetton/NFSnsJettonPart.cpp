@@ -55,6 +55,7 @@ int NFSnsJettonPart::RegisterMessage()
 {
     RegisterServerMessage(proto_ff::NF_CS_BANK_GET_DATA_REQ);
     AddRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(&NFSnsJettonPart::AddBankJettonService);
+    AddRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC>(&NFSnsJettonPart::ReduceBankJettonService);
     return 0;
 }
 
@@ -149,17 +150,38 @@ int NFSnsJettonPart::AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJetto
     CHECK_NULL(pRequest);
     CHECK_NULL(pResponse);
 
-    if (m_isCanUseBank == false)
-    {
-        pResponse->set_ret_code(proto_ff::ERR_CODE_BANK_PASSWORD_NOT_RIGHT);
-        return 0;
-    }
-
     m_bankJetton += pRequest->add_jetton();
     MarkDirty();
 
     pResponse->set_ret_code(0);
     pResponse->set_add_jetton(pRequest->add_jetton());
+    pResponse->set_bank_jetton(m_bankJetton);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
+int NFSnsJettonPart::ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerReduceBankJettonRsp* pResponse)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    CHECK_NULL(pRequest);
+    CHECK_NULL(pResponse);
+
+    uint32_t reduceJetton = 0;
+    if (m_bankJetton > pRequest->reduce_jetton())
+    {
+        m_bankJetton -= pRequest->reduce_jetton();
+        reduceJetton = pRequest->reduce_jetton();
+    }
+    else {
+        reduceJetton = m_bankJetton;
+        m_bankJetton = 0;
+    }
+
+    MarkDirty();
+
+    pResponse->set_ret_code(0);
+    pResponse->set_reduce_jetton(reduceJetton);
     pResponse->set_bank_jetton(m_bankJetton);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
