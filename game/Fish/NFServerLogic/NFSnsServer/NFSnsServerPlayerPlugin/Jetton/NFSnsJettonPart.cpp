@@ -54,8 +54,8 @@ int NFSnsJettonPart::UnInit()
 int NFSnsJettonPart::RegisterMessage()
 {
     RegisterServerMessage(proto_ff::NF_CS_BANK_GET_DATA_REQ);
-    AddRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(&NFSnsJettonPart::AddBankJettonService);
-    AddRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC>(&NFSnsJettonPart::ReduceBankJettonService);
+    AddRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(this, &NFSnsJettonPart::AddBankJettonService);
+    AddRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC>(this, &NFSnsJettonPart::ReduceBankJettonService);
     return 0;
 }
 

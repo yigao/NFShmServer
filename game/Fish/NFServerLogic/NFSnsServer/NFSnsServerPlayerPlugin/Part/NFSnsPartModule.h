@@ -58,16 +58,17 @@ public:
     virtual int RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo);
     virtual int RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo);
 
-    template<size_t msgId, typename RequestType, typename ResponeType>
-    int AddPartRpcService(uint32_t partType, bool createCo = false)
+    template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
+    int AddPartRpcService(BaseType* pBase, int (BaseType::*handleRecieve)(RequestType* pRequest, ResponeType* pRespone), uint32_t partType, bool createCo = false)
     {
         CHECK_EXPR_ASSERT(msgId < m_rpcMsgToPartMap.size(), -1, "");
         AddRpcService<msgId, RequestType, ResponeType>(NF_ST_SNS_SERVER, createCo);
-        m_rpcMsgToPartMap[msgId] = partType;
+        m_rpcMsgToPartMap[msgId].first = partType;
+        m_rpcMsgToPartMap[msgId].second = new NFCDynamicRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
         return 0;
     }
 private:
     std::vector<uint32_t> m_clientMsgToPartMap;
     std::vector<uint32_t> m_serverMsgToPartMap;
-    std::vector<uint32_t> m_rpcMsgToPartMap;
+    std::vector<std::pair<uint32_t, NFIDynamicRpcService*>> m_rpcMsgToPartMap;
 };

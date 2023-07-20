@@ -97,15 +97,15 @@ int NFSnsPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Messag
     NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(playerId);
     if (pPlayer)
     {
-        if (msgId < m_rpcMsgToPartMap.size() && m_rpcMsgToPartMap[msgId]  != 0)
+        if (msgId < m_rpcMsgToPartMap.size() && m_rpcMsgToPartMap[msgId].first  != 0)
         {
-            NFSnsPart* pPart = pPlayer->GetPart(m_rpcMsgToPartMap[msgId]);
-            if (pPart)
+            NFSnsPart* pPart = pPlayer->GetPart(m_rpcMsgToPartMap[msgId].first);
+            if (pPart && m_rpcMsgToPartMap[msgId].second)
             {
-                return pPart->OnHandleRpcMessage(msgId, pRequest, pRespone);
+                return m_rpcMsgToPartMap[msgId].second->run(pPart, pRequest, pRespone);
             }
             else {
-                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_rpcMsgToPartMap[msgId]);
+                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_rpcMsgToPartMap[msgId].first);
             }
         }
     }
