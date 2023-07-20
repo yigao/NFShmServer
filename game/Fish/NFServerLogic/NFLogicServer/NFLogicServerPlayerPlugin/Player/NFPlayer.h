@@ -21,6 +21,7 @@
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFLogicCommon/NFPlayerDefine.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFComm/NFPluginModule/NFIMessageModule.h"
 
 class NFPart;
 class NFPlayer : public NFShmObj, public NFSeqOP
@@ -199,6 +200,19 @@ public:
     int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
+
+    /**
+     * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
+     * @return 如果你在player或part的函数里，请优先调用这个函数，而不是调用FindModule<NFIMessageModule>()->GetRpcService系统函数， 因为玩家的生命周期是不确定的
+     */
+    template<size_t msgId, typename RequestType, typename ResponeType>
+    int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone)
+    {
+        FindModule<NFICoroutineModule>()->AddUserCo(m_playerId);
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(NF_ST_LOGIC_SERVER, dstServerType, dstBusId, request, respone, m_playerId);
+        FindModule<NFICoroutineModule>()->DelUserCo(m_playerId);
+        return iRet;
+    }
 public:
     template<typename PART>
     PART *GetPart(uint32_t partType)

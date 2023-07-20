@@ -11,6 +11,7 @@
 
 #include <unordered_map>
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
+#include "NFComm/NFPluginModule/NFTimerObj.h"
 
 class NFCoroutineSchedule;
 
@@ -19,6 +20,14 @@ public:
     explicit NFCCoroutineModule(NFIPluginManager *p);
 
     virtual ~NFCCoroutineModule();
+
+    virtual int OnTimer(uint32_t nTimerID) override;
+
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage) override;
+
+    virtual bool Awake() override;
+
+    void UpdateUser();
 
     /*
      * 停服之前，做一些操作，满足停服条件
@@ -80,8 +89,29 @@ public:
     /// @brief 获取协程
     /// @param 协程ID
     /// @return 返回
-    google::protobuf::Message *GetUserData(int64_t id) override;
-    int SetUserData(google::protobuf::Message *pUserData)  override;
+    virtual google::protobuf::Message *GetUserData(int64_t id) override;
+    virtual int SetUserData(google::protobuf::Message *pUserData)  override;
+
+    /**
+     * @brief 添加玩家的协程ID
+     * @param id
+     * @return
+     */
+    virtual int AddUserCo(uint64_t userId) override;
+
+    /**
+     * @brief 减少玩家的协程ID
+     * @param id
+     * @return
+     */
+    virtual int DelUserCo(uint64_t userId) override;
+
+    /**
+     * @brief 玩家是否还有携程在运行
+     * @param userId
+     * @return
+     */
+    virtual bool IsExistUserCo(uint64_t userId) override;
 
     /**
      * @brief 协程是否存在，是否已经死亡
@@ -119,4 +149,5 @@ public:
     virtual int64_t MakeCoroutine(const std::function<void()> &func) override;
 private:
     NFCoroutineSchedule *m_pCorSched;
+    std::unordered_map<uint64_t, std::unordered_set<int64_t>> m_userCoIdMap;
 };

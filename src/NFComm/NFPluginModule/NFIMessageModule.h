@@ -374,6 +374,8 @@ public:
 
     /**
      * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
+     *        如果你在player或part的函数里，请优先调用player/part GetRpcService系统函数函数，而不是调用FindModule<NFIMessageModule>()->GetRpcService系统函数，
+     *        因为玩家的生命周期是不确定的
      * @tparam RequestType
      * @tparam ResponeType
      * @param serverType

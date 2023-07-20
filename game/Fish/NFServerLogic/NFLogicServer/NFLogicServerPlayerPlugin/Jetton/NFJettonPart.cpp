@@ -140,7 +140,7 @@ int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet
     proto_ff::Proto_LTS_PlayerAddBankJettonReq reqRpc;
     reqRpc.set_add_jetton(xMsg.save_jetton());
     proto_ff::Proto_STL_PlayerAddBankJettonRsp rspRpc;
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(NF_ST_LOGIC_SERVER, NF_ST_SNS_SERVER, 0, reqRpc, rspRpc, m_pMaster->GetPlayerId());
+    int iRet = GetRpcService<proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC>(NF_ST_SNS_SERVER, 0, reqRpc, rspRpc);
     if (iRet != 0)
     {
         rspMsg.set_result(iRet);

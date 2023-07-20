@@ -16,6 +16,8 @@
 #include "NFSchedule.h"
 #include "NFComm/NFPluginModule/NFCoroutineTask.h"
 
+#define COROUTINE_USER_TIMER 1
+
 void DoTask(NFSchedule *, void *ud)
 {
     NFCoroutineTask *task = static_cast<NFCoroutineTask *>(ud);
@@ -33,6 +35,51 @@ NFCCoroutineModule::NFCCoroutineModule(NFIPluginManager *p) : NFICoroutineModule
 NFCCoroutineModule::~NFCCoroutineModule()
 {
 
+}
+
+bool NFCCoroutineModule::Awake()
+{
+    SetTimer(COROUTINE_USER_TIMER, 1000);
+    return true;
+}
+
+int NFCCoroutineModule::OnTimer(uint32_t nTimerID)
+{
+    if (nTimerID == COROUTINE_USER_TIMER)
+    {
+        UpdateUser();
+    }
+    return 0;
+}
+
+int NFCCoroutineModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
+{
+    return 0;
+}
+
+void NFCCoroutineModule::UpdateUser()
+{
+    for(auto iter = m_userCoIdMap.begin(); iter != m_userCoIdMap.end();)
+    {
+        for(auto iter2 = iter->second.begin(); iter2 != iter->second.end();)
+        {
+            if (IsDead(*iter2))
+            {
+                iter2 = iter->second.erase(iter2);
+            }
+            else {
+                iter2++;
+            }
+        }
+
+        if (iter->second.empty())
+        {
+            iter = m_userCoIdMap.erase(iter);
+        }
+        else {
+            iter++;
+        }
+    }
 }
 
 bool NFCCoroutineModule::OnStopServer()
@@ -172,6 +219,51 @@ int NFCCoroutineModule::SetUserData(google::protobuf::Message *pUserData)
     }
     return m_pCorSched->SetUserData(coId, pUserData);
 }
+
+int NFCCoroutineModule::AddUserCo(uint64_t userId)
+{
+    int64_t coId = CurrentTaskId();
+    if (INVALID_CO_ID != coId && userId > 0)
+    {
+        m_userCoIdMap[userId].insert(coId);
+        return 0;
+    }
+
+    return -1;
+}
+
+int NFCCoroutineModule::DelUserCo(uint64_t userId)
+{
+    int64_t coId = CurrentTaskId();
+    auto iter = m_userCoIdMap.find(userId);
+    if (iter != m_userCoIdMap.end())
+    {
+        iter->second.erase(coId);
+        if (iter->second.empty())
+        {
+            m_userCoIdMap.erase(iter);
+        }
+
+        return 0;
+    }
+
+    return -1;
+}
+
+bool NFCCoroutineModule::IsExistUserCo(uint64_t userId)
+{
+    auto iter = m_userCoIdMap.find(userId);
+    if (iter != m_userCoIdMap.end())
+    {
+        if (!iter->second.empty())
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 
 /**
  * @brief 协程是否存在，是否已经死亡

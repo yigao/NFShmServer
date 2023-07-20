@@ -19,8 +19,7 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "DBProto.pb.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
-
-class NFPlayer;
+#include "Player/NFPlayer.h"
 
 class NFPart : public NFShmObj, public NFSeqOP
 {
@@ -158,6 +157,17 @@ public:
      * @return
      */
     virtual int RegisterServerMessage(uint32_t nMsgID, bool createCo = false);
+
+    /**
+     * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
+     *        如果你在player或part的函数里，请优先调用这个函数，而不是调用FindModule<NFIMessageModule>()->GetRpcService系统函数， 因为玩家的生命周期是不确定的
+     * @return
+     */
+    template<size_t msgId, typename RequestType, typename ResponeType>
+    int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone)
+    {
+        return m_pMaster->GetRpcService<msgId>(dstServerType, dstBusId, request, respone);
+    }
 public:
     //部件类型
     uint32_t PartType() { return m_partType; }

@@ -11,6 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFIRpcService.h"
+#include "NFITimerEventModule.h"
 
 class NFCoroutineTask;
 
@@ -20,9 +21,9 @@ class NFCoroutineTask;
 
 
 
-class NFICoroutineModule : public NFIModule {
+class NFICoroutineModule : public NFITimerEventModule {
 public:
-    NFICoroutineModule(NFIPluginManager *p) : NFIModule(p) {
+    NFICoroutineModule(NFIPluginManager *p) : NFITimerEventModule(p) {
 
     }
 
@@ -80,6 +81,27 @@ public:
 
     virtual google::protobuf::Message *GetUserData(int64_t id) = 0;
     virtual int SetUserData(google::protobuf::Message *pUserData) = 0;
+
+    /**
+     * @brief 添加玩家的协程ID
+     * @param id
+     * @return
+     */
+    virtual int AddUserCo(uint64_t userId) = 0;
+
+    /**
+     * @brief 减少玩家的协程ID
+     * @param id
+     * @return
+     */
+    virtual int DelUserCo(uint64_t userId) = 0;
+
+    /**
+     * @brief 玩家是否还有携程在运行
+     * @param userId
+     * @return
+     */
+    virtual bool IsExistUserCo(uint64_t userId) = 0;
 
     /**
      * @brief 协程是否存在，是否已经死亡
