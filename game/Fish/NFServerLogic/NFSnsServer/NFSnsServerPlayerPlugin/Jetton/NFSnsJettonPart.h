@@ -66,16 +66,6 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
-    /** 处理服务器之间的rpc，这里负责转发玩家part的rpc
-     * @brief
-     * @param msgId
-     * @param pRequest
-     * @param pRespone
-     * @param param1
-     * @param param2
-     * @return
-     */
-    virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone);
 public:
     /**
      * @brief

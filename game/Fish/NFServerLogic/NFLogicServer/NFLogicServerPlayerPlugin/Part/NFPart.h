@@ -20,6 +20,7 @@
 #include "DBProto.pb.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "Player/NFPlayer.h"
+#include "NFPartModule.h"
 
 class NFPart : public NFShmObj, public NFSeqOP
 {
@@ -167,6 +168,22 @@ public:
     int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone)
     {
         return m_pMaster->GetRpcService<msgId>(dstServerType, dstBusId, request, respone);
+    }
+
+    /**
+     * @brief 添加rpc服务， 这里的handleRecieve只是用来强绑定Request和Respone的类型，如果类型对不上，编译期间就会报错
+     * @tparam msgId
+     * @tparam BaseType
+     * @tparam RequestType
+     * @tparam ResponeType
+     * @param handleRecieve
+     * @param createCo
+     * @return
+     */
+    template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
+    int AddRpcService(BaseType* pBase, int (BaseType::*handleRecieve)(RequestType* pRequest, ResponeType* pRespone), bool createCo = false)
+    {
+        return FindModule<NFPartModule>()->AddPartRpcService<msgId, BaseType, RequestType, ResponeType>(pBase, handleRecieve, m_partType, createCo);
     }
 public:
     //部件类型

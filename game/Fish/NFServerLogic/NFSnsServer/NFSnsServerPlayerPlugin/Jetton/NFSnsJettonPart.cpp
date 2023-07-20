@@ -77,21 +77,6 @@ int NFSnsJettonPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet
     return 0;
 }
 
-int NFSnsJettonPart::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone)
-{
-    switch(msgId)
-    {
-        case proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC:
-        {
-            return AddBankJettonService(dynamic_cast<proto_ff::Proto_LTS_PlayerAddBankJettonReq*>(pRequest), dynamic_cast<proto_ff::Proto_STL_PlayerAddBankJettonRsp*>(pRespone));
-        }
-        default:
-            break;
-    }
-
-    return proto_ff::ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED;
-}
-
 int NFSnsJettonPart::LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData &data)
 {
     m_bankJetton = data.bank_jetton();

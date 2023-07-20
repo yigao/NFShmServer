@@ -21,8 +21,8 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFSnsPartModule.h"
 #include "NFLogicCommon/NFLogicBindRpcService.h"
+#include "Cache/NFPlayerDetail.h"
 
-class NFPlayerDetail;
 class NFPlayerSimple;
 class NFPlayerOnline;
 class NFSnsPart : public NFShmObj, public NFSeqOP
@@ -74,16 +74,6 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 
-    /** 处理服务器之间的rpc，这里负责转发玩家part的rpc
-     * @brief
-     * @param msgId
-     * @param pRequest
-     * @param pRespone
-     * @param param1
-     * @param param2
-     * @return
-     */
-    virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone);
 public:
     /**
      * @brief
@@ -115,6 +105,17 @@ public:
     int AddRpcService(BaseType* pBase, int (BaseType::*handleRecieve)(RequestType* pRequest, ResponeType* pRespone), bool createCo = false)
     {
         return FindModule<NFSnsPartModule>()->AddPartRpcService<msgId, BaseType, RequestType, ResponeType>(pBase, handleRecieve, m_partType, createCo);
+    }
+
+    /**
+     * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
+     *        如果你在player或part的函数里，请优先调用这个函数，而不是调用FindModule<NFIMessageModule>()->GetRpcService系统函数， 因为玩家的生命周期是不确定的
+     * @return
+     */
+    template<size_t msgId, typename RequestType, typename ResponeType>
+    int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone)
+    {
+        return m_pMaster->GetRpcService<msgId>(dstServerType, dstBusId, request, respone);
     }
 public:
     /**

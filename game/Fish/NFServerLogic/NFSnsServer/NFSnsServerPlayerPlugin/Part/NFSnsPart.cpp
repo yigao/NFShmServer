@@ -78,12 +78,6 @@ int NFSnsPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
     return 0;
 }
 
-int NFSnsPart::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone)
-{
-    NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "rpc part package not handle:{}", msgId);
-    return proto_ff::ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED;
-}
-
 int NFSnsPart::RegisterClientMessage(uint32_t nMsgID, bool createCo)
 {
     return FindModule<NFSnsPartModule>()->RegisterClientPartMsg(nMsgID, m_partType, createCo);
