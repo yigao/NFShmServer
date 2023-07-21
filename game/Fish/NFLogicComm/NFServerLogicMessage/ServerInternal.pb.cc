@@ -89,6 +89,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_STL_PlayerReduceBankJettonRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_STL_PlayerReduceBankJettonRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_TS_QueryPlayerSimpleDataReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_TS_QueryPlayerSimpleDataReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_ST_QueryPlayerSimpleDataRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_ST_QueryPlayerSimpleDataRsp_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_AccountState_descriptor_ = NULL;
 
 }  // namespace
@@ -495,6 +501,37 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_STL_PlayerReduceBankJettonRsp));
+  Proto_TS_QueryPlayerSimpleDataReq_descriptor_ = file->message_type(23);
+  static const int Proto_TS_QueryPlayerSimpleDataReq_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TS_QueryPlayerSimpleDataReq, query_user_id_),
+  };
+  Proto_TS_QueryPlayerSimpleDataReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_TS_QueryPlayerSimpleDataReq_descriptor_,
+      Proto_TS_QueryPlayerSimpleDataReq::default_instance_,
+      Proto_TS_QueryPlayerSimpleDataReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TS_QueryPlayerSimpleDataReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_TS_QueryPlayerSimpleDataReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_TS_QueryPlayerSimpleDataReq));
+  Proto_ST_QueryPlayerSimpleDataRsp_descriptor_ = file->message_type(24);
+  static const int Proto_ST_QueryPlayerSimpleDataRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_ST_QueryPlayerSimpleDataRsp, result_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_ST_QueryPlayerSimpleDataRsp, query_user_list_),
+  };
+  Proto_ST_QueryPlayerSimpleDataRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_ST_QueryPlayerSimpleDataRsp_descriptor_,
+      Proto_ST_QueryPlayerSimpleDataRsp::default_instance_,
+      Proto_ST_QueryPlayerSimpleDataRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_ST_QueryPlayerSimpleDataRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_ST_QueryPlayerSimpleDataRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_ST_QueryPlayerSimpleDataRsp));
   Proto_AccountState_descriptor_ = file->enum_type(0);
 }
 
@@ -554,6 +591,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Proto_LTS_PlayerReduceBankJettonReq_descriptor_, &Proto_LTS_PlayerReduceBankJettonReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_STL_PlayerReduceBankJettonRsp_descriptor_, &Proto_STL_PlayerReduceBankJettonRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_TS_QueryPlayerSimpleDataReq_descriptor_, &Proto_TS_QueryPlayerSimpleDataReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_ST_QueryPlayerSimpleDataRsp_descriptor_, &Proto_ST_QueryPlayerSimpleDataRsp::default_instance());
 }
 
 }  // namespace
@@ -605,6 +646,10 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete Proto_LTS_PlayerReduceBankJettonReq_reflection_;
   delete Proto_STL_PlayerReduceBankJettonRsp::default_instance_;
   delete Proto_STL_PlayerReduceBankJettonRsp_reflection_;
+  delete Proto_TS_QueryPlayerSimpleDataReq::default_instance_;
+  delete Proto_TS_QueryPlayerSimpleDataReq_reflection_;
+  delete Proto_ST_QueryPlayerSimpleDataRsp::default_instance_;
+  delete Proto_ST_QueryPlayerSimpleDataRsp_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -673,10 +718,14 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "layerReduceBankJettonReq\022\025\n\rreduce_jetto"
     "n\030\001 \001(\004\"c\n#Proto_STL_PlayerReduceBankJet"
     "tonRsp\022\020\n\010ret_code\030\001 \001(\005\022\025\n\rreduce_jetto"
-    "n\030\002 \001(\004\022\023\n\013bank_jetton\030\003 \001(\004*a\n\022Proto_Ac"
-    "countState\022\025\n\021E_ACCOUNTSTATE_OK\020\000\022\031\n\025E_A"
-    "CCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOUNTSTATE_F"
-    "ORBIT\020\002", 2407);
+    "n\030\002 \001(\004\022\023\n\013bank_jetton\030\003 \001(\004\":\n!Proto_TS"
+    "_QueryPlayerSimpleDataReq\022\025\n\rquery_user_"
+    "id\030\001 \003(\004\"l\n!Proto_ST_QueryPlayerSimpleDa"
+    "taRsp\022\016\n\006result\030\001 \001(\005\0227\n\017query_user_list"
+    "\030\002 \003(\0132\036.proto_ff.Proto_UserSimpleData*a"
+    "\n\022Proto_AccountState\022\025\n\021E_ACCOUNTSTATE_O"
+    "K\020\000\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCO"
+    "UNTSTATE_FORBIT\020\002", 2577);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -702,6 +751,8 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_STL_PlayerAddBankJettonRsp::default_instance_ = new Proto_STL_PlayerAddBankJettonRsp();
   Proto_LTS_PlayerReduceBankJettonReq::default_instance_ = new Proto_LTS_PlayerReduceBankJettonReq();
   Proto_STL_PlayerReduceBankJettonRsp::default_instance_ = new Proto_STL_PlayerReduceBankJettonRsp();
+  Proto_TS_QueryPlayerSimpleDataReq::default_instance_ = new Proto_TS_QueryPlayerSimpleDataReq();
+  Proto_ST_QueryPlayerSimpleDataRsp::default_instance_ = new Proto_ST_QueryPlayerSimpleDataRsp();
   Proto_PTWUserLoginReq::default_instance_->InitAsDefaultInstance();
   Proto_WTPPlayerLoginRsp::default_instance_->InitAsDefaultInstance();
   Proto_WorldToLogicLoginReq::default_instance_->InitAsDefaultInstance();
@@ -725,6 +776,8 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_STL_PlayerAddBankJettonRsp::default_instance_->InitAsDefaultInstance();
   Proto_LTS_PlayerReduceBankJettonReq::default_instance_->InitAsDefaultInstance();
   Proto_STL_PlayerReduceBankJettonRsp::default_instance_->InitAsDefaultInstance();
+  Proto_TS_QueryPlayerSimpleDataReq::default_instance_->InitAsDefaultInstance();
+  Proto_ST_QueryPlayerSimpleDataRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -7645,6 +7698,465 @@ void Proto_STL_PlayerReduceBankJettonRsp::Swap(Proto_STL_PlayerReduceBankJettonR
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_STL_PlayerReduceBankJettonRsp_descriptor_;
   metadata.reflection = Proto_STL_PlayerReduceBankJettonRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_TS_QueryPlayerSimpleDataReq::kQueryUserIdFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_TS_QueryPlayerSimpleDataReq::Proto_TS_QueryPlayerSimpleDataReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::InitAsDefaultInstance() {
+}
+
+Proto_TS_QueryPlayerSimpleDataReq::Proto_TS_QueryPlayerSimpleDataReq(const Proto_TS_QueryPlayerSimpleDataReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_TS_QueryPlayerSimpleDataReq::~Proto_TS_QueryPlayerSimpleDataReq() {
+  SharedDtor();
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_TS_QueryPlayerSimpleDataReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_TS_QueryPlayerSimpleDataReq_descriptor_;
+}
+
+const Proto_TS_QueryPlayerSimpleDataReq& Proto_TS_QueryPlayerSimpleDataReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_TS_QueryPlayerSimpleDataReq* Proto_TS_QueryPlayerSimpleDataReq::default_instance_ = NULL;
+
+Proto_TS_QueryPlayerSimpleDataReq* Proto_TS_QueryPlayerSimpleDataReq::New() const {
+  return new Proto_TS_QueryPlayerSimpleDataReq;
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::Clear() {
+  query_user_id_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_TS_QueryPlayerSimpleDataReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated uint64 query_user_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_query_user_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 1, 8, input, this->mutable_query_user_id())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, this->mutable_query_user_id())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(8)) goto parse_query_user_id;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated uint64 query_user_id = 1;
+  for (int i = 0; i < this->query_user_id_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(
+      1, this->query_user_id(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_TS_QueryPlayerSimpleDataReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated uint64 query_user_id = 1;
+  for (int i = 0; i < this->query_user_id_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteUInt64ToArray(1, this->query_user_id(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_TS_QueryPlayerSimpleDataReq::ByteSize() const {
+  int total_size = 0;
+
+  // repeated uint64 query_user_id = 1;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->query_user_id_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        UInt64Size(this->query_user_id(i));
+    }
+    total_size += 1 * this->query_user_id_size() + data_size;
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_TS_QueryPlayerSimpleDataReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_TS_QueryPlayerSimpleDataReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::MergeFrom(const Proto_TS_QueryPlayerSimpleDataReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  query_user_id_.MergeFrom(from.query_user_id_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::CopyFrom(const Proto_TS_QueryPlayerSimpleDataReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_TS_QueryPlayerSimpleDataReq::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_TS_QueryPlayerSimpleDataReq::Swap(Proto_TS_QueryPlayerSimpleDataReq* other) {
+  if (other != this) {
+    query_user_id_.Swap(&other->query_user_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_TS_QueryPlayerSimpleDataReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_TS_QueryPlayerSimpleDataReq_descriptor_;
+  metadata.reflection = Proto_TS_QueryPlayerSimpleDataReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_ST_QueryPlayerSimpleDataRsp::kResultFieldNumber;
+const int Proto_ST_QueryPlayerSimpleDataRsp::kQueryUserListFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_ST_QueryPlayerSimpleDataRsp::Proto_ST_QueryPlayerSimpleDataRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::InitAsDefaultInstance() {
+}
+
+Proto_ST_QueryPlayerSimpleDataRsp::Proto_ST_QueryPlayerSimpleDataRsp(const Proto_ST_QueryPlayerSimpleDataRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_ST_QueryPlayerSimpleDataRsp::~Proto_ST_QueryPlayerSimpleDataRsp() {
+  SharedDtor();
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_ST_QueryPlayerSimpleDataRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_ST_QueryPlayerSimpleDataRsp_descriptor_;
+}
+
+const Proto_ST_QueryPlayerSimpleDataRsp& Proto_ST_QueryPlayerSimpleDataRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_ST_QueryPlayerSimpleDataRsp* Proto_ST_QueryPlayerSimpleDataRsp::default_instance_ = NULL;
+
+Proto_ST_QueryPlayerSimpleDataRsp* Proto_ST_QueryPlayerSimpleDataRsp::New() const {
+  return new Proto_ST_QueryPlayerSimpleDataRsp;
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    result_ = 0;
+  }
+  query_user_list_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_ST_QueryPlayerSimpleDataRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 result = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &result_)));
+          set_has_result();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_query_user_list;
+        break;
+      }
+
+      // repeated .proto_ff.Proto_UserSimpleData query_user_list = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_query_user_list:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_query_user_list()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_query_user_list;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->result(), output);
+  }
+
+  // repeated .proto_ff.Proto_UserSimpleData query_user_list = 2;
+  for (int i = 0; i < this->query_user_list_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->query_user_list(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_ST_QueryPlayerSimpleDataRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->result(), target);
+  }
+
+  // repeated .proto_ff.Proto_UserSimpleData query_user_list = 2;
+  for (int i = 0; i < this->query_user_list_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->query_user_list(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_ST_QueryPlayerSimpleDataRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 result = 1;
+    if (has_result()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->result());
+    }
+
+  }
+  // repeated .proto_ff.Proto_UserSimpleData query_user_list = 2;
+  total_size += 1 * this->query_user_list_size();
+  for (int i = 0; i < this->query_user_list_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->query_user_list(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_ST_QueryPlayerSimpleDataRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_ST_QueryPlayerSimpleDataRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::MergeFrom(const Proto_ST_QueryPlayerSimpleDataRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  query_user_list_.MergeFrom(from.query_user_list_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_result()) {
+      set_result(from.result());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::CopyFrom(const Proto_ST_QueryPlayerSimpleDataRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_ST_QueryPlayerSimpleDataRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_ST_QueryPlayerSimpleDataRsp::Swap(Proto_ST_QueryPlayerSimpleDataRsp* other) {
+  if (other != this) {
+    std::swap(result_, other->result_);
+    query_user_list_.Swap(&other->query_user_list_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_ST_QueryPlayerSimpleDataRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_ST_QueryPlayerSimpleDataRsp_descriptor_;
+  metadata.reflection = Proto_ST_QueryPlayerSimpleDataRsp_reflection_;
   return metadata;
 }
 

@@ -3,15 +3,6 @@ package proto_ff;
 import "Com.proto";
 import "ComDefine.proto";
 
-message Proto_UserSimpleData
-{
-  optional uint64 userid = 1; //UserID用户ID
-  optional string nickname = 2;
-  optional uint32 face = 3; //
-  optional uint32 gender = 4; //
-  optional uint32 age = 5;//
-}
-
 message Proto_CSReconnectReq
 {
   optional uint64 userid = 1;
@@ -261,3 +252,4 @@ message Proto_SCKetPlayerNotify
 {
   optional int32 result = 1;
 }
+

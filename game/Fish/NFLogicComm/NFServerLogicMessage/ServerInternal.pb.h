@@ -59,6 +59,8 @@ class Proto_LTS_PlayerAddBankJettonReq;
 class Proto_STL_PlayerAddBankJettonRsp;
 class Proto_LTS_PlayerReduceBankJettonReq;
 class Proto_STL_PlayerReduceBankJettonRsp;
+class Proto_TS_QueryPlayerSimpleDataReq;
+class Proto_ST_QueryPlayerSimpleDataRsp;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -2503,6 +2505,186 @@ class Proto_STL_PlayerReduceBankJettonRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Proto_STL_PlayerReduceBankJettonRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Proto_TS_QueryPlayerSimpleDataReq : public ::google::protobuf::Message {
+ public:
+  Proto_TS_QueryPlayerSimpleDataReq();
+  virtual ~Proto_TS_QueryPlayerSimpleDataReq();
+
+  Proto_TS_QueryPlayerSimpleDataReq(const Proto_TS_QueryPlayerSimpleDataReq& from);
+
+  inline Proto_TS_QueryPlayerSimpleDataReq& operator=(const Proto_TS_QueryPlayerSimpleDataReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_TS_QueryPlayerSimpleDataReq& default_instance();
+
+  void Swap(Proto_TS_QueryPlayerSimpleDataReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_TS_QueryPlayerSimpleDataReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_TS_QueryPlayerSimpleDataReq& from);
+  void MergeFrom(const Proto_TS_QueryPlayerSimpleDataReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated uint64 query_user_id = 1;
+  inline int query_user_id_size() const;
+  inline void clear_query_user_id();
+  static const int kQueryUserIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 query_user_id(int index) const;
+  inline void set_query_user_id(int index, ::google::protobuf::uint64 value);
+  inline void add_query_user_id(::google::protobuf::uint64 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+      query_user_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+      mutable_query_user_id();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_TS_QueryPlayerSimpleDataReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > query_user_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_TS_QueryPlayerSimpleDataReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_ST_QueryPlayerSimpleDataRsp : public ::google::protobuf::Message {
+ public:
+  Proto_ST_QueryPlayerSimpleDataRsp();
+  virtual ~Proto_ST_QueryPlayerSimpleDataRsp();
+
+  Proto_ST_QueryPlayerSimpleDataRsp(const Proto_ST_QueryPlayerSimpleDataRsp& from);
+
+  inline Proto_ST_QueryPlayerSimpleDataRsp& operator=(const Proto_ST_QueryPlayerSimpleDataRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_ST_QueryPlayerSimpleDataRsp& default_instance();
+
+  void Swap(Proto_ST_QueryPlayerSimpleDataRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_ST_QueryPlayerSimpleDataRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_ST_QueryPlayerSimpleDataRsp& from);
+  void MergeFrom(const Proto_ST_QueryPlayerSimpleDataRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.Proto_UserSimpleData query_user_list = 2;
+  inline int query_user_list_size() const;
+  inline void clear_query_user_list();
+  static const int kQueryUserListFieldNumber = 2;
+  inline const ::proto_ff::Proto_UserSimpleData& query_user_list(int index) const;
+  inline ::proto_ff::Proto_UserSimpleData* mutable_query_user_list(int index);
+  inline ::proto_ff::Proto_UserSimpleData* add_query_user_list();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Proto_UserSimpleData >&
+      query_user_list() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Proto_UserSimpleData >*
+      mutable_query_user_list();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_ST_QueryPlayerSimpleDataRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::Proto_UserSimpleData > query_user_list_;
+  ::google::protobuf::int32 result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_ST_QueryPlayerSimpleDataRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -4538,6 +4720,86 @@ inline ::google::protobuf::uint64 Proto_STL_PlayerReduceBankJettonRsp::bank_jett
 inline void Proto_STL_PlayerReduceBankJettonRsp::set_bank_jetton(::google::protobuf::uint64 value) {
   set_has_bank_jetton();
   bank_jetton_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_TS_QueryPlayerSimpleDataReq
+
+// repeated uint64 query_user_id = 1;
+inline int Proto_TS_QueryPlayerSimpleDataReq::query_user_id_size() const {
+  return query_user_id_.size();
+}
+inline void Proto_TS_QueryPlayerSimpleDataReq::clear_query_user_id() {
+  query_user_id_.Clear();
+}
+inline ::google::protobuf::uint64 Proto_TS_QueryPlayerSimpleDataReq::query_user_id(int index) const {
+  return query_user_id_.Get(index);
+}
+inline void Proto_TS_QueryPlayerSimpleDataReq::set_query_user_id(int index, ::google::protobuf::uint64 value) {
+  query_user_id_.Set(index, value);
+}
+inline void Proto_TS_QueryPlayerSimpleDataReq::add_query_user_id(::google::protobuf::uint64 value) {
+  query_user_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
+Proto_TS_QueryPlayerSimpleDataReq::query_user_id() const {
+  return query_user_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
+Proto_TS_QueryPlayerSimpleDataReq::mutable_query_user_id() {
+  return &query_user_id_;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_ST_QueryPlayerSimpleDataRsp
+
+// optional int32 result = 1;
+inline bool Proto_ST_QueryPlayerSimpleDataRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_ST_QueryPlayerSimpleDataRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_ST_QueryPlayerSimpleDataRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_ST_QueryPlayerSimpleDataRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 Proto_ST_QueryPlayerSimpleDataRsp::result() const {
+  return result_;
+}
+inline void Proto_ST_QueryPlayerSimpleDataRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// repeated .proto_ff.Proto_UserSimpleData query_user_list = 2;
+inline int Proto_ST_QueryPlayerSimpleDataRsp::query_user_list_size() const {
+  return query_user_list_.size();
+}
+inline void Proto_ST_QueryPlayerSimpleDataRsp::clear_query_user_list() {
+  query_user_list_.Clear();
+}
+inline const ::proto_ff::Proto_UserSimpleData& Proto_ST_QueryPlayerSimpleDataRsp::query_user_list(int index) const {
+  return query_user_list_.Get(index);
+}
+inline ::proto_ff::Proto_UserSimpleData* Proto_ST_QueryPlayerSimpleDataRsp::mutable_query_user_list(int index) {
+  return query_user_list_.Mutable(index);
+}
+inline ::proto_ff::Proto_UserSimpleData* Proto_ST_QueryPlayerSimpleDataRsp::add_query_user_list() {
+  return query_user_list_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::Proto_UserSimpleData >&
+Proto_ST_QueryPlayerSimpleDataRsp::query_user_list() const {
+  return query_user_list_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Proto_UserSimpleData >*
+Proto_ST_QueryPlayerSimpleDataRsp::mutable_query_user_list() {
+  return &query_user_list_;
 }
 
 

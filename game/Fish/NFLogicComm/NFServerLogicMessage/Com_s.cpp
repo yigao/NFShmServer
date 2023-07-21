@@ -426,4 +426,41 @@ void tbGiveBankJetton_s::read_from_pbmsg(const ::proto_ff::tbGiveBankJetton & ms
 	create_time = msg.create_time();
 }
 
+Proto_UserSimpleData_s::Proto_UserSimpleData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int Proto_UserSimpleData_s::CreateInit() {
+	userid = (uint64_t)0;
+	face = (uint32_t)0;
+	gender = (uint32_t)0;
+	age = (uint32_t)0;
+	return 0;
+}
+
+int Proto_UserSimpleData_s::ResumeInit() {
+	return 0;
+}
+
+void Proto_UserSimpleData_s::write_to_pbmsg(::proto_ff::Proto_UserSimpleData & msg) const {
+	msg.set_userid((uint64_t)userid);
+	msg.set_nickname((const char*)nickname.data());
+	msg.set_face((uint32_t)face);
+	msg.set_gender((uint32_t)gender);
+	msg.set_age((uint32_t)age);
+}
+
+void Proto_UserSimpleData_s::read_from_pbmsg(const ::proto_ff::Proto_UserSimpleData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Proto_UserSimpleData_s));
+	userid = msg.userid();
+	nickname = msg.nickname();
+	face = msg.face();
+	gender = msg.gender();
+	age = msg.age();
+}
+
 }

@@ -48,6 +48,7 @@ class Proto_UserLoginExternalData;
 class Proto_UserDetailCommonData;
 class Proto_LTSSyncData;
 class tbGiveBankJetton;
+class Proto_UserSimpleData;
 
 // ===================================================================
 
@@ -1484,6 +1485,133 @@ class tbGiveBankJetton : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static tbGiveBankJetton* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_UserSimpleData : public ::google::protobuf::Message {
+ public:
+  Proto_UserSimpleData();
+  virtual ~Proto_UserSimpleData();
+
+  Proto_UserSimpleData(const Proto_UserSimpleData& from);
+
+  inline Proto_UserSimpleData& operator=(const Proto_UserSimpleData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_UserSimpleData& default_instance();
+
+  void Swap(Proto_UserSimpleData* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_UserSimpleData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_UserSimpleData& from);
+  void MergeFrom(const Proto_UserSimpleData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 userid = 1;
+  inline bool has_userid() const;
+  inline void clear_userid();
+  static const int kUseridFieldNumber = 1;
+  inline ::google::protobuf::uint64 userid() const;
+  inline void set_userid(::google::protobuf::uint64 value);
+
+  // optional string nickname = 2;
+  inline bool has_nickname() const;
+  inline void clear_nickname();
+  static const int kNicknameFieldNumber = 2;
+  inline const ::std::string& nickname() const;
+  inline void set_nickname(const ::std::string& value);
+  inline void set_nickname(const char* value);
+  inline void set_nickname(const char* value, size_t size);
+  inline ::std::string* mutable_nickname();
+  inline ::std::string* release_nickname();
+  inline void set_allocated_nickname(::std::string* nickname);
+
+  // optional uint32 face = 3;
+  inline bool has_face() const;
+  inline void clear_face();
+  static const int kFaceFieldNumber = 3;
+  inline ::google::protobuf::uint32 face() const;
+  inline void set_face(::google::protobuf::uint32 value);
+
+  // optional uint32 gender = 4;
+  inline bool has_gender() const;
+  inline void clear_gender();
+  static const int kGenderFieldNumber = 4;
+  inline ::google::protobuf::uint32 gender() const;
+  inline void set_gender(::google::protobuf::uint32 value);
+
+  // optional uint32 age = 5;
+  inline bool has_age() const;
+  inline void clear_age();
+  static const int kAgeFieldNumber = 5;
+  inline ::google::protobuf::uint32 age() const;
+  inline void set_age(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_UserSimpleData)
+ private:
+  inline void set_has_userid();
+  inline void clear_has_userid();
+  inline void set_has_nickname();
+  inline void clear_has_nickname();
+  inline void set_has_face();
+  inline void clear_has_face();
+  inline void set_has_gender();
+  inline void clear_has_gender();
+  inline void set_has_age();
+  inline void clear_has_age();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 userid_;
+  ::std::string* nickname_;
+  ::google::protobuf::uint32 face_;
+  ::google::protobuf::uint32 gender_;
+  ::google::protobuf::uint32 age_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_UserSimpleData* default_instance_;
 };
 // ===================================================================
 
@@ -3008,6 +3136,168 @@ inline ::google::protobuf::uint64 tbGiveBankJetton::create_time() const {
 inline void tbGiveBankJetton::set_create_time(::google::protobuf::uint64 value) {
   set_has_create_time();
   create_time_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_UserSimpleData
+
+// optional uint64 userid = 1;
+inline bool Proto_UserSimpleData::has_userid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_UserSimpleData::set_has_userid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_UserSimpleData::clear_has_userid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_UserSimpleData::clear_userid() {
+  userid_ = GOOGLE_ULONGLONG(0);
+  clear_has_userid();
+}
+inline ::google::protobuf::uint64 Proto_UserSimpleData::userid() const {
+  return userid_;
+}
+inline void Proto_UserSimpleData::set_userid(::google::protobuf::uint64 value) {
+  set_has_userid();
+  userid_ = value;
+}
+
+// optional string nickname = 2;
+inline bool Proto_UserSimpleData::has_nickname() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_UserSimpleData::set_has_nickname() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_UserSimpleData::clear_has_nickname() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_UserSimpleData::clear_nickname() {
+  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
+    nickname_->clear();
+  }
+  clear_has_nickname();
+}
+inline const ::std::string& Proto_UserSimpleData::nickname() const {
+  return *nickname_;
+}
+inline void Proto_UserSimpleData::set_nickname(const ::std::string& value) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(value);
+}
+inline void Proto_UserSimpleData::set_nickname(const char* value) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(value);
+}
+inline void Proto_UserSimpleData::set_nickname(const char* value, size_t size) {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  nickname_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* Proto_UserSimpleData::mutable_nickname() {
+  set_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    nickname_ = new ::std::string;
+  }
+  return nickname_;
+}
+inline ::std::string* Proto_UserSimpleData::release_nickname() {
+  clear_has_nickname();
+  if (nickname_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nickname_;
+    nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void Proto_UserSimpleData::set_allocated_nickname(::std::string* nickname) {
+  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
+    delete nickname_;
+  }
+  if (nickname) {
+    set_has_nickname();
+    nickname_ = nickname;
+  } else {
+    clear_has_nickname();
+    nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 face = 3;
+inline bool Proto_UserSimpleData::has_face() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_UserSimpleData::set_has_face() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_UserSimpleData::clear_has_face() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_UserSimpleData::clear_face() {
+  face_ = 0u;
+  clear_has_face();
+}
+inline ::google::protobuf::uint32 Proto_UserSimpleData::face() const {
+  return face_;
+}
+inline void Proto_UserSimpleData::set_face(::google::protobuf::uint32 value) {
+  set_has_face();
+  face_ = value;
+}
+
+// optional uint32 gender = 4;
+inline bool Proto_UserSimpleData::has_gender() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_UserSimpleData::set_has_gender() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_UserSimpleData::clear_has_gender() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Proto_UserSimpleData::clear_gender() {
+  gender_ = 0u;
+  clear_has_gender();
+}
+inline ::google::protobuf::uint32 Proto_UserSimpleData::gender() const {
+  return gender_;
+}
+inline void Proto_UserSimpleData::set_gender(::google::protobuf::uint32 value) {
+  set_has_gender();
+  gender_ = value;
+}
+
+// optional uint32 age = 5;
+inline bool Proto_UserSimpleData::has_age() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_UserSimpleData::set_has_age() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_UserSimpleData::clear_has_age() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_UserSimpleData::clear_age() {
+  age_ = 0u;
+  clear_has_age();
+}
+inline ::google::protobuf::uint32 Proto_UserSimpleData::age() const {
+  return age_;
+}
+inline void Proto_UserSimpleData::set_age(::google::protobuf::uint32 value) {
+  set_has_age();
+  age_ = value;
 }
 
 

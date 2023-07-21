@@ -183,3 +183,15 @@ message Proto_STL_PlayerReduceBankJettonRsp
   optional uint64 reduce_jetton = 2;
   optional uint64 bank_jetton = 3;
 }
+
+//NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC = 130;
+message Proto_TS_QueryPlayerSimpleDataReq
+{
+  repeated uint64 query_user_id = 1;
+}
+
+message Proto_ST_QueryPlayerSimpleDataRsp
+{
+  optional int32 result = 1;
+  repeated Proto_UserSimpleData query_user_list = 2;
+}

@@ -20,9 +20,6 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* Proto_UserSimpleData_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Proto_UserSimpleData_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Proto_CSReconnectReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_CSReconnectReq_reflection_ = NULL;
@@ -138,26 +135,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "CSLogin.proto");
   GOOGLE_CHECK(file != NULL);
-  Proto_UserSimpleData_descriptor_ = file->message_type(0);
-  static const int Proto_UserSimpleData_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, userid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, nickname_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, face_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, gender_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, age_),
-  };
-  Proto_UserSimpleData_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Proto_UserSimpleData_descriptor_,
-      Proto_UserSimpleData::default_instance_,
-      Proto_UserSimpleData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Proto_UserSimpleData));
-  Proto_CSReconnectReq_descriptor_ = file->message_type(1);
+  Proto_CSReconnectReq_descriptor_ = file->message_type(0);
   static const int Proto_CSReconnectReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSReconnectReq, userid_),
   };
@@ -172,7 +150,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSReconnectReq));
-  Proto_SCReconnectRsp_descriptor_ = file->message_type(2);
+  Proto_SCReconnectRsp_descriptor_ = file->message_type(1);
   static const int Proto_SCReconnectRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCReconnectRsp, result_),
   };
@@ -187,7 +165,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCReconnectRsp));
-  Proto_CSHeartBeatReq_descriptor_ = file->message_type(3);
+  Proto_CSHeartBeatReq_descriptor_ = file->message_type(2);
   static const int Proto_CSHeartBeatReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSHeartBeatReq, userid_),
   };
@@ -202,7 +180,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSHeartBeatReq));
-  Proto_SCHeartBeatRsp_descriptor_ = file->message_type(4);
+  Proto_SCHeartBeatRsp_descriptor_ = file->message_type(3);
   static const int Proto_SCHeartBeatRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCHeartBeatRsp, result_),
   };
@@ -217,7 +195,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCHeartBeatRsp));
-  Proto_CSRegisterAccountReq_descriptor_ = file->message_type(5);
+  Proto_CSRegisterAccountReq_descriptor_ = file->message_type(4);
   static const int Proto_CSRegisterAccountReq_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSRegisterAccountReq, password_),
@@ -237,7 +215,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSRegisterAccountReq));
-  Proto_SCRegisterAccountRsp_descriptor_ = file->message_type(6);
+  Proto_SCRegisterAccountRsp_descriptor_ = file->message_type(5);
   static const int Proto_SCRegisterAccountRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCRegisterAccountRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCRegisterAccountRsp, user_id_),
@@ -256,7 +234,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCRegisterAccountRsp));
-  Proto_CSServerIP_descriptor_ = file->message_type(7);
+  Proto_CSServerIP_descriptor_ = file->message_type(6);
   static const int Proto_CSServerIP_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSServerIP, ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSServerIP, port_),
@@ -272,7 +250,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSServerIP));
-  Proto_CSAccountLoginReq_descriptor_ = file->message_type(8);
+  Proto_CSAccountLoginReq_descriptor_ = file->message_type(7);
   static const int Proto_CSAccountLoginReq_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSAccountLoginReq, login_type_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSAccountLoginReq, account_),
@@ -291,7 +269,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSAccountLoginReq));
-  Proto_SCAccountLoginRsp_descriptor_ = file->message_type(9);
+  Proto_SCAccountLoginRsp_descriptor_ = file->message_type(8);
   static const int Proto_SCAccountLoginRsp_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCAccountLoginRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCAccountLoginRsp, user_id_),
@@ -310,7 +288,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCAccountLoginRsp));
-  Proto_CSUserLoginReq_descriptor_ = file->message_type(10);
+  Proto_CSUserLoginReq_descriptor_ = file->message_type(9);
   static const int Proto_CSUserLoginReq_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSUserLoginReq, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSUserLoginReq, user_id_),
@@ -329,7 +307,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSUserLoginReq));
-  Proto_SCUserLoginRsp_descriptor_ = file->message_type(11);
+  Proto_SCUserLoginRsp_descriptor_ = file->message_type(10);
   static const int Proto_SCUserLoginRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCUserLoginRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCUserLoginRsp, user_id_),
@@ -346,7 +324,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCUserLoginRsp));
-  Proto_CSChangeFaceReq_descriptor_ = file->message_type(12);
+  Proto_CSChangeFaceReq_descriptor_ = file->message_type(11);
   static const int Proto_CSChangeFaceReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSChangeFaceReq, face_id_),
   };
@@ -361,7 +339,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSChangeFaceReq));
-  Proto_SCChangeFaceRsp_descriptor_ = file->message_type(13);
+  Proto_SCChangeFaceRsp_descriptor_ = file->message_type(12);
   static const int Proto_SCChangeFaceRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCChangeFaceRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCChangeFaceRsp, face_id_),
@@ -377,7 +355,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCChangeFaceRsp));
-  Proto_CSChangeNickNameReq_descriptor_ = file->message_type(14);
+  Proto_CSChangeNickNameReq_descriptor_ = file->message_type(13);
   static const int Proto_CSChangeNickNameReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSChangeNickNameReq, nick_name_),
   };
@@ -392,7 +370,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSChangeNickNameReq));
-  Proto_SCChangNickNameRsp_descriptor_ = file->message_type(15);
+  Proto_SCChangNickNameRsp_descriptor_ = file->message_type(14);
   static const int Proto_SCChangNickNameRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCChangNickNameRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCChangNickNameRsp, nick_name_),
@@ -408,7 +386,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCChangNickNameRsp));
-  Proto_CSQueryUserReq_descriptor_ = file->message_type(16);
+  Proto_CSQueryUserReq_descriptor_ = file->message_type(15);
   static const int Proto_CSQueryUserReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSQueryUserReq, query_user_id_),
   };
@@ -423,7 +401,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSQueryUserReq));
-  Proto_SCQueryUserRsp_descriptor_ = file->message_type(17);
+  Proto_SCQueryUserRsp_descriptor_ = file->message_type(16);
   static const int Proto_SCQueryUserRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCQueryUserRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCQueryUserRsp, query_user_list_),
@@ -439,7 +417,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCQueryUserRsp));
-  Proto_CS_LoginServer_PhoneAutoCodeReq_descriptor_ = file->message_type(18);
+  Proto_CS_LoginServer_PhoneAutoCodeReq_descriptor_ = file->message_type(17);
   static const int Proto_CS_LoginServer_PhoneAutoCodeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_LoginServer_PhoneAutoCodeReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_LoginServer_PhoneAutoCodeReq, code_type_),
@@ -455,7 +433,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_LoginServer_PhoneAutoCodeReq));
-  Proto_SC_LoginServer_PhoneAutoCodeRsp_descriptor_ = file->message_type(19);
+  Proto_SC_LoginServer_PhoneAutoCodeRsp_descriptor_ = file->message_type(18);
   static const int Proto_SC_LoginServer_PhoneAutoCodeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_PhoneAutoCodeRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_PhoneAutoCodeRsp, phone_num_),
@@ -472,7 +450,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_LoginServer_PhoneAutoCodeRsp));
-  Proto_CS_LoginServer_CheckPhoneCodeReq_descriptor_ = file->message_type(20);
+  Proto_CS_LoginServer_CheckPhoneCodeReq_descriptor_ = file->message_type(19);
   static const int Proto_CS_LoginServer_CheckPhoneCodeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_LoginServer_CheckPhoneCodeReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_LoginServer_CheckPhoneCodeReq, auth_code_),
@@ -488,7 +466,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_LoginServer_CheckPhoneCodeReq));
-  Proto_SC_LoginServer_CheckPhoneCodeRsp_descriptor_ = file->message_type(21);
+  Proto_SC_LoginServer_CheckPhoneCodeRsp_descriptor_ = file->message_type(20);
   static const int Proto_SC_LoginServer_CheckPhoneCodeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_CheckPhoneCodeRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_CheckPhoneCodeRsp, phone_num_),
@@ -505,7 +483,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_LoginServer_CheckPhoneCodeRsp));
-  Proto_CS_ChangePasswordReq_descriptor_ = file->message_type(22);
+  Proto_CS_ChangePasswordReq_descriptor_ = file->message_type(21);
   static const int Proto_CS_ChangePasswordReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_ChangePasswordReq, account_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_ChangePasswordReq, new_password_),
@@ -522,7 +500,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_ChangePasswordReq));
-  Proto_SC_ChangePasswordRsp_descriptor_ = file->message_type(23);
+  Proto_SC_ChangePasswordRsp_descriptor_ = file->message_type(22);
   static const int Proto_SC_ChangePasswordRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_ChangePasswordRsp, result_),
   };
@@ -537,7 +515,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_ChangePasswordRsp));
-  Proto_SC_LoginServer_NotifyPhoneCheck_descriptor_ = file->message_type(24);
+  Proto_SC_LoginServer_NotifyPhoneCheck_descriptor_ = file->message_type(23);
   static const int Proto_SC_LoginServer_NotifyPhoneCheck_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_NotifyPhoneCheck, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_LoginServer_NotifyPhoneCheck, phone_num_),
@@ -553,7 +531,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_LoginServer_NotifyPhoneCheck));
-  Proto_CS_Player_PhoneAutoCodeReq_descriptor_ = file->message_type(25);
+  Proto_CS_Player_PhoneAutoCodeReq_descriptor_ = file->message_type(24);
   static const int Proto_CS_Player_PhoneAutoCodeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_PhoneAutoCodeReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_PhoneAutoCodeReq, code_type_),
@@ -569,7 +547,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_Player_PhoneAutoCodeReq));
-  Proto_SC_Player_PhoneAutoCodeRsp_descriptor_ = file->message_type(26);
+  Proto_SC_Player_PhoneAutoCodeRsp_descriptor_ = file->message_type(25);
   static const int Proto_SC_Player_PhoneAutoCodeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_PhoneAutoCodeRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_PhoneAutoCodeRsp, phone_num_),
@@ -586,7 +564,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_Player_PhoneAutoCodeRsp));
-  Proto_CS_Player_CheckPhoneCodeReq_descriptor_ = file->message_type(27);
+  Proto_CS_Player_CheckPhoneCodeReq_descriptor_ = file->message_type(26);
   static const int Proto_CS_Player_CheckPhoneCodeReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_CheckPhoneCodeReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_CheckPhoneCodeReq, auth_code_),
@@ -602,7 +580,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_Player_CheckPhoneCodeReq));
-  Proto_SC_Player_CheckPhoneCodeRsp_descriptor_ = file->message_type(28);
+  Proto_SC_Player_CheckPhoneCodeRsp_descriptor_ = file->message_type(27);
   static const int Proto_SC_Player_CheckPhoneCodeRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_CheckPhoneCodeRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_CheckPhoneCodeRsp, phone_num_),
@@ -619,7 +597,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_Player_CheckPhoneCodeRsp));
-  Proto_CS_Player_BindPhoneReq_descriptor_ = file->message_type(29);
+  Proto_CS_Player_BindPhoneReq_descriptor_ = file->message_type(28);
   static const int Proto_CS_Player_BindPhoneReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_BindPhoneReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_Player_BindPhoneReq, nick_name_),
@@ -637,7 +615,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_Player_BindPhoneReq));
-  Proto_SC_Player_BindPhoneRsp_descriptor_ = file->message_type(30);
+  Proto_SC_Player_BindPhoneRsp_descriptor_ = file->message_type(29);
   static const int Proto_SC_Player_BindPhoneRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_BindPhoneRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_Player_BindPhoneRsp, phone_num_),
@@ -654,7 +632,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_Player_BindPhoneRsp));
-  Proto_CS_PhoneChangeBandPasswordReq_descriptor_ = file->message_type(31);
+  Proto_CS_PhoneChangeBandPasswordReq_descriptor_ = file->message_type(30);
   static const int Proto_CS_PhoneChangeBandPasswordReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_PhoneChangeBandPasswordReq, phone_num_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CS_PhoneChangeBandPasswordReq, new_password_),
@@ -670,7 +648,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CS_PhoneChangeBandPasswordReq));
-  Proto_SC_PhoneChangeBandPasswordRsp_descriptor_ = file->message_type(32);
+  Proto_SC_PhoneChangeBandPasswordRsp_descriptor_ = file->message_type(31);
   static const int Proto_SC_PhoneChangeBandPasswordRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SC_PhoneChangeBandPasswordRsp, result_),
   };
@@ -685,7 +663,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SC_PhoneChangeBandPasswordRsp));
-  Proto_CSCheckContractInfoReq_descriptor_ = file->message_type(33);
+  Proto_CSCheckContractInfoReq_descriptor_ = file->message_type(32);
   static const int Proto_CSCheckContractInfoReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSCheckContractInfoReq, contract_info_),
   };
@@ -700,7 +678,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSCheckContractInfoReq));
-  Proto_SCCheckContractInfoRsp_descriptor_ = file->message_type(34);
+  Proto_SCCheckContractInfoRsp_descriptor_ = file->message_type(33);
   static const int Proto_SCCheckContractInfoRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCCheckContractInfoRsp, result_),
   };
@@ -715,7 +693,7 @@ void protobuf_AssignDesc_CSLogin_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCCheckContractInfoRsp));
-  Proto_SCKetPlayerNotify_descriptor_ = file->message_type(35);
+  Proto_SCKetPlayerNotify_descriptor_ = file->message_type(34);
   static const int Proto_SCKetPlayerNotify_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCKetPlayerNotify, result_),
   };
@@ -742,8 +720,6 @@ inline void protobuf_AssignDescriptorsOnce() {
 
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Proto_UserSimpleData_descriptor_, &Proto_UserSimpleData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_CSReconnectReq_descriptor_, &Proto_CSReconnectReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -819,8 +795,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_CSLogin_2eproto() {
-  delete Proto_UserSimpleData::default_instance_;
-  delete Proto_UserSimpleData_reflection_;
   delete Proto_CSReconnectReq::default_instance_;
   delete Proto_CSReconnectReq_reflection_;
   delete Proto_SCReconnectRsp::default_instance_;
@@ -903,81 +877,78 @@ void protobuf_AddDesc_CSLogin_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rCSLogin.proto\022\010proto_ff\032\tCom.proto\032\017Co"
-    "mDefine.proto\"c\n\024Proto_UserSimpleData\022\016\n"
-    "\006userid\030\001 \001(\004\022\020\n\010nickname\030\002 \001(\t\022\014\n\004face\030"
-    "\003 \001(\r\022\016\n\006gender\030\004 \001(\r\022\013\n\003age\030\005 \001(\r\"&\n\024Pr"
-    "oto_CSReconnectReq\022\016\n\006userid\030\001 \001(\004\"&\n\024Pr"
-    "oto_SCReconnectRsp\022\016\n\006result\030\001 \001(\005\"&\n\024Pr"
-    "oto_CSHeartBeatReq\022\016\n\006userid\030\001 \001(\005\"&\n\024Pr"
-    "oto_SCHeartBeatRsp\022\016\n\006result\030\001 \001(\005\"\216\001\n\032P"
-    "roto_CSRegisterAccountReq\022\017\n\007account\030\001 \001"
-    "(\t\022\020\n\010password\030\002 \001(\t\022\021\n\tnick_name\030\003 \001(\t\022"
-    "\020\n\010is_phone\030\005 \001(\010\022\021\n\tdevice_id\030\006 \001(\t\022\025\n\r"
-    "contract_info\030\007 \001(\t\"\224\001\n\032Proto_SCRegister"
-    "AccountRsp\022\016\n\006result\030\001 \001(\005\022\017\n\007user_id\030\002 "
-    "\001(\004\022\022\n\nlogin_time\030\003 \001(\004\022\r\n\005token\030\004 \001(\t\0222"
-    "\n\016server_ip_list\030\005 \003(\0132\032.proto_ff.Proto_"
-    "CSServerIP\",\n\020Proto_CSServerIP\022\n\n\002ip\030\001 \001"
-    "(\t\022\014\n\004port\030\002 \001(\r\"z\n\027Proto_CSAccountLogin"
-    "Req\022\022\n\nlogin_type\030\001 \001(\r\022\017\n\007account\030\002 \001(\t"
-    "\022\020\n\010password\030\003 \001(\t\022\021\n\tdevice_id\030\004 \001(\t\022\025\n"
-    "\rcontract_info\030\005 \001(\t\"\221\001\n\027Proto_SCAccount"
-    "LoginRsp\022\016\n\006result\030\001 \001(\005\022\017\n\007user_id\030\002 \001("
-    "\004\022\022\n\nlogin_time\030\003 \001(\004\022\r\n\005token\030\004 \001(\t\0222\n\016"
-    "server_ip_list\030\005 \003(\0132\032.proto_ff.Proto_CS"
-    "ServerIP\"\224\001\n\024Proto_CSUserLoginReq\022\017\n\007acc"
-    "ount\030\001 \001(\t\022\017\n\007user_id\030\002 \001(\004\022\022\n\nlogin_tim"
-    "e\030\003 \001(\004\022\r\n\005token\030\004 \001(\t\0227\n\010ext_data\030\005 \001(\013"
-    "2%.proto_ff.Proto_UserLoginExternalData\""
-    "r\n\024Proto_SCUserLoginRsp\022\016\n\006result\030\001 \001(\005\022"
-    "\017\n\007user_id\030\002 \001(\004\0229\n\013detail_data\030\003 \001(\0132$."
-    "proto_ff.Proto_UserDetailCommonData\"(\n\025P"
-    "roto_CSChangeFaceReq\022\017\n\007face_id\030\001 \001(\r\"8\n"
-    "\025Proto_SCChangeFaceRsp\022\016\n\006result\030\001 \001(\005\022\017"
-    "\n\007face_id\030\002 \001(\005\".\n\031Proto_CSChangeNickNam"
-    "eReq\022\021\n\tnick_name\030\001 \001(\t\"=\n\030Proto_SCChang"
-    "NickNameRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tnick_name"
-    "\030\002 \001(\t\"-\n\024Proto_CSQueryUserReq\022\025\n\rquery_"
-    "user_id\030\001 \003(\004\"_\n\024Proto_SCQueryUserRsp\022\016\n"
-    "\006result\030\001 \001(\005\0227\n\017query_user_list\030\002 \003(\0132\036"
-    ".proto_ff.Proto_UserSimpleData\"M\n%Proto_"
-    "CS_LoginServer_PhoneAutoCodeReq\022\021\n\tphone"
-    "_num\030\001 \001(\004\022\021\n\tcode_type\030\002 \001(\r\"]\n%Proto_S"
-    "C_LoginServer_PhoneAutoCodeRsp\022\016\n\006result"
-    "\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tcode_type\030\003"
-    " \001(\r\"N\n&Proto_CS_LoginServer_CheckPhoneC"
-    "odeReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tauth_code\030\002"
-    " \001(\r\"^\n&Proto_SC_LoginServer_CheckPhoneC"
-    "odeRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tphone_num\030\002 \001("
-    "\004\022\021\n\tcode_type\030\003 \001(\r\"V\n\032Proto_CS_ChangeP"
-    "asswordReq\022\017\n\007account\030\001 \001(\t\022\024\n\014new_passw"
-    "ord\030\002 \001(\t\022\021\n\tdevice_id\030\003 \001(\t\",\n\032Proto_SC"
-    "_ChangePasswordRsp\022\016\n\006result\030\001 \001(\005\"J\n%Pr"
-    "oto_SC_LoginServer_NotifyPhoneCheck\022\016\n\006r"
-    "esult\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\"H\n Proto_"
-    "CS_Player_PhoneAutoCodeReq\022\021\n\tphone_num\030"
-    "\001 \001(\004\022\021\n\tcode_type\030\002 \001(\r\"X\n Proto_SC_Pla"
-    "yer_PhoneAutoCodeRsp\022\016\n\006result\030\001 \001(\005\022\021\n\t"
-    "phone_num\030\002 \001(\004\022\021\n\tcode_type\030\003 \001(\r\"I\n!Pr"
-    "oto_CS_Player_CheckPhoneCodeReq\022\021\n\tphone"
-    "_num\030\001 \001(\004\022\021\n\tauth_code\030\002 \001(\r\"Y\n!Proto_S"
-    "C_Player_CheckPhoneCodeRsp\022\016\n\006result\030\001 \001"
-    "(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tcode_type\030\003 \001(\r"
-    "\"i\n\034Proto_CS_Player_BindPhoneReq\022\021\n\tphon"
-    "e_num\030\001 \001(\004\022\021\n\tnick_name\030\002 \001(\t\022\020\n\010passwo"
-    "rd\030\003 \001(\t\022\021\n\tdevice_id\030\004 \001(\t\"T\n\034Proto_SC_"
-    "Player_BindPhoneRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tp"
-    "hone_num\030\002 \001(\004\022\021\n\tnick_name\030\003 \001(\t\"N\n#Pro"
-    "to_CS_PhoneChangeBandPasswordReq\022\021\n\tphon"
-    "e_num\030\001 \001(\004\022\024\n\014new_password\030\002 \001(\t\"5\n#Pro"
-    "to_SC_PhoneChangeBandPasswordRsp\022\016\n\006resu"
-    "lt\030\001 \001(\005\"5\n\034Proto_CSCheckContractInfoReq"
-    "\022\025\n\rcontract_info\030\001 \001(\t\".\n\034Proto_SCCheck"
-    "ContractInfoRsp\022\016\n\006result\030\001 \001(\005\")\n\027Proto"
-    "_SCKetPlayerNotify\022\016\n\006result\030\001 \001(\005", 2914);
+    "mDefine.proto\"&\n\024Proto_CSReconnectReq\022\016\n"
+    "\006userid\030\001 \001(\004\"&\n\024Proto_SCReconnectRsp\022\016\n"
+    "\006result\030\001 \001(\005\"&\n\024Proto_CSHeartBeatReq\022\016\n"
+    "\006userid\030\001 \001(\005\"&\n\024Proto_SCHeartBeatRsp\022\016\n"
+    "\006result\030\001 \001(\005\"\216\001\n\032Proto_CSRegisterAccoun"
+    "tReq\022\017\n\007account\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\022"
+    "\021\n\tnick_name\030\003 \001(\t\022\020\n\010is_phone\030\005 \001(\010\022\021\n\t"
+    "device_id\030\006 \001(\t\022\025\n\rcontract_info\030\007 \001(\t\"\224"
+    "\001\n\032Proto_SCRegisterAccountRsp\022\016\n\006result\030"
+    "\001 \001(\005\022\017\n\007user_id\030\002 \001(\004\022\022\n\nlogin_time\030\003 \001"
+    "(\004\022\r\n\005token\030\004 \001(\t\0222\n\016server_ip_list\030\005 \003("
+    "\0132\032.proto_ff.Proto_CSServerIP\",\n\020Proto_C"
+    "SServerIP\022\n\n\002ip\030\001 \001(\t\022\014\n\004port\030\002 \001(\r\"z\n\027P"
+    "roto_CSAccountLoginReq\022\022\n\nlogin_type\030\001 \001"
+    "(\r\022\017\n\007account\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\021\n"
+    "\tdevice_id\030\004 \001(\t\022\025\n\rcontract_info\030\005 \001(\t\""
+    "\221\001\n\027Proto_SCAccountLoginRsp\022\016\n\006result\030\001 "
+    "\001(\005\022\017\n\007user_id\030\002 \001(\004\022\022\n\nlogin_time\030\003 \001(\004"
+    "\022\r\n\005token\030\004 \001(\t\0222\n\016server_ip_list\030\005 \003(\0132"
+    "\032.proto_ff.Proto_CSServerIP\"\224\001\n\024Proto_CS"
+    "UserLoginReq\022\017\n\007account\030\001 \001(\t\022\017\n\007user_id"
+    "\030\002 \001(\004\022\022\n\nlogin_time\030\003 \001(\004\022\r\n\005token\030\004 \001("
+    "\t\0227\n\010ext_data\030\005 \001(\0132%.proto_ff.Proto_Use"
+    "rLoginExternalData\"r\n\024Proto_SCUserLoginR"
+    "sp\022\016\n\006result\030\001 \001(\005\022\017\n\007user_id\030\002 \001(\004\0229\n\013d"
+    "etail_data\030\003 \001(\0132$.proto_ff.Proto_UserDe"
+    "tailCommonData\"(\n\025Proto_CSChangeFaceReq\022"
+    "\017\n\007face_id\030\001 \001(\r\"8\n\025Proto_SCChangeFaceRs"
+    "p\022\016\n\006result\030\001 \001(\005\022\017\n\007face_id\030\002 \001(\005\".\n\031Pr"
+    "oto_CSChangeNickNameReq\022\021\n\tnick_name\030\001 \001"
+    "(\t\"=\n\030Proto_SCChangNickNameRsp\022\016\n\006result"
+    "\030\001 \001(\005\022\021\n\tnick_name\030\002 \001(\t\"-\n\024Proto_CSQue"
+    "ryUserReq\022\025\n\rquery_user_id\030\001 \003(\004\"_\n\024Prot"
+    "o_SCQueryUserRsp\022\016\n\006result\030\001 \001(\005\0227\n\017quer"
+    "y_user_list\030\002 \003(\0132\036.proto_ff.Proto_UserS"
+    "impleData\"M\n%Proto_CS_LoginServer_PhoneA"
+    "utoCodeReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tcode_ty"
+    "pe\030\002 \001(\r\"]\n%Proto_SC_LoginServer_PhoneAu"
+    "toCodeRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tphone_num\030\002"
+    " \001(\004\022\021\n\tcode_type\030\003 \001(\r\"N\n&Proto_CS_Logi"
+    "nServer_CheckPhoneCodeReq\022\021\n\tphone_num\030\001"
+    " \001(\004\022\021\n\tauth_code\030\002 \001(\r\"^\n&Proto_SC_Logi"
+    "nServer_CheckPhoneCodeRsp\022\016\n\006result\030\001 \001("
+    "\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tcode_type\030\003 \001(\r\""
+    "V\n\032Proto_CS_ChangePasswordReq\022\017\n\007account"
+    "\030\001 \001(\t\022\024\n\014new_password\030\002 \001(\t\022\021\n\tdevice_i"
+    "d\030\003 \001(\t\",\n\032Proto_SC_ChangePasswordRsp\022\016\n"
+    "\006result\030\001 \001(\005\"J\n%Proto_SC_LoginServer_No"
+    "tifyPhoneCheck\022\016\n\006result\030\001 \001(\005\022\021\n\tphone_"
+    "num\030\002 \001(\004\"H\n Proto_CS_Player_PhoneAutoCo"
+    "deReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tcode_type\030\002 "
+    "\001(\r\"X\n Proto_SC_Player_PhoneAutoCodeRsp\022"
+    "\016\n\006result\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tco"
+    "de_type\030\003 \001(\r\"I\n!Proto_CS_Player_CheckPh"
+    "oneCodeReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tauth_co"
+    "de\030\002 \001(\r\"Y\n!Proto_SC_Player_CheckPhoneCo"
+    "deRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004"
+    "\022\021\n\tcode_type\030\003 \001(\r\"i\n\034Proto_CS_Player_B"
+    "indPhoneReq\022\021\n\tphone_num\030\001 \001(\004\022\021\n\tnick_n"
+    "ame\030\002 \001(\t\022\020\n\010password\030\003 \001(\t\022\021\n\tdevice_id"
+    "\030\004 \001(\t\"T\n\034Proto_SC_Player_BindPhoneRsp\022\016"
+    "\n\006result\030\001 \001(\005\022\021\n\tphone_num\030\002 \001(\004\022\021\n\tnic"
+    "k_name\030\003 \001(\t\"N\n#Proto_CS_PhoneChangeBand"
+    "PasswordReq\022\021\n\tphone_num\030\001 \001(\004\022\024\n\014new_pa"
+    "ssword\030\002 \001(\t\"5\n#Proto_SC_PhoneChangeBand"
+    "PasswordRsp\022\016\n\006result\030\001 \001(\005\"5\n\034Proto_CSC"
+    "heckContractInfoReq\022\025\n\rcontract_info\030\001 \001"
+    "(\t\".\n\034Proto_SCCheckContractInfoRsp\022\016\n\006re"
+    "sult\030\001 \001(\005\")\n\027Proto_SCKetPlayerNotify\022\016\n"
+    "\006result\030\001 \001(\005", 2813);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSLogin.proto", &protobuf_RegisterTypes);
-  Proto_UserSimpleData::default_instance_ = new Proto_UserSimpleData();
   Proto_CSReconnectReq::default_instance_ = new Proto_CSReconnectReq();
   Proto_SCReconnectRsp::default_instance_ = new Proto_SCReconnectRsp();
   Proto_CSHeartBeatReq::default_instance_ = new Proto_CSHeartBeatReq();
@@ -1013,7 +984,6 @@ void protobuf_AddDesc_CSLogin_2eproto() {
   Proto_CSCheckContractInfoReq::default_instance_ = new Proto_CSCheckContractInfoReq();
   Proto_SCCheckContractInfoRsp::default_instance_ = new Proto_SCCheckContractInfoRsp();
   Proto_SCKetPlayerNotify::default_instance_ = new Proto_SCKetPlayerNotify();
-  Proto_UserSimpleData::default_instance_->InitAsDefaultInstance();
   Proto_CSReconnectReq::default_instance_->InitAsDefaultInstance();
   Proto_SCReconnectRsp::default_instance_->InitAsDefaultInstance();
   Proto_CSHeartBeatReq::default_instance_->InitAsDefaultInstance();
@@ -1058,391 +1028,6 @@ struct StaticDescriptorInitializer_CSLogin_2eproto {
     protobuf_AddDesc_CSLogin_2eproto();
   }
 } static_descriptor_initializer_CSLogin_2eproto_;
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Proto_UserSimpleData::kUseridFieldNumber;
-const int Proto_UserSimpleData::kNicknameFieldNumber;
-const int Proto_UserSimpleData::kFaceFieldNumber;
-const int Proto_UserSimpleData::kGenderFieldNumber;
-const int Proto_UserSimpleData::kAgeFieldNumber;
-#endif  // !_MSC_VER
-
-Proto_UserSimpleData::Proto_UserSimpleData()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Proto_UserSimpleData::InitAsDefaultInstance() {
-}
-
-Proto_UserSimpleData::Proto_UserSimpleData(const Proto_UserSimpleData& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Proto_UserSimpleData::SharedCtor() {
-  _cached_size_ = 0;
-  userid_ = GOOGLE_ULONGLONG(0);
-  nickname_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  face_ = 0u;
-  gender_ = 0u;
-  age_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Proto_UserSimpleData::~Proto_UserSimpleData() {
-  SharedDtor();
-}
-
-void Proto_UserSimpleData::SharedDtor() {
-  if (nickname_ != &::google::protobuf::internal::kEmptyString) {
-    delete nickname_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void Proto_UserSimpleData::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Proto_UserSimpleData::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Proto_UserSimpleData_descriptor_;
-}
-
-const Proto_UserSimpleData& Proto_UserSimpleData::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_CSLogin_2eproto();
-  return *default_instance_;
-}
-
-Proto_UserSimpleData* Proto_UserSimpleData::default_instance_ = NULL;
-
-Proto_UserSimpleData* Proto_UserSimpleData::New() const {
-  return new Proto_UserSimpleData;
-}
-
-void Proto_UserSimpleData::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    userid_ = GOOGLE_ULONGLONG(0);
-    if (has_nickname()) {
-      if (nickname_ != &::google::protobuf::internal::kEmptyString) {
-        nickname_->clear();
-      }
-    }
-    face_ = 0u;
-    gender_ = 0u;
-    age_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Proto_UserSimpleData::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint64 userid = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &userid_)));
-          set_has_userid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_nickname;
-        break;
-      }
-
-      // optional string nickname = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_nickname:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_nickname()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->nickname().data(), this->nickname().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_face;
-        break;
-      }
-
-      // optional uint32 face = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_face:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &face_)));
-          set_has_face();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_gender;
-        break;
-      }
-
-      // optional uint32 gender = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_gender:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &gender_)));
-          set_has_gender();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(40)) goto parse_age;
-        break;
-      }
-
-      // optional uint32 age = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_age:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &age_)));
-          set_has_age();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Proto_UserSimpleData::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint64 userid = 1;
-  if (has_userid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->userid(), output);
-  }
-
-  // optional string nickname = 2;
-  if (has_nickname()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nickname().data(), this->nickname().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->nickname(), output);
-  }
-
-  // optional uint32 face = 3;
-  if (has_face()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->face(), output);
-  }
-
-  // optional uint32 gender = 4;
-  if (has_gender()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->gender(), output);
-  }
-
-  // optional uint32 age = 5;
-  if (has_age()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->age(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Proto_UserSimpleData::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional uint64 userid = 1;
-  if (has_userid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->userid(), target);
-  }
-
-  // optional string nickname = 2;
-  if (has_nickname()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nickname().data(), this->nickname().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->nickname(), target);
-  }
-
-  // optional uint32 face = 3;
-  if (has_face()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->face(), target);
-  }
-
-  // optional uint32 gender = 4;
-  if (has_gender()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->gender(), target);
-  }
-
-  // optional uint32 age = 5;
-  if (has_age()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->age(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Proto_UserSimpleData::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint64 userid = 1;
-    if (has_userid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->userid());
-    }
-
-    // optional string nickname = 2;
-    if (has_nickname()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->nickname());
-    }
-
-    // optional uint32 face = 3;
-    if (has_face()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->face());
-    }
-
-    // optional uint32 gender = 4;
-    if (has_gender()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->gender());
-    }
-
-    // optional uint32 age = 5;
-    if (has_age()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->age());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Proto_UserSimpleData::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Proto_UserSimpleData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_UserSimpleData*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Proto_UserSimpleData::MergeFrom(const Proto_UserSimpleData& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_userid()) {
-      set_userid(from.userid());
-    }
-    if (from.has_nickname()) {
-      set_nickname(from.nickname());
-    }
-    if (from.has_face()) {
-      set_face(from.face());
-    }
-    if (from.has_gender()) {
-      set_gender(from.gender());
-    }
-    if (from.has_age()) {
-      set_age(from.age());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Proto_UserSimpleData::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Proto_UserSimpleData::CopyFrom(const Proto_UserSimpleData& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Proto_UserSimpleData::IsInitialized() const {
-
-  return true;
-}
-
-void Proto_UserSimpleData::Swap(Proto_UserSimpleData* other) {
-  if (other != this) {
-    std::swap(userid_, other->userid_);
-    std::swap(nickname_, other->nickname_);
-    std::swap(face_, other->face_);
-    std::swap(gender_, other->gender_);
-    std::swap(age_, other->age_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Proto_UserSimpleData::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Proto_UserSimpleData_descriptor_;
-  metadata.reflection = Proto_UserSimpleData_reflection_;
-  return metadata;
-}
-
 
 // ===================================================================
 

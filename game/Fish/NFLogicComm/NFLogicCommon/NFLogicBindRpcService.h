@@ -66,3 +66,8 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_LTS_PLAYER_ADD_BANK_JETTON_RPC, proto_ff::P
  * @brief logic sns银行筹码, logic server to sns server
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC, proto_ff::Proto_LTS_PlayerReduceBankJettonReq, proto_ff::Proto_STL_PlayerReduceBankJettonRsp)
+
+/**
+ * @brief query user data,  sns rpc
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC, proto_ff::Proto_TS_QueryPlayerSimpleDataReq, proto_ff::Proto_ST_QueryPlayerSimpleDataRsp)

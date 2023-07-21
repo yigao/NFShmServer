@@ -66,6 +66,14 @@ public:
     int OnRpcServicePlayerReconnect(proto_ff::WTSPlayerReconnectReq& request, proto_ff::STWPlayerReconnectRsp& respone);
 
     /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServiceQueryPlayerSimpleData(proto_ff::Proto_TS_QueryPlayerSimpleDataReq& request, proto_ff::Proto_ST_QueryPlayerSimpleDataRsp& respone);
+
+    /**
      * @brief 玩家掉线
      * @param msgId
      * @param packet
@@ -84,4 +92,14 @@ public:
      * @return
      */
     int OnHandlePlayerLogoutNotify(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
+
+    /**
+     * @brief
+     * @param msgId
+     * @param packet
+     * @param param1
+     * @param param2
+     * @return
+     */
+    int OnHandleQueryUserSimpleDataReq(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 };

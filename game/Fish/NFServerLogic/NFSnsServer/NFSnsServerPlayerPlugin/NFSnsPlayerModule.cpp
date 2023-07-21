@@ -34,9 +34,14 @@ bool NFCSnsPlayerModule::Awake()
                                                                                      &NFCSnsPlayerModule::OnRpcServicePlayerLogin, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ>(NF_ST_SNS_SERVER, this,
                                                                                      &NFCSnsPlayerModule::OnRpcServicePlayerReconnect, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC>(NF_ST_SNS_SERVER, this,
+                                                                                             &NFCSnsPlayerModule::OnRpcServiceQueryPlayerSimpleData, true);
+
+    RegisterClientMessage(NF_ST_SNS_SERVER, proto_ff::NF_CS_QUERY_USER_SIMPLE_DATA_REQ);
 
     RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG);
     RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_LOGOUT_NOTIFY);
+
     ///////////logic msg//////////////////////////////////////////////////////////
     return true;
 }
@@ -96,6 +101,11 @@ int NFCSnsPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
 
     switch (msgId)
     {
+        case proto_ff::NF_CS_QUERY_USER_SIMPLE_DATA_REQ:
+        {
+            OnHandleQueryUserSimpleDataReq(msgId, packet, playerId, param2);
+            break;
+        }
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Client MsgId:{} Register, But Not Handle, Package:{}", msgId, packet.ToString());
@@ -298,6 +308,30 @@ int NFCSnsPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTSPlayerReconnect
     return 0;
 }
 
+int NFCSnsPlayerModule::OnRpcServiceQueryPlayerSimpleData(proto_ff::Proto_TS_QueryPlayerSimpleDataReq& request, proto_ff::Proto_ST_QueryPlayerSimpleDataRsp& respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    respone.set_result(0);
+
+    for(int i = 0; i < (int)request.query_user_id_size(); i++)
+    {
+        NFPlayerSimple* pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.query_user_id(i));
+        if (pPlayerSimple == NULL)
+        {
+            respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+            return 0;
+        }
+
+        auto pData = respone.add_query_user_list();
+        pData->set_userid(pPlayerSimple->GetPlayerId());
+        pData->set_nickname(pPlayerSimple->GetBaseData().nickname.ToString());
+        pData->set_face(pPlayerSimple->GetBaseData().faceid);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
 int NFCSnsPlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
@@ -358,6 +392,40 @@ int NFCSnsPlayerModule::OnHandlePlayerLogoutNotify(uint32_t msgId, NFDataPackage
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} logout..............", xMsg.player_id());
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
+int NFCSnsPlayerModule::OnHandleQueryUserSimpleDataReq(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+
+    proto_ff::Proto_CSQueryUserReq xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFPlayerOnline* pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(playerId);
+    CHECK_NULL(pPlayerOnline);
+
+    proto_ff::Proto_SCQueryUserRsp rspMsg;
+    rspMsg.set_result(0);
+
+    for(int i = 0; i < (int)xMsg.query_user_id_size(); i++)
+    {
+        NFPlayerSimple* pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(xMsg.query_user_id(i));
+        if (pPlayerSimple == NULL)
+        {
+            rspMsg.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+            break;
+        }
+
+        auto pData = rspMsg.add_query_user_list();
+        pData->set_userid(pPlayerSimple->GetPlayerId());
+        pData->set_nickname(pPlayerSimple->GetBaseData().nickname.ToString());
+        pData->set_face(pPlayerSimple->GetBaseData().faceid);
+    }
+
+    pPlayerOnline->SendMsgToClient(proto_ff::NF_SC_QUERY_USER_SIMPLE_DATA_RSP, rspMsg);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;

@@ -176,6 +176,14 @@ public:
      * @return
      */
     int OnHandleBankGiveBankJettonReq(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief
+     * @param msgId
+     * @param packet
+     * @return
+     */
+    int OnHandleBankGetRecordReq(uint32_t msgId, NFDataPackage &packet);
 private:
     uint64_t m_bankJetton;
     NFCommonStr m_bankPassword;

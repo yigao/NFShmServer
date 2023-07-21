@@ -226,5 +226,23 @@ namespace proto_ff_s {
 	};
 	typedef struct tbGiveBankJetton_s tbGiveBankJetton_t;
 
+	struct Proto_UserSimpleData_s : public NFDescStoreSeqOP {
+		Proto_UserSimpleData_s();
+		virtual ~Proto_UserSimpleData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t userid;
+		NFShmString<32> nickname;
+		uint32_t face;
+		uint32_t gender;
+		uint32_t age;
+
+		virtual void write_to_pbmsg(::proto_ff::Proto_UserSimpleData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::Proto_UserSimpleData & msg);
+		static ::proto_ff::Proto_UserSimpleData* new_pbmsg(){ return new ::proto_ff::Proto_UserSimpleData(); }
+		static ::proto_ff::Proto_UserSimpleData make_pbmsg(){ return ::proto_ff::Proto_UserSimpleData(); }
+	};
+	typedef struct Proto_UserSimpleData_s Proto_UserSimpleData_t;
+
 }
 

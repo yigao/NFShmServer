@@ -78,6 +78,11 @@ int NFSnsJettonPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet
             OnHandleBankGiveBankJettonReq(msgId, packet);
             break;
         }
+        case proto_ff::NF_CS_BANK_GET_RECORD_REQ:
+        {
+            OnHandleBankGetRecordReq(msgId, packet);
+            break;
+        }
         default:
             break;
     }
@@ -242,8 +247,6 @@ int NFSnsJettonPart::OnHandleBankGiveBankJettonReq(uint32_t msgId, NFDataPackage
     NFPlayerOnline* pOnline = GetPlayerOnline();
     CHECK_NULL(pOnline);
 
-
-
     proto_ff::Proto_CSBankGiveMoneyRsp rspMsg;
     rspMsg.set_result(0);
 
@@ -333,6 +336,32 @@ int NFSnsJettonPart::OnHandleBankGiveBankJettonReq(uint32_t msgId, NFDataPackage
         notify.set_bank_jetton(pOtherPart->m_bankJetton);
         pOtherOnline->SendMsgToClient(proto_ff::NF_SC_BANK_GIVE_BANK_JETTON_AUTO_PUSH_RSP, notify);
     }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
+int NFSnsJettonPart::OnHandleBankGetRecordReq(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+
+    proto_ff::Proto_CSBankGetRecordReq xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+    NFPlayerOnline* pOnline = GetPlayerOnline();
+    CHECK_NULL(pOnline);
+
+    proto_ff::Proto_SCBankGetRecordRsp rspMsg;
+    rspMsg.set_result(0);
+
+    uint32_t count = 1;
+    for(auto iter = m_recordList.begin(); iter != m_recordList.end(); iter++)
+    {
+        if (count >= xMsg.begin() && count <= xMsg.end())
+        {
+            iter->write_to_pbmsg(*rspMsg.add_record());
+        }
+        count++;
+    }
+    pOnline->SendMsgToClient(proto_ff::NF_SC_BANK_GET_RECORD_RSP, rspMsg);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
