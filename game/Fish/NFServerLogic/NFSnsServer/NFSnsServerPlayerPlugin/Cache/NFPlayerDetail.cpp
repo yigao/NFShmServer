@@ -60,6 +60,15 @@ void NFPlayerDetail::SetPlayerId(uint64_t roleId)
 
 bool NFPlayerDetail::CanDelete()
 {
+    if (NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(GetPlayerId()))
+    {
+        return false;
+    }
+
+    if (FindModule<NFICoroutineModule>()->IsExistUserCo(GetPlayerId()))
+    {
+        return false;
+    }
     return true;
 }
 

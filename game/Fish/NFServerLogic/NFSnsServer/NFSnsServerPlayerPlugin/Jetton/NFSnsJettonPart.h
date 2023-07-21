@@ -16,6 +16,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Part/NFSnsPart.h"
 #include "NFLogicCommon/NFLogicCommon.h"
+#include "NFComm/NFShmStl/NFShmList.h"
 
 class NFSnsJettonPart : public NFSnsPart
 {
@@ -159,10 +160,28 @@ public:
      * @return
      */
     int ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerReduceBankJettonRsp* pResponse);
+
+    /**
+     * @brief
+     * @param msgId
+     * @param packet
+     * @return
+     */
+    int OnHandleBankSetPasswordReq(uint32_t msgId, NFDataPackage &packet);
+
+    /**
+     * @brief
+     * @param msgId
+     * @param packet
+     * @return
+     */
+    int OnHandleBankGiveBankJettonReq(uint32_t msgId, NFDataPackage &packet);
 private:
     uint64_t m_bankJetton;
     NFCommonStr m_bankPassword;
     bool m_isCanUseBank;
+private:
+    NFShmList<proto_ff_s::tbGiveBankJetton_s, 10> m_recordList;
 private:
 DECLARE_IDCREATE(NFSnsJettonPart)
 };

@@ -134,6 +134,38 @@ void tbFishSnsPlayerSimpleData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPla
 	agent = msg.agent();
 }
 
+GiveBankRecordDBData_s::GiveBankRecordDBData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GiveBankRecordDBData_s::CreateInit() {
+	return 0;
+}
+
+int GiveBankRecordDBData_s::ResumeInit() {
+	return 0;
+}
+
+void GiveBankRecordDBData_s::write_to_pbmsg(::proto_ff::GiveBankRecordDBData & msg) const {
+	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
+		::proto_ff::tbGiveBankJetton* temp_record = msg.add_record();
+		record[i].write_to_pbmsg(*temp_record);
+	}
+}
+
+void GiveBankRecordDBData_s::read_from_pbmsg(const ::proto_ff::GiveBankRecordDBData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GiveBankRecordDBData_s));
+	record.resize(msg.record_size());
+	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
+		const ::proto_ff::tbGiveBankJetton & temp_record = msg.record(i);
+		record[i].read_from_pbmsg(temp_record);
+	}
+}
+
 tbFishSnsPlayerDetailData_s::tbFishSnsPlayerDetailData_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -156,6 +188,8 @@ void tbFishSnsPlayerDetailData_s::write_to_pbmsg(::proto_ff::tbFishSnsPlayerDeta
 	msg.set_player_id((uint64_t)player_id);
 	msg.set_bank_jetton((uint64_t)bank_jetton);
 	msg.set_bank_password((const char*)bank_password.data());
+	::proto_ff::GiveBankRecordDBData* temp_record = msg.mutable_record();
+	record.write_to_pbmsg(*temp_record);
 }
 
 void tbFishSnsPlayerDetailData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg) {
@@ -163,6 +197,8 @@ void tbFishSnsPlayerDetailData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPla
 	player_id = msg.player_id();
 	bank_jetton = msg.bank_jetton();
 	bank_password = msg.bank_password();
+	const ::proto_ff::GiveBankRecordDBData & temp_record = msg.record();
+	record.read_from_pbmsg(temp_record);
 }
 
 }

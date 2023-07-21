@@ -10,6 +10,7 @@
 #include "Com.pb.h"
 #include "Com_s.h"
 
+#define DEFINE_GIVEBANKRECORDDBDATA_RECORD_MAX_NUM 1
 namespace proto_ff_s {
 
 	struct tbFishAccountTable_s : public NFDescStoreSeqOP {
@@ -74,6 +75,20 @@ namespace proto_ff_s {
 	};
 	typedef struct tbFishSnsPlayerSimpleData_s tbFishSnsPlayerSimpleData_t;
 
+	struct GiveBankRecordDBData_s : public NFDescStoreSeqOP {
+		GiveBankRecordDBData_s();
+		virtual ~GiveBankRecordDBData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		NFShmVector<struct tbGiveBankJetton_s, DEFINE_GIVEBANKRECORDDBDATA_RECORD_MAX_NUM> record;
+
+		virtual void write_to_pbmsg(::proto_ff::GiveBankRecordDBData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GiveBankRecordDBData & msg);
+		static ::proto_ff::GiveBankRecordDBData* new_pbmsg(){ return new ::proto_ff::GiveBankRecordDBData(); }
+		static ::proto_ff::GiveBankRecordDBData make_pbmsg(){ return ::proto_ff::GiveBankRecordDBData(); }
+	};
+	typedef struct GiveBankRecordDBData_s GiveBankRecordDBData_t;
+
 	struct tbFishSnsPlayerDetailData_s : public NFDescStoreSeqOP {
 		tbFishSnsPlayerDetailData_s();
 		virtual ~tbFishSnsPlayerDetailData_s(){}
@@ -82,6 +97,7 @@ namespace proto_ff_s {
 		uint64_t player_id;
 		uint64_t bank_jetton;
 		NFShmString<128> bank_password;
+		struct GiveBankRecordDBData_s record;
 
 		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerDetailData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg);

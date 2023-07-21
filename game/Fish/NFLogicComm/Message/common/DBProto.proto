@@ -38,9 +38,15 @@ message tbFishSnsPlayerSimpleData
   optional uint64 agent = 20[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX, (yd_fieldoptions.db_field_comment) = "上级代理"];
 }
 
+message GiveBankRecordDBData
+{
+  repeated tbGiveBankJetton record = 1;
+}
+
 message tbFishSnsPlayerDetailData
 {
   optional uint64 player_id = 1 [(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY, (yd_fieldoptions.db_field_comment) = "玩家ID"]; //UserID用户ID
   optional uint64 bank_jetton = 9[(yd_fieldoptions.db_field_comment) = "银行金币"];
   optional string bank_password = 10[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128,(yd_fieldoptions.db_field_comment) = "银行密码"];
+  optional GiveBankRecordDBData record = 11[(yd_fieldoptions.db_field_comment) = "转账记录"];
 }

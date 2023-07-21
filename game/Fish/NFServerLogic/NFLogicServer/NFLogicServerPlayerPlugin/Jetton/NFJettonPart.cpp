@@ -57,9 +57,7 @@ int NFJettonPart::RegisterMessage()
     RegisterClientMessage(proto_ff::NF_CS_BANK_GET_DATA_REQ);
     RegisterClientMessage(proto_ff::NF_CS_BANK_SAVE_MONEY_REQ, true);
     RegisterClientMessage(proto_ff::NF_CS_BANK_GET_MONEY_REQ, true);
-    RegisterClientMessage(proto_ff::NF_CS_BANK_SET_PASSWORD_REQ, true);
-    RegisterClientMessage(proto_ff::NF_CS_BANK_GIVE_BANK_JETTON_REQ, true);
-    RegisterClientMessage(proto_ff::NF_CS_BANK_GET_RECORD_REQ, true);
+
     return 0;
 }
 
@@ -75,6 +73,11 @@ int NFJettonPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
         case proto_ff::NF_CS_BANK_SAVE_MONEY_REQ:
         {
             OnHandleBankSaveMoneyReq(msgId, packet);
+            break;
+        }
+        case proto_ff::NF_CS_BANK_GET_MONEY_REQ:
+        {
+            OnHandleBankGetMoneyReq(msgId, packet);
             break;
         }
     }
@@ -194,4 +197,46 @@ int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
+
+int NFJettonPart::OnHandleBankGetMoneyReq(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+
+    proto_ff::Proto_CSBankGetMoneyReq xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    proto_ff::Proto_SCBankGetMoneyRsp rspMsg;
+    rspMsg.set_result(0);
+
+    proto_ff::Proto_LTS_PlayerReduceBankJettonReq reduceReqRpc;
+    reduceReqRpc.set_reduce_jetton(xMsg.get_jetton());
+    proto_ff::Proto_STL_PlayerReduceBankJettonRsp reduceRspRpc;
+    int iRet = GetRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC>(NF_ST_SNS_SERVER, 0, reduceReqRpc, reduceRspRpc);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "GetRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC> Failed, iRet:{}", GetErrorStr(iRet));
+        rspMsg.set_result(iRet);
+        m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_GET_MONEY_RSP, rspMsg);
+        return 0;
+    }
+
+    if (reduceRspRpc.ret_code() != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "GetRpcService<proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC> Failed, rspRpc.ret_code():{}", GetErrorStr(reduceRspRpc.ret_code()));
+        rspMsg.set_result(reduceRspRpc.ret_code());
+        m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_GET_MONEY_RSP, rspMsg);
+        return 0;
+    }
+
+    m_jetton += reduceRspRpc.reduce_jetton();
+    MarkDirty();
+
+    rspMsg.set_jetton(m_jetton);
+    rspMsg.set_bank_jetton(reduceRspRpc.bank_jetton());
+
+    m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_GET_MONEY_RSP, rspMsg);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    return 0;
+}
+
 

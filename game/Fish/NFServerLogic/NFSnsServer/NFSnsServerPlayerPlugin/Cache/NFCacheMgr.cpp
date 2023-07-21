@@ -118,6 +118,20 @@ NFPlayerSimple* NFCacheMgr::QueryPlayerSimpleByRpc(uint64_t role_id)
     return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimpleInfoByRpc(role_id, NFTime::Now().UnixSec());
 }
 
+NFPlayerSimple* NFCacheMgr::QueryPlayerSimpleByRpc(uint64_t playerId, uint64_t query_id)
+{
+    NFPlayerSimple *pSimple = GetPlayerSimple(query_id);
+    if (pSimple)
+    {
+        return pSimple;
+    }
+
+    FindModule<NFICoroutineModule>()->AddUserCo(playerId);
+    pSimple = NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimpleInfoByRpc(query_id, NFTime::Now().UnixSec());
+    FindModule<NFICoroutineModule>()->DelUserCo(playerId);
+    return pSimple;
+}
+
 NFPlayerSimple* NFCacheMgr::CreatePlayerSimpleDBDataByRpc(const proto_ff::tbFishSnsPlayerSimpleData& dbData)
 {
     return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbData);
@@ -137,6 +151,37 @@ NFPlayerDetail* NFCacheMgr::QueryPlayerDetailByRpc(uint64_t role_id)
     }
 
     return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetailInfoByRpc(role_id, NFTime::Now().UnixSec());
+}
+
+std::pair<NFPlayerSimple*, NFPlayerDetail*> NFCacheMgr::QueryPlayerByRpc(uint64_t playerId, uint64_t query_id)
+{
+    std::pair<NFPlayerSimple*, NFPlayerDetail*> data;
+    data.first = GetPlayerSimple(query_id);
+    data.second = GetPlayerDetail(query_id);
+
+    if (data.first == NULL || data.second == NULL)
+    {
+        QueryPlayerDetailByRpc(playerId, query_id);
+        QueryPlayerSimpleByRpc(playerId, query_id);
+    }
+
+    data.first = GetPlayerSimple(query_id);
+    data.second = GetPlayerDetail(query_id);
+    return data;
+}
+
+NFPlayerDetail* NFCacheMgr::QueryPlayerDetailByRpc(uint64_t playerId, uint64_t query_id)
+{
+    NFPlayerDetail* pDetail = GetPlayerDetail(query_id);
+    if (pDetail)
+    {
+        return pDetail;
+    }
+
+    FindModule<NFICoroutineModule>()->AddUserCo(playerId);
+    pDetail = NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetailInfoByRpc(query_id, NFTime::Now().UnixSec());
+    FindModule<NFICoroutineModule>()->DelUserCo(playerId);
+    return pDetail;
 }
 
 int NFCacheMgr::ReleaseDetailCount(int num)

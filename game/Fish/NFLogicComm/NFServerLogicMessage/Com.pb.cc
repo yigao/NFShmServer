@@ -56,6 +56,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_LTSSyncData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_LTSSyncData_reflection_ = NULL;
+const ::google::protobuf::Descriptor* tbGiveBankJetton_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  tbGiveBankJetton_reflection_ = NULL;
 
 }  // namespace
 
@@ -272,6 +275,27 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_LTSSyncData));
+  tbGiveBankJetton_descriptor_ = file->message_type(12);
+  static const int tbGiveBankJetton_offsets_[7] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, user_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, give_user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, give_user_name_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, give_jetton_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, create_time_),
+  };
+  tbGiveBankJetton_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      tbGiveBankJetton_descriptor_,
+      tbGiveBankJetton::default_instance_,
+      tbGiveBankJetton_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(tbGiveBankJetton));
 }
 
 namespace {
@@ -308,6 +332,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Proto_UserDetailCommonData_descriptor_, &Proto_UserDetailCommonData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_LTSSyncData_descriptor_, &Proto_LTSSyncData::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    tbGiveBankJetton_descriptor_, &tbGiveBankJetton::default_instance());
 }
 
 }  // namespace
@@ -337,6 +363,8 @@ void protobuf_ShutdownFile_Com_2eproto() {
   delete Proto_UserDetailCommonData_reflection_;
   delete Proto_LTSSyncData::default_instance_;
   delete Proto_LTSSyncData_reflection_;
+  delete tbGiveBankJetton::default_instance_;
+  delete tbGiveBankJetton_reflection_;
 }
 
 void protobuf_AddDesc_Com_2eproto() {
@@ -370,7 +398,11 @@ void protobuf_AddDesc_Com_2eproto() {
     "jetton\030\005 \001(\004\022\020\n\010agent_id\030\006 \001(\004\022\020\n\010phonen"
     "um\030\007 \001(\004\"V\n\021Proto_LTSSyncData\022\035\n\025create_"
     "player_db_data\030\001 \001(\010\022\021\n\tnick_name\030\002 \001(\t\022"
-    "\017\n\007face_id\030\003 \001(\r", 896);
+    "\017\n\007face_id\030\003 \001(\r\"\232\001\n\020tbGiveBankJetton\022\n\n"
+    "\002id\030\001 \002(\004\022\017\n\007user_id\030\002 \001(\004\022\021\n\tuser_name\030"
+    "\003 \001(\t\022\024\n\014give_user_id\030\004 \001(\004\022\026\n\016give_user"
+    "_name\030\005 \001(\t\022\023\n\013give_jetton\030\006 \001(\004\022\023\n\013crea"
+    "te_time\030\007 \001(\004", 1053);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Com.proto", &protobuf_RegisterTypes);
   EmptyMessage::default_instance_ = new EmptyMessage();
@@ -385,6 +417,7 @@ void protobuf_AddDesc_Com_2eproto() {
   Proto_UserLoginExternalData::default_instance_ = new Proto_UserLoginExternalData();
   Proto_UserDetailCommonData::default_instance_ = new Proto_UserDetailCommonData();
   Proto_LTSSyncData::default_instance_ = new Proto_LTSSyncData();
+  tbGiveBankJetton::default_instance_ = new tbGiveBankJetton();
   EmptyMessage::default_instance_->InitAsDefaultInstance();
   ComPair::default_instance_->InitAsDefaultInstance();
   ComPair64::default_instance_->InitAsDefaultInstance();
@@ -397,6 +430,7 @@ void protobuf_AddDesc_Com_2eproto() {
   Proto_UserLoginExternalData::default_instance_->InitAsDefaultInstance();
   Proto_UserDetailCommonData::default_instance_->InitAsDefaultInstance();
   Proto_LTSSyncData::default_instance_->InitAsDefaultInstance();
+  tbGiveBankJetton::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Com_2eproto);
 }
 
@@ -4058,6 +4092,489 @@ void Proto_LTSSyncData::Swap(Proto_LTSSyncData* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_LTSSyncData_descriptor_;
   metadata.reflection = Proto_LTSSyncData_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int tbGiveBankJetton::kIdFieldNumber;
+const int tbGiveBankJetton::kUserIdFieldNumber;
+const int tbGiveBankJetton::kUserNameFieldNumber;
+const int tbGiveBankJetton::kGiveUserIdFieldNumber;
+const int tbGiveBankJetton::kGiveUserNameFieldNumber;
+const int tbGiveBankJetton::kGiveJettonFieldNumber;
+const int tbGiveBankJetton::kCreateTimeFieldNumber;
+#endif  // !_MSC_VER
+
+tbGiveBankJetton::tbGiveBankJetton()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void tbGiveBankJetton::InitAsDefaultInstance() {
+}
+
+tbGiveBankJetton::tbGiveBankJetton(const tbGiveBankJetton& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void tbGiveBankJetton::SharedCtor() {
+  _cached_size_ = 0;
+  id_ = GOOGLE_ULONGLONG(0);
+  user_id_ = GOOGLE_ULONGLONG(0);
+  user_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  give_user_id_ = GOOGLE_ULONGLONG(0);
+  give_user_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  give_jetton_ = GOOGLE_ULONGLONG(0);
+  create_time_ = GOOGLE_ULONGLONG(0);
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+tbGiveBankJetton::~tbGiveBankJetton() {
+  SharedDtor();
+}
+
+void tbGiveBankJetton::SharedDtor() {
+  if (user_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete user_name_;
+  }
+  if (give_user_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete give_user_name_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void tbGiveBankJetton::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* tbGiveBankJetton::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return tbGiveBankJetton_descriptor_;
+}
+
+const tbGiveBankJetton& tbGiveBankJetton::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
+  return *default_instance_;
+}
+
+tbGiveBankJetton* tbGiveBankJetton::default_instance_ = NULL;
+
+tbGiveBankJetton* tbGiveBankJetton::New() const {
+  return new tbGiveBankJetton;
+}
+
+void tbGiveBankJetton::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    id_ = GOOGLE_ULONGLONG(0);
+    user_id_ = GOOGLE_ULONGLONG(0);
+    if (has_user_name()) {
+      if (user_name_ != &::google::protobuf::internal::kEmptyString) {
+        user_name_->clear();
+      }
+    }
+    give_user_id_ = GOOGLE_ULONGLONG(0);
+    if (has_give_user_name()) {
+      if (give_user_name_ != &::google::protobuf::internal::kEmptyString) {
+        give_user_name_->clear();
+      }
+    }
+    give_jetton_ = GOOGLE_ULONGLONG(0);
+    create_time_ = GOOGLE_ULONGLONG(0);
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool tbGiveBankJetton::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required uint64 id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &id_)));
+          set_has_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_user_id;
+        break;
+      }
+
+      // optional uint64 user_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_user_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &user_id_)));
+          set_has_user_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(26)) goto parse_user_name;
+        break;
+      }
+
+      // optional string user_name = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_user_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->user_name().data(), this->user_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_give_user_id;
+        break;
+      }
+
+      // optional uint64 give_user_id = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_give_user_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &give_user_id_)));
+          set_has_give_user_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_give_user_name;
+        break;
+      }
+
+      // optional string give_user_name = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_give_user_name:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_give_user_name()));
+          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+            this->give_user_name().data(), this->give_user_name().length(),
+            ::google::protobuf::internal::WireFormat::PARSE);
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_give_jetton;
+        break;
+      }
+
+      // optional uint64 give_jetton = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_give_jetton:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &give_jetton_)));
+          set_has_give_jetton();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_create_time;
+        break;
+      }
+
+      // optional uint64 create_time = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_create_time:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &create_time_)));
+          set_has_create_time();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void tbGiveBankJetton::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // required uint64 id = 1;
+  if (has_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->id(), output);
+  }
+
+  // optional uint64 user_id = 2;
+  if (has_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->user_id(), output);
+  }
+
+  // optional string user_name = 3;
+  if (has_user_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->user_name().data(), this->user_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      3, this->user_name(), output);
+  }
+
+  // optional uint64 give_user_id = 4;
+  if (has_give_user_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->give_user_id(), output);
+  }
+
+  // optional string give_user_name = 5;
+  if (has_give_user_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->give_user_name().data(), this->give_user_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    ::google::protobuf::internal::WireFormatLite::WriteString(
+      5, this->give_user_name(), output);
+  }
+
+  // optional uint64 give_jetton = 6;
+  if (has_give_jetton()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->give_jetton(), output);
+  }
+
+  // optional uint64 create_time = 7;
+  if (has_create_time()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(7, this->create_time(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* tbGiveBankJetton::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // required uint64 id = 1;
+  if (has_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->id(), target);
+  }
+
+  // optional uint64 user_id = 2;
+  if (has_user_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->user_id(), target);
+  }
+
+  // optional string user_name = 3;
+  if (has_user_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->user_name().data(), this->user_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->user_name(), target);
+  }
+
+  // optional uint64 give_user_id = 4;
+  if (has_give_user_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->give_user_id(), target);
+  }
+
+  // optional string give_user_name = 5;
+  if (has_give_user_name()) {
+    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
+      this->give_user_name().data(), this->give_user_name().length(),
+      ::google::protobuf::internal::WireFormat::SERIALIZE);
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        5, this->give_user_name(), target);
+  }
+
+  // optional uint64 give_jetton = 6;
+  if (has_give_jetton()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->give_jetton(), target);
+  }
+
+  // optional uint64 create_time = 7;
+  if (has_create_time()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(7, this->create_time(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int tbGiveBankJetton::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required uint64 id = 1;
+    if (has_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->id());
+    }
+
+    // optional uint64 user_id = 2;
+    if (has_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->user_id());
+    }
+
+    // optional string user_name = 3;
+    if (has_user_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->user_name());
+    }
+
+    // optional uint64 give_user_id = 4;
+    if (has_give_user_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->give_user_id());
+    }
+
+    // optional string give_user_name = 5;
+    if (has_give_user_name()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::StringSize(
+          this->give_user_name());
+    }
+
+    // optional uint64 give_jetton = 6;
+    if (has_give_jetton()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->give_jetton());
+    }
+
+    // optional uint64 create_time = 7;
+    if (has_create_time()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->create_time());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void tbGiveBankJetton::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const tbGiveBankJetton* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const tbGiveBankJetton*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void tbGiveBankJetton::MergeFrom(const tbGiveBankJetton& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_id()) {
+      set_id(from.id());
+    }
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
+    }
+    if (from.has_user_name()) {
+      set_user_name(from.user_name());
+    }
+    if (from.has_give_user_id()) {
+      set_give_user_id(from.give_user_id());
+    }
+    if (from.has_give_user_name()) {
+      set_give_user_name(from.give_user_name());
+    }
+    if (from.has_give_jetton()) {
+      set_give_jetton(from.give_jetton());
+    }
+    if (from.has_create_time()) {
+      set_create_time(from.create_time());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void tbGiveBankJetton::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void tbGiveBankJetton::CopyFrom(const tbGiveBankJetton& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool tbGiveBankJetton::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void tbGiveBankJetton::Swap(tbGiveBankJetton* other) {
+  if (other != this) {
+    std::swap(id_, other->id_);
+    std::swap(user_id_, other->user_id_);
+    std::swap(user_name_, other->user_name_);
+    std::swap(give_user_id_, other->give_user_id_);
+    std::swap(give_user_name_, other->give_user_name_);
+    std::swap(give_jetton_, other->give_jetton_);
+    std::swap(create_time_, other->create_time_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata tbGiveBankJetton::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = tbGiveBankJetton_descriptor_;
+  metadata.reflection = tbGiveBankJetton_reflection_;
   return metadata;
 }
 

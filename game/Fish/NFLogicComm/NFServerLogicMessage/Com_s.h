@@ -206,5 +206,25 @@ namespace proto_ff_s {
 	};
 	typedef struct Proto_LTSSyncData_s Proto_LTSSyncData_t;
 
+	struct tbGiveBankJetton_s : public NFDescStoreSeqOP {
+		tbGiveBankJetton_s();
+		virtual ~tbGiveBankJetton_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t id;
+		uint64_t user_id;
+		NFShmString<32> user_name;
+		uint64_t give_user_id;
+		NFShmString<32> give_user_name;
+		uint64_t give_jetton;
+		uint64_t create_time;
+
+		virtual void write_to_pbmsg(::proto_ff::tbGiveBankJetton & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::tbGiveBankJetton & msg);
+		static ::proto_ff::tbGiveBankJetton* new_pbmsg(){ return new ::proto_ff::tbGiveBankJetton(); }
+		static ::proto_ff::tbGiveBankJetton make_pbmsg(){ return ::proto_ff::tbGiveBankJetton(); }
+	};
+	typedef struct tbGiveBankJetton_s tbGiveBankJetton_t;
+
 }
 

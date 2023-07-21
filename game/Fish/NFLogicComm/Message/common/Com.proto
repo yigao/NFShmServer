@@ -100,6 +100,15 @@ message Proto_LTSSyncData
   optional uint32 face_id = 3;	//头像标识
 }
 
-
+message tbGiveBankJetton
+{
+  required uint64 id			= 1; //唯一ID
+  optional uint64 user_id = 2;
+  optional string user_name = 3;
+  optional uint64 give_user_id = 4;
+  optional string give_user_name = 5;
+  optional uint64 give_jetton = 6;
+  optional uint64 create_time = 7;
+}
 
 

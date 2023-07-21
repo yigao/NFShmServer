@@ -384,4 +384,46 @@ void Proto_LTSSyncData_s::read_from_pbmsg(const ::proto_ff::Proto_LTSSyncData & 
 	face_id = msg.face_id();
 }
 
+tbGiveBankJetton_s::tbGiveBankJetton_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int tbGiveBankJetton_s::CreateInit() {
+	id = (uint64_t)0;
+	user_id = (uint64_t)0;
+	give_user_id = (uint64_t)0;
+	give_jetton = (uint64_t)0;
+	create_time = (uint64_t)0;
+	return 0;
+}
+
+int tbGiveBankJetton_s::ResumeInit() {
+	return 0;
+}
+
+void tbGiveBankJetton_s::write_to_pbmsg(::proto_ff::tbGiveBankJetton & msg) const {
+	msg.set_id((uint64_t)id);
+	msg.set_user_id((uint64_t)user_id);
+	msg.set_user_name((const char*)user_name.data());
+	msg.set_give_user_id((uint64_t)give_user_id);
+	msg.set_give_user_name((const char*)give_user_name.data());
+	msg.set_give_jetton((uint64_t)give_jetton);
+	msg.set_create_time((uint64_t)create_time);
+}
+
+void tbGiveBankJetton_s::read_from_pbmsg(const ::proto_ff::tbGiveBankJetton & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbGiveBankJetton_s));
+	id = msg.id();
+	user_id = msg.user_id();
+	user_name = msg.user_name();
+	give_user_id = msg.give_user_id();
+	give_user_name = msg.give_user_name();
+	give_jetton = msg.give_jetton();
+	create_time = msg.create_time();
+}
+
 }

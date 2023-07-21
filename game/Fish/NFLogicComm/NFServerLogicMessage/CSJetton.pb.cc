@@ -20,9 +20,6 @@ namespace proto_ff {
 
 namespace {
 
-const ::google::protobuf::Descriptor* tbGiveBankJetton_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  tbGiveBankJetton_reflection_ = NULL;
 const ::google::protobuf::Descriptor* Proto_CSBankGetDataReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_CSBankGetDataReq_reflection_ = NULL;
@@ -72,28 +69,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
     ::google::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "CSJetton.proto");
   GOOGLE_CHECK(file != NULL);
-  tbGiveBankJetton_descriptor_ = file->message_type(0);
-  static const int tbGiveBankJetton_offsets_[7] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, user_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, user_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, give_user_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, give_user_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, give_jetton_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, create_time_),
-  };
-  tbGiveBankJetton_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      tbGiveBankJetton_descriptor_,
-      tbGiveBankJetton::default_instance_,
-      tbGiveBankJetton_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(tbGiveBankJetton));
-  Proto_CSBankGetDataReq_descriptor_ = file->message_type(1);
+  Proto_CSBankGetDataReq_descriptor_ = file->message_type(0);
   static const int Proto_CSBankGetDataReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankGetDataReq, bank_password_),
   };
@@ -108,7 +84,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSBankGetDataReq));
-  Proto_SCBankGetDataRsp_descriptor_ = file->message_type(2);
+  Proto_SCBankGetDataRsp_descriptor_ = file->message_type(1);
   static const int Proto_SCBankGetDataRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankGetDataRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankGetDataRsp, jetton_),
@@ -125,7 +101,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCBankGetDataRsp));
-  Proto_CSBankSaveMoneyReq_descriptor_ = file->message_type(3);
+  Proto_CSBankSaveMoneyReq_descriptor_ = file->message_type(2);
   static const int Proto_CSBankSaveMoneyReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankSaveMoneyReq, save_jetton_),
   };
@@ -140,7 +116,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSBankSaveMoneyReq));
-  Proto_SCBankSaveMoneyRsp_descriptor_ = file->message_type(4);
+  Proto_SCBankSaveMoneyRsp_descriptor_ = file->message_type(3);
   static const int Proto_SCBankSaveMoneyRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankSaveMoneyRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankSaveMoneyRsp, jetton_),
@@ -157,7 +133,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCBankSaveMoneyRsp));
-  Proto_CSBankGetMoneyReq_descriptor_ = file->message_type(5);
+  Proto_CSBankGetMoneyReq_descriptor_ = file->message_type(4);
   static const int Proto_CSBankGetMoneyReq_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankGetMoneyReq, get_jetton_),
   };
@@ -172,7 +148,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSBankGetMoneyReq));
-  Proto_SCBankGetMoneyRsp_descriptor_ = file->message_type(6);
+  Proto_SCBankGetMoneyRsp_descriptor_ = file->message_type(5);
   static const int Proto_SCBankGetMoneyRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankGetMoneyRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankGetMoneyRsp, jetton_),
@@ -189,7 +165,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCBankGetMoneyRsp));
-  Proto_CSBankSetPasswordReq_descriptor_ = file->message_type(7);
+  Proto_CSBankSetPasswordReq_descriptor_ = file->message_type(6);
   static const int Proto_CSBankSetPasswordReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankSetPasswordReq, old_password_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankSetPasswordReq, new_password_),
@@ -205,7 +181,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSBankSetPasswordReq));
-  Proto_SCBankSetPasswordRsp_descriptor_ = file->message_type(8);
+  Proto_SCBankSetPasswordRsp_descriptor_ = file->message_type(7);
   static const int Proto_SCBankSetPasswordRsp_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankSetPasswordRsp, result_),
   };
@@ -220,7 +196,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCBankSetPasswordRsp));
-  Proto_CSBankGiveMoneyReq_descriptor_ = file->message_type(9);
+  Proto_CSBankGiveMoneyReq_descriptor_ = file->message_type(8);
   static const int Proto_CSBankGiveMoneyReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankGiveMoneyReq, give_user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankGiveMoneyReq, give_jetton_),
@@ -236,7 +212,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSBankGiveMoneyReq));
-  Proto_CSBankGiveMoneyRsp_descriptor_ = file->message_type(10);
+  Proto_CSBankGiveMoneyRsp_descriptor_ = file->message_type(9);
   static const int Proto_CSBankGiveMoneyRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankGiveMoneyRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankGiveMoneyRsp, record_),
@@ -254,7 +230,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSBankGiveMoneyRsp));
-  Proto_SCBankGiveJettonAutoPushRsp_descriptor_ = file->message_type(11);
+  Proto_SCBankGiveJettonAutoPushRsp_descriptor_ = file->message_type(10);
   static const int Proto_SCBankGiveJettonAutoPushRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankGiveJettonAutoPushRsp, record_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankGiveJettonAutoPushRsp, jetton_),
@@ -271,7 +247,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_SCBankGiveJettonAutoPushRsp));
-  Proto_CSBankGetRecordReq_descriptor_ = file->message_type(12);
+  Proto_CSBankGetRecordReq_descriptor_ = file->message_type(11);
   static const int Proto_CSBankGetRecordReq_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankGetRecordReq, begin_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_CSBankGetRecordReq, end_),
@@ -287,7 +263,7 @@ void protobuf_AssignDesc_CSJetton_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_CSBankGetRecordReq));
-  Proto_SCBankGetRecordRsp_descriptor_ = file->message_type(13);
+  Proto_SCBankGetRecordRsp_descriptor_ = file->message_type(12);
   static const int Proto_SCBankGetRecordRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankGetRecordRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_SCBankGetRecordRsp, record_),
@@ -315,8 +291,6 @@ inline void protobuf_AssignDescriptorsOnce() {
 
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    tbGiveBankJetton_descriptor_, &tbGiveBankJetton::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_CSBankGetDataReq_descriptor_, &Proto_CSBankGetDataReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -348,8 +322,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_CSJetton_2eproto() {
-  delete tbGiveBankJetton::default_instance_;
-  delete tbGiveBankJetton_reflection_;
   delete Proto_CSBankGetDataReq::default_instance_;
   delete Proto_CSBankGetDataReq_reflection_;
   delete Proto_SCBankGetDataRsp::default_instance_;
@@ -388,38 +360,33 @@ void protobuf_AddDesc_CSJetton_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016CSJetton.proto\022\010proto_ff\032\tCom.proto\032\017C"
-    "omDefine.proto\"\232\001\n\020tbGiveBankJetton\022\n\n\002i"
-    "d\030\001 \002(\004\022\017\n\007user_id\030\002 \001(\004\022\021\n\tuser_name\030\003 "
-    "\001(\t\022\024\n\014give_user_id\030\004 \001(\004\022\026\n\016give_user_n"
-    "ame\030\005 \001(\t\022\023\n\013give_jetton\030\006 \001(\004\022\023\n\013create"
-    "_time\030\007 \001(\004\"/\n\026Proto_CSBankGetDataReq\022\025\n"
-    "\rbank_password\030\001 \001(\t\"M\n\026Proto_SCBankGetD"
-    "ataRsp\022\016\n\006result\030\001 \001(\005\022\016\n\006jetton\030\002 \001(\004\022\023"
-    "\n\013bank_jetton\030\003 \001(\004\"/\n\030Proto_CSBankSaveM"
-    "oneyReq\022\023\n\013save_jetton\030\001 \001(\004\"O\n\030Proto_SC"
-    "BankSaveMoneyRsp\022\016\n\006result\030\001 \001(\005\022\016\n\006jett"
-    "on\030\002 \001(\004\022\023\n\013bank_jetton\030\003 \001(\004\"-\n\027Proto_C"
-    "SBankGetMoneyReq\022\022\n\nget_jetton\030\001 \001(\004\"N\n\027"
-    "Proto_SCBankGetMoneyRsp\022\016\n\006result\030\001 \001(\005\022"
-    "\016\n\006jetton\030\002 \001(\004\022\023\n\013bank_jetton\030\003 \001(\004\"H\n\032"
-    "Proto_CSBankSetPasswordReq\022\024\n\014old_passwo"
-    "rd\030\001 \001(\t\022\024\n\014new_password\030\002 \001(\t\",\n\032Proto_"
-    "SCBankSetPasswordRsp\022\016\n\006result\030\001 \001(\005\"E\n\030"
-    "Proto_CSBankGiveMoneyReq\022\024\n\014give_user_id"
-    "\030\001 \001(\004\022\023\n\013give_jetton\030\002 \001(\004\"{\n\030Proto_CSB"
-    "ankGiveMoneyRsp\022\016\n\006result\030\001 \001(\005\022*\n\006recor"
-    "d\030\002 \001(\0132\032.proto_ff.tbGiveBankJetton\022\016\n\006j"
-    "etton\030\003 \001(\004\022\023\n\013bank_jetton\030\004 \001(\004\"t\n!Prot"
-    "o_SCBankGiveJettonAutoPushRsp\022*\n\006record\030"
-    "\002 \001(\0132\032.proto_ff.tbGiveBankJetton\022\016\n\006jet"
-    "ton\030\003 \001(\004\022\023\n\013bank_jetton\030\004 \001(\004\"6\n\030Proto_"
-    "CSBankGetRecordReq\022\r\n\005begin\030\001 \001(\r\022\013\n\003end"
-    "\030\002 \001(\r\"V\n\030Proto_SCBankGetRecordRsp\022\016\n\006re"
-    "sult\030\001 \001(\005\022*\n\006record\030\002 \003(\0132\032.proto_ff.tb"
-    "GiveBankJetton", 1174);
+    "omDefine.proto\"/\n\026Proto_CSBankGetDataReq"
+    "\022\025\n\rbank_password\030\001 \001(\t\"M\n\026Proto_SCBankG"
+    "etDataRsp\022\016\n\006result\030\001 \001(\005\022\016\n\006jetton\030\002 \001("
+    "\004\022\023\n\013bank_jetton\030\003 \001(\004\"/\n\030Proto_CSBankSa"
+    "veMoneyReq\022\023\n\013save_jetton\030\001 \001(\004\"O\n\030Proto"
+    "_SCBankSaveMoneyRsp\022\016\n\006result\030\001 \001(\005\022\016\n\006j"
+    "etton\030\002 \001(\004\022\023\n\013bank_jetton\030\003 \001(\004\"-\n\027Prot"
+    "o_CSBankGetMoneyReq\022\022\n\nget_jetton\030\001 \001(\004\""
+    "N\n\027Proto_SCBankGetMoneyRsp\022\016\n\006result\030\001 \001"
+    "(\005\022\016\n\006jetton\030\002 \001(\004\022\023\n\013bank_jetton\030\003 \001(\004\""
+    "H\n\032Proto_CSBankSetPasswordReq\022\024\n\014old_pas"
+    "sword\030\001 \001(\t\022\024\n\014new_password\030\002 \001(\t\",\n\032Pro"
+    "to_SCBankSetPasswordRsp\022\016\n\006result\030\001 \001(\005\""
+    "E\n\030Proto_CSBankGiveMoneyReq\022\024\n\014give_user"
+    "_id\030\001 \001(\004\022\023\n\013give_jetton\030\002 \001(\004\"{\n\030Proto_"
+    "CSBankGiveMoneyRsp\022\016\n\006result\030\001 \001(\005\022*\n\006re"
+    "cord\030\002 \001(\0132\032.proto_ff.tbGiveBankJetton\022\016"
+    "\n\006jetton\030\003 \001(\004\022\023\n\013bank_jetton\030\004 \001(\004\"t\n!P"
+    "roto_SCBankGiveJettonAutoPushRsp\022*\n\006reco"
+    "rd\030\002 \001(\0132\032.proto_ff.tbGiveBankJetton\022\016\n\006"
+    "jetton\030\003 \001(\004\022\023\n\013bank_jetton\030\004 \001(\004\"6\n\030Pro"
+    "to_CSBankGetRecordReq\022\r\n\005begin\030\001 \001(\r\022\013\n\003"
+    "end\030\002 \001(\r\"V\n\030Proto_SCBankGetRecordRsp\022\016\n"
+    "\006result\030\001 \001(\005\022*\n\006record\030\002 \003(\0132\032.proto_ff"
+    ".tbGiveBankJetton", 1017);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSJetton.proto", &protobuf_RegisterTypes);
-  tbGiveBankJetton::default_instance_ = new tbGiveBankJetton();
   Proto_CSBankGetDataReq::default_instance_ = new Proto_CSBankGetDataReq();
   Proto_SCBankGetDataRsp::default_instance_ = new Proto_SCBankGetDataRsp();
   Proto_CSBankSaveMoneyReq::default_instance_ = new Proto_CSBankSaveMoneyReq();
@@ -433,7 +400,6 @@ void protobuf_AddDesc_CSJetton_2eproto() {
   Proto_SCBankGiveJettonAutoPushRsp::default_instance_ = new Proto_SCBankGiveJettonAutoPushRsp();
   Proto_CSBankGetRecordReq::default_instance_ = new Proto_CSBankGetRecordReq();
   Proto_SCBankGetRecordRsp::default_instance_ = new Proto_SCBankGetRecordRsp();
-  tbGiveBankJetton::default_instance_->InitAsDefaultInstance();
   Proto_CSBankGetDataReq::default_instance_->InitAsDefaultInstance();
   Proto_SCBankGetDataRsp::default_instance_->InitAsDefaultInstance();
   Proto_CSBankSaveMoneyReq::default_instance_->InitAsDefaultInstance();
@@ -456,489 +422,6 @@ struct StaticDescriptorInitializer_CSJetton_2eproto {
     protobuf_AddDesc_CSJetton_2eproto();
   }
 } static_descriptor_initializer_CSJetton_2eproto_;
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int tbGiveBankJetton::kIdFieldNumber;
-const int tbGiveBankJetton::kUserIdFieldNumber;
-const int tbGiveBankJetton::kUserNameFieldNumber;
-const int tbGiveBankJetton::kGiveUserIdFieldNumber;
-const int tbGiveBankJetton::kGiveUserNameFieldNumber;
-const int tbGiveBankJetton::kGiveJettonFieldNumber;
-const int tbGiveBankJetton::kCreateTimeFieldNumber;
-#endif  // !_MSC_VER
-
-tbGiveBankJetton::tbGiveBankJetton()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void tbGiveBankJetton::InitAsDefaultInstance() {
-}
-
-tbGiveBankJetton::tbGiveBankJetton(const tbGiveBankJetton& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void tbGiveBankJetton::SharedCtor() {
-  _cached_size_ = 0;
-  id_ = GOOGLE_ULONGLONG(0);
-  user_id_ = GOOGLE_ULONGLONG(0);
-  user_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  give_user_id_ = GOOGLE_ULONGLONG(0);
-  give_user_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  give_jetton_ = GOOGLE_ULONGLONG(0);
-  create_time_ = GOOGLE_ULONGLONG(0);
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-tbGiveBankJetton::~tbGiveBankJetton() {
-  SharedDtor();
-}
-
-void tbGiveBankJetton::SharedDtor() {
-  if (user_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete user_name_;
-  }
-  if (give_user_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete give_user_name_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void tbGiveBankJetton::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* tbGiveBankJetton::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return tbGiveBankJetton_descriptor_;
-}
-
-const tbGiveBankJetton& tbGiveBankJetton::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_CSJetton_2eproto();
-  return *default_instance_;
-}
-
-tbGiveBankJetton* tbGiveBankJetton::default_instance_ = NULL;
-
-tbGiveBankJetton* tbGiveBankJetton::New() const {
-  return new tbGiveBankJetton;
-}
-
-void tbGiveBankJetton::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    id_ = GOOGLE_ULONGLONG(0);
-    user_id_ = GOOGLE_ULONGLONG(0);
-    if (has_user_name()) {
-      if (user_name_ != &::google::protobuf::internal::kEmptyString) {
-        user_name_->clear();
-      }
-    }
-    give_user_id_ = GOOGLE_ULONGLONG(0);
-    if (has_give_user_name()) {
-      if (give_user_name_ != &::google::protobuf::internal::kEmptyString) {
-        give_user_name_->clear();
-      }
-    }
-    give_jetton_ = GOOGLE_ULONGLONG(0);
-    create_time_ = GOOGLE_ULONGLONG(0);
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool tbGiveBankJetton::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint64 id = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &id_)));
-          set_has_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_user_id;
-        break;
-      }
-
-      // optional uint64 user_id = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_user_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &user_id_)));
-          set_has_user_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(26)) goto parse_user_name;
-        break;
-      }
-
-      // optional string user_name = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_user_name:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_user_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->user_name().data(), this->user_name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_give_user_id;
-        break;
-      }
-
-      // optional uint64 give_user_id = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_give_user_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &give_user_id_)));
-          set_has_give_user_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_give_user_name;
-        break;
-      }
-
-      // optional string give_user_name = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_give_user_name:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_give_user_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->give_user_name().data(), this->give_user_name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(48)) goto parse_give_jetton;
-        break;
-      }
-
-      // optional uint64 give_jetton = 6;
-      case 6: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_give_jetton:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &give_jetton_)));
-          set_has_give_jetton();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(56)) goto parse_create_time;
-        break;
-      }
-
-      // optional uint64 create_time = 7;
-      case 7: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_create_time:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
-                 input, &create_time_)));
-          set_has_create_time();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void tbGiveBankJetton::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // required uint64 id = 1;
-  if (has_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->id(), output);
-  }
-
-  // optional uint64 user_id = 2;
-  if (has_user_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->user_id(), output);
-  }
-
-  // optional string user_name = 3;
-  if (has_user_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->user_name().data(), this->user_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      3, this->user_name(), output);
-  }
-
-  // optional uint64 give_user_id = 4;
-  if (has_give_user_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(4, this->give_user_id(), output);
-  }
-
-  // optional string give_user_name = 5;
-  if (has_give_user_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->give_user_name().data(), this->give_user_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      5, this->give_user_name(), output);
-  }
-
-  // optional uint64 give_jetton = 6;
-  if (has_give_jetton()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(6, this->give_jetton(), output);
-  }
-
-  // optional uint64 create_time = 7;
-  if (has_create_time()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt64(7, this->create_time(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* tbGiveBankJetton::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // required uint64 id = 1;
-  if (has_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->id(), target);
-  }
-
-  // optional uint64 user_id = 2;
-  if (has_user_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->user_id(), target);
-  }
-
-  // optional string user_name = 3;
-  if (has_user_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->user_name().data(), this->user_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->user_name(), target);
-  }
-
-  // optional uint64 give_user_id = 4;
-  if (has_give_user_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(4, this->give_user_id(), target);
-  }
-
-  // optional string give_user_name = 5;
-  if (has_give_user_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->give_user_name().data(), this->give_user_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        5, this->give_user_name(), target);
-  }
-
-  // optional uint64 give_jetton = 6;
-  if (has_give_jetton()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(6, this->give_jetton(), target);
-  }
-
-  // optional uint64 create_time = 7;
-  if (has_create_time()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(7, this->create_time(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int tbGiveBankJetton::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint64 id = 1;
-    if (has_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->id());
-    }
-
-    // optional uint64 user_id = 2;
-    if (has_user_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->user_id());
-    }
-
-    // optional string user_name = 3;
-    if (has_user_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->user_name());
-    }
-
-    // optional uint64 give_user_id = 4;
-    if (has_give_user_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->give_user_id());
-    }
-
-    // optional string give_user_name = 5;
-    if (has_give_user_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->give_user_name());
-    }
-
-    // optional uint64 give_jetton = 6;
-    if (has_give_jetton()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->give_jetton());
-    }
-
-    // optional uint64 create_time = 7;
-    if (has_create_time()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt64Size(
-          this->create_time());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void tbGiveBankJetton::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const tbGiveBankJetton* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const tbGiveBankJetton*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void tbGiveBankJetton::MergeFrom(const tbGiveBankJetton& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_id()) {
-      set_id(from.id());
-    }
-    if (from.has_user_id()) {
-      set_user_id(from.user_id());
-    }
-    if (from.has_user_name()) {
-      set_user_name(from.user_name());
-    }
-    if (from.has_give_user_id()) {
-      set_give_user_id(from.give_user_id());
-    }
-    if (from.has_give_user_name()) {
-      set_give_user_name(from.give_user_name());
-    }
-    if (from.has_give_jetton()) {
-      set_give_jetton(from.give_jetton());
-    }
-    if (from.has_create_time()) {
-      set_create_time(from.create_time());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void tbGiveBankJetton::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void tbGiveBankJetton::CopyFrom(const tbGiveBankJetton& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool tbGiveBankJetton::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
-
-  return true;
-}
-
-void tbGiveBankJetton::Swap(tbGiveBankJetton* other) {
-  if (other != this) {
-    std::swap(id_, other->id_);
-    std::swap(user_id_, other->user_id_);
-    std::swap(user_name_, other->user_name_);
-    std::swap(give_user_id_, other->give_user_id_);
-    std::swap(give_user_name_, other->give_user_name_);
-    std::swap(give_jetton_, other->give_jetton_);
-    std::swap(create_time_, other->create_time_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata tbGiveBankJetton::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = tbGiveBankJetton_descriptor_;
-  metadata.reflection = tbGiveBankJetton_reflection_;
-  return metadata;
-}
-
 
 // ===================================================================
 

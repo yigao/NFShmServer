@@ -14,6 +14,7 @@
 #include "Trans/NFSnsTransSaveSimpleDB.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
 #include "NFComm/NFCore/NFRandom.hpp"
+#include "NFCacheMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerSimple, EOT_SNS_ROLE_SIMPLE_ID, NFShmObj)
 
@@ -115,6 +116,15 @@ int NFPlayerSimple::OnReconnect()
 
 bool NFPlayerSimple::CanDelete()
 {
+    if (NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(GetPlayerId()))
+    {
+        return false;
+    }
+
+    if (FindModule<NFICoroutineModule>()->IsExistUserCo(GetPlayerId()))
+    {
+        return false;
+    }
     return true;
 }
 

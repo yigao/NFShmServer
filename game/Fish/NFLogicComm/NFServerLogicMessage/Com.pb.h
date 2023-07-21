@@ -47,6 +47,7 @@ class Attr64;
 class Proto_UserLoginExternalData;
 class Proto_UserDetailCommonData;
 class Proto_LTSSyncData;
+class tbGiveBankJetton;
 
 // ===================================================================
 
@@ -1332,6 +1333,158 @@ class Proto_LTSSyncData : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Proto_LTSSyncData* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class tbGiveBankJetton : public ::google::protobuf::Message {
+ public:
+  tbGiveBankJetton();
+  virtual ~tbGiveBankJetton();
+
+  tbGiveBankJetton(const tbGiveBankJetton& from);
+
+  inline tbGiveBankJetton& operator=(const tbGiveBankJetton& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const tbGiveBankJetton& default_instance();
+
+  void Swap(tbGiveBankJetton* other);
+
+  // implements Message ----------------------------------------------
+
+  tbGiveBankJetton* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const tbGiveBankJetton& from);
+  void MergeFrom(const tbGiveBankJetton& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint64 id = 1;
+  inline bool has_id() const;
+  inline void clear_id();
+  static const int kIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 id() const;
+  inline void set_id(::google::protobuf::uint64 value);
+
+  // optional uint64 user_id = 2;
+  inline bool has_user_id() const;
+  inline void clear_user_id();
+  static const int kUserIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 user_id() const;
+  inline void set_user_id(::google::protobuf::uint64 value);
+
+  // optional string user_name = 3;
+  inline bool has_user_name() const;
+  inline void clear_user_name();
+  static const int kUserNameFieldNumber = 3;
+  inline const ::std::string& user_name() const;
+  inline void set_user_name(const ::std::string& value);
+  inline void set_user_name(const char* value);
+  inline void set_user_name(const char* value, size_t size);
+  inline ::std::string* mutable_user_name();
+  inline ::std::string* release_user_name();
+  inline void set_allocated_user_name(::std::string* user_name);
+
+  // optional uint64 give_user_id = 4;
+  inline bool has_give_user_id() const;
+  inline void clear_give_user_id();
+  static const int kGiveUserIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 give_user_id() const;
+  inline void set_give_user_id(::google::protobuf::uint64 value);
+
+  // optional string give_user_name = 5;
+  inline bool has_give_user_name() const;
+  inline void clear_give_user_name();
+  static const int kGiveUserNameFieldNumber = 5;
+  inline const ::std::string& give_user_name() const;
+  inline void set_give_user_name(const ::std::string& value);
+  inline void set_give_user_name(const char* value);
+  inline void set_give_user_name(const char* value, size_t size);
+  inline ::std::string* mutable_give_user_name();
+  inline ::std::string* release_give_user_name();
+  inline void set_allocated_give_user_name(::std::string* give_user_name);
+
+  // optional uint64 give_jetton = 6;
+  inline bool has_give_jetton() const;
+  inline void clear_give_jetton();
+  static const int kGiveJettonFieldNumber = 6;
+  inline ::google::protobuf::uint64 give_jetton() const;
+  inline void set_give_jetton(::google::protobuf::uint64 value);
+
+  // optional uint64 create_time = 7;
+  inline bool has_create_time() const;
+  inline void clear_create_time();
+  static const int kCreateTimeFieldNumber = 7;
+  inline ::google::protobuf::uint64 create_time() const;
+  inline void set_create_time(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.tbGiveBankJetton)
+ private:
+  inline void set_has_id();
+  inline void clear_has_id();
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
+  inline void set_has_user_name();
+  inline void clear_has_user_name();
+  inline void set_has_give_user_id();
+  inline void clear_has_give_user_id();
+  inline void set_has_give_user_name();
+  inline void clear_has_give_user_name();
+  inline void set_has_give_jetton();
+  inline void clear_has_give_jetton();
+  inline void set_has_create_time();
+  inline void clear_has_create_time();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 id_;
+  ::google::protobuf::uint64 user_id_;
+  ::std::string* user_name_;
+  ::google::protobuf::uint64 give_user_id_;
+  ::std::string* give_user_name_;
+  ::google::protobuf::uint64 give_jetton_;
+  ::google::protobuf::uint64 create_time_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static tbGiveBankJetton* default_instance_;
+};
 // ===================================================================
 
 
@@ -2601,6 +2754,260 @@ inline ::google::protobuf::uint32 Proto_LTSSyncData::face_id() const {
 inline void Proto_LTSSyncData::set_face_id(::google::protobuf::uint32 value) {
   set_has_face_id();
   face_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// tbGiveBankJetton
+
+// required uint64 id = 1;
+inline bool tbGiveBankJetton::has_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void tbGiveBankJetton::set_has_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void tbGiveBankJetton::clear_has_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void tbGiveBankJetton::clear_id() {
+  id_ = GOOGLE_ULONGLONG(0);
+  clear_has_id();
+}
+inline ::google::protobuf::uint64 tbGiveBankJetton::id() const {
+  return id_;
+}
+inline void tbGiveBankJetton::set_id(::google::protobuf::uint64 value) {
+  set_has_id();
+  id_ = value;
+}
+
+// optional uint64 user_id = 2;
+inline bool tbGiveBankJetton::has_user_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void tbGiveBankJetton::set_has_user_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void tbGiveBankJetton::clear_has_user_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void tbGiveBankJetton::clear_user_id() {
+  user_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_user_id();
+}
+inline ::google::protobuf::uint64 tbGiveBankJetton::user_id() const {
+  return user_id_;
+}
+inline void tbGiveBankJetton::set_user_id(::google::protobuf::uint64 value) {
+  set_has_user_id();
+  user_id_ = value;
+}
+
+// optional string user_name = 3;
+inline bool tbGiveBankJetton::has_user_name() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void tbGiveBankJetton::set_has_user_name() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void tbGiveBankJetton::clear_has_user_name() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void tbGiveBankJetton::clear_user_name() {
+  if (user_name_ != &::google::protobuf::internal::kEmptyString) {
+    user_name_->clear();
+  }
+  clear_has_user_name();
+}
+inline const ::std::string& tbGiveBankJetton::user_name() const {
+  return *user_name_;
+}
+inline void tbGiveBankJetton::set_user_name(const ::std::string& value) {
+  set_has_user_name();
+  if (user_name_ == &::google::protobuf::internal::kEmptyString) {
+    user_name_ = new ::std::string;
+  }
+  user_name_->assign(value);
+}
+inline void tbGiveBankJetton::set_user_name(const char* value) {
+  set_has_user_name();
+  if (user_name_ == &::google::protobuf::internal::kEmptyString) {
+    user_name_ = new ::std::string;
+  }
+  user_name_->assign(value);
+}
+inline void tbGiveBankJetton::set_user_name(const char* value, size_t size) {
+  set_has_user_name();
+  if (user_name_ == &::google::protobuf::internal::kEmptyString) {
+    user_name_ = new ::std::string;
+  }
+  user_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbGiveBankJetton::mutable_user_name() {
+  set_has_user_name();
+  if (user_name_ == &::google::protobuf::internal::kEmptyString) {
+    user_name_ = new ::std::string;
+  }
+  return user_name_;
+}
+inline ::std::string* tbGiveBankJetton::release_user_name() {
+  clear_has_user_name();
+  if (user_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = user_name_;
+    user_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbGiveBankJetton::set_allocated_user_name(::std::string* user_name) {
+  if (user_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete user_name_;
+  }
+  if (user_name) {
+    set_has_user_name();
+    user_name_ = user_name;
+  } else {
+    clear_has_user_name();
+    user_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint64 give_user_id = 4;
+inline bool tbGiveBankJetton::has_give_user_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void tbGiveBankJetton::set_has_give_user_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void tbGiveBankJetton::clear_has_give_user_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void tbGiveBankJetton::clear_give_user_id() {
+  give_user_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_give_user_id();
+}
+inline ::google::protobuf::uint64 tbGiveBankJetton::give_user_id() const {
+  return give_user_id_;
+}
+inline void tbGiveBankJetton::set_give_user_id(::google::protobuf::uint64 value) {
+  set_has_give_user_id();
+  give_user_id_ = value;
+}
+
+// optional string give_user_name = 5;
+inline bool tbGiveBankJetton::has_give_user_name() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void tbGiveBankJetton::set_has_give_user_name() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void tbGiveBankJetton::clear_has_give_user_name() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void tbGiveBankJetton::clear_give_user_name() {
+  if (give_user_name_ != &::google::protobuf::internal::kEmptyString) {
+    give_user_name_->clear();
+  }
+  clear_has_give_user_name();
+}
+inline const ::std::string& tbGiveBankJetton::give_user_name() const {
+  return *give_user_name_;
+}
+inline void tbGiveBankJetton::set_give_user_name(const ::std::string& value) {
+  set_has_give_user_name();
+  if (give_user_name_ == &::google::protobuf::internal::kEmptyString) {
+    give_user_name_ = new ::std::string;
+  }
+  give_user_name_->assign(value);
+}
+inline void tbGiveBankJetton::set_give_user_name(const char* value) {
+  set_has_give_user_name();
+  if (give_user_name_ == &::google::protobuf::internal::kEmptyString) {
+    give_user_name_ = new ::std::string;
+  }
+  give_user_name_->assign(value);
+}
+inline void tbGiveBankJetton::set_give_user_name(const char* value, size_t size) {
+  set_has_give_user_name();
+  if (give_user_name_ == &::google::protobuf::internal::kEmptyString) {
+    give_user_name_ = new ::std::string;
+  }
+  give_user_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* tbGiveBankJetton::mutable_give_user_name() {
+  set_has_give_user_name();
+  if (give_user_name_ == &::google::protobuf::internal::kEmptyString) {
+    give_user_name_ = new ::std::string;
+  }
+  return give_user_name_;
+}
+inline ::std::string* tbGiveBankJetton::release_give_user_name() {
+  clear_has_give_user_name();
+  if (give_user_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = give_user_name_;
+    give_user_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void tbGiveBankJetton::set_allocated_give_user_name(::std::string* give_user_name) {
+  if (give_user_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete give_user_name_;
+  }
+  if (give_user_name) {
+    set_has_give_user_name();
+    give_user_name_ = give_user_name;
+  } else {
+    clear_has_give_user_name();
+    give_user_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint64 give_jetton = 6;
+inline bool tbGiveBankJetton::has_give_jetton() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void tbGiveBankJetton::set_has_give_jetton() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void tbGiveBankJetton::clear_has_give_jetton() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void tbGiveBankJetton::clear_give_jetton() {
+  give_jetton_ = GOOGLE_ULONGLONG(0);
+  clear_has_give_jetton();
+}
+inline ::google::protobuf::uint64 tbGiveBankJetton::give_jetton() const {
+  return give_jetton_;
+}
+inline void tbGiveBankJetton::set_give_jetton(::google::protobuf::uint64 value) {
+  set_has_give_jetton();
+  give_jetton_ = value;
+}
+
+// optional uint64 create_time = 7;
+inline bool tbGiveBankJetton::has_create_time() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void tbGiveBankJetton::set_has_create_time() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void tbGiveBankJetton::clear_has_create_time() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void tbGiveBankJetton::clear_create_time() {
+  create_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_create_time();
+}
+inline ::google::protobuf::uint64 tbGiveBankJetton::create_time() const {
+  return create_time_;
+}
+inline void tbGiveBankJetton::set_create_time(::google::protobuf::uint64 value) {
+  set_has_create_time();
+  create_time_ = value;
 }
 
 

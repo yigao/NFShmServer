@@ -29,6 +29,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* tbFishSnsPlayerSimpleData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   tbFishSnsPlayerSimpleData_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GiveBankRecordDBData_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  GiveBankRecordDBData_reflection_ = NULL;
 const ::google::protobuf::Descriptor* tbFishSnsPlayerDetailData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   tbFishSnsPlayerDetailData_reflection_ = NULL;
@@ -107,11 +110,27 @@ void protobuf_AssignDesc_DBProto_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(tbFishSnsPlayerSimpleData));
-  tbFishSnsPlayerDetailData_descriptor_ = file->message_type(3);
-  static const int tbFishSnsPlayerDetailData_offsets_[3] = {
+  GiveBankRecordDBData_descriptor_ = file->message_type(3);
+  static const int GiveBankRecordDBData_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GiveBankRecordDBData, record_),
+  };
+  GiveBankRecordDBData_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      GiveBankRecordDBData_descriptor_,
+      GiveBankRecordDBData::default_instance_,
+      GiveBankRecordDBData_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GiveBankRecordDBData, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GiveBankRecordDBData, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(GiveBankRecordDBData));
+  tbFishSnsPlayerDetailData_descriptor_ = file->message_type(4);
+  static const int tbFishSnsPlayerDetailData_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerDetailData, player_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerDetailData, bank_jetton_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerDetailData, bank_password_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbFishSnsPlayerDetailData, record_),
   };
   tbFishSnsPlayerDetailData_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -143,6 +162,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     tbFishSnsPlayerSimpleData_descriptor_, &tbFishSnsPlayerSimpleData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    GiveBankRecordDBData_descriptor_, &GiveBankRecordDBData::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     tbFishSnsPlayerDetailData_descriptor_, &tbFishSnsPlayerDetailData::default_instance());
 }
 
@@ -155,6 +176,8 @@ void protobuf_ShutdownFile_DBProto_2eproto() {
   delete tbFishPlayerData_reflection_;
   delete tbFishSnsPlayerSimpleData::default_instance_;
   delete tbFishSnsPlayerSimpleData_reflection_;
+  delete GiveBankRecordDBData::default_instance_;
+  delete GiveBankRecordDBData_reflection_;
   delete tbFishSnsPlayerDetailData::default_instance_;
   delete tbFishSnsPlayerDetailData_reflection_;
 }
@@ -194,20 +217,25 @@ void protobuf_AddDesc_DBProto_2eproto() {
     "\014 \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\347\231\273\345\275\225\346\227\266\351\227\264\0226\n\020l"
     "ast_logout_time\030\r \001(\004B\034\272\304\023\030\346\234\200\350\277\221\344\270\200\346\254\241\351"
     "\200\200\345\207\272\346\227\266\351\227\264\022#\n\005agent\030\024 \001(\004B\024\300\202\024\003\272\304\023\014\344\270\212\347"
-    "\272\247\344\273\243\347\220\206\"\232\001\n\031tbFishSnsPlayerDetailData\022#"
-    "\n\tplayer_id\030\001 \001(\004B\020\300\202\024\002\272\304\023\010\347\216\251\345\256\266ID\022%\n\013b"
-    "ank_jetton\030\t \001(\004B\020\272\304\023\014\351\223\266\350\241\214\351\207\221\345\270\201\0221\n\rba"
-    "nk_password\030\n \001(\tB\032\220\301\024\200\001\310\202\024\200\001\272\304\023\014\351\223\266\350\241\214\345"
-    "\257\206\347\240\201", 1205);
+    "\272\247\344\273\243\347\220\206\"B\n\024GiveBankRecordDBData\022*\n\006reco"
+    "rd\030\001 \003(\0132\032.proto_ff.tbGiveBankJetton\"\334\001\n"
+    "\031tbFishSnsPlayerDetailData\022#\n\tplayer_id\030"
+    "\001 \001(\004B\020\300\202\024\002\272\304\023\010\347\216\251\345\256\266ID\022%\n\013bank_jetton\030\t"
+    " \001(\004B\020\272\304\023\014\351\223\266\350\241\214\351\207\221\345\270\201\0221\n\rbank_password\030"
+    "\n \001(\tB\032\220\301\024\200\001\310\202\024\200\001\272\304\023\014\351\223\266\350\241\214\345\257\206\347\240\201\022@\n\006rec"
+    "ord\030\013 \001(\0132\036.proto_ff.GiveBankRecordDBDat"
+    "aB\020\272\304\023\014\350\275\254\350\264\246\350\256\260\345\275\225", 1339);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProto.proto", &protobuf_RegisterTypes);
   tbFishAccountTable::default_instance_ = new tbFishAccountTable();
   tbFishPlayerData::default_instance_ = new tbFishPlayerData();
   tbFishSnsPlayerSimpleData::default_instance_ = new tbFishSnsPlayerSimpleData();
+  GiveBankRecordDBData::default_instance_ = new GiveBankRecordDBData();
   tbFishSnsPlayerDetailData::default_instance_ = new tbFishSnsPlayerDetailData();
   tbFishAccountTable::default_instance_->InitAsDefaultInstance();
   tbFishPlayerData::default_instance_->InitAsDefaultInstance();
   tbFishSnsPlayerSimpleData::default_instance_->InitAsDefaultInstance();
+  GiveBankRecordDBData::default_instance_->InitAsDefaultInstance();
   tbFishSnsPlayerDetailData::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_DBProto_2eproto);
 }
@@ -1754,9 +1782,216 @@ void tbFishSnsPlayerSimpleData::Swap(tbFishSnsPlayerSimpleData* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int GiveBankRecordDBData::kRecordFieldNumber;
+#endif  // !_MSC_VER
+
+GiveBankRecordDBData::GiveBankRecordDBData()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void GiveBankRecordDBData::InitAsDefaultInstance() {
+}
+
+GiveBankRecordDBData::GiveBankRecordDBData(const GiveBankRecordDBData& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void GiveBankRecordDBData::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+GiveBankRecordDBData::~GiveBankRecordDBData() {
+  SharedDtor();
+}
+
+void GiveBankRecordDBData::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void GiveBankRecordDBData::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* GiveBankRecordDBData::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return GiveBankRecordDBData_descriptor_;
+}
+
+const GiveBankRecordDBData& GiveBankRecordDBData::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_DBProto_2eproto();
+  return *default_instance_;
+}
+
+GiveBankRecordDBData* GiveBankRecordDBData::default_instance_ = NULL;
+
+GiveBankRecordDBData* GiveBankRecordDBData::New() const {
+  return new GiveBankRecordDBData;
+}
+
+void GiveBankRecordDBData::Clear() {
+  record_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool GiveBankRecordDBData::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.tbGiveBankJetton record = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_record:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_record()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_record;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void GiveBankRecordDBData::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.tbGiveBankJetton record = 1;
+  for (int i = 0; i < this->record_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->record(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* GiveBankRecordDBData::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.tbGiveBankJetton record = 1;
+  for (int i = 0; i < this->record_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->record(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int GiveBankRecordDBData::ByteSize() const {
+  int total_size = 0;
+
+  // repeated .proto_ff.tbGiveBankJetton record = 1;
+  total_size += 1 * this->record_size();
+  for (int i = 0; i < this->record_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->record(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void GiveBankRecordDBData::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const GiveBankRecordDBData* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GiveBankRecordDBData*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void GiveBankRecordDBData::MergeFrom(const GiveBankRecordDBData& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  record_.MergeFrom(from.record_);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void GiveBankRecordDBData::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void GiveBankRecordDBData::CopyFrom(const GiveBankRecordDBData& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GiveBankRecordDBData::IsInitialized() const {
+
+  for (int i = 0; i < record_size(); i++) {
+    if (!this->record(i).IsInitialized()) return false;
+  }
+  return true;
+}
+
+void GiveBankRecordDBData::Swap(GiveBankRecordDBData* other) {
+  if (other != this) {
+    record_.Swap(&other->record_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata GiveBankRecordDBData::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = GiveBankRecordDBData_descriptor_;
+  metadata.reflection = GiveBankRecordDBData_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int tbFishSnsPlayerDetailData::kPlayerIdFieldNumber;
 const int tbFishSnsPlayerDetailData::kBankJettonFieldNumber;
 const int tbFishSnsPlayerDetailData::kBankPasswordFieldNumber;
+const int tbFishSnsPlayerDetailData::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 tbFishSnsPlayerDetailData::tbFishSnsPlayerDetailData()
@@ -1765,6 +2000,7 @@ tbFishSnsPlayerDetailData::tbFishSnsPlayerDetailData()
 }
 
 void tbFishSnsPlayerDetailData::InitAsDefaultInstance() {
+  record_ = const_cast< ::proto_ff::GiveBankRecordDBData*>(&::proto_ff::GiveBankRecordDBData::default_instance());
 }
 
 tbFishSnsPlayerDetailData::tbFishSnsPlayerDetailData(const tbFishSnsPlayerDetailData& from)
@@ -1778,6 +2014,7 @@ void tbFishSnsPlayerDetailData::SharedCtor() {
   player_id_ = GOOGLE_ULONGLONG(0);
   bank_jetton_ = GOOGLE_ULONGLONG(0);
   bank_password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1790,6 +2027,7 @@ void tbFishSnsPlayerDetailData::SharedDtor() {
     delete bank_password_;
   }
   if (this != default_instance_) {
+    delete record_;
   }
 }
 
@@ -1822,6 +2060,9 @@ void tbFishSnsPlayerDetailData::Clear() {
       if (bank_password_ != &::google::protobuf::internal::kEmptyString) {
         bank_password_->clear();
       }
+    }
+    if (has_record()) {
+      if (record_ != NULL) record_->::proto_ff::GiveBankRecordDBData::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1878,6 +2119,20 @@ bool tbFishSnsPlayerDetailData::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(90)) goto parse_record;
+        break;
+      }
+
+      // optional .proto_ff.GiveBankRecordDBData record = 11;
+      case 11: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_record:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_record()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1919,6 +2174,12 @@ void tbFishSnsPlayerDetailData::SerializeWithCachedSizes(
       10, this->bank_password(), output);
   }
 
+  // optional .proto_ff.GiveBankRecordDBData record = 11;
+  if (has_record()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      11, this->record(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1945,6 +2206,13 @@ void tbFishSnsPlayerDetailData::SerializeWithCachedSizes(
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
         10, this->bank_password(), target);
+  }
+
+  // optional .proto_ff.GiveBankRecordDBData record = 11;
+  if (has_record()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        11, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1977,6 +2245,13 @@ int tbFishSnsPlayerDetailData::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::StringSize(
           this->bank_password());
+    }
+
+    // optional .proto_ff.GiveBankRecordDBData record = 11;
+    if (has_record()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->record());
     }
 
   }
@@ -2015,6 +2290,9 @@ void tbFishSnsPlayerDetailData::MergeFrom(const tbFishSnsPlayerDetailData& from)
     if (from.has_bank_password()) {
       set_bank_password(from.bank_password());
     }
+    if (from.has_record()) {
+      mutable_record()->::proto_ff::GiveBankRecordDBData::MergeFrom(from.record());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2033,6 +2311,9 @@ void tbFishSnsPlayerDetailData::CopyFrom(const tbFishSnsPlayerDetailData& from) 
 
 bool tbFishSnsPlayerDetailData::IsInitialized() const {
 
+  if (has_record()) {
+    if (!this->record().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -2041,6 +2322,7 @@ void tbFishSnsPlayerDetailData::Swap(tbFishSnsPlayerDetailData* other) {
     std::swap(player_id_, other->player_id_);
     std::swap(bank_jetton_, other->bank_jetton_);
     std::swap(bank_password_, other->bank_password_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

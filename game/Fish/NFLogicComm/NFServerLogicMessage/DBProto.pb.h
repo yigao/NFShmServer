@@ -38,6 +38,7 @@ void protobuf_ShutdownFile_DBProto_2eproto();
 class tbFishAccountTable;
 class tbFishPlayerData;
 class tbFishSnsPlayerSimpleData;
+class GiveBankRecordDBData;
 class tbFishSnsPlayerDetailData;
 
 // ===================================================================
@@ -518,6 +519,91 @@ class tbFishSnsPlayerSimpleData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class GiveBankRecordDBData : public ::google::protobuf::Message {
+ public:
+  GiveBankRecordDBData();
+  virtual ~GiveBankRecordDBData();
+
+  GiveBankRecordDBData(const GiveBankRecordDBData& from);
+
+  inline GiveBankRecordDBData& operator=(const GiveBankRecordDBData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GiveBankRecordDBData& default_instance();
+
+  void Swap(GiveBankRecordDBData* other);
+
+  // implements Message ----------------------------------------------
+
+  GiveBankRecordDBData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GiveBankRecordDBData& from);
+  void MergeFrom(const GiveBankRecordDBData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.tbGiveBankJetton record = 1;
+  inline int record_size() const;
+  inline void clear_record();
+  static const int kRecordFieldNumber = 1;
+  inline const ::proto_ff::tbGiveBankJetton& record(int index) const;
+  inline ::proto_ff::tbGiveBankJetton* mutable_record(int index);
+  inline ::proto_ff::tbGiveBankJetton* add_record();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::tbGiveBankJetton >&
+      record() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::tbGiveBankJetton >*
+      mutable_record();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GiveBankRecordDBData)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::tbGiveBankJetton > record_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_DBProto_2eproto();
+  friend void protobuf_AssignDesc_DBProto_2eproto();
+  friend void protobuf_ShutdownFile_DBProto_2eproto();
+
+  void InitAsDefaultInstance();
+  static GiveBankRecordDBData* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class tbFishSnsPlayerDetailData : public ::google::protobuf::Message {
  public:
   tbFishSnsPlayerDetailData();
@@ -598,6 +684,15 @@ class tbFishSnsPlayerDetailData : public ::google::protobuf::Message {
   inline ::std::string* release_bank_password();
   inline void set_allocated_bank_password(::std::string* bank_password);
 
+  // optional .proto_ff.GiveBankRecordDBData record = 11;
+  inline bool has_record() const;
+  inline void clear_record();
+  static const int kRecordFieldNumber = 11;
+  inline const ::proto_ff::GiveBankRecordDBData& record() const;
+  inline ::proto_ff::GiveBankRecordDBData* mutable_record();
+  inline ::proto_ff::GiveBankRecordDBData* release_record();
+  inline void set_allocated_record(::proto_ff::GiveBankRecordDBData* record);
+
   // @@protoc_insertion_point(class_scope:proto_ff.tbFishSnsPlayerDetailData)
  private:
   inline void set_has_player_id();
@@ -606,15 +701,18 @@ class tbFishSnsPlayerDetailData : public ::google::protobuf::Message {
   inline void clear_has_bank_jetton();
   inline void set_has_bank_password();
   inline void clear_has_bank_password();
+  inline void set_has_record();
+  inline void clear_has_record();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 player_id_;
   ::google::protobuf::uint64 bank_jetton_;
   ::std::string* bank_password_;
+  ::proto_ff::GiveBankRecordDBData* record_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
 
   friend void  protobuf_AddDesc_DBProto_2eproto();
   friend void protobuf_AssignDesc_DBProto_2eproto();
@@ -1434,6 +1532,35 @@ inline void tbFishSnsPlayerSimpleData::set_agent(::google::protobuf::uint64 valu
 
 // -------------------------------------------------------------------
 
+// GiveBankRecordDBData
+
+// repeated .proto_ff.tbGiveBankJetton record = 1;
+inline int GiveBankRecordDBData::record_size() const {
+  return record_.size();
+}
+inline void GiveBankRecordDBData::clear_record() {
+  record_.Clear();
+}
+inline const ::proto_ff::tbGiveBankJetton& GiveBankRecordDBData::record(int index) const {
+  return record_.Get(index);
+}
+inline ::proto_ff::tbGiveBankJetton* GiveBankRecordDBData::mutable_record(int index) {
+  return record_.Mutable(index);
+}
+inline ::proto_ff::tbGiveBankJetton* GiveBankRecordDBData::add_record() {
+  return record_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::tbGiveBankJetton >&
+GiveBankRecordDBData::record() const {
+  return record_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::tbGiveBankJetton >*
+GiveBankRecordDBData::mutable_record() {
+  return &record_;
+}
+
+// -------------------------------------------------------------------
+
 // tbFishSnsPlayerDetailData
 
 // optional uint64 player_id = 1;
@@ -1547,6 +1674,44 @@ inline void tbFishSnsPlayerDetailData::set_allocated_bank_password(::std::string
   } else {
     clear_has_bank_password();
     bank_password_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional .proto_ff.GiveBankRecordDBData record = 11;
+inline bool tbFishSnsPlayerDetailData::has_record() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void tbFishSnsPlayerDetailData::set_has_record() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void tbFishSnsPlayerDetailData::clear_has_record() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void tbFishSnsPlayerDetailData::clear_record() {
+  if (record_ != NULL) record_->::proto_ff::GiveBankRecordDBData::Clear();
+  clear_has_record();
+}
+inline const ::proto_ff::GiveBankRecordDBData& tbFishSnsPlayerDetailData::record() const {
+  return record_ != NULL ? *record_ : *default_instance_->record_;
+}
+inline ::proto_ff::GiveBankRecordDBData* tbFishSnsPlayerDetailData::mutable_record() {
+  set_has_record();
+  if (record_ == NULL) record_ = new ::proto_ff::GiveBankRecordDBData;
+  return record_;
+}
+inline ::proto_ff::GiveBankRecordDBData* tbFishSnsPlayerDetailData::release_record() {
+  clear_has_record();
+  ::proto_ff::GiveBankRecordDBData* temp = record_;
+  record_ = NULL;
+  return temp;
+}
+inline void tbFishSnsPlayerDetailData::set_allocated_record(::proto_ff::GiveBankRecordDBData* record) {
+  delete record_;
+  record_ = record;
+  if (record) {
+    set_has_record();
+  } else {
+    clear_has_record();
   }
 }
 
