@@ -26,7 +26,6 @@
 #include "NFComm/NFPluginModule/NFJson2PB/NFPbToJson.h"
 #include "NFComm/NFPluginModule/NFJson2PB/NFJsonToPb.h"
 #include "NFComm/NFShmStl/NFShmString.h"
-#include "NFComm/NFShmCore/NFArray.h"
 #include <iostream>
 #include <mutex>
 #include <atomic>

@@ -11,7 +11,6 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmHashObjectMgr.h"
 #include "NFComm/NFPluginModule/NFObject.h"
-#include "NFComm/NFShmCore/NFArray.h"
 #include "NFComm/NFShmStl/NFShmDyList.h"
 #include "NFComm/NFShmStl/NFShmDyVector.h"
 #include "NFComm/NFShmStl/NFShmDyHashMapWithList.h"
