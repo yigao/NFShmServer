@@ -11,7 +11,7 @@
 
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmOldHashMap.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 

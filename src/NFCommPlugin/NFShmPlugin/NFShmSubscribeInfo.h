@@ -17,7 +17,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 #include "NFComm/NFShmCore/NFShmNodeList.h"
 #include "NFShmEventKey.h"
 

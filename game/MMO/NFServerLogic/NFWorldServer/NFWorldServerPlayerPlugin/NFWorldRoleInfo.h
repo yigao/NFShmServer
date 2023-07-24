@@ -12,7 +12,7 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 #include "Com_s.h"
 #include "NFLogicCommon/NFPoint3.h"
 #include "DBProto.pb.h"

@@ -15,7 +15,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 
 //基本关系数据
 struct NFRelationCommonPlayer

@@ -13,7 +13,7 @@
 #include "NFIDescStoreModule.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include <fstream>
 #include <iostream>

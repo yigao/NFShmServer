@@ -1269,6 +1269,34 @@ int checkHashSet()
     return 0;
 }
 
+int checkString()
+{
+    NFShmString<8> str1 = std::string("aaa");
+    NFShmString<8> str2 = std::string("aaabbbcc");
+    NFShmString<8> str3 = std::string("aaabbbccc");
+    NFShmString<8> str4 = str1;
+    NFShmString<8> str5 = str2;
+    NFShmString<8> str6 = str3;
+    NFShmString<8> str8 = "aaa";
+    NFShmString<8> str9 = "aaabbbcc";
+    NFShmString<9> str10 = "aaabbbccc11";
+    NFShmString<11> str11 = str10;
+
+    str8 = "dddeeefff";
+    str9 = "hhh";
+    str10 = "dddeeefff";
+    str1 = std::string("aaa");
+    str2 = std::string("aaabbbcc");
+    str3 = std::string("aaabbbccc");
+    str1 += std::string("aaabbbcc");
+    str2 += std::string("aaabbbcc");
+    str3 += std::string("aaabbbccc");
+    str4 += "aaabbbcc";
+    str5 += "aaabbbcc";
+    str6 += str10;
+    return 0;
+}
+
 int testMain()
 {
     //CHECK_RET(checkPair(), "checkPair Failed");
@@ -1279,7 +1307,8 @@ int testMain()
     //checkHashMap();
     //checkAlgoDyVector();
     //checkDyList();
-    checkDyHashTable();
-    checkDyHashTableWithList();
+    //checkDyHashTable();
+    //checkDyHashTableWithList();
+    checkString();
     return 0;
 }

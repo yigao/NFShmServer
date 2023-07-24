@@ -103,7 +103,7 @@ def write_hfile():
 	h_file.write("#pragma once\n\n")
 
 	h_file.write("#include <stdint.h>\n")
-	h_file.write("#include <NFComm/NFShmCore/NFShmString.h>\n")
+	h_file.write("#include <NFComm/NFShmStl/NFShmString.h>\n")
 	h_file.write("#include <NFComm/NFShmStl/NFShmVector.h>\n")
 	h_file.write("#include <NFComm/NFShmCore/NFSeqOP.h>\n")
 	h_file.write("#include <NFComm/NFShmCore/NFShmMgr.h>\n")

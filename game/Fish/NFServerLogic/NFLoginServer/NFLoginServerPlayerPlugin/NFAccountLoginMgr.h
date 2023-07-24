@@ -10,7 +10,7 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 #include "NFComm/NFShmStl/NFShmHashMapWithList.h"
 #include "NFLogicCommon/NFLoginDefine.h"
 

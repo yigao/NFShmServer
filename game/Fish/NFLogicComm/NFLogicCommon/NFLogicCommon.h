@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 
 #define NF_SERVER_COMMON_MAX_STRING_32 32
 #define NF_SERVER_COMMON_MAX_STRING_64 64

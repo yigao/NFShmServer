@@ -11,7 +11,7 @@
 
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFComm/NFMessageDefine/proto_common.pb.h"
 #include "NFComm/NFMessageDefine/proto_cs_login.pb.h"

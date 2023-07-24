@@ -20,7 +20,7 @@
 #include "Detour/Include/DetourNavMeshQuery.h"
 
 #include "NFLogicCommon/NFSceneDefine.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 #include "NFLogicCommon/NFRoleDefine.h"
 #include "ComDefine.pb.h"
 #include "map_s.h"

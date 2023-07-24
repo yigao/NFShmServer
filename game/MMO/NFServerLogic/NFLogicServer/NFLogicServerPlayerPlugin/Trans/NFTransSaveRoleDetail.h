@@ -11,7 +11,7 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFComm/NFShmCore/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmString.h"
 #include "Base/NFTransPlayerBase.h"
 #include "DBProto.pb.h"
 
