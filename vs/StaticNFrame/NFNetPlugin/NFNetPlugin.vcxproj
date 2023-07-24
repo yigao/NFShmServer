@@ -31,6 +31,7 @@
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppNetMessage.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppServer.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\ExternalPacketParse.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\FishExternalPacketParse.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\InternalPacketParse.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIPacketParse.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppNetMessage.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\Evpp\NFEvppServer.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\ExternalPacketParse.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\FishExternalPacketParse.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\InternalPacketParse.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFCNetModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFNetPlugin\NFIConnection.h" />
