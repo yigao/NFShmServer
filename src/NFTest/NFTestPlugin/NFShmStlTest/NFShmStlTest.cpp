@@ -22,6 +22,7 @@
 #include "NFComm/NFShmStl/NFShmHashMapWithList.h"
 #include "NFComm/NFShmStl/NFShmDyHashMapWithList.h"
 #include "NFComm/NFShmStl/NFShmString.h"
+#include "NFComm/NFShmStl/NFShmTree.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmStlTest.h"
