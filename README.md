@@ -2,7 +2,7 @@
 
 <p align="right">当前版本: <strong>v1.0.0</strong></p>
 <p align="center"><img src="https://github.com/yigao/NFShmServer/blob/master/doc/logo.png" alt="nfshmserver" width="300"/></p>
-NFShmServer 是一个使用C++开发的轻量级,敏捷型,弹性的,分布式的共享内存的插件开发框架, 让你更快更简单的开发服务端应用. 部分思路来自UE4和Ogre.(当前主要用在游戏领域) 我写的开源架构，前几年开源过，后来自己做项目，又没开源了，现在没搞项目了，加上修改了2年了，打算重新开源
+NFShmServer 是一个使用C++开发的轻量级,敏捷型,弹性的,分布式的共享内存（C++热更）/多进程lua(lua热更)的插件开发框架, 让你更快更简单的开发服务端应用. 部分思路来自UE4和Ogre.(当前主要用在游戏领域) . 最近加了rpc服务，数据库自动建库建表新加列服务，单线程lua脚本系统，后续可能会加actor多线程lua脚本系统，想法有点类似skynet的
 
 ---
 
