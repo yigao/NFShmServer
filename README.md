@@ -49,14 +49,8 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - C++热更，服务器实现了共享内存C++热更(对于纯粹C++来说，也是唯一热更的有效可用的方案，当然热更的前提是没有修改共享内存类的结构大小)。
 - 服务器崩溃不丢失数据，对于热门的赚钱的游戏这点还是很重要的。 服务器崩溃后重启，不丢任何物理数据，甚至连内网协议数据都不会有丢失。
 - 游戏数据均放在共享内存里，共享内存架构经过很多MMO大项目验证无问题，内网通讯采用共享内存通讯的话，服务器异常时，玩家协议数据不会丢失。
-- 实现一套可以放心用在共享内存里的仿sgi-stl数据结构, 极大的解决了使用共享内存写代码难度搞得问题(见过好几套从腾讯流出来的游戏的共享内存架构，大部分仅仅是实现了一个简单的哈希表，其余的业务就需要使用C语言的原始数组啥的了)。除了事先需要定义好需要的内存大小外，其余使用方法都与stl一样
-           1.NFShmVector -- std::vecotr       使用:NFShmVector<int, 5> -- std::vector<int> 除了要定义5这个最大内存容量外，其余使用方法NFShmVector和std::vector完全一样，包过使用他们的迭代器以及stl算法
-           2.NFShmList -- std::list
-           3.NFShmHashMap -- std::unordered_map
-           4.NFShmHashSet -- std::unordered_set
-           5.NFShmMap -- std:map
-           6.NFShmSet -- std::set
-           7.NFShmString -- std::string
+- 实现一套可以放心用在共享内存里的仿sgi-stl数据结构, 极大的解决了使用共享内存写代码难度搞得问题(见过好几套从腾讯流出来的游戏的共享内存架构，大部分仅仅是实现了一个简单的哈希表，其余的业务就需要使用C语言的原始数组啥的了)。除了事先需要定义好需要的内存大小外，其余使用方法都与stl一样.  NFShmVector -- std::vecotr       使用:NFShmVector<int, 5> -- std::vector<int> 除了要定义5这个最大内存容量外，其余使用方法NFShmVector和std::vector完全一样，包过使用他们的迭代器以及stl算法
+  
         
 - 服务器游戏配置数据，从excel到共享内存代码，到sql语句，只需定义一个protobuf结构，就可以生成大量有用代码，你可以用这个protobuf结构去读取excel数据，生成对应的共享内存结构类，来存放数据，也可以生成sql数据，把excel表导入到数据库，不需要修改源码，可以从本地文件读取excel数据，可以直接从数据库读取配置。
 - 玩家个人数据，只需定义一个protobuf结构，自动生成共享内存数据，sql数据，通过protobuf发射来完成mysql数据的存取，无需你自己写sql语句。
