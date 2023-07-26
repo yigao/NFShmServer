@@ -64,11 +64,14 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - 多进程单线程lua热更，实现了lua插件。可以用lua写业务代码，热更服务器。
 - 多进程actor多线程lua热更, 目前还是构思中。有点类似skynet, 但是C++底层还是nf, 架构主C++，业务主lua.
 - 友好的协程RPC系统，实现了一个使用游戏服务器的RPC系统，简单好用，同时非常适配游戏服务器的协议系统。
-- 友好的日志控制，你可以单独控制，一个小模块的日志，甚至一个玩家的日志
-- 跨平台(Windows, Linux, MacOS)
 - 高并发和高性能的通信模块， 跨物理机器以及对外采用libevent+evpp实现的多线程网络tcp,udp,http， 同一个物理机通信可采用单线程共享内存bus系统，也可采用前面的多线程网络。同时实现了网络和bus系统的接口配置统一， 只需要稍微修改配置，就可方便切换.
 - 高可用的系统架构。架构采用分成架构，系统分为架构层,服务器层，具体的游戏业务层。具体的层次具体的目录，上层不会依赖下层，结构清晰。架构层,服务器层通用，不同的游戏分不同的目录.
+- 可复用的db系统，db系统采用protobuf反射机制来实现。不需要手动撸sql语句，不需要定义mysql表。只需要一个protobuf结构体，db系统会自动创建数据库，创建表格，新加列。数据库的查询，插入，保存，也仅需要使用这个protobuf结构体调用系统结构即可。
+- 统一的配置加载机制，无论你是从excel加载配置，还是从数据库表格里加载配置。无需大量修改代码，仅仅该一个标志即可。
+- 邮箱以及企业微信通知机制，实现了启动服务器以及服务器崩溃，服务器结构会把启动的信息以及服务器崩溃的dump信息发送至邮箱或你的企业微信里。
+- 友好的日志控制，你可以单独控制，一个小模块的日志，甚至一个玩家的日志
 - 配套的 U3D 客户端，一个捕鱼项目 https://github.com/yigao/NFShmFrame_FishClient.git
+- 跨平台(Windows, Linux, MacOS)
   
 
 ## Dependencies
@@ -121,7 +124,7 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 2. Run **build_dynamic_debug.sh** to build Debug of NFShmServer
 3. Run **build_dynamic_release.sh** to build Release of NFShmServer
 4. Run the server， 分几种情况执行:
-    - 根据使用master服务器来做分布式还是使用zookpeer，需要先配置好zookpeer，分几种种执行方式：
+    - 根据使用master服务器来做分布式，分几种种执行方式：
     -  如果你想把所有的分布式进程放到一个进程一个线程里执行的话，只要是方便调试:
     -    内网使用TCP通信,master服务器来做分布式:./NFPluginLoader --Server=AllServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../TcpPlugin --restart
     -    内网使用Bus通信,master服务器来做分布式:./NFPluginLoader --Server=AllServer --ID=1.1.1.1 --Config=../../Config --Plugin=../../BusPlugin --restart
@@ -178,7 +181,7 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 ### 多物理机服务器架构:
 ![多物理机服务器架构](https://github.com/yigao/NFShmServer/blob/master/doc/server_arch.png)
 ### 服务器架构说明:
-- 所有的服务器都要链接master服务器，可以选择使用master服务器作为命名服务器，也可以选用zookeeper作为命名服务器，只需修改下配置即可
+- 所有的服务器都要链接master服务器，可以选择使用master服务器作为命名服务器，只需修改下配置即可
 - 每一个服务器都有一个类似IP地址的ID，作为唯一ID，比如master服务器ID是1.1.1.1， worldserver服务器ID是15.100.3.1， 服务器之间相互通讯，不需要知道对方部署在哪一台物理机上，只需要知道对方的唯一ID，就可以相互通讯
 - 每一个单独的物理机上都有一个NFRouteAgentServer路由代理服务器,用来在这个物理机上实现内网通讯以及和别的物理机通讯，一个NFProxyAgentServer网关代理服务器，用来链接网关，实现对外部（客户端）通讯
 - 物理机
