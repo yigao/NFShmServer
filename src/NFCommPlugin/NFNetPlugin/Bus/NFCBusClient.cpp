@@ -187,8 +187,7 @@ bool NFCBusClient::Send(NFDataPackage& packet, const char* msg, uint32_t nLen)
             || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT
             || packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP))
     {
-        //pChannel = &head->m_nConnectChannel;
-        pChannel = &head->m_nShmChannel;
+        pChannel = &head->m_nConnectChannel;
     }
     else {
         pChannel = &head->m_nShmChannel;

@@ -1178,6 +1178,12 @@ int checkDyHashTableWithList()
     return 0;
 }
 
+int checkRbTree()
+{
+    NFShmTree<10, int, int, std::stl__Identity<int>, std::less<int>> tree;
+    return 0;
+}
+
 int checkHashTable()
 {
     NFShmHashTableWithList<int, int, 10, std::hash<int>, std::stl__Identity<int>, std::equal_to<int>> hashtable;
@@ -1310,6 +1316,7 @@ int testMain()
     //checkDyList();
     //checkDyHashTable();
     //checkDyHashTableWithList();
-    checkString();
+    //checkString();
+    checkRbTree();
     return 0;
 }

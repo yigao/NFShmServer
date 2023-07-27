@@ -494,6 +494,17 @@ public:
         return &m_node[index];
     }
 
+    pointer GetData(size_t index)
+    {
+        if (index >= 0 && index < MAX_SIZE)
+        {
+            NF_ASSERT(m_node[index].m_valid);
+            return &m_node[index].m_data;
+        }
+
+        return NULL;
+    }
+
     iterator GetIterator(size_t index)
     {
         CHECK_EXPR(index <= MAX_SIZE, end(), "index out of range:{}", index);

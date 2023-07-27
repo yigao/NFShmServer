@@ -138,11 +138,11 @@ void NFCBusServer::ProcessMsgLogicThread()
     if (pShmRecord->m_nOwner)
     {
         NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
-        //NFShmChannel *pConnectChannel = &head->m_nConnectChannel;
+        NFShmChannel *pConnectChannel = &head->m_nConnectChannel;
         NFShmChannel *pChannel = &head->m_nShmChannel;
         size_t left_times = max_times;
         mxConnectBuffer.Clear();
-/*        while(true)
+        while(true)
         {
             size_t recv_len = 0;
             int ret = ShmRecv(pConnectChannel, mxConnectBuffer.WriteAddr(), mxConnectBuffer.WritableSize(), &recv_len);
@@ -203,7 +203,7 @@ void NFCBusServer::ProcessMsgLogicThread()
                     }
                 }
             }
-        }*/
+        }
 
         mxBuffer.Clear();
         while(left_times-- > 0)

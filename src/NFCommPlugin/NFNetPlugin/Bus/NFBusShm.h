@@ -157,13 +157,12 @@ struct NFShmAddr
 
 // 对齐头
 typedef struct {
-    //NFShmChannel m_nConnectChannel;
+    NFShmChannel m_nConnectChannel;
 	NFShmChannel m_nShmChannel;
 	NFShmAddr m_nShmAddr;
-	//char m_nAlign[12 * 1024 - sizeof(NFShmChannel) - sizeof(NFShmChannel) - sizeof(NFShmAddr)]; // 对齐到12KB,用于以后拓展
-    char m_nAlign[12 * 1024 - sizeof(NFShmChannel) - sizeof(NFShmAddr)]; // 对齐到12KB,用于以后拓展
+	char m_nAlign[12 * 1024 - sizeof(NFShmChannel) - sizeof(NFShmChannel) - sizeof(NFShmAddr)]; // 对齐到12KB,用于以后拓展
+    //char m_nAlign[12 * 1024 - sizeof(NFShmChannel) - sizeof(NFShmAddr)]; // 对齐到12KB,用于以后拓展
 } NFShmChannelHead;
-
 
 /**
  * @brief 数据节点头
@@ -199,7 +198,7 @@ struct NFShmBlock {
 
 		node_data_size = NFBUS_MACRO_DATA_NODE_SIZE,
 		node_head_data_size = node_data_size - block_head_size,
-        //connect_shm_size = (node_head_size+node_data_size)*100,
+        connect_shm_size = (node_head_size+node_data_size)*100,
 	};
 };
 
