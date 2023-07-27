@@ -63,10 +63,6 @@ bool NFCProxyAgentServerModule::Awake()
                       pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
             return false;
         }
-
-        if (pConfig->LinkMode == "bus") {
-            FindModule<NFIMessageModule>()->ResumeConnect(NF_ST_PROXY_AGENT_SERVER);
-        }
 	}
 	else
 	{

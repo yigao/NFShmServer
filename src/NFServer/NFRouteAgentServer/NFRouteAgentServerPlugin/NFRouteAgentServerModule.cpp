@@ -68,10 +68,6 @@ bool NFCRouteAgentServerModule::Awake()
 			NFLogInfo(NF_LOG_SYSTEMLOG, 0, "route agent listen failed, serverId:{}, ip:{}, port:{}", pConfig->ServerId, pConfig->ServerIp, pConfig->ServerPort);
 			return false;
 		}
-
-        if (pConfig->LinkMode == "bus") {
-            FindModule<NFIMessageModule>()->ResumeConnect(NF_ST_ROUTE_AGENT_SERVER);
-        }
 	}
 	else
 	{

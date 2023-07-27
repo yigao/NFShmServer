@@ -206,7 +206,8 @@ void NFCBusServer::ProcessMsgLogicThread()
         }
 
         mxBuffer.Clear();
-        while(left_times-- > 0)
+        bool inited = m_pObjPluginManager->IsInited();
+        while(left_times-- > 0 && inited)
         {
             size_t recv_len = 0;
             int ret = ShmRecv(pChannel, mxBuffer.WriteAddr(), mxBuffer.WritableSize(), &recv_len);

@@ -108,6 +108,12 @@ int NFWorkServerModule::BindServer()
                                              NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER));
     }
 
+    if (m_connectProxyAgentServer)
+    {
+        m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER,
+                                             NF_FORMAT("{} {}", pConfig->ServerName, APP_INIT_CONNECT_PROXY_AGENT_SERVER));
+    }
+
     if (m_checkStoreServer)
     {
         m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER,
@@ -131,41 +137,6 @@ int NFWorkServerModule::BindServer()
                                                      &NFWorkServerModule::OnHandleServerOtherMessage);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server:{} Listen Success, ServerId:{}, Ip:{}, Port:{}", pConfig->ServerName, pConfig->ServerId, pConfig->ServerIp,
               pConfig->ServerPort);
-
-    if (pConfig->LinkMode == "bus")
-    {
-        int iRet = FindModule<NFIMessageModule>()->ResumeConnect(m_serverType);
-        if (iRet == 0)
-        {
-            std::vector<NF_SHARE_PTR<NFServerData>> vecServer = FindModule<NFIMessageModule>()->GetAllServer(
-                    m_serverType);
-            for (int i = 0; i < (int) vecServer.size(); i++)
-            {
-                NF_SHARE_PTR<NFServerData> pServerData = vecServer[i];
-                if (pServerData && pServerData->mUnlinkId > 0)
-                {
-                    if (pServerData->mServerInfo.server_type() == NF_ST_ROUTE_AGENT_SERVER)
-                    {
-                        FindModule<NFIMessageModule>()->AddEventCallBack(m_serverType, pServerData->mUnlinkId, this,
-                                                                         &NFWorkServerModule::OnRouteAgentServerSocketEvent);
-                        FindModule<NFIMessageModule>()->AddOtherCallBack(m_serverType, pServerData->mUnlinkId, this,
-                                                                         &NFWorkServerModule::OnHandleRouteAgentServerOtherMessage);
-
-                        auto pRouteServer = FindModule<NFIMessageModule>()->GetRouteData(m_serverType);
-                        pRouteServer->mUnlinkId = pServerData->mUnlinkId;
-                        pRouteServer->mServerInfo = pServerData->mServerInfo;
-                    }
-                    else if (pServerData->mServerInfo.server_type() == NF_ST_PROXY_AGENT_SERVER)
-                    {
-                        FindModule<NFIMessageModule>()->AddEventCallBack(m_serverType, pServerData->mUnlinkId, this,
-                                                                         &NFWorkServerModule::OnProxyAgentServerSocketEvent);
-                        FindModule<NFIMessageModule>()->AddOtherCallBack(m_serverType, pServerData->mUnlinkId, this,
-                                                                         &NFWorkServerModule::OnHandleProxyAgentServerOtherMessage);
-                    }
-                }
-            }
-        }
-    }
 
     Subscribe(m_serverType, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     Subscribe(m_serverType, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
@@ -582,6 +553,14 @@ int NFWorkServerModule::OnHandleProxyServerRegister(const proto_ff::ServerInfoRe
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Proxy Server Register Server:{} Success, serverName:{}, busid:{}, ip:{}, port:{}", pConfig->ServerName,
               pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.external_server_ip(),
               pServerData->mServerInfo.external_server_port());
+
+    //完成服务器启动任务
+    if (!m_pObjPluginManager->IsInited())
+    {
+        m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER);
+    }
+
+    FindModule<NFINamingModule>()->RegisterAppInfo(m_serverType);
     return 0;
 }
 
