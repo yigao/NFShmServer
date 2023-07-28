@@ -12,8 +12,8 @@
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFLogicPlayerModule.h"
-#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h"
-#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h"
+#include "Player/NFPlayerMgr.h"
+#include "Player/NFPlayer.h"
 #include "Part/NFPartModule.h"
 #include "Jetton/NFJettonPart.h"
 

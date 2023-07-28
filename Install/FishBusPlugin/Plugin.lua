@@ -65,6 +65,7 @@ LoadPlugin =
 			"NFFishWorldPlayerPlugin",
 			"NFFishSnsPlayerPlugin",
 			"NFFishLogicPlayerPlugin",
+			"NFFishGamePlayerPlugin",
 		};
 
 		ServerType = NF_ST_NONE;
@@ -163,6 +164,7 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
+			"NFFishGamePlayerPlugin",
 		};
 		ServerType = NF_ST_GAME_SERVER;
 	},

@@ -1,0 +1,1072 @@
+Index: game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// -------------------------------------------------------------------------\n//    @FileName         :    NFServerFrameTypeDefines.h\n//    @Author           :    Gao.Yi\n//    @Date             :   2022-09-18\n//    @Email\t\t\t:    445267987@qq.com\n//    @Module           :    NFPluginModule\n//\n// -------------------------------------------------------------------------\n\n#pragma once\n\n#include \"NFComm/NFShmCore/NFTypeDefines.h\"\n\n\ntypedef enum\n{\n\tEOT_SF_BEGIN_ID = EOT_SERVER_FRAME_BEGIN_ID,\n    ////////////////////////////server common////////////////////////////////////////////////\n\n    ////////////////////////////server common////////////////////////////////////////////////\n\n\t////////////////////////////sns server/////////////////////////////\n    EOT_SNS_ROLE_SIMPLE_ID,\n    EOT_SNS_ROLE_DETAIL_ID,\n    EOT_PLAYER_ONLINE_ID,\n    EOT_SNS_CACHE_MGR_ID,\n    EOT_SNS_LOAD_CACHE_MGR_ID,\n    ////////////////////////////sns trans server/////////////////////////////\n    EOT_SNS_TRANS_CACHE_BASE_ID,\n    EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID,\n    EOT_SNS_TRANS_GET_ROLE_DETAIL_ID,\n    EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE,\n    EOT_SNS_TRANS_SAVE_PLAYER_DETAIL,\n    ////////////////////////////sns part server/////////////////////////////\n    EOT_SNS_PART_ID,\n    EOT_NFSnsJettonPart_ID,\n\t////////////////////////////sns server/////////////////////////////\n\n\t////////////////////////////logic server/////////////////////////////\n\n    //////////////////////////logic part////////////////////////\n    EOT_LOGIC_PART_ID,\n    EOT_NFJettonPart_ID,\n    //////////////////////////logic trans////////////////////////\n    EOT_TRANS_LOGIC_USER_BASE,\n    EOT_TRANS_SAVE_PLAYER,\n\t////////////////////////////logic server/////////////////////////////\n    EOT_LOGIC_PLAYER_MGR_ID,\n    EOT_LOGIC_PLAYER_ID,\n\t////////////////////////////login server/////////////////////////////\n    EOT_ACCOUNTLOGIN_HASHTABLE_ID,\n\t////////////////////////////login server/////////////////////////////\n\t////////////////////////////world server/////////////////////////////\n    EOT_WORLD_PLAYER_MGR_ID,\n    EOT_WORLD_PLAYER_ID,\n    ////////////////////////////world server trans/////////////////////////////\n\n    ////////////////////////////world server trans/////////////////////////////\n\t////////////////////////////world server/////////////////////////////\n\n\t////////////////////////////game server/////////////////////////////\n\n    ////////////////////////////game server/////////////////////////////\n\t///////////////////////////////////////////////////////////\n\tEOT_SF_END_ID = EOT_SERVER_FRAME_END_ID,\n} EN_SERVERFRAME_SHMOBJ_TYPE;\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h b/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h
+--- a/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h	(revision 66b96e044704c85484eb8e935781328bc04e8fd4)
++++ b/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h	(date 1690516823561)
+@@ -59,7 +59,9 @@
+ 	////////////////////////////world server/////////////////////////////
+ 
+ 	////////////////////////////game server/////////////////////////////
+-
++    EOT_NFGamePlayer_ID,
++    EOT_NFGamePlayerMgr_ID,
++    EOT_NFGameRoomDesc_ID,
+     ////////////////////////////game server/////////////////////////////
+ 	///////////////////////////////////////////////////////////
+ 	EOT_SF_END_ID = EOT_SERVER_FRAME_END_ID,
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.h b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.h
+new file mode 100644
+--- /dev/null	(date 1690516823578)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.h	(date 1690516823578)
+@@ -0,0 +1,43 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFCGamePlayerModule.h
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFCGamePlayerModule
++//
++// -------------------------------------------------------------------------
++
++#pragma once
++
++
++#include "NFComm/NFCore/NFPlatform.h"
++#include "NFComm/NFPluginModule/NFIDynamicModule.h"
++
++class NFCGamePlayerModule : public NFIDynamicModule
++{
++public:
++    explicit NFCGamePlayerModule(NFIPluginManager* p);
++    virtual ~NFCGamePlayerModule();
++
++    virtual bool Awake() override;
++
++    virtual bool Execute() override;
++
++    virtual bool OnDynamicPlugin() override;
++public:
++    /**
++     * @brief 处理客户端消息
++     * @param unLinkId
++     * @param packet
++     * @return
++     */
++    virtual int OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
++
++    /**
++     * @brief 处理来自服务器的信息
++     * @param unLinkId
++     * @param packet
++     * @return
++     */
++    virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
++};
+\ No newline at end of file
+Index: game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// -------------------------------------------------------------------------\n//    @FileName         :    NFLogicServerPlayerPlugin.cpp\n//    @Author           :    gaoyi\n//    @Date             :   2023-07-10\n//    @Email\t\t\t:    445267987@qq.com\n//    @Module           :    NFLogicServerPlayerPlugin\n//\n// -------------------------------------------------------------------------\n\n#include \"NFFishLogicPlayerPlugin.h\"\n#include \"NFComm/NFPluginModule/NFIPluginManager.h\"\n#include \"NFComm/NFPluginModule/NFConfigDefine.h\"\n#include \"NFComm/NFPluginModule/NFIConfigModule.h\"\n#include \"NFLogicPlayerModule.h\"\n#include \"NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h\"\n#include \"NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h\"\n#include \"Part/NFPartModule.h\"\n#include \"Jetton/NFJettonPart.h\"\n\n#ifdef NF_DYNAMIC_PLUGIN\n\nNF_EXPORT void DllStartPlugin(NFIPluginManager* pm)\n{\n    CREATE_PLUGIN(pm, NFFishLogicPlayerPlugin)\n\n};\n\nNF_EXPORT void DllStopPlugin(NFIPluginManager* pm)\n{\n    DESTROY_PLUGIN(pm, NFFishLogicPlayerPlugin)\n};\n\n#endif\n\n\n//////////////////////////////////////////////////////////////////////////\n\nint NFFishLogicPlayerPlugin::GetPluginVersion()\n{\n\treturn 0;\n}\n\nstd::string NFFishLogicPlayerPlugin::GetPluginName()\n{\n\treturn GET_CLASS_NAME(NFFishLogicPlayerPlugin);\n}\n\nvoid NFFishLogicPlayerPlugin::Install()\n{\n    REGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);\n    REGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);\n}\n\nvoid NFFishLogicPlayerPlugin::Uninstall()\n{\n    UNREGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);\n    UNREGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);\n}\n\nbool NFFishLogicPlayerPlugin::InitShmObjectRegister()\n{\n    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);\n    NF_ASSERT(pConfig);\n\n    uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum();\n\n    REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);\n    REGISTER_SHM_OBJ(NFJettonPart, maxOnlinePlayerNum);\n    REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//\n\n    REGISTER_SHM_OBJ(NFTransPlayerBase, 1);\n    REGISTER_SHM_OBJ(NFTransSaveDB, maxOnlinePlayerNum);\n    return true;\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.cpp b/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.cpp
+--- a/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.cpp	(revision 66b96e044704c85484eb8e935781328bc04e8fd4)
++++ b/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.cpp	(date 1690516823566)
+@@ -12,8 +12,8 @@
+ #include "NFComm/NFPluginModule/NFConfigDefine.h"
+ #include "NFComm/NFPluginModule/NFIConfigModule.h"
+ #include "NFLogicPlayerModule.h"
+-#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h"
+-#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h"
++#include "Player/NFPlayerMgr.h"
++#include "Player/NFPlayer.h"
+ #include "Part/NFPartModule.h"
+ #include "Jetton/NFJettonPart.h"
+ 
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.cpp b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.cpp
+new file mode 100644
+--- /dev/null	(date 1690516823576)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.cpp	(date 1690516823576)
+@@ -0,0 +1,139 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFGamePlayer.cpp
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFGamePlayer
++//
++// -------------------------------------------------------------------------
++
++#include "NFGamePlayer.h"
++#include "NFLogicCommon/NFLogicShmTypeDefines.h"
++#include "NFComm/NFPluginModule/NFIMessageModule.h"
++#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
++
++IMPLEMENT_IDCREATE_WITHTYPE(NFGamePlayer, EOT_NFGamePlayer_ID, NFShmObj)
++
++NFGamePlayer::NFGamePlayer()
++{
++    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
++    {
++        CreateInit();
++    }
++    else
++    {
++        ResumeInit();
++    }
++}
++
++NFGamePlayer::~NFGamePlayer()
++{
++}
++
++int NFGamePlayer::CreateInit()
++{
++    m_playerId = 0;
++    m_proxyId = 0;
++    m_logicId = 0;
++    m_gameId = 0;
++    m_roomId = 0;
++    m_deskId = INVALID_ID;
++    m_chairId = INVALID_ID;
++    m_isRobot = false;
++    m_online = false;
++    m_clearFlag = false;
++    m_offlineTime = 0;
++    m_lastMsgTime = 0;
++    m_reservedTime = 0;
++    m_reservedDeskId = INVALID_ID;
++    m_reservedChairId = INVALID_ID;
++    return 0;
++}
++
++int NFGamePlayer::ResumeInit()
++{
++    m_online = false;
++    m_offlineTime = NFTime::Now().UnixSec();
++    return 0;
++}
++
++int NFGamePlayer::SendErrToClient(uint32_t nMsgId, proto_ff::Proto_CS_ErrorCode errCode)
++{
++    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
++
++    proto_ff::Proto_CSErrorRsp rspMsg;
++    rspMsg.set_user_id(m_playerId);
++    rspMsg.set_req_msg_id(nMsgId);
++    rspMsg.set_error(errCode);
++
++    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, m_proxyId, proto_ff::E_CS_ERROR, rspMsg, m_playerId);
++    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
++    return 0;
++}
++
++int NFGamePlayer::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData) {
++    CHECK_EXPR(m_proxyId > 0, -1, "m_proxyId:{} error", m_proxyId);
++
++    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, m_playerId);
++    return 0;
++}
++
++int NFGamePlayer::SendMsgToClient(uint16_t nMainMsgId, uint16_t nSubMsgId, const google::protobuf::Message &xData)
++{
++    CHECK_EXPR(m_proxyId > 0, -1, "m_proxyId:{} error", m_proxyId);
++
++    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, m_proxyId, nMainMsgId, nSubMsgId, xData, m_playerId);
++    return 0;
++}
++
++int NFGamePlayer::SendMsgToWorld(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId)
++{
++    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER,
++                                                   nMsgId, xData, playerId);
++    return 0;
++}
++
++int NFGamePlayer::SendMsgToLogic(uint32_t nMsgId, const google::protobuf::Message &xData)
++{
++    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, m_logicId,
++                                                   nMsgId, xData);
++    return 0;
++}
++
++int NFGamePlayer::SendMsgToSns(uint32_t nMsgId, const google::protobuf::Message &xData)
++{
++    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId, xData);
++    return 0;
++}
++
++int NFGamePlayer::SendTransToWorld(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
++{
++    FindModule<NFIServerMessageModule>()->SendTransToWorldServer(NF_ST_GAME_SERVER,
++                                                     nMsgId, xData, req_trans_id, rsp_trans_id);
++    return 0;
++}
++
++int NFGamePlayer::SendTransToLogic(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
++{
++    FindModule<NFIServerMessageModule>()->SendTransToLogicServer(NF_ST_GAME_SERVER, m_logicId,
++                                                     nMsgId, xData, req_trans_id, rsp_trans_id);
++    return 0;
++}
++
++int NFGamePlayer::SendTransToSns(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id, uint32_t rsp_trans_id)
++{
++    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
++
++    FindModule<NFIServerMessageModule>()->SendTransToSnsServer(NF_ST_GAME_SERVER,
++                                                   nMsgId, xData, req_trans_id, rsp_trans_id);
++
++    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
++    return 0;
++}
++
++void NFGamePlayer::ClearGameData() {
++    m_gameId = 0;
++    m_roomId = 0;
++    m_deskId = INVALID_ID;
++    m_chairId = INVALID_ID;
++}
+\ No newline at end of file
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.h b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.h
+new file mode 100644
+--- /dev/null	(date 1690516823574)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.h	(date 1690516823574)
+@@ -0,0 +1,110 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFGamePlayer.h
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFGamePlayer
++//
++// -------------------------------------------------------------------------
++
++#pragma once
++
++
++#include "NFComm/NFCore/NFPlatform.h"
++#include "NFComm/NFShmCore/NFShmObj.h"
++#include "NFComm/NFShmCore/NFShmMgr.h"
++#include "NFComm/NFShmCore/NFISharedMemModule.h"
++#include "AllProtocol.h"
++#include "NFComm/NFCore/NFTime.h"
++
++class NFGamePlayer : public NFShmObj
++{
++public:
++    NFGamePlayer();
++
++    virtual ~NFGamePlayer();
++
++    int CreateInit();
++
++    int ResumeInit();
++public:
++    //用户 ID
++    virtual uint64_t GetPlayerId() const { return m_playerId; };
++    //Game ID
++    virtual uint32_t GetGameId() const { return m_gameId; };
++    //Room ID
++    virtual uint32_t GetRoomId() const { return m_roomId; }
++    //桌子号码
++    virtual int32_t GetDeskId() const { return m_deskId; }
++
++    virtual int32_t GetChairId() const { return m_chairId; }
++
++    //proxy ID
++    virtual uint32_t GetProxyId() const { return m_proxyId; }
++
++    virtual uint32_t GetLogicId() const { return m_logicId; }
++
++    virtual bool IsOnline() const { return m_online; }
++
++    //用户 ID
++    virtual void SetPlayerId(uint64_t playerId) { m_playerId = playerId; };
++    //Game ID
++    virtual void SetGameId(uint32_t gameId) { m_gameId = gameId; };
++    //Room ID
++    virtual void SetRoomId(uint32_t roomId) { m_roomId = roomId; }
++    //桌子号码
++    virtual void SetDeskId(int32_t deskId) { m_deskId = deskId; }
++
++    virtual void SetChairId(int32_t chairId) { m_chairId = chairId; }
++
++    //proxy ID
++    virtual void SetProxyId(uint32_t proxyId) { m_proxyId = proxyId; }
++    virtual void SetLogicId(uint32_t logicId) { m_logicId = logicId; }
++
++    virtual bool IsOnline() { return m_online; }
++
++    virtual void SetOnline(bool online) { m_online = online; }
++
++    virtual void SetClearFlag(bool flag) { m_clearFlag = flag; }
++    virtual bool GetClearFlag() const { return m_clearFlag;  }
++
++    virtual uint32_t GetOfflineTime() const { return m_offlineTime; }
++    virtual void SetOfflineTime(uint32_t nowTime) { m_offlineTime = nowTime; }
++
++    virtual uint32_t GetLastMsgTime() const { return m_lastMsgTime; }
++    virtual void SetLastMsgTime(uint32_t nowTime) { m_lastMsgTime = nowTime; }
++
++    virtual bool IsInGame() const { return m_gameId > 0 && m_roomId > 0 && m_deskId >= 0 && m_chairId >= 0;  }
++
++    virtual bool IsIdle() const { return m_gameId <= 0 && m_roomId <= 0 && m_deskId < 0 && m_chairId < 0 && NFTime::Now().UnixSec() - m_reservedTime > 15;  }
++
++    virtual void ClearGameData();
++
++    int SendErrToClient(uint32_t nMsgId, proto_ff::Proto_CS_ErrorCode errCode);
++    int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
++    int SendMsgToClient(uint16_t nMainMsgId, uint16_t nSubMsgId, const google::protobuf::Message &xData);
++    int SendMsgToWorld(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId = 0);
++    int SendMsgToLogic(uint32_t nMsgId, const google::protobuf::Message &xData);
++    int SendMsgToSns(uint32_t nMsgId, const google::protobuf::Message &xData);
++    int SendTransToWorld(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
++    int SendTransToLogic(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
++    int SendTransToSns(uint32_t nMsgId, const google::protobuf::Message &xData, uint32_t req_trans_id = 0, uint32_t rsp_trans_id = 0);
++public:
++    uint64_t m_playerId;
++    uint32_t m_proxyId;
++    uint32_t m_logicId;
++    uint32_t m_gameId;
++    uint32_t m_roomId;
++    int32_t  m_deskId;
++    int32_t  m_chairId;
++    bool m_isRobot;
++    bool m_online;
++    uint32_t m_offlineTime;
++    uint32_t m_lastMsgTime;
++    bool m_clearFlag;
++    uint64_t m_reservedTime;
++    int32_t  m_reservedDeskId;
++    int32_t  m_reservedChairId;
++private:
++DECLARE_IDCREATE(NFGamePlayer)
++};
+\ No newline at end of file
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp
+new file mode 100644
+--- /dev/null	(date 1690516823571)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp	(date 1690516823571)
+@@ -0,0 +1,174 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFGamePlayerMgr.cpp
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFGamePlayerMgr
++//
++// -------------------------------------------------------------------------
++
++#include "NFGamePlayerMgr.h"
++#include "NFLogicCommon/NFLogicShmTypeDefines.h"
++#include "NFLogicCommon/NFLogicCommon.h"
++
++IMPLEMENT_IDCREATE_WITHTYPE(NFGamePlayerMgr, EOT_NFGamePlayerMgr_ID, NFShmObj)
++
++NFGamePlayerMgr::NFGamePlayerMgr()
++{
++    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
++    {
++        CreateInit();
++    }
++    else
++    {
++        ResumeInit();
++    }
++}
++
++NFGamePlayerMgr::~NFGamePlayerMgr()
++{
++    m_clearOfflineTimer = INVALID_ID;
++}
++
++int NFGamePlayerMgr::CreateInit()
++{
++    m_clearOfflineTimer = SetTimer(1000, 0, 0, 0, 10, 0);
++    return 0;
++}
++
++int NFGamePlayerMgr::ResumeInit()
++{
++    return 0;
++}
++
++NFGamePlayer *NFGamePlayerMgr::GetPlayer(uint64_t playerId)
++{
++    return NFGamePlayer::GetObjByHashKey(m_pObjPluginManager, playerId);
++}
++
++NFGamePlayer *NFGamePlayerMgr::CreatePlayer(uint64_t playerId)
++{
++    NFGamePlayer *pPlayer = GetPlayer(playerId);
++    CHECK_EXPR(pPlayer == NULL, pPlayer, "Create player Failed, player exist, palyerId:{}", playerId);
++
++    pPlayer = NFGamePlayer::CreateObjByHashKey(m_pObjPluginManager, playerId);
++    CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", playerId);
++
++    pPlayer->m_playerId = playerId;
++    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Add Player Success, playerId:{} globalId:{}", playerId,
++              pPlayer->GetGlobalId());
++
++    pPlayer = GetPlayer(playerId);
++    CHECK_EXPR(pPlayer, NULL, "GetPlayer player Failed, palyerId:{}", playerId);
++
++    return pPlayer;
++}
++
++int NFGamePlayerMgr::DeletePlayer(NFGamePlayer *pPlayer)
++{
++    CHECK_NULL(pPlayer);
++
++    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->m_playerId, pPlayer->GetGlobalId());;
++
++    NFGamePlayer::DestroyObj(m_pObjPluginManager, pPlayer);
++
++    return 0;
++}
++
++int NFGamePlayerMgr::CheckOfflineUser()
++{
++    std::vector<NFGamePlayer*> willDestroy;
++    uint32_t nowTime = NFTime::Now().UnixSec();
++    for (auto iter = NFGamePlayer::Begin(m_pObjPluginManager); iter != NFGamePlayer::End(m_pObjPluginManager); iter++)
++    {
++        NFGamePlayer* pPlayer = &(*iter);
++        if (pPlayer)
++        {
++            if (pPlayer->IsOnline() == false)
++            {
++                if (pPlayer->GetOfflineTime() > 0 && nowTime - pPlayer->GetOfflineTime() >= PLAYER_MAX_DISCONNECT_GAME_EXIST_TIME)
++                {
++                    if (pPlayer->IsInGame())
++                    {
++                        if (NFGameRoomMgr::GetInstance()->IsPlayGame(pPlayer->GetGameId(), pPlayer->GetRoomId(), pPlayer->GetDeskId(), pPlayer->GetChairId()) &&
++                            !NFGameRoomMgr::GetInstance()->IsPlayGameCanLeave(pPlayer->GetGameId(), pPlayer->GetRoomId(), pPlayer->GetDeskId(), pPlayer->GetChairId()))
++                        {
++                            continue;
++                        }
++                        else
++                        {
++                            NFGameRoomMgr::GetInstance()->ClearOfflineUser(pPlayer->m_playerId);
++                            willDestroy.push_back(pPlayer);
++                            continue;
++                        }
++                    }
++                    else
++                    {
++                        NFGameRoomMgr::GetInstance()->ClearOfflineUser(pPlayer->m_playerId);
++                        willDestroy.push_back(pPlayer);
++                        continue;
++                    }
++                }
++            }
++            else if (pPlayer->IsIdle())
++            {
++                NFGameRoomMgr::GetInstance()->ClearIdleUser(pPlayer->m_playerId);
++                willDestroy.push_back(pPlayer);
++                continue;
++            }
++            else
++            {
++                if (nowTime - pPlayer->GetLastMsgTime() >= PLAYER_MAX_NO_MSG_TIME)
++                {
++                    NFGameRoomMgr::GetInstance()->ClearTimeOutUser(pPlayer->m_playerId);
++                    willDestroy.push_back(pPlayer);
++                    continue;
++                }
++            }
++        }
++    }
++
++    for(auto iter = willDestroy.begin(); iter != willDestroy.end(); iter++)
++    {
++        DeletePlayer(*iter);
++    }
++
++    return 0;
++}
++
++int NFGamePlayerMgr::ClearAllGamePlayer()
++{
++    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "ClearAllGamePlayer............");
++    std::vector<NFGamePlayer*> willDestroy;
++    uint32_t nowTime = NFTime::Now().UnixSec();
++    for (auto iter = NFGamePlayer::Begin(m_pObjPluginManager); iter != NFGamePlayer::End(m_pObjPluginManager); iter++)
++    {
++        NFGamePlayer* pPlayer = &(*iter);
++        if (pPlayer)
++        {
++            if (pPlayer->m_isRobot == false && pPlayer->IsOnline() == false)
++            {
++                NFGameRoomMgr::GetInstance()->ClearDirtyData(pPlayer->m_playerId);
++                willDestroy.push_back(pPlayer);
++            }
++        }
++    }
++
++    for(auto iter = willDestroy.begin(); iter != willDestroy.end(); iter++)
++    {
++        DeletePlayer(*iter);
++    }
++
++    return 0;
++}
++
++int NFGamePlayerMgr::OnTimer(int timeId, int callcount)
++{
++    if (m_clearOfflineTimer == timeId)
++    {
++        CheckOfflineUser();
++    }
++
++    return 0;
++}
++
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.h b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.h
+new file mode 100644
+--- /dev/null	(date 1690516823571)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.h	(date 1690516823571)
+@@ -0,0 +1,45 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFGamePlayerMgr.h
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFGamePlayerMgr
++//
++// -------------------------------------------------------------------------
++
++#pragma once
++
++
++#include "NFComm/NFCore/NFPlatform.h"
++#include "NFComm/NFShmCore/NFShmObj.h"
++#include "NFComm/NFShmCore/NFShmMgr.h"
++#include "NFComm/NFShmCore/NFISharedMemModule.h"
++#include "NFGamePlayer.h"
++
++class NFGamePlayerMgr : public NFShmObj
++{
++public:
++    NFGamePlayerMgr();
++
++    virtual ~NFGamePlayerMgr();
++
++    int CreateInit();
++
++    int ResumeInit();
++public:
++    virtual int OnTimer(int timeId, int callcount) override;
++
++    int CheckOfflineUser();
++
++    int ClearAllGamePlayer();
++public:
++
++    NFGamePlayer *GetPlayer(uint64_t playerId);
++
++    NFGamePlayer *CreatePlayer(uint64_t playerId);
++
++    int DeletePlayer(NFGamePlayer *pPlayer);
++private:
++    int m_clearOfflineTimer;
++DECLARE_IDCREATE(NFGamePlayerMgr)
++};
+\ No newline at end of file
+Index: game/Fish/makefiles/resmetas_gen.makefile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>include ./define.makefile\n\n.PHONY:all\n\nall:${RESDB_DESC_H} ${RESDB_DESC_CPP} ${RESDB_DESC_STRUCT_H} ${RESDB_DESC_STRUCT_CPP}\n\n${PROTOCGEN_FILE_PATH}/constant.pb.h ${PROTOCGEN_FILE_PATH}/constant.pb.cc ${PROTOCGEN_FILE_PATH}/constant_s.h ${PROTOCGEN_FILE_PATH}/constant_s.cpp ${PROTOCGEN_FILE_PATH}/constant.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/constant.proto\n\tmkdir -p ${PROTOCGEN_FILE_PATH}\n\t${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/constant.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}\n\t${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/constant.proto.ds  --proto_fname=constant.proto --out_path=${PROTOCGEN_FILE_PATH}/;\n\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/constant.pb.h ${PROTOCGEN_FILE_PATH}/constant.pb.cc ${PROTOCGEN_FILE_PATH}/constant_s.h ${PROTOCGEN_FILE_PATH}/constant_s.cpp \" --dst=${NEW_PROTOCGEN_FILE_PATH}/\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/makefiles/resmetas_gen.makefile b/game/Fish/makefiles/resmetas_gen.makefile
+--- a/game/Fish/makefiles/resmetas_gen.makefile	(revision 66b96e044704c85484eb8e935781328bc04e8fd4)
++++ b/game/Fish/makefiles/resmetas_gen.makefile	(date 1690516844554)
+@@ -9,3 +9,8 @@
+ 	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/constant.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
+ 	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/constant.proto.ds  --proto_fname=constant.proto --out_path=${PROTOCGEN_FILE_PATH}/;
+ 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/constant.pb.h ${PROTOCGEN_FILE_PATH}/constant.pb.cc ${PROTOCGEN_FILE_PATH}/constant_s.h ${PROTOCGEN_FILE_PATH}/constant_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
++${PROTOCGEN_FILE_PATH}/room.pb.h ${PROTOCGEN_FILE_PATH}/room.pb.cc ${PROTOCGEN_FILE_PATH}/room_s.h ${PROTOCGEN_FILE_PATH}/room_s.cpp ${PROTOCGEN_FILE_PATH}/room.proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/room.proto
++	mkdir -p ${PROTOCGEN_FILE_PATH}
++	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/room.proto.ds  --cpp_out=${PROTOCGEN_FILE_PATH}
++	${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/room.proto.ds  --proto_fname=room.proto --out_path=${PROTOCGEN_FILE_PATH}/;
++	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/room.pb.h ${PROTOCGEN_FILE_PATH}/room.pb.cc ${PROTOCGEN_FILE_PATH}/room_s.h ${PROTOCGEN_FILE_PATH}/room_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
+Index: game/Fish/NFLogicComm/NFLogicCommon/NFFishDefine.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFLogicComm/NFLogicCommon/NFFishDefine.h b/game/Fish/NFLogicComm/NFLogicCommon/NFFishDefine.h
+new file mode 100644
+--- /dev/null	(date 1690516823568)
++++ b/game/Fish/NFLogicComm/NFLogicCommon/NFFishDefine.h	(date 1690516823568)
+@@ -0,0 +1,15 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFFishDefine.h
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFFishDefine
++//
++// -------------------------------------------------------------------------
++
++#pragma once
++
++///////////////////fish define////////////////////////
++#define MAX_FISH_ROOM_DESC_NUM 10
++#define ONE_ROOM_MAX_GUN_NUM 10
++#define MAX_GUN_CONFIG_DESC_NUM (MAX_FISH_ROOM_DESC_NUM*ONE_ROOM_MAX_GUN_NUM)
+Index: game/Fish/makefiles/excelmmo_gen.makefile
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>include ./define.makefile\n\n.PHONY:all\n\nall:${RESDB_BIN_FILE}\n\n${PROTOCGEN_FILE_PATH}/constant.proto ${PROTOCGEN_FILE_PATH}/constant_gen.makefile:${RESDB_EXCELMMO_PATH}/constant.xlsx\n\tmkdir -p ${PROTOCGEN_FILE_PATH}\n\t${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/\n\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/constant.proto ${PROTOCGEN_FILE_PATH}/constant_gen.makefile\" --dst=${RESDB_META_PATH}/\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/makefiles/excelmmo_gen.makefile b/game/Fish/makefiles/excelmmo_gen.makefile
+--- a/game/Fish/makefiles/excelmmo_gen.makefile	(revision 66b96e044704c85484eb8e935781328bc04e8fd4)
++++ b/game/Fish/makefiles/excelmmo_gen.makefile	(date 1690516844554)
+@@ -10,3 +10,9 @@
+ 	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/constant.proto ${PROTOCGEN_FILE_PATH}/constant_gen.makefile" --dst=${RESDB_META_PATH}/
+ 
+ 
++${PROTOCGEN_FILE_PATH}/room.proto ${PROTOCGEN_FILE_PATH}/room_gen.makefile:${RESDB_EXCELMMO_PATH}/room.xlsx
++	mkdir -p ${PROTOCGEN_FILE_PATH}
++	${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/
++	${FILE_COPY_EXE} --src="${PROTOCGEN_FILE_PATH}/room.proto ${PROTOCGEN_FILE_PATH}/room_gen.makefile" --dst=${RESDB_META_PATH}/
++
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"CMakePresetLoader\">{\n  &quot;useNewFormat&quot;: true\n}</component>\n  <component name=\"CMakeReloadState\">\n    <option name=\"reloaded\" value=\"true\" />\n  </component>\n  <component name=\"CMakeRunConfigurationManager\">\n    <generated>\n      <config projectName=\"ShmNFrame\" targetName=\"NFLuaScriptPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"evpp\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFFishWorldPlayerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFServerMessage\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFKernelPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFLogicServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFSnsServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFPluginLoader\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFRouteAgentServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFLogicCommon\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFGameServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFProxyServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFShmPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFWorldServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFNetPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFProxyClientPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFFishLoginPlayerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFServerLogicMessage\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFRouteServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFFishSnsPlayerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFServerCommon\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFProxyAgentServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFFishLogicPlayerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFMasterServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFFishRobotPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFStoreServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFDescStorePlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFTestPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"Sqlite3\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFDescStore\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFFishProxyPlayerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFLoginServerPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFServerCommonPlugin\" />\n      <config projectName=\"ShmNFrame\" targetName=\"mysqlpp\" />\n      <config projectName=\"ShmNFrame\" targetName=\"NFWebServerPlugin\" />\n    </generated>\n  </component>\n  <component name=\"CMakeSettings\">\n    <configurations>\n      <configuration PROFILE_NAME=\"Debug\" ENABLED=\"true\" GENERATION_DIR=\"Build\" CONFIG_NAME=\"Debug\" GENERATION_OPTIONS=\"-DCMAKE_BUILD_TYPE=DynamicDebug\" NO_GENERATOR=\"true\" />\n    </configurations>\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"b1adcfc4-cb29-4816-844f-be9c46975368\" name=\"更改\" comment=\"bus connect channel\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_BusPlugin.sh\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_BusPlugin.sh\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_BusPlugin_Zookpeer.sh\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_TcpPlugin_Zookpeer.sh\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/game/Fish/NFFishRobot/CMakeLists.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/game/Fish/NFFishRobot/CMakeLists.txt\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.cpp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.cpp\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/CMakeLists.txt\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/CMakeLists.txt\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFSnsTransSaveDetailDB.cpp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFSnsTransSaveDetailDB.cpp\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFSnsTransSaveSimpleDB.cpp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFSnsTransSaveSimpleDB.cpp\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ChangesViewManager\">\n    <option name=\"groupingKeys\">\n      <option value=\"directory\" />\n    </option>\n  </component>\n  <component name=\"ClangdSettings\">\n    <option name=\"formatViaClangd\" value=\"false\" />\n  </component>\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"CMakeBuildProfile:Debug\" />\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProjectApplicationVersion\">\n    <option name=\"ide\" value=\"CLion\" />\n    <option name=\"majorVersion\" value=\"2022\" />\n    <option name=\"minorVersion\" value=\"3\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2Rxpmftku9zAAeWgEzNys6bjB8Y\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,\n    &quot;ToolWindow提交.ShowToolbar&quot;: &quot;false&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,\n    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,\n    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans\" />\n      <recent name=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin\" />\n      <recent name=\"$PROJECT_DIR$/game/Fish/NFServerLogic\" />\n      <recent name=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part\" />\n      <recent name=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans\" />\n    </key>\n    <key name=\"MoveFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans\" />\n      <recent name=\"$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player\" />\n    </key>\n  </component>\n  <component name=\"RunManager\" selected=\"CMake 应用程序.NFPluginLoader\">\n    <configuration name=\"NFDescStore\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFDescStore\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFDescStorePlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFDescStorePlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFFishLogicPlayerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFFishLogicPlayerPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFFishProxyPlayerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFFishProxyPlayerPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFFishRobotPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=RobotServer --ID=1.13.1.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFFishRobotPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFFishSnsPlayerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFFishSnsPlayerPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFFishWorldPlayerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFFishWorldPlayerPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFGameServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=GameServer --ID=1.13.10.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFGameServerPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"NFKernelPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFKernelPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFLogicCommon\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFLogicCommon\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFLogicServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=LogicServer --ID=1.13.9.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFLogicServerPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"NFLoginServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=LoginServer --ID=1.13.7.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFLoginServerPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"NFLuaScriptPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFLuaScriptPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFMasterServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=MasterServer --ID=1.13.1.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFMasterServerPlugin\" CONFIG_NAME=\"Debug\" RUN_PATH=\"$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"NFNetPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFNetPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFPluginLoader\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=AllServer --ID=1.13.1.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFPluginLoader\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFProxyAgentServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=ProxyAgentServer --ID=1.13.5.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFProxyAgentServerPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"NFProxyClientPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFProxyClientPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFProxyServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=ProxyServer --ID=1.13.4.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFProxyServerPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFRouteAgentServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=RouteAgentServer --ID=1.13.3.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFRouteAgentServerPlugin\" CONFIG_NAME=\"Debug\" RUN_PATH=\"$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"NFRouteServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=RouteServer --ID=1.13.2.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFRouteServerPlugin\" CONFIG_NAME=\"Debug\" RUN_PATH=\"$PROJECT_DIR$/Install/Bin/Dynamic_Debug/NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"NFServerCommon\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFServerCommon\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFServerCommonPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFServerCommonPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFServerLogicMessage\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFServerLogicMessage\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFServerMessage\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFServerMessage\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFShmPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFShmPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFSnsServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=SnsServer --ID=1.13.11.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFSnsServerPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"NFStoreServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=StoreServer --ID=1.13.6.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFStoreServerPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFTestPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFTestPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFWebServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFWebServerPlugin\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"NFWorldServerPlugin\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" PROGRAM_PARAMS=\"--Server=WorldServer --ID=1.13.8.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" WORKING_DIR=\"file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"NFWorldServerPlugin\" CONFIG_NAME=\"Debug\" RUN_TARGET_PROJECT_NAME=\"ShmNFrame\" RUN_TARGET_NAME=\"NFPluginLoader\">\n      <method v=\"2\" />\n    </configuration>\n    <configuration name=\"Sqlite3\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"Sqlite3\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration default=\"true\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"evpp\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"evpp\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <configuration name=\"mysqlpp\" type=\"CMakeRunConfiguration\" factoryName=\"Application\" REDIRECT_INPUT=\"false\" ELEVATE=\"false\" USE_EXTERNAL_CONSOLE=\"false\" PASS_PARENT_ENVS_2=\"true\" PROJECT_NAME=\"ShmNFrame\" TARGET_NAME=\"mysqlpp\" CONFIG_NAME=\"Debug\">\n      <method v=\"2\">\n        <option name=\"com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <list>\n      <item itemvalue=\"CMake 应用程序.NFFishRobotPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFDescStore\" />\n      <item itemvalue=\"CMake 应用程序.NFLogicCommon\" />\n      <item itemvalue=\"CMake 应用程序.NFServerLogicMessage\" />\n      <item itemvalue=\"CMake 应用程序.NFFishLogicPlayerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFFishProxyPlayerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFFishSnsPlayerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFFishWorldPlayerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFKernelPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFNetPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFShmPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFLuaScriptPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFPluginLoader\" />\n      <item itemvalue=\"CMake 应用程序.NFGameServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFLogicServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFLoginServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFMasterServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFProxyAgentServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFProxyClientPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFProxyServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFRouteAgentServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFRouteServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFSnsServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFStoreServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFWebServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFWorldServerPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFDescStorePlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFServerCommon\" />\n      <item itemvalue=\"CMake 应用程序.NFServerCommonPlugin\" />\n      <item itemvalue=\"CMake 应用程序.NFServerMessage\" />\n      <item itemvalue=\"CMake 应用程序.NFTestPlugin\" />\n      <item itemvalue=\"CMake 应用程序.evpp\" />\n      <item itemvalue=\"CMake 应用程序.mysqlpp\" />\n      <item itemvalue=\"CMake 应用程序.Sqlite3\" />\n    </list>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"应用程序级\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\n      <changelist id=\"b1adcfc4-cb29-4816-844f-be9c46975368\" name=\"更改\" comment=\"\" />\n      <created>1688201746781</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1688201746781</updated>\n      <workItem from=\"1688201751342\" duration=\"972000\" />\n      <workItem from=\"1688204299548\" duration=\"45000\" />\n      <workItem from=\"1688345617726\" duration=\"6159000\" />\n      <workItem from=\"1688951872390\" duration=\"33979000\" />\n      <workItem from=\"1689036977342\" duration=\"37078000\" />\n      <workItem from=\"1689158968360\" duration=\"4502000\" />\n      <workItem from=\"1689209838287\" duration=\"8823000\" />\n      <workItem from=\"1689219609885\" duration=\"2256000\" />\n      <workItem from=\"1689305445706\" duration=\"43361000\" />\n      <workItem from=\"1689657404183\" duration=\"1153000\" />\n      <workItem from=\"1689658781340\" duration=\"906000\" />\n      <workItem from=\"1689677655763\" duration=\"10264000\" />\n      <workItem from=\"1689735786259\" duration=\"25362000\" />\n      <workItem from=\"1689852630511\" duration=\"7386000\" />\n      <workItem from=\"1689924371727\" duration=\"8405000\" />\n      <workItem from=\"1690159879250\" duration=\"31320000\" />\n      <workItem from=\"1690330895586\" duration=\"3709000\" />\n      <workItem from=\"1690343064938\" duration=\"9082000\" />\n      <workItem from=\"1690417683183\" duration=\"26808000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"fish login\">\n      <created>1688635177701</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688635177701</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"fish login\">\n      <created>1688694841233</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688694841233</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"fish user login\">\n      <created>1688716015129</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688716015129</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"fish user login\">\n      <created>1688723720000</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688723720000</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"fish user login\">\n      <created>1688955620410</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688955620410</updated>\n    </task>\n    <task id=\"LOCAL-00006\" summary=\"fish user login\">\n      <created>1688956567675</created>\n      <option name=\"number\" value=\"00006\" />\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688956567675</updated>\n    </task>\n    <task id=\"LOCAL-00007\" summary=\"fish user login\">\n      <created>1688956904395</created>\n      <option name=\"number\" value=\"00007\" />\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688956904395</updated>\n    </task>\n    <task id=\"LOCAL-00008\" summary=\"fish user login\">\n      <created>1688961301517</created>\n      <option name=\"number\" value=\"00008\" />\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688961301517</updated>\n    </task>\n    <task id=\"LOCAL-00009\" summary=\"fish user login\">\n      <created>1688976623263</created>\n      <option name=\"number\" value=\"00009\" />\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688976623263</updated>\n    </task>\n    <task id=\"LOCAL-00010\" summary=\"fish user login\">\n      <created>1688978603849</created>\n      <option name=\"number\" value=\"00010\" />\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688978603849</updated>\n    </task>\n    <task id=\"LOCAL-00011\" summary=\"fish user login\">\n      <created>1688983849461</created>\n      <option name=\"number\" value=\"00011\" />\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688983849461</updated>\n    </task>\n    <task id=\"LOCAL-00012\" summary=\"fish user login\">\n      <created>1688990326171</created>\n      <option name=\"number\" value=\"00012\" />\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1688990326171</updated>\n    </task>\n    <task id=\"LOCAL-00013\" summary=\"fish user login\">\n      <created>1689036636688</created>\n      <option name=\"number\" value=\"00013\" />\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689036636688</updated>\n    </task>\n    <task id=\"LOCAL-00014\" summary=\"fish user login\">\n      <created>1689061659512</created>\n      <option name=\"number\" value=\"00014\" />\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689061659512</updated>\n    </task>\n    <task id=\"LOCAL-00015\" summary=\"fish user login\">\n      <created>1689068211088</created>\n      <option name=\"number\" value=\"00015\" />\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689068211088</updated>\n    </task>\n    <task id=\"LOCAL-00016\" summary=\"fish user login\">\n      <created>1689128562742</created>\n      <option name=\"number\" value=\"00016\" />\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689128562742</updated>\n    </task>\n    <task id=\"LOCAL-00017\" summary=\"fish user login\">\n      <created>1689139877696</created>\n      <option name=\"number\" value=\"00017\" />\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689139877696</updated>\n    </task>\n    <task id=\"LOCAL-00018\" summary=\"fish user login\">\n      <created>1689144015717</created>\n      <option name=\"number\" value=\"00018\" />\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689144015717</updated>\n    </task>\n    <task id=\"LOCAL-00019\" summary=\"fish user login\">\n      <created>1689144185454</created>\n      <option name=\"number\" value=\"00019\" />\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689144185454</updated>\n    </task>\n    <task id=\"LOCAL-00020\" summary=\"fish user login\">\n      <created>1689213546777</created>\n      <option name=\"number\" value=\"00020\" />\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689213546777</updated>\n    </task>\n    <task id=\"LOCAL-00021\" summary=\"fish user login\">\n      <created>1689221342303</created>\n      <option name=\"number\" value=\"00021\" />\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689221342303</updated>\n    </task>\n    <task id=\"LOCAL-00022\" summary=\"fish user login\">\n      <created>1689221359579</created>\n      <option name=\"number\" value=\"00022\" />\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689221359579</updated>\n    </task>\n    <task id=\"LOCAL-00023\" summary=\"fish user login\">\n      <created>1689318877811</created>\n      <option name=\"number\" value=\"00023\" />\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689318877811</updated>\n    </task>\n    <task id=\"LOCAL-00024\" summary=\"fish user login\">\n      <created>1689320058350</created>\n      <option name=\"number\" value=\"00024\" />\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689320058350</updated>\n    </task>\n    <task id=\"LOCAL-00025\" summary=\"fish user login\">\n      <created>1689323319765</created>\n      <option name=\"number\" value=\"00025\" />\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689323319765</updated>\n    </task>\n    <task id=\"LOCAL-00026\" summary=\"fish user login\">\n      <created>1689324094760</created>\n      <option name=\"number\" value=\"00026\" />\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689324094760</updated>\n    </task>\n    <task id=\"LOCAL-00027\" summary=\"fish user login\">\n      <created>1689324205575</created>\n      <option name=\"number\" value=\"00027\" />\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689324205575</updated>\n    </task>\n    <task id=\"LOCAL-00028\" summary=\"fish user login\">\n      <created>1689325428954</created>\n      <option name=\"number\" value=\"00028\" />\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689325428954</updated>\n    </task>\n    <task id=\"LOCAL-00029\" summary=\"fish user login\">\n      <created>1689329027732</created>\n      <option name=\"number\" value=\"00029\" />\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689329027732</updated>\n    </task>\n    <task id=\"LOCAL-00030\" summary=\"fish user login\">\n      <created>1689335793028</created>\n      <option name=\"number\" value=\"00030\" />\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689335793028</updated>\n    </task>\n    <task id=\"LOCAL-00031\" summary=\"fish user login\">\n      <created>1689388526893</created>\n      <option name=\"number\" value=\"00031\" />\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689388526893</updated>\n    </task>\n    <task id=\"LOCAL-00032\" summary=\"fish user login\">\n      <created>1689391629261</created>\n      <option name=\"number\" value=\"00032\" />\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689391629261</updated>\n    </task>\n    <task id=\"LOCAL-00033\" summary=\"fish user login\">\n      <created>1689411880008</created>\n      <option name=\"number\" value=\"00033\" />\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689411880008</updated>\n    </task>\n    <task id=\"LOCAL-00034\" summary=\"fish user jetton\">\n      <created>1689584597528</created>\n      <option name=\"number\" value=\"00034\" />\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689584597528</updated>\n    </task>\n    <task id=\"LOCAL-00035\" summary=\"fish user jetton\">\n      <created>1689679855905</created>\n      <option name=\"number\" value=\"00035\" />\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689679855905</updated>\n    </task>\n    <task id=\"LOCAL-00036\" summary=\"fish user jetton\">\n      <created>1689746198632</created>\n      <option name=\"number\" value=\"00036\" />\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689746198632</updated>\n    </task>\n    <task id=\"LOCAL-00037\" summary=\"fish user jetton\">\n      <created>1689753223673</created>\n      <option name=\"number\" value=\"00037\" />\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689753223673</updated>\n    </task>\n    <task id=\"LOCAL-00038\" summary=\"fish user jetton\">\n      <created>1689823447746</created>\n      <option name=\"number\" value=\"00038\" />\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689823447746</updated>\n    </task>\n    <task id=\"LOCAL-00039\" summary=\"fish user jetton\">\n      <created>1689829506887</created>\n      <option name=\"number\" value=\"00039\" />\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689829506887</updated>\n    </task>\n    <task id=\"LOCAL-00040\" summary=\"fish user jetton\">\n      <created>1689835493054</created>\n      <option name=\"number\" value=\"00040\" />\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689835493054</updated>\n    </task>\n    <task id=\"LOCAL-00041\" summary=\"fish user jetton\">\n      <created>1689836026869</created>\n      <option name=\"number\" value=\"00041\" />\n      <option name=\"presentableId\" value=\"LOCAL-00041\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689836026869</updated>\n    </task>\n    <task id=\"LOCAL-00042\" summary=\"fish user jetton\">\n      <created>1689902473510</created>\n      <option name=\"number\" value=\"00042\" />\n      <option name=\"presentableId\" value=\"LOCAL-00042\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689902473510</updated>\n    </task>\n    <task id=\"LOCAL-00043\" summary=\"fish user jetton\">\n      <created>1689932294801</created>\n      <option name=\"number\" value=\"00043\" />\n      <option name=\"presentableId\" value=\"LOCAL-00043\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1689932294801</updated>\n    </task>\n    <task id=\"LOCAL-00044\" summary=\"shm stl\">\n      <created>1690187868388</created>\n      <option name=\"number\" value=\"00044\" />\n      <option name=\"presentableId\" value=\"LOCAL-00044\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1690187868388</updated>\n    </task>\n    <task id=\"LOCAL-00045\" summary=\"shm stl\">\n      <created>1690188686512</created>\n      <option name=\"number\" value=\"00045\" />\n      <option name=\"presentableId\" value=\"LOCAL-00045\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1690188686512</updated>\n    </task>\n    <task id=\"LOCAL-00046\" summary=\"bus connect channel\">\n      <created>1690447424681</created>\n      <option name=\"number\" value=\"00046\" />\n      <option name=\"presentableId\" value=\"LOCAL-00046\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1690447424681</updated>\n    </task>\n    <task id=\"LOCAL-00047\" summary=\"bus connect channel\">\n      <created>1690450967323</created>\n      <option name=\"number\" value=\"00047\" />\n      <option name=\"presentableId\" value=\"LOCAL-00047\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1690450967323</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"48\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"UnknownFeatures\">\n    <option featureType=\"com.intellij.fileTypeFactory\" implementationName=\"*.lua\" />\n  </component>\n  <component name=\"Vcs.Log.History.Properties\">\n    <option name=\"COLUMN_ID_ORDER\">\n      <list>\n        <option value=\"Default.Root\" />\n        <option value=\"Default.Author\" />\n        <option value=\"Default.Date\" />\n        <option value=\"Default.Subject\" />\n        <option value=\"Space.CommitStatus\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"fish login\" />\n    <MESSAGE value=\"fish user login\" />\n    <MESSAGE value=\"fish user jetton\" />\n    <MESSAGE value=\"shm stl\" />\n    <MESSAGE value=\"bus connect channel\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"bus connect channel\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"com.jetbrains.cidr.execution.debugger.OCBreakpointType\">\n          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Jetton/NFSnsJettonPart.cpp</url>\n          <line>218</line>\n          <option name=\"timeStamp\" value=\"206\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"com.jetbrains.cidr.execution.debugger.OCBreakpointType\">\n          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusServer.cpp</url>\n          <line>158</line>\n          <option name=\"timeStamp\" value=\"222\" />\n        </line-breakpoint>\n        <line-breakpoint enabled=\"true\" type=\"com.jetbrains.cidr.execution.debugger.OCBreakpointType\">\n          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Evpp/NFEvppNetMessage.cpp</url>\n          <line>851</line>\n          <option name=\"timeStamp\" value=\"230\" />\n        </line-breakpoint>\n      </breakpoints>\n    </breakpoint-manager>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 66b96e044704c85484eb8e935781328bc04e8fd4)
++++ b/.idea/workspace.xml	(date 1690516962766)
+@@ -31,6 +31,7 @@
+       <config projectName="ShmNFrame" targetName="NFServerLogicMessage" />
+       <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
+       <config projectName="ShmNFrame" targetName="NFFishSnsPlayerPlugin" />
++      <config projectName="ShmNFrame" targetName="NFFishGamePlayerPlugin" />
+       <config projectName="ShmNFrame" targetName="NFServerCommon" />
+       <config projectName="ShmNFrame" targetName="NFProxyAgentServerPlugin" />
+       <config projectName="ShmNFrame" targetName="NFFishLogicPlayerPlugin" />
+@@ -55,19 +56,24 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="bus connect channel">
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFFishDefine.h" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/CMakeLists.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/CMakeLists.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.h" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.cpp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.h" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.cpp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.h" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.h" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_BusPlugin.sh" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_BusPlugin.sh" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_BusPlugin_Zookpeer.sh" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Install/Bin/Dynamic_Debug/CreateScript_TcpPlugin_Zookpeer.sh" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/game/Fish/NFFishRobot/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/CMakeLists.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.cpp" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/CMakeLists.txt" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFSnsTransSaveDetailDB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFSnsTransSaveDetailDB.cpp" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFSnsTransSaveSimpleDB.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFSnsTransSaveSimpleDB.cpp" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/CMakeLists.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.cpp" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/excelmmo_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/excelmmo_gen.makefile" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -105,7 +111,7 @@
+     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer&quot;,
++    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin&quot;,
+     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+@@ -118,13 +124,14 @@
+ }</component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin" />
++      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer" />
+       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans" />
+       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin" />
+       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic" />
+-      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part" />
+-      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans" />
+     </key>
+     <key name="MoveFile.RECENT_KEYS">
++      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin" />
+       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans" />
+       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player" />
+     </key>
+@@ -140,6 +147,11 @@
+         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="NFFishGamePlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFFishGamePlayerPlugin" CONFIG_NAME="Debug">
++      <method v="2">
++        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="NFFishLogicPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFFishLogicPlayerPlugin" CONFIG_NAME="Debug">
+       <method v="2">
+         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+@@ -292,6 +304,7 @@
+       <item itemvalue="CMake 应用程序.NFDescStore" />
+       <item itemvalue="CMake 应用程序.NFLogicCommon" />
+       <item itemvalue="CMake 应用程序.NFServerLogicMessage" />
++      <item itemvalue="CMake 应用程序.NFFishGamePlayerPlugin" />
+       <item itemvalue="CMake 应用程序.NFFishLogicPlayerPlugin" />
+       <item itemvalue="CMake 应用程序.NFFishProxyPlayerPlugin" />
+       <item itemvalue="CMake 应用程序.NFFishSnsPlayerPlugin" />
+@@ -350,7 +363,7 @@
+       <workItem from="1690159879250" duration="31320000" />
+       <workItem from="1690330895586" duration="3709000" />
+       <workItem from="1690343064938" duration="9082000" />
+-      <workItem from="1690417683183" duration="26808000" />
++      <workItem from="1690417683183" duration="33165000" />
+     </task>
+     <task id="LOCAL-00001" summary="fish login">
+       <created>1688635177701</created>
+@@ -681,7 +694,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1690450967323</updated>
+     </task>
+-    <option name="localTasksCounter" value="48" />
++    <task id="LOCAL-00048" summary="bus connect channel">
++      <created>1690508297526</created>
++      <option name="number" value="00048" />
++      <option name="presentableId" value="LOCAL-00048" />
++      <option name="project" value="LOCAL" />
++      <updated>1690508297526</updated>
++    </task>
++    <option name="localTasksCounter" value="49" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -737,6 +757,11 @@
+           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Evpp/NFEvppNetMessage.cpp</url>
+           <line>851</line>
+           <option name="timeStamp" value="230" />
++        </line-breakpoint>
++        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
++          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayer.h</url>
++          <line>86</line>
++          <option name="timeStamp" value="238" />
+         </line-breakpoint>
+       </breakpoints>
+     </breakpoint-manager>
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.cpp b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.cpp
+new file mode 100644
+--- /dev/null	(date 1690516823594)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.cpp	(date 1690516823594)
+@@ -0,0 +1,61 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFFishGamePlayerPlugin.cpp
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFFishGamePlayerPlugin
++//
++// -------------------------------------------------------------------------
++
++#include "NFFishGamePlayerPlugin.h"
++
++#include "NFComm/NFPluginModule/NFIPluginManager.h"
++#include "NFComm/NFPluginModule/NFConfigDefine.h"
++#include "NFComm/NFPluginModule/NFIConfigModule.h"
++
++#ifdef NF_DYNAMIC_PLUGIN
++
++NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
++{
++    CREATE_PLUGIN(pm, NFFishGamePlayerPlugin)
++
++};
++
++NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
++{
++    DESTROY_PLUGIN(pm, NFFishGamePlayerPlugin)
++};
++
++#endif
++
++
++//////////////////////////////////////////////////////////////////////////
++
++int NFFishGamePlayerPlugin::GetPluginVersion()
++{
++    return 0;
++}
++
++std::string NFFishGamePlayerPlugin::GetPluginName()
++{
++    return GET_CLASS_NAME(NFFishGamePlayerPlugin);
++}
++
++void NFFishGamePlayerPlugin::Install()
++{
++    //REGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
++}
++
++void NFFishGamePlayerPlugin::Uninstall()
++{
++    //UNREGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
++}
++
++bool NFFishGamePlayerPlugin::InitShmObjectRegister()
++{
++    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
++    NF_ASSERT(pConfig);
++
++    uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum();
++    return true;
++}
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.h
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.h b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.h
+new file mode 100644
+--- /dev/null	(date 1690516823592)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.h	(date 1690516823592)
+@@ -0,0 +1,33 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFFishGamePlayerPlugin.h
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFFishGamePlayerPlugin
++//
++// -------------------------------------------------------------------------
++
++#pragma once
++
++#include "NFComm/NFPluginModule/NFIPlugin.h"
++#include "NFComm/NFPluginModule/NFIPluginManager.h"
++#include <string>
++
++//////////////////////////////////////////////////////////////////////////
++class NFFishGamePlayerPlugin : public NFIPlugin
++{
++public:
++    explicit NFFishGamePlayerPlugin(NFIPluginManager* p):NFIPlugin(p)
++    {
++    }
++
++    virtual int GetPluginVersion() override;
++
++    virtual std::string GetPluginName() override;
++
++    virtual void Install() override;
++
++    virtual void Uninstall() override;
++
++    virtual bool InitShmObjectRegister() override;
++};
+\ No newline at end of file
+Index: game/Fish/NFServerLogic/NFGameServer/CMakeLists.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/CMakeLists.txt b/game/Fish/NFServerLogic/NFGameServer/CMakeLists.txt
+new file mode 100644
+--- /dev/null	(date 1690516823586)
++++ b/game/Fish/NFServerLogic/NFGameServer/CMakeLists.txt	(date 1690516823586)
+@@ -0,0 +1,3 @@
++CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
++
++ADD_SUBDIRECTORY("NFGameServerPlayerPlugin")
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/CMakeLists.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/CMakeLists.txt b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/CMakeLists.txt
+new file mode 100644
+--- /dev/null	(date 1690516823584)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/CMakeLists.txt	(date 1690516823584)
+@@ -0,0 +1,27 @@
++CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
++PROJECT(NFFishGamePlayerPlugin)
++
++include_directories( ${INCLUDE_DIR} "./")
++AUX_SOURCE_DIRECTORY(. SRC)
++AUX_SOURCE_DIRECTORY(./Player SRC)
++AUX_SOURCE_DIRECTORY(./Room SRC)
++AUX_SOURCE_DIRECTORY(./Desk SRC)
++
++
++if (CMAKE_BUILD_TYPE STREQUAL "Release")
++	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Build/Lib/Release")
++	ADD_LIBRARY( ${PROJECT_NAME} STATIC ${SRC} )
++elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
++	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Build/Lib/Debug")
++	ADD_LIBRARY( ${PROJECT_NAME} STATIC ${SRC} )
++elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
++	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release")
++	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
++	TARGET_LINK_LIBRARIES(${PROJECT_NAME}   NFServerMessage NFServerCommon NFServerLogicMessage NFLogicCommon NFDescStore)
++elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
++	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
++	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug")
++	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
++	TARGET_LINK_LIBRARIES(${PROJECT_NAME}   NFServerMessage NFServerCommon NFServerLogicMessage NFLogicCommon NFDescStore)
++endif()
++
+Index: game/Fish/NFServerLogic/CMakeLists.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>CMAKE_MINIMUM_REQUIRED(VERSION 2.8)\n\nADD_SUBDIRECTORY(\"NFProxyServer\")\nADD_SUBDIRECTORY(\"NFLoginServer\")\nADD_SUBDIRECTORY(\"NFWorldServer\")\nADD_SUBDIRECTORY(\"NFLogicServer\")\nADD_SUBDIRECTORY(\"NFSnsServer\")\n\n\n\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/CMakeLists.txt b/game/Fish/NFServerLogic/CMakeLists.txt
+--- a/game/Fish/NFServerLogic/CMakeLists.txt	(revision 66b96e044704c85484eb8e935781328bc04e8fd4)
++++ b/game/Fish/NFServerLogic/CMakeLists.txt	(date 1690516823596)
+@@ -5,6 +5,7 @@
+ ADD_SUBDIRECTORY("NFWorldServer")
+ ADD_SUBDIRECTORY("NFLogicServer")
+ ADD_SUBDIRECTORY("NFSnsServer")
++ADD_SUBDIRECTORY("NFGameServer")
+ 
+ 
+ 
+Index: Install/FishBusPlugin/Plugin.lua
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>require \"Common\"\n\nLoadPlugin =\n{\n\tTestServer = {\n\t\tServerPlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFTestPlugin\",\n\t\t};\n\t\tServerType = NF_ST_NONE;\n\t},\n\n\tRobotServer = {\n\t\tServerPlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFFishRobotPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t};\n\t\tServerType = NF_ST_NONE;\n\t},\n\n\tAllServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFShmPlugin\",\n\n\t\t\t\"NFServerCommonPlugin\",\n\t\t\t\"NFDescStorePlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFMasterServerPlugin\",\n\t\t\t\"NFRouteServerPlugin\",\n\t\t\t\"NFRouteAgentServerPlugin\",\n\t\t\t\"NFStoreServerPlugin\",\n\t\t\t\"NFProxyServerPlugin\",\n\t\t\t\"NFProxyClientPlugin\",\n\t\t\t\"NFProxyAgentServerPlugin\",\n\t\t\t\"NFLoginServerPlugin\",\n\t\t\t\"NFGameServerPlugin\",\n\t\t\t\"NFWorldServerPlugin\",\n\t\t\t\"NFSnsServerPlugin\",\n\t\t\t\"NFLogicServerPlugin\",\n\t\t\t--\"NFWebServerPlugin\",\n\n\t\t\t--\"NFMonitorServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t\t--\"NFCommLogicPlugin\",\n\t\t\t--\"NFLuaScriptPlugin\",\n\n\t\t\t--\"NFFishRobotPlugin\",\n\n\t\t\t\"NFFishProxyPlayerPlugin\",\n\t\t\t\"NFFishLoginPlayerPlugin\",\n\t\t\t\"NFFishWorldPlayerPlugin\",\n\t\t\t\"NFFishSnsPlayerPlugin\",\n\t\t\t\"NFFishLogicPlayerPlugin\",\n\t\t};\n\n\t\tServerType = NF_ST_NONE;\n\t\tServerList = {\n\t\t\t{Server=\"MasterServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_MASTER_SERVER..\".1\", ServerType=NF_ST_MASTER_SERVER},\n\t\t\t{Server=\"ProxyServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_PROXY_SERVER..\".1\", ServerType=NF_ST_PROXY_SERVER},\n\t\t\t{Server=\"ProxyAgentServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_PROXY_AGENT_SERVER..\".1\", ServerType=NF_ST_PROXY_AGENT_SERVER},\n\t\t\t{Server=\"RouteAgentServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_ROUTE_AGENT_SERVER..\".1\", ServerType=NF_ST_ROUTE_AGENT_SERVER},\n\t\t\t{Server=\"RouteServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_ROUTE_SERVER..\".1\", ServerType=NF_ST_ROUTE_SERVER},\n\t\t\t{Server=\"GameServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_GAME_SERVER..\".1\", ServerType=NF_ST_GAME_SERVER},\n\t\t\t{Server=\"StoreServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_STORE_SERVER..\".1\", ServerType=NF_ST_STORE_SERVER},\n\t\t\t{Server=\"WorldServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_WORLD_SERVER..\".1\", ServerType=NF_ST_WORLD_SERVER},\n\t\t\t{Server=\"LoginServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_LOGIN_SERVER..\".1\", ServerType=NF_ST_LOGIN_SERVER},\n\t\t\t{Server=\"LogicServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_LOGIC_SERVER..\".1\", ServerType=NF_ST_LOGIC_SERVER},\n\t\t\t{Server=\"SnsServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_SNS_SERVER..\".1\", ServerType=NF_ST_SNS_SERVER},\n\t\t\t{Server=\"WebServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_WEB_SERVER..\".1\", ServerType=NF_ST_WEB_SERVER},\n\t\t\t--{Server=\"MonitorServer\", ID=NF_ST_WORLD_ID..\".\"..NF_ST_ZONE_ID..\".\"..NF_ST_MONITOR_SERVER..\".1\", ServerType=NF_ST_MONITOR_SERVER},\n\t\t};\n\t},\n\tMasterServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFServerCommonPlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFMasterServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t};\n\t\tServerType = NF_ST_MASTER_SERVER;\n\t},\n\n\tProxyServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\n\t\t\t\"NFServerCommonPlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFProxyServerPlugin\",\n\t\t\t\"NFProxyClientPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t\t\"NFFishProxyPlayerPlugin\",\n\t\t};\n\t\tServerType = NF_ST_PROXY_SERVER;\n\t},\n\n\tProxyAgentServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\n\t\t\t\"NFServerCommonPlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFProxyAgentServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t};\n\t\tServerType = NF_ST_PROXY_AGENT_SERVER;\n\t},\n\n\tGameServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFShmPlugin\",\n\n\t\t\t\"NFServerCommonPlugin\",\n\t\t\t\"NFDescStorePlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFGameServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t};\n\t\tServerType = NF_ST_GAME_SERVER;\n\t},\n\n\tLoginServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFShmPlugin\",\n\n\t\t\t\"NFServerCommonPlugin\",\n\t\t\t\"NFDescStorePlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFLoginServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t\t\"NFFishLoginPlayerPlugin\",\n\t\t};\n\t\tServerType = NF_ST_LOGIN_SERVER;\n\t},\n\n\tWorldServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFShmPlugin\",\n\n\t\t\t\"NFServerCommonPlugin\",\n\t\t\t\"NFDescStorePlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFWorldServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t\t\"NFFishWorldPlayerPlugin\",\n\t\t};\n\t\tServerType = NF_ST_WORLD_SERVER;\n\t},\n\n\tStoreServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFServerCommonPlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFStoreServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t};\n\t\tServerType = NF_ST_STORE_SERVER;\n\t},\n\n\tLogicServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFShmPlugin\",\n\n\t\t\t\"NFServerCommonPlugin\",\n\t\t\t\"NFDescStorePlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFLogicServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t\t\"NFFishLogicPlayerPlugin\",\n\t\t};\n\t\tServerType = NF_ST_LOGIC_SERVER;\n\t},\n\n\tSnsServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFShmPlugin\",\n\n\t\t\t\"NFServerCommonPlugin\",\n\t\t\t\"NFDescStorePlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFSnsServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t\t\"NFFishSnsPlayerPlugin\",\n\t\t};\n\t\tServerType = NF_ST_SNS_SERVER;\n\t},\n\n\tWebServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFServerCommonPlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFWebServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t};\n\t\tServerType = NF_ST_WEB_SERVER;\n\t},\n\n\tRouteAgentServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFServerCommonPlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFRouteAgentServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t};\n\t\tServerType = NF_ST_ROUTE_AGENT_SERVER;\n\t},\n\n\tRouteServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFServerCommonPlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFRouteServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t};\n\t\tServerType = NF_ST_ROUTE_SERVER;\n\t},\n\n\tMonitorServer = {\n\t\tFramePlugins = {\n\t\t\t-------------------------\n\t\t\t-----基础框架引擎-------------\n\t\t\t\"NFKernelPlugin\",\n\t\t\t\"NFNetPlugin\",\n\t\t\t\"NFServerCommonPlugin\",\n\t\t};\n\n\n\t\tServerPlugins = {\n\t\t\t\"NFMonitorServerPlugin\",\n\t\t};\n\n\t\tWorkPlugins = {\n\t\t};\n\t\tServerType = NF_ST_MONITOR_SERVER;\n\t},\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Install/FishBusPlugin/Plugin.lua b/Install/FishBusPlugin/Plugin.lua
+--- a/Install/FishBusPlugin/Plugin.lua	(revision 66b96e044704c85484eb8e935781328bc04e8fd4)
++++ b/Install/FishBusPlugin/Plugin.lua	(date 1690516823598)
+@@ -65,6 +65,7 @@
+ 			"NFFishWorldPlayerPlugin",
+ 			"NFFishSnsPlayerPlugin",
+ 			"NFFishLogicPlayerPlugin",
++			"NFFishGamePlayerPlugin",
+ 		};
+ 
+ 		ServerType = NF_ST_NONE;
+@@ -163,6 +164,7 @@
+ 		};
+ 
+ 		WorkPlugins = {
++			"NFFishGamePlayerPlugin",
+ 		};
+ 		ServerType = NF_ST_GAME_SERVER;
+ 	},
+Index: game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp
+new file mode 100644
+--- /dev/null	(date 1690516823580)
++++ b/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp	(date 1690516823580)
+@@ -0,0 +1,45 @@
++// -------------------------------------------------------------------------
++//    @FileName         :    NFCGamePlayerModule.cpp
++//    @Author           :    gaoyi
++//    @Date             :    23-7-28
++//    @Email			:    445267987@qq.com
++//    @Module           :    NFCGamePlayerModule
++//
++// -------------------------------------------------------------------------
++
++#include "NFCGamePlayerModule.h"
++
++NFCGamePlayerModule::NFCGamePlayerModule(NFIPluginManager *p) : NFIModule(p)
++{
++
++}
++
++NFCGamePlayerModule::~NFCGamePlayerModule()
++{
++
++}
++
++bool NFCGamePlayerModule::Awake()
++{
++    return NFIModule::Awake();
++}
++
++bool NFCGamePlayerModule::Execute()
++{
++    return NFIModule::Execute();
++}
++
++bool NFCGamePlayerModule::OnDynamicPlugin()
++{
++    return NFIModule::OnDynamicPlugin();
++}
++
++int NFCGamePlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
++{
++    return NFIDynamicModule::OnHandleClientMessage(msgId, packet, param1, param2);
++}
++
++int NFCGamePlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
++{
++    return NFIDynamicModule::OnHandleServerMessage(msgId, packet, param1, param2);
++}

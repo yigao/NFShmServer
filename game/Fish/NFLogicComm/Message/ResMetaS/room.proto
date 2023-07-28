@@ -1,0 +1,30 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_RoomRoom
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int32 m_roomid = 2[(yd_fieldoptions.field_cname) = "房间ID"];
+	optional int32 m_gameid = 3[(yd_fieldoptions.field_cname) = "游戏ID"];
+	optional string m_gamename = 4[(yd_fieldoptions.field_cname) = "游戏名", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_roomtype = 5[(yd_fieldoptions.field_cname) = "房间类型"];
+	optional int32 m_roomlevel = 6[(yd_fieldoptions.field_cname) = "房间等级"];
+	optional string m_roomname = 7[(yd_fieldoptions.field_cname) = "房间名", (yd_fieldoptions.field_bufsize) = 60];
+	optional int32 m_sitenum = 8[(yd_fieldoptions.field_cname) = "座位数"];
+	optional int32 m_deskcount = 9[(yd_fieldoptions.field_cname) = "桌子数"];
+	optional int32 m_maxpeople = 10[(yd_fieldoptions.field_cname) = "最大玩家数"];
+	optional int32 m_enter_min = 11[(yd_fieldoptions.field_cname) = "最小筹码"];
+	optional int32 m_enter_max = 12[(yd_fieldoptions.field_cname) = "最大筹码"];
+	optional int32 m_auto_chair = 13[(yd_fieldoptions.field_cname) = "选位置"];
+	optional int32 m_is_exp_scene = 14[(yd_fieldoptions.field_cname) = "体验场"];
+	optional int32 m_exp_scene_gold = 15[(yd_fieldoptions.field_cname) = "体验场金币"];
+	optional int32 m_tax = 16[(yd_fieldoptions.field_cname) = "抽水率"];
+}
+
+
+message Sheet_RoomRoom
+{
+	repeated E_RoomRoom E_RoomRoom_List = 1[(yd_fieldoptions.field_arysize)=20];
+}

@@ -25,3 +25,6 @@
 
 #include "CSLogin.pb.h"
 #include "CSJetton.pb.h"
+
+#include "room.pb.h"
+#include "room_s.h"
