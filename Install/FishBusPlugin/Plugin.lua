@@ -17,7 +17,7 @@ LoadPlugin =
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
-			"NFRobotPlugin",
+			"NFFishRobotPlugin",
 			"NFNetPlugin",
 		};
 		ServerType = NF_ST_NONE;
@@ -85,189 +85,271 @@ LoadPlugin =
 		};
 	},
 	MasterServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFServerCommonPlugin",
+		};
+
+
+		ServerPlugins = {
 			"NFMasterServerPlugin",
+		};
+
+		WorkPlugins = {
 		};
 		ServerType = NF_ST_MASTER_SERVER;
 	},
 
 	ProxyServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
-			"NFServerCommonPlugin",
 
+			"NFServerCommonPlugin",
+		};
+
+
+		ServerPlugins = {
 			"NFProxyServerPlugin",
 			"NFProxyClientPlugin",
+		};
+
+		WorkPlugins = {
+			"NFFishProxyPlayerPlugin",
 		};
 		ServerType = NF_ST_PROXY_SERVER;
 	},
 
 	ProxyAgentServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
-			"NFServerCommonPlugin",
 
+			"NFServerCommonPlugin",
+		};
+
+
+		ServerPlugins = {
 			"NFProxyAgentServerPlugin",
+		};
+
+		WorkPlugins = {
 		};
 		ServerType = NF_ST_PROXY_AGENT_SERVER;
 	},
 
 	GameServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+
 			"NFServerCommonPlugin",
 			"NFDescStorePlugin",
-			"NFCommLogicPlugin",
+		};
 
 
+		ServerPlugins = {
 			"NFGameServerPlugin",
-			"NFBattlePlugin",
+		};
+
+		WorkPlugins = {
 		};
 		ServerType = NF_ST_GAME_SERVER;
 	},
 
 	LoginServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+
 			"NFServerCommonPlugin",
 			"NFDescStorePlugin",
-			"NFCommLogicPlugin",
+		};
 
+
+		ServerPlugins = {
 			"NFLoginServerPlugin",
-			--"NFLoginServerPlayerPlugin",
+		};
+
+		WorkPlugins = {
+			"NFFishLoginPlayerPlugin",
 		};
 		ServerType = NF_ST_LOGIN_SERVER;
 	},
 
 	WorldServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+
 			"NFServerCommonPlugin",
 			"NFDescStorePlugin",
-			"NFCommLogicPlugin",
+		};
 
+
+		ServerPlugins = {
 			"NFWorldServerPlugin",
-			"NFWorldServerPlayerPlugin",
+		};
+
+		WorkPlugins = {
+			"NFFishWorldPlayerPlugin",
 		};
 		ServerType = NF_ST_WORLD_SERVER;
 	},
 
 	StoreServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFServerCommonPlugin",
+		};
 
+
+		ServerPlugins = {
 			"NFStoreServerPlugin",
+		};
+
+		WorkPlugins = {
 		};
 		ServerType = NF_ST_STORE_SERVER;
 	},
 
 	LogicServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
+
 			"NFServerCommonPlugin",
 			"NFDescStorePlugin",
-			"NFCommLogicPlugin",
+		};
 
+
+		ServerPlugins = {
 			"NFLogicServerPlugin",
-			"NFLogicServerPlayerPlugin",
+		};
+
+		WorkPlugins = {
+			"NFFishLogicPlayerPlugin",
 		};
 		ServerType = NF_ST_LOGIC_SERVER;
 	},
 
 	SnsServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFShmPlugin",
-			"NFServerCommonPlugin",
 
+			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
+		};
+
+
+		ServerPlugins = {
 			"NFSnsServerPlugin",
-			--"NFSnsServerPlayerPlugin",
+		};
+
+		WorkPlugins = {
+			"NFFishSnsPlayerPlugin",
 		};
 		ServerType = NF_ST_SNS_SERVER;
 	},
 
 	WebServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFServerCommonPlugin",
+		};
 
+
+		ServerPlugins = {
 			"NFWebServerPlugin",
-			--"NFWebServerLogicPlugin",
+		};
+
+		WorkPlugins = {
 		};
 		ServerType = NF_ST_WEB_SERVER;
 	},
 
 	RouteAgentServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFServerCommonPlugin",
+		};
 
+
+		ServerPlugins = {
 			"NFRouteAgentServerPlugin",
+		};
+
+		WorkPlugins = {
 		};
 		ServerType = NF_ST_ROUTE_AGENT_SERVER;
 	},
 
 	RouteServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFServerCommonPlugin",
+		};
 
+
+		ServerPlugins = {
 			"NFRouteServerPlugin",
+		};
+
+		WorkPlugins = {
 		};
 		ServerType = NF_ST_ROUTE_SERVER;
 	},
 
 	MonitorServer = {
-		ServerPlugins = {
+		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
 			"NFServerCommonPlugin",
+		};
+
+
+		ServerPlugins = {
 			"NFMonitorServerPlugin",
+		};
+
+		WorkPlugins = {
 		};
 		ServerType = NF_ST_MONITOR_SERVER;
 	},

@@ -415,7 +415,7 @@ public:
 
         FindModule<NFICoroutineModule>()->SetUserData(NULL);
 
-        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{} rpc Msg Id:{} request:{} respone:{}", GetErrorStr(iRet), msgId, request.GetTypeName(), respone.GetTypeName());
         return iRet;
     }
 

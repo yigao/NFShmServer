@@ -31,9 +31,9 @@ bool NFCWorldServerModule::Awake()
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_WORLD_SERVER);
 
     /////////////////test other server msg///////////////////////////////////////
-    //RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ);
+    RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ);
 
-    //FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ>(NF_ST_WORLD_SERVER, this, &NFCWorldServerModule::OnRpcServiceGetServerInfo, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ>(NF_ST_WORLD_SERVER, this, &NFCWorldServerModule::OnRpcServiceGetServerInfo, true);
     BindServer();
     return true;
 }

@@ -23,7 +23,7 @@ int NFTestRobot::ConnectLoginServer(const std::string& url)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 	mStatus = NF_TEST_ROBOT_START_CONNECT;
-    m_proxyLinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_EXTERNAL);
+    m_proxyLinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_FISH_EXTERNAL);
 	CHECK_EXPR(m_proxyLinkId > 0, -1, "ConnectLoginServer url:{} failed!", url);
     m_loginLinkId = m_proxyLinkId;
 
@@ -247,7 +247,7 @@ int NFTestRobot::ConnectGameServer(const std::string& ip, int port)
 {
     mStatus = NF_TEST_ROBOT_START_GAME_CONNECT;
     std::string url = NF_FORMAT("tcp://{}:{}", ip, port);
-    m_proxyLinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_EXTERNAL);
+    m_proxyLinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_FISH_EXTERNAL);
     CHECK_EXPR(m_proxyLinkId > 0, -1, "ConnectServer url:{} failed!", url);
     m_proxyIp = ip;
     m_port = port;

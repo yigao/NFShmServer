@@ -33,7 +33,7 @@ bool NFCLogicServerModule::Awake()
     FindModule<NFINamingModule>()->InitAppInfo(NF_ST_LOGIC_SERVER);
 
     ////////////////test other server msg///////////////////////////////////////////////
-    //RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, true);
+    RegisterServerMessage(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ, true);
 
     BindServer();
     return true;

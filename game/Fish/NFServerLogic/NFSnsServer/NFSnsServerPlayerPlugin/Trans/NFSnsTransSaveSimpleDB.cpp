@@ -57,7 +57,7 @@ int NFSnsTransSaveSimpleDB::SaveDB(NFPlayerSimple* pPlayer)
     pPlayer->SaveDB(tbData);
     NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "Ready Save Sns Player Simple InTo Mysql:{}", tbData.DebugString());
 
-    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcModifyObjService(NF_ST_LOGIC_SERVER, m_playerId, tbData, [this](int rpcRetCode) {
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcModifyObjService(NF_ST_SNS_SERVER, m_playerId, tbData, [this](int rpcRetCode) {
         if (rpcRetCode == 0)
         {
             NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
