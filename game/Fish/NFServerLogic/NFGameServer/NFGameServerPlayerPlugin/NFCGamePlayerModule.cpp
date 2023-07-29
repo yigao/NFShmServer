@@ -27,7 +27,7 @@ bool NFCGamePlayerModule::Awake()
 {
     NFGameConfig::Instance(m_pObjPluginManager)->LoadConfig(m_luaModule);
 
-    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
+    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     NF_ASSERT(pConfig);
 
     /**
@@ -39,7 +39,8 @@ bool NFCGamePlayerModule::Awake()
                                                        &NFCGamePlayerModule::OnHandleRoomRegisterRps);
 
     m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER,
-                                         NF_FORMAT("{} {}", pConfig->ServerName, GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER), APP_INIT_STATUS_SERVER_REGISTER);
+                                         NF_FORMAT("{} {}", pConfig->ServerName, GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER),
+                                         APP_INIT_STATUS_SERVER_REGISTER);
 
     Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     return true;
@@ -75,14 +76,16 @@ int NFCGamePlayerModule::OnHandleRoomRegisterRps(uint64_t unLinkId, NFDataPackag
         m_pObjPluginManager->FinishAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER, APP_INIT_STATUS_SERVER_REGISTER);
         return 0;
     }
-    else {
+    else
+    {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Register Room Info To World Server Failed, please check config");
     }
 
     return 0;
 }
 
-int NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+int
+NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {

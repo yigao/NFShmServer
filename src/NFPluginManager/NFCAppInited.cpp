@@ -295,7 +295,7 @@ int NFCAppInited::CheckTaskFinished()
 
             if (m_pObjPluginManager->IsLoadAllServer())
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "Server:{}({}) Finish All Task, App Inited Success..............", GetServerName((NF_SERVER_TYPES)i), i);
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server:{}({}) Finish All Task, App Inited Success..............", GetServerName((NF_SERVER_TYPES)i), i);
             }
         }
     }
