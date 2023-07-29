@@ -67,8 +67,8 @@ public:
     void SetHotfixServer(bool hotfixExitApp);
 
 public:
-    virtual bool RegisterFilterMsg(uint32_t moduleId, uint32_t msgId);
-    virtual bool IsFilterMsg(uint32_t moduleId, uint32_t msgId);
+    virtual bool RegisterSpecialMsg(uint32_t moduleId, uint32_t msgId);
+    virtual bool IsSpecialMsg(uint32_t moduleId, uint32_t msgId);
 public:
     /**
      * @brief �ͷ�singleton��Դ
@@ -84,7 +84,7 @@ private:
     bool m_serverKilling;
     bool m_hotfixServer;
 
-    std::vector<std::unordered_set<uint32_t>> mDebugMsgMap;
+    std::vector<std::vector<bool>> mSpecialMsgMap;
 public:
     bool IsMoreServer() const
     {

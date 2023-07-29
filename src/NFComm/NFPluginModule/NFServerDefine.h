@@ -120,7 +120,7 @@ enum NF_MODULE_TYPE
     NF_MODULE_MAX = 2,
 };
 
-#define NF_NET_MAX_MSG_ID 10000
+#define NF_NET_MAX_MSG_ID 20000
 
 enum PacketParseType
 {

@@ -33,10 +33,10 @@ NFCProxyPlayerModule::~NFCProxyPlayerModule()
 
 bool NFCProxyPlayerModule::Awake()
 {
-    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_CLIENT, proto_ff::NF_CS_Msg_HeartBeat_REQ);
-    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_CLIENT, proto_ff::NF_SC_Msg_HeartBeat_RSP);
-    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_CLIENT, NF_SERVER_TO_SERVER_HEART_BEAT);
-    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_CLIENT, NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, proto_ff::NF_CS_Msg_HeartBeat_REQ);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, proto_ff::NF_SC_Msg_HeartBeat_RSP);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, NF_SERVER_TO_SERVER_HEART_BEAT);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
 
     m_packetConfig.LoadConfig(m_pObjPluginManager->GetConfigPath() + "/Server", "ProxyServer");
     SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);

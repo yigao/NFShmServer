@@ -187,7 +187,7 @@ void NFCBusMessage::CloseLinkId(uint64_t usLinkId)
 
 void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64_t objectLinkId, NFDataPackage &packet)
 {
-    if (!NFGlobalSystem::Instance()->IsFilterMsg(packet.mModuleId, packet.nMsgId))
+    if (!NFGlobalSystem::Instance()->IsSpecialMsg(packet.mModuleId, packet.nMsgId))
     {
         NFLogTrace(NF_LOG_RECV_MSG, 0, "recv msg:{} ", packet.ToString());
     }

@@ -182,7 +182,7 @@ bool NFCBusClient::Send(NFDataPackage& packet, const char* msg, uint32_t nLen)
 
     NFShmChannelHead *head = (NFShmChannelHead *)pShmRecord->m_nBuffer;
     NFShmChannel *pChannel = NULL;//&head->m_nShmChannel;
-    if (NFGlobalSystem::Instance()->IsFilterMsg(packet.mModuleId, packet.nMsgId))
+    if (NFGlobalSystem::Instance()->IsSpecialMsg(packet.mModuleId, packet.nMsgId))
     {
         pChannel = &head->m_nConnectChannel;
     }

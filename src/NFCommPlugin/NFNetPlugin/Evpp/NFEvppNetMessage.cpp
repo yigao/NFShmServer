@@ -441,7 +441,7 @@ void NFEvppNetMessage::MessageCallback(const evpp::TCPConnPtr& conn, evpp::Buffe
 			}
 			else
 			{
-                if (!NFGlobalSystem::Instance()->IsFilterMsg(codePackage.mModuleId, codePackage.nMsgId))
+                if (!NFGlobalSystem::Instance()->IsSpecialMsg(codePackage.mModuleId, codePackage.nMsgId))
                 {
                     NFLogTrace(NF_LOG_RECV_MSG, 0, "recv msg:{} ", codePackage.ToString());
                 }

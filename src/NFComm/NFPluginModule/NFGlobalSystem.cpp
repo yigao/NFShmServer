@@ -15,16 +15,20 @@
 
 NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m_serverStopping(false), m_serverKilling(false), m_hotfixServer(false)
 {
-    mDebugMsgMap.resize(NF_MODULE_MAX);
-    RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT);
-    RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
-    RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_REQ);
-    RegisterFilterMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_RSP);
-    RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
-    RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
-    RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT);
-    RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER);
-    RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP);
+    mSpecialMsgMap.resize(NF_MODULE_MAX);
+    for(int i = 0; i < NF_MODULE_MAX; i++)
+    {
+        mSpecialMsgMap[i].resize(NF_NET_MAX_MSG_ID);
+    }
+    RegisterSpecialMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT);
+    RegisterSpecialMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
+    RegisterSpecialMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_REQ);
+    RegisterSpecialMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_RSP);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP);
 }
 
 NFGlobalSystem::~NFGlobalSystem()
@@ -128,21 +132,17 @@ void NFGlobalSystem::ReleaseSingleton()
     NFGlobalSystem::Instance()->ReleaseInstance();
 }
 
-bool NFGlobalSystem::RegisterFilterMsg(uint32_t moduleId, uint32_t msgId)
+bool NFGlobalSystem::RegisterSpecialMsg(uint32_t moduleId, uint32_t msgId)
 {
-    if (moduleId < (uint32_t)mDebugMsgMap.size())
-    {
-        mDebugMsgMap[moduleId].insert(msgId);
-        return true;
-    }
-    return false;
+    CHECK_EXPR(moduleId < NF_MODULE_MAX, false, "");
+    CHECK_EXPR(msgId < NF_NET_MAX_MSG_ID, false, "");
+    mSpecialMsgMap[moduleId][msgId] = true;
+    return true;
 }
 
-bool NFGlobalSystem::IsFilterMsg(uint32_t moduleId, uint32_t msgId)
+bool NFGlobalSystem::IsSpecialMsg(uint32_t moduleId, uint32_t msgId)
 {
-    if (moduleId < (uint32_t)mDebugMsgMap.size())
-    {
-        return mDebugMsgMap[moduleId].find(msgId) != mDebugMsgMap[moduleId].end();
-    }
-    return false;
+    CHECK_EXPR(moduleId < NF_MODULE_MAX, false, "");
+    CHECK_EXPR(msgId < NF_NET_MAX_MSG_ID, false, "");
+    return mSpecialMsgMap[moduleId][msgId];
 }

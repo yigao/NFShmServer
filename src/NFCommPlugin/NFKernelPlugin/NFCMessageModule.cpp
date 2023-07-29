@@ -457,7 +457,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                                useTime / 1000);
                 }
 
-                if (!NFGlobalSystem::Instance()->IsFilterMsg(packet.mModuleId, packet.nMsgId))
+                if (!NFGlobalSystem::Instance()->IsSpecialMsg(packet.mModuleId, packet.nMsgId))
                 {
                     NFLogTrace(NF_LOG_RECV_MSG, 0, "packet:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
                                packet.ToString(), useTime, netFunctor.m_iCount, netFunctor.m_iAllUseTime,
@@ -512,7 +512,7 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "connectionLink:{} use time:{} ms, too long", connectionLink, useTime / 1000);
                 }
-                if (!NFGlobalSystem::Instance()->IsFilterMsg(packet.mModuleId, packet.nMsgId))
+                if (!NFGlobalSystem::Instance()->IsSpecialMsg(packet.mModuleId, packet.nMsgId))
                 {
                     NFLogTrace(NF_LOG_RECV_MSG, 0, "connectionLink:{} packet:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
                                connectionLink, packet.ToString(), useTime, iterator2->second.m_iCount, iterator2->second.m_iAllUseTime,

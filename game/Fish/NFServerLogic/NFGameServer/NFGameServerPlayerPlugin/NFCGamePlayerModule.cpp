@@ -33,8 +33,8 @@ bool NFCGamePlayerModule::Awake()
     /**
      * @brief 确保服务器没完全启动前也能处理房间注册信息
      */
-    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ);
-    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP, this,
                                                        &NFCGamePlayerModule::OnHandleRoomRegisterRps);
 

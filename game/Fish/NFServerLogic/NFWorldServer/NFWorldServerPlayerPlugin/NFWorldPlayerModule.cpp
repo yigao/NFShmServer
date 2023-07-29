@@ -32,8 +32,8 @@ bool NFCWorldPlayerModule::Awake()
     /**
      * @brief 游戏房间注册走连接通道
      */
-    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ);
-    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ, this,
                                                        &NFCWorldPlayerModule::OnHandleRoomRegisterReq);
 
