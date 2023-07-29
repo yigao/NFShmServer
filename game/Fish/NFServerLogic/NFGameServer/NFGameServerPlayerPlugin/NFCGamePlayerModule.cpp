@@ -30,14 +30,6 @@ bool NFCGamePlayerModule::Awake()
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     NF_ASSERT(pConfig);
 
-    /**
-     * @brief 确保服务器没完全启动前也能处理房间注册信息
-     */
-    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ);
-    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP);
-    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP, this,
-                                                       &NFCGamePlayerModule::OnHandleRoomRegisterRps);
-
     m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER,
                                          NF_FORMAT("{} {}", pConfig->ServerName, GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER),
                                          APP_INIT_STATUS_SERVER_REGISTER);

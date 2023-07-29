@@ -72,3 +72,7 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC, proto_ff
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC, proto_ff::Proto_TS_QueryPlayerSimpleDataReq, proto_ff::Proto_ST_QueryPlayerSimpleDataRsp)
 
+/**
+ * @brief game register room to world server
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC, proto_ff::Proto_GTW_RegisterRoomInfoReq, proto_ff::Proto_WTG_RegisterRoomInfoRsp)

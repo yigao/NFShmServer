@@ -29,6 +29,7 @@ NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m
     RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT);
     RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER);
     RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER_RSP);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER);
 }
 
 NFGlobalSystem::~NFGlobalSystem()

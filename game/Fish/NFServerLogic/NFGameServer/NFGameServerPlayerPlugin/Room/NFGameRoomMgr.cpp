@@ -256,7 +256,30 @@ int NFGameRoomMgr::RegisterAllRoomToWorldServer()
         m_registerRoomTimer = SetTimer(10000, 0, 0, 0, 3, 0);
     }
 
-    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ, req);
+    int64_t rpcId = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC>(NF_ST_GAME_SERVER, NF_ST_WORLD_SERVER, 0, req, [req, this](int rpcRetCode, proto_ff::Proto_WTG_RegisterRoomInfoRsp &respone){
+        if (rpcRetCode != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Failed! rpcRetCode:{}", GetErrorStr(rpcRetCode));
+            return;
+        }
+
+        if (respone.result() != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Failed! req:{}", req.DebugString());
+            return;
+        }
+
+        if (m_registerRoomTimer != INVALID_ID)
+        {
+            DeleteTimer(m_registerRoomTimer);
+        }
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Success, req:{}", req.DebugString());
+    });
+
+    if (rpcId == INVALID_ID)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Failed! req:{}", req.DebugString());
+    }
 
     return 0;
 }

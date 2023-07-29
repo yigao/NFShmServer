@@ -951,21 +951,21 @@ NFCMessageModule::SendMsgToServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES rec
         NF_SHARE_PTR<NFServerData> pServerData = GetServerByServerId(eSendType, dstBusId);
         if (pServerData)
         {
-            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
+            Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
         }
     }
     else if (recvType == NF_ST_PROXY_SERVER)
     {
-        auto pServerData = FindModule<NFIMessageModule>()->GetRandomServerByServerType(eSendType, NF_ST_PROXY_AGENT_SERVER);
+        auto pServerData = GetRandomServerByServerType(eSendType, NF_ST_PROXY_AGENT_SERVER);
         if (pServerData)
         {
-            FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
+            Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
             return 0;
         }
 
-        pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(eSendType, dstBusId);
+        pServerData = GetServerByServerId(eSendType, dstBusId);
         CHECK_EXPR(pServerData, -1, "pServerData == NULL, busId:{}", dstBusId);
-        FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
+        Send(pServerData->mUnlinkId, nModuleId, nMsgId, xData, param1, param2, pConfig->BusId, dstBusId);
     }
     else
     {
