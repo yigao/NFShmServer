@@ -110,7 +110,6 @@ bool NFCMasterServerModule::Awake()
 	}
 
     Subscribe(NF_ST_MASTER_SERVER, proto_ff::NF_EVENT_SERVER_DEAD_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
-    Subscribe(NF_ST_MASTER_SERVER, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
 	return true;
 }
 
@@ -160,7 +159,7 @@ int NFCMasterServerModule::OnServerRegisterRpcService(uint64_t unLinkId, proto_f
             FindModule<NFIMessageModule>()->SendWxWork(NF_ST_MASTER_SERVER, "Proxy Server, External Ip:" + xData.external_server_ip() + " Port:" + NFCommon::tostr(xData.external_server_port()) + "\n");
         }
 
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}(Status:{}) Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), proto_ff::EServerState_Name((proto_ff::EServerState)xData.server_state()), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
     }
 
     respone.set_ret_code(0);

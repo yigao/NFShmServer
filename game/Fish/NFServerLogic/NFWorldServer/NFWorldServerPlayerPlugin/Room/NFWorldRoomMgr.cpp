@@ -47,10 +47,10 @@ NFWorldRoom *NFWorldRoomMgr::CreateRoom(uint32_t id)
 
     NFWorldRoom* pRoom = NFWorldRoom::GetObjByHashKey(m_pObjPluginManager, id);
     CHECK_EXPR(pRoom == NULL, NULL, "Room:{} Exist", id);
-    pRoom->m_id = id;
 
     pRoom = NFWorldRoom::CreateObjByHashKey(m_pObjPluginManager, id);
     CHECK_EXPR(pRoom, NULL, "NFWorldRoom::CreateObjByHashKey id:{} Failed", id);
+    pRoom->m_id = id;
 
     pRoom = NFWorldRoom::GetObjByHashKey(m_pObjPluginManager, id);
     CHECK_EXPR(pRoom, NULL, "NFWorldRoom::GetObjByHashKey id:{} Failed", id);

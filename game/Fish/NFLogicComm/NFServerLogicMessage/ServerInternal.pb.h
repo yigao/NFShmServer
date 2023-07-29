@@ -63,7 +63,7 @@ class Proto_STL_PlayerReduceBankJettonRsp;
 class Proto_TS_QueryPlayerSimpleDataReq;
 class Proto_ST_QueryPlayerSimpleDataRsp;
 class Proto_GTW_RegisterRoomInfoReq;
-class Proto_WTG_RgisterRoomInfoRsp;
+class Proto_WTG_RegisterRoomInfoRsp;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -2785,14 +2785,14 @@ class Proto_GTW_RegisterRoomInfoReq : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class Proto_WTG_RgisterRoomInfoRsp : public ::google::protobuf::Message {
+class Proto_WTG_RegisterRoomInfoRsp : public ::google::protobuf::Message {
  public:
-  Proto_WTG_RgisterRoomInfoRsp();
-  virtual ~Proto_WTG_RgisterRoomInfoRsp();
+  Proto_WTG_RegisterRoomInfoRsp();
+  virtual ~Proto_WTG_RegisterRoomInfoRsp();
 
-  Proto_WTG_RgisterRoomInfoRsp(const Proto_WTG_RgisterRoomInfoRsp& from);
+  Proto_WTG_RegisterRoomInfoRsp(const Proto_WTG_RegisterRoomInfoRsp& from);
 
-  inline Proto_WTG_RgisterRoomInfoRsp& operator=(const Proto_WTG_RgisterRoomInfoRsp& from) {
+  inline Proto_WTG_RegisterRoomInfoRsp& operator=(const Proto_WTG_RegisterRoomInfoRsp& from) {
     CopyFrom(from);
     return *this;
   }
@@ -2806,17 +2806,17 @@ class Proto_WTG_RgisterRoomInfoRsp : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const Proto_WTG_RgisterRoomInfoRsp& default_instance();
+  static const Proto_WTG_RegisterRoomInfoRsp& default_instance();
 
-  void Swap(Proto_WTG_RgisterRoomInfoRsp* other);
+  void Swap(Proto_WTG_RegisterRoomInfoRsp* other);
 
   // implements Message ----------------------------------------------
 
-  Proto_WTG_RgisterRoomInfoRsp* New() const;
+  Proto_WTG_RegisterRoomInfoRsp* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const Proto_WTG_RgisterRoomInfoRsp& from);
-  void MergeFrom(const Proto_WTG_RgisterRoomInfoRsp& from);
+  void CopyFrom(const Proto_WTG_RegisterRoomInfoRsp& from);
+  void MergeFrom(const Proto_WTG_RegisterRoomInfoRsp& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -2846,7 +2846,7 @@ class Proto_WTG_RgisterRoomInfoRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 result() const;
   inline void set_result(::google::protobuf::int32 value);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTG_RgisterRoomInfoRsp)
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTG_RegisterRoomInfoRsp)
  private:
   inline void set_has_result();
   inline void clear_has_result();
@@ -2863,7 +2863,7 @@ class Proto_WTG_RgisterRoomInfoRsp : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_ServerInternal_2eproto();
 
   void InitAsDefaultInstance();
-  static Proto_WTG_RgisterRoomInfoRsp* default_instance_;
+  static Proto_WTG_RegisterRoomInfoRsp* default_instance_;
 };
 // ===================================================================
 
@@ -5035,26 +5035,26 @@ inline void Proto_GTW_RegisterRoomInfoReq::set_bus_id(::google::protobuf::uint32
 
 // -------------------------------------------------------------------
 
-// Proto_WTG_RgisterRoomInfoRsp
+// Proto_WTG_RegisterRoomInfoRsp
 
 // optional int32 result = 1;
-inline bool Proto_WTG_RgisterRoomInfoRsp::has_result() const {
+inline bool Proto_WTG_RegisterRoomInfoRsp::has_result() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void Proto_WTG_RgisterRoomInfoRsp::set_has_result() {
+inline void Proto_WTG_RegisterRoomInfoRsp::set_has_result() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void Proto_WTG_RgisterRoomInfoRsp::clear_has_result() {
+inline void Proto_WTG_RegisterRoomInfoRsp::clear_has_result() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void Proto_WTG_RgisterRoomInfoRsp::clear_result() {
+inline void Proto_WTG_RegisterRoomInfoRsp::clear_result() {
   result_ = 0;
   clear_has_result();
 }
-inline ::google::protobuf::int32 Proto_WTG_RgisterRoomInfoRsp::result() const {
+inline ::google::protobuf::int32 Proto_WTG_RegisterRoomInfoRsp::result() const {
   return result_;
 }
-inline void Proto_WTG_RgisterRoomInfoRsp::set_result(::google::protobuf::int32 value) {
+inline void Proto_WTG_RegisterRoomInfoRsp::set_result(::google::protobuf::int32 value) {
   set_has_result();
   result_ = value;
 }

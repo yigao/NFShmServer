@@ -45,8 +45,19 @@ int NFCAppInited::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType
         m_appObjLoadFromDBTask[eServerType].push_back(task);
         m_initOBjLoadForomDBTasks = false;
     }
+    else if (initStatus == APP_INIT_STATUS_SERVER_REGISTER)
+    {
+        CHECK_EXPR(eServerType < (int)m_serverRegisterTask.size(), -1, "serverType:{} taskType:{} desc:{}", eServerType, taskType, desc);
+        NFCAppInitTask task;
+        task.m_taskType = taskType;
+        task.m_desc = desc;
 
-	return 0;
+        m_serverRegisterTask[eServerType].push_back(task);
+        m_initServerRegisterTasks = false;
+    }
+
+
+    return 0;
 }
 
 int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, uint32_t initStatus)
@@ -100,6 +111,22 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
             }
         }
     }
+    else if (initStatus == APP_INIT_STATUS_SERVER_REGISTER)
+    {
+        CHECK_EXPR(eServerType < (int)m_serverRegisterTask.size(), -1, "serverType:{} taskType:{}", eServerType, taskType);
+        for(int i = 0; i < (int)m_serverRegisterTask[eServerType].size(); i++)
+        {
+            if (m_serverRegisterTask[eServerType][i].m_taskType == taskType)
+            {
+                flag = true;
+                if (m_serverRegisterTask[eServerType][i].m_finished == false)
+                {
+                    m_serverRegisterTask[eServerType][i].m_finished = true;
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_serverRegisterTask[eServerType][i].m_desc);
+                }
+            }
+        }
+    }
 
     if (flag == false)
     {
@@ -123,6 +150,13 @@ int NFCAppInited::CheckTaskFinished()
     for(int i = 0; i < (int)vecLoadDbObjFlag.size(); i++)
     {
         vecLoadDbObjFlag[i] = true;
+    }
+
+    std::vector<bool> vecRegisterTaskFlag;
+    vecRegisterTaskFlag.resize(NF_ST_MAX);
+    for(int i = 0; i < (int)vecRegisterTaskFlag.size(); i++)
+    {
+        vecRegisterTaskFlag[i] = true;
     }
 
 	if (!m_initServerConnectTasks)
@@ -218,9 +252,42 @@ int NFCAppInited::CheckTaskFinished()
         }
     }
 
+    if (!m_initServerRegisterTasks)
+    {
+        m_initServerRegisterTasks = true;
+        for(int i = 0; i < (int)m_serverRegisterTask.size(); i++)
+        {
+            for(int j = 0; j < (int)m_serverRegisterTask[i].size(); j++)
+            {
+                if (m_serverRegisterTask[i][j].m_finished == false)
+                {
+                    m_initServerRegisterTasks = false;
+                    vecRegisterTaskFlag[i] = false;
+                    break;
+                }
+            }
+        }
+
+        for(int i = 1; i < (int)NF_ST_MAX; i++)
+        {
+            if (vecRegisterTaskFlag[i])
+            {
+                proto_ff::NFEventNoneData event;
+                FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+            }
+        }
+
+        if (m_initServerRegisterTasks)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Register Task..............");
+            proto_ff::NFEventNoneData event;
+            FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+        }
+    }
+
     for(int i = 1; i < (int)NF_ST_MAX; i++)
     {
-        if (vecConnectFlag[i] && vecLoadDbObjFlag[i] && m_initDestStoreTasks && m_initedFlag[i] == false)
+        if (vecConnectFlag[i] && vecLoadDbObjFlag[i] && m_initDestStoreTasks && vecRegisterTaskFlag[i] && m_initedFlag[i] == false)
         {
             m_initedFlag[i] = true;
             proto_ff::NFEventNoneData event;
@@ -248,7 +315,7 @@ int NFCAppInited::CheckTaskFinished()
 
 bool NFCAppInited::IsInitTasked() const
 {
-	return m_initDestStoreTasks && m_initServerConnectTasks && m_initOBjLoadForomDBTasks;
+	return m_initDestStoreTasks && m_initServerConnectTasks && m_initOBjLoadForomDBTasks && m_initServerRegisterTasks;
 }
 
 bool NFCAppInited::IsInited(NF_SERVER_TYPES eServerType) const

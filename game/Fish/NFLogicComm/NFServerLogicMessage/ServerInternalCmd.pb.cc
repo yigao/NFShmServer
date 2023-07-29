@@ -58,7 +58,7 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027ServerInternalCmd.proto\022\010proto_ff*\366\006\n\023"
+    "\n\027ServerInternalCmd.proto\022\010proto_ff*\232\007\n\023"
     "Proto_SvrLogicMsgID\022\033\n\027NF_PTW_PLAYER_LOG"
     "IN_REQ\020d\022\033\n\027NF_WTP_PLAYER_LOGIN_RSP\020e\022\033\n"
     "\027NF_WTL_PLAYER_LOGIN_REQ\020f\022\033\n\027NF_LTW_PLA"
@@ -77,11 +77,11 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
     "ECT_MSG_REQ\020|\022#\n\037NF_STW_PLAYER_RECONNECT"
     "_MSG_RSP\020}\022#\n\037NF_WTG_PLAYER_RECONNECT_MS"
     "G_REQ\020~\022#\n\037NF_GTW_PLAYER_RECONNECT_MSG_R"
-    "SP\020\177\022\"\n\035NF_GTW_REGISTER_ROOM_INFO_RPC\020\202\001"
-    "\022\'\n\"NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC\020\226"
-    "\001\022&\n!NF_LTS_PLAYER_ADD_BANK_JETTON_RPC\020\364"
-    "\003\022)\n$NF_LTS_PLAYER_REDUCE_BANK_JETTON_RP"
-    "C\020\365\003", 924);
+    "SP\020\177\022\"\n\035NF_GTW_REGISTER_ROOM_INFO_REQ\020\202\001"
+    "\022\"\n\035NF_WTG_REGISTER_ROOM_INFO_RSP\020\203\001\022\'\n\""
+    "NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC\020\226\001\022&\n"
+    "!NF_LTS_PLAYER_ADD_BANK_JETTON_RPC\020\364\003\022)\n"
+    "$NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC\020\365\003", 960);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd_2eproto);
@@ -121,6 +121,7 @@ bool Proto_SvrLogicMsgID_IsValid(int value) {
     case 126:
     case 127:
     case 130:
+    case 131:
     case 150:
     case 500:
     case 501:

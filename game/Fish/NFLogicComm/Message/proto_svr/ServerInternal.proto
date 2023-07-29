@@ -204,7 +204,7 @@ message Proto_GTW_RegisterRoomInfoReq
   optional uint32 bus_id = 2;
 }
 
-message Proto_WTG_RgisterRoomInfoRsp
+message Proto_WTG_RegisterRoomInfoRsp
 {
   optional int32 result = 1;
 }

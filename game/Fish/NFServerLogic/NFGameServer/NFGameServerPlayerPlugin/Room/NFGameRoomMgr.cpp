@@ -14,6 +14,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "Config/NFGameConfig.h"
 #include "NFLogicCommon/NFLogicBindRpcService.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGameRoomMgr, EOT_NFGameRoomMgr_ID, NFShmObj)
 
@@ -229,9 +230,12 @@ int NFGameRoomMgr::CreateAllRoom()
 int NFGameRoomMgr::RegisterAllRoomToWorldServer()
 {
     proto_ff::Proto_GTW_RegisterRoomInfoReq req;
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
+    NF_ASSERT(pConfig);
     auto pGameConfig = NFGameConfig::Instance(m_pObjPluginManager)->GetConfig();
     CHECK_NULL(pGameConfig);
 
+    req.set_bus_id(pConfig->GetBusId());
     for(int i = 0; i < (int)pGameConfig->Game.size(); i++)
     {
         uint32_t gameId = pGameConfig->Game[i].GameId;
@@ -252,24 +256,7 @@ int NFGameRoomMgr::RegisterAllRoomToWorldServer()
         m_registerRoomTimer = SetTimer(10000, 0, 0, 0, 3, 0);
     }
 
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC>(NF_ST_GAME_SERVER, NF_ST_WORLD_SERVER, 0, req, [req, this](int rpcRetCode, proto_ff::Proto_WTG_RgisterRoomInfoRsp &respone){
-        if (respone.result() != 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Failed! req:{}", req.DebugString());
-            return;
-        }
-
-        if (m_registerRoomTimer != INVALID_ID)
-        {
-            DeleteTimer(m_registerRoomTimer);
-        }
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Success, req:{}", req.DebugString());
-    });
-
-    if (iRet != 0)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Failed! req:{}", req.DebugString());
-    }
+    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ, req);
 
     return 0;
 }

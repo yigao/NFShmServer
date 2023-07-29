@@ -808,9 +808,9 @@ template<class _Tp, size_t MAX_SIZE>
 void NFShmVector<_Tp, MAX_SIZE>::_M_fill_insert(iterator __position, size_type __n,
                                                 const _Tp &__x)
 {
-    CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail! size:{} max_size:{}", m_size, MAX_SIZE);
     if (__n != 0)
     {
+        CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail! size:{} max_size:{}", m_size, MAX_SIZE);
         if (size_type(MAX_SIZE - m_size) < __n)
         {
             NFLogWarning(NF_LOG_SYSTEMLOG, 0, "The Vector Left Space:{} Not Enough! Can't Insert {} Element, Only {}", MAX_SIZE - m_size, __n,
@@ -844,10 +844,9 @@ void NFShmVector<_Tp, MAX_SIZE>::insert(iterator __position,
                                         const_iterator __first,
                                         const_iterator __last)
 {
-    CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail!");
-
     if (__first != __last)
     {
+        CHECK_EXPR_NOT_RET(m_data + m_size != m_data + MAX_SIZE, "The Vector No Enough Space! Insert Fail!");
         size_type __n = std::distance(__first, __last);
 
         if (size_type(MAX_SIZE - m_size) < __n)

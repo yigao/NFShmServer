@@ -42,6 +42,14 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
+public:
+    /**
+     * @brief 注册房间信息
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    virtual int OnHandleRoomRegisterRps(uint64_t unLinkId, NFDataPackage &packet);
 private:
     /**
      * @brief NFILuaModule

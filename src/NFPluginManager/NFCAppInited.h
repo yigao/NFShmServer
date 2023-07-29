@@ -8,6 +8,7 @@
 // -------------------------------------------------------------------------
 
 #pragma once
+
 #include "NFComm/NFCore/NFPlatform.h"
 #include <unordered_map>
 #include "NFComm/NFPluginModule/NFServerDefine.h"
@@ -16,9 +17,10 @@
 class NFCAppInitTask
 {
 public:
-    NFCAppInitTask():m_taskType(APP_INIT_NONE),m_finished(false)
+    NFCAppInitTask() : m_taskType(APP_INIT_NONE), m_finished(false)
     {
     }
+
 public:
     uint32_t m_taskType;
     bool m_finished;
@@ -28,44 +30,50 @@ public:
 class NFCAppInited : public NFObject
 {
 public:
-	NFCAppInited(NFIPluginManager* pPluginManager): NFObject(pPluginManager), m_initServerConnectTasks(false), m_initDestStoreTasks(false), m_initOBjLoadForomDBTasks(false)
-	{
+    NFCAppInited(NFIPluginManager *pPluginManager) : NFObject(pPluginManager), m_initServerConnectTasks(false), m_initDestStoreTasks(false),
+                                                     m_initOBjLoadForomDBTasks(false), m_initServerRegisterTasks(false)
+    {
         m_serverConnectTasks.resize(NF_ST_MAX);
         m_serverLoadDestStore.resize(NF_ST_MAX);
         m_appObjLoadFromDBTask.resize(NF_ST_MAX);
+        m_serverRegisterTask.resize(NF_ST_MAX);
         m_initedFlag.resize(NF_ST_MAX);
-        for(int i = 0; i < (int)m_initedFlag.size(); i++)
+        for (int i = 0; i < (int) m_initedFlag.size(); i++)
         {
             m_initedFlag[i] = false;
         }
         m_lastTime = NFGetSecondTime();
-	}
+    }
 
-	virtual ~NFCAppInited()
-	{
+    virtual ~NFCAppInited()
+    {
 
-	}
+    }
 
-	int Execute();
+    int Execute();
 
-	int RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string& desc, uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT);
+    int
+    RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc, uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT);
 
-	int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT);
+    int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT);
 
-	int CheckTaskFinished();
+    int CheckTaskFinished();
 
-	bool IsInitTasked() const;
+    bool IsInitTasked() const;
 
-	void PrintTimeout();
+    void PrintTimeout();
 
     bool IsInited(NF_SERVER_TYPES eServerType) const;
+
 private:
     std::vector<std::vector<NFCAppInitTask>> m_serverConnectTasks;
     std::vector<std::vector<NFCAppInitTask>> m_serverLoadDestStore;
     std::vector<std::vector<NFCAppInitTask>> m_appObjLoadFromDBTask;
+    std::vector<std::vector<NFCAppInitTask>> m_serverRegisterTask;
     std::vector<bool> m_initedFlag;
     bool m_initServerConnectTasks;
-	bool m_initDestStoreTasks;
-	bool m_initOBjLoadForomDBTasks;
-	uint64_t m_lastTime;
+    bool m_initDestStoreTasks;
+    bool m_initOBjLoadForomDBTasks;
+    bool m_initServerRegisterTasks;
+    uint64_t m_lastTime;
 };

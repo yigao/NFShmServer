@@ -15,26 +15,40 @@
 #include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "Room/NFWorldRoomMgr.h"
+#include "NFComm/NFCore/NFServerIDUtil.h"
 
-NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p) {
+NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
+{
 
 }
 
-NFCWorldPlayerModule::~NFCWorldPlayerModule() {
+NFCWorldPlayerModule::~NFCWorldPlayerModule()
+{
 }
 
-bool NFCWorldPlayerModule::Awake() {
+bool NFCWorldPlayerModule::Awake()
+{
+    ////////////////game room register//////////////////////////////
+    /**
+     * @brief 游戏房间注册走连接通道
+     */
+    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ);
+    NFGlobalSystem::Instance()->RegisterFilterMsg(NF_MODULE_SERVER, proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP);
+    FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_WORLD_SERVER, proto_ff::NF_GTW_REGISTER_ROOM_INFO_REQ, this,
+                                                       &NFCWorldPlayerModule::OnHandleRoomRegisterReq);
+
+    ////////////////game room register//////////////////////////////
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, this,
                                                                                      &NFCWorldPlayerModule::OnRpcServicePlayerLogin, true);
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, this,
-                                                                                     &NFCWorldPlayerModule::OnRpcServicePlayerReconnect, true);
+                                                                                             &NFCWorldPlayerModule::OnRpcServicePlayerReconnect,
+                                                                                             true);
 
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC>(NF_ST_WORLD_SERVER, this,
-                                                                                             &NFCWorldPlayerModule::OnRpcServiceRoomRegister);
     /////////////////////enter game, exit game////////////////////////////////////
+
 
     RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_MSG_EnterGameReq);
 
@@ -44,15 +58,16 @@ bool NFCWorldPlayerModule::Awake() {
 
     //////////player enter game////////////////////////////////////
 
-    Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     return true;
 }
 
-int NFCWorldPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+int NFCWorldPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
+                                    const google::protobuf::Message *pMessage)
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE)
+        if (nEventID == proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH)
         {
             NFWorldRoomMgr::Instance(m_pObjPluginManager)->CreateRoom();
         }
@@ -62,12 +77,12 @@ int NFCWorldPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint
 
 bool NFCWorldPlayerModule::Execute()
 {
-	return true;
+    return true;
 }
 
 bool NFCWorldPlayerModule::OnDynamicPlugin()
 {
-	return true;
+    return true;
 }
 
 int NFCWorldPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
@@ -131,11 +146,12 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
     return 0;
 }
 
-int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginReq& request, proto_ff::Proto_WTPPlayerLoginRsp& respone)
+int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginReq &request, proto_ff::Proto_WTPPlayerLoginRsp &respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.user_id());
-    if (pPlayerInfo == nullptr) {
+    if (pPlayerInfo == nullptr)
+    {
         if (NFWorldPlayer::GetFreeCount(m_pObjPluginManager) > 0)
         {
             pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->CreatePlayer(request.user_id());
@@ -163,12 +179,14 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
 
     if (pPlayerInfo->GetLogicId() <= 0)
     {
-        NF_SHARE_PTR<NFServerData> pLogicData = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pPlayerInfo->GetPlayerId());
+        NF_SHARE_PTR<NFServerData> pLogicData = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                                          pPlayerInfo->GetPlayerId());
         if (pLogicData)
         {
             pPlayerInfo->SetLogicId(pLogicData->mServerInfo.bus_id());
         }
-        else {
+        else
+        {
             respone.set_result(proto_ff::ERR_CODE_SYSTEM_TIMEOUT);
 
             NFLogError(NF_LOG_SYSTEMLOG, request.user_id(), "can't find the logic server, user id:{} Login Failed! ", request.user_id());
@@ -194,7 +212,8 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
     reqLogicMsg.set_client_ip(request.client_ip());
 
     proto_ff::Proto_LogicToWorldLoginRsp rspLogicMsg;
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTL_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pPlayerInfo->GetLogicId(), reqLogicMsg, rspLogicMsg);
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTL_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                                pPlayerInfo->GetLogicId(), reqLogicMsg, rspLogicMsg);
     if (iRet != 0)
     {
         respone.set_result(iRet);
@@ -211,7 +230,8 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
     reqSnsMsg.set_logic_bus_id(pPlayerInfo->GetLogicId());
     *reqSnsMsg.mutable_sns_sync() = rspLogicMsg.sns_sync();
     proto_ff::Proto_STWLoginRsp rspSnsMsg;
-    iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTS_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, NF_ST_SNS_SERVER, 0, reqSnsMsg, rspSnsMsg);
+    iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTS_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, NF_ST_SNS_SERVER, 0, reqSnsMsg,
+                                                                                            rspSnsMsg);
     if (iRet != 0)
     {
         respone.set_result(iRet);
@@ -253,11 +273,12 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
     return 0;
 }
 
-int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconnectReq& request, proto_ff::WTPPlayerReconnctRsp& respone)
+int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconnectReq &request, proto_ff::WTPPlayerReconnctRsp &respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
     NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.player_id());
-    if (!pPlayerInfo) {
+    if (!pPlayerInfo)
+    {
         respone.set_result(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
         return 0;
     }
@@ -283,7 +304,9 @@ int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconne
     logicReqMsg.set_room_id(pPlayerInfo->m_roomId);
     logicReqMsg.set_proxy_bus_id(pPlayerInfo->GetProxyId());
     proto_ff::LTWPlayerReconnectRsp logicRspMsg;
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pPlayerInfo->GetLogicId(), logicReqMsg, logicRspMsg);
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                                        pPlayerInfo->GetLogicId(), logicReqMsg,
+                                                                                                        logicRspMsg);
     if (iRet != 0)
     {
         respone.set_result(iRet);
@@ -294,12 +317,14 @@ int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconne
     if (logicRspMsg.result() != 0)
     {
         respone.set_result(logicRspMsg.result());
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ Failed! logicRspMsg.result:{}", GetErrorStr(logicRspMsg.result()));
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTL_PLAYER_RECONNECT_MSG_REQ Failed! logicRspMsg.result:{}",
+                   GetErrorStr(logicRspMsg.result()));
         return 0;
     }
 
     pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.player_id());
-    if (!pPlayerInfo) {
+    if (!pPlayerInfo)
+    {
         respone.set_result(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
         return 0;
     }
@@ -309,7 +334,8 @@ int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconne
     snsReqMsg.set_proxy_bus_id(pPlayerInfo->GetProxyId());
     snsReqMsg.set_logic_bus_id(pPlayerInfo->GetLogicId());
     proto_ff::STWPlayerReconnectRsp snsRspMsg;
-    iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, NF_ST_SNS_SERVER, 0, snsReqMsg, snsRspMsg);
+    iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, NF_ST_SNS_SERVER, 0,
+                                                                                                    snsReqMsg, snsRspMsg);
     if (iRet != 0)
     {
         respone.set_result(iRet);
@@ -320,12 +346,14 @@ int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconne
     if (snsRspMsg.result() != 0)
     {
         respone.set_result(snsRspMsg.result());
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ Failed! snsRspMsg.result:{}", GetErrorStr(snsRspMsg.result()));
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ Failed! snsRspMsg.result:{}",
+                   GetErrorStr(snsRspMsg.result()));
         return 0;
     }
 
     pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.player_id());
-    if (!pPlayerInfo) {
+    if (!pPlayerInfo)
+    {
         respone.set_result(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
         return 0;
     }
@@ -344,7 +372,7 @@ int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconne
     return 0;
 }
 
-int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataPackage& packet)
+int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
@@ -363,7 +391,8 @@ int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataP
 
     if (pPlayerInfo->GetLogicId() > 0)
     {
-        FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetLogicId(), proto_ff::NF_WTL_PLAYER_DISCONNECT_MSG, xMsg);
+        FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetLogicId(),
+                                                                   proto_ff::NF_WTL_PLAYER_DISCONNECT_MSG, xMsg);
     }
 
     FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG, xMsg);
@@ -371,7 +400,7 @@ int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataP
     return 0;
 }
 
-int NFCWorldPlayerModule::OnHandlePlayerLogoutNotify(uint64_t unLinkId, NFDataPackage& packet)
+int NFCWorldPlayerModule::OnHandlePlayerLogoutNotify(uint64_t unLinkId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
 
@@ -385,7 +414,8 @@ int NFCWorldPlayerModule::OnHandlePlayerLogoutNotify(uint64_t unLinkId, NFDataPa
         {
             pPlayerInfo->SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             pPlayerInfo->SetLastLogtouTime(NFTime::Now().UnixSec());
-            NFLogInfo(NF_LOG_SYSTEMLOG, xMsg.player_id(), "logic notify world server logout, player:{} status:{} change to PLAYER_STATUS_LOGOUT", xMsg.player_id(), pPlayerInfo->GetStatusName());
+            NFLogInfo(NF_LOG_SYSTEMLOG, xMsg.player_id(), "logic notify world server logout, player:{} status:{} change to PLAYER_STATUS_LOGOUT",
+                      xMsg.player_id(), pPlayerInfo->GetStatusName());
         }
     }
 
@@ -412,7 +442,39 @@ int NFCWorldPlayerModule::NotifyLogicPlayerLogout(uint64_t playerId)
     return 0;
 }
 
-int NFCWorldPlayerModule::OnRpcServiceRoomRegister(proto_ff::Proto_GTW_RegisterRoomInfoReq& request, proto_ff::Proto_WTG_RgisterRoomInfoRsp& respone)
+int NFCWorldPlayerModule::OnHandleRoomRegisterReq(uint64_t unLinkId, NFDataPackage& packet)
 {
+    proto_ff::Proto_GTW_RegisterRoomInfoReq request;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, request);
+
+    proto_ff::Proto_WTG_RegisterRoomInfoRsp respone;
+    respone.set_result(0);
+    for (int i = 0; i < (int) request.game_size(); i++)
+    {
+        uint32_t gameId = request.game(i).gameid();
+        bool flag = true;
+        for (int j = 0; j < (int) request.game(i).roomid_size(); j++)
+        {
+            flag = false;
+            uint32_t roomId = request.game(i).roomid(j);
+            auto pRoom = NFWorldRoomMgr::Instance(m_pObjPluginManager)->GetRoom(gameId, roomId);
+            CHECK_EXPR_BREAK(pRoom, "room not exist, GameServer({}) register failed, gameId:{} roomId:{}", NFServerIDUtil::GetBusNameFromBusID(request.bus_id()), gameId, roomId);
+            CHECK_EXPR_BREAK(pRoom->m_busId == 0 || pRoom->m_busId == request.bus_id(), "room has registed, GameServer({}) register failed, gameId:{} roomId:{}",
+                       NFServerIDUtil::GetBusNameFromBusID(request.bus_id()), gameId, roomId);
+
+            pRoom->m_busId = request.bus_id();
+
+            flag = true;
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameServer({}) register gameId:{} roomId:{} success", NFServerIDUtil::GetBusNameFromBusID(request.bus_id()), gameId, roomId);
+        }
+
+        if (!flag)
+        {
+            respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+            break;
+        }
+    }
+
+    FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, request.bus_id(), proto_ff::NF_WTG_REGISTER_ROOM_INFO_RSP, respone);
     return 0;
 }

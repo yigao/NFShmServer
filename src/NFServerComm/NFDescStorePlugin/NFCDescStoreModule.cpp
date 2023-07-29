@@ -431,6 +431,7 @@ int NFCDescStoreModule::GetFileContainMD5(const std::string& strFileName, std::s
 
 void NFCDescStoreModule::RegisterDescStore(const std::string& strDescName, int objType, const std::string& dbName)
 {
+    if (mDescStoreRegister.find(strDescName) != mDescStoreRegister.end()) return;
 	mDescStoreRegister.insert(std::make_pair(strDescName, objType));
     mDescStoreRegisterList.push_back(strDescName);
     mDescStoreDBNameMap.insert(std::make_pair(strDescName, dbName));
@@ -438,6 +439,7 @@ void NFCDescStoreModule::RegisterDescStore(const std::string& strDescName, int o
 
 void NFCDescStoreModule::RegisterDescStore(const std::string& strDescName, int objType)
 {
+    if (mDescStoreRegister.find(strDescName) != mDescStoreRegister.end()) return;
 	mDescStoreRegister.insert(std::make_pair(strDescName, objType));
     mDescStoreRegisterList.push_back(strDescName);
 }

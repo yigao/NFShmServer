@@ -98,9 +98,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_GTW_RegisterRoomInfoReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_GTW_RegisterRoomInfoReq_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Proto_WTG_RgisterRoomInfoRsp_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* Proto_WTG_RegisterRoomInfoRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  Proto_WTG_RgisterRoomInfoRsp_reflection_ = NULL;
+  Proto_WTG_RegisterRoomInfoRsp_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_AccountState_descriptor_ = NULL;
 
 }  // namespace
@@ -554,21 +554,21 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_GTW_RegisterRoomInfoReq));
-  Proto_WTG_RgisterRoomInfoRsp_descriptor_ = file->message_type(26);
-  static const int Proto_WTG_RgisterRoomInfoRsp_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RgisterRoomInfoRsp, result_),
+  Proto_WTG_RegisterRoomInfoRsp_descriptor_ = file->message_type(26);
+  static const int Proto_WTG_RegisterRoomInfoRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RegisterRoomInfoRsp, result_),
   };
-  Proto_WTG_RgisterRoomInfoRsp_reflection_ =
+  Proto_WTG_RegisterRoomInfoRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      Proto_WTG_RgisterRoomInfoRsp_descriptor_,
-      Proto_WTG_RgisterRoomInfoRsp::default_instance_,
-      Proto_WTG_RgisterRoomInfoRsp_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RgisterRoomInfoRsp, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RgisterRoomInfoRsp, _unknown_fields_),
+      Proto_WTG_RegisterRoomInfoRsp_descriptor_,
+      Proto_WTG_RegisterRoomInfoRsp::default_instance_,
+      Proto_WTG_RegisterRoomInfoRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RegisterRoomInfoRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RegisterRoomInfoRsp, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Proto_WTG_RgisterRoomInfoRsp));
+      sizeof(Proto_WTG_RegisterRoomInfoRsp));
   Proto_AccountState_descriptor_ = file->enum_type(0);
 }
 
@@ -635,7 +635,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_GTW_RegisterRoomInfoReq_descriptor_, &Proto_GTW_RegisterRoomInfoReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Proto_WTG_RgisterRoomInfoRsp_descriptor_, &Proto_WTG_RgisterRoomInfoRsp::default_instance());
+    Proto_WTG_RegisterRoomInfoRsp_descriptor_, &Proto_WTG_RegisterRoomInfoRsp::default_instance());
 }
 
 }  // namespace
@@ -693,8 +693,8 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete Proto_ST_QueryPlayerSimpleDataRsp_reflection_;
   delete Proto_GTW_RegisterRoomInfoReq::default_instance_;
   delete Proto_GTW_RegisterRoomInfoReq_reflection_;
-  delete Proto_WTG_RgisterRoomInfoRsp::default_instance_;
-  delete Proto_WTG_RgisterRoomInfoRsp_reflection_;
+  delete Proto_WTG_RegisterRoomInfoRsp::default_instance_;
+  delete Proto_WTG_RegisterRoomInfoRsp_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -771,11 +771,11 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "\005\0227\n\017query_user_list\030\002 \003(\0132\036.proto_ff.Pr"
     "oto_UserSimpleData\"Y\n\035Proto_GTW_Register"
     "RoomInfoReq\022(\n\004game\030\001 \003(\0132\032.proto_ff.Gam"
-    "eExternalGame\022\016\n\006bus_id\030\002 \001(\r\".\n\034Proto_W"
-    "TG_RgisterRoomInfoRsp\022\016\n\006result\030\001 \001(\005*a\n"
-    "\022Proto_AccountState\022\025\n\021E_ACCOUNTSTATE_OK"
-    "\020\000\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOU"
-    "NTSTATE_FORBIT\020\002", 2736);
+    "eExternalGame\022\016\n\006bus_id\030\002 \001(\r\"/\n\035Proto_W"
+    "TG_RegisterRoomInfoRsp\022\016\n\006result\030\001 \001(\005*a"
+    "\n\022Proto_AccountState\022\025\n\021E_ACCOUNTSTATE_O"
+    "K\020\000\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCO"
+    "UNTSTATE_FORBIT\020\002", 2737);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -804,7 +804,7 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_TS_QueryPlayerSimpleDataReq::default_instance_ = new Proto_TS_QueryPlayerSimpleDataReq();
   Proto_ST_QueryPlayerSimpleDataRsp::default_instance_ = new Proto_ST_QueryPlayerSimpleDataRsp();
   Proto_GTW_RegisterRoomInfoReq::default_instance_ = new Proto_GTW_RegisterRoomInfoReq();
-  Proto_WTG_RgisterRoomInfoRsp::default_instance_ = new Proto_WTG_RgisterRoomInfoRsp();
+  Proto_WTG_RegisterRoomInfoRsp::default_instance_ = new Proto_WTG_RegisterRoomInfoRsp();
   Proto_PTWUserLoginReq::default_instance_->InitAsDefaultInstance();
   Proto_WTPPlayerLoginRsp::default_instance_->InitAsDefaultInstance();
   Proto_WorldToLogicLoginReq::default_instance_->InitAsDefaultInstance();
@@ -831,7 +831,7 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_TS_QueryPlayerSimpleDataReq::default_instance_->InitAsDefaultInstance();
   Proto_ST_QueryPlayerSimpleDataRsp::default_instance_->InitAsDefaultInstance();
   Proto_GTW_RegisterRoomInfoReq::default_instance_->InitAsDefaultInstance();
-  Proto_WTG_RgisterRoomInfoRsp::default_instance_->InitAsDefaultInstance();
+  Proto_WTG_RegisterRoomInfoRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -8467,60 +8467,60 @@ void Proto_GTW_RegisterRoomInfoReq::Swap(Proto_GTW_RegisterRoomInfoReq* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int Proto_WTG_RgisterRoomInfoRsp::kResultFieldNumber;
+const int Proto_WTG_RegisterRoomInfoRsp::kResultFieldNumber;
 #endif  // !_MSC_VER
 
-Proto_WTG_RgisterRoomInfoRsp::Proto_WTG_RgisterRoomInfoRsp()
+Proto_WTG_RegisterRoomInfoRsp::Proto_WTG_RegisterRoomInfoRsp()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::InitAsDefaultInstance() {
+void Proto_WTG_RegisterRoomInfoRsp::InitAsDefaultInstance() {
 }
 
-Proto_WTG_RgisterRoomInfoRsp::Proto_WTG_RgisterRoomInfoRsp(const Proto_WTG_RgisterRoomInfoRsp& from)
+Proto_WTG_RegisterRoomInfoRsp::Proto_WTG_RegisterRoomInfoRsp(const Proto_WTG_RegisterRoomInfoRsp& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::SharedCtor() {
+void Proto_WTG_RegisterRoomInfoRsp::SharedCtor() {
   _cached_size_ = 0;
   result_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-Proto_WTG_RgisterRoomInfoRsp::~Proto_WTG_RgisterRoomInfoRsp() {
+Proto_WTG_RegisterRoomInfoRsp::~Proto_WTG_RegisterRoomInfoRsp() {
   SharedDtor();
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::SharedDtor() {
+void Proto_WTG_RegisterRoomInfoRsp::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::SetCachedSize(int size) const {
+void Proto_WTG_RegisterRoomInfoRsp::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* Proto_WTG_RgisterRoomInfoRsp::descriptor() {
+const ::google::protobuf::Descriptor* Proto_WTG_RegisterRoomInfoRsp::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return Proto_WTG_RgisterRoomInfoRsp_descriptor_;
+  return Proto_WTG_RegisterRoomInfoRsp_descriptor_;
 }
 
-const Proto_WTG_RgisterRoomInfoRsp& Proto_WTG_RgisterRoomInfoRsp::default_instance() {
+const Proto_WTG_RegisterRoomInfoRsp& Proto_WTG_RegisterRoomInfoRsp::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
   return *default_instance_;
 }
 
-Proto_WTG_RgisterRoomInfoRsp* Proto_WTG_RgisterRoomInfoRsp::default_instance_ = NULL;
+Proto_WTG_RegisterRoomInfoRsp* Proto_WTG_RegisterRoomInfoRsp::default_instance_ = NULL;
 
-Proto_WTG_RgisterRoomInfoRsp* Proto_WTG_RgisterRoomInfoRsp::New() const {
-  return new Proto_WTG_RgisterRoomInfoRsp;
+Proto_WTG_RegisterRoomInfoRsp* Proto_WTG_RegisterRoomInfoRsp::New() const {
+  return new Proto_WTG_RegisterRoomInfoRsp;
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::Clear() {
+void Proto_WTG_RegisterRoomInfoRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     result_ = 0;
   }
@@ -8528,7 +8528,7 @@ void Proto_WTG_RgisterRoomInfoRsp::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool Proto_WTG_RgisterRoomInfoRsp::MergePartialFromCodedStream(
+bool Proto_WTG_RegisterRoomInfoRsp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -8565,7 +8565,7 @@ bool Proto_WTG_RgisterRoomInfoRsp::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::SerializeWithCachedSizes(
+void Proto_WTG_RegisterRoomInfoRsp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 result = 1;
   if (has_result()) {
@@ -8578,7 +8578,7 @@ void Proto_WTG_RgisterRoomInfoRsp::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* Proto_WTG_RgisterRoomInfoRsp::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* Proto_WTG_RegisterRoomInfoRsp::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 result = 1;
   if (has_result()) {
@@ -8592,7 +8592,7 @@ void Proto_WTG_RgisterRoomInfoRsp::SerializeWithCachedSizes(
   return target;
 }
 
-int Proto_WTG_RgisterRoomInfoRsp::ByteSize() const {
+int Proto_WTG_RegisterRoomInfoRsp::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -8615,10 +8615,10 @@ int Proto_WTG_RgisterRoomInfoRsp::ByteSize() const {
   return total_size;
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::MergeFrom(const ::google::protobuf::Message& from) {
+void Proto_WTG_RegisterRoomInfoRsp::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const Proto_WTG_RgisterRoomInfoRsp* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_WTG_RgisterRoomInfoRsp*>(
+  const Proto_WTG_RegisterRoomInfoRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_WTG_RegisterRoomInfoRsp*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -8627,7 +8627,7 @@ void Proto_WTG_RgisterRoomInfoRsp::MergeFrom(const ::google::protobuf::Message& 
   }
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::MergeFrom(const Proto_WTG_RgisterRoomInfoRsp& from) {
+void Proto_WTG_RegisterRoomInfoRsp::MergeFrom(const Proto_WTG_RegisterRoomInfoRsp& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_result()) {
@@ -8637,24 +8637,24 @@ void Proto_WTG_RgisterRoomInfoRsp::MergeFrom(const Proto_WTG_RgisterRoomInfoRsp&
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::CopyFrom(const ::google::protobuf::Message& from) {
+void Proto_WTG_RegisterRoomInfoRsp::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::CopyFrom(const Proto_WTG_RgisterRoomInfoRsp& from) {
+void Proto_WTG_RegisterRoomInfoRsp::CopyFrom(const Proto_WTG_RegisterRoomInfoRsp& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool Proto_WTG_RgisterRoomInfoRsp::IsInitialized() const {
+bool Proto_WTG_RegisterRoomInfoRsp::IsInitialized() const {
 
   return true;
 }
 
-void Proto_WTG_RgisterRoomInfoRsp::Swap(Proto_WTG_RgisterRoomInfoRsp* other) {
+void Proto_WTG_RegisterRoomInfoRsp::Swap(Proto_WTG_RegisterRoomInfoRsp* other) {
   if (other != this) {
     std::swap(result_, other->result_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
@@ -8663,11 +8663,11 @@ void Proto_WTG_RgisterRoomInfoRsp::Swap(Proto_WTG_RgisterRoomInfoRsp* other) {
   }
 }
 
-::google::protobuf::Metadata Proto_WTG_RgisterRoomInfoRsp::GetMetadata() const {
+::google::protobuf::Metadata Proto_WTG_RegisterRoomInfoRsp::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Proto_WTG_RgisterRoomInfoRsp_descriptor_;
-  metadata.reflection = Proto_WTG_RgisterRoomInfoRsp_reflection_;
+  metadata.descriptor = Proto_WTG_RegisterRoomInfoRsp_descriptor_;
+  metadata.reflection = Proto_WTG_RegisterRoomInfoRsp_reflection_;
   return metadata;
 }
 

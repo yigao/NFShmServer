@@ -49,7 +49,7 @@ public:
      * @param respone
      * @return
      */
-    int OnRpcServiceRoomRegister(proto_ff::Proto_GTW_RegisterRoomInfoReq& request, proto_ff::Proto_WTG_RgisterRoomInfoRsp& respone);
+    int OnHandleRoomRegisterReq(uint64_t unLinkId, NFDataPackage& packet);
 
     /**
      * @brief 玩家登录
