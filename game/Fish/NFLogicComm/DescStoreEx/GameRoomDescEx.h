@@ -16,9 +16,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
 #include "room_s.h"
-
-#define MAX_GAME_TYPE_NUM 10
-#define MAX_GAME_ROOM_NUM 10
+#include "NFLogicCommon/NFRoomDefine.h"
 
 class GameRoomDescEx : public NFIDescStore
 {

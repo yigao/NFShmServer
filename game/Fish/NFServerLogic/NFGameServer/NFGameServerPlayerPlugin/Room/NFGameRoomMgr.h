@@ -62,6 +62,11 @@ public:
     NFGameRoom *CreateGameRoom(uint32_t gameId, uint32_t roomId);
 
     int DeleteGameRoom(NFGameRoom *pRoomInfo);
+public:
+    int CreateAllRoom();
+    int RegisterAllRoomToWorldServer();
 private:
+    bool m_inited;
+    int m_registerRoomTimer;
 DECLARE_IDCREATE(NFGameRoomMgr)
 };

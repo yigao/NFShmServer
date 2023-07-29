@@ -20,6 +20,8 @@
 #include "Player/NFGamePlayer.h"
 #include "Player/NFGamePlayerMgr.h"
 #include "NFCGamePlayerModule.h"
+#include "NFLogicCommon/NFRoomDefine.h"
+#include "Config/NFGameConfig.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -65,11 +67,12 @@ bool NFFishGamePlayerPlugin::InitShmObjectRegister()
     NF_ASSERT(pConfig);
 
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum();
-    uint32_t maxDescCount = 100;
-    uint32_t maxRoomNum = 20;
+    uint32_t maxRoomNum = MAX_ROOM_ROOM_NUM;
+    uint32_t maxDescCount = MAX_ROOM_ROOM_NUM * MAX_ONE_ROOM_DESK_NUM;
     ////////init player shm///////////////////
     REGISTER_SHM_OBJ(NFGamePlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFGamePlayerMgr);
+    REGISTER_SINGLETON_SHM_OBJ(NFGameConfig);
 
     ///////init game room shm///////////////////
     REGISTER_SHM_OBJ_WITH_HASH(NFGameRoom, maxRoomNum);

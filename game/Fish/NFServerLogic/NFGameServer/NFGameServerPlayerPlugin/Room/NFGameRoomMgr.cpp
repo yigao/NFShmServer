@@ -12,6 +12,8 @@
 #include "Player/NFGamePlayer.h"
 #include "Player/NFGamePlayerMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "Config/NFGameConfig.h"
+#include "NFLogicCommon/NFLogicBindRpcService.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGameRoomMgr, EOT_NFGameRoomMgr_ID, NFShmObj)
 
@@ -33,6 +35,8 @@ NFGameRoomMgr::~NFGameRoomMgr()
 
 int NFGameRoomMgr::CreateInit()
 {
+    m_inited = false;
+    m_registerRoomTimer = INVALID_ID;
     return 0;
 }
 
@@ -43,6 +47,10 @@ int NFGameRoomMgr::ResumeInit()
 
 int NFGameRoomMgr::OnTimer(int timeId, int callcount)
 {
+    if (m_registerRoomTimer == timeId)
+    {
+        RegisterAllRoomToWorldServer();
+    }
     return 0;
 }
 
@@ -196,4 +204,73 @@ int NFGameRoomMgr::DeleteGameRoom(NFGameRoom *pRoomInfo)
     return 0;
 }
 
+int NFGameRoomMgr::CreateAllRoom()
+{
+    if (m_inited) return 0;
+
+    auto pGameConfig = NFGameConfig::Instance(m_pObjPluginManager)->GetConfig();
+    CHECK_NULL(pGameConfig);
+
+    for(int i = 0; i < (int)pGameConfig->Game.size(); i++)
+    {
+        uint32_t gameId = pGameConfig->Game[i].GameId;
+        for(int j = 0; j < (int)pGameConfig->Game[i].RoomId.size(); j++)
+        {
+            uint32_t roomId = pGameConfig->Game[i].RoomId[j];
+            NFGameRoom* pRoom = CreateGameRoom(gameId, roomId);
+            CHECK_NULL(pRoom);
+        }
+    }
+
+    m_inited = true;
+    return 0;
+}
+
+int NFGameRoomMgr::RegisterAllRoomToWorldServer()
+{
+    proto_ff::Proto_GTW_RegisterRoomInfoReq req;
+    auto pGameConfig = NFGameConfig::Instance(m_pObjPluginManager)->GetConfig();
+    CHECK_NULL(pGameConfig);
+
+    for(int i = 0; i < (int)pGameConfig->Game.size(); i++)
+    {
+        uint32_t gameId = pGameConfig->Game[i].GameId;
+        auto pGamePB = req.add_game();
+        pGamePB->set_gameid(gameId);
+        for(int j = 0; j < (int)pGameConfig->Game[i].RoomId.size(); j++)
+        {
+            uint32_t roomId = pGameConfig->Game[i].RoomId[j];
+            NFGameRoom* pRoom = GetGameRoom(gameId, roomId);
+            CHECK_NULL(pRoom);
+
+            pGamePB->add_roomid(roomId);
+        }
+    }
+
+    if (m_registerRoomTimer != INVALID_ID)
+    {
+        m_registerRoomTimer = SetTimer(10000, 0, 0, 0, 3, 0);
+    }
+
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC>(NF_ST_GAME_SERVER, NF_ST_WORLD_SERVER, 0, req, [req, this](int rpcRetCode, proto_ff::Proto_WTG_RgisterRoomInfoRsp &respone){
+        if (respone.result() != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Failed! req:{}", req.DebugString());
+            return;
+        }
+
+        if (m_registerRoomTimer != INVALID_ID)
+        {
+            DeleteTimer(m_registerRoomTimer);
+        }
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Success, req:{}", req.DebugString());
+    });
+
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Failed! req:{}", req.DebugString());
+    }
+
+    return 0;
+}
 

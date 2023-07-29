@@ -129,7 +129,7 @@ int NFCGameServerModule::TestOtherServerToWorldServer()
     }
 #endif
 
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_GAME_SERVER))
     {
         return 0;
     }

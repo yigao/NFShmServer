@@ -52,7 +52,7 @@ bool NFCLogicPlayerModule::OnDynamicPlugin()
 
 int NFCLogicPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_LOGIC_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server not inited, drop client msg:{}", packet.ToString());
         return -1;
@@ -78,7 +78,7 @@ int NFCLogicPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &p
 
 int NFCLogicPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_LOGIC_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Logic Server not inited, drop client msg:{}", packet.ToString());
         return -1;

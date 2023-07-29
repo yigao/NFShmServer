@@ -173,7 +173,7 @@ int NFCProxyAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "proxy agent server connect master success!");
-        if (!m_pObjPluginManager->IsInited())
+        if (!m_pObjPluginManager->IsInited(NF_ST_PROXY_AGENT_SERVER))
         {
             RegisterMasterServer(proto_ff::EST_INIT);
         }
@@ -182,7 +182,7 @@ int NFCProxyAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
         }
 
         //完成服务器启动任务
-        if (!m_pObjPluginManager->IsInited())
+        if (!m_pObjPluginManager->IsInited(NF_ST_PROXY_AGENT_SERVER))
         {
             m_pObjPluginManager->FinishAppTask(NF_ST_PROXY_AGENT_SERVER, APP_INIT_CONNECT_MASTER);
         }

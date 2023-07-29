@@ -13,7 +13,11 @@
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
 #include "NFWorldPlayerModule.h"
-#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+
+#include "DescStore/RoomRoomDesc.h"
+#include "DescStoreEx/GameRoomDescEx.h"
+#include "Room/NFWorldRoomMgr.h"
+#include "Room/NFWorldRoom.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -63,6 +67,12 @@ bool NFFishWorldPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ_WITH_HASH(NFWorldPlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFWorldPlayerMgr);//
 
+    ///////init game room shm///////////////////
+    REGISTER_SHM_OBJ_WITH_HASH(NFWorldRoom, MAX_ROOM_ROOM_NUM);
+    REGISTER_SINGLETON_SHM_OBJ(NFWorldRoomMgr);
 
+    ////////init excel load shm///////////////////
+    REGISTER_DESCSTORE(RoomRoomDesc);
+    REGISTER_DESCSTORE(GameRoomDescEx);
 	return true;
 }

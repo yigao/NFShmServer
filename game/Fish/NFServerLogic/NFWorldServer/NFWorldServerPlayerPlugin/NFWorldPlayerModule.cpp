@@ -14,6 +14,7 @@
 #include "ServerInternalCmd.pb.h"
 #include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
+#include "Room/NFWorldRoomMgr.h"
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p) {
 
@@ -31,11 +32,32 @@ bool NFCWorldPlayerModule::Awake() {
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_PTW_PLAYER_RECONNECT_MSG_REQ>(NF_ST_WORLD_SERVER, this,
                                                                                      &NFCWorldPlayerModule::OnRpcServicePlayerReconnect, true);
 
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC>(NF_ST_WORLD_SERVER, this,
+                                                                                             &NFCWorldPlayerModule::OnRpcServiceRoomRegister);
+    /////////////////////enter game, exit game////////////////////////////////////
+
+    RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_MSG_EnterGameReq);
+
+    /////////////////////////////////server msg, player disconnect logout////////////////////////////////////////////
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_PTW_PLAYER_DISCONNECT_MSG);
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_LTW_PLAYER_LOGOUT_NOTIFY);
 
     //////////player enter game////////////////////////////////////
+
+    Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     return true;
+}
+
+int NFCWorldPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
+{
+    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
+    {
+        if (nEventID == proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE)
+        {
+            NFWorldRoomMgr::Instance(m_pObjPluginManager)->CreateRoom();
+        }
+    }
+    return 0;
 }
 
 bool NFCWorldPlayerModule::Execute()
@@ -50,7 +72,7 @@ bool NFCWorldPlayerModule::OnDynamicPlugin()
 
 int NFCWorldPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_WORLD_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
         return -1;
@@ -76,7 +98,7 @@ int NFCWorldPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
 
 int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_WORLD_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
         return -1;
@@ -387,5 +409,10 @@ int NFCWorldPlayerModule::NotifyLogicPlayerLogout(uint64_t playerId)
     proto_ff::Proto_WTLLogoutNotify notify;
     notify.set_player_id(playerId);
     FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, proto_ff::NF_WTL_PLAYER_LOGOUT_NOTIFY, notify);
+    return 0;
+}
+
+int NFCWorldPlayerModule::OnRpcServiceRoomRegister(proto_ff::Proto_GTW_RegisterRoomInfoReq& request, proto_ff::Proto_WTG_RgisterRoomInfoRsp& respone)
+{
     return 0;
 }

@@ -87,7 +87,7 @@ int NFCSnsPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32
 
 int NFCSnsPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_SNS_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Sns Server not inited, drop client msg:{}", packet.ToString());
         return -1;
@@ -118,7 +118,7 @@ int NFCSnsPlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pac
 
 int NFCSnsPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_SNS_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Sns Server not inited, drop client msg:{}", packet.ToString());
         return -1;

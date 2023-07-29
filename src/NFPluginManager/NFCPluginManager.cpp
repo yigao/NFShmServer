@@ -1161,6 +1161,11 @@ bool NFCPluginManager::IsInited() const
 	return m_isInited; 
 }
 
+bool NFCPluginManager::IsInited(NF_SERVER_TYPES eServerType) const
+{
+    return m_appInited.IsInited(eServerType);
+}
+
 void NFCPluginManager::SetIsInited(bool b) 
 { 
 	m_isInited = b; 

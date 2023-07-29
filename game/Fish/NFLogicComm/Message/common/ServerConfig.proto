@@ -16,6 +16,12 @@ message WorldExternalConfig {
   optional uint32 MaxQueueNum = 7;
 }
 
+message GameExternalGame
+{
+  optional uint32 GameId = 1;
+  repeated uint32 RoomId = 2[(yd_fieldoptions.field_arysize)=10];
+}
+
 message GameExternalConfig {
-  repeated uint64 map = 1[(yd_fieldoptions.field_use_stl)=true];
+  repeated GameExternalGame Game = 1[(yd_fieldoptions.field_arysize)=10];
 }

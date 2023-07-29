@@ -50,7 +50,7 @@ bool NFCDescStoreModule::AfterInitShmMem() {
 }
 
 bool NFCDescStoreModule::Awake() {
-    //m_pObjPluginManager->RegisterAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, "Load Desc Store", APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
+    m_pObjPluginManager->RegisterAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, "Load Desc Store", APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
     Subscribe(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     return true;
 }
@@ -75,8 +75,8 @@ bool NFCDescStoreModule::Execute() {
             if (HasDBDescStore()) {
                 CheckWhenAllDataLoaded();
             }
-            //m_pObjPluginManager->FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
-            FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, 0, proto_ff::NF_EVENT_SERVER_TYPE, proto_ff::NFEventNoneData());
+
+            m_pObjPluginManager->FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
 
             m_bFinishAllLoaded = true;
         }

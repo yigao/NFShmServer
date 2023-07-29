@@ -47,8 +47,45 @@ void WorldExternalConfig_s::read_from_pbmsg(const ::proto_ff::WorldExternalConfi
 	MaxQueueNum = msg.maxqueuenum();
 }
 
+GameExternalGame_s::GameExternalGame_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GameExternalGame_s::CreateInit() {
+	GameId = (uint32_t)0;
+	return 0;
+}
+
+int GameExternalGame_s::ResumeInit() {
+	return 0;
+}
+
+void GameExternalGame_s::write_to_pbmsg(::proto_ff::GameExternalGame & msg) const {
+	msg.set_gameid((uint32_t)GameId);
+	for(int32_t i = 0; i < (int32_t)RoomId.size(); ++i) {
+		msg.add_roomid((uint32_t)RoomId[i]);
+	}
+}
+
+void GameExternalGame_s::read_from_pbmsg(const ::proto_ff::GameExternalGame & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GameExternalGame_s));
+	GameId = msg.gameid();
+	RoomId.resize((int)msg.roomid_size() > (int)RoomId.max_size() ? RoomId.max_size() : msg.roomid_size());
+	for(int32_t i = 0; i < (int32_t)RoomId.size(); ++i) {
+		RoomId[i] = msg.roomid(i);
+	}
+}
+
 GameExternalConfig_s::GameExternalConfig_s() {
-	CreateInit();
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
 }
 
 int GameExternalConfig_s::CreateInit() {
@@ -60,15 +97,18 @@ int GameExternalConfig_s::ResumeInit() {
 }
 
 void GameExternalConfig_s::write_to_pbmsg(::proto_ff::GameExternalConfig & msg) const {
-	for(int32_t i = 0; i < (int32_t)map.size(); ++i) {
-		msg.add_map((uint64_t)map[i]);
+	for(int32_t i = 0; i < (int32_t)Game.size(); ++i) {
+		::proto_ff::GameExternalGame* temp_game = msg.add_game();
+		Game[i].write_to_pbmsg(*temp_game);
 	}
 }
 
 void GameExternalConfig_s::read_from_pbmsg(const ::proto_ff::GameExternalConfig & msg) {
-	map.resize(msg.map_size());
-	for(int32_t i = 0; i < (int32_t)map.size(); ++i) {
-		map[i] = msg.map(i);
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GameExternalConfig_s));
+	Game.resize((int)msg.game_size() > (int)Game.max_size() ? Game.max_size() : msg.game_size());
+	for(int32_t i = 0; i < (int32_t)Game.size(); ++i) {
+		const ::proto_ff::GameExternalGame & temp_game = msg.game(i);
+		Game[i].read_from_pbmsg(temp_game);
 	}
 }
 

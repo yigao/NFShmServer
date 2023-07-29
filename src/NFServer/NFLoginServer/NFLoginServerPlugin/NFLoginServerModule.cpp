@@ -98,7 +98,7 @@ int NFCLoginServerModule::TestOtherServerToWorldServer()
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     }
 #endif
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_LOGIN_SERVER))
     {
         return 0;
     }

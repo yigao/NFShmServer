@@ -191,6 +191,8 @@ public:
 
     virtual bool IsInited() const override;
 
+    virtual bool IsInited(NF_SERVER_TYPES eServerType) const override;
+
     virtual void SetIsInited(bool b) override;
 
     virtual int RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc,

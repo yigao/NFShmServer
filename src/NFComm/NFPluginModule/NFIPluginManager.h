@@ -371,6 +371,8 @@ public:
 
     virtual bool IsInited() const = 0;
 
+    virtual bool IsInited(NF_SERVER_TYPES eServerType) const = 0;
+
     virtual void SetIsInited(bool b) = 0;
 
     virtual int RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc,

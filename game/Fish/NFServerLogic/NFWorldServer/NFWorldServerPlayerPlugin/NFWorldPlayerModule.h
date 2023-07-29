@@ -24,6 +24,8 @@ public:
 	virtual bool Execute() override;
 
 	virtual bool OnDynamicPlugin() override;
+
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
 public:
     /**
      * @brief 处理客户端消息
@@ -41,6 +43,14 @@ public:
      */
     virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
 public:
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServiceRoomRegister(proto_ff::Proto_GTW_RegisterRoomInfoReq& request, proto_ff::Proto_WTG_RgisterRoomInfoRsp& respone);
+
     /**
      * @brief 玩家登录
      * @param request

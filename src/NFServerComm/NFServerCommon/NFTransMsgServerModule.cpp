@@ -223,7 +223,7 @@ int NFTransMsgServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
         std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
         NFLogDebug(NF_LOG_SYSTEMLOG, 0, "server:{} connect master success!", pConfig->ServerName);
 
-        if (!m_pObjPluginManager->IsInited())
+        if (!m_pObjPluginManager->IsInited(m_serverType))
         {
             RegisterMasterServer(proto_ff::EST_INIT);
         }
@@ -233,7 +233,7 @@ int NFTransMsgServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
         }
 
         //完成服务器启动任务
-        if (!m_pObjPluginManager->IsInited())
+        if (!m_pObjPluginManager->IsInited(m_serverType))
         {
             m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
         }

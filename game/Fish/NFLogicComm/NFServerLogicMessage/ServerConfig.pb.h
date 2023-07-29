@@ -36,6 +36,7 @@ void protobuf_AssignDesc_ServerConfig_2eproto();
 void protobuf_ShutdownFile_ServerConfig_2eproto();
 
 class WorldExternalConfig;
+class GameExternalGame;
 class GameExternalConfig;
 
 enum TableID {
@@ -194,6 +195,101 @@ class WorldExternalConfig : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class GameExternalGame : public ::google::protobuf::Message {
+ public:
+  GameExternalGame();
+  virtual ~GameExternalGame();
+
+  GameExternalGame(const GameExternalGame& from);
+
+  inline GameExternalGame& operator=(const GameExternalGame& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameExternalGame& default_instance();
+
+  void Swap(GameExternalGame* other);
+
+  // implements Message ----------------------------------------------
+
+  GameExternalGame* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GameExternalGame& from);
+  void MergeFrom(const GameExternalGame& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 GameId = 1;
+  inline bool has_gameid() const;
+  inline void clear_gameid();
+  static const int kGameIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 gameid() const;
+  inline void set_gameid(::google::protobuf::uint32 value);
+
+  // repeated uint32 RoomId = 2;
+  inline int roomid_size() const;
+  inline void clear_roomid();
+  static const int kRoomIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 roomid(int index) const;
+  inline void set_roomid(int index, ::google::protobuf::uint32 value);
+  inline void add_roomid(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      roomid() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_roomid();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GameExternalGame)
+ private:
+  inline void set_has_gameid();
+  inline void clear_has_gameid();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > roomid_;
+  ::google::protobuf::uint32 gameid_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerConfig_2eproto();
+  friend void protobuf_AssignDesc_ServerConfig_2eproto();
+  friend void protobuf_ShutdownFile_ServerConfig_2eproto();
+
+  void InitAsDefaultInstance();
+  static GameExternalGame* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class GameExternalConfig : public ::google::protobuf::Message {
  public:
   GameExternalConfig();
@@ -248,24 +344,24 @@ class GameExternalConfig : public ::google::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // repeated uint64 map = 1;
-  inline int map_size() const;
-  inline void clear_map();
-  static const int kMapFieldNumber = 1;
-  inline ::google::protobuf::uint64 map(int index) const;
-  inline void set_map(int index, ::google::protobuf::uint64 value);
-  inline void add_map(::google::protobuf::uint64 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
-      map() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
-      mutable_map();
+  // repeated .proto_ff.GameExternalGame Game = 1;
+  inline int game_size() const;
+  inline void clear_game();
+  static const int kGameFieldNumber = 1;
+  inline const ::proto_ff::GameExternalGame& game(int index) const;
+  inline ::proto_ff::GameExternalGame* mutable_game(int index);
+  inline ::proto_ff::GameExternalGame* add_game();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >&
+      game() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >*
+      mutable_game();
 
   // @@protoc_insertion_point(class_scope:proto_ff.GameExternalConfig)
  private:
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
-  ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > map_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame > game_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
@@ -421,31 +517,82 @@ inline void WorldExternalConfig::set_maxqueuenum(::google::protobuf::uint32 valu
 
 // -------------------------------------------------------------------
 
+// GameExternalGame
+
+// optional uint32 GameId = 1;
+inline bool GameExternalGame::has_gameid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GameExternalGame::set_has_gameid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GameExternalGame::clear_has_gameid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GameExternalGame::clear_gameid() {
+  gameid_ = 0u;
+  clear_has_gameid();
+}
+inline ::google::protobuf::uint32 GameExternalGame::gameid() const {
+  return gameid_;
+}
+inline void GameExternalGame::set_gameid(::google::protobuf::uint32 value) {
+  set_has_gameid();
+  gameid_ = value;
+}
+
+// repeated uint32 RoomId = 2;
+inline int GameExternalGame::roomid_size() const {
+  return roomid_.size();
+}
+inline void GameExternalGame::clear_roomid() {
+  roomid_.Clear();
+}
+inline ::google::protobuf::uint32 GameExternalGame::roomid(int index) const {
+  return roomid_.Get(index);
+}
+inline void GameExternalGame::set_roomid(int index, ::google::protobuf::uint32 value) {
+  roomid_.Set(index, value);
+}
+inline void GameExternalGame::add_roomid(::google::protobuf::uint32 value) {
+  roomid_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+GameExternalGame::roomid() const {
+  return roomid_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+GameExternalGame::mutable_roomid() {
+  return &roomid_;
+}
+
+// -------------------------------------------------------------------
+
 // GameExternalConfig
 
-// repeated uint64 map = 1;
-inline int GameExternalConfig::map_size() const {
-  return map_.size();
+// repeated .proto_ff.GameExternalGame Game = 1;
+inline int GameExternalConfig::game_size() const {
+  return game_.size();
 }
-inline void GameExternalConfig::clear_map() {
-  map_.Clear();
+inline void GameExternalConfig::clear_game() {
+  game_.Clear();
 }
-inline ::google::protobuf::uint64 GameExternalConfig::map(int index) const {
-  return map_.Get(index);
+inline const ::proto_ff::GameExternalGame& GameExternalConfig::game(int index) const {
+  return game_.Get(index);
 }
-inline void GameExternalConfig::set_map(int index, ::google::protobuf::uint64 value) {
-  map_.Set(index, value);
+inline ::proto_ff::GameExternalGame* GameExternalConfig::mutable_game(int index) {
+  return game_.Mutable(index);
 }
-inline void GameExternalConfig::add_map(::google::protobuf::uint64 value) {
-  map_.Add(value);
+inline ::proto_ff::GameExternalGame* GameExternalConfig::add_game() {
+  return game_.Add();
 }
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >&
-GameExternalConfig::map() const {
-  return map_;
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >&
+GameExternalConfig::game() const {
+  return game_;
 }
-inline ::google::protobuf::RepeatedField< ::google::protobuf::uint64 >*
-GameExternalConfig::mutable_map() {
-  return &map_;
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >*
+GameExternalConfig::mutable_game() {
+  return &game_;
 }
 
 

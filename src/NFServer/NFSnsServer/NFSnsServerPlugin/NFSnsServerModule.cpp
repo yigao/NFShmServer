@@ -99,7 +99,7 @@ int NFCSnsServerModule::TestOtherServerToWorldServer()
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     }
 #endif
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_SNS_SERVER))
     {
         return 0;
     }

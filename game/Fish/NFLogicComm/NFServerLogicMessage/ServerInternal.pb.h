@@ -27,6 +27,7 @@
 #include <google/protobuf/unknown_field_set.h>
 #include "yd_fieldoptions.pb.h"
 #include "Com.pb.h"
+#include "ServerConfig.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace proto_ff {
@@ -61,6 +62,8 @@ class Proto_LTS_PlayerReduceBankJettonReq;
 class Proto_STL_PlayerReduceBankJettonRsp;
 class Proto_TS_QueryPlayerSimpleDataReq;
 class Proto_ST_QueryPlayerSimpleDataRsp;
+class Proto_GTW_RegisterRoomInfoReq;
+class Proto_WTG_RgisterRoomInfoRsp;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -2685,6 +2688,183 @@ class Proto_ST_QueryPlayerSimpleDataRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Proto_ST_QueryPlayerSimpleDataRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Proto_GTW_RegisterRoomInfoReq : public ::google::protobuf::Message {
+ public:
+  Proto_GTW_RegisterRoomInfoReq();
+  virtual ~Proto_GTW_RegisterRoomInfoReq();
+
+  Proto_GTW_RegisterRoomInfoReq(const Proto_GTW_RegisterRoomInfoReq& from);
+
+  inline Proto_GTW_RegisterRoomInfoReq& operator=(const Proto_GTW_RegisterRoomInfoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_GTW_RegisterRoomInfoReq& default_instance();
+
+  void Swap(Proto_GTW_RegisterRoomInfoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_GTW_RegisterRoomInfoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_GTW_RegisterRoomInfoReq& from);
+  void MergeFrom(const Proto_GTW_RegisterRoomInfoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .proto_ff.GameExternalGame game = 1;
+  inline int game_size() const;
+  inline void clear_game();
+  static const int kGameFieldNumber = 1;
+  inline const ::proto_ff::GameExternalGame& game(int index) const;
+  inline ::proto_ff::GameExternalGame* mutable_game(int index);
+  inline ::proto_ff::GameExternalGame* add_game();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >&
+      game() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >*
+      mutable_game();
+
+  // optional uint32 bus_id = 2;
+  inline bool has_bus_id() const;
+  inline void clear_bus_id();
+  static const int kBusIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 bus_id() const;
+  inline void set_bus_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_GTW_RegisterRoomInfoReq)
+ private:
+  inline void set_has_bus_id();
+  inline void clear_has_bus_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame > game_;
+  ::google::protobuf::uint32 bus_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_GTW_RegisterRoomInfoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_WTG_RgisterRoomInfoRsp : public ::google::protobuf::Message {
+ public:
+  Proto_WTG_RgisterRoomInfoRsp();
+  virtual ~Proto_WTG_RgisterRoomInfoRsp();
+
+  Proto_WTG_RgisterRoomInfoRsp(const Proto_WTG_RgisterRoomInfoRsp& from);
+
+  inline Proto_WTG_RgisterRoomInfoRsp& operator=(const Proto_WTG_RgisterRoomInfoRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_WTG_RgisterRoomInfoRsp& default_instance();
+
+  void Swap(Proto_WTG_RgisterRoomInfoRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_WTG_RgisterRoomInfoRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_WTG_RgisterRoomInfoRsp& from);
+  void MergeFrom(const Proto_WTG_RgisterRoomInfoRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTG_RgisterRoomInfoRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_WTG_RgisterRoomInfoRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -4800,6 +4980,83 @@ Proto_ST_QueryPlayerSimpleDataRsp::query_user_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::Proto_UserSimpleData >*
 Proto_ST_QueryPlayerSimpleDataRsp::mutable_query_user_list() {
   return &query_user_list_;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_GTW_RegisterRoomInfoReq
+
+// repeated .proto_ff.GameExternalGame game = 1;
+inline int Proto_GTW_RegisterRoomInfoReq::game_size() const {
+  return game_.size();
+}
+inline void Proto_GTW_RegisterRoomInfoReq::clear_game() {
+  game_.Clear();
+}
+inline const ::proto_ff::GameExternalGame& Proto_GTW_RegisterRoomInfoReq::game(int index) const {
+  return game_.Get(index);
+}
+inline ::proto_ff::GameExternalGame* Proto_GTW_RegisterRoomInfoReq::mutable_game(int index) {
+  return game_.Mutable(index);
+}
+inline ::proto_ff::GameExternalGame* Proto_GTW_RegisterRoomInfoReq::add_game() {
+  return game_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >&
+Proto_GTW_RegisterRoomInfoReq::game() const {
+  return game_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >*
+Proto_GTW_RegisterRoomInfoReq::mutable_game() {
+  return &game_;
+}
+
+// optional uint32 bus_id = 2;
+inline bool Proto_GTW_RegisterRoomInfoReq::has_bus_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_GTW_RegisterRoomInfoReq::set_has_bus_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_GTW_RegisterRoomInfoReq::clear_has_bus_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_GTW_RegisterRoomInfoReq::clear_bus_id() {
+  bus_id_ = 0u;
+  clear_has_bus_id();
+}
+inline ::google::protobuf::uint32 Proto_GTW_RegisterRoomInfoReq::bus_id() const {
+  return bus_id_;
+}
+inline void Proto_GTW_RegisterRoomInfoReq::set_bus_id(::google::protobuf::uint32 value) {
+  set_has_bus_id();
+  bus_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_WTG_RgisterRoomInfoRsp
+
+// optional int32 result = 1;
+inline bool Proto_WTG_RgisterRoomInfoRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_WTG_RgisterRoomInfoRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_WTG_RgisterRoomInfoRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_WTG_RgisterRoomInfoRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 Proto_WTG_RgisterRoomInfoRsp::result() const {
+  return result_;
+}
+inline void Proto_WTG_RgisterRoomInfoRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
 }
 
 

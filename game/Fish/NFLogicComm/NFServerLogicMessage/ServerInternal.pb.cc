@@ -95,6 +95,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_ST_QueryPlayerSimpleDataRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_ST_QueryPlayerSimpleDataRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_GTW_RegisterRoomInfoReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_GTW_RegisterRoomInfoReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_WTG_RgisterRoomInfoRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_WTG_RgisterRoomInfoRsp_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_AccountState_descriptor_ = NULL;
 
 }  // namespace
@@ -532,6 +538,37 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_ST_QueryPlayerSimpleDataRsp));
+  Proto_GTW_RegisterRoomInfoReq_descriptor_ = file->message_type(25);
+  static const int Proto_GTW_RegisterRoomInfoReq_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_GTW_RegisterRoomInfoReq, game_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_GTW_RegisterRoomInfoReq, bus_id_),
+  };
+  Proto_GTW_RegisterRoomInfoReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_GTW_RegisterRoomInfoReq_descriptor_,
+      Proto_GTW_RegisterRoomInfoReq::default_instance_,
+      Proto_GTW_RegisterRoomInfoReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_GTW_RegisterRoomInfoReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_GTW_RegisterRoomInfoReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_GTW_RegisterRoomInfoReq));
+  Proto_WTG_RgisterRoomInfoRsp_descriptor_ = file->message_type(26);
+  static const int Proto_WTG_RgisterRoomInfoRsp_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RgisterRoomInfoRsp, result_),
+  };
+  Proto_WTG_RgisterRoomInfoRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_WTG_RgisterRoomInfoRsp_descriptor_,
+      Proto_WTG_RgisterRoomInfoRsp::default_instance_,
+      Proto_WTG_RgisterRoomInfoRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RgisterRoomInfoRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTG_RgisterRoomInfoRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_WTG_RgisterRoomInfoRsp));
   Proto_AccountState_descriptor_ = file->enum_type(0);
 }
 
@@ -595,6 +632,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Proto_TS_QueryPlayerSimpleDataReq_descriptor_, &Proto_TS_QueryPlayerSimpleDataReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_ST_QueryPlayerSimpleDataRsp_descriptor_, &Proto_ST_QueryPlayerSimpleDataRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_GTW_RegisterRoomInfoReq_descriptor_, &Proto_GTW_RegisterRoomInfoReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_WTG_RgisterRoomInfoRsp_descriptor_, &Proto_WTG_RgisterRoomInfoRsp::default_instance());
 }
 
 }  // namespace
@@ -650,6 +691,10 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete Proto_TS_QueryPlayerSimpleDataReq_reflection_;
   delete Proto_ST_QueryPlayerSimpleDataRsp::default_instance_;
   delete Proto_ST_QueryPlayerSimpleDataRsp_reflection_;
+  delete Proto_GTW_RegisterRoomInfoReq::default_instance_;
+  delete Proto_GTW_RegisterRoomInfoReq_reflection_;
+  delete Proto_WTG_RgisterRoomInfoRsp::default_instance_;
+  delete Proto_WTG_RgisterRoomInfoRsp_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -660,72 +705,77 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
 
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::proto_ff::protobuf_AddDesc_Com_2eproto();
+  ::proto_ff::protobuf_AddDesc_ServerConfig_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\024ServerInternal.proto\022\010proto_ff\032\025yd_fie"
-    "ldoptions.proto\032\tCom.proto\"\233\001\n\025Proto_PTW"
-    "UserLoginReq\022\017\n\007user_id\030\001 \001(\004\022\017\n\007account"
-    "\030\002 \001(\t\022\024\n\014proxy_bus_id\030\003 \001(\r\022\021\n\tclient_i"
-    "p\030\004 \001(\t\0227\n\010ext_data\030\005 \001(\0132%.proto_ff.Pro"
-    "to_UserLoginExternalData\"\302\001\n\027Proto_WTPPl"
-    "ayerLoginRsp\022\016\n\006result\030\001 \001(\005\022\017\n\007user_id\030"
-    "\002 \001(\004\022\017\n\007game_id\030\003 \001(\r\022\017\n\007room_id\030\004 \001(\r\022"
-    "\023\n\013game_bus_id\030\005 \001(\r\022\024\n\014logic_bus_id\030\006 \001"
-    "(\r\0229\n\013detail_data\030\007 \001(\0132$.proto_ff.Proto"
-    "_UserDetailCommonData\"\306\001\n\032Proto_WorldToL"
-    "ogicLoginReq\022\017\n\007user_id\030\001 \001(\004\022\017\n\007game_id"
-    "\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\023\n\013game_bus_id\030\004"
-    " \001(\r\022\024\n\014proxy_bus_id\030\005 \001(\r\022\021\n\tclient_ip\030"
-    "\007 \001(\t\0227\n\010ext_data\030\010 \001(\0132%.proto_ff.Proto"
-    "_UserLoginExternalData\"\247\001\n\032Proto_LogicTo"
-    "WorldLoginRsp\022\016\n\006result\030\001 \001(\r\022\017\n\007user_id"
-    "\030\002 \001(\004\022-\n\010sns_sync\030\003 \001(\0132\033.proto_ff.Prot"
-    "o_LTSSyncData\0229\n\013detail_data\030\004 \001(\0132$.pro"
-    "to_ff.Proto_UserDetailCommonData\"\311\001\n\021Pro"
-    "to_WTSLoginReq\022\017\n\007user_id\030\001 \001(\004\022\017\n\007game_"
-    "id\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\023\n\013game_bus_id"
-    "\030\004 \001(\r\022\024\n\014proxy_bus_id\030\005 \001(\r\022\021\n\tclient_i"
-    "p\030\007 \001(\t\022\024\n\014logic_bus_id\030\010 \001(\r\022-\n\010sns_syn"
-    "c\030\t \001(\0132\033.proto_ff.Proto_LTSSyncData\"4\n\021"
-    "Proto_STWLoginRsp\022\016\n\006result\030\001 \001(\r\022\017\n\007use"
-    "r_id\030\002 \001(\004\"+\n\026NotifyPlayerDisconnect\022\021\n\t"
-    "player_id\030\001 \001(\004\"@\n\025PTWPlayerReconnectReq"
-    "\022\021\n\tplayer_id\030\001 \001(\004\022\024\n\014proxy_bus_id\030\002 \001("
-    "\r\"\206\001\n\024WTPPlayerReconnctRsp\022\016\n\006result\030\001 \001"
-    "(\005\022\021\n\tplayer_id\030\002 \001(\004\022\017\n\007game_id\030\003 \001(\r\022\017"
-    "\n\007room_id\030\004 \001(\r\022\023\n\013game_bus_id\030\005 \001(\r\022\024\n\014"
-    "logic_bus_id\030\006 \001(\r\"w\n\025WTLPlayerReconnect"
-    "Req\022\021\n\tplayer_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022"
-    "\017\n\007room_id\030\003 \001(\r\022\023\n\013game_bus_id\030\004 \001(\r\022\024\n"
-    "\014proxy_bus_id\030\006 \001(\r\":\n\025LTWPlayerReconnec"
-    "tRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\004\""
-    "V\n\025WTGPlayerReconnectReq\022\021\n\tplayer_id\030\001 "
-    "\001(\004\022\024\n\014proxy_bus_id\030\002 \001(\r\022\024\n\014logic_bus_i"
-    "d\030\003 \001(\r\":\n\025GTWPlayerReconnectRsp\022\016\n\006resu"
-    "lt\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\004\"k\n\025WTSPlayer"
-    "ReconnectReq\022\021\n\tplayer_id\030\001 \001(\004\022\024\n\014logic"
-    "_bus_id\030\002 \001(\r\022\023\n\013game_bus_id\030\003 \001(\r\022\024\n\014pr"
-    "oxy_bus_id\030\004 \001(\r\":\n\025STWPlayerReconnectRs"
-    "p\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\004\"*\n\025"
-    "Proto_LTWLogoutNotify\022\021\n\tplayer_id\030\001 \001(\004"
-    "\"*\n\025Proto_WTLLogoutNotify\022\021\n\tplayer_id\030\001"
-    " \001(\004\"*\n\025Proto_WTSLogoutNotify\022\021\n\tplayer_"
-    "id\030\001 \001(\004\"@\n\027Proto_LTSBankGetDataReq\022\016\n\006j"
-    "etton\030\001 \001(\004\022\025\n\rbank_password\030\002 \001(\t\"6\n Pr"
-    "oto_LTS_PlayerAddBankJettonReq\022\022\n\nadd_je"
-    "tton\030\001 \001(\004\"]\n Proto_STL_PlayerAddBankJet"
-    "tonRsp\022\020\n\010ret_code\030\001 \001(\005\022\022\n\nadd_jetton\030\002"
-    " \001(\004\022\023\n\013bank_jetton\030\003 \001(\004\"<\n#Proto_LTS_P"
-    "layerReduceBankJettonReq\022\025\n\rreduce_jetto"
-    "n\030\001 \001(\004\"c\n#Proto_STL_PlayerReduceBankJet"
-    "tonRsp\022\020\n\010ret_code\030\001 \001(\005\022\025\n\rreduce_jetto"
-    "n\030\002 \001(\004\022\023\n\013bank_jetton\030\003 \001(\004\":\n!Proto_TS"
-    "_QueryPlayerSimpleDataReq\022\025\n\rquery_user_"
-    "id\030\001 \003(\004\"l\n!Proto_ST_QueryPlayerSimpleDa"
-    "taRsp\022\016\n\006result\030\001 \001(\005\0227\n\017query_user_list"
-    "\030\002 \003(\0132\036.proto_ff.Proto_UserSimpleData*a"
-    "\n\022Proto_AccountState\022\025\n\021E_ACCOUNTSTATE_O"
-    "K\020\000\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCO"
-    "UNTSTATE_FORBIT\020\002", 2577);
+    "ldoptions.proto\032\tCom.proto\032\022ServerConfig"
+    ".proto\"\233\001\n\025Proto_PTWUserLoginReq\022\017\n\007user"
+    "_id\030\001 \001(\004\022\017\n\007account\030\002 \001(\t\022\024\n\014proxy_bus_"
+    "id\030\003 \001(\r\022\021\n\tclient_ip\030\004 \001(\t\0227\n\010ext_data\030"
+    "\005 \001(\0132%.proto_ff.Proto_UserLoginExternal"
+    "Data\"\302\001\n\027Proto_WTPPlayerLoginRsp\022\016\n\006resu"
+    "lt\030\001 \001(\005\022\017\n\007user_id\030\002 \001(\004\022\017\n\007game_id\030\003 \001"
+    "(\r\022\017\n\007room_id\030\004 \001(\r\022\023\n\013game_bus_id\030\005 \001(\r"
+    "\022\024\n\014logic_bus_id\030\006 \001(\r\0229\n\013detail_data\030\007 "
+    "\001(\0132$.proto_ff.Proto_UserDetailCommonDat"
+    "a\"\306\001\n\032Proto_WorldToLogicLoginReq\022\017\n\007user"
+    "_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id\030\003 "
+    "\001(\r\022\023\n\013game_bus_id\030\004 \001(\r\022\024\n\014proxy_bus_id"
+    "\030\005 \001(\r\022\021\n\tclient_ip\030\007 \001(\t\0227\n\010ext_data\030\010 "
+    "\001(\0132%.proto_ff.Proto_UserLoginExternalDa"
+    "ta\"\247\001\n\032Proto_LogicToWorldLoginRsp\022\016\n\006res"
+    "ult\030\001 \001(\r\022\017\n\007user_id\030\002 \001(\004\022-\n\010sns_sync\030\003"
+    " \001(\0132\033.proto_ff.Proto_LTSSyncData\0229\n\013det"
+    "ail_data\030\004 \001(\0132$.proto_ff.Proto_UserDeta"
+    "ilCommonData\"\311\001\n\021Proto_WTSLoginReq\022\017\n\007us"
+    "er_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id\030"
+    "\003 \001(\r\022\023\n\013game_bus_id\030\004 \001(\r\022\024\n\014proxy_bus_"
+    "id\030\005 \001(\r\022\021\n\tclient_ip\030\007 \001(\t\022\024\n\014logic_bus"
+    "_id\030\010 \001(\r\022-\n\010sns_sync\030\t \001(\0132\033.proto_ff.P"
+    "roto_LTSSyncData\"4\n\021Proto_STWLoginRsp\022\016\n"
+    "\006result\030\001 \001(\r\022\017\n\007user_id\030\002 \001(\004\"+\n\026Notify"
+    "PlayerDisconnect\022\021\n\tplayer_id\030\001 \001(\004\"@\n\025P"
+    "TWPlayerReconnectReq\022\021\n\tplayer_id\030\001 \001(\004\022"
+    "\024\n\014proxy_bus_id\030\002 \001(\r\"\206\001\n\024WTPPlayerRecon"
+    "nctRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001("
+    "\004\022\017\n\007game_id\030\003 \001(\r\022\017\n\007room_id\030\004 \001(\r\022\023\n\013g"
+    "ame_bus_id\030\005 \001(\r\022\024\n\014logic_bus_id\030\006 \001(\r\"w"
+    "\n\025WTLPlayerReconnectReq\022\021\n\tplayer_id\030\001 \001"
+    "(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\023\n\013"
+    "game_bus_id\030\004 \001(\r\022\024\n\014proxy_bus_id\030\006 \001(\r\""
+    ":\n\025LTWPlayerReconnectRsp\022\016\n\006result\030\001 \001(\005"
+    "\022\021\n\tplayer_id\030\002 \001(\004\"V\n\025WTGPlayerReconnec"
+    "tReq\022\021\n\tplayer_id\030\001 \001(\004\022\024\n\014proxy_bus_id\030"
+    "\002 \001(\r\022\024\n\014logic_bus_id\030\003 \001(\r\":\n\025GTWPlayer"
+    "ReconnectRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_i"
+    "d\030\002 \001(\004\"k\n\025WTSPlayerReconnectReq\022\021\n\tplay"
+    "er_id\030\001 \001(\004\022\024\n\014logic_bus_id\030\002 \001(\r\022\023\n\013gam"
+    "e_bus_id\030\003 \001(\r\022\024\n\014proxy_bus_id\030\004 \001(\r\":\n\025"
+    "STWPlayerReconnectRsp\022\016\n\006result\030\001 \001(\005\022\021\n"
+    "\tplayer_id\030\002 \001(\004\"*\n\025Proto_LTWLogoutNotif"
+    "y\022\021\n\tplayer_id\030\001 \001(\004\"*\n\025Proto_WTLLogoutN"
+    "otify\022\021\n\tplayer_id\030\001 \001(\004\"*\n\025Proto_WTSLog"
+    "outNotify\022\021\n\tplayer_id\030\001 \001(\004\"@\n\027Proto_LT"
+    "SBankGetDataReq\022\016\n\006jetton\030\001 \001(\004\022\025\n\rbank_"
+    "password\030\002 \001(\t\"6\n Proto_LTS_PlayerAddBan"
+    "kJettonReq\022\022\n\nadd_jetton\030\001 \001(\004\"]\n Proto_"
+    "STL_PlayerAddBankJettonRsp\022\020\n\010ret_code\030\001"
+    " \001(\005\022\022\n\nadd_jetton\030\002 \001(\004\022\023\n\013bank_jetton\030"
+    "\003 \001(\004\"<\n#Proto_LTS_PlayerReduceBankJetto"
+    "nReq\022\025\n\rreduce_jetton\030\001 \001(\004\"c\n#Proto_STL"
+    "_PlayerReduceBankJettonRsp\022\020\n\010ret_code\030\001"
+    " \001(\005\022\025\n\rreduce_jetton\030\002 \001(\004\022\023\n\013bank_jett"
+    "on\030\003 \001(\004\":\n!Proto_TS_QueryPlayerSimpleDa"
+    "taReq\022\025\n\rquery_user_id\030\001 \003(\004\"l\n!Proto_ST"
+    "_QueryPlayerSimpleDataRsp\022\016\n\006result\030\001 \001("
+    "\005\0227\n\017query_user_list\030\002 \003(\0132\036.proto_ff.Pr"
+    "oto_UserSimpleData\"Y\n\035Proto_GTW_Register"
+    "RoomInfoReq\022(\n\004game\030\001 \003(\0132\032.proto_ff.Gam"
+    "eExternalGame\022\016\n\006bus_id\030\002 \001(\r\".\n\034Proto_W"
+    "TG_RgisterRoomInfoRsp\022\016\n\006result\030\001 \001(\005*a\n"
+    "\022Proto_AccountState\022\025\n\021E_ACCOUNTSTATE_OK"
+    "\020\000\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOU"
+    "NTSTATE_FORBIT\020\002", 2736);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -753,6 +803,8 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_STL_PlayerReduceBankJettonRsp::default_instance_ = new Proto_STL_PlayerReduceBankJettonRsp();
   Proto_TS_QueryPlayerSimpleDataReq::default_instance_ = new Proto_TS_QueryPlayerSimpleDataReq();
   Proto_ST_QueryPlayerSimpleDataRsp::default_instance_ = new Proto_ST_QueryPlayerSimpleDataRsp();
+  Proto_GTW_RegisterRoomInfoReq::default_instance_ = new Proto_GTW_RegisterRoomInfoReq();
+  Proto_WTG_RgisterRoomInfoRsp::default_instance_ = new Proto_WTG_RgisterRoomInfoRsp();
   Proto_PTWUserLoginReq::default_instance_->InitAsDefaultInstance();
   Proto_WTPPlayerLoginRsp::default_instance_->InitAsDefaultInstance();
   Proto_WorldToLogicLoginReq::default_instance_->InitAsDefaultInstance();
@@ -778,6 +830,8 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_STL_PlayerReduceBankJettonRsp::default_instance_->InitAsDefaultInstance();
   Proto_TS_QueryPlayerSimpleDataReq::default_instance_->InitAsDefaultInstance();
   Proto_ST_QueryPlayerSimpleDataRsp::default_instance_->InitAsDefaultInstance();
+  Proto_GTW_RegisterRoomInfoReq::default_instance_->InitAsDefaultInstance();
+  Proto_WTG_RgisterRoomInfoRsp::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -8157,6 +8211,463 @@ void Proto_ST_QueryPlayerSimpleDataRsp::Swap(Proto_ST_QueryPlayerSimpleDataRsp* 
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_ST_QueryPlayerSimpleDataRsp_descriptor_;
   metadata.reflection = Proto_ST_QueryPlayerSimpleDataRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_GTW_RegisterRoomInfoReq::kGameFieldNumber;
+const int Proto_GTW_RegisterRoomInfoReq::kBusIdFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_GTW_RegisterRoomInfoReq::Proto_GTW_RegisterRoomInfoReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_GTW_RegisterRoomInfoReq::InitAsDefaultInstance() {
+}
+
+Proto_GTW_RegisterRoomInfoReq::Proto_GTW_RegisterRoomInfoReq(const Proto_GTW_RegisterRoomInfoReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_GTW_RegisterRoomInfoReq::SharedCtor() {
+  _cached_size_ = 0;
+  bus_id_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_GTW_RegisterRoomInfoReq::~Proto_GTW_RegisterRoomInfoReq() {
+  SharedDtor();
+}
+
+void Proto_GTW_RegisterRoomInfoReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_GTW_RegisterRoomInfoReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_GTW_RegisterRoomInfoReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_GTW_RegisterRoomInfoReq_descriptor_;
+}
+
+const Proto_GTW_RegisterRoomInfoReq& Proto_GTW_RegisterRoomInfoReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_GTW_RegisterRoomInfoReq* Proto_GTW_RegisterRoomInfoReq::default_instance_ = NULL;
+
+Proto_GTW_RegisterRoomInfoReq* Proto_GTW_RegisterRoomInfoReq::New() const {
+  return new Proto_GTW_RegisterRoomInfoReq;
+}
+
+void Proto_GTW_RegisterRoomInfoReq::Clear() {
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    bus_id_ = 0u;
+  }
+  game_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_GTW_RegisterRoomInfoReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // repeated .proto_ff.GameExternalGame game = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_game:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_game()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(10)) goto parse_game;
+        if (input->ExpectTag(16)) goto parse_bus_id;
+        break;
+      }
+
+      // optional uint32 bus_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_bus_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &bus_id_)));
+          set_has_bus_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_GTW_RegisterRoomInfoReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // repeated .proto_ff.GameExternalGame game = 1;
+  for (int i = 0; i < this->game_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      1, this->game(i), output);
+  }
+
+  // optional uint32 bus_id = 2;
+  if (has_bus_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->bus_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_GTW_RegisterRoomInfoReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // repeated .proto_ff.GameExternalGame game = 1;
+  for (int i = 0; i < this->game_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        1, this->game(i), target);
+  }
+
+  // optional uint32 bus_id = 2;
+  if (has_bus_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->bus_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_GTW_RegisterRoomInfoReq::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    // optional uint32 bus_id = 2;
+    if (has_bus_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->bus_id());
+    }
+
+  }
+  // repeated .proto_ff.GameExternalGame game = 1;
+  total_size += 1 * this->game_size();
+  for (int i = 0; i < this->game_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->game(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_GTW_RegisterRoomInfoReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_GTW_RegisterRoomInfoReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_GTW_RegisterRoomInfoReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_GTW_RegisterRoomInfoReq::MergeFrom(const Proto_GTW_RegisterRoomInfoReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  game_.MergeFrom(from.game_);
+  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    if (from.has_bus_id()) {
+      set_bus_id(from.bus_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_GTW_RegisterRoomInfoReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_GTW_RegisterRoomInfoReq::CopyFrom(const Proto_GTW_RegisterRoomInfoReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_GTW_RegisterRoomInfoReq::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_GTW_RegisterRoomInfoReq::Swap(Proto_GTW_RegisterRoomInfoReq* other) {
+  if (other != this) {
+    game_.Swap(&other->game_);
+    std::swap(bus_id_, other->bus_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_GTW_RegisterRoomInfoReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_GTW_RegisterRoomInfoReq_descriptor_;
+  metadata.reflection = Proto_GTW_RegisterRoomInfoReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_WTG_RgisterRoomInfoRsp::kResultFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_WTG_RgisterRoomInfoRsp::Proto_WTG_RgisterRoomInfoRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::InitAsDefaultInstance() {
+}
+
+Proto_WTG_RgisterRoomInfoRsp::Proto_WTG_RgisterRoomInfoRsp(const Proto_WTG_RgisterRoomInfoRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_WTG_RgisterRoomInfoRsp::~Proto_WTG_RgisterRoomInfoRsp() {
+  SharedDtor();
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_WTG_RgisterRoomInfoRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_WTG_RgisterRoomInfoRsp_descriptor_;
+}
+
+const Proto_WTG_RgisterRoomInfoRsp& Proto_WTG_RgisterRoomInfoRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_WTG_RgisterRoomInfoRsp* Proto_WTG_RgisterRoomInfoRsp::default_instance_ = NULL;
+
+Proto_WTG_RgisterRoomInfoRsp* Proto_WTG_RgisterRoomInfoRsp::New() const {
+  return new Proto_WTG_RgisterRoomInfoRsp;
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    result_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_WTG_RgisterRoomInfoRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 result = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &result_)));
+          set_has_result();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->result(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_WTG_RgisterRoomInfoRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->result(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_WTG_RgisterRoomInfoRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 result = 1;
+    if (has_result()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->result());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_WTG_RgisterRoomInfoRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_WTG_RgisterRoomInfoRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::MergeFrom(const Proto_WTG_RgisterRoomInfoRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_result()) {
+      set_result(from.result());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::CopyFrom(const Proto_WTG_RgisterRoomInfoRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_WTG_RgisterRoomInfoRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_WTG_RgisterRoomInfoRsp::Swap(Proto_WTG_RgisterRoomInfoRsp* other) {
+  if (other != this) {
+    std::swap(result_, other->result_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_WTG_RgisterRoomInfoRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_WTG_RgisterRoomInfoRsp_descriptor_;
+  metadata.reflection = Proto_WTG_RgisterRoomInfoRsp_reflection_;
   return metadata;
 }
 

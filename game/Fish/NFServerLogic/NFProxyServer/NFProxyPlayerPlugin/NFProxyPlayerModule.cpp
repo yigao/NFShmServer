@@ -124,7 +124,7 @@ int NFCProxyPlayerModule::OnTimer(uint32_t nTimerID)
 
 int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_PROXY_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Proxy Server not inited, drop client msg:{}", packet.ToString());
         return -1;
@@ -136,12 +136,27 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
         return -1;
     }
 
+    NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+    if (pLinkInfo)
+    {
+        int count = 0;
+        int interval = 0;
+        uint64_t roleID = 0;
+        pLinkInfo->AddPkgStatistic(packet.nMsgId, pLinkInfo->GetPlayerId(), unLinkId);
+        int ret = pLinkInfo->CheckPkgRate(&m_packetConfig, packet.nMsgId, count, interval);
+        if (ret != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check and kick player:{| linkId:{} count:{} interval:{} ret:{} packet:{}", roleID, unLinkId, count,
+                       interval, ret, packet.ToString());
+            return 0;
+        }
+    }
+
     switch (packet.nMsgId)
     {
         case NF_SERVER_TO_SERVER_HEART_BEAT:
         {
             FindModule<NFIMessageModule>()->Send(unLinkId, NF_SERVER_TO_SERVER_HEART_BEAT_RSP, NULL, 0);
-
         }
         case proto_ff::NF_CS_Msg_HeartBeat_REQ:
         {
@@ -180,7 +195,7 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
 
 int NFCProxyPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_PROXY_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
         return -1;

@@ -206,7 +206,7 @@ void NFCBusServer::ProcessMsgLogicThread()
         }
 
         mxBuffer.Clear();
-        bool inited = m_pObjPluginManager->IsInited();
+        bool inited = m_pObjPluginManager->IsInited(mServerType);
         while(left_times-- > 0 && inited)
         {
             size_t recv_len = 0;

@@ -82,7 +82,7 @@ bool NFCLogicServerModule::OnDynamicPlugin()
 
 int NFCLogicServerModule::TestOtherServerToWorldServer()
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_LOGIC_SERVER))
     {
         return 0;
     }

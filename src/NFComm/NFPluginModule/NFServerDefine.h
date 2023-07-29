@@ -109,8 +109,8 @@ enum NF_SERVER_TYPES
     NF_ST_GAME_SERVER = 10,
     NF_ST_SNS_SERVER = 11, //SNS服务器
     NF_ST_WEB_SERVER = 12, //Web服务器
-    NF_ST_MONITOR_SERVER = 18, //Monitor服务器
-    NF_ST_MAX = 50,
+    NF_ST_MONITOR_SERVER = 13, //Monitor服务器
+    NF_ST_MAX = 14,
 };
 
 enum NF_MODULE_TYPE
@@ -186,13 +186,7 @@ const std::string gArrayServer[NF_ST_MAX] = {
         "GameServer", //10
         "SnsServer", //11
         "WebServer", //12
-        "NoneServer", //13
-        "NoneServer", //14
-        "NoneServer", //15
-        "NoneServer", //16
-        "NoneServer", //17
-        "MonitorServer", //18
-        "NoneServer", //19
+        "MonitorServer", //13
 };
 
 std::string GetServerName(NF_SERVER_TYPES serverId);

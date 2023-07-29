@@ -295,7 +295,7 @@ int NFWorkServerModule::RegisterMasterServer(uint32_t serverState)
             }
 
             //完成服务器启动任务
-            if (!m_pObjPluginManager->IsInited())
+            if (!m_pObjPluginManager->IsInited(m_serverType))
             {
                 m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
             }
@@ -317,7 +317,7 @@ int NFWorkServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
         std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
         NFLogDebug(NF_LOG_SYSTEMLOG, 0, "server:{} connect master success!", pConfig->ServerName);
 
-        if (!m_pObjPluginManager->IsInited())
+        if (!m_pObjPluginManager->IsInited(m_serverType))
         {
             RegisterMasterServer(proto_ff::EST_INIT);
         }
@@ -555,7 +555,7 @@ int NFWorkServerModule::OnHandleProxyServerRegister(const proto_ff::ServerInfoRe
               pServerData->mServerInfo.external_server_port());
 
     //完成服务器启动任务
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(m_serverType))
     {
         m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER);
     }
@@ -687,7 +687,7 @@ int NFWorkServerModule::RegisterRouteAgentServer(uint64_t unLinkId)
 int NFWorkServerModule::OnRegisterRouteAgentServerRspProcess(uint64_t unLinkId, NFDataPackage &packet)
 {
     //完成服务器启动任务
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(m_serverType))
     {
         m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER);
     }

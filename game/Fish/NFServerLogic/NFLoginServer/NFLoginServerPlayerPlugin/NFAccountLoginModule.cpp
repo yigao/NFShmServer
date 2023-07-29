@@ -52,7 +52,7 @@ int NFCAccountLoginModule::OnTimer(uint32_t nTimerID)
 
 int NFCAccountLoginModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_LOGIN_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Proxy Server not inited, drop client msg:{}", packet.ToString());
         return -1;
@@ -78,7 +78,7 @@ int NFCAccountLoginModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackag
 
 int NFCAccountLoginModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited())
+    if (!m_pObjPluginManager->IsInited(NF_ST_LOGIN_SERVER))
     {
         NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
         return -1;

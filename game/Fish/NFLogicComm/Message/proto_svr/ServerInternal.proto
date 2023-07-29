@@ -2,6 +2,7 @@ package proto_ff;
 
 import "yd_fieldoptions.proto";
 import "Com.proto";
+import "ServerConfig.proto";
 
 
 enum Proto_AccountState
@@ -184,7 +185,7 @@ message Proto_STL_PlayerReduceBankJettonRsp
   optional uint64 bank_jetton = 3;
 }
 
-//NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC = 130;
+//NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC = 150;
 message Proto_TS_QueryPlayerSimpleDataReq
 {
   repeated uint64 query_user_id = 1;
@@ -194,4 +195,16 @@ message Proto_ST_QueryPlayerSimpleDataRsp
 {
   optional int32 result = 1;
   repeated Proto_UserSimpleData query_user_list = 2;
+}
+
+//NF_GTW_REGISTER_ROOM_INFO_RPC = 130;
+message Proto_GTW_RegisterRoomInfoReq
+{
+  repeated GameExternalGame game = 1;
+  optional uint32 bus_id = 2;
+}
+
+message Proto_WTG_RgisterRoomInfoRsp
+{
+  optional int32 result = 1;
 }

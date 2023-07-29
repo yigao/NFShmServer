@@ -234,7 +234,7 @@ int NFCRouteAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
 	{
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "route agent server connect master success!");
-        if (!m_pObjPluginManager->IsInited())
+        if (!m_pObjPluginManager->IsInited(NF_ST_ROUTE_AGENT_SERVER))
         {
             RegisterMasterServer(proto_ff::EST_INIT);
         }
@@ -243,7 +243,7 @@ int NFCRouteAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
         }
 
 		//完成服务器启动任务
-		if (!m_pObjPluginManager->IsInited())
+		if (!m_pObjPluginManager->IsInited(NF_ST_ROUTE_AGENT_SERVER))
 		{
 			m_pObjPluginManager->FinishAppTask(NF_ST_ROUTE_AGENT_SERVER, APP_INIT_CONNECT_MASTER);
 		}
@@ -419,7 +419,7 @@ int NFCRouteAgentServerModule::OnRouteServerSocketEvent(eMsgType nEvent, uint64_
 		RegisterRouteServer(unLinkId);
 
 		//完成服务器启动任务
-		if (!m_pObjPluginManager->IsInited())
+		if (!m_pObjPluginManager->IsInited(NF_ST_ROUTE_AGENT_SERVER))
 		{
 			m_pObjPluginManager->FinishAppTask(NF_ST_ROUTE_AGENT_SERVER, APP_INIT_CONNECT_ROUTE_SERVER);
 		}

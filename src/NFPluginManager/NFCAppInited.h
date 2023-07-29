@@ -33,10 +33,10 @@ public:
         m_serverConnectTasks.resize(NF_ST_MAX);
         m_serverLoadDestStore.resize(NF_ST_MAX);
         m_appObjLoadFromDBTask.resize(NF_ST_MAX);
-        m_fireFlag.resize(NF_ST_MAX);
-        for(int i = 0; i < (int)m_fireFlag.size(); i++)
+        m_initedFlag.resize(NF_ST_MAX);
+        for(int i = 0; i < (int)m_initedFlag.size(); i++)
         {
-            m_fireFlag[i] = false;
+            m_initedFlag[i] = false;
         }
         m_lastTime = NFGetSecondTime();
 	}
@@ -57,11 +57,13 @@ public:
 	bool IsInitTasked() const;
 
 	void PrintTimeout();
+
+    bool IsInited(NF_SERVER_TYPES eServerType) const;
 private:
     std::vector<std::vector<NFCAppInitTask>> m_serverConnectTasks;
     std::vector<std::vector<NFCAppInitTask>> m_serverLoadDestStore;
     std::vector<std::vector<NFCAppInitTask>> m_appObjLoadFromDBTask;
-    std::vector<bool> m_fireFlag;
+    std::vector<bool> m_initedFlag;
     bool m_initServerConnectTasks;
 	bool m_initDestStoreTasks;
 	bool m_initOBjLoadForomDBTasks;
