@@ -273,6 +273,9 @@ int NFGameRoomMgr::RegisterAllRoomToWorldServer()
         {
             DeleteTimer(m_registerRoomTimer);
         }
+
+        m_pObjPluginManager->FinishAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER, APP_INIT_STATUS_SERVER_REGISTER);
+
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Register RoomInfo To World Server Success, req:{}", req.DebugString());
     });
 

@@ -34,9 +34,25 @@ public:
                                                      m_initOBjLoadForomDBTasks(false), m_initServerRegisterTasks(false)
     {
         m_serverConnectTasks.resize(NF_ST_MAX);
+        for(int i = 0; i < (int)m_serverConnectTasks.size(); i++)
+        {
+            m_serverConnectTasks[i].first = false;
+        }
         m_serverLoadDestStore.resize(NF_ST_MAX);
+        for(int i = 0; i < (int)m_serverLoadDestStore.size(); i++)
+        {
+            m_serverLoadDestStore[i].first = false;
+        }
         m_appObjLoadFromDBTask.resize(NF_ST_MAX);
+        for(int i = 0; i < (int)m_appObjLoadFromDBTask.size(); i++)
+        {
+            m_appObjLoadFromDBTask[i].first = false;
+        }
         m_serverRegisterTask.resize(NF_ST_MAX);
+        for(int i = 0; i < (int)m_serverRegisterTask.size(); i++)
+        {
+            m_serverRegisterTask[i].first = false;
+        }
         m_initedFlag.resize(NF_ST_MAX);
         for (int i = 0; i < (int) m_initedFlag.size(); i++)
         {
@@ -66,10 +82,10 @@ public:
     bool IsInited(NF_SERVER_TYPES eServerType) const;
 
 private:
-    std::vector<std::vector<NFCAppInitTask>> m_serverConnectTasks;
-    std::vector<std::vector<NFCAppInitTask>> m_serverLoadDestStore;
-    std::vector<std::vector<NFCAppInitTask>> m_appObjLoadFromDBTask;
-    std::vector<std::vector<NFCAppInitTask>> m_serverRegisterTask;
+    std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_serverConnectTasks;
+    std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_serverLoadDestStore;
+    std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_appObjLoadFromDBTask;
+    std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_serverRegisterTask;
     std::vector<bool> m_initedFlag;
     bool m_initServerConnectTasks;
     bool m_initDestStoreTasks;

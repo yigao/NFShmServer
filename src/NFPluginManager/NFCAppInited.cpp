@@ -22,8 +22,7 @@ int NFCAppInited::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType
         task.m_taskType = taskType;
         task.m_desc = desc;
 
-        m_serverConnectTasks[eServerType].push_back(task);
-        m_initServerConnectTasks = false;
+        m_serverConnectTasks[eServerType].second.push_back(task);
     }
     else if (initStatus == APP_INIT_STATUS_SERVER_LOAD_DESC_STORE)
     {
@@ -32,8 +31,7 @@ int NFCAppInited::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType
         task.m_taskType = taskType;
         task.m_desc = desc;
 
-        m_serverLoadDestStore[eServerType].push_back(task);
-        m_initDestStoreTasks = false;
+        m_serverLoadDestStore[eServerType].second.push_back(task);
     }
     else if (initStatus == APP_INIT_STATUS_SERVER_LOAD_OBJ_FROM_DB)
     {
@@ -42,8 +40,7 @@ int NFCAppInited::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType
         task.m_taskType = taskType;
         task.m_desc = desc;
 
-        m_appObjLoadFromDBTask[eServerType].push_back(task);
-        m_initOBjLoadForomDBTasks = false;
+        m_appObjLoadFromDBTask[eServerType].second.push_back(task);
     }
     else if (initStatus == APP_INIT_STATUS_SERVER_REGISTER)
     {
@@ -52,8 +49,7 @@ int NFCAppInited::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType
         task.m_taskType = taskType;
         task.m_desc = desc;
 
-        m_serverRegisterTask[eServerType].push_back(task);
-        m_initServerRegisterTasks = false;
+        m_serverRegisterTask[eServerType].second.push_back(task);
     }
 
 
@@ -66,15 +62,15 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
     if (initStatus == APP_INIT_STATUS_SERVER_CONNECT)
     {
         CHECK_EXPR(eServerType < (int)m_serverConnectTasks.size(), -1, "serverType:{} taskType:{}", eServerType, taskType);
-        for(int i = 0; i < (int)m_serverConnectTasks[eServerType].size(); i++)
+        for(int i = 0; i < (int)m_serverConnectTasks[eServerType].second.size(); i++)
         {
-            if (m_serverConnectTasks[eServerType][i].m_taskType == taskType)
+            if (m_serverConnectTasks[eServerType].second[i].m_taskType == taskType)
             {
                 flag = true;
-                if (m_serverConnectTasks[eServerType][i].m_finished == false)
+                if (m_serverConnectTasks[eServerType].second[i].m_finished == false)
                 {
-                    m_serverConnectTasks[eServerType][i].m_finished = true;
-                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_serverConnectTasks[eServerType][i].m_desc);
+                    m_serverConnectTasks[eServerType].second[i].m_finished = true;
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_serverConnectTasks[eServerType].second[i].m_desc);
                 }
             }
         }
@@ -82,15 +78,15 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
     else if (initStatus == APP_INIT_STATUS_SERVER_LOAD_DESC_STORE)
     {
         CHECK_EXPR(eServerType >= 0 && eServerType < (int)m_serverLoadDestStore.size(), -1, "serverType:{} taskType:{}", eServerType, taskType);
-        for(int i = 0; i < (int)m_serverLoadDestStore[eServerType].size(); i++)
+        for(int i = 0; i < (int)m_serverLoadDestStore[eServerType].second.size(); i++)
         {
-            if (m_serverLoadDestStore[eServerType][i].m_taskType == taskType)
+            if (m_serverLoadDestStore[eServerType].second[i].m_taskType == taskType)
             {
                 flag = true;
-                if (m_serverLoadDestStore[eServerType][i].m_finished == false)
+                if (m_serverLoadDestStore[eServerType].second[i].m_finished == false)
                 {
-                    m_serverLoadDestStore[eServerType][i].m_finished = true;
-                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_serverLoadDestStore[eServerType][i].m_desc);
+                    m_serverLoadDestStore[eServerType].second[i].m_finished = true;
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_serverLoadDestStore[eServerType].second[i].m_desc);
                 }
             }
         }
@@ -98,15 +94,15 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
     else if (initStatus == APP_INIT_STATUS_SERVER_LOAD_OBJ_FROM_DB)
     {
         CHECK_EXPR(eServerType < (int)m_appObjLoadFromDBTask.size(), -1, "serverType:{} taskType:{}", eServerType, taskType);
-        for(int i = 0; i < (int)m_appObjLoadFromDBTask[eServerType].size(); i++)
+        for(int i = 0; i < (int)m_appObjLoadFromDBTask[eServerType].second.size(); i++)
         {
-            if (m_appObjLoadFromDBTask[eServerType][i].m_taskType == taskType)
+            if (m_appObjLoadFromDBTask[eServerType].second[i].m_taskType == taskType)
             {
                 flag = true;
-                if (m_appObjLoadFromDBTask[eServerType][i].m_finished == false)
+                if (m_appObjLoadFromDBTask[eServerType].second[i].m_finished == false)
                 {
-                    m_appObjLoadFromDBTask[eServerType][i].m_finished = true;
-                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_appObjLoadFromDBTask[eServerType][i].m_desc);
+                    m_appObjLoadFromDBTask[eServerType].second[i].m_finished = true;
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_appObjLoadFromDBTask[eServerType].second[i].m_desc);
                 }
             }
         }
@@ -114,15 +110,15 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
     else if (initStatus == APP_INIT_STATUS_SERVER_REGISTER)
     {
         CHECK_EXPR(eServerType < (int)m_serverRegisterTask.size(), -1, "serverType:{} taskType:{}", eServerType, taskType);
-        for(int i = 0; i < (int)m_serverRegisterTask[eServerType].size(); i++)
+        for(int i = 0; i < (int)m_serverRegisterTask[eServerType].second.size(); i++)
         {
-            if (m_serverRegisterTask[eServerType][i].m_taskType == taskType)
+            if (m_serverRegisterTask[eServerType].second[i].m_taskType == taskType)
             {
                 flag = true;
-                if (m_serverRegisterTask[eServerType][i].m_finished == false)
+                if (m_serverRegisterTask[eServerType].second[i].m_finished == false)
                 {
-                    m_serverRegisterTask[eServerType][i].m_finished = true;
-                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_serverRegisterTask[eServerType][i].m_desc);
+                    m_serverRegisterTask[eServerType].second[i].m_finished = true;
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Finish App Init Task, serverType:{} taskType:{} desc:{}", eServerType, taskType, m_serverRegisterTask[eServerType].second[i].m_desc);
                 }
             }
         }
@@ -138,46 +134,29 @@ int NFCAppInited::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, 
 
 int NFCAppInited::CheckTaskFinished()
 {
-    std::vector<bool> vecConnectFlag;
-    vecConnectFlag.resize(NF_ST_MAX);
-    for(int i = 0; i < (int)vecConnectFlag.size(); i++)
-    {
-        vecConnectFlag[i] = true;
-    }
-
-    std::vector<bool> vecLoadDbObjFlag;
-    vecLoadDbObjFlag.resize(NF_ST_MAX);
-    for(int i = 0; i < (int)vecLoadDbObjFlag.size(); i++)
-    {
-        vecLoadDbObjFlag[i] = true;
-    }
-
-    std::vector<bool> vecRegisterTaskFlag;
-    vecRegisterTaskFlag.resize(NF_ST_MAX);
-    for(int i = 0; i < (int)vecRegisterTaskFlag.size(); i++)
-    {
-        vecRegisterTaskFlag[i] = true;
-    }
-
 	if (!m_initServerConnectTasks)
 	{
         m_initServerConnectTasks = true;
         for(int i = 0; i < (int)m_serverConnectTasks.size(); i++)
         {
-	        for(int j = 0; j < (int)m_serverConnectTasks[i].size(); j++)
+            if (m_serverConnectTasks[i].first == false)
             {
-	            if (m_serverConnectTasks[i][j].m_finished == false)
+                m_serverConnectTasks[i].first = true;
+                for(int j = 0; j < (int)m_serverConnectTasks[i].second.size(); j++)
                 {
-                    m_initServerConnectTasks = false;
-                    vecConnectFlag[i] = false;
-	                break;
+                    if (m_serverConnectTasks[i].second[j].m_finished == false)
+                    {
+                        m_initServerConnectTasks = false;
+                        m_serverConnectTasks[i].first = false;
+                        break;
+                    }
                 }
             }
         }
 
         for(int i = 1; i < (int)NF_ST_MAX; i++)
         {
-            if (vecConnectFlag[i])
+            if (m_serverConnectTasks[i].first)
             {
                 proto_ff::NFEventNoneData event;
                 FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
@@ -196,26 +175,38 @@ int NFCAppInited::CheckTaskFinished()
     if (!m_initDestStoreTasks)
     {
         m_initDestStoreTasks = true;
+
         for(int i = 0; i < (int)m_serverLoadDestStore.size(); i++)
         {
-            for(int j = 0; j < (int)m_serverLoadDestStore[i].size(); j++)
+            if (m_serverLoadDestStore[i].first == false)
             {
-                if (m_serverLoadDestStore[i][j].m_finished == false)
+                m_serverLoadDestStore[i].first = true;
+                for(int j = 0; j < (int)m_serverLoadDestStore[i].second.size(); j++)
                 {
-                    m_initDestStoreTasks = false;
-                    break;
+                    if (m_serverLoadDestStore[i].second[j].m_finished == false)
+                    {
+                        m_initDestStoreTasks = false;
+                        m_serverLoadDestStore[i].first = false;
+                        break;
+                    }
                 }
+            }
+        }
+
+        for(int i = 1; i < (int)NF_ST_MAX; i++)
+        {
+            if (m_serverLoadDestStore[i].first)
+            {
+                proto_ff::NFEventNoneData event;
+                FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
             }
         }
 
         if (m_initDestStoreTasks)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Desc Store Load Task..............");
-            for(int i = 0; i < NF_ST_MAX; i++)
-            {
-                proto_ff::NFEventNoneData event;
-                FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
-            }
+            proto_ff::NFEventNoneData event;
+            FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
         }
     }
 
@@ -224,20 +215,24 @@ int NFCAppInited::CheckTaskFinished()
         m_initOBjLoadForomDBTasks = true;
         for(int i = 0; i < (int)m_appObjLoadFromDBTask.size(); i++)
         {
-            for(int j = 0; j < (int)m_appObjLoadFromDBTask[i].size(); j++)
+            if (m_appObjLoadFromDBTask[i].first == false)
             {
-                if (m_appObjLoadFromDBTask[i][j].m_finished == false)
+                m_appObjLoadFromDBTask[i].first = true;
+                for(int j = 0; j < (int)m_appObjLoadFromDBTask[i].second.size(); j++)
                 {
-                    m_initOBjLoadForomDBTasks = false;
-                    vecLoadDbObjFlag[i] = false;
-                    break;
+                    if (m_appObjLoadFromDBTask[i].second[j].m_finished == false)
+                    {
+                        m_initOBjLoadForomDBTasks = false;
+                        m_appObjLoadFromDBTask[i].first = false;
+                        break;
+                    }
                 }
             }
         }
 
         for(int i = 1; i < (int)NF_ST_MAX; i++)
         {
-            if (vecLoadDbObjFlag[i])
+            if (m_appObjLoadFromDBTask[i].first)
             {
                 proto_ff::NFEventNoneData event;
                 FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_OBJ_LOAD_FROM_DB, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
@@ -257,20 +252,25 @@ int NFCAppInited::CheckTaskFinished()
         m_initServerRegisterTasks = true;
         for(int i = 0; i < (int)m_serverRegisterTask.size(); i++)
         {
-            for(int j = 0; j < (int)m_serverRegisterTask[i].size(); j++)
+            if (m_serverRegisterTask[i].first == false)
             {
-                if (m_serverRegisterTask[i][j].m_finished == false)
+                m_serverRegisterTask[i].first = true;
+                for(int j = 0; j < (int)m_serverRegisterTask[i].second.size(); j++)
                 {
-                    m_initServerRegisterTasks = false;
-                    vecRegisterTaskFlag[i] = false;
-                    break;
+                    if (m_serverRegisterTask[i].second[j].m_finished == false)
+                    {
+                        m_initServerRegisterTasks = false;
+                        m_serverRegisterTask[i].first = false;
+                        break;
+                    }
                 }
             }
+
         }
 
         for(int i = 1; i < (int)NF_ST_MAX; i++)
         {
-            if (vecRegisterTaskFlag[i])
+            if (m_serverRegisterTask[i].first)
             {
                 proto_ff::NFEventNoneData event;
                 FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
@@ -287,7 +287,7 @@ int NFCAppInited::CheckTaskFinished()
 
     for(int i = 1; i < (int)NF_ST_MAX; i++)
     {
-        if (vecConnectFlag[i] && vecLoadDbObjFlag[i] && m_initDestStoreTasks && vecRegisterTaskFlag[i] && m_initedFlag[i] == false)
+        if (m_serverConnectTasks[i].first && m_serverLoadDestStore[i].first && m_appObjLoadFromDBTask[i].first && m_serverRegisterTask[i].first && m_initedFlag[i] == false)
         {
             m_initedFlag[i] = true;
             proto_ff::NFEventNoneData event;
@@ -320,7 +320,11 @@ bool NFCAppInited::IsInitTasked() const
 
 bool NFCAppInited::IsInited(NF_SERVER_TYPES eServerType) const
 {
-    return m_initedFlag[eServerType];
+    if (!m_initedFlag[eServerType])
+    {
+        return m_serverConnectTasks[eServerType].first;
+    }
+    return true;
 }
 
 void NFCAppInited::PrintTimeout()
@@ -334,33 +338,33 @@ void NFCAppInited::PrintTimeout()
 
     for(int i = 0; i < (int)m_serverConnectTasks.size(); i++)
     {
-        for(int j = 0; j < (int)m_serverConnectTasks[i].size(); j++)
+        for(int j = 0; j < (int)m_serverConnectTasks[i].second.size(); j++)
         {
-            if (m_serverConnectTasks[i][j].m_finished == false)
+            if (m_serverConnectTasks[i].second[j].m_finished == false)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "App Init Task:{} not finish", m_serverConnectTasks[i][j].m_desc);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "App Init Task:{} not finish", m_serverConnectTasks[i].second[j].m_desc);
             }
         }
     }
 
     for(int i = 0; i < (int)m_serverLoadDestStore.size(); i++)
     {
-        for(int j = 0; j < (int)m_serverLoadDestStore[i].size(); j++)
+        for(int j = 0; j < (int)m_serverLoadDestStore[i].second.size(); j++)
         {
-            if (m_serverLoadDestStore[i][j].m_finished == false)
+            if (m_serverLoadDestStore[i].second[j].m_finished == false)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "App Init Task:{} not finish", m_serverLoadDestStore[i][j].m_desc);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "App Init Task:{} not finish", m_serverLoadDestStore[i].second[j].m_desc);
             }
         }
     }
 
     for(int i = 0; i < (int)m_appObjLoadFromDBTask.size(); i++)
     {
-        for(int j = 0; j < (int)m_appObjLoadFromDBTask[i].size(); j++)
+        for(int j = 0; j < (int)m_appObjLoadFromDBTask[i].second.size(); j++)
         {
-            if (m_appObjLoadFromDBTask[i][j].m_finished == false)
+            if (m_appObjLoadFromDBTask[i].second[j].m_finished == false)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "App Init Task:{} not finish", m_appObjLoadFromDBTask[i][j].m_desc);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "App Init Task:{} not finish", m_appObjLoadFromDBTask[i].second[j].m_desc);
             }
         }
     }
