@@ -76,3 +76,9 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_TS_QUERY_PLAYER_SIMPLE_DATA_RPC, proto_ff::
  * @brief game register room to world server
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC, proto_ff::Proto_GTW_RegisterRoomInfoReq, proto_ff::Proto_WTG_RegisterRoomInfoRsp)
+
+/**
+ * @brief world,logic,game req desk list rpc
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_DeskListReq, proto_ff::DeskListReq, proto_ff::DeskListRsp)
+

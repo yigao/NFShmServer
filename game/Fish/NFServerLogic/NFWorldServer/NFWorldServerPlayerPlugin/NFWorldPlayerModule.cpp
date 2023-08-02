@@ -14,8 +14,7 @@
 #include "ServerInternalCmd.pb.h"
 #include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-#include "Room/NFWorldRoomMgr.h"
-#include "NFComm/NFCore/NFServerIDUtil.h"
+
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -28,9 +27,7 @@ NFCWorldPlayerModule::~NFCWorldPlayerModule()
 
 bool NFCWorldPlayerModule::Awake()
 {
-    ////////////////game room register//////////////////////////////
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC>(NF_ST_WORLD_SERVER, this,
-                                                                                           &NFCWorldPlayerModule::OnRpcServiceRoomRegister);
+
     ////////////////game room register//////////////////////////////
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
@@ -41,31 +38,19 @@ bool NFCWorldPlayerModule::Awake()
                                                                                              &NFCWorldPlayerModule::OnRpcServicePlayerReconnect,
                                                                                              true);
 
-    /////////////////////enter game, exit game////////////////////////////////////
-
-
-    RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_MSG_EnterGameReq);
-
     /////////////////////////////////server msg, player disconnect logout////////////////////////////////////////////
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_PTW_PLAYER_DISCONNECT_MSG);
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_LTW_PLAYER_LOGOUT_NOTIFY);
 
     //////////player enter game////////////////////////////////////
 
-    Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+
     return true;
 }
 
 int NFCWorldPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
                                     const google::protobuf::Message *pMessage)
 {
-    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
-    {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH)
-        {
-            NFWorldRoomMgr::Instance(m_pObjPluginManager)->CreateRoom();
-        }
-    }
     return 0;
 }
 
@@ -436,26 +421,3 @@ int NFCWorldPlayerModule::NotifyLogicPlayerLogout(uint64_t playerId)
     return 0;
 }
 
-int NFCWorldPlayerModule::OnRpcServiceRoomRegister(proto_ff::Proto_GTW_RegisterRoomInfoReq &request, proto_ff::Proto_WTG_RegisterRoomInfoRsp &respone)
-{
-    respone.set_result(-1);
-    for (int i = 0; i < (int) request.game_size(); i++)
-    {
-        uint32_t gameId = request.game(i).gameid();
-        for (int j = 0; j < (int) request.game(i).roomid_size(); j++)
-        {
-            uint32_t roomId = request.game(i).roomid(j);
-            auto pRoom = NFWorldRoomMgr::Instance(m_pObjPluginManager)->GetRoom(gameId, roomId);
-            CHECK_EXPR(pRoom, -1, "room not exist, {} register failed, gameId:{} roomId:{}", NFServerIDUtil::GetBusNameFromBusID(request.bus_id()), gameId, roomId);
-            CHECK_EXPR(pRoom->m_busId == 0 || pRoom->m_busId == request.bus_id(), -1, "room has registed, {} register failed, gameId:{} roomId:{}",
-                       NFServerIDUtil::GetBusNameFromBusID(request.bus_id()), gameId, roomId);
-
-            pRoom->m_busId = request.bus_id();
-
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} register gameId:{} roomId:{} success", NFServerIDUtil::GetBusNameFromBusID(request.bus_id()), gameId, roomId);
-        }
-    }
-
-    respone.set_result(0);
-    return 0;
-}

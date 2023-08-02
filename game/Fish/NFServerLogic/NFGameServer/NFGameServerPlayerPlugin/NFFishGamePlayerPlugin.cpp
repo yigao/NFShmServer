@@ -12,8 +12,7 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
-#include "DescStore/RoomRoomDesc.h"
-#include "DescStoreEx/GameRoomDescEx.h"
+
 #include "Desk/NFGameDesk.h"
 #include "Room/NFGameRoom.h"
 #include "Room/NFGameRoomMgr.h"
@@ -80,10 +79,6 @@ bool NFFishGamePlayerPlugin::InitShmObjectRegister()
 
     ////////init game desk shm///////////////////
     REGISTER_SHM_OBJ(NFGameDesk, maxDescCount);
-
-    ////////init excel load shm///////////////////
-    REGISTER_DESCSTORE(RoomRoomDesc);
-    REGISTER_DESCSTORE(GameRoomDescEx);
 
     return true;
 }

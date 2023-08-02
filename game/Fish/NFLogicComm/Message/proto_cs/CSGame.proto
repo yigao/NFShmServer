@@ -1,0 +1,245 @@
+package proto_ff;
+
+import "Com.proto";
+import "ComDefine.proto";
+
+
+message RoomStatusInfo
+{
+  optional  uint32 game_id = 1;	//游戏ID
+  optional	uint32 room_id = 2; //房间ID
+  optional  string room_name = 3;
+  optional  uint64 enter_min = 4;
+  optional  uint64 enter_max = 5;
+  optional  uint32 status = 6; //0  游戏未上线 1 游戏上线
+}
+
+message GetRoomInfoReq
+{
+  optional uint32 game_id = 1;
+}
+
+message GetRoomInfoRsp
+{
+  optional int32 result = 1;
+  repeated RoomStatusInfo	rooms = 2;
+}
+
+message EnterGameAutoJoinReq
+{
+  optional uint32 game_id = 1;
+  optional uint32 room_id = 2;
+  optional uint32 desk_id = 3;
+  optional uint64 player_id = 4;
+  optional uint32 proxy_id = 5;
+}
+
+message EnterGameAutoJoinRsp
+{
+  optional int32 result = 1;
+  optional uint32 game_id = 2;
+  optional uint32 room_id = 3;
+  optional uint32 desk_id = 4;
+  optional uint32 chair_id = 5;
+  optional uint64 player_id = 6;
+  optional uint32 game_bus_id = 7;
+}
+
+message EnterGameReq
+{
+  optional uint32 game_id   = 1;
+  optional uint32 room_id   = 2;
+  optional uint32 desk_id   = 3;
+  optional uint32 chair_id  = 4;
+
+  optional uint32 proxy_id  = 5;
+  optional uint32 logic_id  = 6;
+}
+
+message EnterGameRsp
+{
+  optional int32 result         = 1;
+  optional uint32 chair_count    = 2;
+  optional uint32 my_chair_id    = 3;
+  optional uint32 game_id        = 4;
+  optional uint32 room_id        = 5;
+
+  optional uint32 game_bus_id    = 6;
+  optional uint64 player_id			 = 7;
+}
+
+//---------------------------------------
+message UserRecomeReq
+{
+  optional uint32 reserved = 1;
+}
+
+message UserRecomeRsp
+{
+  optional int32 result = 1;
+}
+
+message GameChairInfo
+{
+  optional uint32 chair_id = 1; //椅子id
+  optional uint32 chair_status = 2;//椅子状态
+}
+
+message GameDeskInfo
+{
+  optional uint32 desk_id = 1;//桌子id
+  optional string desk_name = 2;//桌子名字
+  optional uint32 desk_status = 3; //桌子的状态，正常、火爆、爆满
+  optional uint32 chair_count = 4; //桌子里面椅子个数
+  repeated GameChairInfo chairs= 5; //桌子里面椅子列表信息
+}
+
+
+//请求桌子列表信息
+message DeskListReq
+{
+  optional uint32 room_id   = 1;  //房间ID
+  optional uint32 game_id   = 2;  //游戏ID
+
+  optional uint64 cur_money = 3; //服务器用
+  optional uint32 game_bus_id = 4;//服务器用
+}
+
+
+//返回桌子信息
+message DeskListRsp
+{
+  //optional uint32 autoChairId = 1;   //是否自动服务器自动分配椅子 0 表示服务端自动选择，1表客服端自己选择
+  optional int32 result = 1;          //0表示成功，1表示非法
+  repeated GameDeskInfo desks = 2;     //服务端自动分配椅子，只需返回当前玩家的桌子、椅子信息。如果是客服端自动椅子，需要把桌子、椅子全部信息给客服端
+}
+
+//如果服务端自动分配椅子,不需要服务器验证椅子是否合法;客服端自己选择椅子,服务端验证该椅子合法则把该椅子分配给该玩家，不合法则返回错误
+message ChairCheckReq
+{
+  optional uint32 room_id = 1; //房间ID
+  optional uint32 game_id = 2; //游戏ID
+  optional uint32 desk_id = 3; //桌子ID
+  optional uint32 chair_id = 4; //椅子ID，客服端自己选择椅子，服务判断该椅子是否合法
+}
+
+//返回椅子合法的结果
+message ChairCheckRsp
+{
+  optional int32 result    = 1; //0表示成功，1表示非法
+}
+
+//---------------------------------------
+
+//退出游戏房间，针对玩家手动选择桌子、椅子
+message ExitRoomReq
+{
+  optional uint32 room_id   = 1;  //房间ID
+  optional uint32 game_id   = 2;  //游戏ID
+}
+
+//返回退出房间是否成功
+message ExitRoomRsp
+{
+  optional int32 result    = 1; //0表示成功，1表示非法
+}
+
+
+//---------------------------------------
+//用户退出游戏客户端请求命令
+message ExitGameReq
+{
+  optional uint32 reserved = 1;  //看看退出时需要上传什么数据？
+}
+//用户退出游戏客户端回复命令
+message ExitGameRsp
+{
+  optional uint32 exit_type   = 1;   //0-退出失败(或者状态不对/玩家不在游戏中之类);  1-退出游戏成功  2-退出房间成功(自动进入时，直接退出房间)
+}
+////////////////////////////////////////////
+//==============================================================================================================
+//为了兼容以前的，暂时留着，后面会删掉；
+message GameRoomInfo_1
+{
+  optional  uint32 room_id = 1;      //房间ID
+  optional  string room_name = 2;    //房间名
+  optional  uint32 min_coins = 3;    //最小金币
+  optional  uint32 online_count = 4; //在线人数
+}
+
+message GameChairInfo_1
+{
+  optional uint32 chair_id = 1;
+  optional uint64 player_id = 2;
+}
+
+message GameDeskInfo_1
+{
+  optional uint32 desk_id = 1;
+  optional string desk_name = 2;
+  optional uint32 chair_count = 3;
+  repeated GameChairInfo_1  chars= 4;
+}
+
+message GetRoomListReq_1
+{
+  optional uint32 game_id = 1;
+}
+
+message GetRoomListRsp_1
+{
+  repeated GameRoomInfo_1 rooms = 1;
+}
+
+message GetDeskListReq_1
+{
+  optional uint32 room_id = 1;
+}
+
+message GetDeskListRsp_1
+{
+  repeated GameDeskInfo_1 desks = 1;
+}
+
+message NotifyPlayerLeaveGame
+{
+  optional uint64 player_id = 1;
+  optional uint32 game_id = 2;
+  optional uint32 room_id = 3;
+  optional uint32 desk_id = 4;
+}
+
+//NF_SC_MSG_MoneyChangeNotify = 1030;
+message MoneyChangeNotify
+{
+  optional uint64 cur_money = 1;
+  optional uint64 cur_bank_money = 2;
+}
+
+//NF_SC_MSG_PaoMaDengNotify = 1031;
+message OnePaoMaDengInfo
+{
+  optional string user_name = 1;
+  optional uint32 game_id = 2;
+  optional string game_name = 3;
+  optional uint32 room_id = 4;
+  optional string room_name = 5;
+  optional uint64 win_jetton = 6;
+}
+
+message Proto_SCPaoMaDengNotify
+{
+  repeated OnePaoMaDengInfo info = 1;
+}
+
+//NF_CS_MSG_RedeemCodeReq;
+message Proto_CSRedeemCodeReq
+{
+  optional string id = 1;
+}
+
+//NF_SC_MSG_RedeemCodeRsp;
+message Proto_SCRedeemCodeRsp
+{
+  optional int32 result = 1;
+}

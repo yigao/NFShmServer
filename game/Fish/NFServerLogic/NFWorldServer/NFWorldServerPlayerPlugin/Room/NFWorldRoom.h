@@ -18,6 +18,7 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFLogicCommon/NFRoomDefine.h"
 #include "NFWorldRoomDesk.h"
+#include "NFLogicCommon/NFLogicCommon.h"
 
 class NFWorldRoom : public NFShmObj
 {

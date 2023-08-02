@@ -55,7 +55,7 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
-			--"NFCommLogicPlugin",
+			"NFFishCommonPlugin",
 			--"NFLuaScriptPlugin",
 
 			--"NFFishRobotPlugin",
@@ -164,6 +164,8 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
+			"NFFishCommonPlugin",
+
 			"NFFishGamePlayerPlugin",
 		};
 		ServerType = NF_ST_GAME_SERVER;
@@ -210,6 +212,8 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
+			"NFFishCommonPlugin",
+
 			"NFFishWorldPlayerPlugin",
 		};
 		ServerType = NF_ST_WORLD_SERVER;
@@ -252,6 +256,7 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
+			"NFFishCommonPlugin",
 			"NFFishLogicPlayerPlugin",
 		};
 		ServerType = NF_ST_LOGIC_SERVER;
@@ -275,6 +280,7 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
+			"NFFishCommonPlugin",
 			"NFFishSnsPlayerPlugin",
 		};
 		ServerType = NF_ST_SNS_SERVER;
