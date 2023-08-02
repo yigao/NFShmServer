@@ -141,7 +141,7 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
-    int GetDeskListReq(proto_ff::DeskListReq* pRequest, proto_ff::DeskListRsp* pResponse);
+    int GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone);
 private:
     uint32_t m_gameId;
     uint32_t m_roomId;

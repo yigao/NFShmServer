@@ -146,7 +146,7 @@ int NFPartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool
     return 0;
 }
 
-int NFPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message *pRequest, google::protobuf::Message *pRespone, uint64_t playerId,
+int NFPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& request, google::protobuf::Message& respone, uint64_t playerId,
                                      uint64_t param2)
 {
     if (!m_pObjPluginManager->IsInited(NF_ST_LOGIC_SERVER))
@@ -169,7 +169,7 @@ int NFPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message *
             NFPart* pPart = pPlayer->GetPart(m_rpcMsgToPartMap[msgId].first);
             if (pPart && m_rpcMsgToPartMap[msgId].second)
             {
-                return m_rpcMsgToPartMap[msgId].second->run(pPart, pRequest, pRespone);
+                return m_rpcMsgToPartMap[msgId].second->run(pPart, request, respone);
             }
             else {
                 NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_rpcMsgToPartMap[msgId].first);

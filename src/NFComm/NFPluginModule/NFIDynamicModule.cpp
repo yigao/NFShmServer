@@ -56,7 +56,7 @@ int NFIDynamicModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage& packe
     return 0;
 }
 
-int NFIDynamicModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t param1, uint64_t param2)
+int NFIDynamicModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& request, google::protobuf::Message& respone, uint64_t param1, uint64_t param2)
 {
     NFLogError(NF_LOG_SYSTEMLOG, 0, "server rpc msgId:{} param1:{} param2:{} not handle", msgId, param1, param2);
     return 0;

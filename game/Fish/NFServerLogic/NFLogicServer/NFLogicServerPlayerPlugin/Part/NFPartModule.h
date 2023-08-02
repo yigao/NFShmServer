@@ -50,13 +50,13 @@ public:
      * @param param2
      * @return
      */
-    virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t param1, uint64_t param2) override;
+    virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& request, google::protobuf::Message& respone, uint64_t param1, uint64_t param2) override;
 public:
     virtual int RegisterClientPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo);
     virtual int RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool createCo);
 
     template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
-    int AddPartRpcService(BaseType* pBase, int (BaseType::*handleRecieve)(RequestType* pRequest, ResponeType* pRespone), uint32_t partType, bool createCo = false)
+    int AddPartRpcService(BaseType* pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType& respone), uint32_t partType, bool createCo = false)
     {
         CHECK_EXPR_ASSERT(msgId < m_rpcMsgToPartMap.size(), -1, "");
         AddRpcService<msgId, RequestType, ResponeType>(NF_ST_LOGIC_SERVER, createCo);

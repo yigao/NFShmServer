@@ -152,7 +152,7 @@ public:
      * @param pResone
      * @return
      */
-    int AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerAddBankJettonRsp* pResponse);
+    int AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq &request, proto_ff::Proto_STL_PlayerAddBankJettonRsp &respone);
 
     /**
      * @brief 减少银行筹码rpc
@@ -160,7 +160,7 @@ public:
      * @param pResone
      * @return
      */
-    int ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerReduceBankJettonRsp* pResponse);
+    int ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBankJettonReq &request, proto_ff::Proto_STL_PlayerReduceBankJettonRsp &respone);
 
     /**
      * @brief

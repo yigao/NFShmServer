@@ -85,39 +85,37 @@ int NFRoomPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
     return NFPart::OnHandleServerMessage(msgId, packet);
 }
 
-int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq *pRequest, proto_ff::DeskListRsp *pResponse)
+int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
-    CHECK_NULL(pRequest);
-    CHECK_NULL(pResponse);
 
     NFJettonPart* pJettonPart = m_pMaster->GetPart<NFJettonPart>(PART_JETTON);
     CHECK_NULL(pJettonPart);
 
-    auto pRoomCfg = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(pRequest->game_id(), pRequest->room_id());
+    auto pRoomCfg = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(request.game_id(), request.room_id());
     CHECK_NULL(pRoomCfg);
 
     if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_enter_min || pJettonPart->GetJetton() > (uint64_t)pRoomCfg->m_enter_max)
     {
         if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_enter_min)
         {
-            pResponse->set_result(proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH);
+            respone.set_result(proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH);
         }
         else {
-            pResponse->set_result(proto_ff::ERR_CODE_USER_MONEY_TOO_MUCH);
+            respone.set_result(proto_ff::ERR_CODE_USER_MONEY_TOO_MUCH);
         }
         return 0;
     }
 
-    pRequest->set_cur_money(pJettonPart->GetJetton());
-    int iRet = GetRpcService<proto_ff::NF_CS_MSG_DeskListReq>(NF_ST_GAME_SERVER, pRequest->game_bus_id(), *pRequest, *pResponse);
+    request.set_cur_money(pJettonPart->GetJetton());
+    int iRet = GetRpcService<proto_ff::NF_CS_MSG_DeskListReq>(NF_ST_GAME_SERVER, request.game_bus_id(), request, respone);
     if (iRet != 0)
     {
-        pResponse->set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
         return 0;
     }
 
-    if (pResponse->result() != 0)
+    if (respone.result() != 0)
     {
         return 0;
     }
