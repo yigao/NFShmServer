@@ -288,12 +288,11 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
 
     int count = 0;
     int interval = 0;
-    uint64_t roleID = 0;
     pLinkInfo->AddPkgStatistic(packet.nMsgId, pLinkInfo->GetPlayerId(), unLinkId);
     int ret = pLinkInfo->CheckPkgRate(&m_packetConfig, packet.nMsgId, count, interval);
     if (ret != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check and kick player:{| linkId:{} count:{} interval:{} ret:{} packet:{}", roleID, unLinkId, count,
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check player:{} linkId:{} count:{} interval:{} ret:{} packet:{}", pLinkInfo->GetPlayerId(), unLinkId, count,
                    interval, ret, packet.ToString());
         return 0;
     }
