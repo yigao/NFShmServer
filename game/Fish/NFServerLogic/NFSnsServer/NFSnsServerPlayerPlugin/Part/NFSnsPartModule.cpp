@@ -13,9 +13,9 @@
 
 NFSnsPartModule::NFSnsPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
-    m_clientMsgToPartMap.resize(10000);
-    m_serverMsgToPartMap.resize(10000);
-    m_rpcMsgToPartMap.resize(10000);
+    m_clientMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
+    m_serverMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
+    m_rpcMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
 }
 
 NFSnsPartModule::~NFSnsPartModule()

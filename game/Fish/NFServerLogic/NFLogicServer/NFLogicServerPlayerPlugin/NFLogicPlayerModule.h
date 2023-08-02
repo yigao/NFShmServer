@@ -9,11 +9,11 @@
 
 #pragma once
 
-#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h"
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "ServerInternal.pb.h"
+#include "Player/NFPlayerMgr.h"
+#include "NFLogicCommon/NFFishDynamicModule.h"
 
-class NFCLogicPlayerModule : public NFIDynamicModule
+
+class NFCLogicPlayerModule : public NFFishDynamicModule
 {
 public:
 	explicit NFCLogicPlayerModule(NFIPluginManager* p);

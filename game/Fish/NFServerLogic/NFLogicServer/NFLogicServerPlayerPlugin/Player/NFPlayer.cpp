@@ -16,6 +16,7 @@
 #include "Part/NFPart.h"
 #include "AllProtocol.h"
 #include "Jetton/NFJettonPart.h"
+#include "Room/NFRoomPart.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -501,6 +502,11 @@ NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partT
         case PART_JETTON:
         {
             pPart = NFJettonPart::CreateObj(pObjPluginManager);
+            break;
+        }
+        case PART_ROOM:
+        {
+            pPart = NFRoomPart::CreateObj(pObjPluginManager);
             break;
         }
         default:

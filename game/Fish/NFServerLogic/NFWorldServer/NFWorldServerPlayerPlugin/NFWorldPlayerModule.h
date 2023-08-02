@@ -10,10 +10,9 @@
 #pragma once
 
 #include "NFWorldPlayerMgr.h"
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "ServerInternal.pb.h"
+#include "NFLogicCommon/NFFishDynamicModule.h"
 
-class NFCWorldPlayerModule : public NFIDynamicModule
+class NFCWorldPlayerModule : public NFFishDynamicModule
 {
 public:
 	explicit NFCWorldPlayerModule(NFIPluginManager* p);

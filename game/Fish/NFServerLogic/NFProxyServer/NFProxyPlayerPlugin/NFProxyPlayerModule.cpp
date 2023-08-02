@@ -7,23 +7,12 @@
 //
 // -------------------------------------------------------------------------
 
-#include <NFComm/NFCore/NFTime.h>
-#include <ClientServerCmd.pb.h>
-#include <NFComm/NFPluginModule/NFCheck.h>
-#include <NFServerComm/NFServerCommon/NFIServerMessageModule.h>
-#include <ServerInternalCmd.pb.h>
 #include "NFProxyPlayerModule.h"
-#include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
-#include "NFComm/NFCore/NFRandom.hpp"
-#include "CSLogin.pb.h"
-#include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "NFLogicCommon/NFLoginDefine.h"
-#include "ServerInternal.pb.h"
 
-NFCProxyPlayerModule::NFCProxyPlayerModule(NFIPluginManager *p) : NFIProxyPlayerModule(p)
+NFCProxyPlayerModule::NFCProxyPlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
 }
 

@@ -70,14 +70,6 @@ public:
 public:
     /**
      * @brief
-     * @param msgId
-     * @param packet
-     * @return
-     */
-    int OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet);
-public:
-    /**
-     * @brief
      * @param data
      * @return
      */
@@ -144,6 +136,15 @@ public:
      * @brief update
      */
     virtual int Update() { return 0; }
+
+public:
+    /**
+     * @brief
+     * @param msgId
+     * @param packet
+     * @return
+     */
+    int OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet);
 public:
     /**
      * @brief 增加银行筹码rpc

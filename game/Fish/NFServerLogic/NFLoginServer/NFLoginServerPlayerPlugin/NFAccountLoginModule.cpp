@@ -8,17 +8,9 @@
 // -------------------------------------------------------------------------
 
 #include "NFAccountLoginModule.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "ClientServerCmd.pb.h"
-#include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "NFAccountLoginMgr.h"
-#include "DBProto.pb.h"
-#include "proto_kernel.pb.h"
-#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-#include "NFComm/NFCore/NFTime.h"
 
-
-NFCAccountLoginModule::NFCAccountLoginModule(NFIPluginManager *p) : NFIDynamicModule(p) {
+NFCAccountLoginModule::NFCAccountLoginModule(NFIPluginManager *p) : NFFishDynamicModule(p) {
 }
 
 NFCAccountLoginModule::~NFCAccountLoginModule() {

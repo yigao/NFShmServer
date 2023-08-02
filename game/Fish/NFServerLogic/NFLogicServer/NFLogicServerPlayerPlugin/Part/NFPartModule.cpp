@@ -16,8 +16,9 @@
 
 NFPartModule::NFPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
-    m_clientMsgToPartMap.resize(10000);
-    m_serverMsgToPartMap.resize(10000);
+    m_clientMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
+    m_serverMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
+    m_rpcMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
 }
 
 NFPartModule::~NFPartModule()
@@ -74,6 +75,9 @@ int NFPartModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet, u
                 return pPart->OnHandleClientMessage(msgId, packet);
             }
         }
+        else {
+            NFLogError(NF_LOG_SYSTEMLOG, playerId, "msgId:{} can't handle, drop the msg", msgId, m_clientMsgToPartMap[msgId]);
+        }
     }
     else {
         NFLogError(NF_LOG_SYSTEMLOG, playerId, "can' find the player role:{}", playerId);
@@ -105,6 +109,12 @@ int NFPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, u
             {
                 return pPart->OnHandleServerMessage(msgId, packet);
             }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_serverMsgToPartMap[msgId]);
+            }
+        }
+        else {
+            NFLogError(NF_LOG_SYSTEMLOG, playerId, "msgId:{} can't handle, drop the msg", msgId);
         }
     }
     return 0;
@@ -133,5 +143,41 @@ int NFPartModule::RegisterServerPartMsg(uint32_t nMsgID, uint32_t partType, bool
         return 0;
     }
     m_serverMsgToPartMap[nMsgID] = partType;
+    return 0;
+}
+
+int NFPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message *pRequest, google::protobuf::Message *pRespone, uint64_t playerId,
+                                     uint64_t param2)
+{
+    if (!m_pObjPluginManager->IsInited(NF_ST_LOGIC_SERVER))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "Logic Server not inited, drop client msg:{}", msgId);
+        return -1;
+    }
+
+    if (m_pObjPluginManager->IsServerStopping())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "Logic Server is Stopping, drop client msg:{}", msgId);
+        return -1;
+    }
+
+    NFPlayer *pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(playerId);
+    if (pPlayer)
+    {
+        if (msgId < m_rpcMsgToPartMap.size() && m_rpcMsgToPartMap[msgId].first  != 0)
+        {
+            NFPart* pPart = pPlayer->GetPart(m_rpcMsgToPartMap[msgId].first);
+            if (pPart && m_rpcMsgToPartMap[msgId].second)
+            {
+                return m_rpcMsgToPartMap[msgId].second->run(pPart, pRequest, pRespone);
+            }
+            else {
+                NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_rpcMsgToPartMap[msgId].first);
+            }
+        }
+        else {
+            NFLogError(NF_LOG_SYSTEMLOG, playerId, "msgId:{} can't handle, drop the msg", msgId);
+        }
+    }
     return 0;
 }

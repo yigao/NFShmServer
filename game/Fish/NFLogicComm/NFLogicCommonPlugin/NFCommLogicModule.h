@@ -9,15 +9,14 @@
 
 #pragma once
 
-#include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFPluginModule/NFConfigDefine.h"
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
+
+#include "NFLogicCommon/NFFishDynamicModule.h"
 
 
-class NFCommLogicModule : public NFIDynamicModule
+class NFCommLogicModule : public NFFishDynamicModule
 {
 public:
-	NFCommLogicModule(NFIPluginManager* p) :NFIDynamicModule(p)
+	NFCommLogicModule(NFIPluginManager* p) :NFFishDynamicModule(p)
 	{
 
 	}
@@ -27,4 +26,5 @@ public:
 
 	}
 
+    virtual bool Awake();
 };

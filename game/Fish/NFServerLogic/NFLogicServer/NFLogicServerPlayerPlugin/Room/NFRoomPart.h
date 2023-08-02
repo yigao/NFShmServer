@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFJettonPart.h
+//    @FileName         :    NFRoomPart.h
 //    @Author           :    gaoyi
-//    @Date             :    23-7-15
+//    @Date             :    23-8-2
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFJettonPart
+//    @Module           :    NFRoomPart
 //
 // -------------------------------------------------------------------------
 
@@ -16,12 +16,18 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Part/NFPart.h"
 
-class NFJettonPart : public NFPart
+enum {
+    PLAYER_ROOM_STATUS_NONE,
+    PLAYER_ROOM_STATUS_DeskListing,
+    PLAYER_ROOM_STATUS_DeskListed,
+};
+
+class NFRoomPart : public NFPart
 {
 public:
-    NFJettonPart();
+    NFRoomPart();
 
-    virtual ~NFJettonPart();
+    virtual ~NFRoomPart();
 
     int CreateInit();
 
@@ -135,33 +141,9 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
-    /**
-     * @brief 获取银行筹码数据
-     * @param msgId
-     * @param packet
-     * @return
-     */
-    int OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet);
-
-    /**
-     * @brief
-     * @param msgId
-     * @param packet
-     * @return
-     */
-    int OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet);
-
-    /**
-     * @brief
-     * @param msgId
-     * @param packet
-     * @return
-     */
-    int OnHandleBankGetMoneyReq(uint32_t msgId, NFDataPackage &packet);
-public:
-    uint64_t GetJetton() const { return m_jetton; }
+    int GetDeskListReq(proto_ff::DeskListReq* pRequest, proto_ff::DeskListRsp* pResponse);
 private:
-    uint64_t m_jetton;
-private:
-DECLARE_IDCREATE(NFJettonPart)
+    uint32_t m_gameId;
+    uint32_t m_roomId;
+DECLARE_IDCREATE(NFRoomPart)
 };

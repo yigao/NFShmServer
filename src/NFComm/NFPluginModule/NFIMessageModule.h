@@ -58,7 +58,12 @@ public:
 
         NFCRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t param1, uint64_t param2)): NFIRpcService(p)
         {
-            m_functionWithParam = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5);
+            m_functionCommonWithParam = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5);
+        }
+
+        NFCRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType &respone, uint64_t param1, uint64_t param2)): NFIRpcService(p)
+        {
+            m_functionWithParam = std::bind(handleRecieve, pBase, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4);
         }
 
         virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg& reqSvrPkg, uint64_t param1, uint64_t param2) override
@@ -82,15 +87,19 @@ public:
             svrPkg.mutable_rpc_info()->set_req_rpc_hash(reqSvrPkg.rpc_info().req_rpc_hash());
             svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(reqSvrPkg.rpc_info().rsp_rpc_hash());
             svrPkg.mutable_rpc_info()->set_is_script_rpc(reqSvrPkg.rpc_info().is_script_rpc());
-            if (m_function || m_functionWithParam || m_functionWithLink || m_functionWithCallBack)
+            if (m_function || m_functionWithParam || m_functionCommonWithParam || m_functionWithLink || m_functionWithCallBack)
             {
                 if (m_function)
                 {
                     iRet = m_function(req, rsp);
                 }
+                else if (m_functionCommonWithParam)
+                {
+                    iRet = m_functionCommonWithParam(reqSvrPkg.msg_id(), &req, &rsp, param1, param2);
+                }
                 else if (m_functionWithParam)
                 {
-                    iRet = m_functionWithParam(reqSvrPkg.msg_id(), &req, &rsp, param1, param2);
+                    iRet = m_functionWithParam(req, rsp, param1, param2);
                 }
                 else if (m_functionWithLink)
                 {
@@ -117,7 +126,8 @@ public:
         }
 
         std::function<int(RequestType& request, ResponeType &respone)> m_function;
-        std::function<int(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t param1, uint64_t param2)> m_functionWithParam;
+        std::function<int(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t param1, uint64_t param2)> m_functionCommonWithParam;
+        std::function<int(RequestType& request, ResponeType &respone, uint64_t param1, uint64_t param2)> m_functionWithParam;
         std::function<int(uint64_t unLinkId, RequestType& request, ResponeType &respone)> m_functionWithLink;
         std::function<int(RequestType& request, ResponeType &respone, const std::function<void()>& cb)> m_functionWithCallBack;
     };
@@ -323,6 +333,16 @@ public:
     template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
     bool AddRpcService(NF_SERVER_TYPES serverType, BaseType *pBase, int (BaseType::*handleRecieve)(uint32_t msg, google::protobuf::Message* pRequest,
             google::protobuf::Message* pRespone, uint64_t param1, uint64_t param2),
+                       bool createCo = false)
+    {
+        STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);
+        NF_ASSERT_MSG((TIsDerived<BaseType, NFIDynamicModule>::Result), "the class must inherit NFIDynamicModule");
+        NFIRpcService *pRpcService = new NFCRpcService<BaseType, RequestType, ResponeType>(m_pObjPluginManager, pBase, handleRecieve);
+        return AddRpcService(serverType, msgId, pBase, pRpcService, createCo);
+    }
+
+    template<size_t msgId, typename BaseType, typename RequestType, typename ResponeType>
+    bool AddRpcService(NF_SERVER_TYPES serverType, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType &request, ResponeType &respone, uint64_t param1, uint64_t param2),
                        bool createCo = false)
     {
         STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);

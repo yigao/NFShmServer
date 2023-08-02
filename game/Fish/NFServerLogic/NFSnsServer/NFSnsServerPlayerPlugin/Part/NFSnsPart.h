@@ -23,6 +23,7 @@
 #include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "Cache/NFPlayerDetail.h"
 
+
 class NFPlayerSimple;
 class NFPlayerOnline;
 class NFSnsPart : public NFShmObj, public NFSeqOP

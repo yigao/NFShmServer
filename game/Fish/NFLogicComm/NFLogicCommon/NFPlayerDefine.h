@@ -13,6 +13,7 @@ enum PartType
 {
     PART_NONE = 0,
     PART_JETTON = 1,
+    PART_ROOM = 2,
     PART_MAX,
 };
 

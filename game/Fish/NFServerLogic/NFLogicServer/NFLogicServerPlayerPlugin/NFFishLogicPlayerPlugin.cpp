@@ -16,6 +16,8 @@
 #include "Player/NFPlayer.h"
 #include "Part/NFPartModule.h"
 #include "Jetton/NFJettonPart.h"
+#include "NFLogicRoomModule.h"
+#include "Room/NFRoomPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -49,12 +51,14 @@ void NFFishLogicPlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
     REGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFLogicRoomModule, NFLogicRoomModule);
 }
 
 void NFFishLogicPlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFLogicRoomModule, NFLogicRoomModule);
 }
 
 bool NFFishLogicPlayerPlugin::InitShmObjectRegister()
@@ -66,6 +70,7 @@ bool NFFishLogicPlayerPlugin::InitShmObjectRegister()
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFJettonPart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFRoomPart, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
 
     REGISTER_SHM_OBJ(NFTransPlayerBase, 1);
