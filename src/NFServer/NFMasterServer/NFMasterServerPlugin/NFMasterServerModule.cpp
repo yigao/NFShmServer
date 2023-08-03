@@ -115,7 +115,7 @@ bool NFCMasterServerModule::Awake()
 
 int NFCMasterServerModule::OnServerRegisterRpcService(uint64_t unLinkId, proto_ff::ServerInfoReportList& reqeust, proto_ff::ServerInfoReportListRespne& respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     for (int i = 0; i < reqeust.server_list_size(); ++i)
     {
@@ -163,13 +163,13 @@ int NFCMasterServerModule::OnServerRegisterRpcService(uint64_t unLinkId, proto_f
     }
 
     respone.set_ret_code(0);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	proto_ff::ServerInfoReportList xMsg;
 	CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -232,7 +232,7 @@ int NFCMasterServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPack
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Server Register Master Server Success,  busId:{}, ip:{}, port:{}", pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(), pServerData->mServerInfo.server_ip(), pServerData->mServerInfo.server_port());
         }
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -265,7 +265,7 @@ int NFCMasterServerModule::OnServerReportProcess(uint64_t unLinkId, NFDataPackag
 
 int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_ServerDumpInfoNtf xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -284,7 +284,7 @@ int NFCMasterServerModule::OnServerDumpInfoProcess(uint64_t unLinkId, NFDataPack
 
     FindModule<NFIMessageModule>()->SendWxWork(NF_ST_MASTER_SERVER, "Server:" + pServerData->mServerInfo.server_name() + " Dump Info:\n" + xMsg.dump_info());
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -307,7 +307,7 @@ int NFCMasterServerModule::OnServerKillAllServerProcess(uint64_t unLinkId, NFDat
 
 int NFCMasterServerModule::OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	if (nEvent == eMsgType_CONNECTED)
 	{
@@ -318,16 +318,16 @@ int NFCMasterServerModule::OnProxySocketEvent(eMsgType nEvent, uint64_t unLinkId
 		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "ip:{} disconnect master server success", ip);
 		OnClientDisconnect(unLinkId);
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
 int NFCMasterServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "other message not handled:packet:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -366,7 +366,7 @@ int NFCMasterServerModule::OnTimer(uint32_t nTimerID)
 
 int NFCMasterServerModule::OnClientDisconnect(uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_MASTER_SERVER, unLinkId);
 	if (pServerData)
 	{
@@ -375,13 +375,13 @@ int NFCMasterServerModule::OnClientDisconnect(uint64_t unLinkId)
         pServerData->mServerInfo.set_server_state(proto_ff::EST_CRASH);
 	}
     FindModule<NFIMessageModule>()->DelServerLink(NF_ST_MASTER_SERVER, unLinkId);
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
 int NFCMasterServerModule::SynOtherServerToServer(NF_SHARE_PTR<NFServerData> pServerData)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::ServerInfoReportList xData;
 
     std::vector<NF_SHARE_PTR<NFServerData>> vec = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_MASTER_SERVER);
@@ -406,13 +406,13 @@ int NFCMasterServerModule::SynOtherServerToServer(NF_SHARE_PTR<NFServerData> pSe
     }
 
     FindModule<NFIMessageModule>()->Send(pServerData->mUnlinkId, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, xData, 0);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerData)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	proto_ff::ServerInfoReportList xSelfData;
 	proto_ff::ServerInfoReport* pSelfData = xSelfData.add_server_list();
 	*pSelfData = pServerData->mServerInfo;
@@ -431,7 +431,7 @@ int NFCMasterServerModule::SynServerToOthers(NF_SHARE_PTR<NFServerData> pServerD
         }
     }
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -616,7 +616,7 @@ bool NFCMasterServerModule::HandleKillAllServer(uint32_t, const NFIHttpHandle &r
 
 int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_MonitorTMasterStopRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -624,13 +624,13 @@ int NFCMasterServerModule::HandleStopSeverRsp(uint64_t unLinkId, NFDataPackage& 
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_MonitorTMasterStopRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -638,13 +638,13 @@ int NFCMasterServerModule::HandleStopAllSeverRsp(uint64_t unLinkId, NFDataPackag
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_MonitorTMasterStartRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -652,13 +652,13 @@ int NFCMasterServerModule::HandleStartSeverRsp(uint64_t unLinkId, NFDataPackage&
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_MonitorTMasterStartRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -666,13 +666,13 @@ int NFCMasterServerModule::HandleStartAllSeverRsp(uint64_t unLinkId, NFDataPacka
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_MonitorTMasterRestartRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -680,13 +680,13 @@ int NFCMasterServerModule::HandleRestartSeverRsp(uint64_t unLinkId, NFDataPackag
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_MonitorTMasterRestartRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -694,13 +694,13 @@ int NFCMasterServerModule::HandleRestartAllSeverRsp(uint64_t unLinkId, NFDataPac
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_MonitorTMasterReloadRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -708,13 +708,13 @@ int NFCMasterServerModule::HandleReloadSeverRsp(uint64_t unLinkId, NFDataPackage
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::HandleReloadAllSeverRsp(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_MonitorTMasterReloadRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -722,7 +722,7 @@ int NFCMasterServerModule::HandleReloadAllSeverRsp(uint64_t unLinkId, NFDataPack
     std::string json;
     NFProtobufCommon::ProtoMessageToJson(xMsg, &json);
     FindModule<NFIMessageModule>()->ResponseHttpMsg(NF_ST_MASTER_SERVER, httpReqId, json);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -760,7 +760,7 @@ int NFCMasterServerModule::ConnectGlobalServer() {
 */
 int NFCMasterServerModule::OnGlobalSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     if (nEvent == eMsgType_CONNECTED)
     {
@@ -771,13 +771,13 @@ int NFCMasterServerModule::OnGlobalSocketEvent(eMsgType nEvent, uint64_t unLinkI
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "disconnect global server..........");
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMasterServerModule::RegisterGlobalServer()
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MASTER_SERVER);
     if (pConfig)
     {
@@ -799,7 +799,7 @@ int NFCMasterServerModule::RegisterGlobalServer()
 
         FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_MASTER_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -808,10 +808,10 @@ int NFCMasterServerModule::RegisterGlobalServer()
 */
 int NFCMasterServerModule::OnHandleGlobalOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
     NFLogWarning(NF_LOG_SYSTEMLOG, 0, "global server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

@@ -57,7 +57,7 @@ int NFJettonPart::RegisterMessage()
     RegisterClientMessage(proto_ff::NF_CS_BANK_GET_DATA_REQ);
     RegisterClientMessage(proto_ff::NF_CS_BANK_SAVE_MONEY_REQ, true);
     RegisterClientMessage(proto_ff::NF_CS_BANK_GET_MONEY_REQ, true);
-
+    AddRpcService<proto_ff::NF_GTL_COIN_QUERY_BALANCE_RPC>(this, &NFJettonPart::OnHandleCoinQueryBalanceRpc);
     return 0;
 }
 
@@ -110,7 +110,7 @@ int NFJettonPart::SaveDB(proto_ff::tbFishPlayerData &dbData)
 
 int NFJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_CSBankGetDataReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -120,13 +120,13 @@ int NFJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet)
     rspMsg.set_bank_password(xMsg.bank_password());
 
     m_pMaster->SendMsgToSnsServer(msgId, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_CSBankSaveMoneyReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -194,13 +194,13 @@ int NFJettonPart::OnHandleBankSaveMoneyReq(uint32_t msgId, NFDataPackage &packet
     rspMsg.set_bank_jetton(rspRpc.bank_jetton());
 
     m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_SAVE_MONEY_RSP, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFJettonPart::OnHandleBankGetMoneyReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_CSBankGetMoneyReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -235,7 +235,19 @@ int NFJettonPart::OnHandleBankGetMoneyReq(uint32_t msgId, NFDataPackage &packet)
     rspMsg.set_bank_jetton(reduceRspRpc.bank_jetton());
 
     m_pMaster->SendMsgToClient(proto_ff::NF_SC_BANK_GET_MONEY_RSP, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFJettonPart::OnHandleCoinQueryBalanceRpc(proto_ff::Proto_QueryCoinBalanceReq& request, proto_ff::Proto_QueryCoinBalanceRsp& respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    respone.set_result(0);
+    respone.mutable_player_detail()->set_player_id(m_pMaster->GetPlayerId());
+    respone.mutable_player_detail()->set_cur_money(m_jetton);
+    respone.mutable_player_detail()->set_nick_name(m_pMaster->GetNickName());
+    respone.mutable_player_detail()->set_face(m_pMaster->GetFaceId());
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

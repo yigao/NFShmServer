@@ -312,6 +312,34 @@ public:
      * @return
      */
     virtual int AchievementCount(uint64_t userid, uint64_t Count, uint64_t fee);
+
+public:
+    /**
+     * @brief 登陆桌子
+     * @param playerId
+     * @param chairIndex
+     * @param playerDetail
+     * @return
+     */
+    int LoginDesk(uint64_t playerId, int chairIndex, proto_ff_s::GamePlayerDetailData_s& playerDetail);
+
+    /**
+     * @brief 退出座子
+     * @param playerId
+     * @param bOffline
+     * @return
+     */
+    int LogOutDesk(uint64_t playerId, bool bOffline);
+public:
+    virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId);
+
+    virtual int BroadCastMsgToDesk(uint32_t nMsgId, const google::protobuf::Message &xData, int32_t chairId = INVALID_ID);
+
+    virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId = 0);
+
+    virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId);
+
+    virtual int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId = 0);
 public:
     uint32_t m_gameId;
     uint32_t m_roomId;

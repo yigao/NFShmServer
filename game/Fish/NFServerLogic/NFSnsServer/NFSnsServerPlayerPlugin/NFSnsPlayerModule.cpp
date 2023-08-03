@@ -148,7 +148,7 @@ int NFCSnsPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pac
 
 int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& request, proto_ff::Proto_STWLoginRsp& respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     respone.set_user_id(request.user_id());
     respone.set_result(0);
 
@@ -234,13 +234,13 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
         return 0;
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCSnsPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTSPlayerReconnectReq& request, proto_ff::STWPlayerReconnectRsp& respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     respone.set_result(0);
 
     NFPlayerOnline* pPlayerOnline = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(request.player_id());
@@ -298,13 +298,13 @@ int NFCSnsPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTSPlayerReconnect
 
     NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerDetail->GetPlayerId(), "player:{} reconnect success", pPlayerDetail->GetPlayerId());
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCSnsPlayerModule::OnRpcServiceQueryPlayerSimpleData(proto_ff::Proto_TS_QueryPlayerSimpleDataReq& request, proto_ff::Proto_ST_QueryPlayerSimpleDataRsp& respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     respone.set_result(0);
 
     for(int i = 0; i < (int)request.query_user_id_size(); i++)
@@ -322,13 +322,13 @@ int NFCSnsPlayerModule::OnRpcServiceQueryPlayerSimpleData(proto_ff::Proto_TS_Que
         pData->set_face(pPlayerSimple->GetBaseData().faceid);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCSnsPlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::NotifyPlayerDisconnect xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -355,13 +355,13 @@ int NFCSnsPlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackag
 
     NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} disconnect..............", xMsg.player_id());
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCSnsPlayerModule::OnHandlePlayerLogoutNotify(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_WTSLogoutNotify xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -387,13 +387,13 @@ int NFCSnsPlayerModule::OnHandlePlayerLogoutNotify(uint32_t msgId, NFDataPackage
 
     NFLogTrace(NF_LOG_SYSTEMLOG, xMsg.player_id(), "player:{} logout..............", xMsg.player_id());
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCSnsPlayerModule::OnHandleQueryUserSimpleDataReq(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_CSQueryUserReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -421,6 +421,6 @@ int NFCSnsPlayerModule::OnHandleQueryUserSimpleDataReq(uint32_t msgId, NFDataPac
 
     pPlayerOnline->SendMsgToClient(proto_ff::NF_SC_QUERY_USER_SIMPLE_DATA_RSP, rspMsg);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

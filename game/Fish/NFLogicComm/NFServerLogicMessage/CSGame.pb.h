@@ -744,6 +744,13 @@ class EnterGameReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 logic_id() const;
   inline void set_logic_id(::google::protobuf::uint32 value);
 
+  // optional uint32 game_bus_id = 7;
+  inline bool has_game_bus_id() const;
+  inline void clear_game_bus_id();
+  static const int kGameBusIdFieldNumber = 7;
+  inline ::google::protobuf::uint32 game_bus_id() const;
+  inline void set_game_bus_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.EnterGameReq)
  private:
   inline void set_has_game_id();
@@ -758,6 +765,8 @@ class EnterGameReq : public ::google::protobuf::Message {
   inline void clear_has_proxy_id();
   inline void set_has_logic_id();
   inline void clear_has_logic_id();
+  inline void set_has_game_bus_id();
+  inline void clear_has_game_bus_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -767,9 +776,10 @@ class EnterGameReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 chair_id_;
   ::google::protobuf::uint32 proxy_id_;
   ::google::protobuf::uint32 logic_id_;
+  ::google::protobuf::uint32 game_bus_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_CSGame_2eproto();
   friend void protobuf_AssignDesc_CSGame_2eproto();
@@ -3983,6 +3993,28 @@ inline ::google::protobuf::uint32 EnterGameReq::logic_id() const {
 inline void EnterGameReq::set_logic_id(::google::protobuf::uint32 value) {
   set_has_logic_id();
   logic_id_ = value;
+}
+
+// optional uint32 game_bus_id = 7;
+inline bool EnterGameReq::has_game_bus_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void EnterGameReq::set_has_game_bus_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void EnterGameReq::clear_has_game_bus_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void EnterGameReq::clear_game_bus_id() {
+  game_bus_id_ = 0u;
+  clear_has_game_bus_id();
+}
+inline ::google::protobuf::uint32 EnterGameReq::game_bus_id() const {
+  return game_bus_id_;
+}
+inline void EnterGameReq::set_game_bus_id(::google::protobuf::uint32 value) {
+  set_has_game_bus_id();
+  game_bus_id_ = value;
 }
 
 // -------------------------------------------------------------------

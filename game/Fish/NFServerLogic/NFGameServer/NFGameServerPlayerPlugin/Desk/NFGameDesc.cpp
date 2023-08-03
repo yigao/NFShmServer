@@ -16,6 +16,8 @@
 #include "DescStoreEx/GameRoomDescEx.h"
 #include "DescStore/ConstantConstantDesc.h"
 #include "Room/NFGameRoom.h"
+#include "Room/NFGameRoomMgr.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGameDesk, EOT_NFGameDesc_ID, NFIGameDesk)
 
@@ -403,12 +405,12 @@ int NFGameDesk::ClearOfflineUser(uint64_t playerId)
 
 int NFGameDesk::NotifyServerPlayerExitGame(uint64_t playerId, int32_t chairId)
 {
-/*    proto_ff::Proto_NotifyServerPlayerExitGame msg;
+    proto_ff::Proto_NotifyServerPlayerExitGame msg;
     msg.set_player_id(playerId);
     msg.set_game_id(m_gameId);
     msg.set_room_id(m_roomId);
     msg.set_desk_id(chairId);
-    SendMsgToWorldServer(proto_ff::E_STS_GAME_PLAYER_LEAVE_GAME, msg);*/
+    SendMsgToWorldServer(proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME, msg);
     return 0;
 }
 
@@ -801,5 +803,185 @@ int NFGameDesk::AchievementCount(uint64_t userid, uint64_t ach, uint64_t fee)
         pDeskStation->m_achievementData.cur_fee += fee;
         pDeskStation->m_achievementData.MarkDirty();
     }
+    return 0;
+}
+
+int NFGameDesk::LoginDesk(uint64_t playerId, int chairIndex, proto_ff_s::GamePlayerDetailData_s &playerDetail)
+{
+    CHECK_EXPR(m_deskHandle, proto_ff::ERR_CODE_SYSTEM_ERROR, "param error, m_deskHandle == NULL");
+
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_EXPR(pPlayer, proto_ff::ERR_CODE_PLAYER_NOT_EXIST, "pPlayer == NULL");
+
+    NFGameDeskStation* pDeskStation = GetDeskStation(chairIndex);
+    CHECK_EXPR(pDeskStation, proto_ff::ERR_CODE_CHAIR_NOT_RIGHT, "pDeskStation == NULL");
+
+    //判断位置上是否有人,如果是自己，则放行，位置被自己占住，说明自己曾经异常退出，要么需要重新入座，要么先清理数据
+    if (pDeskStation->m_playerId > 0 && pDeskStation->m_playerId != playerId)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0,
+                   "Error:CGameDesk::LoginDesk() chairIndex:{} is using! Request sit down's playerID:{}, "
+                   "Aleady sit down's playerId:{}. OprInfo: m_nRoomID:{} DeskId:{}.",
+                   chairIndex, playerId, pDeskStation->m_playerId, m_roomId, m_deskId);
+
+        return proto_ff::ERR_CODE_CHAIR_HAS_OTHER_PLAYTER;
+    }
+
+    playerDetail.chair_id = chairIndex;
+    int iSitResult = -1;
+    if (pPlayer->IsInGame() && IsPlayGame(chairIndex) == true)
+    {
+        iSitResult = UserReCome(playerId, chairIndex, playerDetail);
+    }
+    else
+    {
+        iSitResult = UserSitDesk(playerId, chairIndex, playerDetail);
+    }
+
+    if (iSitResult != 0) //如果没进入成功，则清理
+    {
+        int iRet = UserLeftDesk(playerId, chairIndex, playerDetail);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "playerId:{} Left Desk Failed!", playerId);
+        }
+
+        return iSitResult;
+    }
+
+    pDeskStation->m_isRobot = false;
+    pDeskStation->m_playerId = playerId;
+    pDeskStation->m_onlineFlags = 1;
+    pDeskStation->m_reservedPlayerId = 0;
+    pDeskStation->m_reservedTime = 0;
+    pDeskStation->m_chairId = chairIndex;
+    pDeskStation->m_iCurUserMoney = playerDetail.cur_money;
+    pDeskStation->m_iEnterUserMoney = playerDetail.cur_money;
+
+    pDeskStation->m_playerDetail.player_id = playerDetail.player_id;
+    pDeskStation->m_playerDetail.cur_money = playerDetail.cur_money;
+    pDeskStation->m_playerDetail.vip_level = playerDetail.vip_level;
+    pDeskStation->m_playerDetail.sex = playerDetail.sex;
+    pDeskStation->m_playerDetail.chair_id = chairIndex;
+    pDeskStation->m_playerDetail.nick_name = playerDetail.nick_name;
+    pDeskStation->m_playerDetail.face = playerDetail.face;
+
+    pDeskStation->m_wealthData.player_id = playerId;
+    return 0;
+}
+
+int NFGameDesk::LogOutDesk(uint64_t playerId, bool bOffline)
+{
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    if (!pPlayer)
+    {
+        NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
+        return -1;
+    }
+
+    if (m_gameId != pPlayer->m_gameId || m_roomId != pPlayer->m_roomId || m_deskId != pPlayer->m_deskId)
+    {
+        NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
+        return -1;
+    }
+
+    NFGameDeskStation* pGameDeskStation = GetDeskStation(pPlayer->m_chairId);
+    if (pGameDeskStation == NULL)
+    {
+        NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
+        return -1;
+    }
+    else
+    {
+        if (pGameDeskStation->m_playerId != playerId)
+        {
+            NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
+            return -1;
+        }
+
+        //获取当前用户是否在游戏中
+        bool bUserIsPaying = IsPlayGame(pPlayer->m_chairId);
+        if (bOffline)
+        {
+            if (bUserIsPaying)
+            {
+                UserDisconnect(playerId, pPlayer->m_chairId, pGameDeskStation->m_playerDetail);
+                return 0;
+            }
+            else
+            {
+                UserLeftDesk(playerId, pPlayer->m_chairId, pGameDeskStation->m_playerDetail);
+            }
+        }
+        else
+        {
+            if (bUserIsPaying && !IsPlayGameCanLeave(pPlayer->m_chairId))
+            {
+                //return -1;
+                return proto_ff::ERR_CODE_EXIT_NOT_PERMITED_WHILE_PLAYING;
+            }
+            else
+            {
+                UserLeftDesk(playerId, pPlayer->m_chairId, pGameDeskStation->m_playerDetail);
+            }
+        }
+
+        pGameDeskStation->ClearData();
+        pPlayer->ClearGameData();
+    }
+
+    return 0;
+}
+
+int NFGameDesk::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId)
+{
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_EXPR(pPlayer, -1, "player:{} not exist", playerId);
+    if (pPlayer->GetProxyId() > 0)
+    {
+        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, pPlayer->GetProxyId(), nMsgId, xData);
+    }
+
+    return 0;
+}
+
+int NFGameDesk::BroadCastMsgToDesk(uint32_t nMsgId, const google::protobuf::Message &xData, int32_t chairId)
+{
+    for (int i = 0; i < m_arrDeskStationId.size(); i++) {
+        if (m_arrDeskStationId[i].m_playerId == 0 || i == chairId) {
+            continue;
+        }
+
+        if (m_arrDeskStationId[i].m_isRobot == true) {
+            continue;
+        }
+
+        if (m_arrDeskStationId[i].m_onlineFlags <= 0) {
+            continue;
+        }
+
+        SendMsgToClient(nMsgId, xData, m_arrDeskStationId[i].m_playerId);
+    }
+    return 0;
+}
+
+int NFGameDesk::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, nMsgId, xData, playerId);
+    return 0;
+}
+
+int NFGameDesk::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId)
+{
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_EXPR(pPlayer, -1, "player:{} not exist", playerId);
+    CHECK_EXPR(pPlayer->GetLogicId() > 0, -1, "player:{} no logic:{}", playerId, pPlayer->GetLogicId());
+    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, pPlayer->GetLogicId(), nMsgId, xData);
+    return 0;
+}
+
+int NFGameDesk::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId)
+{
+    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId, xData, playerId);
     return 0;
 }

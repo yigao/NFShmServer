@@ -29,11 +29,11 @@ void ServerLinkData::CloseAllLink(NFIMessageModule *pMessageModule) {
 
 int ServerLinkData::SendMsgToMasterServer(NFIMessageModule *pMessageModule, uint32_t nModuleId, uint32_t nMsgId,
                                           const google::protobuf::Message &xData, uint64_t valueId) {
-    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     CHECK_EXPR(pMessageModule, -1, "pMessageModule == NULL");
 
     pMessageModule->Send(m_masterServerData.mUnlinkId, nModuleId, nMsgId, xData, valueId);
-    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

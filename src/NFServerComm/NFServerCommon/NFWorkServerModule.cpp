@@ -212,7 +212,7 @@ int NFWorkServerModule::ConnectMasterServer()
 
 int NFWorkServerModule::OnServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     if (nEvent == eMsgType_CONNECTED)
     {
 
@@ -221,7 +221,7 @@ int NFWorkServerModule::OnServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     {
         OnHandleServerDisconnect(unLinkId);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -658,7 +658,7 @@ int NFWorkServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t 
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} disconnect route agent server success", pConfig->ServerName);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

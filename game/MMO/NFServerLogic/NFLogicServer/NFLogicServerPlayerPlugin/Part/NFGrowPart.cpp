@@ -314,7 +314,7 @@ int NFGrowPart::SendGrowPartData(int32_t type)
 
 int NFGrowPart::HanlderLvUpReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::GrowLvUpReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
     int64_t id = req.id();
@@ -334,13 +334,13 @@ int NFGrowPart::HanlderLvUpReq(uint32_t msgId, NFDataPackage &packet)
     {
         OnActivePartEntry(id);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFGrowPart::HanlderDressReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::GrowFacadeDressReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
     int64_t id = req.id();
@@ -377,13 +377,13 @@ int NFGrowPart::HanlderDressReq(uint32_t msgId, NFDataPackage &packet)
     FireExecute(NF_ST_LOGIC_SERVER, EVENT_GROW_PART_DRESS, CREATURE_PLAYER, m_pMaster->GetRoleId(), event);
     //同步外观
     m_pMaster->SyncFacade();
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFGrowPart::HanlderUnDressReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::GrowFacadeUnDressReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
     int64_t id = req.id();
@@ -413,7 +413,7 @@ int NFGrowPart::HanlderUnDressReq(uint32_t msgId, NFDataPackage &packet)
     SendGrowPartData(type);
     //同步外观
     m_pMaster->SyncFacade();
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

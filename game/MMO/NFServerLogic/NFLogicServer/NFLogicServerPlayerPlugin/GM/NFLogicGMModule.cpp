@@ -42,7 +42,7 @@ int NFLogicGMModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet
 
 int NFLogicGMModule::OnHandleClientGMMsg(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t roleId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::NotifyGmRsp rsp;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, rsp);
 
@@ -120,7 +120,7 @@ int NFLogicGMModule::OnHandleClientGMMsg(uint32_t msgId, NFDataPackage &packet, 
 
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

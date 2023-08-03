@@ -129,7 +129,7 @@ int NFFunctionUnlockPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &p
 
 int NFFunctionUnlockPart::OnHandleGetReward(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::FunctionUnlockGetRewardReq msgReq;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, msgReq);
 
@@ -183,7 +183,7 @@ int NFFunctionUnlockPart::OnHandleGetReward(uint32_t msgId, NFDataPackage &packe
     }
 
     m_pMaster->SendMsgToClient(proto_ff::SERVER_TO_CLIENT_FUNCTIONUNLOCK_GET_REWARD_RSP, rsp);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

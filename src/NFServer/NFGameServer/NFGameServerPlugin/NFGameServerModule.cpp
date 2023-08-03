@@ -87,7 +87,7 @@ bool NFCGameServerModule::OnDynamicPlugin()
 
 int NFCGameServerModule::OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_TestSendProxyMsgToOtherServer xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -101,7 +101,7 @@ int NFCGameServerModule::OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& 
         FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, packet.nSrcId, proto_ff::NF_TEST_OTHER_SERVER_SEND_MSG_TO_PROXY_SERVER, xData, 3, 4);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -116,7 +116,7 @@ int NFCGameServerModule::TestOtherServerToWorldServer()
     static int req = 0;
     for(int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
         CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
 
@@ -125,7 +125,7 @@ int NFCGameServerModule::TestOtherServerToWorldServer()
         xData.set_server_name(pConfig->ServerName);
         xData.set_seq(++req);
         FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_GAME_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData, 1, 2);
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     }
 #endif
 
@@ -182,7 +182,7 @@ int NFCGameServerModule::TestOtherServerToWorldServer()
 
 int NFCGameServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     static int last_seq = -1;
 
@@ -198,6 +198,6 @@ int NFCGameServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPac
         last_seq = xMsg.seq();
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

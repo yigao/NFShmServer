@@ -175,7 +175,7 @@ int NFCMonitorServerModule::OnExecute(uint32_t serverType, uint32_t nEventID, ui
 */
 int NFCMonitorServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     if (nEvent == eMsgType_CONNECTED)
     {
@@ -193,7 +193,7 @@ int NFCMonitorServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
     {
         NFLogError(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "monitor server disconnect master success");
     }
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
@@ -202,16 +202,16 @@ int NFCMonitorServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
 */
 int NFCMonitorServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
     std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
     NFLogWarning(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "master server other message not handled:playerId:{},msgId:{},ip:{}", playerId, nMsgId, ip);
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::RegisterMasterServer()
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_MONITOR_SERVER);
     if (pConfig)
     {
@@ -232,7 +232,7 @@ int NFCMonitorServerModule::RegisterMasterServer()
 
         FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
     }
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
@@ -298,7 +298,7 @@ int NFCMonitorServerModule::ServerReport()
 
 int NFCMonitorServerModule::OnHandleServerReport(uint64_t unLinkId, uint64_t playerId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(nMsgId, playerId, msg, nLen, xMsg);
@@ -312,13 +312,13 @@ int NFCMonitorServerModule::OnHandleServerReport(uint64_t unLinkId, uint64_t pla
                 break;
         }
     }
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::OnHandleReloadServer(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::Proto_MasterTMonitorReloadReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
@@ -341,13 +341,13 @@ int NFCMonitorServerModule::OnHandleReloadServer(uint64_t unLinkId, uint64_t htt
 
     }
 
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::OnHandleRestartServer(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::Proto_MasterTMonitorRestartReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
@@ -369,13 +369,13 @@ int NFCMonitorServerModule::OnHandleRestartServer(uint64_t unLinkId, uint64_t ht
         FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_RESTART_CMD_RSP, rspMsg, httpReqId);
     }
 
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::OnHandleStartServer(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::Proto_MasterTMonitorStartReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
@@ -397,13 +397,13 @@ int NFCMonitorServerModule::OnHandleStartServer(uint64_t unLinkId, uint64_t http
         FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_START_CMD_RSP, rspMsg, httpReqId);
     }
 
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::OnHandleStopServer(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::Proto_MasterTMonitorStopReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
@@ -425,59 +425,59 @@ int NFCMonitorServerModule::OnHandleStopServer(uint64_t unLinkId, uint64_t httpR
         FindModule<NFIMessageModule>()->SendMsgToMasterServer(NF_ST_MONITOR_SERVER, proto_ff::NF_MonitorTMaster_STOP_CMD_RSP, rspMsg, httpReqId);
     }
 
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::OnHandleReloadAllServer(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::Proto_MasterTMonitorReloadReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
 
     m_procMonitor->ReloadAllProcess(httpReqId);
 
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::OnHandleRestartAllServer(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::Proto_MasterTMonitorRestartReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
 
     m_procMonitor->RestartAllProcess(httpReqId);
 
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::OnHandleStartAllServer(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::Proto_MasterTMonitorStartReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
 
     m_procMonitor->StartAllProcess(httpReqId);
 
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCMonitorServerModule::OnHandleStopAllServer(uint64_t unLinkId, uint64_t httpReqId, uint64_t value2, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::Proto_MasterTMonitorStopReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, httpReqId, msg, nLen, xMsg);
 
     m_procMonitor->StopAllProcess(httpReqId);
 
-    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_MONITOR_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 

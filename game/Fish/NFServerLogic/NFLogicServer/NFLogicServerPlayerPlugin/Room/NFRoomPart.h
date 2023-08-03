@@ -141,9 +141,30 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet);
 public:
+    /**
+     * @brief 请求获得一个桌子和座位
+     * @param request
+     * @param respone
+     * @return
+     */
     int GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone);
+
+    /**
+     * @brief 请求进入游戏
+     * @return
+     */
+    int EnterGameReq(proto_ff::EnterGameReq& request, proto_ff::EnterGameRsp& respone);
+public:
+    /**
+     * @brief 通知玩家离开游戏
+     * @param msgId
+     * @param packet
+     * @return
+     */
+    int OnHandleNotifyPlayerLeaveGame(uint32_t msgId, NFDataPackage &packet);
 private:
     uint32_t m_gameId;
     uint32_t m_roomId;
+    uint32_t m_gameBusId;
 DECLARE_IDCREATE(NFRoomPart)
 };

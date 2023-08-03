@@ -80,7 +80,7 @@ int NFCAccountLoginModule::OnHandleLoadServerFromWorldServer(uint64_t unLinkId, 
 
 int NFCAccountLoginModule::OnHandleCheckPhoneCodeFromClient(uint64_t unLinkId, uint64_t clientLinkId, uint64_t proxyBusId, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_login::Proto_CS_LoginServer_CheckPhoneCodeReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, clientLinkId, msg, nLen, cgMsg);
@@ -106,13 +106,13 @@ int NFCAccountLoginModule::OnHandleCheckPhoneCodeFromClient(uint64_t unLinkId, u
                                                        clientLinkId);
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCAccountLoginModule::OnHandlePhoneAutoCodeFromClient(uint64_t unLinkId, uint64_t clientLinkId, uint64_t proxyBusId, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_login::Proto_CS_LoginServer_PhoneAutoCodeReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, clientLinkId, msg, nLen, cgMsg);
@@ -134,13 +134,13 @@ int NFCAccountLoginModule::OnHandlePhoneAutoCodeFromClient(uint64_t unLinkId, ui
                                                        clientLinkId);
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCAccountLoginModule::OnHandleAccountRegisterFromClient(uint64_t unLinkId, uint64_t clientLinkId, uint64_t proxyBusId, uint32_t nMsgId, const char* msg, uint32_t nLen)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_login::Proto_CSRegisterAccountReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, clientLinkId, msg, nLen, cgMsg);
@@ -162,12 +162,12 @@ int NFCAccountLoginModule::OnHandleAccountRegisterFromClient(uint64_t unLinkId, 
                                                        clientLinkId);
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCAccountLoginModule::OnHandleChangePasswordFromClient(uint64_t unLinkId, uint64_t clientLinkId, uint64_t proxyBusId, uint32_t nMsgId, const char* msg, uint32_t nLen) {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_login::Proto_CS_ChangePasswordReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, clientLinkId, msg, nLen, cgMsg);
@@ -189,12 +189,12 @@ int NFCAccountLoginModule::OnHandleChangePasswordFromClient(uint64_t unLinkId, u
                                                        clientLinkId);
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFCAccountLoginModule::OnHandleAccountLoginFromClient(uint64_t unLinkId, uint64_t clientLinkId, uint64_t proxyBusId, uint32_t nMsgId, const char* msg, uint32_t nLen) {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_login::Proto_CSAccountLoginReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(nMsgId, clientLinkId, msg, nLen, cgMsg);
@@ -217,6 +217,6 @@ int NFCAccountLoginModule::OnHandleAccountLoginFromClient(uint64_t unLinkId, uin
                                                        clientLinkId);
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }

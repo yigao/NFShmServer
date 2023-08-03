@@ -41,6 +41,7 @@ int NFWorldPlayer::CreateInit()
     m_lastDiconnectTime = 0;
     m_createTime = NFTime::Now().UnixSec();
     m_lastLogoutTime = 0;
+    m_gameBusId = 0;
 
     return 0;
 }

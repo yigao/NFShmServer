@@ -64,6 +64,9 @@ class Proto_TS_QueryPlayerSimpleDataReq;
 class Proto_ST_QueryPlayerSimpleDataRsp;
 class Proto_GTW_RegisterRoomInfoReq;
 class Proto_WTG_RegisterRoomInfoRsp;
+class Proto_QueryCoinBalanceReq;
+class Proto_QueryCoinBalanceRsp;
+class Proto_NotifyServerPlayerExitGame;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -2865,6 +2868,284 @@ class Proto_WTG_RegisterRoomInfoRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Proto_WTG_RegisterRoomInfoRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Proto_QueryCoinBalanceReq : public ::google::protobuf::Message {
+ public:
+  Proto_QueryCoinBalanceReq();
+  virtual ~Proto_QueryCoinBalanceReq();
+
+  Proto_QueryCoinBalanceReq(const Proto_QueryCoinBalanceReq& from);
+
+  inline Proto_QueryCoinBalanceReq& operator=(const Proto_QueryCoinBalanceReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_QueryCoinBalanceReq& default_instance();
+
+  void Swap(Proto_QueryCoinBalanceReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_QueryCoinBalanceReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_QueryCoinBalanceReq& from);
+  void MergeFrom(const Proto_QueryCoinBalanceReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_QueryCoinBalanceReq)
+ private:
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[1];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_QueryCoinBalanceReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_QueryCoinBalanceRsp : public ::google::protobuf::Message {
+ public:
+  Proto_QueryCoinBalanceRsp();
+  virtual ~Proto_QueryCoinBalanceRsp();
+
+  Proto_QueryCoinBalanceRsp(const Proto_QueryCoinBalanceRsp& from);
+
+  inline Proto_QueryCoinBalanceRsp& operator=(const Proto_QueryCoinBalanceRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_QueryCoinBalanceRsp& default_instance();
+
+  void Swap(Proto_QueryCoinBalanceRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_QueryCoinBalanceRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_QueryCoinBalanceRsp& from);
+  void MergeFrom(const Proto_QueryCoinBalanceRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // optional .proto_ff.GamePlayerDetailData player_detail = 2;
+  inline bool has_player_detail() const;
+  inline void clear_player_detail();
+  static const int kPlayerDetailFieldNumber = 2;
+  inline const ::proto_ff::GamePlayerDetailData& player_detail() const;
+  inline ::proto_ff::GamePlayerDetailData* mutable_player_detail();
+  inline ::proto_ff::GamePlayerDetailData* release_player_detail();
+  inline void set_allocated_player_detail(::proto_ff::GamePlayerDetailData* player_detail);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_QueryCoinBalanceRsp)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_player_detail();
+  inline void clear_has_player_detail();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::proto_ff::GamePlayerDetailData* player_detail_;
+  ::google::protobuf::int32 result_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_QueryCoinBalanceRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_NotifyServerPlayerExitGame : public ::google::protobuf::Message {
+ public:
+  Proto_NotifyServerPlayerExitGame();
+  virtual ~Proto_NotifyServerPlayerExitGame();
+
+  Proto_NotifyServerPlayerExitGame(const Proto_NotifyServerPlayerExitGame& from);
+
+  inline Proto_NotifyServerPlayerExitGame& operator=(const Proto_NotifyServerPlayerExitGame& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_NotifyServerPlayerExitGame& default_instance();
+
+  void Swap(Proto_NotifyServerPlayerExitGame* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_NotifyServerPlayerExitGame* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_NotifyServerPlayerExitGame& from);
+  void MergeFrom(const Proto_NotifyServerPlayerExitGame& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional uint32 game_id = 2;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // optional uint32 room_id = 3;
+  inline bool has_room_id() const;
+  inline void clear_room_id();
+  static const int kRoomIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 room_id() const;
+  inline void set_room_id(::google::protobuf::uint32 value);
+
+  // optional uint32 desk_id = 4;
+  inline bool has_desk_id() const;
+  inline void clear_desk_id();
+  static const int kDeskIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 desk_id() const;
+  inline void set_desk_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_NotifyServerPlayerExitGame)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+  inline void set_has_room_id();
+  inline void clear_has_room_id();
+  inline void set_has_desk_id();
+  inline void clear_has_desk_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint32 room_id_;
+  ::google::protobuf::uint32 desk_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_NotifyServerPlayerExitGame* default_instance_;
+};
 // ===================================================================
 
 
@@ -5057,6 +5338,166 @@ inline ::google::protobuf::int32 Proto_WTG_RegisterRoomInfoRsp::result() const {
 inline void Proto_WTG_RegisterRoomInfoRsp::set_result(::google::protobuf::int32 value) {
   set_has_result();
   result_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_QueryCoinBalanceReq
+
+// -------------------------------------------------------------------
+
+// Proto_QueryCoinBalanceRsp
+
+// optional int32 result = 1;
+inline bool Proto_QueryCoinBalanceRsp::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_QueryCoinBalanceRsp::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_QueryCoinBalanceRsp::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_QueryCoinBalanceRsp::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 Proto_QueryCoinBalanceRsp::result() const {
+  return result_;
+}
+inline void Proto_QueryCoinBalanceRsp::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional .proto_ff.GamePlayerDetailData player_detail = 2;
+inline bool Proto_QueryCoinBalanceRsp::has_player_detail() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_QueryCoinBalanceRsp::set_has_player_detail() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_QueryCoinBalanceRsp::clear_has_player_detail() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_QueryCoinBalanceRsp::clear_player_detail() {
+  if (player_detail_ != NULL) player_detail_->::proto_ff::GamePlayerDetailData::Clear();
+  clear_has_player_detail();
+}
+inline const ::proto_ff::GamePlayerDetailData& Proto_QueryCoinBalanceRsp::player_detail() const {
+  return player_detail_ != NULL ? *player_detail_ : *default_instance_->player_detail_;
+}
+inline ::proto_ff::GamePlayerDetailData* Proto_QueryCoinBalanceRsp::mutable_player_detail() {
+  set_has_player_detail();
+  if (player_detail_ == NULL) player_detail_ = new ::proto_ff::GamePlayerDetailData;
+  return player_detail_;
+}
+inline ::proto_ff::GamePlayerDetailData* Proto_QueryCoinBalanceRsp::release_player_detail() {
+  clear_has_player_detail();
+  ::proto_ff::GamePlayerDetailData* temp = player_detail_;
+  player_detail_ = NULL;
+  return temp;
+}
+inline void Proto_QueryCoinBalanceRsp::set_allocated_player_detail(::proto_ff::GamePlayerDetailData* player_detail) {
+  delete player_detail_;
+  player_detail_ = player_detail;
+  if (player_detail) {
+    set_has_player_detail();
+  } else {
+    clear_has_player_detail();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// Proto_NotifyServerPlayerExitGame
+
+// optional uint64 player_id = 1;
+inline bool Proto_NotifyServerPlayerExitGame::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_NotifyServerPlayerExitGame::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_NotifyServerPlayerExitGame::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_NotifyServerPlayerExitGame::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 Proto_NotifyServerPlayerExitGame::player_id() const {
+  return player_id_;
+}
+inline void Proto_NotifyServerPlayerExitGame::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional uint32 game_id = 2;
+inline bool Proto_NotifyServerPlayerExitGame::has_game_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_NotifyServerPlayerExitGame::set_has_game_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_NotifyServerPlayerExitGame::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_NotifyServerPlayerExitGame::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 Proto_NotifyServerPlayerExitGame::game_id() const {
+  return game_id_;
+}
+inline void Proto_NotifyServerPlayerExitGame::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// optional uint32 room_id = 3;
+inline bool Proto_NotifyServerPlayerExitGame::has_room_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_NotifyServerPlayerExitGame::set_has_room_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_NotifyServerPlayerExitGame::clear_has_room_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_NotifyServerPlayerExitGame::clear_room_id() {
+  room_id_ = 0u;
+  clear_has_room_id();
+}
+inline ::google::protobuf::uint32 Proto_NotifyServerPlayerExitGame::room_id() const {
+  return room_id_;
+}
+inline void Proto_NotifyServerPlayerExitGame::set_room_id(::google::protobuf::uint32 value) {
+  set_has_room_id();
+  room_id_ = value;
+}
+
+// optional uint32 desk_id = 4;
+inline bool Proto_NotifyServerPlayerExitGame::has_desk_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_NotifyServerPlayerExitGame::set_has_desk_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_NotifyServerPlayerExitGame::clear_has_desk_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Proto_NotifyServerPlayerExitGame::clear_desk_id() {
+  desk_id_ = 0u;
+  clear_has_desk_id();
+}
+inline ::google::protobuf::uint32 Proto_NotifyServerPlayerExitGame::desk_id() const {
+  return desk_id_;
+}
+inline void Proto_NotifyServerPlayerExitGame::set_desk_id(::google::protobuf::uint32 value) {
+  set_has_desk_id();
+  desk_id_ = value;
 }
 
 

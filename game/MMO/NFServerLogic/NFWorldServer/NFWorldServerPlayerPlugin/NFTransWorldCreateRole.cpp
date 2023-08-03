@@ -96,7 +96,7 @@ int NFTransWorldCreateRole::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackag
 
 int NFTransWorldCreateRole::OnHandleLogicCreateRoleRsp(uint32_t msgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::LogicToWorldCreateRoleRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -152,7 +152,7 @@ int NFTransWorldCreateRole::OnHandleLogicCreateRoleRsp(uint32_t msgId, const NFD
     pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_CREATE_ROLE_RSP, xDataRsp);
 
     SetFinished(0);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

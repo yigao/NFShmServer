@@ -82,3 +82,12 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC, proto_ff::Proto
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_DeskListReq, proto_ff::DeskListReq, proto_ff::DeskListRsp)
 
+/**
+ * @brief world,logic,game req enter game rpc
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_EnterGameReq, proto_ff::EnterGameReq, proto_ff::EnterGameRsp)
+
+/**
+ * @brief game to logic get coin balance rpc
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_GTL_COIN_QUERY_BALANCE_RPC, proto_ff::Proto_QueryCoinBalanceReq, proto_ff::Proto_QueryCoinBalanceRsp)

@@ -558,7 +558,7 @@ bool NFPackagePart::RemoveItem(uint32_t nPackageType, MAP_UINT16_INT64 &mapIndex
 
 int NFPackagePart::OnHandlePackageInfo(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::PackageInfoReq msgReq;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, msgReq);
     int32_t nPackageType = msgReq.package_type();
@@ -567,13 +567,13 @@ int NFPackagePart::OnHandlePackageInfo(uint32_t msgId, NFDataPackage &packet)
     {
         pBag->SendPackageInfoToClient();
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFPackagePart::OnHandlePackageUseItem(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::PackageUseReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
@@ -612,7 +612,7 @@ int NFPackagePart::OnHandlePackageUseItem(uint32_t msgId, NFDataPackage &packet)
         m_pMaster->SendMsgToClient(proto_ff::LOGIC_TO_CLIENT_PACKAGE_USE, rsp);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -756,7 +756,7 @@ uint16_t NFPackagePart::SetItemByPackageType(int8_t byPackageType, uint16_t nInd
 
 int NFPackagePart::OnHandlePackageSortItem(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::PackageSortReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
@@ -767,6 +767,6 @@ int NFPackagePart::OnHandlePackageSortItem(uint32_t msgId, NFDataPackage &packet
         pBag->SortItem();
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     return 0;
 }

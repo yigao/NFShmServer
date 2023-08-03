@@ -218,13 +218,14 @@ void protobuf_AssignDesc_CSGame_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(EnterGameAutoJoinRsp));
   EnterGameReq_descriptor_ = file->message_type(5);
-  static const int EnterGameReq_offsets_[6] = {
+  static const int EnterGameReq_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterGameReq, game_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterGameReq, room_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterGameReq, desk_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterGameReq, chair_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterGameReq, proxy_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterGameReq, logic_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(EnterGameReq, game_bus_id_),
   };
   EnterGameReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -831,54 +832,54 @@ void protobuf_AddDesc_CSGame_2eproto() {
     "\223\001\n\024EnterGameAutoJoinRsp\022\016\n\006result\030\001 \001(\005"
     "\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\017\n\007de"
     "sk_id\030\004 \001(\r\022\020\n\010chair_id\030\005 \001(\r\022\021\n\tplayer_"
-    "id\030\006 \001(\004\022\023\n\013game_bus_id\030\007 \001(\r\"w\n\014EnterGa"
-    "meReq\022\017\n\007game_id\030\001 \001(\r\022\017\n\007room_id\030\002 \001(\r\022"
-    "\017\n\007desk_id\030\003 \001(\r\022\020\n\010chair_id\030\004 \001(\r\022\020\n\010pr"
-    "oxy_id\030\005 \001(\r\022\020\n\010logic_id\030\006 \001(\r\"\222\001\n\014Enter"
-    "GameRsp\022\016\n\006result\030\001 \001(\005\022\023\n\013chair_count\030\002"
-    " \001(\r\022\023\n\013my_chair_id\030\003 \001(\r\022\017\n\007game_id\030\004 \001"
-    "(\r\022\017\n\007room_id\030\005 \001(\r\022\023\n\013game_bus_id\030\006 \001(\r"
-    "\022\021\n\tplayer_id\030\007 \001(\004\"!\n\rUserRecomeReq\022\020\n\010"
-    "reserved\030\001 \001(\r\"\037\n\rUserRecomeRsp\022\016\n\006resul"
-    "t\030\001 \001(\005\"7\n\rGameChairInfo\022\020\n\010chair_id\030\001 \001"
-    "(\r\022\024\n\014chair_status\030\002 \001(\r\"\205\001\n\014GameDeskInf"
-    "o\022\017\n\007desk_id\030\001 \001(\r\022\021\n\tdesk_name\030\002 \001(\t\022\023\n"
-    "\013desk_status\030\003 \001(\r\022\023\n\013chair_count\030\004 \001(\r\022"
-    "\'\n\006chairs\030\005 \003(\0132\027.proto_ff.GameChairInfo"
-    "\"W\n\013DeskListReq\022\017\n\007room_id\030\001 \001(\r\022\017\n\007game"
-    "_id\030\002 \001(\r\022\021\n\tcur_money\030\003 \001(\004\022\023\n\013game_bus"
-    "_id\030\004 \001(\r\"D\n\013DeskListRsp\022\016\n\006result\030\001 \001(\005"
-    "\022%\n\005desks\030\002 \003(\0132\026.proto_ff.GameDeskInfo\""
-    "T\n\rChairCheckReq\022\017\n\007room_id\030\001 \001(\r\022\017\n\007gam"
-    "e_id\030\002 \001(\r\022\017\n\007desk_id\030\003 \001(\r\022\020\n\010chair_id\030"
-    "\004 \001(\r\"\037\n\rChairCheckRsp\022\016\n\006result\030\001 \001(\005\"/"
-    "\n\013ExitRoomReq\022\017\n\007room_id\030\001 \001(\r\022\017\n\007game_i"
-    "d\030\002 \001(\r\"\035\n\013ExitRoomRsp\022\016\n\006result\030\001 \001(\005\"\037"
-    "\n\013ExitGameReq\022\020\n\010reserved\030\001 \001(\r\" \n\013ExitG"
-    "ameRsp\022\021\n\texit_type\030\001 \001(\r\"]\n\016GameRoomInf"
-    "o_1\022\017\n\007room_id\030\001 \001(\r\022\021\n\troom_name\030\002 \001(\t\022"
-    "\021\n\tmin_coins\030\003 \001(\r\022\024\n\014online_count\030\004 \001(\r"
-    "\"6\n\017GameChairInfo_1\022\020\n\010chair_id\030\001 \001(\r\022\021\n"
-    "\tplayer_id\030\002 \001(\004\"s\n\016GameDeskInfo_1\022\017\n\007de"
-    "sk_id\030\001 \001(\r\022\021\n\tdesk_name\030\002 \001(\t\022\023\n\013chair_"
-    "count\030\003 \001(\r\022(\n\005chars\030\004 \003(\0132\031.proto_ff.Ga"
-    "meChairInfo_1\"#\n\020GetRoomListReq_1\022\017\n\007gam"
-    "e_id\030\001 \001(\r\";\n\020GetRoomListRsp_1\022\'\n\005rooms\030"
-    "\001 \003(\0132\030.proto_ff.GameRoomInfo_1\"#\n\020GetDe"
-    "skListReq_1\022\017\n\007room_id\030\001 \001(\r\";\n\020GetDeskL"
-    "istRsp_1\022\'\n\005desks\030\001 \003(\0132\030.proto_ff.GameD"
-    "eskInfo_1\"]\n\025NotifyPlayerLeaveGame\022\021\n\tpl"
-    "ayer_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_i"
-    "d\030\003 \001(\r\022\017\n\007desk_id\030\004 \001(\r\">\n\021MoneyChangeN"
-    "otify\022\021\n\tcur_money\030\001 \001(\004\022\026\n\016cur_bank_mon"
-    "ey\030\002 \001(\004\"\201\001\n\020OnePaoMaDengInfo\022\021\n\tuser_na"
-    "me\030\001 \001(\t\022\017\n\007game_id\030\002 \001(\r\022\021\n\tgame_name\030\003"
-    " \001(\t\022\017\n\007room_id\030\004 \001(\r\022\021\n\troom_name\030\005 \001(\t"
-    "\022\022\n\nwin_jetton\030\006 \001(\004\"C\n\027Proto_SCPaoMaDen"
-    "gNotify\022(\n\004info\030\001 \003(\0132\032.proto_ff.OnePaoM"
-    "aDengInfo\"#\n\025Proto_CSRedeemCodeReq\022\n\n\002id"
-    "\030\001 \001(\t\"\'\n\025Proto_SCRedeemCodeRsp\022\016\n\006resul"
-    "t\030\001 \001(\005", 2407);
+    "id\030\006 \001(\004\022\023\n\013game_bus_id\030\007 \001(\r\"\214\001\n\014EnterG"
+    "ameReq\022\017\n\007game_id\030\001 \001(\r\022\017\n\007room_id\030\002 \001(\r"
+    "\022\017\n\007desk_id\030\003 \001(\r\022\020\n\010chair_id\030\004 \001(\r\022\020\n\010p"
+    "roxy_id\030\005 \001(\r\022\020\n\010logic_id\030\006 \001(\r\022\023\n\013game_"
+    "bus_id\030\007 \001(\r\"\222\001\n\014EnterGameRsp\022\016\n\006result\030"
+    "\001 \001(\005\022\023\n\013chair_count\030\002 \001(\r\022\023\n\013my_chair_i"
+    "d\030\003 \001(\r\022\017\n\007game_id\030\004 \001(\r\022\017\n\007room_id\030\005 \001("
+    "\r\022\023\n\013game_bus_id\030\006 \001(\r\022\021\n\tplayer_id\030\007 \001("
+    "\004\"!\n\rUserRecomeReq\022\020\n\010reserved\030\001 \001(\r\"\037\n\r"
+    "UserRecomeRsp\022\016\n\006result\030\001 \001(\005\"7\n\rGameCha"
+    "irInfo\022\020\n\010chair_id\030\001 \001(\r\022\024\n\014chair_status"
+    "\030\002 \001(\r\"\205\001\n\014GameDeskInfo\022\017\n\007desk_id\030\001 \001(\r"
+    "\022\021\n\tdesk_name\030\002 \001(\t\022\023\n\013desk_status\030\003 \001(\r"
+    "\022\023\n\013chair_count\030\004 \001(\r\022\'\n\006chairs\030\005 \003(\0132\027."
+    "proto_ff.GameChairInfo\"W\n\013DeskListReq\022\017\n"
+    "\007room_id\030\001 \001(\r\022\017\n\007game_id\030\002 \001(\r\022\021\n\tcur_m"
+    "oney\030\003 \001(\004\022\023\n\013game_bus_id\030\004 \001(\r\"D\n\013DeskL"
+    "istRsp\022\016\n\006result\030\001 \001(\005\022%\n\005desks\030\002 \003(\0132\026."
+    "proto_ff.GameDeskInfo\"T\n\rChairCheckReq\022\017"
+    "\n\007room_id\030\001 \001(\r\022\017\n\007game_id\030\002 \001(\r\022\017\n\007desk"
+    "_id\030\003 \001(\r\022\020\n\010chair_id\030\004 \001(\r\"\037\n\rChairChec"
+    "kRsp\022\016\n\006result\030\001 \001(\005\"/\n\013ExitRoomReq\022\017\n\007r"
+    "oom_id\030\001 \001(\r\022\017\n\007game_id\030\002 \001(\r\"\035\n\013ExitRoo"
+    "mRsp\022\016\n\006result\030\001 \001(\005\"\037\n\013ExitGameReq\022\020\n\010r"
+    "eserved\030\001 \001(\r\" \n\013ExitGameRsp\022\021\n\texit_typ"
+    "e\030\001 \001(\r\"]\n\016GameRoomInfo_1\022\017\n\007room_id\030\001 \001"
+    "(\r\022\021\n\troom_name\030\002 \001(\t\022\021\n\tmin_coins\030\003 \001(\r"
+    "\022\024\n\014online_count\030\004 \001(\r\"6\n\017GameChairInfo_"
+    "1\022\020\n\010chair_id\030\001 \001(\r\022\021\n\tplayer_id\030\002 \001(\004\"s"
+    "\n\016GameDeskInfo_1\022\017\n\007desk_id\030\001 \001(\r\022\021\n\tdes"
+    "k_name\030\002 \001(\t\022\023\n\013chair_count\030\003 \001(\r\022(\n\005cha"
+    "rs\030\004 \003(\0132\031.proto_ff.GameChairInfo_1\"#\n\020G"
+    "etRoomListReq_1\022\017\n\007game_id\030\001 \001(\r\";\n\020GetR"
+    "oomListRsp_1\022\'\n\005rooms\030\001 \003(\0132\030.proto_ff.G"
+    "ameRoomInfo_1\"#\n\020GetDeskListReq_1\022\017\n\007roo"
+    "m_id\030\001 \001(\r\";\n\020GetDeskListRsp_1\022\'\n\005desks\030"
+    "\001 \003(\0132\030.proto_ff.GameDeskInfo_1\"]\n\025Notif"
+    "yPlayerLeaveGame\022\021\n\tplayer_id\030\001 \001(\004\022\017\n\007g"
+    "ame_id\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\017\n\007desk_id"
+    "\030\004 \001(\r\">\n\021MoneyChangeNotify\022\021\n\tcur_money"
+    "\030\001 \001(\004\022\026\n\016cur_bank_money\030\002 \001(\004\"\201\001\n\020OnePa"
+    "oMaDengInfo\022\021\n\tuser_name\030\001 \001(\t\022\017\n\007game_i"
+    "d\030\002 \001(\r\022\021\n\tgame_name\030\003 \001(\t\022\017\n\007room_id\030\004 "
+    "\001(\r\022\021\n\troom_name\030\005 \001(\t\022\022\n\nwin_jetton\030\006 \001"
+    "(\004\"C\n\027Proto_SCPaoMaDengNotify\022(\n\004info\030\001 "
+    "\003(\0132\032.proto_ff.OnePaoMaDengInfo\"#\n\025Proto"
+    "_CSRedeemCodeReq\022\n\n\002id\030\001 \001(\t\"\'\n\025Proto_SC"
+    "RedeemCodeRsp\022\016\n\006result\030\001 \001(\005", 2429);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSGame.proto", &protobuf_RegisterTypes);
   RoomStatusInfo::default_instance_ = new RoomStatusInfo();
@@ -2661,6 +2662,7 @@ const int EnterGameReq::kDeskIdFieldNumber;
 const int EnterGameReq::kChairIdFieldNumber;
 const int EnterGameReq::kProxyIdFieldNumber;
 const int EnterGameReq::kLogicIdFieldNumber;
+const int EnterGameReq::kGameBusIdFieldNumber;
 #endif  // !_MSC_VER
 
 EnterGameReq::EnterGameReq()
@@ -2685,6 +2687,7 @@ void EnterGameReq::SharedCtor() {
   chair_id_ = 0u;
   proxy_id_ = 0u;
   logic_id_ = 0u;
+  game_bus_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2726,6 +2729,7 @@ void EnterGameReq::Clear() {
     chair_id_ = 0u;
     proxy_id_ = 0u;
     logic_id_ = 0u;
+    game_bus_id_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2828,6 +2832,22 @@ bool EnterGameReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(56)) goto parse_game_bus_id;
+        break;
+      }
+
+      // optional uint32 game_bus_id = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_game_bus_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &game_bus_id_)));
+          set_has_game_bus_id();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2880,6 +2900,11 @@ void EnterGameReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->logic_id(), output);
   }
 
+  // optional uint32 game_bus_id = 7;
+  if (has_game_bus_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->game_bus_id(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2916,6 +2941,11 @@ void EnterGameReq::SerializeWithCachedSizes(
   // optional uint32 logic_id = 6;
   if (has_logic_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->logic_id(), target);
+  }
+
+  // optional uint32 game_bus_id = 7;
+  if (has_game_bus_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->game_bus_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2971,6 +3001,13 @@ int EnterGameReq::ByteSize() const {
           this->logic_id());
     }
 
+    // optional uint32 game_bus_id = 7;
+    if (has_game_bus_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->game_bus_id());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -3016,6 +3053,9 @@ void EnterGameReq::MergeFrom(const EnterGameReq& from) {
     if (from.has_logic_id()) {
       set_logic_id(from.logic_id());
     }
+    if (from.has_game_bus_id()) {
+      set_game_bus_id(from.game_bus_id());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -3045,6 +3085,7 @@ void EnterGameReq::Swap(EnterGameReq* other) {
     std::swap(chair_id_, other->chair_id_);
     std::swap(proxy_id_, other->proxy_id_);
     std::swap(logic_id_, other->logic_id_);
+    std::swap(game_bus_id_, other->game_bus_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

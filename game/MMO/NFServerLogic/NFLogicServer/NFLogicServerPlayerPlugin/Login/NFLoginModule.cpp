@@ -160,7 +160,7 @@ int NFLoginModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, 
 
 int NFLoginModule::OnHandleGetRoleList(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToLogicGetRoleList clogin;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, clogin);
 
@@ -170,13 +170,13 @@ int NFLoginModule::OnHandleGetRoleList(uint32_t msgId, NFDataPackage &packet, ui
     int iRetCode = pTrans->HandleCSMsgReq(&clogin);
     CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "pTrans->HandleCSMsgReq(&clogin) failed");
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFLoginModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToLogicCreateRoleReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -186,13 +186,13 @@ int NFLoginModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &packet, uin
     int iRetCode = pTrans->HandleCSMsgReq(&xMsg);
     CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "pTrans->HandleCSMsgReq(&clogin) failed");
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFLoginModule::OnHandleLoginRole(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToLogicLoginReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -202,13 +202,13 @@ int NFLoginModule::OnHandleLoginRole(uint32_t msgId, NFDataPackage &packet, uint
     int iRetCode = pTrans->HandleCSMsgReq(&xMsg);
     CHECK_ERR_AND_FIN_TRANS(iRetCode, pTrans, "pTrans->HandleCSMsgReq(&clogin) failed");
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFLoginModule::OnHandlePlayerDisconnect(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToOtherServerDisconnectNotify xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -217,13 +217,13 @@ int NFLoginModule::OnHandlePlayerDisconnect(uint32_t msgId, NFDataPackage &packe
     {
         pPlayer->OnDisconnect(xMsg.reason());
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFLoginModule::OnHandleLoginFinishNotify(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToLogicLoginFinishNotify xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -243,13 +243,13 @@ int NFLoginModule::OnHandleLoginFinishNotify(uint32_t msgId, NFDataPackage &pack
 
     NFPlayerMgr::Instance(m_pObjPluginManager)->LoginGame(xMsg.role_id(), loginInfo);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFLoginModule::OnHandleLeaveGameReq(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::NotifyLogicLeaveGameReq2 xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -269,13 +269,13 @@ int NFLoginModule::OnHandleLeaveGameReq(uint32_t msgId, NFDataPackage &packet, u
 
     NFPlayerMgr::Instance(m_pObjPluginManager)->LogoutGame(uid, roleId, type, reqTransId);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFLoginModule::OnHandleTransSceneReq(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t roleId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::TransSceneReq req;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, req);
 
@@ -285,6 +285,6 @@ int NFLoginModule::OnHandleTransSceneReq(uint32_t msgId, NFDataPackage &packet, 
 
     NFPlayerMgr::Instance(m_pObjPluginManager)->TransScene(uid, roleId, dstMapId, transType, transId);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

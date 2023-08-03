@@ -272,7 +272,7 @@ int NFTransWorldGetRoleList::HandleDispSvrRes(uint32_t nMsgId, const NFDataPacka
 
 int NFTransWorldGetRoleList::OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::LogicToWorldGetRoleListRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -375,13 +375,13 @@ int NFTransWorldGetRoleList::OnHandleLogicGetRoleListRsp(uint32_t nMsgId, const 
     pPlayer->SendMsgToProxyServer(proto_ff::CLIENT_LOGIN_RSP, loginrsp);
     SetFinished(0);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFTransWorldGetRoleList::OnHandleLogicLeaveGameRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::NotifyLogicLeaveGameRsp2 xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -423,7 +423,7 @@ int NFTransWorldGetRoleList::OnHandleLogicLeaveGameRsp(uint32_t nMsgId, const NF
 
     SendGetRoleList();
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

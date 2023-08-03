@@ -146,7 +146,7 @@ int NFSnsJettonPart::SaveDB(proto_ff::tbFishSnsPlayerDetailData &dbData)
 
 int NFSnsJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_LTSBankGetDataReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -170,13 +170,13 @@ int NFSnsJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packe
     rspMsg.set_jetton(xMsg.jetton());
     rspMsg.set_bank_jetton(m_bankJetton);
     pPlayerOnline->SendMsgToClient(proto_ff::NF_SC_BANK_GET_DATA_RSP, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFSnsJettonPart::AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq& request, proto_ff::Proto_STL_PlayerAddBankJettonRsp& respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     m_bankJetton += request.add_jetton();
     MarkDirty();
@@ -185,13 +185,13 @@ int NFSnsJettonPart::AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJetto
     respone.set_add_jetton(request.add_jetton());
     respone.set_bank_jetton(m_bankJetton);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFSnsJettonPart::ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBankJettonReq& request, proto_ff::Proto_STL_PlayerReduceBankJettonRsp& respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     uint32_t reduceJetton = 0;
     if (m_bankJetton > request.reduce_jetton())
@@ -210,13 +210,13 @@ int NFSnsJettonPart::ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBan
     respone.set_reduce_jetton(reduceJetton);
     respone.set_bank_jetton(m_bankJetton);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFSnsJettonPart::OnHandleBankSetPasswordReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_CSBankSetPasswordReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -235,13 +235,13 @@ int NFSnsJettonPart::OnHandleBankSetPasswordReq(uint32_t msgId, NFDataPackage &p
     }
 
     pOnline->SendMsgToClient(proto_ff::NF_SC_BANK_SET_PASSWORD_RSP, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFSnsJettonPart::OnHandleBankGiveBankJettonReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_CSBankGiveMoneyReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -338,13 +338,13 @@ int NFSnsJettonPart::OnHandleBankGiveBankJettonReq(uint32_t msgId, NFDataPackage
         notify.set_bank_jetton(pOtherPart->m_bankJetton);
         pOtherOnline->SendMsgToClient(proto_ff::NF_SC_BANK_GIVE_BANK_JETTON_AUTO_PUSH_RSP, notify);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFSnsJettonPart::OnHandleBankGetRecordReq(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_CSBankGetRecordReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -364,6 +364,6 @@ int NFSnsJettonPart::OnHandleBankGetRecordReq(uint32_t msgId, NFDataPackage &pac
         count++;
     }
     pOnline->SendMsgToClient(proto_ff::NF_SC_BANK_GET_RECORD_RSP, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

@@ -59,7 +59,7 @@ int NFGetAccountTrans::Init(uint32_t busId, uint64_t clientLinkId, uint32_t cmd)
 
 int NFGetAccountTrans::ProGetAccountInfoRes()
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
     NFAccountLogin* pLogin = NFAccountLoginMgr::Instance()->FindAccount(mAccount.GetString());
     CHECK_NULL(pLogin);
 
@@ -168,13 +168,13 @@ int NFGetAccountTrans::ProGetAccountInfoRes()
                                                          mClientLinkId);
 
     SetFinished(0);
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFGetAccountTrans::ProChangePasswordRes()
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
     NFAccountLogin* pLogin = NFAccountLoginMgr::Instance()->FindAccount(mAccount.GetString());
     CHECK_NULL(pLogin);
 
@@ -193,13 +193,13 @@ int NFGetAccountTrans::ProChangePasswordRes()
                                                      proto_ff::E_STORESVR_C2S_MODIFYOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                      GetGlobalID(), 0, NFHash::hash<std::string>()(pLogin->mAccount.GetString()));
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFGetAccountTrans::HandleGetBaseInfoRes(NFAccountLogin *pUserLogin)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
     int iRetCode = 0;
     switch (mCmd)
     {
@@ -220,13 +220,13 @@ int NFGetAccountTrans::HandleGetBaseInfoRes(NFAccountLogin *pUserLogin)
         }
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return iRetCode;
 }
 
 int NFGetAccountTrans::HandleGetBaseInfoMsgParam(const google::protobuf::Message *pCSMsgReq)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
     int iRetCode = 0;
     switch (mCmd)
     {
@@ -247,13 +247,13 @@ int NFGetAccountTrans::HandleGetBaseInfoMsgParam(const google::protobuf::Message
         }
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return iRetCode;
 }
 
 int NFGetAccountTrans::ProGetBaseInfoReq()
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     proto_ff::tbAccountTable accountInfo;
     accountInfo.set_account(mAccount.GetString());
@@ -261,12 +261,12 @@ int NFGetAccountTrans::ProGetBaseInfoReq()
     FindModule<NFIMessageModule>()->SendTransToStoreServer(NF_ST_LOGIN_SERVER,
                                                            proto_ff::E_STORESVR_C2S_SELECTOBJ, proto_ff::E_TABLE_ACCOUNT_PLAYER, NF_DEFAULT_MYSQL_DB_NAME, "tbAccountTable", accountInfo,
                                                            GetGlobalID(), 0, NFHash::hash<std::string>()(mAccount.GetString()));
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFGetAccountTrans::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq) {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     int iRetCode = HandleGetBaseInfoMsgParam(pCSMsgReq);
     if (iRetCode) {
@@ -290,13 +290,13 @@ int NFGetAccountTrans::HandleCSMsgReq(const google::protobuf::Message *pCSMsgReq
         }
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFGetAccountTrans::ProGetAccountInfoReq(const proto_login::Proto_CS_ChangePasswordReq *pLoginReq)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
     CHECK_EXPR(pLoginReq, -1, "pLoginReq = NULL");
 
     mAccount = pLoginReq->account();
@@ -319,13 +319,13 @@ int NFGetAccountTrans::ProGetAccountInfoReq(const proto_login::Proto_CS_ChangePa
         return 0;
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return proto_ff::ERR_CODE_PHONE_AUTO_CODE_TIMEOUT;
 }
 
 int NFGetAccountTrans::ProGetAccountInfoReq(const proto_login::Proto_CSAccountLoginReq *pLoginReq)
 {
-	NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 	CHECK_EXPR(pLoginReq, -1, "pLoginReq = NULL");
 
 	mAccount = pLoginReq->account();
@@ -333,12 +333,12 @@ int NFGetAccountTrans::ProGetAccountInfoReq(const proto_login::Proto_CSAccountLo
 	mLoginType = pLoginReq->login_type();
 	mDeviecId = pLoginReq->device_id();
 
-	NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
 	return 0;
 }
 
 int NFGetAccountTrans::CreateAccountReq() {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
 	if (mLoginType == proto_ff::E_VISITOR || mLoginType == proto_ff::E_WECHAT)
 	{
@@ -362,13 +362,13 @@ int NFGetAccountTrans::CreateAccountReq() {
         return proto_ff::ERR_CODE_ACCOUNT_NOT_EXIST;
 	}
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFGetAccountTrans::ProGetBaseInfoRes(const storesvr_sqldata::storesvr_selobj_res* pSelRsp, uint32_t cmd, uint32_t table_id, uint32_t err_code)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     if (err_code != 0)
     {
@@ -420,7 +420,7 @@ int NFGetAccountTrans::ProGetBaseInfoRes(const storesvr_sqldata::storesvr_selobj
         }
     }
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
@@ -446,7 +446,7 @@ int NFGetAccountTrans::HandleDispSvrRes(uint64_t unLinkId, uint64_t destLinkId, 
 
 int NFGetAccountTrans::ProBaseChangePassowrdRes(const storesvr_sqldata::storesvr_modobj_res* pSelRsp, uint32_t cmd, uint32_t table_id, uint32_t err_code)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     if (err_code != 0)
     {
@@ -468,7 +468,7 @@ int NFGetAccountTrans::ProBaseChangePassowrdRes(const storesvr_sqldata::storesvr
     if (!pLogin)
     {
         SetFinished(0);
-        NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+        NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
         return 0;
     }
 
@@ -484,13 +484,13 @@ int NFGetAccountTrans::ProBaseChangePassowrdRes(const storesvr_sqldata::storesvr
 
     SetFinished(0);
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return 0;
 }
 
 int NFGetAccountTrans::ProBaseCreateRes(const storesvr_sqldata::storesvr_ins_res* pSelRsp, uint32_t cmd, uint32_t table_id, uint32_t err_code)
 {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
 
     if (err_code != 0)
     {
@@ -503,14 +503,14 @@ int NFGetAccountTrans::ProBaseCreateRes(const storesvr_sqldata::storesvr_ins_res
 
     NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "Create Account Success In Mysql, Account:{} Password:{}", mAccount.Get(), mPassword.Get());
 
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return ProGetBaseInfoReq();
 }
 
 int NFGetAccountTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id,
                                       uint32_t seq,
                                       uint32_t err_code) {
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- begin -- ");
     int iRetCode = 0;
     if (cmd == proto_ff::E_STORESVR_S2C_SELECTOBJ) {
         if (table_id == proto_ff::E_TABLE_ACCOUNT_PLAYER) {
@@ -537,7 +537,7 @@ int NFGetAccountTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes
             iRetCode = ProBaseChangePassowrdRes(pRes, cmd, table_id, err_code);
         }
     }
-    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_LOGIN_SERVER_PLUGIN, 0, "--- end -- ");
     return iRetCode;
 }
 

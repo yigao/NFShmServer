@@ -217,7 +217,7 @@ int NFCProxyPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 */
 int NFCProxyPlayerModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     if (nEvent == eMsgType_CONNECTED)
     {
         std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
@@ -243,7 +243,7 @@ int NFCProxyPlayerModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unL
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "client ip:{} port:{} link:{} disconnected proxy server!", ip, port, unLinkId);
         OnHandleClientDisconnect(unLinkId);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -252,7 +252,7 @@ int NFCProxyPlayerModule::OnProxyClientSocketEvent(eMsgType nEvent, uint64_t unL
 */
 int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 
@@ -371,13 +371,13 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
         }
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCProxyPlayerModule::OnHandleClientDisconnect(uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
     if (pLinkInfo)
     {
@@ -403,7 +403,7 @@ int NFCProxyPlayerModule::OnHandleClientDisconnect(uint64_t unLinkId)
         mClientLinkInfo.RemoveElement(unLinkId);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -568,7 +568,7 @@ int NFCProxyPlayerModule::HandlePlayerTick()
 
 int NFCProxyPlayerModule::OnHandleAccountLoginFromClient(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_CSAccountLoginReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, cgMsg);
 
@@ -605,13 +605,13 @@ int NFCProxyPlayerModule::OnHandleAccountLoginFromClient(uint64_t unLinkId, NFDa
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Get Login Server Bus Id Failed");
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCProxyPlayerModule::OnHandleRegisterLoginFromClient(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_CSRegisterAccountReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, cgMsg);
 
@@ -648,7 +648,7 @@ int NFCProxyPlayerModule::OnHandleRegisterLoginFromClient(uint64_t unLinkId, NFD
         NFLogError(NF_LOG_SYSTEMLOG, 0, "Get Login Server Bus Id Failed");
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -664,7 +664,7 @@ int NFCProxyPlayerModule::KickPlayer(uint64_t unLinkId, int reason)
 
 int NFCProxyPlayerModule::OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_CSUserLoginReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, cgMsg);
 
@@ -806,13 +806,13 @@ int NFCProxyPlayerModule::OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDat
 
     FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_MSG_UserLoginRsp, rspMsg);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCProxyPlayerModule::OnHandlePlayerReconnectFromClient(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::Proto_CSReconnectReq cgMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, cgMsg);
 
@@ -936,6 +936,6 @@ int NFCProxyPlayerModule::OnHandlePlayerReconnectFromClient(uint64_t unLinkId, N
     gcMsg.set_result(0);
     FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

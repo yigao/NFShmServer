@@ -130,18 +130,18 @@ int NFCSceneModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet,
 
 int NFCSceneModule::OnHandleRegisterMapRsp(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToGameRegisterMapRsp xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
     m_pObjPluginManager->FinishAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     return 0;
 }
 
 int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToGameEnterSceneReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -182,13 +182,13 @@ int NFCSceneModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet,
     rspMsg.set_ret_code(ret);
     pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_ENTER_SCENE_RSP, rspMsg, 0, reqTransId);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     return 0;
 }
 
 int NFCSceneModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage & packet, uint64_t reqTransId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToGameLeaveSceneReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -226,13 +226,13 @@ int NFCSceneModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage & packet
     rspMsg.set_logic_id(pPlayer->GetLogicId());
     pPlayer->SendTransToWorldServer(proto_ff::GAME_TO_WORLD_LEAVE_SCENE_RSP, rspMsg, 0, reqTransId);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     return 0;
 }
 
 int NFCSceneModule::OnHandlePlayerDisconnect(uint32_t msgId, NFDataPackage & packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::WorldToOtherServerDisconnectNotify xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -244,6 +244,6 @@ int NFCSceneModule::OnHandlePlayerDisconnect(uint32_t msgId, NFDataPackage & pac
     else {
         NFLogWarning(NF_LOG_SYSTEMLOG, xMsg.roleid(), "GetBattlePlayer Fail, roleId:{}", xMsg.roleid());
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

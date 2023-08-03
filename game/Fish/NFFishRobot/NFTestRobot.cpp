@@ -21,7 +21,7 @@ int NFTestRobot::OnTimer(uint32_t nTimerID)
 
 int NFTestRobot::ConnectLoginServer(const std::string& url)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	mStatus = NF_TEST_ROBOT_START_CONNECT;
     m_proxyLinkId = FindModule<NFIMessageModule>()->ConnectServer(NF_ST_GAME_SERVER, url, PACKET_PARSE_TYPE_FISH_EXTERNAL);
 	CHECK_EXPR(m_proxyLinkId > 0, -1, "ConnectLoginServer url:{} failed!", url);
@@ -31,13 +31,13 @@ int NFTestRobot::ConnectLoginServer(const std::string& url)
     FindModule<NFIMessageModule>()->AddOtherCallBack(NF_ST_GAME_SERVER, m_proxyLinkId, this, &NFTestRobot::OnHandleRobotAllMessage);
 
 	SetTimer(ENUM_ROBOT_TIMER_PLAZE, 1000, 0);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
 int NFTestRobot::OnLoginServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		mStatus = NF_TEST_ROBOT_CONNECT_SUCCESS;
@@ -48,7 +48,7 @@ int NFTestRobot::OnLoginServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 		mStatus = NF_TEST_ROBOT_CONNECT_FAILE;
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "robot:{} disconnect login", m_robotId);
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -75,7 +75,7 @@ int NFTestRobot::OnHandleRobotAllMessage(uint64_t unLinkId, NFDataPackage &packe
 
 int NFTestRobot::OnHandleAccountLogin(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_SCAccountLoginRsp gcMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, gcMsg);
@@ -99,13 +99,13 @@ int NFTestRobot::OnHandleAccountLogin(uint64_t unLinkId, NFDataPackage &packet)
         RegisterAccount();
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFTestRobot::OnHandleAccountRegister(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_SCRegisterAccountRsp gcMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, gcMsg);
@@ -127,7 +127,7 @@ int NFTestRobot::OnHandleAccountRegister(uint64_t unLinkId, NFDataPackage &packe
         NFLogError(NF_LOG_SYSTEMLOG, 0, "robot:{} register login failed", m_robotId);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -193,7 +193,7 @@ int NFTestRobot::SendMsgToServer(uint32_t nMsgId, const google::protobuf::Messag
 
 int NFTestRobot::VisitorLogin()
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     mStatus = NF_TEST_ROBOT_START_LOGIN;
     m_account = "robot_visitor_" + NFCommon::tostr(m_robotId);
     m_password = "robot_visitor_" + NFCommon::tostr(m_robotId);
@@ -205,13 +205,13 @@ int NFTestRobot::VisitorLogin()
     xMsg.set_login_type(proto_ff::E_VISITOR);
 
     SendMsgToServer(proto_ff::NF_CS_MSG_AccountLoginReq, xMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFTestRobot::AccountLogin()
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     mStatus = NF_TEST_ROBOT_START_LOGIN;
     m_account = "robot_acc_" + NFCommon::tostr(m_robotId);
     m_password = "robot_acc_" + NFCommon::tostr(m_robotId);
@@ -223,13 +223,13 @@ int NFTestRobot::AccountLogin()
     xMsg.set_login_type(proto_ff::E_ACCOUNT);
 
     SendMsgToServer(proto_ff::NF_CS_MSG_AccountLoginReq, xMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFTestRobot::RegisterAccount()
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     mStatus = NF_TEST_ROBOT_START_LOGIN;
     m_account = "robot_acc_" + NFCommon::tostr(m_robotId);
     m_password = "robot_acc_" + NFCommon::tostr(m_robotId);
@@ -239,7 +239,7 @@ int NFTestRobot::RegisterAccount()
     xMsg.set_password(m_password);
 
     SendMsgToServer(proto_ff::NF_CS_MSG_RegisterAccountReq, xMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -259,7 +259,7 @@ int NFTestRobot::ConnectGameServer(const std::string& ip, int port)
 
 int NFTestRobot::OnGameServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     if (nEvent == eMsgType_CONNECTED)
     {
         if (mStatus >= NF_TEST_ROBOT_LOGIN_USER_SUCCESS)
@@ -285,7 +285,7 @@ int NFTestRobot::OnGameServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
         }
         NFLogError(NF_LOG_SYSTEMLOG, 0, "robot:{} disconnect game", m_robotId);
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -298,7 +298,7 @@ int NFTestRobot::CloseGameServer()
 
 int NFTestRobot::UserLoginServer()
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     mStatus = NF_TEST_ROBOT_START_USER_LOGIN;
     proto_ff::Proto_CSUserLoginReq xMsg;
     xMsg.set_user_id(m_playerId);
@@ -317,6 +317,6 @@ int NFTestRobot::UserLoginServer()
     xMsg.mutable_ext_data()->set_city("shengzhen");
 
     SendMsgToServer(proto_ff::NF_CS_MSG_UserLoginReq, xMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

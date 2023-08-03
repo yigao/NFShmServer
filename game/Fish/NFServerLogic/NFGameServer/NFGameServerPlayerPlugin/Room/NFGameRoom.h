@@ -20,6 +20,7 @@
 #define ONE_GAME_ROOM_MAX_DESK_COUNT 255
 
 class NFGameDesk;
+class NFGamePlayer;
 class NFGameRoom : public NFShmObj
 {
 public:
@@ -212,6 +213,15 @@ public:
      * @return
      */
     int OnHandleReqDeskList(uint64_t playerId, uint32_t autoChairId, proto_ff::DeskListRsp &respone);
+public:
+    /**
+     * @brief 请求进入游戏
+     * @param playerId
+     * @param deskId
+     * @param chairId
+     * @return
+     */
+    int EnterGame(uint64_t playerId, int deskId, int chairId, proto_ff_s::GamePlayerDetailData_s& playerDetail);
 public:
     uint32_t m_gameId;
     uint32_t m_roomId;

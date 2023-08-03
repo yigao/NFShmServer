@@ -167,7 +167,7 @@ int NFCRouteAgentServerModule::OnExecute(uint32_t serverType, uint32_t nEventID,
 
 int NFCRouteAgentServerModule::OnRouteAgentSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	if (nEvent == eMsgType_CONNECTED)
 	{
 	}
@@ -175,7 +175,7 @@ int NFCRouteAgentServerModule::OnRouteAgentSocketEvent(eMsgType nEvent, uint64_t
 	{
 		OnHandleServerDisconnect(unLinkId);
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -228,7 +228,7 @@ NFCRouteAgentServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage
 */
 int NFCRouteAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
 	if (nEvent == eMsgType_CONNECTED)
 	{
@@ -253,7 +253,7 @@ int NFCRouteAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "route agent server disconnect master success");
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -262,10 +262,10 @@ int NFCRouteAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
 */
 int NFCRouteAgentServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "master server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -480,7 +480,7 @@ int NFCRouteAgentServerModule::OnHandleRouteOtherMessage(uint64_t unLinkId, NFDa
 
 int NFCRouteAgentServerModule::RegisterRouteServer(uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_AGENT_SERVER);
 	if (pConfig)
 	{
@@ -493,13 +493,13 @@ int NFCRouteAgentServerModule::RegisterRouteServer(uint64_t unLinkId)
 
         RegisterAllServerInfoToRouteSvr();
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
 int NFCRouteAgentServerModule::RegisterServerInfoToRouteSvr(const proto_ff::ServerInfoReportList& xData)
 {
-    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::vector<NF_SHARE_PTR<NFServerData>> vec = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_ROUTE_AGENT_SERVER, NF_ST_ROUTE_SERVER);//GetRouteData(NF_ST_ROUTE_AGENT_SERVER);
     for(int i = 0; i < (int)vec.size(); i++)
     {
@@ -510,7 +510,7 @@ int NFCRouteAgentServerModule::RegisterServerInfoToRouteSvr(const proto_ff::Serv
         }
     }
 
-    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -536,7 +536,7 @@ int NFCRouteAgentServerModule::RegisterAllServerInfoToRouteSvr() {
 }
 
 int NFCRouteAgentServerModule::OnHandleServerDisconnect(uint64_t unLinkId) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(
             NF_ST_ROUTE_AGENT_SERVER, unLinkId);
     if (pServerData) {
@@ -550,7 +550,7 @@ int NFCRouteAgentServerModule::OnHandleServerDisconnect(uint64_t unLinkId) {
     }
 
     FindModule<NFIMessageModule>()->DelServerLink(NF_ST_ROUTE_AGENT_SERVER, unLinkId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

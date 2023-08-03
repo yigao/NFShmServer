@@ -96,7 +96,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
     static int req = 0;
     for (int i = 0; i < TEST_SERVER_SEND_MSG_FRAME_COUNT; i++)
     {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
         NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
         CHECK_EXPR(pConfig != NULL, -1, "pConfig = NULL");
 
@@ -106,7 +106,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
         xData.set_seq(++req);
         FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_TEST_OTHER_SERVER_MSG_TO_WORLD_SERVER_REQ, xData,
                                                                    1, 2);
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     }
 #endif
 
@@ -115,7 +115,7 @@ int NFCLogicServerModule::TestOtherServerToWorldServer()
 
 int NFCLogicServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     static int last_seq = -1;
 
@@ -137,6 +137,6 @@ int NFCLogicServerModule::OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPa
     FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_RPC_SERVICE_GET_SERVER_INFO_REQ>(NF_ST_LOGIC_SERVER, NF_ST_WORLD_SERVER, 0,
                                                                                                           request, respone);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

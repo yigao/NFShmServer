@@ -159,6 +159,14 @@ public:
      */
     int OnHandleBankGetMoneyReq(uint32_t msgId, NFDataPackage &packet);
 public:
+    /**
+     * @brief 查询当前货币信息rpc
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandleCoinQueryBalanceRpc(proto_ff::Proto_QueryCoinBalanceReq& request, proto_ff::Proto_QueryCoinBalanceRsp& respone);
+public:
     uint64_t GetJetton() const { return m_jetton; }
 private:
     uint64_t m_jetton;

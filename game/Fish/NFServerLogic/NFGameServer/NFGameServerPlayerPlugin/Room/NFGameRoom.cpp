@@ -477,3 +477,37 @@ int NFGameRoom::ChangeJiangChi(int64_t jiangchi)
     return 0;
 }
 
+int NFGameRoom::EnterGame(uint64_t playerId, int deskId, int chairId, proto_ff_s::GamePlayerDetailData_s& playerDetail)
+{
+    auto roomConfig = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(m_gameId, m_roomId);
+    CHECK_NULL(roomConfig);
+
+    if (roomConfig->m_enter_min > 0)
+    {
+        if (playerDetail.cur_money < roomConfig->m_enter_min)
+        {
+            return proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH;
+        }
+    }
+
+    if (roomConfig->m_enter_max > 0)
+    {
+        if (playerDetail.cur_money > roomConfig->m_enter_max)
+        {
+            return proto_ff::ERR_CODE_USER_MONEY_TOO_MUCH;
+        }
+    }
+
+    if (roomConfig->m_is_exp_scene > 0)
+    {
+        playerDetail.cur_money = roomConfig->m_exp_scene_gold;
+    }
+
+    NFGameDesk *pDesk = GetGameDesk(deskId);
+    if (!pDesk)
+    {
+        return proto_ff::ERR_CODE_DESK_NOT_EXIST;
+    }
+
+    return pDesk->LoginDesk(playerId, chairId, playerDetail);
+}

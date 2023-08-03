@@ -36,6 +36,7 @@ int NFRoomPart::CreateInit()
 {
     m_gameId = 0;
     m_roomId = 0;
+    m_gameBusId = 0;
     return 0;
 }
 
@@ -72,12 +73,25 @@ int NFRoomPart::SaveDB(proto_ff::tbFishPlayerData &dbData)
 int NFRoomPart::RegisterMessage()
 {
     AddRpcService<proto_ff::NF_CS_MSG_DeskListReq>(this, &NFRoomPart::GetDeskListReq, true);
+    AddRpcService<proto_ff::NF_CS_MSG_EnterGameReq>(this, &NFRoomPart::EnterGameReq, true);
+
+    RegisterClientMessage(proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME);
+
     return 0;
 }
 
 int NFRoomPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    return NFPart::OnHandleClientMessage(msgId, packet);
+    switch (msgId)
+    {
+        case proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME:
+        {
+            OnHandleNotifyPlayerLeaveGame(msgId, packet);
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 int NFRoomPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
@@ -87,7 +101,7 @@ int NFRoomPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 
 int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     NFJettonPart* pJettonPart = m_pMaster->GetPart<NFJettonPart>(PART_JETTON);
     CHECK_NULL(pJettonPart);
@@ -119,11 +133,67 @@ int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskLis
         return 0;
     }
 
-    if (respone.result() != 0)
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRoomPart::EnterGameReq(proto_ff::EnterGameReq& request, proto_ff::EnterGameRsp& respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+
+    auto pRoomCfg = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(request.game_id(), request.room_id());
+    CHECK_NULL(pRoomCfg);
+
+    if (m_gameId > 0 && m_gameId != request.game_id())
     {
+        //force exit game
+    }
+
+    int iRet = GetRpcService<proto_ff::NF_CS_MSG_EnterGameReq>(NF_ST_GAME_SERVER, request.game_bus_id(), request, respone);
+    if (iRet != 0)
+    {
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
         return 0;
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    if (respone.result() != 0)
+    {
+        m_gameId = 0;
+        m_roomId = 0;
+        m_gameBusId = 0;
+    }
+    else {
+        m_gameId = request.game_id();
+        m_roomId = request.room_id();
+        m_gameBusId = request.game_bus_id();
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRoomPart::OnHandleNotifyPlayerLeaveGame(uint32_t msgId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+
+    proto_ff::Proto_NotifyServerPlayerExitGame xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    if (m_gameId == xMsg.game_id() && m_roomId == xMsg.room_id())
+    {
+        m_gameId = 0;
+        m_roomId = 0;
+        m_gameBusId = 0;
+        NFLogInfo(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "world server notify logic player, player:{} leave game:{} room:{} success", m_pMaster->GetPlayerId(), xMsg.game_id(),
+                  xMsg.room_id());
+    }
+    else
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "world server notify logic player, but player:{} game:{} room:{} not equal to the game:{} room:{}",
+                   m_pMaster->GetPlayerId(), m_gameId, m_roomId, xMsg.game_id(),
+                   xMsg.room_id());
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

@@ -43,5 +43,19 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
 public:
+    /**
+     * @brief 请求获得一个桌子和座位
+     * @param request
+     * @param respone
+     * @param param1
+     * @param param2
+     * @return
+     */
     int OnHandleDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone, uint64_t param1, uint64_t param2);
+
+    /**
+     * @brief 请求进入游戏
+     * @return
+     */
+    int OnHandleEnterGameReq(proto_ff::EnterGameReq& request, proto_ff::EnterGameRsp& respone, uint64_t param1, uint64_t param2);
 };

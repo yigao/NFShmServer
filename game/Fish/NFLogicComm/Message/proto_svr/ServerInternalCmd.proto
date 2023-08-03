@@ -35,4 +35,8 @@ enum Proto_SvrLogicMsgID
   ///////////////////////bank jetton////////////////////////////////
   NF_LTS_PLAYER_ADD_BANK_JETTON_RPC = 500;  //logi添加sns银行筹码
   NF_LTS_PLAYER_REDUCE_BANK_JETTON_RPC = 501; //logic减少sns银行筹码
+  //////////////////////game to logic get data//////////////////////
+  NF_GTL_COIN_QUERY_BALANCE_RPC = 550; //查询当前账户数据
+  //////////////////////game to logic world, notify leave game//////////////////////
+  NF_STS_GAME_PLAYER_LEAVE_GAME = 551; //通知玩家离开游戏
 }

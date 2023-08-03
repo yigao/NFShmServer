@@ -101,6 +101,15 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_WTG_RegisterRoomInfoRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_WTG_RegisterRoomInfoRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_QueryCoinBalanceReq_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_QueryCoinBalanceReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_QueryCoinBalanceRsp_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_QueryCoinBalanceRsp_reflection_ = NULL;
+const ::google::protobuf::Descriptor* Proto_NotifyServerPlayerExitGame_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  Proto_NotifyServerPlayerExitGame_reflection_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_AccountState_descriptor_ = NULL;
 
 }  // namespace
@@ -569,6 +578,54 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_WTG_RegisterRoomInfoRsp));
+  Proto_QueryCoinBalanceReq_descriptor_ = file->message_type(27);
+  static const int Proto_QueryCoinBalanceReq_offsets_[1] = {
+  };
+  Proto_QueryCoinBalanceReq_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_QueryCoinBalanceReq_descriptor_,
+      Proto_QueryCoinBalanceReq::default_instance_,
+      Proto_QueryCoinBalanceReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_QueryCoinBalanceReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_QueryCoinBalanceReq, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_QueryCoinBalanceReq));
+  Proto_QueryCoinBalanceRsp_descriptor_ = file->message_type(28);
+  static const int Proto_QueryCoinBalanceRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_QueryCoinBalanceRsp, result_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_QueryCoinBalanceRsp, player_detail_),
+  };
+  Proto_QueryCoinBalanceRsp_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_QueryCoinBalanceRsp_descriptor_,
+      Proto_QueryCoinBalanceRsp::default_instance_,
+      Proto_QueryCoinBalanceRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_QueryCoinBalanceRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_QueryCoinBalanceRsp, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_QueryCoinBalanceRsp));
+  Proto_NotifyServerPlayerExitGame_descriptor_ = file->message_type(29);
+  static const int Proto_NotifyServerPlayerExitGame_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_NotifyServerPlayerExitGame, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_NotifyServerPlayerExitGame, game_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_NotifyServerPlayerExitGame, room_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_NotifyServerPlayerExitGame, desk_id_),
+  };
+  Proto_NotifyServerPlayerExitGame_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      Proto_NotifyServerPlayerExitGame_descriptor_,
+      Proto_NotifyServerPlayerExitGame::default_instance_,
+      Proto_NotifyServerPlayerExitGame_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_NotifyServerPlayerExitGame, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_NotifyServerPlayerExitGame, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(Proto_NotifyServerPlayerExitGame));
   Proto_AccountState_descriptor_ = file->enum_type(0);
 }
 
@@ -636,6 +693,12 @@ void protobuf_RegisterTypes(const ::std::string&) {
     Proto_GTW_RegisterRoomInfoReq_descriptor_, &Proto_GTW_RegisterRoomInfoReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_WTG_RegisterRoomInfoRsp_descriptor_, &Proto_WTG_RegisterRoomInfoRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_QueryCoinBalanceReq_descriptor_, &Proto_QueryCoinBalanceReq::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_QueryCoinBalanceRsp_descriptor_, &Proto_QueryCoinBalanceRsp::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    Proto_NotifyServerPlayerExitGame_descriptor_, &Proto_NotifyServerPlayerExitGame::default_instance());
 }
 
 }  // namespace
@@ -695,6 +758,12 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete Proto_GTW_RegisterRoomInfoReq_reflection_;
   delete Proto_WTG_RegisterRoomInfoRsp::default_instance_;
   delete Proto_WTG_RegisterRoomInfoRsp_reflection_;
+  delete Proto_QueryCoinBalanceReq::default_instance_;
+  delete Proto_QueryCoinBalanceReq_reflection_;
+  delete Proto_QueryCoinBalanceRsp::default_instance_;
+  delete Proto_QueryCoinBalanceRsp_reflection_;
+  delete Proto_NotifyServerPlayerExitGame::default_instance_;
+  delete Proto_NotifyServerPlayerExitGame_reflection_;
 }
 
 void protobuf_AddDesc_ServerInternal_2eproto() {
@@ -772,10 +841,16 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "oto_UserSimpleData\"Y\n\035Proto_GTW_Register"
     "RoomInfoReq\022(\n\004game\030\001 \003(\0132\032.proto_ff.Gam"
     "eExternalGame\022\016\n\006bus_id\030\002 \001(\r\"/\n\035Proto_W"
-    "TG_RegisterRoomInfoRsp\022\016\n\006result\030\001 \001(\005*a"
-    "\n\022Proto_AccountState\022\025\n\021E_ACCOUNTSTATE_O"
-    "K\020\000\022\031\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCO"
-    "UNTSTATE_FORBIT\020\002", 2737);
+    "TG_RegisterRoomInfoRsp\022\016\n\006result\030\001 \001(\005\"\033"
+    "\n\031Proto_QueryCoinBalanceReq\"b\n\031Proto_Que"
+    "ryCoinBalanceRsp\022\016\n\006result\030\001 \001(\005\0225\n\rplay"
+    "er_detail\030\002 \001(\0132\036.proto_ff.GamePlayerDet"
+    "ailData\"h\n Proto_NotifyServerPlayerExitG"
+    "ame\022\021\n\tplayer_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022"
+    "\017\n\007room_id\030\003 \001(\r\022\017\n\007desk_id\030\004 \001(\r*a\n\022Pro"
+    "to_AccountState\022\025\n\021E_ACCOUNTSTATE_OK\020\000\022\031"
+    "\n\025E_ACCOUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOUNTST"
+    "ATE_FORBIT\020\002", 2972);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -805,6 +880,9 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_ST_QueryPlayerSimpleDataRsp::default_instance_ = new Proto_ST_QueryPlayerSimpleDataRsp();
   Proto_GTW_RegisterRoomInfoReq::default_instance_ = new Proto_GTW_RegisterRoomInfoReq();
   Proto_WTG_RegisterRoomInfoRsp::default_instance_ = new Proto_WTG_RegisterRoomInfoRsp();
+  Proto_QueryCoinBalanceReq::default_instance_ = new Proto_QueryCoinBalanceReq();
+  Proto_QueryCoinBalanceRsp::default_instance_ = new Proto_QueryCoinBalanceRsp();
+  Proto_NotifyServerPlayerExitGame::default_instance_ = new Proto_NotifyServerPlayerExitGame();
   Proto_PTWUserLoginReq::default_instance_->InitAsDefaultInstance();
   Proto_WTPPlayerLoginRsp::default_instance_->InitAsDefaultInstance();
   Proto_WorldToLogicLoginReq::default_instance_->InitAsDefaultInstance();
@@ -832,6 +910,9 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   Proto_ST_QueryPlayerSimpleDataRsp::default_instance_->InitAsDefaultInstance();
   Proto_GTW_RegisterRoomInfoReq::default_instance_->InitAsDefaultInstance();
   Proto_WTG_RegisterRoomInfoRsp::default_instance_->InitAsDefaultInstance();
+  Proto_QueryCoinBalanceReq::default_instance_->InitAsDefaultInstance();
+  Proto_QueryCoinBalanceRsp::default_instance_->InitAsDefaultInstance();
+  Proto_NotifyServerPlayerExitGame::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternal_2eproto);
 }
 
@@ -8668,6 +8749,743 @@ void Proto_WTG_RegisterRoomInfoRsp::Swap(Proto_WTG_RegisterRoomInfoRsp* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_WTG_RegisterRoomInfoRsp_descriptor_;
   metadata.reflection = Proto_WTG_RegisterRoomInfoRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+#endif  // !_MSC_VER
+
+Proto_QueryCoinBalanceReq::Proto_QueryCoinBalanceReq()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_QueryCoinBalanceReq::InitAsDefaultInstance() {
+}
+
+Proto_QueryCoinBalanceReq::Proto_QueryCoinBalanceReq(const Proto_QueryCoinBalanceReq& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_QueryCoinBalanceReq::SharedCtor() {
+  _cached_size_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_QueryCoinBalanceReq::~Proto_QueryCoinBalanceReq() {
+  SharedDtor();
+}
+
+void Proto_QueryCoinBalanceReq::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_QueryCoinBalanceReq::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_QueryCoinBalanceReq::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_QueryCoinBalanceReq_descriptor_;
+}
+
+const Proto_QueryCoinBalanceReq& Proto_QueryCoinBalanceReq::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_QueryCoinBalanceReq* Proto_QueryCoinBalanceReq::default_instance_ = NULL;
+
+Proto_QueryCoinBalanceReq* Proto_QueryCoinBalanceReq::New() const {
+  return new Proto_QueryCoinBalanceReq;
+}
+
+void Proto_QueryCoinBalanceReq::Clear() {
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_QueryCoinBalanceReq::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+        ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+      return true;
+    }
+    DO_(::google::protobuf::internal::WireFormat::SkipField(
+          input, tag, mutable_unknown_fields()));
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_QueryCoinBalanceReq::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_QueryCoinBalanceReq::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_QueryCoinBalanceReq::ByteSize() const {
+  int total_size = 0;
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_QueryCoinBalanceReq::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_QueryCoinBalanceReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_QueryCoinBalanceReq*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_QueryCoinBalanceReq::MergeFrom(const Proto_QueryCoinBalanceReq& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_QueryCoinBalanceReq::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_QueryCoinBalanceReq::CopyFrom(const Proto_QueryCoinBalanceReq& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_QueryCoinBalanceReq::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_QueryCoinBalanceReq::Swap(Proto_QueryCoinBalanceReq* other) {
+  if (other != this) {
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_QueryCoinBalanceReq::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_QueryCoinBalanceReq_descriptor_;
+  metadata.reflection = Proto_QueryCoinBalanceReq_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_QueryCoinBalanceRsp::kResultFieldNumber;
+const int Proto_QueryCoinBalanceRsp::kPlayerDetailFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_QueryCoinBalanceRsp::Proto_QueryCoinBalanceRsp()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_QueryCoinBalanceRsp::InitAsDefaultInstance() {
+  player_detail_ = const_cast< ::proto_ff::GamePlayerDetailData*>(&::proto_ff::GamePlayerDetailData::default_instance());
+}
+
+Proto_QueryCoinBalanceRsp::Proto_QueryCoinBalanceRsp(const Proto_QueryCoinBalanceRsp& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_QueryCoinBalanceRsp::SharedCtor() {
+  _cached_size_ = 0;
+  result_ = 0;
+  player_detail_ = NULL;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_QueryCoinBalanceRsp::~Proto_QueryCoinBalanceRsp() {
+  SharedDtor();
+}
+
+void Proto_QueryCoinBalanceRsp::SharedDtor() {
+  if (this != default_instance_) {
+    delete player_detail_;
+  }
+}
+
+void Proto_QueryCoinBalanceRsp::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_QueryCoinBalanceRsp::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_QueryCoinBalanceRsp_descriptor_;
+}
+
+const Proto_QueryCoinBalanceRsp& Proto_QueryCoinBalanceRsp::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_QueryCoinBalanceRsp* Proto_QueryCoinBalanceRsp::default_instance_ = NULL;
+
+Proto_QueryCoinBalanceRsp* Proto_QueryCoinBalanceRsp::New() const {
+  return new Proto_QueryCoinBalanceRsp;
+}
+
+void Proto_QueryCoinBalanceRsp::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    result_ = 0;
+    if (has_player_detail()) {
+      if (player_detail_ != NULL) player_detail_->::proto_ff::GamePlayerDetailData::Clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_QueryCoinBalanceRsp::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 result = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &result_)));
+          set_has_result();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(18)) goto parse_player_detail;
+        break;
+      }
+
+      // optional .proto_ff.GamePlayerDetailData player_detail = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_player_detail:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_player_detail()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_QueryCoinBalanceRsp::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->result(), output);
+  }
+
+  // optional .proto_ff.GamePlayerDetailData player_detail = 2;
+  if (has_player_detail()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      2, this->player_detail(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_QueryCoinBalanceRsp::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 result = 1;
+  if (has_result()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->result(), target);
+  }
+
+  // optional .proto_ff.GamePlayerDetailData player_detail = 2;
+  if (has_player_detail()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        2, this->player_detail(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_QueryCoinBalanceRsp::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 result = 1;
+    if (has_result()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->result());
+    }
+
+    // optional .proto_ff.GamePlayerDetailData player_detail = 2;
+    if (has_player_detail()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->player_detail());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_QueryCoinBalanceRsp::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_QueryCoinBalanceRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_QueryCoinBalanceRsp*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_QueryCoinBalanceRsp::MergeFrom(const Proto_QueryCoinBalanceRsp& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_result()) {
+      set_result(from.result());
+    }
+    if (from.has_player_detail()) {
+      mutable_player_detail()->::proto_ff::GamePlayerDetailData::MergeFrom(from.player_detail());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_QueryCoinBalanceRsp::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_QueryCoinBalanceRsp::CopyFrom(const Proto_QueryCoinBalanceRsp& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_QueryCoinBalanceRsp::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_QueryCoinBalanceRsp::Swap(Proto_QueryCoinBalanceRsp* other) {
+  if (other != this) {
+    std::swap(result_, other->result_);
+    std::swap(player_detail_, other->player_detail_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_QueryCoinBalanceRsp::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_QueryCoinBalanceRsp_descriptor_;
+  metadata.reflection = Proto_QueryCoinBalanceRsp_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int Proto_NotifyServerPlayerExitGame::kPlayerIdFieldNumber;
+const int Proto_NotifyServerPlayerExitGame::kGameIdFieldNumber;
+const int Proto_NotifyServerPlayerExitGame::kRoomIdFieldNumber;
+const int Proto_NotifyServerPlayerExitGame::kDeskIdFieldNumber;
+#endif  // !_MSC_VER
+
+Proto_NotifyServerPlayerExitGame::Proto_NotifyServerPlayerExitGame()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void Proto_NotifyServerPlayerExitGame::InitAsDefaultInstance() {
+}
+
+Proto_NotifyServerPlayerExitGame::Proto_NotifyServerPlayerExitGame(const Proto_NotifyServerPlayerExitGame& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void Proto_NotifyServerPlayerExitGame::SharedCtor() {
+  _cached_size_ = 0;
+  player_id_ = GOOGLE_ULONGLONG(0);
+  game_id_ = 0u;
+  room_id_ = 0u;
+  desk_id_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+Proto_NotifyServerPlayerExitGame::~Proto_NotifyServerPlayerExitGame() {
+  SharedDtor();
+}
+
+void Proto_NotifyServerPlayerExitGame::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void Proto_NotifyServerPlayerExitGame::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* Proto_NotifyServerPlayerExitGame::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return Proto_NotifyServerPlayerExitGame_descriptor_;
+}
+
+const Proto_NotifyServerPlayerExitGame& Proto_NotifyServerPlayerExitGame::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
+  return *default_instance_;
+}
+
+Proto_NotifyServerPlayerExitGame* Proto_NotifyServerPlayerExitGame::default_instance_ = NULL;
+
+Proto_NotifyServerPlayerExitGame* Proto_NotifyServerPlayerExitGame::New() const {
+  return new Proto_NotifyServerPlayerExitGame;
+}
+
+void Proto_NotifyServerPlayerExitGame::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    player_id_ = GOOGLE_ULONGLONG(0);
+    game_id_ = 0u;
+    room_id_ = 0u;
+    desk_id_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool Proto_NotifyServerPlayerExitGame::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint64 player_id = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint64, ::google::protobuf::internal::WireFormatLite::TYPE_UINT64>(
+                 input, &player_id_)));
+          set_has_player_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_game_id;
+        break;
+      }
+
+      // optional uint32 game_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_game_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &game_id_)));
+          set_has_game_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_room_id;
+        break;
+      }
+
+      // optional uint32 room_id = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_room_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &room_id_)));
+          set_has_room_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_desk_id;
+        break;
+      }
+
+      // optional uint32 desk_id = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_desk_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &desk_id_)));
+          set_has_desk_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void Proto_NotifyServerPlayerExitGame::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt64(1, this->player_id(), output);
+  }
+
+  // optional uint32 game_id = 2;
+  if (has_game_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->game_id(), output);
+  }
+
+  // optional uint32 room_id = 3;
+  if (has_room_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->room_id(), output);
+  }
+
+  // optional uint32 desk_id = 4;
+  if (has_desk_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(4, this->desk_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* Proto_NotifyServerPlayerExitGame::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint64 player_id = 1;
+  if (has_player_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(1, this->player_id(), target);
+  }
+
+  // optional uint32 game_id = 2;
+  if (has_game_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->game_id(), target);
+  }
+
+  // optional uint32 room_id = 3;
+  if (has_room_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->room_id(), target);
+  }
+
+  // optional uint32 desk_id = 4;
+  if (has_desk_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->desk_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int Proto_NotifyServerPlayerExitGame::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint64 player_id = 1;
+    if (has_player_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt64Size(
+          this->player_id());
+    }
+
+    // optional uint32 game_id = 2;
+    if (has_game_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->game_id());
+    }
+
+    // optional uint32 room_id = 3;
+    if (has_room_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->room_id());
+    }
+
+    // optional uint32 desk_id = 4;
+    if (has_desk_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->desk_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void Proto_NotifyServerPlayerExitGame::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const Proto_NotifyServerPlayerExitGame* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_NotifyServerPlayerExitGame*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void Proto_NotifyServerPlayerExitGame::MergeFrom(const Proto_NotifyServerPlayerExitGame& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_player_id()) {
+      set_player_id(from.player_id());
+    }
+    if (from.has_game_id()) {
+      set_game_id(from.game_id());
+    }
+    if (from.has_room_id()) {
+      set_room_id(from.room_id());
+    }
+    if (from.has_desk_id()) {
+      set_desk_id(from.desk_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void Proto_NotifyServerPlayerExitGame::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void Proto_NotifyServerPlayerExitGame::CopyFrom(const Proto_NotifyServerPlayerExitGame& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool Proto_NotifyServerPlayerExitGame::IsInitialized() const {
+
+  return true;
+}
+
+void Proto_NotifyServerPlayerExitGame::Swap(Proto_NotifyServerPlayerExitGame* other) {
+  if (other != this) {
+    std::swap(player_id_, other->player_id_);
+    std::swap(game_id_, other->game_id_);
+    std::swap(room_id_, other->room_id_);
+    std::swap(desk_id_, other->desk_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata Proto_NotifyServerPlayerExitGame::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = Proto_NotifyServerPlayerExitGame_descriptor_;
+  metadata.reflection = Proto_NotifyServerPlayerExitGame_reflection_;
   return metadata;
 }
 

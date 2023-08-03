@@ -65,7 +65,7 @@ bool NFTransCacheBase::IsTimeOut()
 
 int NFTransCacheBase::HandleGetRoleSimpleRes(int iRunLogicRetCode, uint64_t roleId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     AddQueryedSimpleNum();
     if (iRunLogicRetCode != 0)
     {
@@ -85,7 +85,7 @@ int NFTransCacheBase::HandleGetRoleSimpleRes(int iRunLogicRetCode, uint64_t role
         }
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -103,7 +103,7 @@ int NFTransCacheBase::QueryRoleSimple(uint64_t roleID)
 
 int NFTransCacheBase::QueryRoleSimple()
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     for (int i = 0; i < (int)m_query.m_queryRoleList.size(); i++)
     {
         if (m_query.m_queryRoleList[i] == 0)
@@ -136,7 +136,7 @@ int NFTransCacheBase::QueryRoleSimple()
         }
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -147,7 +147,7 @@ int NFTransCacheBase::QueryRole_CallBack(NFQueryRole &query)
 
 int NFTransCacheBase::QueryRoleDetail()
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     for (int i = 0; i < (int)m_query.m_queryRoleList.size(); i++) {
         if (m_query.m_queryRoleList[i] == 0) {
             AddQueryedDetailNum();
@@ -173,13 +173,13 @@ int NFTransCacheBase::QueryRoleDetail()
         SetFinished(iRetCode);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFTransCacheBase::HandleGetRoleDetailRes(int iRunLogicRetCode, uint64_t roleId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     AddQueryedDetailNum();
     if (iRunLogicRetCode != 0)
     {
@@ -192,6 +192,6 @@ int NFTransCacheBase::HandleGetRoleDetailRes(int iRunLogicRetCode, uint64_t role
         SetFinished(iRetCode);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

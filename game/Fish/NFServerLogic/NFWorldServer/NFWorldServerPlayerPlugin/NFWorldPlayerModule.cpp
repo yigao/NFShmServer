@@ -123,7 +123,7 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 
 int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginReq &request, proto_ff::Proto_WTPPlayerLoginRsp &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.user_id());
     if (pPlayerInfo == nullptr)
     {
@@ -244,13 +244,13 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
         respone.set_result(rspLogicMsg.result());
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconnectReq &request, proto_ff::WTPPlayerReconnctRsp &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.player_id());
     if (!pPlayerInfo)
     {
@@ -343,13 +343,13 @@ int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconne
     respone.set_room_id(pPlayerInfo->m_roomId);
     respone.set_logic_bus_id(pPlayerInfo->GetLogicId());
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::NotifyPlayerDisconnect xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -371,13 +371,13 @@ int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataP
     }
 
     FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG, xMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandlePlayerLogoutNotify(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     proto_ff::Proto_LTWLogoutNotify xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
@@ -397,7 +397,7 @@ int NFCWorldPlayerModule::OnHandlePlayerLogoutNotify(uint64_t unLinkId, NFDataPa
     NFLogInfo(NF_LOG_SYSTEMLOG, xMsg.player_id(), "logic notify world server, player:{} logout..............", xMsg.player_id());
 
     NotifySnsPlayerLogout(xMsg.player_id());
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

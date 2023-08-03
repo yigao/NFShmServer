@@ -61,7 +61,7 @@ int NFWorldGMModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet
 
 int NFWorldGMModule::OnHandleClientGMMsg(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t roleId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::GmReq gm;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, gm);
 
@@ -80,7 +80,7 @@ int NFWorldGMModule::OnHandleClientGMMsg(uint32_t msgId, NFDataPackage &packet, 
     //
     GMMsgHandler(uid, roleId, gm.cmd(), vecstr);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

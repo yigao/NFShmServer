@@ -192,7 +192,7 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
  */
 int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &packet, uint64_t clientId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::ClientLoginReq xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -218,7 +218,7 @@ int NFCWorldPlayerModule::OnHandleClientLogin(uint32_t msgId, NFDataPackage &pac
 
 int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t clientId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::ClientCreateRoleReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -235,13 +235,13 @@ int NFCWorldPlayerModule::OnHandleCreateRole(uint32_t msgId, NFDataPackage &pack
         pTrans->SetFinished(iRetCode);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandleClientDisconnect(uint32_t msgId, NFDataPackage &packet, uint64_t unlinkId, uint64_t uid)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::NotifyCenterDisConnect xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -257,13 +257,13 @@ int NFCWorldPlayerModule::OnHandleClientDisconnect(uint32_t msgId, NFDataPackage
         NFWorldPlayerMgr::Instance(m_pObjPluginManager)->OnHandlePlayerDisconnect(pPlayer, ROLE_DISCONN_FROM_CLIENT);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandleEnterGame(uint32_t msgId, NFDataPackage &packet, uint64_t uid, uint64_t clientId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::ClientEnterGameReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -284,13 +284,13 @@ int NFCWorldPlayerModule::OnHandleEnterGame(uint32_t msgId, NFDataPackage &packe
         pTrans->SetFinished(iRetCode);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandleGameRegisterMapReq(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::GameToWorldRegisterMapReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -299,13 +299,13 @@ int NFCWorldPlayerModule::OnHandleGameRegisterMapReq(uint32_t msgId, NFDataPacka
     proto_ff::WorldToGameRegisterMapRsp rspMsg;
     rspMsg.set_ret_code(proto_ff::RET_SUCCESS);
     FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER, xData.game_bus(), proto_ff::WORLD_TO_GAME_RESITER_MAP_RSP, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &packet, uint64_t reqTransId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::LogicToWorldEnterSceneReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -323,13 +323,13 @@ int NFCWorldPlayerModule::OnHandleEnterSceneReq(uint32_t msgId, NFDataPackage &p
         pTrans->SetFinished(iRetCode);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage& packet, uint64_t reqTransId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::LogicToWorldLeaveSceneReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -347,13 +347,13 @@ int NFCWorldPlayerModule::OnHandleLeaveSceneReq(uint32_t msgId, NFDataPackage& p
         pTrans->SetFinished(iRetCode);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCWorldPlayerModule::OnHandleWorldGetMapInfoReq(uint32_t msgId, NFDataPackage& packet, uint64_t reqTransId, uint64_t param2)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::LogicToWorldGetMapInfoReq xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -382,6 +382,6 @@ int NFCWorldPlayerModule::OnHandleWorldGetMapInfoReq(uint32_t msgId, NFDataPacka
     rspMsg.set_dst_game_id(dstGameId);
 
     pPlayer->SendTransToLogicServer(proto_ff::WORLD_TO_LOGIC_GET_MAP_INFO_RSP, rspMsg, 0, reqTransId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

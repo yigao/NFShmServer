@@ -208,3 +208,21 @@ message Proto_WTG_RegisterRoomInfoRsp
 {
   optional int32 result = 1;
 }
+
+message Proto_QueryCoinBalanceReq
+{
+}
+
+message Proto_QueryCoinBalanceRsp
+{
+  optional int32 result = 1;
+  optional GamePlayerDetailData player_detail = 2;
+}
+
+message Proto_NotifyServerPlayerExitGame
+{
+  optional uint64 player_id = 1;
+  optional uint32 game_id = 2;
+  optional uint32 room_id = 3;
+  optional uint32 desk_id = 4;
+}

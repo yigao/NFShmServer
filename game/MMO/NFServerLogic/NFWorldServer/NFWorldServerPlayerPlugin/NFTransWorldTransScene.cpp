@@ -164,7 +164,7 @@ int NFTransWorldTransScene::HandleDispSvrRes(uint32_t nMsgId, const NFDataPackag
 
 int NFTransWorldTransScene::OnHandleGameEnterSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::GameToWorldEnterSceneRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -186,13 +186,13 @@ int NFTransWorldTransScene::OnHandleGameEnterSceneRsp(uint32_t nMsgId, const NFD
     }
 
     SetFinished(xData.ret_code());
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFTransWorldTransScene::OnHandleGameLeaveSceneRsp(uint32_t nMsgId, const NFDataPackage &packet, uint32_t reqTransId, uint32_t rspTransId)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::GameToWorldLeaveSceneRsp xData;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xData);
 
@@ -211,7 +211,7 @@ int NFTransWorldTransScene::OnHandleGameLeaveSceneRsp(uint32_t nMsgId, const NFD
 
 
     SetFinished(xData.ret_code());
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 

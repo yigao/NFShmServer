@@ -54,6 +54,7 @@ message EnterGameReq
 
   optional uint32 proxy_id  = 5;
   optional uint32 logic_id  = 6;
+  optional uint32 game_bus_id = 7;
 }
 
 message EnterGameRsp

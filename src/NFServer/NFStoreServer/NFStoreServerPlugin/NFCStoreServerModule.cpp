@@ -261,7 +261,7 @@ int NFCStoreServerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
 int
 NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
@@ -700,13 +700,13 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             break;
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj &request, storesvr_sqldata::storesvr_selobj_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -768,14 +768,14 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &request, storesvr_sqldata::storesvr_sel_res &respone,
                                             const std::function<void()> &cb)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -849,13 +849,13 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &requ
             }
         }
     } while (true);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insertobj &request, storesvr_sqldata::storesvr_insertobj_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -907,13 +907,13 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj &request, storesvr_sqldata::storesvr_modobj_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -965,13 +965,13 @@ int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &request, storesvr_sqldata::storesvr_mod_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -1023,13 +1023,13 @@ int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &requ
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleUpdateRpc(storesvr_sqldata::storesvr_update &request, storesvr_sqldata::storesvr_update_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -1081,13 +1081,13 @@ int NFCStoreServerModule::OnHandleUpdateRpc(storesvr_sqldata::storesvr_update &r
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_updateobj &request, storesvr_sqldata::storesvr_updateobj_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -1139,13 +1139,13 @@ int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_update
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute &request, storesvr_sqldata::storesvr_execute_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -1185,13 +1185,13 @@ int NFCStoreServerModule::OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute 
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleExecuteMoreRpc(storesvr_sqldata::storesvr_execute_more& request, storesvr_sqldata::storesvr_execute_more_res& respone, const std::function<void()>& cb)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -1252,13 +1252,13 @@ int NFCStoreServerModule::OnHandleExecuteMoreRpc(storesvr_sqldata::storesvr_exec
             }
         }
     } while (true);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleDeleteRpc(storesvr_sqldata::storesvr_del &request, storesvr_sqldata::storesvr_del_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -1309,13 +1309,13 @@ int NFCStoreServerModule::OnHandleDeleteRpc(storesvr_sqldata::storesvr_del &requ
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
 
 int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj &request, storesvr_sqldata::storesvr_delobj_res &respone)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_ASSERT(FindModule<NFICoroutineModule>()->IsInCoroutine());
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
@@ -1366,6 +1366,6 @@ int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }

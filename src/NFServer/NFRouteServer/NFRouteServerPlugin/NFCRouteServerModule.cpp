@@ -168,7 +168,7 @@ bool NFCRouteServerModule::OnDynamicPlugin() {
 
 int NFCRouteServerModule::OnRouteSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	if (nEvent == eMsgType_CONNECTED)
 	{
 
@@ -177,12 +177,12 @@ int NFCRouteServerModule::OnRouteSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 	{
 		OnHandleServerDisconnect(unLinkId);
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
 int NFCRouteServerModule::OnHandleServerDisconnect(uint64_t unLinkId) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_ROUTE_SERVER,
                                                                                                  unLinkId);
     if (pServerData) {
@@ -197,7 +197,7 @@ int NFCRouteServerModule::OnHandleServerDisconnect(uint64_t unLinkId) {
     }
 
     FindModule<NFIMessageModule>()->DelServerLink(NF_ST_ROUTE_SERVER, unLinkId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -265,7 +265,7 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
 */
 int NFCRouteServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
 	if (nEvent == eMsgType_CONNECTED)
 	{
@@ -293,7 +293,7 @@ int NFCRouteServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 		std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 		NFLogError(NF_LOG_SYSTEMLOG, 0, "route server disconnect master success");
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -302,16 +302,16 @@ int NFCRouteServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 */
 int NFCRouteServerModule::OnHandleMasterOtherMessage(uint64_t unLinkId, NFDataPackage& packet)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 	NFLogWarning(NF_LOG_SYSTEMLOG, 0, "master server other message not handled:packet:{},ip:{}", packet.ToString(), ip);
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
 int NFCRouteServerModule::RegisterMasterServer(uint32_t serverState)
 {
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
 	if (pConfig)
 	{
@@ -322,7 +322,7 @@ int NFCRouteServerModule::RegisterMasterServer(uint32_t serverState)
 
 		FindModule<NFIServerMessageModule>()->SendMsgToMasterServer(NF_ST_ROUTE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, xMsg);
 	}
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 	return 0;
 }
 
@@ -366,7 +366,7 @@ int NFCRouteServerModule::ServerReport()
 
 int
 NFCRouteServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& packet) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
@@ -381,7 +381,7 @@ NFCRouteServerModule::OnServerRegisterProcess(uint64_t unLinkId, NFDataPackage& 
                 break;
         }
     }
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
@@ -390,7 +390,7 @@ int NFCRouteServerModule::OnHandleServerReport(uint64_t unLinkId, NFDataPackage&
 }
 
 int NFCRouteServerModule::OnHandleServerRegisterRouteAgent(uint64_t unLinkId, NFDataPackage& packet) {
-//    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+//    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::ServerInfoReportList xMsg;
     CLIENT_MSG_PROCESS_NO_PRINTF(packet, xMsg);
 
@@ -433,13 +433,13 @@ int NFCRouteServerModule::OnHandleServerRegisterRouteAgent(uint64_t unLinkId, NF
         }
     }
 
-//    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+//    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
 //游戏服务器注册协议回调
 int NFCRouteServerModule::OnHandleRouteAgentRegister(const proto_ff::ServerInfoReport &xData, uint64_t unlinkId) {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     CHECK_EXPR(xData.server_type() == NF_ST_ROUTE_AGENT_SERVER, -1, "xData.server_type() == NF_ST_ROUTE_AGENT_SERVER");
 
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_ROUTE_SERVER, xData.bus_id());
@@ -457,7 +457,7 @@ int NFCRouteServerModule::OnHandleRouteAgentRegister(const proto_ff::ServerInfoR
               pServerData->mServerInfo.server_name(), pServerData->mServerInfo.bus_id(),
               pServerData->mServerInfo.server_id(), pServerData->mServerInfo.server_ip(),
               pServerData->mServerInfo.server_port());
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
 
