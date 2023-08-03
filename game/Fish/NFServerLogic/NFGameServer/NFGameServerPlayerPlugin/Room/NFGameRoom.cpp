@@ -509,5 +509,20 @@ int NFGameRoom::EnterGame(uint64_t playerId, int deskId, int chairId, proto_ff_s
         return proto_ff::ERR_CODE_DESK_NOT_EXIST;
     }
 
-    return pDesk->LoginDesk(playerId, chairId, playerDetail);
+    return pDesk->EnterGame(playerId, chairId, playerDetail);
+}
+
+int NFGameRoom::ExitGame(uint64_t playerId)
+{
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_PLAYER_EXPR(playerId, pPlayer, -1, "Get Player Failed, playerId:{}", playerId);
+
+    NFGameDesk *pDesk = GetGameDesk(pPlayer->m_deskId);
+    if (pDesk == NULL)
+    {
+        pPlayer->ClearGameData();
+        return 0;
+    }
+
+    return pDesk->ExitGame(playerId, false);
 }

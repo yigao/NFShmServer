@@ -56,94 +56,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish room">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/Fish/Data/E_ConstantConstant.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/Fish/Data/E_ConstantConstant.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFFishRobot/NFTestRobot.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/constant.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/constant.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/proto_cs/CSGame.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/proto_cs/CSGame.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/proto_svr/ServerInternal.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/proto_svr/ServerInternal.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/proto_svr/ServerInternalCmd.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/proto_svr/ServerInternalCmd.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicBindRpcService.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon/NFLogicBindRpcService.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/CSGame.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/CSGame.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/CSGame.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/CSGame.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerInternal.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerInternalCmd.pb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant.pb.cc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Desk/NFGameDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Desk/NFGameDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Desk/NFGameDesk.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Desk/NFGameDesk.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGameRoomModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGameRoomModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGameRoomModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGameRoomModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Room/NFGameRoom.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Room/NFGameRoom.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Room/NFGameRoom.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Room/NFGameRoom.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Jetton/NFJettonPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Jetton/NFJettonPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Jetton/NFJettonPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Jetton/NFJettonPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFLogicPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Room/NFRoomPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Room/NFRoomPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Room/NFRoomPart.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Room/NFRoomPart.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Jetton/NFSnsJettonPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Jetton/NFSnsJettonPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFSnsPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFSnsPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransCacheBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransCacheBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetPlayerDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetPlayerDetail.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetPlayerSimple.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetPlayerSimple.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldRoomModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldRoomModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldRoomModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldRoomModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFCSceneModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/NFCSceneModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Part/NFMovePart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFBattlePlugin/Part/NFMovePart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/GM/NFLogicGMModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/GM/NFLogicGMModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Login/NFLoginModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Login/NFLoginModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFFunctionUnlockPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFGrowPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFGrowPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFMissionPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFMissionPart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFPackagePart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFTitlePart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Part/NFTitlePart.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransSaveRoleDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransSaveRoleDetail.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransTransScene.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans/NFTransTransScene.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFAccountLoginModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFAccountLoginModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFBindPhoneTrans.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFBindPhoneTrans.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFGetAccountTrans.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFGetAccountTrans.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFRegisterAccountTrans.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFRegisterAccountTrans.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFOnlineModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFOnlineModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransCacheBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransCacheBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleDetail.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleSimple.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFTransGetRoleSimple.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldCreateRole.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldCreateRole.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldEnterGame.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldEnterGame.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldGetRoleList.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldGetRoleList.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldTransScene.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFTransWorldTransScene.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldGMModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldGMModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCAsyMysqlModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCAsyMysqlModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMysqlDriver.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFRedisDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFRedisDriver.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFServerLinkData.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFServerLinkData.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFGameServer/NFGameServerPlugin/NFGameServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMasterServer/NFMasterServerPlugin/NFMasterServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFMonitorServer/NFMonitorServerPlugin/NFMonitorServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFMonitorServer/NFMonitorServerPlugin/NFMonitorServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyAgentServer/NFProxyAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyAgentServer/NFProxyAgentServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/NFProxyServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFProxyServer/NFProxyServerPlugin/NFProxyServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFRouteServer/NFRouteServerPlugin/NFCRouteServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFSnsServer/NFSnsServerPlugin/NFSnsServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFSnsServer/NFSnsServerPlugin/NFSnsServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFStoreServer/NFStoreServerPlugin/NFCStoreServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWebServer/NFWebServerPlugin/NFCWebServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFTransMsgServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFTransMsgServerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFWorkServerModule.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish room" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -445,14 +358,7 @@
       <workItem from="1690523673065" duration="40317000" />
       <workItem from="1690615246424" duration="9373000" />
       <workItem from="1690764436343" duration="9215000" />
-      <workItem from="1690939633345" duration="47401000" />
-    </task>
-    <task id="LOCAL-00011" summary="fish user login">
-      <created>1688983849461</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1688983849461</updated>
+      <workItem from="1690939633345" duration="47932000" />
     </task>
     <task id="LOCAL-00012" summary="fish user login">
       <created>1688990326171</created>
@@ -790,7 +696,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691032625779</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="fish room">
+      <created>1691053486471</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1691053486471</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -154,6 +154,14 @@ public:
      * @return
      */
     int EnterGameReq(proto_ff::EnterGameReq& request, proto_ff::EnterGameRsp& respone);
+
+    /**
+     * @brief 退出游戏
+     * @param request
+     * @param respone
+     * @return
+     */
+    int ExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRsp& respone);
 public:
     /**
      * @brief 通知玩家离开游戏

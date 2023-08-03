@@ -222,6 +222,13 @@ public:
      * @return
      */
     int EnterGame(uint64_t playerId, int deskId, int chairId, proto_ff_s::GamePlayerDetailData_s& playerDetail);
+
+    /**
+     * @brief 退出游戏
+     * @param playerId
+     * @return
+     */
+    int ExitGame(uint64_t playerId);
 public:
     uint32_t m_gameId;
     uint32_t m_roomId;

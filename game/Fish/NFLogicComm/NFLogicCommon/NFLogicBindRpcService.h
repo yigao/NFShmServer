@@ -88,6 +88,11 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_DeskListReq, proto_ff::DeskListReq, 
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_EnterGameReq, proto_ff::EnterGameReq, proto_ff::EnterGameRsp)
 
 /**
+ * @brief world,logic,game req exit game rpc
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_ExitGameReq, proto_ff::ExitGameReq, proto_ff::ExitGameRsp)
+
+/**
  * @brief game to logic get coin balance rpc
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_GTL_COIN_QUERY_BALANCE_RPC, proto_ff::Proto_QueryCoinBalanceReq, proto_ff::Proto_QueryCoinBalanceRsp)

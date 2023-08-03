@@ -10,6 +10,7 @@
 #include "NFWorldPlayerModule.h"
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
+#include "Room/NFWorldRoomMgr.h"
 
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
@@ -175,6 +176,49 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
 
         NFLogError(NF_LOG_SYSTEMLOG, request.user_id(), "can't find the logic server, user id:{} Login Failed! ", request.user_id());
         return 0;
+    }
+
+
+
+    if (pPlayerInfo->m_gameId > 0 || pPlayerInfo->m_roomId > 0) {
+        auto pRoomInfo = NFWorldRoomMgr::GetInstance(m_pObjPluginManager)->GetRoom(pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+        if (pRoomInfo && pRoomInfo->m_busId > 0) {
+            NFLogWarning(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "Force Player:{} Exit Game, gameid:{} roomId:{}", pPlayerInfo->GetPlayerId(), pPlayerInfo->m_gameId,
+                         pPlayerInfo->m_roomId);
+
+            proto_ff::ExitGameReq rpcReq;
+            proto_ff::ExitGameRsp rpcRsp;
+            int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                                      pPlayerInfo->GetLogicId(), rpcReq, rpcRsp,
+                                                                                                      pPlayerInfo->GetPlayerId());
+
+            //check ptr
+            pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(request.user_id());
+            CHECK_NULL(pPlayerInfo);
+            pRoomInfo = NFWorldRoomMgr::GetInstance(m_pObjPluginManager)->GetRoom(pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+            CHECK_NULL(pRoomInfo);
+
+            //failed
+            if (iRet != 0 || rpcRsp.exit_type() == 0)
+            {
+                NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player login, exit old game:{} room:{} failed", pPlayerInfo->m_gameId, pPlayerInfo->m_roomId)
+            }
+            else {
+                NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player login, exit old game:{} room:{} success", pPlayerInfo->m_gameId, pPlayerInfo->m_roomId)
+
+                pPlayerInfo->m_gameId = 0;
+                pPlayerInfo->m_roomId = 0;
+                pPlayerInfo->m_gameBusId = 0;
+            }
+        }
+        else
+        {
+            pPlayerInfo->m_gameId = 0;
+            pPlayerInfo->m_roomId = 0;
+            pPlayerInfo->m_gameBusId = 0;
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "palyerId:{} room error, room not exist, gameId:{}, roomId:{}", pPlayerInfo->GetPlayerId(),
+                       pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+        }
     }
 
     //notify logic server player login

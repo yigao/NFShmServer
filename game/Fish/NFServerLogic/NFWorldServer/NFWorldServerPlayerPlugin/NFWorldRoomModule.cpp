@@ -29,9 +29,10 @@ bool NFWorldRoomModule::Awake()
                                                                                            &NFWorldRoomModule::OnRpcServiceRoomRegister);
     /////////////////////enter game, exit game////////////////////////////////////
 
-    RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_MSG_EnterGameReq, true);
-    RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_MSG_DeskListReq, true);
     RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_Msg_Get_Room_Info_Req);
+    RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_MSG_DeskListReq, true);
+    RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_MSG_EnterGameReq, true);
+    RegisterClientMessage(NF_ST_WORLD_SERVER, proto_ff::NF_CS_MSG_ExitGameReq, true);
 
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME);
 
@@ -91,6 +92,11 @@ int NFWorldRoomModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pack
         case proto_ff::NF_CS_MSG_EnterGameReq:
         {
             OnHandleEnterGameReq(msgId, packet, playerId, param2);
+            break;
+        }
+        case proto_ff::NF_CS_MSG_ExitGameReq:
+        {
+            OnHandleExitGameReq(msgId, packet, playerId, param2);
             break;
         }
         default:
@@ -223,10 +229,33 @@ int NFWorldRoomModule::OnHandleDeskListReq(uint32_t msgId, NFDataPackage &packet
             {
                 NFLogWarning(NF_LOG_SYSTEMLOG, 0, "Force Player:{} Exit Game, gameid:{} roomId:{}", playerId, pPlayerInfo->m_gameId,
                              pPlayerInfo->m_roomId);
-                proto_ff::ExitRoomReq exitMsg;
-                FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER,
-                                                                          pRoomInfo->m_busId, proto_ff::NF_CS_MSG_ExitGameReq,
-                                                                          exitMsg, playerId);
+                proto_ff::ExitGameReq rpcReq;
+                proto_ff::ExitGameRsp rpcRsp;
+                int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                                          pPlayerInfo->GetLogicId(), rpcReq, rpcRsp,
+                                                                                                          pPlayerInfo->GetPlayerId());
+                //check ptr
+                pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+                CHECK_NULL(pPlayerInfo);
+                pRoomInfo = NFWorldRoomMgr::GetInstance(m_pObjPluginManager)->GetRoom(pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+                CHECK_NULL(pRoomInfo);
+
+                //failed
+                if (iRet != 0 || rpcRsp.exit_type() == 0)
+                {
+                    proto_ff::DeskListRsp rspMsg;
+                    rspMsg.set_result(proto_ff::ERR_CODE_USER_IN_GAMEING);
+                    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(), proto_ff::NF_SC_MSG_DeskListRsp,
+                                                                               rspMsg,
+                                                                               pPlayerInfo->GetPlayerId());
+                }
+                else {
+                    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player exit old game:{} room:{} success", pPlayerInfo->m_gameId, pPlayerInfo->m_roomId)
+
+                    pPlayerInfo->m_gameId = 0;
+                    pPlayerInfo->m_roomId = 0;
+                    pPlayerInfo->m_gameBusId = 0;
+                }
             }
             else
             {
@@ -310,17 +339,46 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
             {
                 NFLogWarning(NF_LOG_SYSTEMLOG, 0, "Force Player:{} Exit Game, gameid:{} roomId:{}", playerId, pPlayerInfo->m_gameId,
                              pPlayerInfo->m_roomId);
-/*                proto_ff::ExitRoomReq exitMsg;
-                NFMessageMgr::Instance()->SendMsgToGameServer(NF_ST_WORLD_SERVER,
-                                                              pRoomInfo->m_nRoomInfo.bus_id, proto_game::NF_CS_MSG_ExitGameReq,
-                                                              exitMsg, playerId);*/
+
+                proto_ff::ExitGameReq rpcReq;
+                proto_ff::ExitGameRsp rpcRsp;
+                int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                                          pPlayerInfo->GetLogicId(), rpcReq, rpcRsp,
+                                                                                                          playerId);
+
+                pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+                CHECK_NULL(pPlayerInfo);
+                pRoomInfo = NFWorldRoomMgr::GetInstance(m_pObjPluginManager)->GetRoom(pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+                CHECK_NULL(pRoomInfo);
+
+                //failed
+                if (iRet != 0 || rpcRsp.exit_type() == 0)
+                {
+                    proto_ff::EnterGameRsp rspMsg;
+                    rspMsg.set_result(proto_ff::ERR_CODE_USER_IN_GAMEING);
+                    rspMsg.set_player_id(pPlayerInfo->GetPlayerId());
+
+                    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(),
+                                                                               proto_ff::NF_SC_MSG_EnterGameRsp, rspMsg,
+                                                                               pPlayerInfo->GetPlayerId());
+                    return 0;
+                }
+
+                NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "player will enter new game:{} room:{}, exit old game:{} room:{} success", xMsg.game_id(),
+                          xMsg.room_id(), pPlayerInfo->m_gameId, pPlayerInfo->m_roomId)
+
+                pPlayerInfo->m_gameId = 0;
+                pPlayerInfo->m_roomId = 0;
+                pPlayerInfo->m_gameBusId = 0;
             }
             else
             {
-                pPlayerInfo->m_gameId = 0;
-                pPlayerInfo->m_roomId = 0;
+
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "palyerId:{} room error, room not exist, gameId:{}, roomId:{}", playerId,
                            pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+                pPlayerInfo->m_gameId = 0;
+                pPlayerInfo->m_roomId = 0;
+                pPlayerInfo->m_gameBusId = 0;
             }
         }
     }
@@ -375,6 +433,7 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
 
             pPlayerInfo->m_gameId = xMsg.game_id();
             pPlayerInfo->m_roomId = xMsg.room_id();
+            pPlayerInfo->m_gameBusId = pRoomInfo->m_busId;
 
             FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(),
                                                                        proto_ff::NF_SC_MSG_EnterGameRsp, rspMsg,
@@ -407,6 +466,61 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
     return 0;
 }
 
+int NFWorldRoomModule::OnHandleExitGameReq(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+
+    proto_ff::ExitGameReq xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_PLAYER_EXPR(playerId, pPlayerInfo, -1, "recv nMsgId:{} can't find player pInfo, playerId:{}", msgId, playerId);
+
+    if (pPlayerInfo->m_gameId == 0 && pPlayerInfo->m_roomId == 0)
+    {
+        proto_ff::ExitGameRsp xMsgRet;
+        xMsgRet.set_exit_type(1);
+        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(), proto_ff::NF_SC_MSG_ExitGameRsp,
+                                                                   xMsgRet, pPlayerInfo->GetPlayerId());
+        return 0;
+    }
+
+    proto_ff::ExitGameRsp xMsgRet;
+    xMsgRet.set_exit_type(0);
+
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                              pPlayerInfo->GetLogicId(), xMsg, xMsgRet, playerId);
+    //check ptr
+    pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_NULL(pPlayerInfo);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "GetRpcService<NF_CS_MSG_ExitGameReq> Failed, player exit game failed");
+        xMsgRet.set_exit_type(0);
+        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(), proto_ff::NF_SC_MSG_ExitGameRsp,
+                                                                   xMsgRet, pPlayerInfo->GetPlayerId());
+        return 0;
+    }
+
+    if (xMsgRet.exit_type() != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "player:{} exit game:{} room:{} success", playerId, pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+        pPlayerInfo->m_gameId = 0;
+        pPlayerInfo->m_roomId = 0;
+        pPlayerInfo->m_gameBusId = 0;
+    }
+    else
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "player:{} exit game:{} room:{} fail", playerId, pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+    }
+
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(), proto_ff::NF_SC_MSG_ExitGameRsp,
+                                                               xMsgRet, pPlayerInfo->GetPlayerId());
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
 int NFWorldRoomModule::OnHandleNotifyPlayerLeaveGame(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
@@ -428,8 +542,8 @@ int NFWorldRoomModule::OnHandleNotifyPlayerLeaveGame(uint32_t msgId, NFDataPacka
     else
     {
         NFLogError(NF_LOG_SYSTEMLOG, playerId, "game server notify world player, but player:{} game:{} room:{} not equal to the game:{} room:{}",
-                  playerId, pPlayerInfo->m_gameId, pPlayerInfo->m_roomId, xMsg.game_id(),
-                  xMsg.room_id());
+                   playerId, pPlayerInfo->m_gameId, pPlayerInfo->m_roomId, xMsg.game_id(),
+                   xMsg.room_id());
     }
 
     FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetLogicId(), msgId, xMsg, playerId);

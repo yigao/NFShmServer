@@ -321,7 +321,7 @@ public:
      * @param playerDetail
      * @return
      */
-    int LoginDesk(uint64_t playerId, int chairIndex, proto_ff_s::GamePlayerDetailData_s& playerDetail);
+    int EnterGame(uint64_t playerId, int chairIndex, proto_ff_s::GamePlayerDetailData_s& playerDetail);
 
     /**
      * @brief 退出座子
@@ -329,7 +329,7 @@ public:
      * @param bOffline
      * @return
      */
-    int LogOutDesk(uint64_t playerId, bool bOffline);
+    int ExitGame(uint64_t playerId, bool bOffline);
 public:
     virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId);
 

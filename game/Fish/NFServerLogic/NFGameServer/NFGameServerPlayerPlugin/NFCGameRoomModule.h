@@ -51,11 +51,17 @@ public:
      * @param param2
      * @return
      */
-    int OnHandleDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone, uint64_t param1, uint64_t param2);
+    int OnHandleDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone, uint64_t playerId, uint64_t param2);
 
     /**
      * @brief 请求进入游戏
      * @return
      */
-    int OnHandleEnterGameReq(proto_ff::EnterGameReq& request, proto_ff::EnterGameRsp& respone, uint64_t param1, uint64_t param2);
+    int OnHandleEnterGameReq(proto_ff::EnterGameReq& request, proto_ff::EnterGameRsp& respone, uint64_t playerId, uint64_t param2);
+
+    /**
+     * @brief 请求退出游戏
+     * @return
+     */
+    int OnHandleExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRsp& respone, uint64_t playerId, uint64_t param2);
 };

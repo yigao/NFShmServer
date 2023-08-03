@@ -26,6 +26,7 @@ bool NFCGameRoomModule::Awake()
 {
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_DeskListReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleDeskListReq);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_EnterGameReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleEnterGameReq);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleExitGameReq);
     return true;
 }
 
@@ -232,6 +233,36 @@ int NFCGameRoomModule::OnHandleEnterGameReq(proto_ff::EnterGameReq& request, pro
     respone.set_game_id(gameId);
     respone.set_room_id(roomId);
     respone.set_player_id(pPlayer->m_playerId);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCGameRoomModule::OnHandleExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRsp& respone, uint64_t playerId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_PLAYER_EXPR(playerId, pPlayer, -1, "Get Player Failed, playerId:{}", playerId);
+
+    respone.set_exit_type(1);
+    if (pPlayer->m_gameId > 0 || pPlayer->m_roomId > 0)
+    {
+        NFGameRoom *pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
+        if (pRoom)
+        {
+            int iRet = pRoom->ExitGame(playerId);
+            if (iRet != 0)
+            {
+                respone.set_exit_type(0);
+                return 0;
+            }
+        }
+
+        pPlayer->m_gameId = 0;
+        pPlayer->m_roomId = 0;
+        pPlayer->m_deskId = 0;
+        pPlayer->m_chairId = 0;
+    }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

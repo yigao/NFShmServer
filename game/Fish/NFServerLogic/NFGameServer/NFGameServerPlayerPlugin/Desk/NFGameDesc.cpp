@@ -806,7 +806,7 @@ int NFGameDesk::AchievementCount(uint64_t userid, uint64_t ach, uint64_t fee)
     return 0;
 }
 
-int NFGameDesk::LoginDesk(uint64_t playerId, int chairIndex, proto_ff_s::GamePlayerDetailData_s &playerDetail)
+int NFGameDesk::EnterGame(uint64_t playerId, int chairIndex, proto_ff_s::GamePlayerDetailData_s &playerDetail)
 {
     CHECK_EXPR(m_deskHandle, proto_ff::ERR_CODE_SYSTEM_ERROR, "param error, m_deskHandle == NULL");
 
@@ -820,7 +820,7 @@ int NFGameDesk::LoginDesk(uint64_t playerId, int chairIndex, proto_ff_s::GamePla
     if (pDeskStation->m_playerId > 0 && pDeskStation->m_playerId != playerId)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0,
-                   "Error:CGameDesk::LoginDesk() chairIndex:{} is using! Request sit down's playerID:{}, "
+                   "Error:CGameDesk::EnterGame() chairIndex:{} is using! Request sit down's playerID:{}, "
                    "Aleady sit down's playerId:{}. OprInfo: m_nRoomID:{} DeskId:{}.",
                    chairIndex, playerId, pDeskStation->m_playerId, m_roomId, m_deskId);
 
@@ -870,33 +870,33 @@ int NFGameDesk::LoginDesk(uint64_t playerId, int chairIndex, proto_ff_s::GamePla
     return 0;
 }
 
-int NFGameDesk::LogOutDesk(uint64_t playerId, bool bOffline)
+int NFGameDesk::ExitGame(uint64_t playerId, bool bOffline)
 {
     NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
     if (!pPlayer)
     {
         NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
-        return -1;
+        return 0;
     }
 
     if (m_gameId != pPlayer->m_gameId || m_roomId != pPlayer->m_roomId || m_deskId != pPlayer->m_deskId)
     {
         NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
-        return -1;
+        return 0;
     }
 
     NFGameDeskStation* pGameDeskStation = GetDeskStation(pPlayer->m_chairId);
     if (pGameDeskStation == NULL)
     {
         NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
-        return -1;
+        return 0;
     }
     else
     {
         if (pGameDeskStation->m_playerId != playerId)
         {
             NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
-            return -1;
+            return 0;
         }
 
         //获取当前用户是否在游戏中
@@ -917,7 +917,6 @@ int NFGameDesk::LogOutDesk(uint64_t playerId, bool bOffline)
         {
             if (bUserIsPaying && !IsPlayGameCanLeave(pPlayer->m_chairId))
             {
-                //return -1;
                 return proto_ff::ERR_CODE_EXIT_NOT_PERMITED_WHILE_PLAYING;
             }
             else
@@ -947,7 +946,7 @@ int NFGameDesk::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message
 
 int NFGameDesk::BroadCastMsgToDesk(uint32_t nMsgId, const google::protobuf::Message &xData, int32_t chairId)
 {
-    for (int i = 0; i < m_arrDeskStationId.size(); i++) {
+    for (int i = 0; i < (int)m_arrDeskStationId.size(); i++) {
         if (m_arrDeskStationId[i].m_playerId == 0 || i == chairId) {
             continue;
         }

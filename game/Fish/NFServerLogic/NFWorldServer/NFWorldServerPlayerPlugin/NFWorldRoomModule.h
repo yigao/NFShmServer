@@ -80,6 +80,15 @@ public:
      */
     int OnHandleEnterGameReq(uint32_t msgId, NFDataPackage& packet, uint64_t playerId, uint64_t param2);
 
+    /**
+     * @brief 请求退出游戏
+     * @param msgId
+     * @param packet
+     * @param playerId
+     * @param param2
+     * @return
+     */
+    int OnHandleExitGameReq(uint32_t msgId, NFDataPackage& packet, uint64_t playerId, uint64_t param2);
 public:
     /**
      * @brief 收到通知，玩家离开游戏
