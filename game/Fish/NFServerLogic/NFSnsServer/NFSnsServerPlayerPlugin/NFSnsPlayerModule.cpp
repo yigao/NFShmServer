@@ -8,16 +8,10 @@
 // -------------------------------------------------------------------------
 
 #include "NFSnsPlayerModule.h"
-
-#include "NFComm/NFPluginModule/NFIPluginManager.h"
-#include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFComm/NFPluginModule/NFCheck.h"
-#include "AllProtocol.h"
-#include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "Cache/NFPlayerSimple.h"
 #include "Cache/NFCacheMgr.h"
 
-NFCSnsPlayerModule::NFCSnsPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
+NFCSnsPlayerModule::NFCSnsPlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
 }
 

@@ -8,15 +8,11 @@
 // -------------------------------------------------------------------------
 
 #include "NFWorldPlayerModule.h"
-
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
-#include "ServerInternalCmd.pb.h"
-#include "NFLogicCommon/NFLogicBindRpcService.h"
-#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 
-NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
+NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
 
 }

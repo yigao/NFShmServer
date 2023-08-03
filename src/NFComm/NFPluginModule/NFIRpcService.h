@@ -37,7 +37,7 @@ public:
 
     }
 
-    virtual int run(NFObject *pObject, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone) = 0;
+    virtual int run(NFObject *pObject, google::protobuf::Message& request, google::protobuf::Message& respone) = 0;
 };
 
 template<typename BaseType, typename RequestType, typename ResponeType>
@@ -46,24 +46,25 @@ class NFCDynamicRpcService : public NFIDynamicRpcService
     static_assert((TIsDerived<RequestType, google::protobuf::Message>::Result), "the class RequestType must is google::protobuf::Message");
     static_assert((TIsDerived<ResponeType, google::protobuf::Message>::Result), "the class ResponeType must is google::protobuf::Message");
 public:
-    NFCDynamicRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType* pRequest, ResponeType *pRespone)): NFIDynamicRpcService(p)
+    NFCDynamicRpcService(NFIPluginManager* p, BaseType *pBase, int (BaseType::*handleRecieve)(RequestType& request, ResponeType& respone)): NFIDynamicRpcService(p)
     {
         m_function = handleRecieve;
     }
 
-    virtual int run(NFObject *pObject, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone) override
+    virtual int run(NFObject *pObject, google::protobuf::Message& request, google::protobuf::Message& respone) override
     {
+        RequestType* pRequest = dynamic_cast<RequestType*>(&request);
+        ResponeType* pRespone = dynamic_cast<ResponeType*>(&respone);
         BaseType* pBase = dynamic_cast<BaseType*>(pObject);
-        if (pBase && m_function)
+        if (pBase && pRequest && pRespone && m_function)
         {
-
-            return (pBase->*m_function)(dynamic_cast<RequestType*>(pRequest), dynamic_cast<ResponeType *>(pRespone));
+            return (pBase->*m_function)(dynamic_cast<RequestType&>(request), dynamic_cast<ResponeType&>(respone));
         }
 
         return proto_ff::ERR_CODE_RPC_MSG_FUNCTION_UNEXISTED;
     }
 
-    int (BaseType::*m_function)(RequestType* pRequest, ResponeType *pRespone);
+    int (BaseType::*m_function)(RequestType& request, ResponeType& respone);
 };
 
 /**

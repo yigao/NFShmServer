@@ -13,7 +13,7 @@
 
 #define GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER "Game Server Register Room Info to World Server"
 
-NFCGamePlayerModule::NFCGamePlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
+NFCGamePlayerModule::NFCGamePlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
 
 }

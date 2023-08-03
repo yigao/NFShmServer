@@ -12,6 +12,7 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 
 #include "DescStore/NFDescStoreHead.h"
+#include "DescStore/NFDescStoreRegister.h"
 #include "DescStoreEx/GameRoomDescEx.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
@@ -55,7 +56,7 @@ void NFFishCommonPlugin::Uninstall()
 bool NFFishCommonPlugin::InitShmObjectRegister()
 {
     ////////init excel load shm///////////////////
-    REGISTER_DESCSTORE(RoomRoomDesc);
+    EOT_DESC_STORE_ALL_REGISTER_DEFINE
 
 
     ///////////////////////////////////////////////

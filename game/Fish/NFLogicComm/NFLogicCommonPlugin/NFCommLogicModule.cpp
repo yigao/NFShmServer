@@ -9,4 +9,10 @@
 
 #include "NFCommLogicModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFCore/NFServerIDUtil.h"
+#include "NFLogicCommon/NFLogicError.h"
+
+bool NFCommLogicModule::Awake()
+{
+    NFError::Instance()->SetSingletonPtr(new NFLogicError());
+    return true;
+}

@@ -10,17 +10,14 @@
 #pragma once
 
 #include "NFPackageConfig.h"
-#include "NFServerComm/NFServerCommon/NFIProxyPlayerModule.h"
-#include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "NFComm/NFCore/NFMap.hpp"
 #include "NFProxySession.h"
 #include "NFProxyPlayerInfo.h"
-#include <ComDefine.pb.h>
+#include "NFLogicCommon/NFFishDynamicModule.h"
 
 #define NF_PROXY_CLIENT_TIMER_ID 1
 #define NF_PROXY_CLIENT_INTERVAL_TIME 100
 
-class NFCProxyPlayerModule : public NFIProxyPlayerModule
+class NFCProxyPlayerModule : public NFFishDynamicModule
 {
 public:
     explicit NFCProxyPlayerModule(NFIPluginManager *p);

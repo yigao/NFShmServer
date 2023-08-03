@@ -36,9 +36,7 @@ public:
     template<size_t msgId, typename RequestType, typename ResponeType>
     bool AddRpcService(NF_SERVER_TYPES serverType, bool createCo = false)
     {
-        STATIC_ASSERT_BIND_RPC_SERVICE(msgId, RequestType, ResponeType);
-        NFIRpcService *pRpcService = new NFIMessageModule::NFCRpcService<NFIDynamicModule, RequestType, ResponeType>(m_pObjPluginManager, this, &NFIDynamicModule::OnHandleRpcMessage);
-        return FindModule<NFIMessageModule>()->AddRpcService(serverType, msgId, this, pRpcService, createCo);
+        return FindModule<NFIMessageModule>()->AddRpcService<msgId, NFIDynamicModule, RequestType, ResponeType>(serverType, this, &NFIDynamicModule::OnHandleRpcMessage, createCo);
     }
 
     /**
@@ -98,5 +96,5 @@ public:
      * @param param2
      * @return
      */
-    virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t param1, uint64_t param2);
+    virtual int OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& request, google::protobuf::Message& respone, uint64_t param1, uint64_t param2);
 };

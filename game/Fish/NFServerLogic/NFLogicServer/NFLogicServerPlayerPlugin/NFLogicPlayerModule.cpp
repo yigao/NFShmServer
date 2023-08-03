@@ -8,16 +8,11 @@
 // -------------------------------------------------------------------------
 
 #include "NFLogicPlayerModule.h"
+#include "Player/NFPlayer.h"
+#include "Player/NFPlayerMgr.h"
 
-#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.h"
-#include "NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayerMgr.h"
-#include "ServerInternalCmd.pb.h"
-#include "NFLogicCommon/NFLogicBindRpcService.h"
-#include "DBProto.pb.h"
-#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-#include "NFComm/NFCore/NFRandom.hpp"
 
-NFCLogicPlayerModule::NFCLogicPlayerModule(NFIPluginManager *p) : NFIDynamicModule(p)
+NFCLogicPlayerModule::NFCLogicPlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
 
 }

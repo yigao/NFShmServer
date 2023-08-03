@@ -9,11 +9,10 @@
 
 #pragma once
 
-#include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "AllProtocol.h"
 
-class NFCSnsPlayerModule : public NFIDynamicModule
+#include "NFLogicCommon/NFFishDynamicModule.h"
+
+class NFCSnsPlayerModule : public NFFishDynamicModule
 {
 public:
     explicit NFCSnsPlayerModule(NFIPluginManager *p);

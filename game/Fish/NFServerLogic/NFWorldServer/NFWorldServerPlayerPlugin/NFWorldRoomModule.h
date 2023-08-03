@@ -9,12 +9,10 @@
 
 #pragma once
 
-
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "AllProtocol.h"
+#include "NFLogicCommon/NFFishDynamicModule.h"
 
-class NFWorldRoomModule : public NFIDynamicModule
+class NFWorldRoomModule : public NFFishDynamicModule
 {
 public:
     explicit NFWorldRoomModule(NFIPluginManager* p);

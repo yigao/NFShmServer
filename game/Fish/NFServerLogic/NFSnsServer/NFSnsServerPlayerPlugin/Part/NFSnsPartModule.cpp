@@ -13,9 +13,9 @@
 
 NFSnsPartModule::NFSnsPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
-    m_clientMsgToPartMap.resize(10000);
-    m_serverMsgToPartMap.resize(10000);
-    m_rpcMsgToPartMap.resize(10000);
+    m_clientMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
+    m_serverMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
+    m_rpcMsgToPartMap.resize(NF_NET_MAX_MSG_ID);
 }
 
 NFSnsPartModule::~NFSnsPartModule()
@@ -92,7 +92,7 @@ int NFSnsPartModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet
     return 0;
 }
 
-int NFSnsPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message* pRequest, google::protobuf::Message* pRespone, uint64_t playerId, uint64_t param2)
+int NFSnsPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Message& request, google::protobuf::Message& respone, uint64_t playerId, uint64_t param2)
 {
     NFPlayerDetail *pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(playerId);
     if (pPlayer)
@@ -102,7 +102,7 @@ int NFSnsPartModule::OnHandleRpcMessage(uint32_t msgId, google::protobuf::Messag
             NFSnsPart* pPart = pPlayer->GetPart(m_rpcMsgToPartMap[msgId].first);
             if (pPart && m_rpcMsgToPartMap[msgId].second)
             {
-                return m_rpcMsgToPartMap[msgId].second->run(pPart, pRequest, pRespone);
+                return m_rpcMsgToPartMap[msgId].second->run(pPart, request, respone);
             }
             else {
                 NFLogError(NF_LOG_SYSTEMLOG, playerId, "can't find part, msgId:{} partId:{}, drop the msg", msgId, m_rpcMsgToPartMap[msgId].first);

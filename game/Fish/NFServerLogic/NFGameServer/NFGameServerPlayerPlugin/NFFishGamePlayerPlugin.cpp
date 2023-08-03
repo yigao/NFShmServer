@@ -21,6 +21,7 @@
 #include "NFCGamePlayerModule.h"
 #include "NFLogicCommon/NFRoomDefine.h"
 #include "Config/NFGameConfig.h"
+#include "NFCGameRoomModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -53,11 +54,14 @@ std::string NFFishGamePlayerPlugin::GetPluginName()
 void NFFishGamePlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCGamePlayerModule, NFCGamePlayerModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFCGameRoomModule, NFCGameRoomModule);
+
 }
 
 void NFFishGamePlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCGamePlayerModule, NFCGamePlayerModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFCGameRoomModule, NFCGameRoomModule);
 }
 
 bool NFFishGamePlayerPlugin::InitShmObjectRegister()

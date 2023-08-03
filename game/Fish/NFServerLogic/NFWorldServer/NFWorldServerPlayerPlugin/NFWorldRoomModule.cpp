@@ -8,16 +8,12 @@
 // -------------------------------------------------------------------------
 
 #include "NFWorldRoomModule.h"
-#include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "Room/NFWorldRoomMgr.h"
-
-#include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
-#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "DescStore/RoomRoomDesc.h"
 
-NFWorldRoomModule::NFWorldRoomModule(NFIPluginManager *p) : NFIDynamicModule(p)
+NFWorldRoomModule::NFWorldRoomModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
 
 }
@@ -241,9 +237,10 @@ int NFWorldRoomModule::OnHandleDeskListReq(uint32_t msgId, NFDataPackage &packet
         {
             xMsg.set_game_bus_id(pRoomInfo->m_busId);
             proto_ff::DeskListRsp rspMsg;
-            int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_CS_MSG_DeskListReq>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pPlayerInfo->GetLogicId(), xMsg, rspMsg);
+            int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_CS_MSG_DeskListReq>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pPlayerInfo->GetLogicId(), xMsg, rspMsg, pPlayerInfo->GetPlayerId());
             if (iRet != 0)
             {
+                NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetProxyId(), "GetRpcService NF_CS_MSG_DeskListReq Failed!, iRet:{}", GetErrorStr(iRet));
                 proto_ff::DeskListRsp rspMsg;
                 rspMsg.set_result(proto_ff::ERR_CODE_SYSTEM_TIMEOUT);
                 FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(), proto_ff::NF_SC_MSG_DeskListRsp, rspMsg,

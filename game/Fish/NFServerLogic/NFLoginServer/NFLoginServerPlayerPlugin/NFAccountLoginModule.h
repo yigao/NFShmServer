@@ -9,10 +9,10 @@
 
 #pragma once
 
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
-#include "CSLogin.pb.h"
 
-class NFCAccountLoginModule : public NFIDynamicModule
+#include "NFLogicCommon/NFFishDynamicModule.h"
+
+class NFCAccountLoginModule : public NFFishDynamicModule
 {
 public:
 	explicit NFCAccountLoginModule(NFIPluginManager* p);

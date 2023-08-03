@@ -168,34 +168,30 @@ int NFSnsJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packe
     return 0;
 }
 
-int NFSnsJettonPart::AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerAddBankJettonRsp* pResponse)
+int NFSnsJettonPart::AddBankJettonService(proto_ff::Proto_LTS_PlayerAddBankJettonReq& request, proto_ff::Proto_STL_PlayerAddBankJettonRsp& respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
-    CHECK_NULL(pRequest);
-    CHECK_NULL(pResponse);
 
-    m_bankJetton += pRequest->add_jetton();
+    m_bankJetton += request.add_jetton();
     MarkDirty();
 
-    pResponse->set_ret_code(0);
-    pResponse->set_add_jetton(pRequest->add_jetton());
-    pResponse->set_bank_jetton(m_bankJetton);
+    respone.set_ret_code(0);
+    respone.set_add_jetton(request.add_jetton());
+    respone.set_bank_jetton(m_bankJetton);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
 }
 
-int NFSnsJettonPart::ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBankJettonReq* pRequest, proto_ff::Proto_STL_PlayerReduceBankJettonRsp* pResponse)
+int NFSnsJettonPart::ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBankJettonReq& request, proto_ff::Proto_STL_PlayerReduceBankJettonRsp& respone)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- begin ---------------------------------- ");
-    CHECK_NULL(pRequest);
-    CHECK_NULL(pResponse);
 
     uint32_t reduceJetton = 0;
-    if (m_bankJetton > pRequest->reduce_jetton())
+    if (m_bankJetton > request.reduce_jetton())
     {
-        m_bankJetton -= pRequest->reduce_jetton();
-        reduceJetton = pRequest->reduce_jetton();
+        m_bankJetton -= request.reduce_jetton();
+        reduceJetton = request.reduce_jetton();
     }
     else {
         reduceJetton = m_bankJetton;
@@ -204,9 +200,9 @@ int NFSnsJettonPart::ReduceBankJettonService(proto_ff::Proto_LTS_PlayerReduceBan
 
     MarkDirty();
 
-    pResponse->set_ret_code(0);
-    pResponse->set_reduce_jetton(reduceJetton);
-    pResponse->set_bank_jetton(m_bankJetton);
+    respone.set_ret_code(0);
+    respone.set_reduce_jetton(reduceJetton);
+    respone.set_bank_jetton(m_bankJetton);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "---------------------------------- end ---------------------------------- ");
     return 0;
