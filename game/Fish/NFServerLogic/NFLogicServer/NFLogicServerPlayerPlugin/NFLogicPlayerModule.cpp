@@ -10,6 +10,7 @@
 #include "NFLogicPlayerModule.h"
 #include "Player/NFPlayer.h"
 #include "Player/NFPlayerMgr.h"
+#include "DescStore/ConstantConstantDesc.h"
 
 
 NFCLogicPlayerModule::NFCLogicPlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
@@ -130,7 +131,18 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
                 insertObj.set_regdate(NFTime::Now().UnixSec());
 
                 insertObj.set_faceid(1);
-                insertObj.set_jetton(1000000);
+                insertObj.set_jetton(0);
+                auto pJettonDesc = ConstantConstantDesc::Instance(m_pObjPluginManager)->GetDesc(proto_ff::EN_CONST_USER_INIT_JETTON);
+                if (pJettonDesc)
+                {
+                    insertObj.set_jetton(pJettonDesc->m_constantdata);
+                }
+
+                auto pFaceDesc = ConstantConstantDesc::Instance(m_pObjPluginManager)->GetDesc(proto_ff::EN_CONST_USER_INIT_FACE);
+                if (pFaceDesc)
+                {
+                    insertObj.set_faceid(pFaceDesc->m_constantdata);
+                }
 
                 insertObj.set_regdate(NFTime::Now().UnixSec());
                 insertObj.set_phonenum(0);

@@ -244,5 +244,76 @@ namespace proto_ff_s {
 	};
 	typedef struct Proto_UserSimpleData_s Proto_UserSimpleData_t;
 
+	struct GamePlayerDetailData_s : public NFDescStoreSeqOP {
+		GamePlayerDetailData_s();
+		virtual ~GamePlayerDetailData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t player_id;
+		int64_t cur_money;
+		uint32_t vip_level;
+		uint32_t sex;
+		int32_t chair_id;
+		NFShmString<128> nick_name;
+		uint32_t face;
+		bool isRobot;
+
+		virtual void write_to_pbmsg(::proto_ff::GamePlayerDetailData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GamePlayerDetailData & msg);
+		static ::proto_ff::GamePlayerDetailData* new_pbmsg(){ return new ::proto_ff::GamePlayerDetailData(); }
+		static ::proto_ff::GamePlayerDetailData make_pbmsg(){ return ::proto_ff::GamePlayerDetailData(); }
+	};
+	typedef struct GamePlayerDetailData_s GamePlayerDetailData_t;
+
+	struct GamePlayerWealthData_s : public NFDescStoreSeqOP {
+		GamePlayerWealthData_s();
+		virtual ~GamePlayerWealthData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t player_id;
+		int64_t recharge;
+		int64_t total_lost;
+		int64_t total_win;
+		int64_t this_game_lost;
+		int64_t this_game_win;
+
+		virtual void write_to_pbmsg(::proto_ff::GamePlayerWealthData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GamePlayerWealthData & msg);
+		static ::proto_ff::GamePlayerWealthData* new_pbmsg(){ return new ::proto_ff::GamePlayerWealthData(); }
+		static ::proto_ff::GamePlayerWealthData make_pbmsg(){ return ::proto_ff::GamePlayerWealthData(); }
+	};
+	typedef struct GamePlayerWealthData_s GamePlayerWealthData_t;
+
+	struct GamePlayerAchievementData_s : public NFDescStoreSeqOP {
+		GamePlayerAchievementData_s();
+		virtual ~GamePlayerAchievementData_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cur_ach;
+		uint64_t cur_fee;
+
+		virtual void write_to_pbmsg(::proto_ff::GamePlayerAchievementData & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GamePlayerAchievementData & msg);
+		static ::proto_ff::GamePlayerAchievementData* new_pbmsg(){ return new ::proto_ff::GamePlayerAchievementData(); }
+		static ::proto_ff::GamePlayerAchievementData make_pbmsg(){ return ::proto_ff::GamePlayerAchievementData(); }
+	};
+	typedef struct GamePlayerAchievementData_s GamePlayerAchievementData_t;
+
+	struct GameRoomStat_s : public NFDescStoreSeqOP {
+		GameRoomStat_s();
+		virtual ~GameRoomStat_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cur_fee;
+		uint64_t cur_pour;
+		int64_t cur_win;
+
+		virtual void write_to_pbmsg(::proto_ff::GameRoomStat & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::GameRoomStat & msg);
+		static ::proto_ff::GameRoomStat* new_pbmsg(){ return new ::proto_ff::GameRoomStat(); }
+		static ::proto_ff::GameRoomStat make_pbmsg(){ return ::proto_ff::GameRoomStat(); }
+	};
+	typedef struct GameRoomStat_s GameRoomStat_t;
+
 }
 

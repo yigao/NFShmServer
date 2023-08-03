@@ -95,17 +95,21 @@ int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskLis
     auto pRoomCfg = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(request.game_id(), request.room_id());
     CHECK_NULL(pRoomCfg);
 
-    if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_enter_min || pJettonPart->GetJetton() > (uint64_t)pRoomCfg->m_enter_max)
+    if (pRoomCfg->m_is_exp_scene <= 0)
     {
-        if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_enter_min)
+        if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_enter_min || pJettonPart->GetJetton() > (uint64_t)pRoomCfg->m_enter_max)
         {
-            respone.set_result(proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH);
+            if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_enter_min)
+            {
+                respone.set_result(proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH);
+            }
+            else {
+                respone.set_result(proto_ff::ERR_CODE_USER_MONEY_TOO_MUCH);
+            }
+            return 0;
         }
-        else {
-            respone.set_result(proto_ff::ERR_CODE_USER_MONEY_TOO_MUCH);
-        }
-        return 0;
     }
+
 
     request.set_cur_money(pJettonPart->GetJetton());
     int iRet = GetRpcService<proto_ff::NF_CS_MSG_DeskListReq>(NF_ST_GAME_SERVER, request.game_bus_id(), request, respone);

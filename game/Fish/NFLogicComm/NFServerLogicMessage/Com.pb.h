@@ -49,6 +49,10 @@ class Proto_UserDetailCommonData;
 class Proto_LTSSyncData;
 class tbGiveBankJetton;
 class Proto_UserSimpleData;
+class GamePlayerDetailData;
+class GamePlayerWealthData;
+class GamePlayerAchievementData;
+class GameRoomStat;
 
 // ===================================================================
 
@@ -1612,6 +1616,489 @@ class Proto_UserSimpleData : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static Proto_UserSimpleData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GamePlayerDetailData : public ::google::protobuf::Message {
+ public:
+  GamePlayerDetailData();
+  virtual ~GamePlayerDetailData();
+
+  GamePlayerDetailData(const GamePlayerDetailData& from);
+
+  inline GamePlayerDetailData& operator=(const GamePlayerDetailData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GamePlayerDetailData& default_instance();
+
+  void Swap(GamePlayerDetailData* other);
+
+  // implements Message ----------------------------------------------
+
+  GamePlayerDetailData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GamePlayerDetailData& from);
+  void MergeFrom(const GamePlayerDetailData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional int64 cur_money = 2;
+  inline bool has_cur_money() const;
+  inline void clear_cur_money();
+  static const int kCurMoneyFieldNumber = 2;
+  inline ::google::protobuf::int64 cur_money() const;
+  inline void set_cur_money(::google::protobuf::int64 value);
+
+  // optional uint32 vip_level = 3;
+  inline bool has_vip_level() const;
+  inline void clear_vip_level();
+  static const int kVipLevelFieldNumber = 3;
+  inline ::google::protobuf::uint32 vip_level() const;
+  inline void set_vip_level(::google::protobuf::uint32 value);
+
+  // optional uint32 sex = 4;
+  inline bool has_sex() const;
+  inline void clear_sex();
+  static const int kSexFieldNumber = 4;
+  inline ::google::protobuf::uint32 sex() const;
+  inline void set_sex(::google::protobuf::uint32 value);
+
+  // optional int32 chair_id = 5;
+  inline bool has_chair_id() const;
+  inline void clear_chair_id();
+  static const int kChairIdFieldNumber = 5;
+  inline ::google::protobuf::int32 chair_id() const;
+  inline void set_chair_id(::google::protobuf::int32 value);
+
+  // optional string nick_name = 6;
+  inline bool has_nick_name() const;
+  inline void clear_nick_name();
+  static const int kNickNameFieldNumber = 6;
+  inline const ::std::string& nick_name() const;
+  inline void set_nick_name(const ::std::string& value);
+  inline void set_nick_name(const char* value);
+  inline void set_nick_name(const char* value, size_t size);
+  inline ::std::string* mutable_nick_name();
+  inline ::std::string* release_nick_name();
+  inline void set_allocated_nick_name(::std::string* nick_name);
+
+  // optional uint32 face = 7;
+  inline bool has_face() const;
+  inline void clear_face();
+  static const int kFaceFieldNumber = 7;
+  inline ::google::protobuf::uint32 face() const;
+  inline void set_face(::google::protobuf::uint32 value);
+
+  // optional bool isRobot = 8;
+  inline bool has_isrobot() const;
+  inline void clear_isrobot();
+  static const int kIsRobotFieldNumber = 8;
+  inline bool isrobot() const;
+  inline void set_isrobot(bool value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GamePlayerDetailData)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_cur_money();
+  inline void clear_has_cur_money();
+  inline void set_has_vip_level();
+  inline void clear_has_vip_level();
+  inline void set_has_sex();
+  inline void clear_has_sex();
+  inline void set_has_chair_id();
+  inline void clear_has_chair_id();
+  inline void set_has_nick_name();
+  inline void clear_has_nick_name();
+  inline void set_has_face();
+  inline void clear_has_face();
+  inline void set_has_isrobot();
+  inline void clear_has_isrobot();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::int64 cur_money_;
+  ::google::protobuf::uint32 vip_level_;
+  ::google::protobuf::uint32 sex_;
+  ::std::string* nick_name_;
+  ::google::protobuf::int32 chair_id_;
+  ::google::protobuf::uint32 face_;
+  bool isrobot_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GamePlayerDetailData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GamePlayerWealthData : public ::google::protobuf::Message {
+ public:
+  GamePlayerWealthData();
+  virtual ~GamePlayerWealthData();
+
+  GamePlayerWealthData(const GamePlayerWealthData& from);
+
+  inline GamePlayerWealthData& operator=(const GamePlayerWealthData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GamePlayerWealthData& default_instance();
+
+  void Swap(GamePlayerWealthData* other);
+
+  // implements Message ----------------------------------------------
+
+  GamePlayerWealthData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GamePlayerWealthData& from);
+  void MergeFrom(const GamePlayerWealthData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional int64 recharge = 2;
+  inline bool has_recharge() const;
+  inline void clear_recharge();
+  static const int kRechargeFieldNumber = 2;
+  inline ::google::protobuf::int64 recharge() const;
+  inline void set_recharge(::google::protobuf::int64 value);
+
+  // optional int64 total_lost = 3;
+  inline bool has_total_lost() const;
+  inline void clear_total_lost();
+  static const int kTotalLostFieldNumber = 3;
+  inline ::google::protobuf::int64 total_lost() const;
+  inline void set_total_lost(::google::protobuf::int64 value);
+
+  // optional int64 total_win = 4;
+  inline bool has_total_win() const;
+  inline void clear_total_win();
+  static const int kTotalWinFieldNumber = 4;
+  inline ::google::protobuf::int64 total_win() const;
+  inline void set_total_win(::google::protobuf::int64 value);
+
+  // optional int64 this_game_lost = 5;
+  inline bool has_this_game_lost() const;
+  inline void clear_this_game_lost();
+  static const int kThisGameLostFieldNumber = 5;
+  inline ::google::protobuf::int64 this_game_lost() const;
+  inline void set_this_game_lost(::google::protobuf::int64 value);
+
+  // optional int64 this_game_win = 6;
+  inline bool has_this_game_win() const;
+  inline void clear_this_game_win();
+  static const int kThisGameWinFieldNumber = 6;
+  inline ::google::protobuf::int64 this_game_win() const;
+  inline void set_this_game_win(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GamePlayerWealthData)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_recharge();
+  inline void clear_has_recharge();
+  inline void set_has_total_lost();
+  inline void clear_has_total_lost();
+  inline void set_has_total_win();
+  inline void clear_has_total_win();
+  inline void set_has_this_game_lost();
+  inline void clear_has_this_game_lost();
+  inline void set_has_this_game_win();
+  inline void clear_has_this_game_win();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::int64 recharge_;
+  ::google::protobuf::int64 total_lost_;
+  ::google::protobuf::int64 total_win_;
+  ::google::protobuf::int64 this_game_lost_;
+  ::google::protobuf::int64 this_game_win_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GamePlayerWealthData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GamePlayerAchievementData : public ::google::protobuf::Message {
+ public:
+  GamePlayerAchievementData();
+  virtual ~GamePlayerAchievementData();
+
+  GamePlayerAchievementData(const GamePlayerAchievementData& from);
+
+  inline GamePlayerAchievementData& operator=(const GamePlayerAchievementData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GamePlayerAchievementData& default_instance();
+
+  void Swap(GamePlayerAchievementData* other);
+
+  // implements Message ----------------------------------------------
+
+  GamePlayerAchievementData* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GamePlayerAchievementData& from);
+  void MergeFrom(const GamePlayerAchievementData& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cur_ach = 2;
+  inline bool has_cur_ach() const;
+  inline void clear_cur_ach();
+  static const int kCurAchFieldNumber = 2;
+  inline ::google::protobuf::uint64 cur_ach() const;
+  inline void set_cur_ach(::google::protobuf::uint64 value);
+
+  // optional uint64 cur_fee = 3;
+  inline bool has_cur_fee() const;
+  inline void clear_cur_fee();
+  static const int kCurFeeFieldNumber = 3;
+  inline ::google::protobuf::uint64 cur_fee() const;
+  inline void set_cur_fee(::google::protobuf::uint64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GamePlayerAchievementData)
+ private:
+  inline void set_has_cur_ach();
+  inline void clear_has_cur_ach();
+  inline void set_has_cur_fee();
+  inline void clear_has_cur_fee();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cur_ach_;
+  ::google::protobuf::uint64 cur_fee_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GamePlayerAchievementData* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GameRoomStat : public ::google::protobuf::Message {
+ public:
+  GameRoomStat();
+  virtual ~GameRoomStat();
+
+  GameRoomStat(const GameRoomStat& from);
+
+  inline GameRoomStat& operator=(const GameRoomStat& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const GameRoomStat& default_instance();
+
+  void Swap(GameRoomStat* other);
+
+  // implements Message ----------------------------------------------
+
+  GameRoomStat* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const GameRoomStat& from);
+  void MergeFrom(const GameRoomStat& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cur_fee = 1;
+  inline bool has_cur_fee() const;
+  inline void clear_cur_fee();
+  static const int kCurFeeFieldNumber = 1;
+  inline ::google::protobuf::uint64 cur_fee() const;
+  inline void set_cur_fee(::google::protobuf::uint64 value);
+
+  // optional uint64 cur_pour = 2;
+  inline bool has_cur_pour() const;
+  inline void clear_cur_pour();
+  static const int kCurPourFieldNumber = 2;
+  inline ::google::protobuf::uint64 cur_pour() const;
+  inline void set_cur_pour(::google::protobuf::uint64 value);
+
+  // optional int64 cur_win = 3;
+  inline bool has_cur_win() const;
+  inline void clear_cur_win();
+  static const int kCurWinFieldNumber = 3;
+  inline ::google::protobuf::int64 cur_win() const;
+  inline void set_cur_win(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.GameRoomStat)
+ private:
+  inline void set_has_cur_fee();
+  inline void clear_has_cur_fee();
+  inline void set_has_cur_pour();
+  inline void clear_has_cur_pour();
+  inline void set_has_cur_win();
+  inline void clear_has_cur_win();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cur_fee_;
+  ::google::protobuf::uint64 cur_pour_;
+  ::google::protobuf::int64 cur_win_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static GameRoomStat* default_instance_;
 };
 // ===================================================================
 
@@ -3298,6 +3785,488 @@ inline ::google::protobuf::uint32 Proto_UserSimpleData::age() const {
 inline void Proto_UserSimpleData::set_age(::google::protobuf::uint32 value) {
   set_has_age();
   age_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GamePlayerDetailData
+
+// optional uint64 player_id = 1;
+inline bool GamePlayerDetailData::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GamePlayerDetailData::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GamePlayerDetailData::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GamePlayerDetailData::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 GamePlayerDetailData::player_id() const {
+  return player_id_;
+}
+inline void GamePlayerDetailData::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional int64 cur_money = 2;
+inline bool GamePlayerDetailData::has_cur_money() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GamePlayerDetailData::set_has_cur_money() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GamePlayerDetailData::clear_has_cur_money() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GamePlayerDetailData::clear_cur_money() {
+  cur_money_ = GOOGLE_LONGLONG(0);
+  clear_has_cur_money();
+}
+inline ::google::protobuf::int64 GamePlayerDetailData::cur_money() const {
+  return cur_money_;
+}
+inline void GamePlayerDetailData::set_cur_money(::google::protobuf::int64 value) {
+  set_has_cur_money();
+  cur_money_ = value;
+}
+
+// optional uint32 vip_level = 3;
+inline bool GamePlayerDetailData::has_vip_level() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GamePlayerDetailData::set_has_vip_level() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GamePlayerDetailData::clear_has_vip_level() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GamePlayerDetailData::clear_vip_level() {
+  vip_level_ = 0u;
+  clear_has_vip_level();
+}
+inline ::google::protobuf::uint32 GamePlayerDetailData::vip_level() const {
+  return vip_level_;
+}
+inline void GamePlayerDetailData::set_vip_level(::google::protobuf::uint32 value) {
+  set_has_vip_level();
+  vip_level_ = value;
+}
+
+// optional uint32 sex = 4;
+inline bool GamePlayerDetailData::has_sex() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GamePlayerDetailData::set_has_sex() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GamePlayerDetailData::clear_has_sex() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GamePlayerDetailData::clear_sex() {
+  sex_ = 0u;
+  clear_has_sex();
+}
+inline ::google::protobuf::uint32 GamePlayerDetailData::sex() const {
+  return sex_;
+}
+inline void GamePlayerDetailData::set_sex(::google::protobuf::uint32 value) {
+  set_has_sex();
+  sex_ = value;
+}
+
+// optional int32 chair_id = 5;
+inline bool GamePlayerDetailData::has_chair_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GamePlayerDetailData::set_has_chair_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GamePlayerDetailData::clear_has_chair_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GamePlayerDetailData::clear_chair_id() {
+  chair_id_ = 0;
+  clear_has_chair_id();
+}
+inline ::google::protobuf::int32 GamePlayerDetailData::chair_id() const {
+  return chair_id_;
+}
+inline void GamePlayerDetailData::set_chair_id(::google::protobuf::int32 value) {
+  set_has_chair_id();
+  chair_id_ = value;
+}
+
+// optional string nick_name = 6;
+inline bool GamePlayerDetailData::has_nick_name() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void GamePlayerDetailData::set_has_nick_name() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void GamePlayerDetailData::clear_has_nick_name() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void GamePlayerDetailData::clear_nick_name() {
+  if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
+    nick_name_->clear();
+  }
+  clear_has_nick_name();
+}
+inline const ::std::string& GamePlayerDetailData::nick_name() const {
+  return *nick_name_;
+}
+inline void GamePlayerDetailData::set_nick_name(const ::std::string& value) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(value);
+}
+inline void GamePlayerDetailData::set_nick_name(const char* value) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(value);
+}
+inline void GamePlayerDetailData::set_nick_name(const char* value, size_t size) {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  nick_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* GamePlayerDetailData::mutable_nick_name() {
+  set_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    nick_name_ = new ::std::string;
+  }
+  return nick_name_;
+}
+inline ::std::string* GamePlayerDetailData::release_nick_name() {
+  clear_has_nick_name();
+  if (nick_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = nick_name_;
+    nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void GamePlayerDetailData::set_allocated_nick_name(::std::string* nick_name) {
+  if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete nick_name_;
+  }
+  if (nick_name) {
+    set_has_nick_name();
+    nick_name_ = nick_name;
+  } else {
+    clear_has_nick_name();
+    nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional uint32 face = 7;
+inline bool GamePlayerDetailData::has_face() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void GamePlayerDetailData::set_has_face() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void GamePlayerDetailData::clear_has_face() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void GamePlayerDetailData::clear_face() {
+  face_ = 0u;
+  clear_has_face();
+}
+inline ::google::protobuf::uint32 GamePlayerDetailData::face() const {
+  return face_;
+}
+inline void GamePlayerDetailData::set_face(::google::protobuf::uint32 value) {
+  set_has_face();
+  face_ = value;
+}
+
+// optional bool isRobot = 8;
+inline bool GamePlayerDetailData::has_isrobot() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void GamePlayerDetailData::set_has_isrobot() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void GamePlayerDetailData::clear_has_isrobot() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void GamePlayerDetailData::clear_isrobot() {
+  isrobot_ = false;
+  clear_has_isrobot();
+}
+inline bool GamePlayerDetailData::isrobot() const {
+  return isrobot_;
+}
+inline void GamePlayerDetailData::set_isrobot(bool value) {
+  set_has_isrobot();
+  isrobot_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GamePlayerWealthData
+
+// optional uint64 player_id = 1;
+inline bool GamePlayerWealthData::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GamePlayerWealthData::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GamePlayerWealthData::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GamePlayerWealthData::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 GamePlayerWealthData::player_id() const {
+  return player_id_;
+}
+inline void GamePlayerWealthData::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional int64 recharge = 2;
+inline bool GamePlayerWealthData::has_recharge() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GamePlayerWealthData::set_has_recharge() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GamePlayerWealthData::clear_has_recharge() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GamePlayerWealthData::clear_recharge() {
+  recharge_ = GOOGLE_LONGLONG(0);
+  clear_has_recharge();
+}
+inline ::google::protobuf::int64 GamePlayerWealthData::recharge() const {
+  return recharge_;
+}
+inline void GamePlayerWealthData::set_recharge(::google::protobuf::int64 value) {
+  set_has_recharge();
+  recharge_ = value;
+}
+
+// optional int64 total_lost = 3;
+inline bool GamePlayerWealthData::has_total_lost() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GamePlayerWealthData::set_has_total_lost() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GamePlayerWealthData::clear_has_total_lost() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GamePlayerWealthData::clear_total_lost() {
+  total_lost_ = GOOGLE_LONGLONG(0);
+  clear_has_total_lost();
+}
+inline ::google::protobuf::int64 GamePlayerWealthData::total_lost() const {
+  return total_lost_;
+}
+inline void GamePlayerWealthData::set_total_lost(::google::protobuf::int64 value) {
+  set_has_total_lost();
+  total_lost_ = value;
+}
+
+// optional int64 total_win = 4;
+inline bool GamePlayerWealthData::has_total_win() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void GamePlayerWealthData::set_has_total_win() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void GamePlayerWealthData::clear_has_total_win() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void GamePlayerWealthData::clear_total_win() {
+  total_win_ = GOOGLE_LONGLONG(0);
+  clear_has_total_win();
+}
+inline ::google::protobuf::int64 GamePlayerWealthData::total_win() const {
+  return total_win_;
+}
+inline void GamePlayerWealthData::set_total_win(::google::protobuf::int64 value) {
+  set_has_total_win();
+  total_win_ = value;
+}
+
+// optional int64 this_game_lost = 5;
+inline bool GamePlayerWealthData::has_this_game_lost() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void GamePlayerWealthData::set_has_this_game_lost() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void GamePlayerWealthData::clear_has_this_game_lost() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void GamePlayerWealthData::clear_this_game_lost() {
+  this_game_lost_ = GOOGLE_LONGLONG(0);
+  clear_has_this_game_lost();
+}
+inline ::google::protobuf::int64 GamePlayerWealthData::this_game_lost() const {
+  return this_game_lost_;
+}
+inline void GamePlayerWealthData::set_this_game_lost(::google::protobuf::int64 value) {
+  set_has_this_game_lost();
+  this_game_lost_ = value;
+}
+
+// optional int64 this_game_win = 6;
+inline bool GamePlayerWealthData::has_this_game_win() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void GamePlayerWealthData::set_has_this_game_win() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void GamePlayerWealthData::clear_has_this_game_win() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void GamePlayerWealthData::clear_this_game_win() {
+  this_game_win_ = GOOGLE_LONGLONG(0);
+  clear_has_this_game_win();
+}
+inline ::google::protobuf::int64 GamePlayerWealthData::this_game_win() const {
+  return this_game_win_;
+}
+inline void GamePlayerWealthData::set_this_game_win(::google::protobuf::int64 value) {
+  set_has_this_game_win();
+  this_game_win_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GamePlayerAchievementData
+
+// optional uint64 cur_ach = 2;
+inline bool GamePlayerAchievementData::has_cur_ach() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GamePlayerAchievementData::set_has_cur_ach() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GamePlayerAchievementData::clear_has_cur_ach() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GamePlayerAchievementData::clear_cur_ach() {
+  cur_ach_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_ach();
+}
+inline ::google::protobuf::uint64 GamePlayerAchievementData::cur_ach() const {
+  return cur_ach_;
+}
+inline void GamePlayerAchievementData::set_cur_ach(::google::protobuf::uint64 value) {
+  set_has_cur_ach();
+  cur_ach_ = value;
+}
+
+// optional uint64 cur_fee = 3;
+inline bool GamePlayerAchievementData::has_cur_fee() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GamePlayerAchievementData::set_has_cur_fee() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GamePlayerAchievementData::clear_has_cur_fee() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GamePlayerAchievementData::clear_cur_fee() {
+  cur_fee_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_fee();
+}
+inline ::google::protobuf::uint64 GamePlayerAchievementData::cur_fee() const {
+  return cur_fee_;
+}
+inline void GamePlayerAchievementData::set_cur_fee(::google::protobuf::uint64 value) {
+  set_has_cur_fee();
+  cur_fee_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// GameRoomStat
+
+// optional uint64 cur_fee = 1;
+inline bool GameRoomStat::has_cur_fee() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void GameRoomStat::set_has_cur_fee() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GameRoomStat::clear_has_cur_fee() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void GameRoomStat::clear_cur_fee() {
+  cur_fee_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_fee();
+}
+inline ::google::protobuf::uint64 GameRoomStat::cur_fee() const {
+  return cur_fee_;
+}
+inline void GameRoomStat::set_cur_fee(::google::protobuf::uint64 value) {
+  set_has_cur_fee();
+  cur_fee_ = value;
+}
+
+// optional uint64 cur_pour = 2;
+inline bool GameRoomStat::has_cur_pour() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GameRoomStat::set_has_cur_pour() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GameRoomStat::clear_has_cur_pour() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GameRoomStat::clear_cur_pour() {
+  cur_pour_ = GOOGLE_ULONGLONG(0);
+  clear_has_cur_pour();
+}
+inline ::google::protobuf::uint64 GameRoomStat::cur_pour() const {
+  return cur_pour_;
+}
+inline void GameRoomStat::set_cur_pour(::google::protobuf::uint64 value) {
+  set_has_cur_pour();
+  cur_pour_ = value;
+}
+
+// optional int64 cur_win = 3;
+inline bool GameRoomStat::has_cur_win() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void GameRoomStat::set_has_cur_win() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void GameRoomStat::clear_has_cur_win() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void GameRoomStat::clear_cur_win() {
+  cur_win_ = GOOGLE_LONGLONG(0);
+  clear_has_cur_win();
+}
+inline ::google::protobuf::int64 GameRoomStat::cur_win() const {
+  return cur_win_;
+}
+inline void GameRoomStat::set_cur_win(::google::protobuf::int64 value) {
+  set_has_cur_win();
+  cur_win_ = value;
 }
 
 

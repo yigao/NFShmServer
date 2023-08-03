@@ -17,9 +17,6 @@
 #include "NFGameRoom.h"
 #include "DescStore/RoomRoomDesc.h"
 
-
-
-
 class NFGameRoomMgr : public NFShmObj
 {
 public:

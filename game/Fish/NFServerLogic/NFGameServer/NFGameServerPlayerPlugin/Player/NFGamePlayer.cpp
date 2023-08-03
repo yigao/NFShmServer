@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGamePlayer, EOT_NFGamePlayer_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFGamePlayer, EOT_NFGamePlayer_ID, NFIGamePlayer)
 
 NFGamePlayer::NFGamePlayer()
 {

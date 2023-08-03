@@ -12,6 +12,7 @@
 
 #include "Cache/NFCacheMgr.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
+#include "DescStore/ConstantConstantDesc.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFSnsJettonPart, EOT_NFSnsJettonPart_ID, NFSnsPart)
 
@@ -123,6 +124,11 @@ int NFSnsJettonPart::InitConfig(const proto_ff::tbFishSnsPlayerDetailData &data)
 {
     m_bankJetton = 0;
     m_bankPassword = "888888";
+    auto pDesc = ConstantConstantDesc::Instance(m_pObjPluginManager)->GetDesc(proto_ff::EN_CONST_USER_INIT_BANK_JETTON);
+    if (pDesc)
+    {
+        m_bankPassword = pDesc->m_stringdata.ToString();
+    }
     MarkDirty();
     return 0;
 }

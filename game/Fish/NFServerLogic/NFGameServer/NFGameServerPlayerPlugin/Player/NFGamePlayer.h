@@ -16,8 +16,9 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "AllProtocol.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFLogicCommon/NFIGamePlayer.h"
 
-class NFGamePlayer : public NFShmObj
+class NFGamePlayer : public NFIGamePlayer
 {
 public:
     NFGamePlayer();

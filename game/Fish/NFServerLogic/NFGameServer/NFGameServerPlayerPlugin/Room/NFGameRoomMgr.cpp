@@ -219,7 +219,21 @@ int NFGameRoomMgr::CreateAllRoom()
         {
             uint32_t roomId = pGameConfig->Game[i].RoomId[j];
             NFGameRoom* pRoom = CreateGameRoom(gameId, roomId);
-            CHECK_NULL(pRoom);
+            if (!pRoom)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Create Game Room Info Failed! gameId:{} roomId:{}", gameId, roomId);
+                return -1;
+            }
+
+            auto pDesc = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(gameId, roomId);
+            CHECK_NULL(pDesc);
+
+            int iRet = pRoom->Init(gameId, pDesc->m_gamename.ToString(), roomId, pDesc->m_roomname.ToString(), pDesc->m_deskcount, pDesc->m_sitenum, pDesc->m_maxpeople);
+            if (iRet != 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "Init Game Room Failed! gameId:{} roomId:{}, deskCount:{}", gameId, roomId, pDesc->m_deskcount, pDesc->m_sitenum, pDesc->m_maxpeople);
+                return iRet;
+            }
         }
     }
 

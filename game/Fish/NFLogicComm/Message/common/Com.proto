@@ -120,4 +120,40 @@ message Proto_UserSimpleData
   optional uint32 age = 5;//
 }
 
+message GamePlayerDetailData
+{
+  optional uint64  	  player_id = 1;
+  optional int64 	  	cur_money = 2;
+  optional uint32     vip_level = 3;
+  optional uint32 	  sex = 4;
+  optional int32 		  chair_id = 5;
+  optional string 	  nick_name = 6[(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+  optional uint32 	  face = 7;
+  optional bool       isRobot = 8;
+}
+
+message GamePlayerWealthData
+{
+  optional uint64  	  player_id = 1;
+  optional int64       recharge = 2;                  //充值累计
+  optional int64       total_lost = 3;                 //输分累计
+  optional int64       total_win = 4;                  //赢分累计
+  optional int64       this_game_lost = 5;              //本游戏输分累计
+  optional int64       this_game_win = 6;               //本游戏赢分累计
+}
+
+message GamePlayerAchievementData
+{
+  optional uint64     cur_ach = 2;
+  optional uint64			cur_fee = 3;
+}
+
+//游戏房间统计
+message GameRoomStat
+{
+  optional uint64 cur_fee = 1; //当前抽水
+  optional uint64 cur_pour = 2; //当前投注
+  optional int64 cur_win = 3; //当前输赢
+}
+
 

@@ -133,3 +133,120 @@ enum PlayerStatus
   PLAYER_STATUS_LOGOUT = 3;
   PLAYER_STATUS_DEAD = 4;
 }
+
+enum enConstType
+{
+  EN_CONST_NONE													= 0;
+  EN_CONST_USER_INIT_JETTON 						= 1	 [(yd_fieldoptions.field_enum_cname) = "玩家初始赠送金币"];
+  EN_CONST_USER_INIT_FACE 							= 2	 [(yd_fieldoptions.field_enum_cname) = "玩家初始头像"];
+  EN_CONST_USER_INIT_BANK_JETTON 				= 3	 [(yd_fieldoptions.field_enum_cname) = "玩家初始银行密码"];
+  EN_CONST_USER_ACH_WITH_FEE		 				= 4	 [(yd_fieldoptions.field_enum_cname) = "=0 抽水算个流水， =1 抽水不算流水"];
+  EN_CONST_USER_FEE_WITH_POUR 				  = 5	 [(yd_fieldoptions.field_enum_cname) = "=0时为不加本金的抽水， =1时为加上本金的抽水"];
+  EN_CONST_USER_MIN_BANK_DRAW 				  = 6	 [(yd_fieldoptions.field_enum_cname) = "非VIP转VIP最小转账额度"];
+}
+
+//账号币种类型枚举定义
+enum eAccountMoneyType
+{
+  E_ACCOUNT_TYPE_JETTON  = 0;		//游戏币类型
+  E_ACCOUNT_TYPE_BANK_JETTON      = 1;		//银行类型
+  E_ACCOUNT_TYPE_MAX = 2;
+};
+
+enum eChangeMoneyType
+{
+  E_CHAGEMONEY_GAME_ADD                    = 0;          //游戏中增加金币
+  E_CHAGEMONEY_GAME_REMOVE                 = 1;          //游戏中减少金币
+  E_CHAGEMONEY_GAME_ADD_GM                 = 2;         //有点控情况下的增加金币
+  E_CHAGEMONEY_GAME_REMOVE_GM              = 3;         //有点控情况下的减少金币
+  E_CHAGEMONEY_BANK_SAVE_MONEY_REMOVE			 = 4;				 //存款到银行
+  E_CHAGEMONEY_BANK_GET_MONEY_ADD          = 5;				 //从银行取款
+  E_CHAGEMONEY_MAIL_ADD          					 = 6;				 //邮件中获取
+  E_CHAGEMONEY_GIVE_JETTON_TO_OTHER_REMOVE = 7;				 //赠送筹码给别人
+  E_CHAGEMONEY_OTHER_GEVE_JETTON_TO_ME_ADD = 8;				 //别人赠送筹码给我
+  E_CHAGEMONEY_TYPE_MAX = 9;
+};
+
+enum eOperationType
+{
+  E_USER_JETTON_OPER_TYPE_GAME_BALANCED_WIN   = 0; //游戏结算
+  E_USER_JETTON_OPER_TYPE_GAME_BALANCED_LOST   = 1; //游戏结算
+  E_USER_JETTON_OPER_TYPE_EXCHANGE            = 2; //币种兑换
+  E_USER_JETTON_OPER_TYPE_TRANSFER            = 3;  //转账
+  E_USER_JETTON_OPER_TYPE_RECHARGE            = 4;  //充值
+  E_USER_JETTON_OPER_TYPE_WEB_DEDUCT_NONEY        = 5; //WEB减币
+  E_USER_JETTON_OPER_TYPE_WEB_GIVE_MONEY          = 6; //WEB加币
+  E_USER_JETTON_OPER_TYPE_GIVE_JETTON					= 7; //赠送
+  E_USER_JETTON_OPER_TYPE_DRAW = 8; //提现
+  E_USER_JETTON_OPER_TYPE_MAX = 9;
+}
+
+enum eDrawReasonType
+{
+  E_RECHARGE_PAY_TYPE_VIP_DRAW	= 1; //VIP
+}
+
+//充值时的支付类型
+enum eRechargeResonType
+{
+  E_RECHARGE_PAY_TYPE_VIP_RECHARGE	= 1; //VIP
+  E_RECHARGE_PAY_TYPE_WEB_ZHUANGZHANG_PLATFORM       = 2;		//平台web手动充值
+  E_RECHARGE_PAY_TYPE_POINTCARD      = 3;		//点卡
+  E_RECHARGE_PAY_TYPE_ALIPAY         = 4;		//支付宝
+  E_RECHARGE_PAY_TYPE_TENPAY         = 5;		//财付通微支付
+  E_RECHARGE_PAY_TYPE_APPLE          = 6;     //苹果支付
+  E_RECHARGE_PAY_TYPE_YINGYONGBAO    = 7;     //应用宝支付(米大师)
+};
+
+enum eGameBalanceOperationWinReason
+{
+  E_GAME_BALANCE_REASON_PLAY_GAME_WIN       = 0; //游戏博弈win
+  E_GAME_BALANCE_REASON_TYPE_DO_LOTTERY_WIN     = 1;   //赢局或赢分后抽奖消耗
+  E_GAME_BALANCE_REASON_WIN_MAX = 2;
+}
+
+enum eGameBalanceOperationLostReason
+{
+  E_GAME_BALANCE_REASON_PLAY_GAME_LOST      = 0;	//参与游戏消耗
+  E_GAME_BALANCE_REASON_TYPE_DO_LOTTERY_LOST     = 1;   //赢局或赢分后抽奖消耗
+  E_GAME_BALANCE_REASON_LOST_MAX = 2;
+}
+
+enum eGiveMoneyReason
+{
+  E_GIVE_MONEY_REASON_WEB_SYSTEM         = 0;  //Web直接赠送
+  E_GIVE_MONEY_REASON_PROMOTE        = 1;  //推广活动赠送
+  E_GIVE_MONEY_REASON_FIRST_RECHARGE = 2;  //首次充值赠送
+  E_GIVE_MONEY_REASON_BUY_PROP       = 3;  //购买道具或者道具包赠送
+
+  E_GIVE_MONEY_SHARE_GAME            = 4;  //用户分享游戏, 赠送
+  E_GIVE_MONEY_REASON_RECLAIM_PROP   = 5;  //回收道具赠送
+  E_GIVE_MONEY_REASON_FIRST_REGISTER = 6;  //首次注册赠送
+  E_GIVE_MONEY_REASON_PLAT_USER_CHANGE_TO_AGENT_USER = 7; //平台用户通过推荐码成为代理的下线用户
+  E_GIVE_MONEY_REASON_FINISH_TASK    = 8;  //完成任务, 赠送任务奖励
+  E_GIVE_MONEY_REASON_RELIF_FUND     = 9; //救济金赠送
+  E_GIVE_MONEY_REASON_EVERYDAY_LOGIN_COMMERCE = 10; //商务产品，每日登陆赠送金币
+  E_GIVE_MONEY_REASON_COMPLETE_USER_INFO      = 11; //品牌电玩, 完善用户信息赠送
+  E_GIVE_MONEY_REASON_TOOL_CMD                    = 12; //手动修改
+  E_GIVE_MONEY_REASON_PROMOTE_PROFIT              = 13; //推广收益, (推广员在后台领取收益, 直接走后台加币接口)
+  E_GIVE_MONEY_REASON_MAX = 14;
+}
+
+//币种兑换原因
+enum eMoneyExchangeReason
+{
+  E_EXCHANGE_REASON_SAVE_MONEY = 0;
+  E_EXCHANGE_REASON_DRAW_MONEY = 1;
+  E_EXCHANGE_REASON_MAX = 2;
+};
+
+//转账原因
+enum eMoneyTransferReason
+{
+  E_TRANSFER_REASON_USER = 0; //用户主动转账
+  E_TRANSFER_REASON_FROM_USER = 1; //接受用户主动转账
+  E_TRANSFER_REASON_VIP_ZHUANRU = 2; //vip 转入
+  E_TRANSFER_REASON_VIP_ZHUANCHU = 3; //VIP 转出
+  E_TRANSFER_REASON_VIP_TO_VIP = 4; //VIP 转 VIP
+  E_TRANSFER_REASON_MAX = 5;
+};

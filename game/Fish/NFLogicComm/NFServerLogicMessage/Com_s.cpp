@@ -463,4 +463,152 @@ void Proto_UserSimpleData_s::read_from_pbmsg(const ::proto_ff::Proto_UserSimpleD
 	age = msg.age();
 }
 
+GamePlayerDetailData_s::GamePlayerDetailData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GamePlayerDetailData_s::CreateInit() {
+	player_id = (uint64_t)0;
+	cur_money = (int64_t)0;
+	vip_level = (uint32_t)0;
+	sex = (uint32_t)0;
+	chair_id = (int32_t)0;
+	face = (uint32_t)0;
+	isRobot = (bool)0;
+	return 0;
+}
+
+int GamePlayerDetailData_s::ResumeInit() {
+	return 0;
+}
+
+void GamePlayerDetailData_s::write_to_pbmsg(::proto_ff::GamePlayerDetailData & msg) const {
+	msg.set_player_id((uint64_t)player_id);
+	msg.set_cur_money((int64_t)cur_money);
+	msg.set_vip_level((uint32_t)vip_level);
+	msg.set_sex((uint32_t)sex);
+	msg.set_chair_id((int32_t)chair_id);
+	msg.set_nick_name((const char*)nick_name.data());
+	msg.set_face((uint32_t)face);
+	msg.set_isrobot((bool)isRobot);
+}
+
+void GamePlayerDetailData_s::read_from_pbmsg(const ::proto_ff::GamePlayerDetailData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GamePlayerDetailData_s));
+	player_id = msg.player_id();
+	cur_money = msg.cur_money();
+	vip_level = msg.vip_level();
+	sex = msg.sex();
+	chair_id = msg.chair_id();
+	nick_name = msg.nick_name();
+	face = msg.face();
+	isRobot = msg.isrobot();
+}
+
+GamePlayerWealthData_s::GamePlayerWealthData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GamePlayerWealthData_s::CreateInit() {
+	player_id = (uint64_t)0;
+	recharge = (int64_t)0;
+	total_lost = (int64_t)0;
+	total_win = (int64_t)0;
+	this_game_lost = (int64_t)0;
+	this_game_win = (int64_t)0;
+	return 0;
+}
+
+int GamePlayerWealthData_s::ResumeInit() {
+	return 0;
+}
+
+void GamePlayerWealthData_s::write_to_pbmsg(::proto_ff::GamePlayerWealthData & msg) const {
+	msg.set_player_id((uint64_t)player_id);
+	msg.set_recharge((int64_t)recharge);
+	msg.set_total_lost((int64_t)total_lost);
+	msg.set_total_win((int64_t)total_win);
+	msg.set_this_game_lost((int64_t)this_game_lost);
+	msg.set_this_game_win((int64_t)this_game_win);
+}
+
+void GamePlayerWealthData_s::read_from_pbmsg(const ::proto_ff::GamePlayerWealthData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GamePlayerWealthData_s));
+	player_id = msg.player_id();
+	recharge = msg.recharge();
+	total_lost = msg.total_lost();
+	total_win = msg.total_win();
+	this_game_lost = msg.this_game_lost();
+	this_game_win = msg.this_game_win();
+}
+
+GamePlayerAchievementData_s::GamePlayerAchievementData_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GamePlayerAchievementData_s::CreateInit() {
+	cur_ach = (uint64_t)0;
+	cur_fee = (uint64_t)0;
+	return 0;
+}
+
+int GamePlayerAchievementData_s::ResumeInit() {
+	return 0;
+}
+
+void GamePlayerAchievementData_s::write_to_pbmsg(::proto_ff::GamePlayerAchievementData & msg) const {
+	msg.set_cur_ach((uint64_t)cur_ach);
+	msg.set_cur_fee((uint64_t)cur_fee);
+}
+
+void GamePlayerAchievementData_s::read_from_pbmsg(const ::proto_ff::GamePlayerAchievementData & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GamePlayerAchievementData_s));
+	cur_ach = msg.cur_ach();
+	cur_fee = msg.cur_fee();
+}
+
+GameRoomStat_s::GameRoomStat_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int GameRoomStat_s::CreateInit() {
+	cur_fee = (uint64_t)0;
+	cur_pour = (uint64_t)0;
+	cur_win = (int64_t)0;
+	return 0;
+}
+
+int GameRoomStat_s::ResumeInit() {
+	return 0;
+}
+
+void GameRoomStat_s::write_to_pbmsg(::proto_ff::GameRoomStat & msg) const {
+	msg.set_cur_fee((uint64_t)cur_fee);
+	msg.set_cur_pour((uint64_t)cur_pour);
+	msg.set_cur_win((int64_t)cur_win);
+}
+
+void GameRoomStat_s::read_from_pbmsg(const ::proto_ff::GameRoomStat & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GameRoomStat_s));
+	cur_fee = msg.cur_fee();
+	cur_pour = msg.cur_pour();
+	cur_win = msg.cur_win();
+}
+
 }

@@ -28,6 +28,17 @@ const ::google::protobuf::EnumDescriptor* Proto_PlatType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_NetworkType_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* Proto_PlayerCreateState_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* PlayerStatus_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* enConstType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eAccountMoneyType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eChangeMoneyType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eOperationType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eDrawReasonType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eRechargeResonType_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eGameBalanceOperationWinReason_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eGameBalanceOperationLostReason_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eGiveMoneyReason_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eMoneyExchangeReason_descriptor_ = NULL;
+const ::google::protobuf::EnumDescriptor* eMoneyTransferReason_descriptor_ = NULL;
 
 }  // namespace
 
@@ -46,6 +57,17 @@ void protobuf_AssignDesc_ComDefine_2eproto() {
   Proto_NetworkType_descriptor_ = file->enum_type(5);
   Proto_PlayerCreateState_descriptor_ = file->enum_type(6);
   PlayerStatus_descriptor_ = file->enum_type(7);
+  enConstType_descriptor_ = file->enum_type(8);
+  eAccountMoneyType_descriptor_ = file->enum_type(9);
+  eChangeMoneyType_descriptor_ = file->enum_type(10);
+  eOperationType_descriptor_ = file->enum_type(11);
+  eDrawReasonType_descriptor_ = file->enum_type(12);
+  eRechargeResonType_descriptor_ = file->enum_type(13);
+  eGameBalanceOperationWinReason_descriptor_ = file->enum_type(14);
+  eGameBalanceOperationLostReason_descriptor_ = file->enum_type(15);
+  eGiveMoneyReason_descriptor_ = file->enum_type(16);
+  eMoneyExchangeReason_descriptor_ = file->enum_type(17);
+  eMoneyTransferReason_descriptor_ = file->enum_type(18);
 }
 
 namespace {
@@ -141,7 +163,80 @@ void protobuf_AddDesc_ComDefine_2eproto() {
     "s\022\026\n\022PLAYER_STATUS_NONE\020\000\022\030\n\024PLAYER_STAT"
     "US_ONLINE\020\001\022\031\n\025PLAYER_STATUS_OFFLINE\020\002\022\030"
     "\n\024PLAYER_STATUS_LOGOUT\020\003\022\026\n\022PLAYER_STATU"
-    "S_DEAD\020\004", 2728);
+    "S_DEAD\020\004*\314\003\n\013enConstType\022\021\n\rEN_CONST_NON"
+    "E\020\000\022:\n\031EN_CONST_USER_INIT_JETTON\020\001\032\033\202}\030\347"
+    "\216\251\345\256\266\345\210\235\345\247\213\350\265\240\351\200\201\351\207\221\345\270\201\0222\n\027EN_CONST_USER"
+    "_INIT_FACE\020\002\032\025\202}\022\347\216\251\345\256\266\345\210\235\345\247\213\345\244\264\345\203\217\022\?\n\036E"
+    "N_CONST_USER_INIT_BANK_JETTON\020\003\032\033\202}\030\347\216\251\345"
+    "\256\266\345\210\235\345\247\213\351\223\266\350\241\214\345\257\206\347\240\201\022Q\n\032EN_CONST_USER_AC"
+    "H_WITH_FEE\020\004\0321\202}.=0 \346\212\275\346\260\264\347\256\227\344\270\252\346\265\201\346\260\264\357\274"
+    "\214 =1 \346\212\275\346\260\264\344\270\215\347\256\227\346\265\201\346\260\264\022b\n\033EN_CONST_USER"
+    "_FEE_WITH_POUR\020\005\032A\202}>=0\346\227\266\344\270\272\344\270\215\345\212\240\346\234\254\351\207"
+    "\221\347\232\204\346\212\275\346\260\264\357\274\214 =1\346\227\266\344\270\272\345\212\240\344\270\212\346\234\254\351\207\221\347\232\204\346\212\275"
+    "\346\260\264\022B\n\033EN_CONST_USER_MIN_BANK_DRAW\020\006\032!\202}"
+    "\036\351\235\236VIP\350\275\254VIP\346\234\200\345\260\217\350\275\254\350\264\246\351\242\235\345\272\246*f\n\021eAcco"
+    "untMoneyType\022\031\n\025E_ACCOUNT_TYPE_JETTON\020\000\022"
+    "\036\n\032E_ACCOUNT_TYPE_BANK_JETTON\020\001\022\026\n\022E_ACC"
+    "OUNT_TYPE_MAX\020\002*\352\002\n\020eChangeMoneyType\022\031\n\025"
+    "E_CHAGEMONEY_GAME_ADD\020\000\022\034\n\030E_CHAGEMONEY_"
+    "GAME_REMOVE\020\001\022\034\n\030E_CHAGEMONEY_GAME_ADD_G"
+    "M\020\002\022\037\n\033E_CHAGEMONEY_GAME_REMOVE_GM\020\003\022\'\n#"
+    "E_CHAGEMONEY_BANK_SAVE_MONEY_REMOVE\020\004\022#\n"
+    "\037E_CHAGEMONEY_BANK_GET_MONEY_ADD\020\005\022\031\n\025E_"
+    "CHAGEMONEY_MAIL_ADD\020\006\022,\n(E_CHAGEMONEY_GI"
+    "VE_JETTON_TO_OTHER_REMOVE\020\007\022,\n(E_CHAGEMO"
+    "NEY_OTHER_GEVE_JETTON_TO_ME_ADD\020\010\022\031\n\025E_C"
+    "HAGEMONEY_TYPE_MAX\020\t*\247\003\n\016eOperationType\022"
+    "-\n)E_USER_JETTON_OPER_TYPE_GAME_BALANCED"
+    "_WIN\020\000\022.\n*E_USER_JETTON_OPER_TYPE_GAME_B"
+    "ALANCED_LOST\020\001\022$\n E_USER_JETTON_OPER_TYP"
+    "E_EXCHANGE\020\002\022$\n E_USER_JETTON_OPER_TYPE_"
+    "TRANSFER\020\003\022$\n E_USER_JETTON_OPER_TYPE_RE"
+    "CHARGE\020\004\022,\n(E_USER_JETTON_OPER_TYPE_WEB_"
+    "DEDUCT_NONEY\020\005\022*\n&E_USER_JETTON_OPER_TYP"
+    "E_WEB_GIVE_MONEY\020\006\022\'\n#E_USER_JETTON_OPER"
+    "_TYPE_GIVE_JETTON\020\007\022 \n\034E_USER_JETTON_OPE"
+    "R_TYPE_DRAW\020\010\022\037\n\033E_USER_JETTON_OPER_TYPE"
+    "_MAX\020\t*3\n\017eDrawReasonType\022 \n\034E_RECHARGE_"
+    "PAY_TYPE_VIP_DRAW\020\001*\223\002\n\022eRechargeResonTy"
+    "pe\022$\n E_RECHARGE_PAY_TYPE_VIP_RECHARGE\020\001"
+    "\0220\n,E_RECHARGE_PAY_TYPE_WEB_ZHUANGZHANG_"
+    "PLATFORM\020\002\022!\n\035E_RECHARGE_PAY_TYPE_POINTC"
+    "ARD\020\003\022\036\n\032E_RECHARGE_PAY_TYPE_ALIPAY\020\004\022\036\n"
+    "\032E_RECHARGE_PAY_TYPE_TENPAY\020\005\022\035\n\031E_RECHA"
+    "RGE_PAY_TYPE_APPLE\020\006\022#\n\037E_RECHARGE_PAY_T"
+    "YPE_YINGYONGBAO\020\007*\233\001\n\036eGameBalanceOperat"
+    "ionWinReason\022\'\n#E_GAME_BALANCE_REASON_PL"
+    "AY_GAME_WIN\020\000\022-\n)E_GAME_BALANCE_REASON_T"
+    "YPE_DO_LOTTERY_WIN\020\001\022!\n\035E_GAME_BALANCE_R"
+    "EASON_WIN_MAX\020\002*\237\001\n\037eGameBalanceOperatio"
+    "nLostReason\022(\n$E_GAME_BALANCE_REASON_PLA"
+    "Y_GAME_LOST\020\000\022.\n*E_GAME_BALANCE_REASON_T"
+    "YPE_DO_LOTTERY_LOST\020\001\022\"\n\036E_GAME_BALANCE_"
+    "REASON_LOST_MAX\020\002*\321\004\n\020eGiveMoneyReason\022\""
+    "\n\036E_GIVE_MONEY_REASON_WEB_SYSTEM\020\000\022\037\n\033E_"
+    "GIVE_MONEY_REASON_PROMOTE\020\001\022&\n\"E_GIVE_MO"
+    "NEY_REASON_FIRST_RECHARGE\020\002\022 \n\034E_GIVE_MO"
+    "NEY_REASON_BUY_PROP\020\003\022\033\n\027E_GIVE_MONEY_SH"
+    "ARE_GAME\020\004\022$\n E_GIVE_MONEY_REASON_RECLAI"
+    "M_PROP\020\005\022&\n\"E_GIVE_MONEY_REASON_FIRST_RE"
+    "GISTER\020\006\0226\n2E_GIVE_MONEY_REASON_PLAT_USE"
+    "R_CHANGE_TO_AGENT_USER\020\007\022#\n\037E_GIVE_MONEY"
+    "_REASON_FINISH_TASK\020\010\022\"\n\036E_GIVE_MONEY_RE"
+    "ASON_RELIF_FUND\020\t\022/\n+E_GIVE_MONEY_REASON"
+    "_EVERYDAY_LOGIN_COMMERCE\020\n\022*\n&E_GIVE_MON"
+    "EY_REASON_COMPLETE_USER_INFO\020\013\022 \n\034E_GIVE"
+    "_MONEY_REASON_TOOL_CMD\020\014\022&\n\"E_GIVE_MONEY"
+    "_REASON_PROMOTE_PROFIT\020\r\022\033\n\027E_GIVE_MONEY"
+    "_REASON_MAX\020\016*u\n\024eMoneyExchangeReason\022 \n"
+    "\034E_EXCHANGE_REASON_SAVE_MONEY\020\000\022 \n\034E_EXC"
+    "HANGE_REASON_DRAW_MONEY\020\001\022\031\n\025E_EXCHANGE_"
+    "REASON_MAX\020\002*\327\001\n\024eMoneyTransferReason\022\032\n"
+    "\026E_TRANSFER_REASON_USER\020\000\022\037\n\033E_TRANSFER_"
+    "REASON_FROM_USER\020\001\022!\n\035E_TRANSFER_REASON_"
+    "VIP_ZHUANRU\020\002\022\"\n\036E_TRANSFER_REASON_VIP_Z"
+    "HUANCHU\020\003\022 \n\034E_TRANSFER_REASON_VIP_TO_VI"
+    "P\020\004\022\031\n\025E_TRANSFER_REASON_MAX\020\005", 5670);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ComDefine.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ComDefine_2eproto);
@@ -325,6 +420,206 @@ bool PlayerStatus_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* enConstType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return enConstType_descriptor_;
+}
+bool enConstType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eAccountMoneyType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eAccountMoneyType_descriptor_;
+}
+bool eAccountMoneyType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eChangeMoneyType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eChangeMoneyType_descriptor_;
+}
+bool eChangeMoneyType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eOperationType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eOperationType_descriptor_;
+}
+bool eOperationType_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eDrawReasonType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eDrawReasonType_descriptor_;
+}
+bool eDrawReasonType_IsValid(int value) {
+  switch(value) {
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eRechargeResonType_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eRechargeResonType_descriptor_;
+}
+bool eRechargeResonType_IsValid(int value) {
+  switch(value) {
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eGameBalanceOperationWinReason_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eGameBalanceOperationWinReason_descriptor_;
+}
+bool eGameBalanceOperationWinReason_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eGameBalanceOperationLostReason_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eGameBalanceOperationLostReason_descriptor_;
+}
+bool eGameBalanceOperationLostReason_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eGiveMoneyReason_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eGiveMoneyReason_descriptor_;
+}
+bool eGiveMoneyReason_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eMoneyExchangeReason_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eMoneyExchangeReason_descriptor_;
+}
+bool eMoneyExchangeReason_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::google::protobuf::EnumDescriptor* eMoneyTransferReason_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return eMoneyTransferReason_descriptor_;
+}
+bool eMoneyTransferReason_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
       return true;
     default:
       return false;
