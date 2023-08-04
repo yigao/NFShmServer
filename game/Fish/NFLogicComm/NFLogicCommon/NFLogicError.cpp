@@ -12,7 +12,7 @@
 #include "ComDefine.pb.h"
 #include "NFComm/NFCore/NFCommon.h"
 
-std::string NFLogicError::GetErrorStr(int32_t retCode)
+std::string GetLogicErrorStr(int32_t retCode)
 {
     if (proto_ff::Proto_CS_ErrorCode_IsValid(retCode))
     {

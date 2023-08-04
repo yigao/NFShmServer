@@ -13,8 +13,4 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFPluginModule/NFError.h"
 
-class NFLogicError : public NFError
-{
-public:
-    virtual std::string GetErrorStr(int32_t retCode) override;
-};
+std::string GetLogicErrorStr(int32_t retCode);

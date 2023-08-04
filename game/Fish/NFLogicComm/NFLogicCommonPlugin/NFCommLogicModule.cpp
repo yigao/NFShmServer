@@ -13,6 +13,6 @@
 
 bool NFCommLogicModule::Awake()
 {
-    NFError::Instance()->SetSingletonPtr(new NFLogicError());
+    NFError::Instance()->SetErrorFunction(GetLogicErrorStr);
     return true;
 }

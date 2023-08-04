@@ -16,8 +16,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "AllProtocol.h"
-
-#define ONE_GAME_ROOM_MAX_DESK_COUNT 255
+#include "NFLogicCommon/NFRoomDefine.h"
 
 class NFGameDesk;
 class NFGamePlayer;
@@ -250,7 +249,7 @@ public:
     uint32_t m_roomId;
     NFCommonStr m_gameName;
     NFCommonStr m_roomName;
-    NFShmVector<int, ONE_GAME_ROOM_MAX_DESK_COUNT> m_AryDesks; //desk global id
+    NFShmVector<int, MAX_ONE_ROOM_DESK_NUM> m_AryDesks; //desk global id
     proto_ff_s::GameRoomStat_s m_roomStatInfo;
     int m_tickTimer;
 private:

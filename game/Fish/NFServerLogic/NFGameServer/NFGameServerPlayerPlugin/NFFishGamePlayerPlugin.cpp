@@ -73,7 +73,7 @@ bool NFFishGamePlayerPlugin::InitShmObjectRegister()
     uint32_t maxRoomNum = MAX_ROOM_ROOM_NUM;
     uint32_t maxDescCount = MAX_ROOM_ROOM_NUM * MAX_ONE_ROOM_DESK_NUM;
     ////////init player shm///////////////////
-    REGISTER_SHM_OBJ(NFGamePlayer, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ_WITH_HASH(NFGamePlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFGamePlayerMgr);
     REGISTER_SINGLETON_SHM_OBJ(NFGameConfig);
 

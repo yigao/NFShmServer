@@ -14,10 +14,16 @@
 
 #include <string>
 
+typedef std::function<std::string(int32_t retCode)> NFErrorFunction;
+
 class NFError : public NFSingleton<NFError>
 {
 public:
     virtual std::string GetErrorStr(int32_t retCode);
+
+    void SetErrorFunction(const NFErrorFunction& func);
+private:
+    NFErrorFunction m_func;
 };
 
 

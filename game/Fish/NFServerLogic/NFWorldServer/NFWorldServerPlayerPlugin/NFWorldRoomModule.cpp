@@ -327,7 +327,7 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
     NFWorldPlayer *pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
     CHECK_PLAYER_EXPR(playerId, pPlayerInfo, -1, "recv nMsgId:{} can't find player pInfo, playerId:{}", msgId, playerId);
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, playerId, "player will enter gameid:{}, roomid:{}", playerId, xMsg.game_id(), xMsg.room_id());
+    NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "player will enter gameid:{}, roomid:{}", playerId, xMsg.game_id(), xMsg.room_id());
 
     if (pPlayerInfo->m_gameId > 0 || pPlayerInfo->m_roomId > 0)
     {

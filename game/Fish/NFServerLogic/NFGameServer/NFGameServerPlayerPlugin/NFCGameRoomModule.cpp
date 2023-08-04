@@ -25,7 +25,7 @@ NFCGameRoomModule::~NFCGameRoomModule()
 bool NFCGameRoomModule::Awake()
 {
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_DeskListReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleDeskListReq);
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_EnterGameReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleEnterGameReq);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_EnterGameReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleEnterGameReq, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleExitGameReq);
     return true;
 }
@@ -201,7 +201,7 @@ int NFCGameRoomModule::OnHandleEnterGameReq(proto_ff::EnterGameReq& request, pro
         return 0;
     }
 
-    if (rpcRes.result() == 0)
+    if (rpcRes.result() != 0)
     {
         NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
         NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService NF_GTL_COIN_QUERY_BALANCE_RPC result:{}, player:{} enter game:{} room:{} failed!", GetErrorStr(rpcRes.result()), playerId, gameId, roomId);

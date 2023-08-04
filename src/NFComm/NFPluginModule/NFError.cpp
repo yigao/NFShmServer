@@ -19,13 +19,27 @@ std::string NFError::GetErrorStr(int32_t retCode)
     }
     else
     {
-        return NFCommon::tostr(retCode);
+        if (m_func)
+        {
+            return m_func(retCode);
+        }
+        else
+        {
+            return NFCommon::tostr(retCode);
+        }
     }
+}
+
+void NFError::SetErrorFunction(const NFErrorFunction& func)
+{
+    m_func = func;
 }
 
 std::string GetErrorStr(int32_t retCode)
 {
     return NFError::Instance()->GetErrorStr(retCode);
 }
+
+
 
 
