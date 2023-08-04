@@ -11,9 +11,11 @@
 
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFLogicCommon/NFFishDynamicModule.h"
+#include "NFLogicCommon/NFIGameDeskImpl.h"
+#include "NFLogicCommon/NFIGameRoomModule.h"
 
-class NFCGameRoomModule : public NFFishDynamicModule
+
+class NFCGameRoomModule : public NFIGameRoomModule
 {
 public:
     explicit NFCGameRoomModule(NFIPluginManager *p);
@@ -64,4 +66,21 @@ public:
      * @return
      */
     int OnHandleExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRsp& respone, uint64_t playerId, uint64_t param2);
+public:
+    /**
+     * @brief 注册创建桌子具体业务的函数
+     * @param gameId
+     * @param createFunc
+     * @return
+     */
+    virtual int RegisterCreateDeskFunction(uint32_t gameId, const CreateDeskFunction& createFunc);
+
+    /**
+     * @brief 根据具体的游戏ID，创建游戏桌子
+     * @param gameId
+     * @return
+     */
+    virtual NFIGameDeskImpl* CreateDesk(uint32_t gameId);
+private:
+    std::unordered_map<uint32_t, CreateDeskFunction> m_deskCreateMap;
 };

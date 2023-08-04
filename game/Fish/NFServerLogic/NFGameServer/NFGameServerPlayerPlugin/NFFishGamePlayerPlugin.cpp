@@ -54,14 +54,14 @@ std::string NFFishGamePlayerPlugin::GetPluginName()
 void NFFishGamePlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCGamePlayerModule, NFCGamePlayerModule);
-    REGISTER_MODULE(m_pObjPluginManager, NFCGameRoomModule, NFCGameRoomModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFIGameRoomModule, NFCGameRoomModule);
 
 }
 
 void NFFishGamePlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCGamePlayerModule, NFCGamePlayerModule);
-    UNREGISTER_MODULE(m_pObjPluginManager, NFCGameRoomModule, NFCGameRoomModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIGameRoomModule, NFCGameRoomModule);
 }
 
 bool NFFishGamePlayerPlugin::InitShmObjectRegister()

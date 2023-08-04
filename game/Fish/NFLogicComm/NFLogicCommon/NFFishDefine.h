@@ -10,3 +10,7 @@
 #pragma once
 
 ///////////////////fish define////////////////////////
+
+enum {
+    GAME_ID_FISH_HAIWANG_2004 = 2004, //游戏海王3，2004
+};

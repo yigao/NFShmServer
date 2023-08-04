@@ -13,7 +13,7 @@
 #include "Player/NFGamePlayerMgr.h"
 
 
-NFCGameRoomModule::NFCGameRoomModule(NFIPluginManager* p): NFFishDynamicModule(p)
+NFCGameRoomModule::NFCGameRoomModule(NFIPluginManager* p): NFIGameRoomModule(p)
 {
 
 }
@@ -268,3 +268,33 @@ int NFCGameRoomModule::OnHandleExitGameReq(proto_ff::ExitGameReq& request, proto
     return 0;
 }
 
+int NFCGameRoomModule::RegisterCreateDeskFunction(uint32_t gameId, const CreateDeskFunction& createFunc)
+{
+    auto iter = m_deskCreateMap.find(gameId);
+    if (iter == m_deskCreateMap.end())
+    {
+        m_deskCreateMap[gameId] = createFunc;
+        return 0;
+    }
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "gameId:{} desk create function exist, some wrong...........", gameId);
+        NF_ASSERT(false);
+    }
+
+    return 0;
+}
+
+NFIGameDeskImpl* NFCGameRoomModule::CreateDesk(uint32_t gameId)
+{
+    auto iter = m_deskCreateMap.find(gameId);
+    if (iter != m_deskCreateMap.end())
+    {
+        auto func = iter->second;
+        if (func)
+        {
+            return func(gameId);
+        }
+    }
+
+    return NULL;
+}

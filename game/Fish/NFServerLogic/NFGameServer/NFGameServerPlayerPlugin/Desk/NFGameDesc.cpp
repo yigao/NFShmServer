@@ -18,6 +18,7 @@
 #include "Room/NFGameRoom.h"
 #include "Room/NFGameRoomMgr.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
+#include "NFLogicCommon/NFIGameRoomModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGameDesk, EOT_NFGameDesc_ID, NFIGameDesk)
 
@@ -74,12 +75,12 @@ int NFGameDesk::Init(uint32_t gameId, uint32_t roomId, int32_t deskIndex, uint32
     m_bGameStarted = true;
     m_bGameStatus = GAMES_PLAYING;
     m_dwTimeStart = NFTime::Now().UnixSec();
-    m_deskHandle = NULL;
-/*    CHECK_EXPR(m_deskHandle, -1, "Create Game Desk Handle Failed, gameId:{}, roomId:{}, deskIndex:{}", gameId, roomId, deskIndex);
+    m_deskHandle = FindModule<NFIGameRoomModule>()->CreateDesk(gameId);
+    CHECK_EXPR(m_deskHandle, -1, "Create Game Desk Handle Failed, gameId:{}, roomId:{}, deskIndex:{}", gameId, roomId, deskIndex);
     if (m_deskHandle)
     {
         m_deskHandle->Init(this, m_gameId, m_roomId, m_deskId, m_chairCount, m_maxUserNum);
-    }*/
+    }
     return 0;
 }
 
