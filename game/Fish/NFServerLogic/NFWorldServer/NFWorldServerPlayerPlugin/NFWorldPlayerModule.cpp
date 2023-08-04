@@ -456,6 +456,23 @@ int NFCWorldPlayerModule::OnHandlePlayerDisconnectMsg(uint64_t unLinkId, NFDataP
     }
 
     FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_WORLD_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG, xMsg);
+
+    if (pPlayerInfo->m_gameId > 0 && pPlayerInfo->m_roomId > 0) {
+        NFWorldRoom *pRoomInfo = NFWorldRoomMgr::GetInstance(m_pObjPluginManager)->GetRoom(pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+        if (!pRoomInfo) {
+            pPlayerInfo->m_gameId = 0;
+            pPlayerInfo->m_roomId = 0;
+            pPlayerInfo->m_gameBusId = 0;
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "palyerId:{} room error, room not exist, gameId:{}, roomId:{}",
+                       pPlayerInfo->GetPlayerId(),
+                       pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+            return -1;
+        }
+
+        FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_WORLD_SERVER,
+                                                      pRoomInfo->m_busId,
+                                                      proto_ff::NF_WTG_PLAYER_DISCONNECT_MSG, xMsg);
+    }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

@@ -789,11 +789,11 @@ int NFCProxyPlayerModule::OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDat
      * @brief 异步后需要重新查找
      */
     pPlayerInfo = mPlayerLinkInfo.GetElement(respone.user_id());
-    CHECK_PLAYER_EXPR(respone.user_id(), pPlayerInfo, -1,
-                      "Player:{} login rsp form world server success, but can't find playerinfo in the proxy server",
-                      respone.user_id());
+    CHECK_NULL(pPlayerInfo);
 
     pPlayerInfo->SetIsLogin(true);
+    pPlayerInfo->SetGameId(respone.game_id());
+    pPlayerInfo->SetRoomId(respone.room_id());
     pPlayerInfo->SetGameBusId(respone.game_bus_id());
     pPlayerInfo->SetLogicBusId(respone.logic_bus_id());
 
@@ -915,7 +915,9 @@ int NFCProxyPlayerModule::OnHandlePlayerReconnectFromClient(uint64_t unLinkId, N
 
 
     pPlayerLinkInfo->SetIsLogin(true);
-    pPlayerLinkInfo->SetGameBusId(respone.game_id());
+    pPlayerLinkInfo->SetGameId(respone.game_id());
+    pPlayerLinkInfo->SetRoomId(respone.room_id());
+    pPlayerLinkInfo->SetGameBusId(respone.game_bus_id());
     pPlayerLinkInfo->SetLogicBusId(respone.logic_bus_id());
 
     NF_SHARE_PTR<NFServerData> pLogicServer = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, pPlayerLinkInfo->GetLogicBusId());

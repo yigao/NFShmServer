@@ -37,6 +37,7 @@ bool NFCGamePlayerModule::Awake()
 
     ///////////////////////////////msg////////////////////////////////////////////
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_LTG_PLAYER_RECONNECT_MSG_REQ>(NF_ST_GAME_SERVER, this, &NFCGamePlayerModule::OnHandlePlayerReconnectReq);
+    RegisterServerMessage(NF_ST_GAME_SERVER, proto_ff::NF_WTG_PLAYER_DISCONNECT_MSG);
     ///////////////////////////////msg////////////////////////////////////////////
 
     Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
@@ -60,7 +61,32 @@ int NFCGamePlayerModule::OnHandleClientMessage(uint32_t msgId, NFDataPackage &pa
 
 int NFCGamePlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
 {
-    return NFIDynamicModule::OnHandleServerMessage(msgId, packet, param1, param2);
+    if (!m_pObjPluginManager->IsInited(NF_ST_GAME_SERVER))
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Game Server not inited, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+
+    if (m_pObjPluginManager->IsServerStopping())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Game Server is Stopping, drop client msg:{}", packet.ToString());
+        return -1;
+    }
+
+    switch (packet.nMsgId)
+    {
+        case proto_ff::NF_WTG_PLAYER_DISCONNECT_MSG:
+        {
+            OnHandlePlayerDisconnectMsg(msgId, packet, param1, param2);
+            break;
+        }
+        default:
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "Server MsgId:{} Register, But Not Handle, Package:{}", packet.nMsgId, packet.ToString());
+            break;
+        }
+    }
+    return 0;
 }
 
 int NFCGamePlayerModule::OnHandleRoomRegisterRps(uint64_t unLinkId, NFDataPackage &packet)
@@ -126,3 +152,27 @@ int NFCGamePlayerModule::OnHandlePlayerReconnectReq(proto_ff::LTGPlayerReconnect
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
+
+int NFCGamePlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+
+    proto_ff::NotifyPlayerDisconnect xMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    NFGamePlayer* pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(xMsg.player_id());
+    CHECK_NULL(pPlayer);
+
+    pPlayer->m_proxyId = 0;
+    pPlayer->m_online = false;
+    pPlayer->SetOfflineTime(NFTime::Now().UnixSec());
+
+    NFGameRoom *pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
+    if (pRoom) {
+        pRoom->UserDisconnect(pPlayer->m_playerId, pPlayer->m_deskId);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+

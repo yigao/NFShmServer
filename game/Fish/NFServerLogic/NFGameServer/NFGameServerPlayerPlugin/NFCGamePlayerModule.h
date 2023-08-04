@@ -58,6 +58,16 @@ public:
      * @return
      */
     int OnHandlePlayerReconnectReq(proto_ff::LTGPlayerReconnectReq& request, proto_ff::GTLPlayerReconnectRsp& respone, uint64_t playerId, uint64_t param2);
+
+    /**
+     * @brief 处理掉线
+     * @param msgId
+     * @param packet
+     * @param param1
+     * @param param2
+     * @return
+     */
+    int OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 private:
     /**
      * @brief NFILuaModule
