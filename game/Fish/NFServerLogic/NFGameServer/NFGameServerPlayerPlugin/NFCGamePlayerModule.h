@@ -50,6 +50,14 @@ public:
      * @return
      */
     virtual int OnHandleRoomRegisterRps(uint64_t unLinkId, NFDataPackage &packet);
+public:
+    /**
+     * @brief 处理重连
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnHandlePlayerReconnectReq(proto_ff::LTGPlayerReconnectReq& request, proto_ff::GTLPlayerReconnectRsp& respone, uint64_t playerId, uint64_t param2);
 private:
     /**
      * @brief NFILuaModule

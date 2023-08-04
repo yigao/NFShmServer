@@ -41,8 +41,6 @@ int NFPlayer::CreateInit()
 {
     m_playerId = 0;
     m_proxyId = 0;
-    m_gameId = 0;
-    m_roomId = 0;
     m_iStatus = proto_ff::PLAYER_STATUS_NONE;
     m_lastDiconnectTime = 0;
     m_createTime = NFTime::Now().UnixSec();
@@ -399,7 +397,7 @@ int NFPlayer::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Mess
 
 int NFPlayer::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_LOGIC_SERVER, m_gameId, nMsgId, xData, m_playerId);
+    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_LOGIC_SERVER, GetGameBusId(), nMsgId, xData, m_playerId);
     NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "SendMsgToGameServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
 }
@@ -494,6 +492,16 @@ NFPart *NFPlayer::GetPart(uint32_t partType)
     return NULL;
 }
 
+const NFPart *NFPlayer::GetPart(uint32_t partType) const
+{
+    if (partType > PART_NONE && partType < (uint32_t) m_pPart.size())
+    {
+        return m_pPart[partType].GetPoint();
+    }
+
+    return NULL;
+}
+
 NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType)
 {
     NFPart *pPart = NULL;
@@ -547,4 +555,63 @@ int NFPlayer::RecylePart(NFPart *pPart)
     pPart->UnInit();
     FindModule<NFISharedMemModule>()->DestroyObj(pPart);
     return 0;
+}
+
+uint32_t NFPlayer::GetGameId() const
+{
+    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
+    if (pPart)
+    {
+        return pPart->GetGameId();
+    }
+
+    return 0;
+}
+uint32_t NFPlayer::GetRoomId() const
+{
+    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
+    if (pPart)
+    {
+        return pPart->GetRoomId();
+    }
+
+    return 0;
+}
+
+uint32_t NFPlayer::GetGameBusId() const
+{
+    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
+    if (pPart)
+    {
+        return pPart->GetGameBusId();
+    }
+
+    return 0;
+}
+
+void NFPlayer::SetGameId(uint32_t gameId)
+{
+    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
+    if (pPart)
+    {
+        return pPart->SetGameId(gameId);
+    }
+}
+
+void NFPlayer::SetGameBusId(uint32_t gameBusId)
+{
+    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
+    if (pPart)
+    {
+        pPart->SetGameBusId(gameBusId);
+    }
+}
+
+void NFPlayer::SetRoomId(uint32_t roomId)
+{
+    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
+    if (pPart)
+    {
+        pPart->SetRoomId(roomId);
+    }
 }

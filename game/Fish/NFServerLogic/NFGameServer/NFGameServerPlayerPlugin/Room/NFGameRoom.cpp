@@ -526,3 +526,27 @@ int NFGameRoom::ExitGame(uint64_t playerId)
 
     return pDesk->ExitGame(playerId, false);
 }
+
+int NFGameRoom::UserReconDesk(uint64_t playerId, int iDeskId)
+{
+    CHECK_EXPR(iDeskId >= 0 && iDeskId < GetDeskCount(), -1, "deskIndex error:{}", iDeskId);
+
+    NFGameDesk *pDesk = GetGameDesk(iDeskId);
+    CHECK_EXPR(pDesk, -1, "GetGameDesk Failed:{}", iDeskId);
+
+    NFGameDeskStation* pDeskStation = pDesk->GetDeskStationByPlayerId(playerId);
+    CHECK_EXPR(pDeskStation, -1, "pDeskStation == NULL");
+    return pDesk->UserReconDesk(playerId, pDeskStation->m_chairId, pDeskStation->m_playerDetail);
+}
+
+int NFGameRoom::UserDisconnect(uint64_t playerId, int iDeskId)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "UserDisconnect");
+
+    CHECK_EXPR(iDeskId >= 0 && iDeskId < GetDeskCount(), -1, "deskIndex error:{}", iDeskId);
+
+    NFGameDesk *pDesk = GetGameDesk(iDeskId);
+    CHECK_EXPR(pDesk, -1, "GetGameDesk Failed : iDeskId ={}", iDeskId);
+
+    return pDesk->ExitGame(playerId, true);
+}

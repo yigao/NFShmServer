@@ -230,6 +230,22 @@ public:
      */
     int ExitGame(uint64_t playerId);
 public:
+    /**
+     * @brief 重连
+     * @param playerId
+     * @param iDeskId
+     * @return
+     */
+    int UserReconDesk(uint64_t playerId, int iDeskId);
+
+    /**
+     * @brief 掉线
+     * @param playerId
+     * @param iDeskId
+     * @return
+     */
+    int UserDisconnect(uint64_t playerId, int iDeskId);
+public:
     uint32_t m_gameId;
     uint32_t m_roomId;
     NFCommonStr m_gameName;

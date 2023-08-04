@@ -109,14 +109,14 @@ message LTWPlayerReconnectRsp
   optional uint64 player_id = 2;
 }
 
-message WTGPlayerReconnectReq
+message LTGPlayerReconnectReq
 {
   optional uint64 player_id = 1;
   optional uint32 proxy_bus_id = 2;
   optional uint32 logic_bus_id = 3;
 }
 
-message GTWPlayerReconnectRsp
+message GTLPlayerReconnectRsp
 {
   optional int32 result = 1;
   optional uint64 player_id = 2;

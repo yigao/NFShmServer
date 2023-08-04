@@ -53,12 +53,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* LTWPlayerReconnectRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   LTWPlayerReconnectRsp_reflection_ = NULL;
-const ::google::protobuf::Descriptor* WTGPlayerReconnectReq_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* LTGPlayerReconnectReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  WTGPlayerReconnectReq_reflection_ = NULL;
-const ::google::protobuf::Descriptor* GTWPlayerReconnectRsp_descriptor_ = NULL;
+  LTGPlayerReconnectReq_reflection_ = NULL;
+const ::google::protobuf::Descriptor* GTLPlayerReconnectRsp_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  GTWPlayerReconnectRsp_reflection_ = NULL;
+  GTLPlayerReconnectRsp_reflection_ = NULL;
 const ::google::protobuf::Descriptor* WTSPlayerReconnectReq_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   WTSPlayerReconnectReq_reflection_ = NULL;
@@ -324,39 +324,39 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(LTWPlayerReconnectRsp));
-  WTGPlayerReconnectReq_descriptor_ = file->message_type(11);
-  static const int WTGPlayerReconnectReq_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WTGPlayerReconnectReq, player_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WTGPlayerReconnectReq, proxy_bus_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WTGPlayerReconnectReq, logic_bus_id_),
+  LTGPlayerReconnectReq_descriptor_ = file->message_type(11);
+  static const int LTGPlayerReconnectReq_offsets_[3] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTGPlayerReconnectReq, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTGPlayerReconnectReq, proxy_bus_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTGPlayerReconnectReq, logic_bus_id_),
   };
-  WTGPlayerReconnectReq_reflection_ =
+  LTGPlayerReconnectReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      WTGPlayerReconnectReq_descriptor_,
-      WTGPlayerReconnectReq::default_instance_,
-      WTGPlayerReconnectReq_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WTGPlayerReconnectReq, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WTGPlayerReconnectReq, _unknown_fields_),
+      LTGPlayerReconnectReq_descriptor_,
+      LTGPlayerReconnectReq::default_instance_,
+      LTGPlayerReconnectReq_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTGPlayerReconnectReq, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTGPlayerReconnectReq, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(WTGPlayerReconnectReq));
-  GTWPlayerReconnectRsp_descriptor_ = file->message_type(12);
-  static const int GTWPlayerReconnectRsp_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTWPlayerReconnectRsp, result_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTWPlayerReconnectRsp, player_id_),
+      sizeof(LTGPlayerReconnectReq));
+  GTLPlayerReconnectRsp_descriptor_ = file->message_type(12);
+  static const int GTLPlayerReconnectRsp_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTLPlayerReconnectRsp, result_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTLPlayerReconnectRsp, player_id_),
   };
-  GTWPlayerReconnectRsp_reflection_ =
+  GTLPlayerReconnectRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      GTWPlayerReconnectRsp_descriptor_,
-      GTWPlayerReconnectRsp::default_instance_,
-      GTWPlayerReconnectRsp_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTWPlayerReconnectRsp, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTWPlayerReconnectRsp, _unknown_fields_),
+      GTLPlayerReconnectRsp_descriptor_,
+      GTLPlayerReconnectRsp::default_instance_,
+      GTLPlayerReconnectRsp_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTLPlayerReconnectRsp, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GTLPlayerReconnectRsp, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(GTWPlayerReconnectRsp));
+      sizeof(GTLPlayerReconnectRsp));
   WTSPlayerReconnectReq_descriptor_ = file->message_type(13);
   static const int WTSPlayerReconnectReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(WTSPlayerReconnectReq, player_id_),
@@ -662,9 +662,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     LTWPlayerReconnectRsp_descriptor_, &LTWPlayerReconnectRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    WTGPlayerReconnectReq_descriptor_, &WTGPlayerReconnectReq::default_instance());
+    LTGPlayerReconnectReq_descriptor_, &LTGPlayerReconnectReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    GTWPlayerReconnectRsp_descriptor_, &GTWPlayerReconnectRsp::default_instance());
+    GTLPlayerReconnectRsp_descriptor_, &GTLPlayerReconnectRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     WTSPlayerReconnectReq_descriptor_, &WTSPlayerReconnectReq::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -726,10 +726,10 @@ void protobuf_ShutdownFile_ServerInternal_2eproto() {
   delete WTLPlayerReconnectReq_reflection_;
   delete LTWPlayerReconnectRsp::default_instance_;
   delete LTWPlayerReconnectRsp_reflection_;
-  delete WTGPlayerReconnectReq::default_instance_;
-  delete WTGPlayerReconnectReq_reflection_;
-  delete GTWPlayerReconnectRsp::default_instance_;
-  delete GTWPlayerReconnectRsp_reflection_;
+  delete LTGPlayerReconnectReq::default_instance_;
+  delete LTGPlayerReconnectReq_reflection_;
+  delete GTLPlayerReconnectRsp::default_instance_;
+  delete GTLPlayerReconnectRsp_reflection_;
   delete WTSPlayerReconnectReq::default_instance_;
   delete WTSPlayerReconnectReq_reflection_;
   delete STWPlayerReconnectRsp::default_instance_;
@@ -813,9 +813,9 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\023\n\013"
     "game_bus_id\030\004 \001(\r\022\024\n\014proxy_bus_id\030\006 \001(\r\""
     ":\n\025LTWPlayerReconnectRsp\022\016\n\006result\030\001 \001(\005"
-    "\022\021\n\tplayer_id\030\002 \001(\004\"V\n\025WTGPlayerReconnec"
+    "\022\021\n\tplayer_id\030\002 \001(\004\"V\n\025LTGPlayerReconnec"
     "tReq\022\021\n\tplayer_id\030\001 \001(\004\022\024\n\014proxy_bus_id\030"
-    "\002 \001(\r\022\024\n\014logic_bus_id\030\003 \001(\r\":\n\025GTWPlayer"
+    "\002 \001(\r\022\024\n\014logic_bus_id\030\003 \001(\r\":\n\025GTLPlayer"
     "ReconnectRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_i"
     "d\030\002 \001(\004\"k\n\025WTSPlayerReconnectReq\022\021\n\tplay"
     "er_id\030\001 \001(\004\022\024\n\014logic_bus_id\030\002 \001(\r\022\023\n\013gam"
@@ -864,8 +864,8 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   WTPPlayerReconnctRsp::default_instance_ = new WTPPlayerReconnctRsp();
   WTLPlayerReconnectReq::default_instance_ = new WTLPlayerReconnectReq();
   LTWPlayerReconnectRsp::default_instance_ = new LTWPlayerReconnectRsp();
-  WTGPlayerReconnectReq::default_instance_ = new WTGPlayerReconnectReq();
-  GTWPlayerReconnectRsp::default_instance_ = new GTWPlayerReconnectRsp();
+  LTGPlayerReconnectReq::default_instance_ = new LTGPlayerReconnectReq();
+  GTLPlayerReconnectRsp::default_instance_ = new GTLPlayerReconnectRsp();
   WTSPlayerReconnectReq::default_instance_ = new WTSPlayerReconnectReq();
   STWPlayerReconnectRsp::default_instance_ = new STWPlayerReconnectRsp();
   Proto_LTWLogoutNotify::default_instance_ = new Proto_LTWLogoutNotify();
@@ -894,8 +894,8 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
   WTPPlayerReconnctRsp::default_instance_->InitAsDefaultInstance();
   WTLPlayerReconnectReq::default_instance_->InitAsDefaultInstance();
   LTWPlayerReconnectRsp::default_instance_->InitAsDefaultInstance();
-  WTGPlayerReconnectReq::default_instance_->InitAsDefaultInstance();
-  GTWPlayerReconnectRsp::default_instance_->InitAsDefaultInstance();
+  LTGPlayerReconnectReq::default_instance_->InitAsDefaultInstance();
+  GTLPlayerReconnectRsp::default_instance_->InitAsDefaultInstance();
   WTSPlayerReconnectReq::default_instance_->InitAsDefaultInstance();
   STWPlayerReconnectRsp::default_instance_->InitAsDefaultInstance();
   Proto_LTWLogoutNotify::default_instance_->InitAsDefaultInstance();
@@ -4847,26 +4847,26 @@ void LTWPlayerReconnectRsp::Swap(LTWPlayerReconnectRsp* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int WTGPlayerReconnectReq::kPlayerIdFieldNumber;
-const int WTGPlayerReconnectReq::kProxyBusIdFieldNumber;
-const int WTGPlayerReconnectReq::kLogicBusIdFieldNumber;
+const int LTGPlayerReconnectReq::kPlayerIdFieldNumber;
+const int LTGPlayerReconnectReq::kProxyBusIdFieldNumber;
+const int LTGPlayerReconnectReq::kLogicBusIdFieldNumber;
 #endif  // !_MSC_VER
 
-WTGPlayerReconnectReq::WTGPlayerReconnectReq()
+LTGPlayerReconnectReq::LTGPlayerReconnectReq()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void WTGPlayerReconnectReq::InitAsDefaultInstance() {
+void LTGPlayerReconnectReq::InitAsDefaultInstance() {
 }
 
-WTGPlayerReconnectReq::WTGPlayerReconnectReq(const WTGPlayerReconnectReq& from)
+LTGPlayerReconnectReq::LTGPlayerReconnectReq(const LTGPlayerReconnectReq& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void WTGPlayerReconnectReq::SharedCtor() {
+void LTGPlayerReconnectReq::SharedCtor() {
   _cached_size_ = 0;
   player_id_ = GOOGLE_ULONGLONG(0);
   proxy_bus_id_ = 0u;
@@ -4874,37 +4874,37 @@ void WTGPlayerReconnectReq::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-WTGPlayerReconnectReq::~WTGPlayerReconnectReq() {
+LTGPlayerReconnectReq::~LTGPlayerReconnectReq() {
   SharedDtor();
 }
 
-void WTGPlayerReconnectReq::SharedDtor() {
+void LTGPlayerReconnectReq::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void WTGPlayerReconnectReq::SetCachedSize(int size) const {
+void LTGPlayerReconnectReq::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* WTGPlayerReconnectReq::descriptor() {
+const ::google::protobuf::Descriptor* LTGPlayerReconnectReq::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return WTGPlayerReconnectReq_descriptor_;
+  return LTGPlayerReconnectReq_descriptor_;
 }
 
-const WTGPlayerReconnectReq& WTGPlayerReconnectReq::default_instance() {
+const LTGPlayerReconnectReq& LTGPlayerReconnectReq::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
   return *default_instance_;
 }
 
-WTGPlayerReconnectReq* WTGPlayerReconnectReq::default_instance_ = NULL;
+LTGPlayerReconnectReq* LTGPlayerReconnectReq::default_instance_ = NULL;
 
-WTGPlayerReconnectReq* WTGPlayerReconnectReq::New() const {
-  return new WTGPlayerReconnectReq;
+LTGPlayerReconnectReq* LTGPlayerReconnectReq::New() const {
+  return new LTGPlayerReconnectReq;
 }
 
-void WTGPlayerReconnectReq::Clear() {
+void LTGPlayerReconnectReq::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     player_id_ = GOOGLE_ULONGLONG(0);
     proxy_bus_id_ = 0u;
@@ -4914,7 +4914,7 @@ void WTGPlayerReconnectReq::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool WTGPlayerReconnectReq::MergePartialFromCodedStream(
+bool LTGPlayerReconnectReq::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -4983,7 +4983,7 @@ bool WTGPlayerReconnectReq::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void WTGPlayerReconnectReq::SerializeWithCachedSizes(
+void LTGPlayerReconnectReq::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional uint64 player_id = 1;
   if (has_player_id()) {
@@ -5006,7 +5006,7 @@ void WTGPlayerReconnectReq::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* WTGPlayerReconnectReq::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* LTGPlayerReconnectReq::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional uint64 player_id = 1;
   if (has_player_id()) {
@@ -5030,7 +5030,7 @@ void WTGPlayerReconnectReq::SerializeWithCachedSizes(
   return target;
 }
 
-int WTGPlayerReconnectReq::ByteSize() const {
+int LTGPlayerReconnectReq::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -5067,10 +5067,10 @@ int WTGPlayerReconnectReq::ByteSize() const {
   return total_size;
 }
 
-void WTGPlayerReconnectReq::MergeFrom(const ::google::protobuf::Message& from) {
+void LTGPlayerReconnectReq::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const WTGPlayerReconnectReq* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const WTGPlayerReconnectReq*>(
+  const LTGPlayerReconnectReq* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const LTGPlayerReconnectReq*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -5079,7 +5079,7 @@ void WTGPlayerReconnectReq::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void WTGPlayerReconnectReq::MergeFrom(const WTGPlayerReconnectReq& from) {
+void LTGPlayerReconnectReq::MergeFrom(const LTGPlayerReconnectReq& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_player_id()) {
@@ -5095,24 +5095,24 @@ void WTGPlayerReconnectReq::MergeFrom(const WTGPlayerReconnectReq& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void WTGPlayerReconnectReq::CopyFrom(const ::google::protobuf::Message& from) {
+void LTGPlayerReconnectReq::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void WTGPlayerReconnectReq::CopyFrom(const WTGPlayerReconnectReq& from) {
+void LTGPlayerReconnectReq::CopyFrom(const LTGPlayerReconnectReq& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool WTGPlayerReconnectReq::IsInitialized() const {
+bool LTGPlayerReconnectReq::IsInitialized() const {
 
   return true;
 }
 
-void WTGPlayerReconnectReq::Swap(WTGPlayerReconnectReq* other) {
+void LTGPlayerReconnectReq::Swap(LTGPlayerReconnectReq* other) {
   if (other != this) {
     std::swap(player_id_, other->player_id_);
     std::swap(proxy_bus_id_, other->proxy_bus_id_);
@@ -5123,11 +5123,11 @@ void WTGPlayerReconnectReq::Swap(WTGPlayerReconnectReq* other) {
   }
 }
 
-::google::protobuf::Metadata WTGPlayerReconnectReq::GetMetadata() const {
+::google::protobuf::Metadata LTGPlayerReconnectReq::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = WTGPlayerReconnectReq_descriptor_;
-  metadata.reflection = WTGPlayerReconnectReq_reflection_;
+  metadata.descriptor = LTGPlayerReconnectReq_descriptor_;
+  metadata.reflection = LTGPlayerReconnectReq_reflection_;
   return metadata;
 }
 
@@ -5135,62 +5135,62 @@ void WTGPlayerReconnectReq::Swap(WTGPlayerReconnectReq* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int GTWPlayerReconnectRsp::kResultFieldNumber;
-const int GTWPlayerReconnectRsp::kPlayerIdFieldNumber;
+const int GTLPlayerReconnectRsp::kResultFieldNumber;
+const int GTLPlayerReconnectRsp::kPlayerIdFieldNumber;
 #endif  // !_MSC_VER
 
-GTWPlayerReconnectRsp::GTWPlayerReconnectRsp()
+GTLPlayerReconnectRsp::GTLPlayerReconnectRsp()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void GTWPlayerReconnectRsp::InitAsDefaultInstance() {
+void GTLPlayerReconnectRsp::InitAsDefaultInstance() {
 }
 
-GTWPlayerReconnectRsp::GTWPlayerReconnectRsp(const GTWPlayerReconnectRsp& from)
+GTLPlayerReconnectRsp::GTLPlayerReconnectRsp(const GTLPlayerReconnectRsp& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void GTWPlayerReconnectRsp::SharedCtor() {
+void GTLPlayerReconnectRsp::SharedCtor() {
   _cached_size_ = 0;
   result_ = 0;
   player_id_ = GOOGLE_ULONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-GTWPlayerReconnectRsp::~GTWPlayerReconnectRsp() {
+GTLPlayerReconnectRsp::~GTLPlayerReconnectRsp() {
   SharedDtor();
 }
 
-void GTWPlayerReconnectRsp::SharedDtor() {
+void GTLPlayerReconnectRsp::SharedDtor() {
   if (this != default_instance_) {
   }
 }
 
-void GTWPlayerReconnectRsp::SetCachedSize(int size) const {
+void GTLPlayerReconnectRsp::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* GTWPlayerReconnectRsp::descriptor() {
+const ::google::protobuf::Descriptor* GTLPlayerReconnectRsp::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return GTWPlayerReconnectRsp_descriptor_;
+  return GTLPlayerReconnectRsp_descriptor_;
 }
 
-const GTWPlayerReconnectRsp& GTWPlayerReconnectRsp::default_instance() {
+const GTLPlayerReconnectRsp& GTLPlayerReconnectRsp::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_ServerInternal_2eproto();
   return *default_instance_;
 }
 
-GTWPlayerReconnectRsp* GTWPlayerReconnectRsp::default_instance_ = NULL;
+GTLPlayerReconnectRsp* GTLPlayerReconnectRsp::default_instance_ = NULL;
 
-GTWPlayerReconnectRsp* GTWPlayerReconnectRsp::New() const {
-  return new GTWPlayerReconnectRsp;
+GTLPlayerReconnectRsp* GTLPlayerReconnectRsp::New() const {
+  return new GTLPlayerReconnectRsp;
 }
 
-void GTWPlayerReconnectRsp::Clear() {
+void GTLPlayerReconnectRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     result_ = 0;
     player_id_ = GOOGLE_ULONGLONG(0);
@@ -5199,7 +5199,7 @@ void GTWPlayerReconnectRsp::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool GTWPlayerReconnectRsp::MergePartialFromCodedStream(
+bool GTLPlayerReconnectRsp::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -5252,7 +5252,7 @@ bool GTWPlayerReconnectRsp::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void GTWPlayerReconnectRsp::SerializeWithCachedSizes(
+void GTLPlayerReconnectRsp::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional int32 result = 1;
   if (has_result()) {
@@ -5270,7 +5270,7 @@ void GTWPlayerReconnectRsp::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* GTWPlayerReconnectRsp::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* GTLPlayerReconnectRsp::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional int32 result = 1;
   if (has_result()) {
@@ -5289,7 +5289,7 @@ void GTWPlayerReconnectRsp::SerializeWithCachedSizes(
   return target;
 }
 
-int GTWPlayerReconnectRsp::ByteSize() const {
+int GTLPlayerReconnectRsp::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -5319,10 +5319,10 @@ int GTWPlayerReconnectRsp::ByteSize() const {
   return total_size;
 }
 
-void GTWPlayerReconnectRsp::MergeFrom(const ::google::protobuf::Message& from) {
+void GTLPlayerReconnectRsp::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const GTWPlayerReconnectRsp* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const GTWPlayerReconnectRsp*>(
+  const GTLPlayerReconnectRsp* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const GTLPlayerReconnectRsp*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -5331,7 +5331,7 @@ void GTWPlayerReconnectRsp::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void GTWPlayerReconnectRsp::MergeFrom(const GTWPlayerReconnectRsp& from) {
+void GTLPlayerReconnectRsp::MergeFrom(const GTLPlayerReconnectRsp& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_result()) {
@@ -5344,24 +5344,24 @@ void GTWPlayerReconnectRsp::MergeFrom(const GTWPlayerReconnectRsp& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void GTWPlayerReconnectRsp::CopyFrom(const ::google::protobuf::Message& from) {
+void GTLPlayerReconnectRsp::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void GTWPlayerReconnectRsp::CopyFrom(const GTWPlayerReconnectRsp& from) {
+void GTLPlayerReconnectRsp::CopyFrom(const GTLPlayerReconnectRsp& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool GTWPlayerReconnectRsp::IsInitialized() const {
+bool GTLPlayerReconnectRsp::IsInitialized() const {
 
   return true;
 }
 
-void GTWPlayerReconnectRsp::Swap(GTWPlayerReconnectRsp* other) {
+void GTLPlayerReconnectRsp::Swap(GTLPlayerReconnectRsp* other) {
   if (other != this) {
     std::swap(result_, other->result_);
     std::swap(player_id_, other->player_id_);
@@ -5371,11 +5371,11 @@ void GTWPlayerReconnectRsp::Swap(GTWPlayerReconnectRsp* other) {
   }
 }
 
-::google::protobuf::Metadata GTWPlayerReconnectRsp::GetMetadata() const {
+::google::protobuf::Metadata GTLPlayerReconnectRsp::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = GTWPlayerReconnectRsp_descriptor_;
-  metadata.reflection = GTWPlayerReconnectRsp_reflection_;
+  metadata.descriptor = GTLPlayerReconnectRsp_descriptor_;
+  metadata.reflection = GTLPlayerReconnectRsp_reflection_;
   return metadata;
 }
 

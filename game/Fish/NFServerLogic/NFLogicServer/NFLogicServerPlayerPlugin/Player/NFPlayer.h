@@ -123,10 +123,12 @@ public:
     void SetPlayerId(uint64_t playerId) { m_playerId = playerId; }
     uint32_t GetProxyId() const { return m_proxyId; }
     void SetProxyId(uint32_t proxyId) { m_proxyId = proxyId; }
-    uint32_t GetGameId() const { return m_gameId; }
-    void SetGameId(uint32_t gameId) { m_gameId = gameId; }
-    uint32_t GetRoomId() const { return m_roomId; }
-    void SetRoomId(uint32_t roomId) { m_roomId = roomId; }
+    uint32_t GetGameId() const;
+    uint32_t GetRoomId() const;
+    uint32_t GetGameBusId() const;
+    void SetGameId(uint32_t gameId);
+    void SetGameBusId(uint32_t gameBusId);
+    void SetRoomId(uint32_t roomId);
     uint64_t GetLastLogoutTime() const { return m_lastLogoutTime; }
     void SetLastLogtouTime(uint64_t logoutTime) { m_lastLogoutTime = logoutTime; }
 
@@ -138,7 +140,7 @@ public:
      * @brief
      * @return
      */
-    bool IsInGaming() { return m_gameId > 0 && m_roomId > 0; }
+    bool IsInGaming() { return GetGameId() > 0; }
 public:
     /**
      * @brief trans num
@@ -220,7 +222,14 @@ public:
         return dynamic_cast<PART *>(GetPart(partType));
     }
 
+    template<typename PART>
+    const PART* GetPart(uint32_t partType) const
+    {
+        return dynamic_cast<const PART *>(GetPart(partType));
+    }
+
     NFPart *GetPart(uint32_t partType);
+    const NFPart *GetPart(uint32_t partType) const;
 
     /**
      * @brief 创建Part
@@ -262,9 +271,6 @@ private:
     uint64_t m_phonenum;
     uint64_t m_lastLoginTime;
     uint64_t m_lastLogoutTime;
-private:
-    uint32_t m_gameId;
-    uint32_t m_roomId;
 private:
     int m_iTransNum;
     uint64_t m_lastSavingDBTime;

@@ -55,7 +55,7 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTS_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTS
 /**
  * @brief 玩家重连rpc, world server to game server
  */
-DEFINE_BIND_RPC_SERVICE(proto_ff::NF_WTG_PLAYER_RECONNECT_MSG_REQ, proto_ff::WTGPlayerReconnectReq, proto_ff::GTWPlayerReconnectRsp)
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_LTG_PLAYER_RECONNECT_MSG_REQ, proto_ff::LTGPlayerReconnectReq, proto_ff::GTLPlayerReconnectRsp)
 
 /**
  * @brief logic sns银行筹码, logic server to sns server

@@ -141,7 +141,6 @@ int NFGamePlayerMgr::ClearAllGamePlayer()
 {
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "ClearAllGamePlayer............");
     std::vector<NFGamePlayer*> willDestroy;
-    uint32_t nowTime = NFTime::Now().UnixSec();
     for (auto iter = NFGamePlayer::Begin(m_pObjPluginManager); iter != NFGamePlayer::End(m_pObjPluginManager); iter++)
     {
         NFGamePlayer* pPlayer = &(*iter);

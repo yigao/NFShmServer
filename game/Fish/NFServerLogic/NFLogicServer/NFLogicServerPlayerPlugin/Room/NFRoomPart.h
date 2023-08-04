@@ -170,6 +170,13 @@ public:
      * @return
      */
     int OnHandleNotifyPlayerLeaveGame(uint32_t msgId, NFDataPackage &packet);
+public:
+    uint32_t GetGameId() const { return m_gameId; }
+    uint32_t GetRoomId() const { return m_roomId; }
+    uint32_t GetGameBusId() const { return m_gameBusId; }
+    void SetGameId(uint32_t gameId) { m_gameId = gameId; }
+    void SetGameBusId(uint32_t gameBusId) { m_gameBusId = gameBusId;}
+    void SetRoomId(uint32_t roomId) { m_roomId = m_roomId; }
 private:
     uint32_t m_gameId;
     uint32_t m_roomId;

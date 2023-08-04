@@ -219,6 +219,9 @@ int NFCLogicPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTLPlayerReconne
     respone.set_player_id(request.player_id());
     respone.set_result(proto_ff::ERR_CODE_OK);
 
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    NF_ASSERT(pConfig);
+
     NFPlayer* pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(request.player_id());
     if (pPlayer == NULL)
     {
@@ -228,6 +231,39 @@ int NFCLogicPlayerModule::OnRpcServicePlayerReconnect(proto_ff::WTLPlayerReconne
 
     pPlayer->SetProxyId(request.proxy_bus_id());
     pPlayer->OnReconnect();
+
+    if (pPlayer->GetGameId() > 0 && pPlayer->GetGameId() == request.game_id() && pPlayer->GetRoomId() == request.room_id())
+    {
+        proto_ff::LTGPlayerReconnectReq gameReq;
+        gameReq.set_player_id(request.player_id());
+        gameReq.set_proxy_bus_id(request.proxy_bus_id());
+        gameReq.set_logic_bus_id(pConfig->GetBusId());
+        proto_ff::GTLPlayerReconnectRsp gameRsp;
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_LTG_PLAYER_RECONNECT_MSG_REQ>(NF_ST_LOGIC_SERVER, NF_ST_GAME_SERVER, pPlayer->GetGameBusId(),
+                                                                                                            gameReq, gameRsp, request.player_id());
+        //check ptr
+        pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(request.player_id());
+        CHECK_NULL(pPlayer);
+
+        if (iRet != 0 || gameRsp.result() != 0)
+        {
+            if (iRet != 0)
+            {
+                respone.set_result(iRet);
+            }
+            else {
+                respone.set_result(gameRsp.result());
+            }
+
+            NFLogError(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player logic server reconnect game server failed");
+            return 0;
+        }
+    }
+    else if (pPlayer->GetGameId() > 0 && (pPlayer->GetGameId() != request.game_id() || pPlayer->GetRoomId() != request.room_id())) {
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        NFLogError(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player logic server reconnect game server failed");
+        return 0;
+    }
 
     NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player:{} reconnect success", pPlayer->GetPlayerId());
 

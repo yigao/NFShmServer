@@ -10,6 +10,7 @@
 #include "NFCGamePlayerModule.h"
 #include "Config/NFGameConfig.h"
 #include "Room/NFGameRoomMgr.h"
+#include "Player/NFGamePlayerMgr.h"
 
 #define GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER "Game Server Register Room Info to World Server"
 
@@ -33,6 +34,10 @@ bool NFCGamePlayerModule::Awake()
     m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER,
                                          NF_FORMAT("{} {}", pConfig->ServerName, GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER),
                                          APP_INIT_STATUS_SERVER_REGISTER);
+
+    ///////////////////////////////msg////////////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_LTG_PLAYER_RECONNECT_MSG_REQ>(NF_ST_GAME_SERVER, this, &NFCGamePlayerModule::OnHandlePlayerReconnectReq);
+    ///////////////////////////////msg////////////////////////////////////////////
 
     Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     return true;
@@ -87,5 +92,37 @@ NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t 
             NFGameRoomMgr::Instance(m_pObjPluginManager)->RegisterAllRoomToWorldServer();
         }
     }
+    return 0;
+}
+
+int NFCGamePlayerModule::OnHandlePlayerReconnectReq(proto_ff::LTGPlayerReconnectReq& request, proto_ff::GTLPlayerReconnectRsp& respone, uint64_t playerId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+
+    NFGamePlayer* pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_NULL(pPlayer);
+
+    //如果是上面重新Create的Player， 成员m_gameId/m_roomId/m_deskId/m_chairId还有用吗？这里也没有赋值!!!
+    pPlayer->m_online = true;
+    pPlayer->m_proxyId = request.proxy_bus_id();
+    pPlayer->m_logicId = request.logic_bus_id();
+    pPlayer->SetOfflineTime(0);
+    pPlayer->SetLastMsgTime(NFTime::Now().UnixSec());
+
+    NFGameRoom *pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
+    if (pRoom)
+    {
+        int iRet = pRoom->UserReconDesk(pPlayer->m_playerId, pPlayer->m_deskId);
+        if (iRet != 0)
+        {
+            respone.set_result(iRet);
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "player:{} reconnect game failed", pPlayer->m_playerId);
+            return 0;
+        }
+    }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "player:{} reconnect game success", pPlayer->m_playerId);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
 }
