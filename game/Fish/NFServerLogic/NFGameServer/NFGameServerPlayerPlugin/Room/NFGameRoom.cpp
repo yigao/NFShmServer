@@ -555,7 +555,7 @@ int NFGameRoom::UserDisconnect(uint64_t playerId, int iDeskId)
 
 int NFGameRoom::OnHandleClientMessage(uint32_t deskId, uint64_t playerId, NFDataPackage &packet)
 {
-    CHECK_EXPR(deskId >= 0 && (int)deskId < GetDeskCount(), -1, "deskId error, deskId:{} msg:{}", deskId, packet.nMsgId);
+    CHECK_EXPR((int)deskId < GetDeskCount(), -1, "deskId error, deskId:{} msg:{}", deskId, packet.nMsgId);
 
     NFGameDesk* pGameDesk = GetGameDesk(deskId);
     CHECK_EXPR(pGameDesk, -1, "GetGameDesk failed!, deskId:{}", deskId);
@@ -565,7 +565,7 @@ int NFGameRoom::OnHandleClientMessage(uint32_t deskId, uint64_t playerId, NFData
 
 int NFGameRoom::OnHandleServerMessage(uint32_t deskId, uint64_t playerId, NFDataPackage &packet)
 {
-    CHECK_EXPR(deskId >= 0 && (int)deskId < GetDeskCount(), -1, "deskId error, deskId:{} msg:{}", deskId, packet.nMsgId);
+    CHECK_EXPR((int)deskId < GetDeskCount(), -1, "deskId error, deskId:{} msg:{}", deskId, packet.nMsgId);
 
     NFGameDesk* pGameDesk = GetGameDesk(deskId);
     CHECK_EXPR(pGameDesk, -1, "GetGameDesk failed!, deskId:{}", deskId);

@@ -17,6 +17,8 @@
 #include "NFFishTraceConfig.h"
 #include "NFFishConfigConfig.h"
 #include "NFFishWayBillConfig.h"
+#include "NFFishSettingConfig.h"
+#include "NFFishPromptConfig.h"
 
 NFGameFish2004Module::NFGameFish2004Module(NFIPluginManager *p):NFISubGameModule(p)
 {
@@ -77,6 +79,14 @@ int NFGameFish2004Module::OnExecute(uint32_t serverType, uint32_t nEventID, uint
             NFFishConfigConfig* pFish = NFFishConfigConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
             NF_ASSERT(pFish);
             pFish->LoadConfig(roomId);
+
+            NFFishSettingConfig* pSetting = NFFishSettingConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
+            NF_ASSERT(pSetting);
+            pSetting->LoadConfig(roomId);
+
+            NFFishPromptConfig* pPrompt = NFFishPromptConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
+            NF_ASSERT(pPrompt);
+            pPrompt->LoadConfig(roomId);
 
             NFFishWayBillConfig* pWayBill = NFFishWayBillConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
             NF_ASSERT(pWayBill);

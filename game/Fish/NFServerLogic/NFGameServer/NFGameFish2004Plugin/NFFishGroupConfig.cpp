@@ -119,7 +119,7 @@ int NFFishGroupConfig::LoadConfig(uint32_t roomId)
 
         if (0 != iRet)
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "CFishGroupMgr::Init() init file: {} failed.", it->c_str());
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "CFishGroupMgr::Init() init file: {} failed.", it->c_str());
         }
     }
 
