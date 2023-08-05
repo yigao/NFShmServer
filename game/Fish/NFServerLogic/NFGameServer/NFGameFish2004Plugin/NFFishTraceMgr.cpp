@@ -15,7 +15,7 @@
 #include "NFLogicCommon/NFFishDefine.h"
 #include <fstream>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishTraceMgr, EOT_FISH2004_TRACE_MGR_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishTraceMgr, EOT_FISH_TRACE_MGR_2004_ID, NFShmObj)
 
 
 NFFishTraceMgr::NFFishTraceMgr() {
@@ -55,7 +55,8 @@ int NFFishTraceMgr::LoadConfig(uint32_t roomId)
     std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(GAME_ID_FISH_HAIWANG_2004) + "_" + NFCommon::tostr(m_roomId);
 	std::string strTracePack = NFFileUtility::NormalizePath(path) + "FishTrace/traces.pack";
     std::string fileMd5;
-    GetFileContainMD5(strTracePack, fileMd5);
+    int iRet = GetFileContainMD5(strTracePack, fileMd5);
+    NF_ASSERT(iRet == 0);
     if (fileMd5 != m_szMD5.ToString())
     {
         m_szMD5 = fileMd5;
