@@ -11,7 +11,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFFishCtrlCfgDef.h"
-#include "NFFishTraceMgr.h"
+#include "NFFishTraceConfig.h"
 
 CFishGroup::CFishGroup()
 {
@@ -208,7 +208,7 @@ int CFishGroup::ReadGroupFileVer1(FILE* fpGroup, NFIPluginManager* pPluginManage
 	int iRet = 0;
 	size_t bytes = 0;
 
-    NFFishTraceMgr* pTrace = NFFishTraceMgr::GetObjByHashKey(pPluginManager, m_roomId);
+    NFFishTraceConfig* pTrace = NFFishTraceConfig::GetObjByHashKey(pPluginManager, m_roomId);
 
 	uint32_t unIndex = 1;
 	while (!feof(fpGroup))

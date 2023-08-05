@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFFishTraceMgr.h"
+#include "NFFishTraceConfig.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFCore/NFMD5.h"
@@ -15,10 +15,10 @@
 #include "NFLogicCommon/NFFishDefine.h"
 #include <fstream>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishTraceMgr, EOT_FISH_TRACE_MGR_2004_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishTraceConfig, EOT_FISH_TRACE_MGR_2004_ID, NFShmObj)
 
 
-NFFishTraceMgr::NFFishTraceMgr() {
+NFFishTraceConfig::NFFishTraceConfig() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     } else {
@@ -26,21 +26,21 @@ NFFishTraceMgr::NFFishTraceMgr() {
     }
 }
 
-NFFishTraceMgr::~NFFishTraceMgr() {
+NFFishTraceConfig::~NFFishTraceConfig() {
 
 }
 
-int NFFishTraceMgr::CreateInit()
+int NFFishTraceConfig::CreateInit()
 {
     return 0;
 }
 
-int NFFishTraceMgr::ResumeInit()
+int NFFishTraceConfig::ResumeInit()
 {
     return 0;
 }
 
-int NFFishTraceMgr::GetFileContainMD5(const std::string& strFileName, std::string& fileMd5)
+int NFFishTraceConfig::GetFileContainMD5(const std::string& strFileName, std::string& fileMd5)
 {
     bool exist = NFFileUtility::IsFileExist(strFileName);
     CHECK_EXPR(exist, -1, "strFileName:{} not exist", strFileName);
@@ -49,7 +49,7 @@ int NFFishTraceMgr::GetFileContainMD5(const std::string& strFileName, std::strin
     return 0;
 }
 
-int NFFishTraceMgr::LoadConfig(uint32_t roomId)
+int NFFishTraceConfig::LoadConfig(uint32_t roomId)
 {
     m_roomId = roomId;
     std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(GAME_ID_FISH_HAIWANG_2004) + "_" + NFCommon::tostr(m_roomId);
@@ -66,7 +66,7 @@ int NFFishTraceMgr::LoadConfig(uint32_t roomId)
 	return 0;
 }
 
-bool NFFishTraceMgr::ReadTracePack(const std::string& strPackFile)
+bool NFFishTraceConfig::ReadTracePack(const std::string& strPackFile)
 {
 	std::ifstream tracdPack;
 	tracdPack.open(strPackFile, std::ios::binary);
@@ -119,7 +119,7 @@ bool NFFishTraceMgr::ReadTracePack(const std::string& strPackFile)
 	}
 }
 
-bool NFFishTraceMgr::ReadTraceBin(std::ifstream& tracdPackFile, CHMTraceBin& traceBin)
+bool NFFishTraceConfig::ReadTraceBin(std::ifstream& tracdPackFile, CHMTraceBin& traceBin)
 {
 	TRACEHEADER TraceHeader;
 	tracdPackFile.read((char*)&TraceHeader, sizeof(TraceHeader));
@@ -163,12 +163,12 @@ bool NFFishTraceMgr::ReadTraceBin(std::ifstream& tracdPackFile, CHMTraceBin& tra
 	return true;
 }
 
-int NFFishTraceMgr::GetBinLen(int iType)
+int NFFishTraceConfig::GetBinLen(int iType)
 {
 	return iType == 1 ? 16 : 8;
 }
 
-CHMPoint NFFishTraceMgr::GetPointByIndex(unsigned int uTraceId, unsigned int uIndex)
+CHMPoint NFFishTraceConfig::GetPointByIndex(unsigned int uTraceId, unsigned int uIndex)
 {
 	CHMTraceBin* pBin = GetTraceBin(uTraceId);
 	if (pBin)
@@ -181,7 +181,7 @@ CHMPoint NFFishTraceMgr::GetPointByIndex(unsigned int uTraceId, unsigned int uIn
 	}
 }
 
-int NFFishTraceMgr::GetTracePointCount(unsigned int uTraceId)
+int NFFishTraceConfig::GetTracePointCount(unsigned int uTraceId)
 {
 	CHMTraceBin* pBin = GetTraceBin(uTraceId);
 	if (pBin)
@@ -194,7 +194,7 @@ int NFFishTraceMgr::GetTracePointCount(unsigned int uTraceId)
 	}
 }
 
-CHMTraceBin *NFFishTraceMgr::GetTraceBin(uint32_t id)
+CHMTraceBin *NFFishTraceConfig::GetTraceBin(uint32_t id)
 {
     auto iter = m_FishTraceMap.find(id);
     if (iter != m_FishTraceMap.end())
@@ -205,7 +205,7 @@ CHMTraceBin *NFFishTraceMgr::GetTraceBin(uint32_t id)
     return nullptr;
 }
 
-CHMTraceBin *NFFishTraceMgr::InsertTraceBin(uint32_t id)
+CHMTraceBin *NFFishTraceConfig::InsertTraceBin(uint32_t id)
 {
     if (!m_FishTraceMap.full())
     {

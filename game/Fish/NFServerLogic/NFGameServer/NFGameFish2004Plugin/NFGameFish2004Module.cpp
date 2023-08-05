@@ -13,9 +13,10 @@
 #include "NFLogicCommon/NFIGameDeskImpl.h"
 #include "NFGameFishDefine.h"
 #include "NFLogicCommon/NFIGameConfig.h"
-#include "NFFishGroupMgr.h"
-#include "NFFishTraceMgr.h"
-#include "NFFishConfigMgr.h"
+#include "NFFishGroupConfig.h"
+#include "NFFishTraceConfig.h"
+#include "NFFishConfigConfig.h"
+#include "NFFishWayBillConfig.h"
 
 NFGameFish2004Module::NFGameFish2004Module(NFIPluginManager *p):NFISubGameModule(p)
 {
@@ -73,16 +74,20 @@ int NFGameFish2004Module::OnExecute(uint32_t serverType, uint32_t nEventID, uint
         {
             uint32_t roomId = roomList[i];
 
-            NFFishConfigMgr* pFish = NFFishConfigMgr::CreateObjByHashKey(m_pObjPluginManager, roomId);
+            NFFishConfigConfig* pFish = NFFishConfigConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
             NF_ASSERT(pFish);
             pFish->LoadConfig(roomId);
 
+            NFFishWayBillConfig* pWayBill = NFFishWayBillConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
+            NF_ASSERT(pWayBill);
+            pWayBill->LoadConfig(roomId);
+
             //trace must load before the group
-            NFFishTraceMgr* pTrace = NFFishTraceMgr::CreateObjByHashKey(m_pObjPluginManager, roomId);
+            NFFishTraceConfig* pTrace = NFFishTraceConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
             NF_ASSERT(pTrace);
             pTrace->LoadConfig(roomId);
 
-            NFFishGroupMgr* pGroup = NFFishGroupMgr::CreateObjByHashKey(m_pObjPluginManager, roomId);
+            NFFishGroupConfig* pGroup = NFFishGroupConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
             NF_ASSERT(pGroup);
             pGroup->LoadConfig(roomId);
         }

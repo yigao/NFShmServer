@@ -15,12 +15,12 @@
 
 #define DEFAULT_GROUPNUM 600
 
-class NFFishGroupMgr : public NFShmObj
+class NFFishGroupConfig : public NFShmObj
 {
 public:
-    NFFishGroupMgr();
+    NFFishGroupConfig();
 
-    virtual ~NFFishGroupMgr();
+    virtual ~NFFishGroupConfig();
 
     int CreateInit();
 
@@ -41,5 +41,5 @@ private:
     NFShmHashMap<uint32_t, CFishGroup, DEFAULT_GROUPNUM> m_FishGroupMap;
 	NFShmHashMap<int32_t, int32_t, 20> m_SceneIndexMap;
 
-    DECLARE_IDCREATE(NFFishGroupMgr);
+    DECLARE_IDCREATE(NFFishGroupConfig);
 };

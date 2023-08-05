@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFFishConfigMgr.h"
+#include "NFFishConfigConfig.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFStringUtility.h"
@@ -17,9 +17,9 @@
 #include "NFLogicCommon/NFFishDefine.h"
 #include <fstream>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishConfigMgr, EOT_FISH_CONFIG_MGR_2004_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishConfigConfig, EOT_FISH_CONFIG_MGR_2004_ID, NFShmObj)
 
-NFFishConfigMgr::NFFishConfigMgr()
+NFFishConfigConfig::NFFishConfigConfig()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
@@ -29,23 +29,23 @@ NFFishConfigMgr::NFFishConfigMgr()
     }
 }
 
-NFFishConfigMgr::~NFFishConfigMgr()
+NFFishConfigConfig::~NFFishConfigConfig()
 {
 
 }
 
-int NFFishConfigMgr::CreateInit()
+int NFFishConfigConfig::CreateInit()
 {
     m_roomId = 0;
     return 0;
 }
 
-int NFFishConfigMgr::ResumeInit()
+int NFFishConfigConfig::ResumeInit()
 {
     return 0;
 }
 
-int NFFishConfigMgr::LoadConfig(uint32_t roomId)
+int NFFishConfigConfig::LoadConfig(uint32_t roomId)
 {
     m_roomId = roomId;
     std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(GAME_ID_FISH_HAIWANG_2004) + "_" + NFCommon::tostr(m_roomId);
@@ -62,7 +62,7 @@ int NFFishConfigMgr::LoadConfig(uint32_t roomId)
 	return 0;
 }
 
-int NFFishConfigMgr::GetFileContainMD5(const std::string& strFileName, std::string& fileMd5)
+int NFFishConfigConfig::GetFileContainMD5(const std::string& strFileName, std::string& fileMd5)
 {
     bool exist = NFFileUtility::IsFileExist(strFileName);
     CHECK_EXPR(exist, -1, "strFileName:{} not exist", strFileName);
@@ -71,7 +71,7 @@ int NFFishConfigMgr::GetFileContainMD5(const std::string& strFileName, std::stri
     return 0;
 }
 
-int NFFishConfigMgr::LoadConfig(const std::string& strFishKindCfgFile)
+int NFFishConfigConfig::LoadConfig(const std::string& strFishKindCfgFile)
 {
     m_vectFishConfig.clear();
 	int iRet = LoadFishConfigCSV(strFishKindCfgFile);
@@ -79,7 +79,7 @@ int NFFishConfigMgr::LoadConfig(const std::string& strFishKindCfgFile)
 	return 0;
 }
 
-int NFFishConfigMgr::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
+int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 {
 	std::vector<std::vector<std::string> > values;
 
@@ -302,7 +302,7 @@ int NFFishConfigMgr::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 }
 
 
-std::map<std::string, std::vector<std::string> > NFFishConfigMgr::ClassifyValues(std::vector<std::vector<std::string> >& values)
+std::map<std::string, std::vector<std::string> > NFFishConfigConfig::ClassifyValues(std::vector<std::vector<std::string> >& values)
 {
 	NFLogInfo(NF_LOG_SYSTEMLOG, 0, "CFishKindCfgMgr::ClassifyValues()");
 
@@ -341,7 +341,7 @@ std::map<std::string, std::vector<std::string> > NFFishConfigMgr::ClassifyValues
 	return mapColData;
 }
 
-std::string NFFishConfigMgr::GetValue(std::map<std::string, std::vector<std::string> >& mapCols, std::string strColName, int iIndex)
+std::string NFFishConfigConfig::GetValue(std::map<std::string, std::vector<std::string> >& mapCols, std::string strColName, int iIndex)
 {
 	std::map<std::string, std::vector<std::string> >::iterator iter = mapCols.find(strColName);
 
@@ -356,7 +356,7 @@ std::string NFFishConfigMgr::GetValue(std::map<std::string, std::vector<std::str
 	return "";
 }
 
-std::vector<std::string> NFFishConfigMgr::GetColVecByColName(std::map<std::string, std::vector<std::string> >& mapCols, std::string strColName)
+std::vector<std::string> NFFishConfigConfig::GetColVecByColName(std::map<std::string, std::vector<std::string> >& mapCols, std::string strColName)
 {
 	std::map<std::string, std::vector<std::string> >::iterator iter = mapCols.find(strColName);
 	if (iter != mapCols.end())
@@ -369,7 +369,7 @@ std::vector<std::string> NFFishConfigMgr::GetColVecByColName(std::map<std::strin
 	}
 }
 
-int NFFishConfigMgr::ReadCfg(const std::string & strFile, std::vector<std::vector<std::string> > & values)
+int NFFishConfigConfig::ReadCfg(const std::string & strFile, std::vector<std::vector<std::string> > & values)
 {
 	std::ifstream fin;
 
@@ -409,7 +409,7 @@ int NFFishConfigMgr::ReadCfg(const std::string & strFile, std::vector<std::vecto
 	return 0;
 }
 
-FishConfig* NFFishConfigMgr::GetFishBaseInfo(char btFishKindId)
+FishConfig* NFFishConfigConfig::GetFishBaseInfo(char btFishKindId)
 {
 	for (int i = 0; i < (int)m_vectFishConfig.size(); i++)
 	{
@@ -423,7 +423,7 @@ FishConfig* NFFishConfigMgr::GetFishBaseInfo(char btFishKindId)
 	return NULL;
 }
 
-int NFFishConfigMgr::GetFishKindMaxId() {
+int NFFishConfigConfig::GetFishKindMaxId() {
 	int count = m_vectFishConfig.size();
 	if (count > 0)
 	{

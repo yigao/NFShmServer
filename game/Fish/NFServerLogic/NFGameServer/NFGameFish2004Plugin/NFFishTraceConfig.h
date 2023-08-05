@@ -18,12 +18,12 @@
 
 #define DEFAULT_TRACENUM 1500
 
-class NFFishTraceMgr : public NFShmObj
+class NFFishTraceConfig : public NFShmObj
 {
 public:
-	NFFishTraceMgr();
+	NFFishTraceConfig();
 
-	virtual ~NFFishTraceMgr();
+	virtual ~NFFishTraceConfig();
 
     int CreateInit();
     int ResumeInit();
@@ -46,5 +46,5 @@ private:
     uint32_t m_roomId;
 	NFShmHashMap<uint32_t, CHMTraceBin, DEFAULT_TRACENUM> m_FishTraceMap;
     NFCommonStr m_szMD5;
-	DECLARE_IDCREATE(NFFishTraceMgr);
+	DECLARE_IDCREATE(NFFishTraceConfig);
 };

@@ -143,11 +143,11 @@ public:
 	}
 };
 
-class NFFishConfigMgr: public NFShmObj
+class NFFishConfigConfig: public NFShmObj
 {
 public:
-	NFFishConfigMgr();
-	virtual ~NFFishConfigMgr();
+	NFFishConfigConfig();
+	virtual ~NFFishConfigConfig();
     int CreateInit();
     int ResumeInit();
 
@@ -171,5 +171,5 @@ private:
     uint32_t m_roomId;
     NFCommonStr m_szMD5;
 	NFShmVector<FishConfig, MAX_FISH_CONFIG_FISHI_CONFIG_NUM> m_vectFishConfig;
-DECLARE_IDCREATE(NFFishConfigMgr);
+DECLARE_IDCREATE(NFFishConfigConfig);
 };

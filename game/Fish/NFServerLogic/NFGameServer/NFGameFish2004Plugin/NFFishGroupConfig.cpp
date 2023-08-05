@@ -7,17 +7,17 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFFishGroupMgr.h"
+#include "NFFishGroupConfig.h"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFFishDefine.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishGroupMgr, EOT_FISH_GROUP_MGR_2004_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishGroupConfig, EOT_FISH_GROUP_MGR_2004_ID, NFShmObj)
 
 
-NFFishGroupMgr::NFFishGroupMgr() {
+NFFishGroupConfig::NFFishGroupConfig() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();
     }
@@ -26,20 +26,20 @@ NFFishGroupMgr::NFFishGroupMgr() {
     }
 }
 
-NFFishGroupMgr::~NFFishGroupMgr() {
+NFFishGroupConfig::~NFFishGroupConfig() {
 
 }
 
-int NFFishGroupMgr::CreateInit() {
+int NFFishGroupConfig::CreateInit() {
     m_roomId = 0;
     return 0;
 }
 
-int NFFishGroupMgr::ResumeInit() {
+int NFFishGroupConfig::ResumeInit() {
     return 0;
 }
 
-int NFFishGroupMgr::GetFileContainMD5(const std::string& strFileName, std::string& fileMd5)
+int NFFishGroupConfig::GetFileContainMD5(const std::string& strFileName, std::string& fileMd5)
 {
     bool exist = NFFileUtility::IsFileExist(strFileName);
     CHECK_EXPR(exist, -1, "strFileName:{} not exist", strFileName);
@@ -48,7 +48,7 @@ int NFFishGroupMgr::GetFileContainMD5(const std::string& strFileName, std::strin
     return 0;
 }
 
-int NFFishGroupMgr::LoadConfig(uint32_t roomId)
+int NFFishGroupConfig::LoadConfig(uint32_t roomId)
 {
     m_roomId = roomId;
 
@@ -141,7 +141,7 @@ int NFFishGroupMgr::LoadConfig(uint32_t roomId)
     return 0;
 }
 
-int NFFishGroupMgr::GetAllGroupFiles(const string &strFishGroupPath, list<std::string> &FilesList) {
+int NFFishGroupConfig::GetAllGroupFiles(const string &strFishGroupPath, list<std::string> &FilesList) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
     std::string strPath = NFFileUtility::NormalizePath(strFishGroupPath);
@@ -153,7 +153,7 @@ int NFFishGroupMgr::GetAllGroupFiles(const string &strFishGroupPath, list<std::s
     return 0;
 }
 
-bool NFFishGroupMgr::IsSceneIndexExist(int32_t iSceceIndex)
+bool NFFishGroupConfig::IsSceneIndexExist(int32_t iSceceIndex)
 {
 	if (m_SceneIndexMap.find(iSceceIndex) != m_SceneIndexMap.end())
 	{
@@ -165,7 +165,7 @@ bool NFFishGroupMgr::IsSceneIndexExist(int32_t iSceceIndex)
 	}
 }
 
-int32_t* NFFishGroupMgr::InsertSceneIndex(int32_t iSceceIndex)
+int32_t* NFFishGroupConfig::InsertSceneIndex(int32_t iSceceIndex)
 {
     if (!m_SceneIndexMap.full())
     {
@@ -176,7 +176,7 @@ int32_t* NFFishGroupMgr::InsertSceneIndex(int32_t iSceceIndex)
 }
 
 
-CFishGroup* NFFishGroupMgr::GetFishGroup(int groupId)
+CFishGroup* NFFishGroupConfig::GetFishGroup(int groupId)
 {
     auto iter = m_FishGroupMap.find(groupId);
     if (iter != m_FishGroupMap.end())
@@ -187,7 +187,7 @@ CFishGroup* NFFishGroupMgr::GetFishGroup(int groupId)
     return NULL;
 }
 
-CFishGroup* NFFishGroupMgr::InsertFishGroup(int groupId)
+CFishGroup* NFFishGroupConfig::InsertFishGroup(int groupId)
 {
     if (!m_FishGroupMap.full())
     {
