@@ -60,7 +60,7 @@ void protobuf_AddDesc_ClientServerCmd_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\025ClientServerCmd.proto\022\010proto_ff\032\025yd_fi"
-    "eldoptions.proto*\350\024\n\017ClientServerCmd\022\017\n\n"
+    "eldoptions.proto*\245\025\n\017ClientServerCmd\022\017\n\n"
     "E_CS_ERROR\020\350\007\022 \n\033NF_CS_Msg_Get_Room_Info"
     "_Req\020\363\007\022 \n\033NF_SC_Msg_Get_Room_Info_Rsp\020\364"
     "\007\022&\n!NF_CS_MSG_EnterGame_AUTO_JOIN_Req\020\365"
@@ -126,8 +126,9 @@ void protobuf_AddDesc_ClientServerCmd_2eproto() {
     "_RSP\020\234\t\022\036\n\031NF_CS_BANK_GET_RECORD_REQ\020\235\t\022"
     "\036\n\031NF_SC_BANK_GET_RECORD_RSP\020\236\t\022\036\n\031NF_CS"
     "_GET_COMMON_RANK_REQ\020\260\t\022\036\n\031NF_CS_GET_COM"
-    "MON_RANK_RSP\020\261\t\022\032\n\025CLIENT_SERVER_MAX_CMD"
-    "\020\210\'", 2723);
+    "MON_RANK_RSP\020\261\t\022\034\n\027NF_CS_MSG_UserStatusR"
+    "eq\020\241N\022\034\n\027NF_SC_MSG_UserStatusRsp\020\242N\022\033\n\025C"
+    "LIENT_SERVER_MAX_CMD\020\240\234\001", 2784);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ClientServerCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ClientServerCmd_2eproto);
@@ -223,7 +224,9 @@ bool ClientServerCmd_IsValid(int value) {
     case 1199:
     case 1200:
     case 1201:
-    case 5000:
+    case 10017:
+    case 10018:
+    case 20000:
       return true;
     default:
       return false;

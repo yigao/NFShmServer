@@ -606,6 +606,11 @@ public:
             erase(iter, end());
         }
     }
+
+    std::vector<Tp> to_vector() const
+    {
+        return std::vector<Tp>(begin(), end());
+    }
 protected:
     int _M_insert_aux(iterator __position, const Tp &__x);
 

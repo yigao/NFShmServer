@@ -113,7 +113,9 @@ enum ClientServerCmd {
   NF_SC_BANK_GET_RECORD_RSP = 1182,
   NF_CS_GET_COMMON_RANK_REQ = 1200,
   NF_CS_GET_COMMON_RANK_RSP = 1201,
-  CLIENT_SERVER_MAX_CMD = 5000
+  NF_CS_MSG_UserStatusReq = 10017,
+  NF_SC_MSG_UserStatusRsp = 10018,
+  CLIENT_SERVER_MAX_CMD = 20000
 };
 bool ClientServerCmd_IsValid(int value);
 const ClientServerCmd ClientServerCmd_MIN = E_CS_ERROR;

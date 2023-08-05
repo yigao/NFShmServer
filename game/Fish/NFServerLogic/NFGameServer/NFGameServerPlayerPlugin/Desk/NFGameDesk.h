@@ -341,6 +341,18 @@ public:
 
     virtual int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId = 0);
 public:
+    /**
+     * @brief 处理游戏客户端协议
+     * @return
+     */
+    virtual int OnHandleClientMessage(uint64_t playerId, NFDataPackage &packet);
+
+    /**
+     * @brief 处理游戏服务器协议
+     * @return
+     */
+    virtual int OnHandleServerMessage(uint64_t playerId, NFDataPackage &packet);
+public:
     uint32_t m_gameId;
     uint32_t m_roomId;
     int32_t m_deskId;//start from 0

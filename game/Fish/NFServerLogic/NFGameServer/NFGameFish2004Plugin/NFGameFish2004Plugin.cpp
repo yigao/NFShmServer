@@ -11,6 +11,10 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFGameFish2004Module.h"
+#include "NFLogicCommon/NFIGameConfig.h"
+#include "NFLogicCommon/NFFishDefine.h"
+#include "NFFishTraceMgr.h"
+#include "NFFishGroupMgr.h"
 
 #define MAX_FISH_ROOM_DESK_COUNT 255
 #define MAX_GAME_FISH_ROBOT_COUNT 1000
@@ -55,5 +59,11 @@ void NFGameFish2004Plugin::Uninstall()
 
 bool NFGameFish2004Plugin::InitShmObjectRegister()
 {
+    auto pGameConfig = FindModule<NFIGameConfig>()->GetConfig();
+    NF_ASSERT(pGameConfig);
+
+    uint32_t roomNum = FindModule<NFIGameConfig>()->GetRoomNum(GAME_ID_FISH_HAIWANG_2004);
+    REGISTER_SHM_OBJ_WITH_HASH(NFFishTraceMgr, roomNum);
+    REGISTER_SHM_OBJ_WITH_HASH(NFFishGroupMgr, roomNum);
 	return true;
 }

@@ -11,21 +11,15 @@
 
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "ServerConfig_s.h"
+#include "NFLogicCommon/NFIGameConfig.h"
 
-class NFGameConfig : public NFShmObj
+class NFGameConfig : public NFIGameConfig
 {
 public:
-    NFGameConfig();
+    NFGameConfig(NFIPluginManager* pPluginManager);
 
     virtual ~NFGameConfig();
 
-    int CreateInit();
-
-    int ResumeInit();
 public:
     /**
      * @brief 加载Server/WorldServer.lua中的WolrdServer配置，
@@ -38,14 +32,25 @@ public:
      * @param luaMgr
      * @return
      */
-    int LoadConfig(NFILuaLoader luaMgr);
+    int LoadConfig();
 
     /**
      * @brief 获取配置
      * @return
      */
-    const proto_ff_s::GameExternalConfig_s *GetConfig() const;
+    virtual const proto_ff_s::GameExternalConfig_s *GetConfig() const;
+
+    virtual uint32_t GetRoomNum(uint32_t gameId) const;
+
+    virtual std::vector<uint32_t> GetRoomList(uint32_t gameId) const;
+
+    virtual uint32_t GetAllRoomNum() const;
+
+    virtual uint32_t GetRoomMaxDeskNum() const;
 private:
     proto_ff_s::GameExternalConfig_s m_config;
-DECLARE_IDCREATE(NFGameConfig)
+    /**
+     * @brief NFILuaModule
+     */
+    NFILuaLoader m_luaModule;
 };

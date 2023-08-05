@@ -15,35 +15,16 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGameConfig, EOT_NFGameConfig_ID, NFShmObj)
-
-NFGameConfig::NFGameConfig()
+NFGameConfig::NFGameConfig(NFIPluginManager *pPluginManager) : NFIGameConfig(pPluginManager)
 {
-    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
-    {
-        CreateInit();
-    }
-    else
-    {
-        ResumeInit();
-    }
+    LoadConfig();
 }
 
 NFGameConfig::~NFGameConfig()
 {
 }
 
-int NFGameConfig::CreateInit()
-{
-    return 0;
-}
-
-int NFGameConfig::ResumeInit()
-{
-    return 0;
-}
-
-int NFGameConfig::LoadConfig(NFILuaLoader luaMgr)
+int NFGameConfig::LoadConfig()
 {
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     CHECK_NULL(pConfig);
@@ -51,21 +32,21 @@ int NFGameConfig::LoadConfig(NFILuaLoader luaMgr)
     std::string path = m_pObjPluginManager->GetConfigPath() + "/Server";
     std::string server = "GameServer_" + NFCommon::tostr(NFServerIDUtil::GetInstID(pConfig->BusId));
 
-    luaMgr.TryAddPackagePath(path); //Add Search Path to Lua
+    m_luaModule.TryAddPackagePath(path); //Add Search Path to Lua
 
     std::list<std::string> fileList;
     NFFileUtility::GetFiles(path, fileList, true, "*.lua");
 
     for (auto it = fileList.begin(); it != fileList.end(); ++it)
     {
-        if (luaMgr.TryLoadScriptFile(*it) == false)
+        if (m_luaModule.TryLoadScriptFile(*it) == false)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Load {} Failed!", *it);
             assert(0);
         }
     }
 
-    NFLuaRef serverRef = luaMgr.GetGlobal(server);
+    NFLuaRef serverRef = m_luaModule.GetGlobal(server);
     if (!serverRef.isValid())
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find ({})", server);
@@ -92,4 +73,43 @@ int NFGameConfig::LoadConfig(NFILuaLoader luaMgr)
 const proto_ff_s::GameExternalConfig_s *NFGameConfig::GetConfig() const
 {
     return &m_config;
+}
+
+uint32_t NFGameConfig::GetRoomNum(uint32_t gameId) const
+{
+    for (int i = 0; i < (int) m_config.Game.size(); i++)
+    {
+        if (m_config.Game[i].GameId == gameId)
+        {
+            return m_config.Game[i].RoomId.size();
+        }
+    }
+    return 0;
+}
+
+std::vector<uint32_t> NFGameConfig::GetRoomList(uint32_t gameId) const
+{
+    for (int i = 0; i < (int) m_config.Game.size(); i++)
+    {
+        if (m_config.Game[i].GameId == gameId)
+        {
+            return m_config.Game[i].RoomId.to_vector();
+        }
+    }
+    return std::vector<uint32_t>();
+}
+
+uint32_t NFGameConfig::GetAllRoomNum() const
+{
+    uint32_t num = 0;
+    for (int i = 0; i < (int) m_config.Game.size(); i++)
+    {
+        num += m_config.Game[i].RoomId.size();
+    }
+    return num;
+}
+
+uint32_t NFGameConfig::GetRoomMaxDeskNum() const
+{
+    return m_config.MaxDeskNunOneRoom;
 }

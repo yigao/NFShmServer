@@ -985,3 +985,19 @@ int NFGameDesk::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Mess
     FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId, xData, playerId);
     return 0;
 }
+
+int NFGameDesk::OnHandleClientMessage(uint64_t playerId, NFDataPackage &packet)
+{
+    if (m_deskHandle) {
+        return m_deskHandle->OnHandleClientMessage(playerId, packet);
+    }
+    return -1;
+}
+
+int NFGameDesk::OnHandleServerMessage(uint64_t playerId, NFDataPackage &packet)
+{
+    if (m_deskHandle) {
+        return m_deskHandle->OnHandleServerMessage(playerId, packet);
+    }
+    return -1;
+}

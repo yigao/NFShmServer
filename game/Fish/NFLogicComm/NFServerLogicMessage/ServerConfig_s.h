@@ -53,6 +53,7 @@ namespace proto_ff_s {
 		int CreateInit();
 		int ResumeInit();
 		NFShmVector<struct GameExternalGame_s, DEFINE_GAMEEXTERNALCONFIG_GAME_MAX_NUM> Game;
+		uint32_t MaxDeskNunOneRoom;
 
 		virtual void write_to_pbmsg(::proto_ff::GameExternalConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GameExternalConfig & msg);

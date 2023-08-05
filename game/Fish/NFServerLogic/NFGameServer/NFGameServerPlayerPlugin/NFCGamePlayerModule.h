@@ -69,8 +69,5 @@ public:
      */
     int OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 private:
-    /**
-     * @brief NFILuaModule
-     */
-    NFILuaLoader m_luaModule;
+
 };

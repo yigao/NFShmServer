@@ -209,7 +209,7 @@ int NFGameRoomMgr::CreateAllRoom()
 {
     if (m_inited) return 0;
 
-    auto pGameConfig = NFGameConfig::Instance(m_pObjPluginManager)->GetConfig();
+    auto pGameConfig = FindModule<NFIGameConfig>()->GetConfig();
     CHECK_NULL(pGameConfig);
 
     for(int i = 0; i < (int)pGameConfig->Game.size(); i++)
@@ -246,7 +246,7 @@ int NFGameRoomMgr::RegisterAllRoomToWorldServer()
     proto_ff::Proto_GTW_RegisterRoomInfoReq req;
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     NF_ASSERT(pConfig);
-    auto pGameConfig = NFGameConfig::Instance(m_pObjPluginManager)->GetConfig();
+    auto pGameConfig = FindModule<NFIGameConfig>()->GetConfig();
     CHECK_NULL(pGameConfig);
 
     req.set_bus_id(pConfig->GetBusId());

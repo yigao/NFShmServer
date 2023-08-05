@@ -77,8 +77,9 @@ void protobuf_AssignDesc_ServerConfig_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GameExternalGame));
   GameExternalConfig_descriptor_ = file->message_type(2);
-  static const int GameExternalConfig_offsets_[1] = {
+  static const int GameExternalConfig_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameExternalConfig, game_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameExternalConfig, maxdesknunoneroom_),
   };
   GameExternalConfig_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -137,11 +138,11 @@ void protobuf_AddDesc_ServerConfig_2eproto() {
     "\002 \001(\010\022\026\n\016MaxRegisterNum\030\003 \001(\r\022\027\n\tWhiteLi"
     "st\030\004 \003(\004B\004\210\301\024d\022\025\n\rStartQueueNum\030\006 \001(\r\022\023\n"
     "\013MaxQueueNum\030\007 \001(\r\"8\n\020GameExternalGame\022\016"
-    "\n\006GameId\030\001 \001(\r\022\024\n\006RoomId\030\002 \003(\rB\004\210\301\024\n\"D\n\022"
+    "\n\006GameId\030\001 \001(\r\022\024\n\006RoomId\030\002 \003(\rB\004\210\301\024\n\"_\n\022"
     "GameExternalConfig\022.\n\004Game\030\001 \003(\0132\032.proto"
-    "_ff.GameExternalGameB\004\210\301\024\n*5\n\007TableID\022\020\n"
-    "\014E_TABLE_NONE\020\000\022\030\n\024E_TABLE_ROLE_DB_DATA\020"
-    "\001", 401);
+    "_ff.GameExternalGameB\004\210\301\024\n\022\031\n\021MaxDeskNun"
+    "OneRoom\030\002 \001(\r*5\n\007TableID\022\020\n\014E_TABLE_NONE"
+    "\020\000\022\030\n\024E_TABLE_ROLE_DB_DATA\020\001", 428);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerConfig.proto", &protobuf_RegisterTypes);
   WorldExternalConfig::default_instance_ = new WorldExternalConfig();
@@ -846,6 +847,7 @@ void GameExternalGame::Swap(GameExternalGame* other) {
 
 #ifndef _MSC_VER
 const int GameExternalConfig::kGameFieldNumber;
+const int GameExternalConfig::kMaxDeskNunOneRoomFieldNumber;
 #endif  // !_MSC_VER
 
 GameExternalConfig::GameExternalConfig()
@@ -864,6 +866,7 @@ GameExternalConfig::GameExternalConfig(const GameExternalConfig& from)
 
 void GameExternalConfig::SharedCtor() {
   _cached_size_ = 0;
+  maxdesknunoneroom_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -898,6 +901,9 @@ GameExternalConfig* GameExternalConfig::New() const {
 }
 
 void GameExternalConfig::Clear() {
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    maxdesknunoneroom_ = 0u;
+  }
   game_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -920,6 +926,22 @@ bool GameExternalConfig::MergePartialFromCodedStream(
           goto handle_uninterpreted;
         }
         if (input->ExpectTag(10)) goto parse_Game;
+        if (input->ExpectTag(16)) goto parse_MaxDeskNunOneRoom;
+        break;
+      }
+
+      // optional uint32 MaxDeskNunOneRoom = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_MaxDeskNunOneRoom:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &maxdesknunoneroom_)));
+          set_has_maxdesknunoneroom();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -948,6 +970,11 @@ void GameExternalConfig::SerializeWithCachedSizes(
       1, this->game(i), output);
   }
 
+  // optional uint32 MaxDeskNunOneRoom = 2;
+  if (has_maxdesknunoneroom()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->maxdesknunoneroom(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -963,6 +990,11 @@ void GameExternalConfig::SerializeWithCachedSizes(
         1, this->game(i), target);
   }
 
+  // optional uint32 MaxDeskNunOneRoom = 2;
+  if (has_maxdesknunoneroom()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->maxdesknunoneroom(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -973,6 +1005,15 @@ void GameExternalConfig::SerializeWithCachedSizes(
 int GameExternalConfig::ByteSize() const {
   int total_size = 0;
 
+  if (_has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    // optional uint32 MaxDeskNunOneRoom = 2;
+    if (has_maxdesknunoneroom()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->maxdesknunoneroom());
+    }
+
+  }
   // repeated .proto_ff.GameExternalGame Game = 1;
   total_size += 1 * this->game_size();
   for (int i = 0; i < this->game_size(); i++) {
@@ -1007,6 +1048,11 @@ void GameExternalConfig::MergeFrom(const ::google::protobuf::Message& from) {
 void GameExternalConfig::MergeFrom(const GameExternalConfig& from) {
   GOOGLE_CHECK_NE(&from, this);
   game_.MergeFrom(from.game_);
+  if (from._has_bits_[1 / 32] & (0xffu << (1 % 32))) {
+    if (from.has_maxdesknunoneroom()) {
+      set_maxdesknunoneroom(from.maxdesknunoneroom());
+    }
+  }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
@@ -1030,6 +1076,7 @@ bool GameExternalConfig::IsInitialized() const {
 void GameExternalConfig::Swap(GameExternalConfig* other) {
   if (other != this) {
     game_.Swap(&other->game_);
+    std::swap(maxdesknunoneroom_, other->maxdesknunoneroom_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

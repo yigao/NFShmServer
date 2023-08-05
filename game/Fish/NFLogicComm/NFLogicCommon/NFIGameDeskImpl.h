@@ -150,7 +150,17 @@ public:
      */
     virtual int ChangeJiangChi(int64_t jiangchi) = 0;
 public:
+    /**
+     * @brief 处理游戏客户端协议
+     * @return
+     */
+    virtual int OnHandleClientMessage(uint64_t playerId, NFDataPackage &packet) = 0;
 
+    /**
+     * @brief 处理游戏服务器协议
+     * @return
+     */
+    virtual int OnHandleServerMessage(uint64_t playerId, NFDataPackage &packet) = 0;
 protected:
     uint32_t m_gameId;
     uint32_t m_roomId;

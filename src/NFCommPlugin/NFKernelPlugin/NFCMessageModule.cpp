@@ -283,7 +283,7 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nMsgID
     {
         CHECK_EXPR_ASSERT(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
         CHECK_EXPR(!mxCallBack[eType].mxReceiveCallBack[0][nMsgID].m_pFunctor, false,
-                   "eType:{} nModuleId:{} nMsgID:{} Exist, AddMessageCallBack Failed..........", eType, 0, nMsgID);
+                   "eType:{} nModuleId:{} nMsgID:{} Exist, RegisterClientMessage Failed..........", eType, 0, nMsgID);
         mxCallBack[eType].mxReceiveCallBack[0][nMsgID] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }
@@ -298,7 +298,7 @@ bool NFCMessageModule::AddMessageCallBack(NF_SERVER_TYPES eType, uint32_t nModul
         CHECK_EXPR(nModuleId < NF_MODULE_MAX, false, "nModuleId:{} >= NF_MODULE_MAX", nModuleId);
         CHECK_EXPR(nMsgID < NF_NET_MAX_MSG_ID, false, "nMsgID:{} >= NF_NET_MAX_MSG_ID", nMsgID);
         CHECK_EXPR(!mxCallBack[eType].mxReceiveCallBack[nModuleId][nMsgID].m_pFunctor, false,
-                   "eType:{} nModuleId:{} nMsgID:{} Exist, AddMessageCallBack Failed..........", eType, nModuleId, nMsgID);
+                   "eType:{} nModuleId:{} nMsgID:{} Exist, RegisterClientMessage Failed..........", eType, nModuleId, nMsgID);
         mxCallBack[eType].mxReceiveCallBack[nModuleId][nMsgID] = NetReceiveFunctor(pTarget, cb, createCo);
         return true;
     }

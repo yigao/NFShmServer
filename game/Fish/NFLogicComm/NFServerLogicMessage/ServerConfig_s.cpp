@@ -89,6 +89,7 @@ GameExternalConfig_s::GameExternalConfig_s() {
 }
 
 int GameExternalConfig_s::CreateInit() {
+	MaxDeskNunOneRoom = (uint32_t)0;
 	return 0;
 }
 
@@ -101,6 +102,7 @@ void GameExternalConfig_s::write_to_pbmsg(::proto_ff::GameExternalConfig & msg) 
 		::proto_ff::GameExternalGame* temp_game = msg.add_game();
 		Game[i].write_to_pbmsg(*temp_game);
 	}
+	msg.set_maxdesknunoneroom((uint32_t)MaxDeskNunOneRoom);
 }
 
 void GameExternalConfig_s::read_from_pbmsg(const ::proto_ff::GameExternalConfig & msg) {
@@ -110,6 +112,7 @@ void GameExternalConfig_s::read_from_pbmsg(const ::proto_ff::GameExternalConfig 
 		const ::proto_ff::GameExternalGame & temp_game = msg.game(i);
 		Game[i].read_from_pbmsg(temp_game);
 	}
+	MaxDeskNunOneRoom = msg.maxdesknunoneroom();
 }
 
 }

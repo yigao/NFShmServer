@@ -55,13 +55,14 @@ void NFFishGamePlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCGamePlayerModule, NFCGamePlayerModule);
     REGISTER_MODULE(m_pObjPluginManager, NFIGameRoomModule, NFCGameRoomModule);
-
+    REGISTER_MODULE(m_pObjPluginManager, NFIGameConfig, NFGameConfig);
 }
 
 void NFFishGamePlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCGamePlayerModule, NFCGamePlayerModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIGameRoomModule, NFCGameRoomModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIGameConfig, NFGameConfig);
 }
 
 bool NFFishGamePlayerPlugin::InitShmObjectRegister()
@@ -69,20 +70,20 @@ bool NFFishGamePlayerPlugin::InitShmObjectRegister()
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     NF_ASSERT(pConfig);
 
+    uint32_t allRoomNum = FindModule<NFIGameConfig>()->GetAllRoomNum();
+    uint32_t allDeskNUm = allRoomNum * FindModule<NFIGameConfig>()->GetRoomMaxDeskNum();
+
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum();
-    uint32_t maxRoomNum = MAX_ROOM_ROOM_NUM;
-    uint32_t maxDescCount = MAX_ROOM_ROOM_NUM * MAX_ONE_ROOM_DESK_NUM;
     ////////init player shm///////////////////
     REGISTER_SHM_OBJ_WITH_HASH(NFGamePlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFGamePlayerMgr);
-    REGISTER_SINGLETON_SHM_OBJ(NFGameConfig);
 
     ///////init game room shm///////////////////
-    REGISTER_SHM_OBJ_WITH_HASH(NFGameRoom, maxRoomNum);
+    REGISTER_SHM_OBJ_WITH_HASH(NFGameRoom, allRoomNum);
     REGISTER_SINGLETON_SHM_OBJ(NFGameRoomMgr);
 
     ////////init game desk shm///////////////////
-    REGISTER_SHM_OBJ(NFGameDesk, maxDescCount);
+    REGISTER_SHM_OBJ(NFGameDesk, allDeskNUm);
 
     return true;
 }

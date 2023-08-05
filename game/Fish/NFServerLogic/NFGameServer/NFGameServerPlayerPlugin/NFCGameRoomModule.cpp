@@ -298,3 +298,48 @@ NFIGameDeskImpl* NFCGameRoomModule::CreateDesk(uint32_t gameId)
 
     return NULL;
 }
+
+bool NFCGameRoomModule::RegisterClientMessage(uint32_t msgId)
+{
+    return FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, NF_MODULE_CLIENT, msgId, this,
+                                                              &NFCGameRoomModule::OnHandleRoomClientMessage);
+}
+
+bool NFCGameRoomModule::RegisterServerMessage(uint32_t msgId)
+{
+    return FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_GAME_SERVER, msgId, this,
+                                                              &NFCGameRoomModule::OnHandleRoomServerMessage);
+}
+
+int NFCGameRoomModule::OnHandleRoomClientMessage(uint64_t unLinkId, NFDataPackage &packet)
+{
+    uint64_t playerId = packet.GetParam1();
+
+    NFGamePlayer* pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_PLAYER_EXPR(playerId, pPlayer, -1, "Get Player Failed, playerId:{}", playerId);
+
+    pPlayer->SetLastMsgTime(NFTime::Now().UnixSec());
+
+    NFGameRoom* pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
+    CHECK_PLAYER_EXPR(playerId, pRoom, -1, "Get Player Game Room Failed, playerId:{}, gameId:{}, roomId:{}", playerId, pPlayer->m_gameId, pPlayer->m_roomId);
+
+    pRoom->OnHandleClientMessage(pPlayer->m_deskId, pPlayer->m_playerId, packet);
+    return 0;
+}
+
+int NFCGameRoomModule::OnHandleRoomServerMessage(uint64_t unLinkId, NFDataPackage &packet)
+{
+    uint64_t playerId = packet.GetParam1();
+
+    NFGamePlayer* pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_PLAYER_EXPR(playerId, pPlayer, -1, "Get Player Failed, playerId:{}", playerId);
+
+    pPlayer->SetLastMsgTime(NFTime::Now().UnixSec());
+
+    NFGameRoom* pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
+    CHECK_PLAYER_EXPR(playerId, pRoom, -1, "Get Player Game Room Failed, playerId:{}, gameId:{}, roomId:{}", playerId, pPlayer->m_gameId, pPlayer->m_roomId);
+
+    pRoom->OnHandleServerMessage(pPlayer->m_deskId, pPlayer->m_playerId, packet);
+    return 0;
+}
+

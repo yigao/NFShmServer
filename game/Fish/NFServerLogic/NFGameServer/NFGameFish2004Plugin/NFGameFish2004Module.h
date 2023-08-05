@@ -12,8 +12,9 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFLogicCommon/NFFishDynamicModule.h"
+#include "NFLogicCommon/NFISubGameModule.h"
 
-class NFGameFish2004Module : public NFFishDynamicModule
+class NFGameFish2004Module : public NFISubGameModule
 {
 public:
     explicit NFGameFish2004Module(NFIPluginManager *p);
@@ -21,4 +22,6 @@ public:
     virtual ~NFGameFish2004Module();
 
     virtual bool Awake() override;
+
+    virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
 };

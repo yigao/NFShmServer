@@ -26,8 +26,6 @@ NFCGamePlayerModule::~NFCGamePlayerModule()
 
 bool NFCGamePlayerModule::Awake()
 {
-    NFGameConfig::Instance(m_pObjPluginManager)->LoadConfig(m_luaModule);
-
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     NF_ASSERT(pConfig);
 

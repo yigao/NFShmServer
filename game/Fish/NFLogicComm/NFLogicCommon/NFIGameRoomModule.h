@@ -42,4 +42,17 @@ public:
      * @return
      */
     virtual NFIGameDeskImpl* CreateDesk(uint32_t gameId) = 0;
+
+    /**
+     * @brief 游戏注册客户端协议
+     * @return
+     */
+    virtual bool RegisterClientMessage(uint32_t msgId) = 0;
+
+    /**
+     * @brief 游戏注册服务器协议
+     * @param msgId
+     * @return
+     */
+    virtual bool RegisterServerMessage(uint32_t msgId) = 0;
 };

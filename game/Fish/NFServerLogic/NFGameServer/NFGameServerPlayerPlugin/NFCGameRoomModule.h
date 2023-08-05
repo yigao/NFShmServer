@@ -81,6 +81,31 @@ public:
      * @return
      */
     virtual NFIGameDeskImpl* CreateDesk(uint32_t gameId);
+public:
+    /**
+     * @brief 游戏注册客户端协议
+     * @return
+     */
+    virtual bool RegisterClientMessage(uint32_t msgId);
+
+    /**
+     * @brief 游戏注册服务器协议
+     * @param msgId
+     * @return
+     */
+    virtual bool RegisterServerMessage(uint32_t msgId);
+
+    /**
+     * @brief 处理游戏客户端协议
+     * @return
+     */
+    virtual int OnHandleRoomClientMessage(uint64_t unLinkId, NFDataPackage &packet);
+
+    /**
+     * @brief 处理游戏服务器协议
+     * @return
+     */
+    virtual int OnHandleRoomServerMessage(uint64_t unLinkId, NFDataPackage &packet);
 private:
     std::unordered_map<uint32_t, CreateDeskFunction> m_deskCreateMap;
 };

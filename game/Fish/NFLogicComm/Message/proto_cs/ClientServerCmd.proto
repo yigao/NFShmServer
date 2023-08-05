@@ -128,5 +128,8 @@ enum ClientServerCmd
   NF_CS_GET_COMMON_RANK_RSP	  = 1201;
   ////////////////////////////////rank///////////////////////////////////////////////
 
-  CLIENT_SERVER_MAX_CMD = 5000;	//最大协议ID
+  NF_CS_MSG_UserStatusReq    = 10017;
+  NF_SC_MSG_UserStatusRsp    = 10018;
+
+  CLIENT_SERVER_MAX_CMD = 20000;	//最大协议ID
 };

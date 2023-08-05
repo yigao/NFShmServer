@@ -151,15 +151,12 @@ int NFCAppInited::CheckTaskFinished()
                         break;
                     }
                 }
-            }
-        }
 
-        for(int i = 1; i < (int)NF_ST_MAX; i++)
-        {
-            if (m_serverConnectTasks[i].first)
-            {
-                proto_ff::NFEventNoneData event;
-                FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                if (i > 0 && m_serverConnectTasks[i].first)
+                {
+                    proto_ff::NFEventNoneData event;
+                    FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                }
             }
         }
 
@@ -190,15 +187,12 @@ int NFCAppInited::CheckTaskFinished()
                         break;
                     }
                 }
-            }
-        }
 
-        for(int i = 1; i < (int)NF_ST_MAX; i++)
-        {
-            if (m_serverLoadDestStore[i].first)
-            {
-                proto_ff::NFEventNoneData event;
-                FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                if (i > 0 && m_serverLoadDestStore[i].first)
+                {
+                    proto_ff::NFEventNoneData event;
+                    FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                }
             }
         }
 
@@ -227,15 +221,12 @@ int NFCAppInited::CheckTaskFinished()
                         break;
                     }
                 }
-            }
-        }
 
-        for(int i = 1; i < (int)NF_ST_MAX; i++)
-        {
-            if (m_appObjLoadFromDBTask[i].first)
-            {
-                proto_ff::NFEventNoneData event;
-                FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_OBJ_LOAD_FROM_DB, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                if (i > 0 && m_appObjLoadFromDBTask[i].first)
+                {
+                    proto_ff::NFEventNoneData event;
+                    FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_OBJ_LOAD_FROM_DB, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                }
             }
         }
 
@@ -264,16 +255,12 @@ int NFCAppInited::CheckTaskFinished()
                         break;
                     }
                 }
-            }
 
-        }
-
-        for(int i = 1; i < (int)NF_ST_MAX; i++)
-        {
-            if (m_serverRegisterTask[i].first)
-            {
-                proto_ff::NFEventNoneData event;
-                FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                if (i > 0 && m_serverRegisterTask[i].first)
+                {
+                    proto_ff::NFEventNoneData event;
+                    FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                }
             }
         }
 

@@ -14,6 +14,7 @@
 #include "Player/NFGamePlayerMgr.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "DescStoreEx/GameRoomDescEx.h"
+#include "NFLogicCommon/NFIGameConfig.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGameRoom, EOT_NFGameRoom_ID, NFShmObj)
 
@@ -71,6 +72,7 @@ int NFGameRoom::Init(uint32_t gameId, const std::string &gameName, uint32_t room
 
 int NFGameRoom::InitDesks(uint32_t deskCount, uint32_t sitNum, uint32_t maxUserNum)
 {
+    deskCount = std::min(FindModule<NFIGameConfig>()->GetRoomMaxDeskNum(), std::min(deskCount, (uint32_t)MAX_ONE_ROOM_DESK_NUM));
     CHECK_EXPR(deskCount > 0 && deskCount <= MAX_ONE_ROOM_DESK_NUM && sitNum > 0 && maxUserNum >= sitNum && sitNum <= MAX_GAME_DESK_CHAIR_NUM, -1, "param error, deskCount:{} sitNum:{} maxUserNum:{}",
                deskCount, sitNum, maxUserNum);
 
@@ -549,4 +551,24 @@ int NFGameRoom::UserDisconnect(uint64_t playerId, int iDeskId)
     CHECK_EXPR(pDesk, -1, "GetGameDesk Failed : iDeskId ={}", iDeskId);
 
     return pDesk->ExitGame(playerId, true);
+}
+
+int NFGameRoom::OnHandleClientMessage(uint32_t deskId, uint64_t playerId, NFDataPackage &packet)
+{
+    CHECK_EXPR(deskId >= 0 && (int)deskId < GetDeskCount(), -1, "deskId error, deskId:{} msg:{}", deskId, packet.nMsgId);
+
+    NFGameDesk* pGameDesk = GetGameDesk(deskId);
+    CHECK_EXPR(pGameDesk, -1, "GetGameDesk failed!, deskId:{}", deskId);
+
+    return pGameDesk->OnHandleClientMessage(playerId, packet);
+}
+
+int NFGameRoom::OnHandleServerMessage(uint32_t deskId, uint64_t playerId, NFDataPackage &packet)
+{
+    CHECK_EXPR(deskId >= 0 && (int)deskId < GetDeskCount(), -1, "deskId error, deskId:{} msg:{}", deskId, packet.nMsgId);
+
+    NFGameDesk* pGameDesk = GetGameDesk(deskId);
+    CHECK_EXPR(pGameDesk, -1, "GetGameDesk failed!, deskId:{}", deskId);
+
+    return pGameDesk->OnHandleServerMessage(playerId, packet);
 }

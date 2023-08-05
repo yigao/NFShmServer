@@ -356,15 +356,25 @@ class GameExternalConfig : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >*
       mutable_game();
 
+  // optional uint32 MaxDeskNunOneRoom = 2;
+  inline bool has_maxdesknunoneroom() const;
+  inline void clear_maxdesknunoneroom();
+  static const int kMaxDeskNunOneRoomFieldNumber = 2;
+  inline ::google::protobuf::uint32 maxdesknunoneroom() const;
+  inline void set_maxdesknunoneroom(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.GameExternalConfig)
  private:
+  inline void set_has_maxdesknunoneroom();
+  inline void clear_has_maxdesknunoneroom();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame > game_;
+  ::google::protobuf::uint32 maxdesknunoneroom_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerConfig_2eproto();
   friend void protobuf_AssignDesc_ServerConfig_2eproto();
@@ -593,6 +603,28 @@ GameExternalConfig::game() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::GameExternalGame >*
 GameExternalConfig::mutable_game() {
   return &game_;
+}
+
+// optional uint32 MaxDeskNunOneRoom = 2;
+inline bool GameExternalConfig::has_maxdesknunoneroom() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void GameExternalConfig::set_has_maxdesknunoneroom() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void GameExternalConfig::clear_has_maxdesknunoneroom() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void GameExternalConfig::clear_maxdesknunoneroom() {
+  maxdesknunoneroom_ = 0u;
+  clear_has_maxdesknunoneroom();
+}
+inline ::google::protobuf::uint32 GameExternalConfig::maxdesknunoneroom() const {
+  return maxdesknunoneroom_;
+}
+inline void GameExternalConfig::set_maxdesknunoneroom(::google::protobuf::uint32 value) {
+  set_has_maxdesknunoneroom();
+  maxdesknunoneroom_ = value;
 }
 
 

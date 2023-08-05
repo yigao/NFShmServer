@@ -245,6 +245,18 @@ public:
      */
     int UserDisconnect(uint64_t playerId, int iDeskId);
 public:
+    /**
+     * @brief 处理游戏客户端协议
+     * @return
+     */
+    virtual int OnHandleClientMessage(uint32_t deskId, uint64_t playerId, NFDataPackage &packet);
+
+    /**
+     * @brief 处理游戏服务器协议
+     * @return
+     */
+    virtual int OnHandleServerMessage(uint32_t deskId, uint64_t playerId, NFDataPackage &packet);
+public:
     uint32_t m_gameId;
     uint32_t m_roomId;
     NFCommonStr m_gameName;
