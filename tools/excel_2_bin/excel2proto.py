@@ -360,7 +360,7 @@ def write_sheet_proto(proto_file, excel_name, sheet_name, sheet, sheet_col_info,
 	proto_file.write("}\n");
 
 
-def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register_file, excel_file, out_path):
+def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register_file, desc_store_head_file_string, desc_store_define_file_string, desc_store_register_file_string, excel_file, out_path):
 	"""
 	excel_file：文件名
 	excel_sheetname：文件sheet名
@@ -697,15 +697,18 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			desc_store_head_file.write("#include \"DescStore/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h\"\n")
+			if desc_store_head_file_string.find(excel_file_name.capitalize() + sheet.name.capitalize()) == -1:
+				desc_store_head_file.write("#include \"DescStore/" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc.h\"\n")
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			desc_store_define_file.write("EOT_CONST_" + excel_file_name.upper() + "_" + sheet.name.upper() + "_DESC_ID,\\\n")
+			if desc_store_define_file_string.find(excel_file_name.upper() + "_" + sheet.name.upper()) == -1:
+				desc_store_define_file.write("EOT_CONST_" + excel_file_name.upper() + "_" + sheet.name.upper() + "_DESC_ID,\\\n")
 
 	for sheet in excel_fd.sheets():
 		if 0 != cmp(sheet.name, "main") and 0 != cmp(sheet.name, "list") and sheet_map.has_key(sheet.name) and no_need_sheet.has_key(sheet.name) == False:
-			desc_store_register_file.write("REGISTER_DESCSTORE(" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc);\\\n")
+			if desc_store_register_file_string.find(excel_file_name.capitalize() + sheet.name.capitalize()) == -1:
+				desc_store_register_file.write("REGISTER_DESCSTORE(" + excel_file_name.capitalize() + sheet.name.capitalize() + "Desc);\\\n")
 
 	proto_file.close()
 	makefile_file.close()
@@ -753,17 +756,20 @@ if __name__ == "__main__":
 	desc_store_head_file_name = out_path + "NFDescStoreHead.h"
 	desc_store_head_file_has = os.path.exists(desc_store_head_file_name)
 
-	desc_store_head_file = open(desc_store_head_file_name, 'a')
+	desc_store_head_file = open(desc_store_head_file_name, 'a+')
+	desc_store_head_file_string = desc_store_head_file.read()
 
 	desc_store_define_file_name = out_path + "NFDescStoreDefine.h"
 	desc_store_define_file_has = os.path.exists(desc_store_define_file_name)
 
-	desc_store_define_file = open(desc_store_define_file_name, 'a')
+	desc_store_define_file = open(desc_store_define_file_name, 'a+')
+	desc_store_define_file_string = desc_store_define_file.read()
 
 	desc_store_register_file_name = out_path + "NFDescStoreRegister.h"
 	desc_store_register_file_has = os.path.exists(desc_store_register_file_name)
 
-	desc_store_register_file = open(desc_store_register_file_name, 'a')
+	desc_store_register_file = open(desc_store_register_file_name, 'a+')
+	desc_store_register_file_string = desc_store_register_file.read()
 
 	if not desc_store_head_file_has:
 		desc_store_head_file.write("#pragma once\n\n");
@@ -773,7 +779,7 @@ if __name__ == "__main__":
 		desc_store_register_file.write("#define EOT_DESC_STORE_ALL_REGISTER_DEFINE \\\n");
 
 	for excel_file in excel_files:
-		read_excel(desc_store_head_file, desc_store_define_file, desc_store_register_file, excel_file, out_path)
+		read_excel(desc_store_head_file, desc_store_define_file, desc_store_register_file, desc_store_head_file_string, desc_store_define_file_string, desc_store_register_file_string, excel_file, out_path)
 
 	desc_store_head_file.close()
 	desc_store_define_file.close()
