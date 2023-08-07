@@ -18,6 +18,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_id;
 		int32_t m_value;
+		int32_t m_gameid;
 		int32_t m_roomid;
 		int32_t m_gunid;
 

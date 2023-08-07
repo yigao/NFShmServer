@@ -37,9 +37,10 @@ void protobuf_AssignDesc_GunValue_2eproto() {
       "GunValue.proto");
   GOOGLE_CHECK(file != NULL);
   E_GunvalueConfig_descriptor_ = file->message_type(0);
-  static const int E_GunvalueConfig_offsets_[4] = {
+  static const int E_GunvalueConfig_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GunvalueConfig, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GunvalueConfig, m_value_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GunvalueConfig, m_gameid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GunvalueConfig, m_roomid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_GunvalueConfig, m_gunid_),
   };
@@ -105,12 +106,13 @@ void protobuf_AddDesc_GunValue_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\016GunValue.proto\022\010proto_ff\032\025yd_fieldopti"
-    "ons.proto\"\204\001\n\020E_GunvalueConfig\022\032\n\004m_id\030\001"
+    "ons.proto\"\244\001\n\020E_GunvalueConfig\022\032\n\004m_id\030\001"
     " \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024"
-    "\003\345\200\274\022\036\n\010m_roomid\030\003 \001(\005B\014\302\377\024\010\346\210\277\351\227\264ID\022\032\n\007"
-    "m_gunid\030\004 \001(\005B\t\302\377\024\005\347\202\256Id\"W\n\024Sheet_Gunval"
-    "ueConfig\022\?\n\025E_GunvalueConfig_List\030\001 \003(\0132"
-    "\032.proto_ff.E_GunvalueConfigB\004\210\301\024d", 273);
+    "\003\345\200\274\022\036\n\010m_gameid\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217Id\022\036\n\010"
+    "m_roomid\030\004 \001(\005B\014\302\377\024\010\346\210\277\351\227\264ID\022\032\n\007m_gunid\030"
+    "\005 \001(\005B\t\302\377\024\005\347\202\256Id\"W\n\024Sheet_GunvalueConfig"
+    "\022\?\n\025E_GunvalueConfig_List\030\001 \003(\0132\032.proto_"
+    "ff.E_GunvalueConfigB\004\210\301\024d", 305);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "GunValue.proto", &protobuf_RegisterTypes);
   E_GunvalueConfig::default_instance_ = new E_GunvalueConfig();
@@ -132,6 +134,7 @@ struct StaticDescriptorInitializer_GunValue_2eproto {
 #ifndef _MSC_VER
 const int E_GunvalueConfig::kMIdFieldNumber;
 const int E_GunvalueConfig::kMValueFieldNumber;
+const int E_GunvalueConfig::kMGameidFieldNumber;
 const int E_GunvalueConfig::kMRoomidFieldNumber;
 const int E_GunvalueConfig::kMGunidFieldNumber;
 #endif  // !_MSC_VER
@@ -154,6 +157,7 @@ void E_GunvalueConfig::SharedCtor() {
   _cached_size_ = 0;
   m_id_ = 0;
   m_value_ = 0;
+  m_gameid_ = 0;
   m_roomid_ = 0;
   m_gunid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -193,6 +197,7 @@ void E_GunvalueConfig::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     m_id_ = 0;
     m_value_ = 0;
+    m_gameid_ = 0;
     m_roomid_ = 0;
     m_gunid_ = 0;
   }
@@ -233,12 +238,28 @@ bool E_GunvalueConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(24)) goto parse_m_roomid;
+        if (input->ExpectTag(24)) goto parse_m_gameid;
         break;
       }
 
-      // optional int32 m_roomid = 3;
+      // optional int32 m_gameid = 3;
       case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_gameid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_gameid_)));
+          set_has_m_gameid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_m_roomid;
+        break;
+      }
+
+      // optional int32 m_roomid = 4;
+      case 4: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_roomid:
@@ -249,12 +270,12 @@ bool E_GunvalueConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(32)) goto parse_m_gunid;
+        if (input->ExpectTag(40)) goto parse_m_gunid;
         break;
       }
 
-      // optional int32 m_gunid = 4;
-      case 4: {
+      // optional int32 m_gunid = 5;
+      case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
          parse_m_gunid:
@@ -297,14 +318,19 @@ void E_GunvalueConfig::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_value(), output);
   }
 
-  // optional int32 m_roomid = 3;
-  if (has_m_roomid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_roomid(), output);
+  // optional int32 m_gameid = 3;
+  if (has_m_gameid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(3, this->m_gameid(), output);
   }
 
-  // optional int32 m_gunid = 4;
+  // optional int32 m_roomid = 4;
+  if (has_m_roomid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_roomid(), output);
+  }
+
+  // optional int32 m_gunid = 5;
   if (has_m_gunid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->m_gunid(), output);
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_gunid(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -325,14 +351,19 @@ void E_GunvalueConfig::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_value(), target);
   }
 
-  // optional int32 m_roomid = 3;
-  if (has_m_roomid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_roomid(), target);
+  // optional int32 m_gameid = 3;
+  if (has_m_gameid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(3, this->m_gameid(), target);
   }
 
-  // optional int32 m_gunid = 4;
+  // optional int32 m_roomid = 4;
+  if (has_m_roomid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_roomid(), target);
+  }
+
+  // optional int32 m_gunid = 5;
   if (has_m_gunid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->m_gunid(), target);
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_gunid(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -360,14 +391,21 @@ int E_GunvalueConfig::ByteSize() const {
           this->m_value());
     }
 
-    // optional int32 m_roomid = 3;
+    // optional int32 m_gameid = 3;
+    if (has_m_gameid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_gameid());
+    }
+
+    // optional int32 m_roomid = 4;
     if (has_m_roomid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
           this->m_roomid());
     }
 
-    // optional int32 m_gunid = 4;
+    // optional int32 m_gunid = 5;
     if (has_m_gunid()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
@@ -407,6 +445,9 @@ void E_GunvalueConfig::MergeFrom(const E_GunvalueConfig& from) {
     if (from.has_m_value()) {
       set_m_value(from.m_value());
     }
+    if (from.has_m_gameid()) {
+      set_m_gameid(from.m_gameid());
+    }
     if (from.has_m_roomid()) {
       set_m_roomid(from.m_roomid());
     }
@@ -438,6 +479,7 @@ void E_GunvalueConfig::Swap(E_GunvalueConfig* other) {
   if (other != this) {
     std::swap(m_id_, other->m_id_);
     std::swap(m_value_, other->m_value_);
+    std::swap(m_gameid_, other->m_gameid_);
     std::swap(m_roomid_, other->m_roomid_);
     std::swap(m_gunid_, other->m_gunid_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

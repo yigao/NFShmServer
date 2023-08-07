@@ -107,17 +107,24 @@ class E_GunvalueConfig : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_value() const;
   inline void set_m_value(::google::protobuf::int32 value);
 
-  // optional int32 m_roomid = 3;
+  // optional int32 m_gameid = 3;
+  inline bool has_m_gameid() const;
+  inline void clear_m_gameid();
+  static const int kMGameidFieldNumber = 3;
+  inline ::google::protobuf::int32 m_gameid() const;
+  inline void set_m_gameid(::google::protobuf::int32 value);
+
+  // optional int32 m_roomid = 4;
   inline bool has_m_roomid() const;
   inline void clear_m_roomid();
-  static const int kMRoomidFieldNumber = 3;
+  static const int kMRoomidFieldNumber = 4;
   inline ::google::protobuf::int32 m_roomid() const;
   inline void set_m_roomid(::google::protobuf::int32 value);
 
-  // optional int32 m_gunid = 4;
+  // optional int32 m_gunid = 5;
   inline bool has_m_gunid() const;
   inline void clear_m_gunid();
-  static const int kMGunidFieldNumber = 4;
+  static const int kMGunidFieldNumber = 5;
   inline ::google::protobuf::int32 m_gunid() const;
   inline void set_m_gunid(::google::protobuf::int32 value);
 
@@ -127,6 +134,8 @@ class E_GunvalueConfig : public ::google::protobuf::Message {
   inline void clear_has_m_id();
   inline void set_has_m_value();
   inline void clear_has_m_value();
+  inline void set_has_m_gameid();
+  inline void clear_has_m_gameid();
   inline void set_has_m_roomid();
   inline void clear_has_m_roomid();
   inline void set_has_m_gunid();
@@ -136,11 +145,12 @@ class E_GunvalueConfig : public ::google::protobuf::Message {
 
   ::google::protobuf::int32 m_id_;
   ::google::protobuf::int32 m_value_;
+  ::google::protobuf::int32 m_gameid_;
   ::google::protobuf::int32 m_roomid_;
   ::google::protobuf::int32 m_gunid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_GunValue_2eproto();
   friend void protobuf_AssignDesc_GunValue_2eproto();
@@ -285,15 +295,37 @@ inline void E_GunvalueConfig::set_m_value(::google::protobuf::int32 value) {
   m_value_ = value;
 }
 
-// optional int32 m_roomid = 3;
-inline bool E_GunvalueConfig::has_m_roomid() const {
+// optional int32 m_gameid = 3;
+inline bool E_GunvalueConfig::has_m_gameid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void E_GunvalueConfig::set_has_m_roomid() {
+inline void E_GunvalueConfig::set_has_m_gameid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void E_GunvalueConfig::clear_has_m_roomid() {
+inline void E_GunvalueConfig::clear_has_m_gameid() {
   _has_bits_[0] &= ~0x00000004u;
+}
+inline void E_GunvalueConfig::clear_m_gameid() {
+  m_gameid_ = 0;
+  clear_has_m_gameid();
+}
+inline ::google::protobuf::int32 E_GunvalueConfig::m_gameid() const {
+  return m_gameid_;
+}
+inline void E_GunvalueConfig::set_m_gameid(::google::protobuf::int32 value) {
+  set_has_m_gameid();
+  m_gameid_ = value;
+}
+
+// optional int32 m_roomid = 4;
+inline bool E_GunvalueConfig::has_m_roomid() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void E_GunvalueConfig::set_has_m_roomid() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void E_GunvalueConfig::clear_has_m_roomid() {
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void E_GunvalueConfig::clear_m_roomid() {
   m_roomid_ = 0;
@@ -307,15 +339,15 @@ inline void E_GunvalueConfig::set_m_roomid(::google::protobuf::int32 value) {
   m_roomid_ = value;
 }
 
-// optional int32 m_gunid = 4;
+// optional int32 m_gunid = 5;
 inline bool E_GunvalueConfig::has_m_gunid() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void E_GunvalueConfig::set_has_m_gunid() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void E_GunvalueConfig::clear_has_m_gunid() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void E_GunvalueConfig::clear_m_gunid() {
   m_gunid_ = 0;

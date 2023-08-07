@@ -13,6 +13,7 @@ E_GunvalueConfig_s::E_GunvalueConfig_s() {
 int E_GunvalueConfig_s::CreateInit() {
 	m_id = (int32_t)0;
 	m_value = (int32_t)0;
+	m_gameid = (int32_t)0;
 	m_roomid = (int32_t)0;
 	m_gunid = (int32_t)0;
 	return 0;
@@ -25,6 +26,7 @@ int E_GunvalueConfig_s::ResumeInit() {
 void E_GunvalueConfig_s::write_to_pbmsg(::proto_ff::E_GunvalueConfig & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_value((int32_t)m_value);
+	msg.set_m_gameid((int32_t)m_gameid);
 	msg.set_m_roomid((int32_t)m_roomid);
 	msg.set_m_gunid((int32_t)m_gunid);
 }
@@ -33,6 +35,7 @@ void E_GunvalueConfig_s::read_from_pbmsg(const ::proto_ff::E_GunvalueConfig & ms
 	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_GunvalueConfig_s));
 	m_id = msg.m_id();
 	m_value = msg.m_value();
+	m_gameid = msg.m_gameid();
 	m_roomid = msg.m_roomid();
 	m_gunid = msg.m_gunid();
 }
