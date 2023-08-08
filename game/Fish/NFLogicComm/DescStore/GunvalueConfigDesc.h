@@ -2,6 +2,8 @@
 
 #include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/GunValue_s.h"
 

@@ -76,10 +76,10 @@ int ConstantConstantDesc::Load(NFResDB *pDB)
 		m_astDesc.push_back();
 		auto pDesc = &m_astDesc.back();
 		int curIndex = m_astDesc.size() - 1;
-		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_constantid());
+		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_constantid());
 		pDesc->read_from_pbmsg(desc);
 		auto iter = m_astDescMap.emplace_hint(desc.m_constantid(), curIndex);
-		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_constantid());
+		CHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_constantid());
 		uint64_t hashKey = desc.m_constantid();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
 		{

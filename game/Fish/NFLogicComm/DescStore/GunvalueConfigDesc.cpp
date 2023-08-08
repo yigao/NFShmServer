@@ -76,10 +76,10 @@ int GunvalueConfigDesc::Load(NFResDB *pDB)
 		m_astDesc.push_back();
 		auto pDesc = &m_astDesc.back();
 		int curIndex = m_astDesc.size() - 1;
-		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
+		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);
 		auto iter = m_astDescMap.emplace_hint(desc.m_id(), curIndex);
-		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_id());
+		CHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_id());
 		uint64_t hashKey = desc.m_id();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
 		{

@@ -2,6 +2,8 @@
 
 #include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/room_s.h"
 
@@ -28,6 +30,7 @@ public:
 	const proto_ff_s::E_RoomRoom_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_RoomRoom_s* GetDescByIndex(int index);
 public:
+	const proto_ff_s::E_RoomRoom_s* GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid);
 private:
 	NFShmHashMap<int64_t, NFShmHashMap<int64_t, uint32_t, MAX_COM_INDEX_ROOM_ROOM_ROOMID_NUM>, MAX_COM_INDEX_ROOM_ROOM_GAMEID_NUM> m_GameidRoomidComIndexMap;
 IMPL_RES_HASH_DESC(RoomRoomDesc, proto_ff_s::E_RoomRoom_s, E_RoomRoom, MAX_ROOM_ROOM_NUM);

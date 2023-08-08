@@ -63,6 +63,8 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("#pragma once\n\n");
 	desc_file.write("#include \"NFServerComm/NFDescStorePlugin/NFIDescStore.h\"\n");
 	desc_file.write("#include \"NFComm/NFShmCore/NFShmMgr.h\"\n");
+	desc_file.write("#include \"NFComm/NFShmStl/NFShmHashMap.h\"\n");
+	desc_file.write("#include \"NFComm/NFShmStl/NFShmVector.h\"\n");
 	desc_file.write("#include \"NFLogicCommon/NFDescStoreTypeDefines.h\"\n");
 	desc_file.write("#include \"NFServerLogicMessage/" + excel_name + "_s.h\"\n");
 
@@ -95,6 +97,35 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescByIndex(int index) const;\n");
 	desc_file.write("\tproto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescByIndex(int index);\n");
 	desc_file.write("public:\n")
+	for index_key, index_value in sheet_index["key"].items():
+		index_unique = index_value["unique"]
+		if index_unique:
+			desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescBy"+ index_key.capitalize() + "(int64_t "+index_key.capitalize()+") const;\n");
+		else:
+			desc_file.write("\tstd::vector<const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s*> GetDescBy"+ index_key.capitalize() + "(int64_t "+index_key.capitalize()+") const;\n");
+
+	for com_index_key, com_index_value in sheet_index["com_key"].items():
+		index_unique = com_index_value["unique"]
+		if index_unique:
+			desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescBy");
+		else:
+			desc_file.write("\tstd::vector<const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s*> GetDescBy");
+
+		for j in range(0, len(com_index_value["index"])):
+			index_key = com_index_value["index"][j]["key"]
+			desc_file.write(index_key.capitalize());
+
+		desc_file.write("(");
+
+		for j in range(0, len(com_index_value["index"])):
+			index_key = com_index_value["index"][j]["key"]
+			if j == len(com_index_value["index"]) - 1:
+				desc_file.write("int64_t "+index_key.capitalize());
+			else:
+				desc_file.write("int64_t "+index_key.capitalize()+", ");
+
+		desc_file.write(");\n");
+
 	desc_file.write("private:\n")
 
 	for index_key, index_value in sheet_index["key"].items():
@@ -229,10 +260,10 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\t\tm_astDesc.push_back();\n")
 	desc_file.write("\t\tauto pDesc = &m_astDesc.back();\n")
 	desc_file.write("\t\tint curIndex = m_astDesc.size() - 1;\n")
-	desc_file.write("\t\tCHECK_EXPR(pDesc, -1, \"m_astDesc Index Failed desc.id:{}\", desc." + key_en_name + "());\n")
+	desc_file.write("\t\tCHECK_EXPR_ASSERT(pDesc, -1, \"m_astDesc Index Failed desc.id:{}\", desc." + key_en_name + "());\n")
 	desc_file.write("\t\tpDesc->read_from_pbmsg(desc);\n");
 	desc_file.write("\t\tauto iter = m_astDescMap.emplace_hint(desc." + key_en_name + "(), curIndex);\n")
-	desc_file.write("\t\tCHECK_EXPR(iter != m_astDescMap.end(), -1, \"m_astDescMap.Insert Failed desc.id:{}, key maybe exist\", desc." + key_en_name + "());\n")
+	desc_file.write("\t\tCHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, \"m_astDescMap.Insert Failed desc.id:{}, key maybe exist\", desc." + key_en_name + "());\n")
 	desc_file.write("\t\tuint64_t hashKey = desc." + key_en_name + "();\n");
 	desc_file.write("\t\tif (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)\n")
 	desc_file.write("\t\t{\n")
@@ -251,7 +282,86 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\t\t\t//NFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc store:{} exist key:{} than the max index:{}\", GetFileName(), hashKey, NF_MAX_DESC_STORE_INDEX_SIZE);\n")
 	desc_file.write("\t\t}\n")
 	desc_file.write("\t\tCHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, \"GetDesc != pDesc, id:{}\", hashKey);\n")
+
+
 	desc_file.write("\t}\n")
+	for index_key, index_value in sheet_index["key"].items():
+		index_map = "m_"+index_key.capitalize()+"IndexMap";
+		desc_file.write("\t" + index_map + ".clear();\n")
+
+	if len(sheet_index["key"]) > 0 or len(sheet_index["com_key"]) > 0:
+		desc_file.write("\tfor(int i = 0; i < (int)m_astDesc.size(); i++)\n")
+		desc_file.write("\t{\n")
+		desc_file.write("\t\tauto pDesc = &m_astDesc[i];\n")
+		for index_key, index_value in sheet_index["key"].items():
+			index_key_en_name = "m_" + index_key.lower().strip()
+			index_unique = index_value["unique"]
+			index_map = "m_"+index_key.capitalize()+"IndexMap";
+			if index_unique:
+				desc_file.write("\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(pDesc->" + index_key_en_name + ") == " + index_map + ".end(), -1, \"unique index:"+index_key+" repeat key:{}\", pDesc->" + index_key_en_name + ");\n")
+				desc_file.write("\t\tauto key_iter = " + index_map + ".emplace_hint(pDesc->" + index_key_en_name + ", i);\n")
+				desc_file.write("\t\tCHECK_EXPR_ASSERT(key_iter != " + index_map + ".end(), -1, \"" + index_map + ".emplace_hint Failed pDesc->" + index_key_en_name + ":{}, space not enough\", pDesc->" + index_key_en_name + ");\n")
+			else:
+				desc_file.write("\t\tif(" + index_map + ".full())\n")
+				desc_file.write("\t\t{\n")
+				desc_file.write("\t\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(pDesc->" + index_key_en_name + ") != " + index_map + ".end(), -1, \"index:"+index_key+" key:{}, space not enough\", pDesc->" + index_key_en_name + ");\n")
+				desc_file.write("\t\t}\n")
+				desc_file.write("\t\t" + index_map + "[pDesc->" + index_key_en_name + "].push_back(i);\n")
+
+		for com_index_key, com_index_value in sheet_index["com_key"].items():
+			index_unique = com_index_value["unique"]
+			index_map = "m_";
+			for j in range(0, len(com_index_value["index"])):
+				index_key = com_index_value["index"][j]["key"]
+				index_map += index_key.capitalize()
+			index_map += "ComIndexMap"
+
+			index_0_key = com_index_value["index"][0]["key"]
+			index_0_key_en_name = "m_" + index_0_key.lower().strip()
+			desc_file.write("\t\tif(" + index_map + ".full())\n")
+			desc_file.write("\t\t{\n")
+			desc_file.write("\t\t\tCHECK_EXPR_ASSERT("+index_map+".find(pDesc->"+index_0_key_en_name+") != "+index_map+".end(), -1, \"space not enough\");\n")
+			desc_file.write("\t\t}\n")
+
+			desc_file.write("\t\t" + index_map + "[pDesc->" + index_0_key_en_name + "];\n")
+			desc_file.write("\t\tauto iter_0 = " + index_map + ".find(pDesc->" + index_0_key_en_name + ");\n")
+			desc_file.write("\t\tif(iter_0 != " + index_map + ".end())\n")
+			desc_file.write("\t\t{\n")
+
+			desc_file.write("\t\t\tstd::string error = \"" + index_0_key + ":\" + NFCommon::tostr(pDesc->" + index_0_key_en_name + ");\n")
+			for j in range(1, len(com_index_value["index"])):
+				index_key = com_index_value["index"][j]["key"]
+				index_key_en_name = "m_" + index_key.lower().strip()
+
+				white_t = "\t"* (j+2)
+				desc_file.write(white_t+"error += \", " + index_key + ":\" + NFCommon::tostr(pDesc->" + index_key_en_name + ");\n")
+				desc_file.write(white_t+"if(iter_" + str(j-1) + "->second.full())\n")
+				desc_file.write(white_t+"{\n")
+				desc_file.write(white_t+"\tCHECK_EXPR_ASSERT(iter_" + str(j-1) + "->second.find(pDesc->" + index_key_en_name + ") != iter_" + str(j-1) + "->second.end(), -1, \"space not enough\");\n")
+				desc_file.write(white_t+"}\n")
+
+				if j == len(com_index_value["index"]) - 1:
+					if index_unique:
+						desc_file.write(white_t+"CHECK_EXPR_ASSERT(iter_" + str(j-1) + "->second.find(pDesc->" + index_key_en_name + ") == iter_" + str(j-1) + "->second.end(), -1, \"index: " + index_key + " repeated:{}\", error);\n")
+
+						desc_file.write(white_t+"iter_" + str(j-1) + "->second[pDesc->" + index_key_en_name + "] = i;\n")
+					else:
+						desc_file.write(white_t+"iter_" + str(j-1) + "->second[pDesc->" + index_key_en_name + "].push_back(i);\n")
+
+					for x in xrange(len(com_index_value["index"])-2, 0, -1):
+						white_t = "\t" * (x+2)
+						desc_file.write(white_t+"}\n")
+				else:
+					desc_file.write(white_t+"iter_" + str(j-1) + "->second[pDesc->" + index_key_en_name + "];\n")
+					desc_file.write(white_t+"auto iter_" + str(j) + " = iter_" + str(j-1) + "->second.find(pDesc->" + index_key_en_name + ");\n")
+					desc_file.write(white_t+"if(iter_" + str(j) + " != iter_" + str(j-1) + "->second.end())\n")
+					desc_file.write(white_t+"{\n")
+
+
+			desc_file.write("\t\t}\n")
+
+		desc_file.write("\t}\n")
+
 	desc_file.write("\n")
 	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"load {}, num={}\", iRet, table.e_" + excel_name.lower() + sheet_name.lower() + "_list_size());\n")
 	desc_file.write("\tNFLogTrace(NF_LOG_SYSTEMLOG, 0, \"--end--\");\n")
@@ -313,6 +423,156 @@ def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sh
 	desc_file.write("\tCHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, \"the index:{} exist error, than the m_astDesc max index:{}\", index, m_astDesc.size());\n")
 	desc_file.write("\treturn &m_astDesc[index];\n")
 	desc_file.write("}\n\n")
+
+	for index_key, index_value in sheet_index["key"].items():
+		index_unique = index_value["unique"]
+		index_map = "m_"+index_key.capitalize()+"IndexMap";
+		if index_unique:
+			desc_file.write("const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDescBy"+ index_key.capitalize() + "(int64_t "+index_key.capitalize()+") const\n");
+			desc_file.write("{\n")
+			desc_file.write("\tauto iter = " + index_map + ".find(" + index_key.capitalize()+ ");\n")
+			desc_file.write("\tif(iter != " + index_map + ".end())\n")
+			desc_file.write("\t{\n")
+			desc_file.write("\t\treturn GetDescByIndex(iter->second);\n")
+			desc_file.write("\t}\n")
+			desc_file.write("\treturn nullptr;\n")
+			desc_file.write("}\n\n")
+		else:
+			desc_file.write("std::vector<const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s*> " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDescBy"+ index_key.capitalize() + "(int64_t "+index_key.capitalize()+") const\n");
+			desc_file.write("{\n")
+			desc_file.write("\tstd::vector<const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s*> m_vec;\n")
+			desc_file.write("\tauto iter = " + index_map + ".find(" + index_key.capitalize()+ ");\n")
+			desc_file.write("\tif(iter != " + index_map + ".end())\n")
+			desc_file.write("\t{\n")
+			desc_file.write("\t\tfor(int i = 0; i < (int)iter->second.size(); i++)\n")
+			desc_file.write("\t\t{\n")
+			desc_file.write("\t\t\tauto pDesc = GetDescByIndex(iter->second[i]);\n")
+			desc_file.write("\t\t\tCHECK_EXPR_CONTINUE(pDesc, \"key:{} GetDescByIndex error:{}\", " + index_key.capitalize() + ", iter->second[i]);\n")
+			desc_file.write("\t\t\tm_vec.push_back(pDesc);\n")
+			desc_file.write("\t\t}\n")
+			desc_file.write("\t}\n")
+			desc_file.write("\treturn m_vec;\n")
+			desc_file.write("}\n\n")
+
+	for com_index_key, com_index_value in sheet_index["com_key"].items():
+		index_unique = com_index_value["unique"]
+		index_map = "m_";
+		for j in range(0, len(com_index_value["index"])):
+			index_key = com_index_value["index"][j]["key"]
+			index_map += index_key.capitalize()
+		index_map += "ComIndexMap"
+
+		if index_unique:
+			desc_file.write("const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDescBy");
+		else:
+			desc_file.write("std::vector<const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s*> " + excel_name.capitalize() + sheet_name.capitalize() + "Desc::GetDescBy");
+
+		for j in range(0, len(com_index_value["index"])):
+			index_key = com_index_value["index"][j]["key"]
+			desc_file.write(index_key.capitalize());
+
+		desc_file.write("(");
+
+		for j in range(0, len(com_index_value["index"])):
+			index_key = com_index_value["index"][j]["key"]
+			if j == len(com_index_value["index"]) - 1:
+				desc_file.write("int64_t "+index_key.capitalize());
+			else:
+				desc_file.write("int64_t "+index_key.capitalize()+", ");
+
+		desc_file.write(")\n");
+
+		if index_unique:
+			desc_file.write("{\n")
+			desc_file.write("\tauto iter = " + index_map + ".find(" + com_index_value["index"][0]["key"].capitalize()+ ");\n")
+			desc_file.write("\tif(iter != " + index_map + ".end())\n")
+			desc_file.write("\t{\n")
+			for j in range(1, len(com_index_value["index"])):
+				index_key = com_index_value["index"][j]["key"]
+				white_t = "\t" * (j+1)
+				if j == len(com_index_value["index"]) - 1:
+					if j == 1:
+						desc_file.write(white_t+"auto iter_" + str(j) + " = iter->second.find(" + index_key.capitalize() + ");\n")
+						desc_file.write(white_t+"if (iter_" + str(j) + " != iter->second.end())\n")
+						desc_file.write(white_t+"{\n")
+						desc_file.write(white_t+"\treturn GetDescByIndex(iter_" + str(j) + "->second);\n")
+						desc_file.write(white_t+"}\n")
+					else:
+						desc_file.write(white_t+"auto iter_" + str(j) + " = iter_" + str(j-1) + "->second.find(" + index_key.capitalize() + ");\n")
+						desc_file.write(white_t+"if (iter_" + str(j) + " != iter_" + str(j-1) + "->second.end())\n")
+						desc_file.write(white_t+"{\n")
+						desc_file.write(white_t+"\treturn GetDescByIndex(iter_" + str(j) +"->second);\n")
+						desc_file.write(white_t+"}\n")
+
+						for x in xrange(len(com_index_value["index"])-2, 0, -1):
+							white_t = "\t" * (x+1)
+							desc_file.write(white_t+"}\n")
+
+				else:
+					if j == 1:
+						desc_file.write(white_t+"auto iter_" + str(j) + " = iter->second.find(" + index_key.capitalize() + ");\n")
+						desc_file.write(white_t+"if (iter_" + str(j) + " != iter->second.end())\n")
+						desc_file.write(white_t+"{\n")
+					else:
+						desc_file.write(white_t+"auto iter_" + str(j) + " = iter_" + str(j-1) + "->second.find(" + index_key.capitalize() + ");\n")
+						desc_file.write(white_t+"if (iter_" + str(j) + " != iter_" + str(j-1) + "->second.end())\n")
+						desc_file.write(white_t+"{\n")
+
+			desc_file.write("\t}\n")
+			desc_file.write("\treturn nullptr;\n")
+			desc_file.write("}\n\n")
+		else:
+			desc_file.write("{\n")
+			desc_file.write("\tstd::vector<const proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s*> m_vec;\n")
+			desc_file.write("\tauto iter = " + index_map + ".find(" + com_index_value["index"][0]["key"].capitalize()+ ");\n")
+			desc_file.write("\tif(iter != " + index_map + ".end())\n")
+			desc_file.write("\t{\n")
+			for j in range(1, len(com_index_value["index"])):
+				index_key = com_index_value["index"][j]["key"]
+				white_t = "\t" * (j+1)
+				if j == len(com_index_value["index"]) - 1:
+					if j == 1:
+						desc_file.write(white_t+"auto iter_" + str(j) + " = iter->second.find(" + index_key.capitalize() + ");\n")
+						desc_file.write(white_t+"if (iter_" + str(j) + " != iter->second.end())\n")
+						desc_file.write(white_t+"{\n")
+						desc_file.write(white_t+"\tfor(int i = 0; i < (int)iter_" + str(j) + "->second.size(); i++)\n")
+						desc_file.write(white_t+"\t{\n")
+						desc_file.write(white_t+"\t\tauto pDesc = GetDescByIndex(iter_" + str(j) + "->second[i]);\n")
+						desc_file.write(white_t+"\t\tCHECK_EXPR_CONTINUE(pDesc, \"error\");\n")
+						desc_file.write(white_t+"\t\tm_vec.push_back(pDesc);\n")
+						desc_file.write(white_t+"\t}\n")
+						desc_file.write(white_t+"}\n")
+					else:
+						desc_file.write(white_t+"auto iter_" + str(j) + " = iter_" + str(j-1) + "->second.find(" + index_key.capitalize() + ");\n")
+						desc_file.write(white_t+"if (iter_" + str(j) + " != iter_" + str(j-1) + "->second.end())\n")
+						desc_file.write(white_t+"{\n")
+						desc_file.write(white_t+"\tfor(int i = 0; i < (int)iter_" + str(j) + "->second.size(); i++)\n")
+						desc_file.write(white_t+"\t{\n")
+						desc_file.write(white_t+"\t\tauto pDesc = GetDescByIndex(iter_" + str(j) + "->second[i]);\n")
+						desc_file.write(white_t+"\t\tCHECK_EXPR_CONTINUE(pDesc, \"error\");\n")
+						desc_file.write(white_t+"\t\tm_vec.push_back(pDesc);\n")
+						desc_file.write(white_t+"\t}\n")
+						desc_file.write(white_t+"}\n")
+
+						for x in xrange(len(com_index_value["index"])-2, 0, -1):
+							white_t = "\t" * (x+1)
+							desc_file.write(white_t+"}\n")
+
+				else:
+					if j == 1:
+						desc_file.write(white_t+"auto iter_" + str(j) + " = iter->second.find(" + index_key.capitalize() + ");\n")
+						desc_file.write(white_t+"if (iter_" + str(j) + " != iter->second.end())\n")
+						desc_file.write(white_t+"{\n")
+					else:
+						desc_file.write(white_t+"auto iter_" + str(j) + " = iter_" + str(j-1) + "->second.find(" + index_key.capitalize() + ");\n")
+						desc_file.write(white_t+"if (iter_" + str(j) + " != iter_" + str(j-1) + "->second.end())\n")
+						desc_file.write(white_t+"{\n")
+
+			desc_file.write("\t}\n")
+			desc_file.write("\treturn m_vec;\n")
+			desc_file.write("}\n\n")
+
+
 #////////////////////////////////////////////////////////////////
 #////////////////////////////////////////////////////////////////
 	desc_file.close()

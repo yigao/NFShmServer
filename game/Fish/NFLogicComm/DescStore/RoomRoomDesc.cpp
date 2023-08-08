@@ -76,10 +76,10 @@ int RoomRoomDesc::Load(NFResDB *pDB)
 		m_astDesc.push_back();
 		auto pDesc = &m_astDesc.back();
 		int curIndex = m_astDesc.size() - 1;
-		CHECK_EXPR(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
+		CHECK_EXPR_ASSERT(pDesc, -1, "m_astDesc Index Failed desc.id:{}", desc.m_id());
 		pDesc->read_from_pbmsg(desc);
 		auto iter = m_astDescMap.emplace_hint(desc.m_id(), curIndex);
-		CHECK_EXPR(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_id());
+		CHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_id());
 		uint64_t hashKey = desc.m_id();
 		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
 		{
@@ -98,6 +98,27 @@ int RoomRoomDesc::Load(NFResDB *pDB)
 			//NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc store:{} exist key:{} than the max index:{}", GetFileName(), hashKey, NF_MAX_DESC_STORE_INDEX_SIZE);
 		}
 		CHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, "GetDesc != pDesc, id:{}", hashKey);
+	}
+	for(int i = 0; i < (int)m_astDesc.size(); i++)
+	{
+		auto pDesc = &m_astDesc[i];
+		if(m_GameidRoomidComIndexMap.full())
+		{
+			CHECK_EXPR_ASSERT(m_GameidRoomidComIndexMap.find(pDesc->m_gameid) != m_GameidRoomidComIndexMap.end(), -1, "space not enough");
+		}
+		m_GameidRoomidComIndexMap[pDesc->m_gameid];
+		auto iter_0 = m_GameidRoomidComIndexMap.find(pDesc->m_gameid);
+		if(iter_0 != m_GameidRoomidComIndexMap.end())
+		{
+			std::string error = "gameId:" + NFCommon::tostr(pDesc->m_gameid);
+			error += ", roomId:" + NFCommon::tostr(pDesc->m_roomid);
+			if(iter_0->second.full())
+			{
+				CHECK_EXPR_ASSERT(iter_0->second.find(pDesc->m_roomid) != iter_0->second.end(), -1, "space not enough");
+			}
+			CHECK_EXPR_ASSERT(iter_0->second.find(pDesc->m_roomid) == iter_0->second.end(), -1, "index: roomId repeated:{}", error);
+			iter_0->second[pDesc->m_roomid] = i;
+		}
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_roomroom_list_size());
@@ -159,5 +180,19 @@ proto_ff_s::E_RoomRoom_s * RoomRoomDesc::GetDescByIndex(int index)
 {
 	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
 	return &m_astDesc[index];
+}
+
+const proto_ff_s::E_RoomRoom_s* RoomRoomDesc::GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid)
+{
+	auto iter = m_GameidRoomidComIndexMap.find(Gameid);
+	if(iter != m_GameidRoomidComIndexMap.end())
+	{
+		auto iter_1 = iter->second.find(Roomid);
+		if (iter_1 != iter->second.end())
+		{
+			return GetDescByIndex(iter_1->second);
+		}
+	}
+	return nullptr;
 }
 
