@@ -8,7 +8,7 @@
 #include "room.pb.h"
 #include "room_s.h"
 
-#define DEFINE_SHEET_ROOMROOM_E_ROOMROOM_LIST_MAX_NUM 20
+#define DEFINE_SHEET_ROOMROOM_E_ROOMROOM_LIST_MAX_NUM 8
 namespace proto_ff_s {
 
 	struct E_RoomRoom_s : public NFDescStoreSeqOP {
@@ -19,10 +19,10 @@ namespace proto_ff_s {
 		int32_t m_id;
 		int32_t m_roomid;
 		int32_t m_gameid;
-		NFShmString<60> m_gamename;
+		NFShmString<64> m_gamename;
 		int32_t m_roomtype;
 		int32_t m_roomlevel;
-		NFShmString<60> m_roomname;
+		NFShmString<64> m_roomname;
 		int32_t m_sitenum;
 		int32_t m_deskcount;
 		int32_t m_maxpeople;

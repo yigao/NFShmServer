@@ -8,7 +8,7 @@
 #include "GunValue.pb.h"
 #include "GunValue_s.h"
 
-#define DEFINE_SHEET_GUNVALUECONFIG_E_GUNVALUECONFIG_LIST_MAX_NUM 100
+#define DEFINE_SHEET_GUNVALUECONFIG_E_GUNVALUECONFIG_LIST_MAX_NUM 64
 namespace proto_ff_s {
 
 	struct E_GunvalueConfig_s : public NFDescStoreSeqOP {

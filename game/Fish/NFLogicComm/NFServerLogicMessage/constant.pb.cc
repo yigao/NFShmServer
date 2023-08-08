@@ -107,10 +107,10 @@ void protobuf_AddDesc_constant_2eproto() {
     "ons.proto\"\213\001\n\022E_ConstantConstant\022\"\n\014m_co"
     "nstantid\030\001 \001(\005B\014\302\377\024\010\351\205\215\347\275\256id\022\"\n\016m_consta"
     "ntdata\030\002 \001(\003B\n\302\377\024\006\346\225\260\346\215\256\022-\n\014m_stringdata"
-    "\030\003 \001(\tB\027\302\377\024\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256\220\301\024<\"]\n\026Sheet"
+    "\030\003 \001(\tB\027\302\377\024\017\345\255\227\347\254\246\344\270\262\346\225\260\346\215\256\220\301\024@\"]\n\026Sheet"
     "_ConstantConstant\022C\n\027E_ConstantConstant_"
     "List\030\001 \003(\0132\034.proto_ff.E_ConstantConstant"
-    "B\004\210\301\024\024", 286);
+    "B\004\210\301\024\010", 286);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "constant.proto", &protobuf_RegisterTypes);
   E_ConstantConstant::default_instance_ = new E_ConstantConstant();

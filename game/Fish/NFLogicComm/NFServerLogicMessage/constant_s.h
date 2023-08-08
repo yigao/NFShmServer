@@ -8,7 +8,7 @@
 #include "constant.pb.h"
 #include "constant_s.h"
 
-#define DEFINE_SHEET_CONSTANTCONSTANT_E_CONSTANTCONSTANT_LIST_MAX_NUM 20
+#define DEFINE_SHEET_CONSTANTCONSTANT_E_CONSTANTCONSTANT_LIST_MAX_NUM 8
 namespace proto_ff_s {
 
 	struct E_ConstantConstant_s : public NFDescStoreSeqOP {
@@ -18,7 +18,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		int32_t m_constantid;
 		int64_t m_constantdata;
-		NFShmString<60> m_stringdata;
+		NFShmString<64> m_stringdata;
 
 		virtual void write_to_pbmsg(::proto_ff::E_ConstantConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ConstantConstant & msg);

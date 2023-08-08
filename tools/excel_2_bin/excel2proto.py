@@ -42,14 +42,10 @@ from google.protobuf import message_factory
 
 
 def get_max_row_num(num):
-	if num < 10:
-		return 20
-	elif num <= 100:
-		return int(num / 10) * 10 * 2
-	elif num <= 1000:
-		return int(num/100) * 100 + 100
-	else:
-		return int(num/1000) * 1000 + 1000
+	max_num = 1
+	while max_num <= num:
+		max_num *= 2
+	return max_num
 
 def sheet_cell_value(sheet, row_index, col_index):
 	if sheet.cell_type(row_index, col_index) == xlrd.XL_CELL_EMPTY or \
@@ -61,7 +57,7 @@ def sheet_cell_value(sheet, row_index, col_index):
 
 	return sheet.cell_value(row_index, col_index)
 
-def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info, out_path):
+def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info, sheet_index, out_path):
 	desc_file_name = excel_name.capitalize() + sheet_name.capitalize() + "Desc.h"
 	desc_file = open(desc_file_name, 'w')
 	desc_file.write("#pragma once\n\n");
@@ -71,6 +67,20 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("#include \"NFServerLogicMessage/" + excel_name + "_s.h\"\n");
 
 	desc_file.write("\n#define MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM " + str(get_max_row_num(sheet.nrows-4)) + "\n");
+	for index_key, index_value in sheet_index["key"].items():
+		index_value["define"] = "MAX_INDEX_" + excel_name.upper() + "_" + sheet_name.upper() + "_" + index_key.upper() + "_NUM";
+		index_value["define_one"] = "ONE_KEY_MAX_INDEX_" + excel_name.upper() + "_" + sheet_name.upper() + "_" + index_key.upper() + "_NUM";
+		desc_file.write("\n#define " + index_value["define"] + " " + str((get_max_row_num(index_value["index_max_row"]))) + "\n");
+		desc_file.write("\n#define " + index_value["define_one"] + " " + str((get_max_row_num(index_value["index_one_key_max_row"]))) + "\n");
+
+	for com_index_key, com_index_value in sheet_index["com_key"].items():
+		for i in range(len(com_index_value["index"])):
+			index_key = com_index_value["index"][i]["key"]
+			index_value = com_index_value["index"][i]
+			index_value["define"] = "MAX_COM_INDEX_" + excel_name.upper() + "_" + sheet_name.upper() + "_" + index_key.upper() + "_NUM";
+			index_value["define_one"] = "ONE_KEY_MAX_COM_INDEX_" + excel_name.upper() + "_" + sheet_name.upper() + "_" + index_key.upper() + "_NUM";
+			desc_file.write("\n#define " + index_value["define"] + " " + str((get_max_row_num(index_value["index_max_row"]))) + "\n");
+			desc_file.write("\n#define " + index_value["define_one"] + " " + str((get_max_row_num(index_value["index_one_key_max_row"]))) + "\n");
 
 	desc_file.write("\nclass " + excel_name.capitalize() + sheet_name.capitalize() + "Desc : public NFIDescStore\n");
 	desc_file.write("{\n")
@@ -85,6 +95,43 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 	desc_file.write("\tconst proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescByIndex(int index) const;\n");
 	desc_file.write("\tproto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s* GetDescByIndex(int index);\n");
 	desc_file.write("public:\n")
+	desc_file.write("private:\n")
+
+	for index_key, index_value in sheet_index["key"].items():
+		index_unique = index_value["unique"]
+		index_define = index_value["define"]
+		one_index_define = index_value["define_one"]
+		if index_unique:
+			desc_file.write("\tNFShmHashMap<int64_t, uint32_t, " + index_define + "> m_"+index_key.capitalize()+"IndexMap;\n")
+		else:
+			desc_file.write("\tNFShmHashMap<int64_t, NFShmVector<uint32_t, " + one_index_define + ">," + index_define + "> m_"+index_key.capitalize()+"IndexMap;\n")
+
+	for com_index_key, com_index_value in sheet_index["com_key"].items():
+		index_unique = com_index_value["unique"]
+		desc_file.write("\tNFShmHashMap<int64_t, ");
+
+		for j in range(1, len(com_index_value["index"])):
+			desc_file.write("NFShmHashMap<int64_t, ");
+
+		for j in xrange(len(com_index_value["index"])-1, 0, -1):
+			index_define = com_index_value["index"][j]["define"]
+			one_index_define = com_index_value["index"][j]["define_one"]
+			if j == len(com_index_value["index"])-1:
+				if index_unique:
+					desc_file.write("uint32_t, " + index_define + ">");
+				else:
+					desc_file.write("NFShmVector<uint32_t, " + one_index_define + ">, " + index_define + ">");
+			else:
+				desc_file.write(", " + index_define + ">");
+
+		desc_file.write(", " + com_index_value["index"][0]["define"] + "> m_");
+		for j in range(0, len(com_index_value["index"])):
+			index_key = com_index_value["index"][j]["key"]
+			desc_file.write(index_key.capitalize());
+
+
+		desc_file.write("ComIndexMap;\n");
+
 	desc_file.write("IMPL_RES_HASH_DESC(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc, proto_ff_s::E_" + excel_name.capitalize() + sheet_name.capitalize() + "_s, E_" + excel_name.capitalize() + sheet_name.capitalize() + ", MAX_" + excel_name.upper() + "_" + sheet_name.upper() + "_NUM);\n")
 	desc_file.write("DECLARE_IDCREATE(" + excel_name.capitalize() + sheet_name.capitalize() + "Desc);\n")
 	desc_file.write("};\n")
@@ -96,7 +143,7 @@ def write_sheet_desc_store_h(excel_name, sheet_name, sheet, sheet_col_info, shee
 		os.remove(desc_file_name)
 
 
-def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info, out_path):
+def write_sheet_desc_store_cpp(excel_name, sheet_name, sheet, sheet_col_info, sheet_struct_info, sheet_index, out_path):
 	one_col_info = sheet_col_info[0]
 	key_en_name = "m_" + one_col_info["col_en_name"].lower().strip()
 
@@ -381,7 +428,51 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 			#开始按行读取
 			for row_index in xrange(0, excel_sheet_row_count):
-				sheet_map[sheet.cell_value(row_index, 0)] = 1
+				sheet_cell_row_name = str(sheet.cell_value(row_index, 0)).strip()
+				sheet_map[sheet_cell_row_name] = {}
+				sheet_map[sheet_cell_row_name]["key"] = {}
+				sheet_map[sheet_cell_row_name]["com_key"] = {}
+				for col_index in xrange(1, excel_sheet_col_count):
+					sheet_cell_col_index = str(sheet.cell_value(row_index, col_index)).strip()
+					sheet_index_unique = True
+					if sheet_cell_col_index.find(":") != -1:
+						sheet_cell_col_index = sheet_cell_col_index.split(":")[1]
+						sheet_index_unique = False
+					sheet_cell_col_index_list = sheet_cell_col_index.split(",")
+					for i in range(len(sheet_cell_col_index_list)):
+						sheet_cell_col_index_list[i].strip()
+					if len(sheet_cell_col_index_list) == 1:
+						sheet_key_key = sheet_cell_col_index_list[0]
+						sheet_key = {}
+						sheet_key["key"] = sheet_key_key
+						sheet_key["unique"] = sheet_index_unique
+						sheet_key["col_index"] = -1
+						sheet_key["index_max_row"] = 0
+						sheet_key["index_one_key_max_row"] = 0
+
+						sheet_map[sheet_cell_row_name]["key"][sheet_key_key] = sheet_key
+
+						print("excel:%s sheet:%s add key:%s" % (excel_file, sheet_cell_row_name, sheet_key["key"]))
+					elif len(sheet_cell_col_index_list) > 1:
+						sheet_com_key_key = sheet_cell_col_index
+						sheet_com_key = {}
+						sheet_com_key["key"] = {}
+						sheet_com_key["unique"] = sheet_index_unique
+						sheet_com_key["index"] = []
+						com_key_str = ""
+						for i in range(len(sheet_cell_col_index_list)):
+							sheet_key_key = sheet_cell_col_index_list[i]
+							sheet_key = {}
+							sheet_key["key"] = sheet_key_key
+							sheet_key["col_index"] = -1
+							sheet_key["index_max_row"] = 0
+							sheet_key["index_one_key_max_row"] = 0
+							sheet_com_key["key"][sheet_key_key] = sheet_key
+							sheet_com_key["index"].append(sheet_key)
+							com_key_str += sheet_cell_col_index_list[i] + ","
+						sheet_map[sheet_cell_row_name]["com_key"][sheet_com_key_key] = sheet_com_key
+						print("excel:%s sheet:%s add com_key:%s" % (excel_file, sheet_cell_row_name, com_key_str))
+
 
 	excel_src_file_name = os.path.basename(excel_file)
 	excel_file_name = os.path.splitext(excel_src_file_name)
@@ -666,13 +757,60 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 				sheet_col_info.append(one_col_info)
 
+			for col_index in xrange(0, excel_sheet_col_count):
+				col_en_name = str(sheet.cell_value(0, col_index)).strip()
+				if sheet_map[sheet.name]["key"].has_key(col_en_name):
+					sheet_map[sheet.name]["key"][col_en_name]["col_index"] = col_index
+
+				for index_key, index_value in sheet_map[sheet.name]["com_key"].items():
+					if index_key.find(col_en_name) != -1:
+						if index_value["key"].has_key(col_en_name):
+							index_value["key"][col_en_name]["col_index"] = col_index
+
+			row_key_maps = {}
+			for row_index in xrange(4, excel_sheet_row_count):
+				for index_key, index_value in sheet_map[sheet.name]["key"].items():
+					index_col_index = index_value["col_index"]
+					row_col_value = str(sheet.cell_value(row_index, index_col_index)).strip()
+					if row_key_maps.has_key(index_key) == False:
+						row_key_maps[index_key]	= {}
+
+					if row_key_maps[index_key].has_key(row_col_value):
+						row_key_maps[index_key][row_col_value] += 1
+					else:
+						row_key_maps[index_key][row_col_value] = 1
+						index_value["index_max_row"] += 1
+
+					if row_key_maps[index_key][row_col_value] > index_value["index_one_key_max_row"]:
+						index_value["index_one_key_max_row"] = row_key_maps[index_key][row_col_value]
+
+				for index_key, index_value in sheet_map[sheet.name]["com_key"].items():
+					if row_key_maps.has_key(index_key) == False:
+						row_key_maps[index_key]	= {}
+					for i in range(len(index_value["index"])):
+						index_col_index = index_value["index"][i]["col_index"]
+						com_key = index_value["index"][i]["key"]
+						row_col_value = str(sheet.cell_value(row_index, index_col_index)).strip()
+
+						if row_key_maps[index_key].has_key(com_key) == False:
+							row_key_maps[index_key][com_key]	= {}
+
+						if row_key_maps[index_key][com_key].has_key(row_col_value):
+							row_key_maps[index_key][com_key][row_col_value] += 1
+						else:
+							row_key_maps[index_key][com_key][row_col_value] = 1
+							index_value["index"][i]["index_max_row"] += 1
+
+						if row_key_maps[index_key][com_key][row_col_value] > index_value["index"][i]["index_one_key_max_row"]:
+							index_value["index"][i]["index_one_key_max_row"] = row_key_maps[index_key][com_key][row_col_value]
+
 			if len(sheet_col_info) == 0 and bool(sheet_struct_info) == False:
 				no_need_sheet[sheet.name] = 1
 				continue;
 
 			write_sheet_proto(proto_file, excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info)
-			write_sheet_desc_store_h(excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info, out_path)
-			write_sheet_desc_store_cpp(excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info, out_path)
+			write_sheet_desc_store_h(excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info, sheet_map[sheet.name], out_path)
+			write_sheet_desc_store_cpp(excel_file_name, sheet.name, sheet, sheet_col_info, sheet_struct_info, sheet_map[sheet.name], out_path)
 
 	sheet_makefile_name = excel_file_name+"_gen.makefile"
 	makefile_file = open(sheet_makefile_name, 'w')

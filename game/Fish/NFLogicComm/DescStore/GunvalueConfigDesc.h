@@ -5,7 +5,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/GunValue_s.h"
 
-#define MAX_GUNVALUE_CONFIG_NUM 100
+#define MAX_GUNVALUE_CONFIG_NUM 64
 
 class GunvalueConfigDesc : public NFIDescStore
 {
@@ -20,6 +20,7 @@ public:
 	const proto_ff_s::E_GunvalueConfig_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_GunvalueConfig_s* GetDescByIndex(int index);
 public:
+private:
 IMPL_RES_HASH_DESC(GunvalueConfigDesc, proto_ff_s::E_GunvalueConfig_s, E_GunvalueConfig, MAX_GUNVALUE_CONFIG_NUM);
 DECLARE_IDCREATE(GunvalueConfigDesc);
 };

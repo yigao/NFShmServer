@@ -15,5 +15,5 @@ message E_GunvalueConfig
 
 message Sheet_GunvalueConfig
 {
-	repeated E_GunvalueConfig E_GunvalueConfig_List = 1[(yd_fieldoptions.field_arysize)=100];
+	repeated E_GunvalueConfig E_GunvalueConfig_List = 1[(yd_fieldoptions.field_arysize)=64];
 }

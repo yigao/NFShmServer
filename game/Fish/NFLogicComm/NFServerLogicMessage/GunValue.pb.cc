@@ -112,7 +112,7 @@ void protobuf_AddDesc_GunValue_2eproto() {
     "m_roomid\030\004 \001(\005B\014\302\377\024\010\346\210\277\351\227\264ID\022\032\n\007m_gunid\030"
     "\005 \001(\005B\t\302\377\024\005\347\202\256Id\"W\n\024Sheet_GunvalueConfig"
     "\022\?\n\025E_GunvalueConfig_List\030\001 \003(\0132\032.proto_"
-    "ff.E_GunvalueConfigB\004\210\301\024d", 305);
+    "ff.E_GunvalueConfigB\004\210\301\024@", 305);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "GunValue.proto", &protobuf_RegisterTypes);
   E_GunvalueConfig::default_instance_ = new E_GunvalueConfig();

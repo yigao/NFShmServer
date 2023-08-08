@@ -8,10 +8,10 @@ message E_RoomRoom
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
 	optional int32 m_roomid = 2[(yd_fieldoptions.field_cname) = "房间ID"];
 	optional int32 m_gameid = 3[(yd_fieldoptions.field_cname) = "游戏ID"];
-	optional string m_gamename = 4[(yd_fieldoptions.field_cname) = "游戏名", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_gamename = 4[(yd_fieldoptions.field_cname) = "游戏名", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_roomtype = 5[(yd_fieldoptions.field_cname) = "房间类型"];
 	optional int32 m_roomlevel = 6[(yd_fieldoptions.field_cname) = "房间等级"];
-	optional string m_roomname = 7[(yd_fieldoptions.field_cname) = "房间名", (yd_fieldoptions.field_bufsize) = 60];
+	optional string m_roomname = 7[(yd_fieldoptions.field_cname) = "房间名", (yd_fieldoptions.field_bufsize) = 64];
 	optional int32 m_sitenum = 8[(yd_fieldoptions.field_cname) = "座位数"];
 	optional int32 m_deskcount = 9[(yd_fieldoptions.field_cname) = "桌子数"];
 	optional int32 m_maxpeople = 10[(yd_fieldoptions.field_cname) = "最大玩家数"];
@@ -26,5 +26,5 @@ message E_RoomRoom
 
 message Sheet_RoomRoom
 {
-	repeated E_RoomRoom E_RoomRoom_List = 1[(yd_fieldoptions.field_arysize)=20];
+	repeated E_RoomRoom E_RoomRoom_List = 1[(yd_fieldoptions.field_arysize)=8];
 }
