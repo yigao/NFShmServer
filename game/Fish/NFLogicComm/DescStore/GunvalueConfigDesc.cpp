@@ -99,6 +99,37 @@ int GunvalueConfigDesc::Load(NFResDB *pDB)
 		}
 		CHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, "GetDesc != pDesc, id:{}", hashKey);
 	}
+	for(int i = 0; i < (int)m_astDesc.size(); i++)
+	{
+		auto pDesc = &m_astDesc[i];
+		if(m_GameidRoomidGunidComIndexMap.full())
+		{
+			CHECK_EXPR_ASSERT(m_GameidRoomidGunidComIndexMap.find(pDesc->m_gameid) != m_GameidRoomidGunidComIndexMap.end(), -1, "space not enough");
+		}
+		m_GameidRoomidGunidComIndexMap[pDesc->m_gameid];
+		auto iter_0 = m_GameidRoomidGunidComIndexMap.find(pDesc->m_gameid);
+		if(iter_0 != m_GameidRoomidGunidComIndexMap.end())
+		{
+			std::string error = "gameId:" + NFCommon::tostr(pDesc->m_gameid);
+			error += ", roomId:" + NFCommon::tostr(pDesc->m_roomid);
+			if(iter_0->second.full())
+			{
+				CHECK_EXPR_ASSERT(iter_0->second.find(pDesc->m_roomid) != iter_0->second.end(), -1, "space not enough");
+			}
+			iter_0->second[pDesc->m_roomid];
+			auto iter_1 = iter_0->second.find(pDesc->m_roomid);
+			if(iter_1 != iter_0->second.end())
+			{
+				error += ", gunId:" + NFCommon::tostr(pDesc->m_gunid);
+				if(iter_1->second.full())
+				{
+					CHECK_EXPR_ASSERT(iter_1->second.find(pDesc->m_gunid) != iter_1->second.end(), -1, "space not enough");
+				}
+				CHECK_EXPR_ASSERT(iter_1->second.find(pDesc->m_gunid) == iter_1->second.end(), -1, "index: gunId repeated:{}", error);
+				iter_1->second[pDesc->m_gunid] = i;
+			}
+		}
+	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_gunvalueconfig_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
@@ -159,5 +190,23 @@ proto_ff_s::E_GunvalueConfig_s * GunvalueConfigDesc::GetDescByIndex(int index)
 {
 	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
 	return &m_astDesc[index];
+}
+
+const proto_ff_s::E_GunvalueConfig_s* GunvalueConfigDesc::GetDescByGameidRoomidGunid(int64_t Gameid, int64_t Roomid, int64_t Gunid)
+{
+	auto iter = m_GameidRoomidGunidComIndexMap.find(Gameid);
+	if(iter != m_GameidRoomidGunidComIndexMap.end())
+	{
+		auto iter_1 = iter->second.find(Roomid);
+		if (iter_1 != iter->second.end())
+		{
+			auto iter_2 = iter_1->second.find(Gunid);
+			if (iter_2 != iter_1->second.end())
+			{
+				return GetDescByIndex(iter_2->second);
+			}
+		}
+	}
+	return nullptr;
 }
 
