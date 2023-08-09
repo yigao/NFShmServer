@@ -13,8 +13,8 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "Player/NFGamePlayerMgr.h"
 #include "NFComm/NFCore/NFRandom.hpp"
-#include "DescStoreEx/GameRoomDescEx.h"
 #include "NFLogicCommon/NFIGameConfig.h"
+#include "DescStore/RoomRoomDesc.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGameRoom, EOT_NFGameRoom_ID, NFShmObj)
 
@@ -239,7 +239,7 @@ int NFGameRoom::UpdateUserMoney(int32_t deskId, uint64_t playerId, uint32_t chan
 
 int NFGameRoom::UpdateUserInfo(int32_t deskId, uint64_t playerId, const proto_ff_s::GamePlayerDetailData_s *pPlayerDetail)
 {
-    auto roomConfig = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(m_gameId, m_roomId);
+    auto roomConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
     CHECK_NULL(roomConfig);
 
     if (roomConfig->m_is_exp_scene > 0)
@@ -481,7 +481,7 @@ int NFGameRoom::ChangeJiangChi(int64_t jiangchi)
 
 int NFGameRoom::EnterGame(uint64_t playerId, int deskId, int chairId, proto_ff_s::GamePlayerDetailData_s& playerDetail)
 {
-    auto roomConfig = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(m_gameId, m_roomId);
+    auto roomConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
     CHECK_NULL(roomConfig);
 
     if (roomConfig->m_enter_min > 0)

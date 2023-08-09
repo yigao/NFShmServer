@@ -10,8 +10,8 @@
 #include "NFRoomPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "Jetton/NFJettonPart.h"
-#include "DescStoreEx/GameRoomDescEx.h"
 #include "NFLogicCommon/NFLogicBindRpcService.h"
+#include "DescStore/RoomRoomDesc.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFRoomPart, EOT_NFRoomPart_ID, NFShmObj)
 
@@ -107,7 +107,7 @@ int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskLis
     NFJettonPart* pJettonPart = m_pMaster->GetPart<NFJettonPart>(PART_JETTON);
     CHECK_NULL(pJettonPart);
 
-    auto pRoomCfg = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(request.game_id(), request.room_id());
+    auto pRoomCfg = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(request.game_id(), request.room_id());
     CHECK_NULL(pRoomCfg);
 
     if (pRoomCfg->m_is_exp_scene <= 0)
@@ -142,7 +142,7 @@ int NFRoomPart::EnterGameReq(proto_ff::EnterGameReq& request, proto_ff::EnterGam
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
-    auto pRoomCfg = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(request.game_id(), request.room_id());
+    auto pRoomCfg = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(request.game_id(), request.room_id());
     CHECK_NULL(pRoomCfg);
 
     if (m_gameId > 0 && m_gameId != request.game_id())

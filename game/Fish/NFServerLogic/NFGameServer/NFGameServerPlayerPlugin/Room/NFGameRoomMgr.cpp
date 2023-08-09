@@ -8,7 +8,6 @@
 // -------------------------------------------------------------------------
 
 #include "NFGameRoomMgr.h"
-#include "DescStoreEx/GameRoomDescEx.h"
 #include "Player/NFGamePlayer.h"
 #include "Player/NFGamePlayerMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
@@ -169,13 +168,17 @@ NFGameRoomMgr::ModifyGameMoney(uint32_t gameId, uint32_t roomId, int32_t deskId,
 
 NFGameRoom *NFGameRoomMgr::GetGameRoom(uint32_t gameId, uint32_t roomId)
 {
-    uint32_t id = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDescId(gameId, roomId);
-    return NFGameRoom::GetObjByHashKey(m_pObjPluginManager, id);
+    auto pConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
+    if (pConfig)
+    {
+        return NFGameRoom::GetObjByHashKey(m_pObjPluginManager, pConfig->m_id);
+    }
+    return nullptr;
 }
 
 NFGameRoom *NFGameRoomMgr::CreateGameRoom(uint32_t gameId, uint32_t roomId)
 {
-    auto pDesc = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(gameId, roomId);
+    auto pDesc = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
     CHECK_EXPR(pDesc, NULL, "GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc Failed, gameId:{} roomId:{}", gameId, roomId);
 
     NFGameRoom *pRoomInfo = GetGameRoom(gameId, roomId);
@@ -225,7 +228,7 @@ int NFGameRoomMgr::CreateAllRoom()
                 return -1;
             }
 
-            auto pDesc = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(gameId, roomId);
+            auto pDesc = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
             CHECK_NULL(pDesc);
 
             int iRet = pRoom->Init(gameId, pDesc->m_gamename.ToString(), roomId, pDesc->m_roomname.ToString(), pDesc->m_deskcount, pDesc->m_sitenum, pDesc->m_maxpeople);

@@ -10,7 +10,6 @@
 #include "NFWorldRoomMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "DescStore/RoomRoomDesc.h"
-#include "DescStoreEx/GameRoomDescEx.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFWorldRoomMgr, EOT_NFWorldRoomMgr_ID, NFShmObj)
 
@@ -60,8 +59,12 @@ NFWorldRoom *NFWorldRoomMgr::CreateRoom(uint32_t id)
 
 NFWorldRoom *NFWorldRoomMgr::GetRoom(uint32_t gameId, uint32_t roomId)
 {
-    uint32_t id = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDescId(gameId, roomId);
-    return NFWorldRoom::GetObjByHashKey(m_pObjPluginManager, id);
+    auto pConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
+    if (pConfig)
+    {
+        return NFWorldRoom::GetObjByHashKey(m_pObjPluginManager, pConfig->m_id);
+    }
+    return nullptr;
 }
 
 int NFWorldRoomMgr::CreateRoom()
@@ -72,6 +75,7 @@ int NFWorldRoomMgr::CreateRoom()
     for(int i = 0; i < (int)allDesc.size(); i++)
     {
         auto pDesc = &allDesc[i];
+        CHECK_EXPR(pDesc == RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(pDesc->m_gameid, pDesc->m_roomid), -1, "");
         NFWorldRoom* pRoom = CreateRoom(pDesc->m_id);
         CHECK_EXPR(pRoom, -1, "Create Room:{} Failed!", pDesc->m_id);
         pRoom->m_gameId = pDesc->m_gameid;

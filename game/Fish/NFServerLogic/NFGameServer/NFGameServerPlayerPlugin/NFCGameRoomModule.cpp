@@ -8,7 +8,6 @@
 // -------------------------------------------------------------------------
 
 #include "NFCGameRoomModule.h"
-#include "DescStoreEx/GameRoomDescEx.h"
 #include "Room/NFGameRoomMgr.h"
 #include "Player/NFGamePlayerMgr.h"
 
@@ -54,7 +53,7 @@ int NFCGameRoomModule::OnHandleDeskListReq(proto_ff::DeskListReq &request, proto
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
-    auto roomConfig = GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc(request.game_id(), request.room_id());
+    auto roomConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(request.game_id(), request.room_id());
     if (!roomConfig)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFGameRoomDesc: find room failed! mGameId = {} , mRoomId = {}", request.game_id(), request.room_id());

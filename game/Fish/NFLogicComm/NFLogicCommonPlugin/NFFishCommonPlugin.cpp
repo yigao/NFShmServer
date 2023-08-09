@@ -13,7 +13,6 @@
 
 #include "DescStore/NFDescStoreHead.h"
 #include "DescStore/NFDescStoreRegister.h"
-#include "DescStoreEx/GameRoomDescEx.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -60,6 +59,5 @@ bool NFFishCommonPlugin::InitShmObjectRegister()
 
 
     ///////////////////////////////////////////////
-    REGISTER_DESCSTORE(GameRoomDescEx);
 	return true;
 }
