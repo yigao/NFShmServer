@@ -1,9 +1,9 @@
-#include "GunvalueConfigDesc.h"
+#include "FishGunvalueDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GunvalueConfigDesc, EOT_CONST_GUNVALUE_CONFIG_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(FishGunvalueDesc, EOT_CONST_FISH_GUNVALUE_DESC_ID, NFShmObj)
 
-GunvalueConfigDesc::GunvalueConfigDesc():NFIDescStore()
+FishGunvalueDesc::FishGunvalueDesc():NFIDescStore()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -13,28 +13,28 @@ GunvalueConfigDesc::GunvalueConfigDesc():NFIDescStore()
 	}
 }
 
-GunvalueConfigDesc::~GunvalueConfigDesc()
+FishGunvalueDesc::~FishGunvalueDesc()
 {
 }
 
-int GunvalueConfigDesc::CreateInit()
-{
-	return 0;
-}
-
-int GunvalueConfigDesc::ResumeInit()
+int FishGunvalueDesc::CreateInit()
 {
 	return 0;
 }
 
-int GunvalueConfigDesc::Load(NFResDB *pDB)
+int FishGunvalueDesc::ResumeInit()
+{
+	return 0;
+}
+
+int FishGunvalueDesc::Load(NFResDB *pDB)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
 	CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GunvalueConfigDesc::Load() strFileName = {}", GetFileName());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "FishGunvalueDesc::Load() strFileName = {}", GetFileName());
 
-	proto_ff::Sheet_GunvalueConfig table;
+	proto_ff::Sheet_FishGunvalue table;
 	NFResTable* pResTable = pDB->GetTable(GetFileName());
 	CHECK_EXPR(pResTable != NULL, -1, "pTable == NULL, GetTable:{} Error", GetFileName());
 
@@ -44,15 +44,15 @@ int GunvalueConfigDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.e_gunvalueconfig_list_size() < 0) || (table.e_gunvalueconfig_list_size() > (int)(m_astDesc.max_size())))
+	if ((table.e_fishgunvalue_list_size() < 0) || (table.e_fishgunvalue_list_size() > (int)(m_astDesc.max_size())))
 	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_gunvalueconfig_list_size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_fishgunvalue_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < (int)table.e_gunvalueconfig_list_size(); i++)
+	for (int i = 0; i < (int)table.e_fishgunvalue_list_size(); i++)
 	{
-		const proto_ff::E_GunvalueConfig& desc = table.e_gunvalueconfig_list(i);
+		const proto_ff::E_FishGunvalue& desc = table.e_fishgunvalue_list(i);
 		if (desc.has_m_id() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
@@ -131,17 +131,17 @@ int GunvalueConfigDesc::Load(NFResDB *pDB)
 		}
 	}
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_gunvalueconfig_list_size());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_fishgunvalue_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
 	return 0;
 }
 
-int GunvalueConfigDesc::CheckWhenAllDataLoaded()
+int FishGunvalueDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
 }
 
-const proto_ff_s::E_GunvalueConfig_s * GunvalueConfigDesc::GetDesc(int64_t id) const
+const proto_ff_s::E_FishGunvalue_s * FishGunvalueDesc::GetDesc(int64_t id) const
 {
 	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
 	{
@@ -164,12 +164,12 @@ const proto_ff_s::E_GunvalueConfig_s * GunvalueConfigDesc::GetDesc(int64_t id) c
 	return NULL;
 }
 
-proto_ff_s::E_GunvalueConfig_s * GunvalueConfigDesc::GetDesc(int64_t id)
+proto_ff_s::E_FishGunvalue_s * FishGunvalueDesc::GetDesc(int64_t id)
 {
-	return const_cast<proto_ff_s::E_GunvalueConfig_s *>((static_cast<const GunvalueConfigDesc*>(this))->GetDesc(id));
+	return const_cast<proto_ff_s::E_FishGunvalue_s *>((static_cast<const FishGunvalueDesc*>(this))->GetDesc(id));
 }
 
-int GunvalueConfigDesc::GetDescIndex(int id) const
+int FishGunvalueDesc::GetDescIndex(int id) const
 {
 	auto iter = m_astDescMap.find(id);
 	if (iter != m_astDescMap.end())
@@ -180,19 +180,19 @@ int GunvalueConfigDesc::GetDescIndex(int id) const
 	return -1;
 }
 
-const proto_ff_s::E_GunvalueConfig_s * GunvalueConfigDesc::GetDescByIndex(int index) const
+const proto_ff_s::E_FishGunvalue_s * FishGunvalueDesc::GetDescByIndex(int index) const
 {
 	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
 	return &m_astDesc[index];
 }
 
-proto_ff_s::E_GunvalueConfig_s * GunvalueConfigDesc::GetDescByIndex(int index)
+proto_ff_s::E_FishGunvalue_s * FishGunvalueDesc::GetDescByIndex(int index)
 {
 	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
 	return &m_astDesc[index];
 }
 
-const proto_ff_s::E_GunvalueConfig_s* GunvalueConfigDesc::GetDescByGameidRoomidGunid(int64_t Gameid, int64_t Roomid, int64_t Gunid)
+const proto_ff_s::E_FishGunvalue_s* FishGunvalueDesc::GetDescByGameidRoomidGunid(int64_t Gameid, int64_t Roomid, int64_t Gunid)
 {
 	auto iter = m_GameidRoomidGunidComIndexMap.find(Gameid);
 	if(iter != m_GameidRoomidGunidComIndexMap.end())

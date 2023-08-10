@@ -1,9 +1,9 @@
-#include "RoomRoomDesc.h"
+#include "FishRoomDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RoomRoomDesc, EOT_CONST_ROOM_ROOM_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(FishRoomDesc, EOT_CONST_FISH_ROOM_DESC_ID, NFShmObj)
 
-RoomRoomDesc::RoomRoomDesc():NFIDescStore()
+FishRoomDesc::FishRoomDesc():NFIDescStore()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -13,28 +13,28 @@ RoomRoomDesc::RoomRoomDesc():NFIDescStore()
 	}
 }
 
-RoomRoomDesc::~RoomRoomDesc()
+FishRoomDesc::~FishRoomDesc()
 {
 }
 
-int RoomRoomDesc::CreateInit()
-{
-	return 0;
-}
-
-int RoomRoomDesc::ResumeInit()
+int FishRoomDesc::CreateInit()
 {
 	return 0;
 }
 
-int RoomRoomDesc::Load(NFResDB *pDB)
+int FishRoomDesc::ResumeInit()
+{
+	return 0;
+}
+
+int FishRoomDesc::Load(NFResDB *pDB)
 {
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--begin--");
 	CHECK_EXPR(pDB != NULL, -1, "pDB == NULL");
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "RoomRoomDesc::Load() strFileName = {}", GetFileName());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "FishRoomDesc::Load() strFileName = {}", GetFileName());
 
-	proto_ff::Sheet_RoomRoom table;
+	proto_ff::Sheet_FishRoom table;
 	NFResTable* pResTable = pDB->GetTable(GetFileName());
 	CHECK_EXPR(pResTable != NULL, -1, "pTable == NULL, GetTable:{} Error", GetFileName());
 
@@ -44,15 +44,15 @@ int RoomRoomDesc::Load(NFResDB *pDB)
 
 	//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", table.Utf8DebugString());
 
-	if ((table.e_roomroom_list_size() < 0) || (table.e_roomroom_list_size() > (int)(m_astDesc.max_size())))
+	if ((table.e_fishroom_list_size() < 0) || (table.e_fishroom_list_size() > (int)(m_astDesc.max_size())))
 	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_roomroom_list_size());
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "Invalid TotalNum:{}", table.e_fishroom_list_size());
 		return -2;
 	}
 
-	for (int i = 0; i < (int)table.e_roomroom_list_size(); i++)
+	for (int i = 0; i < (int)table.e_fishroom_list_size(); i++)
 	{
-		const proto_ff::E_RoomRoom& desc = table.e_roomroom_list(i);
+		const proto_ff::E_FishRoom& desc = table.e_fishroom_list(i);
 		if (desc.has_m_id() == false && desc.ByteSize() == 0)
 		{
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
@@ -121,17 +121,17 @@ int RoomRoomDesc::Load(NFResDB *pDB)
 		}
 	}
 
-	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_roomroom_list_size());
+	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_fishroom_list_size());
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
 	return 0;
 }
 
-int RoomRoomDesc::CheckWhenAllDataLoaded()
+int FishRoomDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
 }
 
-const proto_ff_s::E_RoomRoom_s * RoomRoomDesc::GetDesc(int64_t id) const
+const proto_ff_s::E_FishRoom_s * FishRoomDesc::GetDesc(int64_t id) const
 {
 	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
 	{
@@ -154,12 +154,12 @@ const proto_ff_s::E_RoomRoom_s * RoomRoomDesc::GetDesc(int64_t id) const
 	return NULL;
 }
 
-proto_ff_s::E_RoomRoom_s * RoomRoomDesc::GetDesc(int64_t id)
+proto_ff_s::E_FishRoom_s * FishRoomDesc::GetDesc(int64_t id)
 {
-	return const_cast<proto_ff_s::E_RoomRoom_s *>((static_cast<const RoomRoomDesc*>(this))->GetDesc(id));
+	return const_cast<proto_ff_s::E_FishRoom_s *>((static_cast<const FishRoomDesc*>(this))->GetDesc(id));
 }
 
-int RoomRoomDesc::GetDescIndex(int id) const
+int FishRoomDesc::GetDescIndex(int id) const
 {
 	auto iter = m_astDescMap.find(id);
 	if (iter != m_astDescMap.end())
@@ -170,19 +170,19 @@ int RoomRoomDesc::GetDescIndex(int id) const
 	return -1;
 }
 
-const proto_ff_s::E_RoomRoom_s * RoomRoomDesc::GetDescByIndex(int index) const
+const proto_ff_s::E_FishRoom_s * FishRoomDesc::GetDescByIndex(int index) const
 {
 	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
 	return &m_astDesc[index];
 }
 
-proto_ff_s::E_RoomRoom_s * RoomRoomDesc::GetDescByIndex(int index)
+proto_ff_s::E_FishRoom_s * FishRoomDesc::GetDescByIndex(int index)
 {
 	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
 	return &m_astDesc[index];
 }
 
-const proto_ff_s::E_RoomRoom_s* RoomRoomDesc::GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid)
+const proto_ff_s::E_FishRoom_s* FishRoomDesc::GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid)
 {
 	auto iter = m_GameidRoomidComIndexMap.find(Gameid);
 	if(iter != m_GameidRoomidComIndexMap.end())

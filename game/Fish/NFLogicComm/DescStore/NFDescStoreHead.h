@@ -1,6 +1,8 @@
 #pragma once
 
 #include "DescStore/ConstantConstantDesc.h"
-#include "DescStore/RoomRoomDesc.h"
-#include "DescStore/GunvalueConfigDesc.h"
+#include "DescStore/FishRoomDesc.h"
+#include "DescStore/FishGunvalueDesc.h"
+#include "DescStore/FishCtrllevelDesc.h"
+#include "DescStore/FishConfigDesc.h"
 

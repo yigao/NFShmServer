@@ -694,6 +694,8 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 				sheet_map[sheet_cell_row_name]["com_key"] = {}
 				for col_index in xrange(1, excel_sheet_col_count):
 					sheet_cell_col_index = str(sheet.cell_value(row_index, col_index)).strip()
+					if len(sheet_cell_col_index) == 0:
+						continue
 					sheet_index_unique = True
 					if sheet_cell_col_index.find(":") != -1:
 						sheet_cell_col_index = sheet_cell_col_index.split(":")[1]

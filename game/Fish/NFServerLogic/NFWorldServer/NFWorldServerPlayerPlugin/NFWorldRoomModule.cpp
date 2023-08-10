@@ -11,7 +11,7 @@
 #include "Room/NFWorldRoomMgr.h"
 #include "NFWorldPlayer.h"
 #include "NFWorldPlayerMgr.h"
-#include "DescStore/RoomRoomDesc.h"
+#include "DescStore/FishRoomDesc.h"
 
 NFWorldRoomModule::NFWorldRoomModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
@@ -182,7 +182,7 @@ int NFWorldRoomModule::OnHandleGetRoomInfoReq(uint32_t msgId, NFDataPackage &pac
         NFWorldRoom *pRoomInfo = &(*iter);
         if (pRoomInfo && pRoomInfo->m_gameId == xMsg.game_id())
         {
-            auto pRoomCfg = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pRoomInfo->m_id);
+            auto pRoomCfg = FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pRoomInfo->m_id);
             CHECK_EXPR_CONTINUE(pRoomCfg, "RoomRoomDesc Can't find the room:{} config", pRoomInfo->m_id);
             proto_ff::RoomStatusInfo *pProto = rsp.add_rooms();
             pProto->set_game_id((uint32_t) pRoomInfo->m_gameId);

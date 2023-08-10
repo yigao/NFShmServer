@@ -498,7 +498,7 @@ int NFGameDesk::UpdateUserMoney(uint64_t playerId, uint32_t changeType, uint64_t
 {
     CHECK_EXPR(moneyChange > 0, -1, "moneyChange error:{}", moneyChange);
 
-    auto roomConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
+    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
     if (!roomConfig)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFGameRoomDesc: find room failed! mGameId = {} , mRoomId = {}", m_gameId, m_roomId);
@@ -724,7 +724,7 @@ int64_t NFGameDesk::CommissionCount(uint64_t userid, int64_t CountByFee, int64_t
         return CountByFee;
     }
 
-    auto roomConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
+    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
     if (!roomConfig)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFGameRoomDesc: find room failed! mGameId = {} , mRoomId = {}", m_gameId, m_roomId);
@@ -762,7 +762,7 @@ int NFGameDesk::AchievementCount(uint64_t userid, uint64_t ach, uint64_t fee)
 {
     if (ach == 0 && fee == 0) return 0;
 
-    auto roomConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
+    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
     if (!roomConfig)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFGameRoomDesc: find room failed! mGameId = {} , mRoomId = {}", m_gameId, m_roomId);

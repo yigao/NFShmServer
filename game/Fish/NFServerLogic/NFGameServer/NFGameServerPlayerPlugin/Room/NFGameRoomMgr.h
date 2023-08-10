@@ -15,7 +15,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFGameRoom.h"
-#include "DescStore/RoomRoomDesc.h"
+#include "DescStore/FishRoomDesc.h"
 
 class NFGameRoomMgr : public NFShmObj
 {

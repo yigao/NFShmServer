@@ -168,7 +168,7 @@ NFGameRoomMgr::ModifyGameMoney(uint32_t gameId, uint32_t roomId, int32_t deskId,
 
 NFGameRoom *NFGameRoomMgr::GetGameRoom(uint32_t gameId, uint32_t roomId)
 {
-    auto pConfig = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
+    auto pConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
     if (pConfig)
     {
         return NFGameRoom::GetObjByHashKey(m_pObjPluginManager, pConfig->m_id);
@@ -178,7 +178,7 @@ NFGameRoom *NFGameRoomMgr::GetGameRoom(uint32_t gameId, uint32_t roomId)
 
 NFGameRoom *NFGameRoomMgr::CreateGameRoom(uint32_t gameId, uint32_t roomId)
 {
-    auto pDesc = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
+    auto pDesc = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
     CHECK_EXPR(pDesc, NULL, "GameRoomDescEx::Instance(m_pObjPluginManager)->GetDesc Failed, gameId:{} roomId:{}", gameId, roomId);
 
     NFGameRoom *pRoomInfo = GetGameRoom(gameId, roomId);
@@ -228,7 +228,7 @@ int NFGameRoomMgr::CreateAllRoom()
                 return -1;
             }
 
-            auto pDesc = RoomRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
+            auto pDesc = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(gameId, roomId);
             CHECK_NULL(pDesc);
 
             int iRet = pRoom->Init(gameId, pDesc->m_gamename.ToString(), roomId, pDesc->m_roomname.ToString(), pDesc->m_deskcount, pDesc->m_sitenum, pDesc->m_maxpeople);
