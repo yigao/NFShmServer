@@ -127,6 +127,7 @@ namespace proto_ff_s {
 		int ResumeInit();
 		std::string TableName;
 		uint32_t TableCount;
+		bool Cache;
 
 		virtual void write_to_pbmsg(::proto_ff::pbTableConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::pbTableConfig & msg);

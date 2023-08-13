@@ -19,6 +19,7 @@
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
 #include "NFCommPlugin/NFKernelPlugin/NFCoroutine.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
+#include "NFComm/NFPluginModule/NFINoSqlModule.h"
 
 #define STORE_SERVER_TIMER_CLOSE_MYSQL 200
 
@@ -78,6 +79,13 @@ bool NFCStoreServerModule::Awake()
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server connect mysql failed");
+        return false;
+    }
+
+    iRet = FindModule<NFINoSqlModule>()->AddNoSqlServer(pConfig->MysqlConfig.MysqlDbName, "127.0.0.1");
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server connect redis failed");
         return false;
     }
 
@@ -287,7 +295,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.sel_cond().mod_key() % count;
@@ -328,7 +336,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.mod_key() % count;
@@ -379,7 +387,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.mod_key() % count;
@@ -421,7 +429,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.del_cond().mod_key() % count;
@@ -463,7 +471,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.mod_key() % count;
@@ -505,7 +513,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.mod_cond().mod_key() % count;
@@ -547,7 +555,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.mod_key() % count;
@@ -589,7 +597,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.mod_cond().mod_key() % count;
@@ -631,7 +639,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
-                uint32_t count = iter->second;
+                uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
                     uint32_t index = select.mod_key() % count;
@@ -712,15 +720,32 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
+    bool cache = false;
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.mod_key() % count;
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
+        }
+
+        cache = iter->second.Cache;
+    }
+
+    if (cache)
+    {
+        int iNoSqlRet = FindModule<NFINoSqlModule>()->SelectObj(request.baseinfo().dbname(), request, respone);
+        if (iNoSqlRet < 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFINoSqlModule>()->SelectObj Failed, iRet:{}", GetErrorStr(iNoSqlRet));
+            return iNoSqlRet;
+        }
+        else if (iNoSqlRet == 0)
+        {
+            return iNoSqlRet;
         }
     }
 
@@ -768,6 +793,14 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
     }
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
+
+    if (iRet == 0)
+    {
+        if (cache)
+        {
+            FindModule<NFINoSqlModule>()->SaveSelectObj(request.baseinfo().dbname(), request, respone);
+        }
+    }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
@@ -784,7 +817,7 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &requ
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.sel_cond().mod_key() % count;
@@ -864,7 +897,7 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.mod_key() % count;
@@ -922,7 +955,7 @@ int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.mod_key() % count;
@@ -980,7 +1013,7 @@ int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &requ
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.mod_cond().mod_key() % count;
@@ -1038,7 +1071,7 @@ int NFCStoreServerModule::OnHandleUpdateRpc(storesvr_sqldata::storesvr_update &r
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.mod_cond().mod_key() % count;
@@ -1096,7 +1129,7 @@ int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_update
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.mod_key() % count;
@@ -1267,7 +1300,7 @@ int NFCStoreServerModule::OnHandleDeleteRpc(storesvr_sqldata::storesvr_del &requ
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.del_cond().mod_key() % count;
@@ -1324,7 +1357,7 @@ int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
-        uint32_t count = iter->second;
+        uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
             uint32_t index = request.mod_key() % count;

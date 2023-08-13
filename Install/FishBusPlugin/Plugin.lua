@@ -58,15 +58,15 @@ LoadPlugin =
 			"NFFishCommonPlugin",
 			--"NFLuaScriptPlugin",
 
-			--"NFFishRobotPlugin",
+			"NFFishRobotPlugin",
 
 			"NFFishProxyPlayerPlugin",
 			"NFFishLoginPlayerPlugin",
 			"NFFishWorldPlayerPlugin",
 			"NFFishSnsPlayerPlugin",
 			"NFFishLogicPlayerPlugin",
-			"NFFishGamePlayerPlugin",
-			"NFGameFish2004Plugin",
+			--"NFFishGamePlayerPlugin",
+			--"NFGameFish2004Plugin",
 		};
 
 		ServerType = NF_ST_NONE;

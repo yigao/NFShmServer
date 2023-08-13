@@ -178,9 +178,10 @@ void protobuf_AssignDesc_proto_5fcommon_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(pbPluginConfig));
   pbTableConfig_descriptor_ = file->message_type(6);
-  static const int pbTableConfig_offsets_[2] = {
+  static const int pbTableConfig_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbTableConfig, tablename_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbTableConfig, tablecount_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(pbTableConfig, cache_),
   };
   pbTableConfig_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -372,45 +373,46 @@ void protobuf_AddDesc_proto_5fcommon_2eproto() {
     "\001\n\016pbPluginConfig\022\030\n\nServerType\030\001 \001(\rB\004\240"
     "\301\024\001\022\024\n\014FramePlugins\030\002 \003(\t\022\025\n\rServerPlugi"
     "ns\030\003 \003(\t\022\023\n\013WorkPlugins\030\004 \003(\t\022/\n\nServerL"
-    "ist\030\005 \003(\0132\033.proto_ff.pbAllServerConfig\"<"
+    "ist\030\005 \003(\0132\033.proto_ff.pbAllServerConfig\"K"
     "\n\rpbTableConfig\022\027\n\tTableName\030\001 \001(\tB\004\240\301\024\001"
-    "\022\022\n\nTableCount\030\002 \001(\r\"\200\007\n\020pbNFServerConfi"
-    "g\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001\022\022\n\nServerType\030"
-    "\002 \001(\r\022\022\n\nServerName\030\003 \001(\t\022\r\n\005BusId\030\004 \001(\r"
-    "\022\021\n\tBusLength\030\005 \001(\r\022\020\n\010LinkMode\030\007 \001(\t\022\013\n"
-    "\003Url\030\010 \001(\t\022\023\n\013IdleSleepUS\030\t \001(\r\022\034\n\024Handl"
-    "eMsgNumPerFrame\030\n \001(\r\022\026\n\016ServerOpenTime\030"
-    "\013 \001(\004\022\023\n\013LoadProtoDs\030\014 \001(\t\022\020\n\010ServerIp\030\024"
-    " \001(\t\022\022\n\nServerPort\030\025 \001(\r\022\030\n\020ExternalServ"
-    "erIp\030\026 \001(\t\022\032\n\022ExternalServerPort\030\027 \001(\r\022\020"
-    "\n\010HttpPort\030\030 \001(\r\022\025\n\rMaxConnectNum\030\031 \001(\r\022"
-    "\025\n\rWorkThreadNum\030\032 \001(\r\022\024\n\014NetThreadNum\030\033"
-    " \001(\r\022\020\n\010Security\030\034 \001(\010\022\021\n\tWebSocket\030\035 \001("
-    "\010\022\021\n\tParseType\030\036 \001(\r\022,\n\013RouteConfig\0302 \001("
-    "\0132\027.proto_ff.pbRouteConfig\022,\n\013MysqlConfi"
-    "g\030F \001(\0132\027.proto_ff.pbMysqlConfig\022\025\n\rDefa"
-    "ultDBName\030K \001(\t\022\023\n\013CrossDBName\030L \001(\t\022,\n\013"
-    "RedisConfig\030P \001(\0132\027.proto_ff.pbRedisConf"
-    "ig\022\021\n\tsendEmail\030[ \001(\t\022\025\n\rsendEmailPass\030\\"
-    " \001(\t\022\024\n\014sendEmailUrl\030] \001(\t\022\025\n\rsendEmailP"
-    "ort\030^ \001(\t\022\021\n\trecvEmail\030_ \001(\t\022\024\n\014wxWorkdR"
-    "obot\030` \001(\t\022\032\n\022MaxOnlinePlayerNum\030d \001(\r\022\030"
-    "\n\020HeartBeatTimeout\030e \001(\r\022\036\n\026ClientKeepAl"
-    "iveTimeout\030f \001(\r\022\025\n\rClientVersion\030g \001(\r\""
-    "_\n\017wxWorkRobotText\022\025\n\007content\030\001 \001(\tB\004\240\301\024"
-    "\001\022\026\n\016mentioned_list\030\002 \003(\t\022\035\n\025mentioned_m"
-    "obile_list\030\003 \003(\t\"U\n\023wxWorkRobotHttpPost\022"
-    "\025\n\007msgtype\030\001 \001(\tB\004\240\301\024\001\022\'\n\004text\030\002 \001(\0132\031.p"
-    "roto_ff.wxWorkRobotText*\361\002\n\016NF_SERVER_TY"
-    "PE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_ST_MASTER_SERVE"
-    "R\020\001\022\026\n\022NF_ST_ROUTE_SERVER\020\002\022\034\n\030NF_ST_ROU"
-    "TE_AGENT_SERVER\020\003\022\026\n\022NF_ST_PROXY_SERVER\020"
-    "\004\022\034\n\030NF_ST_PROXY_AGENT_SERVER\020\005\022\026\n\022NF_ST"
-    "_STORE_SERVER\020\006\022\026\n\022NF_ST_LOGIN_SERVER\020\007\022"
-    "\026\n\022NF_ST_WORLD_SERVER\020\010\022\026\n\022NF_ST_LOGIC_S"
-    "ERVER\020\t\022\025\n\021NF_ST_GAME_SERVER\020\n\022\024\n\020NF_ST_"
-    "SNS_SERVER\020\013\022\024\n\020NF_ST_WEB_SERVER\020\014\022\030\n\024NF"
-    "_ST_MONITOR_SERVER\020\022\022\r\n\tNF_ST_MAX\020\024", 2635);
+    "\022\022\n\nTableCount\030\002 \001(\r\022\r\n\005Cache\030\003 \001(\010\"\200\007\n\020"
+    "pbNFServerConfig\022\026\n\010ServerId\030\001 \001(\tB\004\240\301\024\001"
+    "\022\022\n\nServerType\030\002 \001(\r\022\022\n\nServerName\030\003 \001(\t"
+    "\022\r\n\005BusId\030\004 \001(\r\022\021\n\tBusLength\030\005 \001(\r\022\020\n\010Li"
+    "nkMode\030\007 \001(\t\022\013\n\003Url\030\010 \001(\t\022\023\n\013IdleSleepUS"
+    "\030\t \001(\r\022\034\n\024HandleMsgNumPerFrame\030\n \001(\r\022\026\n\016"
+    "ServerOpenTime\030\013 \001(\004\022\023\n\013LoadProtoDs\030\014 \001("
+    "\t\022\020\n\010ServerIp\030\024 \001(\t\022\022\n\nServerPort\030\025 \001(\r\022"
+    "\030\n\020ExternalServerIp\030\026 \001(\t\022\032\n\022ExternalSer"
+    "verPort\030\027 \001(\r\022\020\n\010HttpPort\030\030 \001(\r\022\025\n\rMaxCo"
+    "nnectNum\030\031 \001(\r\022\025\n\rWorkThreadNum\030\032 \001(\r\022\024\n"
+    "\014NetThreadNum\030\033 \001(\r\022\020\n\010Security\030\034 \001(\010\022\021\n"
+    "\tWebSocket\030\035 \001(\010\022\021\n\tParseType\030\036 \001(\r\022,\n\013R"
+    "outeConfig\0302 \001(\0132\027.proto_ff.pbRouteConfi"
+    "g\022,\n\013MysqlConfig\030F \001(\0132\027.proto_ff.pbMysq"
+    "lConfig\022\025\n\rDefaultDBName\030K \001(\t\022\023\n\013CrossD"
+    "BName\030L \001(\t\022,\n\013RedisConfig\030P \001(\0132\027.proto"
+    "_ff.pbRedisConfig\022\021\n\tsendEmail\030[ \001(\t\022\025\n\r"
+    "sendEmailPass\030\\ \001(\t\022\024\n\014sendEmailUrl\030] \001("
+    "\t\022\025\n\rsendEmailPort\030^ \001(\t\022\021\n\trecvEmail\030_ "
+    "\001(\t\022\024\n\014wxWorkdRobot\030` \001(\t\022\032\n\022MaxOnlinePl"
+    "ayerNum\030d \001(\r\022\030\n\020HeartBeatTimeout\030e \001(\r\022"
+    "\036\n\026ClientKeepAliveTimeout\030f \001(\r\022\025\n\rClien"
+    "tVersion\030g \001(\r\"_\n\017wxWorkRobotText\022\025\n\007con"
+    "tent\030\001 \001(\tB\004\240\301\024\001\022\026\n\016mentioned_list\030\002 \003(\t"
+    "\022\035\n\025mentioned_mobile_list\030\003 \003(\t\"U\n\023wxWor"
+    "kRobotHttpPost\022\025\n\007msgtype\030\001 \001(\tB\004\240\301\024\001\022\'\n"
+    "\004text\030\002 \001(\0132\031.proto_ff.wxWorkRobotText*\361"
+    "\002\n\016NF_SERVER_TYPE\022\016\n\nNF_ST_NONE\020\000\022\027\n\023NF_"
+    "ST_MASTER_SERVER\020\001\022\026\n\022NF_ST_ROUTE_SERVER"
+    "\020\002\022\034\n\030NF_ST_ROUTE_AGENT_SERVER\020\003\022\026\n\022NF_S"
+    "T_PROXY_SERVER\020\004\022\034\n\030NF_ST_PROXY_AGENT_SE"
+    "RVER\020\005\022\026\n\022NF_ST_STORE_SERVER\020\006\022\026\n\022NF_ST_"
+    "LOGIN_SERVER\020\007\022\026\n\022NF_ST_WORLD_SERVER\020\010\022\026"
+    "\n\022NF_ST_LOGIC_SERVER\020\t\022\025\n\021NF_ST_GAME_SER"
+    "VER\020\n\022\024\n\020NF_ST_SNS_SERVER\020\013\022\024\n\020NF_ST_WEB"
+    "_SERVER\020\014\022\030\n\024NF_ST_MONITOR_SERVER\020\022\022\r\n\tN"
+    "F_ST_MAX\020\024", 2650);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "proto_common.proto", &protobuf_RegisterTypes);
   tbServerMgr::default_instance_ = new tbServerMgr();
@@ -3082,6 +3084,7 @@ void pbPluginConfig::Swap(pbPluginConfig* other) {
 #ifndef _MSC_VER
 const int pbTableConfig::kTableNameFieldNumber;
 const int pbTableConfig::kTableCountFieldNumber;
+const int pbTableConfig::kCacheFieldNumber;
 #endif  // !_MSC_VER
 
 pbTableConfig::pbTableConfig()
@@ -3102,6 +3105,7 @@ void pbTableConfig::SharedCtor() {
   _cached_size_ = 0;
   tablename_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   tablecount_ = 0u;
+  cache_ = false;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3146,6 +3150,7 @@ void pbTableConfig::Clear() {
       }
     }
     tablecount_ = 0u;
+    cache_ = false;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3185,6 +3190,22 @@ bool pbTableConfig::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(24)) goto parse_Cache;
+        break;
+      }
+
+      // optional bool Cache = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_Cache:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &cache_)));
+          set_has_cache();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3221,6 +3242,11 @@ void pbTableConfig::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->tablecount(), output);
   }
 
+  // optional bool Cache = 3;
+  if (has_cache()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->cache(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3242,6 +3268,11 @@ void pbTableConfig::SerializeWithCachedSizes(
   // optional uint32 TableCount = 2;
   if (has_tablecount()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->tablecount(), target);
+  }
+
+  // optional bool Cache = 3;
+  if (has_cache()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->cache(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3267,6 +3298,11 @@ int pbTableConfig::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt32Size(
           this->tablecount());
+    }
+
+    // optional bool Cache = 3;
+    if (has_cache()) {
+      total_size += 1 + 1;
     }
 
   }
@@ -3302,6 +3338,9 @@ void pbTableConfig::MergeFrom(const pbTableConfig& from) {
     if (from.has_tablecount()) {
       set_tablecount(from.tablecount());
     }
+    if (from.has_cache()) {
+      set_cache(from.cache());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -3327,6 +3366,7 @@ void pbTableConfig::Swap(pbTableConfig* other) {
   if (other != this) {
     std::swap(tablename_, other->tablename_);
     std::swap(tablecount_, other->tablecount_);
+    std::swap(cache_, other->cache_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

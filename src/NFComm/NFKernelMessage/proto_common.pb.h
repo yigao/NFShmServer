@@ -1017,20 +1017,30 @@ class pbTableConfig : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 tablecount() const;
   inline void set_tablecount(::google::protobuf::uint32 value);
 
+  // optional bool Cache = 3;
+  inline bool has_cache() const;
+  inline void clear_cache();
+  static const int kCacheFieldNumber = 3;
+  inline bool cache() const;
+  inline void set_cache(bool value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.pbTableConfig)
  private:
   inline void set_has_tablename();
   inline void clear_has_tablename();
   inline void set_has_tablecount();
   inline void clear_has_tablecount();
+  inline void set_has_cache();
+  inline void clear_has_cache();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::std::string* tablename_;
   ::google::protobuf::uint32 tablecount_;
+  bool cache_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fcommon_2eproto();
   friend void protobuf_AssignDesc_proto_5fcommon_2eproto();
@@ -3495,6 +3505,28 @@ inline ::google::protobuf::uint32 pbTableConfig::tablecount() const {
 inline void pbTableConfig::set_tablecount(::google::protobuf::uint32 value) {
   set_has_tablecount();
   tablecount_ = value;
+}
+
+// optional bool Cache = 3;
+inline bool pbTableConfig::has_cache() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void pbTableConfig::set_has_cache() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void pbTableConfig::clear_has_cache() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void pbTableConfig::clear_cache() {
+  cache_ = false;
+  clear_has_cache();
+}
+inline bool pbTableConfig::cache() const {
+  return cache_;
+}
+inline void pbTableConfig::set_cache(bool value) {
+  set_has_cache();
+  cache_ = value;
 }
 
 // -------------------------------------------------------------------

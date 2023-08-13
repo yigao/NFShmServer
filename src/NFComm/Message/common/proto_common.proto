@@ -81,6 +81,7 @@ message pbTableConfig
 {
 	optional string TableName = 1[(yd_fieldoptions.field_use_stl)=true];
 	optional uint32 TableCount = 2;
+	optional bool Cache = 3; //redis cache
 }
 
 message pbNFServerConfig
