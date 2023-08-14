@@ -26,8 +26,14 @@ public:
 	virtual int AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass);
 public:
     virtual int SelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res);
-    virtual int SaveSelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
-                              storesvr_sqldata::storesvr_selobj_res &select_res);
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
+                        storesvr_sqldata::storesvr_selobj_res &select_res);
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select);
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select);
+
+    virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_delobj &select);
+    virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select);
+    virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select);
 public:
     virtual bool Connect(const std::string& strIP, const int nPort, const std::string& strPass) { return false; };
     virtual bool Enable();

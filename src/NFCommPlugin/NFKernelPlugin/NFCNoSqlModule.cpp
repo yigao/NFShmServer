@@ -93,12 +93,47 @@ int NFCNoSqlModule::SelectObj(const std::string& strID, const storesvr_sqldata::
     return pDriver->SelectObj(select, select_res);
 }
 
-int NFCNoSqlModule::SaveSelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
-                  storesvr_sqldata::storesvr_selobj_res &select_res)
+int NFCNoSqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
+                            storesvr_sqldata::storesvr_selobj_res &select_res)
 {
     auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
-    return pDriver->SaveSelectObj(select, select_res);
+    return pDriver->SaveObj(select, select_res);
+}
+
+int NFCNoSqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select)
+{
+    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
+    return pDriver->SaveObj(select);
+}
+
+int NFCNoSqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select)
+{
+    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
+    return pDriver->SaveObj(select);
+}
+
+int NFCNoSqlModule::DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_delobj &select)
+{
+    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
+    return pDriver->DeleteObj(select);
+}
+
+int NFCNoSqlModule::DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select)
+{
+    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
+    return pDriver->DeleteObj(select);
+}
+
+int NFCNoSqlModule::DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select)
+{
+    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
+    return pDriver->DeleteObj(select);
 }
 
 std::vector<std::string> NFCNoSqlModule::GetDriverIdList()

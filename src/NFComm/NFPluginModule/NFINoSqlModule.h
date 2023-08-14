@@ -39,19 +39,14 @@ public:
     virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select,
                   storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
 
-    virtual int SaveSelectObj(const storesvr_sqldata::storesvr_selobj &select,
-                              storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
+    virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select,
+                        storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
+    virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select) = 0;
+    virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select) = 0;
 
     virtual int DeleteObj(const storesvr_sqldata::storesvr_delobj &select) = 0;
     virtual int DeleteObj(const storesvr_sqldata::storesvr_insertobj &select) = 0;
     virtual int DeleteObj(const storesvr_sqldata::storesvr_modobj &select) = 0;
-
-    virtual int CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap) = 0;
-    virtual int CreateSql(const storesvr_sqldata::storesvr_insertobj &select, std::map<std::string, std::string> &keyMap) = 0;
-    virtual int CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap) = 0;
-
-    virtual int InsertObj(const storesvr_sqldata::storesvr_insertobj &select) = 0;
-    virtual int InsertObj(const storesvr_sqldata::storesvr_modobj &select) = 0;
 public:
 	virtual bool Enable() = 0;
 	virtual bool Authed() = 0;
@@ -815,8 +810,14 @@ public:
 	virtual int AddNoSqlServer(const std::string& strID, const std::string& ip, const int nPort, const std::string& strPass) = 0;
 public:
     virtual int SelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
-    virtual int SaveSelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
-                              storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
+                        storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select) = 0;
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select) = 0;
+
+    virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_delobj &select) = 0;
+    virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select) = 0;
+    virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select) = 0;
 public:
 	virtual std::vector<std::string> GetDriverIdList() = 0;
 	virtual NF_SHARE_PTR<NFIRedisDriver>  GetDriver(const std::string& strID) = 0;

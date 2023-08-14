@@ -798,7 +798,7 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
     {
         if (cache)
         {
-            FindModule<NFINoSqlModule>()->SaveSelectObj(request.baseinfo().dbname(), request, respone);
+            FindModule<NFINoSqlModule>()->SaveObj(request.baseinfo().dbname(), request, respone);
         }
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -913,7 +913,7 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
              {
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
                  {
-                     NFLogError(NF_LOG_SYSTEMLOG, 0, "InsertObj, But Coroutine Status Error..........Not Yielding");
+                     NFLogError(NF_LOG_SYSTEMLOG, 0, "SaveObj, But Coroutine Status Error..........Not Yielding");
                      return;
                  }
 

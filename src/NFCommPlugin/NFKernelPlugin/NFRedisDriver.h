@@ -69,8 +69,8 @@ public:
     virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select,
                                  storesvr_sqldata::storesvr_selobj_res &select_res);
 
-    virtual int SaveSelectObj(const storesvr_sqldata::storesvr_selobj &select,
-                          storesvr_sqldata::storesvr_selobj_res &select_res);
+    virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select,
+                        storesvr_sqldata::storesvr_selobj_res &select_res);
 
     int GetPrivateFields(const storesvr_sqldata::storesvr_selobj &select, std::string& field, std::string& fieldValue);
 
@@ -78,12 +78,12 @@ public:
     virtual int DeleteObj(const storesvr_sqldata::storesvr_insertobj &select);
     virtual int DeleteObj(const storesvr_sqldata::storesvr_modobj &select);
 
-    virtual int CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap);
-    virtual int CreateSql(const storesvr_sqldata::storesvr_insertobj &select, std::map<std::string, std::string> &keyMap);
-    virtual int CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap);
+    virtual int GetPrivateFields(const storesvr_sqldata::storesvr_delobj &select, std::string& field, std::string& fieldValue);
+    virtual int GetPrivateFields(const storesvr_sqldata::storesvr_insertobj &select, std::string& field, std::string& fieldValue);
+    virtual int GetPrivateFields(const storesvr_sqldata::storesvr_modobj &select, std::string& field, std::string& fieldValue);
 
-    virtual int InsertObj(const storesvr_sqldata::storesvr_insertobj &select);
-    virtual int InsertObj(const storesvr_sqldata::storesvr_modobj &select);
+    virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select);
+    virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select);
 public:
 
 	/**

@@ -72,7 +72,6 @@ void NFKernelPlugin::Install()
     REGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
     REGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
-    REGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
     REGISTER_MODULE(m_pObjPluginManager, NFINamingModule, NFCNamingModule);
 }
