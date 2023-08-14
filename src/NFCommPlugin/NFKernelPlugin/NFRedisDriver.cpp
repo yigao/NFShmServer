@@ -52,7 +52,7 @@ bool NFRedisDriver::Connect(const std::string &ip, const int port, const std::st
             }
         }
 
-        return true;
+        return Enable();
     }
 
     return false;
@@ -258,6 +258,43 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_modobj &select)
     }
 
     bRet = HSET(db_key, fieldKey, select.mod_record());
+    if (!bRet)
+    {
+        return -1;
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_updateobj &select)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string tableName = select.baseinfo().tbname();
+    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+
+    int iRet = 0;
+    std::string field;
+    std::string fieldKey;
+    iRet = GetPrivateFields(select, field, fieldKey);
+    if (iRet > 0)
+    {
+        return iRet;
+    }
+    else if (iRet < 0)
+    {
+        CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
+    }
+
+    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    bool bRet = SelectDB(NFREDIS_DB1);
+    if (!bRet)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, select.baseinfo().tbname(), select.mod_key());
+        return -1;
+    }
+
+    bRet = HSET(db_key, fieldKey, select.modins_record());
     if (!bRet)
     {
         return -1;
@@ -512,6 +549,32 @@ int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_modobj &sel
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+
+    int iRet = NFProtobufCommon::GetPrivateFieldsFromMessage(*pMessageObject, field, fieldValue);
+    delete pMessageObject;
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return iRet;
+}
+
+int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_updateobj &select, std::string& field, std::string& fieldValue)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string tableName = select.baseinfo().tbname();
+    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
+
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else {
+        full_name = packageName + "." + tableName;
+    }
+    google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
+    CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.modins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+
 
     int iRet = NFProtobufCommon::GetPrivateFieldsFromMessage(*pMessageObject, field, fieldValue);
     delete pMessageObject;

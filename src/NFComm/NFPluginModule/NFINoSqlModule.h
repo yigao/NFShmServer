@@ -43,6 +43,7 @@ public:
                         storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
     virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select) = 0;
     virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select) = 0;
+    virtual int SaveObj(const storesvr_sqldata::storesvr_updateobj &select) = 0;
 
     virtual int DeleteObj(const storesvr_sqldata::storesvr_delobj &select) = 0;
     virtual int DeleteObj(const storesvr_sqldata::storesvr_insertobj &select) = 0;
@@ -819,11 +820,5 @@ public:
     virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select) = 0;
     virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select) = 0;
 public:
-	virtual std::vector<std::string> GetDriverIdList() = 0;
-	virtual NF_SHARE_PTR<NFIRedisDriver>  GetDriver(const std::string& strID) = 0;
-	virtual NF_SHARE_PTR<NFIRedisDriver>  GetDriverBySuitRandom() = 0;
-	virtual NF_SHARE_PTR<NFIRedisDriver>  GetDriverBySuitConsistent() = 0;
-	virtual NF_SHARE_PTR<NFIRedisDriver>  GetDriverBySuit(const std::string& strHash) = 0;
-	//virtual NF_SHARE_PTR<NFIRedisDriver>  GetDriverBySuit(const int nHash) = 0;
-	virtual bool RemoveConnectSql(const std::string& strID) = 0;
+	virtual NFIRedisDriver* GetNosqlDriver(const std::string& strID) = 0;
 };

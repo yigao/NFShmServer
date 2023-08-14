@@ -40,12 +40,7 @@ public:
     virtual bool Busy();
     virtual bool KeepLive();
 public:
-	virtual std::vector<std::string> GetDriverIdList();
-	virtual NF_SHARE_PTR<NFIRedisDriver> GetDriver(const std::string& strID);
-	virtual NF_SHARE_PTR<NFIRedisDriver> GetDriverBySuitRandom();
-	virtual NF_SHARE_PTR<NFIRedisDriver> GetDriverBySuitConsistent();
-	virtual NF_SHARE_PTR<NFIRedisDriver> GetDriverBySuit(const std::string& strHash);
-	virtual bool RemoveConnectSql(const std::string& strID);
+	virtual NFIRedisDriver* GetNosqlDriver(const std::string& strID);
 protected:
     NFCNoSqlDriverManager* m_pNoSqlDriverManager;
 };

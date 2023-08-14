@@ -10,7 +10,12 @@ NFCNoSqlDriverManager::NFCNoSqlDriverManager()
 
 NFCNoSqlDriverManager::~NFCNoSqlDriverManager()
 {
-
+    for (auto pMysqlDriver = mxNoSqlDriver.First(); nullptr != pMysqlDriver; pMysqlDriver = mxNoSqlDriver.Next())
+    {
+        NF_SAFE_DELETE(pMysqlDriver);
+        pMysqlDriver = nullptr;
+    }
+    mxNoSqlDriver.ClearAll();
 }
 
 bool NFCNoSqlDriverManager::Enable()
@@ -30,7 +35,7 @@ bool NFCNoSqlDriverManager::KeepLive()
 
 bool NFCNoSqlDriverManager::Execute()
 {
-    NF_SHARE_PTR<NFIRedisDriver> xNosqlDriver = this->mxNoSqlDriver.First();
+    auto xNosqlDriver = this->mxNoSqlDriver.First();
     while (xNosqlDriver)
     {
         xNosqlDriver->Execute();
@@ -38,60 +43,19 @@ bool NFCNoSqlDriverManager::Execute()
         xNosqlDriver = this->mxNoSqlDriver.Next();
     }
 
-    CheckConnect();
+    CheckNoSql();
 
     return true;
 }
 
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlDriverManager::GetDriverBySuitRandom()
-{
-    NF_SHARE_PTR<NFIRedisDriver> xDriver = mxNoSqlDriver.GetElementBySuitRandom();
-    if (xDriver && xDriver->Enable())
-    {
-        return xDriver;
-    }
-
-    return nullptr;
-}
-
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlDriverManager::GetDriverBySuitConsistent()
-{
-    NF_SHARE_PTR<NFIRedisDriver> xDriver = mxNoSqlDriver.GetElementBySuitConsistent();
-    if (xDriver && xDriver->Enable())
-    {
-        return xDriver;
-    }
-
-    return nullptr;
-}
-
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlDriverManager::GetDriverBySuit(const std::string& strHash)
-{
-    NF_SHARE_PTR<NFIRedisDriver> xDriver = mxNoSqlDriver.GetElementBySuit(strHash);
-    if (xDriver && xDriver->Enable())
-    {
-        return xDriver;
-    }
-
-    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetDriverBySuit ===> NULL hash:{}", strHash);
-    return nullptr;
-}
-
-/*
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlModule::GetDriverBySuit(const int nHash)
-{
-return mxNoSqlDriver.GetElementBySuit(nHash);
-}
-*/
 int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP)
 {
-    if (!mxNoSqlDriver.ExistElement(strID))
+    if (!mxNoSqlDriver.GetElement(strID))
     {
-        NF_SHARE_PTR<NFRedisDriver> pNoSqlDriver(new NFRedisDriver());
+        NFRedisDriver* pNoSqlDriver = new NFRedisDriver();
         mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
         if (pNoSqlDriver->Connect(strIP, 6379, ""))
         {
-            CheckConnect();
             return 0;
         }
 
@@ -103,9 +67,9 @@ int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::s
 
 int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort)
 {
-    if (!mxNoSqlDriver.ExistElement(strID))
+    if (!mxNoSqlDriver.GetElement(strID))
     {
-        NF_SHARE_PTR<NFIRedisDriver> pNoSqlDriver(new NFRedisDriver());
+        auto pNoSqlDriver = NF_NEW NFRedisDriver();
         mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
         if (pNoSqlDriver->Connect(strIP, nPort, ""))
         {
@@ -119,9 +83,9 @@ int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::s
 
 int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass)
 {
-    if (!mxNoSqlDriver.ExistElement(strID))
+    if (!mxNoSqlDriver.GetElement(strID))
     {
-        NF_SHARE_PTR<NFIRedisDriver> pNoSqlDriver(NF_NEW NFRedisDriver());
+        auto pNoSqlDriver = NF_NEW NFRedisDriver();
         mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
         if (pNoSqlDriver->Connect(strIP, nPort, strPass))
         {
@@ -133,22 +97,9 @@ int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::s
     return -1;
 }
 
-std::vector<std::string> NFCNoSqlDriverManager::GetDriverIdList()
+NFIRedisDriver* NFCNoSqlDriverManager::GetNosqlDriver(const std::string& strID)
 {
-    std::vector<std::string> lDriverIdList;
-    std::string strDriverId;
-    NF_SHARE_PTR<NFIRedisDriver> pDriver = mxNoSqlDriver.First(strDriverId);
-    while (pDriver)
-    {
-        lDriverIdList.push_back(strDriverId);
-        pDriver = mxNoSqlDriver.Next(strDriverId);
-    }
-    return lDriverIdList;
-}
-
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlDriverManager::GetDriver(const std::string& strID)
-{
-    NF_SHARE_PTR<NFIRedisDriver> xDriver = mxNoSqlDriver.GetElement(strID);
+    auto xDriver = mxNoSqlDriver.GetElement(strID);
     if (xDriver && xDriver->Enable())
     {
         return xDriver;
@@ -157,12 +108,7 @@ NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlDriverManager::GetDriver(const std::string&
     return nullptr;
 }
 
-bool NFCNoSqlDriverManager::RemoveConnectSql(const std::string& strID)
-{
-    return mxNoSqlDriver.RemoveElement(strID);
-}
-
-void NFCNoSqlDriverManager::CheckConnect()
+void NFCNoSqlDriverManager::CheckNoSql()
 {
     static const int CHECK_TIME = 15;
     if (mLastCheckTime + CHECK_TIME > NFTime::Now().UnixSec())
@@ -172,7 +118,7 @@ void NFCNoSqlDriverManager::CheckConnect()
 
     mLastCheckTime = NFTime::Now().UnixSec();
 
-    NF_SHARE_PTR<NFIRedisDriver> xNosqlDriver = this->mxNoSqlDriver.First();
+    auto xNosqlDriver = this->mxNoSqlDriver.First();
     while (xNosqlDriver)
     {
         if (xNosqlDriver->Enable() && !xNosqlDriver->Authed())

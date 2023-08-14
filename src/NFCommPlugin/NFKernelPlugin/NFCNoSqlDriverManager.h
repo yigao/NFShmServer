@@ -13,6 +13,7 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFCore/NFMap.hpp"
 
 class NFCNoSqlDriverManager
 {
@@ -30,18 +31,10 @@ public:
     virtual bool Busy();
     virtual bool KeepLive();
 public:
-    virtual std::vector<std::string> GetDriverIdList();
-    virtual NF_SHARE_PTR<NFIRedisDriver> GetDriver(const std::string& strID);
-    virtual NF_SHARE_PTR<NFIRedisDriver> GetDriverBySuitRandom();
-    virtual NF_SHARE_PTR<NFIRedisDriver> GetDriverBySuitConsistent();
-    virtual NF_SHARE_PTR<NFIRedisDriver> GetDriverBySuit(const std::string& strHash);
-    //virtual NF_SHARE_PTR<NFIRedisDriver> GetDriverBySuit(const int nHash);
-    virtual bool RemoveConnectSql(const std::string& strID);
-
+    void CheckNoSql();
+public:
+    virtual NFIRedisDriver* GetNosqlDriver(const std::string& strID);
 protected:
-    void CheckConnect();
-
-protected:
-    NFConsistentHashMapEx<std::string, NFIRedisDriver> mxNoSqlDriver;
+    NFMap<std::string, NFIRedisDriver> mxNoSqlDriver;
     int mLastCheckTime = 0;
 };

@@ -75,17 +75,11 @@ bool NFCStoreServerModule::Awake()
     FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
     int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
                                                                pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
-                                                               pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword);
+                                                               pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword,
+                                                               pConfig->RedisConfig.RedisIp, pConfig->RedisConfig.RedisPort, pConfig->RedisConfig.RedisPass);
     if (iRet != 0)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server connect mysql failed");
-        return false;
-    }
-
-    iRet = FindModule<NFINoSqlModule>()->AddNoSqlServer(pConfig->MysqlConfig.MysqlDbName, "127.0.0.1");
-    if (iRet != 0)
-    {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "store server connect redis failed");
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "store server connect db failed");
         return false;
     }
 
@@ -333,6 +327,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             storesvr_sqldata::storesvr_selobj select;
             select.ParsePartialFromString(xMsg.msg_data());
 
+            bool cache = false;
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
@@ -343,10 +338,11 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
+                cache = iter->second.Cache;
             }
 
             FindModule<NFIAsyMysqlModule>()->SelectObj
-                    (select.baseinfo().dbname(), select,
+                    (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_selobj_res &select_res) mutable
                      {
                          select_res.mutable_sel_opres()->set_err_code(iRet);
@@ -384,6 +380,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             storesvr_sqldata::storesvr_insertobj select;
             select.ParsePartialFromString(xMsg.msg_data());
 
+            bool cache = false;
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
@@ -394,10 +391,11 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
+                cache = iter->second.Cache;
             }
 
             FindModule<NFIAsyMysqlModule>()->InsertObj
-                    (select.baseinfo().dbname(), select,
+                    (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res) mutable
                      {
                          select_res.mutable_ins_opres()->set_err_code(iRet);
@@ -468,6 +466,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             storesvr_sqldata::storesvr_delobj select;
             select.ParsePartialFromString(xMsg.msg_data());
 
+            bool cache = false;
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
@@ -478,10 +477,11 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
+                cache = iter->second.Cache;
             }
 
             FindModule<NFIAsyMysqlModule>()->DeleteObj
-                    (select.baseinfo().dbname(), select,
+                    (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_delobj_res &select_res) mutable
                      {
                          select_res.mutable_del_opres()->set_err_code(iRet);
@@ -552,6 +552,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             storesvr_sqldata::storesvr_modobj select;
             select.ParsePartialFromString(xMsg.msg_data());
 
+            bool cache = false;
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
@@ -562,10 +563,11 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
+                cache = iter->second.Cache;
             }
 
             FindModule<NFIAsyMysqlModule>()->ModifyObj
-                    (select.baseinfo().dbname(), select,
+                    (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_modobj_res &select_res) mutable
                      {
                          select_res.mutable_mod_opres()->set_err_code(iRet);
@@ -636,6 +638,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             storesvr_sqldata::storesvr_updateobj select;
             select.ParsePartialFromString(xMsg.msg_data());
 
+            bool cache = false;
             auto iter = pConfig->mTBConfMap.find(select.baseinfo().tbname());
             if (iter != pConfig->mTBConfMap.end())
             {
@@ -646,10 +649,11 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
+                cache = iter->second.Cache;
             }
 
             FindModule<NFIAsyMysqlModule>()->UpdateObj
-                    (select.baseinfo().dbname(), select,
+                    (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res) mutable
                      {
                          select_res.mutable_modins_opres()->set_err_code(iRet);
@@ -735,23 +739,9 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
         cache = iter->second.Cache;
     }
 
-    if (cache)
-    {
-        int iNoSqlRet = FindModule<NFINoSqlModule>()->SelectObj(request.baseinfo().dbname(), request, respone);
-        if (iNoSqlRet < 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "FindModule<NFINoSqlModule>()->SelectObj Failed, iRet:{}", GetErrorStr(iNoSqlRet));
-            return iNoSqlRet;
-        }
-        else if (iNoSqlRet == 0)
-        {
-            return iNoSqlRet;
-        }
-    }
-
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->SelectObj
-            (request.baseinfo().dbname(), request,
+            (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_selobj_res &select_res) mutable
              {
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
@@ -794,13 +784,6 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
 
     iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS / 2);
 
-    if (iRet == 0)
-    {
-        if (cache)
-        {
-            FindModule<NFINoSqlModule>()->SaveObj(request.baseinfo().dbname(), request, respone);
-        }
-    }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
 }
@@ -894,6 +877,7 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
+    bool cache = false;
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
@@ -904,11 +888,13 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
         }
+
+        cache = iter->second.Cache;
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->InsertObj
-            (request.baseinfo().dbname(), request,
+            (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res) mutable
              {
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
@@ -952,6 +938,7 @@ int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
+    bool cache = false;
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
@@ -962,11 +949,13 @@ int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
         }
+
+        cache = iter->second.Cache;
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->ModifyObj
-            (request.baseinfo().dbname(), request,
+            (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_modobj_res &select_res) mutable
              {
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
@@ -1126,6 +1115,7 @@ int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_update
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
+    bool cache = false;
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
@@ -1136,11 +1126,13 @@ int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_update
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
         }
+
+        cache = iter->second.Cache;
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->UpdateObj
-            (request.baseinfo().dbname(), request,
+            (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res) mutable
              {
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))
@@ -1354,6 +1346,7 @@ int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     NF_ASSERT(pConfig);
 
+    bool cache = false;
     auto iter = pConfig->mTBConfMap.find(request.baseinfo().tbname());
     if (iter != pConfig->mTBConfMap.end())
     {
@@ -1364,11 +1357,13 @@ int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
         }
+
+        cache = iter->second.Cache;
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = FindModule<NFIAsyMysqlModule>()->DeleteObj
-            (request.baseinfo().dbname(), request,
+            (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_delobj_res &select_res) mutable
              {
                  if (!FindModule<NFICoroutineModule>()->IsYielding(coId))

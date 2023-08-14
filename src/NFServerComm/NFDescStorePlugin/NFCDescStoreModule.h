@@ -36,8 +36,6 @@ public:
 
     virtual NFIDescStore* FindDescStoreByFileName(const std::string& strDescName) override;
 
-	virtual int InitDestStoreDB(const std::string &serverId, const std::string& hostip, int port, const std::string& dbname, const std::string& user, const std::string& pass) override;
-
 	virtual int Initialize();
 
 	virtual int LoadFileDestSotre();

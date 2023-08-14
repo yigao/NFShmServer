@@ -42,8 +42,8 @@ public:
 	 * @return bool					成功或失败
 	 */
 	virtual int AddMysqlServer(const std::string& nServerID, const std::string &strIP, int nPort, std::string strDBName,
-		std::string strDBUser, std::string strDBPwd, int nRconnectTime = 10,
-		int nRconneCount = -1) override;
+                               std::string strDBUser, std::string strDBPwd, const std::string& noSqlIp, int nosqlPort, const std::string& noSqlPass, int nRconnectTime = 10,
+                               int nRconneCount = -1) override;
 
 	/**
 	 * @brief 执行sql语句, 把数据库配置表里的数据取出来
@@ -81,7 +81,7 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-	virtual int SelectObj(const std::string& nServerID, const storesvr_sqldata::storesvr_selobj &select,
+	virtual int SelectObj(const std::string& nServerID, const storesvr_sqldata::storesvr_selobj &select, bool useCache,
 		const SelectObj_CB& cb) override;
 
 	/**
@@ -101,7 +101,7 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-	virtual int DeleteObj(const std::string& nServerID, const storesvr_sqldata::storesvr_delobj &select,
+	virtual int DeleteObj(const std::string& nServerID, const storesvr_sqldata::storesvr_delobj &select, bool useCache,
 		const DeleteObj_CB& cb) override;
 
 	/**
@@ -111,7 +111,7 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-	virtual int InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_insertobj &select,
+	virtual int InsertObj(const std::string& nServerID, const storesvr_sqldata::storesvr_insertobj &select, bool useCache,
 		const InsertObj_CB& cb) override;
 
 	/**
@@ -124,7 +124,7 @@ public:
     virtual int ModifyByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_mod &select,
                           const ModifyByCond_CB& cb) override;
 
-	virtual int ModifyObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modobj &select,
+	virtual int ModifyObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modobj &select, bool useCache,
 		const ModifyObj_CB& cb) override;
 
 	/**
@@ -137,7 +137,7 @@ public:
     virtual int UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_update &select,
                           const UpdateByCond_CB& cb) override;
 
-	virtual int UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_updateobj &select,
+	virtual int UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_updateobj &select, bool useCache,
 		const UpdateObj_CB& cb) override;
 
     virtual int Execute(const std::string& nServerID, const storesvr_sqldata::storesvr_execute &select,

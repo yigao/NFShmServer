@@ -32,8 +32,6 @@ public:
 
     virtual void RegisterDescStore(const std::string& strClassName, int objType) = 0;
 
-    virtual int InitDestStoreDB(const std::string &serverId, const std::string& hostip, int port, const std::string& dbname, const std::string& user, const std::string& pass) = 0;
-
 	virtual NFIDescStore* FindDescStore(const std::string& strDescName) = 0;
 
 	virtual NFIDescStore* FindDescStoreByFileName(const std::string& strDescName) = 0;

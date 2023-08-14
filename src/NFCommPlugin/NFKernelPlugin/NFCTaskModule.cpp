@@ -423,7 +423,7 @@ void NFCTaskModule::OnMainThreadTick()
 				{
                     if (pTask->m_useTime >= 100)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the task:{} use time out:{} ms, handle time:{} actorId:{}", pTask->m_taskName, pTask->m_useTime/1000,
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the task:{} use time out:{} ms, handle time:{} actorId:{}", pTask->m_taskName, pTask->m_useTime/(double)1000,
                                    NFDateTime(pTask->m_handleStartTime/1000000, pTask->m_handleStartTime%1000000).GetLongTimeString(), pTask->m_handleActorId);
                     }
 					const NFTask::TPTaskState state = pTask->MainThreadProcess();

@@ -50,27 +50,6 @@ bool NFCNoSqlModule::Execute()
 	return m_pNoSqlDriverManager->Execute();
 }
 
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlModule::GetDriverBySuitRandom()
-{
-	return m_pNoSqlDriverManager->GetDriverBySuitRandom();
-}
-
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlModule::GetDriverBySuitConsistent()
-{
-	return m_pNoSqlDriverManager->GetDriverBySuitConsistent();
-}
-
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlModule::GetDriverBySuit(const std::string& strHash)
-{
-	return m_pNoSqlDriverManager->GetDriverBySuit(strHash);
-}
-
-/*
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlModule::GetDriverBySuit(const int nHash)
-{
-return mxNoSqlDriver.GetElementBySuit(nHash);
-}
-*/
 int NFCNoSqlModule::AddNoSqlServer(const std::string& strID, const std::string& strIP)
 {
 	return m_pNoSqlDriverManager->AddNoSqlServer(strID, strIP);
@@ -88,7 +67,7 @@ int NFCNoSqlModule::AddNoSqlServer(const std::string& strID, const std::string& 
 
 int NFCNoSqlModule::SelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res)
 {
-    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
     return pDriver->SelectObj(select, select_res);
 }
@@ -96,57 +75,48 @@ int NFCNoSqlModule::SelectObj(const std::string& strID, const storesvr_sqldata::
 int NFCNoSqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
                             storesvr_sqldata::storesvr_selobj_res &select_res)
 {
-    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
     return pDriver->SaveObj(select, select_res);
 }
 
 int NFCNoSqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select)
 {
-    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
     return pDriver->SaveObj(select);
 }
 
 int NFCNoSqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select)
 {
-    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
     return pDriver->SaveObj(select);
 }
 
 int NFCNoSqlModule::DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_delobj &select)
 {
-    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
     return pDriver->DeleteObj(select);
 }
 
 int NFCNoSqlModule::DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select)
 {
-    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
     return pDriver->DeleteObj(select);
 }
 
 int NFCNoSqlModule::DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select)
 {
-    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
     return pDriver->DeleteObj(select);
 }
 
-std::vector<std::string> NFCNoSqlModule::GetDriverIdList()
+NFIRedisDriver* NFCNoSqlModule::GetNosqlDriver(const std::string& strID)
 {
-	return m_pNoSqlDriverManager->GetDriverIdList();
+	return m_pNoSqlDriverManager->GetNosqlDriver(strID);
 }
 
-NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlModule::GetDriver(const std::string& strID)
-{
-	return m_pNoSqlDriverManager->GetDriver(strID);
-}
-
-bool NFCNoSqlModule::RemoveConnectSql(const std::string& strID)
-{
-	return m_pNoSqlDriverManager->RemoveConnectSql(strID);
-}
