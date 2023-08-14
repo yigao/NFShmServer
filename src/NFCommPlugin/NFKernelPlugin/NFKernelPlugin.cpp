@@ -22,6 +22,7 @@
 #include "NFCommPlugin/NFKernelPlugin/NFCNamingModule.h"
 #include "NFServerComm/NFDescStorePlugin/NFDescStoreTrans.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
+#include "NFCNoSqlModule.h"
 
 //
 //
@@ -69,6 +70,7 @@ void NFKernelPlugin::Install()
     REGISTER_MODULE(m_pObjPluginManager, NFICoroutineModule, NFCCoroutineModule);
     REGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
     REGISTER_MODULE(m_pObjPluginManager, NFINamingModule, NFCNamingModule);
 }
@@ -78,7 +80,7 @@ void NFKernelPlugin::Uninstall()
     UNREGISTER_MODULE(m_pObjPluginManager, NFICoroutineModule, NFCCoroutineModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
 	UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
-    //UNREGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
 	UNREGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFINamingModule, NFCNamingModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIMonitorModule, NFCMonitorModule);

@@ -72,6 +72,10 @@ NF_MYSQL_USER="root"
 --数据库密码
 NF_MYSQL_PASSWORD= "root" --"cg2016" --"root"
 
+NF_REDIS_IP="127.0.0.1"
+NF_REDIS_PORT=6379
+NF_REDIS_PASS="root"
+
 ----开服时间,单位秒
 GlobalOpenTime = 1678204800
 
