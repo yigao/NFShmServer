@@ -14,7 +14,7 @@
 #include "NFLogicCommon/NFICommLogicModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
-#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
+#include "NFComm/NFPluginModule/NFIAsyDBModule.h"
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFComm/NFCore/NFHmacSha.h"
 #include "NFComm/NFCore/NFBase64.h"

@@ -37,16 +37,16 @@ using UpdateObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_upd
 using Execute_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_execute_res &select_res)>;
 using ExecuteMore_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_execute_more_res &select_res)>;
 
-class NFIAsyMysqlModule
+class NFIAsyDBModule
 	: public NFIAsycModule
 {
 public:
-	NFIAsyMysqlModule(NFIPluginManager* p) :NFIAsycModule(p)
+	NFIAsyDBModule(NFIPluginManager* p) : NFIAsycModule(p)
 	{
 
 	}
 
-	virtual ~NFIAsyMysqlModule()
+	virtual ~NFIAsyDBModule()
 	{
 
 	}
@@ -64,9 +64,9 @@ public:
 	 * @param  nRconneCount			重连次数
 	 * @return bool					成功或失败
 	 */
-	virtual int AddMysqlServer(const std::string& nServerID, const std::string &strIP, int nPort, std::string strDBName,
-		std::string strDBUser, std::string strDBPwd, const std::string& noSqlIp, int nNosqlPort, const std::string& noSqlPass, int nRconnectTime = 10,
-		int nRconneCount = -1) = 0;
+	virtual int AddDBServer(const std::string& nServerID, const std::string &strIP, int nPort, std::string strDBName,
+                            std::string strDBUser, std::string strDBPwd, const std::string& noSqlIp, int nNosqlPort, const std::string& noSqlPass, int nRconnectTime = 10,
+                            int nRconneCount = -1) = 0;
 
 	/**
  * @brief 执行sql语句, 把数据库配置表里的数据取出来

@@ -11,7 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "google/protobuf/message.h"
-#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
+#include "NFComm/NFPluginModule/NFIAsyDBModule.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 
 class NFIDescStore;

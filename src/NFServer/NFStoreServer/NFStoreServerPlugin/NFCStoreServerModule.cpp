@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
+#include "NFComm/NFPluginModule/NFIAsyDBModule.h"
 #include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
@@ -73,10 +73,10 @@ bool NFCStoreServerModule::Awake()
     CHECK_EXPR_ASSERT(pConfig, false, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
 
     FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
-    int iRet = FindModule<NFIAsyMysqlModule>()->AddMysqlServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
-                                                               pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
-                                                               pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword,
-                                                               pConfig->RedisConfig.RedisIp, pConfig->RedisConfig.RedisPort, pConfig->RedisConfig.RedisPass);
+    int iRet = FindModule<NFIAsyDBModule>()->AddDBServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
+                                                         pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
+                                                         pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword,
+                                                         pConfig->RedisConfig.RedisIp, pConfig->RedisConfig.RedisPort, pConfig->RedisConfig.RedisPass);
     if (iRet != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "store server connect db failed");
@@ -298,7 +298,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->SelectByCond
+            FindModule<NFIAsyDBModule>()->SelectByCond
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_sel_res &select_res) mutable
                      {
@@ -341,7 +341,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 cache = iter->second.Cache;
             }
 
-            FindModule<NFIAsyMysqlModule>()->SelectObj
+            FindModule<NFIAsyDBModule>()->SelectObj
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_selobj_res &select_res) mutable
                      {
@@ -394,7 +394,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 cache = iter->second.Cache;
             }
 
-            FindModule<NFIAsyMysqlModule>()->InsertObj
+            FindModule<NFIAsyDBModule>()->InsertObj
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res) mutable
                      {
@@ -436,7 +436,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->DeleteByCond
+            FindModule<NFIAsyDBModule>()->DeleteByCond
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_del_res &select_res) mutable
                      {
@@ -480,7 +480,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 cache = iter->second.Cache;
             }
 
-            FindModule<NFIAsyMysqlModule>()->DeleteObj
+            FindModule<NFIAsyDBModule>()->DeleteObj
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_delobj_res &select_res) mutable
                      {
@@ -522,7 +522,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->ModifyByCond
+            FindModule<NFIAsyDBModule>()->ModifyByCond
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_mod_res &select_res) mutable
                      {
@@ -566,7 +566,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 cache = iter->second.Cache;
             }
 
-            FindModule<NFIAsyMysqlModule>()->ModifyObj
+            FindModule<NFIAsyDBModule>()->ModifyObj
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_modobj_res &select_res) mutable
                      {
@@ -608,7 +608,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 }
             }
 
-            FindModule<NFIAsyMysqlModule>()->UpdateByCond
+            FindModule<NFIAsyDBModule>()->UpdateByCond
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_update_res &select_res) mutable
                      {
@@ -652,7 +652,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 cache = iter->second.Cache;
             }
 
-            FindModule<NFIAsyMysqlModule>()->UpdateObj
+            FindModule<NFIAsyDBModule>()->UpdateObj
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res) mutable
                      {
@@ -682,7 +682,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
             storesvr_sqldata::storesvr_execute select;
             select.ParsePartialFromString(xMsg.msg_data());
 
-            FindModule<NFIAsyMysqlModule>()->Execute
+            FindModule<NFIAsyDBModule>()->Execute
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_execute_res &select_res) mutable
                      {
@@ -740,7 +740,7 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->SelectObj
+    int iRet = FindModule<NFIAsyDBModule>()->SelectObj
             (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_selobj_res &select_res) mutable
              {
@@ -811,7 +811,7 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &requ
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
 
-    int iRet = FindModule<NFIAsyMysqlModule>()->SelectByCond
+    int iRet = FindModule<NFIAsyDBModule>()->SelectByCond
             (request.baseinfo().dbname(), request,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_sel_res &select_res) mutable
              {
@@ -893,7 +893,7 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->InsertObj
+    int iRet = FindModule<NFIAsyDBModule>()->InsertObj
             (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res) mutable
              {
@@ -954,7 +954,7 @@ int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->ModifyObj
+    int iRet = FindModule<NFIAsyDBModule>()->ModifyObj
             (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_modobj_res &select_res) mutable
              {
@@ -1012,7 +1012,7 @@ int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &requ
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->ModifyByCond
+    int iRet = FindModule<NFIAsyDBModule>()->ModifyByCond
             (request.baseinfo().dbname(), request,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_mod_res &select_res) mutable
              {
@@ -1070,7 +1070,7 @@ int NFCStoreServerModule::OnHandleUpdateRpc(storesvr_sqldata::storesvr_update &r
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->UpdateByCond
+    int iRet = FindModule<NFIAsyDBModule>()->UpdateByCond
             (request.baseinfo().dbname(), request,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_update_res &select_res) mutable
              {
@@ -1131,7 +1131,7 @@ int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_update
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->UpdateObj
+    int iRet = FindModule<NFIAsyDBModule>()->UpdateObj
             (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res) mutable
              {
@@ -1177,7 +1177,7 @@ int NFCStoreServerModule::OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute 
     NF_ASSERT(pConfig);
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->Execute
+    int iRet = FindModule<NFIAsyDBModule>()->Execute
             (request.baseinfo().dbname(), request,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_execute_res &select_res) mutable
              {
@@ -1224,7 +1224,7 @@ int NFCStoreServerModule::OnHandleExecuteMoreRpc(storesvr_sqldata::storesvr_exec
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
 
-    int iRet = FindModule<NFIAsyMysqlModule>()->ExecuteMore
+    int iRet = FindModule<NFIAsyDBModule>()->ExecuteMore
             (request.baseinfo().dbname(), request,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_execute_more_res &select_res) mutable
              {
@@ -1302,7 +1302,7 @@ int NFCStoreServerModule::OnHandleDeleteRpc(storesvr_sqldata::storesvr_del &requ
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->DeleteByCond
+    int iRet = FindModule<NFIAsyDBModule>()->DeleteByCond
             (request.baseinfo().dbname(), request,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_del_res &select_res) mutable
              {
@@ -1362,7 +1362,7 @@ int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj
     }
 
     int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    int iRet = FindModule<NFIAsyMysqlModule>()->DeleteObj
+    int iRet = FindModule<NFIAsyDBModule>()->DeleteObj
             (request.baseinfo().dbname(), request, cache,
              [this, coId, &respone](int iRet, storesvr_sqldata::storesvr_delobj_res &select_res) mutable
              {

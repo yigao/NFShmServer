@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
+#include "NFComm/NFPluginModule/NFIAsyDBModule.h"
 #include "NFComm/NFPluginModule/NFIEventModule.h"
 #include "NFCMysqlDriverManager.h"
 #include "NFCMysqlDriver.h"
@@ -18,12 +18,12 @@
 /**
  * @brief 异步mysql
  */
-class NFCAsyMysqlModule final
-	: public NFIAsyMysqlModule
+class NFCAsyDBModule final
+	: public NFIAsyDBModule
 {
 public:
-	NFCAsyMysqlModule(NFIPluginManager* p);
-	virtual ~NFCAsyMysqlModule();
+	NFCAsyDBModule(NFIPluginManager* p);
+	virtual ~NFCAsyDBModule();
 
 	virtual bool Execute() override;
 
@@ -41,9 +41,9 @@ public:
 	 * @param  nRconneCount			重连次数
 	 * @return bool					成功或失败
 	 */
-	virtual int AddMysqlServer(const std::string& nServerID, const std::string &strIP, int nPort, std::string strDBName,
-                               std::string strDBUser, std::string strDBPwd, const std::string& noSqlIp, int nosqlPort, const std::string& noSqlPass, int nRconnectTime = 10,
-                               int nRconneCount = -1) override;
+	virtual int AddDBServer(const std::string& nServerID, const std::string &strIP, int nPort, std::string strDBName,
+                            std::string strDBUser, std::string strDBPwd, const std::string& noSqlIp, int nosqlPort, const std::string& noSqlPass, int nRconnectTime = 10,
+                            int nRconneCount = -1) override;
 
 	/**
 	 * @brief 执行sql语句, 把数据库配置表里的数据取出来

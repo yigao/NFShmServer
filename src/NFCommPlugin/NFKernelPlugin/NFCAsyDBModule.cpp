@@ -6,7 +6,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFCAsyMysqlModule.h"
+#include "NFCAsyDBModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFTask.h"
@@ -791,16 +791,16 @@ public:
     int iRet;
 };
 
-class NFMysqlTaskComponent : public NFITaskComponent
+class NFDBTaskComponent : public NFITaskComponent
 {
 public:
-    NFMysqlTaskComponent()
+    NFDBTaskComponent()
     {
         m_pMysqlDriverManager = NF_NEW NFCMysqlDriverManager();
         m_pNoSqlDriverManager = NF_NEW NFCNoSqlDriverManager();
     }
 
-    virtual ~NFMysqlTaskComponent()
+    virtual ~NFDBTaskComponent()
     {
         NF_SAFE_DELETE(m_pMysqlDriverManager);
         NF_SAFE_DELETE(m_pNoSqlDriverManager);
@@ -879,17 +879,17 @@ public:
 };
 
 
-NFCAsyMysqlModule::NFCAsyMysqlModule(NFIPluginManager *p) : NFIAsyMysqlModule(p)
+NFCAsyDBModule::NFCAsyDBModule(NFIPluginManager *p) : NFIAsyDBModule(p)
 {
     mnLastCheckTime = NFGetTime();
     m_initComponet = false;
 }
 
-NFCAsyMysqlModule::~NFCAsyMysqlModule()
+NFCAsyDBModule::~NFCAsyDBModule()
 {
 }
 
-bool NFCAsyMysqlModule::InitActorPool(int maxActorNum)
+bool NFCAsyDBModule::InitActorPool(int maxActorNum)
 {
     NFIAsycModule::InitActorPool(maxActorNum);
     if (!m_initComponet)
@@ -897,7 +897,7 @@ bool NFCAsyMysqlModule::InitActorPool(int maxActorNum)
         m_initComponet = true;
         for (size_t i = 0; i < m_vecActorPool.size(); i++)
         {
-            NFMysqlTaskComponent *pComonnet = NF_NEW NFMysqlTaskComponent();
+            NFDBTaskComponent *pComonnet = NF_NEW NFDBTaskComponent();
             AddActorComponent(m_vecActorPool[i], pComonnet);
         }
     }
@@ -905,10 +905,10 @@ bool NFCAsyMysqlModule::InitActorPool(int maxActorNum)
     return true;
 }
 
-int NFCAsyMysqlModule::AddMysqlServer(const std::string &nServerID, const std::string &strIP, int nPort, std::string strDBName,
-                                      std::string strDBUser, std::string strDBPwd, const std::string &noSqlIp, int nosqlPort,
-                                      const std::string &noSqlPass, int nRconnectTime,
-                                      int nRconneCount)
+int NFCAsyDBModule::AddDBServer(const std::string &nServerID, const std::string &strIP, int nPort, std::string strDBName,
+                                std::string strDBUser, std::string strDBPwd, const std::string &noSqlIp, int nosqlPort,
+                                const std::string &noSqlPass, int nRconnectTime,
+                                int nRconneCount)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     InitActorPool(FindModule<NFITaskModule>()->GetMaxThreads() * 2);
@@ -935,7 +935,7 @@ int NFCAsyMysqlModule::AddMysqlServer(const std::string &nServerID, const std::s
     return 0;
 }
 
-int NFCAsyMysqlModule::QueryDescStore(const std::string &serverID, const std::string &table, const google::protobuf::Message *pSheetMessageObject,
+int NFCAsyDBModule::QueryDescStore(const std::string &serverID, const std::string &table, const google::protobuf::Message *pSheetMessageObject,
                                       const QueryDescStore_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -946,7 +946,7 @@ int NFCAsyMysqlModule::QueryDescStore(const std::string &serverID, const std::st
     return 0;
 }
 
-int NFCAsyMysqlModule::SelectByCond(const std::string &nServerID, const storesvr_sqldata::storesvr_sel &select,
+int NFCAsyDBModule::SelectByCond(const std::string &nServerID, const storesvr_sqldata::storesvr_sel &select,
                                     const SelectByCond_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -958,7 +958,7 @@ int NFCAsyMysqlModule::SelectByCond(const std::string &nServerID, const storesvr
 }
 
 
-int NFCAsyMysqlModule::SelectObj(const std::string &nServerID, const storesvr_sqldata::storesvr_selobj &select, bool useCache,
+int NFCAsyDBModule::SelectObj(const std::string &nServerID, const storesvr_sqldata::storesvr_selobj &select, bool useCache,
                                  const SelectObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -970,7 +970,7 @@ int NFCAsyMysqlModule::SelectObj(const std::string &nServerID, const storesvr_sq
 }
 
 
-int NFCAsyMysqlModule::DeleteByCond(const std::string &nServerID, const storesvr_sqldata::storesvr_del &select,
+int NFCAsyDBModule::DeleteByCond(const std::string &nServerID, const storesvr_sqldata::storesvr_del &select,
                                     const DeleteByCond_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -982,7 +982,7 @@ int NFCAsyMysqlModule::DeleteByCond(const std::string &nServerID, const storesvr
 }
 
 
-int NFCAsyMysqlModule::DeleteObj(const std::string &nServerID, const storesvr_sqldata::storesvr_delobj &select, bool useCache,
+int NFCAsyDBModule::DeleteObj(const std::string &nServerID, const storesvr_sqldata::storesvr_delobj &select, bool useCache,
                                  const DeleteObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -994,7 +994,7 @@ int NFCAsyMysqlModule::DeleteObj(const std::string &nServerID, const storesvr_sq
 }
 
 
-int NFCAsyMysqlModule::InsertObj(const std::string &nServerID, const storesvr_sqldata::storesvr_insertobj &select, bool useCache,
+int NFCAsyDBModule::InsertObj(const std::string &nServerID, const storesvr_sqldata::storesvr_insertobj &select, bool useCache,
                                  const InsertObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -1005,7 +1005,7 @@ int NFCAsyMysqlModule::InsertObj(const std::string &nServerID, const storesvr_sq
     return 0;
 }
 
-int NFCAsyMysqlModule::ModifyByCond(const std::string &nServerID, const storesvr_sqldata::storesvr_mod &select,
+int NFCAsyDBModule::ModifyByCond(const std::string &nServerID, const storesvr_sqldata::storesvr_mod &select,
                                     const ModifyByCond_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -1016,7 +1016,7 @@ int NFCAsyMysqlModule::ModifyByCond(const std::string &nServerID, const storesvr
     return 0;
 }
 
-int NFCAsyMysqlModule::ModifyObj(const std::string &nServerID, const storesvr_sqldata::storesvr_modobj &select, bool useCache,
+int NFCAsyDBModule::ModifyObj(const std::string &nServerID, const storesvr_sqldata::storesvr_modobj &select, bool useCache,
                                  const ModifyObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -1027,7 +1027,7 @@ int NFCAsyMysqlModule::ModifyObj(const std::string &nServerID, const storesvr_sq
     return 0;
 }
 
-int NFCAsyMysqlModule::UpdateByCond(const std::string &nServerID, const storesvr_sqldata::storesvr_update &select,
+int NFCAsyDBModule::UpdateByCond(const std::string &nServerID, const storesvr_sqldata::storesvr_update &select,
                                     const UpdateByCond_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -1038,7 +1038,7 @@ int NFCAsyMysqlModule::UpdateByCond(const std::string &nServerID, const storesvr
     return 0;
 }
 
-int NFCAsyMysqlModule::UpdateObj(const std::string &nServerID, const storesvr_sqldata::storesvr_updateobj &select, bool useCache,
+int NFCAsyDBModule::UpdateObj(const std::string &nServerID, const storesvr_sqldata::storesvr_updateobj &select, bool useCache,
                                  const UpdateObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -1049,7 +1049,7 @@ int NFCAsyMysqlModule::UpdateObj(const std::string &nServerID, const storesvr_sq
     return 0;
 }
 
-int NFCAsyMysqlModule::Execute(const std::string &nServerID, const storesvr_sqldata::storesvr_execute &select,
+int NFCAsyDBModule::Execute(const std::string &nServerID, const storesvr_sqldata::storesvr_execute &select,
                                const Execute_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -1060,7 +1060,7 @@ int NFCAsyMysqlModule::Execute(const std::string &nServerID, const storesvr_sqld
     return 0;
 }
 
-int NFCAsyMysqlModule::ExecuteMore(const std::string &nServerID, const storesvr_sqldata::storesvr_execute_more &select,
+int NFCAsyDBModule::ExecuteMore(const std::string &nServerID, const storesvr_sqldata::storesvr_execute_more &select,
                                    const ExecuteMore_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
@@ -1071,7 +1071,7 @@ int NFCAsyMysqlModule::ExecuteMore(const std::string &nServerID, const storesvr_
     return 0;
 }
 
-bool NFCAsyMysqlModule::Execute()
+bool NFCAsyDBModule::Execute()
 {
     if (!m_initComponet) return true;
     if (NFGetTime() - mnLastCheckTime < 10000) return true;

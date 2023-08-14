@@ -15,7 +15,7 @@
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFResFileDb.h"
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
-#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
+#include "NFComm/NFPluginModule/NFIAsyDBModule.h"
 #include "NFResMysqlDb.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"

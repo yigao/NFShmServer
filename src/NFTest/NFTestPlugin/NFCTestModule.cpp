@@ -19,7 +19,7 @@
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFCoroutineTask.h"
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
-#include "NFComm/NFPluginModule/NFIAsyMysqlModule.h"
+#include "NFComm/NFPluginModule/NFIAsyDBModule.h"
 
 #include "NFComm/NFKernelMessage/yd_fieldoptions.pb.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
