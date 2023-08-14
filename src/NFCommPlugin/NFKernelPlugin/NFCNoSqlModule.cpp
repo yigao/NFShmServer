@@ -2,6 +2,7 @@
 #include <algorithm>
 #include "NFCNoSqlModule.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 NFCNoSqlModule::NFCNoSqlModule(NFIPluginManager* p):NFINoSqlModule(p)
 {
@@ -70,19 +71,34 @@ NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlModule::GetDriverBySuit(const int nHash)
 return mxNoSqlDriver.GetElementBySuit(nHash);
 }
 */
-bool NFCNoSqlModule::AddConnectSql(const std::string& strID, const std::string& strIP)
+int NFCNoSqlModule::AddNoSqlServer(const std::string& strID, const std::string& strIP)
 {
-	return m_pNoSqlDriverManager->AddConnectSql(strID, strIP);
+	return m_pNoSqlDriverManager->AddNoSqlServer(strID, strIP);
 }
 
-bool NFCNoSqlModule::AddConnectSql(const std::string& strID, const std::string& strIP, const int nPort)
+int NFCNoSqlModule::AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort)
 {
-	return m_pNoSqlDriverManager->AddConnectSql(strID, strIP, nPort);
+	return m_pNoSqlDriverManager->AddNoSqlServer(strID, strIP, nPort);
 }
 
-bool NFCNoSqlModule::AddConnectSql(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass)
+int NFCNoSqlModule::AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass)
 {
-	return m_pNoSqlDriverManager->AddConnectSql(strID, strIP, nPort, strPass);
+	return m_pNoSqlDriverManager->AddNoSqlServer(strID, strIP, nPort, strPass);
+}
+
+int NFCNoSqlModule::SelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res)
+{
+    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
+    return pDriver->SelectObj(select, select_res);
+}
+
+int NFCNoSqlModule::SaveSelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
+                  storesvr_sqldata::storesvr_selobj_res &select_res)
+{
+    auto pDriver = m_pNoSqlDriverManager->GetDriver(strID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
+    return pDriver->SaveSelectObj(select, select_res);
 }
 
 std::vector<std::string> NFCNoSqlModule::GetDriverIdList()

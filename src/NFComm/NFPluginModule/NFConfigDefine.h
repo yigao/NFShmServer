@@ -67,7 +67,7 @@ public:
 		for(int i = 0; i < (int)MysqlConfig.TBConfList.size(); i++)
         {
             struct proto_ff_s::pbTableConfig_s& tableConfig = MysqlConfig.TBConfList[i];
-            mTBConfMap.emplace(tableConfig.TableName, tableConfig.TableCount);
+            mTBConfMap.emplace(tableConfig.TableName, tableConfig);
         }
 	}
 
@@ -80,5 +80,5 @@ public:
     uint32_t GetMaxOnlinePlayerNum() const { return MaxOnlinePlayerNum; }
     uint32_t GetHeartBeatTimeout() const { return HeartBeatTimeout; }
     uint32_t GetClientKeepAliveTimeout() const { return ClientKeepAliveTimeout; }
-    std::unordered_map<std::string, uint32_t> mTBConfMap;
+    std::unordered_map<std::string, proto_ff_s::pbTableConfig_s> mTBConfMap;
 };

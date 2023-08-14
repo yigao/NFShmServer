@@ -58,12 +58,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish room">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_23-8-3_11_18____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_23-8-3_上午11_18_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/Common.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/StoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/StoreServer.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFKernelPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFKernelPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/Excel/GunValue.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/Excel/GunValue.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/Excel/room.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/Excel/room.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/GunvalueConfigDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/GunvalueConfigDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/GunvalueConfigDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/GunvalueConfigDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -370,11 +374,42 @@
       <workItem from="1690939633345" duration="62571000" />
       <workItem from="1691133713944" duration="8553000" />
       <workItem from="1691197812620" duration="25571000" />
-      <workItem from="1691382983170" duration="51628000" />
-      <workItem from="1691541604955" duration="1659000" />
-      <workItem from="1691579243805" duration="5069000" />
-      <workItem from="1691817687245" duration="3129000" />
-      <workItem from="1691975484979" duration="323000" />
+      <workItem from="1691382983170" duration="51423000" />
+    </task>
+    <task id="LOCAL-00025" summary="fish user login">
+      <created>1689323319765</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1689323319765</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fish user login">
+      <created>1689324094760</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1689324094760</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fish user login">
+      <created>1689324205575</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1689324205575</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fish user login">
+      <created>1689325428954</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1689325428954</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fish user login">
+      <created>1689329027732</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1689329027732</updated>
     </task>
     <task id="LOCAL-00030" summary="fish user login">
       <created>1689335793028</created>
@@ -684,42 +719,7 @@
       <option name="project" value="LOCAL" />
       <updated>1691467305412</updated>
     </task>
-    <task id="LOCAL-00074" summary="fish room">
-      <created>1691488985066</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1691488985066</updated>
-    </task>
-    <task id="LOCAL-00075" summary="fish room">
-      <created>1691542505245</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1691542505246</updated>
-    </task>
-    <task id="LOCAL-00076" summary="fish room">
-      <created>1691542660902</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1691542660902</updated>
-    </task>
-    <task id="LOCAL-00077" summary="fish room">
-      <created>1691628963362</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1691628963362</updated>
-    </task>
-    <task id="LOCAL-00078" summary="fish room">
-      <created>1691638576913</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1691638576915</updated>
-    </task>
-    <option name="localTasksCounter" value="79" />
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -766,6 +766,16 @@
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2bin_mmo_quick.py</url>
           <line>37</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp</url>
+          <line>101</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp</url>
+          <line>123</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

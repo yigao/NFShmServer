@@ -82,6 +82,8 @@ public:
     GetMapFieldsFromMessage(const google::protobuf::Message &message, std::map<std::string, std::string> &mapFileds,
                             bool ignore_special_repeted = true, bool primary_ikey = false);
 
+    static int GetPrivateFieldsFromMessage(const google::protobuf::Message &message, std::string& field, std::string& fieldValue);
+
     static void
     GetMapFieldsFromMessage(const google::protobuf::Message &message, std::map<std::string, std::string> &keyMap,
                             std::map<std::string, std::string> &kevValueMap, bool ignore_special_repeted = true);

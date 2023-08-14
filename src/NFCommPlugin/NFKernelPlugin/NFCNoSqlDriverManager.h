@@ -19,18 +19,17 @@ class NFCNoSqlDriverManager
 public:
     NFCNoSqlDriverManager();
     virtual ~NFCNoSqlDriverManager();
-
+public:
     virtual bool Execute();
-
+public:
+    virtual int AddNoSqlServer(const std::string& strID, const std::string& strIP);
+    virtual int AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort);
+    virtual int AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass);
+public:
     virtual bool Enable();
     virtual bool Busy();
     virtual bool KeepLive();
-
-
-    virtual bool AddConnectSql(const std::string& strID, const std::string& strIP);
-    virtual bool AddConnectSql(const std::string& strID, const std::string& strIP, const int nPort);
-    virtual bool AddConnectSql(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass);
-
+public:
     virtual std::vector<std::string> GetDriverIdList();
     virtual NF_SHARE_PTR<NFIRedisDriver> GetDriver(const std::string& strID);
     virtual NF_SHARE_PTR<NFIRedisDriver> GetDriverBySuitRandom();

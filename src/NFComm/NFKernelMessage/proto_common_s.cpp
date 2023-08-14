@@ -224,6 +224,7 @@ pbTableConfig_s::pbTableConfig_s() {
 
 int pbTableConfig_s::CreateInit() {
 	TableCount = (uint32_t)0;
+	Cache = (bool)0;
 	return 0;
 }
 
@@ -234,11 +235,13 @@ int pbTableConfig_s::ResumeInit() {
 void pbTableConfig_s::write_to_pbmsg(::proto_ff::pbTableConfig & msg) const {
 	msg.set_tablename(TableName);
 	msg.set_tablecount((uint32_t)TableCount);
+	msg.set_cache((bool)Cache);
 }
 
 void pbTableConfig_s::read_from_pbmsg(const ::proto_ff::pbTableConfig & msg) {
 	TableName = msg.tablename();
 	TableCount = msg.tablecount();
+	Cache = msg.cache();
 }
 
 pbNFServerConfig_s::pbNFServerConfig_s() {

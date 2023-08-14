@@ -695,6 +695,41 @@ void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &
     }
 }
 
+int NFProtobufCommon::GetPrivateFieldsFromMessage(const google::protobuf::Message &message, std::string& field, std::string& fieldValue)
+{
+    const google::protobuf::Descriptor *pDesc = message.GetDescriptor();
+    const google::protobuf::Reflection *pReflect = message.GetReflection();
+    if (pDesc == NULL || pReflect == NULL) return -1;
+
+    for (int i = 0; i < pDesc->field_count(); i++)
+    {
+        const google::protobuf::FieldDescriptor *pFieldDesc = pDesc->field(i);
+        if (pFieldDesc == NULL) continue;
+        if (pFieldDesc->options().HasExtension(yd_fieldoptions::no_db_field)) continue;
+        if (!pFieldDesc->is_repeated() && pReflect->HasField(message, pFieldDesc) == false) continue;
+        if (pFieldDesc->is_repeated() && pReflect->FieldSize(message, pFieldDesc) == 0) continue;
+
+        if (pFieldDesc->is_repeated()) continue;
+        if (pFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) continue;
+
+        if (!pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_type))
+        {
+            continue;
+        }
+        if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) !=
+            ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_PRIMARYKEY)
+        {
+            continue;
+        }
+
+        field = pFieldDesc->name();
+        fieldValue = GetFieldsString(message, pFieldDesc);
+        return 0;
+    }
+
+    return 1;
+}
+
 void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &message,
                                                std::map<std::string, std::string> &keyMap,
                                                std::map<std::string, std::string> &kevValueMap,

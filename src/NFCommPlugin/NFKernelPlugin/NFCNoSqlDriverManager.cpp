@@ -83,41 +83,54 @@ NF_SHARE_PTR<NFIRedisDriver> NFCNoSqlModule::GetDriverBySuit(const int nHash)
 return mxNoSqlDriver.GetElementBySuit(nHash);
 }
 */
-bool NFCNoSqlDriverManager::AddConnectSql(const std::string& strID, const std::string& strIP)
+int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP)
 {
     if (!mxNoSqlDriver.ExistElement(strID))
     {
         NF_SHARE_PTR<NFRedisDriver> pNoSqlDriver(new NFRedisDriver());
-        pNoSqlDriver->Connect(strIP, 6379, "");
-        CheckConnect();
-        return mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
+        mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
+        if (pNoSqlDriver->Connect(strIP, 6379, ""))
+        {
+            CheckConnect();
+            return 0;
+        }
+
+        return -1;
     }
 
-    return false;
+    return -1;
 }
 
-bool NFCNoSqlDriverManager::AddConnectSql(const std::string& strID, const std::string& strIP, const int nPort)
+int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort)
 {
     if (!mxNoSqlDriver.ExistElement(strID))
     {
         NF_SHARE_PTR<NFIRedisDriver> pNoSqlDriver(new NFRedisDriver());
-        pNoSqlDriver->Connect(strIP, nPort, "");
-        return mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
+        mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
+        if (pNoSqlDriver->Connect(strIP, nPort, ""))
+        {
+            return 0;
+        }
+        return -1;
     }
 
-    return false;
+    return -1;
 }
 
-bool NFCNoSqlDriverManager::AddConnectSql(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass)
+int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass)
 {
     if (!mxNoSqlDriver.ExistElement(strID))
     {
         NF_SHARE_PTR<NFIRedisDriver> pNoSqlDriver(NF_NEW NFRedisDriver());
-        pNoSqlDriver->Connect(strIP, nPort, strPass);
-        return mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
+        mxNoSqlDriver.AddElement(strID, pNoSqlDriver);
+        if (pNoSqlDriver->Connect(strIP, nPort, strPass))
+        {
+            return 0;
+        }
+        return -1;
     }
 
-    return false;
+    return -1;
 }
 
 std::vector<std::string> NFCNoSqlDriverManager::GetDriverIdList()

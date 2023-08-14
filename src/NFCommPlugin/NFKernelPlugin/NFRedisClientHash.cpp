@@ -81,6 +81,11 @@ bool NFRedisDriver::HGET(const std::string& key, const std::string& field, std::
 		return false;
 	}
 
+    if (pReply->str == NULL)
+    {
+        return false;
+    }
+
 	if (pReply->type == REDIS_REPLY_STRING)
 	{
 		value = std::string(pReply->str, pReply->len);
@@ -303,9 +308,12 @@ bool NFRedisDriver::HSET(const std::string &key, const std::string &field, const
 		return false;
 	}
 
-	//bool success = false;
 	if (pReply->type == REDIS_REPLY_INTEGER)
 	{
+        if (pReply->integer == 0 || pReply->integer == 1)
+        {
+            return true;
+        }
 		 //success = (bool)pReply->integer;
 		/*
 		Return value
@@ -315,7 +323,7 @@ bool NFRedisDriver::HSET(const std::string &key, const std::string &field, const
 		*/
 	}
 
-	return true;
+	return false;
 }
 
 bool NFRedisDriver::HSETNX(const std::string &key, const std::string &field, const std::string &value)
