@@ -169,7 +169,7 @@ int NFCProxyAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_AGENT_SERVER);
-    CHECK_EXPR(pConfig, NULL, "pConfig == NULL");
+    CHECK_EXPR(pConfig, -1, "pConfig == NULL");
 	if (nEvent == eMsgType_CONNECTED)
 	{
 		NFLogDebug(NF_LOG_SYSTEMLOG, 0, "proxy agent server connect master success!");

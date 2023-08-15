@@ -1034,7 +1034,7 @@ void NFEvppNetMessage::CheckServerHeartBeat()
 				pObject->CloseObject();
 			}
 #else
-            if (pObject->mLastHeartBeatTime > 0 && nowTime - pObject->mLastHeartBeatTime > ENUM_EVPP_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
+            if (pObject->mLastHeartBeatTime > 0 && nowTime - pObject->mLastHeartBeatTime > ENUM_SERVER_CLIENT_TIMER_HEART_TIME_LONGTH * 20)
 			{
 				pObject->CloseObject();
 			}

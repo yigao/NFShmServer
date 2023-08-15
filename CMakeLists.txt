@@ -75,7 +75,8 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	set(CMAKE_BUILD_TYPE "DynamicRelease")
 	set(CMAKE_C_FLAGS  "${CMAKE_C_FLAGS} -fPIC")
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -std=c++11 -O3 -g -Wall")
+	#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -std=c++11 -O3 -g -Wall")
+	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O0 -Wall -g -ggdb -fPIC -Wextra -Wno-unused-parameter -Wno-conversion-null -Wno-unused-but-set-variable -Wno-int-to-pointer-cast -Wno-array-bounds")
 
 	add_definitions(
 			-DNDEBUG

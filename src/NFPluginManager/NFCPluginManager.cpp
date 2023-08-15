@@ -81,9 +81,9 @@ NFCPluginManager::NFCPluginManager() : NFIPluginManager(),m_appInited(this)
     NFServerTime::Instance()->Init(m_nFrame);
 
 	NFRandomSeed();
-#ifdef NF_DEBUG_MODE
-	SetOpenProfiler(false);
-#endif
+//#ifdef NF_DEBUG_MODE
+	SetOpenProfiler(true);
+//#endif
 }
 
 NFCPluginManager::~NFCPluginManager()

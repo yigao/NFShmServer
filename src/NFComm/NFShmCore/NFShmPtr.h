@@ -79,6 +79,10 @@ public:
 		{
 			m_iObjSeq = m_pObj->m_iObjSeq;
 		}
+        else
+        {
+            m_iObjSeq = INVALID_ID;
+        }
 
 		return *this;
 	}

@@ -10,10 +10,15 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFShmObj.h"
-#include "NFShmTimerSlot.h"
 #include "NFComm/NFShmCore/NFShmNodeList.h"
+#include "NFComm/NFShmCore/NFShmPtr.h"
 
 #define NFSHM_INFINITY_CALL                0xffffffff    // 调用无限次
+enum NFTimerRetType {
+    eTimerTypeSuccess = 0, // 执行成功
+    eTimerHandlerNull = 1, // 回调为空
+    eTimerNotTrigger = 2, // 没有触发
+};
 
 class NFShmTimer : public NFShmObj, public NFListNodeObjWithGlobalID<NFShmTimer, EOT_TYPE_TIMER_OBJ>
 {

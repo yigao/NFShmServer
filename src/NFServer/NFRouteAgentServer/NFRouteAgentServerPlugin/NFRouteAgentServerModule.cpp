@@ -188,7 +188,7 @@ NFCRouteAgentServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage
     uint32_t destBusId = GetBusIdFromUnlinkId(packet.nDstId);
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_AGENT_SERVER);
-    CHECK_EXPR(pConfig != NULL, NULL, "pConfig == NULL");
+    CHECK_EXPR(pConfig != NULL, -1, "pConfig == NULL");
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0,
                "--{}:{} trans msg from {}:{} to {}:{}, packet:{} --", pConfig->ServerName, pConfig->ServerId,
@@ -441,10 +441,10 @@ int NFCRouteAgentServerModule::OnHandleRouteOtherMessage(uint64_t unLinkId, NFDa
     uint32_t destBusId = GetBusIdFromUnlinkId(packet.nDstId);
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_AGENT_SERVER);
-    CHECK_EXPR(pConfig != NULL, NULL, "pConfig == NULL");
+    CHECK_EXPR(pConfig != NULL, -1, "pConfig == NULL");
 
     auto pRouteSvrServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_ROUTE_AGENT_SERVER, unLinkId);
-    CHECK_EXPR(pRouteSvrServerData != NULL, NULL, "pRouteSvrServerData == NULL");
+    CHECK_EXPR(pRouteSvrServerData != NULL, -1, "pRouteSvrServerData == NULL");
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0,
                "--{}:{} trans routesvr({}:{}) msg from {}:{} to {}:{}, packet:{} --", pConfig->ServerName, pConfig->ServerId, pRouteSvrServerData->mServerInfo.server_name(), pRouteSvrServerData->mServerInfo.server_id(),

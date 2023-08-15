@@ -215,7 +215,7 @@ int NFCCoroutineModule::SetUserData(google::protobuf::Message *pUserData)
     int64_t coId = CurrentTaskId();
     if (INVALID_CO_ID == coId)
     {
-        return NULL;
+        return proto_ff::ERR_CODE_CO_NOT_IN_COROUTINE;
     }
     return m_pCorSched->SetUserData(coId, pUserData);
 }

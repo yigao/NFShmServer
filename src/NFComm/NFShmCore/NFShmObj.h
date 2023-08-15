@@ -217,7 +217,7 @@ public:
     virtual int SetMonthCalender(int callcount, int day, int hour, int minutes, int second);
 public:
 
-#if defined(_DEBUG) | defined(_DEBUG_)
+#if NF_DEBUG_MODE
     int m_iMagicCheckNum;
 #endif
     int m_iGlobalId;

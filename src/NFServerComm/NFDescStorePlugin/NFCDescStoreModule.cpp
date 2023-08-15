@@ -170,12 +170,12 @@ int NFCDescStoreModule::InitDescStore(const std::string& descClass, NFIDescStore
 	if (FindModule<NFISharedMemModule>()->GetInitMode() == EN_OBJ_MODE_INIT)
 	{
 		int iRet = pDescStore->Initialize();
-		assert(iRet == 0);
+		NF_ASSERT(iRet == 0);
 	}
 	else
 	{
 		int iRet = pDescStore->Resume();
-		assert(iRet == 0);
+        NF_ASSERT(iRet == 0);
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");

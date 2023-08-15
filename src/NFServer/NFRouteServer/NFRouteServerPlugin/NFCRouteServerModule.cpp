@@ -209,7 +209,7 @@ int NFCRouteServerModule::OnHandleOtherMessage(uint64_t unLinkId, NFDataPackage&
     uint32_t destBusId = GetBusIdFromUnlinkId(packet.nDstId);
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
-    CHECK_EXPR(pConfig != NULL, NULL, "pConfig == NULL");
+    CHECK_EXPR(pConfig != NULL, -1, "pConfig == NULL");
 
     NF_SHARE_PTR<NFServerData> pServerData = FindModule<NFIMessageModule>()->GetServerByUnlinkId(NF_ST_ROUTE_SERVER, unLinkId);
     CHECK_EXPR(pServerData != NULL, -1, "pServer == NULL");
