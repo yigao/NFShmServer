@@ -425,7 +425,7 @@ bool NFCPluginManager::Execute()
 
     if (m_bFixedFrame)
     {
-        if (m_nCurFrameCount % 1000 == 0)
+        if (m_nCurFrameCount % 10000 == 0)
         {
             PrintProfiler();
         }
