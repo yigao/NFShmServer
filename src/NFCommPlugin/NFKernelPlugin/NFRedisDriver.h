@@ -43,11 +43,11 @@
 #include "NFRedisCommand.h"
 #include "NFRedisClientSocket.h"
 
-#include "NFComm/NFPluginModule/NFINoSqlModule.h"
+#include "NFComm/NFPluginModule/NFINosqlModule.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 
 
-class NFRedisDriver : public NFIRedisDriver
+class NFRedisDriver : public NFINosqlDriver
 {
 public:
 	NFRedisDriver();

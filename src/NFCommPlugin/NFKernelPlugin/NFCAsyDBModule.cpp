@@ -12,8 +12,8 @@
 #include "NFComm/NFPluginModule/NFTask.h"
 #include "NFComm/NFPluginModule/NFITaskComponent.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFPluginModule/NFINoSqlModule.h"
-#include "NFCNoSqlDriverManager.h"
+#include "NFComm/NFPluginModule/NFINosqlModule.h"
+#include "NFCNosqlDriverManager.h"
 
 class NFDBTask : public NFTask
 {
@@ -42,7 +42,7 @@ public:
 
 public:
     NFCMysqlDriver *m_pMysqlDriver;
-    NFIRedisDriver *m_pNosqlDriver;
+    NFINosqlDriver *m_pNosqlDriver;
     std::string m_serverId;
     bool m_useCache;
 };
@@ -797,7 +797,7 @@ public:
     NFDBTaskComponent()
     {
         m_pMysqlDriverManager = NF_NEW NFCMysqlDriverManager();
-        m_pNoSqlDriverManager = NF_NEW NFCNoSqlDriverManager();
+        m_pNoSqlDriverManager = NF_NEW NFCNosqlDriverManager();
     }
 
     virtual ~NFDBTaskComponent()
@@ -825,7 +825,7 @@ public:
                     exit(0);
                 }
 
-                iRet = m_pNoSqlDriverManager->AddNoSqlServer(pConnectTask->nServerID, pConnectTask->nNosqlIp, pConnectTask->nNosqlPort,
+                iRet = m_pNoSqlDriverManager->AddNosqlServer(pConnectTask->nServerID, pConnectTask->nNosqlIp, pConnectTask->nNosqlPort,
                                                              pConnectTask->nNosqlPass);
                 if (iRet != 0)
                 {
@@ -875,7 +875,7 @@ public:
 
 public:
     NFCMysqlDriverManager *m_pMysqlDriverManager;
-    NFCNoSqlDriverManager *m_pNoSqlDriverManager;
+    NFCNosqlDriverManager *m_pNoSqlDriverManager;
 };
 
 

@@ -35,10 +35,10 @@ typedef std::vector<string_score_pair> string_score_vector;
 #define NFREDIS_DB15    15
 
 
-class NFIRedisDriver
+class NFINosqlDriver
 {
 public:
-    virtual ~NFIRedisDriver() {}
+    virtual ~NFINosqlDriver() {}
 
     virtual bool Connect(const std::string& ip, const int port, const std::string& auth) = 0;
 public:

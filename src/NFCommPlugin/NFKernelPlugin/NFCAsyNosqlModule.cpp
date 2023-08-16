@@ -7,8 +7,8 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFCAsyNoSqlModule.h"
-#include "NFCNoSqlDriverManager.h"
+#include "NFCAsyNosqlModule.h"
+#include "NFCNosqlDriverManager.h"
 #include "NFComm/NFPluginModule/NFITaskComponent.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
@@ -36,7 +36,7 @@ public:
     }
 
 public:
-    NFIRedisDriver *m_pNosqlDriver;
+    NFINosqlDriver *m_pNosqlDriver;
     std::string m_serverId;
 };
 
@@ -371,7 +371,7 @@ class NFNosqlTaskComponent : public NFITaskComponent
 public:
     NFNosqlTaskComponent()
     {
-        m_pNoSqlDriverManager = NF_NEW NFCNoSqlDriverManager();
+        m_pNoSqlDriverManager = NF_NEW NFCNosqlDriverManager();
     }
 
     virtual ~NFNosqlTaskComponent()
@@ -389,8 +389,8 @@ public:
             {
                 NFNosqlConnectTask *pConnectTask = dynamic_cast<NFNosqlConnectTask *>(pTask);
                 if (pConnectTask == NULL) return;
-                int iRet = m_pNoSqlDriverManager->AddNoSqlServer(pConnectTask->nServerID, pConnectTask->nNosqlIp, pConnectTask->nNosqlPort,
-                                                             pConnectTask->nNosqlPass);
+                int iRet = m_pNoSqlDriverManager->AddNosqlServer(pConnectTask->nServerID, pConnectTask->nNosqlIp, pConnectTask->nNosqlPort,
+                                                                 pConnectTask->nNosqlPass);
                 if (iRet != 0)
                 {
                     NFSLEEP(1000);
@@ -433,27 +433,27 @@ public:
     }
 
 public:
-    NFCNoSqlDriverManager *m_pNoSqlDriverManager;
+    NFCNosqlDriverManager *m_pNoSqlDriverManager;
 };
 
 
-NFCAsyNoSqlModule::NFCAsyNoSqlModule(NFIPluginManager *p) : NFIAsyNosqlModule(p)
+NFCAsyNosqlModule::NFCAsyNosqlModule(NFIPluginManager *p) : NFIAsyNosqlModule(p)
 {
     mnLastCheckTime = NFGetTime();
     m_initComponet = false;
 }
 
-NFCAsyNoSqlModule::~NFCAsyNoSqlModule()
+NFCAsyNosqlModule::~NFCAsyNosqlModule()
 {
 
 }
 
-bool NFCAsyNoSqlModule::Execute()
+bool NFCAsyNosqlModule::Execute()
 {
     return NFIModule::Execute();
 }
 
-bool NFCAsyNoSqlModule::InitActorPool(int maxActorNum)
+bool NFCAsyNosqlModule::InitActorPool(int maxActorNum)
 {
     NFIAsycModule::InitActorPool(maxActorNum);
     if (!m_initComponet)
@@ -469,7 +469,7 @@ bool NFCAsyNoSqlModule::InitActorPool(int maxActorNum)
     return true;
 }
 
-int NFCAsyNoSqlModule::AddDBServer(const std::string& nServerID, const string &noSqlIp, int nosqlPort, const string &noSqlPass)
+int NFCAsyNosqlModule::AddDBServer(const std::string& nServerID, const string &noSqlIp, int nosqlPort, const string &noSqlPass)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     InitActorPool(FindModule<NFITaskModule>()->GetMaxThreads() * 2);
@@ -489,7 +489,7 @@ int NFCAsyNoSqlModule::AddDBServer(const std::string& nServerID, const string &n
     return 0;
 }
 
-int NFCAsyNoSqlModule::SelectObj(const string &nServerID, const storesvr_sqldata::storesvr_selobj &select, const SelectObj_CB &cb)
+int NFCAsyNosqlModule::SelectObj(const string &nServerID, const storesvr_sqldata::storesvr_selobj &select, const SelectObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFSelectObjNosqlTask *pTask = NF_NEW NFSelectObjNosqlTask(nServerID, select, cb);
@@ -499,7 +499,7 @@ int NFCAsyNoSqlModule::SelectObj(const string &nServerID, const storesvr_sqldata
     return 0;
 }
 
-int NFCAsyNoSqlModule::DeleteObj(const string &nServerID, const storesvr_sqldata::storesvr_delobj &select, const DeleteObj_CB &cb)
+int NFCAsyNosqlModule::DeleteObj(const string &nServerID, const storesvr_sqldata::storesvr_delobj &select, const DeleteObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDeleteObjNosqlTask *pTask = NF_NEW NFDeleteObjNosqlTask(nServerID, select, cb);
@@ -509,7 +509,7 @@ int NFCAsyNoSqlModule::DeleteObj(const string &nServerID, const storesvr_sqldata
     return 0;
 }
 
-int NFCAsyNoSqlModule::InsertObj(const string &nServerID, const storesvr_sqldata::storesvr_insertobj &select, const InsertObj_CB &cb)
+int NFCAsyNosqlModule::InsertObj(const string &nServerID, const storesvr_sqldata::storesvr_insertobj &select, const InsertObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFInsertObjNosqlTask *pTask = NF_NEW NFInsertObjNosqlTask(nServerID, select, cb);
@@ -519,7 +519,7 @@ int NFCAsyNoSqlModule::InsertObj(const string &nServerID, const storesvr_sqldata
     return 0;
 }
 
-int NFCAsyNoSqlModule::ModifyObj(const string &nServerID, const storesvr_sqldata::storesvr_modobj &select, const ModifyObj_CB &cb)
+int NFCAsyNosqlModule::ModifyObj(const string &nServerID, const storesvr_sqldata::storesvr_modobj &select, const ModifyObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFModifyObjNosqlTask *pTask = NF_NEW NFModifyObjNosqlTask(nServerID, select, cb);
@@ -529,7 +529,7 @@ int NFCAsyNoSqlModule::ModifyObj(const string &nServerID, const storesvr_sqldata
     return 0;
 }
 
-int NFCAsyNoSqlModule::UpdateObj(const string &nServerID, const storesvr_sqldata::storesvr_updateobj &select, const UpdateObj_CB &cb)
+int NFCAsyNosqlModule::UpdateObj(const string &nServerID, const storesvr_sqldata::storesvr_updateobj &select, const UpdateObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFUpdateObjTask *pTask = NF_NEW NFUpdateObjTask(nServerID, select, cb);

@@ -19,7 +19,7 @@
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
 #include "NFCommPlugin/NFKernelPlugin/NFCoroutine.h"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFPluginModule/NFINoSqlModule.h"
+#include "NFComm/NFPluginModule/NFINosqlModule.h"
 
 #define STORE_SERVER_TIMER_CLOSE_MYSQL 200
 

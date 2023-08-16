@@ -16,12 +16,12 @@
 #include "NFComm/NFPluginModule/NFEventDefine.h"
 #include "NFComm/NFPluginModule/NFIAsyNosqlModule.h"
 
-class NFCAsyNoSqlModule : public NFIAsyNosqlModule
+class NFCAsyNosqlModule : public NFIAsyNosqlModule
 {
 public:
-    NFCAsyNoSqlModule(NFIPluginManager* p);
+    NFCAsyNosqlModule(NFIPluginManager* p);
 
-    virtual ~NFCAsyNoSqlModule();
+    virtual ~NFCAsyNosqlModule();
     virtual bool Execute() override;
 
     virtual bool InitActorPool(int maxActorNum) override;

@@ -1,20 +1,20 @@
 ﻿
 #pragma once
 
-#include "NFIRedisDriver.h"
+#include "NFINosqlDriver.h"
 
-class NFINoSqlModule
+class NFINosqlModule
 	: public NFIModule
 {
 public:
-	NFINoSqlModule(NFIPluginManager* p) :NFIModule(p)
+	NFINosqlModule(NFIPluginManager* p) : NFIModule(p)
 	{
 
 	}
 public:
-	virtual int AddNoSqlServer(const std::string& strID, const std::string& ip) = 0;
-	virtual int AddNoSqlServer(const std::string& strID, const std::string& ip, const int nPort) = 0;
-	virtual int AddNoSqlServer(const std::string& strID, const std::string& ip, const int nPort, const std::string& strPass) = 0;
+	virtual int AddNosqlServer(const std::string& strID, const std::string& ip) = 0;
+	virtual int AddNosqlServer(const std::string& strID, const std::string& ip, const int nPort) = 0;
+	virtual int AddNosqlServer(const std::string& strID, const std::string& ip, const int nPort, const std::string& strPass) = 0;
 public:
     virtual int SelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
     virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
@@ -27,5 +27,5 @@ public:
     virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select) = 0;
     virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select) = 0;
 public:
-	virtual NFIRedisDriver* GetNosqlDriver(const std::string& strID) = 0;
+	virtual NFINosqlDriver* GetNosqlDriver(const std::string& strID) = 0;
 };

@@ -1,14 +1,14 @@
 
 #include <algorithm>
-#include "NFCNoSqlDriverManager.h"
+#include "NFCNosqlDriverManager.h"
 #include "NFComm/NFCore/NFTime.h"
 
-NFCNoSqlDriverManager::NFCNoSqlDriverManager()
+NFCNosqlDriverManager::NFCNosqlDriverManager()
 {
     mLastCheckTime = 0;
 }
 
-NFCNoSqlDriverManager::~NFCNoSqlDriverManager()
+NFCNosqlDriverManager::~NFCNosqlDriverManager()
 {
     for (auto pMysqlDriver = mxNoSqlDriver.First(); nullptr != pMysqlDriver; pMysqlDriver = mxNoSqlDriver.Next())
     {
@@ -18,22 +18,22 @@ NFCNoSqlDriverManager::~NFCNoSqlDriverManager()
     mxNoSqlDriver.ClearAll();
 }
 
-bool NFCNoSqlDriverManager::Enable()
+bool NFCNosqlDriverManager::Enable()
 {
     return false;
 }
 
-bool NFCNoSqlDriverManager::Busy()
+bool NFCNosqlDriverManager::Busy()
 {
     return false;
 }
 
-bool NFCNoSqlDriverManager::KeepLive()
+bool NFCNosqlDriverManager::KeepLive()
 {
     return false;
 }
 
-bool NFCNoSqlDriverManager::Execute()
+bool NFCNosqlDriverManager::Execute()
 {
     auto xNosqlDriver = this->mxNoSqlDriver.First();
     while (xNosqlDriver)
@@ -48,7 +48,7 @@ bool NFCNoSqlDriverManager::Execute()
     return true;
 }
 
-int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP)
+int NFCNosqlDriverManager::AddNosqlServer(const std::string& strID, const std::string& strIP)
 {
     if (!mxNoSqlDriver.GetElement(strID))
     {
@@ -65,7 +65,7 @@ int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::s
     return -1;
 }
 
-int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort)
+int NFCNosqlDriverManager::AddNosqlServer(const std::string& strID, const std::string& strIP, const int nPort)
 {
     if (!mxNoSqlDriver.GetElement(strID))
     {
@@ -81,7 +81,7 @@ int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::s
     return -1;
 }
 
-int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass)
+int NFCNosqlDriverManager::AddNosqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass)
 {
     if (!mxNoSqlDriver.GetElement(strID))
     {
@@ -97,7 +97,7 @@ int NFCNoSqlDriverManager::AddNoSqlServer(const std::string& strID, const std::s
     return -1;
 }
 
-NFIRedisDriver* NFCNoSqlDriverManager::GetNosqlDriver(const std::string& strID)
+NFINosqlDriver* NFCNosqlDriverManager::GetNosqlDriver(const std::string& strID)
 {
     auto xDriver = mxNoSqlDriver.GetElement(strID);
     if (xDriver && xDriver->Enable())
@@ -108,7 +108,7 @@ NFIRedisDriver* NFCNoSqlDriverManager::GetNosqlDriver(const std::string& strID)
     return nullptr;
 }
 
-void NFCNoSqlDriverManager::CheckNoSql()
+void NFCNosqlDriverManager::CheckNoSql()
 {
     static const int CHECK_TIME = 15;
     if (mLastCheckTime + CHECK_TIME > NFTime::Now().UnixSec())

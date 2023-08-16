@@ -15,17 +15,17 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFMap.hpp"
 
-class NFCNoSqlDriverManager
+class NFCNosqlDriverManager
 {
 public:
-    NFCNoSqlDriverManager();
-    virtual ~NFCNoSqlDriverManager();
+    NFCNosqlDriverManager();
+    virtual ~NFCNosqlDriverManager();
 public:
     virtual bool Execute();
 public:
-    virtual int AddNoSqlServer(const std::string& strID, const std::string& strIP);
-    virtual int AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort);
-    virtual int AddNoSqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass);
+    virtual int AddNosqlServer(const std::string& strID, const std::string& strIP);
+    virtual int AddNosqlServer(const std::string& strID, const std::string& strIP, const int nPort);
+    virtual int AddNosqlServer(const std::string& strID, const std::string& strIP, const int nPort, const std::string& strPass);
 public:
     virtual bool Enable();
     virtual bool Busy();
@@ -33,8 +33,8 @@ public:
 public:
     void CheckNoSql();
 public:
-    virtual NFIRedisDriver* GetNosqlDriver(const std::string& strID);
+    virtual NFINosqlDriver* GetNosqlDriver(const std::string& strID);
 protected:
-    NFMap<std::string, NFIRedisDriver> mxNoSqlDriver;
+    NFMap<std::string, NFINosqlDriver> mxNoSqlDriver;
     int mLastCheckTime = 0;
 };
