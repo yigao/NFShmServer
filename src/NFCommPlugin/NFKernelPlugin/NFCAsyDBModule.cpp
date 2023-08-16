@@ -706,19 +706,23 @@ public:
     */
     bool ThreadProcess() override
     {
-        if (m_pMysqlDriver)
-        {
-            iRet = m_pMysqlDriver->UpdateObj(mSelect, mSelectRes);
-        }
-        else
-        {
-            iRet = -1;
-        }
-
-        if (iRet == 0 && m_useCache && m_pNosqlDriver)
+        if (m_useCache && m_pNosqlDriver)
         {
             iRet = m_pNosqlDriver->SaveObj(mSelect);
         }
+        else {
+            if (m_pMysqlDriver)
+            {
+                iRet = m_pMysqlDriver->UpdateObj(mSelect, mSelectRes);
+            }
+            else
+            {
+                iRet = -1;
+            }
+
+            return true;
+        }
+
         return true;
     }
 
@@ -728,11 +732,33 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        if (mCB)
+        if (m_useCache)
         {
-            mCB(iRet, mSelectRes);
+            if (iRet == 0)
+            {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                mCB = nullptr;
+                m_useCache = false;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
         }
-        return TPTASK_STATE_COMPLETED;
+        else {
+            if (mCB)
+            {
+                mCB(iRet, mSelectRes);
+            }
+            return TPTASK_STATE_COMPLETED;
+        }
     }
 
 public:
