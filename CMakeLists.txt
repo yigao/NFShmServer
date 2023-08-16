@@ -80,7 +80,7 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
     #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -std=c++11 -O3 -g -Wall")
     #don't use -O3 用-O3来编译所有的软件包将产生更大体积更耗内存的二进制文件，
     #大大增加编译失败的机会或不可预知的程序行为（包括错误）。 这样做将得不偿失，记住过犹不及。 在gcc 4.x.中使用-O3是不推荐的
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -g3 -O2 -Wall -fPIC")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2 -Wall -fPIC")
 
     add_definitions(
             -DNDEBUG
