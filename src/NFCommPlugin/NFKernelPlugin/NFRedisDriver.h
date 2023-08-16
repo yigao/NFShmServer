@@ -66,26 +66,23 @@ public:
 
 	bool IsConnect();
 public:
-    virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select,
-                                 storesvr_sqldata::storesvr_selobj_res &select_res);
+    virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res);
 
-    virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select,
-                        storesvr_sqldata::storesvr_selobj_res &select_res);
-
-    int GetPrivateFields(const storesvr_sqldata::storesvr_selobj &select, std::string& field, std::string& fieldValue);
+    virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res);
+    virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select);
+    virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select);
+    virtual int SaveObj(const storesvr_sqldata::storesvr_updateobj &select);
 
     virtual int DeleteObj(const storesvr_sqldata::storesvr_delobj &select);
     virtual int DeleteObj(const storesvr_sqldata::storesvr_insertobj &select);
     virtual int DeleteObj(const storesvr_sqldata::storesvr_modobj &select);
-
+public:
+    std::string GetPrivateKeys(const std::string& dbname, const std::string& field, const std::string& fieldValue);
+    int GetPrivateFields(const storesvr_sqldata::storesvr_selobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_delobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_insertobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_modobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_updateobj &select, std::string& field, std::string& fieldValue);
-
-    virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select);
-    virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select);
-    virtual int SaveObj(const storesvr_sqldata::storesvr_updateobj &select);
 public:
 
 	/**

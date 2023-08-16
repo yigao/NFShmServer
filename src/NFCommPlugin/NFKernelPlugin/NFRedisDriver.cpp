@@ -4,6 +4,8 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFCommon.h"
 
+#define PRIVATE_KEY_EXIST_TIME 86400*2
+
 NFRedisDriver::NFRedisDriver()
 {
     mnPort = 0;
@@ -135,7 +137,7 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     select_res.mutable_sel_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
 
-    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -144,7 +146,7 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     }
 
     std::string value;
-    bRet = HGET(db_key, fieldKey, value);
+    bRet = GET(db_key, value);
     if (!bRet)
     {
         return 1;
@@ -154,6 +156,8 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     {
         return 1;
     }
+
+    EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
 
     std::string packageName = select.baseinfo().package_name();
 
@@ -213,7 +217,7 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_selobj &select,
     select_res.mutable_sel_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
 
-    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -221,11 +225,13 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_selobj &select,
         return -1;
     }
 
-    bRet = HSET(db_key, fieldKey, select_res.sel_record());
+    bRet = SET(db_key, select_res.sel_record());
     if (!bRet)
     {
         return -1;
     }
+
+    EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -249,7 +255,7 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_modobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -257,12 +263,13 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_modobj &select)
         return -1;
     }
 
-    bRet = HSET(db_key, fieldKey, select.mod_record());
+    bRet = SET(db_key, select.mod_record());
     if (!bRet)
     {
         return -1;
     }
 
+    EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -286,7 +293,7 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_updateobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -294,12 +301,13 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_updateobj &select)
         return -1;
     }
 
-    bRet = HSET(db_key, fieldKey, select.modins_record());
+    bRet = SET(db_key, select.modins_record());
     if (!bRet)
     {
         return -1;
     }
 
+    EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -323,7 +331,7 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_insertobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -331,14 +339,20 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_insertobj &select)
         return -1;
     }
 
-    bRet = HSET(db_key, fieldKey, select.ins_record());
+    bRet = SET(db_key, select.ins_record());
     if (!bRet)
     {
         return -1;
     }
 
+    EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
+}
+
+std::string NFRedisDriver::GetPrivateKeys(const std::string& dbname, const std::string& field, const std::string& fieldValue)
+{
+    return dbname + "_" + field + "_" + fieldValue;
 }
 
 int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_selobj &select, std::string& field, std::string& fieldValue)

@@ -179,7 +179,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, *m_pSheetMessageObject);
+        if (mCB)
+        {
+            mCB(iRet, *m_pSheetMessageObject);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -231,7 +234,10 @@ public:
     {
         for (int i = 0; i < (int) mSelectRes.size(); i++)
         {
-            mCB(iRet, *mSelectRes.Mutable(i));
+            if (mCB)
+            {
+                mCB(iRet, *mSelectRes.Mutable(i));
+            }
         }
 
         return TPTASK_STATE_COMPLETED;
@@ -304,7 +310,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
+        if (mCB)
+        {
+            mCB(iRet, mSelectRes);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -354,7 +363,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
+        if (mCB)
+        {
+            mCB(iRet, mSelectRes);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -409,7 +421,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
+        if (mCB)
+        {
+            mCB(iRet, mSelectRes);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -464,7 +479,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
+        if (mCB)
+        {
+            mCB(iRet, mSelectRes);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -514,7 +532,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
+        if (mCB)
+        {
+            mCB(iRet, mSelectRes);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -547,19 +568,23 @@ public:
     */
     bool ThreadProcess() override
     {
-        if (m_pMysqlDriver)
-        {
-            iRet = m_pMysqlDriver->ModifyObj(mSelect, mSelectRes);
-        }
-        else
-        {
-            iRet = -1;
-        }
-
-        if (iRet == 0 && m_useCache && m_pNosqlDriver)
+        if (m_useCache && m_pNosqlDriver)
         {
             iRet = m_pNosqlDriver->SaveObj(mSelect);
         }
+        else {
+            if (m_pMysqlDriver)
+            {
+                iRet = m_pMysqlDriver->ModifyObj(mSelect, mSelectRes);
+            }
+            else
+            {
+                iRet = -1;
+            }
+
+            return true;
+        }
+
         return true;
     }
 
@@ -569,8 +594,33 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
-        return TPTASK_STATE_COMPLETED;
+        if (m_useCache)
+        {
+            if (iRet == 0)
+            {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                mCB = nullptr;
+                m_useCache = false;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
+        }
+        else {
+            if (mCB)
+            {
+                mCB(iRet, mSelectRes);
+            }
+            return TPTASK_STATE_COMPLETED;
+        }
     }
 
 public:
@@ -620,7 +670,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
+        if (mCB)
+        {
+            mCB(iRet, mSelectRes);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -675,7 +728,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
+        if (mCB)
+        {
+            mCB(iRet, mSelectRes);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -725,7 +781,10 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        mCB(iRet, mSelectRes);
+        if (mCB)
+        {
+            mCB(iRet, mSelectRes);
+        }
         return TPTASK_STATE_COMPLETED;
     }
 
@@ -778,7 +837,10 @@ public:
     {
         for (int i = 0; i < (int) mSelectRes.size(); i++)
         {
-            mCB(iRet, *mSelectRes.Mutable(i));
+            if (mCB)
+            {
+                mCB(iRet, *mSelectRes.Mutable(i));
+            }
         }
 
         return TPTASK_STATE_COMPLETED;
