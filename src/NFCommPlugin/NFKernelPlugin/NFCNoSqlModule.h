@@ -30,6 +30,7 @@ public:
                         storesvr_sqldata::storesvr_selobj_res &select_res);
     virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select);
     virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select);
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_updateobj &select);
 
     virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_delobj &select);
     virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select);

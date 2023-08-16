@@ -34,6 +34,31 @@
 #include "NFITaskModule.h"
 #include "NFTask.h"
 
+#include "google/protobuf/message.h"
+#include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
+
+using QueryDescStore_CB = std::function<void(int iRet, google::protobuf::Message& message)>;
+
+using SelectByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_sel_res &select_res)>;
+
+using SelectObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_selobj_res &select_res)>;
+
+using DeleteByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_del_res &select_res)>;
+
+using DeleteObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_delobj_res &select_res)>;
+
+using InsertObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res)>;
+
+using ModifyByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_mod_res &select_res)>;
+
+using ModifyObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_modobj_res &select_res)>;
+
+using UpdateByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_update_res &select_res)>;
+using UpdateObj_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res)>;
+
+using Execute_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_execute_res &select_res)>;
+using ExecuteMore_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_execute_more_res &select_res)>;
+
 class NFIAsycModule : public NFIModule
 {
 public:

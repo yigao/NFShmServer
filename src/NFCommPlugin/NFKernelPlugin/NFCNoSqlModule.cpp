@@ -94,6 +94,13 @@ int NFCNoSqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::st
     return pDriver->SaveObj(select);
 }
 
+int NFCNoSqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_updateobj &select)
+{
+    auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
+    CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
+    return pDriver->SaveObj(select);
+}
+
 int NFCNoSqlModule::DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_delobj &select)
 {
     auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
