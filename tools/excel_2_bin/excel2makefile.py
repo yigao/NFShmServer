@@ -28,7 +28,7 @@ import filecmp
 def write_makefile(makefile_file, resmetas_makefile, file):
 	makefile_file.write("${PROTOCGEN_FILE_PATH}/" + file + ".proto " + "${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile:${RESDB_EXCELMMO_PATH}/" + file + ".xlsx\n")
 	makefile_file.write("\tmkdir -p ${PROTOCGEN_FILE_PATH}\n")
-	makefile_file.write("\t${EXCEL2PROTO} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/\n")
+	makefile_file.write("\t${EXCEL2PROTO} --src=$^ --dst=${PROTOCGEN_FILE_PATH}/\n")
 	makefile_file.write("\t${FILE_COPY_EXE} --src=\"" + "${PROTOCGEN_FILE_PATH}/" + file + ".proto " + "${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile"+ "\" --dst=${RESDB_META_PATH}/\n")
 	makefile_file.write("\n\n")
 
@@ -44,7 +44,7 @@ def show_usage():
                 --dst=x-1.xls"""
 
 if __name__ == "__main__":
-	(opts, args) = getopt.getopt(sys.argv[1:], "s:d", ["src=", "dst="])
+	(opts, args) = getopt.getopt(sys.argv[1:], "s:d:w", ["src=", "dst=", "work="])
 
 	if( 0 == len( opts ) ):
 		show_usage()
@@ -52,6 +52,7 @@ if __name__ == "__main__":
 
 	str_src_files = ""
 	dst_files = ""
+	work = ""
 
 	reload(sys)
 	sys.setdefaultencoding("utf-8")
@@ -61,6 +62,8 @@ if __name__ == "__main__":
 			str_src_files = a
 		elif o in ("-d", "--dst"):
 			dst_files = a
+		elif o in ("-w", "--work"):
+			work = a
 		else:
 			print "unknown command!"
 			show_usage()

@@ -60,12 +60,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/Common.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/Common.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/excelcreate_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/excelcreate_gen.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/XlsReader.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/XlsReader.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +107,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/gaoyi/NFShmServer/Install/Bin/Dynamic_Debug",
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/tools",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,11 +120,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$/Install/Bin/Dynamic_Debug" />
       <recent name="$PROJECT_DIR$/NFTools/NFExcelProcess" />
       <recent name="$PROJECT_DIR$/Install/Bin/Dynamic_Release" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFish2004Plugin" />
-      <recent name="$PROJECT_DIR$/Install/Config/Fish" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -131,11 +134,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFExcelProcess">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NFDescStore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFDescStore" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -146,7 +144,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFExcelProcess" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--src=&quot;Fish.xlsx&quot; --dst=&quot;./&quot; --work=&quot;exceltomakefile&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFExcelProcess" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFExcelProcess">
+    <configuration name="NFExcelProcess" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--src=&quot;Fish.xlsx&quot; --dst=&quot;./&quot; --work=&quot;exceltoproto&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFExcelProcess" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFExcelProcess">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -298,6 +296,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -385,13 +388,7 @@
       <workItem from="1691382983170" duration="51423000" />
       <workItem from="1692319565628" duration="933000" />
       <workItem from="1692429898514" duration="2417000" />
-    </task>
-    <task id="LOCAL-00038" summary="fish user jetton">
-      <created>1689823447746</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1689823447746</updated>
+      <workItem from="1692448207697" duration="8918000" />
     </task>
     <task id="LOCAL-00039" summary="fish user jetton">
       <created>1689829506887</created>
@@ -729,7 +726,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692436261721</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="xls">
+      <created>1692439095078</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1692439095078</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -790,6 +794,21 @@
           <url>file://$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp</url>
           <line>123</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp</url>
+          <line>51</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp</url>
+          <line>24</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp</url>
+          <line>57</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

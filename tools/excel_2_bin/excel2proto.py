@@ -1122,11 +1122,11 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 def show_usage():
 	print """usage for excel2bin example:
-	./excel2bin --excel=x-1.xls
-                --out_path=./"""
+	./excel2bin --src=x-1.xls
+                --dst=./"""
 
 if __name__ == "__main__":
-	(opts, args) = getopt.getopt(sys.argv[1:], "e:o", ["excel=", "out_path="])
+	(opts, args) = getopt.getopt(sys.argv[1:], "s:d", ["src=", "dst="])
 
 	if( 0 == len( opts ) ):
 		show_usage()
@@ -1140,9 +1140,9 @@ if __name__ == "__main__":
 	sys.setdefaultencoding("utf-8")
 
 	for (o, a) in opts:
-		if o in ("-e", "--excel"):
+		if o in ("-s", "--src"):
 			excel_files.append(a)
-		elif o in ("-o", "--out_path"):
+		elif o in ("-d", "--dst"):
 			out_path = a
 		else:
 			print "unknown command!"

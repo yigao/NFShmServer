@@ -9,14 +9,52 @@
 
 #include "ExcelToMakefile.h"
 
-void ExcelToMakeFile(const std::string& src, const std::string& dst)
+void WriteMakeFile(std::string& excelmmo_gen, std::string& resmetas_gen, const std::string& file)
 {
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "src={}, dst={}", src, dst);
-    workbook wb;
-    wb.load(src);
-    for(auto iter = wb.begin(); iter != wb.end(); iter++)
+    excelmmo_gen += "${PROTOCGEN_FILE_PATH}/" + file + ".proto ${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile:${RESDB_EXCELMMO_PATH}/" + file + ".xlsx\n";
+    excelmmo_gen += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
+    excelmmo_gen += "\t${EXCEL2PROTO} --src=$^ --dst=${PROTOCGEN_FILE_PATH}/\n";
+    excelmmo_gen += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + file + ".proto ${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile\" --dst=${RESDB_META_PATH}/\n";
+    excelmmo_gen += "\n\n";
+
+    resmetas_gen += "${PROTOCGEN_FILE_PATH}/" + file + ".pb.h ${PROTOCGEN_FILE_PATH}/" + file + ".pb.cc ${PROTOCGEN_FILE_PATH}/" + file + "_s.h ${PROTOCGEN_FILE_PATH}/" + file + "_s.cpp ${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/" + file + ".proto\n";
+    resmetas_gen += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
+    resmetas_gen += "\t${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --cpp_out=${PROTOCGEN_FILE_PATH}\n";
+    resmetas_gen += "\t${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --proto_fname=" + file + ".proto --out_path=${PROTOCGEN_FILE_PATH}/;\n";
+    resmetas_gen += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + file + ".pb.h ${PROTOCGEN_FILE_PATH}/" + file + ".pb.cc ${PROTOCGEN_FILE_PATH}/" + file + "_s.h ${PROTOCGEN_FILE_PATH}/" + file + "_s.cpp \" --dst=${NEW_PROTOCGEN_FILE_PATH}/\n";
+}
+
+void ExcelToMakeFile(const std::vector<std::string>& vecStr, const std::string& dst)
+{
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "src={}, dst={}", NFCommon::tostr(vecStr), dst);
+    std::string excelmmo_gen;
+    std::string resmetas_gen;
+
+    excelmmo_gen += "include ./define.makefile\n\n";
+    excelmmo_gen += ".PHONY:all\n\n";
+    excelmmo_gen += "all:${RESDB_BIN_FILE}\n\n";
+
+    resmetas_gen += "include ./define.makefile\n\n";
+    resmetas_gen += ".PHONY:all\n\n";
+    resmetas_gen += "all:${RESDB_DESC_H} ${RESDB_DESC_CPP} ${RESDB_DESC_STRUCT_H} ${RESDB_DESC_STRUCT_CPP}\n\n";
+
+    for(int i = 0; i < (int)vecStr.size(); i++)
     {
-        worksheet sheet = *iter;
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "read sheet:{}", sheet.title());
+        if (vecStr[i].empty()) continue;
+        WriteMakeFile(excelmmo_gen, resmetas_gen, vecStr[i]);
+
+
+    }
+
+    if (NFFileUtility::IsDir(dst))
+    {
+        std::string dir = NFFileUtility::NormalizePath(dst);
+        NFFileUtility::WriteFile(dir + "excelmmo_gen.makefile", excelmmo_gen);
+        NFFileUtility::WriteFile(dir + "resmetas_gen.makefile", resmetas_gen);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "create excelmmo_gen.makefile success");
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "create resmetas_gen.makefile success");
+    }
+    else {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "create makefile fail");
     }
 }

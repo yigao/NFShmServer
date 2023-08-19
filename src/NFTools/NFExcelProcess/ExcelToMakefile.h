@@ -11,4 +11,4 @@
 
 #include "Common.h"
 
-void ExcelToMakeFile(const std::string& src, const std::string& dst);
+void ExcelToMakeFile(const std::vector<std::string>& src, const std::string& dst);
