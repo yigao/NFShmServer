@@ -60,13 +60,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/Common.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NFTools/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NFTools/NFExcelProcess/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NFTools/NFExcelProcess/XlsReader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/XlsReader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NFTools/NFExcelProcess/XlsReader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/XlsReader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_debug/libxlsreader.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_release/libxlsreader.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/brdb.c.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/brdb.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/endian.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/locale.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/ole.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlsstruct.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlstool.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlstypes.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/xls.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/pkg/libxls-1.6.2.tar.gz" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +115,7 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/gaoyi/NFShmServer/NFTools/NFExcelProcess",
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/src/NFTools/NFExcelProcess",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -117,11 +128,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFTools/NFExcelProcess" />
       <recent name="$PROJECT_DIR$/NFTools/NFExcelProcess" />
       <recent name="$PROJECT_DIR$/Install/Bin/Dynamic_Release" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFish2004Plugin" />
       <recent name="$PROJECT_DIR$/Install/Config/Fish" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
@@ -130,7 +141,7 @@
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
+  <component name="RunManager" selected="CMake 应用程序.NFExcelProcess">
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
@@ -146,7 +157,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFExcelProcess" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFExcelProcess" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFExcelProcess">
+    <configuration name="NFExcelProcess" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--work=&quot;exceltomakefile&quot; --src=&quot;$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx&quot; --dst=&quot;./&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFExcelProcess" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFExcelProcess">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -384,14 +395,7 @@
       <workItem from="1691197812620" duration="25571000" />
       <workItem from="1691382983170" duration="51423000" />
       <workItem from="1692319565628" duration="933000" />
-      <workItem from="1692429898514" duration="2417000" />
-    </task>
-    <task id="LOCAL-00037" summary="fish user jetton">
-      <created>1689753223673</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1689753223673</updated>
+      <workItem from="1692429898514" duration="4866000" />
     </task>
     <task id="LOCAL-00038" summary="fish user jetton">
       <created>1689823447746</created>
@@ -729,7 +733,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692432220829</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="xls">
+      <created>1692432324771</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1692432324771</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,6 +796,16 @@
           <url>file://$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp</url>
           <line>123</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp</url>
+          <line>13</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/XlsReader.cpp</url>
+          <line>89</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
