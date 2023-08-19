@@ -60,55 +60,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
-      <change afterPath="$PROJECT_DIR$/NFTools/NFExcelProcess/CMakeLists.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thirdparty/libxls/cplusplus/XlsReader.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thirdparty/libxls/cplusplus/XlsReader.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/AUTHORS" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/AUTHORS" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/INSTALL" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/INSTALL" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/Makefile.am" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/Makefile.am" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/Makefile.in" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/Makefile.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/aclocal.m4" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/aclocal.m4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/compile" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/compile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/config.guess" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/config.guess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/config.h.in" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/config.h.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/config.rpath" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/config.rpath" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/config.sub" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/config.sub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/configure" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/configure" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/configure.ac" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/configure.ac" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/cplusplus/XlsReader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/NFTools/NFExcelProcess/XlsReader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/cplusplus/XlsReader.h" beforeDir="false" afterPath="$PROJECT_DIR$/NFTools/NFExcelProcess/XlsReader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/cplusplus/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/cplusplus/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/depcomp" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/depcomp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/fuzz/fuzz_xls.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/fuzz/fuzz_xls.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/libxls/brdb.c.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/brdb.c.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/libxls/brdb.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/brdb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/libxls/endian.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/endian.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/libxls/locale.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/locale.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/libxls/ole.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/ole.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/libxls/xlsstruct.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlsstruct.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/libxls/xlstool.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlstool.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/libxls/xlstypes.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlstypes.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/include/xls.h" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/include/xls.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/install-sh" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/install-sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/libxls.pc.in" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/libxls.pc.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/ltmain.sh" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/ltmain.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/man/xls2csv.man" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/man/xls2csv.man" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/missing" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/missing" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/src/endian.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/src/endian.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/src/locale.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/src/locale.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/src/ole.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/src/ole.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/src/xls.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/src/xls.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/src/xls2csv.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/src/xls2csv.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/src/xlstool.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/src/xlstool.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/test-driver" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/test-driver" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/test/files/test2.xls" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/test/files/test2.xls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/test/test.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/test/test.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls-1.6.2/test/test2.c" beforeDir="false" afterPath="$PROJECT_DIR$/thirdparty/libxls/test/test2.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NFTools/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NFTools/NFExcelProcess/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NFTools/NFExcelProcess/XlsReader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/XlsReader.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NFTools/NFExcelProcess/XlsReader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/XlsReader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,6 +124,7 @@
       <recent name="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommon" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player" />
@@ -425,14 +384,7 @@
       <workItem from="1691197812620" duration="25571000" />
       <workItem from="1691382983170" duration="51423000" />
       <workItem from="1692319565628" duration="933000" />
-      <workItem from="1692429898514" duration="2225000" />
-    </task>
-    <task id="LOCAL-00036" summary="fish user jetton">
-      <created>1689746198632</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1689746198632</updated>
+      <workItem from="1692429898514" duration="2417000" />
     </task>
     <task id="LOCAL-00037" summary="fish user jetton">
       <created>1689753223673</created>
@@ -770,7 +722,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692431449590</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="xls">
+      <created>1692432220829</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1692432220829</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
