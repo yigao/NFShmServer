@@ -33,6 +33,6 @@
 #include <sys/prctl.h>
 #endif
 
-#include "XlsReader.h"
+#include "xlnt/xlnt.hpp"
 
-using namespace xls;
+using namespace xlnt;

@@ -11,6 +11,12 @@
 
 void ExcelToMakeFile(const std::string& src, const std::string& dst)
 {
-    NFLogDebug(NF_LOG_SYSTEMLOG, 0, "src={}, dst={}", src, dst);
-    WorkBook workBook(src, 0, "GBK");
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "src={}, dst={}", src, dst);
+    workbook wb;
+    wb.load(src);
+    for(auto iter = wb.begin(); iter != wb.end(); iter++)
+    {
+        worksheet sheet = *iter;
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "read sheet:{}", sheet.title());
+    }
 }

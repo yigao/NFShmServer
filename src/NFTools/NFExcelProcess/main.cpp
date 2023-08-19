@@ -28,17 +28,9 @@ int main(int argc, char* argv[])
         std::string dst_path = cmdParser.Get<std::string>("dst");
         std::string work = cmdParser.Get<std::string>("work");
 
-        try {
-            if (work == "exceltomakefile")
-            {
-                ExcelToMakeFile(src_excel, dst_path);
-            }
-        }
-        catch (XlsException& e)
+        if (work == "exceltomakefile")
         {
-            std::cout << e.what() << std::endl;
-            NFSLEEP(1000);
-            exit(0);
+            ExcelToMakeFile(src_excel, dst_path);
         }
     }
     catch (NFCmdLine::NFCmdLine_Error& e)
