@@ -60,24 +60,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
-      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/Common.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_debug/libxlsreader.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/lib64_release/libxlsreader.a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/brdb.c.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/brdb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/endian.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/locale.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/ole.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlsstruct.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlstool.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/libxls/xlstypes.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/libxls/include/xls.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/thirdparty/pkg/libxls-1.6.2.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/thirdparty/pkg/xlnt-1.5.0.tar.gz" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -395,14 +378,7 @@
       <workItem from="1691197812620" duration="25571000" />
       <workItem from="1691382983170" duration="51423000" />
       <workItem from="1692319565628" duration="933000" />
-      <workItem from="1692429898514" duration="4866000" />
-    </task>
-    <task id="LOCAL-00038" summary="fish user jetton">
-      <created>1689823447746</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1689823447746</updated>
+      <workItem from="1692429898514" duration="5500000" />
     </task>
     <task id="LOCAL-00039" summary="fish user jetton">
       <created>1689829506887</created>
@@ -740,7 +716,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692432324771</updated>
     </task>
-    <option name="localTasksCounter" value="87" />
+    <task id="LOCAL-00087" summary="xls">
+      <created>1692434797587</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1692434797587</updated>
+    </task>
+    <option name="localTasksCounter" value="88" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
