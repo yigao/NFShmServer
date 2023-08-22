@@ -1118,6 +1118,36 @@ void NFStringUtility::ToUpper(std::string& str)
 	               });
 }
 
+std::string NFStringUtility::Lower(const std::string& str)
+{
+    std::string dst = str;
+    std::transform(dst.begin(), dst.end(), dst.begin(), [](unsigned char c)
+    {
+        return tolower(c);
+    });
+    return dst;
+}
+
+std::string NFStringUtility::Upper(const std::string& str)
+{
+    std::string dst = str;
+    std::transform(dst.begin(), dst.end(), dst.begin(), [](unsigned char c)
+    {
+        return toupper(c);
+    });
+    return dst;
+}
+
+std::string NFStringUtility::Capitalize(const std::string& str)
+{
+    std::string dst = str;
+    if (dst.size() > 0)
+    {
+        dst[0] = toupper(dst[0]);
+    }
+    return dst;
+}
+
 void NFStringUtility::ToUpper(std::wstring& str)
 {
 	std::transform(str.begin(), str.end(), str.begin(), [](wchar_t c)
@@ -1157,6 +1187,48 @@ void NFStringUtility::Split(const std::string& str,
 
 		begin_index = end_index + delim_length;
 	}
+}
+
+void NFStringUtility::SplitDigit(const std::string& str,
+                       std::vector<std::string>* result)
+{
+    if (str.empty())
+    {
+        return;
+    }
+
+    std::string substr;
+    bool flag = false;
+    for (auto iter = str.begin(); iter != str.end(); iter++)
+    {
+        if (*iter >= '1' && *iter <= '9')
+        {
+            if (flag == false)
+            {
+                flag = true;
+                result->push_back(substr);
+                substr.clear();
+            }
+
+            substr.append(1, *iter);
+        }
+        else {
+            if (flag == true)
+            {
+                flag = false;
+                result->push_back(substr);
+                substr.clear();
+            }
+
+            substr.append(1, *iter);
+        }
+    }
+
+    result->push_back(substr);
+    if (flag == true)
+    {
+        result->push_back("");
+    }
 }
 
 std::string& NFStringUtility::Ltrim(std::string& str) // NOLINT

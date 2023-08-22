@@ -686,54 +686,70 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 			#sheet的列数
 			excel_sheet_col_count = sheet.ncols
 
+			#list表的第一行第一个自动有sheet_name的话，这一行只是用来提示功能，第二列是unique_index唯一索引，multi_index不唯一所有，check用来检查列关联到的表数据是否存在
+			start_row = 0
+			if str(sheet.cell_value(row_index, 0)).strip() == "sheet_name":
+				start_row = 1
+
 			#开始按行读取
-			for row_index in xrange(0, excel_sheet_row_count):
+			for row_index in xrange(start_row, excel_sheet_row_count):
 				sheet_cell_row_name = str(sheet.cell_value(row_index, 0)).strip()
 				sheet_map[sheet_cell_row_name] = {}
 				sheet_map[sheet_cell_row_name]["key"] = {}
 				sheet_map[sheet_cell_row_name]["com_key"] = {}
 				for col_index in xrange(1, excel_sheet_col_count):
-					sheet_cell_col_index = str(sheet.cell_value(row_index, col_index)).strip()
-					if len(sheet_cell_col_index) == 0:
+					if col_index != 1 and col_index != 2:
 						continue
+
 					sheet_index_unique = True
-					if sheet_cell_col_index.find(":") != -1:
-						sheet_cell_col_index = sheet_cell_col_index.split(":")[1]
+					if col_index == 2:
 						sheet_index_unique = False
-					sheet_cell_col_index_list = sheet_cell_col_index.split(",")
-					for i in range(len(sheet_cell_col_index_list)):
-						sheet_cell_col_index_list[i].strip()
-					if len(sheet_cell_col_index_list) == 1:
-						sheet_key_key = sheet_cell_col_index_list[0]
-						sheet_key = {}
-						sheet_key["key"] = sheet_key_key
-						sheet_key["unique"] = sheet_index_unique
-						sheet_key["col_index"] = -1
-						sheet_key["index_max_row"] = 0
-						sheet_key["index_one_key_max_row"] = 0
 
-						sheet_map[sheet_cell_row_name]["key"][sheet_key_key] = sheet_key
+					sheet_cell_col_str = str(sheet.cell_value(row_index, col_index)).strip()
+					if len(sheet_cell_col_str) == 0:
+						continue
 
-						print("excel:%s sheet:%s add key:%s" % (excel_file, sheet_cell_row_name, sheet_key["key"]))
-					elif len(sheet_cell_col_index_list) > 1:
-						sheet_com_key_key = sheet_cell_col_index
-						sheet_com_key = {}
-						sheet_com_key["key"] = {}
-						sheet_com_key["unique"] = sheet_index_unique
-						sheet_com_key["index"] = []
-						com_key_str = ""
+					sheet_cell_col_str_list = sheet_cell_col_str.split(";")
+					for i in range(len(sheet_cell_col_str_list)):
+						sheet_cell_col_index = sheet_cell_col_str_list[i]
+						sheet_cell_col_index.strip()
+						if len(sheet_cell_col_index) == 0:
+							continue
+						sheet_cell_col_index_list = sheet_cell_col_index.split(",")
 						for i in range(len(sheet_cell_col_index_list)):
-							sheet_key_key = sheet_cell_col_index_list[i]
+							sheet_cell_col_index_list[i].strip()
+						if len(sheet_cell_col_index_list) == 1:
+							sheet_key_key = sheet_cell_col_index_list[0]
 							sheet_key = {}
 							sheet_key["key"] = sheet_key_key
+							sheet_key["unique"] = sheet_index_unique
 							sheet_key["col_index"] = -1
 							sheet_key["index_max_row"] = 0
 							sheet_key["index_one_key_max_row"] = 0
-							sheet_com_key["key"][sheet_key_key] = sheet_key
-							sheet_com_key["index"].append(sheet_key)
-							com_key_str += sheet_cell_col_index_list[i] + ","
-						sheet_map[sheet_cell_row_name]["com_key"][sheet_com_key_key] = sheet_com_key
-						print("excel:%s sheet:%s add com_key:%s" % (excel_file, sheet_cell_row_name, com_key_str))
+
+							sheet_map[sheet_cell_row_name]["key"][sheet_key_key] = sheet_key
+
+							print("excel:%s sheet:%s add key:%s" % (excel_file, sheet_cell_row_name, sheet_key["key"]))
+						elif len(sheet_cell_col_index_list) > 1:
+							sheet_com_key_key = sheet_cell_col_index
+							sheet_com_key = {}
+							sheet_com_key["key"] = {}
+							sheet_com_key["unique"] = sheet_index_unique
+							sheet_com_key["index"] = []
+							com_key_str = ""
+							for i in range(len(sheet_cell_col_index_list)):
+								sheet_key_key = sheet_cell_col_index_list[i]
+								sheet_key = {}
+								sheet_key["key"] = sheet_key_key
+								sheet_key["col_index"] = -1
+								sheet_key["index_max_row"] = 0
+								sheet_key["index_one_key_max_row"] = 0
+								sheet_com_key["key"][sheet_key_key] = sheet_key
+								sheet_com_key["index"].append(sheet_key)
+								com_key_str += sheet_cell_col_index_list[i] + ","
+							sheet_map[sheet_cell_row_name]["com_key"][sheet_com_key_key] = sheet_com_key
+							print("excel:%s sheet:%s add com_key:%s" % (excel_file, sheet_cell_row_name, com_key_str))
+
 
 
 	excel_src_file_name = os.path.basename(excel_file)
