@@ -179,40 +179,40 @@ class E_FishRoom : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_maxpeople() const;
   inline void set_m_maxpeople(::google::protobuf::int32 value);
 
-  // optional int32 m_enter_min = 11;
-  inline bool has_m_enter_min() const;
-  inline void clear_m_enter_min();
-  static const int kMEnterMinFieldNumber = 11;
-  inline ::google::protobuf::int32 m_enter_min() const;
-  inline void set_m_enter_min(::google::protobuf::int32 value);
+  // optional int32 m_entermin = 11;
+  inline bool has_m_entermin() const;
+  inline void clear_m_entermin();
+  static const int kMEnterminFieldNumber = 11;
+  inline ::google::protobuf::int32 m_entermin() const;
+  inline void set_m_entermin(::google::protobuf::int32 value);
 
-  // optional int32 m_enter_max = 12;
-  inline bool has_m_enter_max() const;
-  inline void clear_m_enter_max();
-  static const int kMEnterMaxFieldNumber = 12;
-  inline ::google::protobuf::int32 m_enter_max() const;
-  inline void set_m_enter_max(::google::protobuf::int32 value);
+  // optional int32 m_entermax = 12;
+  inline bool has_m_entermax() const;
+  inline void clear_m_entermax();
+  static const int kMEntermaxFieldNumber = 12;
+  inline ::google::protobuf::int32 m_entermax() const;
+  inline void set_m_entermax(::google::protobuf::int32 value);
 
-  // optional int32 m_auto_chair = 13;
-  inline bool has_m_auto_chair() const;
-  inline void clear_m_auto_chair();
-  static const int kMAutoChairFieldNumber = 13;
-  inline ::google::protobuf::int32 m_auto_chair() const;
-  inline void set_m_auto_chair(::google::protobuf::int32 value);
+  // optional int32 m_autochair = 13;
+  inline bool has_m_autochair() const;
+  inline void clear_m_autochair();
+  static const int kMAutochairFieldNumber = 13;
+  inline ::google::protobuf::int32 m_autochair() const;
+  inline void set_m_autochair(::google::protobuf::int32 value);
 
-  // optional int32 m_is_exp_scene = 14;
-  inline bool has_m_is_exp_scene() const;
-  inline void clear_m_is_exp_scene();
-  static const int kMIsExpSceneFieldNumber = 14;
-  inline ::google::protobuf::int32 m_is_exp_scene() const;
-  inline void set_m_is_exp_scene(::google::protobuf::int32 value);
+  // optional int32 m_isexpscene = 14;
+  inline bool has_m_isexpscene() const;
+  inline void clear_m_isexpscene();
+  static const int kMIsexpsceneFieldNumber = 14;
+  inline ::google::protobuf::int32 m_isexpscene() const;
+  inline void set_m_isexpscene(::google::protobuf::int32 value);
 
-  // optional int32 m_exp_scene_gold = 15;
-  inline bool has_m_exp_scene_gold() const;
-  inline void clear_m_exp_scene_gold();
-  static const int kMExpSceneGoldFieldNumber = 15;
-  inline ::google::protobuf::int32 m_exp_scene_gold() const;
-  inline void set_m_exp_scene_gold(::google::protobuf::int32 value);
+  // optional int32 m_expscenegold = 15;
+  inline bool has_m_expscenegold() const;
+  inline void clear_m_expscenegold();
+  static const int kMExpscenegoldFieldNumber = 15;
+  inline ::google::protobuf::int32 m_expscenegold() const;
+  inline void set_m_expscenegold(::google::protobuf::int32 value);
 
   // optional int32 m_tax = 16;
   inline bool has_m_tax() const;
@@ -243,16 +243,16 @@ class E_FishRoom : public ::google::protobuf::Message {
   inline void clear_has_m_deskcount();
   inline void set_has_m_maxpeople();
   inline void clear_has_m_maxpeople();
-  inline void set_has_m_enter_min();
-  inline void clear_has_m_enter_min();
-  inline void set_has_m_enter_max();
-  inline void clear_has_m_enter_max();
-  inline void set_has_m_auto_chair();
-  inline void clear_has_m_auto_chair();
-  inline void set_has_m_is_exp_scene();
-  inline void clear_has_m_is_exp_scene();
-  inline void set_has_m_exp_scene_gold();
-  inline void clear_has_m_exp_scene_gold();
+  inline void set_has_m_entermin();
+  inline void clear_has_m_entermin();
+  inline void set_has_m_entermax();
+  inline void clear_has_m_entermax();
+  inline void set_has_m_autochair();
+  inline void clear_has_m_autochair();
+  inline void set_has_m_isexpscene();
+  inline void clear_has_m_isexpscene();
+  inline void set_has_m_expscenegold();
+  inline void clear_has_m_expscenegold();
   inline void set_has_m_tax();
   inline void clear_has_m_tax();
 
@@ -268,11 +268,11 @@ class E_FishRoom : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_sitenum_;
   ::google::protobuf::int32 m_deskcount_;
   ::google::protobuf::int32 m_maxpeople_;
-  ::google::protobuf::int32 m_enter_min_;
-  ::google::protobuf::int32 m_enter_max_;
-  ::google::protobuf::int32 m_auto_chair_;
-  ::google::protobuf::int32 m_is_exp_scene_;
-  ::google::protobuf::int32 m_exp_scene_gold_;
+  ::google::protobuf::int32 m_entermin_;
+  ::google::protobuf::int32 m_entermax_;
+  ::google::protobuf::int32 m_autochair_;
+  ::google::protobuf::int32 m_isexpscene_;
+  ::google::protobuf::int32 m_expscenegold_;
   ::google::protobuf::int32 m_tax_;
 
   mutable int _cached_size_;
@@ -1346,114 +1346,114 @@ inline void E_FishRoom::set_m_maxpeople(::google::protobuf::int32 value) {
   m_maxpeople_ = value;
 }
 
-// optional int32 m_enter_min = 11;
-inline bool E_FishRoom::has_m_enter_min() const {
+// optional int32 m_entermin = 11;
+inline bool E_FishRoom::has_m_entermin() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void E_FishRoom::set_has_m_enter_min() {
+inline void E_FishRoom::set_has_m_entermin() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void E_FishRoom::clear_has_m_enter_min() {
+inline void E_FishRoom::clear_has_m_entermin() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void E_FishRoom::clear_m_enter_min() {
-  m_enter_min_ = 0;
-  clear_has_m_enter_min();
+inline void E_FishRoom::clear_m_entermin() {
+  m_entermin_ = 0;
+  clear_has_m_entermin();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_enter_min() const {
-  return m_enter_min_;
+inline ::google::protobuf::int32 E_FishRoom::m_entermin() const {
+  return m_entermin_;
 }
-inline void E_FishRoom::set_m_enter_min(::google::protobuf::int32 value) {
-  set_has_m_enter_min();
-  m_enter_min_ = value;
+inline void E_FishRoom::set_m_entermin(::google::protobuf::int32 value) {
+  set_has_m_entermin();
+  m_entermin_ = value;
 }
 
-// optional int32 m_enter_max = 12;
-inline bool E_FishRoom::has_m_enter_max() const {
+// optional int32 m_entermax = 12;
+inline bool E_FishRoom::has_m_entermax() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void E_FishRoom::set_has_m_enter_max() {
+inline void E_FishRoom::set_has_m_entermax() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void E_FishRoom::clear_has_m_enter_max() {
+inline void E_FishRoom::clear_has_m_entermax() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void E_FishRoom::clear_m_enter_max() {
-  m_enter_max_ = 0;
-  clear_has_m_enter_max();
+inline void E_FishRoom::clear_m_entermax() {
+  m_entermax_ = 0;
+  clear_has_m_entermax();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_enter_max() const {
-  return m_enter_max_;
+inline ::google::protobuf::int32 E_FishRoom::m_entermax() const {
+  return m_entermax_;
 }
-inline void E_FishRoom::set_m_enter_max(::google::protobuf::int32 value) {
-  set_has_m_enter_max();
-  m_enter_max_ = value;
+inline void E_FishRoom::set_m_entermax(::google::protobuf::int32 value) {
+  set_has_m_entermax();
+  m_entermax_ = value;
 }
 
-// optional int32 m_auto_chair = 13;
-inline bool E_FishRoom::has_m_auto_chair() const {
+// optional int32 m_autochair = 13;
+inline bool E_FishRoom::has_m_autochair() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void E_FishRoom::set_has_m_auto_chair() {
+inline void E_FishRoom::set_has_m_autochair() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void E_FishRoom::clear_has_m_auto_chair() {
+inline void E_FishRoom::clear_has_m_autochair() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void E_FishRoom::clear_m_auto_chair() {
-  m_auto_chair_ = 0;
-  clear_has_m_auto_chair();
+inline void E_FishRoom::clear_m_autochair() {
+  m_autochair_ = 0;
+  clear_has_m_autochair();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_auto_chair() const {
-  return m_auto_chair_;
+inline ::google::protobuf::int32 E_FishRoom::m_autochair() const {
+  return m_autochair_;
 }
-inline void E_FishRoom::set_m_auto_chair(::google::protobuf::int32 value) {
-  set_has_m_auto_chair();
-  m_auto_chair_ = value;
+inline void E_FishRoom::set_m_autochair(::google::protobuf::int32 value) {
+  set_has_m_autochair();
+  m_autochair_ = value;
 }
 
-// optional int32 m_is_exp_scene = 14;
-inline bool E_FishRoom::has_m_is_exp_scene() const {
+// optional int32 m_isexpscene = 14;
+inline bool E_FishRoom::has_m_isexpscene() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void E_FishRoom::set_has_m_is_exp_scene() {
+inline void E_FishRoom::set_has_m_isexpscene() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void E_FishRoom::clear_has_m_is_exp_scene() {
+inline void E_FishRoom::clear_has_m_isexpscene() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void E_FishRoom::clear_m_is_exp_scene() {
-  m_is_exp_scene_ = 0;
-  clear_has_m_is_exp_scene();
+inline void E_FishRoom::clear_m_isexpscene() {
+  m_isexpscene_ = 0;
+  clear_has_m_isexpscene();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_is_exp_scene() const {
-  return m_is_exp_scene_;
+inline ::google::protobuf::int32 E_FishRoom::m_isexpscene() const {
+  return m_isexpscene_;
 }
-inline void E_FishRoom::set_m_is_exp_scene(::google::protobuf::int32 value) {
-  set_has_m_is_exp_scene();
-  m_is_exp_scene_ = value;
+inline void E_FishRoom::set_m_isexpscene(::google::protobuf::int32 value) {
+  set_has_m_isexpscene();
+  m_isexpscene_ = value;
 }
 
-// optional int32 m_exp_scene_gold = 15;
-inline bool E_FishRoom::has_m_exp_scene_gold() const {
+// optional int32 m_expscenegold = 15;
+inline bool E_FishRoom::has_m_expscenegold() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void E_FishRoom::set_has_m_exp_scene_gold() {
+inline void E_FishRoom::set_has_m_expscenegold() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void E_FishRoom::clear_has_m_exp_scene_gold() {
+inline void E_FishRoom::clear_has_m_expscenegold() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void E_FishRoom::clear_m_exp_scene_gold() {
-  m_exp_scene_gold_ = 0;
-  clear_has_m_exp_scene_gold();
+inline void E_FishRoom::clear_m_expscenegold() {
+  m_expscenegold_ = 0;
+  clear_has_m_expscenegold();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_exp_scene_gold() const {
-  return m_exp_scene_gold_;
+inline ::google::protobuf::int32 E_FishRoom::m_expscenegold() const {
+  return m_expscenegold_;
 }
-inline void E_FishRoom::set_m_exp_scene_gold(::google::protobuf::int32 value) {
-  set_has_m_exp_scene_gold();
-  m_exp_scene_gold_ = value;
+inline void E_FishRoom::set_m_expscenegold(::google::protobuf::int32 value) {
+  set_has_m_expscenegold();
+  m_expscenegold_ = value;
 }
 
 // optional int32 m_tax = 16;

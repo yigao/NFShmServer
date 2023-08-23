@@ -30,11 +30,11 @@ namespace proto_ff_s {
 		int32_t m_sitenum;
 		int32_t m_deskcount;
 		int32_t m_maxpeople;
-		int32_t m_enter_min;
-		int32_t m_enter_max;
-		int32_t m_auto_chair;
-		int32_t m_is_exp_scene;
-		int32_t m_exp_scene_gold;
+		int32_t m_entermin;
+		int32_t m_entermax;
+		int32_t m_autochair;
+		int32_t m_isexpscene;
+		int32_t m_expscenegold;
 		int32_t m_tax;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishRoom & msg) const;

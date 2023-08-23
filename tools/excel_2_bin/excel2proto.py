@@ -688,7 +688,7 @@ def read_excel(desc_store_head_file, desc_store_define_file, desc_store_register
 
 			#list表的第一行第一个自动有sheet_name的话，这一行只是用来提示功能，第二列是unique_index唯一索引，multi_index不唯一所有，check用来检查列关联到的表数据是否存在
 			start_row = 0
-			if str(sheet.cell_value(row_index, 0)).strip() == "sheet_name":
+			if str(sheet.cell_value(0, 0)).strip() == "sheet_name":
 				start_row = 1
 
 			#开始按行读取
@@ -1142,7 +1142,7 @@ def show_usage():
                 --dst=./"""
 
 if __name__ == "__main__":
-	(opts, args) = getopt.getopt(sys.argv[1:], "s:d", ["src=", "dst="])
+	(opts, args) = getopt.getopt(sys.argv[1:], "s:d:w", ["src=", "dst=", "work="])
 
 	if( 0 == len( opts ) ):
 		show_usage()
@@ -1151,6 +1151,7 @@ if __name__ == "__main__":
 	excel_files = []
 	excel_sheetnames = []
 	out_path = ""
+	work = ""
 
 	reload(sys)
 	sys.setdefaultencoding("utf-8")
@@ -1160,6 +1161,8 @@ if __name__ == "__main__":
 			excel_files.append(a)
 		elif o in ("-d", "--dst"):
 			out_path = a
+		elif o in ("-w", "--work"):
+			work = a
 		else:
 			print "unknown command!"
 			show_usage()

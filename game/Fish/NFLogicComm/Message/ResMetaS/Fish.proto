@@ -15,11 +15,11 @@ message E_FishRoom
 	optional int32 m_sitenum = 8[(yd_fieldoptions.field_cname) = "座位数"];
 	optional int32 m_deskcount = 9[(yd_fieldoptions.field_cname) = "桌子数"];
 	optional int32 m_maxpeople = 10[(yd_fieldoptions.field_cname) = "最大玩家数"];
-	optional int32 m_enter_min = 11[(yd_fieldoptions.field_cname) = "最小筹码"];
-	optional int32 m_enter_max = 12[(yd_fieldoptions.field_cname) = "最大筹码"];
-	optional int32 m_auto_chair = 13[(yd_fieldoptions.field_cname) = "选位置"];
-	optional int32 m_is_exp_scene = 14[(yd_fieldoptions.field_cname) = "体验场"];
-	optional int32 m_exp_scene_gold = 15[(yd_fieldoptions.field_cname) = "体验场金币"];
+	optional int32 m_entermin = 11[(yd_fieldoptions.field_cname) = "最小筹码"];
+	optional int32 m_entermax = 12[(yd_fieldoptions.field_cname) = "最大筹码"];
+	optional int32 m_autochair = 13[(yd_fieldoptions.field_cname) = "选位置"];
+	optional int32 m_isexpscene = 14[(yd_fieldoptions.field_cname) = "体验场"];
+	optional int32 m_expscenegold = 15[(yd_fieldoptions.field_cname) = "体验场金币"];
 	optional int32 m_tax = 16[(yd_fieldoptions.field_cname) = "抽水率"];
 }
 

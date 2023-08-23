@@ -19,11 +19,11 @@ int E_FishRoom_s::CreateInit() {
 	m_sitenum = (int32_t)0;
 	m_deskcount = (int32_t)0;
 	m_maxpeople = (int32_t)0;
-	m_enter_min = (int32_t)0;
-	m_enter_max = (int32_t)0;
-	m_auto_chair = (int32_t)0;
-	m_is_exp_scene = (int32_t)0;
-	m_exp_scene_gold = (int32_t)0;
+	m_entermin = (int32_t)0;
+	m_entermax = (int32_t)0;
+	m_autochair = (int32_t)0;
+	m_isexpscene = (int32_t)0;
+	m_expscenegold = (int32_t)0;
 	m_tax = (int32_t)0;
 	return 0;
 }
@@ -43,11 +43,11 @@ void E_FishRoom_s::write_to_pbmsg(::proto_ff::E_FishRoom & msg) const {
 	msg.set_m_sitenum((int32_t)m_sitenum);
 	msg.set_m_deskcount((int32_t)m_deskcount);
 	msg.set_m_maxpeople((int32_t)m_maxpeople);
-	msg.set_m_enter_min((int32_t)m_enter_min);
-	msg.set_m_enter_max((int32_t)m_enter_max);
-	msg.set_m_auto_chair((int32_t)m_auto_chair);
-	msg.set_m_is_exp_scene((int32_t)m_is_exp_scene);
-	msg.set_m_exp_scene_gold((int32_t)m_exp_scene_gold);
+	msg.set_m_entermin((int32_t)m_entermin);
+	msg.set_m_entermax((int32_t)m_entermax);
+	msg.set_m_autochair((int32_t)m_autochair);
+	msg.set_m_isexpscene((int32_t)m_isexpscene);
+	msg.set_m_expscenegold((int32_t)m_expscenegold);
 	msg.set_m_tax((int32_t)m_tax);
 }
 
@@ -63,11 +63,11 @@ void E_FishRoom_s::read_from_pbmsg(const ::proto_ff::E_FishRoom & msg) {
 	m_sitenum = msg.m_sitenum();
 	m_deskcount = msg.m_deskcount();
 	m_maxpeople = msg.m_maxpeople();
-	m_enter_min = msg.m_enter_min();
-	m_enter_max = msg.m_enter_max();
-	m_auto_chair = msg.m_auto_chair();
-	m_is_exp_scene = msg.m_is_exp_scene();
-	m_exp_scene_gold = msg.m_exp_scene_gold();
+	m_entermin = msg.m_entermin();
+	m_entermax = msg.m_entermax();
+	m_autochair = msg.m_autochair();
+	m_isexpscene = msg.m_isexpscene();
+	m_expscenegold = msg.m_expscenegold();
 	m_tax = msg.m_tax();
 }
 

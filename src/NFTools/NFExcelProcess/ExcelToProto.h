@@ -41,6 +41,9 @@ struct ExcelSheetIndex
     int m_maxNum;
     int m_maxUniqueNum;
     int m_maxUniqueListNum;
+
+    std::string m_define;
+    std::string m_define_one;
 };
 
 struct ExcelSheetComIndex
@@ -130,15 +133,13 @@ public:
 public:
     void WriteExcelProto();
     void WriteSheetProto(ExcelSheet* pSheet, std::string& write_str);
+    void WriteSheetDescStoreH(ExcelSheet* pSheet);
+    void WriteSheetDescStoreCPP(ExcelSheet* pSheet);
+    void WriteSheetDescStore();
+    void WriteMakeFile();
+    void WriteDestStoreDefine();
 public:
     static int get_max_num(int num);
-public:
-    std::string m_descStoreHeadFile;
-    std::string m_descStoreHeadFileStr;
-    std::string m_descStoreDefineFile;
-    std::string m_descStoreDefineFileStr;
-    std::string m_descStoreRegisterFile;
-    std::string m_descStoreRegisterFileStr;
 public:
     std::string m_outPath;
     std::string m_excel;
