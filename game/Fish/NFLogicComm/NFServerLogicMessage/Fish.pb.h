@@ -36,6 +36,7 @@ void protobuf_ShutdownFile_Fish_2eproto();
 
 class E_FishRoom;
 class Sheet_FishRoom;
+class E_FishGunvalueYDesc;
 class E_FishGunvalue;
 class Sheet_FishGunvalue;
 class E_FishCtrllevel;
@@ -372,6 +373,98 @@ class Sheet_FishRoom : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class E_FishGunvalueYDesc : public ::google::protobuf::Message {
+ public:
+  E_FishGunvalueYDesc();
+  virtual ~E_FishGunvalueYDesc();
+
+  E_FishGunvalueYDesc(const E_FishGunvalueYDesc& from);
+
+  inline E_FishGunvalueYDesc& operator=(const E_FishGunvalueYDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FishGunvalueYDesc& default_instance();
+
+  void Swap(E_FishGunvalueYDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FishGunvalueYDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FishGunvalueYDesc& from);
+  void MergeFrom(const E_FishGunvalueYDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // optional int32 m_id = 2;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 2;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FishGunvalueYDesc)
+ private:
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fish_2eproto();
+  friend void protobuf_AssignDesc_Fish_2eproto();
+  friend void protobuf_ShutdownFile_Fish_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FishGunvalueYDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class E_FishGunvalue : public ::google::protobuf::Message {
  public:
   E_FishGunvalue();
@@ -480,6 +573,18 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
       mutable_m_x_id();
 
+  // repeated .proto_ff.E_FishGunvalueYDesc m_y = 8;
+  inline int m_y_size() const;
+  inline void clear_m_y();
+  static const int kMYFieldNumber = 8;
+  inline const ::proto_ff::E_FishGunvalueYDesc& m_y(int index) const;
+  inline ::proto_ff::E_FishGunvalueYDesc* mutable_m_y(int index);
+  inline ::proto_ff::E_FishGunvalueYDesc* add_m_y();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc >&
+      m_y() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc >*
+      mutable_m_y();
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_FishGunvalue)
  private:
   inline void set_has_m_id();
@@ -504,9 +609,10 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_gunid_;
   ::google::protobuf::int32 m_gameroomid_;
   ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_x_id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc > m_y_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_Fish_2eproto();
   friend void protobuf_AssignDesc_Fish_2eproto();
@@ -1532,6 +1638,54 @@ Sheet_FishRoom::mutable_e_fishroom_list() {
 
 // -------------------------------------------------------------------
 
+// E_FishGunvalueYDesc
+
+// optional int32 m_num = 1;
+inline bool E_FishGunvalueYDesc::has_m_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FishGunvalueYDesc::set_has_m_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FishGunvalueYDesc::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FishGunvalueYDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_FishGunvalueYDesc::m_num() const {
+  return m_num_;
+}
+inline void E_FishGunvalueYDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// optional int32 m_id = 2;
+inline bool E_FishGunvalueYDesc::has_m_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FishGunvalueYDesc::set_has_m_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FishGunvalueYDesc::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FishGunvalueYDesc::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_FishGunvalueYDesc::m_id() const {
+  return m_id_;
+}
+inline void E_FishGunvalueYDesc::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // E_FishGunvalue
 
 // optional int32 m_id = 1;
@@ -1689,6 +1843,31 @@ E_FishGunvalue::m_x_id() const {
 inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
 E_FishGunvalue::mutable_m_x_id() {
   return &m_x_id_;
+}
+
+// repeated .proto_ff.E_FishGunvalueYDesc m_y = 8;
+inline int E_FishGunvalue::m_y_size() const {
+  return m_y_.size();
+}
+inline void E_FishGunvalue::clear_m_y() {
+  m_y_.Clear();
+}
+inline const ::proto_ff::E_FishGunvalueYDesc& E_FishGunvalue::m_y(int index) const {
+  return m_y_.Get(index);
+}
+inline ::proto_ff::E_FishGunvalueYDesc* E_FishGunvalue::mutable_m_y(int index) {
+  return m_y_.Mutable(index);
+}
+inline ::proto_ff::E_FishGunvalueYDesc* E_FishGunvalue::add_m_y() {
+  return m_y_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc >&
+E_FishGunvalue::m_y() const {
+  return m_y_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc >*
+E_FishGunvalue::mutable_m_y() {
+  return &m_y_;
 }
 
 // -------------------------------------------------------------------

@@ -1473,10 +1473,10 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                         "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
                         NFStringUtility::Capitalize(iter->second.m_sheetName) +
                         "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                        "[j]." +NFStringUtility::Lower(iter->second.m_myColSubName) + "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + "_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ":{} in the Excel:" +
+                        "[j].m_" +NFStringUtility::Lower(iter->second.m_myColSubName) + "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + "_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ":{} in the Excel:" +
                         NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
                         NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                        "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]." + NFStringUtility::Lower(iter->second.m_myColSubName) + ");\n";
+                        "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ");\n";
                 desc_file += "\t\t}\n";
             }
         }

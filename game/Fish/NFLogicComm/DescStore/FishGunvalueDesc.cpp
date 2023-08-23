@@ -143,9 +143,17 @@ int FishGunvalueDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
+		for(int j = 0; j < (int)pDesc->m_y.size(); j++)
+		{
+			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_id), result, "can't find the y_id:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_y[j].m_id);
+		}
 		for(int j = 0; j < (int)pDesc->m_x_id.size(); j++)
 		{
 			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_x_id[j]), result, "can't find the x_id:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_x_id[j]);
+		}
+		for(int j = 0; j < (int)pDesc->m_y.size(); j++)
+		{
+			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_num), result, "can't find the y_num:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_y[j].m_num);
 		}
 		CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_gameroomid), result, "can't find the gameroomid:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_gameroomid);
 	}
