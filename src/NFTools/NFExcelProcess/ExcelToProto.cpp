@@ -1435,17 +1435,56 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
         desc_file += "\t\tauto pDesc = &m_astDesc[i];\n";
         for (auto iter = pSheet->m_colRelationMap.begin(); iter != pSheet->m_colRelationMap.end(); iter++)
         {
-            desc_file +=
-                    "\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) + NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                    "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                    "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the Excel:" +
-                    NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" + NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                    "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
+            if (iter->second.m_myColSubName.empty())
+            {
+                CHECK_EXPR_ASSERT(pSheet->m_colInfoMap.find(iter->second.m_myColName) != pSheet->m_colInfoMap.end(), , "");
+                ExcelSheetColInfo* pColInfo = pSheet->m_colInfoMap[iter->second.m_myColName];
+                if (pColInfo->m_maxSubNum == 0)
+                {
+                    desc_file +=
+                            "\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
+                            NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                            "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                            "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the Excel:" +
+                            NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
+                            NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                            "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
+                }
+                else
+                {
+                    desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
+                    desc_file += "\t\t{\n";
+                    desc_file +=
+                            "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
+                            NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                            "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                            "[j]), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the Excel:" +
+                            NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
+                            NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                            "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]);\n";
+                    desc_file += "\t\t}\n";
+                }
+            }
+            else
+            {
+                desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
+                desc_file += "\t\t{\n";
+                desc_file +=
+                        "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
+                        NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                        "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                        "[j]." +NFStringUtility::Lower(iter->second.m_myColSubName) + "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + "_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ":{} in the Excel:" +
+                        NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
+                        NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                        "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]." + NFStringUtility::Lower(iter->second.m_myColSubName) + ");\n";
+                desc_file += "\t\t}\n";
+            }
         }
         desc_file += "\t}\n";
         desc_file += "\treturn result;\n";
     }
-    else {
+    else
+    {
         desc_file += "\treturn 0;\n";
     }
 

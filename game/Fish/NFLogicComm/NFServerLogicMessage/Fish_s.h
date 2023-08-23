@@ -9,6 +9,7 @@
 #include "Fish_s.h"
 
 #define DEFINE_SHEET_FISHROOM_E_FISHROOM_LIST_MAX_NUM 8
+#define DEFINE_E_FISHGUNVALUE_M_X_ID_MAX_NUM 2
 #define DEFINE_SHEET_FISHGUNVALUE_E_FISHGUNVALUE_LIST_MAX_NUM 64
 #define DEFINE_SHEET_FISHCTRLLEVEL_E_FISHCTRLLEVEL_LIST_MAX_NUM 16
 #define DEFINE_E_FISHCONFIG_M_CHILDFISHIDS_MAX_NUM 6
@@ -68,6 +69,8 @@ namespace proto_ff_s {
 		int32_t m_gameid;
 		int32_t m_roomid;
 		int32_t m_gunid;
+		int32_t m_gameroomid;
+		NFShmVector<int32_t, DEFINE_E_FISHGUNVALUE_M_X_ID_MAX_NUM> m_x_id;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg);

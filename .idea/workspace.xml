@@ -61,11 +61,16 @@
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/Fish/Data/E_FishRoom.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/Fish/Data/E_FishRoom.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/Fish/Data/E_FishGunvalue.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/Fish/Data/E_FishGunvalue.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCheck.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFCheck.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/Fish.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/Fish.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish_s.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -410,14 +415,7 @@
       <workItem from="1692319565628" duration="933000" />
       <workItem from="1692429898514" duration="2417000" />
       <workItem from="1692448207697" duration="11969000" />
-      <workItem from="1692580636970" duration="76187000" />
-    </task>
-    <task id="LOCAL-00046" summary="bus connect channel">
-      <created>1690447424681</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1690447424681</updated>
+      <workItem from="1692580636970" duration="78130000" />
     </task>
     <task id="LOCAL-00047" summary="bus connect channel">
       <created>1690450967323</created>
@@ -755,7 +753,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692763148770</updated>
     </task>
-    <option name="localTasksCounter" value="95" />
+    <task id="LOCAL-00095" summary="xls">
+      <created>1692778207779</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1692778207779</updated>
+    </task>
+    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

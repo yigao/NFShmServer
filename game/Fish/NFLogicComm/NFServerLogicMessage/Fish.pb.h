@@ -461,6 +461,25 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_gunid() const;
   inline void set_m_gunid(::google::protobuf::int32 value);
 
+  // optional int32 m_gameroomid = 6;
+  inline bool has_m_gameroomid() const;
+  inline void clear_m_gameroomid();
+  static const int kMGameroomidFieldNumber = 6;
+  inline ::google::protobuf::int32 m_gameroomid() const;
+  inline void set_m_gameroomid(::google::protobuf::int32 value);
+
+  // repeated int32 m_x_id = 7;
+  inline int m_x_id_size() const;
+  inline void clear_m_x_id();
+  static const int kMXIdFieldNumber = 7;
+  inline ::google::protobuf::int32 m_x_id(int index) const;
+  inline void set_m_x_id(int index, ::google::protobuf::int32 value);
+  inline void add_m_x_id(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      m_x_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_m_x_id();
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_FishGunvalue)
  private:
   inline void set_has_m_id();
@@ -473,6 +492,8 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   inline void clear_has_m_roomid();
   inline void set_has_m_gunid();
   inline void clear_has_m_gunid();
+  inline void set_has_m_gameroomid();
+  inline void clear_has_m_gameroomid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -481,9 +502,11 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_gameid_;
   ::google::protobuf::int32 m_roomid_;
   ::google::protobuf::int32 m_gunid_;
+  ::google::protobuf::int32 m_gameroomid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_x_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_Fish_2eproto();
   friend void protobuf_AssignDesc_Fish_2eproto();
@@ -1619,6 +1642,53 @@ inline ::google::protobuf::int32 E_FishGunvalue::m_gunid() const {
 inline void E_FishGunvalue::set_m_gunid(::google::protobuf::int32 value) {
   set_has_m_gunid();
   m_gunid_ = value;
+}
+
+// optional int32 m_gameroomid = 6;
+inline bool E_FishGunvalue::has_m_gameroomid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_FishGunvalue::set_has_m_gameroomid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_FishGunvalue::clear_has_m_gameroomid() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_FishGunvalue::clear_m_gameroomid() {
+  m_gameroomid_ = 0;
+  clear_has_m_gameroomid();
+}
+inline ::google::protobuf::int32 E_FishGunvalue::m_gameroomid() const {
+  return m_gameroomid_;
+}
+inline void E_FishGunvalue::set_m_gameroomid(::google::protobuf::int32 value) {
+  set_has_m_gameroomid();
+  m_gameroomid_ = value;
+}
+
+// repeated int32 m_x_id = 7;
+inline int E_FishGunvalue::m_x_id_size() const {
+  return m_x_id_.size();
+}
+inline void E_FishGunvalue::clear_m_x_id() {
+  m_x_id_.Clear();
+}
+inline ::google::protobuf::int32 E_FishGunvalue::m_x_id(int index) const {
+  return m_x_id_.Get(index);
+}
+inline void E_FishGunvalue::set_m_x_id(int index, ::google::protobuf::int32 value) {
+  m_x_id_.Set(index, value);
+}
+inline void E_FishGunvalue::add_m_x_id(::google::protobuf::int32 value) {
+  m_x_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+E_FishGunvalue::m_x_id() const {
+  return m_x_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+E_FishGunvalue::mutable_m_x_id() {
+  return &m_x_id_;
 }
 
 // -------------------------------------------------------------------

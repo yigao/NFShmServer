@@ -117,6 +117,7 @@ int E_FishGunvalue_s::CreateInit() {
 	m_gameid = (int32_t)0;
 	m_roomid = (int32_t)0;
 	m_gunid = (int32_t)0;
+	m_gameroomid = (int32_t)0;
 	return 0;
 }
 
@@ -130,6 +131,10 @@ void E_FishGunvalue_s::write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const {
 	msg.set_m_gameid((int32_t)m_gameid);
 	msg.set_m_roomid((int32_t)m_roomid);
 	msg.set_m_gunid((int32_t)m_gunid);
+	msg.set_m_gameroomid((int32_t)m_gameroomid);
+	for(int32_t i = 0; i < (int32_t)m_x_id.size(); ++i) {
+		msg.add_m_x_id((int32_t)m_x_id[i]);
+	}
 }
 
 void E_FishGunvalue_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg) {
@@ -139,6 +144,11 @@ void E_FishGunvalue_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg) {
 	m_gameid = msg.m_gameid();
 	m_roomid = msg.m_roomid();
 	m_gunid = msg.m_gunid();
+	m_gameroomid = msg.m_gameroomid();
+	m_x_id.resize((int)msg.m_x_id_size() > (int)m_x_id.max_size() ? m_x_id.max_size() : msg.m_x_id_size());
+	for(int32_t i = 0; i < (int32_t)m_x_id.size(); ++i) {
+		m_x_id[i] = msg.m_x_id(i);
+	}
 }
 
 Sheet_FishGunvalue_s::Sheet_FishGunvalue_s() {
