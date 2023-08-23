@@ -1141,6 +1141,10 @@ std::string NFStringUtility::Upper(const std::string& str)
 std::string NFStringUtility::Capitalize(const std::string& str)
 {
     std::string dst = str;
+    std::transform(dst.begin(), dst.end(), dst.begin(), [](unsigned char c)
+    {
+        return tolower(c);
+    });
     if (dst.size() > 0)
     {
         dst[0] = toupper(dst[0]);

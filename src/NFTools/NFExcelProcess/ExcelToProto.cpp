@@ -263,11 +263,14 @@ int ExcelToProto::HandleSheetList(worksheet sheet)
 
 int ExcelToProto::HandleSheetWork()
 {
-    for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
-        worksheet sheet = iter->second.m_sheet;
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "handle excel:{} sheet:{}", m_excel, sheet.title());
-        HandleSheetWork(sheet);
+        worksheet sheet = *iter;
+        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "handle excel:{} sheet:{}", m_excel, sheet.title());
+            HandleSheetWork(sheet);
+        }
     }
 
     return 0;
@@ -712,10 +715,13 @@ void ExcelToProto::WriteExcelProto()
 
     write_str += "package proto_ff;\n\n";
     write_str += "import \"yd_fieldoptions.proto\";\n\n";
-
-    for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
-        WriteSheetProto(&iter->second, write_str);
+        worksheet sheet = *iter;
+        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        {
+            WriteSheetProto(&m_sheets[sheet.title()], write_str);
+        }
     }
 
     NFFileUtility::WriteFile(excel_proto_file, write_str);
@@ -723,10 +729,14 @@ void ExcelToProto::WriteExcelProto()
 
 void ExcelToProto::WriteSheetDescStore()
 {
-    for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
-        WriteSheetDescStoreH(&iter->second);
-        WriteSheetDescStoreCPP(&iter->second);
+        worksheet sheet = *iter;
+        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        {
+            WriteSheetDescStoreH(&m_sheets[sheet.title()]);
+            WriteSheetDescStoreCPP(&m_sheets[sheet.title()]);
+        }
     }
 
     WriteDestStoreDefine();
@@ -932,8 +942,8 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
     proto_file += "\n\nmessage Sheet_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "\n";
     proto_file += "{\n";
     proto_file += "\trepeated E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + " E_" +
-                  NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "_List = 1[(yd_fieldoptions.field_arysize)=1" +
-                  "];\n";
+                  NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "_List = 1[(yd_fieldoptions.field_arysize)=" +
+                  NFCommon::tostr(get_max_num(pSheet->m_sheet.rows().length()-4))+ "];\n";
     proto_file += "}\n";
 }
 
@@ -1380,7 +1390,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             desc_file += "\t\t}\n";
         }
 
-        desc_file += "\t\t}\n";
+        desc_file += "\t}\n";
     }
 
     desc_file += "\n";
@@ -1700,28 +1710,39 @@ void ExcelToProto::WriteMakeFile()
     makefile_file += ".PHONY:all\n\n";
     makefile_file += "all:";
 
-    for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+
+
+    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
-        ExcelSheet* pSheet = &iter->second;
-        std::string sheet_name = pSheet->m_name;
-        makefile_file +=
-                "${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin " +
-                "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h " +
-                "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.cpp ";
+        worksheet sheet = *iter;
+        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        {
+            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            std::string sheet_name = pSheet->m_name;
+            makefile_file +=
+                    "${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin " +
+                    "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h " +
+                    "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.cpp ";
+        }
     }
 
     makefile_file += "\n\n";
 
-    for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
-        ExcelSheet* pSheet = &iter->second;
-        std::string sheet_name = pSheet->m_name;
-        makefile_file += "${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
-        makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
-        makefile_file += "\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds --proto_package=proto_ff \\\n";
-        makefile_file += "\t\t--proto_sheet_msgname=Sheet_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "  --excel_sheetname=" + sheet_name + "  --proto_msgname=E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;\n";
-        makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n";
-        makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n\n";
+        worksheet sheet = *iter;
+        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        {
+            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            std::string sheet_name = pSheet->m_name;
+
+            makefile_file += "${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
+            makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
+            makefile_file += "\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds --proto_package=proto_ff \\\n";
+            makefile_file += "\t\t--proto_sheet_msgname=Sheet_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "  --excel_sheetname=" + sheet_name + "  --proto_msgname=E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;\n";
+            makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n";
+            makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n\n";
+        }
     }
 
     NFFileUtility::WriteFile(sheet_makefile_name, makefile_file);
@@ -1762,37 +1783,51 @@ void ExcelToProto::WriteDestStoreDefine()
         NFFileUtility::ReadFileContent(descStoreRegisterFile, descStoreRegisterFileRead);
     }
 
-    for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+
+
+    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
-        ExcelSheet* pSheet = &iter->second;
-        std::string sheet_name = pSheet->m_name;
-        if (destStoreHeadFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) == std::string::npos)
+        worksheet sheet = *iter;
+        if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            descStoreHeadFileStr += "#include \"DescStore/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h\"\n";
+            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            std::string sheet_name = pSheet->m_name;
+            if (destStoreHeadFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) == std::string::npos)
+            {
+                descStoreHeadFileStr += "#include \"DescStore/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h\"\n";
+            }
         }
     }
 
-    for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
-        ExcelSheet* pSheet = &iter->second;
-        std::string sheet_name = pSheet->m_name;
-        if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + NFStringUtility::Upper(sheet_name)) == std::string::npos)
+        worksheet sheet = *iter;
+        if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)+ "_DESC_ID,\\\n";
+            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            std::string sheet_name = pSheet->m_name;
+            if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + NFStringUtility::Upper(sheet_name)) == std::string::npos)
+            {
+                descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)+ "_DESC_ID,\\\n";
+            }
         }
     }
 
-    for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
-        ExcelSheet* pSheet = &iter->second;
-        std::string sheet_name = pSheet->m_name;
-        if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) == std::string::npos)
+        worksheet sheet = *iter;
+        if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            descStoreRegisterFileStr += "REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\\\n";
+            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            std::string sheet_name = pSheet->m_name;
+            if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) == std::string::npos)
+            {
+                descStoreRegisterFileStr += "REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\\\n";
+            }
         }
     }
 
-    NFFileUtility::WriteFile(descStoreHeadFile, descStoreHeadFileStr);
-    NFFileUtility::WriteFile(descStoreDefineFile, descStoreDefineFileStr);
-    NFFileUtility::WriteFile(descStoreRegisterFile, descStoreRegisterFileStr);
+    NFFileUtility::AWriteFile(descStoreHeadFile, descStoreHeadFileStr);
+    NFFileUtility::AWriteFile(descStoreDefineFile, descStoreDefineFileStr);
+    NFFileUtility::AWriteFile(descStoreRegisterFile, descStoreRegisterFileStr);
 }
