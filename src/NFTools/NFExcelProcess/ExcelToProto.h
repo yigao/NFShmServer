@@ -21,7 +21,8 @@ struct ExcelRelation
 
     std::string excel_name;
     std::string sheet_name;
-    std::string col_name;
+    std::string my_col_name;
+    std::string my_col_sub_name;
 };
 
 struct ExcelSheetIndex

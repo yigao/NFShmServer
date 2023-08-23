@@ -1,5 +1,6 @@
 #include "FishGunvalueDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "FishRoomDesc.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(FishGunvalueDesc, EOT_CONST_FISH_GUNVALUE_DESC_ID, NFShmObj)
 
@@ -138,6 +139,11 @@ int FishGunvalueDesc::Load(NFResDB *pDB)
 
 int FishGunvalueDesc::CheckWhenAllDataLoaded()
 {
+    for(int i = 0; i < (int)m_astDesc.size(); i++)
+    {
+        auto pDesc = &m_astDesc[i];
+        CHECK_EXPR(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_roomid), -1, "can't find the roomid:{} in the Excel:Fish.xlsx Sheet:Room");
+    }
 	return 0;
 }
 

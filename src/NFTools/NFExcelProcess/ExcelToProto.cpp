@@ -193,67 +193,81 @@ int ExcelToProto::HandleSheetList(worksheet sheet)
 
             for (int j = 0; j < (int) col_index_str_list.size(); j++)
             {
-                std::string col_index_str_list_str = col_index_str_list[j];
-                NFStringUtility::Trim(col_index_str_list_str);
-                if (col_index_str_list_str.empty()) continue;
+                std::string relation_str = col_index_str_list[j];
+                NFStringUtility::Trim(relation_str);
+                if (relation_str.empty()) continue;
 
-                std::vector<std::string> col_index_str_vec;
-                NFStringUtility::Split(col_index_str_list[j], ",", &col_index_str_vec);
+                std::vector<std::string> relation_str_vec;
+                NFStringUtility::Split(relation_str, ":", &relation_str_vec);
 
-                for (int x = 0; x < (int) col_index_str_vec.size(); x++)
+                if (relation_str_vec.size() != 2)
                 {
-                    std::string relation_str = col_index_str_vec[x];
-                    NFStringUtility::Trim(relation_str);
-                    if (relation_str.empty()) continue;
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
+                    return -1;
+                }
 
-                    std::vector<std::string> relation_str_vec;
-                    NFStringUtility::Split(relation_str, ":", &relation_str_vec);
+                std::string my_col_name = relation_str_vec[0];
+                std::string dst_relation_str = relation_str_vec[1];
 
-                    if (relation_str_vec.size() != 2)
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                        return -1;
-                    }
+                if (my_col_name.empty() || dst_relation_str.empty())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
+                    return -1;
+                }
 
-                    std::string my_col_name = relation_str_vec[0];
-                    std::string dst_relation_str = relation_str_vec[1];
+                std::vector<std::string> my_col_str_vec;
+                NFStringUtility::Split(my_col_name, ".", &my_col_str_vec);
 
-                    if (my_col_name.empty() || dst_relation_str.empty())
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                        return -1;
-                    }
+                if (my_col_str_vec.size() > 2 || my_col_str_vec.size() <= 0)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
+                    return -1;
+                }
 
-                    std::vector<std::string> dst_relation_str_vec;
-                    NFStringUtility::Split(dst_relation_str, ".", &dst_relation_str_vec);
+                std::vector<std::string> dst_relation_str_vec;
+                NFStringUtility::Split(dst_relation_str, ".", &dst_relation_str_vec);
 
-                    if (dst_relation_str_vec.size() != 3)
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                        return -1;
-                    }
+                if (dst_relation_str_vec.size() != 2)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
+                    return -1;
+                }
 
-                    ExcelRelation relation;
-                    relation.excel_name = dst_relation_str_vec[0];
-                    relation.sheet_name = dst_relation_str_vec[1];
-                    relation.col_name = dst_relation_str_vec[2];
+                ExcelRelation relation;
+                relation.excel_name = dst_relation_str_vec[0];
+                relation.sheet_name = dst_relation_str_vec[1];
+                relation.my_col_name = my_col_str_vec[0];
+                if (my_col_str_vec.size() == 2)
+                {
+                    relation.my_col_sub_name = my_col_str_vec[1];
+                }
 
-                    if (relation.excel_name.empty() || relation.sheet_name.empty() || relation.col_name.empty())
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                        return -1;
-                    }
+                if (relation.excel_name.empty() || relation.sheet_name.empty())
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
+                    return -1;
+                }
 
-                    if (excelSheet.m_colRelationMap.find(my_col_name) != excelSheet.m_colRelationMap.end())
+                if (relation.my_col_sub_name.empty())
+                {
+                    if (excelSheet.m_colRelationMap.find(relation.my_col_name) != excelSheet.m_colRelationMap.end())
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
                         return -1;
                     }
-
-                    excelSheet.m_colRelationMap.emplace(my_col_name, relation);
-                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} add relation:{}:{}.{}.{}", m_excel, sheet_name, my_col_name,
-                              relation.excel_name, relation.sheet_name, relation.col_name);
+                    excelSheet.m_colRelationMap.emplace(relation.my_col_name, relation);
                 }
+                else {
+                    if (excelSheet.m_colRelationMap.find(relation.my_col_name+"_"+relation.my_col_sub_name) != excelSheet.m_colRelationMap.end())
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
+                        return -1;
+                    }
+                    excelSheet.m_colRelationMap.emplace(relation.my_col_name+"_"+relation.my_col_sub_name, relation);
+                }
+
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} add relation:{}:{}", m_excel, sheet_name, my_col_name,
+                          dst_relation_str);
             }
         }
     }
@@ -1806,7 +1820,7 @@ void ExcelToProto::WriteDestStoreDefine()
         {
             ExcelSheet* pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
-            if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + NFStringUtility::Upper(sheet_name)) == std::string::npos)
+            if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)) == std::string::npos)
             {
                 descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)+ "_DESC_ID,\\\n";
             }
