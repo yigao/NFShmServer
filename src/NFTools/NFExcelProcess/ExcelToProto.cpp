@@ -1693,7 +1693,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 
 void ExcelToProto::WriteMakeFile()
 {
-    std::string excel_src_file_name = NFFileUtility::GetFileName(m_excelName);
+    std::string excel_src_file_name = NFFileUtility::GetFileName(m_excel);
     std::string sheet_makefile_name = m_outPath + m_excelName + "_gen.makefile";
     std::string makefile_file;
     makefile_file += "include ./define.makefile\n\n";
@@ -1778,7 +1778,7 @@ void ExcelToProto::WriteDestStoreDefine()
         std::string sheet_name = pSheet->m_name;
         if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + NFStringUtility::Upper(sheet_name)) == std::string::npos)
         {
-            descStoreDefineFileStr += "#include \"DescStore/" + NFStringUtility::Upper(m_excelName) + NFStringUtility::Upper(sheet_name) + "Desc.h\"\n";
+            descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)+ "_DESC_ID,\\\n";
         }
     }
 
@@ -1788,7 +1788,7 @@ void ExcelToProto::WriteDestStoreDefine()
         std::string sheet_name = pSheet->m_name;
         if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) == std::string::npos)
         {
-            descStoreRegisterFileStr += "#include \"DescStore/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h\"\n";
+            descStoreRegisterFileStr += "REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\\\n";
         }
     }
 
