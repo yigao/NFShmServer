@@ -19,10 +19,10 @@ struct ExcelRelation
 
     }
 
-    std::string excel_name;
-    std::string sheet_name;
-    std::string my_col_name;
-    std::string my_col_sub_name;
+    std::string m_excelName;
+    std::string m_sheetName;
+    std::string m_myColName;
+    std::string m_myColSubName;
 };
 
 struct ExcelSheetIndex

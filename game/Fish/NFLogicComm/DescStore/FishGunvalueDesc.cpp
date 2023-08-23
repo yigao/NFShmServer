@@ -1,6 +1,6 @@
 #include "FishGunvalueDesc.h"
-#include "NFComm/NFPluginModule/NFCheck.h"
 #include "FishRoomDesc.h"
+#include "NFComm/NFPluginModule/NFCheck.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(FishGunvalueDesc, EOT_CONST_FISH_GUNVALUE_DESC_ID, NFShmObj)
 
@@ -139,12 +139,14 @@ int FishGunvalueDesc::Load(NFResDB *pDB)
 
 int FishGunvalueDesc::CheckWhenAllDataLoaded()
 {
-    for(int i = 0; i < (int)m_astDesc.size(); i++)
-    {
-        auto pDesc = &m_astDesc[i];
-        CHECK_EXPR(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_roomid), -1, "can't find the roomid:{} in the Excel:Fish.xlsx Sheet:Room");
-    }
-	return 0;
+	int result = 0;
+	for(int i = 0; i < (int)m_astDesc.size(); i++)
+	{
+		auto pDesc = &m_astDesc[i];
+		CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_roomid), result, "can't find the roomid:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_roomid);
+		CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_gameid), result, "can't find the gameid:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_gameid);
+	}
+	return result;
 }
 
 const proto_ff_s::E_FishGunvalue_s * FishGunvalueDesc::GetDesc(int64_t id) const

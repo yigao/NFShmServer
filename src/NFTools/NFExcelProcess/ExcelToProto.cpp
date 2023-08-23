@@ -32,7 +32,6 @@ int ExcelToProto::Init(const std::string &excel, const std::string &outPath)
     CHECK_EXPR(NFFileUtility::IsDir(m_outPath), -1, "outPath:{} not exist", m_outPath);
 
 
-
     m_workbook.load(m_excel);
 
     return 0;
@@ -234,36 +233,37 @@ int ExcelToProto::HandleSheetList(worksheet sheet)
                 }
 
                 ExcelRelation relation;
-                relation.excel_name = dst_relation_str_vec[0];
-                relation.sheet_name = dst_relation_str_vec[1];
-                relation.my_col_name = my_col_str_vec[0];
+                relation.m_excelName = dst_relation_str_vec[0];
+                relation.m_sheetName = dst_relation_str_vec[1];
+                relation.m_myColName = my_col_str_vec[0];
                 if (my_col_str_vec.size() == 2)
                 {
-                    relation.my_col_sub_name = my_col_str_vec[1];
+                    relation.m_myColSubName = my_col_str_vec[1];
                 }
 
-                if (relation.excel_name.empty() || relation.sheet_name.empty())
+                if (relation.m_excelName.empty() || relation.m_sheetName.empty())
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
                     return -1;
                 }
 
-                if (relation.my_col_sub_name.empty())
+                if (relation.m_myColSubName.empty())
                 {
-                    if (excelSheet.m_colRelationMap.find(relation.my_col_name) != excelSheet.m_colRelationMap.end())
+                    if (excelSheet.m_colRelationMap.find(relation.m_myColName) != excelSheet.m_colRelationMap.end())
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
                         return -1;
                     }
-                    excelSheet.m_colRelationMap.emplace(relation.my_col_name, relation);
+                    excelSheet.m_colRelationMap.emplace(relation.m_myColName, relation);
                 }
-                else {
-                    if (excelSheet.m_colRelationMap.find(relation.my_col_name+"_"+relation.my_col_sub_name) != excelSheet.m_colRelationMap.end())
+                else
+                {
+                    if (excelSheet.m_colRelationMap.find(relation.m_myColName + "_" + relation.m_myColSubName) != excelSheet.m_colRelationMap.end())
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
                         return -1;
                     }
-                    excelSheet.m_colRelationMap.emplace(relation.my_col_name+"_"+relation.my_col_sub_name, relation);
+                    excelSheet.m_colRelationMap.emplace(relation.m_myColName + "_" + relation.m_myColSubName, relation);
                 }
 
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} add relation:{}:{}", m_excel, sheet_name, my_col_name,
@@ -957,7 +957,7 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
     proto_file += "{\n";
     proto_file += "\trepeated E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + " E_" +
                   NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "_List = 1[(yd_fieldoptions.field_arysize)=" +
-                  NFCommon::tostr(get_max_num(pSheet->m_sheet.rows().length()-4))+ "];\n";
+                  NFCommon::tostr(get_max_num(pSheet->m_sheet.rows().length() - 4)) + "];\n";
     proto_file += "}\n";
 }
 
@@ -1173,6 +1173,17 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     std::string desc_file;
 
     desc_file += "#include \"" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h\"\n";
+    std::set<std::string> headFileHead;
+    for (auto iter = pSheet->m_colRelationMap.begin(); iter != pSheet->m_colRelationMap.end(); iter++)
+    {
+        headFileHead.insert(NFStringUtility::Capitalize(iter->second.m_excelName) + NFStringUtility::Capitalize(iter->second.m_sheetName));
+    }
+
+    for (auto iter = headFileHead.begin(); iter != headFileHead.end(); iter++)
+    {
+        desc_file += "#include \"" + *iter + "Desc.h\"\n";
+    }
+
     desc_file += "#include \"NFComm/NFPluginModule/NFCheck.h\"\n\n";
     desc_file +=
             "IMPLEMENT_IDCREATE_WITHTYPE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc, EOT_CONST_" +
@@ -1416,7 +1427,28 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 ////////////////////////////////////////////////////////////////
     desc_file += "int " + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc::CheckWhenAllDataLoaded()\n";
     desc_file += "{\n";
-    desc_file += "\treturn 0;\n";
+    if (pSheet->m_colRelationMap.size() > 0)
+    {
+        desc_file += "\tint result = 0;\n";
+        desc_file += "\tfor(int i = 0; i < (int)m_astDesc.size(); i++)\n";
+        desc_file += "\t{\n";
+        desc_file += "\t\tauto pDesc = &m_astDesc[i];\n";
+        for (auto iter = pSheet->m_colRelationMap.begin(); iter != pSheet->m_colRelationMap.end(); iter++)
+        {
+            desc_file +=
+                    "\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) + NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                    "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                    "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the Excel:" +
+                    NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" + NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                    "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
+        }
+        desc_file += "\t}\n";
+        desc_file += "\treturn result;\n";
+    }
+    else {
+        desc_file += "\treturn 0;\n";
+    }
+
     desc_file += "}\n\n";
 ////////////////////////////////////////////////////////////////
     desc_file += "const proto_ff_s::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "_s * " +
@@ -1725,13 +1757,12 @@ void ExcelToProto::WriteMakeFile()
     makefile_file += "all:";
 
 
-
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
         if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
             makefile_file +=
                     "${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin " +
@@ -1747,15 +1778,23 @@ void ExcelToProto::WriteMakeFile()
         worksheet sheet = *iter;
         if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
 
-            makefile_file += "${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
+            makefile_file += "${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
+                             ".bin:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
             makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
-            makefile_file += "\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds --proto_package=proto_ff \\\n";
-            makefile_file += "\t\t--proto_sheet_msgname=Sheet_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "  --excel_sheetname=" + sheet_name + "  --proto_msgname=E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;\n";
-            makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n";
-            makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n\n";
+            makefile_file += "\t${EXCEL2BIN_MMO} --excel=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" +
+                             m_excelName + ".proto.ds --proto_package=proto_ff \\\n";
+            makefile_file += "\t\t--proto_sheet_msgname=Sheet_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
+                             "  --excel_sheetname=" + sheet_name + "  --proto_msgname=E_" + NFStringUtility::Capitalize(m_excelName) +
+                             NFStringUtility::Capitalize(sheet_name) + "  --start_row=4 --out_path=${PROTOCGEN_FILE_PATH}/;\n";
+            makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) +
+                             NFStringUtility::Capitalize(sheet_name) + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n";
+            makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) +
+                             NFStringUtility::Capitalize(sheet_name) + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" +
+                             NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
+                             "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n\n";
         }
     }
 
@@ -1771,7 +1810,8 @@ void ExcelToProto::WriteDestStoreDefine()
     {
         descStoreHeadFileStr += "#pragma once\n\n";
     }
-    else {
+    else
+    {
         NFFileUtility::ReadFileContent(descStoreHeadFile, destStoreHeadFileRead);
     }
 
@@ -1782,7 +1822,8 @@ void ExcelToProto::WriteDestStoreDefine()
     {
         descStoreDefineFileStr += "#define EOT_DESC_STORE_ALL_ID_DEFINE \\\n";
     }
-    else {
+    else
+    {
         NFFileUtility::ReadFileContent(descStoreDefineFile, descStoreDefineFileRead);
     }
 
@@ -1793,22 +1834,23 @@ void ExcelToProto::WriteDestStoreDefine()
     {
         descStoreRegisterFileStr += "#define EOT_DESC_STORE_ALL_REGISTER_DEFINE \\\n";
     }
-    else {
+    else
+    {
         NFFileUtility::ReadFileContent(descStoreRegisterFile, descStoreRegisterFileRead);
     }
 
 
-
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
         if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
             if (destStoreHeadFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) == std::string::npos)
             {
-                descStoreHeadFileStr += "#include \"DescStore/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h\"\n";
+                descStoreHeadFileStr +=
+                        "#include \"DescStore/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h\"\n";
             }
         }
     }
@@ -1818,11 +1860,12 @@ void ExcelToProto::WriteDestStoreDefine()
         worksheet sheet = *iter;
         if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
             if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)) == std::string::npos)
             {
-                descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)+ "_DESC_ID,\\\n";
+                descStoreDefineFileStr +=
+                        "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_DESC_ID,\\\n";
             }
         }
     }
@@ -1832,11 +1875,13 @@ void ExcelToProto::WriteDestStoreDefine()
         worksheet sheet = *iter;
         if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            ExcelSheet* pSheet = &m_sheets[sheet.title()];
+            ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
-            if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) == std::string::npos)
+            if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) ==
+                std::string::npos)
             {
-                descStoreRegisterFileStr += "REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\\\n";
+                descStoreRegisterFileStr +=
+                        "REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\\\n";
             }
         }
     }

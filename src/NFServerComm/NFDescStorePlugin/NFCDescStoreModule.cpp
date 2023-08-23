@@ -44,7 +44,11 @@ bool NFCDescStoreModule::AfterInitShmMem() {
     Initialize();
     LoadFileDestSotre();
     if (!HasDBDescStore()) {
-        CheckWhenAllDataLoaded();
+        int iRet = CheckWhenAllDataLoaded();
+        if (iRet != 0)
+        {
+            return false;
+        }
     }
     return true;
 }
@@ -73,7 +77,11 @@ bool NFCDescStoreModule::Execute() {
         if (IsAllDescStoreLoad())
         {
             if (HasDBDescStore()) {
-                CheckWhenAllDataLoaded();
+                int iRet = CheckWhenAllDataLoaded();
+                if (iRet != 0)
+                {
+                    return false;
+                }
             }
 
             m_pObjPluginManager->FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_STATUS_SERVER_LOAD_DESC_STORE);
