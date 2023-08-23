@@ -110,11 +110,11 @@ int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskLis
     auto pRoomCfg = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(request.game_id(), request.room_id());
     CHECK_NULL(pRoomCfg);
 
-    if (pRoomCfg->m_is_exp_scene <= 0)
+    if (pRoomCfg->m_isexpscene <= 0)
     {
-        if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_enter_min || pJettonPart->GetJetton() > (uint64_t)pRoomCfg->m_enter_max)
+        if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_entermin || pJettonPart->GetJetton() > (uint64_t)pRoomCfg->m_entermax)
         {
-            if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_enter_min)
+            if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_entermin)
             {
                 respone.set_result(proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH);
             }

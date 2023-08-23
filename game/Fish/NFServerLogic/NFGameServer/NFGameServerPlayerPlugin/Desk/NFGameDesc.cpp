@@ -505,7 +505,7 @@ int NFGameDesk::UpdateUserMoney(uint64_t playerId, uint32_t changeType, uint64_t
         return proto_ff::ERR_CODE_SYSTEM_ERROR;
     }
 
-    if (roomConfig->m_is_exp_scene > 0)
+    if (roomConfig->m_isexpscene > 0)
     {
         return 0;
     }
@@ -769,7 +769,7 @@ int NFGameDesk::AchievementCount(uint64_t userid, uint64_t ach, uint64_t fee)
         return 0;
     }
 
-    if (roomConfig->m_is_exp_scene > 0)
+    if (roomConfig->m_isexpscene > 0)
     {
         return 0;
     }

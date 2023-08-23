@@ -974,8 +974,8 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
                          NFStringUtility::Upper(index_key) + "_NUM";
         index.m_define_one = "UNIQUE_KEY_MAX_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
                              NFStringUtility::Upper(index_key) + "_NUM";
-        desc_file += "\n#define " + index.m_define + " " + NFCommon::tostr(index.m_maxUniqueListNum) + "\n";
-        desc_file += "\n#define " + index.m_define_one + " " + NFCommon::tostr(index.m_maxUniqueNum) + "\n";
+        desc_file += "\n#define " + index.m_define + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueListNum)) + "\n";
+        desc_file += "\n#define " + index.m_define_one + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueNum)) + "\n";
     }
 
     for (auto iter = pSheet->m_comIndexMap.begin(); iter != pSheet->m_comIndexMap.end(); iter++)
@@ -989,8 +989,8 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
                              NFStringUtility::Upper(index_key) + "_NUM";
             index.m_define_one = "UNIQUE_KEY_MAX_COM_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
                                  NFStringUtility::Upper(index_key) + "_NUM";
-            desc_file += "\n#define " + index.m_define + " " + NFCommon::tostr(index.m_maxUniqueListNum) + "\n";
-            desc_file += "\n#define " + index.m_define_one + " " + NFCommon::tostr(index.m_maxUniqueNum) + "\n";
+            desc_file += "\n#define " + index.m_define + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueListNum)) + "\n";
+            desc_file += "\n#define " + index.m_define_one + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueNum)) + "\n";
         }
     }
 
