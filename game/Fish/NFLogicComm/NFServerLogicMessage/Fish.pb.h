@@ -36,6 +36,7 @@ void protobuf_ShutdownFile_Fish_2eproto();
 
 class E_FishRoom;
 class Sheet_FishRoom;
+class E_FishGunvalueYDesc;
 class E_FishGunvalue;
 class Sheet_FishGunvalue;
 class E_FishCtrllevel;
@@ -179,40 +180,40 @@ class E_FishRoom : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_maxpeople() const;
   inline void set_m_maxpeople(::google::protobuf::int32 value);
 
-  // optional int32 m_enter_min = 11;
-  inline bool has_m_enter_min() const;
-  inline void clear_m_enter_min();
-  static const int kMEnterMinFieldNumber = 11;
-  inline ::google::protobuf::int32 m_enter_min() const;
-  inline void set_m_enter_min(::google::protobuf::int32 value);
+  // optional int32 m_entermin = 11;
+  inline bool has_m_entermin() const;
+  inline void clear_m_entermin();
+  static const int kMEnterminFieldNumber = 11;
+  inline ::google::protobuf::int32 m_entermin() const;
+  inline void set_m_entermin(::google::protobuf::int32 value);
 
-  // optional int32 m_enter_max = 12;
-  inline bool has_m_enter_max() const;
-  inline void clear_m_enter_max();
-  static const int kMEnterMaxFieldNumber = 12;
-  inline ::google::protobuf::int32 m_enter_max() const;
-  inline void set_m_enter_max(::google::protobuf::int32 value);
+  // optional int32 m_entermax = 12;
+  inline bool has_m_entermax() const;
+  inline void clear_m_entermax();
+  static const int kMEntermaxFieldNumber = 12;
+  inline ::google::protobuf::int32 m_entermax() const;
+  inline void set_m_entermax(::google::protobuf::int32 value);
 
-  // optional int32 m_auto_chair = 13;
-  inline bool has_m_auto_chair() const;
-  inline void clear_m_auto_chair();
-  static const int kMAutoChairFieldNumber = 13;
-  inline ::google::protobuf::int32 m_auto_chair() const;
-  inline void set_m_auto_chair(::google::protobuf::int32 value);
+  // optional int32 m_autochair = 13;
+  inline bool has_m_autochair() const;
+  inline void clear_m_autochair();
+  static const int kMAutochairFieldNumber = 13;
+  inline ::google::protobuf::int32 m_autochair() const;
+  inline void set_m_autochair(::google::protobuf::int32 value);
 
-  // optional int32 m_is_exp_scene = 14;
-  inline bool has_m_is_exp_scene() const;
-  inline void clear_m_is_exp_scene();
-  static const int kMIsExpSceneFieldNumber = 14;
-  inline ::google::protobuf::int32 m_is_exp_scene() const;
-  inline void set_m_is_exp_scene(::google::protobuf::int32 value);
+  // optional int32 m_isexpscene = 14;
+  inline bool has_m_isexpscene() const;
+  inline void clear_m_isexpscene();
+  static const int kMIsexpsceneFieldNumber = 14;
+  inline ::google::protobuf::int32 m_isexpscene() const;
+  inline void set_m_isexpscene(::google::protobuf::int32 value);
 
-  // optional int32 m_exp_scene_gold = 15;
-  inline bool has_m_exp_scene_gold() const;
-  inline void clear_m_exp_scene_gold();
-  static const int kMExpSceneGoldFieldNumber = 15;
-  inline ::google::protobuf::int32 m_exp_scene_gold() const;
-  inline void set_m_exp_scene_gold(::google::protobuf::int32 value);
+  // optional int32 m_expscenegold = 15;
+  inline bool has_m_expscenegold() const;
+  inline void clear_m_expscenegold();
+  static const int kMExpscenegoldFieldNumber = 15;
+  inline ::google::protobuf::int32 m_expscenegold() const;
+  inline void set_m_expscenegold(::google::protobuf::int32 value);
 
   // optional int32 m_tax = 16;
   inline bool has_m_tax() const;
@@ -243,16 +244,16 @@ class E_FishRoom : public ::google::protobuf::Message {
   inline void clear_has_m_deskcount();
   inline void set_has_m_maxpeople();
   inline void clear_has_m_maxpeople();
-  inline void set_has_m_enter_min();
-  inline void clear_has_m_enter_min();
-  inline void set_has_m_enter_max();
-  inline void clear_has_m_enter_max();
-  inline void set_has_m_auto_chair();
-  inline void clear_has_m_auto_chair();
-  inline void set_has_m_is_exp_scene();
-  inline void clear_has_m_is_exp_scene();
-  inline void set_has_m_exp_scene_gold();
-  inline void clear_has_m_exp_scene_gold();
+  inline void set_has_m_entermin();
+  inline void clear_has_m_entermin();
+  inline void set_has_m_entermax();
+  inline void clear_has_m_entermax();
+  inline void set_has_m_autochair();
+  inline void clear_has_m_autochair();
+  inline void set_has_m_isexpscene();
+  inline void clear_has_m_isexpscene();
+  inline void set_has_m_expscenegold();
+  inline void clear_has_m_expscenegold();
   inline void set_has_m_tax();
   inline void clear_has_m_tax();
 
@@ -268,11 +269,11 @@ class E_FishRoom : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_sitenum_;
   ::google::protobuf::int32 m_deskcount_;
   ::google::protobuf::int32 m_maxpeople_;
-  ::google::protobuf::int32 m_enter_min_;
-  ::google::protobuf::int32 m_enter_max_;
-  ::google::protobuf::int32 m_auto_chair_;
-  ::google::protobuf::int32 m_is_exp_scene_;
-  ::google::protobuf::int32 m_exp_scene_gold_;
+  ::google::protobuf::int32 m_entermin_;
+  ::google::protobuf::int32 m_entermax_;
+  ::google::protobuf::int32 m_autochair_;
+  ::google::protobuf::int32 m_isexpscene_;
+  ::google::protobuf::int32 m_expscenegold_;
   ::google::protobuf::int32 m_tax_;
 
   mutable int _cached_size_;
@@ -372,6 +373,98 @@ class Sheet_FishRoom : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
+class E_FishGunvalueYDesc : public ::google::protobuf::Message {
+ public:
+  E_FishGunvalueYDesc();
+  virtual ~E_FishGunvalueYDesc();
+
+  E_FishGunvalueYDesc(const E_FishGunvalueYDesc& from);
+
+  inline E_FishGunvalueYDesc& operator=(const E_FishGunvalueYDesc& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const E_FishGunvalueYDesc& default_instance();
+
+  void Swap(E_FishGunvalueYDesc* other);
+
+  // implements Message ----------------------------------------------
+
+  E_FishGunvalueYDesc* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const E_FishGunvalueYDesc& from);
+  void MergeFrom(const E_FishGunvalueYDesc& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 m_num = 1;
+  inline bool has_m_num() const;
+  inline void clear_m_num();
+  static const int kMNumFieldNumber = 1;
+  inline ::google::protobuf::int32 m_num() const;
+  inline void set_m_num(::google::protobuf::int32 value);
+
+  // optional int32 m_id = 2;
+  inline bool has_m_id() const;
+  inline void clear_m_id();
+  static const int kMIdFieldNumber = 2;
+  inline ::google::protobuf::int32 m_id() const;
+  inline void set_m_id(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.E_FishGunvalueYDesc)
+ private:
+  inline void set_has_m_num();
+  inline void clear_has_m_num();
+  inline void set_has_m_id();
+  inline void clear_has_m_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 m_num_;
+  ::google::protobuf::int32 m_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Fish_2eproto();
+  friend void protobuf_AssignDesc_Fish_2eproto();
+  friend void protobuf_ShutdownFile_Fish_2eproto();
+
+  void InitAsDefaultInstance();
+  static E_FishGunvalueYDesc* default_instance_;
+};
+// -------------------------------------------------------------------
+
 class E_FishGunvalue : public ::google::protobuf::Message {
  public:
   E_FishGunvalue();
@@ -461,6 +554,37 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_gunid() const;
   inline void set_m_gunid(::google::protobuf::int32 value);
 
+  // optional int32 m_gameroomid = 6;
+  inline bool has_m_gameroomid() const;
+  inline void clear_m_gameroomid();
+  static const int kMGameroomidFieldNumber = 6;
+  inline ::google::protobuf::int32 m_gameroomid() const;
+  inline void set_m_gameroomid(::google::protobuf::int32 value);
+
+  // repeated int32 m_x_id = 7;
+  inline int m_x_id_size() const;
+  inline void clear_m_x_id();
+  static const int kMXIdFieldNumber = 7;
+  inline ::google::protobuf::int32 m_x_id(int index) const;
+  inline void set_m_x_id(int index, ::google::protobuf::int32 value);
+  inline void add_m_x_id(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      m_x_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_m_x_id();
+
+  // repeated .proto_ff.E_FishGunvalueYDesc m_y = 8;
+  inline int m_y_size() const;
+  inline void clear_m_y();
+  static const int kMYFieldNumber = 8;
+  inline const ::proto_ff::E_FishGunvalueYDesc& m_y(int index) const;
+  inline ::proto_ff::E_FishGunvalueYDesc* mutable_m_y(int index);
+  inline ::proto_ff::E_FishGunvalueYDesc* add_m_y();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc >&
+      m_y() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc >*
+      mutable_m_y();
+
   // @@protoc_insertion_point(class_scope:proto_ff.E_FishGunvalue)
  private:
   inline void set_has_m_id();
@@ -473,6 +597,8 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   inline void clear_has_m_roomid();
   inline void set_has_m_gunid();
   inline void clear_has_m_gunid();
+  inline void set_has_m_gameroomid();
+  inline void clear_has_m_gameroomid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -481,9 +607,12 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_gameid_;
   ::google::protobuf::int32 m_roomid_;
   ::google::protobuf::int32 m_gunid_;
+  ::google::protobuf::int32 m_gameroomid_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > m_x_id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc > m_y_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
 
   friend void  protobuf_AddDesc_Fish_2eproto();
   friend void protobuf_AssignDesc_Fish_2eproto();
@@ -1346,114 +1475,114 @@ inline void E_FishRoom::set_m_maxpeople(::google::protobuf::int32 value) {
   m_maxpeople_ = value;
 }
 
-// optional int32 m_enter_min = 11;
-inline bool E_FishRoom::has_m_enter_min() const {
+// optional int32 m_entermin = 11;
+inline bool E_FishRoom::has_m_entermin() const {
   return (_has_bits_[0] & 0x00000400u) != 0;
 }
-inline void E_FishRoom::set_has_m_enter_min() {
+inline void E_FishRoom::set_has_m_entermin() {
   _has_bits_[0] |= 0x00000400u;
 }
-inline void E_FishRoom::clear_has_m_enter_min() {
+inline void E_FishRoom::clear_has_m_entermin() {
   _has_bits_[0] &= ~0x00000400u;
 }
-inline void E_FishRoom::clear_m_enter_min() {
-  m_enter_min_ = 0;
-  clear_has_m_enter_min();
+inline void E_FishRoom::clear_m_entermin() {
+  m_entermin_ = 0;
+  clear_has_m_entermin();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_enter_min() const {
-  return m_enter_min_;
+inline ::google::protobuf::int32 E_FishRoom::m_entermin() const {
+  return m_entermin_;
 }
-inline void E_FishRoom::set_m_enter_min(::google::protobuf::int32 value) {
-  set_has_m_enter_min();
-  m_enter_min_ = value;
+inline void E_FishRoom::set_m_entermin(::google::protobuf::int32 value) {
+  set_has_m_entermin();
+  m_entermin_ = value;
 }
 
-// optional int32 m_enter_max = 12;
-inline bool E_FishRoom::has_m_enter_max() const {
+// optional int32 m_entermax = 12;
+inline bool E_FishRoom::has_m_entermax() const {
   return (_has_bits_[0] & 0x00000800u) != 0;
 }
-inline void E_FishRoom::set_has_m_enter_max() {
+inline void E_FishRoom::set_has_m_entermax() {
   _has_bits_[0] |= 0x00000800u;
 }
-inline void E_FishRoom::clear_has_m_enter_max() {
+inline void E_FishRoom::clear_has_m_entermax() {
   _has_bits_[0] &= ~0x00000800u;
 }
-inline void E_FishRoom::clear_m_enter_max() {
-  m_enter_max_ = 0;
-  clear_has_m_enter_max();
+inline void E_FishRoom::clear_m_entermax() {
+  m_entermax_ = 0;
+  clear_has_m_entermax();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_enter_max() const {
-  return m_enter_max_;
+inline ::google::protobuf::int32 E_FishRoom::m_entermax() const {
+  return m_entermax_;
 }
-inline void E_FishRoom::set_m_enter_max(::google::protobuf::int32 value) {
-  set_has_m_enter_max();
-  m_enter_max_ = value;
+inline void E_FishRoom::set_m_entermax(::google::protobuf::int32 value) {
+  set_has_m_entermax();
+  m_entermax_ = value;
 }
 
-// optional int32 m_auto_chair = 13;
-inline bool E_FishRoom::has_m_auto_chair() const {
+// optional int32 m_autochair = 13;
+inline bool E_FishRoom::has_m_autochair() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void E_FishRoom::set_has_m_auto_chair() {
+inline void E_FishRoom::set_has_m_autochair() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void E_FishRoom::clear_has_m_auto_chair() {
+inline void E_FishRoom::clear_has_m_autochair() {
   _has_bits_[0] &= ~0x00001000u;
 }
-inline void E_FishRoom::clear_m_auto_chair() {
-  m_auto_chair_ = 0;
-  clear_has_m_auto_chair();
+inline void E_FishRoom::clear_m_autochair() {
+  m_autochair_ = 0;
+  clear_has_m_autochair();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_auto_chair() const {
-  return m_auto_chair_;
+inline ::google::protobuf::int32 E_FishRoom::m_autochair() const {
+  return m_autochair_;
 }
-inline void E_FishRoom::set_m_auto_chair(::google::protobuf::int32 value) {
-  set_has_m_auto_chair();
-  m_auto_chair_ = value;
+inline void E_FishRoom::set_m_autochair(::google::protobuf::int32 value) {
+  set_has_m_autochair();
+  m_autochair_ = value;
 }
 
-// optional int32 m_is_exp_scene = 14;
-inline bool E_FishRoom::has_m_is_exp_scene() const {
+// optional int32 m_isexpscene = 14;
+inline bool E_FishRoom::has_m_isexpscene() const {
   return (_has_bits_[0] & 0x00002000u) != 0;
 }
-inline void E_FishRoom::set_has_m_is_exp_scene() {
+inline void E_FishRoom::set_has_m_isexpscene() {
   _has_bits_[0] |= 0x00002000u;
 }
-inline void E_FishRoom::clear_has_m_is_exp_scene() {
+inline void E_FishRoom::clear_has_m_isexpscene() {
   _has_bits_[0] &= ~0x00002000u;
 }
-inline void E_FishRoom::clear_m_is_exp_scene() {
-  m_is_exp_scene_ = 0;
-  clear_has_m_is_exp_scene();
+inline void E_FishRoom::clear_m_isexpscene() {
+  m_isexpscene_ = 0;
+  clear_has_m_isexpscene();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_is_exp_scene() const {
-  return m_is_exp_scene_;
+inline ::google::protobuf::int32 E_FishRoom::m_isexpscene() const {
+  return m_isexpscene_;
 }
-inline void E_FishRoom::set_m_is_exp_scene(::google::protobuf::int32 value) {
-  set_has_m_is_exp_scene();
-  m_is_exp_scene_ = value;
+inline void E_FishRoom::set_m_isexpscene(::google::protobuf::int32 value) {
+  set_has_m_isexpscene();
+  m_isexpscene_ = value;
 }
 
-// optional int32 m_exp_scene_gold = 15;
-inline bool E_FishRoom::has_m_exp_scene_gold() const {
+// optional int32 m_expscenegold = 15;
+inline bool E_FishRoom::has_m_expscenegold() const {
   return (_has_bits_[0] & 0x00004000u) != 0;
 }
-inline void E_FishRoom::set_has_m_exp_scene_gold() {
+inline void E_FishRoom::set_has_m_expscenegold() {
   _has_bits_[0] |= 0x00004000u;
 }
-inline void E_FishRoom::clear_has_m_exp_scene_gold() {
+inline void E_FishRoom::clear_has_m_expscenegold() {
   _has_bits_[0] &= ~0x00004000u;
 }
-inline void E_FishRoom::clear_m_exp_scene_gold() {
-  m_exp_scene_gold_ = 0;
-  clear_has_m_exp_scene_gold();
+inline void E_FishRoom::clear_m_expscenegold() {
+  m_expscenegold_ = 0;
+  clear_has_m_expscenegold();
 }
-inline ::google::protobuf::int32 E_FishRoom::m_exp_scene_gold() const {
-  return m_exp_scene_gold_;
+inline ::google::protobuf::int32 E_FishRoom::m_expscenegold() const {
+  return m_expscenegold_;
 }
-inline void E_FishRoom::set_m_exp_scene_gold(::google::protobuf::int32 value) {
-  set_has_m_exp_scene_gold();
-  m_exp_scene_gold_ = value;
+inline void E_FishRoom::set_m_expscenegold(::google::protobuf::int32 value) {
+  set_has_m_expscenegold();
+  m_expscenegold_ = value;
 }
 
 // optional int32 m_tax = 16;
@@ -1505,6 +1634,54 @@ Sheet_FishRoom::e_fishroom_list() const {
 inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishRoom >*
 Sheet_FishRoom::mutable_e_fishroom_list() {
   return &e_fishroom_list_;
+}
+
+// -------------------------------------------------------------------
+
+// E_FishGunvalueYDesc
+
+// optional int32 m_num = 1;
+inline bool E_FishGunvalueYDesc::has_m_num() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void E_FishGunvalueYDesc::set_has_m_num() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void E_FishGunvalueYDesc::clear_has_m_num() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void E_FishGunvalueYDesc::clear_m_num() {
+  m_num_ = 0;
+  clear_has_m_num();
+}
+inline ::google::protobuf::int32 E_FishGunvalueYDesc::m_num() const {
+  return m_num_;
+}
+inline void E_FishGunvalueYDesc::set_m_num(::google::protobuf::int32 value) {
+  set_has_m_num();
+  m_num_ = value;
+}
+
+// optional int32 m_id = 2;
+inline bool E_FishGunvalueYDesc::has_m_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void E_FishGunvalueYDesc::set_has_m_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void E_FishGunvalueYDesc::clear_has_m_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void E_FishGunvalueYDesc::clear_m_id() {
+  m_id_ = 0;
+  clear_has_m_id();
+}
+inline ::google::protobuf::int32 E_FishGunvalueYDesc::m_id() const {
+  return m_id_;
+}
+inline void E_FishGunvalueYDesc::set_m_id(::google::protobuf::int32 value) {
+  set_has_m_id();
+  m_id_ = value;
 }
 
 // -------------------------------------------------------------------
@@ -1619,6 +1796,78 @@ inline ::google::protobuf::int32 E_FishGunvalue::m_gunid() const {
 inline void E_FishGunvalue::set_m_gunid(::google::protobuf::int32 value) {
   set_has_m_gunid();
   m_gunid_ = value;
+}
+
+// optional int32 m_gameroomid = 6;
+inline bool E_FishGunvalue::has_m_gameroomid() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void E_FishGunvalue::set_has_m_gameroomid() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void E_FishGunvalue::clear_has_m_gameroomid() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void E_FishGunvalue::clear_m_gameroomid() {
+  m_gameroomid_ = 0;
+  clear_has_m_gameroomid();
+}
+inline ::google::protobuf::int32 E_FishGunvalue::m_gameroomid() const {
+  return m_gameroomid_;
+}
+inline void E_FishGunvalue::set_m_gameroomid(::google::protobuf::int32 value) {
+  set_has_m_gameroomid();
+  m_gameroomid_ = value;
+}
+
+// repeated int32 m_x_id = 7;
+inline int E_FishGunvalue::m_x_id_size() const {
+  return m_x_id_.size();
+}
+inline void E_FishGunvalue::clear_m_x_id() {
+  m_x_id_.Clear();
+}
+inline ::google::protobuf::int32 E_FishGunvalue::m_x_id(int index) const {
+  return m_x_id_.Get(index);
+}
+inline void E_FishGunvalue::set_m_x_id(int index, ::google::protobuf::int32 value) {
+  m_x_id_.Set(index, value);
+}
+inline void E_FishGunvalue::add_m_x_id(::google::protobuf::int32 value) {
+  m_x_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+E_FishGunvalue::m_x_id() const {
+  return m_x_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+E_FishGunvalue::mutable_m_x_id() {
+  return &m_x_id_;
+}
+
+// repeated .proto_ff.E_FishGunvalueYDesc m_y = 8;
+inline int E_FishGunvalue::m_y_size() const {
+  return m_y_.size();
+}
+inline void E_FishGunvalue::clear_m_y() {
+  m_y_.Clear();
+}
+inline const ::proto_ff::E_FishGunvalueYDesc& E_FishGunvalue::m_y(int index) const {
+  return m_y_.Get(index);
+}
+inline ::proto_ff::E_FishGunvalueYDesc* E_FishGunvalue::mutable_m_y(int index) {
+  return m_y_.Mutable(index);
+}
+inline ::proto_ff::E_FishGunvalueYDesc* E_FishGunvalue::add_m_y() {
+  return m_y_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc >&
+E_FishGunvalue::m_y() const {
+  return m_y_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::E_FishGunvalueYDesc >*
+E_FishGunvalue::mutable_m_y() {
+  return &m_y_;
 }
 
 // -------------------------------------------------------------------

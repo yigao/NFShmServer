@@ -188,8 +188,8 @@ int NFWorldRoomModule::OnHandleGetRoomInfoReq(uint32_t msgId, NFDataPackage &pac
             pProto->set_game_id((uint32_t) pRoomInfo->m_gameId);
             pProto->set_room_id((uint32_t) pRoomInfo->m_roomId);
             pProto->set_room_name(pRoomCfg->m_roomname.ToString());
-            pProto->set_enter_min(pRoomCfg->m_enter_min);
-            pProto->set_enter_max(pRoomCfg->m_enter_max);
+            pProto->set_enter_min(pRoomCfg->m_entermin);
+            pProto->set_enter_max(pRoomCfg->m_entermax);
             if (pRoomInfo->m_busId > 0)
             {
                 pProto->set_status(1);

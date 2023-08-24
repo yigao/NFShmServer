@@ -59,18 +59,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
-      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/excelcreate_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/excelcreate_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
-    </list>
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,19 +110,20 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tools" />
+      <recent name="$PROJECT_DIR$/src/NFTools" />
+      <recent name="$PROJECT_DIR$/tools/excel_2_bin" />
       <recent name="$PROJECT_DIR$/Install/Bin/Dynamic_Debug" />
       <recent name="$PROJECT_DIR$/NFTools/NFExcelProcess" />
-      <recent name="$PROJECT_DIR$/Install/Bin/Dynamic_Release" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFish2004Plugin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake 应用程序.NFExcelProcess">
+  <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
     <configuration name="NFDescStore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFDescStore" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -144,7 +134,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFExcelProcess" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--src=&quot;Fish.xlsx&quot; --dst=&quot;./&quot; --work=&quot;exceltoproto&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFExcelProcess" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFExcelProcess">
+    <configuration name="NFExcelProcess" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--src=&quot;$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx&quot; --dst=&quot;./&quot; --work=&quot;exceltoproto&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFExcelProcess" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFExcelProcess">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -296,11 +286,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -310,6 +295,28 @@
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="excel2proto" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="NFShmServer" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="SDK_NAME" value="Python 2.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tools/excel_2_bin" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py" />
+      <option name="PARAMETERS" value="--src=&quot;$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx&quot; --dst=&quot;./&quot; --work=&quot;exceltoproto&quot;" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <list>
       <item itemvalue="CMake 应用程序.NFFishRobotPlugin" />
@@ -350,7 +357,13 @@
       <item itemvalue="CMake 应用程序.evpp" />
       <item itemvalue="CMake 应用程序.mysqlpp" />
       <item itemvalue="CMake 应用程序.Sqlite3" />
+      <item itemvalue="Python.excel2proto" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.excel2proto" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -388,70 +401,8 @@
       <workItem from="1691382983170" duration="51423000" />
       <workItem from="1692319565628" duration="933000" />
       <workItem from="1692429898514" duration="2417000" />
-      <workItem from="1692448207697" duration="8918000" />
-    </task>
-    <task id="LOCAL-00039" summary="fish user jetton">
-      <created>1689829506887</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1689829506887</updated>
-    </task>
-    <task id="LOCAL-00040" summary="fish user jetton">
-      <created>1689835493054</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1689835493054</updated>
-    </task>
-    <task id="LOCAL-00041" summary="fish user jetton">
-      <created>1689836026869</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1689836026869</updated>
-    </task>
-    <task id="LOCAL-00042" summary="fish user jetton">
-      <created>1689902473510</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1689902473510</updated>
-    </task>
-    <task id="LOCAL-00043" summary="fish user jetton">
-      <created>1689932294801</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1689932294801</updated>
-    </task>
-    <task id="LOCAL-00044" summary="shm stl">
-      <created>1690187868388</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1690187868388</updated>
-    </task>
-    <task id="LOCAL-00045" summary="shm stl">
-      <created>1690188686512</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1690188686512</updated>
-    </task>
-    <task id="LOCAL-00046" summary="bus connect channel">
-      <created>1690447424681</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
-      <option name="project" value="LOCAL" />
-      <updated>1690447424681</updated>
-    </task>
-    <task id="LOCAL-00047" summary="bus connect channel">
-      <created>1690450967323</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1690450967323</updated>
+      <workItem from="1692448207697" duration="11969000" />
+      <workItem from="1692580636970" duration="78684000" />
     </task>
     <task id="LOCAL-00048" summary="bus connect channel">
       <created>1690508297526</created>
@@ -733,7 +684,70 @@
       <option name="project" value="LOCAL" />
       <updated>1692439095078</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="xls">
+      <created>1692458730452</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1692458730452</updated>
+    </task>
+    <task id="LOCAL-00089" summary="xls">
+      <created>1692682494337</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1692682494337</updated>
+    </task>
+    <task id="LOCAL-00090" summary="xls">
+      <created>1692752562840</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1692752562840</updated>
+    </task>
+    <task id="LOCAL-00091" summary="xls">
+      <created>1692753090793</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1692753090794</updated>
+    </task>
+    <task id="LOCAL-00092" summary="xls">
+      <created>1692754616154</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1692754616154</updated>
+    </task>
+    <task id="LOCAL-00093" summary="xls">
+      <created>1692759317532</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1692759317532</updated>
+    </task>
+    <task id="LOCAL-00094" summary="xls">
+      <created>1692763148770</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1692763148770</updated>
+    </task>
+    <task id="LOCAL-00095" summary="xls">
+      <created>1692778207779</created>
+      <option name="number" value="00095" />
+      <option name="presentableId" value="LOCAL-00095" />
+      <option name="project" value="LOCAL" />
+      <updated>1692778207779</updated>
+    </task>
+    <task id="LOCAL-00096" summary="xls">
+      <created>1692780206789</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1692780206789</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -795,20 +809,10 @@
           <line>123</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp</url>
-          <line>51</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp</url>
-          <line>24</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp</url>
-          <line>57</line>
-          <option name="timeStamp" value="6" />
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -19,11 +19,11 @@ int E_FishRoom_s::CreateInit() {
 	m_sitenum = (int32_t)0;
 	m_deskcount = (int32_t)0;
 	m_maxpeople = (int32_t)0;
-	m_enter_min = (int32_t)0;
-	m_enter_max = (int32_t)0;
-	m_auto_chair = (int32_t)0;
-	m_is_exp_scene = (int32_t)0;
-	m_exp_scene_gold = (int32_t)0;
+	m_entermin = (int32_t)0;
+	m_entermax = (int32_t)0;
+	m_autochair = (int32_t)0;
+	m_isexpscene = (int32_t)0;
+	m_expscenegold = (int32_t)0;
 	m_tax = (int32_t)0;
 	return 0;
 }
@@ -43,11 +43,11 @@ void E_FishRoom_s::write_to_pbmsg(::proto_ff::E_FishRoom & msg) const {
 	msg.set_m_sitenum((int32_t)m_sitenum);
 	msg.set_m_deskcount((int32_t)m_deskcount);
 	msg.set_m_maxpeople((int32_t)m_maxpeople);
-	msg.set_m_enter_min((int32_t)m_enter_min);
-	msg.set_m_enter_max((int32_t)m_enter_max);
-	msg.set_m_auto_chair((int32_t)m_auto_chair);
-	msg.set_m_is_exp_scene((int32_t)m_is_exp_scene);
-	msg.set_m_exp_scene_gold((int32_t)m_exp_scene_gold);
+	msg.set_m_entermin((int32_t)m_entermin);
+	msg.set_m_entermax((int32_t)m_entermax);
+	msg.set_m_autochair((int32_t)m_autochair);
+	msg.set_m_isexpscene((int32_t)m_isexpscene);
+	msg.set_m_expscenegold((int32_t)m_expscenegold);
 	msg.set_m_tax((int32_t)m_tax);
 }
 
@@ -63,11 +63,11 @@ void E_FishRoom_s::read_from_pbmsg(const ::proto_ff::E_FishRoom & msg) {
 	m_sitenum = msg.m_sitenum();
 	m_deskcount = msg.m_deskcount();
 	m_maxpeople = msg.m_maxpeople();
-	m_enter_min = msg.m_enter_min();
-	m_enter_max = msg.m_enter_max();
-	m_auto_chair = msg.m_auto_chair();
-	m_is_exp_scene = msg.m_is_exp_scene();
-	m_exp_scene_gold = msg.m_exp_scene_gold();
+	m_entermin = msg.m_entermin();
+	m_entermax = msg.m_entermax();
+	m_autochair = msg.m_autochair();
+	m_isexpscene = msg.m_isexpscene();
+	m_expscenegold = msg.m_expscenegold();
 	m_tax = msg.m_tax();
 }
 
@@ -103,6 +103,35 @@ void Sheet_FishRoom_s::read_from_pbmsg(const ::proto_ff::Sheet_FishRoom & msg) {
 	}
 }
 
+E_FishGunvalueYDesc_s::E_FishGunvalueYDesc_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int E_FishGunvalueYDesc_s::CreateInit() {
+	m_num = (int32_t)0;
+	m_id = (int32_t)0;
+	return 0;
+}
+
+int E_FishGunvalueYDesc_s::ResumeInit() {
+	return 0;
+}
+
+void E_FishGunvalueYDesc_s::write_to_pbmsg(::proto_ff::E_FishGunvalueYDesc & msg) const {
+	msg.set_m_num((int32_t)m_num);
+	msg.set_m_id((int32_t)m_id);
+}
+
+void E_FishGunvalueYDesc_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalueYDesc & msg) {
+	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FishGunvalueYDesc_s));
+	m_num = msg.m_num();
+	m_id = msg.m_id();
+}
+
 E_FishGunvalue_s::E_FishGunvalue_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -117,6 +146,7 @@ int E_FishGunvalue_s::CreateInit() {
 	m_gameid = (int32_t)0;
 	m_roomid = (int32_t)0;
 	m_gunid = (int32_t)0;
+	m_gameroomid = (int32_t)0;
 	return 0;
 }
 
@@ -130,6 +160,14 @@ void E_FishGunvalue_s::write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const {
 	msg.set_m_gameid((int32_t)m_gameid);
 	msg.set_m_roomid((int32_t)m_roomid);
 	msg.set_m_gunid((int32_t)m_gunid);
+	msg.set_m_gameroomid((int32_t)m_gameroomid);
+	for(int32_t i = 0; i < (int32_t)m_x_id.size(); ++i) {
+		msg.add_m_x_id((int32_t)m_x_id[i]);
+	}
+	for(int32_t i = 0; i < (int32_t)m_y.size(); ++i) {
+		::proto_ff::E_FishGunvalueYDesc* temp_m_y = msg.add_m_y();
+		m_y[i].write_to_pbmsg(*temp_m_y);
+	}
 }
 
 void E_FishGunvalue_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg) {
@@ -139,6 +177,16 @@ void E_FishGunvalue_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg) {
 	m_gameid = msg.m_gameid();
 	m_roomid = msg.m_roomid();
 	m_gunid = msg.m_gunid();
+	m_gameroomid = msg.m_gameroomid();
+	m_x_id.resize((int)msg.m_x_id_size() > (int)m_x_id.max_size() ? m_x_id.max_size() : msg.m_x_id_size());
+	for(int32_t i = 0; i < (int32_t)m_x_id.size(); ++i) {
+		m_x_id[i] = msg.m_x_id(i);
+	}
+	m_y.resize((int)msg.m_y_size() > (int)m_y.max_size() ? m_y.max_size() : msg.m_y_size());
+	for(int32_t i = 0; i < (int32_t)m_y.size(); ++i) {
+		const ::proto_ff::E_FishGunvalueYDesc & temp_m_y = msg.m_y(i);
+		m_y[i].read_from_pbmsg(temp_m_y);
+	}
 }
 
 Sheet_FishGunvalue_s::Sheet_FishGunvalue_s() {
