@@ -62,10 +62,16 @@ int main(int argc, char* argv[])
             }
         }
     }
+    catch (xlnt::exception& e)
+    {
+        std::cout << e.what() << std::endl;
+        NFSLEEP(1000);
+        exit(-1);
+    }
     catch (NFCmdLine::NFCmdLine_Error& e)
     {
         std::cout << e.what() << std::endl;
         NFSLEEP(1000);
-        exit(0);
+        exit(-1);
     }
 }

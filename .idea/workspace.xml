@@ -59,7 +59,299 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls" />
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/MiniExcelReader/MiniExcelReader.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/MiniExcelReader/MiniExcelReader.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/ChangeLog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/aes.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/aes_via_ace.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/aescrypt.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/aeskey.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/aesopt.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/aestab.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/aestab.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/brg_endian.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/brg_types.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/entropy.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/entropy.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/fileenc.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/fileenc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/hmac.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/hmac.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/prng.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/prng.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/pwd2key.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/pwd2key.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/sha1.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/sha1.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/configure.ac" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/crypt.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/ioapi.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/ioapi.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/ioapi_buf.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/ioapi_buf.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/ioapi_mem.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/ioapi_mem.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/iowin32.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/iowin32.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/miniunz.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/miniunz.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/minizip.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/minizip.pc.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/minizip.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/minizip.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/unzip.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/unzip.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/zip.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/zip.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/ChangeLog" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/FAQ" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/INDEX" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/Makefile.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/adler32.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/amiga/Makefile.pup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/amiga/Makefile.sas" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/as400/bndsrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/as400/compile.clp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/as400/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/as400/zlib.inc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/compress.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/configure" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/README.contrib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/buffer_demo.adb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/mtest.adb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/read.adb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/test.adb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/zlib-streams.adb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/zlib-streams.ads" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/zlib-thin.adb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/zlib-thin.ads" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/zlib.adb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/zlib.ads" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/ada/zlib.gpr" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/amd64/amd64-match.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/asm686/README.686" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/asm686/match.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/blast/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/blast/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/blast/blast.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/blast/blast.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/blast/test.pk" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/blast/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/delphi/ZLib.pas" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/delphi/ZLibConst.pas" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/delphi/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/delphi/zlibd32.mak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib.build" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib.chm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/ChecksumImpl.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/CircularBuffer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/CodecBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/Deflater.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/DotZLib.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/DotZLib.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/GZipStream.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/Inflater.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/DotZLib/UnitTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/LICENSE_1_0.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/dotzlib/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/gcc_gvmat64/gvmat64.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/infback9/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/infback9/infback9.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/infback9/infback9.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/infback9/inffix9.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/infback9/inflate9.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/infback9/inftree9.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/infback9/inftree9.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/inflate86/inffas86.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/inflate86/inffast.S" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream/test.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream/zfstream.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream/zfstream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream2/zstream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream2/zstream_test.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream3/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream3/TODO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream3/test.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream3/zfstream.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/iostream3/zfstream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx64/bld_ml64.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx64/gvmat64.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx64/inffas8664.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx64/inffasx64.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx64/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx86/bld_ml32.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx86/inffas32.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx86/match686.asm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/masmx86/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/Makefile.am" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/MiniZip64_Changes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/MiniZip64_info.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/configure.ac" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/crypt.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/ioapi.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/ioapi.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/iowin32.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/iowin32.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/make_vms.com" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/miniunz.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/miniunzip.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/minizip.1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/minizip.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/minizip.pc.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/mztools.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/mztools.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/unzip.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/unzip.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/zip.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/minizip/zip.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/pascal/example.pas" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/pascal/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/pascal/zlibd32.mak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/pascal/zlibpas.pas" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/puff/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/puff/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/puff/puff.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/puff/puff.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/puff/pufftest.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/puff/zeros.raw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/testzlib/testzlib.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/testzlib/testzlib.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/untgz/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/untgz/Makefile.msc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/untgz/untgz.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/miniunz.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/miniunz.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/minizip.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/minizip.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/testzlib.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/testzlib.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/testzlibdll.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/testzlibdll.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/zlib.rc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/zlibstat.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/zlibstat.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/zlibvc.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/zlibvc.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/zlibvc.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc10/zlibvc.vcxproj.filters" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/miniunz.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/minizip.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/testzlib.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/testzlibdll.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/zlib.rc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/zlibstat.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/zlibvc.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/zlibvc.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc11/zlibvc.vcxproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/miniunz.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/minizip.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/testzlib.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/testzlibdll.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/zlib.rc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/zlibstat.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/zlibvc.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/zlibvc.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/contrib/vstudio/vc9/zlibvc.vcproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/crc32.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/crc32.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/deflate.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/deflate.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/doc/algorithm.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/doc/rfc1950.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/doc/rfc1951.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/doc/rfc1952.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/doc/txtvsbin.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/README.examples" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/enough.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/fitblk.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/gun.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/gzappend.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/gzjoin.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/gzlog.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/gzlog.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/zlib_how.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/zpipe.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/examples/zran.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/gzclose.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/gzguts.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/gzlib.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/gzread.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/gzwrite.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/infback.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/inffast.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/inffast.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/inffixed.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/inflate.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/inflate.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/inftrees.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/inftrees.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/make_vms.com" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/msdos/Makefile.bor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/msdos/Makefile.dj2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/msdos/Makefile.emx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/msdos/Makefile.msc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/msdos/Makefile.tc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/nintendods/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/nintendods/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/old/Makefile.emx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/old/Makefile.riscos" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/old/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/old/descrip.mms" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/old/os2/Makefile.os2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/old/os2/zlib.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/old/visual-basic.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/qnx/package.qpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/test/example.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/test/infcover.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/test/minigzip.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/treebuild.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/trees.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/trees.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/uncompr.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/watcom/watcom_f.mak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/watcom/watcom_l.mak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/win32/DLL_FAQ.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/win32/Makefile.bor" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/win32/Makefile.gcc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/win32/Makefile.msc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/win32/README-WIN32.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/win32/VisualC.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/win32/zlib.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/win32/zlib1.rc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zconf.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zconf.h.cmakein" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zconf.h.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zlib.3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zlib.3.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zlib.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zlib.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zlib.pc.cmakein" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zlib.pc.in" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zlib2ansi" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zutil.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/zlib/zutil.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -96,34 +388,39 @@
     "WebServerToolWindowFactoryState": "false",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/home/gaoyi/NFShmServer/tools",
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/src/NFTools/NFExcelProcess",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CMakeSettings",
+    "settings.editor.selected.configurable": "CPPToolchains",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/NFTools/NFExcelProcess" />
       <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$/src/NFTools" />
       <recent name="$PROJECT_DIR$/tools/excel_2_bin" />
       <recent name="$PROJECT_DIR$/Install/Bin/Dynamic_Debug" />
-      <recent name="$PROJECT_DIR$/NFTools/NFExcelProcess" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/thirdparty" />
       <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin" />
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
+  <component name="RunManager" selected="Makefile 目标.all">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFDescStore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFDescStore" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -134,7 +431,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFExcelProcess" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--src=&quot;$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx&quot; --dst=&quot;./&quot; --work=&quot;exceltoproto&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFExcelProcess" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFExcelProcess">
+    <configuration name="NFExcelProcess" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--src=&quot;$PROJECT_DIR$/game/Fish/Excel/welfare.xlsx&quot; --dst=&quot;./&quot; --work=&quot;exceltoproto&quot;" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFExcelProcess" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFExcelProcess">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -296,6 +593,24 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="all" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/Makefile" target="all" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="clean" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/Makefile" target="clean" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
+    <configuration name="libaes.a" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile" temporary="true">
+      <makefile filename="$PROJECT_DIR$/src/NFTools/NFExcelProcess/minizip/aes/Makefile" target="libaes.a" workingDirectory="" arguments="">
+        <envs />
+      </makefile>
+      <method v="2" />
+    </configuration>
     <configuration name="excel2proto" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="NFShmServer" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -357,10 +672,16 @@
       <item itemvalue="CMake 应用程序.evpp" />
       <item itemvalue="CMake 应用程序.mysqlpp" />
       <item itemvalue="CMake 应用程序.Sqlite3" />
+      <item itemvalue="Makefile 目标.all" />
+      <item itemvalue="Makefile 目标.clean" />
+      <item itemvalue="Makefile 目标.libaes.a" />
       <item itemvalue="Python.excel2proto" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Makefile 目标.all" />
+        <item itemvalue="Makefile 目标.clean" />
+        <item itemvalue="Makefile 目标.libaes.a" />
         <item itemvalue="Python.excel2proto" />
       </list>
     </recent_temporary>
@@ -402,14 +723,7 @@
       <workItem from="1692319565628" duration="933000" />
       <workItem from="1692429898514" duration="2417000" />
       <workItem from="1692448207697" duration="11969000" />
-      <workItem from="1692580636970" duration="78684000" />
-    </task>
-    <task id="LOCAL-00048" summary="bus connect channel">
-      <created>1690508297526</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1690508297526</updated>
+      <workItem from="1692580636970" duration="89958000" />
     </task>
     <task id="LOCAL-00049" summary="fish room">
       <created>1690530824166</created>
@@ -747,7 +1061,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692780206789</updated>
     </task>
-    <option name="localTasksCounter" value="97" />
+    <task id="LOCAL-00097" summary="xls">
+      <created>1692780886946</created>
+      <option name="number" value="00097" />
+      <option name="presentableId" value="LOCAL-00097" />
+      <option name="project" value="LOCAL" />
+      <updated>1692780886946</updated>
+    </task>
+    <option name="localTasksCounter" value="98" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,6 +1130,21 @@
           <line>123</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp</url>
+          <line>49</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp</url>
+          <line>24</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp</url>
+          <line>34</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/tools/excel_2_bin/excel2proto.py</url>
           <line>61</line>
@@ -816,5 +1152,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

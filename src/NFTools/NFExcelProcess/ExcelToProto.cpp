@@ -31,8 +31,16 @@ int ExcelToProto::Init(const std::string &excel, const std::string &outPath)
     CHECK_EXPR(NFFileUtility::IsFileExist(m_excel), -1, "excel:{} not exist", m_excel);
     CHECK_EXPR(NFFileUtility::IsDir(m_outPath), -1, "outPath:{} not exist", m_outPath);
 
-
-    m_workbook.load(m_excel);
+    try {
+        m_workbook.load(m_excel);
+    }
+    catch(xlnt::exception& e)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "load excel:{} failed", m_excel);
+        std::cout << e.what() << std::endl;
+        NFSLEEP(1000);
+        exit(-1);
+    }
 
     return 0;
 }
@@ -102,12 +110,21 @@ int ExcelToProto::HandleSheetList(worksheet sheet)
         auto row_vector = sheet_row[row];
         auto col_sheet_cell = row_vector[0];
         std::string sheet_name = col_sheet_cell.value<std::string>();
-        worksheet find_sheet = m_workbook.sheet_by_title(sheet_name);
-        if (find_sheet == nullptr)
+        worksheet find_sheet;
+        try {
+            find_sheet = m_workbook.sheet_by_title(sheet_name);
+            if (find_sheet == nullptr)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} list has sheet:{}, but can't find in the excel", m_excel, sheet_name);
+                continue;
+            }
+        }
+        catch (xlnt::exception& e)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} list has sheet:{}, but can't find in the excel", m_excel, sheet_name);
             continue;
         }
+
 
         ExcelSheet &excelSheet = m_sheets[sheet_name];
         excelSheet.m_name = sheet_name;
@@ -732,7 +749,7 @@ void ExcelToProto::WriteExcelProto()
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
-        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
         {
             WriteSheetProto(&m_sheets[sheet.title()], write_str);
         }
@@ -746,7 +763,7 @@ void ExcelToProto::WriteSheetDescStore()
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
-        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
         {
             WriteSheetDescStoreH(&m_sheets[sheet.title()]);
             WriteSheetDescStoreCPP(&m_sheets[sheet.title()]);
@@ -1799,7 +1816,7 @@ void ExcelToProto::WriteMakeFile()
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
-        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
         {
             ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
@@ -1815,7 +1832,7 @@ void ExcelToProto::WriteMakeFile()
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
-        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
         {
             ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
@@ -1882,7 +1899,7 @@ void ExcelToProto::WriteDestStoreDefine()
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
-        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
         {
             ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
@@ -1897,7 +1914,7 @@ void ExcelToProto::WriteDestStoreDefine()
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
-        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
         {
             ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
@@ -1912,7 +1929,7 @@ void ExcelToProto::WriteDestStoreDefine()
     for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
     {
         worksheet sheet = *iter;
-        if (m_sheets.find(sheet.title()) != m_sheets.end())
+        if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
         {
             ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
