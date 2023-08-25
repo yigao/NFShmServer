@@ -284,218 +284,8 @@ int ExcelToProto::HandleSheetList(MiniExcelReader::Sheet& sheet)
     return 0;
 }
 
-int ExcelToProto::HandleSheetList(worksheet sheet)
-{
-    if (sheet.title() != "list") return -1;
-
-    auto sheet_row = sheet.rows();
-    if (sheet_row.length() <= 0) return 0;
-
-    //list表的第一行第一个自动有sheet_name的话，这一行只是用来提示功能，第二列是unique_index唯一索引，multi_index不唯一所有，check用来检查列关联到的表数据是否存在
-    int start_row = 0;
-    if (sheet_row[0][0].value<std::string>() == "sheet_name")
-    {
-        start_row = 1;
-    }
-
-    for (int row = start_row; row < (int) sheet_row.length(); row++)
-    {
-        auto row_vector = sheet_row[row];
-        auto col_sheet_cell = row_vector[0];
-        std::string sheet_name = col_sheet_cell.value<std::string>();
-        worksheet find_sheet;
-        try {
-            find_sheet = m_workbook.sheet_by_title(sheet_name);
-            if (find_sheet == nullptr)
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} list has sheet:{}, but can't find in the excel", m_excel, sheet_name);
-                continue;
-            }
-        }
-        catch (xlnt::exception& e)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} list has sheet:{}, but can't find in the excel", m_excel, sheet_name);
-            continue;
-        }
-
-
-        ExcelSheet &excelSheet = m_sheets[sheet_name];
-        excelSheet.m_name = sheet_name;
-
-        for (int col = 1; col < (int) row_vector.length(); col++)
-        {
-            if (col != 1 && col != 2) continue;
-
-            auto col_index = row_vector[col];
-            std::string col_index_str = col_index.value<std::string>();
-            NFStringUtility::Trim(col_index_str);
-            if (col_index_str.empty()) continue;
-
-            bool sheet_index_unique = true;
-            if (col == 2)
-            {
-                sheet_index_unique = false;
-            }
-
-            std::vector<std::string> col_index_str_list;
-            NFStringUtility::Split(col_index_str, ";", &col_index_str_list);
-
-            for (int j = 0; j < (int) col_index_str_list.size(); j++)
-            {
-                std::string col_index_str_list_str = col_index_str_list[j];
-                NFStringUtility::Trim(col_index_str_list_str);
-                if (col_index_str_list_str.empty()) continue;
-
-                std::vector<std::string> col_index_str_vec;
-                NFStringUtility::Split(col_index_str_list[j], ",", &col_index_str_vec);
-
-                if (col_index_str_vec.size() == 1)
-                {
-                    std::string key = col_index_str_vec[0];
-                    NFStringUtility::Trim(key);
-                    if (key.empty()) continue;
-
-                    ExcelSheetIndex &excelSheetIndex = excelSheet.m_indexMap[key];
-                    excelSheetIndex.m_key = key;
-                    excelSheetIndex.m_unique = sheet_index_unique;
-                    excelSheetIndex.m_colIndex = -1;
-                    excelSheetIndex.m_maxNum = 0;
-                    excelSheetIndex.m_maxUniqueNum = 0;
-
-                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} add index:{}", m_excel, sheet_name, key);
-                }
-                else
-                {
-                    ExcelSheetComIndex &excelSheetComIndex = excelSheet.m_comIndexMap[col_index_str];
-                    excelSheetComIndex.m_key = col_index_str;
-                    excelSheetComIndex.m_queue = sheet_index_unique;
-
-                    for (int x = 0; x < (int) col_index_str_vec.size(); x++)
-                    {
-                        std::string key = col_index_str_vec[x];
-                        NFStringUtility::Trim(key);
-                        if (key.empty()) continue;
-
-                        ExcelSheetIndex excelSheetIndex;
-                        excelSheetIndex.m_key = key;
-                        excelSheetIndex.m_unique = true;
-                        excelSheetIndex.m_colIndex = -1;
-                        excelSheetIndex.m_maxNum = 0;
-                        excelSheetIndex.m_maxUniqueNum = 0;
-                        excelSheetComIndex.m_index.push_back(excelSheetIndex);
-                    }
-                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} add com_index:{}", m_excel, sheet_name, col_index_str);
-                }
-            }
-        }
-
-        if (row_vector.length() >= 4)
-        {
-            auto col_index = row_vector[3];
-            std::string col_index_str = col_index.value<std::string>();
-            NFStringUtility::Trim(col_index_str);
-            if (col_index_str.empty()) continue;
-
-            std::vector<std::string> col_index_str_list;
-            NFStringUtility::Split(col_index_str, ";", &col_index_str_list);
-
-            for (int j = 0; j < (int) col_index_str_list.size(); j++)
-            {
-                std::string relation_str = col_index_str_list[j];
-                NFStringUtility::Trim(relation_str);
-                if (relation_str.empty()) continue;
-
-                std::vector<std::string> relation_str_vec;
-                NFStringUtility::Split(relation_str, ":", &relation_str_vec);
-
-                if (relation_str_vec.size() != 2)
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                    return -1;
-                }
-
-                std::string my_col_name = relation_str_vec[0];
-                std::string dst_relation_str = relation_str_vec[1];
-
-                if (my_col_name.empty() || dst_relation_str.empty())
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                    return -1;
-                }
-
-                std::vector<std::string> my_col_str_vec;
-                NFStringUtility::Split(my_col_name, ".", &my_col_str_vec);
-
-                if (my_col_str_vec.size() > 2 || my_col_str_vec.size() <= 0)
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                    return -1;
-                }
-
-                std::vector<std::string> dst_relation_str_vec;
-                NFStringUtility::Split(dst_relation_str, ".", &dst_relation_str_vec);
-
-                if (dst_relation_str_vec.size() != 2)
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                    return -1;
-                }
-
-                ExcelRelation relation;
-                relation.m_excelName = dst_relation_str_vec[0];
-                relation.m_sheetName = dst_relation_str_vec[1];
-                relation.m_myColName = my_col_str_vec[0];
-                if (my_col_str_vec.size() == 2)
-                {
-                    relation.m_myColSubName = my_col_str_vec[1];
-                }
-
-                if (relation.m_excelName.empty() || relation.m_sheetName.empty())
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                    return -1;
-                }
-
-                if (relation.m_myColSubName.empty())
-                {
-                    if (excelSheet.m_colRelationMap.find(relation.m_myColName) != excelSheet.m_colRelationMap.end())
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
-                        return -1;
-                    }
-                    excelSheet.m_colRelationMap.emplace(relation.m_myColName, relation);
-                }
-                else
-                {
-                    if (excelSheet.m_colRelationMap.find(relation.m_myColName + "_" + relation.m_myColSubName) != excelSheet.m_colRelationMap.end())
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
-                        return -1;
-                    }
-                    excelSheet.m_colRelationMap.emplace(relation.m_myColName + "_" + relation.m_myColSubName, relation);
-                }
-
-                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} add relation:{}:{}", m_excel, sheet_name, my_col_name,
-                          dst_relation_str);
-            }
-        }
-    }
-
-    return 0;
-}
-
 int ExcelToProto::HandleSheetWork()
 {
-/*    for (auto iter = m_workbook.begin(); iter != m_workbook.end(); iter++)
-    {
-        worksheet sheet = *iter;
-        if (m_sheets.find(sheet.title()) != m_sheets.end())
-        {
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "handle excel:{} sheet:{}", m_excel, sheet.title());
-            HandleSheetWork(sheet);
-        }
-    }*/
-
     std::vector<MiniExcelReader::Sheet>& sheets = m_excelReader->sheets();
     for (MiniExcelReader::Sheet& sheet : sheets)
     {
@@ -653,7 +443,7 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
                     std::string struct_en_sub_name = col_en_name_list[1];
                     std::string struct_cn_name = col_cn_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                    std::string struct_cn_sub_name = col_cn_name_list[2];
+                    std::string struct_cn_sub_name = col_cn_name_list[0];
 
                     int iRet = HandleColSubMsg(pSheet, col_index, sheet, struct_en_name, struct_cn_name, col_type, struct_num,
                                                struct_en_sub_name, struct_cn_sub_name);
@@ -668,7 +458,7 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
                 {
                     std::string struct_en_name = col_en_name_list[0];
                     std::string struct_en_sub_name = col_en_name_list[1];
-                    std::string struct_cn_name = "$$$$";
+                    std::string struct_cn_name = col_cn_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
                     std::string struct_cn_sub_name = col_cn_name_list[0];
 
@@ -751,10 +541,10 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
                         has_col = true;
                         break;
                     }
-                        /** 处理数组特殊情况
-                         * @brief item item_num item item_num
-                         *        物品1    物x1     物品2    物x2
-                         */
+                    /** 处理数组特殊情况
+                     * @brief item item_num item item_num
+                     *        物品1    物x1     物品2    物x2
+                     */
                     else if (col_en_name_list_temp.size() == 2 && col_en_name_temp != col_en_name && col_en_name_list_temp[0] == col_en_name_list[0]
                              && col_cn_name_list_temp.size() == 3 && col_cn_name_list_temp[0].size() > 0 && col_cn_name_list_temp[1].size() > 0 &&
                              col_cn_name_list_temp[2].size() == 0 && col_cn_name_list_temp[0] != col_cn_name_list[0])
@@ -764,24 +554,32 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
                     }
                 }
 
+                /** 处理数组特殊情况
+                 * @brief item item_num item    item_num
+                 *        物品1 物品1Num  物品2    物品2Num
+                 */
                 if (has_col)
                 {
                     std::string struct_en_name = col_en_name_list[0];
                     std::string struct_en_sub_name = col_en_name_list[0];
                     std::string struct_cn_name = col_cn_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                    std::string struct_cn_sub_name = col_cn_name_list[2];
+                    std::string struct_cn_sub_name = col_cn_name_list[0];
 
                     int iRet = HandleColSubMsg(pSheet, col_index, sheet, struct_en_name, struct_cn_name, col_type, struct_num,
                                                struct_en_sub_name, struct_cn_sub_name);
                     CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
                                pSheet->m_name, col_en_name, col_cn_name);
                 }
+                /** 处理数组特殊情况
+                 * @brief item item_num item item_num
+                 *        物品1    物x1     物品2    物x2
+                 */
                 else if (has_diff)
                 {
                     std::string struct_en_name = col_en_name_list[0];
                     std::string struct_en_sub_name = col_en_name_list[0];
-                    std::string struct_cn_name = "$$$$";
+                    std::string struct_cn_name = col_cn_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
                     std::string struct_cn_sub_name = col_cn_name_list[0];
 
@@ -799,10 +597,10 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
                                pSheet->m_name, col_en_name, col_cn_name);
                 }
             }
-                /** 处理特殊情况
-                 * @brief itemid itemid
-                 *        物品1ID 物品2ID
-                 */
+            /** 处理特殊情况
+             * @brief itemid itemid
+             *        物品1ID 物品2ID
+             */
             else if (col_en_name_list[0].size() > 0
                      && col_cn_name_list[0].size() > 0 && col_cn_name_list[1].size() > 0 && col_cn_name_list[2].size() > 0)
             {
@@ -863,6 +661,10 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
                     }
                 }
 
+                /** 处理数组特殊情况
+                 * @brief item item_num item item_num
+                 *        物品1ID    物品1Num     物品2ID    物品2Num
+                 */
                 if (has_col)
                 {
                     std::string struct_en_name = col_en_name_list[0];
@@ -876,11 +678,15 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
                     CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
                                pSheet->m_name, col_en_name, col_cn_name);
                 }
+                /** 处理数组特殊情况
+                 * @brief item item_num item item_num
+                 *        物品1ID 物x1   物品2ID 物x2
+                 */
                 else if (has_diff)
                 {
                     std::string struct_en_name = col_en_name_list[0];
                     std::string struct_en_sub_name = col_en_name_list[0];
-                    std::string struct_cn_name = "$$$$";
+                    std::string struct_cn_name = col_cn_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
                     std::string struct_cn_sub_name = col_cn_name_list[0];
 
@@ -889,9 +695,13 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
                     CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
                                pSheet->m_name, col_en_name, col_cn_name);
                 }
+                /** 处理特殊情况
+                 * @brief itemid itemid
+                 *        物品1ID 物品2ID
+                 */
                 else {
                     std::string struct_en_name = col_en_name_list[0];
-                    std::string struct_cn_name = col_cn_name_list[0] + "9999" + col_cn_name_list[2];
+                    std::string struct_cn_name = col_cn_name_list[0] + col_cn_name_list[2];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
                     int iRet = HandleColMsg(pSheet, col_index, sheet, struct_en_name, struct_cn_name, col_type, struct_num);
                     CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
@@ -914,308 +724,6 @@ int ExcelToProto::HandleSheetWork(MiniExcelReader::Sheet& sheet)
             CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
                        pSheet->m_name, col_en_name, col_cn_name);
         }
-    }
-
-    return 0;
-}
-
-int ExcelToProto::HandleSheetWork(worksheet sheet)
-{
-    auto all_col = sheet.columns();
-    int col_size = all_col.length();
-
-    ExcelSheet *pSheet = &m_sheets[sheet.title()];
-
-    for (int col_index = 0; col_index < col_size; col_index++)
-    {
-        auto sheet_col = all_col[col_index];
-        std::string col_en_name = sheet_col[0].to_string();
-        std::string col_cn_name = sheet_col[1].to_string();
-        std::string col_type = sheet_col[2].to_string();
-        std::string col_sel_str = sheet_col[3].to_string();
-        NFStringUtility::Trim(col_en_name);
-        NFStringUtility::Trim(col_cn_name);
-        NFStringUtility::Trim(col_type);
-        NFStringUtility::Trim(col_sel_str);
-
-        if (col_en_name.empty() || col_cn_name.empty() || col_type.empty() || col_sel_str.empty())
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "col_en_name:{} col_cn_name:{} col_type:{} col_sel_str:{} is not right", col_en_name, col_cn_name,
-                       col_type, col_sel_str);
-            return -1;
-        }
-
-        int col_sel = NFCommon::strto<int>(col_sel_str);
-        if (col_sel != 2 && col_sel != 3)
-            continue;
-
-        std::vector<std::string> col_en_name_list;
-        NFStringUtility::Split(col_en_name, "_", &col_en_name_list);
-        for (int i = 0; i < (int) col_en_name_list.size(); i++)
-        {
-            NFStringUtility::Trim(col_en_name_list[i]);
-        }
-
-        std::vector<std::string> col_cn_name_list;
-        NFStringUtility::SplitDigit(col_cn_name, &col_cn_name_list);
-        for (int i = 0; i < (int) col_cn_name_list.size(); i++)
-        {
-            NFStringUtility::Trim(col_cn_name_list[i]);
-        }
-
-        if (col_en_name_list.size() == 2 and col_cn_name_list.size() == 3)
-        {
-            /** 处理正常数组
-             * @brief item_id item_num item_id item_num
-             *        物品1Id  物品1Num 物品2Id    物品2Num
-             */
-            if (col_en_name_list[0].size() > 0 && col_en_name_list[1].size() > 0
-                && col_cn_name_list[0].size() > 0 && col_cn_name_list[1].size() > 0 && col_cn_name_list[2].size() > 0)
-            {
-                std::string struct_en_name = col_en_name_list[0];
-                std::string struct_en_sub_name = col_en_name_list[1];
-                std::string struct_cn_name = col_cn_name_list[0];
-                uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                std::string struct_cn_sub_name = col_cn_name_list[2];
-
-                int iRet = HandleColSubMsg(pSheet, col_index, sheet_col, struct_en_name, struct_cn_name, col_type, struct_num,
-                                           struct_en_sub_name, struct_cn_sub_name);
-                CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
-                           pSheet->m_name, col_en_name, col_cn_name);
-            }
-                /** 处理数组特殊情况
-                 * @brief item_id item_num item_id item_num
-                 *        物品1    物品1Num     物品2    物品2Num
-                 */
-                /** 处理数组特殊情况
-                 * @brief item_id item_num item_id item_num
-                 *        物品1    物x1     物品2    物x2
-                 */
-            else if (col_en_name_list[0].size() > 0 && col_en_name_list[1].size() > 0
-                     && col_cn_name_list[0].size() > 0 && col_cn_name_list[1].size() > 0 && col_cn_name_list[2].size() == 0)
-            {
-                bool has_col = false;
-                bool has_diff = false;
-
-                for (int col_index_temp = 0; col_index_temp < col_size; col_index_temp++)
-                {
-                    if (col_index_temp == col_index) continue;
-
-                    auto sheet_temp_col = all_col[col_index_temp];
-
-                    std::string col_en_name_temp = sheet_temp_col[0].to_string();
-                    std::string col_cn_name_temp = sheet_temp_col[1].to_string();
-                    std::string col_type_temp = sheet_temp_col[2].to_string();
-                    std::string col_sel_temp_str = sheet_temp_col[3].to_string();
-                    NFStringUtility::Trim(col_en_name_temp);
-                    NFStringUtility::Trim(col_cn_name_temp);
-                    NFStringUtility::Trim(col_type_temp);
-                    NFStringUtility::Trim(col_sel_temp_str);
-
-                    int col_temp_sel = NFCommon::strto<int>(col_sel_temp_str);
-                    if (col_temp_sel != 2 && col_temp_sel != 3)
-                        continue;
-
-                    std::vector<std::string> col_en_name_list_temp;
-                    NFStringUtility::Split(col_en_name_temp, "_", &col_en_name_list_temp);
-                    for (int i = 0; i < (int) col_en_name_list_temp.size(); i++)
-                    {
-                        NFStringUtility::Trim(col_en_name_list_temp[i]);
-                    }
-
-                    std::vector<std::string> col_cn_name_list_temp;
-                    NFStringUtility::SplitDigit(col_cn_name_temp, &col_cn_name_list_temp);
-                    for (int i = 0; i < (int) col_cn_name_list_temp.size(); i++)
-                    {
-                        NFStringUtility::Trim(col_cn_name_list_temp[i]);
-                    }
-
-                    /** 处理数组特殊情况
-                     * @brief item_id item_num item_id item_num
-                     *        物品1    物品1Num     物品2    物品2Num
-                     */
-                    if (col_en_name_list_temp.size() == 2 && col_en_name_temp != col_en_name && col_en_name_list_temp[0] == col_en_name_list[0]
-                        && col_cn_name_list_temp.size() == 3 && col_cn_name_list_temp[0].size() > 0 && col_cn_name_list_temp[1].size() > 0 &&
-                        col_cn_name_list_temp[2].size() > 0 && col_cn_name_list_temp[0] == col_cn_name_list[0])
-                    {
-                        has_col = true;
-                        break;
-                    }
-                        /** 处理数组特殊情况
-                         * @brief item_id item_num item_id item_num
-                         *        物品1    物x1     物品2    物x2
-                         */
-                    else if (col_en_name_list_temp.size() == 2 && col_en_name_temp != col_en_name && col_en_name_list_temp[0] == col_en_name_list[0]
-                             && col_cn_name_list_temp.size() == 3 && col_cn_name_list_temp[0].size() > 0 && col_cn_name_list_temp[1].size() > 0 &&
-                             col_cn_name_list_temp[2].size() == 0 && col_cn_name_list_temp[0] != col_cn_name_list[0])
-                    {
-                        has_diff = true;
-                        break;
-                    }
-                }
-
-                /** 处理数组特殊情况
-                 * @brief item_id item_num item_id item_num
-                 *        物品1    物品1Num     物品2    物品2Num
-                 */
-                if (has_col)
-                {
-                    std::string struct_en_name = col_en_name_list[0];
-                    std::string struct_en_sub_name = col_en_name_list[1];
-                    std::string struct_cn_name = col_cn_name_list[0];
-                    uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                    std::string struct_cn_sub_name = col_cn_name_list[2];
-
-                    int iRet = HandleColSubMsg(pSheet, col_index, sheet_col, struct_en_name, struct_cn_name, col_type, struct_num,
-                                               struct_en_sub_name, struct_cn_sub_name);
-                    CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
-                               pSheet->m_name, col_en_name, col_cn_name);
-                }
-                    /** 处理数组特殊情况
-                     * @brief item_id item_num item_id item_num
-                     *        物品1    物x1     物品2    物x2
-                     */
-                else if (has_diff)
-                {
-                    std::string struct_en_name = col_en_name_list[0];
-                    std::string struct_en_sub_name = col_en_name_list[1];
-                    std::string struct_cn_name = "$$$$";
-                    uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                    std::string struct_cn_sub_name = col_cn_name_list[0];
-
-                    int iRet = HandleColSubMsg(pSheet, col_index, sheet_col, struct_en_name, struct_cn_name, col_type, struct_num,
-                                               struct_en_sub_name, struct_cn_sub_name);
-                    CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
-                               pSheet->m_name, col_en_name, col_cn_name);
-                }
-                    /** 其余情况
-                     * @brief item_id itemnum
-                     *        物品1    物x1
-                     */
-                else
-                {
-                    uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                    std::string struct_en_name = col_en_name;
-                    std::string struct_cn_name = col_cn_name_list[0];
-                    int iRet = HandleColMsg(pSheet, col_index, sheet_col, struct_en_name, struct_cn_name, col_type, struct_num);
-                    CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
-                               pSheet->m_name, col_en_name, col_cn_name);
-                }
-            }
-            else
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} sub_name:{} cn_name:{} is not right", m_excel, pSheet->m_name, col_en_name,
-                           col_cn_name);
-                return -1;
-            }
-        }
-        else if (col_en_name_list.size() == 1 and col_cn_name_list.size() == 3)
-        {
-            /** 处理特殊情况
-             * @brief itemid itemid
-             *        物品1   物品2
-             */
-            if (col_en_name_list[0].size() > 0
-                && col_cn_name_list[0].size() > 0 && col_cn_name_list[1].size() > 0 && col_cn_name_list[2].size() == 0)
-            {
-                std::string struct_en_name = col_en_name;
-                std::string struct_cn_name = col_cn_name_list[0];
-                uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                int iRet = HandleColMsg(pSheet, col_index, sheet_col, struct_en_name, struct_cn_name, col_type, struct_num);
-                CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
-                           pSheet->m_name, col_en_name, col_cn_name);
-            }
-                /** 处理特殊情况
-                 * @brief itemid itemid
-                 *        物品1ID 物品2ID
-                 */
-            else if (col_en_name_list[0].size() > 0
-                     && col_cn_name_list[0].size() > 0 && col_cn_name_list[1].size() > 0 && col_cn_name_list[2].size() > 0)
-            {
-                std::string struct_en_name = col_en_name_list[0];
-                std::string struct_cn_name = col_cn_name_list[0] + "9999" + col_cn_name_list[2];
-                uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                int iRet = HandleColMsg(pSheet, col_index, sheet_col, struct_en_name, struct_cn_name, col_type, struct_num);
-                CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
-                           pSheet->m_name, col_en_name, col_cn_name);
-            }
-            else
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} sub_name:{} cn_name:{} is not right", m_excel, pSheet->m_name, col_en_name,
-                           col_cn_name);
-                return -1;
-            }
-        }
-        else
-        {
-            std::string struct_en_name = col_en_name;
-            std::string struct_cn_name = col_cn_name;
-            uint32_t struct_num = 0;
-            int iRet = HandleColMsg(pSheet, col_index, sheet_col, struct_en_name, struct_cn_name, col_type, struct_num);
-            CHECK_EXPR(iRet == 0, -1, "excel:{} sheet:{} col_en_name:{} col_cn_name:{} is not right", m_excel,
-                       pSheet->m_name, col_en_name, col_cn_name);
-        }
-    }
-
-    return 0;
-}
-
-int ExcelToProto::HandleColSubMsg(ExcelSheet *pSheet, int col_index, cell_vector &sheet_col, const std::string &struct_en_name,
-                                  const std::string &struct_cn_name, const std::string &col_type, uint32_t struct_num,
-                                  const std::string &struct_en_sub_name, const std::string &struct_cn_sub_name)
-{
-    ExcelSheetColInfo *pColInfo = NULL;
-    if (pSheet->m_colInfoMap.find(struct_en_name) == pSheet->m_colInfoMap.end())
-    {
-        pColInfo = new ExcelSheetColInfo();
-        pColInfo->m_colIndex = col_index;
-        pSheet->m_colInfoVec.emplace(col_index, pColInfo);
-
-        pSheet->m_colInfoMap.emplace(struct_en_name, pColInfo);
-        pColInfo->m_structEnName = struct_en_name;
-        pColInfo->m_structCnName = struct_cn_name;
-        pColInfo->m_colType = col_type;
-        pColInfo->m_maxSubNum = struct_num;
-        pColInfo->m_colTypeStrMaxSize = 32;
-
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{}", pSheet->m_name, pColInfo->m_colIndex,
-                  pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType);
-    }
-    else
-    {
-        pColInfo = pSheet->m_colInfoMap[struct_en_name];
-    }
-
-    if (pColInfo->m_structEnName == struct_en_name && pColInfo->m_structCnName == struct_cn_name)
-    {
-        if (struct_num > pColInfo->m_maxSubNum)
-        {
-            pColInfo->m_maxSubNum = struct_num;
-        }
-
-        ExcelSheetColSubInfo *pSubMsg = NULL;
-        if (pColInfo->m_subInfoMap.find(struct_en_sub_name) == pColInfo->m_subInfoMap.end())
-        {
-            pSubMsg = &pColInfo->m_subInfoMap[struct_en_sub_name];
-            pSubMsg->m_enSubName = struct_en_sub_name;
-            pSubMsg->m_cnSubName = struct_cn_sub_name;
-            pSubMsg->m_colType = col_type;
-            pSubMsg->m_colTypeStrMaxSize = 32;
-            pColInfo->m_maxRowNum = sheet_col.length();
-
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0,
-                      "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{} --- sub_col_info sub_en_name:{} sub_cn_name:{}",
-                      pSheet->m_name, pColInfo->m_colIndex,
-                      pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType, pSubMsg->m_enSubName, pSubMsg->m_cnSubName);
-        }
-        else
-        {
-            pSubMsg = &pColInfo->m_subInfoMap[struct_en_sub_name];
-            CHECK_EXPR(pSubMsg->m_cnSubName == struct_cn_sub_name, -1, "excel:{} sheet:{} struct_en_name:{} struct_cn_name:{} is not right", m_excel,
-                       pSheet->m_name, struct_en_name, struct_cn_name);
-        }
-
-        HandleColOtherInfo(col_index, sheet_col, col_type, pColInfo->m_colUniqueKeys, pColInfo->m_colUniqueListKeys, pSubMsg->m_colTypeStrMaxSize);
     }
 
     return 0;
@@ -1247,7 +755,7 @@ int ExcelToProto::HandleColSubMsg(ExcelSheet *pSheet, int col_index, MiniExcelRe
         pColInfo = pSheet->m_colInfoMap[struct_en_name];
     }
 
-    if (pColInfo->m_structEnName == struct_en_name && pColInfo->m_structCnName == struct_cn_name)
+    if (pColInfo->m_structEnName == struct_en_name)
     {
         if (struct_num > pColInfo->m_maxSubNum)
         {
@@ -1276,45 +784,10 @@ int ExcelToProto::HandleColSubMsg(ExcelSheet *pSheet, int col_index, MiniExcelRe
                        pSheet->m_name, struct_en_name, struct_cn_name);
         }
 
-        HandleColOtherInfo(col_index, sheet, col_type, pColInfo->m_colUniqueKeys, pColInfo->m_colUniqueListKeys, pSubMsg->m_colTypeStrMaxSize);
-    }
-
-    return 0;
-}
-
-int ExcelToProto::HandleColMsg(ExcelSheet *pSheet, int col_index, cell_vector &sheet_col, const std::string &struct_en_name,
-                               const std::string &struct_cn_name, const std::string &col_type, uint32_t struct_num)
-{
-    ExcelSheetColInfo *pColInfo = NULL;
-    if (pSheet->m_colInfoMap.find(struct_en_name) == pSheet->m_colInfoMap.end())
-    {
-        pColInfo = new ExcelSheetColInfo();
-        pColInfo->m_colIndex = col_index;
-        pSheet->m_colInfoVec.emplace(col_index, pColInfo);
-
-        pSheet->m_colInfoMap.emplace(struct_en_name, pColInfo);
-        pColInfo->m_structEnName = struct_en_name;
-        pColInfo->m_structCnName = struct_cn_name;
-        pColInfo->m_colType = col_type;
-        pColInfo->m_maxSubNum = struct_num;
-        pColInfo->m_maxRowNum = sheet_col.length();
-
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{}", pSheet->m_name, pColInfo->m_colIndex,
-                  pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType);
-    }
-    else
-    {
-        pColInfo = pSheet->m_colInfoMap[struct_en_name];
-    }
-
-    if (pColInfo->m_structEnName == struct_en_name && pColInfo->m_structCnName == struct_cn_name)
-    {
-        if (struct_num > pColInfo->m_maxSubNum)
+        if (col_type == "string")
         {
-            pColInfo->m_maxSubNum = struct_num;
+            HandleColOtherInfo(col_index, sheet, col_type, pColInfo->m_colUniqueKeys, pColInfo->m_colUniqueListKeys, pSubMsg->m_colTypeStrMaxSize);
         }
-
-        HandleColOtherInfo(col_index, sheet_col, col_type, pColInfo->m_colUniqueKeys, pColInfo->m_colUniqueListKeys, pColInfo->m_colTypeStrMaxSize);
     }
 
     return 0;
@@ -1345,7 +818,7 @@ int ExcelToProto::HandleColMsg(ExcelSheet *pSheet, int col_index, MiniExcelReade
         pColInfo = pSheet->m_colInfoMap[struct_en_name];
     }
 
-    if (pColInfo->m_structEnName == struct_en_name && pColInfo->m_structCnName == struct_cn_name)
+    if (pColInfo->m_structEnName == struct_en_name)
     {
         if (struct_num > pColInfo->m_maxSubNum)
         {
@@ -1356,34 +829,6 @@ int ExcelToProto::HandleColMsg(ExcelSheet *pSheet, int col_index, MiniExcelReade
     }
 
     return 0;
-}
-
-void ExcelToProto::HandleColOtherInfo(int col_index, cell_vector &col, const std::string &colType, uint32_t &uniqueKeysNum, uint32_t &uniqueKeysListNum,
-                                      uint32_t &maxSize)
-{
-    std::unordered_map<std::string, uint32_t> map;
-    for (int i = 4; i < (int) col.length(); i++)
-    {
-        std::string str = col[i].to_string();
-        NFStringUtility::Trim(str);
-        map[str]++;
-        if (colType == "string")
-        {
-            if (str.size() > maxSize)
-            {
-                maxSize = str.size();
-            }
-        }
-    }
-
-    uniqueKeysNum = map.size();
-    for (auto iter = map.begin(); iter != map.end(); iter++)
-    {
-        if (iter->second > uniqueKeysListNum)
-        {
-            uniqueKeysListNum = iter->second;
-        }
-    }
 }
 
 void ExcelToProto::HandleColOtherInfo(int col_index, MiniExcelReader::Sheet& sheet, const std::string &colType, uint32_t &uniqueKeysNum, uint32_t &uniqueKeysListNum,
