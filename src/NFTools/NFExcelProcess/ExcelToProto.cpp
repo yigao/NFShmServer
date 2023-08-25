@@ -810,8 +810,8 @@ int ExcelToProto::HandleColMsg(ExcelSheet *pSheet, int col_index, MiniExcelReade
         pColInfo->m_maxSubNum = struct_num;
         pColInfo->m_maxRowNum = sheet.rows();
 
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{}", pSheet->m_name, pColInfo->m_colIndex,
-                  pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType);
+/*        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{}", pSheet->m_name, pColInfo->m_colIndex,
+                  pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType);*/
     }
     else
     {

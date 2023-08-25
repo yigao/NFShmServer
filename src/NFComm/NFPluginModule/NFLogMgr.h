@@ -13,6 +13,7 @@
 #include "common/spdlog/fmt/fmt.h"
 #include "NFILogModule.h"
 #include "NFComm/NFCore/NFSnprintf.h"
+#include "NFComm/NFCore/NFTime.h"
 
 class NFLogMgr : public NFSingleton<NFLogMgr>
 {
@@ -49,11 +50,20 @@ public:
         {
             try {
                 std::string str = fmt::format(my_fmt, args...);
-                std::cout << str << std::endl;
+
+                str = fmt::format("[INFO | {}] | [{}:{}:{}] | [SystemLog:0] | {}", NFTime::Now().GetFormatDate(), loc.filename, loc.line, loc.funcname, str);
+                if (log_level >= NLL_ERROR_NORMAL)
+                {
+                    std::cerr << str << std::endl;
+                }
+                else {
+                    std::cout << str << std::endl;
+                }
             }
             catch (fmt::v5::format_error& error) {
                 std::string str = fmt::format("log format error------------{} error:{}", my_fmt, error.what());\
-                std::cout << str << std::endl;
+                str = fmt::format("[INFO | {}] | [{}:{}:{}] | [SystemLog:0] | {}", NFTime::Now().GetFormatDate(), loc.filename, loc.line, loc.funcname, str);
+                std::cerr << str << std::endl;
             }
         }
 	}
