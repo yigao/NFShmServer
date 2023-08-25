@@ -129,14 +129,20 @@ namespace MiniExcelReader {
 		_cells.clear();
 	}
 
+    /**
+     * @brief 对外使用, 从0开始 for(int row = 0; row < rows(); i++)
+     * @param row
+     * @param col
+     * @return
+     */
 	Cell* Sheet::getCell(int row, int col)
 	{
-		if (row < _dimension.firstRow || row > _dimension.lastRow)
+		if (row+1 < _dimension.firstRow || row+1 > _dimension.lastRow)
 			return nullptr;
-		if (col < _dimension.firstCol || col > _dimension.lastCol)
+		if (col+1 < _dimension.firstCol || col+1 > _dimension.lastCol)
 			return nullptr;
 
-		return _cells[toIndex(row, col)];
+		return _cells[toIndex(row+1, col+1)];
 	}
 
 
@@ -265,15 +271,17 @@ namespace MiniExcelReader {
 	void ExcelFile::parseRange(const std::string& value, Range& range)
 	{
 		size_t index = value.find_first_of(':');
+        range.firstRow = 1;
+        range.firstCol = 1;
 
 		if (index != std::string::npos)
 		{
-			parseCell(value.substr(0, index), range.firstRow, range.firstCol);
+			//parseCell(value.substr(0, index), range.firstRow, range.firstCol);
 			parseCell(value.substr(index + 1), range.lastRow, range.lastCol);
 		}
 		else
 		{
-			parseCell(value, range.firstRow, range.firstCol);
+			//parseCell(value, range.firstRow, range.firstCol);
 			range.lastCol = range.firstCol;
 			range.lastRow = range.firstRow;
 		}
@@ -298,7 +306,10 @@ namespace MiniExcelReader {
 		int vecsize = (sh._dimension.lastCol - sh._dimension.firstCol + 1) * (sh._dimension.lastRow - sh._dimension.firstRow + 1);
 
 		sh._cells.resize(vecsize);
-
+        for(int i = 0; i < (int)sh._cells.size(); i++)
+        {
+            sh._cells[i] = new Cell;
+        }
 
 		while (row)
 		{
@@ -325,28 +336,23 @@ namespace MiniExcelReader {
 						t = c->first_attribute("t")->value();
 						if (!strcmp(t, "s"))
 						{
-							cell->value = (char*)_sharedString[atoi(s)].c_str();
-							cell->type = "string";
+							cell->mValue = (char*)_sharedString[atoi(s)].c_str();
 						}
-						else if (!strcmp(t, "b"))
+						else
 						{
-							if (!strcmp(s, "0"))
-							{
-								cell->value = "FALSE";
-							}
-							else
-							{
-								cell->value = "TRUE";
-							}
-							cell->type = "bool";
+                            cell->mValue = (char*)s;
 						}
 					}
 					else
 					{
-						cell->type = "unknow";
-						cell->value = (char*)s;
+						cell->mValue = (char*)s;
 					}
 				}
+                if (sh._cells[index])
+                {
+                   delete sh._cells[index];
+                    sh._cells[index] = NULL;
+                }
 				sh._cells[index] = cell;
 				c = c->next_sibling("c");
 			}
@@ -391,5 +397,16 @@ namespace MiniExcelReader {
 
 		return nullptr;
 	}
+
+    Sheet* ExcelFile::getSheet(const std::string& name)
+    {
+        for (Sheet& sh : _sheets)
+        {
+            if (sh._name == name)
+                return &sh;
+        }
+
+        return nullptr;
+    }
 
 }

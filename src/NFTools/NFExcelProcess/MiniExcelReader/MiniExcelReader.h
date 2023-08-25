@@ -7,12 +7,21 @@
 #include "common/RapidXML/rapidxml_iterators.hpp"
 #include "common/RapidXML/rapidxml_print.hpp"
 #include "common/RapidXML/rapidxml_utils.hpp"
+#include "NFComm/NFCore/NFCommon.h"
+
 namespace MiniExcelReader
 {
     struct Cell
     {
-        std::string value;
-        std::string type;
+        std::string mValue;
+
+        template<typename T>
+        T value()
+        {
+            return NFCommon::strto<T>(mValue);
+        }
+
+        const std::string& to_string() { return mValue; }
     };
 
     struct Range
@@ -21,6 +30,9 @@ namespace MiniExcelReader
         int lastRow;
         int firstCol;
         int lastCol;
+
+        int rows() { return lastRow - firstRow + 1; }
+        int cols() { return lastCol - firstRow + 1; }
     };
 
     class Sheet
@@ -30,7 +42,11 @@ namespace MiniExcelReader
 
         bool visible() { return _visible; }
         const std::string& getName() { return _name; }
+        const std::string& title() { return _name; }
         Range& getDimension() { return _dimension; }
+        int rows() { return _dimension.rows(); }
+        int cols() { return _dimension.cols(); }
+
 
         Cell* getCell(int row, int col);
     private:
@@ -58,6 +74,7 @@ namespace MiniExcelReader
         bool open(const char* filename);
 
         Sheet* getSheet(const char* name);
+        Sheet* getSheet(const std::string& name);
         std::vector<Sheet>& sheets() { return _sheets; }
 
     private:

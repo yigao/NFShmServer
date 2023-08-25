@@ -11,6 +11,7 @@
 
 #include "Common.h"
 #include "NFComm/NFCore/NFSingleton.hpp"
+#include "MiniExcelReader.h"
 
 struct ExcelRelation
 {
@@ -80,7 +81,7 @@ struct ExcelSheetColInfo
         m_colTypeStrMaxSize = 32;
         m_maxSubNum = 0;
         m_colUniqueKeys = 0;
-        m_maxColNum = 0;
+        m_maxRowNum = 0;
         m_colUniqueListKeys = 0;
     }
 
@@ -92,15 +93,21 @@ struct ExcelSheetColInfo
     uint32_t m_colTypeStrMaxSize;
     uint32_t m_colUniqueKeys;
     uint32_t m_colUniqueListKeys;
-    uint32_t m_maxColNum;
+    uint32_t m_maxRowNum;
 
     std::unordered_map<std::string, ExcelSheetColSubInfo> m_subInfoMap;
 };
 
 struct ExcelSheet
 {
+    ExcelSheet()
+    {
+        m_rows = 0;
+    }
+
     std::string m_name;
-    worksheet m_sheet;
+    uint32_t m_rows;
+    //worksheet m_sheet;
     std::map<uint32_t, ExcelSheetColInfo*> m_colInfoVec;
     std::map<std::string, ExcelSheetColInfo *> m_colInfoMap;
 
@@ -120,17 +127,25 @@ public:
 public:
     int HandleSheetList();
     int HandleSheetList(worksheet sheet);
+    int HandleSheetList(MiniExcelReader::Sheet& sheet);
 public:
     int HandleSheetWork();
     int HandleSheetWork(worksheet sheet);
+    int HandleSheetWork(MiniExcelReader::Sheet& sheet);
     int HandleSheetIndex();
 public:
-    void HandleColOtherInfo(cell_vector &col, const std::string& colType, uint32_t& uniqueKeysNum, uint32_t& uniqueKeysListNum, uint32_t &maxSize);
+    void HandleColOtherInfo(int col_index, cell_vector &col, const std::string& colType, uint32_t& uniqueKeysNum, uint32_t& uniqueKeysListNum, uint32_t &maxSize);
     int HandleColSubMsg(ExcelSheet *pSheet, int col_index, cell_vector &sheet_col, const std::string &struct_en_name,
                                       const std::string &struct_cn_name, const std::string &col_type, uint32_t struct_num,
                                       const std::string &struct_en_sub_name, const std::string &struct_cn_sub_name);
     int HandleColMsg(ExcelSheet *pSheet, int col_index, cell_vector &sheet_col, const std::string &struct_en_name,
                         const std::string &struct_cn_name, const std::string &col_type, uint32_t struct_num);
+    void HandleColOtherInfo(int col_index, MiniExcelReader::Sheet& sheet, const std::string& colType, uint32_t& uniqueKeysNum, uint32_t& uniqueKeysListNum, uint32_t &maxSize);
+    int HandleColSubMsg(ExcelSheet *pSheet, int col_index, MiniExcelReader::Sheet& sheet, const std::string &struct_en_name,
+                        const std::string &struct_cn_name, const std::string &col_type, uint32_t struct_num,
+                        const std::string &struct_en_sub_name, const std::string &struct_cn_sub_name);
+    int HandleColMsg(ExcelSheet *pSheet, int col_index, MiniExcelReader::Sheet& sheet, const std::string &struct_en_name,
+                     const std::string &struct_cn_name, const std::string &col_type, uint32_t struct_num);
 public:
     void WriteExcelProto();
     void WriteSheetProto(ExcelSheet* pSheet, std::string& write_str);
@@ -146,6 +161,7 @@ public:
     std::string m_excel;
     std::string m_excelName;
     std::unordered_map<std::string, ExcelSheet> m_sheets;
+    MiniExcelReader::ExcelFile* m_excelReader;
     workbook m_workbook;
 };
 
