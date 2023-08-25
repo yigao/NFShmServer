@@ -67,11 +67,7 @@
       <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/excelmmo_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/excelmmo_gen.makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/MiniExcelReader/MiniExcelReader.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/MiniExcelReader/MiniExcelReader.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/MiniExcelReader/MiniExcelReader.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/MiniExcelReader/MiniExcelReader.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -421,14 +417,7 @@
       <workItem from="1692429898514" duration="2417000" />
       <workItem from="1692448207697" duration="11969000" />
       <workItem from="1692580636970" duration="98271000" />
-      <workItem from="1692862216294" duration="16562000" />
-    </task>
-    <task id="LOCAL-00050" summary="fish room">
-      <created>1690600980457</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1690600980457</updated>
+      <workItem from="1692862216294" duration="17327000" />
     </task>
     <task id="LOCAL-00051" summary="fish room">
       <created>1690614529178</created>
@@ -766,7 +755,14 @@
       <option name="project" value="LOCAL" />
       <updated>1692840650827</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="xls">
+      <created>1692953107954</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1692953107954</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -38,19 +38,19 @@ add_definitions(
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRC} ${NFFileProcess_minizip_C} ${NFFileProcess_zlib_C} )
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt  pthread libprotobuf.a libxlnt.a)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt  pthread libprotobuf.a)
 	SET_TARGET_PROPERTIES(${PROJECT_NAME}
 		PROPERTIES 
 		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Release"
 	)
 elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a libxlnt.a)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	SET_TARGET_PROPERTIES(${PROJECT_NAME}
 		PROPERTIES 
 		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Debug"
 	)
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a libxlnt.a)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	message("CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}")
 
 	SET_TARGET_PROPERTIES(${PROJECT_NAME}
@@ -59,7 +59,7 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	)
 
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a libxlnt.a)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	#TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
 	SET_TARGET_PROPERTIES(${PROJECT_NAME} 
