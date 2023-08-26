@@ -930,7 +930,7 @@ void NFProtobufCommon::GetDBMessageFromMapFields(const std::map<std::string, std
     }
 }
 
-void NFProtobufCommon::GetMessageFromMapFields(const std::map<std::string, std::string> &result, google::protobuf::Message *pMessageObject)
+void NFProtobufCommon::GetMessageFromMapFields(const std::unordered_map<std::string, std::string> &result, google::protobuf::Message *pMessageObject)
 {
     if (pMessageObject == NULL) return;
     /* message AttrValue

@@ -50,30 +50,21 @@
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/Fish/Data/E_ConstantConstant.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/Fish/Data/E_ConstantConstant.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreDefine.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreHead.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreHead.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreRegister.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreRegister.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/Fish_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/Fish_gen.makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/constant.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/constant.proto" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/constant_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/constant_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant.pb.cc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant_s.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/excelmmo_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/excelmmo_gen.makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFStringUtility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFStringUtility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelParse.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelParse.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToBin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToBin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToBin.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToBin.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/filecopy.py" beforeDir="false" afterPath="$PROJECT_DIR$/tools/excel_2_bin/filecopy.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -364,14 +355,7 @@
       <workItem from="1692448207697" duration="11969000" />
       <workItem from="1692580636970" duration="98271000" />
       <workItem from="1692862216294" duration="22469000" />
-      <workItem from="1693011648865" duration="27774000" />
-    </task>
-    <task id="LOCAL-00055" summary="fish room">
-      <created>1690768055940</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1690768055940</updated>
+      <workItem from="1693011648865" duration="30554000" />
     </task>
     <task id="LOCAL-00056" summary="fish room">
       <created>1690943305934</created>
@@ -709,7 +693,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693035522437</updated>
     </task>
-    <option name="localTasksCounter" value="104" />
+    <task id="LOCAL-00104" summary="xls">
+      <created>1693042057440</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1693042057440</updated>
+    </task>
+    <option name="localTasksCounter" value="105" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

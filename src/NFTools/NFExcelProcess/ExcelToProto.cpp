@@ -1124,7 +1124,7 @@ void ExcelToProto::WriteMakeFile()
     std::string makefile_file;
     makefile_file += "include ./define.makefile\n\n";
     makefile_file += ".PHONY:all\n\n";
-    makefile_file += "all:";
+    makefile_file += "all:module";
 
 
     std::string str;
@@ -1146,7 +1146,7 @@ void ExcelToProto::WriteMakeFile()
 
     makefile_file += "\n\n";
 
-    makefile_file += str + ":${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
+    makefile_file += "module:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
     makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
     makefile_file += "\t${NFEXCELPROCESS} --work=\"exceltobin\" --src=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" +
                      m_excelName + ".proto.ds --dst=${PROTOCGEN_FILE_PATH}/;\n";

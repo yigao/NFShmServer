@@ -130,7 +130,7 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
 {
     MiniExcelReader::Sheet *pExcelSheet = m_excelReader->getSheet(sheet.m_name);
     CHECK_EXPR(pExcelSheet, -1, "excel:{} Can't find sheet:{} data", m_excel, sheet.m_name);
-    std::map<std::string, std::string> m_mapFields;
+    std::unordered_map<std::string, std::string> m_mapFields;
     for (auto iter = sheet.m_allColInfoList.begin(); iter != sheet.m_allColInfoList.end(); iter++)
     {
         int col = iter->first;
