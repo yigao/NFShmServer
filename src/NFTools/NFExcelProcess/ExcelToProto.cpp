@@ -35,7 +35,8 @@ int ExcelToProto::HandleExcel()
     return iRet;
 }
 
-void ExcelToProto::HandleColOtherInfo(int col_index, MiniExcelReader::Sheet& sheet, const std::string &colType, uint32_t &uniqueKeysNum, uint32_t &uniqueKeysListNum,
+void ExcelToProto::HandleColOtherInfo(int col_index, MiniExcelReader::Sheet &sheet, const std::string &colType, uint32_t &uniqueKeysNum,
+                                      uint32_t &uniqueKeysListNum,
                                       uint32_t &maxSize)
 {
     std::unordered_map<std::string, uint32_t> map;
@@ -62,7 +63,6 @@ void ExcelToProto::HandleColOtherInfo(int col_index, MiniExcelReader::Sheet& she
         }
     }
 }
-
 
 
 void ExcelToProto::WriteExcelProto()
@@ -769,7 +769,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             if (iter->second.m_myColSubName.empty())
             {
                 CHECK_EXPR_ASSERT(pSheet->m_colInfoMap.find(iter->second.m_myColName) != pSheet->m_colInfoMap.end(), , "");
-                ExcelSheetColInfo* pColInfo = pSheet->m_colInfoMap[iter->second.m_myColName];
+                ExcelSheetColInfo *pColInfo = pSheet->m_colInfoMap[iter->second.m_myColName];
                 if (pColInfo->m_maxSubNum == 0)
                 {
                     desc_file +=
@@ -804,10 +804,13 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                         "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
                         NFStringUtility::Capitalize(iter->second.m_sheetName) +
                         "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                        "[j].m_" +NFStringUtility::Lower(iter->second.m_myColSubName) + "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + "_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ":{} in the Excel:" +
+                        "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + "), result, \"can't find the " +
+                        NFStringUtility::Lower(iter->second.m_myColName) + "_" + NFStringUtility::Lower(iter->second.m_myColSubName) +
+                        ":{} in the Excel:" +
                         NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
                         NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                        "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ");\n";
+                        "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
+                        NFStringUtility::Lower(iter->second.m_myColSubName) + ");\n";
                 desc_file += "\t\t}\n";
             }
         }
@@ -1124,12 +1127,14 @@ void ExcelToProto::WriteMakeFile()
     std::string makefile_file;
     makefile_file += "include ./define.makefile\n\n";
     makefile_file += ".PHONY:all\n\n";
-    makefile_file += "all:module\n\n";
+    makefile_file += "all:${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin\n\n";
 
-    makefile_file += "module:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
+    makefile_file += "${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
     makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
-    makefile_file += "\t${NFEXCELPROCESS} --work=\"exceltobin\" --src=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" +
-                     m_excelName + ".proto.ds --dst=${PROTOCGEN_FILE_PATH}/;\n";
+    makefile_file += "\trm -rf ${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin\n";
+    makefile_file +=
+            "\t${NFEXCELPROCESS} --work=\"exceltobin\" --src=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" +
+            m_excelName + ".proto.ds --dst=${PROTOCGEN_FILE_PATH}/;\n";
 
     std::vector<MiniExcelReader::Sheet> &sheets = m_excelReader->sheets();
     for (MiniExcelReader::Sheet &sheet: sheets)
@@ -1147,6 +1152,7 @@ void ExcelToProto::WriteMakeFile()
                              "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n";
         }
     }
+    makefile_file += "\ttouch ${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin\n";
 
     NFFileUtility::WriteFile(sheet_makefile_name, makefile_file);
 }

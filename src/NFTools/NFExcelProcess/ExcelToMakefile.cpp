@@ -11,17 +11,22 @@
 
 void WriteMakeFile(std::string& excelmmo_gen, std::string& resmetas_gen, const std::string& file)
 {
-    excelmmo_gen += file+"_xlsx:${RESDB_EXCELMMO_PATH}/" + file + ".xlsx\n";
+    excelmmo_gen += "${PROTOCGEN_FILE_PATH}/" + file +"_xlsx_finish:${RESDB_EXCELMMO_PATH}/" + file + ".xlsx\n";
     excelmmo_gen += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
+    excelmmo_gen += "\trm -rf ${PROTOCGEN_FILE_PATH}/" + file + "_xlsx_finish\n";
     excelmmo_gen += "\t${NFEXCELPROCESS} --work=\"exceltoproto\" --src=$^ --dst=${PROTOCGEN_FILE_PATH}/\n";
     excelmmo_gen += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + file + ".proto ${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile\" --dst=${RESDB_META_PATH}/\n";
+    excelmmo_gen += "\ttouch ${PROTOCGEN_FILE_PATH}/" + file + "_xlsx_finish\n";
     excelmmo_gen += "\n\n";
 
-    resmetas_gen += file+"_proto:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/" + file + ".proto\n";
+    resmetas_gen += "${PROTOCGEN_FILE_PATH}/" + file+"_proto_finish:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/" + file + ".proto\n";
     resmetas_gen += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
+    resmetas_gen += "\trm -rf ${PROTOCGEN_FILE_PATH}/" + file + "_proto_finish\n";
     resmetas_gen += "\t${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --cpp_out=${PROTOCGEN_FILE_PATH}\n";
     resmetas_gen += "\t${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --proto_fname=" + file + ".proto --out_path=${PROTOCGEN_FILE_PATH}/;\n";
     resmetas_gen += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + file + ".pb.h ${PROTOCGEN_FILE_PATH}/" + file + ".pb.cc ${PROTOCGEN_FILE_PATH}/" + file + "_s.h ${PROTOCGEN_FILE_PATH}/" + file + "_s.cpp \" --dst=${NEW_PROTOCGEN_FILE_PATH}/\n";
+    resmetas_gen += "\ttouch ${PROTOCGEN_FILE_PATH}/" + file + "_proto_finish\n";
+    resmetas_gen += "\n\n";
 }
 
 void ExcelToMakeFile(const std::vector<std::string>& vecStr, const std::string& dst)
@@ -37,7 +42,7 @@ void ExcelToMakeFile(const std::vector<std::string>& vecStr, const std::string& 
     {
         if (vecStr[i].empty()) continue;
 
-       excelmmo_gen += vecStr[i] + "_xlsx ";
+       excelmmo_gen += "${PROTOCGEN_FILE_PATH}/" + vecStr[i] + "_xlsx_finish ";
     }
     excelmmo_gen += "\n\n";
 
@@ -48,7 +53,7 @@ void ExcelToMakeFile(const std::vector<std::string>& vecStr, const std::string& 
     {
         if (vecStr[i].empty()) continue;
 
-       resmetas_gen += vecStr[i] + "_proto ";
+       resmetas_gen += "${PROTOCGEN_FILE_PATH}/" + vecStr[i] + "_proto_finish ";
     }
     resmetas_gen += "\n\n";
 
