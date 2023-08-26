@@ -11,13 +11,13 @@
 
 void WriteMakeFile(std::string& excelmmo_gen, std::string& resmetas_gen, const std::string& file)
 {
-    excelmmo_gen += "${PROTOCGEN_FILE_PATH}/" + file + ".proto ${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile:${RESDB_EXCELMMO_PATH}/" + file + ".xlsx\n";
+    excelmmo_gen += file+"_xlsx:${RESDB_EXCELMMO_PATH}/" + file + ".xlsx\n";
     excelmmo_gen += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
     excelmmo_gen += "\t${NFEXCELPROCESS} --work=\"exceltoproto\" --src=$^ --dst=${PROTOCGEN_FILE_PATH}/\n";
     excelmmo_gen += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + file + ".proto ${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile\" --dst=${RESDB_META_PATH}/\n";
     excelmmo_gen += "\n\n";
 
-    resmetas_gen += "${PROTOCGEN_FILE_PATH}/" + file + ".pb.h ${PROTOCGEN_FILE_PATH}/" + file + ".pb.cc ${PROTOCGEN_FILE_PATH}/" + file + "_s.h ${PROTOCGEN_FILE_PATH}/" + file + "_s.cpp ${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/" + file + ".proto\n";
+    resmetas_gen += file+"_proto:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/" + file + ".proto\n";
     resmetas_gen += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
     resmetas_gen += "\t${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --cpp_out=${PROTOCGEN_FILE_PATH}\n";
     resmetas_gen += "\t${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --proto_fname=" + file + ".proto --out_path=${PROTOCGEN_FILE_PATH}/;\n";
@@ -32,18 +32,30 @@ void ExcelToMakeFile(const std::vector<std::string>& vecStr, const std::string& 
 
     excelmmo_gen += "include ./define.makefile\n\n";
     excelmmo_gen += ".PHONY:all\n\n";
-    excelmmo_gen += "all:${RESDB_BIN_FILE}\n\n";
+    excelmmo_gen += "all:";
+    for(int i = 0; i < (int)vecStr.size(); i++)
+    {
+        if (vecStr[i].empty()) continue;
+
+       excelmmo_gen += vecStr[i] + "_xlsx ";
+    }
+    excelmmo_gen += "\n\n";
 
     resmetas_gen += "include ./define.makefile\n\n";
     resmetas_gen += ".PHONY:all\n\n";
-    resmetas_gen += "all:${RESDB_DESC_H} ${RESDB_DESC_CPP} ${RESDB_DESC_STRUCT_H} ${RESDB_DESC_STRUCT_CPP}\n\n";
+    resmetas_gen += "all:";
+    for(int i = 0; i < (int)vecStr.size(); i++)
+    {
+        if (vecStr[i].empty()) continue;
+
+       resmetas_gen += vecStr[i] + "_proto ";
+    }
+    resmetas_gen += "\n\n";
 
     for(int i = 0; i < (int)vecStr.size(); i++)
     {
         if (vecStr[i].empty()) continue;
         WriteMakeFile(excelmmo_gen, resmetas_gen, vecStr[i]);
-
-
     }
 
     if (NFFileUtility::IsDir(dst))

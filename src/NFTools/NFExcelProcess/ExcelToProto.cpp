@@ -1124,10 +1124,13 @@ void ExcelToProto::WriteMakeFile()
     std::string makefile_file;
     makefile_file += "include ./define.makefile\n\n";
     makefile_file += ".PHONY:all\n\n";
-    makefile_file += "all:module";
+    makefile_file += "all:module\n\n";
 
+    makefile_file += "module:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
+    makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
+    makefile_file += "\t${NFEXCELPROCESS} --work=\"exceltobin\" --src=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" +
+                     m_excelName + ".proto.ds --dst=${PROTOCGEN_FILE_PATH}/;\n";
 
-    std::string str;
     std::vector<MiniExcelReader::Sheet> &sheets = m_excelReader->sheets();
     for (MiniExcelReader::Sheet &sheet: sheets)
     {
@@ -1135,35 +1138,13 @@ void ExcelToProto::WriteMakeFile()
         {
             ExcelSheet *pSheet = &m_sheets[sheet.title()];
             std::string sheet_name = pSheet->m_name;
-            str +=
-                    "${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ".bin " +
-                    "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h " +
-                    "${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.cpp ";
-        }
-    }
 
-    makefile_file += str;
-
-    makefile_file += "\n\n";
-
-    makefile_file += "module:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
-    makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
-    makefile_file += "\t${NFEXCELPROCESS} --work=\"exceltobin\" --src=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" +
-                     m_excelName + ".proto.ds --dst=${PROTOCGEN_FILE_PATH}/;\n";
-
-    for (MiniExcelReader::Sheet &sheet: sheets)
-    {
-        if (m_sheets.find(sheet.title()) != m_sheets.end() && m_sheets[sheet.title()].m_colInfoMap.size() > 0)
-        {
-            ExcelSheet *pSheet = &m_sheets[sheet.title()];
-            std::string sheet_name = pSheet->m_name;
-
-/*            makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) +
+            makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/E_" + NFStringUtility::Capitalize(m_excelName) +
                              NFStringUtility::Capitalize(sheet_name) + ".bin" + "\" --dst=${GAME_DATA_PATH}/\n";
             makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) +
                              NFStringUtility::Capitalize(sheet_name) + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" +
                              NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
-                             "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n";*/
+                             "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n";
         }
     }
 

@@ -7,7 +7,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/constant_s.h"
 
-#define MAX_CONSTANT_CONSTANT_NUM 512
+#define MAX_CONSTANT_CONSTANT_NUM 8
 
 class ConstantConstantDesc : public NFIDescStore
 {
