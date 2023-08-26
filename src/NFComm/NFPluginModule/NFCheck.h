@@ -288,7 +288,24 @@
             }                                \
         }\
     }while(0)
-#endif//CHECK_EXPR_NOT_RET
+#endif//CHECK_EXPR_MSG
+
+#ifndef CHECK_EXPR_MSG_RESULT
+#define CHECK_EXPR_MSG_RESULT(expr, result, format, ...)\
+    do {\
+        if (unlikely(!(expr)))\
+        {\
+           result = -1;\
+           try {\
+                std::string log_event = NF_FORMAT(format, ##__VA_ARGS__);\
+			    NFLogError(NF_LOG_SYSTEMLOG, 0, "CHECK {} failed:{}", #expr, log_event);\
+            }\
+            catch (fmt::v5::format_error& error) {\
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "{}", error.what());\
+            }                                \
+        }\
+    }while(0)
+#endif//CHECK_EXPR_MSG_RESULT
 
 #ifndef CHECK_EXPR_ASSERT
 #define CHECK_EXPR_ASSERT(expr, ret, format, ...)\

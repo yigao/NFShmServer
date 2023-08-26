@@ -242,7 +242,7 @@ int NFGameRoom::UpdateUserInfo(int32_t deskId, uint64_t playerId, const proto_ff
     auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
     CHECK_NULL(roomConfig);
 
-    if (roomConfig->m_is_exp_scene > 0)
+    if (roomConfig->m_isexpscene > 0)
     {
         return 0;
     }
@@ -484,25 +484,25 @@ int NFGameRoom::EnterGame(uint64_t playerId, int deskId, int chairId, proto_ff_s
     auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
     CHECK_NULL(roomConfig);
 
-    if (roomConfig->m_enter_min > 0)
+    if (roomConfig->m_entermin > 0)
     {
-        if (playerDetail.cur_money < roomConfig->m_enter_min)
+        if (playerDetail.cur_money < roomConfig->m_entermin)
         {
             return proto_ff::ERR_CODE_USER_MONEY_NOT_ENOUGH;
         }
     }
 
-    if (roomConfig->m_enter_max > 0)
+    if (roomConfig->m_entermax > 0)
     {
-        if (playerDetail.cur_money > roomConfig->m_enter_max)
+        if (playerDetail.cur_money > roomConfig->m_entermax)
         {
             return proto_ff::ERR_CODE_USER_MONEY_TOO_MUCH;
         }
     }
 
-    if (roomConfig->m_is_exp_scene > 0)
+    if (roomConfig->m_isexpscene > 0)
     {
-        playerDetail.cur_money = roomConfig->m_exp_scene_gold;
+        playerDetail.cur_money = roomConfig->m_expscenegold;
     }
 
     NFGameDesk *pDesk = GetGameDesk(deskId);

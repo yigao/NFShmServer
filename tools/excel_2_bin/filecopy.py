@@ -65,16 +65,16 @@ if __name__ == "__main__":
 				if os.path.exists(out_file):
 					if filecmp.cmp(src_file, out_file) == False:
 						shutil.copyfile(src_file, out_file)
-						print "dst file %s diff %s, need copy" % (out_file, src_file)
-					else:
-						print "dst file %s same %s, don't need copy" % (out_file, src_file)
+						#print "dst file %s diff %s, need copy" % (out_file, src_file)
+					#else:
+						#print "dst file %s same %s, don't need copy" % (out_file, src_file)
 				else:
 					shutil.copyfile(src_file, out_file)
-					print "%s not exist, copy %s" % (out_file, src_file)
-			elif len(src_file) > 0:
-				print "%s not exist, not copy" % (src_file)
+					#print "%s not exist, copy %s" % (out_file, src_file)
+			#elif len(src_file) > 0:
+				#print "%s not exist, not copy" % (src_file)
 	except:
 		print "\033[1;31;40m some error \033[0m"
 		sys.exit(-1)
 
-	print "Success Handle all file copy"
+	#print "Success Handle all file copy"

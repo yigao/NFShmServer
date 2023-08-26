@@ -18,6 +18,7 @@
 #include "NFComm/NFCore/NFMutex.h"
 #include <vector>
 #include <map>
+#include <unordered_map>
 
 #define DEFINE_DEFAULT_PROTO_PACKAGE "proto_ff"
 #define DEFINE_DEFAULT_PROTO_PACKAGE_ADD "proto_ff."
@@ -88,8 +89,11 @@ public:
     GetMapFieldsFromMessage(const google::protobuf::Message &message, std::map<std::string, std::string> &keyMap,
                             std::map<std::string, std::string> &kevValueMap, bool ignore_special_repeted = true);
 
-    static void GetMessageFromMapFields(const std::map<std::string, std::string> &result,
-                                        google::protobuf::Message *pMessageObject);
+    static void GetDBMessageFromMapFields(const std::map<std::string, std::string> &result,
+                                          google::protobuf::Message *pMessageObject);
+
+    static void GetMessageFromMapFields(const std::unordered_map<std::string, std::string> &result,
+                                          google::protobuf::Message *pMessageObject);
 
     static int GetMapFieldsStringFromMessage(const google::protobuf::Message &message, std::string &msg);
 

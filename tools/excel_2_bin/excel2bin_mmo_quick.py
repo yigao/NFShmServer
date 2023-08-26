@@ -542,8 +542,8 @@ def show_usage():
                 --out_path=./"""
 
 if __name__ == "__main__":
-	(opts, args) = getopt.getopt(sys.argv[1:], "e:d:p:m:s:n:l:o", ["excel=", "proto_ds=", "proto_packagename=", "proto_msgname=", \
-                                                              "proto_sheet_msgname=", "excel_sheetname=", "start_row=", "out_path="])
+	(opts, args) = getopt.getopt(sys.argv[1:], "e:d:p:m:s:n:l:o", ["src=", "proto_ds=", "proto_packagename=", "proto_msgname=", \
+                                                              "proto_sheet_msgname=", "excel_sheetname=", "start_row=", "dst="])
 
 	if( 0 == len( opts ) ):
 		show_usage()
@@ -563,7 +563,7 @@ if __name__ == "__main__":
 	out_path = ""
 
 	for (o, a) in opts:
-		if o in ("-e", "--excel"):
+		if o in ("-e", "--src"):
 			excel_files.append(a)
 		elif o in ("-p", "--proto_ds"):
 			proto_ds_file = a
@@ -581,7 +581,7 @@ if __name__ == "__main__":
 			start_row = int(a)
 			if start_row < 1:
 				start_row = 1
-		elif o in ("-o", "--out_path"):
+		elif o in ("-o", "--dst"):
 			out_path = a
 		else:
 			print "unknown command!"

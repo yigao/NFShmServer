@@ -32,7 +32,3 @@
 #include <signal.h>
 #include <sys/prctl.h>
 #endif
-
-#include "xlnt/xlnt.hpp"
-
-using namespace xlnt;

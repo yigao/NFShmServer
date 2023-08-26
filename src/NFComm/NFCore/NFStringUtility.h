@@ -20,6 +20,8 @@
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #else
 #include <iconv.h>
+#include <regex>
+
 #endif
 
 
@@ -194,6 +196,9 @@ public:
 	static void ToLower(std::wstring& str);
 	static void ToUpper(std::string& str);
 	static void ToUpper(std::wstring& str);
+    static std::string Lower(const std::string& str);
+    static std::string Upper(const std::string& str);
+    static std::string Capitalize(const std::string& str);
 
 	// string compare
 	// @param case_sensitive true If we compare the string with case sensitively
@@ -280,6 +285,9 @@ public:
 	static void Split(const std::string& str,
 	                  const std::string& delim,
 	                  std::vector<std::string>* result);
+
+    static void SplitDigit(const std::string& str,
+                      std::vector<std::string>* result);
 
 	static std::string& Ltrim(std::string& str); // NOLINT
 
@@ -962,6 +970,29 @@ public:
 		}
 		return false;
 	}
+
+    /**
+     * @brief 字符串正则表达式分割
+     * @param str
+     * @param delti
+     * @return
+     */
+/*    static std::vector<std::string> SplitRegexString(const std::string& str, const std::string& delti) {
+        std::regex reg(delti);
+        std::vector<std::string> elems(std::sregex_token_iterator(str.begin(), str.end(), reg, -1),
+                                       std::sregex_token_iterator());
+        return elems;
+    }
+
+    static void SplitRegexString(const std::string& str, const std::string& delti, std::vector<std::string>& vResult)
+    {
+        vResult = SplitRegexString(str, delti);
+    }
+
+    static void SplitRegexString(const std::string& str, const std::string& delti, std::vector<std::string>* pResult)
+    {
+        *pResult = SplitRegexString(str, delti);
+    }*/
 
 	//字符串分割
 	static void SplitString(const std::string& sSrc, std::string sDelimit, std::vector<std::string>& vResult, std::string sNull_subst = "");

@@ -1,7 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 project(ShmNFrame)
-add_compile_options(-std=c++11)
-
 
 message("CMAKE_VERSION: ${CMAKE_VERSION} ")
 message("CMAKE_HOST_SYSTEM_NAME: ${CMAKE_HOST_SYSTEM_NAME} ")
@@ -188,7 +186,7 @@ link_directories(${LIB_DIR})
 
 ADD_SUBDIRECTORY("thirdparty")
 ADD_SUBDIRECTORY("src")
-ADD_SUBDIRECTORY("game")
+#ADD_SUBDIRECTORY("game")
 ADD_SUBDIRECTORY("src/NFPluginLoader")
 ADD_SUBDIRECTORY("src/NFTools")
 

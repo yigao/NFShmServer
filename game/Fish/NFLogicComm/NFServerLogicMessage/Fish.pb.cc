@@ -26,6 +26,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Sheet_FishRoom_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Sheet_FishRoom_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FishGunvalueYDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FishGunvalueYDesc_reflection_ = NULL;
+const ::google::protobuf::Descriptor* E_FishGunvalueItemDesc_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  E_FishGunvalueItemDesc_reflection_ = NULL;
 const ::google::protobuf::Descriptor* E_FishGunvalue_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   E_FishGunvalue_reflection_ = NULL;
@@ -66,11 +72,11 @@ void protobuf_AssignDesc_Fish_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_sitenum_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_deskcount_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_maxpeople_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_enter_min_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_enter_max_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_auto_chair_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_is_exp_scene_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_exp_scene_gold_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_entermin_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_entermax_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_autochair_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_isexpscene_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_expscenegold_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishRoom, m_tax_),
   };
   E_FishRoom_reflection_ =
@@ -99,13 +105,49 @@ void protobuf_AssignDesc_Fish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FishRoom));
-  E_FishGunvalue_descriptor_ = file->message_type(2);
-  static const int E_FishGunvalue_offsets_[5] = {
+  E_FishGunvalueYDesc_descriptor_ = file->message_type(2);
+  static const int E_FishGunvalueYDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalueYDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalueYDesc, m_id_),
+  };
+  E_FishGunvalueYDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FishGunvalueYDesc_descriptor_,
+      E_FishGunvalueYDesc::default_instance_,
+      E_FishGunvalueYDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalueYDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalueYDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FishGunvalueYDesc));
+  E_FishGunvalueItemDesc_descriptor_ = file->message_type(3);
+  static const int E_FishGunvalueItemDesc_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalueItemDesc, m_num_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalueItemDesc, m_item_),
+  };
+  E_FishGunvalueItemDesc_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      E_FishGunvalueItemDesc_descriptor_,
+      E_FishGunvalueItemDesc::default_instance_,
+      E_FishGunvalueItemDesc_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalueItemDesc, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalueItemDesc, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(E_FishGunvalueItemDesc));
+  E_FishGunvalue_descriptor_ = file->message_type(4);
+  static const int E_FishGunvalue_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_value_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_gameid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_roomid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_gunid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_gameroomid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_x_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_y_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishGunvalue, m_item_),
   };
   E_FishGunvalue_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -118,7 +160,7 @@ void protobuf_AssignDesc_Fish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FishGunvalue));
-  Sheet_FishGunvalue_descriptor_ = file->message_type(3);
+  Sheet_FishGunvalue_descriptor_ = file->message_type(5);
   static const int Sheet_FishGunvalue_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FishGunvalue, e_fishgunvalue_list_),
   };
@@ -133,7 +175,7 @@ void protobuf_AssignDesc_Fish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FishGunvalue));
-  E_FishCtrllevel_descriptor_ = file->message_type(4);
+  E_FishCtrllevel_descriptor_ = file->message_type(6);
   static const int E_FishCtrllevel_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishCtrllevel, m_controllevel_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishCtrllevel, m_controlrate_),
@@ -149,7 +191,7 @@ void protobuf_AssignDesc_Fish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FishCtrllevel));
-  Sheet_FishCtrllevel_descriptor_ = file->message_type(5);
+  Sheet_FishCtrllevel_descriptor_ = file->message_type(7);
   static const int Sheet_FishCtrllevel_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FishCtrllevel, e_fishctrllevel_list_),
   };
@@ -164,7 +206,7 @@ void protobuf_AssignDesc_Fish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Sheet_FishCtrllevel));
-  E_FishConfig_descriptor_ = file->message_type(6);
+  E_FishConfig_descriptor_ = file->message_type(8);
   static const int E_FishConfig_offsets_[10] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishConfig, m_fishid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(E_FishConfig, m_fishtype_),
@@ -188,7 +230,7 @@ void protobuf_AssignDesc_Fish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(E_FishConfig));
-  Sheet_FishConfig_descriptor_ = file->message_type(7);
+  Sheet_FishConfig_descriptor_ = file->message_type(9);
   static const int Sheet_FishConfig_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Sheet_FishConfig, e_fishconfig_list_),
   };
@@ -220,6 +262,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FishRoom_descriptor_, &Sheet_FishRoom::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FishGunvalueYDesc_descriptor_, &E_FishGunvalueYDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    E_FishGunvalueItemDesc_descriptor_, &E_FishGunvalueItemDesc::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     E_FishGunvalue_descriptor_, &E_FishGunvalue::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Sheet_FishGunvalue_descriptor_, &Sheet_FishGunvalue::default_instance());
@@ -240,6 +286,10 @@ void protobuf_ShutdownFile_Fish_2eproto() {
   delete E_FishRoom_reflection_;
   delete Sheet_FishRoom::default_instance_;
   delete Sheet_FishRoom_reflection_;
+  delete E_FishGunvalueYDesc::default_instance_;
+  delete E_FishGunvalueYDesc_reflection_;
+  delete E_FishGunvalueItemDesc::default_instance_;
+  delete E_FishGunvalueItemDesc_reflection_;
   delete E_FishGunvalue::default_instance_;
   delete E_FishGunvalue_reflection_;
   delete Sheet_FishGunvalue::default_instance_;
@@ -263,7 +313,7 @@ void protobuf_AddDesc_Fish_2eproto() {
   ::yd_fieldoptions::protobuf_AddDesc_yd_5ffieldoptions_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\nFish.proto\022\010proto_ff\032\025yd_fieldoptions."
-    "proto\"\332\004\n\nE_FishRoom\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010"
+    "proto\"\323\004\n\nE_FishRoom\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010"
     "\345\224\257\344\270\200ID\022\036\n\010m_roomid\030\002 \001(\005B\014\302\377\024\010\346\210\277\351\227\264ID"
     "\022\036\n\010m_gameid\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217ID\022%\n\nm_ga"
     "mename\030\004 \001(\tB\021\302\377\024\t\346\270\270\346\210\217\345\220\215\220\301\024@\022$\n\nm_roo"
@@ -272,42 +322,53 @@ void protobuf_AddDesc_Fish_2eproto() {
     "me\030\007 \001(\tB\021\302\377\024\t\346\210\277\351\227\264\345\220\215\220\301\024@\022 \n\tm_sitenum"
     "\030\010 \001(\005B\r\302\377\024\t\345\272\247\344\275\215\346\225\260\022\"\n\013m_deskcount\030\t \001"
     "(\005B\r\302\377\024\t\346\241\214\345\255\220\346\225\260\022(\n\013m_maxpeople\030\n \001(\005B\023"
-    "\302\377\024\017\346\234\200\345\244\247\347\216\251\345\256\266\346\225\260\022%\n\013m_enter_min\030\013 \001(\005"
-    "B\020\302\377\024\014\346\234\200\345\260\217\347\255\271\347\240\201\022%\n\013m_enter_max\030\014 \001(\005B"
-    "\020\302\377\024\014\346\234\200\345\244\247\347\255\271\347\240\201\022#\n\014m_auto_chair\030\r \001(\005B"
-    "\r\302\377\024\t\351\200\211\344\275\215\347\275\256\022%\n\016m_is_exp_scene\030\016 \001(\005B\r"
-    "\302\377\024\t\344\275\223\351\252\214\345\234\272\022-\n\020m_exp_scene_gold\030\017 \001(\005B"
-    "\023\302\377\024\017\344\275\223\351\252\214\345\234\272\351\207\221\345\270\201\022\034\n\005m_tax\030\020 \001(\005B\r\302\377\024"
-    "\t\346\212\275\346\260\264\347\216\207\"E\n\016Sheet_FishRoom\0223\n\017E_FishRo"
-    "om_List\030\001 \003(\0132\024.proto_ff.E_FishRoomB\004\210\301\024"
-    "\010\"\242\001\n\016E_FishGunvalue\022\032\n\004m_id\030\001 \001(\005B\014\302\377\024\010"
-    "\345\224\257\344\270\200ID\022\030\n\007m_value\030\002 \001(\005B\007\302\377\024\003\345\200\274\022\036\n\010m_"
-    "gameid\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217Id\022\036\n\010m_roomid\030\004"
-    " \001(\005B\014\302\377\024\010\346\210\277\351\227\264ID\022\032\n\007m_gunid\030\005 \001(\005B\t\302\377\024"
-    "\005\347\202\256Id\"Q\n\022Sheet_FishGunvalue\022;\n\023E_FishGu"
-    "nvalue_List\030\001 \003(\0132\030.proto_ff.E_FishGunva"
-    "lueB\004\210\301\024@\"`\n\017E_FishCtrllevel\022$\n\016m_contro"
-    "llevel\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022\'\n\rm_controlr"
-    "ate\030\002 \001(\005B\020\302\377\024\014\346\216\247\345\210\266\346\246\202\347\216\207\"T\n\023Sheet_Fis"
-    "hCtrllevel\022=\n\024E_FishCtrllevel_List\030\001 \003(\013"
-    "2\031.proto_ff.E_FishCtrllevelB\004\210\301\024\020\"\271\003\n\014E_"
-    "FishConfig\022\033\n\010m_fishid\030\001 \001(\005B\t\302\377\024\005\351\261\274Id\022"
-    "!\n\nm_fishtype\030\002 \001(\005B\r\302\377\024\t\351\261\274\347\261\273\345\236\213\022+\n\017m_"
-    "buildfishtype\030\003 \001(\005B\022\302\377\024\016\351\261\274build\347\261\273\345\236\213\022"
-    "$\n\nm_ratiomin\030\004 \001(\005B\020\302\377\024\014\346\234\200\346\226\260\346\257\224\344\276\213\022$\n"
-    "\nm_ratiomax\030\005 \001(\005B\020\302\377\024\014\346\234\200\345\244\247\346\257\224\344\276\213\022;\n\025m"
-    "_doubleawardminratio\030\006 \001(\005B\034\302\377\024\030\345\217\214\351\207\215\345\245"
-    "\226\345\212\261\346\234\200\345\260\217\346\257\224\347\216\207\022\'\n\020m_childfishcount\030\007 \001"
-    "(\005B\r\302\377\024\t\345\255\220\351\261\274\346\225\260\022(\n\016m_damageradius\030\010 \001("
-    "\005B\020\302\377\024\014\344\274\244\345\256\263\345\215\212\345\276\204\0221\n\017m_damagefishids\030\t"
-    " \001(\tB\030\302\377\024\017\344\274\244\345\256\263\345\255\220\351\261\274Ids\220\301\024\200\001\022-\n\016m_chil"
-    "dfishids\030\n \003(\tB\025\302\377\024\t\345\255\220\351\261\274Ids\210\301\024\006\220\301\024@\"K\n"
-    "\020Sheet_FishConfig\0227\n\021E_FishConfig_List\030\001"
-    " \003(\0132\026.proto_ff.E_FishConfigB\004\210\301\024@", 1674);
+    "\302\377\024\017\346\234\200\345\244\247\347\216\251\345\256\266\346\225\260\022$\n\nm_entermin\030\013 \001(\005B"
+    "\020\302\377\024\014\346\234\200\345\260\217\347\255\271\347\240\201\022$\n\nm_entermax\030\014 \001(\005B\020\302"
+    "\377\024\014\346\234\200\345\244\247\347\255\271\347\240\201\022\"\n\013m_autochair\030\r \001(\005B\r\302\377"
+    "\024\t\351\200\211\344\275\215\347\275\256\022#\n\014m_isexpscene\030\016 \001(\005B\r\302\377\024\t\344"
+    "\275\223\351\252\214\345\234\272\022+\n\016m_expscenegold\030\017 \001(\005B\023\302\377\024\017\344\275"
+    "\223\351\252\214\345\234\272\351\207\221\345\270\201\022\034\n\005m_tax\030\020 \001(\005B\r\302\377\024\t\346\212\275\346\260\264"
+    "\347\216\207\"E\n\016Sheet_FishRoom\0223\n\017E_FishRoom_List"
+    "\030\001 \003(\0132\024.proto_ff.E_FishRoomB\004\210\301\024\010\"C\n\023E_"
+    "FishGunvalueYDesc\022\026\n\005m_num\030\001 \001(\005B\007\302\377\024\003nu"
+    "m\022\024\n\004m_id\030\002 \001(\005B\006\302\377\024\002id\"F\n\026E_FishGunvalu"
+    "eItemDesc\022\026\n\005m_num\030\001 \001(\005B\007\302\377\024\003num\022\024\n\006m_i"
+    "tem\030\002 \001(\005B\004\302\377\024\000\"\347\002\n\016E_FishGunvalue\022\032\n\004m_"
+    "id\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022\030\n\007m_value\030\002 \001(\005B"
+    "\007\302\377\024\003\345\200\274\022\036\n\010m_gameid\030\003 \001(\005B\014\302\377\024\010\346\270\270\346\210\217Id"
+    "\022\036\n\010m_roomid\030\004 \001(\005B\014\302\377\024\010\346\210\277\351\227\264ID\022\032\n\007m_gu"
+    "nid\030\005 \001(\005B\t\302\377\024\005\347\202\256Id\022(\n\014m_gameroomid\030\006 \001"
+    "(\005B\022\302\377\024\016\346\270\270\346\210\217\346\210\277\351\227\264ID\022\036\n\006m_x_id\030\007 \003(\005B\016"
+    "\302\377\024\006\346\270\270\346\210\277\210\301\024\003\022=\n\003m_y\030\010 \003(\0132\035.proto_ff.E"
+    "_FishGunvalueYDescB\021\302\377\024\t\346\270\270\346\210\277\351\227\264\210\301\024\002\022:\n"
+    "\006m_item\030\t \003(\0132 .proto_ff.E_FishGunvalueI"
+    "temDescB\010\302\377\024\000\210\301\024\002\"Q\n\022Sheet_FishGunvalue\022"
+    ";\n\023E_FishGunvalue_List\030\001 \003(\0132\030.proto_ff."
+    "E_FishGunvalueB\004\210\301\024@\"`\n\017E_FishCtrllevel\022"
+    "$\n\016m_controllevel\030\001 \001(\005B\014\302\377\024\010\345\224\257\344\270\200ID\022\'\n"
+    "\rm_controlrate\030\002 \001(\005B\020\302\377\024\014\346\216\247\345\210\266\346\246\202\347\216\207\"T"
+    "\n\023Sheet_FishCtrllevel\022=\n\024E_FishCtrllevel"
+    "_List\030\001 \003(\0132\031.proto_ff.E_FishCtrllevelB\004"
+    "\210\301\024\020\"\271\003\n\014E_FishConfig\022\033\n\010m_fishid\030\001 \001(\005B"
+    "\t\302\377\024\005\351\261\274Id\022!\n\nm_fishtype\030\002 \001(\005B\r\302\377\024\t\351\261\274\347"
+    "\261\273\345\236\213\022+\n\017m_buildfishtype\030\003 \001(\005B\022\302\377\024\016\351\261\274b"
+    "uild\347\261\273\345\236\213\022$\n\nm_ratiomin\030\004 \001(\005B\020\302\377\024\014\346\234\200\346"
+    "\226\260\346\257\224\344\276\213\022$\n\nm_ratiomax\030\005 \001(\005B\020\302\377\024\014\346\234\200\345\244\247"
+    "\346\257\224\344\276\213\022;\n\025m_doubleawardminratio\030\006 \001(\005B\034\302"
+    "\377\024\030\345\217\214\351\207\215\345\245\226\345\212\261\346\234\200\345\260\217\346\257\224\347\216\207\022\'\n\020m_childfi"
+    "shcount\030\007 \001(\005B\r\302\377\024\t\345\255\220\351\261\274\346\225\260\022(\n\016m_damage"
+    "radius\030\010 \001(\005B\020\302\377\024\014\344\274\244\345\256\263\345\215\212\345\276\204\0221\n\017m_dama"
+    "gefishids\030\t \001(\tB\030\302\377\024\017\344\274\244\345\256\263\345\255\220\351\261\274Ids\220\301\024\200"
+    "\001\022-\n\016m_childfishids\030\n \003(\tB\025\302\377\024\t\345\255\220\351\261\274Ids"
+    "\210\301\024\006\220\301\024@\"K\n\020Sheet_FishConfig\0227\n\021E_FishCo"
+    "nfig_List\030\001 \003(\0132\026.proto_ff.E_FishConfigB"
+    "\004\210\301\024@", 2005);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Fish.proto", &protobuf_RegisterTypes);
   E_FishRoom::default_instance_ = new E_FishRoom();
   Sheet_FishRoom::default_instance_ = new Sheet_FishRoom();
+  E_FishGunvalueYDesc::default_instance_ = new E_FishGunvalueYDesc();
+  E_FishGunvalueItemDesc::default_instance_ = new E_FishGunvalueItemDesc();
   E_FishGunvalue::default_instance_ = new E_FishGunvalue();
   Sheet_FishGunvalue::default_instance_ = new Sheet_FishGunvalue();
   E_FishCtrllevel::default_instance_ = new E_FishCtrllevel();
@@ -316,6 +377,8 @@ void protobuf_AddDesc_Fish_2eproto() {
   Sheet_FishConfig::default_instance_ = new Sheet_FishConfig();
   E_FishRoom::default_instance_->InitAsDefaultInstance();
   Sheet_FishRoom::default_instance_->InitAsDefaultInstance();
+  E_FishGunvalueYDesc::default_instance_->InitAsDefaultInstance();
+  E_FishGunvalueItemDesc::default_instance_->InitAsDefaultInstance();
   E_FishGunvalue::default_instance_->InitAsDefaultInstance();
   Sheet_FishGunvalue::default_instance_->InitAsDefaultInstance();
   E_FishCtrllevel::default_instance_->InitAsDefaultInstance();
@@ -345,11 +408,11 @@ const int E_FishRoom::kMRoomnameFieldNumber;
 const int E_FishRoom::kMSitenumFieldNumber;
 const int E_FishRoom::kMDeskcountFieldNumber;
 const int E_FishRoom::kMMaxpeopleFieldNumber;
-const int E_FishRoom::kMEnterMinFieldNumber;
-const int E_FishRoom::kMEnterMaxFieldNumber;
-const int E_FishRoom::kMAutoChairFieldNumber;
-const int E_FishRoom::kMIsExpSceneFieldNumber;
-const int E_FishRoom::kMExpSceneGoldFieldNumber;
+const int E_FishRoom::kMEnterminFieldNumber;
+const int E_FishRoom::kMEntermaxFieldNumber;
+const int E_FishRoom::kMAutochairFieldNumber;
+const int E_FishRoom::kMIsexpsceneFieldNumber;
+const int E_FishRoom::kMExpscenegoldFieldNumber;
 const int E_FishRoom::kMTaxFieldNumber;
 #endif  // !_MSC_VER
 
@@ -379,11 +442,11 @@ void E_FishRoom::SharedCtor() {
   m_sitenum_ = 0;
   m_deskcount_ = 0;
   m_maxpeople_ = 0;
-  m_enter_min_ = 0;
-  m_enter_max_ = 0;
-  m_auto_chair_ = 0;
-  m_is_exp_scene_ = 0;
-  m_exp_scene_gold_ = 0;
+  m_entermin_ = 0;
+  m_entermax_ = 0;
+  m_autochair_ = 0;
+  m_isexpscene_ = 0;
+  m_expscenegold_ = 0;
   m_tax_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -446,11 +509,11 @@ void E_FishRoom::Clear() {
   if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
     m_deskcount_ = 0;
     m_maxpeople_ = 0;
-    m_enter_min_ = 0;
-    m_enter_max_ = 0;
-    m_auto_chair_ = 0;
-    m_is_exp_scene_ = 0;
-    m_exp_scene_gold_ = 0;
+    m_entermin_ = 0;
+    m_entermax_ = 0;
+    m_autochair_ = 0;
+    m_isexpscene_ = 0;
+    m_expscenegold_ = 0;
     m_tax_ = 0;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -620,83 +683,83 @@ bool E_FishRoom::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(88)) goto parse_m_enter_min;
+        if (input->ExpectTag(88)) goto parse_m_entermin;
         break;
       }
 
-      // optional int32 m_enter_min = 11;
+      // optional int32 m_entermin = 11;
       case 11: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_enter_min:
+         parse_m_entermin:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_enter_min_)));
-          set_has_m_enter_min();
+                 input, &m_entermin_)));
+          set_has_m_entermin();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(96)) goto parse_m_enter_max;
+        if (input->ExpectTag(96)) goto parse_m_entermax;
         break;
       }
 
-      // optional int32 m_enter_max = 12;
+      // optional int32 m_entermax = 12;
       case 12: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_enter_max:
+         parse_m_entermax:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_enter_max_)));
-          set_has_m_enter_max();
+                 input, &m_entermax_)));
+          set_has_m_entermax();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(104)) goto parse_m_auto_chair;
+        if (input->ExpectTag(104)) goto parse_m_autochair;
         break;
       }
 
-      // optional int32 m_auto_chair = 13;
+      // optional int32 m_autochair = 13;
       case 13: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_auto_chair:
+         parse_m_autochair:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_auto_chair_)));
-          set_has_m_auto_chair();
+                 input, &m_autochair_)));
+          set_has_m_autochair();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(112)) goto parse_m_is_exp_scene;
+        if (input->ExpectTag(112)) goto parse_m_isexpscene;
         break;
       }
 
-      // optional int32 m_is_exp_scene = 14;
+      // optional int32 m_isexpscene = 14;
       case 14: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_is_exp_scene:
+         parse_m_isexpscene:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_is_exp_scene_)));
-          set_has_m_is_exp_scene();
+                 input, &m_isexpscene_)));
+          set_has_m_isexpscene();
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(120)) goto parse_m_exp_scene_gold;
+        if (input->ExpectTag(120)) goto parse_m_expscenegold;
         break;
       }
 
-      // optional int32 m_exp_scene_gold = 15;
+      // optional int32 m_expscenegold = 15;
       case 15: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_m_exp_scene_gold:
+         parse_m_expscenegold:
           DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
-                 input, &m_exp_scene_gold_)));
-          set_has_m_exp_scene_gold();
+                 input, &m_expscenegold_)));
+          set_has_m_expscenegold();
         } else {
           goto handle_uninterpreted;
         }
@@ -796,29 +859,29 @@ void E_FishRoom::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(10, this->m_maxpeople(), output);
   }
 
-  // optional int32 m_enter_min = 11;
-  if (has_m_enter_min()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_enter_min(), output);
+  // optional int32 m_entermin = 11;
+  if (has_m_entermin()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(11, this->m_entermin(), output);
   }
 
-  // optional int32 m_enter_max = 12;
-  if (has_m_enter_max()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_enter_max(), output);
+  // optional int32 m_entermax = 12;
+  if (has_m_entermax()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(12, this->m_entermax(), output);
   }
 
-  // optional int32 m_auto_chair = 13;
-  if (has_m_auto_chair()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_auto_chair(), output);
+  // optional int32 m_autochair = 13;
+  if (has_m_autochair()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(13, this->m_autochair(), output);
   }
 
-  // optional int32 m_is_exp_scene = 14;
-  if (has_m_is_exp_scene()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_is_exp_scene(), output);
+  // optional int32 m_isexpscene = 14;
+  if (has_m_isexpscene()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(14, this->m_isexpscene(), output);
   }
 
-  // optional int32 m_exp_scene_gold = 15;
-  if (has_m_exp_scene_gold()) {
-    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_exp_scene_gold(), output);
+  // optional int32 m_expscenegold = 15;
+  if (has_m_expscenegold()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(15, this->m_expscenegold(), output);
   }
 
   // optional int32 m_tax = 16;
@@ -894,29 +957,29 @@ void E_FishRoom::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(10, this->m_maxpeople(), target);
   }
 
-  // optional int32 m_enter_min = 11;
-  if (has_m_enter_min()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_enter_min(), target);
+  // optional int32 m_entermin = 11;
+  if (has_m_entermin()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(11, this->m_entermin(), target);
   }
 
-  // optional int32 m_enter_max = 12;
-  if (has_m_enter_max()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_enter_max(), target);
+  // optional int32 m_entermax = 12;
+  if (has_m_entermax()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(12, this->m_entermax(), target);
   }
 
-  // optional int32 m_auto_chair = 13;
-  if (has_m_auto_chair()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_auto_chair(), target);
+  // optional int32 m_autochair = 13;
+  if (has_m_autochair()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(13, this->m_autochair(), target);
   }
 
-  // optional int32 m_is_exp_scene = 14;
-  if (has_m_is_exp_scene()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_is_exp_scene(), target);
+  // optional int32 m_isexpscene = 14;
+  if (has_m_isexpscene()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(14, this->m_isexpscene(), target);
   }
 
-  // optional int32 m_exp_scene_gold = 15;
-  if (has_m_exp_scene_gold()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_exp_scene_gold(), target);
+  // optional int32 m_expscenegold = 15;
+  if (has_m_expscenegold()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(15, this->m_expscenegold(), target);
   }
 
   // optional int32 m_tax = 16;
@@ -1007,39 +1070,39 @@ int E_FishRoom::ByteSize() const {
           this->m_maxpeople());
     }
 
-    // optional int32 m_enter_min = 11;
-    if (has_m_enter_min()) {
+    // optional int32 m_entermin = 11;
+    if (has_m_entermin()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_enter_min());
+          this->m_entermin());
     }
 
-    // optional int32 m_enter_max = 12;
-    if (has_m_enter_max()) {
+    // optional int32 m_entermax = 12;
+    if (has_m_entermax()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_enter_max());
+          this->m_entermax());
     }
 
-    // optional int32 m_auto_chair = 13;
-    if (has_m_auto_chair()) {
+    // optional int32 m_autochair = 13;
+    if (has_m_autochair()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_auto_chair());
+          this->m_autochair());
     }
 
-    // optional int32 m_is_exp_scene = 14;
-    if (has_m_is_exp_scene()) {
+    // optional int32 m_isexpscene = 14;
+    if (has_m_isexpscene()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_is_exp_scene());
+          this->m_isexpscene());
     }
 
-    // optional int32 m_exp_scene_gold = 15;
-    if (has_m_exp_scene_gold()) {
+    // optional int32 m_expscenegold = 15;
+    if (has_m_expscenegold()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::Int32Size(
-          this->m_exp_scene_gold());
+          this->m_expscenegold());
     }
 
     // optional int32 m_tax = 16;
@@ -1108,20 +1171,20 @@ void E_FishRoom::MergeFrom(const E_FishRoom& from) {
     if (from.has_m_maxpeople()) {
       set_m_maxpeople(from.m_maxpeople());
     }
-    if (from.has_m_enter_min()) {
-      set_m_enter_min(from.m_enter_min());
+    if (from.has_m_entermin()) {
+      set_m_entermin(from.m_entermin());
     }
-    if (from.has_m_enter_max()) {
-      set_m_enter_max(from.m_enter_max());
+    if (from.has_m_entermax()) {
+      set_m_entermax(from.m_entermax());
     }
-    if (from.has_m_auto_chair()) {
-      set_m_auto_chair(from.m_auto_chair());
+    if (from.has_m_autochair()) {
+      set_m_autochair(from.m_autochair());
     }
-    if (from.has_m_is_exp_scene()) {
-      set_m_is_exp_scene(from.m_is_exp_scene());
+    if (from.has_m_isexpscene()) {
+      set_m_isexpscene(from.m_isexpscene());
     }
-    if (from.has_m_exp_scene_gold()) {
-      set_m_exp_scene_gold(from.m_exp_scene_gold());
+    if (from.has_m_expscenegold()) {
+      set_m_expscenegold(from.m_expscenegold());
     }
     if (from.has_m_tax()) {
       set_m_tax(from.m_tax());
@@ -1159,11 +1222,11 @@ void E_FishRoom::Swap(E_FishRoom* other) {
     std::swap(m_sitenum_, other->m_sitenum_);
     std::swap(m_deskcount_, other->m_deskcount_);
     std::swap(m_maxpeople_, other->m_maxpeople_);
-    std::swap(m_enter_min_, other->m_enter_min_);
-    std::swap(m_enter_max_, other->m_enter_max_);
-    std::swap(m_auto_chair_, other->m_auto_chair_);
-    std::swap(m_is_exp_scene_, other->m_is_exp_scene_);
-    std::swap(m_exp_scene_gold_, other->m_exp_scene_gold_);
+    std::swap(m_entermin_, other->m_entermin_);
+    std::swap(m_entermax_, other->m_entermax_);
+    std::swap(m_autochair_, other->m_autochair_);
+    std::swap(m_isexpscene_, other->m_isexpscene_);
+    std::swap(m_expscenegold_, other->m_expscenegold_);
     std::swap(m_tax_, other->m_tax_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -1386,11 +1449,511 @@ void Sheet_FishRoom::Swap(Sheet_FishRoom* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int E_FishGunvalueYDesc::kMNumFieldNumber;
+const int E_FishGunvalueYDesc::kMIdFieldNumber;
+#endif  // !_MSC_VER
+
+E_FishGunvalueYDesc::E_FishGunvalueYDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FishGunvalueYDesc::InitAsDefaultInstance() {
+}
+
+E_FishGunvalueYDesc::E_FishGunvalueYDesc(const E_FishGunvalueYDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FishGunvalueYDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_num_ = 0;
+  m_id_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FishGunvalueYDesc::~E_FishGunvalueYDesc() {
+  SharedDtor();
+}
+
+void E_FishGunvalueYDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FishGunvalueYDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FishGunvalueYDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FishGunvalueYDesc_descriptor_;
+}
+
+const E_FishGunvalueYDesc& E_FishGunvalueYDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fish_2eproto();
+  return *default_instance_;
+}
+
+E_FishGunvalueYDesc* E_FishGunvalueYDesc::default_instance_ = NULL;
+
+E_FishGunvalueYDesc* E_FishGunvalueYDesc::New() const {
+  return new E_FishGunvalueYDesc;
+}
+
+void E_FishGunvalueYDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_num_ = 0;
+    m_id_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FishGunvalueYDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_num_)));
+          set_has_m_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_id;
+        break;
+      }
+
+      // optional int32 m_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_id_)));
+          set_has_m_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FishGunvalueYDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
+  }
+
+  // optional int32 m_id = 2;
+  if (has_m_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FishGunvalueYDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
+  }
+
+  // optional int32 m_id = 2;
+  if (has_m_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FishGunvalueYDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_num = 1;
+    if (has_m_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_num());
+    }
+
+    // optional int32 m_id = 2;
+    if (has_m_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FishGunvalueYDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FishGunvalueYDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FishGunvalueYDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FishGunvalueYDesc::MergeFrom(const E_FishGunvalueYDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
+    }
+    if (from.has_m_id()) {
+      set_m_id(from.m_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FishGunvalueYDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FishGunvalueYDesc::CopyFrom(const E_FishGunvalueYDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FishGunvalueYDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_FishGunvalueYDesc::Swap(E_FishGunvalueYDesc* other) {
+  if (other != this) {
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_id_, other->m_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FishGunvalueYDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FishGunvalueYDesc_descriptor_;
+  metadata.reflection = E_FishGunvalueYDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int E_FishGunvalueItemDesc::kMNumFieldNumber;
+const int E_FishGunvalueItemDesc::kMItemFieldNumber;
+#endif  // !_MSC_VER
+
+E_FishGunvalueItemDesc::E_FishGunvalueItemDesc()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void E_FishGunvalueItemDesc::InitAsDefaultInstance() {
+}
+
+E_FishGunvalueItemDesc::E_FishGunvalueItemDesc(const E_FishGunvalueItemDesc& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void E_FishGunvalueItemDesc::SharedCtor() {
+  _cached_size_ = 0;
+  m_num_ = 0;
+  m_item_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+E_FishGunvalueItemDesc::~E_FishGunvalueItemDesc() {
+  SharedDtor();
+}
+
+void E_FishGunvalueItemDesc::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void E_FishGunvalueItemDesc::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* E_FishGunvalueItemDesc::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return E_FishGunvalueItemDesc_descriptor_;
+}
+
+const E_FishGunvalueItemDesc& E_FishGunvalueItemDesc::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Fish_2eproto();
+  return *default_instance_;
+}
+
+E_FishGunvalueItemDesc* E_FishGunvalueItemDesc::default_instance_ = NULL;
+
+E_FishGunvalueItemDesc* E_FishGunvalueItemDesc::New() const {
+  return new E_FishGunvalueItemDesc;
+}
+
+void E_FishGunvalueItemDesc::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    m_num_ = 0;
+    m_item_ = 0;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool E_FishGunvalueItemDesc::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional int32 m_num = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_num_)));
+          set_has_m_num();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_m_item;
+        break;
+      }
+
+      // optional int32 m_item = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_item:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_item_)));
+          set_has_m_item();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void E_FishGunvalueItemDesc::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(1, this->m_num(), output);
+  }
+
+  // optional int32 m_item = 2;
+  if (has_m_item()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(2, this->m_item(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* E_FishGunvalueItemDesc::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional int32 m_num = 1;
+  if (has_m_num()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->m_num(), target);
+  }
+
+  // optional int32 m_item = 2;
+  if (has_m_item()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->m_item(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int E_FishGunvalueItemDesc::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional int32 m_num = 1;
+    if (has_m_num()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_num());
+    }
+
+    // optional int32 m_item = 2;
+    if (has_m_item()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_item());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void E_FishGunvalueItemDesc::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const E_FishGunvalueItemDesc* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const E_FishGunvalueItemDesc*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void E_FishGunvalueItemDesc::MergeFrom(const E_FishGunvalueItemDesc& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_m_num()) {
+      set_m_num(from.m_num());
+    }
+    if (from.has_m_item()) {
+      set_m_item(from.m_item());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void E_FishGunvalueItemDesc::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void E_FishGunvalueItemDesc::CopyFrom(const E_FishGunvalueItemDesc& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool E_FishGunvalueItemDesc::IsInitialized() const {
+
+  return true;
+}
+
+void E_FishGunvalueItemDesc::Swap(E_FishGunvalueItemDesc* other) {
+  if (other != this) {
+    std::swap(m_num_, other->m_num_);
+    std::swap(m_item_, other->m_item_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata E_FishGunvalueItemDesc::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = E_FishGunvalueItemDesc_descriptor_;
+  metadata.reflection = E_FishGunvalueItemDesc_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
 const int E_FishGunvalue::kMIdFieldNumber;
 const int E_FishGunvalue::kMValueFieldNumber;
 const int E_FishGunvalue::kMGameidFieldNumber;
 const int E_FishGunvalue::kMRoomidFieldNumber;
 const int E_FishGunvalue::kMGunidFieldNumber;
+const int E_FishGunvalue::kMGameroomidFieldNumber;
+const int E_FishGunvalue::kMXIdFieldNumber;
+const int E_FishGunvalue::kMYFieldNumber;
+const int E_FishGunvalue::kMItemFieldNumber;
 #endif  // !_MSC_VER
 
 E_FishGunvalue::E_FishGunvalue()
@@ -1414,6 +1977,7 @@ void E_FishGunvalue::SharedCtor() {
   m_gameid_ = 0;
   m_roomid_ = 0;
   m_gunid_ = 0;
+  m_gameroomid_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1454,7 +2018,11 @@ void E_FishGunvalue::Clear() {
     m_gameid_ = 0;
     m_roomid_ = 0;
     m_gunid_ = 0;
+    m_gameroomid_ = 0;
   }
+  m_x_id_.Clear();
+  m_y_.Clear();
+  m_item_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1540,6 +2108,74 @@ bool E_FishGunvalue::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(48)) goto parse_m_gameroomid;
+        break;
+      }
+
+      // optional int32 m_gameroomid = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_gameroomid:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &m_gameroomid_)));
+          set_has_m_gameroomid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_x_id;
+        break;
+      }
+
+      // repeated int32 m_x_id = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_m_x_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadRepeatedPrimitive<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 1, 56, input, this->mutable_m_x_id())));
+        } else if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag)
+                   == ::google::protobuf::internal::WireFormatLite::
+                      WIRETYPE_LENGTH_DELIMITED) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPackedPrimitiveNoInline<
+                   ::google::protobuf::int32, ::google::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, this->mutable_m_x_id())));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_m_x_id;
+        if (input->ExpectTag(66)) goto parse_m_y;
+        break;
+      }
+
+      // repeated .proto_ff.E_FishGunvalueYDesc m_y = 8;
+      case 8: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_y:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_y()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(66)) goto parse_m_y;
+        if (input->ExpectTag(74)) goto parse_m_item;
+        break;
+      }
+
+      // repeated .proto_ff.E_FishGunvalueItemDesc m_item = 9;
+      case 9: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_m_item:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_m_item()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(74)) goto parse_m_item;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -1587,6 +2223,29 @@ void E_FishGunvalue::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(5, this->m_gunid(), output);
   }
 
+  // optional int32 m_gameroomid = 6;
+  if (has_m_gameroomid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(6, this->m_gameroomid(), output);
+  }
+
+  // repeated int32 m_x_id = 7;
+  for (int i = 0; i < this->m_x_id_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteInt32(
+      7, this->m_x_id(i), output);
+  }
+
+  // repeated .proto_ff.E_FishGunvalueYDesc m_y = 8;
+  for (int i = 0; i < this->m_y_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->m_y(i), output);
+  }
+
+  // repeated .proto_ff.E_FishGunvalueItemDesc m_item = 9;
+  for (int i = 0; i < this->m_item_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      9, this->m_item(i), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1618,6 +2277,31 @@ void E_FishGunvalue::SerializeWithCachedSizes(
   // optional int32 m_gunid = 5;
   if (has_m_gunid()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(5, this->m_gunid(), target);
+  }
+
+  // optional int32 m_gameroomid = 6;
+  if (has_m_gameroomid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(6, this->m_gameroomid(), target);
+  }
+
+  // repeated int32 m_x_id = 7;
+  for (int i = 0; i < this->m_x_id_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteInt32ToArray(7, this->m_x_id(i), target);
+  }
+
+  // repeated .proto_ff.E_FishGunvalueYDesc m_y = 8;
+  for (int i = 0; i < this->m_y_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        8, this->m_y(i), target);
+  }
+
+  // repeated .proto_ff.E_FishGunvalueItemDesc m_item = 9;
+  for (int i = 0; i < this->m_item_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        9, this->m_item(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1666,7 +2350,40 @@ int E_FishGunvalue::ByteSize() const {
           this->m_gunid());
     }
 
+    // optional int32 m_gameroomid = 6;
+    if (has_m_gameroomid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::Int32Size(
+          this->m_gameroomid());
+    }
+
   }
+  // repeated int32 m_x_id = 7;
+  {
+    int data_size = 0;
+    for (int i = 0; i < this->m_x_id_size(); i++) {
+      data_size += ::google::protobuf::internal::WireFormatLite::
+        Int32Size(this->m_x_id(i));
+    }
+    total_size += 1 * this->m_x_id_size() + data_size;
+  }
+
+  // repeated .proto_ff.E_FishGunvalueYDesc m_y = 8;
+  total_size += 1 * this->m_y_size();
+  for (int i = 0; i < this->m_y_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_y(i));
+  }
+
+  // repeated .proto_ff.E_FishGunvalueItemDesc m_item = 9;
+  total_size += 1 * this->m_item_size();
+  for (int i = 0; i < this->m_item_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->m_item(i));
+  }
+
   if (!unknown_fields().empty()) {
     total_size +=
       ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1692,6 +2409,9 @@ void E_FishGunvalue::MergeFrom(const ::google::protobuf::Message& from) {
 
 void E_FishGunvalue::MergeFrom(const E_FishGunvalue& from) {
   GOOGLE_CHECK_NE(&from, this);
+  m_x_id_.MergeFrom(from.m_x_id_);
+  m_y_.MergeFrom(from.m_y_);
+  m_item_.MergeFrom(from.m_item_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_m_id()) {
       set_m_id(from.m_id());
@@ -1707,6 +2427,9 @@ void E_FishGunvalue::MergeFrom(const E_FishGunvalue& from) {
     }
     if (from.has_m_gunid()) {
       set_m_gunid(from.m_gunid());
+    }
+    if (from.has_m_gameroomid()) {
+      set_m_gameroomid(from.m_gameroomid());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1736,6 +2459,10 @@ void E_FishGunvalue::Swap(E_FishGunvalue* other) {
     std::swap(m_gameid_, other->m_gameid_);
     std::swap(m_roomid_, other->m_roomid_);
     std::swap(m_gunid_, other->m_gunid_);
+    std::swap(m_gameroomid_, other->m_gameroomid_);
+    m_x_id_.Swap(&other->m_x_id_);
+    m_y_.Swap(&other->m_y_);
+    m_item_.Swap(&other->m_item_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

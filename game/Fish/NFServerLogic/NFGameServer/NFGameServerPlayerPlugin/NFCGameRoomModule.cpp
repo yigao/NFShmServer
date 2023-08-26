@@ -61,7 +61,7 @@ int NFCGameRoomModule::OnHandleDeskListReq(proto_ff::DeskListReq &request, proto
         return 0;
     }
 
-    uint32_t autoChairId = roomConfig->m_auto_chair;// 1;// 1-显示桌子列表  0-不显示桌子列表
+    uint32_t autoChairId = roomConfig->m_autochair;// 1;// 1-显示桌子列表  0-不显示桌子列表
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "======> playerId = {} , autoChairId = {}", playerId, autoChairId);
 
