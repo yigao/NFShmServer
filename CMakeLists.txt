@@ -186,7 +186,7 @@ link_directories(${LIB_DIR})
 
 ADD_SUBDIRECTORY("thirdparty")
 ADD_SUBDIRECTORY("src")
-ADD_SUBDIRECTORY("game")
+#ADD_SUBDIRECTORY("game")
 ADD_SUBDIRECTORY("src/NFPluginLoader")
 ADD_SUBDIRECTORY("src/NFTools")
 

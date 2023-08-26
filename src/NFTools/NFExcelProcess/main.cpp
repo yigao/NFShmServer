@@ -61,7 +61,7 @@ int main(int argc, char* argv[])
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToProto Init Failed");
                 NFSLEEP(1000);
-                exit(0);
+                exit(-1);
             }
 
             ret = ExcelToProto::Instance()->HandleExcel();
@@ -69,7 +69,7 @@ int main(int argc, char* argv[])
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToProto HandleExcel Failed");
                 NFSLEEP(1000);
-                exit(0);
+                exit(-1);
             }
         }
         else if (work == "exceltobin")
@@ -86,7 +86,7 @@ int main(int argc, char* argv[])
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToBin Init Failed");
                 NFSLEEP(1000);
-                exit(0);
+                exit(-1);
             }
 
             ret = ExcelToBin::Instance()->HandleExcel();
@@ -94,7 +94,7 @@ int main(int argc, char* argv[])
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToProto HandleExcel Failed");
                 NFSLEEP(1000);
-                exit(0);
+                exit(-1);
             }
         }
     }

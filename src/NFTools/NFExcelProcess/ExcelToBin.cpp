@@ -50,8 +50,12 @@ int ExcelToBin::HandleExcel()
     }
 
     OnHandleSheetProtoInfo();
-    WriteToBin();
-    return iRet;
+    iRet = WriteToBin();
+    if (iRet != 0)
+    {
+        return iRet;
+    }
+    return 0;
 }
 
 void ExcelToBin::OnHandleSheetProtoInfo()
@@ -63,13 +67,20 @@ void ExcelToBin::OnHandleSheetProtoInfo()
     }
 }
 
-void ExcelToBin::WriteToBin()
+int ExcelToBin::WriteToBin()
 {
     for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
     {
         ExcelSheet &sheet = iter->second;
-        WriteToBin(sheet);
+        if (sheet.m_colInfoMap.empty()) continue;
+
+        int iRet = WriteToBin(sheet);
+        if (iRet != 0)
+        {
+            return iRet;
+        }
     }
+    return 0;
 }
 
 void ExcelToBin::OnHandleSheetProtoInfo(ExcelSheet &sheet)
@@ -102,7 +113,11 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet)
     {
         google::protobuf::Message *pRowMessage = pReflect->AddMessage(pSheetProto, pFieldDesc);
         CHECK_EXPR(pRowMessage, -1, "{} addfield:{} Failed", full_name, proto_sheet_repeatedfieldname);
-        WriteToBin(sheet, i, pRowMessage);
+        int iRet = WriteToBin(sheet, i, pRowMessage);
+        if (iRet != 0)
+        {
+            return iRet;
+        }
     }
 
     std::string bin_file = m_outPath + sheet.m_protoInfo.m_protoMsgName + ".bin";
@@ -156,7 +171,7 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
 
     NFProtobufCommon::GetMessageFromMapFields(m_mapFields, pRowMessage);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "row:{} {}", row, pRowMessage->Utf8DebugString());
+    //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "row:{} {}", row, pRowMessage->Utf8DebugString());
 
     return 0;
 }

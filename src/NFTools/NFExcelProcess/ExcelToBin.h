@@ -24,7 +24,7 @@ public:
 public:
     void OnHandleSheetProtoInfo();
     void OnHandleSheetProtoInfo(ExcelSheet& sheet);
-    void WriteToBin();
+    int WriteToBin();
     int WriteToBin(ExcelSheet& sheet);
     int WriteToBin(ExcelSheet& sheet, int row, google::protobuf::Message *pRowMessage);
 public:

@@ -1205,7 +1205,7 @@ void NFStringUtility::SplitDigit(const std::string& str,
     bool flag = false;
     for (auto iter = str.begin(); iter != str.end(); iter++)
     {
-        if (*iter >= '1' && *iter <= '9')
+        if (*iter >= '0' && *iter <= '9')
         {
             if (flag == false)
             {
