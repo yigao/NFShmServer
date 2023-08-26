@@ -349,7 +349,7 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
                 const std::map<std::string, std::string> &result = resultVec[result_i];
                 ::google::protobuf::Message *pSheetRepeatedMessageObject = pSheetReflect->AddMessage(
                         pSheetMessageObject, pSheetRepeatedFieldDesc);
-                NFProtobufCommon::GetMessageFromMapFields(result, pSheetRepeatedMessageObject);
+                NFProtobufCommon::GetDBMessageFromMapFields(result, pSheetRepeatedMessageObject);
             }
         }
     }
@@ -397,7 +397,7 @@ int NFCMysqlDriver::QueryDescStore(const std::string &table, google::protobuf::M
                 const std::map<std::string, std::string> &result = resultVec[result_i];
                 ::google::protobuf::Message *pSheetRepeatedMessageObject = pSheetReflect->AddMessage(
                         pSheetMessageObject, pSheetRepeatedFieldDesc);
-                NFProtobufCommon::GetMessageFromMapFields(result, pSheetRepeatedMessageObject);
+                NFProtobufCommon::GetDBMessageFromMapFields(result, pSheetRepeatedMessageObject);
             }
         }
     }
@@ -428,7 +428,7 @@ int NFCMysqlDriver::TransTableRowToMessage(const std::map<std::string, std::stri
         *pMessage = pMessageObject;
     }
 
-    NFProtobufCommon::GetMessageFromMapFields(result, pMessageObject);
+    NFProtobufCommon::GetDBMessageFromMapFields(result, pMessageObject);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

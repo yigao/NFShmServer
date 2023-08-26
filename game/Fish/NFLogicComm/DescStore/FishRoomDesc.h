@@ -7,7 +7,7 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/Fish_s.h"
 
-#define MAX_FISH_ROOM_NUM 16
+#define MAX_FISH_ROOM_NUM 8
 
 #define MAX_COM_INDEX_FISH_ROOM_GAMEID_NUM 8
 

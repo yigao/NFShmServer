@@ -13,7 +13,7 @@ void WriteMakeFile(std::string& excelmmo_gen, std::string& resmetas_gen, const s
 {
     excelmmo_gen += "${PROTOCGEN_FILE_PATH}/" + file + ".proto ${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile:${RESDB_EXCELMMO_PATH}/" + file + ".xlsx\n";
     excelmmo_gen += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
-    excelmmo_gen += "\t${EXCEL2PROTO} --work=\"exceltoproto\" --src=$^ --dst=${PROTOCGEN_FILE_PATH}/\n";
+    excelmmo_gen += "\t${NFEXCELPROCESS} --work=\"exceltoproto\" --src=$^ --dst=${PROTOCGEN_FILE_PATH}/\n";
     excelmmo_gen += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + file + ".proto ${PROTOCGEN_FILE_PATH}/" + file + "_gen.makefile\" --dst=${RESDB_META_PATH}/\n";
     excelmmo_gen += "\n\n";
 

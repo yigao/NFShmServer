@@ -822,7 +822,7 @@ void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &
     }
 }
 
-void NFProtobufCommon::GetMessageFromMapFields(const std::map<std::string, std::string> &result, google::protobuf::Message *pMessageObject)
+void NFProtobufCommon::GetDBMessageFromMapFields(const std::map<std::string, std::string> &result, google::protobuf::Message *pMessageObject)
 {
     if (pMessageObject == NULL) return;
     /* message AttrValue
@@ -904,6 +904,114 @@ void NFProtobufCommon::GetMessageFromMapFields(const std::map<std::string, std::
                 if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
                 {
                     ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
+                    {
+                        ::google::protobuf::Message *pSubMessageObject = pMessageObjectReflect->AddMessage(pMessageObject, pFieldDesc);
+                        if (pSubMessageObject == NULL) continue;
+                        for (int field_i = 0; field_i < pSubDescriptor->field_count(); field_i++)
+                        {
+                            const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDescriptor->field(field_i);
+                            if (pSubFieldDesc == NULL) continue;
+                            if (pSubFieldDesc->is_repeated() == false)
+                            {
+                                std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" + pSubFieldDesc->name();
+
+                                auto iter = result.find(field);
+                                if (iter != result.end())
+                                {
+                                    NFProtobufCommon::SetFieldsString(*pSubMessageObject, pSubFieldDesc, iter->second);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+void NFProtobufCommon::GetMessageFromMapFields(const std::map<std::string, std::string> &result, google::protobuf::Message *pMessageObject)
+{
+    if (pMessageObject == NULL) return;
+    /* message AttrValue
+       {
+           optional int32 attr = 1 [(yd_fieldoptions.field_cname) = "attr"];
+           optional int32 value = 2 [(yd_fieldoptions.field_cname) = "value"];
+           optional string value2 = 3 [(yd_fieldoptions.field_cname) = "value2", (yd_fieldoptions.db_field_bufsize)=128];
+       }
+
+       message FishConfigDesc
+       {
+           optional int32 fish_id = 1 [(yd_fieldoptions.field_cname) = "鱼id", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+           optional int32 fish_type = 2 [(yd_fieldoptions.field_cname) = "鱼的玩法类型"];
+           optional int32 build_fish_type = 3 [(yd_fieldoptions.field_cname) = "客户端创建鱼类型"];
+           optional int32 ratio_max = 4  [(yd_fieldoptions.field_cname) = "倍率最大值"];
+           optional int32 double_award_min_ratio = 5  [(yd_fieldoptions.field_cname) = "可能触发双倍奖励所需最低倍率"];
+           optional int32 child_fish_count = 6  [(yd_fieldoptions.field_cname) = "组合鱼携带子鱼个数"];
+           repeated string child_fish_ids = 7  [(yd_fieldoptions.field_cname) = "组合鱼位置可选子鱼id列表", (yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128, (yd_fieldoptions.field_arysize) = 6];
+           repeated AttrValue attr_values = 8 [(yd_fieldoptions.field_cname) = "attr_values", (yd_fieldoptions.field_arysize)=2];
+       }
+
+       如上，将一个result结果， 转化为protobuf的message, 比如FishConfigDesc, 代表这数据库FishConfigDesc或Excel表格中的一列
+    */
+    const google::protobuf::Descriptor *pMessageObjectFieldDesc = pMessageObject->GetDescriptor();
+    const google::protobuf::Reflection *pMessageObjectReflect = pMessageObject->GetReflection();
+    if (pMessageObjectFieldDesc == NULL || pMessageObjectReflect == NULL) return;
+
+    for (int i = 0; i < pMessageObjectFieldDesc->field_count(); i++)
+    {
+        const google::protobuf::FieldDescriptor *pFieldDesc = pMessageObjectFieldDesc->field(i);
+        if (pFieldDesc == NULL) continue;
+        std::string field = pFieldDesc->name();
+        //如果不是repeated, 只是简单信息，就直接给
+        if (pFieldDesc->is_repeated() == false)
+        {
+            auto iter = result.find(field);
+            if (iter != result.end())
+            {
+                NFProtobufCommon::SetFieldsString(*pMessageObject, pFieldDesc, iter->second);
+            }
+        }
+        else
+        {
+            //如果只是简单的repeated, 比如:repeated string child_fish_ids = 7
+            //把数据库里的多行，搞成数组的形式
+            if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+            {
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::field_arysize);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
+                    {
+                        std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
+
+                        auto iter = result.find(field);
+                        if (iter != result.end())
+                        {
+                            NFProtobufCommon::AddFieldsString(*pMessageObject, pFieldDesc, iter->second);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                //如果只是复杂的repeated, 比如:
+                //message AttrValue
+                //{
+                //	optional int32 attr = 1 [(yd_fieldoptions.field_cname) = "attr"];
+                //	optional int32 value = 2 [(yd_fieldoptions.field_cname) = "value"];
+                //	optional string value2 = 3 [(yd_fieldoptions.field_cname) = "value2", (yd_fieldoptions.db_field_bufsize)=128];
+                //}
+                //repeated AttrValue attr_values = 8 [(yd_fieldoptions.field_cname) = "attr_values", (yd_fieldoptions.field_arysize)=2];
+                //把数据库里的多行，配合结构转成repeated数组
+                const google::protobuf::Descriptor *pSubDescriptor = pFieldDesc->message_type();
+                if (pSubDescriptor == NULL) continue;
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+
+                if (fieldoptions.HasExtension(yd_fieldoptions::field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::field_arysize);
                     for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
                     {
                         ::google::protobuf::Message *pSubMessageObject = pMessageObjectReflect->AddMessage(pMessageObject, pFieldDesc);
