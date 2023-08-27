@@ -58,6 +58,10 @@ elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
 	)
 
+	ADD_CUSTOM_COMMAND(TARGET ${PROJECT_NAME} POST_BUILD
+		COMMAND mv ${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release/${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/tools/${PROJECT_NAME}
+	)
+
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 	#TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)

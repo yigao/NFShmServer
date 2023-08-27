@@ -349,6 +349,78 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         }
     }
 
+    for (auto iter = pSheet->m_comIndexMap.begin(); iter != pSheet->m_comIndexMap.end(); iter++)
+    {
+        ExcelSheetComIndex &comIndex = iter->second;
+        desc_file += "\nstruct ";
+        std::string className;
+        className += NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name);
+        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
+        {
+            ExcelSheetIndex &index = comIndex.m_index[i];
+            std::string index_key = index.m_key;
+            className += NFStringUtility::Capitalize(index_key);
+        }
+        desc_file += className + "\n";
+        desc_file += "{\n";
+        desc_file += "\t"+ className + "()\n";
+        desc_file += "\t{\n";
+        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
+        {
+            ExcelSheetIndex &index = comIndex.m_index[i];
+            std::string index_key = "m_"+index.m_key;
+            desc_file += "\t\t" + index_key + "=0;\n";
+        }
+        desc_file += "\t}\n";
+        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
+        {
+            ExcelSheetIndex &index = comIndex.m_index[i];
+            std::string index_key = "m_"+index.m_key;
+            desc_file += "\tint64_t " + index_key + ";\n";
+        }
+        desc_file += "\tbool operator==(const " + className + "& data) const\n";
+        desc_file += "\t{\n";
+        desc_file += "\t\t return ";
+        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
+        {
+            ExcelSheetIndex &index = comIndex.m_index[i];
+            std::string index_key = "m_"+index.m_key;
+            if (i != (int)comIndex.m_index.size() - 1)
+            {
+                desc_file += index_key + "==data." + index_key + " && ";
+            }
+            else {
+                desc_file += index_key + "==data." + index_key + ";\n";
+            }
+        }
+        desc_file += "\t}\n";
+        desc_file += "};\n";
+
+        desc_file += "\nnamespace std\n";
+        desc_file += "{\n";
+        desc_file += "\ttemplate<>\n";
+        desc_file += "\tstruct hash<" + className + ">\n";
+        desc_file += "\t{\n";
+        desc_file += "\t\tsize_t operator()(const " + className + "& data) const\n";
+        desc_file += "\t\t{\n";
+        desc_file += "\t\t\treturn NFHash::hash_combine(";
+        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
+        {
+            ExcelSheetIndex &index = comIndex.m_index[i];
+            std::string index_key = "m_"+index.m_key;
+            if (i != (int)comIndex.m_index.size() - 1)
+            {
+                desc_file += "data." + index_key + ",";
+            }
+            else {
+                desc_file += "data." + index_key + ");\n";
+            }
+        }
+        desc_file += "\t\t}\n";
+        desc_file += "\t};\n";
+        desc_file += "}\n\n";
+    }
+
     desc_file += "\nclass " + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc : public NFIDescStore\n";
     desc_file += "{\n";
     desc_file += "public:\n";
@@ -444,41 +516,60 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     for (auto iter = pSheet->m_comIndexMap.begin(); iter != pSheet->m_comIndexMap.end(); iter++)
     {
         ExcelSheetComIndex &comIndex = iter->second;
-        desc_file += "\tNFShmHashMap<int64_t, ";
-
-        for (int i = 1; i < (int) comIndex.m_index.size(); i++)
-        {
-            desc_file += "NFShmHashMap<int64_t, ";
-        }
-
-        for (int i = comIndex.m_index.size() - 1; i > 0; i--)
+        desc_file += "\tNFShmHashMap<"+NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name);
+        std::string comIndexKey;
+        for (int i = 0;  i < (int)comIndex.m_index.size(); i++)
         {
             ExcelSheetIndex &index = comIndex.m_index[i];
-            std::string index_key = comIndex.m_index[i].m_key;
-            if (i == (int) comIndex.m_index.size() - 1)
+            std::string index_key = index.m_key;
+            comIndexKey += NFStringUtility::Capitalize(index_key);
+        }
+        desc_file += comIndexKey;
+        desc_file += " ,";
+
+        {
+            if (comIndex.m_queue)
             {
-                if (comIndex.m_queue)
+                desc_file += "uint32_t, ";
+                for (int i = 0; i < (int) comIndex.m_index.size(); i++)
                 {
-                    desc_file += "uint32_t, " + index.m_define_one + ">";
+                    ExcelSheetIndex &index = comIndex.m_index[i];
+                    std::string index_key = index.m_key;
+                    if (i != (int)comIndex.m_index.size()-1)
+                    {
+                        desc_file += index.m_define_one + "*";
+                    }
+                    else {
+                        desc_file += index.m_define_one;
+                    }
                 }
-                else
-                {
-                    desc_file += "NFShmVector<uint32_t, " + index.m_define_one + ">, " + index.m_define + ">";
-                }
+                desc_file += ">";
             }
             else
             {
-                desc_file += ", " + index.m_define_one + ">";
+                desc_file += "NFShmVector<uint32_t, ";
+                if (comIndex.m_index.size() > 0)
+                {
+                    ExcelSheetIndex &index = comIndex.m_index[comIndex.m_index.size()-1];
+                    desc_file += index.m_define + ">, ";
+                }
+
+                for (int i = 0; i < (int) comIndex.m_index.size(); i++)
+                {
+                    ExcelSheetIndex &index = comIndex.m_index[i];
+                    if (i != (int)comIndex.m_index.size()-1)
+                    {
+                        desc_file += index.m_define_one + "*";
+                    }
+                    else {
+                        desc_file += index.m_define_one;
+                    }
+                }
+                desc_file += ">";
             }
         }
 
-        desc_file += ", " + comIndex.m_index[0].m_define_one + "> m_";
-        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
-        {
-            std::string index_key = comIndex.m_index[i].m_key;
-            desc_file += NFStringUtility::Capitalize(index_key);
-        }
-
+        desc_file += " m_"+comIndexKey;
         desc_file += "ComIndexMap;\n";
     }
 
@@ -673,76 +764,37 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
         {
             ExcelSheetComIndex &comIndex = iter->second;
             std::string index_map = "m_";
+            std::string comIndexKey;
             for (int i = 0; i < (int) comIndex.m_index.size(); i++)
             {
                 ExcelSheetIndex &index = comIndex.m_index[i];
                 std::string index_key = index.m_key;
-                index_map += NFStringUtility::Capitalize(index_key);
+                comIndexKey += NFStringUtility::Capitalize(index_key);
             }
-            index_map += "ComIndexMap";
-
-            std::string index_0_key = comIndex.m_index[0].m_key;
-            std::string index_0_key_en_name = "m_" + NFStringUtility::Lower(index_0_key);
-            desc_file += "\t\tif(" + index_map + ".full())\n";
+            index_map += comIndexKey + "ComIndexMap";
+            std::string comIndexClassName = NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + comIndexKey;
             desc_file += "\t\t{\n";
-            desc_file += "\t\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(pDesc->" + index_0_key_en_name + ") != " + index_map +
-                         ".end(), -1, \"space not enough\");\n";
-            desc_file += "\t\t}\n";
-
-            desc_file += "\t\t" + index_map + "[pDesc->" + index_0_key_en_name + "];\n";
-            desc_file += "\t\tauto iter_0 = " + index_map + ".find(pDesc->" + index_0_key_en_name + ");\n";
-            desc_file += "\t\tif(iter_0 != " + index_map + ".end())\n";
-            desc_file += "\t\t{\n";
-
-            desc_file += "\t\t\tstd::string error = \"" + index_0_key + ":\" + NFCommon::tostr(pDesc->" + index_0_key_en_name + ");\n";
-
-            for (int i = 1; i < (int) comIndex.m_index.size(); i++)
+            desc_file += "\t\t\t" + comIndexClassName + " data;\n";
+            for (int i = 0; i < (int) comIndex.m_index.size(); i++)
             {
                 ExcelSheetIndex &index = comIndex.m_index[i];
                 std::string index_key = index.m_key;
                 std::string index_key_en_name = "m_" + NFStringUtility::Lower(index_key);
-
-                std::string white_t;
-                white_t.append(i + 2, '\t');
-                desc_file += white_t + "error += \", " + index_key + ":\" + NFCommon::tostr(pDesc->" + index_key_en_name + ");\n";
-                desc_file += white_t + "if(iter_" + NFCommon::tostr(i - 1) + "->second.full())\n";
-                desc_file += white_t + "{\n";
-                desc_file +=
-                        white_t + "\tCHECK_EXPR_ASSERT(iter_" + NFCommon::tostr(i - 1) + "->second.find(pDesc->" + index_key_en_name + ") != iter_" +
-                        NFCommon::tostr(i - 1) + "->second.end(), -1, \"space not enough\");\n";
-                desc_file += white_t + "}\n";
-
-                if (i == (int) comIndex.m_index.size() - 1)
-                {
-                    if (comIndex.m_queue)
-                    {
-                        desc_file += white_t + "CHECK_EXPR_ASSERT(iter_" + NFCommon::tostr(i - 1) + "->second.find(pDesc->" + index_key_en_name +
-                                     ") == iter_" + NFCommon::tostr(i - 1) + "->second.end(), -1, \"index: " + index_key +
-                                     " repeated:{}\", error);\n";
-                        desc_file += white_t + "iter_" + NFCommon::tostr(i - 1) + "->second[pDesc->" + index_key_en_name + "] = i;\n";
-                    }
-                    else
-                    {
-                        desc_file += white_t + "iter_" + NFCommon::tostr(i - 1) + "->second[pDesc->" + index_key_en_name + "].push_back(i);\n";
-                    }
-
-                    for (int x = comIndex.m_index.size() - 2; x > 0; x--)
-                    {
-                        white_t = "";
-                        white_t.append(x + 2, '\t');
-                        desc_file += white_t + "}\n";
-                    }
-                }
-                else
-                {
-                    desc_file += white_t + "iter_" + NFCommon::tostr(i - 1) + "->second[pDesc->" + index_key_en_name + "];\n";
-                    desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter_" + NFCommon::tostr(i - 1) + "->second.find(pDesc->" +
-                                 index_key_en_name + ");\n";
-                    desc_file += white_t + "if(iter_" + NFCommon::tostr(i) + " != iter_" + NFCommon::tostr(i - 1) + "->second.end())\n";
-                    desc_file += white_t + "{\n";
-                }
+                desc_file += "\t\t\tdata.m_" + index_key + " = pDesc->" + index_key_en_name+ ";\n";
             }
-
+            desc_file += "\t\t\tif(" + index_map + ".full())\n";
+            desc_file += "\t\t\t{\n";
+            desc_file += "\t\t\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(data) != " + index_map +
+                         ".end(), -1, \"space not enough\");\n";
+            desc_file += "\t\t\t}\n";
+            if (comIndex.m_queue)
+            {
+                desc_file += "\t\t\t" + index_map + "[data] = i;\n";
+            }
+            else {
+                desc_file += "\t\t\tCHECK_EXPR_ASSERT(!" + index_map + "[data].full(), -1, \"space not enough\");\n";
+                desc_file += "\t\t\t" + index_map + "[data].push_back(i);\n";
+            }
             desc_file += "\t\t}\n";
         }
 
@@ -973,67 +1025,31 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
         }
 
         desc_file += ")\n";
+        std::string className = NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name);
+        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
+        {
+            ExcelSheetIndex &index = comIndex.m_index[i];
+            std::string index_key = index.m_key;
+            className += NFStringUtility::Capitalize(index_key);
+        }
 
         if (comIndex.m_queue)
         {
             desc_file += "{\n";
-            desc_file += "\tauto iter = " + index_map + ".find(" + NFStringUtility::Capitalize(index_0_key) + ");\n";
-            desc_file += "\tif(iter != " + index_map + ".end())\n";
-            desc_file += "\t{\n";
-
-            for (int i = 1; i < (int) comIndex.m_index.size(); i++)
+            desc_file += "\t" + className + " data;\n";
+            for (int i = 0; i < (int) comIndex.m_index.size(); i++)
             {
                 ExcelSheetIndex &index = comIndex.m_index[i];
-                std::string index_key = index.m_key;
-                std::string white_t;
-                white_t.append(i + 1, '\t');
-                if (i == (int) comIndex.m_index.size() - 1)
-                {
-                    if (i == 1)
-                    {
-                        desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter->second.find(" + NFStringUtility::Capitalize(index_key) +
-                                     ");\n";
-                        desc_file += white_t + "if (iter_" + NFCommon::tostr(i) + " != iter->second.end())\n";
-                        desc_file += white_t + "{\n";
-                        desc_file += white_t + "\treturn GetDescByIndex(iter_" + NFCommon::tostr(i) + "->second);\n";
-                        desc_file += white_t + "}\n";
-                    }
-                    else
-                    {
-                        desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter_" + NFCommon::tostr(i - 1) + "->second.find(" +
-                                     NFStringUtility::Capitalize(index_key) + ");\n";
-                        desc_file += white_t + "if (iter_" + NFCommon::tostr(i) + " != iter_" + NFCommon::tostr(i - 1) + "->second.end())\n";
-                        desc_file += white_t + "{\n";
-                        desc_file += white_t + "\treturn GetDescByIndex(iter_" + NFCommon::tostr(i) + "->second);\n";
-                        desc_file += white_t + "}\n";
-
-                        for (int x = (int) comIndex.m_index.size() - 2; x > 0; x--)
-                        {
-                            white_t = "";
-                            white_t.append(x + 1, '\t');
-                            desc_file += white_t + "}\n";
-                        }
-                    }
-                }
-                else
-                {
-                    if (i == 1)
-                    {
-                        desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter->second.find(" + NFStringUtility::Capitalize(index_key) +
-                                     ");\n";
-                        desc_file += white_t + "if (iter_" + NFCommon::tostr(i) + " != iter->second.end())\n";
-                        desc_file += white_t + "{\n";
-                    }
-                    else
-                    {
-                        desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter_" + NFCommon::tostr(i - 1) + "->second.find(" +
-                                     NFStringUtility::Capitalize(index_key) + ");\n";
-                        desc_file += white_t + "if (iter_" + NFCommon::tostr(i) + " != iter_" + NFCommon::tostr(i - 1) + "->second.end())\n";
-                        desc_file += white_t + "{\n";
-                    }
-                }
+                std::string index_key = "m_" + index.m_key;
+                desc_file += "\tdata." + index_key + " = " + NFStringUtility::Capitalize(index.m_key) + ";\n";
             }
 
+            desc_file += "\tauto iter = " + index_map + ".find(data);\n";
+            desc_file += "\tif(iter != " + index_map + ".end())\n";
+            desc_file += "\t{\n";
+            desc_file += "\t\tauto pDesc = GetDescByIndex(iter->second);\n";
+            desc_file += "\t\tCHECK_EXPR(pDesc, nullptr, \"GetDescByIndex failed:{}\", iter->second);\n";
+            desc_file += "\t\treturn pDesc;\n";
             desc_file += "\t}\n";
             desc_file += "\treturn nullptr;\n";
             desc_file += "}\n\n";
@@ -1041,74 +1057,24 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
         else
         {
             desc_file += "{\n";
-            desc_file += "\tstd::vector<const proto_ff_s::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
-                         "_s*> m_vec;\n";
-            desc_file += "\tauto iter = " + index_map + ".find(" + NFStringUtility::Capitalize(index_0_key) + ");\n";
-            desc_file += "\tif(iter != " + index_map + ".end())\n";
-            desc_file += "\t{\n";
-
-            for (int i = 1; i < (int) comIndex.m_index.size(); i++)
+            desc_file += "\t" + className + " data;\n";
+            for (int i = 0; i < (int) comIndex.m_index.size(); i++)
             {
                 ExcelSheetIndex &index = comIndex.m_index[i];
-                std::string index_key = index.m_key;
-                std::string white_t;
-                white_t.append(i + 1, '\t');
-                if (i == (int) comIndex.m_index.size() - 1)
-                {
-                    if (i == 1)
-                    {
-                        desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter->second.find(" + NFStringUtility::Capitalize(index_key) +
-                                     ");\n";
-                        desc_file += white_t + "if (iter_" + NFCommon::tostr(i) + " != iter->second.end())\n";
-                        desc_file += white_t + "{\n";
-                        desc_file += white_t + "\tfor(int i = 0; i < (int)iter_" + NFCommon::tostr(i) + "->second.size(); i++)\n";
-                        desc_file += white_t + "\t{\n";
-                        desc_file += white_t + "\t\tauto pDesc = GetDescByIndex(iter_" + NFCommon::tostr(i) + "->second[i]);\n";
-                        desc_file += white_t + "\t\tCHECK_EXPR_CONTINUE(pDesc, \"error\");\n";
-                        desc_file += white_t + "\t\tm_vec.push_back(pDesc);\n";
-                        desc_file += white_t + "\t}\n";
-                        desc_file += white_t + "}\n";
-                    }
-                    else
-                    {
-                        desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter_" + NFCommon::tostr(i - 1) + "->second.find(" +
-                                     NFStringUtility::Capitalize(index_key) + ");\n";
-                        desc_file += white_t + "if (iter_" + NFCommon::tostr(i) + " != iter_" + NFCommon::tostr(i - 1) + "->second.end())\n";
-                        desc_file += white_t + "{\n";
-                        desc_file += white_t + "\tfor(int i = 0; i < (int)iter_" + NFCommon::tostr(i) + "->second.size(); i++)\n";
-                        desc_file += white_t + "\t{\n";
-                        desc_file += white_t + "\t\tauto pDesc = GetDescByIndex(iter_" + NFCommon::tostr(i) + "->second[i]);\n";
-                        desc_file += white_t + "\t\tCHECK_EXPR_CONTINUE(pDesc, \"error\");\n";
-                        desc_file += white_t + "\t\tm_vec.push_back(pDesc);\n";
-                        desc_file += white_t + "\t}\n";
-                        desc_file += white_t + "}\n";
-
-                        for (int x = (int) comIndex.m_index.size() - 2; x > 0; x--)
-                        {
-                            white_t = "";
-                            white_t.append(x + 1, '\t');
-                            desc_file += white_t + "}\n";
-                        }
-                    }
-                }
-                else
-                {
-                    if (i == 1)
-                    {
-                        desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter->second.find(" + NFStringUtility::Capitalize(index_key) +
-                                     ");\n";
-                        desc_file += white_t + "if (iter_" + NFCommon::tostr(i) + " != iter->second.end())\n";
-                        desc_file += white_t + "{\n";
-                    }
-                    else
-                    {
-                        desc_file += white_t + "auto iter_" + NFCommon::tostr(i) + " = iter_" + NFCommon::tostr(i - 1) + "->second.find(" +
-                                     NFStringUtility::Capitalize(index_key) + ");\n";
-                        desc_file += white_t + "if (iter_" + NFCommon::tostr(i) + " != iter_" + NFCommon::tostr(i - 1) + "->second.end())\n";
-                        desc_file += white_t + "{\n";
-                    }
-                }
+                std::string index_key = "m_" + index.m_key;
+                desc_file += "\tdata." + index_key + " = " + NFStringUtility::Capitalize(index.m_key) + ";\n";
             }
+            desc_file += "\tstd::vector<const proto_ff_s::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
+                         "_s*> m_vec;\n";
+            desc_file += "\tauto iter = " + index_map + ".find(data);\n";
+            desc_file += "\tif(iter != " + index_map + ".end())\n";
+            desc_file += "\t{\n";
+            desc_file += "\t\tfor(int i = 0; i < (int)iter->second.size(); i++)\n";
+            desc_file += "\t\t{\n";
+            desc_file += "\t\t\tauto pDesc = GetDescByIndex(iter->second[i]);\n";
+            desc_file += "\t\t\tCHECK_EXPR_CONTINUE(pDesc, \"GetDescByIndex failed:{}\", iter->second[i]);\n";
+            desc_file += "\t\t\tm_vec.push_back(pDesc);\n";
+            desc_file += "\t\t}\n";
 
             desc_file += "\t}\n";
             desc_file += "\treturn m_vec;\n";
