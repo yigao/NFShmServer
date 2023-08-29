@@ -17,6 +17,10 @@
 
 int main(int argc, char* argv[])
 {
+#if NF_PLATFORM == NF_PLATFORM_WIN
+	SetConsoleOutputCP(CP_UTF8);
+#elif NF_PLATFORM == NF_PLATFORM_LINUX
+#endif
     try
     {
         NFCmdLine::NFParser cmdParser;

@@ -1142,7 +1142,7 @@ int ExcelParse::HandleSheetIndex()
                 if (sheet.m_colInfoMap.find(iter->second.m_myColName) == sheet.m_colInfoMap.end())
                 {
                     std::string key = iter->second.m_myColName + "_" + iter->second.m_myColSubName;
-                    CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the col:{} info in the relation", key);
+                    CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the colName:{} info in the relation", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
                     iter->second.m_myColName = key;
                     iter->second.m_myColSubName = "";
                 }
@@ -1151,7 +1151,7 @@ int ExcelParse::HandleSheetIndex()
                     if (pColInfo->m_maxSubNum == 0)
                     {
                         std::string key = iter->second.m_myColName + "_" + iter->second.m_myColSubName;
-                        CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the col:{} info in the relation", key);
+                        CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the colName:{} info in the relation", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
                         iter->second.m_myColName = key;
                         iter->second.m_myColSubName = "";
                     }
@@ -1159,7 +1159,7 @@ int ExcelParse::HandleSheetIndex()
                         if (pColInfo->m_subInfoMap.find(iter->second.m_myColSubName) == pColInfo->m_subInfoMap.end())
                         {
                             std::string key = iter->second.m_myColName + "_" + iter->second.m_myColSubName;
-                            CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the col:{} info in the relation", key);
+                            CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the colName:{} info in the relation", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
                             iter->second.m_myColName = key;
                             iter->second.m_myColSubName = "";
                         }
