@@ -26,7 +26,7 @@ public:
     void OnHandleSheetProtoInfo(ExcelSheet& sheet);
     int WriteToBin();
     int WriteToBin(ExcelSheet& sheet);
-    int WriteToBin(ExcelSheet& sheet, int row, google::protobuf::Message *pRowMessage);
+    int WriteToBin(ExcelSheet& sheet, int row, google::protobuf::Message *pSheetProto, const google::protobuf::Reflection *pReflect, const google::protobuf::FieldDescriptor *pFieldDesc);
 public:
     std::string m_proto_ds;
 };

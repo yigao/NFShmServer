@@ -11,6 +11,9 @@
 #include "ExcelToMakefile.h"
 #include "ExcelToProto.h"
 #include "ExcelToBin.h"
+#include "ExcelToTxt.h"
+#include "ExcelToTxtGen.h"
+#include "ExcelParseAllCheck.h"
 
 int main(int argc, char* argv[])
 {
@@ -92,9 +95,69 @@ int main(int argc, char* argv[])
             ret = ExcelToBin::Instance()->HandleExcel();
             if (ret != 0)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToProto HandleExcel Failed");
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToBin HandleExcel Failed");
                 NFSLEEP(1000);
                 exit(-1);
+            }
+        }
+        else if (work == "exceltotxt")
+        {
+            std::string excel = cmdParser.Get<std::string>("src");
+            std::string out_path = cmdParser.Get<std::string>("dst");
+            NFStringUtility::Trim(excel);
+            NFStringUtility::Trim(out_path);
+
+            int ret = ExcelToTxt::Instance()->Init(excel, out_path);
+            if (ret != 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToTxt Init Failed");
+                NFSLEEP(1000);
+                exit(-1);
+            }
+
+            ret = ExcelToTxt::Instance()->HandleExcel();
+            if (ret != 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToTxt HandleExcel Failed");
+                NFSLEEP(1000);
+                exit(-1);
+            }
+        }
+        else if (work == "exceltotxtgen")
+        {
+            std::string excel = cmdParser.Get<std::string>("src");
+            std::string out_path = cmdParser.Get<std::string>("dst");
+            NFStringUtility::Trim(excel);
+            NFStringUtility::Trim(out_path);
+
+            int ret = ExcelToTxtGen::Instance()->Init(excel, out_path, false);
+            if (ret != 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToTxtGen Init Failed");
+                NFSLEEP(1000);
+                exit(-1);
+            }
+
+            ret = ExcelToTxtGen::Instance()->HandleExcel();
+            if (ret != 0)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "ExcelToTxtGen HandleExcel Failed");
+                NFSLEEP(1000);
+                exit(-1);
+            }
+        }
+        else if (work == "allcheck")
+        {
+            std::string list = cmdParser.Get<std::string>("src");
+            int iRet = ExcelParseAllCheck::Instance()->CheckExcel(list);
+            if (iRet != 0)
+            {
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Failed..............");
+                NFSLEEP(1000);
+                exit(-1);
+            }
+            else {
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Success, No Error, No Warning..............");
             }
         }
     }

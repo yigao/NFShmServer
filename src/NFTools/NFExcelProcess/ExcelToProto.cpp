@@ -461,7 +461,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     for (auto iter = pSheet->m_comIndexMap.begin(); iter != pSheet->m_comIndexMap.end(); iter++)
     {
         ExcelSheetComIndex &comIndex = iter->second;
-        if (comIndex.m_queue)
+        if (comIndex.m_unique)
         {
             desc_file +=
                     "\tconst proto_ff_s::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "_s* GetDescBy";
@@ -528,7 +528,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         desc_file += " ,";
 
         {
-            if (comIndex.m_queue)
+            if (comIndex.m_unique)
             {
                 desc_file += "uint32_t, ";
                 for (int i = 0; i < (int) comIndex.m_index.size(); i++)
@@ -787,7 +787,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             desc_file += "\t\t\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(data) != " + index_map +
                          ".end(), -1, \"space not enough\");\n";
             desc_file += "\t\t\t}\n";
-            if (comIndex.m_queue)
+            if (comIndex.m_unique)
             {
                 desc_file += "\t\t\t" + index_map + "[data] = i;\n";
             }
@@ -835,17 +835,36 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                 }
                 else
                 {
-                    desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
-                    desc_file += "\t\t{\n";
-                    desc_file +=
-                            "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
-                            NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                            "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                            "[j]), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the Excel:" +
-                            NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
-                            NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                            "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]);\n";
-                    desc_file += "\t\t}\n";
+                    if (pColInfo->m_subInfoMap.empty())
+                    {
+                        desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
+                        desc_file += "\t\t{\n";
+                        desc_file +=
+                                "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
+                                NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                                "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                                "[j]), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the Excel:" +
+                                NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
+                                NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                                "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]);\n";
+                        desc_file += "\t\t}\n";
+                    }
+                    else {
+                        desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
+                        desc_file += "\t\t{\n";
+                        desc_file +=
+                                "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
+                                NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                                "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                                "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + "), result, \"can't find the " +
+                                NFStringUtility::Lower(iter->second.m_myColName) + "_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                                ":{} in the Excel:" +
+                                NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
+                                NFStringUtility::Capitalize(iter->second.m_sheetName) +
+                                "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
+                                NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
+                        desc_file += "\t\t}\n";
+                    }
                 }
             }
             else
@@ -990,7 +1009,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 
         index_map += "ComIndexMap";
 
-        if (comIndex.m_queue)
+        if (comIndex.m_unique)
         {
             desc_file += "const proto_ff_s::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "_s* " +
                          NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc::GetDescBy";
@@ -1033,7 +1052,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             className += NFStringUtility::Capitalize(index_key);
         }
 
-        if (comIndex.m_queue)
+        if (comIndex.m_unique)
         {
             desc_file += "{\n";
             desc_file += "\t" + className + " data;\n";

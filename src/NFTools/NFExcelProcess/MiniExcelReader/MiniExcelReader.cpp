@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include "NFComm/NFCore/NFCommon.h"
+#include "NFComm/NFCore/NFTime.h"
 
 #ifndef PATH_MAX
 #define PATH_MAX 260
@@ -366,7 +367,7 @@ namespace MiniExcelReader {
 		if (_zip) delete _zip;
 	}
 
-	bool ExcelFile::open(const char* filename)
+	bool ExcelFile::open(const char* filename, bool all)
 	{
 		_zip = new Zip();
 
@@ -374,14 +375,18 @@ namespace MiniExcelReader {
 			return false;
 
 		readWorkBook("xl/workbook.xml");
-		readWorkBookRels("xl/_rels/workbook.xml.rels");
-		readSharedStrings("xl/sharedStrings.xml");
-		readStyles("styles.xml");
 
-		for (auto& s : _sheets)
-		{
-			readSheet(s);
-		}
+        if (all)
+        {
+            readWorkBookRels("xl/_rels/workbook.xml.rels");
+            readSharedStrings("xl/sharedStrings.xml");
+            readStyles("styles.xml");
+
+            for (auto& s : _sheets)
+            {
+                readSheet(s);
+            }
+        }
 
 		return true;
 	}

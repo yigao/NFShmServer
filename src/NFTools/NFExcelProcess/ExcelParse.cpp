@@ -19,7 +19,7 @@ ExcelParse::~ExcelParse()
 }
 
 
-int ExcelParse::Init(const std::string &excel, const std::string &outPath)
+int ExcelParse::Init(const std::string &excel, const std::string &outPath, bool all)
 {
     m_excel = excel;
     m_outPath = outPath;
@@ -32,7 +32,7 @@ int ExcelParse::Init(const std::string &excel, const std::string &outPath)
     CHECK_EXPR(NFFileUtility::IsDir(m_outPath), -1, "outPath:{} not exist", m_outPath);
 
     m_excelReader = new MiniExcelReader::ExcelFile();
-    if (!m_excelReader->open(m_excel.c_str()))
+    if (!m_excelReader->open(m_excel.c_str(), all))
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "load excel:{} failed", m_excel);
         NFSLEEP(1000);
@@ -78,7 +78,11 @@ int ExcelParse::HandleSheetList()
         else if (sheet.title() == "list")
         {
             //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "handle excel:{} sheet:{}", m_excel, sheet.title());
-            HandleSheetList(sheet);
+            int iRet = HandleSheetList(sheet);
+            if (iRet != 0)
+            {
+                return iRet;
+            }
         }
     }
 
@@ -106,6 +110,11 @@ int ExcelParse::HandleSheetList(MiniExcelReader::Sheet &sheet)
     {
         auto col_sheet_cell = sheet.getCell(row, 0);
         std::string sheet_name = col_sheet_cell->to_string();
+        if (sheet_name.empty())
+        {
+            continue;
+        }
+
         auto find_sheet = m_excelReader->getSheet(sheet_name);
         if (find_sheet == nullptr)
         {
@@ -164,7 +173,7 @@ int ExcelParse::HandleSheetList(MiniExcelReader::Sheet &sheet)
                 {
                     ExcelSheetComIndex &excelSheetComIndex = excelSheet.m_comIndexMap[col_index_str];
                     excelSheetComIndex.m_key = col_index_str;
-                    excelSheetComIndex.m_queue = sheet_index_unique;
+                    excelSheetComIndex.m_unique = sheet_index_unique;
 
                     for (int x = 0; x < (int) col_index_str_vec.size(); x++)
                     {
@@ -221,7 +230,7 @@ int ExcelParse::HandleSheetList(MiniExcelReader::Sheet &sheet)
                 }
 
                 std::vector<std::string> my_col_str_vec;
-                NFStringUtility::Split(my_col_name, ".", &my_col_str_vec);
+                NFStringUtility::Split(my_col_name, "_", &my_col_str_vec);
 
                 if (my_col_str_vec.size() > 2 || my_col_str_vec.size() <= 0)
                 {
@@ -242,6 +251,7 @@ int ExcelParse::HandleSheetList(MiniExcelReader::Sheet &sheet)
                 relation.m_excelName = dst_relation_str_vec[0];
                 relation.m_sheetName = dst_relation_str_vec[1];
                 relation.m_myColName = my_col_str_vec[0];
+                relation.m_mySrcColName = my_col_name;
                 if (my_col_str_vec.size() == 2)
                 {
                     relation.m_myColSubName = my_col_str_vec[1];
@@ -288,7 +298,7 @@ int ExcelParse::HandleSheetWork()
     {
         if (m_sheets.find(sheet.title()) != m_sheets.end())
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "handle excel:{} sheet:{}", m_excel, sheet.title());
+            //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "handle excel:{} sheet:{}", m_excel, sheet.title());
             int iRet = HandleSheetWork(sheet);
             if (iRet != 0)
             {
@@ -296,6 +306,7 @@ int ExcelParse::HandleSheetWork()
             }
         }
     }
+    //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "parse excel:{} success", m_excel);
 
     return 0;
 }
@@ -911,6 +922,8 @@ int ExcelParse::HandleColSubMsg(ExcelSheet *pSheet, int col_index, MiniExcelRead
         pColInfo = pSheet->m_colInfoMap[struct_en_name];
     }
 
+    pColInfo->m_colIndexVec.push_back(col_index);
+
     CHECK_EXPR(pSheet->m_allColInfoList.find(col_index) == pSheet->m_allColInfoList.end(), -1, "sheet:{} col:{} repeated parse", pSheet->m_name,
                col_index + 1);
     ExcelSheetColIndex &sheetColIndex = pSheet->m_allColInfoList[col_index];
@@ -956,6 +969,8 @@ int ExcelParse::HandleColSubMsg(ExcelSheet *pSheet, int col_index, MiniExcelRead
                        pSheet->m_name, struct_en_name, struct_cn_name);
 
         }
+
+        pSubMsg->m_colIndexVec.push_back(col_index);
 
         if (struct_num > pColInfo->m_maxSubNum)
         {
@@ -1015,6 +1030,8 @@ int ExcelParse::HandleColMsg(ExcelSheet *pSheet, int col_index, MiniExcelReader:
                        pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType);
         }
     }
+
+    pColInfo->m_colIndexVec.push_back(col_index);
 
     CHECK_EXPR(pSheet->m_allColInfoList.find(col_index) == pSheet->m_allColInfoList.end(), -1, "sheet:{} col:{} repeated parse", pSheet->m_name,
                col_index + 1);
@@ -1106,6 +1123,50 @@ int ExcelParse::HandleSheetIndex()
                 }
             }
         }
+
+        for (auto iter = sheet.m_colRelationMap.begin(); iter != sheet.m_colRelationMap.end(); iter++)
+        {
+            if (iter->second.m_myColSubName.empty())
+            {
+                CHECK_EXPR(sheet.m_colInfoMap.find(iter->second.m_myColName) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the colName:{} info in the relation", m_excelName, sheet.m_name, iter->second.m_myColName);
+                ExcelSheetColInfo *pColInfo = sheet.m_colInfoMap[iter->second.m_myColName];
+                if (!pColInfo->m_subInfoMap.empty())
+                {
+                    //repeated Attr...........
+                    CHECK_EXPR(pColInfo->m_subInfoMap.find(iter->second.m_myColName) != pColInfo->m_subInfoMap.end(), -1, "excel:{} sheet:{} can't find the col:{} info in the relation", m_excelName, sheet.m_name, iter->second.m_myColName);
+                    iter->second.m_myColSubName = iter->second.m_myColName;
+                }
+            }
+            else
+            {
+                if (sheet.m_colInfoMap.find(iter->second.m_myColName) == sheet.m_colInfoMap.end())
+                {
+                    std::string key = iter->second.m_myColName + "_" + iter->second.m_myColSubName;
+                    CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the col:{} info in the relation", key);
+                    iter->second.m_myColName = key;
+                    iter->second.m_myColSubName = "";
+                }
+                else {
+                    ExcelSheetColInfo *pColInfo = sheet.m_colInfoMap[iter->second.m_myColName];
+                    if (pColInfo->m_maxSubNum == 0)
+                    {
+                        std::string key = iter->second.m_myColName + "_" + iter->second.m_myColSubName;
+                        CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the col:{} info in the relation", key);
+                        iter->second.m_myColName = key;
+                        iter->second.m_myColSubName = "";
+                    }
+                    else {
+                        if (pColInfo->m_subInfoMap.find(iter->second.m_myColSubName) == pColInfo->m_subInfoMap.end())
+                        {
+                            std::string key = iter->second.m_myColName + "_" + iter->second.m_myColSubName;
+                            CHECK_EXPR(sheet.m_colInfoMap.find(key) != sheet.m_colInfoMap.end(), -1, "excel:{} sheet:{} can't find the col:{} info in the relation", key);
+                            iter->second.m_myColName = key;
+                            iter->second.m_myColSubName = "";
+                        }
+                    }
+                }
+            }
+        }
     }
     return 0;
 }
@@ -1127,4 +1188,14 @@ int ExcelParse::get_max_num(int num)
             return i;
         }
     }
+}
+
+ExcelSheet* ExcelParse::GetExcelSheet(const std::string& sheetName)
+{
+    auto iter = m_sheets.find(sheetName);
+    if (iter != m_sheets.end())
+    {
+        return &iter->second;
+    }
+    return nullptr;
 }

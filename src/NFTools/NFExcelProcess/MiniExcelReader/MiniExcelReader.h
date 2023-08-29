@@ -71,7 +71,7 @@ namespace MiniExcelReader
     {
     public:
         ~ExcelFile();
-        bool open(const char* filename);
+        bool open(const char* filename, bool all = true);
 
         Sheet* getSheet(const char* name);
         Sheet* getSheet(const std::string& name);

@@ -26,6 +26,7 @@ struct ExcelRelation
     std::string m_sheetName;
     std::string m_myColName;
     std::string m_myColSubName;
+    std::string m_mySrcColName;
 };
 
 struct ExcelSheetIndex
@@ -54,11 +55,11 @@ struct ExcelSheetComIndex
 {
     ExcelSheetComIndex()
     {
-        m_queue = false;
+        m_unique = false;
     }
 
     std::string m_key;
-    bool m_queue;
+    bool m_unique;
     std::vector<ExcelSheetIndex> m_index;
 };
 
@@ -73,6 +74,7 @@ struct ExcelSheetColSubInfo
     std::string m_cnSubName;
     std::string m_colType;
     uint32_t m_colTypeStrMaxSize;
+    std::vector<uint32_t> m_colIndexVec;
 };
 
 struct ExcelSheetColInfo
@@ -96,6 +98,7 @@ struct ExcelSheetColInfo
     uint32_t m_colUniqueKeys;
     uint32_t m_colUniqueListKeys;
     uint32_t m_maxRowNum;
+    std::vector<uint32_t> m_colIndexVec;
 
     std::unordered_map<std::string, ExcelSheetColSubInfo> m_subInfoMap;
 };
@@ -163,6 +166,13 @@ struct ExcelSheet
     std::unordered_map<std::string, ExcelRelation> m_colRelationMap;
 
     ExcelSheetProtoInfo m_protoInfo;
+
+    std::unordered_map<std::string, int> m_firstColKeyMap;
+
+    bool IsExist(const std::string& firstColKey)
+    {
+        return m_firstColKeyMap.find(firstColKey) != m_firstColKeyMap.end();
+    }
 };
 
 class ExcelParse
@@ -172,7 +182,7 @@ public:
 
     virtual ~ExcelParse();
 public:
-    virtual int Init(const std::string& excel, const std::string& outPath);
+    virtual int Init(const std::string& excel, const std::string& outPath, bool all = true);
     virtual int HandleExcel();
 public:
     virtual int HandleSheetList();
@@ -190,6 +200,7 @@ public:
                      const std::string &struct_cn_name, const std::string &col_type, uint32_t struct_num);
 public:
     virtual int get_max_num(int num);
+    ExcelSheet* GetExcelSheet(const std::string& sheetName);
 public:
     std::string m_outPath;
     std::string m_excel;

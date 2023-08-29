@@ -111,9 +111,7 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet)
 
     for (int i = sheet.m_protoInfo.m_startRow; i < (int) sheet.m_rows + 4; i++)
     {
-        google::protobuf::Message *pRowMessage = pReflect->AddMessage(pSheetProto, pFieldDesc);
-        CHECK_EXPR(pRowMessage, -1, "{} addfield:{} Failed", full_name, proto_sheet_repeatedfieldname);
-        int iRet = WriteToBin(sheet, i, pRowMessage);
+        int iRet = WriteToBin(sheet, i, pSheetProto, pReflect, pFieldDesc);
         if (iRet != 0)
         {
             return iRet;
@@ -126,7 +124,7 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet)
     return 0;
 }
 
-int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message *pRowMessage)
+int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message *pSheetProto, const google::protobuf::Reflection *pReflect, const google::protobuf::FieldDescriptor *pFieldDesc)
 {
     MiniExcelReader::Sheet *pExcelSheet = m_excelReader->getSheet(sheet.m_name);
     CHECK_EXPR(pExcelSheet, -1, "excel:{} Can't find sheet:{} data", m_excel, sheet.m_name);
@@ -139,6 +137,15 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
         std::string value = pCell->to_string();
         ExcelSheetColIndex &sheelColIndex = iter->second;
         ExcelSheetColInfo *pColInfo = sheelColIndex.m_pColInfo;
+
+        if (iter == sheet.m_allColInfoList.begin())
+        {
+            if (value.empty())
+            {
+                return 0;
+            }
+        }
+
         /**
          * @brief  不是数组，最正常的数据
          */
@@ -169,6 +176,9 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
         }
     }
 
+
+    google::protobuf::Message *pRowMessage = pReflect->AddMessage(pSheetProto, pFieldDesc);
+    CHECK_EXPR(pRowMessage, -1, "{} addfield:{} Failed", pSheetProto->GetTypeName(), pFieldDesc->full_name());
     NFProtobufCommon::GetMessageFromMapFields(m_mapFields, pRowMessage);
 
     //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "row:{} {}", row, pRowMessage->Utf8DebugString());
