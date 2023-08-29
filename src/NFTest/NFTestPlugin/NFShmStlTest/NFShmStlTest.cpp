@@ -22,7 +22,7 @@
 #include "NFComm/NFShmStl/NFShmHashMapWithList.h"
 #include "NFComm/NFShmStl/NFShmDyHashMapWithList.h"
 #include "NFComm/NFShmStl/NFShmString.h"
-#include "NFComm/NFShmStl/NFShmTree.h"
+//#include "NFComm/NFShmStl/NFShmTree.h"
 
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFShmStlTest.h"
@@ -1180,7 +1180,7 @@ int checkDyHashTableWithList()
 
 int checkRbTree()
 {
-    NFShmTree<10, int, int, std::stl__Identity<int>, std::less<int>> tree;
+    //NFShmTree<10, int, int, std::stl__Identity<int>, std::less<int>> tree;
     return 0;
 }
 

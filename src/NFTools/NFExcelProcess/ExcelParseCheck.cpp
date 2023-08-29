@@ -80,7 +80,7 @@ int ExcelParseCheck::CheckFirstCol(ExcelSheet &sheet)
 
         if (pColInfo->m_maxSubNum > 0 || pColInfo->m_subInfoMap.size() > 0)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} 第一列不能是数组", m_excelName, sheet.m_name);
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} the first col is not array", m_excelName, sheet.m_name);
             return -1;
         }
 
@@ -103,7 +103,7 @@ int ExcelParseCheck::CheckFirstCol(ExcelSheet &sheet)
             {
                 if (first_empty_row >= 0)
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} 第一列不能为空", m_excelName, sheet.m_name, first_empty_row + 1);
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} the first col not empty ", m_excelName, sheet.m_name, first_empty_row + 1);
                     first_empty_row = -1;
                     flag = true;
                 }
@@ -111,7 +111,7 @@ int ExcelParseCheck::CheckFirstCol(ExcelSheet &sheet)
                 auto key_iter = sheet.m_firstColKeyMap.find(value);
                 if (key_iter != sheet.m_firstColKeyMap.end())
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} key:{} 与 row:{} key重复存在, ", m_excelName, sheet.m_name, row + 1,
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} key:{} 与 row:{} key repeated, ", m_excelName, sheet.m_name, row + 1,
                                value, key_iter->second + 1);
                     flag = true;
                 }
@@ -172,7 +172,7 @@ int ExcelParseCheck::CheckUniqueIndex(ExcelSheet &sheet)
                 auto key_iter = keyMap.find(value);
                 if (key_iter != keyMap.end())
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col:{} -----row:{} 与 row:{} 冲突 重复的key:{}", m_excelName, sheet.m_name,
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col:{} row:{} ----- row:{} repeated key:{}", m_excelName, sheet.m_name,
                                col + 1, row + 1, key_iter->second + 1, value);
                     flag = true;
                 }
@@ -206,7 +206,7 @@ int ExcelParseCheck::CheckUniqueIndex(ExcelSheet &sheet)
                 auto key_iter = keyMap.find(key);
                 if (key_iter != keyMap.end())
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} -----row:{} 与 row:{} 冲突 重复的联合key:{}", m_excelName, sheet.m_name,
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} ----  row:{} repeated com key:{}", m_excelName, sheet.m_name,
                                row + 1, key_iter->second + 1, error);
                     flag = true;
                 }
@@ -294,8 +294,8 @@ int ExcelParseCheck::CheckRelation(ExcelSheet &sheet)
 
                     if (!pFindSheet->IsExist(value))
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ", m_excelName,
-                                   sheet.m_name, col+1, iter->second.m_mySrcColName, value, relation.m_excelName,
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ", m_excelName,
+                                   sheet.m_name, row+1, col+1, iter->second.m_mySrcColName, value, relation.m_excelName,
                                    relation.m_sheetName);
                         flag = true;
                     }
@@ -338,9 +338,9 @@ int ExcelParseCheck::CheckRelation(ExcelSheet &sheet)
 
                             if (!pFindSheet->IsExist(value))
                             {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ",
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ",
                                            m_excelName,
-                                           sheet.m_name, col+1, iter->second.m_mySrcColName, value, relation.m_excelName,
+                                           sheet.m_name, row+1, col+1, iter->second.m_mySrcColName, value, relation.m_excelName,
                                            relation.m_sheetName);
                                 flag = true;
                             }
@@ -385,9 +385,9 @@ int ExcelParseCheck::CheckRelation(ExcelSheet &sheet)
 
                             if (!pFindSheet->IsExist(value))
                             {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ",
+                                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ",
                                            m_excelName,
-                                           sheet.m_name, col+1, iter->second.m_myColName, value, relation.m_excelName,
+                                           sheet.m_name, row+1, col+1, iter->second.m_myColName, value, relation.m_excelName,
                                            relation.m_sheetName);
                                 flag = true;
                             }
@@ -434,8 +434,8 @@ int ExcelParseCheck::CheckRelation(ExcelSheet &sheet)
 
                     if (!pFindSheet->IsExist(value))
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ", m_excelName,
-                                   sheet.m_name, col + 1, iter->second.m_mySrcColName, value, relation.m_excelName,
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ", m_excelName,
+                                   sheet.m_name, row + 1, col + 1, iter->second.m_mySrcColName, value, relation.m_excelName,
                                    relation.m_sheetName);
                         flag = true;
                     }

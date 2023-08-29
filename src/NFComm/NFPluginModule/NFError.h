@@ -13,6 +13,7 @@
 #include "NFComm/NFCore/NFSingleton.hpp"
 
 #include <string>
+#include <functional>
 
 typedef std::function<std::string(int32_t retCode)> NFErrorFunction;
 

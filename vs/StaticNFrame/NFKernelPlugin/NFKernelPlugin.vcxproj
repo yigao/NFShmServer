@@ -24,7 +24,8 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\my_date_and_hour_file_sink.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFBusppNaming.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCAsyMysqlModule.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCAsyDBModule.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCAsyNosqlModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCConfigModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCCoroutineModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCEventModule.h" />
@@ -35,8 +36,8 @@
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCMysqlDriverManager.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCMysqlModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNamingModule.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlDriverManager.h" />
-    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlModule.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNosqlDriverManager.h" />
+    <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNosqlModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFConsoleModule.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCoroutine.h" />
     <ClInclude Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCoroutineSchedule.h" />
@@ -57,7 +58,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFBusppNaming.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCAsyMysqlModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCAsyDBModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCAsyNosqlModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCConfigModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCCoroutineModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCEventModule.cpp" />
@@ -68,8 +70,8 @@
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCMysqlDriverManager.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCMysqlModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNamingModule.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlDriverManager.cpp" />
-    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNoSqlModule.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNosqlDriverManager.cpp" />
+    <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCNosqlModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFConsoleModule.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCoroutine.cpp" />
     <ClCompile Include="..\..\..\src\NFCommPlugin\NFKernelPlugin\NFCoroutineSchedule.cpp" />
@@ -160,7 +162,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>
       </ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\LuaBind\lua;$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty\Theron\Include;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\thirdparty\mysql\win;$(SolutionDir)..\thirdparty\mysql\include;$(SolutionDir)..\thirdparty\zookeeper\include;$(SolutionDir)..\thirdparty\common\hiredis\hiredis_win;$(SolutionDir)..\src;$(SolutionDir)..\thirdparty/libevent/include;$(SolutionDir)..\thirdparty/libevent/win/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\LuaBind\lua;$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty\Theron\Include;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src\NFComm\NFKernelMessage;$(SolutionDir)..\src;$(SolutionDir)..\thirdparty\mysql\win;$(SolutionDir)..\thirdparty\mysql\include;$(SolutionDir)..\thirdparty\zookeeper\include;$(SolutionDir)..\thirdparty\common\hiredis\hiredis_win;$(SolutionDir)..\thirdparty/libevent/include;$(SolutionDir)..\thirdparty/libevent/win/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <DisableSpecificWarnings>4819;4244;4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
       <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_DEBUG;_WINDOWS;NFDATABASEPLUGIN_EXPORTS;WIN32_LEAN_AND_MEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>

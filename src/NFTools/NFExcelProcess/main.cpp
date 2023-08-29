@@ -148,18 +148,38 @@ int main(int argc, char* argv[])
         }
         else if (work == "allcheck")
         {
+            uint64_t startTime = NFGetSecondTime();
             std::string list = cmdParser.Get<std::string>("src");
             int iRet = ExcelParseAllCheck::Instance()->CheckExcel(list);
             if (iRet != 0)
             {
-                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Failed..............");
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Failed..............UseTime:{}", NFGetSecondTime() - startTime);
                 NFSLEEP(1000);
                 exit(-1);
             }
             else {
-                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Success, No Error, No Warning..............");
+                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Success, No Error, No Warning.............UseTime:{}", NFGetSecondTime()-startTime);
             }
         }
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        else
+        {
+		    uint64_t startTime = NFGetSecondTime();
+            std::string list = "./list.txt"; // cmdParser.Get<std::string>("src");
+		    int iRet = ExcelParseAllCheck::Instance()->CheckExcel(list);
+		    if (iRet != 0)
+		    {
+			    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Failed..............UseTime:{}", NFGetSecondTime() - startTime);
+		    }
+		    else {
+			    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Success, No Error, No Warning.............UseTime:{}", NFGetSecondTime() - startTime);
+		    }
+
+		    std::string end;
+		    std::cout << "please input some........end the program";
+		    std::cin >> end;
+        }
+#endif
     }
     catch (NFCmdLine::NFCmdLine_Error& e)
     {

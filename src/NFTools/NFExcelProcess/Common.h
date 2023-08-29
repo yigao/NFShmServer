@@ -9,15 +9,19 @@
 
 #pragma once
 
-#include <time.h>
-#include <stdio.h>
-#include <iostream>
-#include <utility>
-#include <thread>
-#include <chrono>
-#include <future>
-#include <functional>
-#include <atomic>
+#if NF_PLATFORM == NF_PLATFORM_WIN
+#include <io.h>
+#include <windows.h>
+#include <conio.h>
+#include <direct.h>
+#else
+#include <iconv.h>
+#include <unistd.h>
+#include <cstdio>
+#include <dirent.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#endif
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFCmdLine.h"

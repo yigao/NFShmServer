@@ -11,6 +11,7 @@
 
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
+#include "NFShmStl.h"
 
 template<class Tp, int MAX_SIZE>
 class NFShmStringBase
@@ -127,7 +128,7 @@ public:                         // Constructor, destructor, assignment.
         if (__pos <= __s.size())
         {
             _M_range_initialize(__s.begin() + __pos,
-                                __s.begin() + __pos + std::min(__n, __s.size() - __pos));
+                                __s.begin() + __pos + (std::min)(__n, __s.size() - __pos));
         }
     }
 
@@ -136,7 +137,7 @@ public:                         // Constructor, destructor, assignment.
         if (__pos <= __s.size())
         {
             _M_range_initialize(__s.begin() + __pos,
-                                __s.begin() + __pos + std::min(__n, __s.size() - __pos));
+                                __s.begin() + __pos + (std::min)(__n, __s.size() - __pos));
         }
     }
 
@@ -404,7 +405,7 @@ public:                         // Append, operator+=, push_back.
         if (__pos <= __s.size())
         {
             return append(__s.begin() + __pos,
-                          __s.begin() + __pos + std::min(__n, __s.size() - __pos));
+                          __s.begin() + __pos + (std::min)(__n, __s.size() - __pos));
         }
 
         return *this;
@@ -523,7 +524,7 @@ public:                         // Insert
     {
         if (__pos > size() || __beg > __s.size())
             return *this;
-        size_type __len = std::min(__n, __s.size() - __beg);
+        size_type __len = (std::min)(__n, __s.size() - __beg);
         if (size() > max_size() - __len)
             *this;
         insert(m_data + __pos,
@@ -634,7 +635,7 @@ public:                         // Erase.
     {
         if (__pos > size())
             return *this;
-        erase(m_data + __pos, m_data + __pos + std::min(__n, size() - __pos));
+        erase(m_data + __pos, m_data + __pos + (std::min)(__n, size() - __pos));
         return *this;
     }
 
