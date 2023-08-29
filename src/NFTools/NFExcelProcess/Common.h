@@ -9,20 +9,6 @@
 
 #pragma once
 
-#if NF_PLATFORM == NF_PLATFORM_WIN
-#include <io.h>
-#include <windows.h>
-#include <conio.h>
-#include <direct.h>
-#else
-#include <iconv.h>
-#include <unistd.h>
-#include <cstdio>
-#include <dirent.h>
-#include <sys/stat.h>
-#include <sys/types.h>
-#endif
-
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFCmdLine.h"
 #include "NFComm/NFCore/NFCommon.h"
@@ -35,4 +21,18 @@
 #include <arpa/inet.h>
 #include <signal.h>
 #include <sys/prctl.h>
+#endif
+
+#if NF_PLATFORM == NF_PLATFORM_WIN
+#include <io.h>
+#include <windows.h>
+#include <conio.h>
+#include <direct.h>
+#else
+#include <iconv.h>
+#include <unistd.h>
+#include <cstdio>
+#include <dirent.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 #endif
