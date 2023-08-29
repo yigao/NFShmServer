@@ -113,7 +113,6 @@ int FishGunvalueDesc::Load(NFResDB *pDB)
 			}
 			CHECK_EXPR_ASSERT(!m_GameidRoomidComIndexMap[data].full(), -1, "space not enough");
 			m_GameidRoomidComIndexMap[data].push_back(i);
-            std::vector<std::string> str;
 		}
 		{
 			FishGunvalueGameidRoomidGunid data;
@@ -139,6 +138,10 @@ int FishGunvalueDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
+		for(int j = 0; j < (int)pDesc->m_item.size(); j++)
+		{
+			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_item[j].m_item), result, "can't find the item_item:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_item[j].m_item);
+		}
 		for(int j = 0; j < (int)pDesc->m_y.size(); j++)
 		{
 			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_id), result, "can't find the y_id:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_y[j].m_id);
