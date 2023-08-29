@@ -35,6 +35,12 @@ message E_FishGunvalueYDesc
 	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
 }
 
+message E_FishGunvalueItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "num"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
 message E_FishGunvalue
 {
 	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
@@ -43,8 +49,9 @@ message E_FishGunvalue
 	optional int32 m_roomid = 4[(yd_fieldoptions.field_cname) = "房间ID"];
 	optional int32 m_gunid = 5[(yd_fieldoptions.field_cname) = "炮Id"];
 	optional int32 m_gameroomid = 6[(yd_fieldoptions.field_cname) = "游戏房间ID"];
-	repeated int32 m_x_id = 7[(yd_fieldoptions.field_cname) = "游房", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 m_x_id = 7[(yd_fieldoptions.field_cname) = "游房", (yd_fieldoptions.field_arysize) = 3];
 	repeated E_FishGunvalueYDesc m_y = 8[(yd_fieldoptions.field_cname) = "游房间", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_FishGunvalueItemDesc m_item = 9[(yd_fieldoptions.field_cname) = "", (yd_fieldoptions.field_arysize) = 2];
 }
 
 

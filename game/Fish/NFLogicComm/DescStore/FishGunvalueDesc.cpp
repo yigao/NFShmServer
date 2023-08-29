@@ -103,32 +103,28 @@ int FishGunvalueDesc::Load(NFResDB *pDB)
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		if(m_GameidRoomidGunidComIndexMap.full())
 		{
-			CHECK_EXPR_ASSERT(m_GameidRoomidGunidComIndexMap.find(pDesc->m_gameid) != m_GameidRoomidGunidComIndexMap.end(), -1, "space not enough");
+			FishGunvalueGameidRoomid data;
+			data.m_gameId = pDesc->m_gameid;
+			data.m_roomId = pDesc->m_roomid;
+			if(m_GameidRoomidComIndexMap.full())
+			{
+				CHECK_EXPR_ASSERT(m_GameidRoomidComIndexMap.find(data) != m_GameidRoomidComIndexMap.end(), -1, "space not enough");
+			}
+			CHECK_EXPR_ASSERT(!m_GameidRoomidComIndexMap[data].full(), -1, "space not enough");
+			m_GameidRoomidComIndexMap[data].push_back(i);
+            std::vector<std::string> str;
 		}
-		m_GameidRoomidGunidComIndexMap[pDesc->m_gameid];
-		auto iter_0 = m_GameidRoomidGunidComIndexMap.find(pDesc->m_gameid);
-		if(iter_0 != m_GameidRoomidGunidComIndexMap.end())
 		{
-			std::string error = "gameId:" + NFCommon::tostr(pDesc->m_gameid);
-			error += ", roomId:" + NFCommon::tostr(pDesc->m_roomid);
-			if(iter_0->second.full())
+			FishGunvalueGameidRoomidGunid data;
+			data.m_gameId = pDesc->m_gameid;
+			data.m_roomId = pDesc->m_roomid;
+			data.m_gunId = pDesc->m_gunid;
+			if(m_GameidRoomidGunidComIndexMap.full())
 			{
-				CHECK_EXPR_ASSERT(iter_0->second.find(pDesc->m_roomid) != iter_0->second.end(), -1, "space not enough");
+				CHECK_EXPR_ASSERT(m_GameidRoomidGunidComIndexMap.find(data) != m_GameidRoomidGunidComIndexMap.end(), -1, "space not enough");
 			}
-			iter_0->second[pDesc->m_roomid];
-			auto iter_1 = iter_0->second.find(pDesc->m_roomid);
-			if(iter_1 != iter_0->second.end())
-			{
-				error += ", gunId:" + NFCommon::tostr(pDesc->m_gunid);
-				if(iter_1->second.full())
-				{
-					CHECK_EXPR_ASSERT(iter_1->second.find(pDesc->m_gunid) != iter_1->second.end(), -1, "space not enough");
-				}
-				CHECK_EXPR_ASSERT(iter_1->second.find(pDesc->m_gunid) == iter_1->second.end(), -1, "index: gunId repeated:{}", error);
-				iter_1->second[pDesc->m_gunid] = i;
-			}
+			m_GameidRoomidGunidComIndexMap[data] = i;
 		}
 	}
 
@@ -211,20 +207,37 @@ proto_ff_s::E_FishGunvalue_s * FishGunvalueDesc::GetDescByIndex(int index)
 	return &m_astDesc[index];
 }
 
+std::vector<const proto_ff_s::E_FishGunvalue_s*> FishGunvalueDesc::GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid)
+{
+	FishGunvalueGameidRoomid data;
+	data.m_gameId = Gameid;
+	data.m_roomId = Roomid;
+	std::vector<const proto_ff_s::E_FishGunvalue_s*> m_vec;
+	auto iter = m_GameidRoomidComIndexMap.find(data);
+	if(iter != m_GameidRoomidComIndexMap.end())
+	{
+		for(int i = 0; i < (int)iter->second.size(); i++)
+		{
+			auto pDesc = GetDescByIndex(iter->second[i]);
+			CHECK_EXPR_CONTINUE(pDesc, "GetDescByIndex failed:{}", iter->second[i]);
+			m_vec.push_back(pDesc);
+		}
+	}
+	return m_vec;
+}
+
 const proto_ff_s::E_FishGunvalue_s* FishGunvalueDesc::GetDescByGameidRoomidGunid(int64_t Gameid, int64_t Roomid, int64_t Gunid)
 {
-	auto iter = m_GameidRoomidGunidComIndexMap.find(Gameid);
+	FishGunvalueGameidRoomidGunid data;
+	data.m_gameId = Gameid;
+	data.m_roomId = Roomid;
+	data.m_gunId = Gunid;
+	auto iter = m_GameidRoomidGunidComIndexMap.find(data);
 	if(iter != m_GameidRoomidGunidComIndexMap.end())
 	{
-		auto iter_1 = iter->second.find(Roomid);
-		if (iter_1 != iter->second.end())
-		{
-			auto iter_2 = iter_1->second.find(Gunid);
-			if (iter_2 != iter_1->second.end())
-			{
-				return GetDescByIndex(iter_2->second);
-			}
-		}
+		auto pDesc = GetDescByIndex(iter->second);
+		CHECK_EXPR(pDesc, nullptr, "GetDescByIndex failed:{}", iter->second);
+		return pDesc;
 	}
 	return nullptr;
 }

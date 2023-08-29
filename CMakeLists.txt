@@ -1,7 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 project(ShmNFrame)
-add_compile_options(-std=c++11)
-
 
 message("CMAKE_VERSION: ${CMAKE_VERSION} ")
 message("CMAKE_HOST_SYSTEM_NAME: ${CMAKE_HOST_SYSTEM_NAME} ")

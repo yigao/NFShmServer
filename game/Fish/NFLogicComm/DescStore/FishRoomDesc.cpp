@@ -102,22 +102,15 @@ int FishRoomDesc::Load(NFResDB *pDB)
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		if(m_GameidRoomidComIndexMap.full())
 		{
-			CHECK_EXPR_ASSERT(m_GameidRoomidComIndexMap.find(pDesc->m_gameid) != m_GameidRoomidComIndexMap.end(), -1, "space not enough");
-		}
-		m_GameidRoomidComIndexMap[pDesc->m_gameid];
-		auto iter_0 = m_GameidRoomidComIndexMap.find(pDesc->m_gameid);
-		if(iter_0 != m_GameidRoomidComIndexMap.end())
-		{
-			std::string error = "gameId:" + NFCommon::tostr(pDesc->m_gameid);
-			error += ", roomId:" + NFCommon::tostr(pDesc->m_roomid);
-			if(iter_0->second.full())
+			FishRoomGameidRoomid data;
+			data.m_gameId = pDesc->m_gameid;
+			data.m_roomId = pDesc->m_roomid;
+			if(m_GameidRoomidComIndexMap.full())
 			{
-				CHECK_EXPR_ASSERT(iter_0->second.find(pDesc->m_roomid) != iter_0->second.end(), -1, "space not enough");
+				CHECK_EXPR_ASSERT(m_GameidRoomidComIndexMap.find(data) != m_GameidRoomidComIndexMap.end(), -1, "space not enough");
 			}
-			CHECK_EXPR_ASSERT(iter_0->second.find(pDesc->m_roomid) == iter_0->second.end(), -1, "index: roomId repeated:{}", error);
-			iter_0->second[pDesc->m_roomid] = i;
+			m_GameidRoomidComIndexMap[data] = i;
 		}
 	}
 
@@ -184,14 +177,15 @@ proto_ff_s::E_FishRoom_s * FishRoomDesc::GetDescByIndex(int index)
 
 const proto_ff_s::E_FishRoom_s* FishRoomDesc::GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid)
 {
-	auto iter = m_GameidRoomidComIndexMap.find(Gameid);
+	FishRoomGameidRoomid data;
+	data.m_gameId = Gameid;
+	data.m_roomId = Roomid;
+	auto iter = m_GameidRoomidComIndexMap.find(data);
 	if(iter != m_GameidRoomidComIndexMap.end())
 	{
-		auto iter_1 = iter->second.find(Roomid);
-		if (iter_1 != iter->second.end())
-		{
-			return GetDescByIndex(iter_1->second);
-		}
+		auto pDesc = GetDescByIndex(iter->second);
+		CHECK_EXPR(pDesc, nullptr, "GetDescByIndex failed:{}", iter->second);
+		return pDesc;
 	}
 	return nullptr;
 }

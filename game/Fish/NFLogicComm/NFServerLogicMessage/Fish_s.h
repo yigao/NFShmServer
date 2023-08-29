@@ -9,8 +9,9 @@
 #include "Fish_s.h"
 
 #define DEFINE_SHEET_FISHROOM_E_FISHROOM_LIST_MAX_NUM 8
-#define DEFINE_E_FISHGUNVALUE_M_X_ID_MAX_NUM 2
+#define DEFINE_E_FISHGUNVALUE_M_X_ID_MAX_NUM 3
 #define DEFINE_E_FISHGUNVALUE_M_Y_MAX_NUM 2
+#define DEFINE_E_FISHGUNVALUE_M_ITEM_MAX_NUM 2
 #define DEFINE_SHEET_FISHGUNVALUE_E_FISHGUNVALUE_LIST_MAX_NUM 64
 #define DEFINE_SHEET_FISHCTRLLEVEL_E_FISHCTRLLEVEL_LIST_MAX_NUM 16
 #define DEFINE_E_FISHCONFIG_M_CHILDFISHIDS_MAX_NUM 6
@@ -75,6 +76,21 @@ namespace proto_ff_s {
 	};
 	typedef struct E_FishGunvalueYDesc_s E_FishGunvalueYDesc_t;
 
+	struct E_FishGunvalueItemDesc_s : public NFDescStoreSeqOP {
+		E_FishGunvalueItemDesc_s();
+		virtual ~E_FishGunvalueItemDesc_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t m_num;
+		int32_t m_item;
+
+		virtual void write_to_pbmsg(::proto_ff::E_FishGunvalueItemDesc & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::E_FishGunvalueItemDesc & msg);
+		static ::proto_ff::E_FishGunvalueItemDesc* new_pbmsg(){ return new ::proto_ff::E_FishGunvalueItemDesc(); }
+		static ::proto_ff::E_FishGunvalueItemDesc make_pbmsg(){ return ::proto_ff::E_FishGunvalueItemDesc(); }
+	};
+	typedef struct E_FishGunvalueItemDesc_s E_FishGunvalueItemDesc_t;
+
 	struct E_FishGunvalue_s : public NFDescStoreSeqOP {
 		E_FishGunvalue_s();
 		virtual ~E_FishGunvalue_s(){}
@@ -88,6 +104,7 @@ namespace proto_ff_s {
 		int32_t m_gameroomid;
 		NFShmVector<int32_t, DEFINE_E_FISHGUNVALUE_M_X_ID_MAX_NUM> m_x_id;
 		NFShmVector<struct E_FishGunvalueYDesc_s, DEFINE_E_FISHGUNVALUE_M_Y_MAX_NUM> m_y;
+		NFShmVector<struct E_FishGunvalueItemDesc_s, DEFINE_E_FISHGUNVALUE_M_ITEM_MAX_NUM> m_item;
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg);
