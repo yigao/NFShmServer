@@ -92,14 +92,14 @@
       </ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\src\NFComm\NFKernelMessage;$(SolutionDir)..\thirdparty\LuaBind\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_CONSOLE;BUILDING_LIBCURL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_DEBUG;_CONSOLE;BUILDING_LIBCURL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DisableSpecificWarnings>4819;4091;4251;4996;4275;4316;4244;4267;4244;4099;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\Install\lib\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)../Build/$(Configuration)/Lib/;$(SolutionDir)../thirdparty/lib64_release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <IgnoreSpecificDefaultLibraries>libcmt.lib;</IgnoreSpecificDefaultLibraries>
     </Link>
   </ItemDefinitionGroup>

@@ -142,8 +142,8 @@
       </SDLCheck>
       <ConformanceMode>
       </ConformanceMode>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\src\NFComm\NFMessageDefine;$(SolutionDir)..\src\NFComm\NFKernelMessage;$(SolutionDir)..\thirdparty\LuaBind\lua;$(SolutionDir)..\src\NFServerComm\NFServerMessage;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DisableSpecificWarnings>4819;4309;4091;4251;4996;4275;4316;4244;4267;4244;4101;4099;4200;</DisableSpecificWarnings>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
