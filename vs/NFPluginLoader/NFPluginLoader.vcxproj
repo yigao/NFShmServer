@@ -54,6 +54,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <OutDir>$(SolutionDir)../Install/Bin/$(Configuration)/</OutDir>
     <IntDir>$(SolutionDir)../Build/$(Configuration)/$(ProjectName)/</IntDir>
+    <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -88,8 +89,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>
       </SDLCheck>
-      <ConformanceMode>
-      </ConformanceMode>
+      <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(SolutionDir)..\thirdparty\common;$(SolutionDir)..\thirdparty;$(SolutionDir)..\src;$(SolutionDir)..\src\NFComm\NFKernelMessage;$(SolutionDir)..\thirdparty\LuaBind\lua;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NF_STATIC_PLUGIN;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;_X64;_DEBUG;_CONSOLE;BUILDING_LIBCURL;CURL_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
