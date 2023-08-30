@@ -8,14 +8,18 @@
 // -------------------------------------------------------------------------
 #include "NFLogMgr.h"
 #include "NFILogModule.h"
+#include "common/spdlog/spdlog.h"
+#include "common/spdlog/sinks/basic_file_sink.h"
 
 NFLogMgr::NFLogMgr()
 {
 	m_pLogModule = nullptr;
+
 }
 
 NFLogMgr::~NFLogMgr()
 {
+	spdlog::drop_all();
 }
 
 bool NFLogMgr::Init(NFILogModule* pSpdlogModule)
@@ -57,3 +61,29 @@ void NFLogMgr::SetDefaultFlush(NF_LOG_LEVEL log_level)
 	}
 }
 
+void NFLogMgr::CreateNoLog()
+{
+	if (!m_noLogger)
+	{
+		std::vector<spdlog::sink_ptr> sinks_vec;
+		std::string log_name = "default.log";
+		auto date_and_hour_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(log_name);
+		auto color_sink = std::make_shared<spdlog::sinks::wincolor_stdout_sink_mt>();
+		sinks_vec.push_back(color_sink);
+		sinks_vec.push_back(date_and_hour_sink);
+		m_noLogger = std::make_shared<spdlog::logger>("default", std::begin(sinks_vec), std::end(sinks_vec));
+		m_noLogger->set_level(spdlog::level::level_enum::trace);
+
+		m_noLogger->set_pattern("%^[%l | %Y-%m-%d %H:%M:%S.%e] | %v%$");
+
+		m_noLogger->flush_on(spdlog::level::trace);
+
+		spdlog::register_logger(m_noLogger);
+	}
+}
+
+void NFLogMgr::NoLog(NF_LOG_LEVEL log_level, const NFSourceLoc& loc, uint32_t logId, uint64_t guid, const std::string& log)
+{
+	std::string str = fmt::format("[{}:{}:{}] | [{}:{}] | {}", loc.filename, loc.line, loc.funcname, "default", guid, log);
+	m_noLogger->log((spdlog::level::level_enum)log_level, str.c_str());
+}

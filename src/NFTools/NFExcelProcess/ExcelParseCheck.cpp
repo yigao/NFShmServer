@@ -111,7 +111,7 @@ int ExcelParseCheck::CheckFirstCol(ExcelSheet &sheet)
                 auto key_iter = sheet.m_firstColKeyMap.find(value);
                 if (key_iter != sheet.m_firstColKeyMap.end())
                 {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} key:{} 与 row:{} key repeated, ", m_excelName, sheet.m_name, row + 1,
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} key:{} and row:{} key repeated, ", m_excelName, sheet.m_name, row + 1,
                                value, key_iter->second + 1);
                     flag = true;
                 }

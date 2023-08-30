@@ -16,6 +16,10 @@ ExcelParse::ExcelParse()
 
 ExcelParse::~ExcelParse()
 {
+    if (m_excelReader)
+    {
+        delete m_excelReader;
+    }
 }
 
 

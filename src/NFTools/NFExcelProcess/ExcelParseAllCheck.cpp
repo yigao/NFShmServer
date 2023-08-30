@@ -17,6 +17,10 @@ ExcelParseAllCheck::ExcelParseAllCheck()
 
 ExcelParseAllCheck::~ExcelParseAllCheck()
 {
+    for (auto iter = m_excelMap.begin(); iter != m_excelMap.end(); iter++)
+    {
+        delete iter->second;
+    }
 }
 
 int ExcelParseAllCheck::CheckExcel(const string &listFile)

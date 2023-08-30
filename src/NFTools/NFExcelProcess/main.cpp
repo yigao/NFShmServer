@@ -19,6 +19,20 @@ int main(int argc, char* argv[])
 {
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	SetConsoleOutputCP(CP_UTF8);
+	HANDLE HOUT = GetStdHandle(STD_OUTPUT_HANDLE);    //获得控制台句柄
+	COORD NewSize = GetLargestConsoleWindowSize(HOUT);//获得控制台最大坐标，坐标以字符数为单位
+	NewSize.X -= 1;
+	NewSize.Y -= 1;    //可以不加，不加时显示滚动条
+	SetConsoleScreenBufferSize(HOUT, NewSize); //设置控制台缓冲区大小
+
+	SMALL_RECT DisplayArea = { 0,0,0,0 };
+	DisplayArea.Right = NewSize.X;
+	DisplayArea.Bottom = NewSize.Y;
+	SetConsoleWindowInfo(HOUT, TRUE, &DisplayArea);    //设置控制台大小
+
+	//控制台已经最大化，但是初始位置不在屏幕左上角，添加如下代码
+	HWND hwnd = GetConsoleWindow();
+	ShowWindow(hwnd, SW_MAXIMIZE);    //窗体最大化
 #elif NF_PLATFORM == NF_PLATFORM_LINUX
 #endif
     try
@@ -78,6 +92,7 @@ int main(int argc, char* argv[])
                 NFSLEEP(1000);
                 exit(-1);
             }
+            ExcelToProto::ReleaseInstance();
         }
         else if (work == "exceltobin")
         {
@@ -103,6 +118,7 @@ int main(int argc, char* argv[])
                 NFSLEEP(1000);
                 exit(-1);
             }
+            ExcelToBin::ReleaseInstance();
         }
         else if (work == "exceltotxt")
         {
@@ -126,6 +142,8 @@ int main(int argc, char* argv[])
                 NFSLEEP(1000);
                 exit(-1);
             }
+
+            ExcelToTxt::ReleaseInstance();
         }
         else if (work == "exceltotxtgen")
         {
@@ -149,6 +167,8 @@ int main(int argc, char* argv[])
                 NFSLEEP(1000);
                 exit(-1);
             }
+
+            ExcelToTxtGen::ReleaseInstance();
         }
         else if (work == "allcheck")
         {
@@ -164,6 +184,8 @@ int main(int argc, char* argv[])
             else {
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Success, No Error, No Warning.............UseTime:{}", NFGetSecondTime()-startTime);
             }
+
+            ExcelParseAllCheck::ReleaseInstance();
         }
 #if NF_PLATFORM == NF_PLATFORM_WIN
         else
@@ -178,6 +200,8 @@ int main(int argc, char* argv[])
 		    else {
 			    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "All Excel Check Success, No Error, No Warning.............UseTime:{}", NFGetSecondTime() - startTime);
 		    }
+
+            ExcelParseAllCheck::Instance()->ReleaseInstance();
 
 		    std::string end;
 		    std::cout << "please input some........end the program";

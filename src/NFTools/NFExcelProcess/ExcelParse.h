@@ -154,6 +154,14 @@ struct ExcelSheet
         m_rows = 0;
     }
 
+    ~ExcelSheet()
+    {
+        for (auto iter = m_colInfoMap.begin(); iter != m_colInfoMap.end(); iter++)
+        {
+            delete iter->second;
+        }
+    }
+
     std::string m_name;
     uint32_t m_rows;
     std::map<uint32_t, ExcelSheetColInfo*> m_colInfoVec;

@@ -15,6 +15,11 @@
 #include "NFComm/NFCore/NFSnprintf.h"
 #include "NFComm/NFCore/NFTime.h"
 
+namespace spdlog
+{
+    class logger;
+}
+
 class NFLogMgr : public NFSingleton<NFLogMgr>
 {
 public:
@@ -42,28 +47,20 @@ public:
                 m_pLogModule->LogDefault((NF_LOG_LEVEL)log_level, loc, logId, guid, str);
             }
             catch (fmt::v5::format_error& error) {
-                std::string str = fmt::format("log format error------------{} error:{}", my_fmt, error.what());\
+                std::string str = fmt::format("log format error------------{} error:{}", my_fmt, error.what());
                 m_pLogModule->LogDefault((NF_LOG_LEVEL)NLL_ERROR_NORMAL, loc, logId, guid, str);
             }
 		}
 		else
         {
+            CreateNoLog();
             try {
                 std::string str = fmt::format(my_fmt, args...);
-
-                str = fmt::format("[INFO | {}] | [{}:{}:{}] | [SystemLog:0] | {}", NFTime::Now().GetFormatDate(), loc.filename, loc.line, loc.funcname, str);
-                if (log_level >= NLL_ERROR_NORMAL)
-                {
-                    std::cerr << str << std::endl;
-                }
-                else {
-                    std::cout << str << std::endl;
-                }
+                NoLog((NF_LOG_LEVEL)log_level, loc, logId, guid, str);
             }
             catch (fmt::v5::format_error& error) {
-                std::string str = fmt::format("log format error------------{} error:{}", my_fmt, error.what());\
-                str = fmt::format("[INFO | {}] | [{}:{}:{}] | [SystemLog:0] | {}", NFTime::Now().GetFormatDate(), loc.filename, loc.line, loc.funcname, str);
-                std::cerr << str << std::endl;
+                std::string str = fmt::format("log format error------------{} error:{}", my_fmt, error.what());
+                NoLog((NF_LOG_LEVEL)NLL_ERROR_NORMAL, loc, logId, guid, str);
             }
         }
 	}
@@ -148,9 +145,13 @@ public:
         }
         return true;
     }
+
+    void CreateNoLog();
+    void NoLog(NF_LOG_LEVEL log_level, const NFSourceLoc& loc, uint32_t logId, uint64_t guid, const std::string& log);
 protected:
     char m_format[1024];
 	NFILogModule* m_pLogModule;
+    std::shared_ptr<spdlog::logger> m_noLogger;
 };
 
 #define NFLogTrace(logID, guid, format, ...) NFLogMgr::Instance()->Log(NLL_TRACE_NORMAL, NFSourceLoc{NFLOG_FILE_BASENAME(__FILE__), __LINE__, NF_MACRO_FUNCTION}, logID, guid, format, ##__VA_ARGS__);
