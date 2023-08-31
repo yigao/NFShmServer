@@ -12,9 +12,6 @@
 
 #ifndef NF_DYNAMIC_PLUGIN
 
-#pragma comment(lib, "version.lib")
-#pragma comment(lib, "netapi32.lib")
-
 ////////////////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////////////////
@@ -23,12 +20,9 @@
 #pragma comment( lib, "event_core.lib" )
 #pragma comment( lib, "libprotobuf.lib" )
 #pragma comment( lib, "Theron.lib" )
-#pragma comment( lib, "Dbghelp.lib" )
 #pragma comment( lib, "mysqlclient.lib" )
 //////////////////////////////////////////////////////////////////
-#pragma comment( lib, "common.lib" )
 #pragma comment( lib, "evpp.lib" )
-#pragma comment( lib, "LuaBind.lib" )
 #pragma comment( lib, "mysqlpp.lib" )
 
 /////////////////////////////////////////////////////////////////

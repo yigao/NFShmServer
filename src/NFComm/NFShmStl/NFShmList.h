@@ -12,6 +12,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFShmStl/NFShmStl.h"
 #include <iterator>
 #include <algorithm>
 #include <vector>

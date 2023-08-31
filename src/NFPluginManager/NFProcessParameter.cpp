@@ -305,7 +305,7 @@ void ProcessParameter(NFIPluginManager* pPluginManager, const std::vector<std::s
 
         std::string strTitleName = "NF" + strAppName + NFCommon::tostr(strBusName);// +" PID" + NFGetPID();
 #if NF_PLATFORM == NF_PLATFORM_WIN
-        SetConsoleTitle(NFStringUtility::char2wchar(strTitleName.c_str(), NULL));
+        //SetConsoleTitle(NFStringUtility::char2wchar(strTitleName.c_str(), NULL));
 #elif NF_PLATFORM == NF_PLATFORM_LINUX
         prctl(PR_SET_NAME, strTitleName.c_str());
         //setproctitle(strTitleName.c_str());

@@ -308,8 +308,8 @@ NFCSharedMem *NFCSharedMemModule::CreateShareMem(int iKey, size_t siSize, EN_OBJ
               enInitFlag);
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
-    std::string shmFileName = NF_FORMAT("{}_shm_key_{}.bus", m_pObjPluginManager->GetAppName(), iKey);
-    //std::wstring wShmFileName = NFStringUtility::s2ws(shmFileName);
+    std::string tempFileName = NF_FORMAT("{}_shm_key_{}.bus", m_pObjPluginManager->GetAppName(), iKey);
+    std::wstring shmFileName = NFStringUtility::s2ws(tempFileName);
     hShmID = OpenFileMapping(FILE_MAP_ALL_ACCESS, false, shmFileName.c_str());
 
     if (hShmID == nullptr)

@@ -153,12 +153,14 @@ void TeaDecryptECB(const char *pInBuf, const char *pKey, char *pOutBuf)
 int oi_symmetry_encrypt2_len(int nInBufLen)
 {
 
-    int nPadSaltBodyZeroLen/*PadLen(1byte)+Salt+Body+Zero的长度*/;
+    /*PadLen(1byte)+Salt+Body+Zero的长度*/
+    int nPadSaltBodyZeroLen;
     int nPadlen;
 
     /*根据Body长度计算PadLen,最小必需长度必需为8byte的整数倍*/
-    nPadSaltBodyZeroLen = nInBufLen/*Body长度*/ + 1 + SALT_LEN + ZERO_LEN/*PadLen(1byte)+Salt(2byte)+Zero(7byte)*/;
-    if ((nPadlen = nPadSaltBodyZeroLen % 8)) /*len=nSaltBodyZeroLen%8*/
+    nPadSaltBodyZeroLen = nInBufLen+ 1 + SALT_LEN + ZERO_LEN;
+    /*len=nSaltBodyZeroLen%8*/
+    if ((nPadlen = nPadSaltBodyZeroLen % 8))
     {
         /*模8余0需补0,余1补7,余2补6,...,余7补1*/
         nPadlen = 8 - nPadlen;

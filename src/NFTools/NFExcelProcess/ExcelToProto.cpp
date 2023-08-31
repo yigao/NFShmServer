@@ -128,7 +128,7 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
                         "\toptional int32 " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
                         "\"];\n";
             }
-            else if (col_type == "uint" or col_type == "uint32")
+            else if (col_type == "uint" || col_type == "uint32")
             {
                 proto_file +=
                         "\toptional uint32 " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
@@ -190,7 +190,7 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
                     "\toptional int32 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
                     "\"];\n";
         }
-        else if (col_type == "uint" or col_type == "uint32")
+        else if (col_type == "uint" || col_type == "uint32")
         {
             proto_file +=
                     "\toptional uint32 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
@@ -255,7 +255,7 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
                         "\trepeated int32 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
                         "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size) + "];\n";
             }
-            else if (col_type == "uint" or col_type == "uint32")
+            else if (col_type == "uint" || col_type == "uint32")
             {
                 proto_file +=
                         "\trepeated uint32 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +

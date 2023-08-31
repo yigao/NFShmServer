@@ -358,7 +358,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
             NFStringUtility::Trim(col_cn_name_list[i]);
         }
 
-        if (col_en_name_list.size() == 2 and col_cn_name_list.size() == 3)
+        if (col_en_name_list.size() == 2 && col_cn_name_list.size() == 3)
         {
             /** 处理正常数组
              * @brief item_id item_num item_id item_num
@@ -565,7 +565,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
                 return -1;
             }
         }
-        else if (col_en_name_list.size() == 1 and col_cn_name_list.size() == 3)
+        else if (col_en_name_list.size() == 1 && col_cn_name_list.size() == 3)
         {
             /** 处理特殊情况
              * @brief itemid itemid

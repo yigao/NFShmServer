@@ -11,7 +11,6 @@
 #include "NFComm/NFCore/NFMD5.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFCore/NFRandom.hpp"
-#include "NFComm/NFCore/NFTea.h"
 #include "NFComm/NFCore/NFCommon.h"
 
 bool NFCDynLib::Load()

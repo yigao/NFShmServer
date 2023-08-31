@@ -14,7 +14,6 @@
 #include <winsock2.h>
 #include <WS2tcpip.h>
 #include <stdint.h>
-#pragma comment(lib, "ws2_32.lib")
 
 #else
 

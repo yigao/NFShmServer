@@ -72,7 +72,7 @@ int NFGameRoom::Init(uint32_t gameId, const std::string &gameName, uint32_t room
 
 int NFGameRoom::InitDesks(uint32_t deskCount, uint32_t sitNum, uint32_t maxUserNum)
 {
-    deskCount = std::min(FindModule<NFIGameConfig>()->GetRoomMaxDeskNum(), std::min(deskCount, (uint32_t)MAX_ONE_ROOM_DESK_NUM));
+    deskCount = (std::min)(FindModule<NFIGameConfig>()->GetRoomMaxDeskNum(), (std::min)(deskCount, (uint32_t)MAX_ONE_ROOM_DESK_NUM));
     CHECK_EXPR(deskCount > 0 && deskCount <= MAX_ONE_ROOM_DESK_NUM && sitNum > 0 && maxUserNum >= sitNum && sitNum <= MAX_GAME_DESK_CHAIR_NUM, -1, "param error, deskCount:{} sitNum:{} maxUserNum:{}",
                deskCount, sitNum, maxUserNum);
 
