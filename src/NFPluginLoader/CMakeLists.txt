@@ -34,7 +34,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
 if(UNIX)
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt  pthread libprotobuf.a)
 else(WIN32)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrt.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
 endif()
 	SET_TARGET_PROPERTIES(${PROJECT_NAME}
 		PROPERTIES 
