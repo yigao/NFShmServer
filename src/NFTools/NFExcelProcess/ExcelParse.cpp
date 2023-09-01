@@ -243,47 +243,56 @@ int ExcelParse::HandleSheetList(MiniExcelReader::Sheet &sheet)
                 }
 
                 std::vector<std::string> dst_relation_str_vec;
-                NFStringUtility::Split(dst_relation_str, ".", &dst_relation_str_vec);
+                NFStringUtility::Split(dst_relation_str, "|", &dst_relation_str_vec);
 
-                if (dst_relation_str_vec.size() != 2)
+                if (dst_relation_str_vec.size() > 0)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
                     return -1;
                 }
 
-                ExcelRelation relation;
-                relation.m_excelName = dst_relation_str_vec[0];
-                relation.m_sheetName = dst_relation_str_vec[1];
-                relation.m_myColName = my_col_str_vec[0];
-                relation.m_mySrcColName = my_col_name;
-                if (my_col_str_vec.size() == 2)
-                {
-                    relation.m_myColSubName = my_col_str_vec[1];
-                }
+				ExcelRelation relation;
+				relation.m_myColName = my_col_str_vec[0];
+				relation.m_mySrcColName = my_col_name;
+				if (my_col_str_vec.size() == 2)
+				{
+					relation.m_myColSubName = my_col_str_vec[1];
+				}
 
-                if (relation.m_excelName.empty() || relation.m_sheetName.empty())
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-                    return -1;
-                }
+				if (relation.m_myColSubName.empty())
+				{
+					if (excelSheet.m_colRelationMap.find(relation.m_myColName) != excelSheet.m_colRelationMap.end())
+					{
+						NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
+						return -1;
+					}
+					excelSheet.m_colRelationMap.emplace(relation.m_myColName, relation);
+				}
+				else
+				{
+					if (excelSheet.m_colRelationMap.find(relation.m_myColName + "_" + relation.m_myColSubName) != excelSheet.m_colRelationMap.end())
+					{
+						NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
+						return -1;
+					}
+					excelSheet.m_colRelationMap.emplace(relation.m_myColName + "_" + relation.m_myColSubName, relation);
+				}
 
-                if (relation.m_myColSubName.empty())
+                for (int i = 0; i < (int)dst_relation_str_vec.size(); i++)
                 {
-                    if (excelSheet.m_colRelationMap.find(relation.m_myColName) != excelSheet.m_colRelationMap.end())
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
-                        return -1;
-                    }
-                    excelSheet.m_colRelationMap.emplace(relation.m_myColName, relation);
-                }
-                else
-                {
-                    if (excelSheet.m_colRelationMap.find(relation.m_myColName + "_" + relation.m_myColSubName) != excelSheet.m_colRelationMap.end())
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right, repeated", relation_str);
-                        return -1;
-                    }
-                    excelSheet.m_colRelationMap.emplace(relation.m_myColName + "_" + relation.m_myColSubName, relation);
+					std::vector<std::string> dst_relation_str_vec_vec;
+					NFStringUtility::Split(dst_relation_str_vec[i], ".", &dst_relation_str_vec_vec);
+
+					if (dst_relation_str_vec_vec.size() >= 2)
+					{
+						NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
+						return -1;
+					}
+
+					ExcelRelationDst relationDst;
+                    relationDst.m_excelName = dst_relation_str_vec_vec[0];
+                    relationDst.m_sheetName = dst_relation_str_vec_vec[1];
+                    relation.m_dst.push_back(relationDst);
                 }
 
                 //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} add relation:{}:{}", m_excel, sheet_name, my_col_name,
@@ -1170,6 +1179,18 @@ int ExcelParse::HandleSheetIndex()
                     }
                 }
             }
+
+			ExcelRelation& relation = iter->second;
+			relation.m_noFindError = "";
+			for (int i = 0; i < (int)relation.m_dst.size(); i++)
+			{
+				ExcelRelationDst& relationDst = relation.m_dst[i];
+				relation.m_noFindError += " excel:" + relationDst.m_excelName + " sheet:" + relationDst.m_sheetName;
+				if (relation.m_dst.size() >= 2 && i != (int)relation.m_dst.size() - 1)
+				{
+					relation.m_noFindError += " or ";
+				}
+			}
         }
     }
     return 0;

@@ -598,7 +598,11 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     std::set<std::string> headFileHead;
     for (auto iter = pSheet->m_colRelationMap.begin(); iter != pSheet->m_colRelationMap.end(); iter++)
     {
-        headFileHead.insert(NFStringUtility::Capitalize(iter->second.m_excelName) + NFStringUtility::Capitalize(iter->second.m_sheetName));
+        for (int i = 0; i < (int)iter->second.m_dst.size(); i++)
+        {
+            ExcelRelationDst& relationDst = iter->second.m_dst[i];
+            headFileHead.insert(NFStringUtility::Capitalize(relationDst.m_excelName) + NFStringUtility::Capitalize(relationDst.m_sheetName));
+        }
     }
 
     for (auto iter = headFileHead.begin(); iter != headFileHead.end(); iter++)
@@ -824,14 +828,24 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                 ExcelSheetColInfo *pColInfo = pSheet->m_colInfoMap[iter->second.m_myColName];
                 if (pColInfo->m_maxSubNum == 0)
                 {
-                    desc_file +=
-                            "\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
-                            NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                            "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                            "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the Excel:" +
-                            NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
-                            NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                            "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
+					ExcelRelation& relation = iter->second;
+                    desc_file += "\t\tCHECK_EXPR_MSG_RESULT(";
+                    for (int i = 0; i < (int)relation.m_dst.size(); i++)
+                    {
+                        ExcelRelationDst& relationDst = relation.m_dst[i];
+                        desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+                            NFStringUtility::Capitalize(relationDst.m_sheetName) +
+                            "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName);
+
+                        if (i != (int)relation.m_dst.size() - 1)
+                        {
+                            desc_file += " || ";
+                        }
+                    }
+
+
+                    desc_file += "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the {}" +
+                            "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ", ", relation.m_noFindError + ");\n";
                 }
                 else
                 {
@@ -839,30 +853,47 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                     {
                         desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
                         desc_file += "\t\t{\n";
-                        desc_file +=
-                                "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
-                                NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                                "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                                "[j]), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the Excel:" +
-                                NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
-                                NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                                "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]);\n";
+					    ExcelRelation& relation = iter->second;
+						desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
+						for (int i = 0; i < (int)relation.m_dst.size(); i++)
+						{
+							ExcelRelationDst& relationDst = relation.m_dst[i];
+							desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+								NFStringUtility::Capitalize(relationDst.m_sheetName) +
+								"Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]";
+
+							if (i != (int)relation.m_dst.size() - 1)
+							{
+								desc_file += " || ";
+							}
+						}
+
+						desc_file += "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the {}" +
+							"\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j], ", relation.m_noFindError + ");\n";
                         desc_file += "\t\t}\n";
                     }
                     else {
                         desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
                         desc_file += "\t\t{\n";
-                        desc_file +=
-                                "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
-                                NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                                "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                                "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + "), result, \"can't find the " +
-                                NFStringUtility::Lower(iter->second.m_myColName) + "_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                                ":{} in the Excel:" +
-                                NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
-                                NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                                "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
-                                NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
+						ExcelRelation& relation = iter->second;
+						desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
+						for (int i = 0; i < (int)relation.m_dst.size(); i++)
+						{
+							ExcelRelationDst& relationDst = relation.m_dst[i];
+							desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+								NFStringUtility::Capitalize(relationDst.m_sheetName) +
+								"Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) 
+                                + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName);
+
+							if (i != (int)relation.m_dst.size() - 1)
+							{
+								desc_file += " || ";
+							}
+						}
+
+						desc_file += "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the {}" +
+							"\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + ", " + relation.m_noFindError + ");\n";
+
                         desc_file += "\t\t}\n";
                     }
                 }
@@ -871,17 +902,25 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             {
                 desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
                 desc_file += "\t\t{\n";
-                desc_file +=
-                        "\t\t\tCHECK_EXPR_MSG_RESULT(" + NFStringUtility::Capitalize(iter->second.m_excelName) +
-                        NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                        "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                        "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + "), result, \"can't find the " +
-                        NFStringUtility::Lower(iter->second.m_myColName) + "_" + NFStringUtility::Lower(iter->second.m_myColSubName) +
-                        ":{} in the Excel:" +
-                        NFStringUtility::Capitalize(iter->second.m_excelName) + ".xlsx Sheet:" +
-                        NFStringUtility::Capitalize(iter->second.m_sheetName) +
-                        "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
-                        NFStringUtility::Lower(iter->second.m_myColSubName) + ");\n";
+				ExcelRelation& relation = iter->second;
+				desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
+				for (int i = 0; i < (int)relation.m_dst.size(); i++)
+				{
+					ExcelRelationDst& relationDst = relation.m_dst[i];
+					desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+						NFStringUtility::Capitalize(relationDst.m_sheetName) +
+						"Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
+						+ "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName);
+
+					if (i != (int)relation.m_dst.size() - 1)
+					{
+						desc_file += " || ";
+					}
+				}
+
+				desc_file += "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the {}" +
+					"\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ", " + relation.m_noFindError + ");\n";
+
                 desc_file += "\t\t}\n";
             }
         }

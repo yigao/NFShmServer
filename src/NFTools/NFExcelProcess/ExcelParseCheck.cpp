@@ -224,6 +224,18 @@ int ExcelParseCheck::CheckUniqueIndex(ExcelSheet &sheet)
 
 int ExcelParseCheck::CheckRelation()
 {
+	for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
+	{
+		ExcelSheet& sheet = iter->second;
+		if (sheet.m_colInfoMap.empty()) continue;
+
+		int iRet = FindRelation(sheet);
+		if (iRet != 0)
+		{
+			return iRet;
+		}
+	}
+
     for (auto iter = m_sheets.begin(); iter != m_sheets.end(); iter++)
     {
         ExcelSheet &sheet = iter->second;
@@ -240,6 +252,31 @@ int ExcelParseCheck::CheckRelation()
     return 0;
 }
 
+int  ExcelParseCheck::FindRelation(ExcelSheet& sheet)
+{
+	MiniExcelReader::Sheet* pExcelSheet = m_excelReader->getSheet(sheet.m_name);
+	CHECK_EXPR(pExcelSheet, -1, "excel:{} Can't find sheet:{} data", m_excel, sheet.m_name);
+
+    for (auto iter = sheet.m_colRelationMap.begin(); iter != sheet.m_colRelationMap.end(); iter++)
+    {
+        ExcelRelation& relation = iter->second;
+        for (int i = 0; i < (int)relation.m_dst.size(); i++)
+        {
+            ExcelRelationDst& relationDst = relation.m_dst[i];
+			ExcelParseCheck* pFindExcel = ExcelParseAllCheck::Instance()->GetExcelParse(relationDst.m_excelName);
+			CHECK_EXPR(pFindExcel, -1, "excel:{} sheet:{} colName:{} can't find the relation excel:{}", m_excelName, sheet.m_name, relation.m_mySrcColName, relationDst.m_excelName);
+			ExcelSheet* pFindSheet = pFindExcel->GetExcelSheet(relationDst.m_sheetName);
+			CHECK_EXPR(pFindSheet, -1, "excel:{} sheet:{} colName:{} can't find the relation excel:{} sheet:{}", m_excelName, sheet.m_name, relation.m_mySrcColName, relationDst.m_excelName,
+                relationDst.m_sheetName);
+
+            relationDst.m_pExcel = pFindExcel;
+            relationDst.m_pSheet = pFindSheet;
+        }
+    }
+
+    return 0;
+}
+
 int ExcelParseCheck::CheckRelation(ExcelSheet &sheet)
 {
     MiniExcelReader::Sheet *pExcelSheet = m_excelReader->getSheet(sheet.m_name);
@@ -249,198 +286,233 @@ int ExcelParseCheck::CheckRelation(ExcelSheet &sheet)
     for (auto iter = sheet.m_colRelationMap.begin(); iter != sheet.m_colRelationMap.end(); iter++)
     {
         ExcelRelation &relation = iter->second;
-        ExcelParseCheck *pFindExcel = ExcelParseAllCheck::Instance()->GetExcelParse(relation.m_excelName);
-        CHECK_EXPR(pFindExcel, -1, "excel:{} sheet:{} colName:{} can't find the relation excel:{}", m_excelName, sheet.m_name, relation.m_mySrcColName, relation.m_excelName);
-        ExcelSheet *pFindSheet = pFindExcel->GetExcelSheet(relation.m_sheetName);
-        CHECK_EXPR(pFindSheet, -1, "excel:{} sheet:{} colName:{} can't find the relation excel:{} sheet:{}", m_excelName, sheet.m_name, relation.m_mySrcColName, relation.m_excelName,
-                   relation.m_sheetName);
-
-        CHECK_EXPR(sheet.m_colInfoMap.find(iter->second.m_myColName) != sheet.m_colInfoMap.end(), -1,
-                   "excel:{} sheet:{} can't find the colName:{}", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
-
-        ExcelSheetColInfo *pColInfo = sheet.m_colInfoMap[iter->second.m_myColName];
-
-        if (iter->second.m_myColSubName.empty())
+        bool find_flag = false;
         {
-            if (pColInfo->m_maxSubNum == 0)
-            {
-                int col = pColInfo->m_colIndex;
-                CHECK_EXPR(sheet.m_allColInfoList.find(col) != sheet.m_allColInfoList.end(), -1,
-                           "excel:{} sheet:{} can't find the col:{} colName:{} info", m_excelName, sheet.m_name, col + 1, iter->second.m_mySrcColName);
+			CHECK_EXPR(sheet.m_colInfoMap.find(iter->second.m_myColName) != sheet.m_colInfoMap.end(), -1,
+				"excel:{} sheet:{} can't find the colName:{}", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
 
-                ExcelSheetColIndex *pColIndex = &sheet.m_allColInfoList[col];
-                CHECK_EXPR(!pColIndex->m_isArray, -1, "excel:{} sheet:{} the col:{} colName:{} info is array", m_excelName, sheet.m_name, col + 1,
-                           iter->second.m_mySrcColName);
-                CHECK_EXPR(pColIndex->m_structNum == 0, -1, "excel:{} sheet:{} the col:{} colName:{} info struct num > 0", m_excelName, sheet.m_name,
-                           col + 1, iter->second.m_mySrcColName);
-                CHECK_EXPR(pColIndex->m_structEnName == iter->second.m_myColName, -1,
-                           "excel:{} sheet:{} the col:{} colName:{} info en name not right", m_excelName, sheet.m_name, col + 1,
-                           iter->second.m_mySrcColName);
-                for (int row = sheet.m_protoInfo.m_startRow; row < (int) sheet.m_rows + 4; row++)
-                {
-                    auto pCell = pExcelSheet->getCell(row, col);
-                    CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
-                    std::string value = pCell->to_string();
-                    NFStringUtility::Trim(value);
+			ExcelSheetColInfo* pColInfo = sheet.m_colInfoMap[iter->second.m_myColName];
 
-                    if (pColInfo->m_colType != "string")
-                    {
-                        int64_t value64 = NFCommon::strto<int64_t>(value);
-                        if (value64 == 0)
+			if (iter->second.m_myColSubName.empty())
+			{
+				if (pColInfo->m_maxSubNum == 0)
+				{
+					int col = pColInfo->m_colIndex;
+					CHECK_EXPR(sheet.m_allColInfoList.find(col) != sheet.m_allColInfoList.end(), -1,
+						"excel:{} sheet:{} can't find the col:{} colName:{} info", m_excelName, sheet.m_name, col + 1, iter->second.m_mySrcColName);
+
+					ExcelSheetColIndex* pColIndex = &sheet.m_allColInfoList[col];
+					CHECK_EXPR(!pColIndex->m_isArray, -1, "excel:{} sheet:{} the col:{} colName:{} info is array", m_excelName, sheet.m_name, col + 1,
+						iter->second.m_mySrcColName);
+					CHECK_EXPR(pColIndex->m_structNum == 0, -1, "excel:{} sheet:{} the col:{} colName:{} info struct num > 0", m_excelName, sheet.m_name,
+						col + 1, iter->second.m_mySrcColName);
+					CHECK_EXPR(pColIndex->m_structEnName == iter->second.m_myColName, -1,
+						"excel:{} sheet:{} the col:{} colName:{} info en name not right", m_excelName, sheet.m_name, col + 1,
+						iter->second.m_mySrcColName);
+					for (int row = sheet.m_protoInfo.m_startRow; row < (int)sheet.m_rows + 4; row++)
+					{
+						auto pCell = pExcelSheet->getCell(row, col);
+						CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
+						std::string value = pCell->to_string();
+						NFStringUtility::Trim(value);
+
+						if (pColInfo->m_colType != "string")
+						{
+							int64_t value64 = NFCommon::strto<int64_t>(value);
+							if (value64 == 0)
+							{
+								continue;
+							}
+						}
+
+                        bool findFlag = false;
+                        for (int i = 0; i < (int)relation.m_dst.size(); i++)
                         {
-                            continue;
+                            ExcelRelationDst& relationDst = relation.m_dst[i];
+   
+							if (relationDst.m_pSheet && relationDst.m_pSheet->IsExist(value))
+							{
+								findFlag = true;
+								break;
+							}
                         }
-                    }
-
-                    if (!pFindSheet->IsExist(value))
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ", m_excelName,
-                                   sheet.m_name, row+1, col+1, iter->second.m_mySrcColName, value, relation.m_excelName,
-                                   relation.m_sheetName);
-                        flag = true;
-                    }
-                }
-            }
-            else
-            {
-                if (pColInfo->m_subInfoMap.empty())
-                {
-                    for (int i = 0; i < (int) pColInfo->m_colIndexVec.size(); i++)
-                    {
-                        int col = pColInfo->m_colIndexVec[i];
-                        CHECK_EXPR(sheet.m_allColInfoList.find(col) != sheet.m_allColInfoList.end(), -1,
-                                   "excel:{} sheet:{} can't find the col:{} colName:{} info", m_excelName, sheet.m_name, col + 1,
-                                   iter->second.m_mySrcColName);
-
-                        ExcelSheetColIndex *pColIndex = &sheet.m_allColInfoList[col];
-                        CHECK_EXPR(pColIndex->m_isArray, -1, "excel:{} sheet:{} the col:{} colName:{} info is not array", m_excelName, sheet.m_name,
-                                   col + 1, iter->second.m_myColName);
-                        CHECK_EXPR(pColIndex->m_structNum > 0, -1, "excel:{} sheet:{} the col:{} colName:{} info struct num <= 0", m_excelName,
-                                   sheet.m_name, col + 1, iter->second.m_myColName);
-                        CHECK_EXPR(pColIndex->m_structEnName == iter->second.m_myColName, -1,
-                                   "excel:{} sheet:{} the col:{} colName:{}  en name not right", m_excelName, sheet.m_name, col + 1,
-                                   iter->second.m_myColName);
-                        for (int row = sheet.m_protoInfo.m_startRow; row < (int) sheet.m_rows + 4; row++)
+                        if (!findFlag)
                         {
-                            auto pCell = pExcelSheet->getCell(row, col);
-                            CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
-                            std::string value = pCell->to_string();
-                            NFStringUtility::Trim(value);
-
-                            if (pColInfo->m_colType != "string")
-                            {
-                                int64_t value64 = NFCommon::strto<int64_t>(value);
-                                if (value64 == 0)
-                                {
-                                    continue;
-                                }
-                            }
-
-                            if (!pFindSheet->IsExist(value))
-                            {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ",
-                                           m_excelName,
-                                           sheet.m_name, row+1, col+1, iter->second.m_mySrcColName, value, relation.m_excelName,
-                                           relation.m_sheetName);
-                                flag = true;
-                            }
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the {}", m_excelName,
+								sheet.m_name, row + 1, col + 1, iter->second.m_mySrcColName, value, relation.m_noFindError);
+							flag = true;
                         }
-                    }
-                }
-                else
-                {
-                    CHECK_EXPR(pColInfo->m_subInfoMap.find(iter->second.m_myColName) != pColInfo->m_subInfoMap.end(), -1,
-                               "excel:{} sheet:{} can't find the colName:{}", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
-                    ExcelSheetColSubInfo &subInfo = pColInfo->m_subInfoMap[iter->second.m_myColName];
-                    for (int i = 0; i < (int) subInfo.m_colIndexVec.size(); i++)
-                    {
-                        int col = subInfo.m_colIndexVec[i];
-                        CHECK_EXPR(sheet.m_allColInfoList.find(col) != sheet.m_allColInfoList.end(), -1,
-                                   "excel:{} sheet:{} can't find the col:{} colName:{} info", m_excelName, sheet.m_name, col + 1,
-                                   iter->second.m_myColName);
+					}
+				}
+				else
+				{
+					if (pColInfo->m_subInfoMap.empty())
+					{
+						for (int i = 0; i < (int)pColInfo->m_colIndexVec.size(); i++)
+						{
+							int col = pColInfo->m_colIndexVec[i];
+							CHECK_EXPR(sheet.m_allColInfoList.find(col) != sheet.m_allColInfoList.end(), -1,
+								"excel:{} sheet:{} can't find the col:{} colName:{} info", m_excelName, sheet.m_name, col + 1,
+								iter->second.m_mySrcColName);
 
-                        ExcelSheetColIndex *pColIndex = &sheet.m_allColInfoList[col];
-                        CHECK_EXPR(pColIndex->m_isArray, -1, "excel:{} sheet:{} the col:{} colName:{} info is not array", m_excelName, sheet.m_name,
-                                   col + 1, iter->second.m_myColName);
-                        CHECK_EXPR(pColIndex->m_structNum > 0, -1, "excel:{} sheet:{} the col:{} colName:{} info struct num <= 0", m_excelName,
-                                   sheet.m_name, col + 1, iter->second.m_myColName);
-                        CHECK_EXPR(pColIndex->m_structEnName == iter->second.m_myColName, -1,
-                                   "excel:{} sheet:{} the col:{} colName:{}  en name not right", m_excelName, sheet.m_name, col + 1,
-                                   iter->second.m_myColName);
-                        for (int row = sheet.m_protoInfo.m_startRow; row < (int) sheet.m_rows + 4; row++)
-                        {
-                            auto pCell = pExcelSheet->getCell(row, col);
-                            CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
-                            std::string value = pCell->to_string();
-                            NFStringUtility::Trim(value);
+							ExcelSheetColIndex* pColIndex = &sheet.m_allColInfoList[col];
+							CHECK_EXPR(pColIndex->m_isArray, -1, "excel:{} sheet:{} the col:{} colName:{} info is not array", m_excelName, sheet.m_name,
+								col + 1, iter->second.m_myColName);
+							CHECK_EXPR(pColIndex->m_structNum > 0, -1, "excel:{} sheet:{} the col:{} colName:{} info struct num <= 0", m_excelName,
+								sheet.m_name, col + 1, iter->second.m_myColName);
+							CHECK_EXPR(pColIndex->m_structEnName == iter->second.m_myColName, -1,
+								"excel:{} sheet:{} the col:{} colName:{}  en name not right", m_excelName, sheet.m_name, col + 1,
+								iter->second.m_myColName);
+							for (int row = sheet.m_protoInfo.m_startRow; row < (int)sheet.m_rows + 4; row++)
+							{
+								auto pCell = pExcelSheet->getCell(row, col);
+								CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
+								std::string value = pCell->to_string();
+								NFStringUtility::Trim(value);
 
-                            if (pColInfo->m_colType != "string")
-                            {
-                                int64_t value64 = NFCommon::strto<int64_t>(value);
-                                if (value64 == 0)
-                                {
-                                    continue;
-                                }
-                            }
+								if (pColInfo->m_colType != "string")
+								{
+									int64_t value64 = NFCommon::strto<int64_t>(value);
+									if (value64 == 0)
+									{
+										continue;
+									}
+								}
 
-                            if (!pFindSheet->IsExist(value))
-                            {
-                                NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ",
-                                           m_excelName,
-                                           sheet.m_name, row+1, col+1, iter->second.m_myColName, value, relation.m_excelName,
-                                           relation.m_sheetName);
-                                flag = true;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        else
-        {
-            CHECK_EXPR(pColInfo->m_subInfoMap.find(iter->second.m_myColSubName) != pColInfo->m_subInfoMap.end(), -1,
-                       "excel:{} sheet:{} can't find the colName:{}", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
-            ExcelSheetColSubInfo &subInfo = pColInfo->m_subInfoMap[iter->second.m_myColSubName];
-            for (int i = 0; i < (int) subInfo.m_colIndexVec.size(); i++)
-            {
-                int col = subInfo.m_colIndexVec[i];
-                CHECK_EXPR(sheet.m_allColInfoList.find(col) != sheet.m_allColInfoList.end(), -1,
-                           "excel:{} sheet:{} can't find the col:{} colName:{} info", m_excelName, sheet.m_name, col + 1,
-                           iter->second.m_mySrcColName);
+								bool findFlag = false;
+								for (int i = 0; i < (int)relation.m_dst.size(); i++)
+								{
+									ExcelRelationDst& relationDst = relation.m_dst[i];
 
-                ExcelSheetColIndex *pColIndex = &sheet.m_allColInfoList[col];
-                CHECK_EXPR(pColIndex->m_isArray, -1, "excel:{} sheet:{} the col:{} colName:{} info is not array", m_excelName, sheet.m_name, col + 1,
-                           iter->second.m_myColName);
-                CHECK_EXPR(pColIndex->m_structNum > 0, -1, "excel:{} sheet:{} the col:{} colName:{} info struct num <= 0", m_excelName, sheet.m_name,
-                           col + 1, iter->second.m_myColName);
-                CHECK_EXPR(pColIndex->m_structEnName == iter->second.m_myColName && pColIndex->m_structSubEnName == iter->second.m_myColSubName, -1,
-                           "excel:{} sheet:{} the col:{} colName:{} subColName:{}  en name not right",
-                           m_excelName, sheet.m_name, col + 1, iter->second.m_myColName, iter->second.m_myColSubName);
-                for (int row = sheet.m_protoInfo.m_startRow; row < (int) sheet.m_rows + 4; row++)
-                {
-                    auto pCell = pExcelSheet->getCell(row, col);
-                    CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
-                    std::string value = pCell->to_string();
-                    NFStringUtility::Trim(value);
+									if (relationDst.m_pSheet && relationDst.m_pSheet->IsExist(value))
+									{
+										findFlag = true;
+										break;
+									}
+								}
+								if (!findFlag)
+								{
+									NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the {}", m_excelName,
+										sheet.m_name, row + 1, col + 1, iter->second.m_mySrcColName, value, relation.m_noFindError);
+									flag = true;
+								}
+							}
+						}
+					}
+					else
+					{
+						CHECK_EXPR(pColInfo->m_subInfoMap.find(iter->second.m_myColName) != pColInfo->m_subInfoMap.end(), -1,
+							"excel:{} sheet:{} can't find the colName:{}", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
+						ExcelSheetColSubInfo& subInfo = pColInfo->m_subInfoMap[iter->second.m_myColName];
+						for (int i = 0; i < (int)subInfo.m_colIndexVec.size(); i++)
+						{
+							int col = subInfo.m_colIndexVec[i];
+							CHECK_EXPR(sheet.m_allColInfoList.find(col) != sheet.m_allColInfoList.end(), -1,
+								"excel:{} sheet:{} can't find the col:{} colName:{} info", m_excelName, sheet.m_name, col + 1,
+								iter->second.m_myColName);
 
-                    if (pColInfo->m_colType != "string")
-                    {
-                        int64_t value64 = NFCommon::strto<int64_t>(value);
-                        if (value64 == 0)
-                        {
-                            continue;
-                        }
-                    }
+							ExcelSheetColIndex* pColIndex = &sheet.m_allColInfoList[col];
+							CHECK_EXPR(pColIndex->m_isArray, -1, "excel:{} sheet:{} the col:{} colName:{} info is not array", m_excelName, sheet.m_name,
+								col + 1, iter->second.m_myColName);
+							CHECK_EXPR(pColIndex->m_structNum > 0, -1, "excel:{} sheet:{} the col:{} colName:{} info struct num <= 0", m_excelName,
+								sheet.m_name, col + 1, iter->second.m_myColName);
+							CHECK_EXPR(pColIndex->m_structEnName == iter->second.m_myColName, -1,
+								"excel:{} sheet:{} the col:{} colName:{}  en name not right", m_excelName, sheet.m_name, col + 1,
+								iter->second.m_myColName);
+							for (int row = sheet.m_protoInfo.m_startRow; row < (int)sheet.m_rows + 4; row++)
+							{
+								auto pCell = pExcelSheet->getCell(row, col);
+								CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
+								std::string value = pCell->to_string();
+								NFStringUtility::Trim(value);
 
-                    if (!pFindSheet->IsExist(value))
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the excel:{} sheet:{} ", m_excelName,
-                                   sheet.m_name, row + 1, col + 1, iter->second.m_mySrcColName, value, relation.m_excelName,
-                                   relation.m_sheetName);
-                        flag = true;
-                    }
-                }
-            }
+								if (pColInfo->m_colType != "string")
+								{
+									int64_t value64 = NFCommon::strto<int64_t>(value);
+									if (value64 == 0)
+									{
+										continue;
+									}
+								}
+
+								bool findFlag = false;
+								for (int i = 0; i < (int)relation.m_dst.size(); i++)
+								{
+									ExcelRelationDst& relationDst = relation.m_dst[i];
+
+									if (relationDst.m_pSheet && relationDst.m_pSheet->IsExist(value))
+									{
+										findFlag = true;
+										break;
+									}
+								}
+								if (!findFlag)
+								{
+									NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the {}", m_excelName,
+										sheet.m_name, row + 1, col + 1, iter->second.m_mySrcColName, value, relation.m_noFindError);
+									flag = true;
+								}
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				CHECK_EXPR(pColInfo->m_subInfoMap.find(iter->second.m_myColSubName) != pColInfo->m_subInfoMap.end(), -1,
+					"excel:{} sheet:{} can't find the colName:{}", m_excelName, sheet.m_name, iter->second.m_mySrcColName);
+				ExcelSheetColSubInfo& subInfo = pColInfo->m_subInfoMap[iter->second.m_myColSubName];
+				for (int i = 0; i < (int)subInfo.m_colIndexVec.size(); i++)
+				{
+					int col = subInfo.m_colIndexVec[i];
+					CHECK_EXPR(sheet.m_allColInfoList.find(col) != sheet.m_allColInfoList.end(), -1,
+						"excel:{} sheet:{} can't find the col:{} colName:{} info", m_excelName, sheet.m_name, col + 1,
+						iter->second.m_mySrcColName);
+
+					ExcelSheetColIndex* pColIndex = &sheet.m_allColInfoList[col];
+					CHECK_EXPR(pColIndex->m_isArray, -1, "excel:{} sheet:{} the col:{} colName:{} info is not array", m_excelName, sheet.m_name, col + 1,
+						iter->second.m_myColName);
+					CHECK_EXPR(pColIndex->m_structNum > 0, -1, "excel:{} sheet:{} the col:{} colName:{} info struct num <= 0", m_excelName, sheet.m_name,
+						col + 1, iter->second.m_myColName);
+					CHECK_EXPR(pColIndex->m_structEnName == iter->second.m_myColName && pColIndex->m_structSubEnName == iter->second.m_myColSubName, -1,
+						"excel:{} sheet:{} the col:{} colName:{} subColName:{}  en name not right",
+						m_excelName, sheet.m_name, col + 1, iter->second.m_myColName, iter->second.m_myColSubName);
+					for (int row = sheet.m_protoInfo.m_startRow; row < (int)sheet.m_rows + 4; row++)
+					{
+						auto pCell = pExcelSheet->getCell(row, col);
+						CHECK_EXPR(pCell, -1, "excel:{} can't get data, row:{} col:{}", row, col);
+						std::string value = pCell->to_string();
+						NFStringUtility::Trim(value);
+
+						if (pColInfo->m_colType != "string")
+						{
+							int64_t value64 = NFCommon::strto<int64_t>(value);
+							if (value64 == 0)
+							{
+								continue;
+							}
+						}
+
+						bool findFlag = false;
+						for (int i = 0; i < (int)relation.m_dst.size(); i++)
+						{
+							ExcelRelationDst& relationDst = relation.m_dst[i];
+
+							if (relationDst.m_pSheet && relationDst.m_pSheet->IsExist(value))
+							{
+								findFlag = true;
+								break;
+							}
+						}
+						if (!findFlag)
+						{
+							NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} row:{} col:{} colName:{} key:{} is not exist in the {}", m_excelName,
+								sheet.m_name, row + 1, col + 1, iter->second.m_mySrcColName, value, relation.m_noFindError);
+							flag = true;
+						}
+					}
+				}
+			}
         }
     }
 

@@ -25,5 +25,6 @@ public:
     int CheckUniqueIndex();
     int CheckUniqueIndex(ExcelSheet& sheet);
     int CheckRelation();
+    int FindRelation(ExcelSheet& sheet);
     int CheckRelation(ExcelSheet& sheet);
 };

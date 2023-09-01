@@ -15,6 +15,23 @@
 #include "Common.h"
 #include "MiniExcelReader.h"
 
+class ExcelParseCheck;
+class ExcelSheet;
+class ExcelRelationDst
+{
+public:
+    ExcelRelationDst()
+    {
+        m_pExcel = NULL;
+        m_pSheet = NULL;
+    }
+
+    std::string m_excelName;
+    std::string m_sheetName;
+    ExcelParseCheck* m_pExcel;
+    ExcelSheet* m_pSheet;
+};
+
 struct ExcelRelation
 {
     ExcelRelation()
@@ -22,11 +39,11 @@ struct ExcelRelation
 
     }
 
-    std::string m_excelName;
-    std::string m_sheetName;
-    std::string m_myColName;
-    std::string m_myColSubName;
-    std::string m_mySrcColName;
+	std::string m_myColName;
+	std::string m_myColSubName;
+	std::string m_mySrcColName;
+    std::vector<ExcelRelationDst> m_dst;
+    std::string m_noFindError;
 };
 
 struct ExcelSheetIndex
