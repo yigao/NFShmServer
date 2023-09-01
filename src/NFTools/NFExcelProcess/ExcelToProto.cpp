@@ -363,19 +363,19 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         }
         desc_file += className + "\n";
         desc_file += "{\n";
-        desc_file += "\t"+ className + "()\n";
+        desc_file += "\t" + className + "()\n";
         desc_file += "\t{\n";
         for (int i = 0; i < (int) comIndex.m_index.size(); i++)
         {
             ExcelSheetIndex &index = comIndex.m_index[i];
-            std::string index_key = "m_"+index.m_key;
+            std::string index_key = "m_" + index.m_key;
             desc_file += "\t\t" + index_key + "=0;\n";
         }
         desc_file += "\t}\n";
         for (int i = 0; i < (int) comIndex.m_index.size(); i++)
         {
             ExcelSheetIndex &index = comIndex.m_index[i];
-            std::string index_key = "m_"+index.m_key;
+            std::string index_key = "m_" + index.m_key;
             desc_file += "\tint64_t " + index_key + ";\n";
         }
         desc_file += "\tbool operator==(const " + className + "& data) const\n";
@@ -384,12 +384,13 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         for (int i = 0; i < (int) comIndex.m_index.size(); i++)
         {
             ExcelSheetIndex &index = comIndex.m_index[i];
-            std::string index_key = "m_"+index.m_key;
-            if (i != (int)comIndex.m_index.size() - 1)
+            std::string index_key = "m_" + index.m_key;
+            if (i != (int) comIndex.m_index.size() - 1)
             {
                 desc_file += index_key + "==data." + index_key + " && ";
             }
-            else {
+            else
+            {
                 desc_file += index_key + "==data." + index_key + ";\n";
             }
         }
@@ -407,12 +408,13 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         for (int i = 0; i < (int) comIndex.m_index.size(); i++)
         {
             ExcelSheetIndex &index = comIndex.m_index[i];
-            std::string index_key = "m_"+index.m_key;
-            if (i != (int)comIndex.m_index.size() - 1)
+            std::string index_key = "m_" + index.m_key;
+            if (i != (int) comIndex.m_index.size() - 1)
             {
                 desc_file += "data." + index_key + ",";
             }
-            else {
+            else
+            {
                 desc_file += "data." + index_key + ");\n";
             }
         }
@@ -516,9 +518,9 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     for (auto iter = pSheet->m_comIndexMap.begin(); iter != pSheet->m_comIndexMap.end(); iter++)
     {
         ExcelSheetComIndex &comIndex = iter->second;
-        desc_file += "\tNFShmHashMap<"+NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name);
+        desc_file += "\tNFShmHashMap<" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name);
         std::string comIndexKey;
-        for (int i = 0;  i < (int)comIndex.m_index.size(); i++)
+        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
         {
             ExcelSheetIndex &index = comIndex.m_index[i];
             std::string index_key = index.m_key;
@@ -535,11 +537,12 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
                 {
                     ExcelSheetIndex &index = comIndex.m_index[i];
                     std::string index_key = index.m_key;
-                    if (i != (int)comIndex.m_index.size()-1)
+                    if (i != (int) comIndex.m_index.size() - 1)
                     {
                         desc_file += index.m_define_one + "*";
                     }
-                    else {
+                    else
+                    {
                         desc_file += index.m_define_one;
                     }
                 }
@@ -550,18 +553,19 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
                 desc_file += "NFShmVector<uint32_t, ";
                 if (comIndex.m_index.size() > 0)
                 {
-                    ExcelSheetIndex &index = comIndex.m_index[comIndex.m_index.size()-1];
+                    ExcelSheetIndex &index = comIndex.m_index[comIndex.m_index.size() - 1];
                     desc_file += index.m_define + ">, ";
                 }
 
                 for (int i = 0; i < (int) comIndex.m_index.size(); i++)
                 {
                     ExcelSheetIndex &index = comIndex.m_index[i];
-                    if (i != (int)comIndex.m_index.size()-1)
+                    if (i != (int) comIndex.m_index.size() - 1)
                     {
                         desc_file += index.m_define_one + "*";
                     }
-                    else {
+                    else
+                    {
                         desc_file += index.m_define_one;
                     }
                 }
@@ -569,7 +573,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
             }
         }
 
-        desc_file += " m_"+comIndexKey;
+        desc_file += " m_" + comIndexKey;
         desc_file += "ComIndexMap;\n";
     }
 
@@ -598,9 +602,9 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     std::set<std::string> headFileHead;
     for (auto iter = pSheet->m_colRelationMap.begin(); iter != pSheet->m_colRelationMap.end(); iter++)
     {
-        for (int i = 0; i < (int)iter->second.m_dst.size(); i++)
+        for (int i = 0; i < (int) iter->second.m_dst.size(); i++)
         {
-            ExcelRelationDst& relationDst = iter->second.m_dst[i];
+            ExcelRelationDst &relationDst = iter->second.m_dst[i];
             headFileHead.insert(NFStringUtility::Capitalize(relationDst.m_excelName) + NFStringUtility::Capitalize(relationDst.m_sheetName));
         }
     }
@@ -784,7 +788,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                 ExcelSheetIndex &index = comIndex.m_index[i];
                 std::string index_key = index.m_key;
                 std::string index_key_en_name = "m_" + NFStringUtility::Lower(index_key);
-                desc_file += "\t\t\tdata.m_" + index_key + " = pDesc->" + index_key_en_name+ ";\n";
+                desc_file += "\t\t\tdata.m_" + index_key + " = pDesc->" + index_key_en_name + ";\n";
             }
             desc_file += "\t\t\tif(" + index_map + ".full())\n";
             desc_file += "\t\t\t{\n";
@@ -795,7 +799,8 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             {
                 desc_file += "\t\t\t" + index_map + "[data] = i;\n";
             }
-            else {
+            else
+            {
                 desc_file += "\t\t\tCHECK_EXPR_ASSERT(!" + index_map + "[data].full(), -1, \"space not enough\");\n";
                 desc_file += "\t\t\t" + index_map + "[data].push_back(i);\n";
             }
@@ -828,24 +833,25 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                 ExcelSheetColInfo *pColInfo = pSheet->m_colInfoMap[iter->second.m_myColName];
                 if (pColInfo->m_maxSubNum == 0)
                 {
-					ExcelRelation& relation = iter->second;
+                    ExcelRelation &relation = iter->second;
                     desc_file += "\t\tCHECK_EXPR_MSG_RESULT(";
-                    for (int i = 0; i < (int)relation.m_dst.size(); i++)
+                    for (int i = 0; i < (int) relation.m_dst.size(); i++)
                     {
-                        ExcelRelationDst& relationDst = relation.m_dst[i];
+                        ExcelRelationDst &relationDst = relation.m_dst[i];
                         desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
-                            NFStringUtility::Capitalize(relationDst.m_sheetName) +
-                            "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName);
+                                     NFStringUtility::Capitalize(relationDst.m_sheetName) +
+                                     "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                                     ")";
 
-                        if (i != (int)relation.m_dst.size() - 1)
+                        if (i != (int) relation.m_dst.size() - 1)
                         {
                             desc_file += " || ";
                         }
                     }
 
 
-                    desc_file += "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the {}" +
-                            "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ", ", relation.m_noFindError + ");\n";
+                    desc_file += ", result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the " + relation.m_noFindError +
+                            "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
                 }
                 else
                 {
@@ -853,46 +859,49 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                     {
                         desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
                         desc_file += "\t\t{\n";
-					    ExcelRelation& relation = iter->second;
-						desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
-						for (int i = 0; i < (int)relation.m_dst.size(); i++)
-						{
-							ExcelRelationDst& relationDst = relation.m_dst[i];
-							desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
-								NFStringUtility::Capitalize(relationDst.m_sheetName) +
-								"Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]";
+                        ExcelRelation &relation = iter->second;
+                        desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
+                        for (int i = 0; i < (int) relation.m_dst.size(); i++)
+                        {
+                            ExcelRelationDst &relationDst = relation.m_dst[i];
+                            desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+                                         NFStringUtility::Capitalize(relationDst.m_sheetName) +
+                                         "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                                         "[j])";
 
-							if (i != (int)relation.m_dst.size() - 1)
-							{
-								desc_file += " || ";
-							}
-						}
+                            if (i != (int) relation.m_dst.size() - 1)
+                            {
+                                desc_file += " || ";
+                            }
+                        }
 
-						desc_file += "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the {}" +
-							"\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j], ", relation.m_noFindError + ");\n";
+                        desc_file += ", result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the " + relation.m_noFindError +
+                                "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]);\n";
                         desc_file += "\t\t}\n";
                     }
-                    else {
+                    else
+                    {
                         desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
                         desc_file += "\t\t{\n";
-						ExcelRelation& relation = iter->second;
-						desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
-						for (int i = 0; i < (int)relation.m_dst.size(); i++)
-						{
-							ExcelRelationDst& relationDst = relation.m_dst[i];
-							desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
-								NFStringUtility::Capitalize(relationDst.m_sheetName) +
-								"Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) 
-                                + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName);
+                        ExcelRelation &relation = iter->second;
+                        desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
+                        for (int i = 0; i < (int) relation.m_dst.size(); i++)
+                        {
+                            ExcelRelationDst &relationDst = relation.m_dst[i];
+                            desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+                                         NFStringUtility::Capitalize(relationDst.m_sheetName) +
+                                         "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
+                                         + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + ")";
 
-							if (i != (int)relation.m_dst.size() - 1)
-							{
-								desc_file += " || ";
-							}
-						}
+                            if (i != (int) relation.m_dst.size() - 1)
+                            {
+                                desc_file += " || ";
+                            }
+                        }
 
-						desc_file += "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the {}" +
-							"\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + ", " + relation.m_noFindError + ");\n";
+                        desc_file += ", result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the " + relation.m_noFindError +
+                                "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
+                                     NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
 
                         desc_file += "\t\t}\n";
                     }
@@ -902,24 +911,25 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             {
                 desc_file += "\t\tfor(int j = 0; j < (int)pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ".size(); j++)\n";
                 desc_file += "\t\t{\n";
-				ExcelRelation& relation = iter->second;
-				desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
-				for (int i = 0; i < (int)relation.m_dst.size(); i++)
-				{
-					ExcelRelationDst& relationDst = relation.m_dst[i];
-					desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
-						NFStringUtility::Capitalize(relationDst.m_sheetName) +
-						"Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
-						+ "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName);
+                ExcelRelation &relation = iter->second;
+                desc_file += "\t\t\tCHECK_EXPR_MSG_RESULT(";
+                for (int i = 0; i < (int) relation.m_dst.size(); i++)
+                {
+                    ExcelRelationDst &relationDst = relation.m_dst[i];
+                    desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+                                 NFStringUtility::Capitalize(relationDst.m_sheetName) +
+                                 "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
+                                 + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ")";
 
-					if (i != (int)relation.m_dst.size() - 1)
-					{
-						desc_file += " || ";
-					}
-				}
+                    if (i != (int) relation.m_dst.size() - 1)
+                    {
+                        desc_file += " || ";
+                    }
+                }
 
-				desc_file += "), result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the {}" +
-					"\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ", " + relation.m_noFindError + ");\n";
+                desc_file += ", result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the " + relation.m_noFindError +
+                             "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
+                             NFStringUtility::Lower(iter->second.m_myColSubName)+");\n";
 
                 desc_file += "\t\t}\n";
             }
@@ -1153,7 +1163,9 @@ void ExcelToProto::WriteMakeFile()
     makefile_file += ".PHONY:all\n\n";
     makefile_file += "all:${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin\n\n";
 
-    makefile_file += "${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "\n";
+    makefile_file +=
+            "${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin:${PROTOCGEN_FILE_PATH}/" + m_excelName + ".proto.ds ${RESDB_EXCELMMO_PATH}/" +
+            excel_src_file_name + "\n";
     makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
     makefile_file += "\trm -rf ${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin\n";
     makefile_file +=

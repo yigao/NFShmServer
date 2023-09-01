@@ -245,7 +245,7 @@ int ExcelParse::HandleSheetList(MiniExcelReader::Sheet &sheet)
                 std::vector<std::string> dst_relation_str_vec;
                 NFStringUtility::Split(dst_relation_str, "|", &dst_relation_str_vec);
 
-                if (dst_relation_str_vec.size() > 0)
+                if (dst_relation_str_vec.size() <= 0)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
                     return -1;
@@ -258,6 +258,23 @@ int ExcelParse::HandleSheetList(MiniExcelReader::Sheet &sheet)
 				{
 					relation.m_myColSubName = my_col_str_vec[1];
 				}
+
+                for (int i = 0; i < (int)dst_relation_str_vec.size(); i++)
+                {
+                    std::vector<std::string> dst_relation_str_vec_vec;
+                    NFStringUtility::Split(dst_relation_str_vec[i], ".", &dst_relation_str_vec_vec);
+
+                    if (dst_relation_str_vec_vec.size() < 2)
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
+                        return -1;
+                    }
+
+                    ExcelRelationDst relationDst;
+                    relationDst.m_excelName = dst_relation_str_vec_vec[0];
+                    relationDst.m_sheetName = dst_relation_str_vec_vec[1];
+                    relation.m_dst.push_back(relationDst);
+                }
 
 				if (relation.m_myColSubName.empty())
 				{
@@ -278,22 +295,7 @@ int ExcelParse::HandleSheetList(MiniExcelReader::Sheet &sheet)
 					excelSheet.m_colRelationMap.emplace(relation.m_myColName + "_" + relation.m_myColSubName, relation);
 				}
 
-                for (int i = 0; i < (int)dst_relation_str_vec.size(); i++)
-                {
-					std::vector<std::string> dst_relation_str_vec_vec;
-					NFStringUtility::Split(dst_relation_str_vec[i], ".", &dst_relation_str_vec_vec);
 
-					if (dst_relation_str_vec_vec.size() >= 2)
-					{
-						NFLogError(NF_LOG_SYSTEMLOG, 0, "the relation:{} is not right", relation_str);
-						return -1;
-					}
-
-					ExcelRelationDst relationDst;
-                    relationDst.m_excelName = dst_relation_str_vec_vec[0];
-                    relationDst.m_sheetName = dst_relation_str_vec_vec[1];
-                    relation.m_dst.push_back(relationDst);
-                }
 
                 //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} add relation:{}:{}", m_excel, sheet_name, my_col_name,
                 //          dst_relation_str);

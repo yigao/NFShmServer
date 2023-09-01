@@ -10,6 +10,7 @@
 #include "NFILogModule.h"
 #include "common/spdlog/spdlog.h"
 #include "common/spdlog/sinks/basic_file_sink.h"
+#include "common/spdlog/sinks/ansicolor_sink.h"
 
 NFLogMgr::NFLogMgr()
 {
@@ -68,8 +69,13 @@ void NFLogMgr::CreateNoLog()
 		std::vector<spdlog::sink_ptr> sinks_vec;
 		std::string log_name = "default.log";
 		auto date_and_hour_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>(log_name);
-		auto color_sink = std::make_shared<spdlog::sinks::wincolor_stdout_sink_mt>();
-		sinks_vec.push_back(color_sink);
+#if NF_PLATFORM == NF_PLATFORM_WIN
+        auto color_sink = std::make_shared<spdlog::sinks::wincolor_stdout_sink_mt>();
+	    sinks_vec.push_back(color_sink);
+#else
+        auto color_sink = std::make_shared<spdlog::sinks::ansicolor_stdout_sink_mt>();
+        sinks_vec.push_back(color_sink);
+#endif
 		sinks_vec.push_back(date_and_hour_sink);
 		m_noLogger = std::make_shared<spdlog::logger>("default", std::begin(sinks_vec), std::end(sinks_vec));
 		m_noLogger->set_level(spdlog::level::level_enum::trace);

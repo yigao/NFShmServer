@@ -1,4 +1,5 @@
 #include "FishGunvalueDesc.h"
+#include "FishCtrllevelDesc.h"
 #include "FishRoomDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
@@ -140,21 +141,21 @@ int FishGunvalueDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_item.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_item[j].m_item), result, "can't find the item_item:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_item[j].m_item);
+			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_item[j].m_item) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_item[j].m_item), result, "can't find the item:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_item[j].m_item);
 		}
 		for(int j = 0; j < (int)pDesc->m_y.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_id), result, "can't find the y_id:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_y[j].m_id);
+			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_id) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_id), result, "can't find the y:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_y[j].m_id);
 		}
 		for(int j = 0; j < (int)pDesc->m_x_id.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_x_id[j]), result, "can't find the x_id:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_x_id[j]);
+			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_x_id[j]) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_x_id[j]), result, "can't find the x_id:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_x_id[j]);
 		}
 		for(int j = 0; j < (int)pDesc->m_y.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_num), result, "can't find the y_num:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_y[j].m_num);
+			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_num) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_num), result, "can't find the y:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_y[j].m_num);
 		}
-		CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_gameroomid), result, "can't find the gameroomid:{} in the Excel:Fish.xlsx Sheet:Room", pDesc->m_gameroomid);
+		CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_gameroomid) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_gameroomid), result, "can't find the gameroomid:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_gameroomid);
 	}
 	return result;
 }

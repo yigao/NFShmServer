@@ -19,20 +19,20 @@ int main(int argc, char* argv[])
 {
 #if NF_PLATFORM == NF_PLATFORM_WIN
 	SetConsoleOutputCP(CP_UTF8);
-	HANDLE HOUT = GetStdHandle(STD_OUTPUT_HANDLE);    //��ÿ���̨���
-	COORD NewSize = GetLargestConsoleWindowSize(HOUT);//��ÿ���̨������꣬�������ַ���Ϊ��λ
+	HANDLE HOUT = GetStdHandle(STD_OUTPUT_HANDLE);    //获得控制台句柄
+	COORD NewSize = GetLargestConsoleWindowSize(HOUT);//获得控制台最大坐标，坐标以字符数为单位
 	NewSize.X -= 1;
-	NewSize.Y -= 1;    //���Բ��ӣ�����ʱ��ʾ������
-	SetConsoleScreenBufferSize(HOUT, NewSize); //���ÿ���̨��������С
+	NewSize.Y -= 1;    //可以不加，不加时显示滚动条
+	SetConsoleScreenBufferSize(HOUT, NewSize); //设置控制台缓冲区大小
 
 	SMALL_RECT DisplayArea = { 0,0,0,0 };
 	DisplayArea.Right = NewSize.X;
 	DisplayArea.Bottom = NewSize.Y;
-	SetConsoleWindowInfo(HOUT, TRUE, &DisplayArea);    //���ÿ���̨��С
+	SetConsoleWindowInfo(HOUT, TRUE, &DisplayArea);    //设置控制台大小
 
-	//����̨�Ѿ���󻯣����ǳ�ʼλ�ò�����Ļ���Ͻǣ��������´���
+	//控制台已经最大化，但是初始位置不在屏幕左上角，添加如下代码
 	HWND hwnd = GetConsoleWindow();
-	ShowWindow(hwnd, SW_MAXIMIZE);    //�������
+	ShowWindow(hwnd, SW_MAXIMIZE);    //窗体最大化
 #elif NF_PLATFORM == NF_PLATFORM_LINUX
 #endif
     try
