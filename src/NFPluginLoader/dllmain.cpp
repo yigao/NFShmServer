@@ -26,11 +26,6 @@
 #pragma comment( lib, "mysqlpp.lib" )
 
 /////////////////////////////////////////////////////////////////
-#pragma comment( lib, "NFCore.lib" )
-#pragma comment( lib, "NFPluginModule.lib" )
-#pragma comment( lib, "NFKernelMessage.lib" )
-#pragma comment( lib, "NFShmCore.lib" )
-#pragma comment( lib, "NFPluginManager.lib" )
 
 #else
 /////////////////////////////////////////////////////////////////
