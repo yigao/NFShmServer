@@ -45,7 +45,7 @@ if(UNIX)
 else(WIN32)
 	#target_compile_definitions(${PROJECT_NAME} PRIVATE _ITERATOR_DEBUG_LEVEL=2)
 	#target_compile_options(${PROJECT_NAME} PRIVATE /MT)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libvcruntime.lib msvcrt.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
 endif()
 	SET_TARGET_PROPERTIES(${PROJECT_NAME}
 		PROPERTIES 
@@ -55,7 +55,7 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 if(UNIX)
 	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
 else(WIN32)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME} libvcruntimed.lib msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
 endif()
 	SET_TARGET_PROPERTIES(${PROJECT_NAME}
 		PROPERTIES 
