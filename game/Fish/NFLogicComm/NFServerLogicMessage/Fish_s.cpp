@@ -36,10 +36,10 @@ void E_FishRoom_s::write_to_pbmsg(::proto_ff::E_FishRoom & msg) const {
 	msg.set_m_id((int32_t)m_id);
 	msg.set_m_roomid((int32_t)m_roomid);
 	msg.set_m_gameid((int32_t)m_gameid);
-	msg.set_m_gamename((const char*)m_gamename.data());
+	msg.set_m_gamename(m_gamename.data());
 	msg.set_m_roomtype((int32_t)m_roomtype);
 	msg.set_m_roomlevel((int32_t)m_roomlevel);
-	msg.set_m_roomname((const char*)m_roomname.data());
+	msg.set_m_roomname(m_roomname.data());
 	msg.set_m_sitenum((int32_t)m_sitenum);
 	msg.set_m_deskcount((int32_t)m_deskcount);
 	msg.set_m_maxpeople((int32_t)m_maxpeople);
@@ -52,7 +52,6 @@ void E_FishRoom_s::write_to_pbmsg(::proto_ff::E_FishRoom & msg) const {
 }
 
 void E_FishRoom_s::read_from_pbmsg(const ::proto_ff::E_FishRoom & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FishRoom_s));
 	m_id = msg.m_id();
 	m_roomid = msg.m_roomid();
 	m_gameid = msg.m_gameid();
@@ -95,7 +94,6 @@ void Sheet_FishRoom_s::write_to_pbmsg(::proto_ff::Sheet_FishRoom & msg) const {
 }
 
 void Sheet_FishRoom_s::read_from_pbmsg(const ::proto_ff::Sheet_FishRoom & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FishRoom_s));
 	E_FishRoom_List.resize((int)msg.e_fishroom_list_size() > (int)E_FishRoom_List.max_size() ? E_FishRoom_List.max_size() : msg.e_fishroom_list_size());
 	for(int32_t i = 0; i < (int32_t)E_FishRoom_List.size(); ++i) {
 		const ::proto_ff::E_FishRoom & temp_e_fishroom_list = msg.e_fishroom_list(i);
@@ -127,7 +125,6 @@ void E_FishGunvalueYDesc_s::write_to_pbmsg(::proto_ff::E_FishGunvalueYDesc & msg
 }
 
 void E_FishGunvalueYDesc_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalueYDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FishGunvalueYDesc_s));
 	m_num = msg.m_num();
 	m_id = msg.m_id();
 }
@@ -156,7 +153,6 @@ void E_FishGunvalueItemDesc_s::write_to_pbmsg(::proto_ff::E_FishGunvalueItemDesc
 }
 
 void E_FishGunvalueItemDesc_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalueItemDesc & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FishGunvalueItemDesc_s));
 	m_num = msg.m_num();
 	m_item = msg.m_item();
 }
@@ -204,7 +200,6 @@ void E_FishGunvalue_s::write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const {
 }
 
 void E_FishGunvalue_s::read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FishGunvalue_s));
 	m_id = msg.m_id();
 	m_value = msg.m_value();
 	m_gameid = msg.m_gameid();
@@ -251,7 +246,6 @@ void Sheet_FishGunvalue_s::write_to_pbmsg(::proto_ff::Sheet_FishGunvalue & msg) 
 }
 
 void Sheet_FishGunvalue_s::read_from_pbmsg(const ::proto_ff::Sheet_FishGunvalue & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FishGunvalue_s));
 	E_FishGunvalue_List.resize((int)msg.e_fishgunvalue_list_size() > (int)E_FishGunvalue_List.max_size() ? E_FishGunvalue_List.max_size() : msg.e_fishgunvalue_list_size());
 	for(int32_t i = 0; i < (int32_t)E_FishGunvalue_List.size(); ++i) {
 		const ::proto_ff::E_FishGunvalue & temp_e_fishgunvalue_list = msg.e_fishgunvalue_list(i);
@@ -283,7 +277,6 @@ void E_FishCtrllevel_s::write_to_pbmsg(::proto_ff::E_FishCtrllevel & msg) const 
 }
 
 void E_FishCtrllevel_s::read_from_pbmsg(const ::proto_ff::E_FishCtrllevel & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FishCtrllevel_s));
 	m_controllevel = msg.m_controllevel();
 	m_controlrate = msg.m_controlrate();
 }
@@ -312,7 +305,6 @@ void Sheet_FishCtrllevel_s::write_to_pbmsg(::proto_ff::Sheet_FishCtrllevel & msg
 }
 
 void Sheet_FishCtrllevel_s::read_from_pbmsg(const ::proto_ff::Sheet_FishCtrllevel & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FishCtrllevel_s));
 	E_FishCtrllevel_List.resize((int)msg.e_fishctrllevel_list_size() > (int)E_FishCtrllevel_List.max_size() ? E_FishCtrllevel_List.max_size() : msg.e_fishctrllevel_list_size());
 	for(int32_t i = 0; i < (int32_t)E_FishCtrllevel_List.size(); ++i) {
 		const ::proto_ff::E_FishCtrllevel & temp_e_fishctrllevel_list = msg.e_fishctrllevel_list(i);
@@ -353,14 +345,13 @@ void E_FishConfig_s::write_to_pbmsg(::proto_ff::E_FishConfig & msg) const {
 	msg.set_m_doubleawardminratio((int32_t)m_doubleawardminratio);
 	msg.set_m_childfishcount((int32_t)m_childfishcount);
 	msg.set_m_damageradius((int32_t)m_damageradius);
-	msg.set_m_damagefishids((const char*)m_damagefishids.data());
+	msg.set_m_damagefishids(m_damagefishids.data());
 	for(int32_t i = 0; i < (int32_t)m_childfishids.size(); ++i) {
-		msg.add_m_childfishids((const char*)m_childfishids[i].data());
+		msg.add_m_childfishids(m_childfishids[i].data());
 	}
 }
 
 void E_FishConfig_s::read_from_pbmsg(const ::proto_ff::E_FishConfig & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_FishConfig_s));
 	m_fishid = msg.m_fishid();
 	m_fishtype = msg.m_fishtype();
 	m_buildfishtype = msg.m_buildfishtype();
@@ -400,7 +391,6 @@ void Sheet_FishConfig_s::write_to_pbmsg(::proto_ff::Sheet_FishConfig & msg) cons
 }
 
 void Sheet_FishConfig_s::read_from_pbmsg(const ::proto_ff::Sheet_FishConfig & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_FishConfig_s));
 	E_FishConfig_List.resize((int)msg.e_fishconfig_list_size() > (int)E_FishConfig_List.max_size() ? E_FishConfig_List.max_size() : msg.e_fishconfig_list_size());
 	for(int32_t i = 0; i < (int32_t)E_FishConfig_List.size(); ++i) {
 		const ::proto_ff::E_FishConfig & temp_e_fishconfig_list = msg.e_fishconfig_list(i);

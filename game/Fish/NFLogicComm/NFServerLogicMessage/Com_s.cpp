@@ -22,7 +22,6 @@ void EmptyMessage_s::write_to_pbmsg(::proto_ff::EmptyMessage & msg) const {
 }
 
 void EmptyMessage_s::read_from_pbmsg(const ::proto_ff::EmptyMessage & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct EmptyMessage_s));
 }
 
 ComPair_s::ComPair_s() {
@@ -49,7 +48,6 @@ void ComPair_s::write_to_pbmsg(::proto_ff::ComPair & msg) const {
 }
 
 void ComPair_s::read_from_pbmsg(const ::proto_ff::ComPair & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ComPair_s));
 	key = msg.key();
 	value = msg.value();
 }
@@ -78,7 +76,6 @@ void ComPair64_s::write_to_pbmsg(::proto_ff::ComPair64 & msg) const {
 }
 
 void ComPair64_s::read_from_pbmsg(const ::proto_ff::ComPair64 & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ComPair64_s));
 	key = msg.key();
 	value = msg.value();
 }
@@ -107,7 +104,6 @@ void ComPairBool_s::write_to_pbmsg(::proto_ff::ComPairBool & msg) const {
 }
 
 void ComPairBool_s::read_from_pbmsg(const ::proto_ff::ComPairBool & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ComPairBool_s));
 	key = msg.key();
 	value = msg.value();
 }
@@ -136,7 +132,6 @@ void ComItem_s::write_to_pbmsg(::proto_ff::ComItem & msg) const {
 }
 
 void ComItem_s::read_from_pbmsg(const ::proto_ff::ComItem & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ComItem_s));
 	item_id = msg.item_id();
 	item_num = msg.item_num();
 }
@@ -167,7 +162,6 @@ void ComItemWithType_s::write_to_pbmsg(::proto_ff::ComItemWithType & msg) const 
 }
 
 void ComItemWithType_s::read_from_pbmsg(const ::proto_ff::ComItemWithType & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct ComItemWithType_s));
 	item_id = msg.item_id();
 	item_num = msg.item_num();
 	type = msg.type();
@@ -199,7 +193,6 @@ void Vector3PB_s::write_to_pbmsg(::proto_ff::Vector3PB & msg) const {
 }
 
 void Vector3PB_s::read_from_pbmsg(const ::proto_ff::Vector3PB & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Vector3PB_s));
 	x = msg.x();
 	y = msg.y();
 	z = msg.z();
@@ -229,7 +222,6 @@ void Vector2PB_s::write_to_pbmsg(::proto_ff::Vector2PB & msg) const {
 }
 
 void Vector2PB_s::read_from_pbmsg(const ::proto_ff::Vector2PB & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Vector2PB_s));
 	x = msg.x();
 	y = msg.y();
 }
@@ -258,7 +250,6 @@ void Attr64_s::write_to_pbmsg(::proto_ff::Attr64 & msg) const {
 }
 
 void Attr64_s::read_from_pbmsg(const ::proto_ff::Attr64 & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Attr64_s));
 	id = msg.id();
 	value = msg.value();
 }
@@ -288,16 +279,15 @@ void Proto_UserLoginExternalData_s::write_to_pbmsg(::proto_ff::Proto_UserLoginEx
 	msg.set_agent_id((uint32_t)agent_id);
 	msg.set_channel_id((uint32_t)channel_id);
 	msg.set_referral_code((uint64_t)referral_code);
-	msg.set_platform_os((const char*)platform_os.data());
-	msg.set_country((const char*)country.data());
-	msg.set_province((const char*)province.data());
-	msg.set_city((const char*)city.data());
-	msg.set_phone_mode((const char*)phone_mode.data());
-	msg.set_device_id((const char*)device_id.data());
+	msg.set_platform_os(platform_os.data());
+	msg.set_country(country.data());
+	msg.set_province(province.data());
+	msg.set_city(city.data());
+	msg.set_phone_mode(phone_mode.data());
+	msg.set_device_id(device_id.data());
 }
 
 void Proto_UserLoginExternalData_s::read_from_pbmsg(const ::proto_ff::Proto_UserLoginExternalData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Proto_UserLoginExternalData_s));
 	aread_id = msg.aread_id();
 	agent_id = msg.agent_id();
 	channel_id = msg.channel_id();
@@ -333,7 +323,7 @@ int Proto_UserDetailCommonData_s::ResumeInit() {
 }
 
 void Proto_UserDetailCommonData_s::write_to_pbmsg(::proto_ff::Proto_UserDetailCommonData & msg) const {
-	msg.set_nick_name((const char*)nick_name.data());
+	msg.set_nick_name(nick_name.data());
 	msg.set_face_id((uint32_t)face_id);
 	msg.set_gender((uint32_t)gender);
 	msg.set_jetton((uint64_t)jetton);
@@ -343,7 +333,6 @@ void Proto_UserDetailCommonData_s::write_to_pbmsg(::proto_ff::Proto_UserDetailCo
 }
 
 void Proto_UserDetailCommonData_s::read_from_pbmsg(const ::proto_ff::Proto_UserDetailCommonData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Proto_UserDetailCommonData_s));
 	nick_name = msg.nick_name();
 	face_id = msg.face_id();
 	gender = msg.gender();
@@ -373,12 +362,11 @@ int Proto_LTSSyncData_s::ResumeInit() {
 
 void Proto_LTSSyncData_s::write_to_pbmsg(::proto_ff::Proto_LTSSyncData & msg) const {
 	msg.set_create_player_db_data((bool)create_player_db_data);
-	msg.set_nick_name((const char*)nick_name.data());
+	msg.set_nick_name(nick_name.data());
 	msg.set_face_id((uint32_t)face_id);
 }
 
 void Proto_LTSSyncData_s::read_from_pbmsg(const ::proto_ff::Proto_LTSSyncData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Proto_LTSSyncData_s));
 	create_player_db_data = msg.create_player_db_data();
 	nick_name = msg.nick_name();
 	face_id = msg.face_id();
@@ -408,15 +396,14 @@ int tbGiveBankJetton_s::ResumeInit() {
 void tbGiveBankJetton_s::write_to_pbmsg(::proto_ff::tbGiveBankJetton & msg) const {
 	msg.set_id((uint64_t)id);
 	msg.set_user_id((uint64_t)user_id);
-	msg.set_user_name((const char*)user_name.data());
+	msg.set_user_name(user_name.data());
 	msg.set_give_user_id((uint64_t)give_user_id);
-	msg.set_give_user_name((const char*)give_user_name.data());
+	msg.set_give_user_name(give_user_name.data());
 	msg.set_give_jetton((uint64_t)give_jetton);
 	msg.set_create_time((uint64_t)create_time);
 }
 
 void tbGiveBankJetton_s::read_from_pbmsg(const ::proto_ff::tbGiveBankJetton & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbGiveBankJetton_s));
 	id = msg.id();
 	user_id = msg.user_id();
 	user_name = msg.user_name();
@@ -448,14 +435,13 @@ int Proto_UserSimpleData_s::ResumeInit() {
 
 void Proto_UserSimpleData_s::write_to_pbmsg(::proto_ff::Proto_UserSimpleData & msg) const {
 	msg.set_userid((uint64_t)userid);
-	msg.set_nickname((const char*)nickname.data());
+	msg.set_nickname(nickname.data());
 	msg.set_face((uint32_t)face);
 	msg.set_gender((uint32_t)gender);
 	msg.set_age((uint32_t)age);
 }
 
 void Proto_UserSimpleData_s::read_from_pbmsg(const ::proto_ff::Proto_UserSimpleData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Proto_UserSimpleData_s));
 	userid = msg.userid();
 	nickname = msg.nickname();
 	face = msg.face();
@@ -492,13 +478,12 @@ void GamePlayerDetailData_s::write_to_pbmsg(::proto_ff::GamePlayerDetailData & m
 	msg.set_vip_level((uint32_t)vip_level);
 	msg.set_sex((uint32_t)sex);
 	msg.set_chair_id((int32_t)chair_id);
-	msg.set_nick_name((const char*)nick_name.data());
+	msg.set_nick_name(nick_name.data());
 	msg.set_face((uint32_t)face);
 	msg.set_isrobot((bool)isRobot);
 }
 
 void GamePlayerDetailData_s::read_from_pbmsg(const ::proto_ff::GamePlayerDetailData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GamePlayerDetailData_s));
 	player_id = msg.player_id();
 	cur_money = msg.cur_money();
 	vip_level = msg.vip_level();
@@ -541,7 +526,6 @@ void GamePlayerWealthData_s::write_to_pbmsg(::proto_ff::GamePlayerWealthData & m
 }
 
 void GamePlayerWealthData_s::read_from_pbmsg(const ::proto_ff::GamePlayerWealthData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GamePlayerWealthData_s));
 	player_id = msg.player_id();
 	recharge = msg.recharge();
 	total_lost = msg.total_lost();
@@ -574,7 +558,6 @@ void GamePlayerAchievementData_s::write_to_pbmsg(::proto_ff::GamePlayerAchieveme
 }
 
 void GamePlayerAchievementData_s::read_from_pbmsg(const ::proto_ff::GamePlayerAchievementData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GamePlayerAchievementData_s));
 	cur_ach = msg.cur_ach();
 	cur_fee = msg.cur_fee();
 }
@@ -605,7 +588,6 @@ void GameRoomStat_s::write_to_pbmsg(::proto_ff::GameRoomStat & msg) const {
 }
 
 void GameRoomStat_s::read_from_pbmsg(const ::proto_ff::GameRoomStat & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GameRoomStat_s));
 	cur_fee = msg.cur_fee();
 	cur_pour = msg.cur_pour();
 	cur_win = msg.cur_win();

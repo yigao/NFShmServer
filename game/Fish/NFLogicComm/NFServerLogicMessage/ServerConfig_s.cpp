@@ -35,7 +35,6 @@ void WorldExternalConfig_s::write_to_pbmsg(::proto_ff::WorldExternalConfig & msg
 }
 
 void WorldExternalConfig_s::read_from_pbmsg(const ::proto_ff::WorldExternalConfig & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct WorldExternalConfig_s));
 	TokenTimeCheck = msg.tokentimecheck();
 	WhiteListState = msg.whiteliststate();
 	MaxRegisterNum = msg.maxregisternum();
@@ -72,7 +71,6 @@ void GameExternalGame_s::write_to_pbmsg(::proto_ff::GameExternalGame & msg) cons
 }
 
 void GameExternalGame_s::read_from_pbmsg(const ::proto_ff::GameExternalGame & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GameExternalGame_s));
 	GameId = msg.gameid();
 	RoomId.resize((int)msg.roomid_size() > (int)RoomId.max_size() ? RoomId.max_size() : msg.roomid_size());
 	for(int32_t i = 0; i < (int32_t)RoomId.size(); ++i) {
@@ -106,7 +104,6 @@ void GameExternalConfig_s::write_to_pbmsg(::proto_ff::GameExternalConfig & msg) 
 }
 
 void GameExternalConfig_s::read_from_pbmsg(const ::proto_ff::GameExternalConfig & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GameExternalConfig_s));
 	Game.resize((int)msg.game_size() > (int)Game.max_size() ? Game.max_size() : msg.game_size());
 	for(int32_t i = 0; i < (int32_t)Game.size(); ++i) {
 		const ::proto_ff::GameExternalGame & temp_game = msg.game(i);

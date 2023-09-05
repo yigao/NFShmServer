@@ -26,7 +26,7 @@ import string
 import filecmp
 
 def show_usage():
-	print """usage for excel2bin example:
+	print """usage for filecopy example:
 	./filecopy --src=x-1.xls
                 --dst=x-1.xls"""
 

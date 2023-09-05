@@ -23,15 +23,14 @@ int tbFishAccountTable_s::ResumeInit() {
 
 void tbFishAccountTable_s::write_to_pbmsg(::proto_ff::tbFishAccountTable & msg) const {
 	msg.set_player_id((uint64_t)player_id);
-	msg.set_account((const char*)account.data());
-	msg.set_password((const char*)password.data());
+	msg.set_account(account.data());
+	msg.set_password(password.data());
 	msg.set_account_type((uint32_t)account_type);
-	msg.set_device_id((const char*)device_id.data());
+	msg.set_device_id(device_id.data());
 	msg.set_phonenum((uint64_t)phonenum);
 }
 
 void tbFishAccountTable_s::read_from_pbmsg(const ::proto_ff::tbFishAccountTable & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbFishAccountTable_s));
 	player_id = msg.player_id();
 	account = msg.account();
 	password = msg.password();
@@ -67,20 +66,19 @@ int tbFishPlayerData_s::ResumeInit() {
 
 void tbFishPlayerData_s::write_to_pbmsg(::proto_ff::tbFishPlayerData & msg) const {
 	msg.set_player_id((uint64_t)player_id);
-	msg.set_nickname((const char*)nickname.data());
+	msg.set_nickname(nickname.data());
 	msg.set_faceid((uint32_t)faceid);
 	msg.set_regdate((uint64_t)regdate);
 	msg.set_gender((uint32_t)gender);
 	msg.set_age((uint32_t)age);
 	msg.set_phonenum((uint64_t)phonenum);
 	msg.set_jetton((uint64_t)jetton);
-	msg.set_ip((const char*)ip.data());
+	msg.set_ip(ip.data());
 	msg.set_last_login_time((uint64_t)last_login_time);
 	msg.set_last_logout_time((uint64_t)last_logout_time);
 }
 
 void tbFishPlayerData_s::read_from_pbmsg(const ::proto_ff::tbFishPlayerData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbFishPlayerData_s));
 	player_id = msg.player_id();
 	nickname = msg.nickname();
 	faceid = msg.faceid();
@@ -117,7 +115,7 @@ int tbFishSnsPlayerSimpleData_s::ResumeInit() {
 
 void tbFishSnsPlayerSimpleData_s::write_to_pbmsg(::proto_ff::tbFishSnsPlayerSimpleData & msg) const {
 	msg.set_player_id((uint64_t)player_id);
-	msg.set_nickname((const char*)nickname.data());
+	msg.set_nickname(nickname.data());
 	msg.set_faceid((uint32_t)faceid);
 	msg.set_last_login_time((uint64_t)last_login_time);
 	msg.set_last_logout_time((uint64_t)last_logout_time);
@@ -125,7 +123,6 @@ void tbFishSnsPlayerSimpleData_s::write_to_pbmsg(::proto_ff::tbFishSnsPlayerSimp
 }
 
 void tbFishSnsPlayerSimpleData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerSimpleData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbFishSnsPlayerSimpleData_s));
 	player_id = msg.player_id();
 	nickname = msg.nickname();
 	faceid = msg.faceid();
@@ -158,8 +155,7 @@ void GiveBankRecordDBData_s::write_to_pbmsg(::proto_ff::GiveBankRecordDBData & m
 }
 
 void GiveBankRecordDBData_s::read_from_pbmsg(const ::proto_ff::GiveBankRecordDBData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct GiveBankRecordDBData_s));
-	record.resize(msg.record_size());
+	record.resize((int)msg.record_size() > (int)record.max_size() ? record.max_size() : msg.record_size());
 	for(int32_t i = 0; i < (int32_t)record.size(); ++i) {
 		const ::proto_ff::tbGiveBankJetton & temp_record = msg.record(i);
 		record[i].read_from_pbmsg(temp_record);
@@ -187,13 +183,12 @@ int tbFishSnsPlayerDetailData_s::ResumeInit() {
 void tbFishSnsPlayerDetailData_s::write_to_pbmsg(::proto_ff::tbFishSnsPlayerDetailData & msg) const {
 	msg.set_player_id((uint64_t)player_id);
 	msg.set_bank_jetton((uint64_t)bank_jetton);
-	msg.set_bank_password((const char*)bank_password.data());
+	msg.set_bank_password(bank_password.data());
 	::proto_ff::GiveBankRecordDBData* temp_record = msg.mutable_record();
 	record.write_to_pbmsg(*temp_record);
 }
 
 void tbFishSnsPlayerDetailData_s::read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbFishSnsPlayerDetailData_s));
 	player_id = msg.player_id();
 	bank_jetton = msg.bank_jetton();
 	bank_password = msg.bank_password();

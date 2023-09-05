@@ -42,7 +42,6 @@ int ExcelToTxtGen::WriteToGen()
     makefile_file += ":${RESDB_EXCEL_PATH}/" + m_excelName + ".xlsx\n";
     makefile_file += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
     makefile_file += "\trm -rf ${PROTOCGEN_FILE_PATH}/"+ NFStringUtility::Capitalize(m_excelName)+"_all_finish\n";
-    //makefile_file += "\t${EXCEL2BIN} --excel=$^ --out_path=${PROTOCGEN_FILE_PATH}/\n")
     makefile_file += "\t${NFEXCELPROCESS} --work=\"exceltotxt\" --src=$^ --dst=${PROTOCGEN_FILE_PATH}/\n";
     std::vector<MiniExcelReader::Sheet> &sheets = m_excelReader->sheets();
     for (MiniExcelReader::Sheet &sheet: sheets)

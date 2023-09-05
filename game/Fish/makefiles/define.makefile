@@ -28,20 +28,8 @@ THIRD_PARTY_TOOLS_PATH=${TOOLS_PATH}
 PROTOC=protoc
 NFEXCELPROCESS=${TOOLS_PATH}/NFExcelProcess
 
-PROTO2STRUCT=python ${TOOLS_PATH}/proto_2_struct/proto2struct.py
-EXCEL2BIN=python ${TOOLS_PATH}/excel_2_bin/excel2bin_new.py
-EXCEL2PROTO=python ${TOOLS_PATH}/excel_2_bin/excel2proto.py
-EXCEL2BIN_MMO=python ${TOOLS_PATH}/excel_2_bin/excel2bin_mmo_quick.py
-EXCEL2MAKEFILE=python ${TOOLS_PATH}/excel_2_bin/excel2makefile.py
 FILE_COPY_EXE=python ${TOOLS_PATH}/excel_2_bin/filecopy.py
 PROTO2SQL=python ${TOOLS_PATH}/proto_2_sql/proto2sql.py
-
-EXCEL2MAKEFILE=${NFEXCELPROCESS}
-EXCEL2PROTO=${NFEXCELPROCESS}
-
-PROTO2STRUCT_PATH=${TOOLS_PATH}/proto_2_struct/
-EXCEL2BIN_PATH=${TOOLS_PATH}/excel_2_bin/
-PROTO2SQL_PATH=${TOOLS_PATH}/proto_2_sql/
 
 MAKE_SINGLE_JOB_NUM=4
 

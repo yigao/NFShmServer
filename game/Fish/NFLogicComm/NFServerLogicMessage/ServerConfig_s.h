@@ -11,6 +11,8 @@
 #define DEFINE_WORLDEXTERNALCONFIG_WHITELIST_MAX_NUM 100
 #define DEFINE_GAMEEXTERNALGAME_ROOMID_MAX_NUM 10
 #define DEFINE_GAMEEXTERNALCONFIG_GAME_MAX_NUM 10
+
+
 namespace proto_ff_s {
 
 	struct WorldExternalConfig_s : public NFDescStoreSeqOP {

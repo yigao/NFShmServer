@@ -8,6 +8,8 @@
 #include "proto_common.pb.h"
 #include "proto_common_s.h"
 
+
+
 namespace proto_ff_s {
 
 	struct tbServerMgr_s : public NFDescStoreSeqOP {

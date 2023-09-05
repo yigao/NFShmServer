@@ -11,6 +11,8 @@
 #include "Com_s.h"
 
 #define DEFINE_GIVEBANKRECORDDBDATA_RECORD_MAX_NUM 1
+
+
 namespace proto_ff_s {
 
 	struct tbFishAccountTable_s : public NFDescStoreSeqOP {

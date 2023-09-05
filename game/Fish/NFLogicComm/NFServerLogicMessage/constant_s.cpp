@@ -23,11 +23,10 @@ int E_ConstantConstant_s::ResumeInit() {
 void E_ConstantConstant_s::write_to_pbmsg(::proto_ff::E_ConstantConstant & msg) const {
 	msg.set_m_constantid((int32_t)m_constantid);
 	msg.set_m_constantdata((int64_t)m_constantdata);
-	msg.set_m_stringdata((const char*)m_stringdata.data());
+	msg.set_m_stringdata(m_stringdata.data());
 }
 
 void E_ConstantConstant_s::read_from_pbmsg(const ::proto_ff::E_ConstantConstant & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct E_ConstantConstant_s));
 	m_constantid = msg.m_constantid();
 	m_constantdata = msg.m_constantdata();
 	m_stringdata = msg.m_stringdata();
@@ -57,7 +56,6 @@ void Sheet_ConstantConstant_s::write_to_pbmsg(::proto_ff::Sheet_ConstantConstant
 }
 
 void Sheet_ConstantConstant_s::read_from_pbmsg(const ::proto_ff::Sheet_ConstantConstant & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct Sheet_ConstantConstant_s));
 	E_ConstantConstant_List.resize((int)msg.e_constantconstant_list_size() > (int)E_ConstantConstant_List.max_size() ? E_ConstantConstant_List.max_size() : msg.e_constantconstant_list_size());
 	for(int32_t i = 0; i < (int32_t)E_ConstantConstant_List.size(); ++i) {
 		const ::proto_ff::E_ConstantConstant & temp_e_constantconstant_list = msg.e_constantconstant_list(i);

@@ -25,11 +25,11 @@ int tbServerMgr_s::ResumeInit() {
 
 void tbServerMgr_s::write_to_pbmsg(::proto_ff::tbServerMgr & msg) const {
 	msg.set_id((uint64_t)id);
-	msg.set_contract((const char*)contract.data());
-	msg.set_machine_addr((const char*)machine_addr.data());
-	msg.set_ip((const char*)ip.data());
-	msg.set_bus_name((const char*)bus_name.data());
-	msg.set_server_desc((const char*)server_desc.data());
+	msg.set_contract(contract.data());
+	msg.set_machine_addr(machine_addr.data());
+	msg.set_ip(ip.data());
+	msg.set_bus_name(bus_name.data());
+	msg.set_server_desc(server_desc.data());
 	msg.set_cur_count((uint32_t)cur_count);
 	msg.set_last_login_time((uint64_t)last_login_time);
 	msg.set_last_logout_time((uint64_t)last_logout_time);
@@ -37,7 +37,6 @@ void tbServerMgr_s::write_to_pbmsg(::proto_ff::tbServerMgr & msg) const {
 }
 
 void tbServerMgr_s::read_from_pbmsg(const ::proto_ff::tbServerMgr & msg) {
-	//dont't use memset, the class maybe has virtual //memset(this, 0, sizeof(struct tbServerMgr_s));
 	id = msg.id();
 	contract = msg.contract();
 	machine_addr = msg.machine_addr();
@@ -64,11 +63,11 @@ int pbMysqlConfig_s::ResumeInit() {
 }
 
 void pbMysqlConfig_s::write_to_pbmsg(::proto_ff::pbMysqlConfig & msg) const {
-	msg.set_mysqlip(MysqlIp);
+	msg.set_mysqlip(MysqlIp.data());
 	msg.set_mysqlport((uint32_t)MysqlPort);
-	msg.set_mysqldbname(MysqlDbName);
-	msg.set_mysqluser(MysqlUser);
-	msg.set_mysqlpassword(MysqlPassword);
+	msg.set_mysqldbname(MysqlDbName.data());
+	msg.set_mysqluser(MysqlUser.data());
+	msg.set_mysqlpassword(MysqlPassword.data());
 	for(int32_t i = 0; i < (int32_t)TBConfList.size(); ++i) {
 		::proto_ff::pbTableConfig* temp_tbconflist = msg.add_tbconflist();
 		TBConfList[i].write_to_pbmsg(*temp_tbconflist);
@@ -102,9 +101,9 @@ int pbRedisConfig_s::ResumeInit() {
 }
 
 void pbRedisConfig_s::write_to_pbmsg(::proto_ff::pbRedisConfig & msg) const {
-	msg.set_redisip(RedisIp);
+	msg.set_redisip(RedisIp.data());
 	msg.set_redisport((uint32_t)RedisPort);
-	msg.set_redispass(RedisPass);
+	msg.set_redispass(RedisPass.data());
 }
 
 void pbRedisConfig_s::read_from_pbmsg(const ::proto_ff::pbRedisConfig & msg) {
@@ -127,11 +126,11 @@ int pbRouteConfig_s::ResumeInit() {
 }
 
 void pbRouteConfig_s::write_to_pbmsg(::proto_ff::pbRouteConfig & msg) const {
-	msg.set_masterip(MasterIp);
+	msg.set_masterip(MasterIp.data());
 	msg.set_masterport((uint32_t)MasterPort);
-	msg.set_naminghost(NamingHost);
-	msg.set_namingpath(NamingPath);
-	msg.set_routeagent(RouteAgent);
+	msg.set_naminghost(NamingHost.data());
+	msg.set_namingpath(NamingPath.data());
+	msg.set_routeagent(RouteAgent.data());
 }
 
 void pbRouteConfig_s::read_from_pbmsg(const ::proto_ff::pbRouteConfig & msg) {
@@ -156,8 +155,8 @@ int pbAllServerConfig_s::ResumeInit() {
 }
 
 void pbAllServerConfig_s::write_to_pbmsg(::proto_ff::pbAllServerConfig & msg) const {
-	msg.set_server(Server);
-	msg.set_id(ID);
+	msg.set_server(Server.data());
+	msg.set_id(ID.data());
 	msg.set_servertype((uint32_t)ServerType);
 }
 
@@ -183,13 +182,13 @@ int pbPluginConfig_s::ResumeInit() {
 void pbPluginConfig_s::write_to_pbmsg(::proto_ff::pbPluginConfig & msg) const {
 	msg.set_servertype((uint32_t)ServerType);
 	for(int32_t i = 0; i < (int32_t)FramePlugins.size(); ++i) {
-		msg.add_frameplugins(FramePlugins[i]);
+		msg.add_frameplugins(FramePlugins[i].data());
 	}
 	for(int32_t i = 0; i < (int32_t)ServerPlugins.size(); ++i) {
-		msg.add_serverplugins(ServerPlugins[i]);
+		msg.add_serverplugins(ServerPlugins[i].data());
 	}
 	for(int32_t i = 0; i < (int32_t)WorkPlugins.size(); ++i) {
-		msg.add_workplugins(WorkPlugins[i]);
+		msg.add_workplugins(WorkPlugins[i].data());
 	}
 	for(int32_t i = 0; i < (int32_t)ServerList.size(); ++i) {
 		::proto_ff::pbAllServerConfig* temp_serverlist = msg.add_serverlist();
@@ -233,7 +232,7 @@ int pbTableConfig_s::ResumeInit() {
 }
 
 void pbTableConfig_s::write_to_pbmsg(::proto_ff::pbTableConfig & msg) const {
-	msg.set_tablename(TableName);
+	msg.set_tablename(TableName.data());
 	msg.set_tablecount((uint32_t)TableCount);
 	msg.set_cache((bool)Cache);
 }
@@ -276,20 +275,20 @@ int pbNFServerConfig_s::ResumeInit() {
 }
 
 void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) const {
-	msg.set_serverid(ServerId);
+	msg.set_serverid(ServerId.data());
 	msg.set_servertype((uint32_t)ServerType);
-	msg.set_servername(ServerName);
+	msg.set_servername(ServerName.data());
 	msg.set_busid((uint32_t)BusId);
 	msg.set_buslength((uint32_t)BusLength);
-	msg.set_linkmode(LinkMode);
-	msg.set_url(Url);
+	msg.set_linkmode(LinkMode.data());
+	msg.set_url(Url.data());
 	msg.set_idlesleepus((uint32_t)IdleSleepUS);
 	msg.set_handlemsgnumperframe((uint32_t)HandleMsgNumPerFrame);
 	msg.set_serveropentime((uint64_t)ServerOpenTime);
-	msg.set_loadprotods(LoadProtoDs);
-	msg.set_serverip(ServerIp);
+	msg.set_loadprotods(LoadProtoDs.data());
+	msg.set_serverip(ServerIp.data());
 	msg.set_serverport((uint32_t)ServerPort);
-	msg.set_externalserverip(ExternalServerIp);
+	msg.set_externalserverip(ExternalServerIp.data());
 	msg.set_externalserverport((uint32_t)ExternalServerPort);
 	msg.set_httpport((uint32_t)HttpPort);
 	msg.set_maxconnectnum((uint32_t)MaxConnectNum);
@@ -302,16 +301,16 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	RouteConfig.write_to_pbmsg(*temp_routeconfig);
 	::proto_ff::pbMysqlConfig* temp_mysqlconfig = msg.mutable_mysqlconfig();
 	MysqlConfig.write_to_pbmsg(*temp_mysqlconfig);
-	msg.set_defaultdbname(DefaultDBName);
-	msg.set_crossdbname(CrossDBName);
+	msg.set_defaultdbname(DefaultDBName.data());
+	msg.set_crossdbname(CrossDBName.data());
 	::proto_ff::pbRedisConfig* temp_redisconfig = msg.mutable_redisconfig();
 	RedisConfig.write_to_pbmsg(*temp_redisconfig);
-	msg.set_sendemail(sendEmail);
-	msg.set_sendemailpass(sendEmailPass);
-	msg.set_sendemailurl(sendEmailUrl);
-	msg.set_sendemailport(sendEmailPort);
-	msg.set_recvemail(recvEmail);
-	msg.set_wxworkdrobot(wxWorkdRobot);
+	msg.set_sendemail(sendEmail.data());
+	msg.set_sendemailpass(sendEmailPass.data());
+	msg.set_sendemailurl(sendEmailUrl.data());
+	msg.set_sendemailport(sendEmailPort.data());
+	msg.set_recvemail(recvEmail.data());
+	msg.set_wxworkdrobot(wxWorkdRobot.data());
 	msg.set_maxonlineplayernum((uint32_t)MaxOnlinePlayerNum);
 	msg.set_heartbeattimeout((uint32_t)HeartBeatTimeout);
 	msg.set_clientkeepalivetimeout((uint32_t)ClientKeepAliveTimeout);
@@ -374,12 +373,12 @@ int wxWorkRobotText_s::ResumeInit() {
 }
 
 void wxWorkRobotText_s::write_to_pbmsg(::proto_ff::wxWorkRobotText & msg) const {
-	msg.set_content(content);
+	msg.set_content(content.data());
 	for(int32_t i = 0; i < (int32_t)mentioned_list.size(); ++i) {
-		msg.add_mentioned_list(mentioned_list[i]);
+		msg.add_mentioned_list(mentioned_list[i].data());
 	}
 	for(int32_t i = 0; i < (int32_t)mentioned_mobile_list.size(); ++i) {
-		msg.add_mentioned_mobile_list(mentioned_mobile_list[i]);
+		msg.add_mentioned_mobile_list(mentioned_mobile_list[i].data());
 	}
 }
 
@@ -408,7 +407,7 @@ int wxWorkRobotHttpPost_s::ResumeInit() {
 }
 
 void wxWorkRobotHttpPost_s::write_to_pbmsg(::proto_ff::wxWorkRobotHttpPost & msg) const {
-	msg.set_msgtype(msgtype);
+	msg.set_msgtype(msgtype.data());
 	::proto_ff::wxWorkRobotText* temp_text = msg.mutable_text();
 	text.write_to_pbmsg(*temp_text);
 }

@@ -10,6 +10,8 @@
 #include "ComDefine.pb.h"
 #include "ComDefine_s.h"
 
+
+
 namespace proto_ff_s {
 
 	struct EmptyMessage_s : public NFDescStoreSeqOP {

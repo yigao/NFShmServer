@@ -23,7 +23,7 @@ void WriteMakeFile(std::string& excelmmo_gen, std::string& resmetas_gen, const s
     resmetas_gen += "\tmkdir -p ${PROTOCGEN_FILE_PATH}\n";
     resmetas_gen += "\trm -rf ${PROTOCGEN_FILE_PATH}/" + file + "_proto_finish\n";
     resmetas_gen += "\t${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} --include_imports --descriptor_set_out=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --cpp_out=${PROTOCGEN_FILE_PATH}\n";
-    resmetas_gen += "\t${PROTO2STRUCT} --proto_ds=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --proto_fname=" + file + ".proto --out_path=${PROTOCGEN_FILE_PATH}/;\n";
+    resmetas_gen += "\t${NFEXCELPROCESS} --work=\"exceltostruct\" --proto_ds=${PROTOCGEN_FILE_PATH}/" + file + ".proto.ds --src=" + file + ".proto --dst=${PROTOCGEN_FILE_PATH}/;\n";
     resmetas_gen += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + file + ".pb.h ${PROTOCGEN_FILE_PATH}/" + file + ".pb.cc ${PROTOCGEN_FILE_PATH}/" + file + "_s.h ${PROTOCGEN_FILE_PATH}/" + file + "_s.cpp \" --dst=${NEW_PROTOCGEN_FILE_PATH}/\n";
     resmetas_gen += "\ttouch ${PROTOCGEN_FILE_PATH}/" + file + "_proto_finish\n";
     resmetas_gen += "\n\n";

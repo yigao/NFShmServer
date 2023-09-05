@@ -9,6 +9,8 @@
 #include "constant_s.h"
 
 #define DEFINE_SHEET_CONSTANTCONSTANT_E_CONSTANTCONSTANT_LIST_MAX_NUM 8
+
+
 namespace proto_ff_s {
 
 	struct E_ConstantConstant_s : public NFDescStoreSeqOP {
