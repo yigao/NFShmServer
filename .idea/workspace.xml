@@ -78,6 +78,7 @@
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerConfig_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/ServerConfig_s.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant_s.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/constant_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/protoc_gen.makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" beforeDir="false" />
@@ -1912,14 +1913,7 @@
       <workItem from="1692862216294" duration="22469000" />
       <workItem from="1693011648865" duration="30554000" />
       <workItem from="1693530450838" duration="5483000" />
-      <workItem from="1693790132759" duration="30256000" />
-    </task>
-    <task id="LOCAL-00060" summary="fish room">
-      <created>1691053486471</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1691053486471</updated>
+      <workItem from="1693790132759" duration="31594000" />
     </task>
     <task id="LOCAL-00061" summary="fish room">
       <created>1691057915812</created>
@@ -2257,7 +2251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693534670032</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="xls">
+      <created>1693873191817</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1693873191817</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
