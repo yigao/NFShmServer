@@ -99,9 +99,15 @@ int FishRoomDesc::Load(NFResDB *pDB)
 		}
 		CHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, "GetDesc != pDesc, id:{}", hashKey);
 	}
+	m_GameidIndexMap.clear();
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
+		if(m_GameidIndexMap.full())
+		{
+			CHECK_EXPR_ASSERT(m_GameidIndexMap.find(pDesc->m_gameid) != m_GameidIndexMap.end(), -1, "index:gameId key:{}, space not enough", pDesc->m_gameid);
+		}
+		m_GameidIndexMap[pDesc->m_gameid].push_back(i);
 		{
 			FishRoomGameidRoomid data;
 			data.m_gameId = pDesc->m_gameid;
@@ -173,6 +179,22 @@ proto_ff_s::E_FishRoom_s * FishRoomDesc::GetDescByIndex(int index)
 {
 	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
 	return &m_astDesc[index];
+}
+
+std::vector<const proto_ff_s::E_FishRoom_s*> FishRoomDesc::GetDescByGameid(int64_t Gameid) const
+{
+	std::vector<const proto_ff_s::E_FishRoom_s*> m_vec;
+	auto iter = m_GameidIndexMap.find(Gameid);
+	if(iter != m_GameidIndexMap.end())
+	{
+		for(int i = 0; i < (int)iter->second.size(); i++)
+		{
+			auto pDesc = GetDescByIndex(iter->second[i]);
+			CHECK_EXPR_CONTINUE(pDesc, "key:{} GetDescByIndex error:{}", Gameid, iter->second[i]);
+			m_vec.push_back(pDesc);
+		}
+	}
+	return m_vec;
 }
 
 const proto_ff_s::E_FishRoom_s* FishRoomDesc::GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid)

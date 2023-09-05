@@ -64,27 +64,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="xls">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreHead.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreHead.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreRegister.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreRegister.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/excelcreate_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/excelcreate_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/protoc_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/excelcreate_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/excelcreate_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/makefiles/protoc_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFDataStream.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFDataStream.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/protoc_gen.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToMakefile.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToTxtGen.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToTxtGen.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
-    </list>
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="file copy" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -466,14 +446,7 @@
       <workItem from="1692862216294" duration="22469000" />
       <workItem from="1693011648865" duration="30554000" />
       <workItem from="1693530450838" duration="5483000" />
-      <workItem from="1693790132759" duration="38036000" />
-    </task>
-    <task id="LOCAL-00062" summary="fish room">
-      <created>1691113772137</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1691113772137</updated>
+      <workItem from="1693790132759" duration="38365000" />
     </task>
     <task id="LOCAL-00063" summary="fish room">
       <created>1691114718736</created>
@@ -811,7 +784,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693873369904</updated>
     </task>
-    <option name="localTasksCounter" value="111" />
+    <task id="LOCAL-00111" summary="file copy">
+      <created>1693880125297</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1693880125297</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -889,7 +869,8 @@
     <MESSAGE value="redis db" />
     <MESSAGE value="release" />
     <MESSAGE value="xls" />
-    <option name="LAST_COMMIT_MESSAGE" value="xls" />
+    <MESSAGE value="file copy" />
+    <option name="LAST_COMMIT_MESSAGE" value="file copy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -913,6 +894,11 @@
           <url>file://$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.cpp</url>
           <line>630</line>
           <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.cpp</url>
+          <line>652</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
