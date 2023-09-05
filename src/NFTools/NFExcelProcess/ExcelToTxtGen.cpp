@@ -70,12 +70,12 @@ int ExcelToTxtGen::WriteToGen()
 int ExcelToTxtGen::WriteToGen(MiniExcelReader::Sheet &sheet, string &makefile_file)
 {
     std::string sheetname = sheet.title();
-    makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + "_" + sheetname + ".txt\" --dst=${GAME_DATA_PATH}/\n";
-    makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheetname) + "Cfg.h \" --dst=${H_FILE_PATH}/\n";
-    makefile_file += "\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheetname) + "Cfg.cpp\" --dst=${CPP_FILE_PATH}/\n";
+    makefile_file += "\t${FILE_COPY_EXE} --work=\"filecopy\" --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + "_" + sheetname + ".txt\" --dst=${GAME_DATA_PATH}/\n";
+    makefile_file += "\t${FILE_COPY_EXE} --work=\"filecopy\" --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheetname) + "Cfg.h \" --dst=${H_FILE_PATH}/\n";
+    makefile_file += "\t${FILE_COPY_EXE} --work=\"filecopy\" --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheetname) + "Cfg.cpp\" --dst=${CPP_FILE_PATH}/\n";
     makefile_file += "\tfor mk_file in $(PRODUCT_ZONE_DIR);do\\\n";
     makefile_file += "\t\tmkdir -p ${PRODUCT_DATA_SERVER_PATH}/$$mk_file/data/config;\\\n";
-    makefile_file += "\t\t${FILE_COPY_EXE} --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + "_" + sheetname + ".txt\"  --dst=${PRODUCT_DATA_SERVER_PATH}/$$mk_file/data/config/\\\n";
+    makefile_file += "\t\t${FILE_COPY_EXE} --work=\"filecopy\" --work=\"filecopy\" --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) + "_" + sheetname + ".txt\"  --dst=${PRODUCT_DATA_SERVER_PATH}/$$mk_file/data/config/\\\n";
     makefile_file += "\t\techo ${PRODUCT_DATA_SERVER_PATH}/$$mk_file;\\\n";
     makefile_file += "\t\tdone\n";
     makefile_file += "\tfor mk_file in $(PRODUCT_CROSS_DIR);do\\\n";

@@ -173,7 +173,7 @@ public:
 	// @param src_file The target file
 	// @param override True, this will override the old existent file.
 	// @return bool True if successfully
-	static bool CopyFile(const std::string& src_file, const std::string& dest_file, bool override = true);
+	static bool CopyFile(const std::string& src_file, const std::string& dest_file, bool override = true, bool comp = false);
 
 	// @brief Query whether the given path is a directory.
 	static bool IsDir(const char* filepath);

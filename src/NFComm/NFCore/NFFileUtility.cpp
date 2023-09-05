@@ -626,12 +626,17 @@ bool NFFileUtility::IsExecutable(const std::string& strFileNmae)
 	return true;
 }
 
-bool NFFileUtility::CopyFile(const std::string& strSrcFile, const std::string& strDestFile, bool bOverride/* = true */)
+bool NFFileUtility::CopyFile(const std::string& strSrcFile, const std::string& strDestFile, bool bOverride/* = true */, bool comp/* = false */)
 {
 	if (IsDir(strSrcFile))
 	{
 		return false;
 	}
+
+    if (!IsFileExist(strSrcFile))
+    {
+        return false;
+    }
 
 	std::string strDestFilePath = strDestFile;
 
@@ -645,9 +650,26 @@ bool NFFileUtility::CopyFile(const std::string& strSrcFile, const std::string& s
 		return false;
 	}
 
+    if (IsFileExist(strDestFilePath) && comp)
+    {
+        if (GetFileSize(strSrcFile) == GetFileSize(strDestFilePath))
+        {
+            NFDataStream srcbuf;
+            srcbuf.ReadFile(strSrcFile);
+
+            NFDataStream dstbuf;
+            dstbuf.ReadFile(strDestFilePath);
+
+            if (NFDataStream::IsContentEquals(srcbuf, dstbuf))
+            {
+                return false;
+            }
+        }
+    }
+
 	NFDataStream databuf;
 	databuf.ReadFile(strSrcFile);
-	databuf.WriteFile(strDestFile);
+	databuf.WriteFile(strDestFilePath);
 	return true;
 }
 

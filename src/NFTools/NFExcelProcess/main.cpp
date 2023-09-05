@@ -188,6 +188,27 @@ int main(int argc, char* argv[])
 
             ExcelToTxtGen::ReleaseInstance();
         }
+        else if (work == "filecopy")
+        {
+            std::string files = cmdParser.Get<std::string>("src");
+            NFStringUtility::Trim(files);
+            std::string out_path = cmdParser.Get<std::string>("dst");
+            NFStringUtility::Trim(out_path);
+            std::vector<std::string> vecFiles;
+            NFStringUtility::Split(files, " ", &vecFiles);
+            NFStringUtility::Trim(vecFiles);
+
+            for(int i = 0; i < (int)vecFiles.size(); i++)
+            {
+                if (!vecFiles[i].empty())
+                {
+                    if (NFFileUtility::CopyFile(vecFiles[i], out_path, true, true))
+                    {
+                        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "copy file:{} to dir:{} success", vecFiles[i], out_path);
+                    }
+                }
+            }
+        }
         else if (work == "allcheck")
         {
             uint64_t startTime = NFGetSecondTime();

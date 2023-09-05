@@ -11,6 +11,7 @@
 
 #include <algorithm>
 #include <iostream>
+#include "NFFileUtility.h"
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
 #include <direct.h>
@@ -106,35 +107,11 @@ bool NFDataStream::ReadFile(/*const string& strFileName*/ const string& strPathN
 
 static void createDir(const string& strFileName)
 {
-	string strPathName = strFileName;
-
-	std::replace(strPathName.begin(), strPathName.end(), '\\', '/');
-
-	size_t nCurSplit = 0, nNextSplit = 0;
-
-	do
-	{
-		//  "/abc/ab/abc",   "e:/abac/adc"   "abcc/abc/a",   "abc"
-		// get current dir name.
-		nCurSplit = strPathName.find_first_of((string::value_type)'/', nNextSplit);
-
-		if (nCurSplit != 0 && nCurSplit != string::npos)
-		{
-			// current dir
-#if NF_PLATFORM == NF_PLATFORM_WIN
-			int ret = _mkdir(strPathName.substr(0, nCurSplit).c_str());
-#else
-			int ret = mkdir(strPathName.substr(0, nCurSplit).c_str(), 0777);
-#endif
-			if (ret < 0)
-			{
-				std::cout << "create dir:" << strFileName << " failed" << std::endl;
-			}
-		}
-
-		nNextSplit = nCurSplit + 1;
-	}
-	while (nCurSplit != string::npos);
+    std::string dir = NFFileUtility::GetFileDirName(strFileName);
+    if (!NFFileUtility::IsDir(dir))
+    {
+        NFFileUtility::Mkdir(dir);
+    }
 }
 
 bool NFDataStream::WriteFile(const string& filepath)
