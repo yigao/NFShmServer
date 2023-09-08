@@ -188,16 +188,30 @@ int NFCAppInited::CheckTaskFinished()
                     }
                 }
 
-                if (i > 0 && m_serverLoadDestStore[i].first)
+                if (!m_pObjPluginManager->IsLoadAllServer())
                 {
-                    proto_ff::NFEventNoneData event;
-                    FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                    if (i > 0 && m_serverLoadDestStore[i].first)
+                    {
+                        proto_ff::NFEventNoneData event;
+                        FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                    }
                 }
             }
         }
 
         if (m_initDestStoreTasks)
         {
+            if (m_pObjPluginManager->IsLoadAllServer())
+            {
+                for(int i = 0; i < (int)m_serverLoadDestStore.size(); i++)
+                {
+                    if (i > 0 && m_serverLoadDestStore[i].first)
+                    {
+                        proto_ff::NFEventNoneData event;
+                        FindModule<NFIEventModule>()->FireExecute(i, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+                    }
+                }
+            }
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Desc Store Load Task..............");
             proto_ff::NFEventNoneData event;
             FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
@@ -352,6 +366,17 @@ void NFCAppInited::PrintTimeout()
             if (m_appObjLoadFromDBTask[i].second[j].m_finished == false)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "App Init Task:{} not finish", m_appObjLoadFromDBTask[i].second[j].m_desc);
+            }
+        }
+    }
+
+    for(int i = 0; i < (int)m_serverRegisterTask.size(); i++)
+    {
+        for(int j = 0; j < (int)m_serverRegisterTask[i].second.size(); j++)
+        {
+            if (m_serverRegisterTask[i].second[j].m_finished == false)
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "App Init Task:{} not finish", m_serverRegisterTask[i].second[j].m_desc);
             }
         }
     }

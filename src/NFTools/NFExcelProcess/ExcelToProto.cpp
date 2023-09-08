@@ -398,12 +398,12 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     {
         ExcelSheetIndex &index = iter->second;
         std::string index_key = iter->second.m_key;
-        index.m_define = "MAX_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
-                         NFStringUtility::Upper(index_key) + "_NUM";
-        index.m_define_one = "UNIQUE_KEY_MAX_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
+        index.m_max_num_by_key = "MAX_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
+                                 NFStringUtility::Upper(index_key) + "_NUM";
+        index.m_unique_num = "UNIQUE_KEY_MAX_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
                              NFStringUtility::Upper(index_key) + "_NUM";
-        desc_file += "\n#define " + index.m_define + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueListNum)) + "\n";
-        desc_file += "\n#define " + index.m_define_one + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueNum)) + "\n";
+        desc_file += "\n#define " + index.m_max_num_by_key + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueListNum)) + "\n";
+        desc_file += "\n#define " + index.m_unique_num + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueNum)) + "\n";
     }
 
     for (auto iter = pSheet->m_comIndexMap.begin(); iter != pSheet->m_comIndexMap.end(); iter++)
@@ -413,12 +413,12 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         {
             ExcelSheetIndex &index = comIndex.m_index[i];
             std::string index_key = index.m_key;
-            index.m_define = "MAX_COM_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
-                             NFStringUtility::Upper(index_key) + "_NUM";
-            index.m_define_one = "UNIQUE_KEY_MAX_COM_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
+            index.m_max_num_by_key = "MAX_COM_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
+                                     NFStringUtility::Upper(index_key) + "_NUM";
+            index.m_unique_num = "UNIQUE_KEY_MAX_COM_INDEX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_" +
                                  NFStringUtility::Upper(index_key) + "_NUM";
-            desc_file += "\n#define " + index.m_define + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueListNum)) + "\n";
-            desc_file += "\n#define " + index.m_define_one + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueNum)) + "\n";
+            desc_file += "\n#define " + index.m_max_num_by_key + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueListNum)) + "\n";
+            desc_file += "\n#define " + index.m_unique_num + " " + NFCommon::tostr(get_max_num(index.m_maxUniqueNum)) + "\n";
         }
     }
 
@@ -584,11 +584,11 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         std::string index_key = iter->second.m_key;
         if (index.m_unique)
         {
-            desc_file += "\tNFShmHashMap<int64_t, uint32_t, " + index.m_define_one + "> m_" + NFStringUtility::Capitalize(index_key) + "IndexMap;\n";
+            desc_file += "\tNFShmHashMap<int64_t, uint32_t, " + index.m_unique_num + "> m_" + NFStringUtility::Capitalize(index_key) + "IndexMap;\n";
         }
         else
         {
-            desc_file += "\tNFShmHashMap<int64_t, NFShmVector<uint32_t, " + index.m_define_one + ">," + index.m_define + "> m_" +
+            desc_file += "\tNFShmHashMap<int64_t, NFShmVector<uint32_t, " + index.m_max_num_by_key + ">," + index.m_unique_num + "> m_" +
                          NFStringUtility::Capitalize(index_key) + "IndexMap;\n";
         }
     }
@@ -617,11 +617,11 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
                     std::string index_key = index.m_key;
                     if (i != (int) comIndex.m_index.size() - 1)
                     {
-                        desc_file += index.m_define_one + "*";
+                        desc_file += index.m_unique_num + "*";
                     }
                     else
                     {
-                        desc_file += index.m_define_one;
+                        desc_file += index.m_unique_num;
                     }
                 }
                 desc_file += ">";
@@ -632,7 +632,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
                 if (comIndex.m_index.size() > 0)
                 {
                     ExcelSheetIndex &index = comIndex.m_index[comIndex.m_index.size() - 1];
-                    desc_file += index.m_define + ">, ";
+                    desc_file += index.m_max_num_by_key + ">, ";
                 }
 
                 for (int i = 0; i < (int) comIndex.m_index.size(); i++)
@@ -640,11 +640,11 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
                     ExcelSheetIndex &index = comIndex.m_index[i];
                     if (i != (int) comIndex.m_index.size() - 1)
                     {
-                        desc_file += index.m_define_one + "*";
+                        desc_file += index.m_unique_num + "*";
                     }
                     else
                     {
-                        desc_file += index.m_define_one;
+                        desc_file += index.m_unique_num;
                     }
                 }
                 desc_file += ">";

@@ -286,7 +286,6 @@ int ExcelParseCheck::CheckRelation(ExcelSheet &sheet)
     for (auto iter = sheet.m_colRelationMap.begin(); iter != sheet.m_colRelationMap.end(); iter++)
     {
         ExcelRelation &relation = iter->second;
-        bool find_flag = false;
         {
 			CHECK_EXPR(sheet.m_colInfoMap.find(iter->second.m_myColName) != sheet.m_colInfoMap.end(), -1,
 				"excel:{} sheet:{} can't find the colName:{}", m_excelName, sheet.m_name, iter->second.m_mySrcColName);

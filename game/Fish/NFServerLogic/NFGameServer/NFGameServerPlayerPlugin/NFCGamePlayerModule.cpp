@@ -38,7 +38,7 @@ bool NFCGamePlayerModule::Awake()
     RegisterServerMessage(NF_ST_GAME_SERVER, proto_ff::NF_WTG_PLAYER_DISCONNECT_MSG);
     ///////////////////////////////msg////////////////////////////////////////////
 
-    Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     return true;
 }
 

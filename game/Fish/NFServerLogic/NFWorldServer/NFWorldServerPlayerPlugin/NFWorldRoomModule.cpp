@@ -36,7 +36,7 @@ bool NFWorldRoomModule::Awake()
 
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME);
 
-    Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
     return true;
 }
 
@@ -55,7 +55,7 @@ NFWorldRoomModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t by
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH)
+        if (nEventID == proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE)
         {
             NFWorldRoomMgr::Instance(m_pObjPluginManager)->CreateRoom();
         }

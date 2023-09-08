@@ -64,8 +64,8 @@ struct ExcelSheetIndex
     int m_maxUniqueNum;
     int m_maxUniqueListNum;
 
-    std::string m_define;
-    std::string m_define_one;
+    std::string m_max_num_by_key;
+    std::string m_unique_num; /**/
 };
 
 struct ExcelSheetComIndex
