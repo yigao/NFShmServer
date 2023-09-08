@@ -394,7 +394,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
             {
                 std::string struct_en_name = col_en_name_list[0];
                 std::string struct_en_sub_name = col_en_name_list[1];
-                std::string struct_cn_name = col_cn_name_list[2];
+                std::string struct_cn_name = col_cn_name_list[0];
                 uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
                 std::string struct_cn_sub_name = col_cn_name_list[2];
 
@@ -469,7 +469,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
                     std::string struct_en_sub_name = col_en_name_list[1];
                     std::string struct_cn_name = col_cn_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                    std::string struct_cn_sub_name = col_cn_name_list[0];
+                    std::string struct_cn_sub_name = col_cn_name_list[2];
 
                     int iRet = HandleColSubMsg(pSheet, col_index, sheet, struct_en_name, struct_cn_name, col_type, struct_num,
                                                struct_en_sub_name, struct_cn_sub_name, false);
@@ -540,7 +540,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
 
                 /** 处理数组特殊情况
                  * @brief item_id item_num item_id item_num
-                 *        物品1    物品1Num     物品2    物品2Num
+                 *        1    物品1Num     2    物品2Num
                  */
                 if (has_diff)
                 {
@@ -548,7 +548,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
                     std::string struct_en_sub_name = col_en_name_list[1];
                     std::string struct_cn_name = col_en_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                    std::string struct_cn_sub_name = col_en_name_list[1];
+                    std::string struct_cn_sub_name = col_en_name_list[2];
 
                     int iRet = HandleColSubMsg(pSheet, col_index, sheet, struct_en_name, struct_cn_name, col_type, struct_num,
                                                struct_en_sub_name, struct_cn_sub_name, false);
@@ -722,7 +722,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
                 {
                     std::string struct_en_name = col_en_name_list[0];
                     std::string struct_en_sub_name = col_en_name_list[0];
-                    std::string struct_cn_name = col_cn_name_list[2];
+                    std::string struct_cn_name = col_cn_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
                     std::string struct_cn_sub_name = col_cn_name_list[2];
 
@@ -796,7 +796,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
                 {
                     std::string struct_en_name = col_en_name_list[0];
                     std::string struct_en_sub_name = col_en_name_list[0];
-                    std::string struct_cn_name = col_cn_name_list[2];
+                    std::string struct_cn_name = col_cn_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
                     std::string struct_cn_sub_name = col_cn_name_list[2];
 
@@ -872,7 +872,7 @@ int ExcelParse::HandleSheetWork(MiniExcelReader::Sheet &sheet)
                     std::string struct_en_sub_name = col_en_name_list[0];
                     std::string struct_cn_name = col_en_name_list[0];
                     uint32_t struct_num = NFCommon::strto<uint32_t>(col_cn_name_list[1]);
-                    std::string struct_cn_sub_name = col_en_name_list[0];
+                    std::string struct_cn_sub_name = col_en_name_list[2];
 
                     int iRet = HandleColSubMsg(pSheet, col_index, sheet, struct_en_name, struct_cn_name, col_type, struct_num,
                                                struct_en_sub_name, struct_cn_sub_name, true);
@@ -931,10 +931,23 @@ int ExcelParse::HandleColSubMsg(ExcelSheet *pSheet, int col_index, MiniExcelRead
 
         //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{}", pSheet->m_name, col_index + 1,
         //          pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType);
+
+		if (struct_num > 0)
+		{
+			CHECK_EXPR(struct_num == 1, -1, "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{}, but the first struct_num is not 1",
+				pSheet->m_name, pColInfo->m_colIndex,
+				pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType);
+		}
     }
     else
     {
         pColInfo = pSheet->m_colInfoMap[struct_en_name];
+    }
+
+    if (pColInfo->m_structCnName != struct_cn_name)
+    {
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col info, col:{} en_name:{} cn_name:{} the format wrong -- col:{} en_name:{} cn_name:{}", m_excelName, pSheet->m_name, pColInfo->m_colIndex + 1,
+          pColInfo->m_structEnName, pColInfo->m_structCnName, col_index+1, struct_en_name, struct_cn_name);
     }
 
     pColInfo->m_colIndexVec.push_back(col_index);
@@ -985,12 +998,18 @@ int ExcelParse::HandleColSubMsg(ExcelSheet *pSheet, int col_index, MiniExcelRead
 
         }
 
+		if (pSubMsg->m_cnSubName != struct_cn_sub_name)
+		{
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col info, col:{} en_name:{} cn_name:{} the format wrong -- col:{} en_name:{} cn_name:{}", m_excelName, pSheet->m_name, pColInfo->m_colIndex + 1,
+				pColInfo->m_structEnName + "_" + pSubMsg->m_enSubName, pColInfo->m_structCnName + "_" + pSubMsg->m_cnSubName, col_index + 1, struct_en_name + "_" + struct_en_sub_name, struct_cn_name + "_" + struct_cn_sub_name);
+		}
+
         pSubMsg->m_colIndexVec.push_back(col_index);
 
         if (struct_num > pColInfo->m_maxSubNum)
         {
 
-            CHECK_EXPR(struct_num == pColInfo->m_maxSubNum + 1, -1,
+            CHECK_EXPR(pColInfo->m_maxSubNum > 0 && struct_num == pColInfo->m_maxSubNum + 1, -1,
                        "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{} --- sub_col_info sub_en_name:{} sub_cn_name:{}, but the struct_num is not the last struct_num + 1",
                        pSheet->m_name, col_index + 1,
                        pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType, pSubMsg->m_enSubName, pSubMsg->m_cnSubName);
@@ -1039,12 +1058,18 @@ int ExcelParse::HandleColMsg(ExcelSheet *pSheet, int col_index, MiniExcelReader:
         pColInfo = pSheet->m_colInfoMap[struct_en_name];
         if (struct_num > 0)
         {
-            CHECK_EXPR(struct_num == pColInfo->m_maxSubNum + 1, -1,
+            CHECK_EXPR(pColInfo->m_maxSubNum > 0 && struct_num == pColInfo->m_maxSubNum + 1, -1,
                        "sheet:{} add col info, col:{} en_name:{} cn_name:{} col_type:{}, but the struct_num is not the last struct_num + 1",
                        pSheet->m_name, col_index + 1,
                        pColInfo->m_structEnName, pColInfo->m_structCnName, pColInfo->m_colType);
         }
     }
+
+	if (pColInfo->m_structCnName != struct_cn_name)
+	{
+		NFLogError(NF_LOG_SYSTEMLOG, 0, "excel:{} sheet:{} col info, col:{} en_name:{} cn_name:{} the format wrong -- col:{} en_name:{} cn_name:{}", m_excelName, pSheet->m_name, pColInfo->m_colIndex + 1,
+			pColInfo->m_structEnName, pColInfo->m_structCnName, col_index + 1, struct_en_name, struct_cn_name);
+	}
 
     pColInfo->m_colIndexVec.push_back(col_index);
 
