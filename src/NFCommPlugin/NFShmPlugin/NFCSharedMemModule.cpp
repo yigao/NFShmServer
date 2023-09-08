@@ -80,10 +80,6 @@ bool NFCSharedMemModule::AfterLoadAllPlugin()
 
 bool NFCSharedMemModule::ReadyExecute()
 {
-    /*
-    初始化完毕
-    */
-    SetShmInitSuccessFlag();
     return true;
 }
 

@@ -64,7 +64,29 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="file copy" />
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="file copy">
+      <change afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCShmOtherModule.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCShmOtherModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/Fish/Data/E_FishGunvalue.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/Fish/Data/E_FishGunvalue.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/Fish.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/Message/ResMetaS/Fish.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFServerLogicMessage/Fish_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFTaskActor.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFTaskActor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFResMysqlDb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFResMysqlDb.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/excel_2_bin/filecopy.py" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +150,12 @@
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Trans" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake 应用程序.NFExcelProcess">
+  <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFCore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCore" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -316,11 +343,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -446,14 +468,9 @@
       <workItem from="1692862216294" duration="22469000" />
       <workItem from="1693011648865" duration="30554000" />
       <workItem from="1693530450838" duration="5483000" />
-      <workItem from="1693790132759" duration="38365000" />
-    </task>
-    <task id="LOCAL-00063" summary="fish room">
-      <created>1691114718736</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1691114718736</updated>
+      <workItem from="1693790132759" duration="39254000" />
+      <workItem from="1693906221412" duration="6700000" />
+      <workItem from="1694135710953" duration="9894000" />
     </task>
     <task id="LOCAL-00064" summary="fish room">
       <created>1691138242692</created>
@@ -791,7 +808,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693880125297</updated>
     </task>
-    <option name="localTasksCounter" value="112" />
+    <task id="LOCAL-00112" summary="file copy">
+      <created>1693880348529</created>
+      <option name="number" value="00112" />
+      <option name="presentableId" value="LOCAL-00112" />
+      <option name="project" value="LOCAL" />
+      <updated>1693880348529</updated>
+    </task>
+    <option name="localTasksCounter" value="113" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -899,6 +923,36 @@
           <url>file://$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.cpp</url>
           <line>652</line>
           <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp</url>
+          <line>114</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp</url>
+          <line>300</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFCSharedMem.cpp</url>
+          <line>70</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFCSharedMem.cpp</url>
+          <line>59</line>
+          <option name="timeStamp" value="90" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFCSharedMem.cpp</url>
+          <line>63</line>
+          <option name="timeStamp" value="91" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp</url>
+          <line>138</line>
+          <option name="timeStamp" value="92" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

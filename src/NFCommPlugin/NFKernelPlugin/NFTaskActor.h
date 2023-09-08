@@ -11,33 +11,33 @@ class NFITaskModule;
 class NFITaskComponent;
 
 /**
-* @brief actorÏûÏ¢Êı¾İ
+* @brief actoræ¶ˆæ¯æ•°æ®
 *
 */
 class NFTaskActorMessage
 {
 public:
 	/**
-	* @brief ÏûÏ¢ÀàĞÍ
+	* @brief æ¶ˆæ¯ç±»å‹
 	*
 	*/
 	enum MessageType
 	{
 		/**
-		* @brief Òª´¦ÀíµÄÏûÏ¢
+		* @brief è¦å¤„ç†çš„æ¶ˆæ¯
 		*
 		*/
 		ACTOR_MSG_TYPE_COMPONENT,
 
 		/**
-		* @brief ÒÑ¾­±»´¦ÀíµÄÏûÏ¢£¬µÈ´ı·µ»ØÖ÷Ïß³Ì´¦Àí
+		* @brief å·²ç»è¢«å¤„ç†çš„æ¶ˆæ¯ï¼Œç­‰å¾…è¿”å›ä¸»çº¿ç¨‹å¤„ç†
 		*
 		*/
 		ACTOR_MSG_TYPE_END_FUNC,
 	};
 
 	/**
-	* @brief ¹¹Ôìº¯Êı
+	* @brief æ„é€ å‡½æ•°
 	*
 	*/
 	NFTaskActorMessage()
@@ -56,45 +56,45 @@ public:
 
 public:
 	/**
-	* @brief ÏûÏ¢ÀàĞÍ
+	* @brief æ¶ˆæ¯ç±»å‹
 	*
 	*/
 	int nMsgType;
 
 	/**
-	* @brief ·¢ËÍÏûÏ¢µÄactorË÷Òı
+	* @brief å‘é€æ¶ˆæ¯çš„actorç´¢å¼•
 	*
 	*/
 	int nFromActor;
 
 	/**
-	* @brief ÏûÏ¢Êı¾İ
+	* @brief æ¶ˆæ¯æ•°æ®
 	*
 	*/
 	NFTask* pData;
 };
 
 /**
-* @brief actor»ùÀà
+* @brief actoråŸºç±»
 *
 */
 class NFTaskActor : public Theron::Actor
 {
 public:
 	/**
-	* @brief ¹¹Ôìº¯Êı
-	*        ±ØĞëµ÷ÓÃRegisterHandler£¬×¢²áÒì²½¹ı³ÌÖĞÓÃÀ´´¦ÀíµÄº¯Êı
+	* @brief æ„é€ å‡½æ•°
+	*        å¿…é¡»è°ƒç”¨RegisterHandlerï¼Œæ³¨å†Œå¼‚æ­¥è¿‡ç¨‹ä¸­ç”¨æ¥å¤„ç†çš„å‡½æ•°
 	*/
 	NFTaskActor(Theron::Framework& framework, NFITaskModule* pActorMgr);
 
 	/**
-	* @brief Îö¹¹º¯Êı
+	* @brief ææ„å‡½æ•°
 	*
 	*/
 	virtual ~NFTaskActor();
 
 	/**
-	* @brief ³õÊ¼»¯
+	* @brief åˆå§‹åŒ–
 	*
 	* @param
 	* @return
@@ -102,16 +102,16 @@ public:
 	virtual bool Init();
 
 	/**
-	* @brief ÏòÁíÍâÒ»¸öactor·¢ËÍÏûÏ¢
+	* @brief å‘å¦å¤–ä¸€ä¸ªactorå‘é€æ¶ˆæ¯
 	*
-	* @param address ½ÓÊÜÏûÏ¢µÄactorµÄµØÖ·
-	* @param message ·¢ÏÖµÄÏûÏ¢
-	* @return ·µ»Ø·¢ËÍÊÇ·ñ³É¹¦
+	* @param address æ¥å—æ¶ˆæ¯çš„actorçš„åœ°å€
+	* @param message å‘ç°çš„æ¶ˆæ¯
+	* @return è¿”å›å‘é€æ˜¯å¦æˆåŠŸ
 	*/
 	virtual bool SendMsg(const Theron::Address& address, const NFTaskActorMessage& message);
 
 	/**
-	* @brief Ìí¼Ócomponent
+	* @brief æ·»åŠ component
 	*
 	* @param
 	* @return
@@ -119,7 +119,7 @@ public:
 	virtual bool AddComponnet(NFITaskComponent* pComponnet);
 
 	/**
-	* @brief »ñµÃËùÓĞcomponent
+	* @brief è·å¾—æ‰€æœ‰component
 	*
 	* @param
 	* @return
@@ -127,7 +127,7 @@ public:
 	virtual NFITaskComponent* GetTaskComponent();
 
 	/**
-	* @brief »ñµÃActorId
+	* @brief è·å¾—ActorId
 	*
 	* @param
 	* @return
@@ -135,49 +135,49 @@ public:
 	virtual int GetActorId() const;
 protected:
 	/**
-	* @brief ´¦ÀíÒÑ¾­±»´¦Àí¹ıµÄÏûÏ¢
+	* @brief å¤„ç†å·²ç»è¢«å¤„ç†è¿‡çš„æ¶ˆæ¯
 	*
-	* @param message Òª´¦ÀíµÄÏûÏ¢
-	* @param from	 ·¢ËÍÏûÏ¢µÄactorµØÖ·
-	* @return ·µ»Ø·¢ËÍÊÇ·ñ³É¹¦
+	* @param message è¦å¤„ç†çš„æ¶ˆæ¯
+	* @param from	 å‘é€æ¶ˆæ¯çš„actoråœ°å€
+	* @return è¿”å›å‘é€æ˜¯å¦æˆåŠŸ
 	*/
 	virtual void HandlerEx(const NFTaskActorMessage& message, Theron::Address from);
 
 	/**
-	* @brief ´¦Àí·¢ËÍµÄÊı¾İ
+	* @brief å¤„ç†å‘é€çš„æ•°æ®
 	*
-	* @param message Òª´¦ÀíµÄÏûÏ¢
-	* @param from	 ·¢ËÍÏûÏ¢µÄactorµØÖ·
+	* @param message è¦å¤„ç†çš„æ¶ˆæ¯
+	* @param from	 å‘é€æ¶ˆæ¯çš„actoråœ°å€
 	* @return
 	*/
 	virtual void Handler(const NFTaskActorMessage& message, Theron::Address from);
 public:
 	/**
-	* @brief ´¦ÀítaskÇ°µÄ´¦Àí
+	* @brief å¤„ç†taskå‰çš„å¤„ç†
 	*
-	* @param pTask Òª´¦ÀíµÄÈÎÎñ
+	* @param pTask è¦å¤„ç†çš„ä»»åŠ¡
 	* @return
 	*/
 	virtual void ProcessTaskStart(NFTask* pTask);
 
 	/**
-	* @brief task´¦ÀíºóµÄ´¦Àí
+	* @brief taskå¤„ç†åçš„å¤„ç†
 	*
-	* @param pTask Òª´¦ÀíµÄÈÎÎñ
+	* @param pTask è¦å¤„ç†çš„ä»»åŠ¡
 	* @return
 	*/
 	virtual void ProcessTaskEnd(NFTask* pTask);
 
 	/**
-	* @brief Òì²½´¦ÀíÈÎÎñÏµÍ³
+	* @brief å¼‚æ­¥å¤„ç†ä»»åŠ¡ç³»ç»Ÿ
 	*
-	* @param pTask Òª´¦ÀíµÄÈÎÎñ
+	* @param pTask è¦å¤„ç†çš„ä»»åŠ¡
 	* @return
 	*/
 	virtual void ProcessTask(NFTask* pTask);
 
 	/**
-	* @brief ¼ì²é³¬Ê±task, ÔÚÖ÷Ïß³Ì´¦Àí
+	* @brief æ£€æŸ¥è¶…æ—¶task, åœ¨ä¸»çº¿ç¨‹å¤„ç†
 	*
 	* @param 
 	* @return
@@ -185,21 +185,21 @@ public:
 	virtual void CheckTimeoutTask();
 protected:
 	/**
-	* @brief Òì²½´¦ÀíµÄ¹ı³Ì
+	* @brief å¼‚æ­¥å¤„ç†çš„è¿‡ç¨‹
 	*
-	* @param message Òª´¦ÀíµÄÏûÏ¢
-	* @param from	 ·¢ËÍÏûÏ¢µÄactorµØÖ·
+	* @param message è¦å¤„ç†çš„æ¶ˆæ¯
+	* @param from	 å‘é€æ¶ˆæ¯çš„actoråœ°å€
 	* @return
 	*/
 	virtual void DefaultHandler(const NFTaskActorMessage& message, Theron::Address from);
 protected:
 	/**
-	* @brief actor¹ÜÀí»ùÀà
+	* @brief actorç®¡ç†åŸºç±»
 	*/
 	NFITaskModule* m_pTaskModule;
 
 	/**
-	* @brief component¹ÜÀí
+	* @brief componentç®¡ç†
 	*/
 	NFITaskComponent* m_pComponent;
 };

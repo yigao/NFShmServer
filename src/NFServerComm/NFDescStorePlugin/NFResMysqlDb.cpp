@@ -38,7 +38,14 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
         NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
         CHECK_NULL(pConfig);
 
-        iRet = FindModule<NFIDescStoreModule>()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, serverId, m_name, pMessage,
+        std::string tempDBName = serverId;
+        if (serverId.empty())
+        {
+            tempDBName = pConfig->DefaultDBName;
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+        iRet = FindModule<NFIDescStoreModule>()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, tempDBName, m_name, pMessage,
             [this, coId, pMessage](int iRet, google::protobuf::Message &message){
             if (iRet != 0) {
                 m_pObjPluginManager->FindModule<NFICoroutineModule>()->Resume(coId, iRet);
@@ -72,8 +79,15 @@ int NFMysqlResTable::InsertOneRecord(const std::string &serverId, const google::
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
+    std::string tempDBName = serverId;
+    if (serverId.empty())
+    {
+        tempDBName = pConfig->DefaultDBName;
+    }
+    CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
     return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
-                                                                        proto_ff::NF_STORESVR_C2S_INSERT, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                                        proto_ff::NF_STORESVR_C2S_INSERT, 0, tempDBName, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage)
@@ -83,8 +97,15 @@ int NFMysqlResTable::DeleteOneRecord(const std::string &serverId, const google::
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
+    std::string tempDBName = serverId;
+    if (serverId.empty())
+    {
+        tempDBName = pConfig->DefaultDBName;
+    }
+    CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
     return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
-                                                                        proto_ff::NF_STORESVR_C2S_DELETEOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                                        proto_ff::NF_STORESVR_C2S_DELETEOBJ, 0, tempDBName, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::protobuf::Message *pMessage) {
@@ -93,8 +114,15 @@ int NFMysqlResTable::SaveOneRecord(const std::string &serverId, const google::pr
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
     CHECK_NULL(pConfig);
 
+    std::string tempDBName = serverId;
+    if (serverId.empty())
+    {
+        tempDBName = pConfig->DefaultDBName;
+    }
+    CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
     return FindModule<NFIServerMessageModule>()->SendTransToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, 0,
-                                                                        proto_ff::NF_STORESVR_C2S_UPDATEOBJ, 0, serverId, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
+                                                                        proto_ff::NF_STORESVR_C2S_UPDATEOBJ, 0, tempDBName, m_name, *pMessage, 0, 0, std::hash<std::string>()(m_name), pMessage->GetDescriptor()->name());
 }
 
 NFResMysqlDB::NFResMysqlDB(NFIPluginManager* p):NFResDB(p)

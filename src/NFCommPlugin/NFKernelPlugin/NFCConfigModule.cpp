@@ -21,11 +21,11 @@
 #include <set>
 #include <map>
 
-NFCConfigModule::NFCConfigModule(NFIPluginManager* p):NFIConfigModule(p)
+NFCConfigModule::NFCConfigModule(NFIPluginManager *p) : NFIConfigModule(p)
 {
     m_appConfig = NULL;
     mServerConfig.resize(NF_ST_MAX);
-    for(int i = 0; i < (int)mServerConfig.size(); i++)
+    for (int i = 0; i < (int) mServerConfig.size(); i++)
     {
         mServerConfig[i] = NULL;
     }
@@ -38,124 +38,126 @@ NFCConfigModule::~NFCConfigModule()
 
 bool NFCConfigModule::LoadConfig()
 {
-	TryAddPackagePath(m_pObjPluginManager->GetPluginPath()); //Add Search Path to Lua
+    TryAddPackagePath(m_pObjPluginManager->GetPluginPath()); //Add Search Path to Lua
 
     std::list<std::string> fileList;
     NFFileUtility::GetFiles(m_pObjPluginManager->GetPluginPath(), fileList, true, "*.lua");
 
-    for (auto it = fileList.begin(); it != fileList.end(); ++it) {
-        if (TryLoadScriptFile(*it) == false) {
+    for (auto it = fileList.begin(); it != fileList.end(); ++it)
+    {
+        if (TryLoadScriptFile(*it) == false)
+        {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "Load {} Failed!", *it);
             assert(0);
         }
     }
 
-	LoadPluginConfig();
-	LoadServerConfig();
-	LoadLogConfig();
+    LoadPluginConfig();
+    LoadServerConfig();
+    LoadLogConfig();
     CheckConfig();
-	return true;
+    return true;
 }
 
 bool NFCConfigModule::LoadLogConfig()
 {
-	mLogConfig.Clear();
+    mLogConfig.Clear();
 
-	GetValue(DEFINE_LUA_STRING_LOG_LEVEL, mLogConfig.mLogLevel);
-	GetValue(DEFINE_LUA_STRING_LOG_FLUSH_LEVEL, mLogConfig.mLogFlushLevel);
+    GetValue(DEFINE_LUA_STRING_LOG_LEVEL, mLogConfig.mLogLevel);
+    GetValue(DEFINE_LUA_STRING_LOG_FLUSH_LEVEL, mLogConfig.mLogFlushLevel);
 
-	NFLuaRef logInfoRef = GetGlobal(DEFINE_LUA_STRING_LOG_INFO);
-	if (!logInfoRef.isValid())
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "log.lua can't find ({})", DEFINE_LUA_STRING_LOG_INFO);
-		assert(0);
-	}
+    NFLuaRef logInfoRef = GetGlobal(DEFINE_LUA_STRING_LOG_INFO);
+    if (!logInfoRef.isValid())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "log.lua can't find ({})", DEFINE_LUA_STRING_LOG_INFO);
+        assert(0);
+    }
 
-	if (!logInfoRef.isTable())
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "{} is not table in the log.lua", DEFINE_LUA_STRING_LOG_INFO);
-		assert(0);
-	}
+    if (!logInfoRef.isTable())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "{} is not table in the log.lua", DEFINE_LUA_STRING_LOG_INFO);
+        assert(0);
+    }
 
-	/* lua 是从1开始的 */
-	for (int i = 1; i <= logInfoRef.len(); i++)
-	{
-		NFLuaRef logRef = logInfoRef[i];
-		if (!logRef.isTable())
-		{
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "logInfo some wrong in the log.lua");
-			assert(0);
-		}
+    /* lua 是从1开始的 */
+    for (int i = 1; i <= logInfoRef.len(); i++)
+    {
+        NFLuaRef logRef = logInfoRef[i];
+        if (!logRef.isTable())
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "logInfo some wrong in the log.lua");
+            assert(0);
+        }
 
-		LogInfoConfig lineConfig;
+        LogInfoConfig lineConfig;
 
-		GetLuaTableValue(logRef, "logid", lineConfig.mLogId);
-		GetLuaTableValue(logRef, "display", lineConfig.mDisplay);
-		GetLuaTableValue(logRef, "level", lineConfig.mLevel);
-		GetLuaTableValue(logRef, "logname", lineConfig.mLogName);
+        GetLuaTableValue(logRef, "logid", lineConfig.mLogId);
+        GetLuaTableValue(logRef, "display", lineConfig.mDisplay);
+        GetLuaTableValue(logRef, "level", lineConfig.mLevel);
+        GetLuaTableValue(logRef, "logname", lineConfig.mLogName);
 
-		NFLuaRef guidRef;
-		GetLuaTableValue(logRef, "guid", guidRef);
-		if (guidRef.isTable())
-		{
-			for (int j = 1; j <= guidRef.len(); j++)
-			{
-				NFLuaRef guidLuaRef = guidRef[j];
-				if (guidLuaRef.isValid())
-				{
-					uint64_t guid = guidLuaRef.toValue<uint64_t>();
-					if (guid != 0)
-					{
-						lineConfig.mVecGuid.push_back(guid);
-					}
-				}
-			}
-		}
-		else
-		{
-			uint64_t guid = guidRef.toValue<uint64_t>();
-			if (guid != 0)
-			{
-				lineConfig.mVecGuid.push_back(guid);
-			}
-		}
+        NFLuaRef guidRef;
+        GetLuaTableValue(logRef, "guid", guidRef);
+        if (guidRef.isTable())
+        {
+            for (int j = 1; j <= guidRef.len(); j++)
+            {
+                NFLuaRef guidLuaRef = guidRef[j];
+                if (guidLuaRef.isValid())
+                {
+                    uint64_t guid = guidLuaRef.toValue<uint64_t>();
+                    if (guid != 0)
+                    {
+                        lineConfig.mVecGuid.push_back(guid);
+                    }
+                }
+            }
+        }
+        else
+        {
+            uint64_t guid = guidRef.toValue<uint64_t>();
+            if (guid != 0)
+            {
+                lineConfig.mVecGuid.push_back(guid);
+            }
+        }
 
-		mLogConfig.mLineConfigList.push_back(lineConfig);
-	}
+        mLogConfig.mLineConfigList.push_back(lineConfig);
+    }
 
-	return true;
+    return true;
 }
 
 bool NFCConfigModule::LoadPluginConfig()
 {
-	NFLuaRef pluginRef = GetGlobal(DEFINE_LUA_STRING_LOAD_PLUGIN);
-	if (!pluginRef.isValid())
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "Plugin.lua can't find ({})", DEFINE_LUA_STRING_LOAD_PLUGIN);
-		assert(0);
-	}
+    NFLuaRef pluginRef = GetGlobal(DEFINE_LUA_STRING_LOAD_PLUGIN);
+    if (!pluginRef.isValid())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "Plugin.lua can't find ({})", DEFINE_LUA_STRING_LOAD_PLUGIN);
+        assert(0);
+    }
 
-	if (!pluginRef.isTable())
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "{} is not table in the plugin.lua", DEFINE_LUA_STRING_LOAD_PLUGIN);
-		assert(0);
-	}
+    if (!pluginRef.isTable())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "{} is not table in the plugin.lua", DEFINE_LUA_STRING_LOAD_PLUGIN);
+        assert(0);
+    }
 
-	for (auto it = pluginRef.begin(); it != pluginRef.end(); ++it)
-	{
-		std::string serverPluginName = it.key<std::string>();
-		NFLuaRef serverPluginRef = it.value();
+    for (auto it = pluginRef.begin(); it != pluginRef.end(); ++it)
+    {
+        std::string serverPluginName = it.key<std::string>();
+        NFLuaRef serverPluginRef = it.value();
 
         proto_ff::pbPluginConfig pbPluginConfig;
         NFProtobufCommon::LuaToProtoMessage(serverPluginRef, &pbPluginConfig);
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} plugin config:\n{}", serverPluginName, pbPluginConfig.DebugString());
 
-		if (pbPluginConfig.frameplugins_size() <= 0 && pbPluginConfig.serverplugins_size() <= 0 && pbPluginConfig.workplugins_size() <= 0)
-		{
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
-			           DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);
-			assert(0);
-		}
+        if (pbPluginConfig.frameplugins_size() <= 0 && pbPluginConfig.serverplugins_size() <= 0 && pbPluginConfig.workplugins_size() <= 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
+                       DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);
+            assert(0);
+        }
 
         if (!pbPluginConfig.has_servertype())
         {
@@ -164,41 +166,44 @@ bool NFCConfigModule::LoadPluginConfig()
             assert(0);
         }
 
-		NFPluginConfig* pConfig = NF_NEW NFPluginConfig();
-		pConfig->read_from_pbmsg(pbPluginConfig);
+        NFPluginConfig *pConfig = NF_NEW NFPluginConfig();
+        pConfig->read_from_pbmsg(pbPluginConfig);
 
-		if (pConfig->ServerType >= NF_ST_MAX)
-		{
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
-			           DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);
-			assert(0);
-		}
-		mPluginConfig.emplace(serverPluginName, pConfig);
-	}
+        if (pConfig->ServerType >= NF_ST_MAX)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "{} can't find int server:{} int the table {}  in the plugin.lua",
+                       DEFINE_LUA_STRING_SERVER_PLUGINS, serverPluginName, DEFINE_LUA_STRING_LOAD_PLUGIN);
+            assert(0);
+        }
+        mPluginConfig.emplace(serverPluginName, pConfig);
+    }
 
-	return true;
+    return true;
 }
 
 bool NFCConfigModule::LoadServerConfig()
 {
-	std::map<std::string, NFLuaRef> vecLuaRef;
-	std::set<std::string> vecServerIDMap;
-	std::set<uint32_t> vecServerTypeMap;
+    std::map<std::string, NFLuaRef> vecLuaRef;
+    std::set<std::string> vecServerIDMap;
+    std::set<uint32_t> vecServerTypeMap;
 
-	if (m_pObjPluginManager->IsLoadAllServer())
+    if (m_pObjPluginManager->IsLoadAllServer())
     {
-        NFPluginConfig* pAllServer = GetPluginConfig(ALL_SERVER);
+        NFPluginConfig *pAllServer = GetPluginConfig(ALL_SERVER);
         if (pAllServer)
         {
-            for(int i = 0; i < (int)pAllServer->ServerList.size(); i++)
+            for (int i = 0; i < (int) pAllServer->ServerList.size(); i++)
             {
-                proto_ff_s::pbAllServerConfig_s& serverInfo = pAllServer->ServerList[i];
+                proto_ff_s::pbAllServerConfig_s &serverInfo = pAllServer->ServerList[i];
                 NFLuaRef serverRef = GetGlobal(serverInfo.Server);
                 if (serverRef.isValid() && serverRef.isTable())
                 {
-                    CHECK_EXPR_ASSERT(vecLuaRef.find(serverInfo.Server) == vecLuaRef.end(), false, "all server config error, the server:{} exist", serverInfo.Server);
-                    CHECK_EXPR_ASSERT(vecServerIDMap.find(serverInfo.ID) == vecServerIDMap.end(), false, "all server config error, the server id:{} exist", serverInfo.ID);
-                    CHECK_EXPR_ASSERT(vecServerTypeMap.find(serverInfo.ServerType) == vecServerTypeMap.end(), false, "all server config error, the server type:{} exist", serverInfo.ServerType);
+                    CHECK_EXPR_ASSERT(vecLuaRef.find(serverInfo.Server) == vecLuaRef.end(), false, "all server config error, the server:{} exist",
+                                      serverInfo.Server);
+                    CHECK_EXPR_ASSERT(vecServerIDMap.find(serverInfo.ID) == vecServerIDMap.end(), false,
+                                      "all server config error, the server id:{} exist", serverInfo.ID);
+                    CHECK_EXPR_ASSERT(vecServerTypeMap.find(serverInfo.ServerType) == vecServerTypeMap.end(), false,
+                                      "all server config error, the server type:{} exist", serverInfo.ServerType);
 
                     vecLuaRef.emplace(serverInfo.Server, serverRef);
                     vecServerIDMap.insert(serverInfo.ID);
@@ -207,7 +212,7 @@ bool NFCConfigModule::LoadServerConfig()
             }
         }
     }
-	else
+    else
     {
         NFLuaRef serverRef = GetGlobal(m_pObjPluginManager->GetAppName());
         if (serverRef.isValid() && serverRef.isTable())
@@ -216,9 +221,9 @@ bool NFCConfigModule::LoadServerConfig()
         }
     }
 
-	for (auto vec_iter = vecLuaRef.begin(); vec_iter != vecLuaRef.end(); vec_iter++)
-	{
-	    std::string serverTypeName = vec_iter->first;
+    for (auto vec_iter = vecLuaRef.begin(); vec_iter != vecLuaRef.end(); vec_iter++)
+    {
+        std::string serverTypeName = vec_iter->first;
         NFLuaRef serverRef = vec_iter->second;
         if (!serverRef.isValid() || !serverRef.isTable()) continue;
 
@@ -230,7 +235,7 @@ bool NFCConfigModule::LoadServerConfig()
             proto_ff::pbNFServerConfig tmpConfig;
             NFProtobufCommon::LuaToProtoMessage(serverConfigRef, &tmpConfig);
 
-            proto_ff::pbNFServerConfig* pPbConfig = &tmpConfig;
+            proto_ff::pbNFServerConfig *pPbConfig = &tmpConfig;
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} config:\n{}", serverName, pPbConfig->DebugString());
 
             if (!pPbConfig->has_serverid())
@@ -253,7 +258,7 @@ bool NFCConfigModule::LoadServerConfig()
             }
 
             NF_ASSERT(pPbConfig->servertype() < NF_ST_MAX);
-            NF_ASSERT(GetServerName((NF_SERVER_TYPES)pPbConfig->servertype()) == serverTypeName);
+            NF_ASSERT(GetServerName((NF_SERVER_TYPES) pPbConfig->servertype()) == serverTypeName);
 
             if (pPbConfig->buslength() == 0)
             {
@@ -298,7 +303,7 @@ bool NFCConfigModule::LoadServerConfig()
             }
 
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load config:{}", pPbConfig->DebugString());
-            NFServerConfig* pConfig = NF_NEW NFServerConfig();
+            NFServerConfig *pConfig = NF_NEW NFServerConfig();
             pConfig->read_from_pbmsg(*pPbConfig);
 
             if (m_pObjPluginManager->IsLoadAllServer())
@@ -306,37 +311,40 @@ bool NFCConfigModule::LoadServerConfig()
                 if (vecServerIDMap.find(pPbConfig->serverid()) != vecServerIDMap.end())
                 {
                     mServerConfig[pPbConfig->servertype()] = pConfig;
-                    if (pPbConfig->busid() == (uint32_t)m_pObjPluginManager->GetAppID())
+                    if (pPbConfig->busid() == (uint32_t) m_pObjPluginManager->GetAppID())
                     {
                         m_appConfig = pConfig;
                     }
                 }
-                else {
+                else
+                {
                     NF_SAFE_DELETE(pConfig);
                 }
             }
             else
             {
-                if (pPbConfig->busid() == (uint32_t)m_pObjPluginManager->GetAppID())
+                if (pPbConfig->busid() == (uint32_t) m_pObjPluginManager->GetAppID())
                 {
                     mServerConfig[pPbConfig->servertype()] = pConfig;
                     m_appConfig = pConfig;
                 }
-                else {
+                else
+                {
                     NF_SAFE_DELETE(pConfig);
                 }
             }
         }
-	}
+    }
 
-	//check all server
+    //check all server
     if (m_pObjPluginManager->IsLoadAllServer())
     {
-        NFPluginConfig* pAllServer = GetPluginConfig(ALL_SERVER);
+        NFPluginConfig *pAllServer = GetPluginConfig(ALL_SERVER);
         if (pAllServer)
         {
             bool flag = true;
-            for(int i = 0; i < (int)pAllServer->ServerList.size(); i++) {
+            for (int i = 0; i < (int) pAllServer->ServerList.size(); i++)
+            {
                 proto_ff_s::pbAllServerConfig_s &serverInfo = pAllServer->ServerList[i];
                 if (mServerConfig[serverInfo.ServerType] == NULL)
                 {
@@ -348,26 +356,27 @@ bool NFCConfigModule::LoadServerConfig()
         }
     }
 
-    CHECK_EXPR_ASSERT(m_appConfig != NULL, false, "m_appConfig is NULL, maybe ServerID:{} error, not match the config", m_pObjPluginManager->GetAppName());
+    CHECK_EXPR_ASSERT(m_appConfig != NULL, false, "m_appConfig is NULL, maybe ServerID:{} error, not match the config",
+                      m_pObjPluginManager->GetAppName());
 
-	return true;
+    return true;
 }
 
 bool NFCConfigModule::BeforeShut()
 {
-	return true;
+    return true;
 }
 
 bool NFCConfigModule::Shut()
 {
-	return true;
+    return true;
 }
 
 bool NFCConfigModule::Finalize()
 {
     for (auto it = mPluginConfig.begin(); it != mPluginConfig.end(); ++it)
     {
-        NFPluginConfig* pConfig = it->second;
+        NFPluginConfig *pConfig = it->second;
         if (pConfig)
         {
             NF_SAFE_DELETE(pConfig);
@@ -377,7 +386,7 @@ bool NFCConfigModule::Finalize()
 
     for (auto it = mServerConfig.begin(); it != mServerConfig.end(); ++it)
     {
-        NFServerConfig* pConfig = *it;
+        NFServerConfig *pConfig = *it;
         if (pConfig)
         {
             NF_SAFE_DELETE(pConfig);
@@ -389,50 +398,52 @@ bool NFCConfigModule::Finalize()
 
 bool NFCConfigModule::Execute()
 {
-	return true;
+    return true;
 }
 
 bool NFCConfigModule::OnReloadConfig()
 {
-	return true;
+    return true;
 }
 
-NFLogConfig* NFCConfigModule::GetLogConfig()
+NFLogConfig *NFCConfigModule::GetLogConfig()
 {
-	return &mLogConfig;
+    return &mLogConfig;
 }
 
-NFPluginConfig* NFCConfigModule::GetPluginConfig(const std::string& pluginName)
+NFPluginConfig *NFCConfigModule::GetPluginConfig(const std::string &pluginName)
 {
-	auto it = mPluginConfig.find(pluginName);
-	if (it != mPluginConfig.end())
-	{
-		return it->second;
-	}
-	return nullptr;
+    auto it = mPluginConfig.find(pluginName);
+    if (it != mPluginConfig.end())
+    {
+        return it->second;
+    }
+    return nullptr;
 }
 
-NFServerConfig* NFCConfigModule::GetServerConfig(NF_SERVER_TYPES eServerType)
+NFServerConfig *NFCConfigModule::GetServerConfig(NF_SERVER_TYPES eServerType)
 {
     return mServerConfig[eServerType];
 }
 
-NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
+NFServerConfig *NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
 {
     if (m_pObjPluginManager->IsLoadAllServer())
     {
         if (eServerType == NF_ST_NONE)
         {
-            for(int i = 0; i < (int)mServerConfig.size(); i++)
+            for (int i = 0; i < (int) mServerConfig.size(); i++)
             {
                 if (mServerConfig[i] && mServerConfig[i]->ServerType != NF_ST_MASTER_SERVER
-                    && mServerConfig[i]->ServerType != NF_ST_ROUTE_AGENT_SERVER && mServerConfig[i]->ServerType != NF_ST_ROUTE_SERVER)
+                    && mServerConfig[i]->ServerType != NF_ST_ROUTE_AGENT_SERVER && mServerConfig[i]->ServerType != NF_ST_ROUTE_SERVER
+                    && mServerConfig[i]->ServerType != NF_ST_PROXY_SERVER && mServerConfig[i]->ServerType != NF_ST_PROXY_AGENT_SERVER
+                    && mServerConfig[i]->ServerType != NF_ST_STORE_SERVER && mServerConfig[i]->ServerType != NF_ST_MONITOR_SERVER)
                 {
-					const NFServerData* pServerData = FindModule<NFIMessageModule>()->GetRouteData((NF_SERVER_TYPES)mServerConfig[i]->ServerType);
-					if (pServerData && pServerData->mUnlinkId > 0)
-					{
-						return mServerConfig[i];
-					}
+                    const NFServerData *pServerData = FindModule<NFIMessageModule>()->GetRouteData((NF_SERVER_TYPES) mServerConfig[i]->ServerType);
+                    if (pServerData && pServerData->mUnlinkId > 0)
+                    {
+                        return mServerConfig[i];
+                    }
                 }
             }
             return m_appConfig;
@@ -452,7 +463,7 @@ NFServerConfig* NFCConfigModule::GetAppConfig(NF_SERVER_TYPES eServerType)
 
 std::string NFCConfigModule::GetDefaultDBName(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
+    NFServerConfig *pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->DefaultDBName;
@@ -462,7 +473,7 @@ std::string NFCConfigModule::GetDefaultDBName(NF_SERVER_TYPES nfServerTypes)
 
 std::string NFCConfigModule::GetCrossDBName(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
+    NFServerConfig *pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->CrossDBName;
@@ -472,7 +483,7 @@ std::string NFCConfigModule::GetCrossDBName(NF_SERVER_TYPES nfServerTypes)
 
 std::string NFCConfigModule::GetRedisIp(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
+    NFServerConfig *pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->RedisConfig.RedisIp;
@@ -482,7 +493,7 @@ std::string NFCConfigModule::GetRedisIp(NF_SERVER_TYPES nfServerTypes)
 
 uint32_t NFCConfigModule::GetRedisPort(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
+    NFServerConfig *pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->RedisConfig.RedisPort;
@@ -492,7 +503,7 @@ uint32_t NFCConfigModule::GetRedisPort(NF_SERVER_TYPES nfServerTypes)
 
 std::string NFCConfigModule::GetRedisPass(NF_SERVER_TYPES nfServerTypes)
 {
-    NFServerConfig* pConfig = GetAppConfig(nfServerTypes);
+    NFServerConfig *pConfig = GetAppConfig(nfServerTypes);
     if (pConfig)
     {
         return pConfig->RedisConfig.RedisPass;

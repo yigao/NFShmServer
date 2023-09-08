@@ -8,6 +8,7 @@
 
 #include "NFShmPlugin.h"
 #include "NFCSharedMemModule.h"
+#include "NFCShmOtherModule.h"
 
 #include "NFGlobalID.h"
 #include "NFShmTimer.h"
@@ -54,11 +55,13 @@ bool NFShmPlugin::IsDynamicLoad()
 void NFShmPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFISharedMemModule, NFCSharedMemModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFCShmOtherModule, NFCShmOtherModule);
 }
 
 void NFShmPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFISharedMemModule, NFCSharedMemModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFCShmOtherModule, NFCShmOtherModule);
 }
 
 bool NFShmPlugin::InitShmObjectRegister()

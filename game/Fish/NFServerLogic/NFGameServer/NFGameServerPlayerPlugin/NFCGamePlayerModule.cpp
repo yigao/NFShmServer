@@ -110,7 +110,7 @@ NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t 
 {
     if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
     {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH)
+        if (nEventID == proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE)
         {
             NFGameRoomMgr::Instance(m_pObjPluginManager)->CreateAllRoom();
             NFGameRoomMgr::Instance(m_pObjPluginManager)->RegisterAllRoomToWorldServer();

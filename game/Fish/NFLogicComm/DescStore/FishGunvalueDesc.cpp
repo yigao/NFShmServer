@@ -1,6 +1,4 @@
 #include "FishGunvalueDesc.h"
-#include "FishCtrllevelDesc.h"
-#include "FishRoomDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(FishGunvalueDesc, EOT_CONST_FISH_GUNVALUE_DESC_ID, NFShmObj)
@@ -135,29 +133,7 @@ int FishGunvalueDesc::Load(NFResDB *pDB)
 
 int FishGunvalueDesc::CheckWhenAllDataLoaded()
 {
-	int result = 0;
-	for(int i = 0; i < (int)m_astDesc.size(); i++)
-	{
-		auto pDesc = &m_astDesc[i];
-		for(int j = 0; j < (int)pDesc->m_item.size(); j++)
-		{
-			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_item[j].m_item) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_item[j].m_item), result, "can't find the item:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_item[j].m_item);
-		}
-		for(int j = 0; j < (int)pDesc->m_y.size(); j++)
-		{
-			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_id) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_id), result, "can't find the y:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_y[j].m_id);
-		}
-		for(int j = 0; j < (int)pDesc->m_x_id.size(); j++)
-		{
-			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_x_id[j]) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_x_id[j]), result, "can't find the x_id:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_x_id[j]);
-		}
-		for(int j = 0; j < (int)pDesc->m_y.size(); j++)
-		{
-			CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_num) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_y[j].m_num), result, "can't find the y:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_y[j].m_num);
-		}
-		CHECK_EXPR_MSG_RESULT(FishRoomDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_gameroomid) || FishCtrllevelDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_gameroomid), result, "can't find the gameroomid:{} in the  excel:Fish sheet:Room or  excel:Fish sheet:CtrlLevel", pDesc->m_gameroomid);
-	}
-	return result;
+	return 0;
 }
 
 const proto_ff_s::E_FishGunvalue_s * FishGunvalueDesc::GetDesc(int64_t id) const

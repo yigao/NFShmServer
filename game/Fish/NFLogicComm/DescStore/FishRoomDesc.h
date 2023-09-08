@@ -61,6 +61,11 @@ public:
 	int GetDescIndex(int id) const;
 	const proto_ff_s::E_FishRoom_s* GetDescByIndex(int index) const;
 	proto_ff_s::E_FishRoom_s* GetDescByIndex(int index);
+
+    virtual bool IsFileLoad()
+    {
+        return false;
+    }
 public:
 	std::vector<const proto_ff_s::E_FishRoom_s*> GetDescByGameid(int64_t Gameid) const;
 	const proto_ff_s::E_FishRoom_s* GetDescByGameidRoomid(int64_t Gameid, int64_t Roomid);
