@@ -5,8 +5,8 @@
 #include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
-#include "Fish.pb.h"
-#include "Fish_s.h"
+#include "E_Fish.pb.h"
+#include "E_Fish_s.h"
 
 #define DEFINE_SHEET_FISHROOM_E_FISHROOM_LIST_MAX_NUM 8
 #define DEFINE_SHEET_FISHGUNVALUE_E_FISHGUNVALUE_LIST_MAX_NUM 64

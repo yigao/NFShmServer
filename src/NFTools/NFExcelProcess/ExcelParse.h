@@ -169,6 +169,7 @@ struct ExcelSheet
     ExcelSheet()
     {
         m_rows = 0;
+        m_createSql = false;
     }
 
     ~ExcelSheet()
@@ -193,6 +194,8 @@ struct ExcelSheet
     ExcelSheetProtoInfo m_protoInfo;
 
     std::unordered_map<std::string, int> m_firstColKeyMap;
+
+    bool m_createSql;
 
     bool IsExist(const std::string& firstColKey)
     {

@@ -5,7 +5,7 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
-#include "NFServerLogicMessage/constant_s.h"
+#include "NFServerLogicMessage/E_Constant_s.h"
 
 #define MAX_CONSTANT_CONSTANT_NUM 8
 

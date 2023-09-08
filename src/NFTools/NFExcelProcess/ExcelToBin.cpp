@@ -121,6 +121,11 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet)
     std::string bin_file = m_outPath + sheet.m_protoInfo.m_protoMsgName + ".bin";
     std::string content = pSheetProto->SerializeAsString();
     NFFileUtility::WriteFile(bin_file, content);
+
+    if (sheet.m_createSql)
+    {
+        WriteToSql(sheet, pSheetProto);
+    }
     return 0;
 }
 
@@ -128,7 +133,7 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
 {
     MiniExcelReader::Sheet *pExcelSheet = m_excelReader->getSheet(sheet.m_name);
     CHECK_EXPR(pExcelSheet, -1, "excel:{} Can't find sheet:{} data", m_excel, sheet.m_name);
-    std::unordered_map<std::string, std::string> m_mapFields;
+    std::unordered_map<std::string, std::string> mapFields;
     for (auto iter = sheet.m_allColInfoList.begin(); iter != sheet.m_allColInfoList.end(); iter++)
     {
         int col = iter->first;
@@ -152,7 +157,7 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
         if (pColInfo->m_maxSubNum == 0 && pColInfo->m_subInfoMap.empty())
         {
             std::string field = "m_" + NFStringUtility::Lower(pColInfo->m_structEnName);
-            m_mapFields.emplace(field, value);
+            mapFields.emplace(field, value);
         }
             /**
              * @brief 简单数组， repeated int32 a 表 itemid itemid
@@ -161,14 +166,14 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
         {
             std::string field =
                     "m_" + NFStringUtility::Lower(pColInfo->m_structEnName) + "_" + NFCommon::tostr(sheelColIndex.m_structNum);
-            m_mapFields.emplace(field, value);
+            mapFields.emplace(field, value);
         }
         else if (pColInfo->m_maxSubNum > 0 && !pColInfo->m_subInfoMap.empty())
         {
             std::string field =
                     "m_" + NFStringUtility::Lower(pColInfo->m_structEnName) + "_" + NFCommon::tostr(sheelColIndex.m_structNum) + "_" +
                     "m_" + NFStringUtility::Lower(sheelColIndex.m_structSubEnName);
-            m_mapFields.emplace(field, value);
+            mapFields.emplace(field, value);
         }
         else
         {
@@ -179,10 +184,78 @@ int ExcelToBin::WriteToBin(ExcelSheet &sheet, int row, google::protobuf::Message
 
     google::protobuf::Message *pRowMessage = pReflect->AddMessage(pSheetProto, pFieldDesc);
     CHECK_EXPR(pRowMessage, -1, "{} addfield:{} Failed", pSheetProto->GetTypeName(), pFieldDesc->full_name());
-    NFProtobufCommon::GetMessageFromMapFields(m_mapFields, pRowMessage);
+    NFProtobufCommon::GetMessageFromMapFields(mapFields, pRowMessage);
 
     //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "row:{} {}", row, pRowMessage->Utf8DebugString());
 
     return 0;
 }
+
+int ExcelToBin::WriteToSql(ExcelSheet& sheet, const google::protobuf::Message *pSheetProto)
+{
+    std::string full_name = sheet.m_protoInfo.m_protoPackage + "." + sheet.m_protoInfo.m_sheetMsgName;
+
+    const google::protobuf::Descriptor *pDesc = pSheetProto->GetDescriptor();
+    CHECK_EXPR(pDesc, -1, "GetDescriptor:{} Failed", full_name);
+    const google::protobuf::Reflection *pReflect = pSheetProto->GetReflection();
+    CHECK_EXPR(pReflect, -1, "pReflect:{} Failed", full_name);
+
+    std::string proto_sheet_repeatedfieldname = sheet.m_protoInfo.m_protoMsgName + "_List";
+    const google::protobuf::FieldDescriptor *pFieldDesc = pDesc->FindFieldByName(proto_sheet_repeatedfieldname);
+    CHECK_EXPR(pReflect, -1, "{} Can't find field:{} Failed", full_name, proto_sheet_repeatedfieldname);
+    CHECK_EXPR(pFieldDesc->is_repeated(), -1, "{} field:{} is not repeated", full_name, proto_sheet_repeatedfieldname);
+    CHECK_EXPR(pFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE, -1, "{} field:{} is not message", full_name,
+               proto_sheet_repeatedfieldname);
+
+    std::string content;
+    ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(*pSheetProto, pFieldDesc);
+    for(int i = 0; i < (int)repeatedSize; i++)
+    {
+        const google::protobuf::Message& rowMessage = pReflect->GetRepeatedMessage(*pSheetProto, pFieldDesc, i);
+        WriteToSql(content, sheet.m_protoInfo.m_protoMsgName, &rowMessage);
+    }
+
+    std::string bin_file = m_outPath + "CreateTable_" + sheet.m_protoInfo.m_protoMsgName + ".sql";
+    NFFileUtility::WriteFile(bin_file, content);
+    return 0;
+}
+
+int ExcelToBin::WriteToSql(std::string& content, const std::string& tbName, const google::protobuf::Message *pRowMessage)
+{
+    std::vector<std::pair<std::string, std::string>> keyValueMap;
+
+    NFProtobufCommon::GetFieldsFromMessage(*pRowMessage, keyValueMap);
+
+    // update
+    std::string sql;
+    sql += "replace into " + tbName + "(";
+    for (auto iter = keyValueMap.begin(); iter != keyValueMap.end(); ++iter)
+    {
+        if (iter == keyValueMap.begin())
+        {
+            sql += iter->first;
+        }
+        else
+        {
+            sql += "," + iter->first;
+        }
+    }
+
+    sql += ") values (";
+    for (auto iter = keyValueMap.begin(); iter != keyValueMap.end(); ++iter)
+    {
+        if (iter == keyValueMap.begin())
+        {
+            sql += + "\"" + iter->second + "\"";
+        }
+        else
+        {
+            sql += ",\"" + iter->second + "\"";
+        }
+    }
+    sql += ");\n";
+    content += sql;
+    return 0;
+}
+
 

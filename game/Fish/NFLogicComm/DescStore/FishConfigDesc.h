@@ -5,7 +5,7 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
-#include "NFServerLogicMessage/Fish_s.h"
+#include "NFServerLogicMessage/E_Fish_s.h"
 
 #define MAX_FISH_CONFIG_NUM 64
 

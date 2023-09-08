@@ -5,8 +5,8 @@
 #include <NFComm/NFShmStl/NFShmVector.h>
 #include <NFComm/NFShmCore/NFSeqOP.h>
 #include <NFComm/NFShmCore/NFShmMgr.h>
-#include "constant.pb.h"
-#include "constant_s.h"
+#include "E_Constant.pb.h"
+#include "E_Constant_s.h"
 
 #define DEFINE_SHEET_CONSTANTCONSTANT_E_CONSTANTCONSTANT_LIST_MAX_NUM 8
 

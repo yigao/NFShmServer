@@ -822,6 +822,73 @@ void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &
     }
 }
 
+void NFProtobufCommon::GetFieldsFromMessage(const google::protobuf::Message &message, std::vector<std::pair<std::string, std::string>> &kevValueList)
+{
+    const google::protobuf::Descriptor *pDesc = message.GetDescriptor();
+    const google::protobuf::Reflection *pReflect = message.GetReflection();
+    if (pDesc == NULL || pReflect == NULL) return;
+
+    for (int i = 0; i < pDesc->field_count(); i++)
+    {
+        const google::protobuf::FieldDescriptor *pFieldDesc = pDesc->field(i);
+        if (pFieldDesc == NULL) continue;
+        if (!pFieldDesc->is_repeated() && pReflect->HasField(message, pFieldDesc) == false) continue;
+        if (pFieldDesc->is_repeated() && pReflect->FieldSize(message, pFieldDesc) == 0) continue;
+
+        if (pFieldDesc->is_repeated())
+        {
+            if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+            {
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
+                    {
+                        std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
+                        kevValueList.push_back(std::make_pair(field, GetRepeatedFieldsString(message, pFieldDesc, a_i)));
+                    }
+                }
+            }
+            else
+            {
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
+                    {
+                        const ::google::protobuf::Message &pSubMessageObject = pReflect->GetRepeatedMessage(message,
+                                                                                                            pFieldDesc,
+                                                                                                            a_i);
+                        const google::protobuf::Descriptor *pSubDesc = pSubMessageObject.GetDescriptor();
+                        const google::protobuf::Reflection *pSubReflect = pSubMessageObject.GetReflection();
+                        if (pSubDesc == NULL || pSubReflect == NULL) continue;
+
+                        for (int sub_i = 0; sub_i < pSubDesc->field_count(); sub_i++)
+                        {
+                            const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDesc->field(sub_i);
+                            if (pSubFieldDesc == NULL) continue;
+                            if (pSubFieldDesc->is_repeated()) continue;
+
+                            std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" +
+                                                pSubFieldDesc->name();
+                            kevValueList.push_back(std::make_pair(field, GetFieldsString(pSubMessageObject, pSubFieldDesc)));
+                        }
+
+                    }
+                }
+            }
+        }
+        else
+        {
+            kevValueList.push_back(std::make_pair(pFieldDesc->name(), GetFieldsString(message, pFieldDesc)));
+        }
+    }
+}
+
 void NFProtobufCommon::GetDBMessageFromMapFields(const std::map<std::string, std::string> &result, google::protobuf::Message *pMessageObject)
 {
     if (pMessageObject == NULL) return;

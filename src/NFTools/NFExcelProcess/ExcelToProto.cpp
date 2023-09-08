@@ -69,7 +69,7 @@ void ExcelToProto::WriteExcelProto()
 {
     std::string write_str;
 
-    std::string excel_proto_file = m_outPath + m_excelName + ".proto";
+    std::string excel_proto_file = m_outPath + "E_" + NFStringUtility::Capitalize(m_excelName) + ".proto";
 
     write_str += "package proto_ff;\n\n";
     write_str += "import \"yd_fieldoptions.proto\";\n\n";
@@ -317,7 +317,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     desc_file += "#include \"NFComm/NFShmStl/NFShmHashMap.h\"\n";
     desc_file += "#include \"NFComm/NFShmStl/NFShmVector.h\"\n";
     desc_file += "#include \"NFLogicCommon/NFDescStoreTypeDefines.h\"\n";
-    desc_file += "#include \"NFServerLogicMessage/" + m_excelName + "_s.h\"\n";
+    desc_file += "#include \"NFServerLogicMessage/E_" + NFStringUtility::Capitalize(m_excelName) + "_s.h\"\n";
 
     desc_file += "\n#define MAX_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_NUM " +
                  NFCommon::tostr(get_max_num(pSheet->m_rows)) + "\n";

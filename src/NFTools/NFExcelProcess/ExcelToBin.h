@@ -28,5 +28,8 @@ public:
     int WriteToBin(ExcelSheet& sheet);
     int WriteToBin(ExcelSheet& sheet, int row, google::protobuf::Message *pSheetProto, const google::protobuf::Reflection *pReflect, const google::protobuf::FieldDescriptor *pFieldDesc);
 public:
+    int WriteToSql(ExcelSheet& sheet, const google::protobuf::Message *pSheetProto);
+    int WriteToSql(std::string& content, const std::string& tbName, const google::protobuf::Message *pSheetProto);
+public:
     std::string m_proto_ds;
 };
