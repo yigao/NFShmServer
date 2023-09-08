@@ -11,6 +11,7 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 #include "ExcelParse.h"
+#include "NFComm/NFPluginModule/NFProtobufCommon.h"
 
 class ExcelToBin : public ExcelParse, public NFSingleton<ExcelToBin>
 {
@@ -29,6 +30,8 @@ public:
     int WriteToBin(ExcelSheet& sheet, int row, google::protobuf::Message *pSheetProto, const google::protobuf::Reflection *pReflect, const google::protobuf::FieldDescriptor *pFieldDesc);
 public:
     int WriteToSql(ExcelSheet& sheet, const google::protobuf::Message *pSheetProto);
+    std::string CreateTable(const std::string& tbName, const std::map<std::string, DBTableColInfo>& primaryKey);
+    std::string CreateAddCol(const std::string& tbName, const std::map<std::string, DBTableColInfo>& primaryKey, const std::map<std::string, DBTableColInfo>& mapFields);
     int WriteToSql(std::string& content, const std::string& tbName, const google::protobuf::Message *pSheetProto);
 public:
     std::string m_proto_ds;

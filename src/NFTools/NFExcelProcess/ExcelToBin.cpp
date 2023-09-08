@@ -208,6 +208,17 @@ int ExcelToBin::WriteToSql(ExcelSheet& sheet, const google::protobuf::Message *p
                proto_sheet_repeatedfieldname);
 
     std::string content;
+    std::map<std::string, DBTableColInfo> primaryKey;
+    std::map<std::string, DBTableColInfo> mapFields;
+    int iRet = NFProtobufCommon::Instance()->GetDbFieldsInfoFromMessage(pFieldDesc->message_type(), primaryKey, mapFields);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetDbFieldsInfoFromMessage Error, tableName:{}", pFieldDesc->full_name());
+    }
+
+    content += CreateTable(sheet.m_protoInfo.m_protoMsgName, primaryKey) + "\n\n";
+    content += CreateAddCol(sheet.m_protoInfo.m_protoMsgName, primaryKey, mapFields) + "\n\n";
+
     ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(*pSheetProto, pFieldDesc);
     for(int i = 0; i < (int)repeatedSize; i++)
     {
@@ -218,6 +229,55 @@ int ExcelToBin::WriteToSql(ExcelSheet& sheet, const google::protobuf::Message *p
     std::string bin_file = m_outPath + "CreateTable_" + sheet.m_protoInfo.m_protoMsgName + ".sql";
     NFFileUtility::WriteFile(bin_file, content);
     return 0;
+}
+
+std::string ExcelToBin::CreateTable(const std::string &tableName, const std::map<std::string, DBTableColInfo> &primaryKey)
+{
+    std::string sql;
+    std::string colSql;
+    std::string privateKey = "PRIMARY KEY(";
+    std::string auto_increment;
+
+    for(auto iter = primaryKey.begin(); iter != primaryKey.end(); iter++)
+    {
+        if (iter == primaryKey.begin())
+        {
+            privateKey += iter->first;
+        }
+        else {
+            privateKey += ","+iter->first;
+        }
+
+        std::string col;
+        std::string otherInfo;
+        if (iter->second.m_notNull)
+        {
+            otherInfo += " NOT NULL ";
+        }
+
+        if (iter->second.m_autoIncrement)
+        {
+            otherInfo += " AUTO_INCREMENT ";
+            auto_increment = "AUTO_INCREMENT = " + NFCommon::tostr(iter->second.m_autoIncrementValue);
+        }
+
+        if (iter->second.m_isDefaultValue)
+        {
+            otherInfo += " Default = " + NFCommon::tostr(iter->second.m_defaultValue);
+        }
+
+        if (iter->second.m_comment.size() > 0)
+        {
+            otherInfo += " COMMENT \"" + iter->second.m_comment + "\"";
+        }
+        NF_FORMAT_EXPR(col, " {} {} {},", iter->first, NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo)
+        colSql += col;
+    }
+    privateKey += ")";
+
+    NF_FORMAT_EXPR(sql, "CREATE TABLE IF NOT EXISTS {} ({} {}) ENGINE=InnoDB {} DEFAULT CHARSET=utf8;", tableName, colSql, privateKey, auto_increment);
+
+    return sql;
 }
 
 int ExcelToBin::WriteToSql(std::string& content, const std::string& tbName, const google::protobuf::Message *pRowMessage)
@@ -256,6 +316,103 @@ int ExcelToBin::WriteToSql(std::string& content, const std::string& tbName, cons
     sql += ");\n";
     content += sql;
     return 0;
+}
+
+std::string
+ExcelToBin::CreateAddCol(const string &tableName, const map<std::string, DBTableColInfo> &primaryKey, const map<std::string, DBTableColInfo> &mapFields)
+{
+    std::string content;
+    std::multimap<uint32_t, std::string> needCreateColumn;
+    for (auto iter = primaryKey.begin(); iter != primaryKey.end(); iter++)
+    {
+        if (!iter->second.m_primaryKey)
+        {
+            std::string otherInfo;
+            if (iter->second.m_notNull)
+            {
+                otherInfo += " NOT NULL ";
+            }
+
+            if (iter->second.m_autoIncrement)
+            {
+                otherInfo += " AUTO_INCREMENT ";
+            }
+
+            if (iter->second.m_isDefaultValue)
+            {
+                otherInfo += " Default = " + NFCommon::tostr(iter->second.m_defaultValue);
+            }
+
+            if (iter->second.m_comment.size() > 0)
+            {
+                otherInfo += " COMMENT \"" + iter->second.m_comment + "\"";
+            }
+
+            std::string sql;
+            NF_FORMAT_EXPR(sql, "alter table {} add column {} {} {};", tableName, iter->first,
+                           NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo);
+
+            if (sql.size() > 0)
+                needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+        }
+    }
+
+    for (auto iter = mapFields.begin(); iter != mapFields.end(); iter++)
+    {
+        std::string otherInfo;
+        if (iter->second.m_notNull)
+        {
+            otherInfo += " NOT NULL ";
+        }
+
+        if (iter->second.m_isDefaultValue)
+        {
+            otherInfo += " Default = " + NFCommon::tostr(iter->second.m_defaultValue);
+        }
+
+        if (iter->second.m_comment.size() > 0)
+        {
+            otherInfo += " COMMENT \"" + iter->second.m_comment + "\"";
+        }
+
+        std::string sql;
+        NF_FORMAT_EXPR(sql, "alter table {} add column {} {} {};", tableName, iter->first,
+                       NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo);
+
+        if (sql.size() > 0)
+            needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+
+        if (iter->second.m_primaryKey)
+        {
+            sql.clear();
+            NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY ({});", tableName, iter->first);
+            if (sql.size() > 0)
+                needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+        }
+
+        if (iter->second.m_unionKey)
+        {
+            sql.clear();
+            NF_FORMAT_EXPR(sql, "alter table {} add UNIQUE {} ({});", tableName, iter->first, iter->first);
+            if (sql.size() > 0)
+                needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+        }
+
+        if (iter->second.m_indexKey)
+        {
+            sql.clear();
+            NF_FORMAT_EXPR(sql, "alter table {} add INDEX {} ({});", tableName, iter->first, iter->first);
+            if (sql.size() > 0)
+                needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
+        }
+    }
+
+    for(auto iter = needCreateColumn.begin(); iter != needCreateColumn.end(); iter++)
+    {
+        content += iter->second + "\n";
+    }
+
+    return content;
 }
 
 

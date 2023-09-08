@@ -2476,7 +2476,7 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
                 if (sql.size() > 0)
                     needCreateColumn.emplace(iter->second.m_fieldIndex, sql);
 
-                if (findIter->second.m_primaryKey)
+                if (iter->second.m_primaryKey)
                 {
                     sql.clear();
                     NF_FORMAT_EXPR(sql, "alter table {} add PRIMARY KEY {};", tableName, iter->first);

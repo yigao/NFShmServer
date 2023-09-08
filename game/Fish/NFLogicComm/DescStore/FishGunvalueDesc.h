@@ -94,6 +94,7 @@ public:
 	virtual ~FishGunvalueDesc();
 	int CreateInit();
 	int ResumeInit();
+public:
 	const proto_ff_s::E_FishGunvalue_s* GetDesc(int64_t id) const;
 	proto_ff_s::E_FishGunvalue_s* GetDesc(int64_t id);
 	int GetDescIndex(int id) const;

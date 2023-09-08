@@ -126,44 +126,56 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
             {
                 proto_file +=
                         "\toptional int32 " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
-                        "\"];\n";
+                        "\"";
             }
             else if (col_type == "uint" || col_type == "uint32")
             {
                 proto_file +=
                         "\toptional uint32 " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
-                        "\"];\n";
+                        "\"";
             }
             else if (col_type == "int64")
             {
                 proto_file +=
                         "\toptional int64 " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
-                        "\"];\n";
+                        "\"";
             }
             else if (col_type == "uint64")
             {
                 proto_file +=
                         "\toptional uint64 " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
-                        "\"];\n";
+                        "\"";
             }
             else if (col_type == "float")
             {
                 proto_file +=
                         "\toptional float " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
-                        "\"];\n";
+                        "\"";
             }
             else if (col_type == "double")
             {
                 proto_file +=
                         "\toptional double " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
-                        "\"];\n";
+                        "\"";
             }
             else if (col_type == "string")
             {
                 proto_file +=
                         "\toptional string " + sub_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + cn_sub_name +
-                        "\"," + " (yd_fieldoptions.field_bufsize) = " + NFCommon::tostr(get_max_num(colTypeStrMaxSize)) + "];\n";
+                        "\"," + " (yd_fieldoptions.field_bufsize) = " + NFCommon::tostr(get_max_num(colTypeStrMaxSize));
+
+                if (pSheet->m_createSql)
+                {
+                    proto_file += ", (yd_fieldoptions.db_field_bufsize) = " + NFCommon::tostr(get_max_num(colTypeStrMaxSize));
+                }
             }
+
+            if (pSheet->m_createSql)
+            {
+                proto_file += ", (yd_fieldoptions.db_field_comment) = \"" + cn_sub_name + "\"";
+            }
+
+            proto_file += "];\n";
         }
 
         proto_file += "}\n";
@@ -188,44 +200,92 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
         {
             proto_file +=
                     "\toptional int32 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                    "\"];\n";
+                    "\"";
         }
         else if (col_type == "uint" || col_type == "uint32")
         {
             proto_file +=
                     "\toptional uint32 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                    "\"];\n";
+                    "\"";
         }
         else if (col_type == "int64")
         {
             proto_file +=
                     "\toptional int64 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                    "\"];\n";
+                    "\"";
         }
         else if (col_type == "uint64")
         {
             proto_file +=
                     "\toptional uint64 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                    "\"];\n";
+                    "\"";
         }
         else if (col_type == "float")
         {
             proto_file +=
                     "\toptional float " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                    "\"];\n";
+                    "\"";
         }
         else if (col_type == "double")
         {
             proto_file +=
                     "\toptional double " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                    "\"];\n";
+                    "\"";
         }
         else if (col_type == "string")
         {
             proto_file +=
                     "\toptional string " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                    "\"," + " (yd_fieldoptions.field_bufsize) = " + NFCommon::tostr(get_max_num(colTypeStrMaxSize)) + "];\n";
+                    "\"," + " (yd_fieldoptions.field_bufsize) = " + NFCommon::tostr(get_max_num(colTypeStrMaxSize));
+
+            if (pSheet->m_createSql)
+            {
+                proto_file += ", (yd_fieldoptions.db_field_bufsize) = " + NFCommon::tostr(get_max_num(colTypeStrMaxSize));
+            }
         }
+
+        if (pSheet->m_createSql)
+        {
+            proto_file += ", (yd_fieldoptions.db_field_comment) = \"" + col_cn_name + "\"";
+
+            if (index == 1)
+            {
+                proto_file += ", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY";
+            }
+            else {
+                if (pSheet->m_indexMap.find(pColInfo->m_structEnName) != pSheet->m_indexMap.end())
+                {
+                    if (pSheet->m_indexMap[pColInfo->m_structEnName].m_unique)
+                    {
+                        proto_file += ", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_UNIQUE_INDEX";
+                    }
+                    else {
+                        proto_file += ", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX";
+                    }
+                }
+                else {
+                    for(auto com_iter = pSheet->m_comIndexMap.begin(); com_iter != pSheet->m_comIndexMap.end(); com_iter++)
+                    {
+                        bool find = false;
+                        for(int com_i = 0; com_i < (int)com_iter->second.m_index.size(); com_i++)
+                        {
+                            if (com_iter->second.m_index[com_i].m_key == pColInfo->m_structEnName)
+                            {
+                                proto_file += ", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX";
+                                find = true;
+                                break;
+                            }
+                        }
+
+                        if (find)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        proto_file += "];\n";
     }
 
     for (auto iter = pSheet->m_colInfoVec.begin(); iter != pSheet->m_colInfoVec.end(); iter++)
@@ -245,7 +305,7 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
             proto_file += "\trepeated E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
                           NFStringUtility::Capitalize(pColInfo->m_structEnName) + "Desc " + col_en_name + " = " + NFCommon::tostr(index) +
                           "[(yd_fieldoptions.field_cname) = \"" + col_cn_name + "\"," + " (yd_fieldoptions.field_arysize) = " +
-                          NFCommon::tostr(pColInfo->m_maxSubNum) + "];\n";
+                          NFCommon::tostr(pColInfo->m_maxSubNum);
         }
         else
         {
@@ -253,46 +313,59 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
             {
                 proto_file +=
                         "\trepeated int32 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size) + "];\n";
+                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size);
             }
             else if (col_type == "uint" || col_type == "uint32")
             {
                 proto_file +=
                         "\trepeated uint32 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size) + "];\n";
+                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size);
             }
             else if (col_type == "int64")
             {
                 proto_file +=
                         "\trepeated int64 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size) + "];\n";
+                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size);
             }
             else if (col_type == "uint64")
             {
                 proto_file +=
                         "\trepeated uint64 " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size) + "];\n";
+                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size);
             }
             else if (col_type == "float")
             {
                 proto_file +=
                         "\trepeated float " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size) + "];\n";
+                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size);
             }
             else if (col_type == "double")
             {
                 proto_file +=
                         "\trepeated double " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
-                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size) + "];\n";
+                        "\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size);
             }
             else if (col_type == "string")
             {
                 proto_file +=
                         "\trepeated string " + col_en_name + " = " + NFCommon::tostr(index) + "[(yd_fieldoptions.field_cname) = \"" + col_cn_name +
                         +"\", (yd_fieldoptions.field_arysize) = " + NFCommon::tostr(col_max_size) + ", (yd_fieldoptions.field_bufsize) = " +
-                        NFCommon::tostr(get_max_num(colTypeStrMaxSize)) + "];\n";
+                        NFCommon::tostr(get_max_num(colTypeStrMaxSize));
+
+                if (pSheet->m_createSql)
+                {
+                    proto_file += ", (yd_fieldoptions.db_field_bufsize) = " + NFCommon::tostr(get_max_num(colTypeStrMaxSize));
+                }
             }
         }
+
+        if (pSheet->m_createSql)
+        {
+            proto_file += ", (yd_fieldoptions.db_field_comment) = \"" + col_cn_name + "\"";
+            proto_file += ", (yd_fieldoptions.db_field_arysize) = " + NFCommon::tostr(col_max_size);
+        }
+
+        proto_file += "];\n";
     }
 
     proto_file += "}\n";
@@ -430,6 +503,11 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     desc_file += "\tvirtual ~" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc();\n";
     desc_file += "\tint CreateInit();\n";
     desc_file += "\tint ResumeInit();\n";
+    if (pSheet->m_createSql)
+    {
+        desc_file += "\tvirtual bool IsFileLoad() { return false; }\n";
+    }
+    desc_file += "public:\n";
     desc_file += "\tconst proto_ff_s::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
                  "_s* GetDesc(int64_t id) const;\n";
     desc_file +=
@@ -1186,6 +1264,12 @@ void ExcelToProto::WriteMakeFile()
                              NFStringUtility::Capitalize(sheet_name) + "Desc.h " + "${PROTOCGEN_FILE_PATH}/" +
                              NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) +
                              "Desc.cpp\" --dst=${DESC_STORE_PATH}/\n";
+
+            if (pSheet->m_createSql)
+            {
+                makefile_file += "\t${FILE_COPY_EXE} --work=\"filecopy\" --src=\"${PROTOCGEN_FILE_PATH}/CreateTable_E_" + NFStringUtility::Capitalize(m_excelName) +
+                                 NFStringUtility::Capitalize(sheet_name) + ".sql\" --dst=${GAME_SQL_PATH}/\n";
+            }
         }
     }
     makefile_file += "\ttouch ${PROTOCGEN_FILE_PATH}/module_" + m_excelName + "_bin\n";
