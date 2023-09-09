@@ -1166,6 +1166,11 @@ bool NFCPluginManager::IsInited(NF_SERVER_TYPES eServerType) const
     return m_appInited.IsInited(eServerType);
 }
 
+bool NFCPluginManager::IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t initStatus) const
+{
+    return m_appInited.IsFinishAppTask(eServerType, initStatus);
+}
+
 void NFCPluginManager::SetIsInited(bool b) 
 { 
 	m_isInited = b; 
@@ -1316,6 +1321,61 @@ bool NFCPluginManager::StopServer()
     {
         OnStopServer();
         return false;
+    }
+
+    return true;
+}
+
+bool NFCPluginManager::AfterAllConnectFinish()
+{
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager AfterAllConnectFinish................");
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        (*iter)->AfterAllConnectFinish();
+    }
+
+    return true;
+}
+
+bool NFCPluginManager::AfterAllDescStoreLoaded()
+{
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager AfterAllDescStoreLoaded................");
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        (*iter)->AfterAllDescStoreLoaded();
+    }
+
+    return true;
+}
+
+bool NFCPluginManager::AfterObjFromDBLoaded()
+{
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager AfterObjFromDBLoaded................");
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        (*iter)->AfterObjFromDBLoaded();
+    }
+
+    return true;
+}
+
+bool NFCPluginManager::AfterServerRegisterFinish()
+{
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager AfterServerRegisterFinish................");
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        (*iter)->AfterServerRegisterFinish();
+    }
+
+    return true;
+}
+
+bool NFCPluginManager::AfterAppInitFinish()
+{
+    NFLogInfo(NF_LOG_PLUGIN_MANAGER, 0, "NFPluginManager AfterAppInitFinish................");
+    for (auto iter = m_nPluginInstanceList.begin(); iter != m_nPluginInstanceList.end(); ++iter)
+    {
+        (*iter)->AfterAppInitFinish();
     }
 
     return true;

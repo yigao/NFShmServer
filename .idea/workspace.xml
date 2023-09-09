@@ -66,6 +66,24 @@
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="excel sql">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPlugin.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPluginManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIPluginManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFServerDefine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusServer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFNetPlugin/Bus/NFCBusServer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/NFCAppInited.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/NFCAppInited.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/NFCAppInited.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/NFCAppInited.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/NFCPluginManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/NFCPluginManager.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFPluginManager/NFCPluginManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFPluginManager/NFCPluginManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/proto_2_sql/proto2sql.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/proto_2_sql/yd_fieldoptions_pb2.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -450,14 +468,7 @@
       <workItem from="1693530450838" duration="5483000" />
       <workItem from="1693790132759" duration="39254000" />
       <workItem from="1693906221412" duration="6700000" />
-      <workItem from="1694135710953" duration="26859000" />
-    </task>
-    <task id="LOCAL-00067" summary="fish room">
-      <created>1691222781391</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1691222781391</updated>
+      <workItem from="1694135710953" duration="36542000" />
     </task>
     <task id="LOCAL-00068" summary="fish room">
       <created>1691225115281</created>
@@ -795,7 +806,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694170155652</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="excel sql">
+      <created>1694174401948</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1694174401948</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -892,26 +910,6 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToStruct.cpp</url>
-          <line>179</line>
-          <option name="timeStamp" value="72" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.cpp</url>
-          <line>630</line>
-          <option name="timeStamp" value="74" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFComm/NFCore/NFFileUtility.cpp</url>
-          <line>652</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp</url>
-          <line>114</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp</url>
           <line>287</line>
           <option name="timeStamp" value="112" />
@@ -925,6 +923,16 @@
           <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFCSharedMem.cpp</url>
           <line>72</line>
           <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp</url>
+          <line>397</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.cpp</url>
+          <line>31</line>
+          <option name="timeStamp" value="133" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

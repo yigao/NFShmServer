@@ -166,6 +166,8 @@ int NFCAppInited::CheckTaskFinished()
 
             proto_ff::NFEventNoneData event;
             FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+
+            m_pObjPluginManager->AfterServerRegisterFinish();
         }
 	}
 
@@ -215,6 +217,8 @@ int NFCAppInited::CheckTaskFinished()
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Desc Store Load Task..............");
             proto_ff::NFEventNoneData event;
             FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+
+            m_pObjPluginManager->AfterAllDescStoreLoaded();
         }
     }
 
@@ -249,6 +253,8 @@ int NFCAppInited::CheckTaskFinished()
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Obj Load From DB Task..............");
             proto_ff::NFEventNoneData event;
             FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_OBJ_LOAD_FROM_DB, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+
+            m_pObjPluginManager->AfterObjFromDBLoaded();
         }
     }
 
@@ -283,6 +289,8 @@ int NFCAppInited::CheckTaskFinished()
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Register Task..............");
             proto_ff::NFEventNoneData event;
             FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_REG_EVENT, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+
+            m_pObjPluginManager->AfterServerRegisterFinish();
         }
     }
 
@@ -309,6 +317,8 @@ int NFCAppInited::CheckTaskFinished()
 
         proto_ff::NFEventNoneData event;
         FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED, proto_ff::NF_EVENT_SERVER_TYPE, 0, event);
+
+        m_pObjPluginManager->AfterAppInitFinish();
     }
 
 	return 0;
@@ -325,6 +335,56 @@ bool NFCAppInited::IsInited(NF_SERVER_TYPES eServerType) const
     {
         return m_serverConnectTasks[eServerType].first;
     }
+    return true;
+}
+
+bool NFCAppInited::IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t initStatus) const
+{
+    if (initStatus == APP_INIT_STATUS_SERVER_CONNECT)
+    {
+        CHECK_EXPR(eServerType < (int)m_serverConnectTasks.size(), false, "serverType:{} initStatus:{}", eServerType, initStatus);
+        for(int i = 0; i < (int)m_serverConnectTasks[eServerType].second.size(); i++)
+        {
+            if (m_serverConnectTasks[eServerType].second[i].m_finished == false)
+            {
+                return false;
+            }
+        }
+    }
+    else if (initStatus == APP_INIT_STATUS_SERVER_LOAD_DESC_STORE)
+    {
+        CHECK_EXPR(eServerType >= 0 && eServerType < (int)m_serverLoadDestStore.size(), false, "serverType:{} initStatus:{}", eServerType, initStatus);
+        for(int i = 0; i < (int)m_serverLoadDestStore[eServerType].second.size(); i++)
+        {
+            if (m_serverLoadDestStore[eServerType].second[i].m_finished == false)
+            {
+                return false;
+            }
+        }
+    }
+    else if (initStatus == APP_INIT_STATUS_SERVER_LOAD_OBJ_FROM_DB)
+    {
+        CHECK_EXPR(eServerType < (int)m_appObjLoadFromDBTask.size(), false, "serverType:{} initStatus:{}", eServerType, initStatus);
+        for(int i = 0; i < (int)m_appObjLoadFromDBTask[eServerType].second.size(); i++)
+        {
+            if (m_appObjLoadFromDBTask[eServerType].second[i].m_finished == false)
+            {
+                return false;
+            }
+        }
+    }
+    else if (initStatus == APP_INIT_STATUS_SERVER_REGISTER)
+    {
+        CHECK_EXPR(eServerType < (int)m_serverRegisterTask.size(), false, "serverType:{} initStatus:{}", eServerType, initStatus);
+        for(int i = 0; i < (int)m_serverRegisterTask[eServerType].second.size(); i++)
+        {
+            if (m_serverRegisterTask[eServerType].second[i].m_finished == false)
+            {
+                return false;
+            }
+        }
+    }
+
     return true;
 }
 

@@ -369,3 +369,88 @@ bool NFIPlugin::OnStopServer()
 
     return bRet;
 }
+
+bool NFIPlugin::AfterAllConnectFinish()
+{
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            if (pModule->AfterAllConnectFinish() == false)
+            {
+                NFLogWarning(NF_LOG_SYSTEMLOG, 0, "Plugin:{} AfterAllConnectFinish Failed", GetPluginName());
+            }
+        }
+    }
+
+    return true;
+}
+
+bool NFIPlugin::AfterAllDescStoreLoaded()
+{
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            if (pModule->AfterAllDescStoreLoaded() == false)
+            {
+                NFLogWarning(NF_LOG_SYSTEMLOG, 0, "Plugin:{} AfterAllDescStoreLoaded Failed", GetPluginName());
+            }
+        }
+    }
+
+    return true;
+}
+
+bool NFIPlugin::AfterObjFromDBLoaded()
+{
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            if (pModule->AfterObjFromDBLoaded() == false)
+            {
+                NFLogWarning(NF_LOG_SYSTEMLOG, 0, "Plugin:{} AfterObjFromDBLoaded Failed", GetPluginName());
+            }
+        }
+    }
+
+    return true;
+}
+
+bool NFIPlugin::AfterServerRegisterFinish()
+{
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            if (pModule->AfterServerRegisterFinish() == false)
+            {
+                NFLogWarning(NF_LOG_SYSTEMLOG, 0, "Plugin:{} AfterServerRegisterFinish Failed", GetPluginName());
+            }
+        }
+    }
+
+    return true;
+}
+
+bool NFIPlugin::AfterAppInitFinish()
+{
+    for (size_t i = 0; i < m_vecModule.size(); i++)
+    {
+        NFIModule* pModule = m_vecModule[i];
+        if (pModule)
+        {
+            if (pModule->AfterAppInitFinish() == false)
+            {
+                NFLogWarning(NF_LOG_SYSTEMLOG, 0, "Plugin:{} AfterAppInitFinish Failed", GetPluginName());
+            }
+        }
+    }
+
+    return true;
+}

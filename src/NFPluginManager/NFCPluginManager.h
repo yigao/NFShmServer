@@ -66,6 +66,35 @@ public:
 
     virtual bool AfterOnReloadConfig() override;
 
+    /**
+    * @brief 服务器连接完成后
+    * @return
+    */
+    virtual bool AfterAllConnectFinish() override;
+
+    /**
+     * @brief 加载完服务器数据，包过excel, 以及从数据拉取的数据
+     * @return
+     */
+    virtual bool AfterAllDescStoreLoaded() override;
+
+    /**
+     * @brief 从db加载全局数据, 这个加载一定在完成连接后，有可能依赖descstore数据，也可能不依赖
+     * @return
+     */
+    virtual bool AfterObjFromDBLoaded() override;
+
+    /**
+     * @brief 完成服务器之间的注册
+     * @return
+     */
+    virtual bool AfterServerRegisterFinish() override;
+
+    /**
+     * @brief  服务器完成初始化之后
+     * @return
+     */
+    virtual bool AfterAppInitFinish() override;
     //////////////////////////////////////////////////////////////////////////
 
     virtual void
@@ -200,6 +229,8 @@ public:
 
     virtual int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType,
                               uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT) override;
+
+    virtual bool IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t initStatus) const override;
 
     virtual int SendDumpInfo(const std::string &dmpInfo) override;
 

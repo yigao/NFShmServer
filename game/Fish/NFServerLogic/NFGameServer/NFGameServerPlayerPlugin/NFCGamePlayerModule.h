@@ -26,6 +26,7 @@ public:
     virtual bool OnDynamicPlugin() override;
 
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
+
 public:
     /**
      * @brief 处理客户端消息
@@ -44,14 +45,6 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
 public:
     /**
-     * @brief 注册房间信息
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    virtual int OnHandleRoomRegisterRps(uint64_t unLinkId, NFDataPackage &packet);
-public:
-    /**
      * @brief 处理重连
      * @param request
      * @param respone
@@ -68,6 +61,4 @@ public:
      * @return
      */
     int OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
-private:
-
 };

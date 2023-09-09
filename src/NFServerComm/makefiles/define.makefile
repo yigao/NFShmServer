@@ -11,7 +11,6 @@ GAME_BUILD_PATH=${GAME_SRC_PATH}/Build/NFServerComm/makefile
 MAKEFILE_PATH=${GAME_SRC_PATH}/src/NFServerComm/makefiles
 MAKE_PROTOC_GEN=${MAKEFILE_PATH}/protoc_gen.makefile
 MAKE_EXCEL_GEN=${MAKEFILE_PATH}/excel_gen.makefile
-MAKE_SQL_GEN=${MAKEFILE_PATH}/sql_gen.makefile
 
 RESDB_EXCEL_PATH=${GAME_SRC_PATH}/Excel
 PROTOCGEN_FILE_PATH=${GAME_BUILD_PATH}/temp

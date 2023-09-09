@@ -103,6 +103,36 @@ public:
 	virtual void AddModule(const std::string& moduleName, NFIModule* pModule);
 
 	virtual void RemoveModule(const std::string& moduleName);
+
+    /**
+    * @brief 服务器连接完成后
+    * @return
+    */
+    virtual bool AfterAllConnectFinish() override;
+
+    /**
+     * @brief 加载完服务器数据，包过excel, 以及从数据拉取的数据
+     * @return
+     */
+    virtual bool AfterAllDescStoreLoaded() override;
+
+    /**
+     * @brief 从db加载全局数据, 这个加载一定在完成连接后，有可能依赖descstore数据，也可能不依赖
+     * @return
+     */
+    virtual bool AfterObjFromDBLoaded() override;
+
+    /**
+     * @brief 完成服务器之间的注册
+     * @return
+     */
+    virtual bool AfterServerRegisterFinish() override;
+
+    /**
+     * @brief  服务器完成初始化之后
+     * @return
+     */
+    virtual bool AfterAppInitFinish() override;
 protected:
 	std::map<std::string, NFIModule*> m_mapModule;
 	std::vector<NFIModule*> m_vecModule;

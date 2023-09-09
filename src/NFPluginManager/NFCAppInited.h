@@ -81,6 +81,7 @@ public:
 
     bool IsInited(NF_SERVER_TYPES eServerType) const;
 
+    bool IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t initStatus) const;
 private:
     std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_serverConnectTasks;
     std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_serverLoadDestStore;
