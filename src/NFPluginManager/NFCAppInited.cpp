@@ -120,7 +120,26 @@ int NFCAppInited::CheckTaskFinished()
                 proto_ff::NFEventNoneData event;
                 FindModule<NFIEventModule>()->FireExecute(NF_ST_NONE, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, i, event);
 
-                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server {} Task Group..............", i);
+                if (i == APP_INIT_TASK_GROUP_SERVER_CONNECT)
+                {
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Connect Task ..............");
+                    m_pObjPluginManager->AfterAllConnectFinish();
+                }
+                else if (i == APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE)
+                {
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Load Store Task ..............");
+                    m_pObjPluginManager->AfterAllDescStoreLoaded();
+                }
+                else if (i == APP_INIT_TASK_GROUP_SERVER_LOAD_OBJ_FROM_DB)
+                {
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Load Obj Task ..............");
+                    m_pObjPluginManager->AfterObjFromDBLoaded();
+                }
+                else if (i == APP_INIT_TASK_GROUP_SERVER_REGISTER)
+                {
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "App Finish All Server Register Task ..............");
+                    m_pObjPluginManager->AfterServerRegisterFinish();
+                }
             }
         }
     }
@@ -147,7 +166,7 @@ int NFCAppInited::CheckTaskFinished()
 
                 if (m_pObjPluginManager->IsLoadAllServer())
                 {
-                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server:{}({}) Finish All Task, App Inited Success..............", GetServerName((NF_SERVER_TYPES)i), i);
+                    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Server:{} Finish All Task, App Inited Success..............", GetServerName((NF_SERVER_TYPES)i));
                 }
             }
         }
