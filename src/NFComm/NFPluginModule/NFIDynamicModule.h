@@ -33,6 +33,18 @@ public:
 
 	virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
 
+    virtual int RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc,
+                                uint32_t taskGroup)
+    {
+        return m_pObjPluginManager->RegisterAppTask(eServerType, taskType, desc, taskGroup);
+    }
+
+    virtual int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType,
+                              uint32_t taskGroup)
+    {
+        return m_pObjPluginManager->FinishAppTask(eServerType, taskType, taskGroup);
+    }
+
     template<size_t msgId, typename RequestType, typename ResponeType>
     bool AddRpcService(NF_SERVER_TYPES serverType, bool createCo = false)
     {

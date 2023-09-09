@@ -43,4 +43,5 @@ public:
     virtual std::string GetRedisIp(NF_SERVER_TYPES nfServerTypes) = 0;
     virtual uint32_t GetRedisPort(NF_SERVER_TYPES nfServerTypes) = 0;
     virtual std::string GetRedisPass(NF_SERVER_TYPES nfServerTypes) = 0;
+    virtual proto_ff::ServerInfoReport GetDefaultMasterInfo(NF_SERVER_TYPES eServerType) = 0;
 };

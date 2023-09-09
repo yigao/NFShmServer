@@ -511,6 +511,37 @@ std::string NFCConfigModule::GetRedisPass(NF_SERVER_TYPES nfServerTypes)
     return std::string();
 }
 
+proto_ff::ServerInfoReport NFCConfigModule::GetDefaultMasterInfo(NF_SERVER_TYPES eServerType)
+{
+    NFServerConfig* pConfig = GetAppConfig(eServerType);
+    if (pConfig)
+    {
+        proto_ff::ServerInfoReport xData;
+        xData.set_server_type(NF_ST_MASTER_SERVER);
+        xData.set_bus_id(NFServerIDUtil::GetBusID("1.1.1.1"));
+        xData.set_server_id("1.1.1.1");
+        xData.set_server_name("MasterServer_1.1.1.1");
+        xData.set_link_mode("tcp");
+        std::string url = NF_FORMAT("tcp://{}:{}", pConfig->RouteConfig.MasterIp, pConfig->RouteConfig.MasterPort);
+        xData.set_url(url);
+        xData.set_server_ip(pConfig->RouteConfig.MasterIp);
+        xData.set_server_port(pConfig->RouteConfig.MasterPort);
+        return xData;
+    }
+    else {
+        proto_ff::ServerInfoReport xData;
+        xData.set_server_type(NF_ST_MASTER_SERVER);
+        xData.set_bus_id(NFServerIDUtil::GetBusID("1.1.1.1"));
+        xData.set_server_id("1.1.1.1");
+        xData.set_server_name("MasterServer_1.1.1.1");
+        xData.set_link_mode("tcp");
+        xData.set_url("tcp://127.0.0.1:6011");
+        xData.set_server_ip("127.0.0.1");
+        xData.set_server_port(6011);
+        return xData;
+    }
+}
+
 bool NFCConfigModule::CheckConfig()
 {
     if (!m_pObjPluginManager->IsLoadAllServer())

@@ -98,7 +98,7 @@ bool NFCDescStoreModule::Execute()
                 }
             }
 
-            m_pObjPluginManager->FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
+            FinishAppTask(NF_ST_NONE, APP_INIT_DESC_STORE_LOAD, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
 
             m_bFinishAllLoaded = true;
         }

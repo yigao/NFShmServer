@@ -13,7 +13,6 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFServerComm/NFServerCommon/NFIRouteServerModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 
 class NFIMessageModule;
 class NFCRouteServerModule : public NFIRouteServerModule

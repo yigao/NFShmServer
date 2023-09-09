@@ -16,7 +16,6 @@
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 
 #define PROXY_AGENT_SERVER_CONNECT_MASTER_SERVER "ProxyAgentServer Connect MasterServer"
@@ -33,12 +32,11 @@ bool NFCProxyAgentServerModule::Awake()
 {
     //不需要固定帧，需要尽可能跑得快
     //m_pObjPluginManager->SetFixedFrame(false);
-    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_PROXY_AGENT_SERVER);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_AGENT_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this, &NFCProxyAgentServerModule::OnServerRegisterProcess);
 	FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_AGENT_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this, &NFCProxyAgentServerModule::OnHandleServerReport);
 
     //注册要完成的服务器启动任务
-    m_pObjPluginManager->RegisterAppTask(NF_ST_PROXY_AGENT_SERVER, APP_INIT_CONNECT_MASTER, PROXY_AGENT_SERVER_CONNECT_MASTER_SERVER);
+    RegisterAppTask(NF_ST_PROXY_AGENT_SERVER, APP_INIT_CONNECT_MASTER, PROXY_AGENT_SERVER_CONNECT_MASTER_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
 
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_AGENT_SERVER);
 	if (pConfig)
@@ -133,13 +131,13 @@ bool NFCProxyAgentServerModule::Init()
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_AGENT_SERVER);
     NF_ASSERT(pConfig);
 #if NF_PLATFORM == NF_PLATFORM_WIN
-	proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_PROXY_AGENT_SERVER);
+    proto_ff::ServerInfoReport masterData = FindModule<NFIConfigModule>()->GetDefaultMasterInfo(NF_ST_PROXY_AGENT_SERVER);
 	int32_t ret = ConnectMasterServer(masterData);
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
     if (pConfig->RouteConfig.NamingHost.empty())
     {
-        proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_PROXY_AGENT_SERVER);
+        proto_ff::ServerInfoReport masterData = FindModule<NFIConfigModule>()->GetDefaultMasterInfo(NF_ST_PROXY_AGENT_SERVER);
         int32_t ret = ConnectMasterServer(masterData);
         CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
     }
@@ -184,10 +182,8 @@ int NFCProxyAgentServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unL
         //完成服务器启动任务
         if (!m_pObjPluginManager->IsInited(NF_ST_PROXY_AGENT_SERVER))
         {
-            m_pObjPluginManager->FinishAppTask(NF_ST_PROXY_AGENT_SERVER, APP_INIT_CONNECT_MASTER);
+            m_pObjPluginManager->FinishAppTask(NF_ST_PROXY_AGENT_SERVER, APP_INIT_CONNECT_MASTER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
         }
-
-        FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_PROXY_AGENT_SERVER);
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{

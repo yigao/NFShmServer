@@ -14,7 +14,6 @@
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 
@@ -30,7 +29,6 @@ NFCGameServerModule::~NFCGameServerModule()
 bool NFCGameServerModule::Awake()
 {
     SetCheckWorldServer(true);
-    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_GAME_SERVER, 10000);
 
     ////////////////test other server msg///////////////////////////////////////////////
     RegisterServerMessage(NF_ST_GAME_SERVER, proto_ff::NF_TEST_SEND_PROXY_MSG_TO_OTHER_SERVER_REQ);

@@ -44,6 +44,7 @@ public:
     virtual std::string GetRedisIp(NF_SERVER_TYPES nfServerTypes) override;
     virtual uint32_t GetRedisPort(NF_SERVER_TYPES nfServerTypes) override;
     virtual std::string GetRedisPass(NF_SERVER_TYPES nfServerTypes) override;
+    virtual proto_ff::ServerInfoReport GetDefaultMasterInfo(NF_SERVER_TYPES eServerType) override;
 protected:
 	std::unordered_map<std::string, NFPluginConfig*> mPluginConfig; //pluginName--key
 	std::vector<NFServerConfig*> mServerConfig; //serverid--key

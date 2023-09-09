@@ -33,7 +33,6 @@
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFCommPlugin/NFNetPlugin/NFEmailSender.h"
 #include "NFComm/NFCore/NFConcurrentQueue.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFShmHashMapTest.h"
 #include "NFEmailSenderTest.h"

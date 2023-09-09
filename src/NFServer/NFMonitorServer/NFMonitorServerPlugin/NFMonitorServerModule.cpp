@@ -14,7 +14,6 @@
 #include "NFLogicCommon/NFICommLogicModule.h"
 #include "NFComm/NFMessageDefine/proto_svr_common.pb.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFProcMonitor.h"
 #include "NFComm/NFMessageDefine/proto_event.pb.h"
@@ -34,8 +33,6 @@ NFCMonitorServerModule::~NFCMonitorServerModule()
 }
 
 bool NFCMonitorServerModule::Awake() {
-    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_MONITOR_SERVER);
-    FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_MONITOR_SERVER);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_MONITOR_SERVER,
                                                        proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER, this,
                                                        &NFCMonitorServerModule::OnHandleServerReport);
@@ -112,18 +109,6 @@ int NFCMonitorServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport
 
 bool NFCMonitorServerModule::Init()
 {
-    FindModule<NFINamingModule>()->WatchTcpUrls(NF_ST_MONITOR_SERVER, NF_ST_MASTER_SERVER, [this](const string &name, const proto_ff::ServerInfoReport& xData, int32_t errCode){
-        if (errCode != 0)
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "MonitorServer Watch, MasterServer Dump, errCode:{} name:{} serverInfo:{}", errCode, name, xData.DebugString());
-            return;
-        }
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "MonitorServer Watch MasterServer name:{} serverInfo:{}", name, xData.DebugString());
-
-        int32_t ret = ConnectMasterServer(xData);
-        CHECK_EXPR(ret == 0, , "ConnectMasterServer Failed, url:{}", xData.DebugString());
-    });
-
     return true;
 }
 

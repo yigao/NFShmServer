@@ -12,7 +12,6 @@
 #include "NFServerCommonDefine.h"
 #include "NFIServerMessageModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
 #define SERVER_CONNECT_MASTER_SERVER "Server Connect MasterServer"
@@ -98,32 +97,32 @@ int NFWorkServerModule::BindServer()
     //注册要完成的服务器启动任务
     if (m_connectMasterServer)
     {
-        m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER));
+        RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
+                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     if (m_connectRouteAgentServer)
     {
-        m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER));
+        RegisterAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER,
+                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     if (m_connectProxyAgentServer)
     {
-        m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, APP_INIT_CONNECT_PROXY_AGENT_SERVER));
+        RegisterAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER,
+                                             NF_FORMAT("{} {}", pConfig->ServerName, APP_INIT_CONNECT_PROXY_AGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     if (m_checkStoreServer)
     {
-        m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER));
+        RegisterAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER,
+                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     if (m_checkWorldServer)
     {
-        m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER));
+        RegisterAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER,
+                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     uint64_t serverLinkId = FindModule<NFIMessageModule>()->BindServer(m_serverType, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
@@ -195,13 +194,13 @@ int NFWorkServerModule::ConnectMasterServer()
     CHECK_EXPR_ASSERT(pConfig, -1, "GetAppConfig Failed, server type:{}", m_serverType);
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
-    proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(m_serverType);
+    proto_ff::ServerInfoReport masterData = FindModule<NFIConfigModule>()->GetDefaultMasterInfo(m_serverType);
     int32_t ret = ConnectMasterServer(masterData);
     CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
     if (pConfig->RouteConfig.NamingHost.empty())
     {
-        proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(m_serverType);
+        proto_ff::ServerInfoReport masterData = FindModule<NFIConfigModule>()->GetDefaultMasterInfo(m_serverType);
         int32_t ret = ConnectMasterServer(masterData);
         CHECK_EXPR(ret == 0, -1, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
     }
@@ -297,7 +296,7 @@ int NFWorkServerModule::RegisterMasterServer(uint32_t serverState)
             //完成服务器启动任务
             if (!m_pObjPluginManager->IsInited(m_serverType))
             {
-                m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
+                FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
             }
         });
     }
@@ -557,10 +556,9 @@ int NFWorkServerModule::OnHandleProxyServerRegister(const proto_ff::ServerInfoRe
     //完成服务器启动任务
     if (!m_pObjPluginManager->IsInited(m_serverType))
     {
-        m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER);
+        FinishAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
-    FindModule<NFINamingModule>()->RegisterAppInfo(m_serverType);
     return 0;
 }
 
@@ -573,7 +571,7 @@ int NFWorkServerModule::OnHandleStoreServerReport(const proto_ff::ServerInfoRepo
 
     FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_STORE_SERVER, xData);
 
-    m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER);
+    FinishAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
 
     return 0;
 }
@@ -587,7 +585,7 @@ int NFWorkServerModule::OnHandleWorldServerReport(const proto_ff::ServerInfoRepo
 
     FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_WORLD_SERVER, xData);
 
-    m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER);
+    FinishAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
 
     return 0;
 }
@@ -689,10 +687,9 @@ int NFWorkServerModule::OnRegisterRouteAgentServerRspProcess(uint64_t unLinkId, 
     //完成服务器启动任务
     if (!m_pObjPluginManager->IsInited(m_serverType))
     {
-        m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER);
+        FinishAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
-    FindModule<NFINamingModule>()->RegisterAppInfo(m_serverType);
     return 0;
 }
 

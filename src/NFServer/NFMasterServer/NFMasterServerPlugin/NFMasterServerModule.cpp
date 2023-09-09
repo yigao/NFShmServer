@@ -18,7 +18,6 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
@@ -42,9 +41,6 @@ NFCMasterServerModule::~NFCMasterServerModule()
 
 bool NFCMasterServerModule::Awake()
 {
-    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_MASTER_SERVER);
-    FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_MASTER_SERVER);
-
     /**
      * @brief Master Rpc Service
      */

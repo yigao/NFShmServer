@@ -20,7 +20,7 @@ NFLogicRoomModule::~NFLogicRoomModule()
 
 bool NFLogicRoomModule::Awake()
 {
-    m_pObjPluginManager->RegisterAppTask(NF_ST_LOGIC_SERVER, APP_INIT_DESC_STORE_LOAD, "LogicServer Load Desc Store",
+    RegisterAppTask(NF_ST_LOGIC_SERVER, APP_INIT_DESC_STORE_LOAD, "LogicServer Load Desc Store",
                                          APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
     return true;
 }

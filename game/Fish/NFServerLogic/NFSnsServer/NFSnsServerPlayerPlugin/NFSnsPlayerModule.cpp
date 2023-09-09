@@ -36,7 +36,7 @@ bool NFCSnsPlayerModule::Awake()
     RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG);
     RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_LOGOUT_NOTIFY);
 
-    m_pObjPluginManager->RegisterAppTask(NF_ST_SNS_SERVER, APP_INIT_DESC_STORE_LOAD, "SnsServer Load Desc Store", APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
+    RegisterAppTask(NF_ST_SNS_SERVER, APP_INIT_DESC_STORE_LOAD, "SnsServer Load Desc Store", APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
 
 
     ///////////logic msg//////////////////////////////////////////////////////////

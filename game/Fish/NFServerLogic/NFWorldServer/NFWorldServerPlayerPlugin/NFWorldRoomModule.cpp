@@ -39,7 +39,7 @@ bool NFWorldRoomModule::Awake()
     Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE,
               APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE, __FUNCTION__);
 
-    m_pObjPluginManager->RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_DESC_STORE_LOAD, "WorldServer Load Desc Store",
+    RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_DESC_STORE_LOAD, "WorldServer Load Desc Store",
                                          APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
     return true;
 }

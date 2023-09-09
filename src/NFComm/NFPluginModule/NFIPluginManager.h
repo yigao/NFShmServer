@@ -421,10 +421,10 @@ public:
     virtual void SetIsInited(bool b) = 0;
 
     virtual int RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc,
-                                uint32_t initStatus = APP_INIT_TASK_GROUP_SERVER_CONNECT) = 0;
+                                uint32_t taskGroup) = 0;
 
     virtual int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType,
-                              uint32_t initStatus = APP_INIT_TASK_GROUP_SERVER_CONNECT) = 0;
+                              uint32_t taskGroup) = 0;
 
     virtual bool IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const = 0;
 

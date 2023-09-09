@@ -32,7 +32,6 @@ bool NFCRouteServerModule::Awake()
 {
     //不需要固定帧，需要尽可能跑得快
     //m_pObjPluginManager->SetFixedFrame(false);
-    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_ROUTE_SERVER);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_ROUTE_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this,
                                                        &NFCRouteServerModule::OnServerRegisterProcess);
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_ROUTE_SERVER,
@@ -43,7 +42,7 @@ bool NFCRouteServerModule::Awake()
                                                        &NFCRouteServerModule::OnHandleServerRegisterRouteAgent);
 
 	//注册要完成的服务器启动任务
-	m_pObjPluginManager->RegisterAppTask(NF_ST_ROUTE_SERVER, APP_INIT_CONNECT_MASTER, ROUTE_SERVER_CONNECT_MASTER_SERVER);
+	RegisterAppTask(NF_ST_ROUTE_SERVER, APP_INIT_CONNECT_MASTER, ROUTE_SERVER_CONNECT_MASTER_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
 
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
     if (pConfig) {
@@ -139,14 +138,14 @@ int NFCRouteServerModule::ConnectMasterServer(const proto_ff::ServerInfoReport& 
 bool NFCRouteServerModule::Init()
 {
 #if NF_PLATFORM == NF_PLATFORM_WIN
-	proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_ROUTE_SERVER);
+	proto_ff::ServerInfoReport masterData = FindModule<NFIConfigModule>()->GetDefaultMasterInfo(NF_ST_ROUTE_SERVER);
 	int32_t ret = ConnectMasterServer(masterData);
 	CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_ROUTE_SERVER);
     if (pConfig && pConfig->RouteConfig.NamingHost.empty())
     {
-        proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(NF_ST_ROUTE_SERVER);
+        proto_ff::ServerInfoReport masterData = FindModule<NFIConfigModule>()->GetDefaultMasterInfo(NF_ST_ROUTE_SERVER);
         int32_t ret = ConnectMasterServer(masterData);
         CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
     }
@@ -283,10 +282,9 @@ int NFCRouteServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId
 		//完成服务器启动任务
 		if (!m_pObjPluginManager->IsInited(NF_ST_ROUTE_SERVER))
 		{
-			m_pObjPluginManager->FinishAppTask(NF_ST_ROUTE_SERVER, APP_INIT_CONNECT_MASTER);
+			FinishAppTask(NF_ST_ROUTE_SERVER, APP_INIT_CONNECT_MASTER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
 		}
 
-        FindModule<NFINamingModule>()->RegisterAppInfo(NF_ST_ROUTE_SERVER);
 	}
 	else if (nEvent == eMsgType_DISCONNECTED)
 	{

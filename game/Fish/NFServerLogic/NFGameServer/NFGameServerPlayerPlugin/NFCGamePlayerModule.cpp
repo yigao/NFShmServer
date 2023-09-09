@@ -29,11 +29,11 @@ bool NFCGamePlayerModule::Awake()
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     NF_ASSERT(pConfig);
 
-    m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER,
+    RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER,
                                          NF_FORMAT("{} {}", pConfig->ServerName, GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER),
                                          APP_INIT_TASK_GROUP_SERVER_REGISTER);
 
-    m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_DESC_STORE_LOAD, "GameServer Load Desc Store",
+    RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_DESC_STORE_LOAD, "GameServer Load Desc Store",
                                          APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
 
     ///////////////////////////////msg////////////////////////////////////////////

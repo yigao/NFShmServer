@@ -15,7 +15,6 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
 
@@ -29,8 +28,6 @@ NFCSnsServerModule::~NFCSnsServerModule()
 
 bool NFCSnsServerModule::Awake()
 {
-    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_SNS_SERVER);
-
     ////////////////test other server msg///////////////////////////////////////////////
     RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_TEST_WORLD_SERVER_MSG_TO_OTHER_SERVER_REQ);
 

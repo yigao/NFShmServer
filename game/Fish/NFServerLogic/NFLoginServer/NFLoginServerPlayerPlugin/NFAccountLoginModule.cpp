@@ -26,7 +26,7 @@ bool NFCAccountLoginModule::Awake()
                                                                                        &NFCAccountLoginModule::OnRpcServiceAccountLogin, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_RegisterAccountReq>(NF_ST_LOGIN_SERVER, this,
                                                                                           &NFCAccountLoginModule::OnRpcServiceRegisterAccount, true);
-    m_pObjPluginManager->RegisterAppTask(NF_ST_LOGIN_SERVER, APP_INIT_DESC_STORE_LOAD, "LoginServer Load Desc Store",
+    RegisterAppTask(NF_ST_LOGIN_SERVER, APP_INIT_DESC_STORE_LOAD, "LoginServer Load Desc Store",
                                          APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
 
     /////////来自Login Server返回的协议//////////////////////////////////////////////////

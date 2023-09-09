@@ -13,7 +13,6 @@
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIAsyDBModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
@@ -35,8 +34,6 @@ bool NFCStoreServerModule::Awake()
 {
     SetConnectProxyAgentServer(false);
     SetCheckStoreServer(false);
-
-    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_STORE_SERVER);
 
     //////rpc service//////////////////////
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STORESVR_C2S_SELECTOBJ>(NF_ST_STORE_SERVER, this,
@@ -72,7 +69,6 @@ bool NFCStoreServerModule::Awake()
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_STORE_SERVER);
     CHECK_EXPR_ASSERT(pConfig, false, "GetAppConfig Failed, server type:{}", NF_ST_STORE_SERVER);
 
-    FindModule<NFINamingModule>()->ClearDBInfo(NF_ST_STORE_SERVER);
     int iRet = FindModule<NFIAsyDBModule>()->AddDBServer(pConfig->MysqlConfig.MysqlDbName, pConfig->MysqlConfig.MysqlIp,
                                                          pConfig->MysqlConfig.MysqlPort, pConfig->MysqlConfig.MysqlDbName,
                                                          pConfig->MysqlConfig.MysqlUser, pConfig->MysqlConfig.MysqlPassword,
@@ -82,8 +78,6 @@ bool NFCStoreServerModule::Awake()
         NFLogError(NF_LOG_SYSTEMLOG, 0, "store server connect db failed");
         return false;
     }
-
-    FindModule<NFINamingModule>()->RegisterDBInfo(NF_ST_STORE_SERVER, pConfig->MysqlConfig.MysqlDbName);
 
     BindServer();
 

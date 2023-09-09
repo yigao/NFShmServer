@@ -75,7 +75,6 @@ void NFKernelPlugin::Install()
 	REGISTER_MODULE(m_pObjPluginManager, NFIAsyDBModule, NFCAsyDBModule);
     REGISTER_MODULE(m_pObjPluginManager, NFIAsyNosqlModule, NFCAsyNosqlModule);
 	REGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
-    REGISTER_MODULE(m_pObjPluginManager, NFINamingModule, NFCNamingModule);
 }
 
 void NFKernelPlugin::Uninstall()
@@ -86,7 +85,6 @@ void NFKernelPlugin::Uninstall()
     UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyNosqlModule, NFCAsyNosqlModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFINoSqlModule, NFCNoSqlModule);
 	UNREGISTER_MODULE(m_pObjPluginManager, NFITaskModule, NFCTaskModule);
-    UNREGISTER_MODULE(m_pObjPluginManager, NFINamingModule, NFCNamingModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIMonitorModule, NFCMonitorModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIConsoleModule, NFCConsoleModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIKernelModule, NFCKernelModule);

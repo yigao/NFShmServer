@@ -14,7 +14,6 @@
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFServerComm/NFServerMessage/proto_svr_msg.pb.h"
@@ -33,8 +32,6 @@ NFCProxyServerModule::~NFCProxyServerModule()
 
 bool NFCProxyServerModule::Awake()
 {
-    FindModule<NFINamingModule>()->InitAppInfo(NF_ST_PROXY_SERVER);
-
     FindModule<NFIMessageModule>()->AddMessageCallBack(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_REGISTER, this,
                                                        &NFCProxyServerModule::OnHandleServerRegisterFromProxyAgentServer);
 

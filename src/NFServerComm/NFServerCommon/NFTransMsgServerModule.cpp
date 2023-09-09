@@ -11,7 +11,6 @@
 #include "NFServerCommonDefine.h"
 #include "NFIServerMessageModule.h"
 #include "NFComm/NFPluginModule/NFIMonitorModule.h"
-#include "NFComm/NFPluginModule/NFINamingModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
 #define SERVER_CONNECT_MASTER_SERVER "Server Connect MasterServer"
@@ -46,8 +45,8 @@ int NFTransMsgServerModule::BindServer()
     //注册要完成的服务器启动任务
     if (m_connectMasterServer)
     {
-        m_pObjPluginManager->RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
-                                             NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER));
+        RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
+                                             NF_FORMAT("{}_{}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     uint64_t serverLinkId = FindModule<NFIMessageModule>()->BindServer(m_serverType, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
@@ -115,13 +114,13 @@ int NFTransMsgServerModule::ConnectMasterServer()
     CHECK_EXPR_ASSERT(pConfig, -1, "GetAppConfig Failed, server type:{}", m_serverType);
 
 #if NF_PLATFORM == NF_PLATFORM_WIN
-    proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(m_serverType);
+    proto_ff::ServerInfoReport masterData = FindModule<NFIConfigModule>()->GetDefaultMasterInfo(m_serverType);
     int32_t ret = ConnectMasterServer(masterData);
     CHECK_EXPR(ret == 0, false, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
 #else
     if (pConfig->RouteConfig.NamingHost.empty())
     {
-        proto_ff::ServerInfoReport masterData = FindModule<NFINamingModule>()->GetDefaultMasterInfo(m_serverType);
+        proto_ff::ServerInfoReport masterData = FindModule<NFIConfigModule>()->GetDefaultMasterInfo(m_serverType);
         int32_t ret = ConnectMasterServer(masterData);
         CHECK_EXPR(ret == 0, -1, "ConnectMasterServer Failed, url:{}", masterData.DebugString());
     }
@@ -235,7 +234,7 @@ int NFTransMsgServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLink
         //完成服务器启动任务
         if (!m_pObjPluginManager->IsInited(m_serverType))
         {
-            m_pObjPluginManager->FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER);
+            FinishAppTask(m_serverType, APP_INIT_CONNECT_MASTER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
         }
     }
     else if (nEvent == eMsgType_DISCONNECTED)

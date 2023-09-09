@@ -1181,14 +1181,14 @@ void NFCPluginManager::SetIsInited(bool b)
 	m_isInited = b; 
 }
 
-int NFCPluginManager::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string& desc, uint32_t initStatus)
+int NFCPluginManager::RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string& desc, uint32_t taskGroup)
 {
-	return m_appInited.RegisterAppTask(eServerType, taskType, desc, initStatus);
+	return m_appInited.RegisterAppTask(eServerType, taskType, desc, taskGroup);
 }
 
-int NFCPluginManager::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, uint32_t initStatus)
+int NFCPluginManager::FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, uint32_t taskGroup)
 {
-	return m_appInited.FinishAppTask(eServerType, taskType, initStatus);
+	return m_appInited.FinishAppTask(eServerType, taskType, taskGroup);
 }
 
 int NFCPluginManager::SendDumpInfo(const std::string& dumpInfo)
