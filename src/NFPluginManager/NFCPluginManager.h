@@ -225,12 +225,14 @@ public:
     virtual void SetIsInited(bool b) override;
 
     virtual int RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc,
-                                uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT) override;
+                                uint32_t initStatus = APP_INIT_TASK_GROUP_SERVER_CONNECT) override;
 
     virtual int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType,
-                              uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT) override;
+                              uint32_t initStatus = APP_INIT_TASK_GROUP_SERVER_CONNECT) override;
 
-    virtual bool IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t initStatus) const override;
+    virtual bool IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const override;
+
+    virtual bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const override;
 
     virtual int SendDumpInfo(const std::string &dmpInfo) override;
 

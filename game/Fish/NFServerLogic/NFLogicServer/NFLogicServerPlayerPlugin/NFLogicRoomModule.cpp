@@ -9,7 +9,7 @@
 
 #include "NFLogicRoomModule.h"
 
-NFLogicRoomModule::NFLogicRoomModule(NFIPluginManager* p):NFFishDynamicModule(p)
+NFLogicRoomModule::NFLogicRoomModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
 
 }
@@ -20,7 +20,15 @@ NFLogicRoomModule::~NFLogicRoomModule()
 
 bool NFLogicRoomModule::Awake()
 {
+    m_pObjPluginManager->RegisterAppTask(NF_ST_LOGIC_SERVER, APP_INIT_DESC_STORE_LOAD, "LogicServer Load Desc Store",
+                                         APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
     return true;
+}
+
+int
+NFLogicRoomModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
+{
+    return 0;
 }
 
 bool NFLogicRoomModule::Execute()

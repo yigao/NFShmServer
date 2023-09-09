@@ -31,15 +31,21 @@ bool NFCGamePlayerModule::Awake()
 
     m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_WORLD_SERVER,
                                          NF_FORMAT("{} {}", pConfig->ServerName, GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER),
-                                         APP_INIT_STATUS_SERVER_REGISTER);
+                                         APP_INIT_TASK_GROUP_SERVER_REGISTER);
+
+    m_pObjPluginManager->RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_DESC_STORE_LOAD, "GameServer Load Desc Store",
+                                         APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
 
     ///////////////////////////////msg////////////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_LTG_PLAYER_RECONNECT_MSG_REQ>(NF_ST_GAME_SERVER, this, &NFCGamePlayerModule::OnHandlePlayerReconnectReq);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_LTG_PLAYER_RECONNECT_MSG_REQ>(NF_ST_GAME_SERVER, this,
+                                                                                             &NFCGamePlayerModule::OnHandlePlayerReconnectReq);
     RegisterServerMessage(NF_ST_GAME_SERVER, proto_ff::NF_WTG_PLAYER_DISCONNECT_MSG);
     ///////////////////////////////msg////////////////////////////////////////////
 
-    Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
-    Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE,
+              APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE, __FUNCTION__);
+    Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE,
+              APP_INIT_TASK_GROUP_SERVER_CONNECT, __FUNCTION__);
     return true;
 }
 
@@ -91,16 +97,17 @@ int NFCGamePlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &pa
 int
 NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
 {
-    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
+    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE && nEventID == proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH)
     {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE)
+        if (nSrcID == APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE)
         {
             NFGameRoomMgr::Instance(m_pObjPluginManager)->CreateAllRoom();
         }
 
-        if (nEventID == proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE || nEventID == proto_ff::NF_EVENT_SERVER_CONNECT_TASK_FINISH)
+        if (nSrcID == APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE || nSrcID == APP_INIT_TASK_GROUP_SERVER_CONNECT)
         {
-            if (m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_STATUS_SERVER_CONNECT) && m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_STATUS_SERVER_LOAD_DESC_STORE))
+            if (m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT) &&
+                m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE))
             {
                 NFGameRoomMgr::Instance(m_pObjPluginManager)->RegisterAllRoomToWorldServer();
             }
@@ -109,11 +116,13 @@ NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t 
     return 0;
 }
 
-int NFCGamePlayerModule::OnHandlePlayerReconnectReq(proto_ff::LTGPlayerReconnectReq& request, proto_ff::GTLPlayerReconnectRsp& respone, uint64_t playerId, uint64_t param2)
+int
+NFCGamePlayerModule::OnHandlePlayerReconnectReq(proto_ff::LTGPlayerReconnectReq &request, proto_ff::GTLPlayerReconnectRsp &respone, uint64_t playerId,
+                                                uint64_t param2)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
 
-    NFGamePlayer* pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
     CHECK_NULL(pPlayer);
 
     //如果是上面重新Create的Player， 成员m_gameId/m_roomId/m_deskId/m_chairId还有用吗？这里也没有赋值!!!
@@ -148,7 +157,7 @@ int NFCGamePlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPacka
     proto_ff::NotifyPlayerDisconnect xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
 
-    NFGamePlayer* pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(xMsg.player_id());
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(xMsg.player_id());
     CHECK_NULL(pPlayer);
 
     pPlayer->m_proxyId = 0;
@@ -156,7 +165,8 @@ int NFCGamePlayerModule::OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPacka
     pPlayer->SetOfflineTime(NFTime::Now().UnixSec());
 
     NFGameRoom *pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
-    if (pRoom) {
+    if (pRoom)
+    {
         pRoom->UserDisconnect(pPlayer->m_playerId, pPlayer->m_deskId);
     }
 

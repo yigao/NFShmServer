@@ -36,8 +36,17 @@ bool NFCSnsPlayerModule::Awake()
     RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_DISCONNECT_MSG);
     RegisterServerMessage(NF_ST_SNS_SERVER, proto_ff::NF_WTS_PLAYER_LOGOUT_NOTIFY);
 
+    m_pObjPluginManager->RegisterAppTask(NF_ST_SNS_SERVER, APP_INIT_DESC_STORE_LOAD, "SnsServer Load Desc Store", APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
+
+
     ///////////logic msg//////////////////////////////////////////////////////////
     return true;
+}
+
+int
+NFCSnsPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
+{
+    return 0;
 }
 
 bool NFCSnsPlayerModule::Init()
@@ -62,20 +71,6 @@ int NFCSnsPlayerModule::OnTimer(uint32_t nTimerID)
         NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(10000);
     });
 
-    return 0;
-}
-
-int NFCSnsPlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
-{
-    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
-    {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE)
-        {
-        }
-        else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
-        {
-        }
-    }
     return 0;
 }
 

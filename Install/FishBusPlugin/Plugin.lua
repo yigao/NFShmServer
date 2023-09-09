@@ -49,7 +49,7 @@ LoadPlugin =
 			"NFWorldServerPlugin",
 			"NFSnsServerPlugin",
 			"NFLogicServerPlugin",
-			--"NFWebServerPlugin",
+			"NFWebServerPlugin",
 
 			--"NFMonitorServerPlugin",
 		};

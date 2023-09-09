@@ -27,37 +27,46 @@ public:
     std::string m_desc;
 };
 
+class NFCAppInitTaskGroup
+{
+public:
+    NFCAppInitTaskGroup()
+    {
+        m_finishAllFlag = false;
+    }
+    std::vector<NFCAppInitTask> m_taskList;
+    bool m_finishAllFlag;
+};
+
+class NFCServerAppInitTaskGroup
+{
+public:
+    NFCServerAppInitTaskGroup()
+    {
+        m_taskGroupList.resize(APP_INIT_MAX_TASK_GROUP);
+        m_isInited = false;
+    }
+    std::vector<NFCAppInitTaskGroup> m_taskGroupList;
+    bool m_isInited;
+};
+
 class NFCAppInited : public NFObject
 {
 public:
-    NFCAppInited(NFIPluginManager *pPluginManager) : NFObject(pPluginManager), m_initServerConnectTasks(false), m_initDestStoreTasks(false),
-                                                     m_initOBjLoadForomDBTasks(false), m_initServerRegisterTasks(false)
+    NFCAppInited(NFIPluginManager *pPluginManager) : NFObject(pPluginManager)
     {
-        m_serverConnectTasks.resize(NF_ST_MAX);
-        for(int i = 0; i < (int)m_serverConnectTasks.size(); i++)
+        m_serverTaskGroup.resize(NF_ST_MAX);
+        m_serverTaskGroup[NF_ST_NONE].m_isInited = true;
+        for(int i = 0; i < (int)m_serverTaskGroup[NF_ST_NONE].m_taskGroupList.size(); i++)
         {
-            m_serverConnectTasks[i].first = false;
+            m_serverTaskGroup[NF_ST_NONE].m_taskGroupList[i].m_finishAllFlag = true;
         }
-        m_serverLoadDestStore.resize(NF_ST_MAX);
-        for(int i = 0; i < (int)m_serverLoadDestStore.size(); i++)
+        m_taskGroupFlag.resize(APP_INIT_MAX_TASK_GROUP);
+        for(int i = 0; i < (int)m_taskGroupFlag.size(); i++)
         {
-            m_serverLoadDestStore[i].first = false;
+            m_taskGroupFlag[i] = false;
         }
-        m_appObjLoadFromDBTask.resize(NF_ST_MAX);
-        for(int i = 0; i < (int)m_appObjLoadFromDBTask.size(); i++)
-        {
-            m_appObjLoadFromDBTask[i].first = false;
-        }
-        m_serverRegisterTask.resize(NF_ST_MAX);
-        for(int i = 0; i < (int)m_serverRegisterTask.size(); i++)
-        {
-            m_serverRegisterTask[i].first = false;
-        }
-        m_initedFlag.resize(NF_ST_MAX);
-        for (int i = 0; i < (int) m_initedFlag.size(); i++)
-        {
-            m_initedFlag[i] = false;
-        }
+
         m_lastTime = NFGetSecondTime();
     }
 
@@ -69,9 +78,9 @@ public:
     int Execute();
 
     int
-    RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc, uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT);
+    RegisterAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, const std::string &desc, uint32_t taskGroup = APP_INIT_TASK_GROUP_SERVER_CONNECT);
 
-    int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, uint32_t initStatus = APP_INIT_STATUS_SERVER_CONNECT);
+    int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType, uint32_t taskGroup = APP_INIT_TASK_GROUP_SERVER_CONNECT);
 
     int CheckTaskFinished();
 
@@ -81,16 +90,11 @@ public:
 
     bool IsInited(NF_SERVER_TYPES eServerType) const;
 
-    bool IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t initStatus) const;
+    bool IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const;
+
+    bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const;
 private:
-    std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_serverConnectTasks;
-    std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_serverLoadDestStore;
-    std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_appObjLoadFromDBTask;
-    std::vector<std::pair<bool, std::vector<NFCAppInitTask>>> m_serverRegisterTask;
-    std::vector<bool> m_initedFlag;
-    bool m_initServerConnectTasks;
-    bool m_initDestStoreTasks;
-    bool m_initOBjLoadForomDBTasks;
-    bool m_initServerRegisterTasks;
+    std::vector<NFCServerAppInitTaskGroup> m_serverTaskGroup;
+    std::vector<bool> m_taskGroupFlag;
     uint64_t m_lastTime;
 };

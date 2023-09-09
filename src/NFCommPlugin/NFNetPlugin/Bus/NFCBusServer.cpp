@@ -206,7 +206,7 @@ void NFCBusServer::ProcessMsgLogicThread()
         }
 
         mxBuffer.Clear();
-        bool inited = m_pObjPluginManager->IsFinishAppTask(mServerType, APP_INIT_STATUS_SERVER_CONNECT);
+        bool inited = m_pObjPluginManager->IsFinishAppTask(mServerType, APP_INIT_TASK_GROUP_SERVER_CONNECT);
         while(left_times-- > 0 && inited)
         {
             size_t recv_len = 0;

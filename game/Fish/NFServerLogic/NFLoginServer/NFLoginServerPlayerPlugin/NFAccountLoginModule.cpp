@@ -10,31 +10,44 @@
 #include "NFAccountLoginModule.h"
 #include "NFAccountLoginMgr.h"
 
-NFCAccountLoginModule::NFCAccountLoginModule(NFIPluginManager *p) : NFFishDynamicModule(p) {
+NFCAccountLoginModule::NFCAccountLoginModule(NFIPluginManager *p) : NFFishDynamicModule(p)
+{
 }
 
-NFCAccountLoginModule::~NFCAccountLoginModule() {
+NFCAccountLoginModule::~NFCAccountLoginModule()
+{
 }
 
 bool NFCAccountLoginModule::Awake()
 {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////来自客户端的协议////////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_AccountLoginReq>(NF_ST_LOGIN_SERVER, this, &NFCAccountLoginModule::OnRpcServiceAccountLogin, true);
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_RegisterAccountReq>(NF_ST_LOGIN_SERVER, this, &NFCAccountLoginModule::OnRpcServiceRegisterAccount, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_AccountLoginReq>(NF_ST_LOGIN_SERVER, this,
+                                                                                       &NFCAccountLoginModule::OnRpcServiceAccountLogin, true);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_RegisterAccountReq>(NF_ST_LOGIN_SERVER, this,
+                                                                                          &NFCAccountLoginModule::OnRpcServiceRegisterAccount, true);
+    m_pObjPluginManager->RegisterAppTask(NF_ST_LOGIN_SERVER, APP_INIT_DESC_STORE_LOAD, "LoginServer Load Desc Store",
+                                         APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
 
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
-	return true;
+    return true;
 }
 
-bool NFCAccountLoginModule::Execute() {
+int
+NFCAccountLoginModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
+{
+    return 0;
+}
+
+bool NFCAccountLoginModule::Execute()
+{
     return true;
 }
 
 bool NFCAccountLoginModule::OnDynamicPlugin()
 {
-	return true;
+    return true;
 }
 
 int NFCAccountLoginModule::OnTimer(uint32_t nTimerID)
@@ -93,14 +106,15 @@ int NFCAccountLoginModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackag
     return 0;
 }
 
-int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLoginReq& request, proto_ff::Proto_SCAccountLoginRsp& respone)
+int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLoginReq &request, proto_ff::Proto_SCAccountLoginRsp &respone)
 {
     proto_ff::tbFishAccountTable selectobj;
-    NFAccountLogin* pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->FindAccount(request.account());
+    NFAccountLogin *pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->FindAccount(request.account());
     if (pLogin == NULL)
     {
         selectobj.set_account(request.account());
-        int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()), selectobj);
+        int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()),
+                                                                                selectobj);
         if (iRet != 0)
         {
             if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
@@ -116,7 +130,8 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
 
                     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Ready Create Account InTo Mysql:{}", insertObj.DebugString());
 
-                    iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()), insertObj);
+                    iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_LOGIN_SERVER,
+                                                                                        std::hash<std::string>()(request.account()), insertObj);
                     if (iRet != 0)
                     {
                         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Failed, iRet:{}", request.account(), GetErrorStr(iRet));
@@ -124,15 +139,19 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
                         return 0;
                     }
 
-                    iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()), selectobj);
+                    iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIN_SERVER,
+                                                                                        std::hash<std::string>()(request.account()), selectobj);
                     if (iRet != 0)
                     {
-                        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Success, But Select Account Failed, iRet:{}", request.account(), GetErrorStr(iRet));
+                        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Success, But Select Account Failed, iRet:{}", request.account(),
+                                  GetErrorStr(iRet));
                         respone.set_result(iRet);
                         return 0;
                     }
 
-                    pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->CreateAccount(selectobj.account(), selectobj.password(), selectobj.player_id(), selectobj.account_type(), selectobj.device_id(), selectobj.phonenum());
+                    pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->CreateAccount(selectobj.account(), selectobj.password(),
+                                                                                             selectobj.player_id(), selectobj.account_type(),
+                                                                                             selectobj.device_id(), selectobj.phonenum());
                     if (pLogin == NULL)
                     {
                         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFAccountLoginMgr CreateAccount:{} Failed", request.account());
@@ -147,14 +166,18 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
                     return 0;
                 }
             }
-            else {
+            else
+            {
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Select Account:{} Failed, iRet:{}", request.account(), GetErrorStr(iRet));
                 respone.set_result(iRet);
                 return 0;
             }
         }
-        else {
-            pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->CreateAccount(selectobj.account(), selectobj.password(), selectobj.player_id(), selectobj.account_type(), selectobj.device_id(), selectobj.phonenum());
+        else
+        {
+            pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->CreateAccount(selectobj.account(), selectobj.password(), selectobj.player_id(),
+                                                                                     selectobj.account_type(), selectobj.device_id(),
+                                                                                     selectobj.phonenum());
             if (pLogin == NULL)
             {
                 NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFAccountLoginMgr CreateAccount:{} Failed", request.account());
@@ -180,13 +203,14 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
     respone.set_login_time(pLogin->mLastLoginTime);
     respone.set_token(NFLogicCommon::GetLoginToken(pLogin->mAccount.GetString(), pLogin->mPlayerId, pLogin->mLastLoginTime, FISH_LOGIN_TOKEN));
 
-    std::vector<NF_SHARE_PTR<NFServerData>> pServerList = FindModule<NFIMessageModule>()->GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
-    for(int i = 0; i < (int)pServerList.size(); i++)
+    std::vector<NF_SHARE_PTR<NFServerData>> pServerList = FindModule<NFIMessageModule>()->GetServerByServerType(NF_ST_LOGIN_SERVER,
+                                                                                                                NF_ST_PROXY_SERVER);
+    for (int i = 0; i < (int) pServerList.size(); i++)
     {
         NF_SHARE_PTR<NFServerData> pServer = pServerList[i];
         if (pServer)
         {
-            proto_ff::Proto_CSServerIP* pIp = respone.add_server_ip_list();
+            proto_ff::Proto_CSServerIP *pIp = respone.add_server_ip_list();
             pIp->set_ip(pServer->mServerInfo.external_server_ip());
             pIp->set_port(pServer->mServerInfo.external_server_port());
         }
@@ -195,9 +219,9 @@ int NFCAccountLoginModule::OnRpcServiceAccountLogin(proto_ff::Proto_CSAccountLog
     return 0;
 }
 
-int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegisterAccountReq& request, proto_ff::Proto_SCRegisterAccountRsp& respone)
+int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegisterAccountReq &request, proto_ff::Proto_SCRegisterAccountRsp &respone)
 {
-    NFAccountLogin* pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->FindAccount(request.account());
+    NFAccountLogin *pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->FindAccount(request.account());
     if (pLogin == NULL)
     {
         proto_ff::tbFishAccountTable insertObj;
@@ -209,7 +233,8 @@ int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegiste
 
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Ready Create Account InTo Mysql:{}", insertObj.DebugString());
 
-        int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()), insertObj);
+        int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()),
+                                                                                insertObj);
         if (iRet != 0)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Failed, iRet:{}", request.account(), GetErrorStr(iRet));
@@ -219,7 +244,8 @@ int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegiste
 
         proto_ff::tbFishAccountTable selectobj;
         selectobj.set_account(request.account());
-        iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()), selectobj);
+        iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIN_SERVER, std::hash<std::string>()(request.account()),
+                                                                            selectobj);
         if (iRet != 0)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Insert Account:{} Success, But Select Account Failed, iRet:{}", request.account(), GetErrorStr(iRet));
@@ -227,7 +253,9 @@ int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegiste
             return 0;
         }
 
-        pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->CreateAccount(selectobj.account(), selectobj.password(), selectobj.player_id(), selectobj.account_type(), selectobj.device_id(), selectobj.phonenum());
+        pLogin = NFAccountLoginMgr::Instance(m_pObjPluginManager)->CreateAccount(selectobj.account(), selectobj.password(), selectobj.player_id(),
+                                                                                 selectobj.account_type(), selectobj.device_id(),
+                                                                                 selectobj.phonenum());
         if (pLogin == NULL)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFAccountLoginMgr CreateAccount:{} Failed", request.account());
@@ -235,7 +263,8 @@ int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegiste
             return 0;
         }
     }
-    else {
+    else
+    {
         respone.set_result(proto_ff::ERR_CODE_ACCOUNT_ALREADY_EXIST_NO_RESITER);
         return 0;
     }
@@ -247,13 +276,14 @@ int NFCAccountLoginModule::OnRpcServiceRegisterAccount(proto_ff::Proto_CSRegiste
     respone.set_login_time(pLogin->mLastLoginTime);
     respone.set_token(NFLogicCommon::GetLoginToken(pLogin->mAccount.GetString(), pLogin->mPlayerId, pLogin->mLastLoginTime, FISH_LOGIN_TOKEN));
 
-    std::vector<NF_SHARE_PTR<NFServerData>> pServerList = FindModule<NFIMessageModule>()->GetServerByServerType(NF_ST_LOGIN_SERVER, NF_ST_PROXY_SERVER);
-    for(int i = 0; i < (int)pServerList.size(); i++)
+    std::vector<NF_SHARE_PTR<NFServerData>> pServerList = FindModule<NFIMessageModule>()->GetServerByServerType(NF_ST_LOGIN_SERVER,
+                                                                                                                NF_ST_PROXY_SERVER);
+    for (int i = 0; i < (int) pServerList.size(); i++)
     {
         NF_SHARE_PTR<NFServerData> pServer = pServerList[i];
         if (pServer)
         {
-            proto_ff::Proto_CSServerIP* pIp = respone.add_server_ip_list();
+            proto_ff::Proto_CSServerIP *pIp = respone.add_server_ip_list();
             pIp->set_ip(pServer->mServerInfo.external_server_ip());
             pIp->set_port(pServer->mServerInfo.external_server_port());
         }

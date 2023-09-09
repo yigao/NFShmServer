@@ -36,7 +36,11 @@ bool NFWorldRoomModule::Awake()
 
     RegisterServerMessage(NF_ST_WORLD_SERVER, proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME);
 
-    Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE, proto_ff::NF_EVENT_SERVER_TYPE, 0, __FUNCTION__);
+    Subscribe(NF_ST_WORLD_SERVER, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE,
+              APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE, __FUNCTION__);
+
+    m_pObjPluginManager->RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_DESC_STORE_LOAD, "WorldServer Load Desc Store",
+                                         APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
     return true;
 }
 
@@ -53,9 +57,9 @@ bool NFWorldRoomModule::OnDynamicPlugin()
 int
 NFWorldRoomModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message *pMessage)
 {
-    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE)
+    if (bySrcType == proto_ff::NF_EVENT_SERVER_TYPE && nEventID == proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH)
     {
-        if (nEventID == proto_ff::NF_EVENT_SERVER_LOAD_DESC_STORE)
+        if (nSrcID == APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE)
         {
             NFWorldRoomMgr::Instance(m_pObjPluginManager)->CreateRoom();
         }
@@ -245,12 +249,15 @@ int NFWorldRoomModule::OnHandleDeskListReq(uint32_t msgId, NFDataPackage &packet
                 {
                     proto_ff::DeskListRsp rspMsg;
                     rspMsg.set_result(proto_ff::ERR_CODE_USER_IN_GAMEING);
-                    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(), proto_ff::NF_SC_MSG_DeskListRsp,
+                    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(),
+                                                                               proto_ff::NF_SC_MSG_DeskListRsp,
                                                                                rspMsg,
                                                                                pPlayerInfo->GetPlayerId());
                 }
-                else {
-                    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player exit old game:{} room:{} success", pPlayerInfo->m_gameId, pPlayerInfo->m_roomId)
+                else
+                {
+                    NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player exit old game:{} room:{} success", pPlayerInfo->m_gameId,
+                              pPlayerInfo->m_roomId)
 
                     pPlayerInfo->m_gameId = 0;
                     pPlayerInfo->m_roomId = 0;

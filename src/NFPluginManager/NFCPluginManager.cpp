@@ -1166,9 +1166,14 @@ bool NFCPluginManager::IsInited(NF_SERVER_TYPES eServerType) const
     return m_appInited.IsInited(eServerType);
 }
 
-bool NFCPluginManager::IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t initStatus) const
+bool NFCPluginManager::IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const
 {
-    return m_appInited.IsFinishAppTask(eServerType, initStatus);
+    return m_appInited.IsFinishAppTask(eServerType, taskGroup);
+}
+
+bool NFCPluginManager::IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const
+{
+    return m_appInited.IsHasAppTask(eServerType, taskGroup);
 }
 
 void NFCPluginManager::SetIsInited(bool b) 
