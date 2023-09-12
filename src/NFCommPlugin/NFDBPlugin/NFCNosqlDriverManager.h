@@ -8,7 +8,7 @@
 
 #pragma once
 
-#include "NFRedisDriver.h"
+#include "NFCommPlugin/NFDBPlugin/NFRedisDriver.h"
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFCore/NFMapEx.hpp"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"

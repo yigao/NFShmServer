@@ -61,16 +61,16 @@
 
 #endif
 
-#include <event2/bufferevent.h>
-#include <event2/buffer.h>
-#include <event2/listener.h>
-#include <event2/util.h>
-#include <event2/thread.h>
-#include <event2/event_compat.h>
-#include <event2/bufferevent_struct.h>
-#include <event2/event.h>
+#include "libevent/include/event2/bufferevent.h"
+#include "libevent/include/event2/buffer.h"
+#include "libevent/include/event2/listener.h"
+#include "libevent/include/event2/util.h"
+#include "libevent/include/event2/thread.h"
+#include "libevent/include/event2/event_compat.h"
+#include "libevent/include/event2/bufferevent_struct.h"
+#include "libevent/include/event2/event.h"
 
-#include <hiredis/hiredis.h>
+#include "common/hiredis/hiredis_linux/hiredis/hiredis.h"
 
 
 class NFRedisClientSocket

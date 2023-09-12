@@ -33,6 +33,7 @@ LoadPlugin =
 
 			"NFServerCommonPlugin",
 			"NFDescStorePlugin",
+			"NFDBPlugin",
 		};
 
 
@@ -227,6 +228,7 @@ LoadPlugin =
 			-----基础框架引擎-------------
 			"NFKernelPlugin",
 			"NFNetPlugin",
+			"NFDBPlugin",
 			"NFServerCommonPlugin",
 		};
 

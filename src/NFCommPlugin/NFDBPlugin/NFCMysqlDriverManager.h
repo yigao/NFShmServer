@@ -9,7 +9,7 @@
 #pragma once
 
 #include "NFCMysqlDriver.h"
-#include <NFComm/NFCore/NFMap.hpp>
+#include "NFComm/NFCore/NFMap.hpp"
 
 class NFCMysqlDriverManager
 {
