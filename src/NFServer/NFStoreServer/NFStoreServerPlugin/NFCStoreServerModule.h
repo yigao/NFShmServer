@@ -142,5 +142,6 @@ public:
      */
     int OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj& request, storesvr_sqldata::storesvr_delobj_res& respone);
 
-
+public:
+    bool m_useCache;
 };

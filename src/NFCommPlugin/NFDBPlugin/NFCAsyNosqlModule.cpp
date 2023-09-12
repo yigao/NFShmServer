@@ -317,19 +317,19 @@ public:
     int iRet;
 };
 
-class NFUpdateObjTask : public NFNosqlTask
+class NFDBUpdateObjTask : public NFNosqlTask
 {
 public:
-    NFUpdateObjTask(const std::string &serverId, const storesvr_sqldata::storesvr_updateobj &select, const UpdateObj_CB &cb) : NFNosqlTask(serverId)
+    NFDBUpdateObjTask(const std::string &serverId, const storesvr_sqldata::storesvr_updateobj &select, const UpdateObj_CB &cb) : NFNosqlTask(serverId)
     {
         m_balanceId = select.mod_key();
         mSelect = select;
         mCB = cb;
         iRet = 0;
-        m_taskName = GET_CLASS_NAME(NFUpdateObjTask) + std::string("_") + select.baseinfo().tbname();;
+        m_taskName = GET_CLASS_NAME(NFDBUpdateObjTask) + std::string("_") + select.baseinfo().tbname();;
     }
 
-    virtual ~NFUpdateObjTask()
+    virtual ~NFDBUpdateObjTask()
     {
 
     }
@@ -532,7 +532,7 @@ int NFCAsyNosqlModule::ModifyObj(const string &nServerID, const storesvr_sqldata
 int NFCAsyNosqlModule::UpdateObj(const string &nServerID, const storesvr_sqldata::storesvr_updateobj &select, const UpdateObj_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    NFUpdateObjTask *pTask = NF_NEW NFUpdateObjTask(nServerID, select, cb);
+    NFDBUpdateObjTask *pTask = NF_NEW NFDBUpdateObjTask(nServerID, select, cb);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");

@@ -70,7 +70,7 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-	virtual int SelectByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_sel &select,
+	virtual int SelectByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_sel &select, bool useCache,
 		const SelectByCond_CB& cb) override;
 
 	/**
@@ -91,7 +91,7 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-	virtual int DeleteByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_del &select,
+	virtual int DeleteByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_del &select, bool useCache,
 		const DeleteByCond_CB& cb) override;
 
 	/**
@@ -121,7 +121,7 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-    virtual int ModifyByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_mod &select,
+    virtual int ModifyByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_mod &select, bool useCache,
                           const ModifyByCond_CB& cb) override;
 
 	virtual int ModifyObj(const std::string& nServerID, const storesvr_sqldata::storesvr_modobj &select, bool useCache,
@@ -134,7 +134,7 @@ public:
 	 * @param  select_res 查询结果
 	 * @return int =0执行成功, != 0失败
 	 */
-    virtual int UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_update &select,
+    virtual int UpdateByCond(const std::string& nServerID, const storesvr_sqldata::storesvr_update &select, bool useCache,
                           const UpdateByCond_CB& cb) override;
 
 	virtual int UpdateObj(const std::string& nServerID, const storesvr_sqldata::storesvr_updateobj &select, bool useCache,

@@ -11,6 +11,7 @@
 #include "NFCNosqlModule.h"
 #include "NFCAsyDBModule.h"
 #include "NFCAsyNosqlModule.h"
+#include "NFCAsyMysqlModule.h"
 
 //
 //
@@ -50,11 +51,13 @@ void NFDBPlugin::Install()
     REGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
     REGISTER_MODULE(m_pObjPluginManager, NFINosqlModule, NFCNosqlModule);
     REGISTER_MODULE(m_pObjPluginManager, NFIAsyDBModule, NFCAsyDBModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
     REGISTER_MODULE(m_pObjPluginManager, NFIAsyNosqlModule, NFCAsyNosqlModule);
 }
 
 void NFDBPlugin::Uninstall()
 {
+    UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyDBModule, NFCAsyDBModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIMysqlModule, NFCMysqlModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyMysqlModule, NFCAsyMysqlModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFIAsyNosqlModule, NFCAsyNosqlModule);
