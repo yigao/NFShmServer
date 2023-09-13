@@ -113,12 +113,237 @@ bool NFRedisDriver::Execute()
     return true;
 }
 
+int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
+                          const std::unordered_set<std::string> &privateKeySet, std::unordered_set<std::string> &leftPrivateKeySet,
+                          ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &vecSelectRes)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string tableName = select.baseinfo().tbname();
+    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
+    std::string packageName = select.baseinfo().package_name();
+
+    bool bRet = SelectDB(NFREDIS_DB1);
+    if (!bRet)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, tableName);
+        return 1;
+    }
+
+    storesvr_sqldata::storesvr_sel_res *select_res = NULL;
+    if (vecSelectRes.size() == 0)
+    {
+        select_res = vecSelectRes.Add();
+        select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
+        select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+        select_res->set_is_lastbatch(false);
+    }
+    else {
+        select_res = vecSelectRes.Mutable(vecSelectRes.size() - 1);
+        if ((int)select_res->sel_records_size() >= (int)select.baseinfo().max_records())
+        {
+            select_res = vecSelectRes.Add();
+
+            select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
+            select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+            select_res->set_is_lastbatch(false);
+        }
+    }
+
+    std::string errmsg;
+    int count = 0;
+    for (auto iter = privateKeySet.begin(); iter != privateKeySet.end(); iter++)
+    {
+        std::string db_key = GetPrivateKeys(tableName, privateKey, *iter);
+        std::string value;
+        bRet = GetObj(packageName, className, db_key, value);
+        if (!bRet)
+        {
+            leftPrivateKeySet.insert(*iter);
+            continue;
+        }
+
+        if (value.empty())
+        {
+            leftPrivateKeySet.insert(*iter);
+            continue;
+        }
+
+        EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
+
+        select_res->add_sel_records(value);
+
+        count++;
+        select_res->set_row_count(count);
+
+        if ((int)select_res->sel_records_size() >= (int)select.baseinfo().max_records())
+        {
+            count = 0;
+            select_res = vecSelectRes.Add();
+
+            select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
+            select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+            select_res->set_is_lastbatch(false);
+        }
+    }
+
+    if (leftPrivateKeySet.empty())
+    {
+        select_res->set_is_lastbatch(true);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRedisDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, const std::string& privateKey,
+                 const std::unordered_set<std::string>& privateKeySet,
+                 storesvr_sqldata::storesvr_del_res &select_res)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string tableName = select.baseinfo().tbname();
+    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+
+    bool bRet = SelectDB(NFREDIS_DB1);
+    if (!bRet)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, tableName);
+        return 1;
+    }
+
+    for (auto iter = privateKeySet.begin(); iter != privateKeySet.end(); iter++)
+    {
+        std::string db_key = GetPrivateKeys(tableName, privateKey, *iter);
+        DEL(db_key);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRedisDriver::TransTableRowToMessage(const std::vector<std::string> &vecFields, const std::vector<std::string>& vecValues, const std::string &packageName, const std::string &className,
+                           google::protobuf::Message **pMessage)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin --");
+    CHECK_EXPR(vecFields.size() == vecValues.size(), -1, "TransTableRowToMessage Failed");
+
+    std::string proto_fullname;
+    if (packageName.empty())
+    {
+        proto_fullname = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
+    }
+    else
+    {
+        proto_fullname = packageName + "." + className;
+    }
+
+    //通过protobuf默认便利new出来一个新的proto_fullname变量
+    ::google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(proto_fullname);
+    CHECK_EXPR(pMessageObject, -1, "{} New Failed", proto_fullname);
+
+    if (pMessage)
+    {
+        *pMessage = pMessageObject;
+    }
+
+    std::map<std::string, std::string> mapResult;
+    for(int i = 0; i < (int)vecFields.size(); i++)
+    {
+        mapResult.emplace(vecFields[i], vecValues[i]);
+    }
+    NFProtobufCommon::GetDBMessageFromMapFields(mapResult, pMessageObject);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+bool NFRedisDriver::GetObj(const std::string& packageName, const std::string& className, const std::string& key, std::string& value)
+{
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
+    }
+    else
+    {
+        full_name = packageName + "." + className;
+    }
+
+    const google::protobuf::Descriptor *pDesc = NFProtobufCommon::Instance()->FindDynamicMessageTypeByName(full_name);
+    CHECK_EXPR(pDesc, -1, "NFProtobufCommon::FindDynamicMessageTypeByName:{} Failed", full_name);
+
+    std::vector<std::string> vecFields;
+    NFProtobufCommon::GetFieldsFromDesc(pDesc, vecFields, false, false);
+
+    std::vector<std::string> vecValues;
+    bool bRet = HMGET(key, vecFields, vecValues);
+    if (!bRet)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, className);
+        return false;
+    }
+
+    CHECK_EXPR(vecFields.size() == vecValues.size(), -1, "HMGET key:{} error", key);
+    google::protobuf::Message *pMessage = NULL;
+    int iRet = TransTableRowToMessage(vecFields, vecValues, packageName, className, &pMessage);
+    if (iRet == 0 && pMessage != NULL)
+    {
+        value = pMessage->SerializeAsString();
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
+    }
+    else
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, fields:{} values:{} className:{}", NFCommon::tostr(vecFields), NFCommon::tostr(vecValues), className);
+        return false;
+    }
+    if (pMessage != NULL)
+    {
+        NF_SAFE_DELETE(pMessage);
+    }
+
+    return true;
+}
+
+bool NFRedisDriver::SetObj(const std::string& packageName, const std::string& className, const std::string& key, const std::string& value)
+{
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
+    }
+    else
+    {
+        full_name = packageName + "." + className;
+    }
+
+    google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
+    CHECK_EXPR(pMessageObject, false, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(value), false, "ParsePartialFromString Failed:{}", full_name);
+
+    std::map<std::string, std::string> resultMap;
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, resultMap, false, false);
+    delete pMessageObject;
+
+    std::vector<string_pair> values(resultMap.begin(), resultMap.end());
+    bool bRet = HMSET(key, values);
+    if (!bRet)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, className);
+        return false;
+    }
+
+    return true;
+}
+
 int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
                              storesvr_sqldata::storesvr_selobj_res &select_res)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
+    std::string packageName = select.baseinfo().package_name();
 
     int iRet = 0;
     std::string field;
@@ -137,7 +362,7 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     select_res.mutable_sel_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
 
-    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
+    std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -146,7 +371,7 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     }
 
     std::string value;
-    bRet = GET(db_key, value);
+    bRet = GetObj(packageName, className, db_key, value);
     if (!bRet)
     {
         return 1;
@@ -159,36 +384,52 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
 
     EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
 
-    std::string packageName = select.baseinfo().package_name();
+    select_res.set_sel_record(value);
 
-    std::string full_name;
-    if (packageName.empty())
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRedisDriver::SaveObj(const std::string& packageName, const std::string& tableName, const std::string& clasname, const std::vector<std::string>& records)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+
+    int iRet = 0;
+    bool bRet = SelectDB(NFREDIS_DB1);
+    if (!bRet)
     {
-        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
-    }
-    else {
-        full_name = packageName + "." + tableName;
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{}", NFREDIS_DB1, tableName);
+        return -1;
     }
 
-    ::google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
-    CHECK_EXPR(pMessageObject, -1, "{} New Failed", full_name);
+    for(int i = 0; i < (int)records.size(); i++)
+    {
+        std::string field;
+        std::string fieldKey;
+        iRet = GetPrivateFields(packageName, clasname, records[i], field, fieldKey);
+        if (iRet > 0)
+        {
+            return iRet;
+        }
+        else if (iRet < 0)
+        {
+            CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
+        }
 
-    bRet = pMessageObject->ParsePartialFromString(value);
+        std::string errmsg;
+        std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
 
-    if (bRet && pMessageObject != NULL)
-    {
-        select_res.set_sel_record(pMessageObject->SerializeAsString());
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessageObject->Utf8DebugString());
+
+        bRet = SetObj(packageName, clasname, db_key, records[i]);
+        if (!bRet)
+        {
+            return -1;
+        }
+
+        EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
     }
-    else
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "ParsePartialFromString Failed, tableName:{}, key:{}",
-                   select.baseinfo().tbname(), db_key);
-    }
-    if (pMessageObject != NULL)
-    {
-        NF_SAFE_DELETE(pMessageObject);
-    }
+
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -199,6 +440,9 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_selobj &select,
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
+    std::string packageName = select.baseinfo().package_name();
 
     int iRet = 0;
     std::string field;
@@ -217,15 +461,15 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_selobj &select,
     select_res.mutable_sel_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
 
-    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
+    std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, tableName, select.mod_key());
         return -1;
     }
 
-    bRet = SET(db_key, select_res.sel_record());
+    bRet = SetObj(packageName, className, db_key, select_res.sel_record());
     if (!bRet)
     {
         return -1;
@@ -241,6 +485,9 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_modobj &select)
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
+    std::string packageName = select.baseinfo().package_name();
 
     int iRet = 0;
     std::string field;
@@ -255,15 +502,15 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_modobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
+    std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1,tableName, select.mod_key());
         return -1;
     }
 
-    bRet = SET(db_key, select.mod_record());
+    bRet = SetObj(packageName, className, db_key, select.mod_record());
     if (!bRet)
     {
         return -1;
@@ -279,6 +526,9 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_updateobj &select)
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
+    std::string packageName = select.baseinfo().package_name();
 
     int iRet = 0;
     std::string field;
@@ -293,15 +543,15 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_updateobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
+    std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, tableName, select.mod_key());
         return -1;
     }
 
-    bRet = SET(db_key, select.modins_record());
+    bRet = SetObj(tableName, className, db_key, select.modins_record());
     if (!bRet)
     {
         return -1;
@@ -317,6 +567,9 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_insertobj &select)
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
+    std::string packageName = select.baseinfo().package_name();
 
     int iRet = 0;
     std::string field;
@@ -331,15 +584,15 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_insertobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = GetPrivateKeys(select.baseinfo().tbname(), field, fieldKey);
+    std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, select.baseinfo().tbname(), select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, tableName, select.mod_key());
         return -1;
     }
 
-    bRet = SET(db_key, select.ins_record());
+    bRet = SetObj(packageName, className, db_key, select.ins_record());
     if (!bRet)
     {
         return -1;
@@ -350,25 +603,48 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_insertobj &select)
     return 0;
 }
 
-std::string NFRedisDriver::GetPrivateKeys(const std::string& dbname, const std::string& field, const std::string& fieldValue)
+std::string NFRedisDriver::GetPrivateKeys(const std::string &tbname, const std::string &field, const std::string &fieldValue)
 {
-    return dbname + "_" + field + "_" + fieldValue;
+    return tbname + "_" + field + "_" + fieldValue;
 }
 
-int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_selobj &select, std::string& field, std::string& fieldValue)
+int NFRedisDriver::GetPrivateFields(const std::string& packageName, const std::string& className, const std::string& record, std::string& field, std::string& fieldValue)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    std::string tableName = select.baseinfo().tbname();
-    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
+    }
+    else
+    {
+        full_name = packageName + "." + className;
+    }
+    google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
+    CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(record), -1, "ParsePartialFromString Failed:{}", full_name);
+
+    int iRet = NFProtobufCommon::GetPrivateFieldsFromMessage(*pMessageObject, field, fieldValue);
+    delete pMessageObject;
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return iRet;
+}
+
+int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_selobj &select, std::string &field, std::string &fieldValue)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "talbeName empty!");
     std::string packageName = select.baseinfo().package_name();
 
     std::string full_name;
     if (packageName.empty())
     {
-        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
     }
-    else {
-        full_name = packageName + "." + tableName;
+    else
+    {
+        full_name = packageName + "." + className;
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
@@ -399,7 +675,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -408,7 +684,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select)
     }
 
     std::string errmsg;
-    bRet = HDEL(db_key, fieldKey);
+    bRet = DEL(db_key);
     if (iRet == false)
     {
         return -1;
@@ -438,7 +714,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_insertobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -447,7 +723,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_insertobj &select)
     }
 
     std::string errmsg;
-    bRet = HDEL(db_key, fieldKey);
+    bRet = DEL(db_key);
     if (iRet == false)
     {
         return -1;
@@ -476,7 +752,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
         CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
     }
 
-    std::string db_key = select.baseinfo().tbname() + "_" + field;
+    std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -485,7 +761,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
     }
 
     std::string errmsg;
-    bRet = HDEL(db_key, fieldKey);
+    bRet = DEL(db_key);
     if (iRet == false)
     {
         return -1;
@@ -495,20 +771,21 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
     return 0;
 }
 
-int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_delobj &select, std::string& field, std::string& fieldValue)
+int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_delobj &select, std::string &field, std::string &fieldValue)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    std::string tableName = select.baseinfo().tbname();
-    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
     std::string packageName = select.baseinfo().package_name();
 
     std::string full_name;
     if (packageName.empty())
     {
-        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
     }
-    else {
-        full_name = packageName + "." + tableName;
+    else
+    {
+        full_name = packageName + "." + className;
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
@@ -520,20 +797,21 @@ int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_delobj &sel
     return iRet;
 }
 
-int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_insertobj &select, std::string& field, std::string& fieldValue)
+int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_insertobj &select, std::string &field, std::string &fieldValue)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    std::string tableName = select.baseinfo().tbname();
-    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
     std::string packageName = select.baseinfo().package_name();
 
     std::string full_name;
     if (packageName.empty())
     {
-        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
     }
-    else {
-        full_name = packageName + "." + tableName;
+    else
+    {
+        full_name = packageName + "." + className;
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
@@ -545,20 +823,21 @@ int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_insertobj &
     return iRet;
 }
 
-int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_modobj &select, std::string& field, std::string& fieldValue)
+int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_modobj &select, std::string &field, std::string &fieldValue)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    std::string tableName = select.baseinfo().tbname();
-    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
     std::string packageName = select.baseinfo().package_name();
 
     std::string full_name;
     if (packageName.empty())
     {
-        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
     }
-    else {
-        full_name = packageName + "." + tableName;
+    else
+    {
+        full_name = packageName + "." + className;
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
@@ -570,20 +849,21 @@ int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_modobj &sel
     return iRet;
 }
 
-int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_updateobj &select, std::string& field, std::string& fieldValue)
+int NFRedisDriver::GetPrivateFields(const storesvr_sqldata::storesvr_updateobj &select, std::string &field, std::string &fieldValue)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    std::string tableName = select.baseinfo().tbname();
-    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
     std::string packageName = select.baseinfo().package_name();
 
     std::string full_name;
     if (packageName.empty())
     {
-        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
     }
-    else {
-        full_name = packageName + "." + tableName;
+    else
+    {
+        full_name = packageName + "." + className;
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);

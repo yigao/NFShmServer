@@ -34,10 +34,10 @@ StoreServer = {
                   {TableName="tbFishSnsPlayerDetailData", TableCount=1, Cache = true},
              },
         },
-        --RedisConfig = {
-        --     RedisIp = NF_REDIS_IP,
-        --     RedisPort = NF_REDIS_PORT;
-        --},
+        RedisConfig = {
+             RedisIp = NF_REDIS_IP,
+             RedisPort = NF_REDIS_PORT;
+        },
         RouteConfig = {
              RouteAgent = NF_ROUTE_AGENT_ID,
              --NamingHost = NF_NAMING_HOST,

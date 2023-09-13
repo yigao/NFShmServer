@@ -83,7 +83,13 @@ public:
     GetMapFieldsFromMessage(const google::protobuf::Message &message, std::map<std::string, std::string> &mapFileds,
                             bool ignore_special_repeted = true, bool primary_ikey = false);
 
+    static void
+    GetFieldsFromDesc(const google::protobuf::Descriptor *pDesc, std::vector<std::string> &vecFields,
+                            bool ignore_special_repeted = true, bool primary_ikey = false);
+
     static int GetPrivateFieldsFromMessage(const google::protobuf::Message &message, std::string& field, std::string& fieldValue);
+
+    static int GetPrivateKeyFromMessage(const google::protobuf::Descriptor *pDesc, std::string& field);
 
     static void
     GetMapFieldsFromMessage(const google::protobuf::Message &message, std::map<std::string, std::string> &keyMap,

@@ -598,6 +598,90 @@ int NFProtobufCommon::GetMapFieldsStringFromMessage(const google::protobuf::Mess
     return 0;
 }
 
+void NFProtobufCommon::GetFieldsFromDesc(const google::protobuf::Descriptor *pDesc, std::vector<std::string> &vecFields,
+                  bool ignore_special_repeted, bool primary_ikey)
+{
+    for (int i = 0; i < pDesc->field_count(); i++)
+    {
+        const google::protobuf::FieldDescriptor *pFieldDesc = pDesc->field(i);
+        if (pFieldDesc == NULL) continue;
+        if (pFieldDesc->options().HasExtension(yd_fieldoptions::no_db_field)) continue;
+
+        if (primary_ikey)
+        {
+            if (pFieldDesc->is_repeated()) continue;
+            if (pFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) continue;
+
+            if (!pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_type))
+            {
+                continue;
+            }
+            if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) !=
+                ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_PRIMARYKEY)
+            {
+                continue;
+            }
+        }
+
+        //ignore special repeated
+        if (ignore_special_repeted)
+        {
+            if (pFieldDesc->is_repeated() == false)
+            {
+                vecFields.push_back(pFieldDesc->name());
+            }
+        }
+        else
+        { //handle special repeated
+            if (pFieldDesc->is_repeated())
+            {
+                if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+                {
+                    const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                    if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                    {
+                        ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                        for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
+                        {
+                            std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
+                            vecFields.push_back(field);
+                        }
+                    }
+                }
+                else
+                {
+                    const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                    if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                    {
+                        ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                        for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
+                        {
+                            const google::protobuf::Descriptor *pSubDesc = fieldoptions.GetDescriptor();
+                            if (pSubDesc == NULL) continue;
+
+                            for (int sub_i = 0; sub_i < pSubDesc->field_count(); sub_i++)
+                            {
+                                const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDesc->field(sub_i);
+                                if (pSubFieldDesc == NULL) continue;
+                                if (pSubFieldDesc->is_repeated()) continue;
+
+                                std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" +
+                                                    pSubFieldDesc->name();
+                                vecFields.push_back(field);
+                            }
+
+                        }
+                    }
+                }
+            }
+            else
+            {
+                vecFields.push_back(pFieldDesc->name());
+            }
+        }
+    }
+}
+
 void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &message,
                                                std::map<std::string, std::string> &mapFields,
                                                bool ignore_special_repeted, bool primary_ikey)
@@ -693,6 +777,31 @@ void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &
             }
         }
     }
+}
+
+int NFProtobufCommon::GetPrivateKeyFromMessage(const google::protobuf::Descriptor *pDesc, std::string& field)
+{
+    if (pDesc == NULL) return -1;
+
+    for (int i = 0; i < pDesc->field_count(); i++)
+    {
+        const google::protobuf::FieldDescriptor *pFieldDesc = pDesc->field(i);
+        if (pFieldDesc == NULL) continue;
+        if (!pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_type))
+        {
+            continue;
+        }
+        if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) !=
+            ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_PRIMARYKEY)
+        {
+            continue;
+        }
+
+        field = pFieldDesc->name();
+        return 0;
+    }
+
+    return 1;
 }
 
 int NFProtobufCommon::GetPrivateFieldsFromMessage(const google::protobuf::Message &message, std::string& field, std::string& fieldValue)

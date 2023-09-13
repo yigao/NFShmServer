@@ -196,7 +196,7 @@ public:
 class NFDBSelectByCondTask : public NFDBTask
 {
 public:
-    NFDBSelectByCondTask(const std::string &serverId, const storesvr_sqldata::storesvr_sel &select, const SelectByCond_CB &cb) : NFDBTask(serverId)
+    NFDBSelectByCondTask(const std::string &serverId, const storesvr_sqldata::storesvr_sel &select, const SelectByCond_CB &cb, bool useCache) : NFDBTask(serverId, useCache)
     {
         m_balanceId = 0;
         mSelect = select;
@@ -215,8 +215,49 @@ public:
     */
     bool ThreadProcess() override
     {
+        do {
+            if (m_useCache)
+            {
+                if (m_pNosqlDriver && m_pMysqlDriver)
+                {
+                    std::string privateKey;
+                    std::unordered_set<std::string> privateKeySet;
+                    iRet = m_pMysqlDriver->SelectByCond(mSelect, privateKey, privateKeySet);
+                    if (iRet != 0)
+                    {
+                        break;
+                    }
+
+                    std::unordered_set<std::string> leftPrivateKeySet;
+                    iRet = m_pNosqlDriver->SelectByCond(mSelect, privateKey, privateKeySet, leftPrivateKeySet, mSelectRes);
+                    if (iRet != 0)
+                    {
+                        break;
+                    }
+
+                    std::vector<std::string> records;
+                    iRet = m_pMysqlDriver->SelectByCond(mSelect, privateKey, leftPrivateKeySet, mSelectRes, records);
+                    if (iRet != 0)
+                    {
+                        break;
+                    }
+
+                    iRet = m_pNosqlDriver->SaveObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), records);
+                    if (iRet == 0)
+                    {
+                        return true;
+                    }
+                }
+                else {
+                    iRet = -1;
+                    return true;
+                }
+            }
+        } while(false);
+
         if (m_pMysqlDriver)
         {
+            mSelectRes.Clear();
             iRet = m_pMysqlDriver->SelectByCond(mSelect, mSelectRes);
         }
         else
@@ -327,7 +368,7 @@ public:
 class NFDBDeleteByCondTask : public NFDBTask
 {
 public:
-    NFDBDeleteByCondTask(const std::string &serverId, const storesvr_sqldata::storesvr_del &select, const DeleteByCond_CB &cb) : NFDBTask(serverId)
+    NFDBDeleteByCondTask(const std::string &serverId, const storesvr_sqldata::storesvr_del &select, const DeleteByCond_CB &cb, bool useCache) : NFDBTask(serverId, useCache)
     {
         m_balanceId = 0;
         mSelect = select;
@@ -346,6 +387,36 @@ public:
     */
     bool ThreadProcess() override
     {
+        if (m_useCache)
+        {
+            if (m_pNosqlDriver && m_pMysqlDriver)
+            {
+                std::string privateKey;
+                std::unordered_set<std::string> privateKeySet;
+                iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet);
+                if (iRet != 0)
+                {
+                    return true;
+                }
+
+                iRet = m_pNosqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
+                if (iRet <= 0)
+                {
+                    return true;
+                }
+
+                iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
+                if (iRet != 0)
+                {
+                    return true;
+                }
+            }
+            else {
+                iRet = -1;
+                return true;
+            }
+        }
+
         if (m_pMysqlDriver)
         {
             iRet = m_pMysqlDriver->DeleteByCond(mSelect, mSelectRes);
@@ -496,7 +567,7 @@ public:
 class NFDBModifyByCondTask : public NFDBTask
 {
 public:
-    NFDBModifyByCondTask(const std::string &serverId, const storesvr_sqldata::storesvr_mod &select, const ModifyByCond_CB &cb) : NFDBTask(serverId)
+    NFDBModifyByCondTask(const std::string &serverId, const storesvr_sqldata::storesvr_mod &select, const ModifyByCond_CB &cb, bool useCache) : NFDBTask(serverId, useCache)
     {
         m_balanceId = 0;
         mSelect = select;
@@ -515,6 +586,36 @@ public:
     */
     bool ThreadProcess() override
     {
+/*        if (m_useCache)
+        {
+            if (m_pNosqlDriver && m_pMysqlDriver)
+            {
+                std::string privateKey;
+                std::unordered_set<std::string> privateKeySet;
+                iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet);
+                if (iRet != 0)
+                {
+                    return true;
+                }
+
+                iRet = m_pNosqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
+                if (iRet <= 0)
+                {
+                    return true;
+                }
+
+                iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
+                if (iRet != 0)
+                {
+                    return true;
+                }
+            }
+            else {
+                iRet = -1;
+                return true;
+            }
+        }
+       */
         if (m_pMysqlDriver)
         {
             iRet = m_pMysqlDriver->ModifyByCond(mSelect, mSelectRes);
@@ -633,8 +734,8 @@ public:
 class NFDBUpdateByCondTask : public NFDBTask
 {
 public:
-    NFDBUpdateByCondTask(const std::string &serverId, const storesvr_sqldata::storesvr_update &select, const UpdateByCond_CB &cb) : NFDBTask(
-            serverId)
+    NFDBUpdateByCondTask(const std::string &serverId, const storesvr_sqldata::storesvr_update &select, const UpdateByCond_CB &cb, bool useCache) : NFDBTask(
+            serverId, useCache)
     {
         m_balanceId = 0;
         mSelect = select;
@@ -1038,7 +1139,7 @@ int NFCAsyDBModule::SelectByCond(const std::string &nServerID, const storesvr_sq
                                     const SelectByCond_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    NFDBSelectByCondTask *pTask = NF_NEW NFDBSelectByCondTask(nServerID, select, cb);
+    NFDBSelectByCondTask *pTask = NF_NEW NFDBSelectByCondTask(nServerID, select, cb, useCache);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -1062,7 +1163,7 @@ int NFCAsyDBModule::DeleteByCond(const std::string &nServerID, const storesvr_sq
                                     const DeleteByCond_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    NFDBDeleteByCondTask *pTask = NF_NEW NFDBDeleteByCondTask(nServerID, select, cb);
+    NFDBDeleteByCondTask *pTask = NF_NEW NFDBDeleteByCondTask(nServerID, select, cb, useCache);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -1097,7 +1198,7 @@ int NFCAsyDBModule::ModifyByCond(const std::string &nServerID, const storesvr_sq
                                     const ModifyByCond_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    NFDBModifyByCondTask *pTask = NF_NEW NFDBModifyByCondTask(nServerID, select, cb);
+    NFDBModifyByCondTask *pTask = NF_NEW NFDBModifyByCondTask(nServerID, select, cb, useCache);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -1119,7 +1220,7 @@ int NFCAsyDBModule::UpdateByCond(const std::string &nServerID, const storesvr_sq
                                     const UpdateByCond_CB &cb)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    NFDBUpdateByCondTask *pTask = NF_NEW NFDBUpdateByCondTask(nServerID, select, cb);
+    NFDBUpdateByCondTask *pTask = NF_NEW NFDBUpdateByCondTask(nServerID, select, cb, useCache);
     int iRet = AddTask(pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");

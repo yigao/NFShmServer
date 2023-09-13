@@ -92,7 +92,8 @@
 
 
 
-class NFCMysqlDriver {
+class NFCMysqlDriver
+{
 public:
     /**
      * @brief 构造函数
@@ -196,7 +197,7 @@ public:
      * @return int =0执行成功, != 0失败
      */
     int ExecuteMore(const storesvr_sqldata::storesvr_execute_more &select,
-                                    ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_execute_more_res> &vecSelectRes);
+                    ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_execute_more_res> &vecSelectRes);
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
@@ -214,7 +215,54 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    int SelectByCond(const storesvr_sqldata::storesvr_sel &select, ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &select_res);
+    int
+    SelectByCond(const storesvr_sqldata::storesvr_sel &select, ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &select_res);
+
+    /**
+     * @brief 获得表的唯一key
+     * @param tbName
+     * @param privateKey
+     * @return
+     */
+    int GetPrivateKey(const std::string packageName, const std::string &className, std::string &privateKey);
+
+    /**
+     * @brief 获得表的唯一key's sql
+     * @param select
+     * @param select_res
+     * @return
+     */
+    int GetPrivateKeySql(const storesvr_sqldata::storesvr_sel &select, std::string &privateKey, std::string &select_res);
+
+    /**
+     * @brief 通过select结构体， 从数据库获取获取到private key, 以及所有被选出数据的private key集合
+     * @param select
+     * @param privateKey
+     * @param privateKeySet
+     * @return
+     */
+    int SelectByCond(const storesvr_sqldata::storesvr_sel &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet);
+
+    /**
+     * @brief 通过select结构体， 从数据库获取获取到private key, 以及所有被选出数据的private key集合
+     * @param select
+     * @param privateKey
+     * @param privateKeySet
+     * @return
+     */
+    int SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
+                     const std::unordered_set<std::string> &leftPrivateKeySet,
+                     ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &select_res, std::vector<std::string>& records);
+
+    /**
+     * @brief 通过select结构体，生成sql语句
+     *
+     * @param  select 查询语句
+     * @param  selectSql 生成sql语句
+     * @return int =0执行成功, != 0失败
+     */
+    int CreateSql(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
+                  const std::unordered_set<std::string> &leftPrivateKeySet, std::string &select_res);
 
     /**
      * @brief 通过select结构体，生成sql语句
@@ -233,7 +281,7 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    int SelectObj(const std::string& tbName, google::protobuf::Message *pMessage, std::string& errMsg);
+    int SelectObj(const std::string &tbName, google::protobuf::Message *pMessage, std::string &errMsg);
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
@@ -264,6 +312,34 @@ public:
     int DeleteByCond(const storesvr_sqldata::storesvr_del &select, storesvr_sqldata::storesvr_del_res &select_res);
 
     /**
+     * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
+     *
+     * @param  select 查询语句
+     * @param  select_res 查询结果
+     * @return int =0执行成功, != 0失败
+     */
+    int DeleteByCond(const storesvr_sqldata::storesvr_del &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet);
+
+    /**
+     * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
+     *
+     * @param  select 查询语句
+     * @param  select_res 查询结果
+     * @return int =0执行成功, != 0失败
+     */
+    int
+    DeleteByCond(const storesvr_sqldata::storesvr_del &select, const std::string &privateKey, const std::unordered_set<std::string> &privateKeySet,
+                 storesvr_sqldata::storesvr_del_res &select_res);
+
+    /**
+     * @brief 获得表的唯一key's sql
+     * @param select
+     * @param select_res
+     * @return
+     */
+    int GetPrivateKeySql(const storesvr_sqldata::storesvr_del &select, std::string &privateKey, std::string &select_res);
+
+    /**
      * @brief 通过select结构体，生成sql语句
      *
      * @param  select 查询语句
@@ -271,7 +347,19 @@ public:
      * @return int =0执行成功, != 0失败
      */
     int CreateSql(const storesvr_sqldata::storesvr_del &select, std::string &select_res);
+
+    /**
+     * @brief 通过select结构体，生成sql语句
+     *
+     * @param  select 查询语句
+     * @param  selectSql 生成sql语句
+     * @return int =0执行成功, != 0失败
+     */
+    int CreateSql(const storesvr_sqldata::storesvr_del &select, const std::string &privateKey, const std::unordered_set<std::string> &privateKeySet,
+                  std::string &select_res);
+
     int CreateSql(const storesvr_sqldata::storesvr_mod &select, std::string &select_res);
+
     int CreateSql(const storesvr_sqldata::storesvr_update &select, std::string &select_res);
 
     /**
@@ -290,7 +378,7 @@ public:
      * @param  selectSql 生成sql语句
      * @return int =0执行成功, != 0失败
      */
-    int CreateSql(const storesvr_sqldata::storesvr_delobj &select,std::map<std::string, std::string>& keyMap);
+    int CreateSql(const storesvr_sqldata::storesvr_delobj &select, std::map<std::string, std::string> &keyMap);
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
@@ -300,7 +388,7 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    int InsertObj(const std::string& tbName, const google::protobuf::Message *pMessage, std::string& errMsg);
+    int InsertObj(const std::string &tbName, const google::protobuf::Message *pMessage, std::string &errMsg);
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
@@ -328,7 +416,7 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    int ModifyObj(const std::string& tbName, const google::protobuf::Message *pMessage, std::string& errMsg);
+    int ModifyObj(const std::string &tbName, const google::protobuf::Message *pMessage, std::string &errMsg);
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
@@ -338,6 +426,15 @@ public:
      * @return int =0执行成功, != 0失败
      */
     int ModifyByCond(const storesvr_sqldata::storesvr_mod &select, storesvr_sqldata::storesvr_mod_res &select_res);
+
+    /**
+     * @brief 获得表的唯一key's sql
+     * @param select
+     * @param select_res
+     * @return
+     */
+    int GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &select, std::string &privateKey, std::string &select_res);
+
     int ModifyObj(const storesvr_sqldata::storesvr_modobj &select, storesvr_sqldata::storesvr_modobj_res &select_res);
 
     /**
@@ -347,8 +444,12 @@ public:
      * @param  selectSql 生成sql语句
      * @return int =0执行成功, != 0失败
      */
-    int CreateSql(const storesvr_sqldata::storesvr_mod &select, std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap);
-    int CreateSql(const storesvr_sqldata::storesvr_update &select, std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap);
+    int CreateSql(const storesvr_sqldata::storesvr_mod &select, std::map<std::string, std::string> &keyMap,
+                  std::map<std::string, std::string> &kevValueMap);
+
+    int CreateSql(const storesvr_sqldata::storesvr_update &select, std::map<std::string, std::string> &keyMap,
+                  std::map<std::string, std::string> &kevValueMap);
+
     int CreateSql(const storesvr_sqldata::storesvr_modobj &select, std::map<std::string, std::string> &keyMap,
                   std::map<std::string, std::string> &kevValueMap);
 
@@ -360,7 +461,7 @@ public:
      * @param  select_res 查询结果
      * @return int =0执行成功, != 0失败
      */
-    int UpdateObj(const std::string& tbName, const google::protobuf::Message *pMessage, std::string& errMsg);
+    int UpdateObj(const std::string &tbName, const google::protobuf::Message *pMessage, std::string &errMsg);
 
     /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
@@ -370,6 +471,15 @@ public:
      * @return int =0执行成功, != 0失败
      */
     int UpdateByCond(const storesvr_sqldata::storesvr_update &select, storesvr_sqldata::storesvr_update_res &select_res);
+
+    /**
+     * @brief 获得表的唯一key's sql
+     * @param select
+     * @param select_res
+     * @return
+     */
+    int GetPrivateKeySql(const storesvr_sqldata::storesvr_update &select, std::string &privateKey, std::string &select_res);
+
     int UpdateObj(const storesvr_sqldata::storesvr_updateobj &select, storesvr_sqldata::storesvr_updateobj_res &select_res);
 
     /**
@@ -427,7 +537,7 @@ public:
      * @param  pMessage 转化后的mesage
      * @return int =0执行成功, != 0失败
      */
-    int TransTableRowToMessage(const std::map<std::string, std::string> &result, const std::string& packageName, const std::string &table,
+    int TransTableRowToMessage(const std::map<std::string, std::string> &result, const std::string &packageName, const std::string &className,
                                google::protobuf::Message **pMessage);
 
     /**
@@ -487,8 +597,9 @@ public:
      * @param  keyvalueMap		数据
      * @return bool				成功或失败
      */
-    int Modify(const std::string &strTableName, const std::string& where,
+    int Modify(const std::string &strTableName, const std::string &where,
                const std::map<std::string, std::string> &keyvalueMap, std::string &errormsg);
+
     int Modify(const std::string &strTableName, const std::map<std::string, std::string> &keyMap,
                const std::map<std::string, std::string> &keyvalueMap, std::string &errormsg);
 
@@ -554,7 +665,9 @@ public:
      * @return bool
      */
     int Delete(const std::string &strTableName, const std::string &strKeyColName, const std::string &strKey, std::string &errormsg);
+
     int Delete(const std::string &strTableName, const std::map<std::string, std::string> &keyMap, std::string &errormsg);
+
     int Delete(const std::string &sql, std::string &errormsg);
 
     /**
@@ -586,30 +699,30 @@ public:
      * @param dbName
      * @return
      */
-    int ExistsDB(const std::string& dbName, bool &bExit);
+    int ExistsDB(const std::string &dbName, bool &bExit);
 
     /**
      * @brief 创建数据库
      * @param dbName
      * @return
      */
-    int CreateDB(const std::string& dbName);
+    int CreateDB(const std::string &dbName);
 
     /**
      * @brief 选择数据库
      * @param dbName
      * @return
      */
-    int SelectDB(const std::string& dbName);
+    int SelectDB(const std::string &dbName);
 
-     /**
-      * @brief 是否存在表格
-      * @param dbName
-      * @param tableName
-      * @param bExit
-      * @return
-      */
-    int ExistTable(const std::string& dbName, const std::string& tableName, bool &bExit);
+    /**
+     * @brief 是否存在表格
+     * @param dbName
+     * @param tableName
+     * @param bExit
+     * @return
+     */
+    int ExistTable(const std::string &dbName, const std::string &tableName, bool &bExit);
 
     /**
      * @brief 获取表列信息
@@ -618,7 +731,7 @@ public:
      * @param col
      * @return
      */
-    int GetTableColInfo(const std::string& dbName, const std::string& tableName, std::map<std::string, DBTableColInfo>& col);
+    int GetTableColInfo(const std::string &dbName, const std::string &tableName, std::map<std::string, DBTableColInfo> &col);
 
     /**
      * @brief 查询表格信息
@@ -627,7 +740,8 @@ public:
      * @param needCreateColumn
      * @return
      */
-    int QueryTableInfo(const std::string& dbName, const std::string& tableName, bool &bExit, std::map<std::string, DBTableColInfo>& primaryKey, std::multimap<uint32_t, std::string>& needCreateColumn);
+    int QueryTableInfo(const std::string &dbName, const std::string &tableName, bool &bExit, std::map<std::string, DBTableColInfo> &primaryKey,
+                       std::multimap<uint32_t, std::string> &needCreateColumn);
 
     /**
      * @brief 创建table
@@ -637,7 +751,8 @@ public:
      * @param needCreateColumn
      * @return
      */
-    int CreateTable(const std::string& tableName, const std::map<std::string, DBTableColInfo>& primaryKey, const std::multimap<uint32_t, std::string>& needCreateColumn);
+    int CreateTable(const std::string &tableName, const std::map<std::string, DBTableColInfo> &primaryKey,
+                    const std::multimap<uint32_t, std::string> &needCreateColumn);
 
     /**
      * @brief 比较老的表列，看是否需要增加新的列
@@ -645,7 +760,8 @@ public:
      * @param needCreateColumn
      * @return
      */
-    int AddTableRow(const std::string& tableName, const std::multimap<uint32_t, std::string>& needCreateColumn);
+    int AddTableRow(const std::string &tableName, const std::multimap<uint32_t, std::string> &needCreateColumn);
+
 public:
     /**
      * @brief 是否需要重连
@@ -664,7 +780,8 @@ public:
     /**
      * @brief 不在链接
      */
-     int Disconnect();
+    int Disconnect();
+
 private:
     std::string mstrDBName;
     std::string mstrDBHost;

@@ -66,8 +66,18 @@ public:
 
 	bool IsConnect();
 public:
+    virtual int SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string& privateKey,
+                       const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
+                       ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res>& select_res);
+
+    virtual int DeleteByCond(const storesvr_sqldata::storesvr_del &select, const std::string& privateKey,
+                             const std::unordered_set<std::string>& privateKeySet,
+                             storesvr_sqldata::storesvr_del_res &select_res);
+public:
+
     virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res);
 
+    virtual int SaveObj(const std::string& packageName, const std::string& tbName, const std::string& clasname, const std::vector<std::string>& records);
     virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res);
     virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select);
     virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select);
@@ -77,12 +87,27 @@ public:
     virtual int DeleteObj(const storesvr_sqldata::storesvr_insertobj &select);
     virtual int DeleteObj(const storesvr_sqldata::storesvr_modobj &select);
 public:
-    std::string GetPrivateKeys(const std::string& dbname, const std::string& field, const std::string& fieldValue);
+    std::string GetPrivateKeys(const std::string& tbname, const std::string& field, const std::string& fieldValue);
     int GetPrivateFields(const storesvr_sqldata::storesvr_selobj &select, std::string& field, std::string& fieldValue);
+    int GetPrivateFields(const std::string& packageName, const std::string& className, const std::string& record, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_delobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_insertobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_modobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_updateobj &select, std::string& field, std::string& fieldValue);
+public:
+    bool SetObj(const std::string& packageName, const std::string& className, const std::string& key, const std::string& value);
+    bool GetObj(const std::string& packageName, const std::string& className, const std::string& key, std::string& value);
+
+    /**
+     * @brief 将result数据库中的一列数据转化存在message中
+     *
+     * @param  result数据库中的一列数据
+     * table  表名也是message在protobuf里的名字
+     * @param  pMessage 转化后的mesage
+     * @return int =0执行成功, != 0失败
+     */
+    int TransTableRowToMessage(const std::vector<std::string> &vecFields, const std::vector<std::string>& vecValues, const std::string &packageName, const std::string &className,
+                               google::protobuf::Message **pMessage);
 public:
 
 	/**
