@@ -28,22 +28,23 @@ public:
 	virtual bool Execute() override;
 
 	virtual bool InitActorPool(int maxActorNum) override;
-	/**
-	 * @brief 添加Mysql链接
-	 *
-	 * @param  nServerID			ID
-	 * @param  strIP				IP地址
-	 * @param  nPort				端口
-	 * @param  strDBName			数据库名字
-	 * @param  strDBUser			数据库用户名
-	 * @param  strDBPwd				数据库密码
-	 * @param  nRconnectTime		重连间隔
-	 * @param  nRconneCount			重连次数
-	 * @return bool					成功或失败
-	 */
-	virtual int AddDBServer(const std::string& nServerID, const std::string &strIP, int nPort, std::string strDBName,
-                            std::string strDBUser, std::string strDBPwd, const std::string& noSqlIp, int nosqlPort, const std::string& noSqlPass, int nRconnectTime = 10,
-                            int nRconneCount = -1) override;
+
+    /**
+     * @brief 添加Mysql链接
+     *
+     * @param  nServerID			ID
+     * @param  strIP				IP地址
+     * @param  nPort				端口
+     * @param  strDBName			数据库名字
+     * @param  strDBUser			数据库用户名
+     * @param  strDBPwd				数据库密码
+     * @param  nRconnectTime		重连间隔
+     * @param  nRconneCount			重连次数
+     * @return bool					成功或失败
+     */
+	virtual int AddDBServer(const std::string& nServerID, const std::string &strIP, int nPort, std::string strDBName, std::string strDBUser, std::string strDBPwd,
+                            const std::string& noSqlIp, int nosqlPort, const std::string& noSqlPass,
+                            int nRconnectTime = 10, int nRconneCount = -1) override;
 
 	/**
 	 * @brief 执行sql语句, 把数据库配置表里的数据取出来
@@ -61,7 +62,8 @@ public:
 	 *
 	 * @return bool 执行成功或失败
 	 */
-	virtual int QueryDescStore(const std::string& serverID, const std::string &table, const google::protobuf::Message *pSheetMessageObject, const QueryDescStore_CB& cb) override;
+	virtual int QueryDescStore(const std::string& serverID, const std::string &table, const google::protobuf::Message *pSheetMessageObject,
+                               const QueryDescStore_CB& cb) override;
 
 	/**
 	 * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
