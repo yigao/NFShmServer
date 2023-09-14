@@ -284,7 +284,7 @@ bool NFRedisDriver::GetObj(const std::string &packageName, const std::string &cl
     std::vector<std::string> vecFields;
     if (fields.empty())
     {
-        NFProtobufCommon::GetFieldsFromDesc(pDesc, vecFields, false, false);
+        NFProtobufCommon::GetFieldsFromDesc(pDesc, vecFields);
     }
     else
     {
@@ -338,7 +338,7 @@ bool NFRedisDriver::SetObj(const std::string &packageName, const std::string &cl
     CHECK_EXPR(pMessageObject->ParsePartialFromString(value), false, "ParsePartialFromString Failed:{}", full_name);
 
     std::map<std::string, std::string> resultMap;
-    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, resultMap, false, false);
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, resultMap);
     delete pMessageObject;
 
     std::vector<string_pair> values(resultMap.begin(), resultMap.end());

@@ -80,12 +80,10 @@ public:
     static ::google::protobuf::Message *CreateMessageByName(const std::string &full_name);
 
     static void
-    GetMapFieldsFromMessage(const google::protobuf::Message &message, std::map<std::string, std::string> &mapFileds,
-                            bool ignore_special_repeted = true, bool primary_ikey = false);
+    GetMapFieldsFromMessage(const google::protobuf::Message &message, std::map<std::string, std::string> &mapFileds);
 
     static void
-    GetFieldsFromDesc(const google::protobuf::Descriptor *pDesc, std::vector<std::string> &vecFields,
-                            bool ignore_special_repeted = true, bool primary_ikey = false);
+    GetFieldsFromDesc(const google::protobuf::Descriptor *pDesc, std::vector<std::string> &vecFields);
 
     static int GetPrivateFieldsFromMessage(const google::protobuf::Message &message, std::string& field, std::string& fieldValue);
 
@@ -93,7 +91,7 @@ public:
 
     static void
     GetMapFieldsFromMessage(const google::protobuf::Message &message, std::map<std::string, std::string> &keyMap,
-                            std::map<std::string, std::string> &kevValueMap, bool ignore_special_repeted = true);
+                            std::map<std::string, std::string> &kevValueMap);
 
     static void GetFieldsFromMessage(const google::protobuf::Message &message, std::vector<std::pair<std::string, std::string>> &kevValueList);
 

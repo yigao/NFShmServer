@@ -1104,7 +1104,10 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, s
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.del_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
-    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, true, true);
+    std::string key;
+    std::string value;
+    NFProtobufCommon::GetPrivateFieldsFromMessage(*pMessageObject, key, value);
+    keyMap.emplace(key, value);
     delete pMessageObject;
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1468,7 +1471,7 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.sel_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
-    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, true, false);
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap);
     delete pMessageObject;
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -2415,7 +2418,7 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_insertobj &select, st
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.ins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
-    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, resultMap, false, false);
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, resultMap);
     delete pMessageObject;
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -2635,7 +2638,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CreateSql From message:{}", pMessageObject->DebugString());
 
-    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap, false);
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
     delete pMessageObject;
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -2663,7 +2666,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_update &select, s
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CreateSql From message:{}", pMessageObject->DebugString());
 
-    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap, false);
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
     delete pMessageObject;
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -2692,7 +2695,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, s
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CreateSql From message:{}", pMessageObject->DebugString());
 
-    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap, false);
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
     delete pMessageObject;
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -2912,7 +2915,7 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_updateobj &select, st
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
     CHECK_EXPR(pMessageObject->ParsePartialFromString(select.modins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
-    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap, false);
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
     delete pMessageObject;
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;

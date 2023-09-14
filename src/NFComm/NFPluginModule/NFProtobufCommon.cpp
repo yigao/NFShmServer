@@ -598,8 +598,7 @@ int NFProtobufCommon::GetMapFieldsStringFromMessage(const google::protobuf::Mess
     return 0;
 }
 
-void NFProtobufCommon::GetFieldsFromDesc(const google::protobuf::Descriptor *pDesc, std::vector<std::string> &vecFields,
-                  bool ignore_special_repeted, bool primary_ikey)
+void NFProtobufCommon::GetFieldsFromDesc(const google::protobuf::Descriptor *pDesc, std::vector<std::string> &vecFields)
 {
     for (int i = 0; i < pDesc->field_count(); i++)
     {
@@ -607,84 +606,56 @@ void NFProtobufCommon::GetFieldsFromDesc(const google::protobuf::Descriptor *pDe
         if (pFieldDesc == NULL) continue;
         if (pFieldDesc->options().HasExtension(yd_fieldoptions::no_db_field)) continue;
 
-        if (primary_ikey)
+        if (pFieldDesc->is_repeated())
         {
-            if (pFieldDesc->is_repeated()) continue;
-            if (pFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) continue;
-
-            if (!pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_type))
+            if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
             {
-                continue;
-            }
-            if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) !=
-                ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_PRIMARYKEY)
-            {
-                continue;
-            }
-        }
-
-        //ignore special repeated
-        if (ignore_special_repeted)
-        {
-            if (pFieldDesc->is_repeated() == false)
-            {
-                vecFields.push_back(pFieldDesc->name());
-            }
-        }
-        else
-        { //handle special repeated
-            if (pFieldDesc->is_repeated())
-            {
-                if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
                 {
-                    const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
-                    if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
                     {
-                        ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
-                        for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
-                        {
-                            std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
-                            vecFields.push_back(field);
-                        }
-                    }
-                }
-                else
-                {
-                    const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
-                    if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
-                    {
-                        ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
-                        for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
-                        {
-                            const google::protobuf::Descriptor *pSubDesc = fieldoptions.GetDescriptor();
-                            if (pSubDesc == NULL) continue;
-
-                            for (int sub_i = 0; sub_i < pSubDesc->field_count(); sub_i++)
-                            {
-                                const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDesc->field(sub_i);
-                                if (pSubFieldDesc == NULL) continue;
-                                if (pSubFieldDesc->is_repeated()) continue;
-
-                                std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" +
-                                                    pSubFieldDesc->name();
-                                vecFields.push_back(field);
-                            }
-
-                        }
+                        std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
+                        vecFields.push_back(field);
                     }
                 }
             }
             else
             {
-                vecFields.push_back(pFieldDesc->name());
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize; a_i++)
+                    {
+                        const google::protobuf::Descriptor *pSubDesc = fieldoptions.GetDescriptor();
+                        if (pSubDesc == NULL) continue;
+
+                        for (int sub_i = 0; sub_i < pSubDesc->field_count(); sub_i++)
+                        {
+                            const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDesc->field(sub_i);
+                            if (pSubFieldDesc == NULL) continue;
+                            if (pSubFieldDesc->is_repeated()) continue;
+
+                            std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" +
+                                                pSubFieldDesc->name();
+                            vecFields.push_back(field);
+                        }
+
+                    }
+                }
             }
+        }
+        else
+        {
+            vecFields.push_back(pFieldDesc->name());
         }
     }
 }
 
 void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &message,
-                                               std::map<std::string, std::string> &mapFields,
-                                               bool ignore_special_repeted, bool primary_ikey)
+                                               std::map<std::string, std::string> &mapFields)
 {
     const google::protobuf::Descriptor *pDesc = message.GetDescriptor();
     const google::protobuf::Reflection *pReflect = message.GetReflection();
@@ -698,83 +669,56 @@ void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &
         if (!pFieldDesc->is_repeated() && pReflect->HasField(message, pFieldDesc) == false) continue;
         if (pFieldDesc->is_repeated() && pReflect->FieldSize(message, pFieldDesc) == 0) continue;
 
-        if (primary_ikey)
+        if (pFieldDesc->is_repeated())
         {
-            if (pFieldDesc->is_repeated()) continue;
-            if (pFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) continue;
-
-            if (!pFieldDesc->options().HasExtension(yd_fieldoptions::db_field_type))
+            if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
             {
-                continue;
-            }
-            if (pFieldDesc->options().GetExtension(yd_fieldoptions::db_field_type) !=
-                ::yd_fieldoptions::message_db_field_type::E_FIELDTYPE_PRIMARYKEY)
-            {
-                continue;
-            }
-        }
-
-        //ignore special repeated
-        if (ignore_special_repeted)
-        {
-            if (pFieldDesc->is_repeated() == false)
-            {
-                mapFields.emplace(pFieldDesc->name(), GetFieldsString(message, pFieldDesc));
-            }
-        }
-        else
-        { //handle special repeated
-            if (pFieldDesc->is_repeated())
-            {
-                if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
                 {
-                    const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
-                    if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
                     {
-                        ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
-                        ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
-                        for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
-                        {
-                            std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
-                            mapFields.emplace(field, GetRepeatedFieldsString(message, pFieldDesc, a_i));
-                        }
-                    }
-                }
-                else
-                {
-                    const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
-                    if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
-                    {
-                        ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
-                        ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
-                        for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
-                        {
-                            const ::google::protobuf::Message &pSubMessageObject = pReflect->GetRepeatedMessage(message,
-                                                                                                                pFieldDesc,
-                                                                                                                a_i);
-                            const google::protobuf::Descriptor *pSubDesc = pSubMessageObject.GetDescriptor();
-                            const google::protobuf::Reflection *pSubReflect = pSubMessageObject.GetReflection();
-                            if (pSubDesc == NULL || pSubReflect == NULL) continue;
-
-                            for (int sub_i = 0; sub_i < pSubDesc->field_count(); sub_i++)
-                            {
-                                const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDesc->field(sub_i);
-                                if (pSubFieldDesc == NULL) continue;
-                                if (pSubFieldDesc->is_repeated()) continue;
-
-                                std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" +
-                                                    pSubFieldDesc->name();
-                                mapFields.emplace(field, GetFieldsString(pSubMessageObject, pSubFieldDesc));
-                            }
-
-                        }
+                        std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
+                        mapFields.emplace(field, GetRepeatedFieldsString(message, pFieldDesc, a_i));
                     }
                 }
             }
             else
             {
-                mapFields.emplace(pFieldDesc->name(), GetFieldsString(message, pFieldDesc));
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
+                    {
+                        const ::google::protobuf::Message &pSubMessageObject = pReflect->GetRepeatedMessage(message,
+                                                                                                            pFieldDesc,
+                                                                                                            a_i);
+                        const google::protobuf::Descriptor *pSubDesc = pSubMessageObject.GetDescriptor();
+                        const google::protobuf::Reflection *pSubReflect = pSubMessageObject.GetReflection();
+                        if (pSubDesc == NULL || pSubReflect == NULL) continue;
+
+                        for (int sub_i = 0; sub_i < pSubDesc->field_count(); sub_i++)
+                        {
+                            const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDesc->field(sub_i);
+                            if (pSubFieldDesc == NULL) continue;
+                            if (pSubFieldDesc->is_repeated()) continue;
+
+                            std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" +
+                                                pSubFieldDesc->name();
+                            mapFields.emplace(field, GetFieldsString(pSubMessageObject, pSubFieldDesc));
+                        }
+
+                    }
+                }
             }
+        }
+        else
+        {
+            mapFields.emplace(pFieldDesc->name(), GetFieldsString(message, pFieldDesc));
         }
     }
 }
@@ -840,9 +784,7 @@ int NFProtobufCommon::GetPrivateFieldsFromMessage(const google::protobuf::Messag
 }
 
 void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &message,
-                                               std::map<std::string, std::string> &keyMap,
-                                               std::map<std::string, std::string> &kevValueMap,
-                                               bool ignore_special_repeted)
+                                               std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap)
 {
     const google::protobuf::Descriptor *pDesc = message.GetDescriptor();
     const google::protobuf::Reflection *pReflect = message.GetReflection();
@@ -866,67 +808,56 @@ void NFProtobufCommon::GetMapFieldsFromMessage(const google::protobuf::Message &
             }
         }
 
-        //ignore special repeated
-        if (ignore_special_repeted)
+        if (pFieldDesc->is_repeated())
         {
-            if (pFieldDesc->is_repeated() == false)
+            if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
             {
-                kevValueMap.emplace(pFieldDesc->name(), GetFieldsString(message, pFieldDesc));
-            }
-        }
-        else
-        { //handle special repeated
-            if (pFieldDesc->is_repeated())
-            {
-                if (pFieldDesc->cpp_type() != google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
                 {
-                    const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
-                    if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
                     {
-                        ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
-                        ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
-                        for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
-                        {
-                            std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
-                            kevValueMap.emplace(field, GetRepeatedFieldsString(message, pFieldDesc, a_i));
-                        }
-                    }
-                }
-                else
-                {
-                    const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
-                    if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
-                    {
-                        ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
-                        ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
-                        for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
-                        {
-                            const ::google::protobuf::Message &pSubMessageObject = pReflect->GetRepeatedMessage(message,
-                                                                                                                pFieldDesc,
-                                                                                                                a_i);
-                            const google::protobuf::Descriptor *pSubDesc = pSubMessageObject.GetDescriptor();
-                            const google::protobuf::Reflection *pSubReflect = pSubMessageObject.GetReflection();
-                            if (pSubDesc == NULL || pSubReflect == NULL) continue;
-
-                            for (int sub_i = 0; sub_i < pSubDesc->field_count(); sub_i++)
-                            {
-                                const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDesc->field(sub_i);
-                                if (pSubFieldDesc == NULL) continue;
-                                if (pSubFieldDesc->is_repeated()) continue;
-
-                                std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" +
-                                                    pSubFieldDesc->name();
-                                kevValueMap.emplace(field, GetFieldsString(pSubMessageObject, pSubFieldDesc));
-                            }
-
-                        }
+                        std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1);
+                        kevValueMap.emplace(field, GetRepeatedFieldsString(message, pFieldDesc, a_i));
                     }
                 }
             }
             else
             {
-                kevValueMap.emplace(pFieldDesc->name(), GetFieldsString(message, pFieldDesc));
+                const google::protobuf::FieldOptions &fieldoptions = pFieldDesc->options();
+                if (fieldoptions.HasExtension(yd_fieldoptions::db_field_arysize))
+                {
+                    ::google::protobuf::int32 arysize = fieldoptions.GetExtension(yd_fieldoptions::db_field_arysize);
+                    ::google::protobuf::int32 repeatedSize = pReflect->FieldSize(message, pFieldDesc);
+                    for (::google::protobuf::int32 a_i = 0; a_i < arysize && a_i < repeatedSize; a_i++)
+                    {
+                        const ::google::protobuf::Message &pSubMessageObject = pReflect->GetRepeatedMessage(message,
+                                                                                                            pFieldDesc,
+                                                                                                            a_i);
+                        const google::protobuf::Descriptor *pSubDesc = pSubMessageObject.GetDescriptor();
+                        const google::protobuf::Reflection *pSubReflect = pSubMessageObject.GetReflection();
+                        if (pSubDesc == NULL || pSubReflect == NULL) continue;
+
+                        for (int sub_i = 0; sub_i < pSubDesc->field_count(); sub_i++)
+                        {
+                            const google::protobuf::FieldDescriptor *pSubFieldDesc = pSubDesc->field(sub_i);
+                            if (pSubFieldDesc == NULL) continue;
+                            if (pSubFieldDesc->is_repeated()) continue;
+
+                            std::string field = pFieldDesc->name() + "_" + NFCommon::tostr(a_i + 1) + "_" +
+                                                pSubFieldDesc->name();
+                            kevValueMap.emplace(field, GetFieldsString(pSubMessageObject, pSubFieldDesc));
+                        }
+
+                    }
+                }
             }
+        }
+        else
+        {
+            kevValueMap.emplace(pFieldDesc->name(), GetFieldsString(message, pFieldDesc));
         }
     }
 }
