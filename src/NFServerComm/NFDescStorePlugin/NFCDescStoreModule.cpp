@@ -21,7 +21,7 @@
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
-#include "NFDescStoreTrans.h"
+#include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 
 NFCDescStoreModule::NFCDescStoreModule(NFIPluginManager *p) : NFIDescStoreModule(p)
@@ -61,7 +61,7 @@ bool NFCDescStoreModule::AfterInitShmMem()
 
 bool NFCDescStoreModule::Awake()
 {
-    for(int i = 0; i < (int)NF_ST_MAX; i++)
+    for (int i = 0; i < (int) NF_ST_MAX; i++)
     {
         Subscribe(i, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, APP_INIT_TASK_GROUP_SERVER_CONNECT,
                   __FUNCTION__);
@@ -75,7 +75,7 @@ NFCDescStoreModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t b
     if (nEventID == proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH && bySrcType == proto_ff::NF_EVENT_SERVER_TYPE &&
         nSrcID == APP_INIT_TASK_GROUP_SERVER_CONNECT)
     {
-        if (serverType == NF_ST_NONE || m_pObjPluginManager->IsHasAppTask((NF_SERVER_TYPES)serverType, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE))
+        if (serverType == NF_ST_NONE || m_pObjPluginManager->IsHasAppTask((NF_SERVER_TYPES) serverType, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE))
         {
             LoadDBDestSotre();
         }
@@ -606,20 +606,11 @@ NFResDB *NFCDescStoreModule::CreateResDBFromFiles(const std::string &dir)
     return new NFFileResDB(m_pObjPluginManager, dir);
 }
 
-int NFCDescStoreModule::SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string &dbName, const std::string &table_name,
-                                                   const google::protobuf::Message *pMessage, const QueryDescStore_CB &cb)
+int NFCDescStoreModule::GetDescStoreByRpc(NF_SERVER_TYPES eType, const std::string &dbName, const std::string &table_name,
+                                          google::protobuf::Message *pMessage)
 {
-    NFDescStoreTrans *pTrans = dynamic_cast<NFDescStoreTrans *>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_RPC_TRANS_ID));
-    CHECK_EXPR(pTrans, -1, "Create NFDescStoreTrans Failed, use count:{}", NFDescStoreTrans::GetUsedCount(m_pObjPluginManager));
-
-    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
-    if (coId >= 0)
-    {
-        pTrans->Init(coId, pMessage);
-    }
-
-    pTrans->SendGetDescStoreReq(eType, dbName, table_name, cb);
-    return 0;
+    return FindModule<NFIServerMessageModule>()->GetRpcDescStoreService(eType, std::hash<std::string>()(table_name), pMessage, std::vector<std::string>(),
+                                                                 "", 100, 0, dbName);
 }
 
 void NFCDescStoreModule::runAfterShmInit()

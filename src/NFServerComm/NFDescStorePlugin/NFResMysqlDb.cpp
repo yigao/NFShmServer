@@ -32,36 +32,11 @@ int NFMysqlResTable::FindAllRecord(const std::string &serverId, google::protobuf
 {
     CHECK_EXPR(pMessage, -1, "pMessage == NULL");
 
-    int64_t coId = FindModule<NFICoroutineModule>()->CurrentTaskId();
     int iRet = 0;
-    {
-        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
-        CHECK_NULL(pConfig);
-
-        std::string tempDBName = serverId;
-        if (serverId.empty())
-        {
-            tempDBName = pConfig->DefaultDBName;
-        }
-        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
-
-        iRet = FindModule<NFIDescStoreModule>()->SendDescStoreToStoreServer((NF_SERVER_TYPES)pConfig->ServerType, tempDBName, m_name, pMessage,
-            [this, coId, pMessage](int iRet, google::protobuf::Message &message){
-            if (iRet != 0) {
-                m_pObjPluginManager->FindModule<NFICoroutineModule>()->Resume(coId, iRet);
-            }
-            else {
-                pMessage->CopyFrom(message);
-                m_pObjPluginManager->FindModule<NFICoroutineModule>()->Resume(coId);
-            }
-        });
-    }
-
-	CHECK_EXPR(iRet == 0, -1, "QueryDescStore Failed!");
-
-	iRet = FindModule<NFICoroutineModule>()->Yield();
-
-	CHECK_EXPR(iRet == 0, -1, "parse error:{} {}", pMessage->InitializationErrorString(), pMessage->DebugString());
+    NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
+    CHECK_NULL(pConfig);
+    iRet = FindModule<NFIDescStoreModule>()->GetDescStoreByRpc((NF_SERVER_TYPES)pConfig->ServerType, serverId, m_name, pMessage);
+	CHECK_EXPR(iRet == 0, iRet, "GetDescStoreByRpc Failed! iRet:{}", GetErrorStr(iRet));
 
     return 0;
 }

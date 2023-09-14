@@ -246,6 +246,111 @@ private:
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 public:
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
+    int GetRpcDescStoreService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message *pDescStoreMessage,
+                            const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
+                            int max_records = 100, uint32_t dstBusId = 0,
+                            const std::string &dbname = "")
+    {
+        std::string tempDBName = dbname;
+        if (dbname.empty())
+        {
+            NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+            if (pConfig)
+            {
+                tempDBName = pConfig->DefaultDBName;
+            }
+        }
+        CHECK_EXPR(!tempDBName.empty(), -1, "no dbname ........");
+
+
+        storesvr_sqldata::storesvr_sel sel;
+        std::string tbname = NFProtobufCommon::GetDescStoreClsName(*pDescStoreMessage);
+        std::string packageName = NFProtobufCommon::GetProtoPackageName(*pDescStoreMessage);
+        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
+
+        std::vector<storesvr_sqldata::storesvr_vk> vk_list;
+        NFStoreProtoCommon::storesvr_selectbycond(sel, tempDBName, tbname, mod_key, vecFields, vk_list, where_addtional_conds, max_records,
+                                                  tbname, packageName);
+
+        storesvr_sqldata::storesvr_sel_res selRes;
+        STATIC_ASSERT_BIND_RPC_SERVICE(proto_ff::NF_STORESVR_C2S_SELECT, storesvr_sqldata::storesvr_sel, storesvr_sqldata::storesvr_sel_res);
+        NF_ASSERT_MSG(FindModule<NFICoroutineModule>()->IsInCoroutine(), "Call GetRpcService Must Int the Coroutine");
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(eType);
+        CHECK_EXPR(pConfig, -1, "can't find server config! servertype:{}", GetServerName(eType));
+
+        proto_ff::Proto_SvrPkg svrPkg;
+        svrPkg.set_msg_id(proto_ff::NF_STORESVR_C2S_SELECT);
+        svrPkg.set_msg_data(sel.SerializeAsString());
+        svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(std::hash<std::string>()(sel.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(std::hash<std::string>()(selRes.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_req_server_type(eType);
+        svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
+
+        FindModule<NFIMessageModule>()->SendMsgToServer(eType, NF_ST_STORE_SERVER, pConfig->BusId, dstBusId, proto_ff::NF_SERVER_TO_SERVER_RPC_CMD,
+                                                        svrPkg);
+
+        int iRet = FindModule<NFICoroutineModule>()->SetUserData(&selRes);
+        CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
+
+        do
+        {
+            iRet = FindModule<NFICoroutineModule>()->Yield(DEFINE_RPC_SERVICE_TIME_OUT_MS);
+            CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
+            if (iRet == 0 && selRes.sel_opres().err_code() == 0)
+            {
+                const google::protobuf::Descriptor *pSheetFieldDesc = pDescStoreMessage->GetDescriptor();
+                CHECK_EXPR(pSheetFieldDesc, -1, "pSheetFieldDesc == NULL");
+                const google::protobuf::Reflection *pSheetReflect = pDescStoreMessage->GetReflection();
+                CHECK_EXPR(pSheetReflect, -1, "pSheetFieldDesc == NULL");
+
+                if (pSheetFieldDesc->field_count() > 0) {
+                    /*  比如 message Sheet_GameRoomDesc
+                    *		{
+                    *			repeated GameRoomDesc GameRoomDesc_List = 1  [(yd_fieldoptions.field_arysize)=100];
+                    *		}
+                    *		获得上面GameRoomDesc_List信息
+                    */
+                    const google::protobuf::FieldDescriptor *pSheetRepeatedFieldDesc = pSheetFieldDesc->field(0);
+                    if (pSheetRepeatedFieldDesc->is_repeated() &&
+                        pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
+                        //如果is_repeated 开始处理
+                        for (int i = 0; i < (int) selRes.sel_records_size(); i++)
+                        {
+                            ::google::protobuf::Message *pSheetRepeatedMessageObject = pSheetReflect->AddMessage(
+                                    pDescStoreMessage, pSheetRepeatedFieldDesc);
+                            pSheetRepeatedMessageObject->ParsePartialFromString(selRes.sel_records(i));
+                        }
+                    }
+                }
+
+                if (selRes.is_lastbatch())
+                {
+                    break;
+                }
+            }
+            else
+            {
+                if (iRet == 0)
+                {
+                    iRet = selRes.sel_opres().err_code();
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcDescStoreService Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                               selRes.sel_opres().errmsg());
+                }
+                else {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcDescStoreService Failed, iRet:{}", GetErrorStr(iRet));
+                }
+
+                break;
+            }
+        } while (true);
+
+
+        FindModule<NFICoroutineModule>()->SetUserData(NULL);
+
+        return iRet;
+    }
+
     template<typename DataType>
     int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, std::vector<DataType> &respone,
                             const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",

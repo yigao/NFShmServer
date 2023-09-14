@@ -1835,6 +1835,23 @@ std::string NFProtobufCommon::GetDBDataTypeFromPBDataType(uint32_t pbDataType, u
     return "int";
 }
 
+std::string NFProtobufCommon::GetDescStoreClsName(const google::protobuf::Message& message)
+{
+    const google::protobuf::Descriptor *pSheetFieldDesc = message.GetDescriptor();
+    CHECK_EXPR(pSheetFieldDesc, std::string(), "pSheetFieldDesc == NULL");
+    const google::protobuf::Reflection *pSheetReflect = message.GetReflection();
+    CHECK_EXPR(pSheetReflect, std::string(), "pSheetFieldDesc == NULL");
+
+    for (int sheet_field_index = 0; sheet_field_index < pSheetFieldDesc->field_count(); sheet_field_index++) {
+        const google::protobuf::FieldDescriptor *pSheetRepeatedFieldDesc = pSheetFieldDesc->field(sheet_field_index);
+        if (pSheetRepeatedFieldDesc->is_repeated() &&
+            pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
+            return pSheetRepeatedFieldDesc->message_type()->name();
+        }
+    }
+    return std::string();
+}
+
 std::string NFProtobufCommon::GetProtoBaseName(const google::protobuf::Message& message)
 {
     std::string fullName = message.GetTypeName();

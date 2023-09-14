@@ -67,10 +67,18 @@
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="redis mysql db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFProtobufCommon.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFRedisDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFRedisDriver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFKernelPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFKernelPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFDescStorePlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFDescStorePlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFDescStoreTrans.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFDescStoreTrans.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFIDescStoreModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFIDescStoreModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFResMysqlDb.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFResMysqlDb.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +123,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "CMakeSettings",
+    "settings.editor.selected.configurable": "preferences.sourceCode.C/C++",
     "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
@@ -463,14 +471,7 @@
       <workItem from="1693790132759" duration="39254000" />
       <workItem from="1693906221412" duration="6700000" />
       <workItem from="1694135710953" duration="61448000" />
-      <workItem from="1694479084237" duration="42296000" />
-    </task>
-    <task id="LOCAL-00076" summary="redis db">
-      <created>1692013756357</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1692013756358</updated>
+      <workItem from="1694479084237" duration="47432000" />
     </task>
     <task id="LOCAL-00077" summary="release">
       <created>1692079636831</created>
@@ -808,7 +809,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694656708042</updated>
     </task>
-    <option name="localTasksCounter" value="125" />
+    <task id="LOCAL-00125" summary="redis mysql db">
+      <created>1694658719061</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1694658719061</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

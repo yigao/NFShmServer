@@ -7,18 +7,16 @@
 // -------------------------------------------------------------------------
 
 #include "NFKernelPlugin.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCKernelModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCTimerModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCEventModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCLogModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCConfigModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFConsoleModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFMonitorModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCMessageModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCCoroutineModule.h"
-#include "NFCommPlugin/NFKernelPlugin/NFCTaskModule.h"
-#include "NFServerComm/NFDescStorePlugin/NFDescStoreTrans.h"
-#include "NFComm/NFPluginModule/NFIConfigModule.h"
+#include "NFCKernelModule.h"
+#include "NFCTimerModule.h"
+#include "NFCEventModule.h"
+#include "NFCLogModule.h"
+#include "NFCConfigModule.h"
+#include "NFConsoleModule.h"
+#include "NFMonitorModule.h"
+#include "NFCMessageModule.h"
+#include "NFCCoroutineModule.h"
+#include "NFCTaskModule.h"
 
 //
 //

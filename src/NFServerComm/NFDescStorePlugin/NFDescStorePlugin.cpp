@@ -13,7 +13,6 @@
 #include "NFServerComm/NFServerCommon/NFBaseDBObj.h"
 #include "NFServerComm/NFServerCommon/NFDBObjTrans.h"
 #include "NFServerComm/NFServerCommon/NFDBObjMgr.h"
-#include "NFDescStoreTrans.h"
 #include "NFCDescStoreModule.h"
 
 
@@ -69,6 +68,5 @@ bool NFDescStorePlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFBaseDBObj, 0);
     REGISTER_SHM_OBJ(NFDBObjTrans, 100);
     REGISTER_SINGLETON_SHM_OBJ(NFDBObjMgr);
-    REGISTER_SHM_OBJ(NFDescStoreTrans, 100);
     return true;
 }

@@ -77,6 +77,7 @@ public:
     virtual void runAfterShmInit();
 public:
     virtual int SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb) override;
+    virtual int GetDescStoreByRpc(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, google::protobuf::Message *pMessage) override;
 private:
 	std::unordered_map<std::string, NFIDescStore*> mDescStoreMap;
     std::unordered_map<std::string, NFIDescStore*> mDescStoreFileMap;
