@@ -279,7 +279,7 @@ bool NFRedisDriver::GetObj(const std::string &packageName, const std::string &cl
     }
 
     const google::protobuf::Descriptor *pDesc = NFProtobufCommon::Instance()->FindDynamicMessageTypeByName(full_name);
-    CHECK_EXPR(pDesc, -1, "NFProtobufCommon::FindDynamicMessageTypeByName:{} Failed", full_name);
+    CHECK_EXPR(pDesc, false, "NFProtobufCommon::FindDynamicMessageTypeByName:{} Failed", full_name);
 
     std::vector<std::string> vecFields;
     if (fields.empty())
@@ -299,7 +299,12 @@ bool NFRedisDriver::GetObj(const std::string &packageName, const std::string &cl
         return false;
     }
 
-    CHECK_EXPR(vecFields.size() == vecValues.size(), -1, "HMGET key:{} error", key);
+    if (vecFields.size() > 0 && vecValues.empty())
+    {
+        return false;
+    }
+
+    CHECK_EXPR(vecFields.size() == vecValues.size(), false, "HMGET key:{} error", key);
     google::protobuf::Message *pMessage = NULL;
     int iRet = TransTableRowToMessage(vecFields, vecValues, packageName, className, &pMessage);
     if (iRet == 0 && pMessage != NULL)

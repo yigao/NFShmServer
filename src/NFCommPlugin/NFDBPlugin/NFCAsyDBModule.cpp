@@ -135,64 +135,6 @@ public:
     }
 };
 
-class NFDBQueryDescStoreTask : public NFDBTask
-{
-public:
-    NFDBQueryDescStoreTask(const std::string &serverId, const std::string &tableName, const google::protobuf::Message *pSheetMessageObject,
-                           const QueryDescStore_CB &cb) : NFDBTask(serverId)
-    {
-        m_balanceId = 0;
-        m_tableName = tableName;
-        iRet = 0;
-        mCB = cb;
-        m_pSheetMessageObject = pSheetMessageObject->New();
-        m_taskName = GET_CLASS_NAME(NFDBQueryDescStoreTask);
-    }
-
-    virtual ~NFDBQueryDescStoreTask()
-    {
-        if (m_pSheetMessageObject)
-        {
-            NF_SAFE_DELETE(m_pSheetMessageObject);
-        }
-    }
-
-    /**
-    **  异步线程处理函数，将在另一个线程里运行
-    */
-    bool ThreadProcess() override
-    {
-        if (m_pMysqlDriver)
-        {
-            iRet = m_pMysqlDriver->QueryDescStore(m_tableName, m_pSheetMessageObject);
-        }
-        else
-        {
-            iRet = -1;
-        }
-        return true;
-    }
-
-    /**
-    ** 主线程处理函数，将在线程处理完后，提交给主线程来处理，根据返回函数是否继续处理
-    返回值： thread::TPTask::TPTaskState， 请参看TPTaskState
-    */
-    TPTaskState MainThreadProcess() override
-    {
-        if (mCB)
-        {
-            mCB(iRet, *m_pSheetMessageObject);
-        }
-        return TPTASK_STATE_COMPLETED;
-    }
-
-public:
-    google::protobuf::Message *m_pSheetMessageObject;
-    std::string m_tableName;
-    int iRet;
-    QueryDescStore_CB mCB;
-};
-
 class NFDBSelectByCondTask : public NFDBTask
 {
 public:
@@ -1137,17 +1079,6 @@ int NFCAsyDBModule::AddDBServer(const std::string &nServerID, const std::string 
         CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
-    return 0;
-}
-
-int NFCAsyDBModule::QueryDescStore(const std::string &serverID, const std::string &table, const google::protobuf::Message *pSheetMessageObject,
-                                      const QueryDescStore_CB &cb)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    NFDBQueryDescStoreTask *pTask = NF_NEW NFDBQueryDescStoreTask(serverID, table, pSheetMessageObject, cb);
-    int iRet = AddTask(pTask);
-    CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

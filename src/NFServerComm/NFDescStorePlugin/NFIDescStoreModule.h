@@ -64,6 +64,5 @@ public:
     virtual int DeleteDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) = 0;
 
 public:
-    virtual int SendDescStoreToStoreServer(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, const google::protobuf::Message *pMessage, const QueryDescStore_CB& cb) = 0;
     virtual int GetDescStoreByRpc(NF_SERVER_TYPES eType, const std::string& dbName, const std::string &table_name, google::protobuf::Message *pMessage) = 0;
 };

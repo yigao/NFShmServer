@@ -25,24 +25,6 @@ public:
     }
 
     /**
-     * @brief 执行sql语句, 把数据库配置表里的数据取出来
-     *
-     * @param  table 配置表表明
-     * @param  sheet_fullname protobuf中代表一个表格的message
-     * @param  pMessage sheet_fullname的protobuf的数据结构，携带返回数据
-     *  比如 message Sheet_GameRoomDesc
-     *		{
-     *			repeated GameRoomDesc GameRoomDesc_List = 1  [(yd_fieldoptions.field_arysize)=100];
-     *		}
-     * 代表一个Excel表格GameRoomDesc, 同时数据库有一个表GameRoomDesc
-     * 都用这个数据结构来表达，以及存取数据
-     *
-     *
-     * @return bool 执行成功或失败
-     */
-    virtual int QueryDescStore(const std::string& serverID, const std::string &table, const google::protobuf::Message *pSheetMessageObject, const QueryDescStore_CB& cb) = 0;
-
-    /**
      * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
      *
      * @param  select 查询语句

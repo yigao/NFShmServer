@@ -1486,6 +1486,11 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, cons
     std::string stringFileds = "*";
     selectSql = "select " + stringFileds + " from " + tableName;
 
+    if (leftPrivateKeySet.size() > 0)
+    {
+        selectSql += " where ";
+    }
+
     for (auto iter = leftPrivateKeySet.begin(); iter != leftPrivateKeySet.end(); iter++)
     {
         if (iter != leftPrivateKeySet.begin())
