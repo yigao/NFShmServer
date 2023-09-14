@@ -241,7 +241,7 @@ public:
      * @param privateKeySet
      * @return
      */
-    int SelectByCond(const storesvr_sqldata::storesvr_sel &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet);
+    int SelectByCond(const storesvr_sqldata::storesvr_sel &select, std::string &privateKey, std::unordered_set<std::string> &fields, std::unordered_set<std::string> &privateKeySet);
 
     /**
      * @brief 通过select结构体， 从数据库获取获取到private key, 以及所有被选出数据的private key集合
@@ -251,8 +251,7 @@ public:
      * @return
      */
     int SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
-                     const std::unordered_set<std::string> &leftPrivateKeySet,
-                     ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &select_res, std::vector<std::string>& records);
+                     const std::unordered_set<std::string> &leftPrivateKeySet, std::map<std::string, std::string>& recordsMap);
 
     /**
      * @brief 通过select结构体，生成sql语句

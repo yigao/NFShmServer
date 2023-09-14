@@ -222,28 +222,45 @@ public:
                 {
                     std::string privateKey;
                     std::unordered_set<std::string> privateKeySet;
-                    iRet = m_pMysqlDriver->SelectByCond(mSelect, privateKey, privateKeySet);
+                    std::unordered_set<std::string> fields;
+                    iRet = m_pMysqlDriver->SelectByCond(mSelect, privateKey, fields, privateKeySet);
                     if (iRet != 0)
                     {
                         break;
                     }
 
                     std::unordered_set<std::string> leftPrivateKeySet;
-                    iRet = m_pNosqlDriver->SelectByCond(mSelect, privateKey, privateKeySet, leftPrivateKeySet, mSelectRes);
+                    iRet = m_pNosqlDriver->SelectByCond(mSelect, privateKey, fields, privateKeySet, leftPrivateKeySet, mSelectRes);
+                    if (iRet != 0)
+                    {
+                        break;
+                    }
+                    if (leftPrivateKeySet.empty())
+                    {
+                        return true;
+                    }
+
+                    std::map<std::string, std::string> recordsMap;
+                    iRet = m_pMysqlDriver->SelectByCond(mSelect, privateKey, leftPrivateKeySet, recordsMap);
                     if (iRet != 0)
                     {
                         break;
                     }
 
-                    std::vector<std::string> records;
-                    iRet = m_pMysqlDriver->SelectByCond(mSelect, privateKey, leftPrivateKeySet, mSelectRes, records);
+                    iRet = m_pNosqlDriver->SaveObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, recordsMap);
                     if (iRet != 0)
                     {
                         break;
                     }
 
-                    iRet = m_pNosqlDriver->SaveObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), records);
-                    if (iRet == 0)
+                    std::unordered_set<std::string> noPrivateKeySet;
+                    iRet = m_pNosqlDriver->SelectByCond(mSelect, privateKey, fields, leftPrivateKeySet, noPrivateKeySet, mSelectRes);
+                    if (iRet != 0)
+                    {
+                        break;
+                    }
+
+                    if (noPrivateKeySet.empty())
                     {
                         return true;
                     }

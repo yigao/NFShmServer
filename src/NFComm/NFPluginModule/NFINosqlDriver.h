@@ -42,7 +42,7 @@ public:
 
     virtual bool Connect(const std::string& ip, const int port, const std::string& auth) = 0;
 public:
-    virtual int SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string& privateKey,
+    virtual int SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string& privateKey, const std::unordered_set<std::string>& fields,
                        const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
                        ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res>& select_res) = 0;
 
@@ -53,7 +53,7 @@ public:
     virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select,
                           storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
 
-    virtual int SaveObj(const std::string& packageName, const std::string& tbName, const std::string& clasname, const std::vector<std::string>& records) = 0;
+    virtual int SaveObj(const std::string& packageName, const std::string& tbName, const std::string& clasname, const std::string& privateKey, const std::map<std::string, std::string>& recordsMap) = 0;
     virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select,
                         storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
     virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select) = 0;

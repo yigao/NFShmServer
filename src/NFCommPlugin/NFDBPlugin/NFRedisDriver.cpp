@@ -114,8 +114,9 @@ bool NFRedisDriver::Execute()
 }
 
 int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
-                          const std::unordered_set<std::string> &privateKeySet, std::unordered_set<std::string> &leftPrivateKeySet,
-                          ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &vecSelectRes)
+                                const std::unordered_set<std::string> &fields,
+                                const std::unordered_set<std::string> &privateKeySet, std::unordered_set<std::string> &leftPrivateKeySet,
+                                ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &vecSelectRes)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string tableName = select.baseinfo().tbname();
@@ -139,9 +140,10 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
         select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
         select_res->set_is_lastbatch(false);
     }
-    else {
+    else
+    {
         select_res = vecSelectRes.Mutable(vecSelectRes.size() - 1);
-        if ((int)select_res->sel_records_size() >= (int)select.baseinfo().max_records())
+        if ((int) select_res->sel_records_size() >= (int) select.baseinfo().max_records())
         {
             select_res = vecSelectRes.Add();
 
@@ -157,7 +159,7 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
     {
         std::string db_key = GetPrivateKeys(tableName, privateKey, *iter);
         std::string value;
-        bRet = GetObj(packageName, className, db_key, value);
+        bRet = GetObj(packageName, className, db_key, fields, value);
         if (!bRet)
         {
             leftPrivateKeySet.insert(*iter);
@@ -177,7 +179,7 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
         count++;
         select_res->set_row_count(count);
 
-        if ((int)select_res->sel_records_size() >= (int)select.baseinfo().max_records())
+        if ((int) select_res->sel_records_size() >= (int) select.baseinfo().max_records())
         {
             count = 0;
             select_res = vecSelectRes.Add();
@@ -197,9 +199,9 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
     return 0;
 }
 
-int NFRedisDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, const std::string& privateKey,
-                 const std::unordered_set<std::string>& privateKeySet,
-                 storesvr_sqldata::storesvr_del_res &select_res)
+int NFRedisDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, const std::string &privateKey,
+                                const std::unordered_set<std::string> &privateKeySet,
+                                storesvr_sqldata::storesvr_del_res &select_res)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string tableName = select.baseinfo().tbname();
@@ -222,8 +224,9 @@ int NFRedisDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, co
     return 0;
 }
 
-int NFRedisDriver::TransTableRowToMessage(const std::vector<std::string> &vecFields, const std::vector<std::string>& vecValues, const std::string &packageName, const std::string &className,
-                           google::protobuf::Message **pMessage)
+int NFRedisDriver::TransTableRowToMessage(const std::vector<std::string> &vecFields, const std::vector<std::string> &vecValues,
+                                          const std::string &packageName, const std::string &className,
+                                          google::protobuf::Message **pMessage)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin --");
     CHECK_EXPR(vecFields.size() == vecValues.size(), -1, "TransTableRowToMessage Failed");
@@ -248,7 +251,7 @@ int NFRedisDriver::TransTableRowToMessage(const std::vector<std::string> &vecFie
     }
 
     std::map<std::string, std::string> mapResult;
-    for(int i = 0; i < (int)vecFields.size(); i++)
+    for (int i = 0; i < (int) vecFields.size(); i++)
     {
         mapResult.emplace(vecFields[i], vecValues[i]);
     }
@@ -258,6 +261,12 @@ int NFRedisDriver::TransTableRowToMessage(const std::vector<std::string> &vecFie
 }
 
 bool NFRedisDriver::GetObj(const std::string& packageName, const std::string& className, const std::string& key, std::string& value)
+{
+    return GetObj(packageName, className, key, std::unordered_set<std::string>(), value);
+}
+
+bool NFRedisDriver::GetObj(const std::string &packageName, const std::string &className, const std::string &key,
+                           const std::unordered_set<std::string> &fields, std::string &value)
 {
     std::string full_name;
     if (packageName.empty())
@@ -273,7 +282,14 @@ bool NFRedisDriver::GetObj(const std::string& packageName, const std::string& cl
     CHECK_EXPR(pDesc, -1, "NFProtobufCommon::FindDynamicMessageTypeByName:{} Failed", full_name);
 
     std::vector<std::string> vecFields;
-    NFProtobufCommon::GetFieldsFromDesc(pDesc, vecFields, false, false);
+    if (fields.empty())
+    {
+        NFProtobufCommon::GetFieldsFromDesc(pDesc, vecFields, false, false);
+    }
+    else
+    {
+        vecFields.insert(vecFields.end(), fields.begin(), fields.end());
+    }
 
     std::vector<std::string> vecValues;
     bool bRet = HMGET(key, vecFields, vecValues);
@@ -293,7 +309,8 @@ bool NFRedisDriver::GetObj(const std::string& packageName, const std::string& cl
     }
     else
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, fields:{} values:{} className:{}", NFCommon::tostr(vecFields), NFCommon::tostr(vecValues), className);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, fields:{} values:{} className:{}", NFCommon::tostr(vecFields),
+                   NFCommon::tostr(vecValues), className);
         return false;
     }
     if (pMessage != NULL)
@@ -304,7 +321,7 @@ bool NFRedisDriver::GetObj(const std::string& packageName, const std::string& cl
     return true;
 }
 
-bool NFRedisDriver::SetObj(const std::string& packageName, const std::string& className, const std::string& key, const std::string& value)
+bool NFRedisDriver::SetObj(const std::string &packageName, const std::string &className, const std::string &key, const std::string &value)
 {
     std::string full_name;
     if (packageName.empty())
@@ -390,12 +407,12 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     return 0;
 }
 
-int NFRedisDriver::SaveObj(const std::string& packageName, const std::string& tableName, const std::string& clasname, const std::vector<std::string>& records)
+int NFRedisDriver::SaveObj(const std::string &packageName, const std::string &tableName, const std::string &clasname, const std::string& privateKey,
+                           const std::map<std::string, std::string> &recordsMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    int iRet = 0;
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
@@ -403,25 +420,12 @@ int NFRedisDriver::SaveObj(const std::string& packageName, const std::string& ta
         return -1;
     }
 
-    for(int i = 0; i < (int)records.size(); i++)
+    for (auto iter = recordsMap.begin(); iter != recordsMap.end(); iter++)
     {
-        std::string field;
-        std::string fieldKey;
-        iRet = GetPrivateFields(packageName, clasname, records[i], field, fieldKey);
-        if (iRet > 0)
-        {
-            return iRet;
-        }
-        else if (iRet < 0)
-        {
-            CHECK_EXPR(iRet == 0, 1, "GetPrivateFields Failed:{}", tableName);
-        }
-
         std::string errmsg;
-        std::string db_key = GetPrivateKeys(tableName, field, fieldKey);
+        std::string db_key = GetPrivateKeys(tableName, privateKey, iter->first);
 
-
-        bRet = SetObj(packageName, clasname, db_key, records[i]);
+        bRet = SetObj(packageName, clasname, db_key, iter->second);
         if (!bRet)
         {
             return -1;
@@ -506,7 +510,7 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_modobj &select)
     bool bRet = SelectDB(NFREDIS_DB1);
     if (!bRet)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1,tableName, select.mod_key());
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, tableName, select.mod_key());
         return -1;
     }
 
@@ -608,7 +612,8 @@ std::string NFRedisDriver::GetPrivateKeys(const std::string &tbname, const std::
     return tbname + "_" + field + "_" + fieldValue;
 }
 
-int NFRedisDriver::GetPrivateFields(const std::string& packageName, const std::string& className, const std::string& record, std::string& field, std::string& fieldValue)
+int NFRedisDriver::GetPrivateFields(const std::string &packageName, const std::string &className, const std::string &record, std::string &field,
+                                    std::string &fieldValue)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string full_name;

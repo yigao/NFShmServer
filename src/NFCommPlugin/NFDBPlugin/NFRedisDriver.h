@@ -66,7 +66,7 @@ public:
 
 	bool IsConnect();
 public:
-    virtual int SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string& privateKey,
+    virtual int SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string& privateKey, const std::unordered_set<std::string>& fields,
                        const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
                        ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res>& select_res);
 
@@ -77,7 +77,7 @@ public:
 
     virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res);
 
-    virtual int SaveObj(const std::string& packageName, const std::string& tbName, const std::string& clasname, const std::vector<std::string>& records);
+    virtual int SaveObj(const std::string& packageName, const std::string& tbName, const std::string& clasname, const std::string& privateKey, const std::map<std::string, std::string>& recordsMap);
     virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res);
     virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select);
     virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select);
@@ -96,6 +96,7 @@ public:
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_updateobj &select, std::string& field, std::string& fieldValue);
 public:
     bool SetObj(const std::string& packageName, const std::string& className, const std::string& key, const std::string& value);
+    bool GetObj(const std::string& packageName, const std::string& className, const std::string& key, const std::unordered_set<std::string>& fields, std::string& value);
     bool GetObj(const std::string& packageName, const std::string& className, const std::string& key, std::string& value);
 
     /**

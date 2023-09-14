@@ -435,13 +435,21 @@ int NFCMysqlDriver::TransTableRowToMessage(const std::map<std::string, std::stri
 }
 
 int
-NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet)
+NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, std::string &privateKey, std::unordered_set<std::string> &fields, std::unordered_set<std::string> &privateKeySet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string selectSql;
     int iRet = 0;
     iRet = GetPrivateKeySql(select, privateKey, selectSql);
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}", selectSql);
+
+    if (select.baseinfo().sel_fields_size() > 0)
+    {
+        for (int i = 0; i < (int) select.baseinfo().sel_fields_size(); i++)
+        {
+            fields.insert(select.baseinfo().sel_fields(i));
+        }
+    }
 
     std::vector<std::map<std::string, std::string>> resultVec;
     std::string errmsg;
@@ -451,7 +459,6 @@ NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, std::
         return -1;
     }
 
-    int count = 0;
     for (size_t i = 0; i < resultVec.size(); i++)
     {
         const std::map<std::string, std::string> &result = resultVec[i];
@@ -468,8 +475,7 @@ NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, std::
 
 int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
                                  const std::unordered_set<std::string> &leftPrivateKeySet,
-                                 ::google::protobuf::RepeatedPtrField<storesvr_sqldata::storesvr_sel_res> &vecSelectRes,
-                                 std::vector<std::string> &records)
+                                 std::map<std::string, std::string>& recordsMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string selectSql;
@@ -482,56 +488,20 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, c
     iRet = ExecuteMore(selectSql, resultVec, errmsg);
     if (iRet != 0)
     {
-        storesvr_sqldata::storesvr_sel_res *select_res = vecSelectRes.Add();
-        select_res->mutable_sel_opres()->set_errmsg(errmsg);
         return -1;
     }
 
-    storesvr_sqldata::storesvr_sel_res *select_res = NULL;
-    if (vecSelectRes.size() == 0)
-    {
-        select_res = vecSelectRes.Add();
-        select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-        select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
-        select_res->set_is_lastbatch(false);
-    }
-    else
-    {
-        select_res = vecSelectRes.Mutable(vecSelectRes.size() - 1);
-        if ((int) select_res->sel_records_size() >= (int) select.baseinfo().max_records())
-        {
-            select_res = vecSelectRes.Add();
-
-            select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-            select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
-            select_res->set_is_lastbatch(false);
-        }
-    }
-
-    int count = 0;
     for (size_t i = 0; i < resultVec.size(); i++)
     {
         const std::map<std::string, std::string> &result = resultVec[i];
 
         google::protobuf::Message *pMessage = NULL;
         iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
-        if (iRet == 0 && pMessage != NULL)
+        auto iter = result.find(privateKey);
+        if (iRet == 0 && pMessage != NULL && iter != result.end())
         {
             std::string record = pMessage->SerializeAsString();
-            records.push_back(record);
-            select_res->add_sel_records(record);
-
-            count++;
-            select_res->set_row_count(count);
-            if ((int) select_res->sel_records_size() >= (int) select.baseinfo().max_records())
-            {
-                count = 0;
-                select_res = vecSelectRes.Add();
-
-                select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-                select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
-                select_res->set_is_lastbatch(false);
-            }
+            recordsMap.emplace(iter->second, record);
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
         }
         else
@@ -546,8 +516,6 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, c
             NF_SAFE_DELETE(pMessage);
         }
     }
-
-    select_res->set_is_lastbatch(true);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return iRet;
@@ -1056,7 +1024,6 @@ NFCMysqlDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, std::
         return -1;
     }
 
-    int count = 0;
     for (size_t i = 0; i < resultVec.size(); i++)
     {
         const std::map<std::string, std::string> &result = resultVec[i];
@@ -1514,22 +1481,6 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, cons
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
     std::string stringFileds = "*";
-    if (select.baseinfo().sel_fields_size() > 0)
-    {
-        stringFileds = "";
-        for (int i = 0; i < (int) select.baseinfo().sel_fields_size(); i++)
-        {
-            if (i != select.baseinfo().sel_fields_size() - 1)
-            {
-                stringFileds += select.baseinfo().sel_fields(i) + ",";
-            }
-            else
-            {
-                stringFileds += select.baseinfo().sel_fields(i);
-            }
-        }
-    }
-
     selectSql = "select " + stringFileds + " from " + tableName;
 
     for (auto iter = leftPrivateKeySet.begin(); iter != leftPrivateKeySet.end(); iter++)
