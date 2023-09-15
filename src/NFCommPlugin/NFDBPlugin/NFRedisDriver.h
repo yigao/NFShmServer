@@ -73,6 +73,10 @@ public:
     virtual int DeleteByCond(const storesvr_sqldata::storesvr_del &select, const std::string& privateKey,
                              const std::unordered_set<std::string>& privateKeySet,
                              storesvr_sqldata::storesvr_del_res &select_res);
+
+    virtual int ModifyByCond(const storesvr_sqldata::storesvr_mod &select, const std::string& privateKey,
+                     const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
+                     storesvr_sqldata::storesvr_mod_res &select_res);
 public:
 
     virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res);
@@ -90,6 +94,7 @@ public:
     std::string GetPrivateKeys(const std::string& tbname, const std::string& field, const std::string& fieldValue);
     int GetPrivateFields(const storesvr_sqldata::storesvr_selobj &select, std::string& field, std::string& fieldValue);
     int GetPrivateFields(const std::string& packageName, const std::string& className, const std::string& record, std::string& field, std::string& fieldValue);
+    int GetModFields(const storesvr_sqldata::storesvr_mod &select, std::map<std::string, std::string> &keyMap, std::map<std::string, std::string> &kevValueMap);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_delobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_insertobj &select, std::string& field, std::string& fieldValue);
     virtual int GetPrivateFields(const storesvr_sqldata::storesvr_modobj &select, std::string& field, std::string& fieldValue);

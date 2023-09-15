@@ -1256,20 +1256,6 @@ bool NFCPluginManager::LoadKernelPlugin()
     */
     FindModule<NFILogModule>()->SetDefaultLogConfig();
 
-    /*
-        启动多线程任务系统
-    */
-    if (IsLoadAllServer())
-    {
-        FindModule<NFITaskModule>()->InitActorThread(1);
-    }
-    else
-    {
-        NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
-        NF_ASSERT(pConfig);
-
-        FindModule<NFITaskModule>()->InitActorThread(pConfig->WorkThreadNum);
-    }
     return true;
 }
 

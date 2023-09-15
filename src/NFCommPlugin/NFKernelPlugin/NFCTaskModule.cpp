@@ -14,19 +14,21 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFComm/NFPluginModule/NFITaskComponent.h"
 #include "NFComm/NFCore/NFDateTime.hpp"
+#include "NFTaskGroup.h"
 
 NFCTaskModule::NFCTaskModule(NFIPluginManager* p):NFITaskModule(p)
 {
-	m_loopCount = 0;
-	mnSuitIndex = 0;
-    m_pFramework = NULL;
-    m_pMainActor = NULL;
-	srand(static_cast<unsigned>(time(nullptr)));
 }
 
 NFCTaskModule::~NFCTaskModule()
 {
-
+    for(int i = 0; i < (int)m_taskGroups.size(); i++)
+    {
+        if (m_taskGroups[i])
+        {
+            delete m_taskGroups[i];
+        }
+    }
 }
 
 bool NFCTaskModule::Awake()
@@ -46,33 +48,29 @@ bool NFCTaskModule::BeforeShut()
 
 bool NFCTaskModule::Shut()
 {
-	uint32_t startTime = NFGetSecondTime();
-	//等待异步处理完毕，然后再退出系统
-	while (GetNumQueuedMessages() > 0)
-	{
-		NFSLEEP(1000);
-		if (NFGetSecondTime() - startTime >= 30)
-		{
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "task module shut, but has task not finish after wait 30 second!");
-			break;
-		}
-	}
-
+    for(int i = 0; i < (int)m_taskGroups.size(); i++)
+    {
+        m_taskGroups[i]->Shut();
+    }
 	return true;
 }
 
 bool NFCTaskModule::Finalize()
 {
-	CloseActorPool();
-	return true;
+    for(int i = 0; i < (int)m_taskGroups.size(); i++)
+    {
+        m_taskGroups[i]->Finalize();
+    }
+    return true;
 }
 
 bool NFCTaskModule::Execute()
 {
-	m_loopCount++;
-	OnMainThreadTick();
-    CheckTimeOutTask();
-	return true;
+    for(int i = 0; i < (int)m_taskGroups.size(); i++)
+    {
+        m_taskGroups[i]->Execute();
+    }
+    return true;
 }
 
 /**
@@ -81,19 +79,23 @@ bool NFCTaskModule::Execute()
 * @param thread_num	线程数目，至少为1
 * @return < 0 : Failed
 */
-int NFCTaskModule::InitActorThread(int thread_num, int yieldstrategy)
+int NFCTaskModule::InitActorThread(int actorGroup, int thread_num, int yieldstrategy)
 {
-	//根据物理硬件， 确定需要的线程数目
-	if (thread_num <= 0) thread_num = 1;
+    if (actorGroup > (int)m_taskGroups.size())
+    {
+        m_taskGroups.resize(actorGroup);
+    }
 
-	Theron::Framework::Parameters params;
-	params.mThreadCount = thread_num;
-	params.mYieldStrategy = (Theron::YieldStrategy)yieldstrategy;
+    for(int i = 0; i < (int)m_taskGroups.size(); i++)
+    {
+        if (m_taskGroups[i] == NULL)
+        {
+            m_taskGroups[i] = new NFTaskGroup(m_pObjPluginManager);
+            m_taskGroups[i]->InitActorThread(thread_num, yieldstrategy);
+        }
+    }
 
-	m_pFramework = new Theron::Framework(params);
-	m_pMainActor = new NFTaskActor(*m_pFramework, this);
-
-	return 0;
+    return 0;
 }
 
 /**
@@ -101,30 +103,10 @@ int NFCTaskModule::InitActorThread(int thread_num, int yieldstrategy)
 *
 * @return 返回actor的唯一索引
 */
-int NFCTaskModule::RequireActor()
+int NFCTaskModule::RequireActor(int actorGroup)
 {
-	NFTaskActor* pActor(new NFTaskActor(*m_pFramework, this));
-	if (pActor)
-	{
-		if (m_vecActorPool.empty())
-		{
-			m_vecActorPool.resize(pActor->GetAddress().AsInteger() + 1);
-			for (size_t i = 0; i < m_vecActorPool.size(); i++)
-			{
-				m_vecActorPool[i] = nullptr;
-			}
-		}
-		else
-		{
-			m_vecActorPool.push_back(nullptr);
-		}
-
-		NF_ASSERT((size_t)pActor->GetAddress().AsInteger() < m_vecActorPool.size());
-		m_vecActorPool[pActor->GetAddress().AsInteger()] = pActor;
-
-		return pActor->GetAddress().AsInteger();
-	}
-	return -1;
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size() && m_taskGroups[actorGroup], -1, "actorGroup:{} not exist", actorGroup);
+	return m_taskGroups[actorGroup]->RequireActor();
 }
 
 /**
@@ -134,10 +116,14 @@ int NFCTaskModule::RequireActor()
 * @param pData			要发送的数据
 * @return 是否成功
 */
-int NFCTaskModule::SendMsgToActor(const int nActorIndex, NFTask* pData)
+int NFCTaskModule::SendMsgToActor(int actorGroup, const int nActorIndex, NFTask* pData)
 {
-	NFTaskActor* pActor = GetActor(nActorIndex);
-	return SendMsgToActor(pActor, pData);
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size() && m_taskGroups[actorGroup], -1, "actorGroup:{} not exist", actorGroup);
+    CHECK_NULL(m_taskGroups[actorGroup]);
+    CHECK_NULL(pData);
+    pData->m_runActorGroup = actorGroup;
+    pData->m_nextActorGroup = actorGroup;
+    return m_taskGroups[actorGroup]->SendMsgToActor(nActorIndex, pData);
 }
 
 /**
@@ -147,24 +133,15 @@ int NFCTaskModule::SendMsgToActor(const int nActorIndex, NFTask* pData)
 * @param pData			要发送的数据
 * @return 是否成功
 */
-int NFCTaskModule::SendMsgToActor(NFTaskActor* pActor, NFTask* pData)
+int NFCTaskModule::SendMsgToActor(int actorGroup, NFTaskActor* pActor, NFTask* pData)
 {
-	if (!m_pObjPluginManager->IsServerStopping())
-	{
-		if (pActor != nullptr && m_pMainActor != nullptr && m_pFramework != nullptr)
-		{
-			NFTaskActorMessage xMessage;
-
-			xMessage.nMsgType = NFTaskActorMessage::ACTOR_MSG_TYPE_COMPONENT;
-			xMessage.pData = pData;
-			xMessage.nFromActor = m_pMainActor->GetAddress().AsInteger();
-
-			bool iRet = m_pFramework->Send(xMessage, m_pMainActor->GetAddress(), pActor->GetAddress());
-			CHECK_EXPR(iRet, -1, "m_pFramework->Send Failed");
-		}
-	}
-
-	return 0;
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size() && m_taskGroups[actorGroup], -1, "actorGroup:{} not exist", actorGroup);
+    CHECK_NULL(m_taskGroups[actorGroup]);
+    CHECK_NULL(pActor);
+    CHECK_NULL(pData);
+    pData->m_runActorGroup = actorGroup;
+    pData->m_nextActorGroup = actorGroup;
+    return m_taskGroups[actorGroup]->SendMsgToActor(pActor, pData);
 }
 
 /**
@@ -174,25 +151,10 @@ int NFCTaskModule::SendMsgToActor(NFTaskActor* pActor, NFTask* pData)
 */
 void NFCTaskModule::ReleaseActor()
 {
-	for (size_t i = 0; i < m_vecActorPool.size(); i++)
-	{
-		if (m_vecActorPool[i])
-		{
-			NF_SAFE_DELETE(m_vecActorPool[i]);
-		}
-	}
-
-	if (m_pMainActor)
-	{
-		NF_SAFE_DELETE(m_pMainActor);
-	}
-	m_pMainActor = nullptr;
-
-	if (m_pFramework)
-	{
-		NF_SAFE_DELETE(m_pFramework);
-	}
-	m_pFramework = nullptr;
+    for(int i = 0; i < (int)m_taskGroups.size(); i++)
+    {
+        m_taskGroups[i]->ReleaseActor();
+    }
 }
 
 /**
@@ -201,14 +163,10 @@ void NFCTaskModule::ReleaseActor()
 * @param nActorIndex	actor索引地址
 * @return 返回获得的actor, 若没有，为NULL
 */
-NFTaskActor* NFCTaskModule::GetActor(const int nActorIndex)
+NFTaskActor* NFCTaskModule::GetActor(int actorGroup, const int nActorIndex)
 {
-	if (nActorIndex >= 0 && nActorIndex < (int)m_vecActorPool.size())
-	{
-		return m_vecActorPool[nActorIndex];
-	}
-
-	return nullptr;
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size() && m_taskGroups[actorGroup], NULL, "actorGroup:{} not exist", actorGroup);
+    return m_taskGroups[actorGroup]->GetActor(nActorIndex);
 }
 
 /**
@@ -216,14 +174,12 @@ NFTaskActor* NFCTaskModule::GetActor(const int nActorIndex)
 *
 * @return
 */
-int NFCTaskModule::AddActorComponent(const int nActorIndex, NFITaskComponent* pComonnet)
+int NFCTaskModule::AddActorComponent(int actorGroup, const int nActorIndex, NFITaskComponent* pComonnet)
 {
-	NFTaskActor* pActor = GetActor(nActorIndex);
-	CHECK_EXPR(pActor, -1, "GetActor Failed:{}", nActorIndex);
-
-	pComonnet->SetActorId(pActor->GetActorId());
-	pActor->AddComponnet(pComonnet);
-	return 0;
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size(), -1, "actorGroup:{} not exist", actorGroup);
+    CHECK_NULL(pComonnet);
+    CHECK_NULL(m_taskGroups[actorGroup]);
+    return m_taskGroups[actorGroup]->AddActorComponent(nActorIndex, pComonnet);
 }
 
 /**
@@ -232,72 +188,50 @@ int NFCTaskModule::AddActorComponent(const int nActorIndex, NFITaskComponent* pC
 * @param
 * @return
 */
-NFITaskComponent* NFCTaskModule::GetTaskComponent(int nActorIndex)
+NFITaskComponent* NFCTaskModule::GetTaskComponent(int actorGroup, int nActorIndex)
 {
-	NFTaskActor* pActor = GetActor(nActorIndex);
-	if (pActor == nullptr)
-	{
-		return nullptr;
-	}
-	
-	return pActor->GetTaskComponent();
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size(), NULL, "actorGroup:{} not exist", actorGroup);
+    CHECK_EXPR(m_taskGroups[actorGroup], NULL, "");
+    return m_taskGroups[actorGroup]->GetTaskComponent(nActorIndex);
 }
 
 int NFCTaskModule::GetNumQueuedMessages()
 {
 	int count = 0;
-	if (m_pMainActor)
-	{
-		count += m_pMainActor->GetNumQueuedMessages();
-	}
-
-	for (size_t i = 0; i < m_vecActorPool.size(); i++)
-	{
-		if (m_vecActorPool[i])
-		{
-			count += m_vecActorPool[i]->GetNumQueuedMessages();
-		}
-	}
-
+    for(int i = 0; i < (int)m_taskGroups.size(); i++)
+    {
+        count += m_taskGroups[i]->GetNumQueuedMessages();
+    }
 	return count;
 }
 
 int NFCTaskModule::CloseActorPool()
 {
-	ReleaseActor();
-	m_vecActorPool.clear();
+    for(int i = 0; i < (int)m_taskGroups.size(); i++)
+    {
+        m_taskGroups[i]->CloseActorPool();
+    }
 	return 0;
 }
 
-bool NFCTaskModule::HandlerEx(const NFTaskActorMessage& message, const int from)
+int NFCTaskModule::AddTask(int actorGroup, NFTask* pTask)
 {
-	if (message.nMsgType != NFTaskActorMessage::ACTOR_MSG_TYPE_COMPONENT)
-	{
-		return m_mQueue.Push(message);
-	}
-
-	return false;
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size(), -1, "actorGroup:{} not exist", actorGroup);
+    CHECK_NULL(pTask);
+    CHECK_NULL(m_taskGroups[actorGroup]);
+    pTask->m_runActorGroup = actorGroup;
+    pTask->m_nextActorGroup = actorGroup;
+    return m_taskGroups[actorGroup]->AddTask(pTask);
 }
 
-int NFCTaskModule::AddTask(NFTask* pTask)
+int NFCTaskModule::AddTask(int actorGroup, int actorId, NFTask* pTask)
 {
-	const int nActorId = GetBalanceActor(pTask->GetBalanceId());
-	CHECK_EXPR(nActorId > 0, -1, "GetBalanceActor Failed! nActorId:{}", nActorId);
-
-	int iRet = SendMsgToActor(nActorId, pTask);
-	CHECK_EXPR(iRet == 0, -1, "SendMsgToActor Failed! nActorId:{}", nActorId);
-
-	return 0;
-}
-
-int NFCTaskModule::AddTask(int actorId, NFTask* pTask)
-{
-	CHECK_EXPR(actorId > 0, -1, "actorId <= 0:{}", actorId);
-
-	int iRet = SendMsgToActor(actorId, pTask);
-	CHECK_EXPR(iRet == 0, -1, "SendMsgToActor error");
-
-	return 0;
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size(), -1, "actorGroup:{} not exist", actorGroup);
+    CHECK_NULL(pTask);
+    CHECK_NULL(m_taskGroups[actorGroup]);
+    pTask->m_runActorGroup = actorGroup;
+    pTask->m_nextActorGroup = actorGroup;
+    return m_taskGroups[actorGroup]->AddTask(actorId, pTask);
 }
 
 /**
@@ -305,56 +239,22 @@ int NFCTaskModule::AddTask(int actorId, NFTask* pTask)
 *
 * @return
 */
-int NFCTaskModule::GetMaxThreads()
+int NFCTaskModule::GetMaxThreads(int actorGroup)
 {
-	return m_pFramework->GetMaxThreads();
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size() && m_taskGroups[actorGroup], 0, "actorGroup:{} not exist", actorGroup);
+    return m_taskGroups[actorGroup]->GetMaxThreads();
 }
 
-int NFCTaskModule::GetBalanceActor(uint64_t balanceId)
+int NFCTaskModule::GetBalanceActor(int actorGroup, uint64_t balanceId)
 {
-	if (balanceId == 0)
-	{
-		return GetRandActor();
-	}
-
-	if (m_vecActorPool.empty())
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "error");
-		return -1;
-	}
-
-	//数组的0和1 是空的
-	uint32_t index = balanceId % (m_vecActorPool.size()-2) + 2;
-	if (m_vecActorPool[index])
-	{
-		return m_vecActorPool[index]->GetAddress().AsInteger();
-	}
-	else
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "error");
-		return -1;
-	}
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size() && m_taskGroups[actorGroup], -1, "actorGroup:{} not exist", actorGroup);
+    return m_taskGroups[actorGroup]->GetBalanceActor(balanceId);
 }
 
-int NFCTaskModule::GetRandActor()
+int NFCTaskModule::GetRandActor(int actorGroup)
 {
-	if (m_vecActorPool.empty())
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "error");
-		return -1;
-	}
-
-	uint32_t index = mnSuitIndex++;
-	index = (index % (m_vecActorPool.size()-2)) + 2;
-	if (m_vecActorPool[index])
-	{
-		return m_vecActorPool[index]->GetAddress().AsInteger();
-	}
-	else
-	{
-		NFLogError(NF_LOG_SYSTEMLOG, 0, "error");
-		return -1;
-	}
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size() && m_taskGroups[actorGroup], -1, "actorGroup:{} not exist", actorGroup);
+    return m_taskGroups[actorGroup]->GetRandActor();
 }
 
 /**
@@ -362,118 +262,9 @@ int NFCTaskModule::GetRandActor()
 *
 * @return
 */
-std::vector<int> NFCTaskModule::GetAllActorId() const
+std::vector<int> NFCTaskModule::GetAllActorId(int actorGroup) const
 {
-	std::vector<int> vecActorId;
-	for (size_t index = 0; index < m_vecActorPool.size(); index++)
-	{
-		if (m_vecActorPool[index])
-		{
-			vecActorId.push_back(m_vecActorPool[index]->GetAddress().AsInteger());
-		}
-	}
-	return vecActorId;
+    CHECK_EXPR(actorGroup >= 0 && actorGroup < (int)m_taskGroups.size() && m_taskGroups[actorGroup], std::vector<int>(), "actorGroup:{} not exist", actorGroup);
+    return m_taskGroups[actorGroup]->GetAllActorId();
 }
 
-/**
-* @brief 记录监控Task
-*
-* @return
-*/
-void NFCTaskModule::MonitorTask(NFTask* pTask)
-{
-
-}
-
-/**
-* @brief 检查超时
-*
-* @return
-*/
-void NFCTaskModule::CheckTimeOutTask()
-{
-	for (size_t i = 0; i < m_vecActorPool.size(); i++)
-	{
-		if (m_vecActorPool[i])
-		{
-			m_vecActorPool[i]->CheckTimeoutTask();
-			int num = m_vecActorPool[i]->GetNumQueuedMessages();
-			if (num >= 100)
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "the actor has too many task, the not handle task num:{} actorId:{}", num, m_vecActorPool[i]->GetActorId());
-            }
-		}
-	}
-}
-
-void NFCTaskModule::OnMainThreadTick()
-{
-	std::vector<NFTaskActorMessage> listTask;
-	const bool ret = m_mQueue.Pop(listTask);
-	if (ret)
-	{
-		//const uint64_t start = NFTime::Tick();
-		for (auto it = listTask.begin(); it != listTask.end(); ++it)
-		{
-			NFTaskActorMessage& xMsg = *it;
-			if (xMsg.nMsgType != NFTaskActorMessage::ACTOR_MSG_TYPE_COMPONENT)
-			{
-				auto pTask = static_cast<NFTask*>(xMsg.pData);
-				if (pTask)
-				{
-                    if (pTask->m_useTime >= 100)
-                    {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the task:{} use time out:{} ms, handle time:{} actorId:{}", pTask->m_taskName, pTask->m_useTime/(double)1000,
-                                   NFDateTime(pTask->m_handleStartTime/1000000, pTask->m_handleStartTime%1000000).GetLongTimeString(), pTask->m_handleActorId);
-                    }
-					const NFTask::TPTaskState state = pTask->MainThreadProcess();
-					switch (state)
-					{
-					case NFTask::TPTASK_STATE_COMPLETED:
-						{
-							NF_SAFE_DELETE(pTask);
-						}
-						break;
-					case NFTask::TPTASK_STATE_CONTINUE_CHILDTHREAD:
-						{
-							AddTask(pTask);
-						}
-						break;
-					case NFTask::TPTASK_STATE_CONTINUE_MAINTHREAD:
-						{
-							m_mQueue.Push(xMsg);
-						}
-						break;
-					default:
-						{
-							//error
-							NF_SAFE_DELETE(pTask);
-						}
-					}
-				}
-			}
-			else
-			{
-				//error
-				auto pTask = static_cast<NFTask*>(xMsg.pData);
-				if (pTask)
-				{
-					NF_SAFE_DELETE(pTask);
-				}
-				else
-				{
-					//error
-				}
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "task actor module error................");
-			}
-		}
-
-		if (!listTask.empty())
-		{
-			//NFLogDebug(NF_LOG_SYSTEMLOG, 0, "handle main thread tick task num:{}, use time:{}", listTask.size(),
-			//           NFTime::Tick() - start);
-		}
-	}
-
-	listTask.clear();
-}

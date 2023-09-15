@@ -6,8 +6,9 @@
 #include <Theron/Theron.h>
 #include <atomic>
 #include "NFComm/NFCore/NFMutex.h"
+
 class NFTask;
-class NFITaskModule;
+class NFTaskGroup;
 class NFITaskComponent;
 
 /**
@@ -85,7 +86,7 @@ public:
 	* @brief 构造函数
 	*        必须调用RegisterHandler，注册异步过程中用来处理的函数
 	*/
-	NFTaskActor(Theron::Framework& framework, NFITaskModule* pActorMgr);
+	NFTaskActor(Theron::Framework& framework, NFTaskGroup* pActorMgr);
 
 	/**
 	* @brief 析构函数
@@ -196,7 +197,7 @@ protected:
 	/**
 	* @brief actor管理基类
 	*/
-	NFITaskModule* m_pTaskModule;
+	NFTaskGroup* m_pTaskModule;
 
 	/**
 	* @brief component管理

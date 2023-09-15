@@ -36,8 +36,7 @@
 
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
-
-using QueryDescStore_CB = std::function<void(int iRet, google::protobuf::Message& message)>;
+#include "NFIConfigModule.h"
 
 using SelectByCond_CB = std::function<void(int iRet, storesvr_sqldata::storesvr_sel_res &select_res)>;
 
@@ -72,30 +71,60 @@ public:
 
 	}
 
-	virtual bool InitActorPool(int maxActorNum)
+	virtual bool InitActorPool(int maxTaskGroup, int maxActorNum)
 	{
+        int maxThread = 1;
 		if (!mInitActor)
 		{
-			for (int i = 0; i < maxActorNum; i++)
-			{
-				int actorId = FindModule<NFITaskModule>()->RequireActor();
-				if (actorId <= 0)
-				{
-					return false;
-				}
+            /*
+            启动多线程任务系统
+            */
+            if (m_pObjPluginManager->IsLoadAllServer())
+            {
+                maxThread = 1;
+            }
+            else
+            {
+                NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_NONE);
+                NF_ASSERT(pConfig);
 
-				m_vecActorPool.push_back(actorId);
-			}
+                maxThread = pConfig->WorkThreadNum;
+            }
+
+            FindModule<NFITaskModule>()->InitActorThread(maxTaskGroup, maxThread);
+
+            if (maxActorNum <= 0)
+            {
+                maxActorNum = maxThread * 2;
+            }
+
+            m_vecActorGroupPool.resize(maxTaskGroup);
+
+            for(int taskGroup = 0; taskGroup < (int)m_vecActorGroupPool.size(); taskGroup++)
+            {
+                for (int i = 0; i < maxActorNum; i++)
+                {
+                    int actorId = FindModule<NFITaskModule>()->RequireActor(taskGroup);
+                    if (actorId <= 0)
+                    {
+                        return false;
+                    }
+
+                    m_vecActorGroupPool[taskGroup].push_back(actorId);
+                }
+            }
+
 			mInitActor = true;
 		}
 		return true;
 	}
 
-	virtual bool Exist(int actorId)
+	virtual bool Exist(int taskGroup, int actorId)
 	{
-		for (size_t i = 0; i < m_vecActorPool.size(); i++)
+        CHECK_EXPR(taskGroup >= 0 && taskGroup < (int)m_vecActorGroupPool.size(), false, "taskGroup:{} error", taskGroup);
+		for (size_t i = 0; i < m_vecActorGroupPool[taskGroup].size(); i++)
 		{
-			if (m_vecActorPool[i] == actorId)
+			if (m_vecActorGroupPool[taskGroup][i] == actorId)
 			{
 				return true;
 			}
@@ -108,15 +137,14 @@ public:
 	*
 	* @return
 	*/
-	virtual bool AddActorComponent(int actorId, NFITaskComponent* pComonnet)
+	virtual int AddActorComponent(int taskGroup, int actorId, NFITaskComponent* pComonnet)
 	{
-		FindModule<NFITaskModule>()->AddActorComponent(actorId, pComonnet);
-		return true;
+		return FindModule<NFITaskModule>()->AddActorComponent(taskGroup, actorId, pComonnet);
 	}
 
-	virtual NFITaskComponent* GetActorComponent(int actorId)
+	virtual NFITaskComponent* GetActorComponent(int taskGroup, int actorId)
 	{
-		return FindModule<NFITaskModule>()->GetTaskComponent(actorId);
+		return FindModule<NFITaskModule>()->GetTaskComponent(taskGroup, actorId);
 	}
 
 	/**
@@ -126,20 +154,21 @@ public:
 	* @param balanceId 动态均衡id
 	* @return	一个actor索引
 	*/
-	int GetBalanceActor(uint64_t balanceId)
+	int GetBalanceActor(int taskGroup, uint64_t balanceId)
 	{
+        CHECK_EXPR(taskGroup >= 0 && taskGroup < (int)m_vecActorGroupPool.size(), -1, "taskGroup:{} error", taskGroup);
 		if (balanceId == 0)
 		{
-			return GetRandActor();
+			return GetRandActor(taskGroup);
 		}
 		else
 		{
-			if (m_vecActorPool.size() <= 0)
+			if (m_vecActorGroupPool[taskGroup].size() <= 0)
 			{
 				return -1;
 			}
-			mnSuitIndex = balanceId % m_vecActorPool.size();
-			return m_vecActorPool[mnSuitIndex];
+			mnSuitIndex = balanceId % m_vecActorGroupPool[taskGroup].size();
+			return m_vecActorGroupPool[taskGroup][mnSuitIndex];
 		}
 	}
 
@@ -148,17 +177,18 @@ public:
 	*
 	* @return actor索引
 	*/
-	int GetRandActor()
+	int GetRandActor(int taskGroup)
 	{
-		if (m_vecActorPool.size() <= 0)
+        CHECK_EXPR(taskGroup >= 0 && taskGroup < (int)m_vecActorGroupPool.size(), -1, "taskGroup:{} error", taskGroup);
+		if (m_vecActorGroupPool[taskGroup].size() <= 0)
 		{
 			return -1;
 		}
 
 		mnSuitIndex++;
-		mnSuitIndex = mnSuitIndex % m_vecActorPool.size();
+		mnSuitIndex = mnSuitIndex % m_vecActorGroupPool[taskGroup].size();
 
-		return m_vecActorPool[mnSuitIndex];
+		return m_vecActorGroupPool[taskGroup][mnSuitIndex];
 	}
 
 	/**
@@ -167,14 +197,14 @@ public:
 	* @param pTask 要异步处理的task
 	* @return
 	*/
-	int AddTask(NFTask* pTask)
+	int AddTask(int taskGroup, NFTask* pTask)
 	{
 		if (pTask)
 		{
-			int actorId = GetBalanceActor(pTask->GetBalanceId());
+			int actorId = GetBalanceActor(taskGroup, pTask->GetBalanceId());
 			if (actorId > 0)
 			{
-				return FindModule<NFITaskModule>()->AddTask(actorId, pTask);
+				return FindModule<NFITaskModule>()->AddTask(taskGroup, actorId, pTask);
 			}
 		}
 
@@ -185,7 +215,7 @@ protected:
 	/**
 	* @brief actor索引数组
 	*/
-	std::vector<int> m_vecActorPool;
+	std::vector<std::vector<int>> m_vecActorGroupPool;
 
 	/**
 	* @brief 用来平衡随机获得actor

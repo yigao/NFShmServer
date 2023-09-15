@@ -24,7 +24,7 @@ public:
     virtual ~NFCAsyNosqlModule();
     virtual bool Execute() override;
 
-    virtual bool InitActorPool(int maxActorNum) override;
+    virtual bool InitActorPool(int maxTaskGroup, int maxActorNum = 0) override;
     /**
      * @brief 添加Mysql链接
      *

@@ -427,6 +427,15 @@ public:
     int ModifyByCond(const storesvr_sqldata::storesvr_mod &select, storesvr_sqldata::storesvr_mod_res &select_res);
 
     /**
+     * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
+     *
+     * @param  select 查询语句
+     * @param  select_res 查询结果
+     * @return int =0执行成功, != 0失败
+     */
+    int ModifyByCond(const storesvr_sqldata::storesvr_mod &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet);
+
+    /**
      * @brief 获得表的唯一key's sql
      * @param select
      * @param select_res

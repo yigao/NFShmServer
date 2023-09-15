@@ -21,6 +21,12 @@ enum TaskModule_YieldStrategy
 	TaskModule_YIELD_STRATEGY_AGGRESSIVE = 2       ///< Deprecated - use YIELD_STRATEGY_SPIN.
 };
 
+enum
+{
+    NF_TASK_GROUP_DEFAULT = 0,
+    NF_TASK_MAX_GROUP_DEFAULT = 1,
+};
+
 class NFITaskModule : public NFIModule
 {
 public:
@@ -39,17 +45,7 @@ public:
 	* @param thread_num	线程数目，至少为1
 	* @return < 0 : Failed
 	*/
-	virtual int InitActorThread(int thread_num, int yieldstrategy = 0) = 0;
-
-	/**
-	* @brief 消息数据处理完后，如果有必要将数据返回给主线程，
-	*		 在这个函数里，将消息数据推送给主线程，这个函数在actor线程中执行
-	*
-	* @param message	消息数据
-	* @param from	发送消息的actor地址
-	* @return 是否成功
-	*/
-	virtual bool HandlerEx(const NFTaskActorMessage& message, int from) = 0;
+	virtual int InitActorThread(int actorGroup, int thread_num, int yieldstrategy = 0) = 0;
 
 	/**
 	* @brief 添加要异步处理的task
@@ -57,7 +53,7 @@ public:
 	* @param pTask 要异步处理的task
 	* @return
 	*/
-	virtual int AddTask(NFTask* pTask) = 0;
+	virtual int AddTask(int actorGroup, NFTask* pTask) = 0;
 
 	/**
 	* @brief 添加要异步处理的task
@@ -66,9 +62,9 @@ public:
 	* @return
 	*/
 	template<typename NFTaskType>
-	int AddTaskToEveryActor(const NFTaskType& task)
+	int AddTaskToEveryActor(int actorGroup, const NFTaskType& task)
 	{
-		std::vector<int> vecActorId = GetAllActorId();
+		std::vector<int> vecActorId = GetAllActorId(actorGroup);
 		for (size_t i = 0; i < vecActorId.size(); i++)
 		{
 			auto pTask = new NFTaskType();
@@ -85,7 +81,7 @@ public:
 	* @param pData			要发送的数据
 	* @return 是否成功
 	*/
-	virtual int SendMsgToActor(int nActorIndex, NFTask* pData) = 0;
+	virtual int SendMsgToActor(int actorGroup, int nActorIndex, NFTask* pData) = 0;
 
 	/**
 	* @brief 添加要异步处理的task
@@ -93,14 +89,14 @@ public:
 	* @param pTask 要异步处理的task
 	* @return
 	*/
-	virtual int AddTask(int actorId, NFTask* pTask) = 0;
+	virtual int AddTask(int actorGroup, int actorId, NFTask* pTask) = 0;
 
 	/**
 	* @brief 向系统请求请求一个actor
 	*
 	* @return 返回actor的唯一索引
 	*/
-	virtual int RequireActor() = 0;
+	virtual int RequireActor(int actorGroup) = 0;
 
 	/**
 	* @brief 获得系统还没有处理完的任务数目
@@ -114,7 +110,7 @@ public:
 	*
 	* @return
 	*/
-	virtual int AddActorComponent(int nActorIndex, NFITaskComponent* pComonnet) = 0;
+	virtual int AddActorComponent(int actorGroup, int nActorIndex, NFITaskComponent* pComonnet) = 0;
 
 	/**
 	* @brief 获得所有component
@@ -122,26 +118,19 @@ public:
 	* @param
 	* @return
 	*/
-	virtual NFITaskComponent* GetTaskComponent(int nActorIndex) = 0;
+	virtual NFITaskComponent* GetTaskComponent(int actorGroup, int nActorIndex) = 0;
 
 	/**
 	* @brief 获得最大Actor Thread Num
 	*
 	* @return
 	*/
-	virtual int GetMaxThreads() = 0;
-
-	/**
-	* @brief 记录监控Task
-	*
-	* @return
-	*/
-	virtual void MonitorTask(NFTask* pTask) = 0;
+	virtual int GetMaxThreads(int actorGroup) = 0;
 
 	/**
 	* @brief 获取所有ActorId
 	*
 	* @return
 	*/
-	virtual std::vector<int> GetAllActorId() const = 0;
+	virtual std::vector<int> GetAllActorId(int actorGroup) const = 0;
 };

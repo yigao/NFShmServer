@@ -453,16 +453,16 @@ bool NFCAsyNosqlModule::Execute()
     return NFIModule::Execute();
 }
 
-bool NFCAsyNosqlModule::InitActorPool(int maxActorNum)
+bool NFCAsyNosqlModule::InitActorPool(int maxTaskGroup, int maxActorNum)
 {
-    NFIAsycModule::InitActorPool(maxActorNum);
+    NFIAsycModule::InitActorPool(maxTaskGroup, maxActorNum);
     if (!m_initComponet)
     {
         m_initComponet = true;
-        for (size_t i = 0; i < m_vecActorPool.size(); i++)
+        for (size_t i = 0; i < m_vecActorGroupPool[NF_TASK_GROUP_DEFAULT].size(); i++)
         {
             NFNosqlTaskComponent *pComonnet = NF_NEW NFNosqlTaskComponent();
-            AddActorComponent(m_vecActorPool[i], pComonnet);
+            AddActorComponent(NF_TASK_GROUP_DEFAULT, m_vecActorGroupPool[NF_TASK_GROUP_DEFAULT][i], pComonnet);
         }
     }
 
@@ -472,16 +472,16 @@ bool NFCAsyNosqlModule::InitActorPool(int maxActorNum)
 int NFCAsyNosqlModule::AddDBServer(const std::string& nServerID, const string &noSqlIp, int nosqlPort, const string &noSqlPass)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    InitActorPool(FindModule<NFITaskModule>()->GetMaxThreads() * 2);
+    InitActorPool(NF_TASK_MAX_GROUP_DEFAULT);
 
-    for (size_t i = 0; i < m_vecActorPool.size(); i++)
+    for (size_t i = 0; i < m_vecActorGroupPool[NF_TASK_GROUP_DEFAULT].size(); i++)
     {
         NFNosqlConnectTask *pTask = NF_NEW NFNosqlConnectTask();
         pTask->nServerID = nServerID;
         pTask->nNosqlIp = noSqlIp;
         pTask->nNosqlPort = nosqlPort;
         pTask->nNosqlPass = noSqlPass;
-        int iRet = FindModule<NFITaskModule>()->AddTask(m_vecActorPool[i], pTask);
+        int iRet = FindModule<NFITaskModule>()->AddTask(m_vecActorGroupPool[NF_TASK_GROUP_DEFAULT][i], pTask);
         CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     }
 
@@ -493,7 +493,7 @@ int NFCAsyNosqlModule::SelectObj(const string &nServerID, const storesvr_sqldata
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFSelectObjNosqlTask *pTask = NF_NEW NFSelectObjNosqlTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -503,7 +503,7 @@ int NFCAsyNosqlModule::DeleteObj(const string &nServerID, const storesvr_sqldata
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDeleteObjNosqlTask *pTask = NF_NEW NFDeleteObjNosqlTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -513,7 +513,7 @@ int NFCAsyNosqlModule::InsertObj(const string &nServerID, const storesvr_sqldata
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFInsertObjNosqlTask *pTask = NF_NEW NFInsertObjNosqlTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -523,7 +523,7 @@ int NFCAsyNosqlModule::ModifyObj(const string &nServerID, const storesvr_sqldata
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFModifyObjNosqlTask *pTask = NF_NEW NFModifyObjNosqlTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -533,7 +533,7 @@ int NFCAsyNosqlModule::UpdateObj(const string &nServerID, const storesvr_sqldata
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBUpdateObjTask *pTask = NF_NEW NFDBUpdateObjTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;

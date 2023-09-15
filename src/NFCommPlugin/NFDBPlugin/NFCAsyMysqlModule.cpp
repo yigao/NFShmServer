@@ -762,16 +762,19 @@ NFCAsyMysqlModule::~NFCAsyMysqlModule()
 {
 }
 
-bool NFCAsyMysqlModule::InitActorPool(int maxActorNum)
+bool NFCAsyMysqlModule::InitActorPool(int maxTaskGroup, int maxActorNum)
 {
-    NFIAsycModule::InitActorPool(maxActorNum);
+    NFIAsycModule::InitActorPool(maxTaskGroup, maxActorNum);
     if (!m_initComponet)
     {
         m_initComponet = true;
-        for (size_t i = 0; i < m_vecActorPool.size(); i++)
+        for (size_t i = 0; i < m_vecActorGroupPool.size(); i++)
         {
-            NFMysqlTaskComponent* pComonnet = NF_NEW NFMysqlTaskComponent(this);
-            AddActorComponent(m_vecActorPool[i], pComonnet);
+            for(size_t j = 0; j < m_vecActorGroupPool[i].size(); j++)
+            {
+                NFMysqlTaskComponent* pComonnet = NF_NEW NFMysqlTaskComponent(this);
+                AddActorComponent(i, m_vecActorGroupPool[i][j], pComonnet);
+            }
         }
     }
 
@@ -783,21 +786,24 @@ int NFCAsyMysqlModule::AddMysqlServer(const std::string& nServerID, const std::s
                                       int nRconneCount)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    InitActorPool(FindModule<NFITaskModule>()->GetMaxThreads()*2);
+    InitActorPool(NF_TASK_MAX_GROUP_DEFAULT);
 
-    for (size_t i = 0; i < m_vecActorPool.size(); i++)
+    for (size_t i = 0; i < m_vecActorGroupPool.size(); i++)
     {
-        NFMysqlConnectTask* pTask = NF_NEW NFMysqlConnectTask();
-        pTask->nServerID = nServerID;
-        pTask->strIP = strIP;
-        pTask->nPort = nPort;
-        pTask->strDBName = strDBName;
-        pTask->strDBUser = strDBUser;
-        pTask->strDBPwd = strDBPwd;
-        pTask->nRconnectTime = nRconnectTime;
-        pTask->nRconneCount = nRconneCount;
-        int iRet = FindModule<NFITaskModule>()->AddTask(m_vecActorPool[i], pTask);
-        CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
+        for(size_t j = 0; j < m_vecActorGroupPool[i].size(); j++)
+        {
+            NFMysqlConnectTask* pTask = NF_NEW NFMysqlConnectTask();
+            pTask->nServerID = nServerID;
+            pTask->strIP = strIP;
+            pTask->nPort = nPort;
+            pTask->strDBName = strDBName;
+            pTask->strDBUser = strDBUser;
+            pTask->strDBPwd = strDBPwd;
+            pTask->nRconnectTime = nRconnectTime;
+            pTask->nRconneCount = nRconneCount;
+            int iRet = FindModule<NFITaskModule>()->AddTask(i, m_vecActorGroupPool[i][j], pTask);
+            CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
+        }
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -809,7 +815,7 @@ int NFCAsyMysqlModule::SelectByCond(const std::string& nServerID, const storesvr
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlSelectByCondTask* pTask = NF_NEW NFMysqlSelectByCondTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -821,7 +827,7 @@ int NFCAsyMysqlModule::SelectObj(const std::string& nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlSelectObjTask* pTask = NF_NEW NFMysqlSelectObjTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -833,7 +839,7 @@ int NFCAsyMysqlModule::DeleteByCond(const std::string& nServerID, const storesvr
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlDeleteByCondTask* pTask = NF_NEW NFMysqlDeleteByCondTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -845,7 +851,7 @@ int NFCAsyMysqlModule::DeleteObj(const std::string& nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlDeleteObjTask* pTask = NF_NEW NFMysqlDeleteObjTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -857,7 +863,7 @@ int NFCAsyMysqlModule::InsertObj(const std::string& nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlInsertObjTask* pTask = NF_NEW NFMysqlInsertObjTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -868,7 +874,7 @@ int NFCAsyMysqlModule::ModifyByCond(const std::string& nServerID, const storesvr
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlModifyByCondTask* pTask = NF_NEW NFMysqlModifyByCondTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -879,7 +885,7 @@ int NFCAsyMysqlModule::ModifyObj(const std::string& nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlModifyObjTask* pTask = NF_NEW NFMysqlModifyObjTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -890,7 +896,7 @@ int NFCAsyMysqlModule::UpdateByCond(const std::string& nServerID, const storesvr
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlUpdateByCondTask* pTask = NF_NEW NFMysqlUpdateByCondTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -901,7 +907,7 @@ int NFCAsyMysqlModule::UpdateObj(const std::string& nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlUpdateObjTask* pTask = NF_NEW NFMysqlUpdateObjTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -912,7 +918,7 @@ int NFCAsyMysqlModule::Execute(const std::string& nServerID, const storesvr_sqld
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlExecuteTask* pTask = NF_NEW NFMysqlExecuteTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -923,7 +929,7 @@ int NFCAsyMysqlModule::ExecuteMore(const std::string& nServerID, const storesvr_
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFMysqlExecuteMoreTask* pTask = NF_NEW NFMysqlExecuteMoreTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_TASK_GROUP_DEFAULT, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -936,10 +942,13 @@ bool NFCAsyMysqlModule::Execute()
 
     mnLastCheckTime = NFGetTime();
 
-    for(int i = 0; i < (int)m_vecActorPool.size(); i++)
+    for(int i = 0; i < (int)m_vecActorGroupPool.size(); i++)
     {
-        NFMysqlCheckTask* pTask = NF_NEW NFMysqlCheckTask();
-        FindModule<NFITaskModule>()->AddTask(m_vecActorPool[i], pTask);
+        for(int j = 0; j < (int)m_vecActorGroupPool[i].size(); j++)
+        {
+            NFMysqlCheckTask* pTask = NF_NEW NFMysqlCheckTask();
+            FindModule<NFITaskModule>()->AddTask(i, m_vecActorGroupPool[i][j], pTask);
+        }
     }
 
     return true;

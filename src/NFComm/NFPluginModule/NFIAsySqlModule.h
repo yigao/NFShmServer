@@ -11,6 +11,12 @@
 
 #include "NFComm/NFPluginModule/NFIAsycModule.h"
 
+enum {
+    NF_ASY_TASK_READ_GROUP = 0,
+    NF_ASY_TASK_WRITE_GROUP = 1,
+    NF_ASY_TASK_MAX_GROUP = 2,
+};
+
 class NFIAsySqlModule :  public NFIAsycModule
 {
 public:

@@ -44,6 +44,8 @@ public:
 		m_needManThreadProcess = true;
         m_handleActorId = 0;
         m_handleStartTime = 0;
+        m_runActorGroup = 0;
+        m_nextActorGroup = 0;
 	}
 
 	virtual ~NFTask()
@@ -97,5 +99,7 @@ public:
 	std::string m_taskName; //异步任务名字
 	uint32_t m_handleActorId;
 	uint64_t m_handleStartTime;
+    int32_t m_runActorGroup;
+    int32_t m_nextActorGroup;
 };
 

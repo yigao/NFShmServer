@@ -4,12 +4,13 @@
 #include "NFComm/NFPluginModule/NFITaskComponent.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFDateTime.hpp"
+#include "NFTaskGroup.h"
 
 /**
 * @brief 构造函数
 *        必须调用RegisterHandler，注册异步过程中用来处理的函数
 */
-NFTaskActor::NFTaskActor(Theron::Framework& framework, NFITaskModule* pTaskModule) : Actor(framework)
+NFTaskActor::NFTaskActor(Theron::Framework& framework, NFTaskGroup* pTaskModule) : Actor(framework)
 {
 	RegisterHandler(this, &NFTaskActor::DefaultHandler);
 	m_pTaskModule = pTaskModule;

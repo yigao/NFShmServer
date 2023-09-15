@@ -224,6 +224,88 @@ int NFRedisDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, co
     return 0;
 }
 
+int NFRedisDriver::GetModFields(const storesvr_sqldata::storesvr_mod &select, std::map<std::string, std::string> &keyMap,
+                              std::map<std::string, std::string> &kevValueMap)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string tableName = select.baseinfo().clname();
+    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string packageName = select.baseinfo().package_name();
+
+    std::string full_name;
+    if (packageName.empty())
+    {
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+    }
+    else
+    {
+        full_name = packageName + "." + tableName;
+    }
+    google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
+    CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CreateSql From message:{}", pMessageObject->DebugString());
+
+    NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
+    delete pMessageObject;
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRedisDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, const std::string& privateKey,
+                 const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
+                 storesvr_sqldata::storesvr_mod_res &select_res)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string tableName = select.baseinfo().tbname();
+    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
+    std::string packageName = select.baseinfo().package_name();
+
+    bool bRet = SelectDB(NFREDIS_DB1);
+    if (!bRet)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, tableName);
+        return 1;
+    }
+
+    std::string errmsg;
+    for (auto iter = privateKeySet.begin(); iter != privateKeySet.end(); iter++)
+    {
+        std::string db_key = GetPrivateKeys(tableName, privateKey, *iter);
+
+        if (!EXISTS(db_key))
+        {
+            leftPrivateKeySet.insert(*iter);
+            continue;
+        }
+
+        std::map<std::string, std::string> keyMap;
+        std::map<std::string, std::string> kevValueMap;
+        int iRet = GetModFields(select, keyMap, kevValueMap);
+        if (iRet != 0)
+        {
+            leftPrivateKeySet.insert(*iter);
+            continue;
+        }
+
+        std::vector<string_pair> vecFieldValues;
+        vecFieldValues.insert(vecFieldValues.end(), kevValueMap.begin(), kevValueMap.end());
+        bool bRet = HMSET(db_key, vecFieldValues);
+        if (!bRet)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "HMSET:{} Failed! dbName:{} ", db_key, tableName);
+            return -1;
+        }
+
+        EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
 int NFRedisDriver::TransTableRowToMessage(const std::vector<std::string> &vecFields, const std::vector<std::string> &vecValues,
                                           const std::string &packageName, const std::string &className,
                                           google::protobuf::Message **pMessage)

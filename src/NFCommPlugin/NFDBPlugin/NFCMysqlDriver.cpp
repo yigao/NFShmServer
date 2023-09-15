@@ -2451,12 +2451,14 @@ int NFCMysqlDriver::ModifyObj(const std::string &tbName, const google::protobuf:
 
 int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &select, std::string &privateKey, std::string &selectSql)
 {
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
     std::string tableName = select.baseinfo().tbname();
-    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    CHECK_EXPR(tableName.size() > 0, -1, "tableName empty!");
 
     std::string packageName = select.baseinfo().package_name();
 
-    int iRet = GetPrivateKey(packageName, tableName, privateKey);
+    int iRet = GetPrivateKey(packageName, className, privateKey);
     CHECK_EXPR(iRet == 0, -1, "GetPrivateKey Failed!");
 
     if (!select.has_mod_cond())
@@ -2568,6 +2570,36 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &selec
     }
 
     return 0;
+}
+
+int NFCMysqlDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string selectSql;
+    int iRet = 0;
+    iRet = GetPrivateKeySql(select, privateKey, selectSql);
+    CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}", selectSql);
+
+    std::vector<std::map<std::string, std::string>> resultVec;
+    std::string errmsg;
+    iRet = ExecuteMore(selectSql, resultVec, errmsg);
+    if (iRet != 0)
+    {
+        return -1;
+    }
+
+    for (size_t i = 0; i < resultVec.size(); i++)
+    {
+        const std::map<std::string, std::string> &result = resultVec[i];
+        for (auto iter = result.begin(); iter != result.end(); iter++)
+        {
+            CHECK_EXPR(iter->first == privateKey, -1, "");
+            privateKeySet.insert(iter->second);
+        }
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return iRet;
 }
 
 int NFCMysqlDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, storesvr_sqldata::storesvr_mod_res &select_res)

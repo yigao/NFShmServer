@@ -223,6 +223,7 @@ public:
         {
             iRet = -1;
         }
+
         return true;
     }
 
@@ -346,44 +347,36 @@ public:
     */
     bool ThreadProcess() override
     {
-        if (m_useCache)
+        if (m_useCache && m_pNosqlDriver && m_pMysqlDriver)
         {
-            if (m_pNosqlDriver && m_pMysqlDriver)
+            std::string privateKey;
+            std::unordered_set<std::string> privateKeySet;
+            iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet);
+            if (iRet != 0)
             {
-                std::string privateKey;
-                std::unordered_set<std::string> privateKeySet;
-                iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet);
-                if (iRet != 0)
-                {
-                    return true;
-                }
-
-                iRet = m_pNosqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
-                if (iRet <= 0)
-                {
-                    return true;
-                }
-
-                iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
-                if (iRet != 0)
-                {
-                    return true;
-                }
+                return true;
             }
-            else {
-                iRet = -1;
+
+            iRet = m_pNosqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
+            if (iRet <= 0)
+            {
                 return true;
             }
         }
+        else {
+            if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
+            {
+                if (m_pMysqlDriver)
+                {
+                    iRet = m_pMysqlDriver->DeleteByCond(mSelect, mSelectRes);
+                }
+                else
+                {
+                    iRet = -1;
+                }
+            }
+        }
 
-        if (m_pMysqlDriver)
-        {
-            iRet = m_pMysqlDriver->DeleteByCond(mSelect, mSelectRes);
-        }
-        else
-        {
-            iRet = -1;
-        }
         return true;
     }
 
@@ -393,11 +386,41 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        if (mCB)
+        if (m_useCache)
         {
-            mCB(iRet, mSelectRes);
+            if (iRet == 0)
+            {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                m_useCache = false;
+                mCB = nullptr;
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
         }
-        return TPTASK_STATE_COMPLETED;
+        else {
+            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+            {
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
+        }
     }
 
 public:
@@ -431,16 +454,22 @@ public:
     {
         if (m_useCache && m_pNosqlDriver)
         {
-            m_pNosqlDriver->DeleteObj(mSelect);
+            iRet = m_pNosqlDriver->DeleteObj(mSelect);
         }
+        else {
+            if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
+            {
+                if (m_pMysqlDriver)
+                {
+                    iRet = m_pMysqlDriver->DeleteObj(mSelect, mSelectRes);
+                }
+                else
+                {
+                    iRet = -1;
+                }
+            }
 
-        if (m_pMysqlDriver)
-        {
-            iRet = m_pMysqlDriver->DeleteObj(mSelect, mSelectRes);
-        }
-        else
-        {
-            iRet = -1;
+            return true;
         }
         return true;
     }
@@ -451,11 +480,41 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        if (mCB)
+        if (m_useCache)
         {
-            mCB(iRet, mSelectRes);
+            if (iRet == 0)
+            {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                m_useCache = false;
+                mCB = nullptr;
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
         }
-        return TPTASK_STATE_COMPLETED;
+        else {
+            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+            {
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
+        }
     }
 
 public:
@@ -487,19 +546,26 @@ public:
     */
     bool ThreadProcess() override
     {
-        if (m_pMysqlDriver)
-        {
-            iRet = m_pMysqlDriver->InsertObj(mSelect, mSelectRes);
-        }
-        else
-        {
-            iRet = -1;
-        }
-
-        if (iRet == 0 && m_useCache && m_pNosqlDriver)
+        if (m_useCache && m_pNosqlDriver)
         {
             iRet = m_pNosqlDriver->SaveObj(mSelect);
         }
+        else {
+            if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
+            {
+                if (m_pMysqlDriver)
+                {
+                    iRet = m_pMysqlDriver->InsertObj(mSelect, mSelectRes);
+                }
+                else
+                {
+                    iRet = -1;
+                }
+            }
+
+            return true;
+        }
+
         return true;
     }
 
@@ -509,11 +575,41 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        if (mCB)
+        if (m_useCache)
         {
-            mCB(iRet, mSelectRes);
+            if (iRet == 0)
+            {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                m_useCache = false;
+                mCB = nullptr;
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
         }
-        return TPTASK_STATE_COMPLETED;
+        else {
+            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+            {
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
+        }
     }
 
 public:
@@ -545,44 +641,37 @@ public:
     */
     bool ThreadProcess() override
     {
-/*        if (m_useCache)
+        if (m_useCache && m_pNosqlDriver && m_pMysqlDriver)
         {
-            if (m_pNosqlDriver && m_pMysqlDriver)
+            std::string privateKey;
+            std::unordered_set<std::string> privateKeySet;
+            iRet = m_pMysqlDriver->ModifyByCond(mSelect, privateKey, privateKeySet);
+            if (iRet != 0)
             {
-                std::string privateKey;
-                std::unordered_set<std::string> privateKeySet;
-                iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet);
-                if (iRet != 0)
-                {
-                    return true;
-                }
-
-                iRet = m_pNosqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
-                if (iRet <= 0)
-                {
-                    return true;
-                }
-
-                iRet = m_pMysqlDriver->DeleteByCond(mSelect, privateKey, privateKeySet, mSelectRes);
-                if (iRet != 0)
-                {
-                    return true;
-                }
+                return true;
             }
-            else {
-                iRet = -1;
+
+            std::unordered_set<std::string> leftPrivateKeySet;
+            iRet = m_pNosqlDriver->ModifyByCond(mSelect, privateKey, privateKeySet, leftPrivateKeySet, mSelectRes);
+            if (iRet <= 0)
+            {
                 return true;
             }
         }
-       */
-        if (m_pMysqlDriver)
-        {
-            iRet = m_pMysqlDriver->ModifyByCond(mSelect, mSelectRes);
+        else {
+            if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
+            {
+                if (m_pMysqlDriver)
+                {
+                    iRet = m_pMysqlDriver->ModifyByCond(mSelect, mSelectRes);
+                }
+                else
+                {
+                    iRet = -1;
+                }
+            }
         }
-        else
-        {
-            iRet = -1;
-        }
+
         return true;
     }
 
@@ -592,11 +681,41 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        if (mCB)
+        if (m_useCache)
         {
-            mCB(iRet, mSelectRes);
+            if (iRet == 0)
+            {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                m_useCache = false;
+                mCB = nullptr;
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
         }
-        return TPTASK_STATE_COMPLETED;
+        else {
+            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+            {
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
+        }
     }
 
 public:
@@ -633,13 +752,16 @@ public:
             iRet = m_pNosqlDriver->SaveObj(mSelect);
         }
         else {
-            if (m_pMysqlDriver)
+            if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
             {
-                iRet = m_pMysqlDriver->ModifyObj(mSelect, mSelectRes);
-            }
-            else
-            {
-                iRet = -1;
+                if (m_pMysqlDriver)
+                {
+                    iRet = m_pMysqlDriver->ModifyObj(mSelect, mSelectRes);
+                }
+                else
+                {
+                    iRet = -1;
+                }
             }
 
             return true;
@@ -662,8 +784,9 @@ public:
                 {
                     mCB(iRet, mSelectRes);
                 }
-                mCB = nullptr;
                 m_useCache = false;
+                mCB = nullptr;
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
                 return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
             else {
@@ -675,11 +798,18 @@ public:
             }
         }
         else {
-            if (mCB)
+            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
             {
-                mCB(iRet, mSelectRes);
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
-            return TPTASK_STATE_COMPLETED;
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
         }
     }
 
@@ -730,11 +860,41 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        if (mCB)
+        if (m_useCache)
         {
-            mCB(iRet, mSelectRes);
+            if (iRet == 0)
+            {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                m_useCache = false;
+                mCB = nullptr;
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
         }
-        return TPTASK_STATE_COMPLETED;
+        else {
+            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+            {
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+            }
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
+        }
     }
 
 public:
@@ -800,8 +960,9 @@ public:
                 {
                     mCB(iRet, mSelectRes);
                 }
-                mCB = nullptr;
                 m_useCache = false;
+                mCB = nullptr;
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
                 return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
             else {
@@ -813,11 +974,18 @@ public:
             }
         }
         else {
-            if (mCB)
+            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
             {
-                mCB(iRet, mSelectRes);
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
-            return TPTASK_STATE_COMPLETED;
+            else {
+                if (mCB)
+                {
+                    mCB(iRet, mSelectRes);
+                }
+                return TPTASK_STATE_COMPLETED;
+            }
         }
     }
 
@@ -1037,16 +1205,19 @@ NFCAsyDBModule::~NFCAsyDBModule()
 {
 }
 
-bool NFCAsyDBModule::InitActorPool(int maxActorNum)
+bool NFCAsyDBModule::InitActorPool(int maxTaskGroup, int maxActorNum)
 {
-    NFIAsycModule::InitActorPool(maxActorNum);
+    NFIAsycModule::InitActorPool(maxTaskGroup, maxActorNum);
     if (!m_initComponet)
     {
         m_initComponet = true;
-        for (size_t i = 0; i < m_vecActorPool.size(); i++)
+        for (size_t i = 0; i < m_vecActorGroupPool.size(); i++)
         {
-            NFDBTaskComponent *pComonnet = NF_NEW NFDBTaskComponent();
-            AddActorComponent(m_vecActorPool[i], pComonnet);
+            for(size_t j = 0; j < m_vecActorGroupPool[i].size(); j++)
+            {
+                NFDBTaskComponent *pComonnet = NF_NEW NFDBTaskComponent();
+                AddActorComponent(i, m_vecActorGroupPool[i][j], pComonnet);
+            }
         }
     }
 
@@ -1059,24 +1230,27 @@ int NFCAsyDBModule::AddDBServer(const std::string &nServerID, const std::string 
                                 int nRconneCount)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    InitActorPool(FindModule<NFITaskModule>()->GetMaxThreads() * 2);
+    InitActorPool(NF_ASY_TASK_MAX_GROUP);
 
-    for (size_t i = 0; i < m_vecActorPool.size(); i++)
+    for (size_t i = 0; i < m_vecActorGroupPool.size(); i++)
     {
-        NFDBConnectTask *pTask = NF_NEW NFDBConnectTask();
-        pTask->nServerID = nServerID;
-        pTask->strIP = strIP;
-        pTask->nPort = nPort;
-        pTask->strDBName = strDBName;
-        pTask->strDBUser = strDBUser;
-        pTask->strDBPwd = strDBPwd;
-        pTask->nRconnectTime = nRconnectTime;
-        pTask->nRconneCount = nRconneCount;
-        pTask->nNosqlIp = noSqlIp;
-        pTask->nNosqlPort = nosqlPort;
-        pTask->nNosqlPass = noSqlPass;
-        int iRet = FindModule<NFITaskModule>()->AddTask(m_vecActorPool[i], pTask);
-        CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
+        for(size_t j = 0; j < m_vecActorGroupPool[i].size(); j++)
+        {
+            NFDBConnectTask *pTask = NF_NEW NFDBConnectTask();
+            pTask->nServerID = nServerID;
+            pTask->strIP = strIP;
+            pTask->nPort = nPort;
+            pTask->strDBName = strDBName;
+            pTask->strDBUser = strDBUser;
+            pTask->strDBPwd = strDBPwd;
+            pTask->nRconnectTime = nRconnectTime;
+            pTask->nRconneCount = nRconneCount;
+            pTask->nNosqlIp = noSqlIp;
+            pTask->nNosqlPort = nosqlPort;
+            pTask->nNosqlPass = noSqlPass;
+            int iRet = FindModule<NFITaskModule>()->AddTask(i, m_vecActorGroupPool[i][j], pTask);
+            CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
+        }
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -1088,7 +1262,7 @@ int NFCAsyDBModule::SelectByCond(const std::string &nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBSelectByCondTask *pTask = NF_NEW NFDBSelectByCondTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1100,7 +1274,7 @@ int NFCAsyDBModule::SelectObj(const std::string &nServerID, const storesvr_sqlda
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBSelectObjTask *pTask = NF_NEW NFDBSelectObjTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1112,7 +1286,7 @@ int NFCAsyDBModule::DeleteByCond(const std::string &nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBDeleteByCondTask *pTask = NF_NEW NFDBDeleteByCondTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1124,7 +1298,7 @@ int NFCAsyDBModule::DeleteObj(const std::string &nServerID, const storesvr_sqlda
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBDeleteObjTask *pTask = NF_NEW NFDBDeleteObjTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1136,7 +1310,7 @@ int NFCAsyDBModule::InsertObj(const std::string &nServerID, const storesvr_sqlda
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBInsertObjTask *pTask = NF_NEW NFDBInsertObjTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1147,7 +1321,7 @@ int NFCAsyDBModule::ModifyByCond(const std::string &nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBModifyByCondTask *pTask = NF_NEW NFDBModifyByCondTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1158,7 +1332,7 @@ int NFCAsyDBModule::ModifyObj(const std::string &nServerID, const storesvr_sqlda
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBModifyObjTask *pTask = NF_NEW NFDBModifyObjTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1169,7 +1343,7 @@ int NFCAsyDBModule::UpdateByCond(const std::string &nServerID, const storesvr_sq
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBUpdateByCondTask *pTask = NF_NEW NFDBUpdateByCondTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1180,7 +1354,7 @@ int NFCAsyDBModule::UpdateObj(const std::string &nServerID, const storesvr_sqlda
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBUpdateObjTask *pTask = NF_NEW NFDBUpdateObjTask(nServerID, select, cb, useCache);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_READ_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1191,7 +1365,7 @@ int NFCAsyDBModule::Execute(const std::string &nServerID, const storesvr_sqldata
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBExecuteTask *pTask = NF_NEW NFDBExecuteTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_WRITE_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1202,7 +1376,7 @@ int NFCAsyDBModule::ExecuteMore(const std::string &nServerID, const storesvr_sql
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     NFDBExecuteMoreTask *pTask = NF_NEW NFDBExecuteMoreTask(nServerID, select, cb);
-    int iRet = AddTask(pTask);
+    int iRet = AddTask(NF_ASY_TASK_WRITE_GROUP, pTask);
     CHECK_EXPR(iRet == 0, -1, "AddTask Failed");
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -1215,10 +1389,13 @@ bool NFCAsyDBModule::Execute()
 
     mnLastCheckTime = NFGetTime();
 
-    for (int i = 0; i < (int) m_vecActorPool.size(); i++)
+    for (int i = 0; i < (int) m_vecActorGroupPool.size(); i++)
     {
-        NFDBCheckTask *pTask = NF_NEW NFDBCheckTask();
-        FindModule<NFITaskModule>()->AddTask(m_vecActorPool[i], pTask);
+        for(int j = 0; j < (int) m_vecActorGroupPool[i].size(); j++)
+        {
+            NFDBCheckTask *pTask = NF_NEW NFDBCheckTask();
+            FindModule<NFITaskModule>()->AddTask(i, m_vecActorGroupPool[i][j], pTask);
+        }
     }
 
     return true;
