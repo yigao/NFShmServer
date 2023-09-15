@@ -144,7 +144,7 @@ public:
         mSelect = select;
         mCB = cb;
         iRet = 0;
-        m_taskName = GET_CLASS_NAME(NFDBSelectByCondTask);
+        m_taskName = GET_CLASS_NAME(NFDBSelectByCondTask) + std::string("_") + select.baseinfo().tbname();
     }
 
     virtual ~NFDBSelectByCondTask()
@@ -260,7 +260,7 @@ public:
         mSelect = select;
         mCB = cb;
         iRet = 0;
-        m_taskName = GET_CLASS_NAME(NFDBSelectObjTask);
+        m_taskName = GET_CLASS_NAME(NFDBSelectObjTask) + std::string("_") + select.baseinfo().tbname() + "_" + NFCommon::tostr(select.mod_key());
     }
 
     virtual ~NFDBSelectObjTask()
@@ -533,7 +533,7 @@ public:
         mSelect = select;
         mCB = cb;
         iRet = 0;
-        m_taskName = GET_CLASS_NAME(NFDBInsertObjTask) + std::string("_") + select.baseinfo().tbname();;
+        m_taskName = GET_CLASS_NAME(NFDBInsertObjTask) +  std::string("_") + select.baseinfo().tbname() + "_" + NFCommon::tostr(select.mod_key());
     }
 
     virtual ~NFDBInsertObjTask()
@@ -734,7 +734,7 @@ public:
         mSelect = select;
         mCB = cb;
         iRet = 0;
-        m_taskName = GET_CLASS_NAME(NFDBModifyObjTask) + std::string("_") + select.baseinfo().tbname();;
+        m_taskName = GET_CLASS_NAME(NFDBModifyObjTask) + std::string("_") + select.baseinfo().tbname() + "_" + NFCommon::tostr(select.mod_key());
     }
 
     virtual ~NFDBModifyObjTask()

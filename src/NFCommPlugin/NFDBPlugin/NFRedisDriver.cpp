@@ -166,12 +166,6 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
             continue;
         }
 
-        if (value.empty())
-        {
-            leftPrivateKeySet.insert(*iter);
-            continue;
-        }
-
         EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
 
         select_res->add_sel_records(value);
@@ -193,6 +187,7 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
     if (leftPrivateKeySet.empty())
     {
         select_res->set_is_lastbatch(true);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SelectByCond Success");
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -219,6 +214,8 @@ int NFRedisDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, co
         std::string db_key = GetPrivateKeys(tableName, privateKey, *iter);
         DEL(db_key);
     }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "DeleteByCond Success");
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -301,6 +298,8 @@ int NFRedisDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, co
 
         EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
     }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "ModifyByCond Success");
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -405,6 +404,8 @@ bool NFRedisDriver::GetObj(const std::string &packageName, const std::string &cl
         NF_SAFE_DELETE(pMessage);
     }
 
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetObj:{} Success", key);
+
     return true;
 }
 
@@ -435,6 +436,8 @@ bool NFRedisDriver::SetObj(const std::string &packageName, const std::string &cl
         NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, className);
         return false;
     }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SetObj:{} Success", key);
 
     return true;
 }
@@ -478,17 +481,15 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     bRet = GetObj(packageName, className, db_key, value);
     if (!bRet)
     {
-        return 1;
-    }
-
-    if (value.empty())
-    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SelectObj:{} storesvr_selobj Failed", db_key);
         return 1;
     }
 
     EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
 
     select_res.set_sel_record(value);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SelectObj:{} storesvr_selobj Success", db_key);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -520,6 +521,8 @@ int NFRedisDriver::SaveObj(const std::string &packageName, const std::string &ta
 
         EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
     }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SaveObj Success");
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -567,6 +570,8 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_selobj &select,
     }
 
     EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SaveObj:{} storesvr_selobj Success", db_key);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -608,6 +613,8 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_modobj &select)
     }
 
     EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SaveObj:{} storesvr_modobj Success", db_key);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -649,6 +656,8 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_updateobj &select)
     }
 
     EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SaveObj:{} storesvr_updateobj Success", db_key);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -690,6 +699,8 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_insertobj &select)
     }
 
     EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "SaveObj:{} storesvr_insertobj Success", db_key);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }

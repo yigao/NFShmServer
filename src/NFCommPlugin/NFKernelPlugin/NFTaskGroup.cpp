@@ -21,6 +21,7 @@ NFTaskGroup::NFTaskGroup(NFIPluginManager *p): NFIModule(p)
     mnSuitIndex = 0;
     m_pFramework = NULL;
     m_pMainActor = NULL;
+    m_taskGroupId = 0;
     srand(static_cast<unsigned>(time(nullptr)));
 }
 
@@ -80,8 +81,9 @@ bool NFTaskGroup::Execute()
 * @param thread_num	线程数目，至少为1
 * @return < 0 : Failed
 */
-int NFTaskGroup::InitActorThread(int thread_num, int yieldstrategy)
+int NFTaskGroup::InitActorThread(int taskGroup, int thread_num, int yieldstrategy)
 {
+    m_taskGroupId = taskGroup;
     //根据物理硬件， 确定需要的线程数目
     if (thread_num <= 0) thread_num = 1;
 
@@ -422,7 +424,7 @@ void NFTaskGroup::OnMainThreadTick()
                 {
                     if (pTask->m_useTime >= 100)
                     {
-                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the task:{} use time out:{} ms, handle time:{} actorId:{}", pTask->m_taskName, pTask->m_useTime/(double)1000,
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "the taskGroup:{} task:{} use time out:{} ms, handle time:{} actorId:{}", m_taskGroupId, pTask->m_taskName, pTask->m_useTime/(double)1000,
                                    NFDateTime(pTask->m_handleStartTime/1000000, pTask->m_handleStartTime%1000000).GetLongTimeString(), pTask->m_handleActorId);
                     }
                     const NFTask::TPTaskState state = pTask->MainThreadProcess();
@@ -435,6 +437,7 @@ void NFTaskGroup::OnMainThreadTick()
                             break;
                         case NFTask::TPTASK_STATE_CONTINUE_CHILDTHREAD:
                         {
+                            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "the taskGroup:{} task:{} will trans to the taskGroup:{} run", m_taskGroupId, pTask->m_taskName, pTask->m_nextActorGroup);
                             FindModule<NFITaskModule>()->AddTask(pTask->m_nextActorGroup, pTask);
                         }
                         break;

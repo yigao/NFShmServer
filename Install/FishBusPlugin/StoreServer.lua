@@ -30,9 +30,9 @@ StoreServer = {
              TBConfList = {
                   {TableName="tbFishAccountTable", TableCount=1, Cache = false},
                   {TableName="tbFishPlayerData", TableCount=1, Cache = true},
-                  {TableName="tbFishSnsPlayerSimpleData", TableCount=1, Cache = true},
-                  {TableName="tbFishSnsPlayerDetailData", TableCount=1, Cache = true},
-                  {TableName="E_FishRoom", TableCount=1, Cache = true},
+                  {TableName="tbFishSnsPlayerSimpleData", TableCount=1, Cache = false},
+                  {TableName="tbFishSnsPlayerDetailData", TableCount=1, Cache = false},
+                  {TableName="E_FishRoom", TableCount=1, Cache = false},
              },
         },
         RedisConfig = {

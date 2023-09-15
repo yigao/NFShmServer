@@ -91,7 +91,7 @@ int NFCTaskModule::InitActorThread(int actorGroup, int thread_num, int yieldstra
         if (m_taskGroups[i] == NULL)
         {
             m_taskGroups[i] = new NFTaskGroup(m_pObjPluginManager);
-            m_taskGroups[i]->InitActorThread(thread_num, yieldstrategy);
+            m_taskGroups[i]->InitActorThread(i, thread_num, yieldstrategy);
         }
     }
 

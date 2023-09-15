@@ -44,7 +44,7 @@ public:
     * @param thread_num	线程数目，至少为1
     * @return < 0 : Failed
     */
-    virtual int InitActorThread(int thread_num, int yieldstrategy = 0);
+    virtual int InitActorThread(int taskGroup, int thread_num, int yieldstrategy = 0);
 
     /**
     * @brief 向系统请求请求一个actor
@@ -211,4 +211,9 @@ protected:
     * actor线程将数据放入队列， 主线程从队列里取数据处理
     */
     NFQueueVector<NFTaskActorMessage> m_mQueue;
+
+    /**
+     * @brief 任务组ID
+     */
+    uint32_t m_taskGroupId;
 };
