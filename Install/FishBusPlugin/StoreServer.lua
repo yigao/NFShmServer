@@ -29,10 +29,10 @@ StoreServer = {
              MysqlPassword = NF_MYSQL_PASSWORD,
              TBConfList = {
                   {TableName="tbFishAccountTable", TableCount=1, Cache = false},
-                  {TableName="tbFishPlayerData", TableCount=1, Cache = true},
+                  {TableName="tbFishPlayerData", TableCount=1, Cache = false},
                   {TableName="tbFishSnsPlayerSimpleData", TableCount=1, Cache = false},
                   {TableName="tbFishSnsPlayerDetailData", TableCount=1, Cache = false},
-                  {TableName="E_FishRoom", TableCount=1, Cache = false},
+                  {TableName="E_FishRoom", TableCount=1, Cache = true},
              },
         },
         RedisConfig = {

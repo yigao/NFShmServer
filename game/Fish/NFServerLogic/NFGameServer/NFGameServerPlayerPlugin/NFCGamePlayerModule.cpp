@@ -110,6 +110,13 @@ NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t 
                 m_pObjPluginManager->IsFinishAppTask(NF_ST_GAME_SERVER, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE))
             {
                 NFGameRoomMgr::Instance(m_pObjPluginManager)->RegisterAllRoomToWorldServer();
+
+                proto_ff::E_FishRoom room;
+                room.set_m_id(1);
+                room.set_m_entermin(3333);
+                FindModule<NFIServerMessageModule>()->GetRpcModifyService(NF_ST_GAME_SERVER, 0, room, [](int iRet){
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcModifyService FishRoom iRet:{}", GetErrorStr(iRet));
+                });
             }
         }
     }

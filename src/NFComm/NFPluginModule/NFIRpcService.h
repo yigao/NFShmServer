@@ -13,7 +13,7 @@
 #include "NFComm/NFPluginModule/NFObject.h"
 
 #ifdef NF_DEBUG_MODE
-#define DEFINE_RPC_SERVICE_TIME_OUT_MS (200000) //200s
+#define DEFINE_RPC_SERVICE_TIME_OUT_MS (2000000) //200s
 #else
 #define DEFINE_RPC_SERVICE_TIME_OUT_MS (3000) //3s
 #endif

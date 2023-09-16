@@ -638,8 +638,14 @@ public:
 
             std::unordered_set<std::string> leftPrivateKeySet;
             iRet = m_pNosqlDriver->ModifyByCond(mSelect, privateKey, privateKeySet, leftPrivateKeySet, mSelectRes);
-            if (iRet <= 0)
+            if (iRet != 0)
             {
+                return true;
+            }
+
+            if (leftPrivateKeySet.empty())
+            {
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
                 return true;
             }
 
@@ -668,6 +674,9 @@ public:
                 iRet = -1;
                 return true;
             }
+
+            m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+            return true;
         }
         else {
             if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
@@ -898,8 +907,14 @@ public:
 
             std::unordered_set<std::string> leftPrivateKeySet;
             iRet = m_pNosqlDriver->UpdateByCond(mSelect, privateKey, privateKeySet, leftPrivateKeySet, mSelectRes);
-            if (iRet <= 0)
+            if (iRet != 0)
             {
+                return true;
+            }
+
+            if (leftPrivateKeySet.empty())
+            {
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
                 return true;
             }
 
@@ -928,6 +943,9 @@ public:
                 iRet = -1;
                 return true;
             }
+
+            m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+            return true;
         }
         else {
             if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)

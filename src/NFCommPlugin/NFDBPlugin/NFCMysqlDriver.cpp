@@ -1154,7 +1154,6 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
 {
     if (select.has_cond())
     {
-        selectSql = " ";
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         for (int i = 0; i < whereCond.where_conds_size(); i++)
         {

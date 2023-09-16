@@ -317,8 +317,20 @@ int NFRedisDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, co
     if (!bRet)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, tableName);
-        return 1;
+        return -1;
     }
+
+    std::map<std::string, std::string> keyMap;
+    std::map<std::string, std::string> kevValueMap;
+    int iRet = GetObjFields(packageName, className, select.record(), keyMap, kevValueMap);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, tableName);
+        return -1;
+    }
+
+    std::vector<string_pair> vecFieldValues;
+    vecFieldValues.insert(vecFieldValues.end(), kevValueMap.begin(), kevValueMap.end());
 
     std::string errmsg;
     for (auto iter = privateKeySet.begin(); iter != privateKeySet.end(); iter++)
@@ -331,17 +343,6 @@ int NFRedisDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, co
             continue;
         }
 
-        std::map<std::string, std::string> keyMap;
-        std::map<std::string, std::string> kevValueMap;
-        int iRet = GetObjFields(packageName, className, select.record(), keyMap, kevValueMap);
-        if (iRet != 0)
-        {
-            leftPrivateKeySet.insert(*iter);
-            continue;
-        }
-
-        std::vector<string_pair> vecFieldValues;
-        vecFieldValues.insert(vecFieldValues.end(), kevValueMap.begin(), kevValueMap.end());
         bool bRet = HMSET(db_key, vecFieldValues);
         if (!bRet)
         {
