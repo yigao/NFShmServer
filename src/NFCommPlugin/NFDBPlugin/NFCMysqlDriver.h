@@ -250,7 +250,7 @@ public:
      * @param privateKeySet
      * @return
      */
-    int SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
+    int SelectByCond(const std::string& packageName, const std::string& tableName, const std::string& className, const std::string &privateKey,
                      const std::unordered_set<std::string> &leftPrivateKeySet, std::map<std::string, std::string>& recordsMap);
 
     /**
@@ -260,7 +260,7 @@ public:
      * @param  selectSql 生成sql语句
      * @return int =0执行成功, != 0失败
      */
-    int CreateSql(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
+    int CreateSql(const std::string& tableName, const std::string &privateKey,
                   const std::unordered_set<std::string> &leftPrivateKeySet, std::string &select_res);
 
     /**
@@ -489,6 +489,15 @@ public:
      * @return int =0执行成功, != 0失败
      */
     int UpdateByCond(const storesvr_sqldata::storesvr_update &select, storesvr_sqldata::storesvr_update_res &select_res);
+
+    /**
+     * @brief 通过select结构体， 从数据库获取数据，并把结果放到selelct_res
+     *
+     * @param  select 查询语句
+     * @param  select_res 查询结果
+     * @return int =0执行成功, != 0失败
+     */
+    int UpdateByCond(const storesvr_sqldata::storesvr_update &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet);
 
     /**
      * @brief 获得表的唯一key's sql

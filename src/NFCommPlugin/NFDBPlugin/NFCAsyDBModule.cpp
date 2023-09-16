@@ -183,7 +183,7 @@ public:
                     }
 
                     std::map<std::string, std::string> recordsMap;
-                    iRet = m_pMysqlDriver->SelectByCond(mSelect, privateKey, leftPrivateKeySet, recordsMap);
+                    iRet = m_pMysqlDriver->SelectByCond(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, leftPrivateKeySet, recordsMap);
                     if (iRet != 0)
                     {
                         break;
@@ -642,6 +642,32 @@ public:
             {
                 return true;
             }
+
+            std::map<std::string, std::string> recordsMap;
+            iRet = m_pMysqlDriver->SelectByCond(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, leftPrivateKeySet, recordsMap);
+            if (iRet != 0)
+            {
+                return true;
+            }
+
+            iRet = m_pNosqlDriver->SaveObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, recordsMap);
+            if (iRet != 0)
+            {
+                return true;
+            }
+
+            std::unordered_set<std::string> otherPrivateKeySet;
+            iRet = m_pNosqlDriver->ModifyByCond(mSelect, privateKey, leftPrivateKeySet, otherPrivateKeySet, mSelectRes);
+            if (iRet <= 0)
+            {
+                return true;
+            }
+
+            if (otherPrivateKeySet.size() > 0)
+            {
+                iRet = -1;
+                return true;
+            }
         }
         else {
             if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
@@ -860,14 +886,63 @@ public:
     */
     bool ThreadProcess() override
     {
-        if (m_pMysqlDriver)
+        if (m_useCache && m_pNosqlDriver && m_pMysqlDriver)
         {
-            iRet = m_pMysqlDriver->UpdateByCond(mSelect, mSelectRes);
+            std::string privateKey;
+            std::unordered_set<std::string> privateKeySet;
+            iRet = m_pMysqlDriver->UpdateByCond(mSelect, privateKey, privateKeySet);
+            if (iRet != 0)
+            {
+                return true;
+            }
+
+            std::unordered_set<std::string> leftPrivateKeySet;
+            iRet = m_pNosqlDriver->UpdateByCond(mSelect, privateKey, privateKeySet, leftPrivateKeySet, mSelectRes);
+            if (iRet <= 0)
+            {
+                return true;
+            }
+
+            std::map<std::string, std::string> recordsMap;
+            iRet = m_pMysqlDriver->SelectByCond(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, leftPrivateKeySet, recordsMap);
+            if (iRet != 0)
+            {
+                return true;
+            }
+
+            iRet = m_pNosqlDriver->SaveObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, recordsMap);
+            if (iRet != 0)
+            {
+                return true;
+            }
+
+            std::unordered_set<std::string> otherPrivateKeySet;
+            iRet = m_pNosqlDriver->UpdateByCond(mSelect, privateKey, leftPrivateKeySet, otherPrivateKeySet, mSelectRes);
+            if (iRet <= 0)
+            {
+                return true;
+            }
+
+            if (otherPrivateKeySet.size() > 0)
+            {
+                iRet = -1;
+                return true;
+            }
         }
-        else
-        {
-            iRet = -1;
+        else {
+            if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
+            {
+                if (m_pMysqlDriver)
+                {
+                    iRet = m_pMysqlDriver->UpdateByCond(mSelect, mSelectRes);
+                }
+                else
+                {
+                    iRet = -1;
+                }
+            }
         }
+
         return true;
     }
 

@@ -473,14 +473,14 @@ NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, std::
     return iRet;
 }
 
-int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
+int NFCMysqlDriver::SelectByCond(const std::string& packageName, const std::string& tableName, const std::string& className, const std::string &privateKey,
                                  const std::unordered_set<std::string> &leftPrivateKeySet,
                                  std::map<std::string, std::string>& recordsMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     std::string selectSql;
     int iRet = 0;
-    iRet = CreateSql(select, privateKey, leftPrivateKeySet, selectSql);
+    iRet = CreateSql(tableName, privateKey, leftPrivateKeySet, selectSql);
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}", selectSql);
 
     std::vector<std::map<std::string, std::string>> resultVec;
@@ -496,7 +496,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, c
         const std::map<std::string, std::string> &result = resultVec[i];
 
         google::protobuf::Message *pMessage = NULL;
-        iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
+        iRet = TransTableRowToMessage(result, packageName, className, &pMessage);
         auto iter = result.find(privateKey);
         if (iRet == 0 && pMessage != NULL && iter != result.end())
         {
@@ -507,7 +507,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, c
         else
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
-                       NFCommon::tostr(result), select.baseinfo().tbname());
+                       NFCommon::tostr(result), tableName);
             iRet = -1;
         }
 
@@ -1514,12 +1514,9 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::
     return 0;
 }
 
-int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, const std::string &privateKey,
+int NFCMysqlDriver::CreateSql(const std::string& tableName, const std::string &privateKey,
                               const std::unordered_set<std::string> &leftPrivateKeySet, std::string &selectSql)
 {
-    std::string tableName = select.baseinfo().tbname();
-    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
-
     std::string stringFileds = "*";
     selectSql = "select " + stringFileds + " from " + tableName;
 
@@ -2607,6 +2604,36 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &selec
     }
 
     return 0;
+}
+
+int NFCMysqlDriver::UpdateByCond(const storesvr_sqldata::storesvr_update &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string selectSql;
+    int iRet = 0;
+    iRet = GetPrivateKeySql(select, privateKey, selectSql);
+    CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}", selectSql);
+
+    std::vector<std::map<std::string, std::string>> resultVec;
+    std::string errmsg;
+    iRet = ExecuteMore(selectSql, resultVec, errmsg);
+    if (iRet != 0)
+    {
+        return -1;
+    }
+
+    for (size_t i = 0; i < resultVec.size(); i++)
+    {
+        const std::map<std::string, std::string> &result = resultVec[i];
+        for (auto iter = result.begin(); iter != result.end(); iter++)
+        {
+            CHECK_EXPR(iter->first == privateKey, -1, "");
+            privateKeySet.insert(iter->second);
+        }
+    }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return iRet;
 }
 
 int NFCMysqlDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, std::string &privateKey, std::unordered_set<std::string> &privateKeySet)

@@ -221,30 +221,83 @@ int NFRedisDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, co
     return 0;
 }
 
-int NFRedisDriver::GetModFields(const storesvr_sqldata::storesvr_mod &select, std::map<std::string, std::string> &keyMap,
+int NFRedisDriver::GetObjFields(const std::string& packageName, const std::string& className, const std::string& record, std::map<std::string, std::string> &keyMap,
                               std::map<std::string, std::string> &kevValueMap)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    std::string tableName = select.baseinfo().clname();
-    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
-    std::string packageName = select.baseinfo().package_name();
 
     std::string full_name;
     if (packageName.empty())
     {
-        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + tableName;
+        full_name = DEFINE_DEFAULT_PROTO_PACKAGE_ADD + className;
     }
     else
     {
-        full_name = packageName + "." + tableName;
+        full_name = packageName + "." + className;
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(record), -1, "ParsePartialFromString Failed:{}", full_name);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CreateSql From message:{}", pMessageObject->DebugString());
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
     delete pMessageObject;
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRedisDriver::UpdateByCond(const storesvr_sqldata::storesvr_update &select, const std::string& privateKey,
+                 const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
+                 storesvr_sqldata::storesvr_update_res &select_res)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    std::string tableName = select.baseinfo().tbname();
+    CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
+    std::string className = select.baseinfo().clname();
+    CHECK_EXPR(className.size() > 0, -1, "className empty!");
+    std::string packageName = select.baseinfo().package_name();
+
+    bool bRet = SelectDB(NFREDIS_DB1);
+    if (!bRet)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} ", NFREDIS_DB1, tableName);
+        return 1;
+    }
+
+    std::string errmsg;
+    for (auto iter = privateKeySet.begin(); iter != privateKeySet.end(); iter++)
+    {
+        std::string db_key = GetPrivateKeys(tableName, privateKey, *iter);
+
+        if (!EXISTS(db_key))
+        {
+            leftPrivateKeySet.insert(*iter);
+            continue;
+        }
+
+        std::map<std::string, std::string> keyMap;
+        std::map<std::string, std::string> kevValueMap;
+        int iRet = GetObjFields(packageName, className, select.record(), keyMap, kevValueMap);
+        if (iRet != 0)
+        {
+            leftPrivateKeySet.insert(*iter);
+            continue;
+        }
+
+        std::vector<string_pair> vecFieldValues;
+        vecFieldValues.insert(vecFieldValues.end(), kevValueMap.begin(), kevValueMap.end());
+        bool bRet = HMSET(db_key, vecFieldValues);
+        if (!bRet)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "HMSET:{} Failed! dbName:{} ", db_key, tableName);
+            return -1;
+        }
+
+        EXPIRE(db_key, PRIVATE_KEY_EXIST_TIME);
+    }
+
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "UpdateByCond Success");
+
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -280,7 +333,7 @@ int NFRedisDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, co
 
         std::map<std::string, std::string> keyMap;
         std::map<std::string, std::string> kevValueMap;
-        int iRet = GetModFields(select, keyMap, kevValueMap);
+        int iRet = GetObjFields(packageName, className, select.record(), keyMap, kevValueMap);
         if (iRet != 0)
         {
             leftPrivateKeySet.insert(*iter);

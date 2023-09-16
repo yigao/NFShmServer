@@ -53,6 +53,10 @@ public:
     virtual int ModifyByCond(const storesvr_sqldata::storesvr_mod &select, const std::string& privateKey,
                              const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
                              storesvr_sqldata::storesvr_mod_res &select_res) = 0;
+
+    virtual int UpdateByCond(const storesvr_sqldata::storesvr_update &select, const std::string& privateKey,
+                             const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
+                             storesvr_sqldata::storesvr_update_res &select_res) = 0;
 public:
     virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select,
                           storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
