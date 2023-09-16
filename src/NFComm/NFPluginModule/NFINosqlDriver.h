@@ -60,13 +60,16 @@ public:
     virtual int SaveObj(const std::string& packageName, const std::string& tbName, const std::string& clasname, const std::string& privateKey, const std::map<std::string, std::string>& recordsMap) = 0;
     virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select,
                         storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
-    virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select) = 0;
-    virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select) = 0;
-    virtual int SaveObj(const storesvr_sqldata::storesvr_updateobj &select) = 0;
+    virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select, storesvr_sqldata::storesvr_insertobj_res& select_res) = 0;
+    virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select, storesvr_sqldata::storesvr_modobj_res& select_res) = 0;
+    virtual int SaveObj(const storesvr_sqldata::storesvr_updateobj &select, storesvr_sqldata::storesvr_updateobj_res& select_res) = 0;
 
     virtual int DeleteObj(const storesvr_sqldata::storesvr_delobj &select) = 0;
     virtual int DeleteObj(const storesvr_sqldata::storesvr_insertobj &select) = 0;
     virtual int DeleteObj(const storesvr_sqldata::storesvr_modobj &select) = 0;
+public:
+    virtual bool ExistObj(const std::string& db_key) = 0;
+    virtual int GetObjKey(const std::string& packageName, const std::string& tableName, const std::string& className, const std::string& record, std::string& privateKey, std::string& privateKeyValue, std::string& db_key) = 0;
 public:
     virtual bool Enable() = 0;
     virtual bool Authed() = 0;

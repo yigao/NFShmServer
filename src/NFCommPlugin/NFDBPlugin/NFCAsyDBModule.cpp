@@ -362,6 +362,8 @@ public:
             {
                 return true;
             }
+            m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+            return true;
         }
         else {
             if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
@@ -388,38 +390,32 @@ public:
     {
         if (m_useCache)
         {
+            if (mCB)
+            {
+                mCB(iRet, mSelectRes);
+            }
+
             if (iRet == 0)
             {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 m_useCache = false;
                 mCB = nullptr;
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
             else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 return TPTASK_STATE_COMPLETED;
             }
         }
-        else {
-            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+
+        if (m_runActorGroup == m_nextActorGroup)
+        {
+            if (mCB)
             {
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+                mCB(iRet, mSelectRes);
             }
-            else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
-                return TPTASK_STATE_COMPLETED;
-            }
+
+            return TPTASK_STATE_COMPLETED;
+        }
+        else {
+            return TPTASK_STATE_CONTINUE_CHILDTHREAD;
         }
     }
 
@@ -455,6 +451,12 @@ public:
         if (m_useCache && m_pNosqlDriver)
         {
             iRet = m_pNosqlDriver->DeleteObj(mSelect);
+            if (iRet != 0)
+            {
+                return true;
+            }
+            m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+            return true;
         }
         else {
             if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
@@ -482,38 +484,32 @@ public:
     {
         if (m_useCache)
         {
+            if (mCB)
+            {
+                mCB(iRet, mSelectRes);
+            }
+
             if (iRet == 0)
             {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 m_useCache = false;
                 mCB = nullptr;
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
             else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 return TPTASK_STATE_COMPLETED;
             }
         }
-        else {
-            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+
+        if (m_runActorGroup == m_nextActorGroup)
+        {
+            if (mCB)
             {
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+                mCB(iRet, mSelectRes);
             }
-            else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
-                return TPTASK_STATE_COMPLETED;
-            }
+
+            return TPTASK_STATE_COMPLETED;
+        }
+        else {
+            return TPTASK_STATE_CONTINUE_CHILDTHREAD;
         }
     }
 
@@ -546,24 +542,43 @@ public:
     */
     bool ThreadProcess() override
     {
+        if (m_pMysqlDriver)
+        {
+            iRet = m_pMysqlDriver->InsertObj(mSelect, mSelectRes);
+        }
+        else
+        {
+            iRet = -1;
+        }
+
         if (m_useCache && m_pNosqlDriver)
         {
-            iRet = m_pNosqlDriver->SaveObj(mSelect);
-        }
-        else {
-            if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
+            std::string privateKey;
+            std::string privateKeyValue;
+            std::string dbKey;
+            iRet = m_pNosqlDriver->GetObjKey(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), mSelect.record(), privateKey, privateKeyValue, dbKey);
+            if (iRet != 0)
             {
-                if (m_pMysqlDriver)
-                {
-                    iRet = m_pMysqlDriver->InsertObj(mSelect, mSelectRes);
-                }
-                else
-                {
-                    iRet = -1;
-                }
+                return true;
             }
 
-            return true;
+            if (m_pMysqlDriver)
+            {
+                std::string record;
+                iRet = m_pMysqlDriver->SelectObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, privateKeyValue, record);
+                if (iRet != 0)
+                {
+                    return true;
+                }
+
+                mSelect.set_record(record);
+            }
+            else {
+                iRet = -1;
+                return true;
+            }
+
+            iRet = m_pNosqlDriver->SaveObj(mSelect, mSelectRes);
         }
 
         return true;
@@ -575,41 +590,11 @@ public:
     */
     TPTaskState MainThreadProcess() override
     {
-        if (m_useCache)
+        if (mCB)
         {
-            if (iRet == 0)
-            {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
-                m_useCache = false;
-                mCB = nullptr;
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
-            }
-            else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
-                return TPTASK_STATE_COMPLETED;
-            }
+            mCB(iRet, mSelectRes);
         }
-        else {
-            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
-            {
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
-            }
-            else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
-                return TPTASK_STATE_COMPLETED;
-            }
-        }
+        return TPTASK_STATE_COMPLETED;
     }
 
 public:
@@ -683,38 +668,32 @@ public:
     {
         if (m_useCache)
         {
+            if (mCB)
+            {
+                mCB(iRet, mSelectRes);
+            }
+
             if (iRet == 0)
             {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 m_useCache = false;
                 mCB = nullptr;
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
             else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 return TPTASK_STATE_COMPLETED;
             }
         }
-        else {
-            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+
+        if (m_runActorGroup == m_nextActorGroup)
+        {
+            if (mCB)
             {
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+                mCB(iRet, mSelectRes);
             }
-            else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
-                return TPTASK_STATE_COMPLETED;
-            }
+
+            return TPTASK_STATE_COMPLETED;
+        }
+        else {
+            return TPTASK_STATE_CONTINUE_CHILDTHREAD;
         }
     }
 
@@ -749,7 +728,51 @@ public:
     {
         if (m_useCache && m_pNosqlDriver)
         {
-            iRet = m_pNosqlDriver->SaveObj(mSelect);
+            std::string privateKey;
+            std::string privateKeyValue;
+            std::string dbKey;
+            iRet = m_pNosqlDriver->GetObjKey(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), mSelect.record(), privateKey, privateKeyValue, dbKey);
+            if (iRet != 0)
+            {
+                return true;
+            }
+
+            if (!m_pNosqlDriver->ExistObj(dbKey))
+            {
+                if (m_pMysqlDriver)
+                {
+                    std::string record;
+                    iRet = m_pMysqlDriver->SelectObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, privateKeyValue, record);
+                    if (iRet != 0)
+                    {
+                        return true;
+                    }
+
+                    storesvr_sqldata::storesvr_modobj oldSelct = mSelect;
+                    oldSelct.set_record(record);
+
+                    iRet = m_pNosqlDriver->SaveObj(oldSelct, mSelectRes);
+                    if (iRet != 0)
+                    {
+                        return true;
+                    }
+                    m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                    return true;
+                }
+                else {
+                    iRet = -1;
+                    return true;
+                }
+            }
+            else {
+                iRet = m_pNosqlDriver->SaveObj(mSelect, mSelectRes);
+                if (iRet != 0)
+                {
+                    return true;
+                }
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return true;
+            }
         }
         else {
             if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
@@ -778,38 +801,32 @@ public:
     {
         if (m_useCache)
         {
+            if (mCB)
+            {
+                mCB(iRet, mSelectRes);
+            }
+
             if (iRet == 0)
             {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 m_useCache = false;
                 mCB = nullptr;
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
             else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 return TPTASK_STATE_COMPLETED;
             }
         }
-        else {
-            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+
+        if (m_runActorGroup == m_nextActorGroup)
+        {
+            if (mCB)
             {
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+                mCB(iRet, mSelectRes);
             }
-            else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
-                return TPTASK_STATE_COMPLETED;
-            }
+
+            return TPTASK_STATE_COMPLETED;
+        }
+        else {
+            return TPTASK_STATE_CONTINUE_CHILDTHREAD;
         }
     }
 
@@ -928,16 +945,85 @@ public:
     {
         if (m_useCache && m_pNosqlDriver)
         {
-            iRet = m_pNosqlDriver->SaveObj(mSelect);
+            std::string privateKey;
+            std::string privateKeyValue;
+            std::string dbKey;
+            iRet = m_pNosqlDriver->GetObjKey(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), mSelect.record(), privateKey, privateKeyValue, dbKey);
+            if (iRet != 0)
+            {
+                return true;
+            }
+
+            if (!m_pNosqlDriver->ExistObj(dbKey))
+            {
+                if (m_pMysqlDriver)
+                {
+                    std::string record;
+                    iRet = m_pMysqlDriver->SelectObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, privateKeyValue, record);
+                    if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
+                    {
+                        iRet = m_pMysqlDriver->UpdateObj(mSelect, mSelectRes);
+                        if (iRet != 0)
+                        {
+                            return true;
+                        }
+
+                        iRet = m_pMysqlDriver->SelectObj(mSelect.baseinfo().package_name(), mSelect.baseinfo().tbname(), mSelect.baseinfo().clname(), privateKey, privateKeyValue, record);
+                        if (iRet != 0)
+                        {
+                            return true;
+                        }
+
+                        mSelect.set_record(record);
+
+                        iRet = m_pNosqlDriver->SaveObj(mSelect, mSelectRes);
+                        return true;
+                    }
+                    else if (iRet != 0)
+                    {
+                        return true;
+                    }
+
+                    storesvr_sqldata::storesvr_updateobj oldSelct = mSelect;
+                    oldSelct.set_record(record);
+
+                    iRet = m_pNosqlDriver->SaveObj(oldSelct, mSelectRes);
+                    if (iRet != 0)
+                    {
+                        return true;
+                    }
+                    m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                    return true;
+                }
+                else {
+                    iRet = -1;
+                    return true;
+                }
+            }
+            else {
+                iRet = m_pNosqlDriver->SaveObj(mSelect, mSelectRes);
+                if (iRet != 0)
+                {
+                    return true;
+                }
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
+                return true;
+            }
         }
         else {
-            if (m_pMysqlDriver)
+            if (m_runActorGroup == NF_ASY_TASK_WRITE_GROUP)
             {
-                iRet = m_pMysqlDriver->UpdateObj(mSelect, mSelectRes);
+                if (m_pMysqlDriver)
+                {
+                    iRet = m_pMysqlDriver->UpdateObj(mSelect, mSelectRes);
+                }
+                else
+                {
+                    iRet = -1;
+                }
             }
-            else
-            {
-                iRet = -1;
+            else {
+                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
             }
 
             return true;
@@ -954,38 +1040,32 @@ public:
     {
         if (m_useCache)
         {
+            if (mCB)
+            {
+                mCB(iRet, mSelectRes);
+            }
+
             if (iRet == 0)
             {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 m_useCache = false;
                 mCB = nullptr;
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
             }
             else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
                 return TPTASK_STATE_COMPLETED;
             }
         }
-        else {
-            if (m_runActorGroup != NF_ASY_TASK_WRITE_GROUP)
+
+        if (m_runActorGroup == m_nextActorGroup)
+        {
+            if (mCB)
             {
-                m_nextActorGroup = NF_ASY_TASK_WRITE_GROUP;
-                return TPTASK_STATE_CONTINUE_CHILDTHREAD;
+                mCB(iRet, mSelectRes);
             }
-            else {
-                if (mCB)
-                {
-                    mCB(iRet, mSelectRes);
-                }
-                return TPTASK_STATE_COMPLETED;
-            }
+
+            return TPTASK_STATE_COMPLETED;
+        }
+        else {
+            return TPTASK_STATE_CONTINUE_CHILDTHREAD;
         }
     }
 

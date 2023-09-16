@@ -105,12 +105,12 @@ int NFCMysqlDriver::ExecuteOne(const std::string &qstr, std::map<std::string, st
 
 int NFCMysqlDriver::Execute(const storesvr_sqldata::storesvr_execute &select, storesvr_sqldata::storesvr_execute_res &select_res)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", select.execute_record());
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", select.record());
 
     mysqlpp::StoreQueryResult queryResult;
     std::vector<std::map<std::string, std::string>> resultVec;
     std::string errormsg;
-    int iRet = ExecuteMore(select.execute_record(), resultVec, errormsg);
+    int iRet = ExecuteMore(select.record(), resultVec, errormsg);
     if (iRet != 0)
     {
         select_res.mutable_exe_opres()->set_errmsg(errormsg);
@@ -128,13 +128,13 @@ int NFCMysqlDriver::Execute(const storesvr_sqldata::storesvr_execute &select, st
         iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
         if (iRet == 0 && pMessage != NULL)
         {
-            select_res.set_sel_records(pMessage->SerializeAsString());
+            select_res.set_record(pMessage->SerializeAsString());
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
         }
         else
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} sql:{}",
-                       NFCommon::tostr(result), select.execute_record());
+                       NFCommon::tostr(result), select.record());
             iRet = -1;
         }
 
@@ -156,7 +156,7 @@ int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &s
     mysqlpp::StoreQueryResult queryResult;
     std::vector<std::map<std::string, std::string>> resultVec;
     std::string errormsg;
-    int iRet = ExecuteMore(select.execute_record(), resultVec, errormsg);
+    int iRet = ExecuteMore(select.record(), resultVec, errormsg);
     if (iRet != 0)
     {
         storesvr_sqldata::storesvr_execute_more_res *select_res = vecSelectRes.Add();
@@ -179,11 +179,11 @@ int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &s
         iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
         if (iRet == 0 && pMessage != NULL)
         {
-            select_res->add_sel_records(pMessage->SerializeAsString());
+            select_res->add_record(pMessage->SerializeAsString());
 
             count++;
             select_res->set_row_count(count);
-            if ((int) select_res->sel_records_size() >= (int) select.baseinfo().max_records())
+            if ((int) select_res->record_size() >= (int) select.baseinfo().max_records())
             {
                 count = 0;
                 select_res = vecSelectRes.Add();
@@ -215,12 +215,12 @@ int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &s
 
 int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &select, storesvr_sqldata::storesvr_execute_more_res &select_res)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", select.execute_record());
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", select.record());
 
     mysqlpp::StoreQueryResult queryResult;
     std::vector<std::map<std::string, std::string>> resultVec;
     std::string errormsg;
-    int iRet = ExecuteMore(select.execute_record(), resultVec, errormsg);
+    int iRet = ExecuteMore(select.record(), resultVec, errormsg);
     if (iRet != 0)
     {
         select_res.mutable_exe_opres()->set_errmsg(errormsg);
@@ -238,13 +238,13 @@ int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &s
         iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
         if (iRet == 0 && pMessage != NULL)
         {
-            select_res.add_sel_records(pMessage->SerializeAsString());
+            select_res.add_record(pMessage->SerializeAsString());
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
         }
         else
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} sql:{}",
-                       NFCommon::tostr(result), select.execute_record());
+                       NFCommon::tostr(result), select.record());
             iRet = -1;
         }
 
@@ -555,11 +555,11 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
         iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
         if (iRet == 0 && pMessage != NULL)
         {
-            select_res->add_sel_records(pMessage->SerializeAsString());
+            select_res->add_record(pMessage->SerializeAsString());
 
             count++;
             select_res->set_row_count(count);
-            if ((int) select_res->sel_records_size() >= (int) select.baseinfo().max_records())
+            if ((int) select_res->record_size() >= (int) select.baseinfo().max_records())
             {
                 count = 0;
                 select_res = vecSelectRes.Add();
@@ -599,7 +599,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_sel &selec
     std::string packageName = select.baseinfo().package_name();
 
     int iRet = GetPrivateKey(packageName, className, privateKey);
-    CHECK_EXPR(iRet == 0, -1, "GetPrivateKey Failed!");
+    CHECK_EXPR(iRet == 0, -1, "GetObjKey Failed!");
 
     if (!select.has_sel_cond())
     {
@@ -767,7 +767,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
         if (iRet == 0 && pMessage != NULL)
         {
             count++;
-            select_res.add_sel_records(pMessage->SerializeAsString());
+            select_res.add_record(pMessage->SerializeAsString());
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
         }
         else
@@ -794,14 +794,14 @@ int NFCMysqlDriver::SelectObj(const std::string &tbName, google::protobuf::Messa
 
     storesvr_sqldata::storesvr_selobj select;
     select.mutable_baseinfo()->set_tbname(tbName);
-    select.set_sel_record(pMessage->SerializeAsString());
+    select.set_record(pMessage->SerializeAsString());
 
     storesvr_sqldata::storesvr_selobj_res select_res;
 
     int iRet = SelectObj(select, select_res);
     if (iRet == 0)
     {
-        pMessage->ParsePartialFromString(select_res.sel_record());
+        pMessage->ParsePartialFromString(select_res.record());
     }
     else
     {
@@ -843,13 +843,50 @@ int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     iRet = TransTableRowToMessage(result, select.baseinfo().package_name(), select.baseinfo().clname(), &pMessage);
     if (iRet == 0 && pMessage != NULL)
     {
-        select_res.set_sel_record(pMessage->SerializeAsString());
+        select_res.set_record(pMessage->SerializeAsString());
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
     }
     else
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
                    NFCommon::tostr(result), select.baseinfo().tbname());
+        iRet = -1;
+    }
+    if (pMessage != NULL)
+    {
+        NF_SAFE_DELETE(pMessage);
+    }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return iRet;
+}
+
+int NFCMysqlDriver::SelectObj(const std::string& packageName, const std::string& tbName, const std::string& className, const std::string& privateKey, const std::string& privateKeyValue, std::string& record)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    int iRet = 0;
+    std::map<std::string, std::string> keyMap;
+    keyMap.emplace(privateKey, privateKeyValue);
+
+    std::vector<std::string> vecFields;
+
+    std::map<std::string, std::string> result;
+    std::string errmsg;
+    iRet = QueryOne(tbName, keyMap, vecFields, result, errmsg);
+    if (iRet != 0)
+    {
+        return iRet;
+    }
+
+    google::protobuf::Message *pMessage = NULL;
+    iRet = TransTableRowToMessage(result, packageName, className, &pMessage);
+    if (iRet == 0 && pMessage != NULL)
+    {
+        record = pMessage->SerializeAsString();
+    }
+    else
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "TransTableRowToMessage Failed, result:{} tableName:{}",
+                   NFCommon::tostr(result), tbName);
         iRet = -1;
     }
     if (pMessage != NULL)
@@ -870,7 +907,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_del &selec
     std::string packageName = select.baseinfo().package_name();
 
     int iRet = GetPrivateKey(packageName, className, privateKey);
-    CHECK_EXPR(iRet == 0, -1, "GetPrivateKey Failed!");
+    CHECK_EXPR(iRet == 0, -1, "GetObjKey Failed!");
 
     if (!select.has_del_cond())
     {
@@ -1102,7 +1139,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, s
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.del_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
     std::string key;
     std::string value;
@@ -1469,7 +1506,7 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_selobj &select, std::
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.sel_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap);
     delete pMessageObject;
@@ -2365,7 +2402,7 @@ int NFCMysqlDriver::InsertObj(const std::string &tbName, const google::protobuf:
 
     storesvr_sqldata::storesvr_insertobj select;
     select.mutable_baseinfo()->set_tbname(tbName);
-    select.set_ins_record(pMessage->SerializeAsString());
+    select.set_record(pMessage->SerializeAsString());
 
     storesvr_sqldata::storesvr_insertobj_res select_res;
     int iRet = InsertObj(select, select_res);
@@ -2421,7 +2458,7 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_insertobj &select, st
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.ins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, resultMap);
     delete pMessageObject;
@@ -2436,7 +2473,7 @@ int NFCMysqlDriver::ModifyObj(const std::string &tbName, const google::protobuf:
 
     storesvr_sqldata::storesvr_modobj select;
     select.mutable_baseinfo()->set_tbname(tbName);
-    select.set_mod_record(pMessage->SerializeAsString());
+    select.set_record(pMessage->SerializeAsString());
 
     storesvr_sqldata::storesvr_modobj_res select_res;
     int iRet = ModifyObj(select, select_res);
@@ -2459,7 +2496,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &selec
     std::string packageName = select.baseinfo().package_name();
 
     int iRet = GetPrivateKey(packageName, className, privateKey);
-    CHECK_EXPR(iRet == 0, -1, "GetPrivateKey Failed!");
+    CHECK_EXPR(iRet == 0, -1, "GetObjKey Failed!");
 
     if (!select.has_mod_cond())
     {
@@ -2672,7 +2709,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.record()), -1, "ParsePartialFromString Failed:{}", full_name);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CreateSql From message:{}", pMessageObject->DebugString());
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
@@ -2700,7 +2737,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_update &select, s
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.record()), -1, "ParsePartialFromString Failed:{}", full_name);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CreateSql From message:{}", pMessageObject->DebugString());
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
@@ -2729,7 +2766,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_modobj &select, s
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.mod_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.record()), -1, "ParsePartialFromString Failed:{}", full_name);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CreateSql From message:{}", pMessageObject->DebugString());
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
@@ -2746,7 +2783,7 @@ int NFCMysqlDriver::UpdateObj(const std::string &tbName, const google::protobuf:
 
     storesvr_sqldata::storesvr_updateobj select;
     select.mutable_baseinfo()->set_tbname(tbName);
-    select.set_modins_record(pMessage->SerializeAsString());
+    select.set_record(pMessage->SerializeAsString());
 
     storesvr_sqldata::storesvr_updateobj_res select_res;
     int iRet = UpdateObj(select, select_res);
@@ -2767,7 +2804,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_update &se
     std::string packageName = select.baseinfo().package_name();
 
     int iRet = GetPrivateKey(packageName, tableName, privateKey);
-    CHECK_EXPR(iRet == 0, -1, "GetPrivateKey Failed!");
+    CHECK_EXPR(iRet == 0, -1, "GetObjKey Failed!");
 
     if (!select.has_mod_cond())
     {
@@ -2950,7 +2987,7 @@ NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_updateobj &select, st
     }
     google::protobuf::Message *pMessageObject = NFProtobufCommon::Instance()->CreateDynamicMessageByName(full_name);
     CHECK_EXPR(pMessageObject, -1, "NFProtobufCommon::CreateMessageByName:{} Failed", full_name);
-    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.modins_record()), -1, "ParsePartialFromString Failed:{}", full_name);
+    CHECK_EXPR(pMessageObject->ParsePartialFromString(select.record()), -1, "ParsePartialFromString Failed:{}", full_name);
 
     NFProtobufCommon::GetMapFieldsFromMessage(*pMessageObject, keyMap, kevValueMap);
     delete pMessageObject;

@@ -212,7 +212,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, sel_opres_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, is_lastbatch_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, row_count_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, sel_records_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, record_),
   };
   storesvr_sel_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -229,7 +229,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_selobj_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj, sel_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj, record_),
   };
   storesvr_selobj_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -246,7 +246,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_selobj_res_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj_res, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj_res, sel_opres_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj_res, sel_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj_res, record_),
   };
   storesvr_selobj_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -263,7 +263,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_insertobj_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insertobj, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insertobj, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insertobj, ins_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insertobj, record_),
   };
   storesvr_insertobj_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -296,7 +296,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_insert_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insert, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insert, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insert, ins_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insert, record_),
   };
   storesvr_insert_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -361,7 +361,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_delobj_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_delobj, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_delobj, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_delobj, del_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_delobj, record_),
   };
   storesvr_delobj_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -394,7 +394,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_mod_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod, mod_cond_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod, mod_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod, record_),
   };
   storesvr_mod_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -427,7 +427,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_modobj_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modobj, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modobj, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modobj, mod_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modobj, record_),
   };
   storesvr_modobj_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -460,7 +460,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_update_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, mod_cond_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, mod_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, record_),
   };
   storesvr_update_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -493,7 +493,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_updateobj_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, modins_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj, record_),
   };
   storesvr_updateobj_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -526,7 +526,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_execute_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute, execute_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute, record_),
   };
   storesvr_execute_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -543,7 +543,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_execute_res_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, exe_opres_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, sel_records_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, record_),
   };
   storesvr_execute_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -560,7 +560,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   static const int storesvr_execute_more_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, baseinfo_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, mod_key_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, execute_record_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more, record_),
   };
   storesvr_execute_more_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -579,7 +579,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, exe_opres_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, is_lastbatch_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, row_count_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, sel_records_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, record_),
   };
   storesvr_execute_more_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -752,92 +752,90 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
     "rrmsg\030\003 \001(\t\"}\n\014storesvr_sel\0225\n\010baseinfo\030"
     "\001 \001(\0132#.storesvr_sqldata.storesvr_basein"
     "fo\0226\n\010sel_cond\030\002 \001(\0132$.storesvr_sqldata."
-    "storesvr_wherecond\"\274\001\n\020storesvr_sel_res\022"
+    "storesvr_wherecond\"\267\001\n\020storesvr_sel_res\022"
     "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
     "resvr_baseinfo\0223\n\tsel_opres\030\002 \001(\0132 .stor"
     "esvr_sqldata.storesvr_opres\022\024\n\014is_lastba"
-    "tch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\023\n\013sel_reco"
-    "rds\030\005 \003(\014\"m\n\017storesvr_selobj\0225\n\010baseinfo"
-    "\030\001 \001(\0132#.storesvr_sqldata.storesvr_basei"
-    "nfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\nsel_record\030\003 \001(\014"
-    "\"\225\001\n\023storesvr_selobj_res\0225\n\010baseinfo\030\001 \001"
-    "(\0132#.storesvr_sqldata.storesvr_baseinfo\022"
-    "3\n\tsel_opres\030\002 \001(\0132 .storesvr_sqldata.st"
-    "oresvr_opres\022\022\n\nsel_record\030\003 \001(\014\"p\n\022stor"
-    "esvr_insertobj\0225\n\010baseinfo\030\001 \001(\0132#.store"
-    "svr_sqldata.storesvr_baseinfo\022\017\n\007mod_key"
-    "\030\002 \001(\004\022\022\n\nins_record\030\003 \001(\014\"\204\001\n\026storesvr_"
-    "insertobj_res\0225\n\010baseinfo\030\001 \001(\0132#.stores"
-    "vr_sqldata.storesvr_baseinfo\0223\n\tins_opre"
-    "s\030\002 \001(\0132 .storesvr_sqldata.storesvr_opre"
-    "s\"m\n\017storesvr_insert\0225\n\010baseinfo\030\001 \001(\0132#"
-    ".storesvr_sqldata.storesvr_baseinfo\022\017\n\007m"
-    "od_key\030\002 \001(\004\022\022\n\nins_record\030\003 \003(\014\"\201\001\n\023sto"
-    "resvr_insert_res\0225\n\010baseinfo\030\001 \001(\0132#.sto"
-    "resvr_sqldata.storesvr_baseinfo\0223\n\tins_o"
-    "pres\030\002 \001(\0132 .storesvr_sqldata.storesvr_o"
-    "pres\"}\n\014storesvr_del\0225\n\010baseinfo\030\001 \001(\0132#"
-    ".storesvr_sqldata.storesvr_baseinfo\0226\n\010d"
-    "el_cond\030\002 \001(\0132$.storesvr_sqldata.storesv"
-    "r_wherecond\"~\n\020storesvr_del_res\0225\n\010basei"
-    "nfo\030\001 \001(\0132#.storesvr_sqldata.storesvr_ba"
-    "seinfo\0223\n\tdel_opres\030\002 \001(\0132 .storesvr_sql"
-    "data.storesvr_opres\"m\n\017storesvr_delobj\0225"
-    "\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.stor"
-    "esvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\ndel_re"
-    "cord\030\003 \001(\014\"\201\001\n\023storesvr_delobj_res\0225\n\010ba"
-    "seinfo\030\001 \001(\0132#.storesvr_sqldata.storesvr"
-    "_baseinfo\0223\n\tdel_opres\030\002 \001(\0132 .storesvr_"
-    "sqldata.storesvr_opres\"\221\001\n\014storesvr_mod\022"
-    "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
-    "resvr_baseinfo\0226\n\010mod_cond\030\002 \001(\0132$.store"
-    "svr_sqldata.storesvr_wherecond\022\022\n\nmod_re"
-    "cord\030\003 \001(\014\"~\n\020storesvr_mod_res\0225\n\010basein"
-    "fo\030\001 \001(\0132#.storesvr_sqldata.storesvr_bas"
-    "einfo\0223\n\tmod_opres\030\002 \001(\0132 .storesvr_sqld"
-    "ata.storesvr_opres\"m\n\017storesvr_modobj\0225\n"
-    "\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.store"
-    "svr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\022\n\nmod_rec"
-    "ord\030\003 \001(\014\"\201\001\n\023storesvr_modobj_res\0225\n\010bas"
-    "einfo\030\001 \001(\0132#.storesvr_sqldata.storesvr_"
-    "baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .storesvr_s"
-    "qldata.storesvr_opres\"\224\001\n\017storesvr_updat"
-    "e\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
-    "toresvr_baseinfo\0226\n\010mod_cond\030\002 \001(\0132$.sto"
-    "resvr_sqldata.storesvr_wherecond\022\022\n\nmod_"
-    "record\030\003 \001(\014\"\201\001\n\023storesvr_update_res\0225\n\010"
+    "tch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\016\n\006record\030\005"
+    " \003(\014\"i\n\017storesvr_selobj\0225\n\010baseinfo\030\001 \001("
+    "\0132#.storesvr_sqldata.storesvr_baseinfo\022\017"
+    "\n\007mod_key\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"\221\001\n\023stor"
+    "esvr_selobj_res\0225\n\010baseinfo\030\001 \001(\0132#.stor"
+    "esvr_sqldata.storesvr_baseinfo\0223\n\tsel_op"
+    "res\030\002 \001(\0132 .storesvr_sqldata.storesvr_op"
+    "res\022\016\n\006record\030\003 \001(\014\"l\n\022storesvr_insertob"
+    "j\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
+    "toresvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006rec"
+    "ord\030\003 \001(\014\"\204\001\n\026storesvr_insertobj_res\0225\n\010"
     "baseinfo\030\001 \001(\0132#.storesvr_sqldata.stores"
-    "vr_baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .storesv"
-    "r_sqldata.storesvr_opres\"s\n\022storesvr_upd"
-    "ateobj\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqld"
-    "ata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\025"
-    "\n\rmodins_record\030\003 \001(\014\"\207\001\n\026storesvr_updat"
-    "eobj_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
-    "ldata.storesvr_baseinfo\0226\n\014modins_opres\030"
-    "\002 \001(\0132 .storesvr_sqldata.storesvr_opres\""
-    "r\n\020storesvr_execute\0225\n\010baseinfo\030\001 \001(\0132#."
-    "storesvr_sqldata.storesvr_baseinfo\022\017\n\007mo"
-    "d_key\030\002 \001(\004\022\026\n\016execute_record\030\003 \001(\014\"\227\001\n\024"
-    "storesvr_execute_res\0225\n\010baseinfo\030\001 \001(\0132#"
-    ".storesvr_sqldata.storesvr_baseinfo\0223\n\te"
-    "xe_opres\030\002 \001(\0132 .storesvr_sqldata.stores"
-    "vr_opres\022\023\n\013sel_records\030\003 \001(\014\"w\n\025storesv"
-    "r_execute_more\0225\n\010baseinfo\030\001 \001(\0132#.store"
-    "svr_sqldata.storesvr_baseinfo\022\017\n\007mod_key"
-    "\030\002 \001(\004\022\026\n\016execute_record\030\003 \001(\014\"\305\001\n\031store"
-    "svr_execute_more_res\0225\n\010baseinfo\030\001 \001(\0132#"
-    ".storesvr_sqldata.storesvr_baseinfo\0223\n\te"
-    "xe_opres\030\002 \001(\0132 .storesvr_sqldata.stores"
-    "vr_opres\022\024\n\014is_lastbatch\030\003 \001(\010\022\021\n\trow_co"
-    "unt\030\004 \001(\005\022\023\n\013sel_records\030\005 \003(\014*R\n\027stores"
-    "vr_logic_operator\022\021\n\rE_LOGICOP_AND\020\001\022\020\n\014"
-    "E_LOGICOP_OR\020\002\022\022\n\016E_LOGICOP_NONE\020\003*\230\001\n\025s"
-    "toresvr_cmp_operator\022\021\n\rE_CMPOP_EQUAL\020\001\022"
-    "\023\n\017E_CMPOP_GREATER\020\002\022\020\n\014E_CMPOP_LESS\020\003\022\030"
-    "\n\024E_CMPOP_GREATEREQUAL\020\004\022\025\n\021E_CMPOP_LESS"
-    "EQUAL\020\005\022\024\n\020E_CMPOP_NOTEQUAL\020\006*E\n\024storesv"
-    "r_column_type\022\027\n\023E_COLUMNTYPE_STRING\020\001\022\024"
-    "\n\020E_COLUMNTYPE_NUM\020\002", 4180);
+    "vr_baseinfo\0223\n\tins_opres\030\002 \001(\0132 .storesv"
+    "r_sqldata.storesvr_opres\"i\n\017storesvr_ins"
+    "ert\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata"
+    ".storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006r"
+    "ecord\030\003 \003(\014\"\201\001\n\023storesvr_insert_res\0225\n\010b"
+    "aseinfo\030\001 \001(\0132#.storesvr_sqldata.storesv"
+    "r_baseinfo\0223\n\tins_opres\030\002 \001(\0132 .storesvr"
+    "_sqldata.storesvr_opres\"}\n\014storesvr_del\022"
+    "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
+    "resvr_baseinfo\0226\n\010del_cond\030\002 \001(\0132$.store"
+    "svr_sqldata.storesvr_wherecond\"~\n\020stores"
+    "vr_del_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_"
+    "sqldata.storesvr_baseinfo\0223\n\tdel_opres\030\002"
+    " \001(\0132 .storesvr_sqldata.storesvr_opres\"i"
+    "\n\017storesvr_delobj\0225\n\010baseinfo\030\001 \001(\0132#.st"
+    "oresvr_sqldata.storesvr_baseinfo\022\017\n\007mod_"
+    "key\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"\201\001\n\023storesvr_d"
+    "elobj_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_s"
+    "qldata.storesvr_baseinfo\0223\n\tdel_opres\030\002 "
+    "\001(\0132 .storesvr_sqldata.storesvr_opres\"\215\001"
+    "\n\014storesvr_mod\0225\n\010baseinfo\030\001 \001(\0132#.store"
+    "svr_sqldata.storesvr_baseinfo\0226\n\010mod_con"
+    "d\030\002 \001(\0132$.storesvr_sqldata.storesvr_wher"
+    "econd\022\016\n\006record\030\003 \001(\014\"~\n\020storesvr_mod_re"
+    "s\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
+    "toresvr_baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .st"
+    "oresvr_sqldata.storesvr_opres\"i\n\017storesv"
+    "r_modobj\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
+    "ldata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004"
+    "\022\016\n\006record\030\003 \001(\014\"\201\001\n\023storesvr_modobj_res"
+    "\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.st"
+    "oresvr_baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .sto"
+    "resvr_sqldata.storesvr_opres\"\220\001\n\017storesv"
+    "r_update\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
+    "ldata.storesvr_baseinfo\0226\n\010mod_cond\030\002 \001("
+    "\0132$.storesvr_sqldata.storesvr_wherecond\022"
+    "\016\n\006record\030\003 \001(\014\"\201\001\n\023storesvr_update_res\022"
+    "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
+    "resvr_baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .stor"
+    "esvr_sqldata.storesvr_opres\"l\n\022storesvr_"
+    "updateobj\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_s"
+    "qldata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001("
+    "\004\022\016\n\006record\030\003 \001(\014\"\207\001\n\026storesvr_updateobj"
+    "_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldat"
+    "a.storesvr_baseinfo\0226\n\014modins_opres\030\002 \001("
+    "\0132 .storesvr_sqldata.storesvr_opres\"j\n\020s"
+    "toresvr_execute\0225\n\010baseinfo\030\001 \001(\0132#.stor"
+    "esvr_sqldata.storesvr_baseinfo\022\017\n\007mod_ke"
+    "y\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"\222\001\n\024storesvr_exe"
+    "cute_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
+    "ldata.storesvr_baseinfo\0223\n\texe_opres\030\002 \001"
+    "(\0132 .storesvr_sqldata.storesvr_opres\022\016\n\006"
+    "record\030\003 \001(\014\"o\n\025storesvr_execute_more\0225\n"
+    "\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.store"
+    "svr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006record\030"
+    "\003 \001(\014\"\300\001\n\031storesvr_execute_more_res\0225\n\010b"
+    "aseinfo\030\001 \001(\0132#.storesvr_sqldata.storesv"
+    "r_baseinfo\0223\n\texe_opres\030\002 \001(\0132 .storesvr"
+    "_sqldata.storesvr_opres\022\024\n\014is_lastbatch\030"
+    "\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\016\n\006record\030\005 \003(\014"
+    "*R\n\027storesvr_logic_operator\022\021\n\rE_LOGICOP"
+    "_AND\020\001\022\020\n\014E_LOGICOP_OR\020\002\022\022\n\016E_LOGICOP_NO"
+    "NE\020\003*\230\001\n\025storesvr_cmp_operator\022\021\n\rE_CMPO"
+    "P_EQUAL\020\001\022\023\n\017E_CMPOP_GREATER\020\002\022\020\n\014E_CMPO"
+    "P_LESS\020\003\022\030\n\024E_CMPOP_GREATEREQUAL\020\004\022\025\n\021E_"
+    "CMPOP_LESSEQUAL\020\005\022\024\n\020E_CMPOP_NOTEQUAL\020\006*"
+    "E\n\024storesvr_column_type\022\027\n\023E_COLUMNTYPE_"
+    "STRING\020\001\022\024\n\020E_COLUMNTYPE_NUM\020\002", 4110);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "storesvr_sqldata.proto", &protobuf_RegisterTypes);
   storesvr_vk::default_instance_ = new storesvr_vk();
@@ -2732,7 +2730,7 @@ const int storesvr_sel_res::kBaseinfoFieldNumber;
 const int storesvr_sel_res::kSelOpresFieldNumber;
 const int storesvr_sel_res::kIsLastbatchFieldNumber;
 const int storesvr_sel_res::kRowCountFieldNumber;
-const int storesvr_sel_res::kSelRecordsFieldNumber;
+const int storesvr_sel_res::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_sel_res::storesvr_sel_res()
@@ -2803,7 +2801,7 @@ void storesvr_sel_res::Clear() {
     is_lastbatch_ = false;
     row_count_ = 0;
   }
-  sel_records_.Clear();
+  record_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -2869,21 +2867,21 @@ bool storesvr_sel_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_sel_records;
+        if (input->ExpectTag(42)) goto parse_record;
         break;
       }
 
-      // repeated bytes sel_records = 5;
+      // repeated bytes record = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sel_records:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->add_sel_records()));
+                input, this->add_record()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_sel_records;
+        if (input->ExpectTag(42)) goto parse_record;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2928,10 +2926,10 @@ void storesvr_sel_res::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->row_count(), output);
   }
 
-  // repeated bytes sel_records = 5;
-  for (int i = 0; i < this->sel_records_size(); i++) {
+  // repeated bytes record = 5;
+  for (int i = 0; i < this->record_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      5, this->sel_records(i), output);
+      5, this->record(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2966,10 +2964,10 @@ void storesvr_sel_res::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->row_count(), target);
   }
 
-  // repeated bytes sel_records = 5;
-  for (int i = 0; i < this->sel_records_size(); i++) {
+  // repeated bytes record = 5;
+  for (int i = 0; i < this->record_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteBytesToArray(5, this->sel_records(i), target);
+      WriteBytesToArray(5, this->record(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3010,11 +3008,11 @@ int storesvr_sel_res::ByteSize() const {
     }
 
   }
-  // repeated bytes sel_records = 5;
-  total_size += 1 * this->sel_records_size();
-  for (int i = 0; i < this->sel_records_size(); i++) {
+  // repeated bytes record = 5;
+  total_size += 1 * this->record_size();
+  for (int i = 0; i < this->record_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
-      this->sel_records(i));
+      this->record(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -3042,7 +3040,7 @@ void storesvr_sel_res::MergeFrom(const ::google::protobuf::Message& from) {
 
 void storesvr_sel_res::MergeFrom(const storesvr_sel_res& from) {
   GOOGLE_CHECK_NE(&from, this);
-  sel_records_.MergeFrom(from.sel_records_);
+  record_.MergeFrom(from.record_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
@@ -3083,7 +3081,7 @@ void storesvr_sel_res::Swap(storesvr_sel_res* other) {
     std::swap(sel_opres_, other->sel_opres_);
     std::swap(is_lastbatch_, other->is_lastbatch_);
     std::swap(row_count_, other->row_count_);
-    sel_records_.Swap(&other->sel_records_);
+    record_.Swap(&other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3104,7 +3102,7 @@ void storesvr_sel_res::Swap(storesvr_sel_res* other) {
 #ifndef _MSC_VER
 const int storesvr_selobj::kBaseinfoFieldNumber;
 const int storesvr_selobj::kModKeyFieldNumber;
-const int storesvr_selobj::kSelRecordFieldNumber;
+const int storesvr_selobj::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_selobj::storesvr_selobj()
@@ -3126,7 +3124,7 @@ void storesvr_selobj::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_key_ = GOOGLE_ULONGLONG(0);
-  sel_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3135,8 +3133,8 @@ storesvr_selobj::~storesvr_selobj() {
 }
 
 void storesvr_selobj::SharedDtor() {
-  if (sel_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete sel_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -3170,9 +3168,9 @@ void storesvr_selobj::Clear() {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
     mod_key_ = GOOGLE_ULONGLONG(0);
-    if (has_sel_record()) {
-      if (sel_record_ != &::google::protobuf::internal::kEmptyString) {
-        sel_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -3211,17 +3209,17 @@ bool storesvr_selobj::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_sel_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes sel_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sel_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_sel_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -3258,10 +3256,10 @@ void storesvr_selobj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
   }
 
-  // optional bytes sel_record = 3;
-  if (has_sel_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->sel_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3284,11 +3282,11 @@ void storesvr_selobj::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
   }
 
-  // optional bytes sel_record = 3;
-  if (has_sel_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->sel_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3316,11 +3314,11 @@ int storesvr_selobj::ByteSize() const {
           this->mod_key());
     }
 
-    // optional bytes sel_record = 3;
-    if (has_sel_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->sel_record());
+          this->record());
     }
 
   }
@@ -3356,8 +3354,8 @@ void storesvr_selobj::MergeFrom(const storesvr_selobj& from) {
     if (from.has_mod_key()) {
       set_mod_key(from.mod_key());
     }
-    if (from.has_sel_record()) {
-      set_sel_record(from.sel_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3384,7 +3382,7 @@ void storesvr_selobj::Swap(storesvr_selobj* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
-    std::swap(sel_record_, other->sel_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3405,7 +3403,7 @@ void storesvr_selobj::Swap(storesvr_selobj* other) {
 #ifndef _MSC_VER
 const int storesvr_selobj_res::kBaseinfoFieldNumber;
 const int storesvr_selobj_res::kSelOpresFieldNumber;
-const int storesvr_selobj_res::kSelRecordFieldNumber;
+const int storesvr_selobj_res::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_selobj_res::storesvr_selobj_res()
@@ -3428,7 +3426,7 @@ void storesvr_selobj_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   sel_opres_ = NULL;
-  sel_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3437,8 +3435,8 @@ storesvr_selobj_res::~storesvr_selobj_res() {
 }
 
 void storesvr_selobj_res::SharedDtor() {
-  if (sel_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete sel_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -3475,9 +3473,9 @@ void storesvr_selobj_res::Clear() {
     if (has_sel_opres()) {
       if (sel_opres_ != NULL) sel_opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
-    if (has_sel_record()) {
-      if (sel_record_ != &::google::protobuf::internal::kEmptyString) {
-        sel_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -3514,17 +3512,17 @@ bool storesvr_selobj_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_sel_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes sel_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sel_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_sel_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -3562,10 +3560,10 @@ void storesvr_selobj_res::SerializeWithCachedSizes(
       2, this->sel_opres(), output);
   }
 
-  // optional bytes sel_record = 3;
-  if (has_sel_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->sel_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3590,11 +3588,11 @@ void storesvr_selobj_res::SerializeWithCachedSizes(
         2, this->sel_opres(), target);
   }
 
-  // optional bytes sel_record = 3;
-  if (has_sel_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->sel_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3622,11 +3620,11 @@ int storesvr_selobj_res::ByteSize() const {
           this->sel_opres());
     }
 
-    // optional bytes sel_record = 3;
-    if (has_sel_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->sel_record());
+          this->record());
     }
 
   }
@@ -3662,8 +3660,8 @@ void storesvr_selobj_res::MergeFrom(const storesvr_selobj_res& from) {
     if (from.has_sel_opres()) {
       mutable_sel_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.sel_opres());
     }
-    if (from.has_sel_record()) {
-      set_sel_record(from.sel_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3690,7 +3688,7 @@ void storesvr_selobj_res::Swap(storesvr_selobj_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(sel_opres_, other->sel_opres_);
-    std::swap(sel_record_, other->sel_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3711,7 +3709,7 @@ void storesvr_selobj_res::Swap(storesvr_selobj_res* other) {
 #ifndef _MSC_VER
 const int storesvr_insertobj::kBaseinfoFieldNumber;
 const int storesvr_insertobj::kModKeyFieldNumber;
-const int storesvr_insertobj::kInsRecordFieldNumber;
+const int storesvr_insertobj::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_insertobj::storesvr_insertobj()
@@ -3733,7 +3731,7 @@ void storesvr_insertobj::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_key_ = GOOGLE_ULONGLONG(0);
-  ins_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3742,8 +3740,8 @@ storesvr_insertobj::~storesvr_insertobj() {
 }
 
 void storesvr_insertobj::SharedDtor() {
-  if (ins_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete ins_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -3777,9 +3775,9 @@ void storesvr_insertobj::Clear() {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
     mod_key_ = GOOGLE_ULONGLONG(0);
-    if (has_ins_record()) {
-      if (ins_record_ != &::google::protobuf::internal::kEmptyString) {
-        ins_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -3818,17 +3816,17 @@ bool storesvr_insertobj::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_ins_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes ins_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ins_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_ins_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -3865,10 +3863,10 @@ void storesvr_insertobj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
   }
 
-  // optional bytes ins_record = 3;
-  if (has_ins_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->ins_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3891,11 +3889,11 @@ void storesvr_insertobj::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
   }
 
-  // optional bytes ins_record = 3;
-  if (has_ins_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->ins_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3923,11 +3921,11 @@ int storesvr_insertobj::ByteSize() const {
           this->mod_key());
     }
 
-    // optional bytes ins_record = 3;
-    if (has_ins_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->ins_record());
+          this->record());
     }
 
   }
@@ -3963,8 +3961,8 @@ void storesvr_insertobj::MergeFrom(const storesvr_insertobj& from) {
     if (from.has_mod_key()) {
       set_mod_key(from.mod_key());
     }
-    if (from.has_ins_record()) {
-      set_ins_record(from.ins_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3991,7 +3989,7 @@ void storesvr_insertobj::Swap(storesvr_insertobj* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
-    std::swap(ins_record_, other->ins_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -4270,7 +4268,7 @@ void storesvr_insertobj_res::Swap(storesvr_insertobj_res* other) {
 #ifndef _MSC_VER
 const int storesvr_insert::kBaseinfoFieldNumber;
 const int storesvr_insert::kModKeyFieldNumber;
-const int storesvr_insert::kInsRecordFieldNumber;
+const int storesvr_insert::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_insert::storesvr_insert()
@@ -4333,7 +4331,7 @@ void storesvr_insert::Clear() {
     }
     mod_key_ = GOOGLE_ULONGLONG(0);
   }
-  ins_record_.Clear();
+  record_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -4369,21 +4367,21 @@ bool storesvr_insert::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_ins_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // repeated bytes ins_record = 3;
+      // repeated bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ins_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->add_ins_record()));
+                input, this->add_record()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_ins_record;
+        if (input->ExpectTag(26)) goto parse_record;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -4417,10 +4415,10 @@ void storesvr_insert::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
   }
 
-  // repeated bytes ins_record = 3;
-  for (int i = 0; i < this->ins_record_size(); i++) {
+  // repeated bytes record = 3;
+  for (int i = 0; i < this->record_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->ins_record(i), output);
+      3, this->record(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4443,10 +4441,10 @@ void storesvr_insert::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
   }
 
-  // repeated bytes ins_record = 3;
-  for (int i = 0; i < this->ins_record_size(); i++) {
+  // repeated bytes record = 3;
+  for (int i = 0; i < this->record_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteBytesToArray(3, this->ins_record(i), target);
+      WriteBytesToArray(3, this->record(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4475,11 +4473,11 @@ int storesvr_insert::ByteSize() const {
     }
 
   }
-  // repeated bytes ins_record = 3;
-  total_size += 1 * this->ins_record_size();
-  for (int i = 0; i < this->ins_record_size(); i++) {
+  // repeated bytes record = 3;
+  total_size += 1 * this->record_size();
+  for (int i = 0; i < this->record_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
-      this->ins_record(i));
+      this->record(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -4507,7 +4505,7 @@ void storesvr_insert::MergeFrom(const ::google::protobuf::Message& from) {
 
 void storesvr_insert::MergeFrom(const storesvr_insert& from) {
   GOOGLE_CHECK_NE(&from, this);
-  ins_record_.MergeFrom(from.ins_record_);
+  record_.MergeFrom(from.record_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
@@ -4540,7 +4538,7 @@ void storesvr_insert::Swap(storesvr_insert* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
-    ins_record_.Swap(&other->ins_record_);
+    record_.Swap(&other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -5335,7 +5333,7 @@ void storesvr_del_res::Swap(storesvr_del_res* other) {
 #ifndef _MSC_VER
 const int storesvr_delobj::kBaseinfoFieldNumber;
 const int storesvr_delobj::kModKeyFieldNumber;
-const int storesvr_delobj::kDelRecordFieldNumber;
+const int storesvr_delobj::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_delobj::storesvr_delobj()
@@ -5357,7 +5355,7 @@ void storesvr_delobj::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_key_ = GOOGLE_ULONGLONG(0);
-  del_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5366,8 +5364,8 @@ storesvr_delobj::~storesvr_delobj() {
 }
 
 void storesvr_delobj::SharedDtor() {
-  if (del_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete del_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -5401,9 +5399,9 @@ void storesvr_delobj::Clear() {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
     mod_key_ = GOOGLE_ULONGLONG(0);
-    if (has_del_record()) {
-      if (del_record_ != &::google::protobuf::internal::kEmptyString) {
-        del_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -5442,17 +5440,17 @@ bool storesvr_delobj::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_del_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes del_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_del_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_del_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -5489,10 +5487,10 @@ void storesvr_delobj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
   }
 
-  // optional bytes del_record = 3;
-  if (has_del_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->del_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5515,11 +5513,11 @@ void storesvr_delobj::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
   }
 
-  // optional bytes del_record = 3;
-  if (has_del_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->del_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5547,11 +5545,11 @@ int storesvr_delobj::ByteSize() const {
           this->mod_key());
     }
 
-    // optional bytes del_record = 3;
-    if (has_del_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->del_record());
+          this->record());
     }
 
   }
@@ -5587,8 +5585,8 @@ void storesvr_delobj::MergeFrom(const storesvr_delobj& from) {
     if (from.has_mod_key()) {
       set_mod_key(from.mod_key());
     }
-    if (from.has_del_record()) {
-      set_del_record(from.del_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -5615,7 +5613,7 @@ void storesvr_delobj::Swap(storesvr_delobj* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
-    std::swap(del_record_, other->del_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -5894,7 +5892,7 @@ void storesvr_delobj_res::Swap(storesvr_delobj_res* other) {
 #ifndef _MSC_VER
 const int storesvr_mod::kBaseinfoFieldNumber;
 const int storesvr_mod::kModCondFieldNumber;
-const int storesvr_mod::kModRecordFieldNumber;
+const int storesvr_mod::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_mod::storesvr_mod()
@@ -5917,7 +5915,7 @@ void storesvr_mod::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_cond_ = NULL;
-  mod_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5926,8 +5924,8 @@ storesvr_mod::~storesvr_mod() {
 }
 
 void storesvr_mod::SharedDtor() {
-  if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete mod_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -5964,9 +5962,9 @@ void storesvr_mod::Clear() {
     if (has_mod_cond()) {
       if (mod_cond_ != NULL) mod_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
     }
-    if (has_mod_record()) {
-      if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
-        mod_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -6003,17 +6001,17 @@ bool storesvr_mod::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_mod_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes mod_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mod_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_mod_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -6051,10 +6049,10 @@ void storesvr_mod::SerializeWithCachedSizes(
       2, this->mod_cond(), output);
   }
 
-  // optional bytes mod_record = 3;
-  if (has_mod_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->mod_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6079,11 +6077,11 @@ void storesvr_mod::SerializeWithCachedSizes(
         2, this->mod_cond(), target);
   }
 
-  // optional bytes mod_record = 3;
-  if (has_mod_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->mod_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6111,11 +6109,11 @@ int storesvr_mod::ByteSize() const {
           this->mod_cond());
     }
 
-    // optional bytes mod_record = 3;
-    if (has_mod_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->mod_record());
+          this->record());
     }
 
   }
@@ -6151,8 +6149,8 @@ void storesvr_mod::MergeFrom(const storesvr_mod& from) {
     if (from.has_mod_cond()) {
       mutable_mod_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.mod_cond());
     }
-    if (from.has_mod_record()) {
-      set_mod_record(from.mod_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6179,7 +6177,7 @@ void storesvr_mod::Swap(storesvr_mod* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_cond_, other->mod_cond_);
-    std::swap(mod_record_, other->mod_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -6458,7 +6456,7 @@ void storesvr_mod_res::Swap(storesvr_mod_res* other) {
 #ifndef _MSC_VER
 const int storesvr_modobj::kBaseinfoFieldNumber;
 const int storesvr_modobj::kModKeyFieldNumber;
-const int storesvr_modobj::kModRecordFieldNumber;
+const int storesvr_modobj::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_modobj::storesvr_modobj()
@@ -6480,7 +6478,7 @@ void storesvr_modobj::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_key_ = GOOGLE_ULONGLONG(0);
-  mod_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6489,8 +6487,8 @@ storesvr_modobj::~storesvr_modobj() {
 }
 
 void storesvr_modobj::SharedDtor() {
-  if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete mod_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -6524,9 +6522,9 @@ void storesvr_modobj::Clear() {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
     mod_key_ = GOOGLE_ULONGLONG(0);
-    if (has_mod_record()) {
-      if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
-        mod_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -6565,17 +6563,17 @@ bool storesvr_modobj::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_mod_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes mod_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mod_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_mod_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -6612,10 +6610,10 @@ void storesvr_modobj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
   }
 
-  // optional bytes mod_record = 3;
-  if (has_mod_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->mod_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6638,11 +6636,11 @@ void storesvr_modobj::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
   }
 
-  // optional bytes mod_record = 3;
-  if (has_mod_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->mod_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6670,11 +6668,11 @@ int storesvr_modobj::ByteSize() const {
           this->mod_key());
     }
 
-    // optional bytes mod_record = 3;
-    if (has_mod_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->mod_record());
+          this->record());
     }
 
   }
@@ -6710,8 +6708,8 @@ void storesvr_modobj::MergeFrom(const storesvr_modobj& from) {
     if (from.has_mod_key()) {
       set_mod_key(from.mod_key());
     }
-    if (from.has_mod_record()) {
-      set_mod_record(from.mod_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6738,7 +6736,7 @@ void storesvr_modobj::Swap(storesvr_modobj* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
-    std::swap(mod_record_, other->mod_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7017,7 +7015,7 @@ void storesvr_modobj_res::Swap(storesvr_modobj_res* other) {
 #ifndef _MSC_VER
 const int storesvr_update::kBaseinfoFieldNumber;
 const int storesvr_update::kModCondFieldNumber;
-const int storesvr_update::kModRecordFieldNumber;
+const int storesvr_update::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_update::storesvr_update()
@@ -7040,7 +7038,7 @@ void storesvr_update::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_cond_ = NULL;
-  mod_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7049,8 +7047,8 @@ storesvr_update::~storesvr_update() {
 }
 
 void storesvr_update::SharedDtor() {
-  if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete mod_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -7087,9 +7085,9 @@ void storesvr_update::Clear() {
     if (has_mod_cond()) {
       if (mod_cond_ != NULL) mod_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
     }
-    if (has_mod_record()) {
-      if (mod_record_ != &::google::protobuf::internal::kEmptyString) {
-        mod_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -7126,17 +7124,17 @@ bool storesvr_update::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_mod_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes mod_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mod_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_mod_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -7174,10 +7172,10 @@ void storesvr_update::SerializeWithCachedSizes(
       2, this->mod_cond(), output);
   }
 
-  // optional bytes mod_record = 3;
-  if (has_mod_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->mod_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7202,11 +7200,11 @@ void storesvr_update::SerializeWithCachedSizes(
         2, this->mod_cond(), target);
   }
 
-  // optional bytes mod_record = 3;
-  if (has_mod_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->mod_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7234,11 +7232,11 @@ int storesvr_update::ByteSize() const {
           this->mod_cond());
     }
 
-    // optional bytes mod_record = 3;
-    if (has_mod_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->mod_record());
+          this->record());
     }
 
   }
@@ -7274,8 +7272,8 @@ void storesvr_update::MergeFrom(const storesvr_update& from) {
     if (from.has_mod_cond()) {
       mutable_mod_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.mod_cond());
     }
-    if (from.has_mod_record()) {
-      set_mod_record(from.mod_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -7302,7 +7300,7 @@ void storesvr_update::Swap(storesvr_update* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_cond_, other->mod_cond_);
-    std::swap(mod_record_, other->mod_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7581,7 +7579,7 @@ void storesvr_update_res::Swap(storesvr_update_res* other) {
 #ifndef _MSC_VER
 const int storesvr_updateobj::kBaseinfoFieldNumber;
 const int storesvr_updateobj::kModKeyFieldNumber;
-const int storesvr_updateobj::kModinsRecordFieldNumber;
+const int storesvr_updateobj::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_updateobj::storesvr_updateobj()
@@ -7603,7 +7601,7 @@ void storesvr_updateobj::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_key_ = GOOGLE_ULONGLONG(0);
-  modins_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7612,8 +7610,8 @@ storesvr_updateobj::~storesvr_updateobj() {
 }
 
 void storesvr_updateobj::SharedDtor() {
-  if (modins_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete modins_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -7647,9 +7645,9 @@ void storesvr_updateobj::Clear() {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
     mod_key_ = GOOGLE_ULONGLONG(0);
-    if (has_modins_record()) {
-      if (modins_record_ != &::google::protobuf::internal::kEmptyString) {
-        modins_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -7688,17 +7686,17 @@ bool storesvr_updateobj::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_modins_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes modins_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_modins_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_modins_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -7735,10 +7733,10 @@ void storesvr_updateobj::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
   }
 
-  // optional bytes modins_record = 3;
-  if (has_modins_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->modins_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7761,11 +7759,11 @@ void storesvr_updateobj::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
   }
 
-  // optional bytes modins_record = 3;
-  if (has_modins_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->modins_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7793,11 +7791,11 @@ int storesvr_updateobj::ByteSize() const {
           this->mod_key());
     }
 
-    // optional bytes modins_record = 3;
-    if (has_modins_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->modins_record());
+          this->record());
     }
 
   }
@@ -7833,8 +7831,8 @@ void storesvr_updateobj::MergeFrom(const storesvr_updateobj& from) {
     if (from.has_mod_key()) {
       set_mod_key(from.mod_key());
     }
-    if (from.has_modins_record()) {
-      set_modins_record(from.modins_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -7861,7 +7859,7 @@ void storesvr_updateobj::Swap(storesvr_updateobj* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
-    std::swap(modins_record_, other->modins_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -8140,7 +8138,7 @@ void storesvr_updateobj_res::Swap(storesvr_updateobj_res* other) {
 #ifndef _MSC_VER
 const int storesvr_execute::kBaseinfoFieldNumber;
 const int storesvr_execute::kModKeyFieldNumber;
-const int storesvr_execute::kExecuteRecordFieldNumber;
+const int storesvr_execute::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_execute::storesvr_execute()
@@ -8162,7 +8160,7 @@ void storesvr_execute::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_key_ = GOOGLE_ULONGLONG(0);
-  execute_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -8171,8 +8169,8 @@ storesvr_execute::~storesvr_execute() {
 }
 
 void storesvr_execute::SharedDtor() {
-  if (execute_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete execute_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -8206,9 +8204,9 @@ void storesvr_execute::Clear() {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
     mod_key_ = GOOGLE_ULONGLONG(0);
-    if (has_execute_record()) {
-      if (execute_record_ != &::google::protobuf::internal::kEmptyString) {
-        execute_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -8247,17 +8245,17 @@ bool storesvr_execute::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_execute_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes execute_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_execute_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_execute_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -8294,10 +8292,10 @@ void storesvr_execute::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
   }
 
-  // optional bytes execute_record = 3;
-  if (has_execute_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->execute_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8320,11 +8318,11 @@ void storesvr_execute::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
   }
 
-  // optional bytes execute_record = 3;
-  if (has_execute_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->execute_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8352,11 +8350,11 @@ int storesvr_execute::ByteSize() const {
           this->mod_key());
     }
 
-    // optional bytes execute_record = 3;
-    if (has_execute_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->execute_record());
+          this->record());
     }
 
   }
@@ -8392,8 +8390,8 @@ void storesvr_execute::MergeFrom(const storesvr_execute& from) {
     if (from.has_mod_key()) {
       set_mod_key(from.mod_key());
     }
-    if (from.has_execute_record()) {
-      set_execute_record(from.execute_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -8420,7 +8418,7 @@ void storesvr_execute::Swap(storesvr_execute* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
-    std::swap(execute_record_, other->execute_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -8441,7 +8439,7 @@ void storesvr_execute::Swap(storesvr_execute* other) {
 #ifndef _MSC_VER
 const int storesvr_execute_res::kBaseinfoFieldNumber;
 const int storesvr_execute_res::kExeOpresFieldNumber;
-const int storesvr_execute_res::kSelRecordsFieldNumber;
+const int storesvr_execute_res::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_execute_res::storesvr_execute_res()
@@ -8464,7 +8462,7 @@ void storesvr_execute_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   exe_opres_ = NULL;
-  sel_records_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -8473,8 +8471,8 @@ storesvr_execute_res::~storesvr_execute_res() {
 }
 
 void storesvr_execute_res::SharedDtor() {
-  if (sel_records_ != &::google::protobuf::internal::kEmptyString) {
-    delete sel_records_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -8511,9 +8509,9 @@ void storesvr_execute_res::Clear() {
     if (has_exe_opres()) {
       if (exe_opres_ != NULL) exe_opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
-    if (has_sel_records()) {
-      if (sel_records_ != &::google::protobuf::internal::kEmptyString) {
-        sel_records_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -8550,17 +8548,17 @@ bool storesvr_execute_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_sel_records;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes sel_records = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sel_records:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_sel_records()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -8598,10 +8596,10 @@ void storesvr_execute_res::SerializeWithCachedSizes(
       2, this->exe_opres(), output);
   }
 
-  // optional bytes sel_records = 3;
-  if (has_sel_records()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->sel_records(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8626,11 +8624,11 @@ void storesvr_execute_res::SerializeWithCachedSizes(
         2, this->exe_opres(), target);
   }
 
-  // optional bytes sel_records = 3;
-  if (has_sel_records()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->sel_records(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8658,11 +8656,11 @@ int storesvr_execute_res::ByteSize() const {
           this->exe_opres());
     }
 
-    // optional bytes sel_records = 3;
-    if (has_sel_records()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->sel_records());
+          this->record());
     }
 
   }
@@ -8698,8 +8696,8 @@ void storesvr_execute_res::MergeFrom(const storesvr_execute_res& from) {
     if (from.has_exe_opres()) {
       mutable_exe_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.exe_opres());
     }
-    if (from.has_sel_records()) {
-      set_sel_records(from.sel_records());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -8726,7 +8724,7 @@ void storesvr_execute_res::Swap(storesvr_execute_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(exe_opres_, other->exe_opres_);
-    std::swap(sel_records_, other->sel_records_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -8747,7 +8745,7 @@ void storesvr_execute_res::Swap(storesvr_execute_res* other) {
 #ifndef _MSC_VER
 const int storesvr_execute_more::kBaseinfoFieldNumber;
 const int storesvr_execute_more::kModKeyFieldNumber;
-const int storesvr_execute_more::kExecuteRecordFieldNumber;
+const int storesvr_execute_more::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_execute_more::storesvr_execute_more()
@@ -8769,7 +8767,7 @@ void storesvr_execute_more::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
   mod_key_ = GOOGLE_ULONGLONG(0);
-  execute_record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -8778,8 +8776,8 @@ storesvr_execute_more::~storesvr_execute_more() {
 }
 
 void storesvr_execute_more::SharedDtor() {
-  if (execute_record_ != &::google::protobuf::internal::kEmptyString) {
-    delete execute_record_;
+  if (record_ != &::google::protobuf::internal::kEmptyString) {
+    delete record_;
   }
   if (this != default_instance_) {
     delete baseinfo_;
@@ -8813,9 +8811,9 @@ void storesvr_execute_more::Clear() {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
     mod_key_ = GOOGLE_ULONGLONG(0);
-    if (has_execute_record()) {
-      if (execute_record_ != &::google::protobuf::internal::kEmptyString) {
-        execute_record_->clear();
+    if (has_record()) {
+      if (record_ != &::google::protobuf::internal::kEmptyString) {
+        record_->clear();
       }
     }
   }
@@ -8854,17 +8852,17 @@ bool storesvr_execute_more::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_execute_record;
+        if (input->ExpectTag(26)) goto parse_record;
         break;
       }
 
-      // optional bytes execute_record = 3;
+      // optional bytes record = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_execute_record:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_execute_record()));
+                input, this->mutable_record()));
         } else {
           goto handle_uninterpreted;
         }
@@ -8901,10 +8899,10 @@ void storesvr_execute_more::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->mod_key(), output);
   }
 
-  // optional bytes execute_record = 3;
-  if (has_execute_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      3, this->execute_record(), output);
+      3, this->record(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8927,11 +8925,11 @@ void storesvr_execute_more::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->mod_key(), target);
   }
 
-  // optional bytes execute_record = 3;
-  if (has_execute_record()) {
+  // optional bytes record = 3;
+  if (has_record()) {
     target =
       ::google::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        3, this->execute_record(), target);
+        3, this->record(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8959,11 +8957,11 @@ int storesvr_execute_more::ByteSize() const {
           this->mod_key());
     }
 
-    // optional bytes execute_record = 3;
-    if (has_execute_record()) {
+    // optional bytes record = 3;
+    if (has_record()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::BytesSize(
-          this->execute_record());
+          this->record());
     }
 
   }
@@ -8999,8 +8997,8 @@ void storesvr_execute_more::MergeFrom(const storesvr_execute_more& from) {
     if (from.has_mod_key()) {
       set_mod_key(from.mod_key());
     }
-    if (from.has_execute_record()) {
-      set_execute_record(from.execute_record());
+    if (from.has_record()) {
+      set_record(from.record());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -9027,7 +9025,7 @@ void storesvr_execute_more::Swap(storesvr_execute_more* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
     std::swap(mod_key_, other->mod_key_);
-    std::swap(execute_record_, other->execute_record_);
+    std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -9050,7 +9048,7 @@ const int storesvr_execute_more_res::kBaseinfoFieldNumber;
 const int storesvr_execute_more_res::kExeOpresFieldNumber;
 const int storesvr_execute_more_res::kIsLastbatchFieldNumber;
 const int storesvr_execute_more_res::kRowCountFieldNumber;
-const int storesvr_execute_more_res::kSelRecordsFieldNumber;
+const int storesvr_execute_more_res::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_execute_more_res::storesvr_execute_more_res()
@@ -9121,7 +9119,7 @@ void storesvr_execute_more_res::Clear() {
     is_lastbatch_ = false;
     row_count_ = 0;
   }
-  sel_records_.Clear();
+  record_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -9187,21 +9185,21 @@ bool storesvr_execute_more_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_sel_records;
+        if (input->ExpectTag(42)) goto parse_record;
         break;
       }
 
-      // repeated bytes sel_records = 5;
+      // repeated bytes record = 5;
       case 5: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sel_records:
+         parse_record:
           DO_(::google::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->add_sel_records()));
+                input, this->add_record()));
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(42)) goto parse_sel_records;
+        if (input->ExpectTag(42)) goto parse_record;
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -9246,10 +9244,10 @@ void storesvr_execute_more_res::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteInt32(4, this->row_count(), output);
   }
 
-  // repeated bytes sel_records = 5;
-  for (int i = 0; i < this->sel_records_size(); i++) {
+  // repeated bytes record = 5;
+  for (int i = 0; i < this->record_size(); i++) {
     ::google::protobuf::internal::WireFormatLite::WriteBytes(
-      5, this->sel_records(i), output);
+      5, this->record(i), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -9284,10 +9282,10 @@ void storesvr_execute_more_res::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteInt32ToArray(4, this->row_count(), target);
   }
 
-  // repeated bytes sel_records = 5;
-  for (int i = 0; i < this->sel_records_size(); i++) {
+  // repeated bytes record = 5;
+  for (int i = 0; i < this->record_size(); i++) {
     target = ::google::protobuf::internal::WireFormatLite::
-      WriteBytesToArray(5, this->sel_records(i), target);
+      WriteBytesToArray(5, this->record(i), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -9328,11 +9326,11 @@ int storesvr_execute_more_res::ByteSize() const {
     }
 
   }
-  // repeated bytes sel_records = 5;
-  total_size += 1 * this->sel_records_size();
-  for (int i = 0; i < this->sel_records_size(); i++) {
+  // repeated bytes record = 5;
+  total_size += 1 * this->record_size();
+  for (int i = 0; i < this->record_size(); i++) {
     total_size += ::google::protobuf::internal::WireFormatLite::BytesSize(
-      this->sel_records(i));
+      this->record(i));
   }
 
   if (!unknown_fields().empty()) {
@@ -9360,7 +9358,7 @@ void storesvr_execute_more_res::MergeFrom(const ::google::protobuf::Message& fro
 
 void storesvr_execute_more_res::MergeFrom(const storesvr_execute_more_res& from) {
   GOOGLE_CHECK_NE(&from, this);
-  sel_records_.MergeFrom(from.sel_records_);
+  record_.MergeFrom(from.record_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
@@ -9401,7 +9399,7 @@ void storesvr_execute_more_res::Swap(storesvr_execute_more_res* other) {
     std::swap(exe_opres_, other->exe_opres_);
     std::swap(is_lastbatch_, other->is_lastbatch_);
     std::swap(row_count_, other->row_count_);
-    sel_records_.Swap(&other->sel_records_);
+    record_.Swap(&other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

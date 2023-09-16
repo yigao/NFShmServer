@@ -67,7 +67,7 @@ message storesvr_sel_res {
   optional storesvr_opres     sel_opres = 2;  // 查询结果
   optional bool  is_lastbatch = 3;  // 是不是最后一批数据，默认是100条每批次，超过就要多批次返回，true就是最后一批
   optional int32  row_count = 4;  // 查询返回行数
-  repeated bytes  sel_records = 5;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
+  repeated bytes  record = 5;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
 };
 
 //--------------------------------------------------------------------------------------------------
@@ -75,14 +75,14 @@ message storesvr_sel_res {
 message storesvr_selobj {
   optional storesvr_baseinfo   baseinfo = 1;
   optional uint64 mod_key = 2;  // db+table取模值
-  optional bytes  sel_record = 3;  // 查询条件就是对象的key字段
+  optional bytes  record = 3;  // 查询条件就是对象的key字段
 };
 
 // select返回数据
 message storesvr_selobj_res {
   optional storesvr_baseinfo   baseinfo = 1;
   optional storesvr_opres    sel_opres = 2;  // 查询结果
-  optional bytes  sel_record = 3;  // select的结果
+  optional bytes  record = 3;  // select的结果
 };
 
 //--------------------------------------------------------------------------------------------------
@@ -90,7 +90,7 @@ message storesvr_selobj_res {
 message storesvr_insertobj {
   optional storesvr_baseinfo   baseinfo = 1;
   optional uint64 mod_key = 2;  // db+table取模值
-  optional bytes  ins_record = 3;  // insert对象序列化后buffer
+  optional bytes  record = 3;  // insert对象序列化后buffer
 };
 
 message storesvr_insertobj_res {
@@ -101,7 +101,7 @@ message storesvr_insertobj_res {
 message storesvr_insert {
   optional storesvr_baseinfo   baseinfo = 1;
   optional uint64 mod_key = 2;  // db+table取模值
-  repeated bytes  ins_record = 3;  // insert对象序列化后buffer
+  repeated bytes  record = 3;  // insert对象序列化后buffer
 };
 
 message storesvr_insert_res {
@@ -124,7 +124,7 @@ message storesvr_del_res {
 message storesvr_delobj {
   optional storesvr_baseinfo   baseinfo = 1;
   optional uint64 mod_key = 2;  // db+table取模值
-  optional bytes  del_record = 3;  // 查询条件就是对象的key字段
+  optional bytes  record = 3;  // 查询条件就是对象的key字段
 };
 
 message storesvr_delobj_res {
@@ -137,7 +137,7 @@ message storesvr_delobj_res {
 message storesvr_mod {
   optional storesvr_baseinfo   baseinfo = 1;
   optional storesvr_wherecond  mod_cond = 2;
-  optional bytes  mod_record = 3;  // 对象protobuf序列化后的的buf
+  optional bytes  record = 3;  // 对象protobuf序列化后的的buf
 };
 
 // select返回数据
@@ -149,7 +149,7 @@ message storesvr_mod_res {
 message storesvr_modobj {
   optional storesvr_baseinfo   baseinfo = 1;
   optional uint64 mod_key = 2;  // db+table取模值
-  optional bytes  mod_record = 3;  // 对象protobuf序列化后的的buf
+  optional bytes  record = 3;  // 对象protobuf序列化后的的buf
 };
 
 message storesvr_modobj_res {
@@ -162,7 +162,7 @@ message storesvr_modobj_res {
 message storesvr_update {
   optional storesvr_baseinfo   baseinfo = 1;
   optional storesvr_wherecond  mod_cond = 2;
-  optional bytes  mod_record = 3;  // 对象protobuf序列化后的的buf
+  optional bytes  record = 3;  // 对象protobuf序列化后的的buf
 };
 
 // select返回数据
@@ -174,7 +174,7 @@ message storesvr_update_res {
 message storesvr_updateobj {
   optional storesvr_baseinfo   baseinfo = 1;
   optional uint64 mod_key = 2;  // db+table取模值
-  optional bytes  modins_record = 3;  // 对象protobuf序列化后的的buf
+  optional bytes  record = 3;  // 对象protobuf序列化后的的buf
 };
 
 message storesvr_updateobj_res {
@@ -187,19 +187,19 @@ message storesvr_updateobj_res {
 message storesvr_execute {
   optional storesvr_baseinfo   baseinfo = 1;
   optional uint64 mod_key = 2;  // db+table取模值
-  optional bytes  execute_record = 3;  // execute sql
+  optional bytes  record = 3;  // execute sql
 };
 
 message storesvr_execute_res {
   optional storesvr_baseinfo   baseinfo = 1;
   optional storesvr_opres     exe_opres = 2;  // 更新的结果
-  optional bytes  sel_records = 3;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
+  optional bytes  record = 3;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
 };
 
 message storesvr_execute_more {
   optional storesvr_baseinfo   baseinfo = 1;
   optional uint64 mod_key = 2;  // db+table取模值
-  optional bytes  execute_record = 3;  // execute sql
+  optional bytes  record = 3;  // execute sql
 };
 
 message storesvr_execute_more_res {
@@ -207,7 +207,7 @@ message storesvr_execute_more_res {
   optional storesvr_opres     exe_opres = 2;  // 更新的结果
   optional bool  is_lastbatch = 3;  // 是不是最后一批数据，默认是100条每批次，超过就要多批次返回，true就是最后一批
   optional int32  row_count = 4;  // 查询返回行数
-  repeated bytes  sel_records = 5;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
+  repeated bytes  record = 5;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
 };
 
 

@@ -67,13 +67,22 @@
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="redis mysql db read write">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/StoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/StoreServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/Message/storesvr/storesvr_sqldata.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/Message/storesvr/storesvr_sqldata.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFKernelMessage/storesvr_sqldata.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFINosqlDriver.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFINosqlDriver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFINosqlModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFINosqlModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFStoreProtoCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFStoreProtoCommon.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCAsyDBModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCAsyDBModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCAsyNosqlModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCAsyNosqlModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCMysqlDriver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCNosqlModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCNosqlModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCNosqlModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCNosqlModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFRedisDriver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFRedisDriver.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCTaskModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCTaskModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFTaskGroup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFTaskGroup.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFTaskGroup.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFTaskGroup.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFRedisDriver.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFRedisDriver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFDBObjTrans.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFDBObjTrans.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,11 +149,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NFCore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCore" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -337,6 +341,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="evpp" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="evpp" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -467,14 +476,8 @@
       <workItem from="1693906221412" duration="6700000" />
       <workItem from="1694135710953" duration="61448000" />
       <workItem from="1694479084237" duration="53274000" />
-      <workItem from="1694689725600" duration="25092000" />
-    </task>
-    <task id="LOCAL-00082" summary="release">
-      <created>1692165154227</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1692165154227</updated>
+      <workItem from="1694689725600" duration="28120000" />
+      <workItem from="1694825978859" duration="10026000" />
     </task>
     <task id="LOCAL-00083" summary="release">
       <created>1692184096631</created>
@@ -812,7 +815,14 @@
       <option name="project" value="LOCAL" />
       <updated>1694756425883</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="redis mysql db read write">
+      <created>1694768629360</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1694768629360</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1011,6 +1021,11 @@
           <url>file://$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp</url>
           <line>123</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFRedisDriver.cpp</url>
+          <line>431</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

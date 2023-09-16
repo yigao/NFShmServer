@@ -80,25 +80,25 @@ int NFCNosqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::st
     return pDriver->SaveObj(select, select_res);
 }
 
-int NFCNosqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select)
+int NFCNosqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select, storesvr_sqldata::storesvr_insertobj_res &select_res)
 {
     auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
-    return pDriver->SaveObj(select);
+    return pDriver->SaveObj(select, select_res);
 }
 
-int NFCNosqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select)
+int NFCNosqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select, storesvr_sqldata::storesvr_modobj_res &select_res)
 {
     auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
-    return pDriver->SaveObj(select);
+    return pDriver->SaveObj(select, select_res);
 }
 
-int NFCNosqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_updateobj &select)
+int NFCNosqlModule::SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_updateobj &select, storesvr_sqldata::storesvr_updateobj_res &select_res)
 {
     auto pDriver = m_pNoSqlDriverManager->GetNosqlDriver(strID);
     CHECK_EXPR(pDriver, -1, "pDriver == NULL, nServerID:{}", strID);
-    return pDriver->SaveObj(select);
+    return pDriver->SaveObj(select, select_res);
 }
 
 int NFCNosqlModule::DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_delobj &select)

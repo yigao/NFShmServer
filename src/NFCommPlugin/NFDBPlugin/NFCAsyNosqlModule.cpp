@@ -243,7 +243,7 @@ public:
     {
         if (m_pNosqlDriver)
         {
-            iRet = m_pNosqlDriver->SaveObj(mSelect);
+            iRet = m_pNosqlDriver->SaveObj(mSelect, mSelectRes);
         }
         return true;
     }
@@ -292,7 +292,7 @@ public:
     {
         if (m_pNosqlDriver)
         {
-            iRet = m_pNosqlDriver->SaveObj(mSelect);
+            iRet = m_pNosqlDriver->SaveObj(mSelect, mSelectRes);
         }
         return true;
     }
@@ -341,7 +341,7 @@ public:
     {
         if (m_pNosqlDriver)
         {
-            iRet = m_pNosqlDriver->SaveObj(mSelect);
+            iRet = m_pNosqlDriver->SaveObj(mSelect, mSelectRes);
         }
         return true;
     }

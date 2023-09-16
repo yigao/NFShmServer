@@ -17,11 +17,10 @@ public:
 	virtual int AddNosqlServer(const std::string& strID, const std::string& ip, const int nPort, const std::string& strPass) = 0;
 public:
     virtual int SelectObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
-    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select,
-                        storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
-    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select) = 0;
-    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select) = 0;
-    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_updateobj &select) = 0;
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select, storesvr_sqldata::storesvr_insertobj_res &select_res) = 0;
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_modobj &select, storesvr_sqldata::storesvr_modobj_res &select_res) = 0;
+    virtual int SaveObj(const std::string& strID, const storesvr_sqldata::storesvr_updateobj &select, storesvr_sqldata::storesvr_updateobj_res &select_res) = 0;
 
     virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_delobj &select) = 0;
     virtual int DeleteObj(const std::string& strID, const storesvr_sqldata::storesvr_insertobj &select) = 0;

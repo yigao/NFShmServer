@@ -196,7 +196,7 @@ public:
                                                                                                       selobjRes);
         if (iRet == 0 && selobjRes.sel_opres().err_code() == 0)
         {
-            data.ParseFromString(selobjRes.sel_record());
+            data.ParseFromString(selobjRes.record());
         }
         else
         {
@@ -315,11 +315,11 @@ public:
                     if (pSheetRepeatedFieldDesc->is_repeated() &&
                         pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
                         //如果is_repeated 开始处理
-                        for (int i = 0; i < (int) selRes.sel_records_size(); i++)
+                        for (int i = 0; i < (int) selRes.record_size(); i++)
                         {
                             ::google::protobuf::Message *pSheetRepeatedMessageObject = pSheetReflect->AddMessage(
                                     pDescStoreMessage, pSheetRepeatedFieldDesc);
-                            pSheetRepeatedMessageObject->ParsePartialFromString(selRes.sel_records(i));
+                            pSheetRepeatedMessageObject->ParsePartialFromString(selRes.record(i));
                         }
                     }
                 }
@@ -407,10 +407,10 @@ public:
             CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
             if (iRet == 0 && selRes.sel_opres().err_code() == 0)
             {
-                for (int i = 0; i < (int) selRes.sel_records_size(); i++)
+                for (int i = 0; i < (int) selRes.record_size(); i++)
                 {
                     DataType result;
-                    result.ParseFromString(selRes.sel_records(i));
+                    result.ParseFromString(selRes.record(i));
                     respone.push_back(result);
                 }
 
@@ -941,7 +941,7 @@ public:
                                                                                                     selobjRes);
         if (iRet == 0 && selobjRes.exe_opres().err_code() == 0)
         {
-            data.ParseFromString(selobjRes.sel_records());
+            data.ParseFromString(selobjRes.record());
         }
         else
         {
@@ -1038,10 +1038,10 @@ public:
             CHECK_EXPR(iRet == 0, iRet, "Yield Failed, Error:{}", GetErrorStr(iRet));
             if (iRet == 0 && selRes.exe_opres().err_code() == 0)
             {
-                for (int i = 0; i < (int) selRes.sel_records_size(); i++)
+                for (int i = 0; i < (int) selRes.record_size(); i++)
                 {
                     DataType result;
-                    result.ParseFromString(selRes.sel_records(i));
+                    result.ParseFromString(selRes.record(i));
                     respone.push_back(result);
                 }
 

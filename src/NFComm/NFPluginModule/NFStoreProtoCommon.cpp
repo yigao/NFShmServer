@@ -73,7 +73,7 @@ void NFStoreProtoCommon::storesvr_selectobj(storesvr_sqldata::storesvr_selobj &s
         select.mutable_baseinfo()->set_clname(cls_name);
     }
     select.set_mod_key(mod_key);
-    select.set_sel_record(msg_obj.SerializeAsString());
+    select.set_record(msg_obj.SerializeAsString());
     if (vecFields.size() > 0)
     {
         for (int i = 0; i < (int) vecFields.size(); i++)
@@ -111,7 +111,7 @@ void NFStoreProtoCommon::storesvr_insertobj(storesvr_sqldata::storesvr_insertobj
         select.mutable_baseinfo()->set_clname(cls_name);
     }
     select.set_mod_key(mod_key);
-    select.set_ins_record(msg_obj.SerializeAsString());
+    select.set_record(msg_obj.SerializeAsString());
 }
 
 // insert对象插入，返回打包数据
@@ -187,7 +187,7 @@ void NFStoreProtoCommon::storesvr_deleteobj(storesvr_sqldata::storesvr_delobj &s
         select.mutable_baseinfo()->set_clname(cls_name);
     }
     select.set_mod_key(mod_key);
-    select.set_del_record(msg_obj.SerializeAsString());
+    select.set_record(msg_obj.SerializeAsString());
 }
 
 std::string NFStoreProtoCommon::storesvr_modifybycond(const std::string &dbname, const std::string &tbname,
@@ -228,7 +228,7 @@ void NFStoreProtoCommon::storesvr_modifybycond(storesvr_sqldata::storesvr_mod &s
         *pvk = vk_list[i];
     }
 
-    select.set_mod_record(msg_obj.SerializeAsString());
+    select.set_record(msg_obj.SerializeAsString());
 }
 
 // 按对象修改
@@ -257,7 +257,7 @@ void NFStoreProtoCommon::storesvr_modifyobj(storesvr_sqldata::storesvr_modobj& s
         select.mutable_baseinfo()->set_clname(cls_name);
     }
     select.set_mod_key(mod_key);
-    select.set_mod_record(msg_obj.SerializeAsString());
+    select.set_record(msg_obj.SerializeAsString());
 }
 
 
@@ -299,7 +299,7 @@ void NFStoreProtoCommon::storesvr_updatebycond(storesvr_sqldata::storesvr_update
         *pvk = vk_list[i];
     }
 
-    select.set_mod_record(msg_obj.SerializeAsString());
+    select.set_record(msg_obj.SerializeAsString());
 }
 
 // 修改插入
@@ -328,7 +328,7 @@ void NFStoreProtoCommon::storesvr_updateobj(storesvr_sqldata::storesvr_updateobj
         select.mutable_baseinfo()->set_clname(cls_name);
     }
     select.set_mod_key(mod_key);
-    select.set_modins_record(msg_obj.SerializeAsString());
+    select.set_record(msg_obj.SerializeAsString());
 }
 
 // 按对象修改
@@ -357,7 +357,7 @@ void NFStoreProtoCommon::storesvr_execute(storesvr_sqldata::storesvr_execute& se
         select.mutable_baseinfo()->set_clname(cls_name);
     }
     select.set_mod_key(mod_key);
-    select.set_execute_record(msg + ";");
+    select.set_record(msg + ";");
 }
 
 // 按对象修改
@@ -386,7 +386,7 @@ void NFStoreProtoCommon::storesvr_execute_more(storesvr_sqldata::storesvr_execut
     }
     select.mutable_baseinfo()->set_max_records(max_records);
     select.set_mod_key(mod_key);
-    select.set_execute_record(msg + ";");
+    select.set_record(msg + ";");
 }
 
 int NFStoreProtoCommon::get_proto_field_type(const google::protobuf::FieldDescriptor &fieldDesc)

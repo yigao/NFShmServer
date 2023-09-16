@@ -185,7 +185,7 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
             {
                 const storesvr_sqldata::storesvr_selobj_res* pRes = dynamic_cast<const storesvr_sqldata::storesvr_selobj_res*>(pSSMsgRes);
                 CHECK_NULL(pRes);
-                iRet  = NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, &pRes->sel_record());
+                iRet  = NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, &pRes->record());
             }
             break;
         }
