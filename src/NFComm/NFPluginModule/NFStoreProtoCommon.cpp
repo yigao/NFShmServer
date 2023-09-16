@@ -45,12 +45,12 @@ void NFStoreProtoCommon::storesvr_selectbycond(storesvr_sqldata::storesvr_sel &s
     }
     select.mutable_baseinfo()->set_max_records(maxRecords);
 
-    select.mutable_sel_cond()->set_mod_key(mod_key);
+    select.mutable_cond()->set_mod_key(mod_key);
 
-    select.mutable_sel_cond()->set_where_additional_conds(additional_conds);
+    select.mutable_cond()->set_where_additional_conds(additional_conds);
     for (size_t i = 0; i < vk_list.size(); i++)
     {
-        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_sel_cond()->add_where_conds();
+        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_cond()->add_where_conds();
         *pvk = vk_list[i];
     }
 }
@@ -151,11 +151,11 @@ void NFStoreProtoCommon::storesvr_deletebycond(storesvr_sqldata::storesvr_del &s
     {
         select.mutable_baseinfo()->set_clname(cls_name);
     }
-    select.mutable_del_cond()->set_mod_key(mod_key);
-    select.mutable_del_cond()->set_where_additional_conds(additional_conds);
+    select.mutable_cond()->set_mod_key(mod_key);
+    select.mutable_cond()->set_where_additional_conds(additional_conds);
     for (size_t i = 0; i < vk_list.size(); i++)
     {
-        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_del_cond()->add_where_conds();
+        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_cond()->add_where_conds();
         *pvk = vk_list[i];
     }
 }
@@ -219,12 +219,12 @@ void NFStoreProtoCommon::storesvr_modifybycond(storesvr_sqldata::storesvr_mod &s
         select.mutable_baseinfo()->set_clname(cls_name);
     }
 
-    select.mutable_mod_cond()->set_mod_key(mod_key);
+    select.mutable_cond()->set_mod_key(mod_key);
 
-    select.mutable_mod_cond()->set_where_additional_conds(additional_conds);
+    select.mutable_cond()->set_where_additional_conds(additional_conds);
     for (size_t i = 0; i < vk_list.size(); i++)
     {
-        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_mod_cond()->add_where_conds();
+        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_cond()->add_where_conds();
         *pvk = vk_list[i];
     }
 
@@ -290,12 +290,12 @@ void NFStoreProtoCommon::storesvr_updatebycond(storesvr_sqldata::storesvr_update
         select.mutable_baseinfo()->set_clname(cls_name);
     }
 
-    select.mutable_mod_cond()->set_mod_key(mod_key);
+    select.mutable_cond()->set_mod_key(mod_key);
 
-    select.mutable_mod_cond()->set_where_additional_conds(additional_conds);
+    select.mutable_cond()->set_where_additional_conds(additional_conds);
     for (size_t i = 0; i < vk_list.size(); i++)
     {
-        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_mod_cond()->add_where_conds();
+        ::storesvr_sqldata::storesvr_vk *pvk = select.mutable_cond()->add_where_conds();
         *pvk = vk_list[i];
     }
 

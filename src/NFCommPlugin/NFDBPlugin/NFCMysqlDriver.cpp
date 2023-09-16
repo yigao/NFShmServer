@@ -113,12 +113,12 @@ int NFCMysqlDriver::Execute(const storesvr_sqldata::storesvr_execute &select, st
     int iRet = ExecuteMore(select.record(), resultVec, errormsg);
     if (iRet != 0)
     {
-        select_res.mutable_exe_opres()->set_errmsg(errormsg);
+        select_res.mutable_opres()->set_errmsg(errormsg);
         return -1;
     }
 
     select_res.mutable_baseinfo()->CopyFrom(select.baseinfo());
-    select_res.mutable_exe_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
 
     for (size_t i = 0; i < resultVec.size(); i++)
     {
@@ -160,14 +160,14 @@ int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &s
     if (iRet != 0)
     {
         storesvr_sqldata::storesvr_execute_more_res *select_res = vecSelectRes.Add();
-        select_res->mutable_exe_opres()->set_errmsg(errormsg);
+        select_res->mutable_opres()->set_errmsg(errormsg);
         return -1;
     }
 
     storesvr_sqldata::storesvr_execute_more_res *select_res = vecSelectRes.Add();
 
     select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-    select_res->mutable_exe_opres()->set_mod_key(select.mod_key());
+    select_res->mutable_opres()->set_mod_key(select.mod_key());
     select_res->set_is_lastbatch(false);
 
     int count = 0;
@@ -189,7 +189,7 @@ int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &s
                 select_res = vecSelectRes.Add();
 
                 select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-                select_res->mutable_exe_opres()->set_mod_key(select.mod_key());
+                select_res->mutable_opres()->set_mod_key(select.mod_key());
                 select_res->set_is_lastbatch(false);
             }
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
@@ -223,12 +223,12 @@ int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &s
     int iRet = ExecuteMore(select.record(), resultVec, errormsg);
     if (iRet != 0)
     {
-        select_res.mutable_exe_opres()->set_errmsg(errormsg);
+        select_res.mutable_opres()->set_errmsg(errormsg);
         return -1;
     }
 
     select_res.mutable_baseinfo()->CopyFrom(select.baseinfo());
-    select_res.mutable_exe_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
 
     for (size_t i = 0; i < resultVec.size(); i++)
     {
@@ -536,14 +536,14 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
     if (iRet != 0)
     {
         storesvr_sqldata::storesvr_sel_res *select_res = vecSelectRes.Add();
-        select_res->mutable_sel_opres()->set_errmsg(errmsg);
+        select_res->mutable_opres()->set_errmsg(errmsg);
         return -1;
     }
 
     storesvr_sqldata::storesvr_sel_res *select_res = vecSelectRes.Add();
 
     select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-    select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+    select_res->mutable_opres()->set_mod_key(select.cond().mod_key());
     select_res->set_is_lastbatch(false);
 
     int count = 0;
@@ -565,7 +565,7 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
                 select_res = vecSelectRes.Add();
 
                 select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-                select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+                select_res->mutable_opres()->set_mod_key(select.cond().mod_key());
                 select_res->set_is_lastbatch(false);
             }
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", pMessage->Utf8DebugString());
@@ -601,7 +601,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_sel &selec
     int iRet = GetPrivateKey(packageName, className, privateKey);
     CHECK_EXPR(iRet == 0, -1, "GetObjKey Failed!");
 
-    if (!select.has_sel_cond())
+    if (!select.has_cond())
     {
         selectSql = "select " + privateKey + " from " + tableName;
     }
@@ -609,7 +609,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_sel &selec
     {
         selectSql = "select " + privateKey + " from " + tableName;
 
-        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.sel_cond();
+        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         if (whereCond.where_conds_size() > 0)
         {
             selectSql += " where ";
@@ -745,13 +745,13 @@ int NFCMysqlDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select,
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}", selectSql);
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+    select_res.mutable_opres()->set_mod_key(select.cond().mod_key());
     std::vector<std::map<std::string, std::string>> resultVec;
     std::string errmsg;
     iRet = ExecuteMore(selectSql, resultVec, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_sel_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return -1;
     }
 
@@ -805,7 +805,7 @@ int NFCMysqlDriver::SelectObj(const std::string &tbName, google::protobuf::Messa
     }
     else
     {
-        errMsg = select_res.sel_opres().errmsg();
+        errMsg = select_res.opres().errmsg();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -822,7 +822,7 @@ int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}", iRet);
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_sel_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
 
     std::vector<std::string> vecFields;
     for (int i = 0; i < (int) select.baseinfo().sel_fields_size(); i++)
@@ -835,7 +835,7 @@ int NFCMysqlDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     iRet = QueryOne(select.baseinfo().tbname(), keyMap, vecFields, result, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_sel_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -909,7 +909,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_del &selec
     int iRet = GetPrivateKey(packageName, className, privateKey);
     CHECK_EXPR(iRet == 0, -1, "GetObjKey Failed!");
 
-    if (!select.has_del_cond())
+    if (!select.has_cond())
     {
         selectSql = "select " + privateKey + " from " + tableName;
     }
@@ -917,7 +917,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_del &selec
     {
         selectSql = "select " + privateKey + " from " + tableName;
 
-        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.del_cond();
+        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         if (whereCond.where_conds_size() > 0)
         {
             selectSql += " where ";
@@ -1031,12 +1031,12 @@ int NFCMysqlDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select,
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}", selectSql);
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_del_opres()->set_mod_key(select.del_cond().mod_key());
+    select_res.mutable_opres()->set_mod_key(select.cond().mod_key());
     std::string errmsg;
     iRet = Delete(selectSql, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_del_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return -1;
     }
 
@@ -1085,12 +1085,12 @@ int NFCMysqlDriver::DeleteByCond(const storesvr_sqldata::storesvr_del &select, c
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed:{}", selectSql);
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_del_opres()->set_mod_key(select.del_cond().mod_key());
+    select_res.mutable_opres()->set_mod_key(select.cond().mod_key());
     std::string errmsg;
     iRet = Delete(selectSql, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_del_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return -1;
     }
 
@@ -1108,12 +1108,12 @@ int NFCMysqlDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select,
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed");
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_del_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
     iRet = Delete(select.baseinfo().tbname(), keyMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_del_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return -1;
     }
 
@@ -1152,10 +1152,10 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_delobj &select, s
 
 int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std::string &selectSql)
 {
-    if (select.has_mod_cond())
+    if (select.has_cond())
     {
         selectSql = " ";
-        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.mod_cond();
+        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         for (int i = 0; i < whereCond.where_conds_size(); i++)
         {
             std::string sql;
@@ -1256,10 +1256,10 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
 
 int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_update &select, std::string &selectSql)
 {
-    if (select.has_mod_cond())
+    if (select.has_cond())
     {
         selectSql = " ";
-        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.mod_cond();
+        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         for (int i = 0; i < whereCond.where_conds_size(); i++)
         {
             std::string sql;
@@ -1385,10 +1385,10 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_del &select, std:
     std::string tableName = select.baseinfo().tbname();
     CHECK_EXPR(tableName.size() > 0, -1, "talbeName empty!");
 
-    if (select.has_del_cond())
+    if (select.has_cond())
     {
         selectSql = "delete from " + tableName + " where ";
-        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.del_cond();
+        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         for (int i = 0; i < whereCond.where_conds_size(); i++)
         {
             std::string sql;
@@ -1564,7 +1564,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, std:
         }
     }
 
-    if (!select.has_sel_cond())
+    if (!select.has_cond())
     {
         selectSql = "select " + stringFileds + " from " + tableName;
     }
@@ -1572,7 +1572,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, std:
     {
         selectSql = "select " + stringFileds + " from " + tableName;
 
-        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.sel_cond();
+        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         if (whereCond.where_conds_size() > 0)
         {
             selectSql += " where ";
@@ -2408,7 +2408,7 @@ int NFCMysqlDriver::InsertObj(const std::string &tbName, const google::protobuf:
     int iRet = InsertObj(select, select_res);
     if (iRet != 0)
     {
-        errMsg = select_res.ins_opres().errmsg();
+        errMsg = select_res.opres().errmsg();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -2425,12 +2425,12 @@ int NFCMysqlDriver::InsertObj(const storesvr_sqldata::storesvr_insertobj &select
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed");
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_ins_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
     iRet = Insert(select.baseinfo().tbname(), resultMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_ins_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -2479,7 +2479,7 @@ int NFCMysqlDriver::ModifyObj(const std::string &tbName, const google::protobuf:
     int iRet = ModifyObj(select, select_res);
     if (iRet != 0)
     {
-        errMsg = select_res.mod_opres().errmsg();
+        errMsg = select_res.opres().errmsg();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -2498,7 +2498,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &selec
     int iRet = GetPrivateKey(packageName, className, privateKey);
     CHECK_EXPR(iRet == 0, -1, "GetObjKey Failed!");
 
-    if (!select.has_mod_cond())
+    if (!select.has_cond())
     {
         selectSql = "select " + privateKey + " from " + tableName;
     }
@@ -2506,7 +2506,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &selec
     {
         selectSql = "select " + privateKey + " from " + tableName;
 
-        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.mod_cond();
+        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         if (whereCond.where_conds_size() > 0)
         {
             selectSql += " where ";
@@ -2652,12 +2652,12 @@ int NFCMysqlDriver::ModifyByCond(const storesvr_sqldata::storesvr_mod &select, s
     CreateSql(select, where);
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_mod_opres()->set_mod_key(select.mod_cond().mod_key());
+    select_res.mutable_opres()->set_mod_key(select.cond().mod_key());
     std::string errmsg;
     iRet = Modify(select.baseinfo().tbname(), where, keyValueMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_mod_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -2677,12 +2677,12 @@ int NFCMysqlDriver::ModifyObj(const storesvr_sqldata::storesvr_modobj &select,
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed");
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_mod_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
     iRet = Modify(select.baseinfo().tbname(), keyMap, keyValueMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_mod_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -2789,7 +2789,7 @@ int NFCMysqlDriver::UpdateObj(const std::string &tbName, const google::protobuf:
     int iRet = UpdateObj(select, select_res);
     if (iRet != 0)
     {
-        errMsg = select_res.modins_opres().errmsg();
+        errMsg = select_res.opres().errmsg();
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
@@ -2806,7 +2806,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_update &se
     int iRet = GetPrivateKey(packageName, tableName, privateKey);
     CHECK_EXPR(iRet == 0, -1, "GetObjKey Failed!");
 
-    if (!select.has_mod_cond())
+    if (!select.has_cond())
     {
         selectSql = "select " + privateKey + " from " + tableName;
     }
@@ -2814,7 +2814,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_update &se
     {
         selectSql = "select " + privateKey + " from " + tableName;
 
-        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.mod_cond();
+        const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
         if (whereCond.where_conds_size() > 0)
         {
             selectSql += " where ";
@@ -2930,12 +2930,12 @@ int NFCMysqlDriver::UpdateByCond(const storesvr_sqldata::storesvr_update &select
     CreateSql(select, where);
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_mod_opres()->set_mod_key(select.mod_cond().mod_key());
+    select_res.mutable_opres()->set_mod_key(select.cond().mod_key());
     std::string errmsg;
     iRet = Modify(select.baseinfo().tbname(), where, keyValueMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_mod_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return iRet;
     }
 
@@ -2954,12 +2954,12 @@ int NFCMysqlDriver::UpdateObj(const storesvr_sqldata::storesvr_updateobj &select
     CHECK_EXPR(iRet == 0, -1, "CreateSql Failed");
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_modins_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
     iRet = Update(select.baseinfo().tbname(), keyMap, keyValueMap, errmsg);
     if (iRet != 0)
     {
-        select_res.mutable_modins_opres()->set_errmsg(errmsg);
+        select_res.mutable_opres()->set_errmsg(errmsg);
         return iRet;
     }
 

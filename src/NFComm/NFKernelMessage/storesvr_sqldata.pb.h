@@ -698,26 +698,26 @@ class storesvr_sel : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_wherecond sel_cond = 2;
-  inline bool has_sel_cond() const;
-  inline void clear_sel_cond();
-  static const int kSelCondFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_wherecond& sel_cond() const;
-  inline ::storesvr_sqldata::storesvr_wherecond* mutable_sel_cond();
-  inline ::storesvr_sqldata::storesvr_wherecond* release_sel_cond();
-  inline void set_allocated_sel_cond(::storesvr_sqldata::storesvr_wherecond* sel_cond);
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  inline bool has_cond() const;
+  inline void clear_cond();
+  static const int kCondFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_wherecond& cond() const;
+  inline ::storesvr_sqldata::storesvr_wherecond* mutable_cond();
+  inline ::storesvr_sqldata::storesvr_wherecond* release_cond();
+  inline void set_allocated_cond(::storesvr_sqldata::storesvr_wherecond* cond);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_sel)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_sel_cond();
-  inline void clear_has_sel_cond();
+  inline void set_has_cond();
+  inline void clear_has_cond();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_wherecond* sel_cond_;
+  ::storesvr_sqldata::storesvr_wherecond* cond_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -794,14 +794,14 @@ class storesvr_sel_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-  inline bool has_sel_opres() const;
-  inline void clear_sel_opres();
-  static const int kSelOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& sel_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_sel_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_sel_opres();
-  inline void set_allocated_sel_opres(::storesvr_sqldata::storesvr_opres* sel_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // optional bool is_lastbatch = 3;
   inline bool has_is_lastbatch() const;
@@ -837,8 +837,8 @@ class storesvr_sel_res : public ::google::protobuf::Message {
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_sel_opres();
-  inline void clear_has_sel_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
   inline void set_has_is_lastbatch();
   inline void clear_has_is_lastbatch();
   inline void set_has_row_count();
@@ -847,7 +847,7 @@ class storesvr_sel_res : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* sel_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
   bool is_lastbatch_;
   ::google::protobuf::int32 row_count_;
   ::google::protobuf::RepeatedPtrField< ::std::string> record_;
@@ -1036,14 +1036,14 @@ class storesvr_selobj_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-  inline bool has_sel_opres() const;
-  inline void clear_sel_opres();
-  static const int kSelOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& sel_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_sel_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_sel_opres();
-  inline void set_allocated_sel_opres(::storesvr_sqldata::storesvr_opres* sel_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // optional bytes record = 3;
   inline bool has_record() const;
@@ -1061,15 +1061,15 @@ class storesvr_selobj_res : public ::google::protobuf::Message {
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_sel_opres();
-  inline void clear_has_sel_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
   inline void set_has_record();
   inline void clear_has_record();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* sel_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
   ::std::string* record_;
 
   mutable int _cached_size_;
@@ -1256,26 +1256,26 @@ class storesvr_insertobj_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-  inline bool has_ins_opres() const;
-  inline void clear_ins_opres();
-  static const int kInsOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& ins_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_ins_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_ins_opres();
-  inline void set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_insertobj_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_ins_opres();
-  inline void clear_has_ins_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* ins_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1463,26 +1463,26 @@ class storesvr_insert_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-  inline bool has_ins_opres() const;
-  inline void clear_ins_opres();
-  static const int kInsOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& ins_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_ins_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_ins_opres();
-  inline void set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_insert_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_ins_opres();
-  inline void clear_has_ins_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* ins_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1559,26 +1559,26 @@ class storesvr_del : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_wherecond del_cond = 2;
-  inline bool has_del_cond() const;
-  inline void clear_del_cond();
-  static const int kDelCondFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_wherecond& del_cond() const;
-  inline ::storesvr_sqldata::storesvr_wherecond* mutable_del_cond();
-  inline ::storesvr_sqldata::storesvr_wherecond* release_del_cond();
-  inline void set_allocated_del_cond(::storesvr_sqldata::storesvr_wherecond* del_cond);
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  inline bool has_cond() const;
+  inline void clear_cond();
+  static const int kCondFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_wherecond& cond() const;
+  inline ::storesvr_sqldata::storesvr_wherecond* mutable_cond();
+  inline ::storesvr_sqldata::storesvr_wherecond* release_cond();
+  inline void set_allocated_cond(::storesvr_sqldata::storesvr_wherecond* cond);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_del)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_del_cond();
-  inline void clear_has_del_cond();
+  inline void set_has_cond();
+  inline void clear_has_cond();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_wherecond* del_cond_;
+  ::storesvr_sqldata::storesvr_wherecond* cond_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1655,26 +1655,26 @@ class storesvr_del_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-  inline bool has_del_opres() const;
-  inline void clear_del_opres();
-  static const int kDelOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& del_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_del_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_del_opres();
-  inline void set_allocated_del_opres(::storesvr_sqldata::storesvr_opres* del_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_del_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_del_opres();
-  inline void clear_has_del_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* del_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1860,26 +1860,26 @@ class storesvr_delobj_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-  inline bool has_del_opres() const;
-  inline void clear_del_opres();
-  static const int kDelOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& del_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_del_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_del_opres();
-  inline void set_allocated_del_opres(::storesvr_sqldata::storesvr_opres* del_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_delobj_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_del_opres();
-  inline void clear_has_del_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* del_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -1956,14 +1956,14 @@ class storesvr_mod : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-  inline bool has_mod_cond() const;
-  inline void clear_mod_cond();
-  static const int kModCondFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_wherecond& mod_cond() const;
-  inline ::storesvr_sqldata::storesvr_wherecond* mutable_mod_cond();
-  inline ::storesvr_sqldata::storesvr_wherecond* release_mod_cond();
-  inline void set_allocated_mod_cond(::storesvr_sqldata::storesvr_wherecond* mod_cond);
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  inline bool has_cond() const;
+  inline void clear_cond();
+  static const int kCondFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_wherecond& cond() const;
+  inline ::storesvr_sqldata::storesvr_wherecond* mutable_cond();
+  inline ::storesvr_sqldata::storesvr_wherecond* release_cond();
+  inline void set_allocated_cond(::storesvr_sqldata::storesvr_wherecond* cond);
 
   // optional bytes record = 3;
   inline bool has_record() const;
@@ -1981,15 +1981,15 @@ class storesvr_mod : public ::google::protobuf::Message {
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_mod_cond();
-  inline void clear_has_mod_cond();
+  inline void set_has_cond();
+  inline void clear_has_cond();
   inline void set_has_record();
   inline void clear_has_record();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_wherecond* mod_cond_;
+  ::storesvr_sqldata::storesvr_wherecond* cond_;
   ::std::string* record_;
 
   mutable int _cached_size_;
@@ -2067,26 +2067,26 @@ class storesvr_mod_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  inline bool has_mod_opres() const;
-  inline void clear_mod_opres();
-  static const int kModOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& mod_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_mod_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_mod_opres();
-  inline void set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_mod_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_mod_opres();
-  inline void clear_has_mod_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* mod_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2272,26 +2272,26 @@ class storesvr_modobj_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  inline bool has_mod_opres() const;
-  inline void clear_mod_opres();
-  static const int kModOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& mod_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_mod_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_mod_opres();
-  inline void set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_modobj_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_mod_opres();
-  inline void clear_has_mod_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* mod_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2368,14 +2368,14 @@ class storesvr_update : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-  inline bool has_mod_cond() const;
-  inline void clear_mod_cond();
-  static const int kModCondFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_wherecond& mod_cond() const;
-  inline ::storesvr_sqldata::storesvr_wherecond* mutable_mod_cond();
-  inline ::storesvr_sqldata::storesvr_wherecond* release_mod_cond();
-  inline void set_allocated_mod_cond(::storesvr_sqldata::storesvr_wherecond* mod_cond);
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  inline bool has_cond() const;
+  inline void clear_cond();
+  static const int kCondFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_wherecond& cond() const;
+  inline ::storesvr_sqldata::storesvr_wherecond* mutable_cond();
+  inline ::storesvr_sqldata::storesvr_wherecond* release_cond();
+  inline void set_allocated_cond(::storesvr_sqldata::storesvr_wherecond* cond);
 
   // optional bytes record = 3;
   inline bool has_record() const;
@@ -2393,15 +2393,15 @@ class storesvr_update : public ::google::protobuf::Message {
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_mod_cond();
-  inline void clear_has_mod_cond();
+  inline void set_has_cond();
+  inline void clear_has_cond();
   inline void set_has_record();
   inline void clear_has_record();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_wherecond* mod_cond_;
+  ::storesvr_sqldata::storesvr_wherecond* cond_;
   ::std::string* record_;
 
   mutable int _cached_size_;
@@ -2479,26 +2479,26 @@ class storesvr_update_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  inline bool has_mod_opres() const;
-  inline void clear_mod_opres();
-  static const int kModOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& mod_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_mod_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_mod_opres();
-  inline void set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_update_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_mod_opres();
-  inline void clear_has_mod_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* mod_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2684,26 +2684,26 @@ class storesvr_updateobj_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres modins_opres = 2;
-  inline bool has_modins_opres() const;
-  inline void clear_modins_opres();
-  static const int kModinsOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& modins_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_modins_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_modins_opres();
-  inline void set_allocated_modins_opres(::storesvr_sqldata::storesvr_opres* modins_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // @@protoc_insertion_point(class_scope:storesvr_sqldata.storesvr_updateobj_res)
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_modins_opres();
-  inline void clear_has_modins_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* modins_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
@@ -2889,14 +2889,14 @@ class storesvr_execute_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-  inline bool has_exe_opres() const;
-  inline void clear_exe_opres();
-  static const int kExeOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& exe_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_exe_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_exe_opres();
-  inline void set_allocated_exe_opres(::storesvr_sqldata::storesvr_opres* exe_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // optional bytes record = 3;
   inline bool has_record() const;
@@ -2914,15 +2914,15 @@ class storesvr_execute_res : public ::google::protobuf::Message {
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_exe_opres();
-  inline void clear_has_exe_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
   inline void set_has_record();
   inline void clear_has_record();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* exe_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
   ::std::string* record_;
 
   mutable int _cached_size_;
@@ -3109,14 +3109,14 @@ class storesvr_execute_more_res : public ::google::protobuf::Message {
   inline ::storesvr_sqldata::storesvr_baseinfo* release_baseinfo();
   inline void set_allocated_baseinfo(::storesvr_sqldata::storesvr_baseinfo* baseinfo);
 
-  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-  inline bool has_exe_opres() const;
-  inline void clear_exe_opres();
-  static const int kExeOpresFieldNumber = 2;
-  inline const ::storesvr_sqldata::storesvr_opres& exe_opres() const;
-  inline ::storesvr_sqldata::storesvr_opres* mutable_exe_opres();
-  inline ::storesvr_sqldata::storesvr_opres* release_exe_opres();
-  inline void set_allocated_exe_opres(::storesvr_sqldata::storesvr_opres* exe_opres);
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  inline bool has_opres() const;
+  inline void clear_opres();
+  static const int kOpresFieldNumber = 2;
+  inline const ::storesvr_sqldata::storesvr_opres& opres() const;
+  inline ::storesvr_sqldata::storesvr_opres* mutable_opres();
+  inline ::storesvr_sqldata::storesvr_opres* release_opres();
+  inline void set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres);
 
   // optional bool is_lastbatch = 3;
   inline bool has_is_lastbatch() const;
@@ -3152,8 +3152,8 @@ class storesvr_execute_more_res : public ::google::protobuf::Message {
  private:
   inline void set_has_baseinfo();
   inline void clear_has_baseinfo();
-  inline void set_has_exe_opres();
-  inline void clear_has_exe_opres();
+  inline void set_has_opres();
+  inline void clear_has_opres();
   inline void set_has_is_lastbatch();
   inline void clear_has_is_lastbatch();
   inline void set_has_row_count();
@@ -3162,7 +3162,7 @@ class storesvr_execute_more_res : public ::google::protobuf::Message {
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::storesvr_sqldata::storesvr_baseinfo* baseinfo_;
-  ::storesvr_sqldata::storesvr_opres* exe_opres_;
+  ::storesvr_sqldata::storesvr_opres* opres_;
   bool is_lastbatch_;
   ::google::protobuf::int32 row_count_;
   ::google::protobuf::RepeatedPtrField< ::std::string> record_;
@@ -4024,41 +4024,41 @@ inline void storesvr_sel::set_allocated_baseinfo(::storesvr_sqldata::storesvr_ba
   }
 }
 
-// optional .storesvr_sqldata.storesvr_wherecond sel_cond = 2;
-inline bool storesvr_sel::has_sel_cond() const {
+// optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+inline bool storesvr_sel::has_cond() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_sel::set_has_sel_cond() {
+inline void storesvr_sel::set_has_cond() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_sel::clear_has_sel_cond() {
+inline void storesvr_sel::clear_has_cond() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_sel::clear_sel_cond() {
-  if (sel_cond_ != NULL) sel_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
-  clear_has_sel_cond();
+inline void storesvr_sel::clear_cond() {
+  if (cond_ != NULL) cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
+  clear_has_cond();
 }
-inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_sel::sel_cond() const {
-  return sel_cond_ != NULL ? *sel_cond_ : *default_instance_->sel_cond_;
+inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_sel::cond() const {
+  return cond_ != NULL ? *cond_ : *default_instance_->cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_sel::mutable_sel_cond() {
-  set_has_sel_cond();
-  if (sel_cond_ == NULL) sel_cond_ = new ::storesvr_sqldata::storesvr_wherecond;
-  return sel_cond_;
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_sel::mutable_cond() {
+  set_has_cond();
+  if (cond_ == NULL) cond_ = new ::storesvr_sqldata::storesvr_wherecond;
+  return cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_sel::release_sel_cond() {
-  clear_has_sel_cond();
-  ::storesvr_sqldata::storesvr_wherecond* temp = sel_cond_;
-  sel_cond_ = NULL;
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_sel::release_cond() {
+  clear_has_cond();
+  ::storesvr_sqldata::storesvr_wherecond* temp = cond_;
+  cond_ = NULL;
   return temp;
 }
-inline void storesvr_sel::set_allocated_sel_cond(::storesvr_sqldata::storesvr_wherecond* sel_cond) {
-  delete sel_cond_;
-  sel_cond_ = sel_cond;
-  if (sel_cond) {
-    set_has_sel_cond();
+inline void storesvr_sel::set_allocated_cond(::storesvr_sqldata::storesvr_wherecond* cond) {
+  delete cond_;
+  cond_ = cond;
+  if (cond) {
+    set_has_cond();
   } else {
-    clear_has_sel_cond();
+    clear_has_cond();
   }
 }
 
@@ -4104,41 +4104,41 @@ inline void storesvr_sel_res::set_allocated_baseinfo(::storesvr_sqldata::storesv
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-inline bool storesvr_sel_res::has_sel_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_sel_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_sel_res::set_has_sel_opres() {
+inline void storesvr_sel_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_sel_res::clear_has_sel_opres() {
+inline void storesvr_sel_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_sel_res::clear_sel_opres() {
-  if (sel_opres_ != NULL) sel_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_sel_opres();
+inline void storesvr_sel_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_sel_res::sel_opres() const {
-  return sel_opres_ != NULL ? *sel_opres_ : *default_instance_->sel_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_sel_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_sel_res::mutable_sel_opres() {
-  set_has_sel_opres();
-  if (sel_opres_ == NULL) sel_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return sel_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_sel_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_sel_res::release_sel_opres() {
-  clear_has_sel_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = sel_opres_;
-  sel_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_sel_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_sel_res::set_allocated_sel_opres(::storesvr_sqldata::storesvr_opres* sel_opres) {
-  delete sel_opres_;
-  sel_opres_ = sel_opres;
-  if (sel_opres) {
-    set_has_sel_opres();
+inline void storesvr_sel_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_sel_opres();
+    clear_has_opres();
   }
 }
 
@@ -4406,41 +4406,41 @@ inline void storesvr_selobj_res::set_allocated_baseinfo(::storesvr_sqldata::stor
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-inline bool storesvr_selobj_res::has_sel_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_selobj_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_selobj_res::set_has_sel_opres() {
+inline void storesvr_selobj_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_selobj_res::clear_has_sel_opres() {
+inline void storesvr_selobj_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_selobj_res::clear_sel_opres() {
-  if (sel_opres_ != NULL) sel_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_sel_opres();
+inline void storesvr_selobj_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_selobj_res::sel_opres() const {
-  return sel_opres_ != NULL ? *sel_opres_ : *default_instance_->sel_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_selobj_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_selobj_res::mutable_sel_opres() {
-  set_has_sel_opres();
-  if (sel_opres_ == NULL) sel_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return sel_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_selobj_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_selobj_res::release_sel_opres() {
-  clear_has_sel_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = sel_opres_;
-  sel_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_selobj_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_selobj_res::set_allocated_sel_opres(::storesvr_sqldata::storesvr_opres* sel_opres) {
-  delete sel_opres_;
-  sel_opres_ = sel_opres;
-  if (sel_opres) {
-    set_has_sel_opres();
+inline void storesvr_selobj_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_sel_opres();
+    clear_has_opres();
   }
 }
 
@@ -4690,41 +4690,41 @@ inline void storesvr_insertobj_res::set_allocated_baseinfo(::storesvr_sqldata::s
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-inline bool storesvr_insertobj_res::has_ins_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_insertobj_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_insertobj_res::set_has_ins_opres() {
+inline void storesvr_insertobj_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_insertobj_res::clear_has_ins_opres() {
+inline void storesvr_insertobj_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_insertobj_res::clear_ins_opres() {
-  if (ins_opres_ != NULL) ins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_ins_opres();
+inline void storesvr_insertobj_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_insertobj_res::ins_opres() const {
-  return ins_opres_ != NULL ? *ins_opres_ : *default_instance_->ins_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_insertobj_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_insertobj_res::mutable_ins_opres() {
-  set_has_ins_opres();
-  if (ins_opres_ == NULL) ins_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return ins_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_insertobj_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_insertobj_res::release_ins_opres() {
-  clear_has_ins_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = ins_opres_;
-  ins_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_insertobj_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_insertobj_res::set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres) {
-  delete ins_opres_;
-  ins_opres_ = ins_opres;
-  if (ins_opres) {
-    set_has_ins_opres();
+inline void storesvr_insertobj_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_ins_opres();
+    clear_has_opres();
   }
 }
 
@@ -4878,41 +4878,41 @@ inline void storesvr_insert_res::set_allocated_baseinfo(::storesvr_sqldata::stor
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-inline bool storesvr_insert_res::has_ins_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_insert_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_insert_res::set_has_ins_opres() {
+inline void storesvr_insert_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_insert_res::clear_has_ins_opres() {
+inline void storesvr_insert_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_insert_res::clear_ins_opres() {
-  if (ins_opres_ != NULL) ins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_ins_opres();
+inline void storesvr_insert_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_insert_res::ins_opres() const {
-  return ins_opres_ != NULL ? *ins_opres_ : *default_instance_->ins_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_insert_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_insert_res::mutable_ins_opres() {
-  set_has_ins_opres();
-  if (ins_opres_ == NULL) ins_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return ins_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_insert_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_insert_res::release_ins_opres() {
-  clear_has_ins_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = ins_opres_;
-  ins_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_insert_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_insert_res::set_allocated_ins_opres(::storesvr_sqldata::storesvr_opres* ins_opres) {
-  delete ins_opres_;
-  ins_opres_ = ins_opres;
-  if (ins_opres) {
-    set_has_ins_opres();
+inline void storesvr_insert_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_ins_opres();
+    clear_has_opres();
   }
 }
 
@@ -4958,41 +4958,41 @@ inline void storesvr_del::set_allocated_baseinfo(::storesvr_sqldata::storesvr_ba
   }
 }
 
-// optional .storesvr_sqldata.storesvr_wherecond del_cond = 2;
-inline bool storesvr_del::has_del_cond() const {
+// optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+inline bool storesvr_del::has_cond() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_del::set_has_del_cond() {
+inline void storesvr_del::set_has_cond() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_del::clear_has_del_cond() {
+inline void storesvr_del::clear_has_cond() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_del::clear_del_cond() {
-  if (del_cond_ != NULL) del_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
-  clear_has_del_cond();
+inline void storesvr_del::clear_cond() {
+  if (cond_ != NULL) cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
+  clear_has_cond();
 }
-inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_del::del_cond() const {
-  return del_cond_ != NULL ? *del_cond_ : *default_instance_->del_cond_;
+inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_del::cond() const {
+  return cond_ != NULL ? *cond_ : *default_instance_->cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_del::mutable_del_cond() {
-  set_has_del_cond();
-  if (del_cond_ == NULL) del_cond_ = new ::storesvr_sqldata::storesvr_wherecond;
-  return del_cond_;
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_del::mutable_cond() {
+  set_has_cond();
+  if (cond_ == NULL) cond_ = new ::storesvr_sqldata::storesvr_wherecond;
+  return cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_del::release_del_cond() {
-  clear_has_del_cond();
-  ::storesvr_sqldata::storesvr_wherecond* temp = del_cond_;
-  del_cond_ = NULL;
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_del::release_cond() {
+  clear_has_cond();
+  ::storesvr_sqldata::storesvr_wherecond* temp = cond_;
+  cond_ = NULL;
   return temp;
 }
-inline void storesvr_del::set_allocated_del_cond(::storesvr_sqldata::storesvr_wherecond* del_cond) {
-  delete del_cond_;
-  del_cond_ = del_cond;
-  if (del_cond) {
-    set_has_del_cond();
+inline void storesvr_del::set_allocated_cond(::storesvr_sqldata::storesvr_wherecond* cond) {
+  delete cond_;
+  cond_ = cond;
+  if (cond) {
+    set_has_cond();
   } else {
-    clear_has_del_cond();
+    clear_has_cond();
   }
 }
 
@@ -5038,41 +5038,41 @@ inline void storesvr_del_res::set_allocated_baseinfo(::storesvr_sqldata::storesv
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-inline bool storesvr_del_res::has_del_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_del_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_del_res::set_has_del_opres() {
+inline void storesvr_del_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_del_res::clear_has_del_opres() {
+inline void storesvr_del_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_del_res::clear_del_opres() {
-  if (del_opres_ != NULL) del_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_del_opres();
+inline void storesvr_del_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_del_res::del_opres() const {
-  return del_opres_ != NULL ? *del_opres_ : *default_instance_->del_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_del_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_del_res::mutable_del_opres() {
-  set_has_del_opres();
-  if (del_opres_ == NULL) del_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return del_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_del_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_del_res::release_del_opres() {
-  clear_has_del_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = del_opres_;
-  del_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_del_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_del_res::set_allocated_del_opres(::storesvr_sqldata::storesvr_opres* del_opres) {
-  delete del_opres_;
-  del_opres_ = del_opres;
-  if (del_opres) {
-    set_has_del_opres();
+inline void storesvr_del_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_del_opres();
+    clear_has_opres();
   }
 }
 
@@ -5252,41 +5252,41 @@ inline void storesvr_delobj_res::set_allocated_baseinfo(::storesvr_sqldata::stor
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-inline bool storesvr_delobj_res::has_del_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_delobj_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_delobj_res::set_has_del_opres() {
+inline void storesvr_delobj_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_delobj_res::clear_has_del_opres() {
+inline void storesvr_delobj_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_delobj_res::clear_del_opres() {
-  if (del_opres_ != NULL) del_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_del_opres();
+inline void storesvr_delobj_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_delobj_res::del_opres() const {
-  return del_opres_ != NULL ? *del_opres_ : *default_instance_->del_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_delobj_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_delobj_res::mutable_del_opres() {
-  set_has_del_opres();
-  if (del_opres_ == NULL) del_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return del_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_delobj_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_delobj_res::release_del_opres() {
-  clear_has_del_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = del_opres_;
-  del_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_delobj_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_delobj_res::set_allocated_del_opres(::storesvr_sqldata::storesvr_opres* del_opres) {
-  delete del_opres_;
-  del_opres_ = del_opres;
-  if (del_opres) {
-    set_has_del_opres();
+inline void storesvr_delobj_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_del_opres();
+    clear_has_opres();
   }
 }
 
@@ -5332,41 +5332,41 @@ inline void storesvr_mod::set_allocated_baseinfo(::storesvr_sqldata::storesvr_ba
   }
 }
 
-// optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-inline bool storesvr_mod::has_mod_cond() const {
+// optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+inline bool storesvr_mod::has_cond() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_mod::set_has_mod_cond() {
+inline void storesvr_mod::set_has_cond() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_mod::clear_has_mod_cond() {
+inline void storesvr_mod::clear_has_cond() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_mod::clear_mod_cond() {
-  if (mod_cond_ != NULL) mod_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
-  clear_has_mod_cond();
+inline void storesvr_mod::clear_cond() {
+  if (cond_ != NULL) cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
+  clear_has_cond();
 }
-inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_mod::mod_cond() const {
-  return mod_cond_ != NULL ? *mod_cond_ : *default_instance_->mod_cond_;
+inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_mod::cond() const {
+  return cond_ != NULL ? *cond_ : *default_instance_->cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_mod::mutable_mod_cond() {
-  set_has_mod_cond();
-  if (mod_cond_ == NULL) mod_cond_ = new ::storesvr_sqldata::storesvr_wherecond;
-  return mod_cond_;
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_mod::mutable_cond() {
+  set_has_cond();
+  if (cond_ == NULL) cond_ = new ::storesvr_sqldata::storesvr_wherecond;
+  return cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_mod::release_mod_cond() {
-  clear_has_mod_cond();
-  ::storesvr_sqldata::storesvr_wherecond* temp = mod_cond_;
-  mod_cond_ = NULL;
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_mod::release_cond() {
+  clear_has_cond();
+  ::storesvr_sqldata::storesvr_wherecond* temp = cond_;
+  cond_ = NULL;
   return temp;
 }
-inline void storesvr_mod::set_allocated_mod_cond(::storesvr_sqldata::storesvr_wherecond* mod_cond) {
-  delete mod_cond_;
-  mod_cond_ = mod_cond;
-  if (mod_cond) {
-    set_has_mod_cond();
+inline void storesvr_mod::set_allocated_cond(::storesvr_sqldata::storesvr_wherecond* cond) {
+  delete cond_;
+  cond_ = cond;
+  if (cond) {
+    set_has_cond();
   } else {
-    clear_has_mod_cond();
+    clear_has_cond();
   }
 }
 
@@ -5482,41 +5482,41 @@ inline void storesvr_mod_res::set_allocated_baseinfo(::storesvr_sqldata::storesv
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-inline bool storesvr_mod_res::has_mod_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_mod_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_mod_res::set_has_mod_opres() {
+inline void storesvr_mod_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_mod_res::clear_has_mod_opres() {
+inline void storesvr_mod_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_mod_res::clear_mod_opres() {
-  if (mod_opres_ != NULL) mod_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_mod_opres();
+inline void storesvr_mod_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_mod_res::mod_opres() const {
-  return mod_opres_ != NULL ? *mod_opres_ : *default_instance_->mod_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_mod_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_mod_res::mutable_mod_opres() {
-  set_has_mod_opres();
-  if (mod_opres_ == NULL) mod_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return mod_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_mod_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_mod_res::release_mod_opres() {
-  clear_has_mod_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = mod_opres_;
-  mod_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_mod_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_mod_res::set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres) {
-  delete mod_opres_;
-  mod_opres_ = mod_opres;
-  if (mod_opres) {
-    set_has_mod_opres();
+inline void storesvr_mod_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_mod_opres();
+    clear_has_opres();
   }
 }
 
@@ -5696,41 +5696,41 @@ inline void storesvr_modobj_res::set_allocated_baseinfo(::storesvr_sqldata::stor
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-inline bool storesvr_modobj_res::has_mod_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_modobj_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_modobj_res::set_has_mod_opres() {
+inline void storesvr_modobj_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_modobj_res::clear_has_mod_opres() {
+inline void storesvr_modobj_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_modobj_res::clear_mod_opres() {
-  if (mod_opres_ != NULL) mod_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_mod_opres();
+inline void storesvr_modobj_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_modobj_res::mod_opres() const {
-  return mod_opres_ != NULL ? *mod_opres_ : *default_instance_->mod_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_modobj_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_modobj_res::mutable_mod_opres() {
-  set_has_mod_opres();
-  if (mod_opres_ == NULL) mod_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return mod_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_modobj_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_modobj_res::release_mod_opres() {
-  clear_has_mod_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = mod_opres_;
-  mod_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_modobj_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_modobj_res::set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres) {
-  delete mod_opres_;
-  mod_opres_ = mod_opres;
-  if (mod_opres) {
-    set_has_mod_opres();
+inline void storesvr_modobj_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_mod_opres();
+    clear_has_opres();
   }
 }
 
@@ -5776,41 +5776,41 @@ inline void storesvr_update::set_allocated_baseinfo(::storesvr_sqldata::storesvr
   }
 }
 
-// optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-inline bool storesvr_update::has_mod_cond() const {
+// optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+inline bool storesvr_update::has_cond() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_update::set_has_mod_cond() {
+inline void storesvr_update::set_has_cond() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_update::clear_has_mod_cond() {
+inline void storesvr_update::clear_has_cond() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_update::clear_mod_cond() {
-  if (mod_cond_ != NULL) mod_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
-  clear_has_mod_cond();
+inline void storesvr_update::clear_cond() {
+  if (cond_ != NULL) cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
+  clear_has_cond();
 }
-inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_update::mod_cond() const {
-  return mod_cond_ != NULL ? *mod_cond_ : *default_instance_->mod_cond_;
+inline const ::storesvr_sqldata::storesvr_wherecond& storesvr_update::cond() const {
+  return cond_ != NULL ? *cond_ : *default_instance_->cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_update::mutable_mod_cond() {
-  set_has_mod_cond();
-  if (mod_cond_ == NULL) mod_cond_ = new ::storesvr_sqldata::storesvr_wherecond;
-  return mod_cond_;
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_update::mutable_cond() {
+  set_has_cond();
+  if (cond_ == NULL) cond_ = new ::storesvr_sqldata::storesvr_wherecond;
+  return cond_;
 }
-inline ::storesvr_sqldata::storesvr_wherecond* storesvr_update::release_mod_cond() {
-  clear_has_mod_cond();
-  ::storesvr_sqldata::storesvr_wherecond* temp = mod_cond_;
-  mod_cond_ = NULL;
+inline ::storesvr_sqldata::storesvr_wherecond* storesvr_update::release_cond() {
+  clear_has_cond();
+  ::storesvr_sqldata::storesvr_wherecond* temp = cond_;
+  cond_ = NULL;
   return temp;
 }
-inline void storesvr_update::set_allocated_mod_cond(::storesvr_sqldata::storesvr_wherecond* mod_cond) {
-  delete mod_cond_;
-  mod_cond_ = mod_cond;
-  if (mod_cond) {
-    set_has_mod_cond();
+inline void storesvr_update::set_allocated_cond(::storesvr_sqldata::storesvr_wherecond* cond) {
+  delete cond_;
+  cond_ = cond;
+  if (cond) {
+    set_has_cond();
   } else {
-    clear_has_mod_cond();
+    clear_has_cond();
   }
 }
 
@@ -5926,41 +5926,41 @@ inline void storesvr_update_res::set_allocated_baseinfo(::storesvr_sqldata::stor
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-inline bool storesvr_update_res::has_mod_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_update_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_update_res::set_has_mod_opres() {
+inline void storesvr_update_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_update_res::clear_has_mod_opres() {
+inline void storesvr_update_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_update_res::clear_mod_opres() {
-  if (mod_opres_ != NULL) mod_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_mod_opres();
+inline void storesvr_update_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_update_res::mod_opres() const {
-  return mod_opres_ != NULL ? *mod_opres_ : *default_instance_->mod_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_update_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_update_res::mutable_mod_opres() {
-  set_has_mod_opres();
-  if (mod_opres_ == NULL) mod_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return mod_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_update_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_update_res::release_mod_opres() {
-  clear_has_mod_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = mod_opres_;
-  mod_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_update_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_update_res::set_allocated_mod_opres(::storesvr_sqldata::storesvr_opres* mod_opres) {
-  delete mod_opres_;
-  mod_opres_ = mod_opres;
-  if (mod_opres) {
-    set_has_mod_opres();
+inline void storesvr_update_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_mod_opres();
+    clear_has_opres();
   }
 }
 
@@ -6140,41 +6140,41 @@ inline void storesvr_updateobj_res::set_allocated_baseinfo(::storesvr_sqldata::s
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres modins_opres = 2;
-inline bool storesvr_updateobj_res::has_modins_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_updateobj_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_updateobj_res::set_has_modins_opres() {
+inline void storesvr_updateobj_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_updateobj_res::clear_has_modins_opres() {
+inline void storesvr_updateobj_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_updateobj_res::clear_modins_opres() {
-  if (modins_opres_ != NULL) modins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_modins_opres();
+inline void storesvr_updateobj_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_updateobj_res::modins_opres() const {
-  return modins_opres_ != NULL ? *modins_opres_ : *default_instance_->modins_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_updateobj_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_updateobj_res::mutable_modins_opres() {
-  set_has_modins_opres();
-  if (modins_opres_ == NULL) modins_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return modins_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_updateobj_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_updateobj_res::release_modins_opres() {
-  clear_has_modins_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = modins_opres_;
-  modins_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_updateobj_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_updateobj_res::set_allocated_modins_opres(::storesvr_sqldata::storesvr_opres* modins_opres) {
-  delete modins_opres_;
-  modins_opres_ = modins_opres;
-  if (modins_opres) {
-    set_has_modins_opres();
+inline void storesvr_updateobj_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_modins_opres();
+    clear_has_opres();
   }
 }
 
@@ -6354,41 +6354,41 @@ inline void storesvr_execute_res::set_allocated_baseinfo(::storesvr_sqldata::sto
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-inline bool storesvr_execute_res::has_exe_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_execute_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_execute_res::set_has_exe_opres() {
+inline void storesvr_execute_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_execute_res::clear_has_exe_opres() {
+inline void storesvr_execute_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_execute_res::clear_exe_opres() {
-  if (exe_opres_ != NULL) exe_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_exe_opres();
+inline void storesvr_execute_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_execute_res::exe_opres() const {
-  return exe_opres_ != NULL ? *exe_opres_ : *default_instance_->exe_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_execute_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_res::mutable_exe_opres() {
-  set_has_exe_opres();
-  if (exe_opres_ == NULL) exe_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return exe_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_res::release_exe_opres() {
-  clear_has_exe_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = exe_opres_;
-  exe_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_execute_res::set_allocated_exe_opres(::storesvr_sqldata::storesvr_opres* exe_opres) {
-  delete exe_opres_;
-  exe_opres_ = exe_opres;
-  if (exe_opres) {
-    set_has_exe_opres();
+inline void storesvr_execute_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_exe_opres();
+    clear_has_opres();
   }
 }
 
@@ -6638,41 +6638,41 @@ inline void storesvr_execute_more_res::set_allocated_baseinfo(::storesvr_sqldata
   }
 }
 
-// optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-inline bool storesvr_execute_more_res::has_exe_opres() const {
+// optional .storesvr_sqldata.storesvr_opres opres = 2;
+inline bool storesvr_execute_more_res::has_opres() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void storesvr_execute_more_res::set_has_exe_opres() {
+inline void storesvr_execute_more_res::set_has_opres() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void storesvr_execute_more_res::clear_has_exe_opres() {
+inline void storesvr_execute_more_res::clear_has_opres() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void storesvr_execute_more_res::clear_exe_opres() {
-  if (exe_opres_ != NULL) exe_opres_->::storesvr_sqldata::storesvr_opres::Clear();
-  clear_has_exe_opres();
+inline void storesvr_execute_more_res::clear_opres() {
+  if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
+  clear_has_opres();
 }
-inline const ::storesvr_sqldata::storesvr_opres& storesvr_execute_more_res::exe_opres() const {
-  return exe_opres_ != NULL ? *exe_opres_ : *default_instance_->exe_opres_;
+inline const ::storesvr_sqldata::storesvr_opres& storesvr_execute_more_res::opres() const {
+  return opres_ != NULL ? *opres_ : *default_instance_->opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_more_res::mutable_exe_opres() {
-  set_has_exe_opres();
-  if (exe_opres_ == NULL) exe_opres_ = new ::storesvr_sqldata::storesvr_opres;
-  return exe_opres_;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_more_res::mutable_opres() {
+  set_has_opres();
+  if (opres_ == NULL) opres_ = new ::storesvr_sqldata::storesvr_opres;
+  return opres_;
 }
-inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_more_res::release_exe_opres() {
-  clear_has_exe_opres();
-  ::storesvr_sqldata::storesvr_opres* temp = exe_opres_;
-  exe_opres_ = NULL;
+inline ::storesvr_sqldata::storesvr_opres* storesvr_execute_more_res::release_opres() {
+  clear_has_opres();
+  ::storesvr_sqldata::storesvr_opres* temp = opres_;
+  opres_ = NULL;
   return temp;
 }
-inline void storesvr_execute_more_res::set_allocated_exe_opres(::storesvr_sqldata::storesvr_opres* exe_opres) {
-  delete exe_opres_;
-  exe_opres_ = exe_opres;
-  if (exe_opres) {
-    set_has_exe_opres();
+inline void storesvr_execute_more_res::set_allocated_opres(::storesvr_sqldata::storesvr_opres* opres) {
+  delete opres_;
+  opres_ = opres;
+  if (opres) {
+    set_has_opres();
   } else {
-    clear_has_exe_opres();
+    clear_has_opres();
   }
 }
 

@@ -310,7 +310,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
-                    uint32_t index = select.sel_cond().mod_key() % count;
+                    uint32_t index = select.cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
@@ -321,7 +321,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_sel_res &select_res) mutable
                      {
-                         select_res.mutable_sel_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY);
@@ -364,11 +364,11 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_selobj_res &select_res) mutable
                      {
-                         select_res.mutable_sel_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY &&
-                                 select_res.sel_opres().errmsg().empty())
+                                 select_res.opres().errmsg().empty())
                              {
                                  retMsg.mutable_store_info()->set_err_code(
                                          proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY);
@@ -417,7 +417,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_insertobj_res &select_res) mutable
                      {
-                         select_res.mutable_ins_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -450,7 +450,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
-                    uint32_t index = select.del_cond().mod_key() % count;
+                    uint32_t index = select.cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
@@ -461,7 +461,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_del_res &select_res) mutable
                      {
-                         select_res.mutable_del_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -505,7 +505,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_delobj_res &select_res) mutable
                      {
-                         select_res.mutable_del_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -538,7 +538,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
-                    uint32_t index = select.mod_cond().mod_key() % count;
+                    uint32_t index = select.cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
@@ -549,7 +549,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_mod_res &select_res) mutable
                      {
-                         select_res.mutable_mod_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -593,7 +593,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_modobj_res &select_res) mutable
                      {
-                         select_res.mutable_mod_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -626,7 +626,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                 uint32_t count = iter->second.TableCount;
                 if (count > 1)
                 {
-                    uint32_t index = select.mod_cond().mod_key() % count;
+                    uint32_t index = select.cond().mod_key() % count;
                     std::string newTableName = select.baseinfo().tbname() + "_" + NFCommon::tostr(index);
                     select.mutable_baseinfo()->set_tbname(newTableName);
                 }
@@ -637,7 +637,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_update_res &select_res) mutable
                      {
-                         select_res.mutable_mod_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -681,7 +681,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select, cache,
                      [=](int iRet, storesvr_sqldata::storesvr_updateobj_res &select_res) mutable
                      {
-                         select_res.mutable_modins_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -711,7 +711,7 @@ NFCStoreServerModule::OnHandleStoreReq(uint64_t unLinkId, NFDataPackage &packet)
                     (select.baseinfo().dbname(), select,
                      [=](int iRet, storesvr_sqldata::storesvr_execute_res &select_res) mutable
                      {
-                         select_res.mutable_exe_opres()->set_err_code(iRet);
+                         select_res.mutable_opres()->set_err_code(iRet);
                          if (iRet != 0)
                          {
                              retMsg.mutable_store_info()->set_err_code(
@@ -789,7 +789,7 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
                  if (iRet != 0)
                  {
                      if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY &&
-                         select_res.sel_opres().errmsg().empty())
+                         select_res.opres().errmsg().empty())
                      {
                          iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY;
                      }
@@ -798,7 +798,7 @@ int NFCStoreServerModule::OnHandleSelectObjRpc(storesvr_sqldata::storesvr_selobj
                          iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECTFAILED;
                          NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", iRet);
                      }
-                     select_res.mutable_sel_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -849,7 +849,7 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &requ
         uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
-            uint32_t index = request.sel_cond().mod_key() % count;
+            uint32_t index = request.cond().mod_key() % count;
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
         }
@@ -873,7 +873,7 @@ int NFCStoreServerModule::OnHandleSelectRpc(storesvr_sqldata::storesvr_sel &requ
                  {
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY;
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectByCond Failed, iRet:{}", iRet);
-                     select_res.mutable_sel_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -964,7 +964,7 @@ int NFCStoreServerModule::OnHandleInsertObjRpc(storesvr_sqldata::storesvr_insert
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectObj Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_INSERTFAILED;
-                     select_res.mutable_ins_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -1035,7 +1035,7 @@ int NFCStoreServerModule::OnHandleModifyObjRpc(storesvr_sqldata::storesvr_modobj
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "ModifyObj Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED;
-                     select_res.mutable_mod_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -1083,7 +1083,7 @@ int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &requ
         uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
-            uint32_t index = request.mod_cond().mod_key() % count;
+            uint32_t index = request.cond().mod_key() % count;
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
         }
@@ -1105,7 +1105,7 @@ int NFCStoreServerModule::OnHandleModifyRpc(storesvr_sqldata::storesvr_mod &requ
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "ModifyByCond Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEFAILED;
-                     select_res.mutable_mod_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -1153,7 +1153,7 @@ int NFCStoreServerModule::OnHandleUpdateRpc(storesvr_sqldata::storesvr_update &r
         uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
-            uint32_t index = request.mod_cond().mod_key() % count;
+            uint32_t index = request.cond().mod_key() % count;
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
         }
@@ -1175,7 +1175,7 @@ int NFCStoreServerModule::OnHandleUpdateRpc(storesvr_sqldata::storesvr_update &r
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "UpdateByCond Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
-                     select_res.mutable_mod_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -1246,7 +1246,7 @@ int NFCStoreServerModule::OnHandleUpdateObjRpc(storesvr_sqldata::storesvr_update
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "UpdateObj Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
-                     select_res.mutable_modins_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -1302,7 +1302,7 @@ int NFCStoreServerModule::OnHandleExecuteRpc(storesvr_sqldata::storesvr_execute 
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "Execute Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UNKNOWN;
-                     select_res.mutable_exe_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -1360,7 +1360,7 @@ int NFCStoreServerModule::OnHandleExecuteMoreRpc(storesvr_sqldata::storesvr_exec
                  {
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY;
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "ExecuteMore Failed, iRet:{}", iRet);
-                     select_res.mutable_exe_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -1427,7 +1427,7 @@ int NFCStoreServerModule::OnHandleDeleteRpc(storesvr_sqldata::storesvr_del &requ
         uint32_t count = iter->second.TableCount;
         if (count > 1)
         {
-            uint32_t index = request.del_cond().mod_key() % count;
+            uint32_t index = request.cond().mod_key() % count;
             std::string newTableName = request.baseinfo().tbname() + "_" + NFCommon::tostr(index);
             request.mutable_baseinfo()->set_tbname(newTableName);
         }
@@ -1449,7 +1449,7 @@ int NFCStoreServerModule::OnHandleDeleteRpc(storesvr_sqldata::storesvr_del &requ
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteByCond Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_UPDATEINSERTFAILED;
-                     select_res.mutable_del_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {
@@ -1519,7 +1519,7 @@ int NFCStoreServerModule::OnHandleDeleteObjRpc(storesvr_sqldata::storesvr_delobj
                  {
                      NFLogError(NF_LOG_SYSTEMLOG, 0, "DeleteObj Failed, iRet:{}", GetErrorStr(iRet));
                      iRet = proto_ff::ERR_CODE_STORESVR_ERRCODE_DELETEFAILED;
-                     select_res.mutable_del_opres()->set_err_code(iRet);
+                     select_res.mutable_opres()->set_err_code(iRet);
                  }
                  else
                  {

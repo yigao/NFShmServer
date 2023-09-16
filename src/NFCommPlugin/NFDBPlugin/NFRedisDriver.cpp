@@ -137,7 +137,7 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
     {
         select_res = vecSelectRes.Add();
         select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-        select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+        select_res->mutable_opres()->set_mod_key(select.cond().mod_key());
         select_res->set_is_lastbatch(false);
     }
     else
@@ -148,7 +148,7 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
             select_res = vecSelectRes.Add();
 
             select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-            select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+            select_res->mutable_opres()->set_mod_key(select.cond().mod_key());
             select_res->set_is_lastbatch(false);
         }
     }
@@ -179,7 +179,7 @@ int NFRedisDriver::SelectByCond(const storesvr_sqldata::storesvr_sel &select, co
             select_res = vecSelectRes.Add();
 
             select_res->mutable_baseinfo()->CopyFrom(select.baseinfo());
-            select_res->mutable_sel_opres()->set_mod_key(select.sel_cond().mod_key());
+            select_res->mutable_opres()->set_mod_key(select.cond().mod_key());
             select_res->set_is_lastbatch(false);
         }
     }
@@ -460,7 +460,7 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     CHECK_EXPR(iRet == 0, -1, "GetPrivateFields Failed:{}", tableName);
 
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_sel_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
     std::string errmsg;
 
     bool bRet = SelectDB(NFREDIS_DB1);
@@ -563,7 +563,7 @@ int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_selobj &select,
                            storesvr_sqldata::storesvr_selobj_res &select_res)
 {
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_sel_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
 
     return SaveObj(select.baseinfo().package_name(), select.baseinfo().tbname(), select.baseinfo().clname(), select.record());
 }
@@ -582,21 +582,21 @@ bool NFRedisDriver::ExistObj(const std::string& db_key)
 int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_modobj &select, storesvr_sqldata::storesvr_modobj_res& select_res)
 {
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_mod_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
     return SaveObj(select.baseinfo().package_name(), select.baseinfo().tbname(), select.baseinfo().clname(), select.record());
 }
 
 int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_updateobj &select, storesvr_sqldata::storesvr_updateobj_res& select_res)
 {
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_modins_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
     return SaveObj(select.baseinfo().package_name(), select.baseinfo().tbname(), select.baseinfo().clname(), select.record());
 }
 
 int NFRedisDriver::SaveObj(const storesvr_sqldata::storesvr_insertobj &select, storesvr_sqldata::storesvr_insertobj_res& select_res)
 {
     *select_res.mutable_baseinfo() = select.baseinfo();
-    select_res.mutable_ins_opres()->set_mod_key(select.mod_key());
+    select_res.mutable_opres()->set_mod_key(select.mod_key());
     return SaveObj(select.baseinfo().package_name(), select.baseinfo().tbname(), select.baseinfo().clname(), select.record());
 }
 

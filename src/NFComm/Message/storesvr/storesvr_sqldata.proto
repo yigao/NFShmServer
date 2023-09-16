@@ -58,13 +58,13 @@ message storesvr_opres {
 // select的数据包
 message storesvr_sel {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_wherecond  sel_cond = 2;
+  optional storesvr_wherecond  cond = 2;
 };
 
 // select返回数据
 message storesvr_sel_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres     sel_opres = 2;  // 查询结果
+  optional storesvr_opres      opres = 2;  // 查询结果
   optional bool  is_lastbatch = 3;  // 是不是最后一批数据，默认是100条每批次，超过就要多批次返回，true就是最后一批
   optional int32  row_count = 4;  // 查询返回行数
   repeated bytes  record = 5;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
@@ -81,7 +81,7 @@ message storesvr_selobj {
 // select返回数据
 message storesvr_selobj_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres    sel_opres = 2;  // 查询结果
+  optional storesvr_opres    opres = 2;  // 查询结果
   optional bytes  record = 3;  // select的结果
 };
 
@@ -95,7 +95,7 @@ message storesvr_insertobj {
 
 message storesvr_insertobj_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres     ins_opres = 2;  // 插入结果
+  optional storesvr_opres     opres = 2;  // 插入结果
 }
 
 message storesvr_insert {
@@ -106,18 +106,18 @@ message storesvr_insert {
 
 message storesvr_insert_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres     ins_opres = 2;  // 插入结果
+  optional storesvr_opres     opres = 2;  // 插入结果
 }
 //--------------------------------------------------------------------------------------------------
 // delete 条件删除
 message storesvr_del {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_wherecond  del_cond = 2;  // 删除的条件	,可以有多个条件
+  optional storesvr_wherecond  cond = 2;  // 删除的条件	,可以有多个条件
 };
 
 message storesvr_del_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres      del_opres = 2;  // 删除的结果
+  optional storesvr_opres      opres = 2;  // 删除的结果
 };
 //--------------------------------------------------------------------------------------------------
 // delete 对象删除
@@ -129,21 +129,21 @@ message storesvr_delobj {
 
 message storesvr_delobj_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres      del_opres = 2;  // 删除的结果
+  optional storesvr_opres      opres = 2;  // 删除的结果
 };
 
 //--------------------------------------------------------------------------------------------------
 // update
 message storesvr_mod {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_wherecond  mod_cond = 2;
+  optional storesvr_wherecond  cond = 2;
   optional bytes  record = 3;  // 对象protobuf序列化后的的buf
 };
 
 // select返回数据
 message storesvr_mod_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres     mod_opres = 2;  // 更新的结果
+  optional storesvr_opres     opres = 2;  // 更新的结果
 };
 
 message storesvr_modobj {
@@ -154,21 +154,21 @@ message storesvr_modobj {
 
 message storesvr_modobj_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres   mod_opres = 2;  // 更新的结果
+  optional storesvr_opres   opres = 2;  // 更新的结果
 };
 
 //--------------------------------------------------------------------------------------------------
 // update+insert
 message storesvr_update {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_wherecond  mod_cond = 2;
+  optional storesvr_wherecond  cond = 2;
   optional bytes  record = 3;  // 对象protobuf序列化后的的buf
 };
 
 // select返回数据
 message storesvr_update_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres     mod_opres = 2;  // 更新的结果
+  optional storesvr_opres     opres = 2;  // 更新的结果
 };
 
 message storesvr_updateobj {
@@ -179,7 +179,7 @@ message storesvr_updateobj {
 
 message storesvr_updateobj_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres     modins_opres = 2;  // 更新的结果
+  optional storesvr_opres     opres = 2;  // 更新的结果
 };
 
 //--------------------------------------------------------------------------------------------------
@@ -192,7 +192,7 @@ message storesvr_execute {
 
 message storesvr_execute_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres     exe_opres = 2;  // 更新的结果
+  optional storesvr_opres     opres = 2;  // 更新的结果
   optional bytes  record = 3;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf
 };
 
@@ -204,7 +204,7 @@ message storesvr_execute_more {
 
 message storesvr_execute_more_res {
   optional storesvr_baseinfo   baseinfo = 1;
-  optional storesvr_opres     exe_opres = 2;  // 更新的结果
+  optional storesvr_opres     opres = 2;  // 更新的结果
   optional bool  is_lastbatch = 3;  // 是不是最后一批数据，默认是100条每批次，超过就要多批次返回，true就是最后一批
   optional int32  row_count = 4;  // 查询返回行数
   repeated bytes  record = 5;  // 返回的数据，是个list，多条记录，每条记录就是个pb序列化后的buf

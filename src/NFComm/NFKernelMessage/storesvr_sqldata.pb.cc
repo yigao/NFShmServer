@@ -193,7 +193,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_sel_descriptor_ = file->message_type(4);
   static const int storesvr_sel_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel, sel_cond_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel, cond_),
   };
   storesvr_sel_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -209,7 +209,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_sel_res_descriptor_ = file->message_type(5);
   static const int storesvr_sel_res_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, sel_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, opres_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, is_lastbatch_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, row_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_sel_res, record_),
@@ -245,7 +245,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_selobj_res_descriptor_ = file->message_type(7);
   static const int storesvr_selobj_res_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj_res, sel_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj_res, opres_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_selobj_res, record_),
   };
   storesvr_selobj_res_reflection_ =
@@ -279,7 +279,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_insertobj_res_descriptor_ = file->message_type(9);
   static const int storesvr_insertobj_res_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insertobj_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insertobj_res, ins_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insertobj_res, opres_),
   };
   storesvr_insertobj_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -312,7 +312,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_insert_res_descriptor_ = file->message_type(11);
   static const int storesvr_insert_res_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insert_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insert_res, ins_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_insert_res, opres_),
   };
   storesvr_insert_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -328,7 +328,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_del_descriptor_ = file->message_type(12);
   static const int storesvr_del_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_del, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_del, del_cond_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_del, cond_),
   };
   storesvr_del_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -344,7 +344,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_del_res_descriptor_ = file->message_type(13);
   static const int storesvr_del_res_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_del_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_del_res, del_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_del_res, opres_),
   };
   storesvr_del_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -377,7 +377,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_delobj_res_descriptor_ = file->message_type(15);
   static const int storesvr_delobj_res_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_delobj_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_delobj_res, del_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_delobj_res, opres_),
   };
   storesvr_delobj_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -393,7 +393,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_mod_descriptor_ = file->message_type(16);
   static const int storesvr_mod_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod, mod_cond_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod, cond_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod, record_),
   };
   storesvr_mod_reflection_ =
@@ -410,7 +410,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_mod_res_descriptor_ = file->message_type(17);
   static const int storesvr_mod_res_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod_res, mod_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_mod_res, opres_),
   };
   storesvr_mod_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -443,7 +443,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_modobj_res_descriptor_ = file->message_type(19);
   static const int storesvr_modobj_res_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modobj_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modobj_res, mod_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_modobj_res, opres_),
   };
   storesvr_modobj_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -459,7 +459,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_update_descriptor_ = file->message_type(20);
   static const int storesvr_update_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, mod_cond_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, cond_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update, record_),
   };
   storesvr_update_reflection_ =
@@ -476,7 +476,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_update_res_descriptor_ = file->message_type(21);
   static const int storesvr_update_res_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update_res, mod_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_update_res, opres_),
   };
   storesvr_update_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -509,7 +509,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_updateobj_res_descriptor_ = file->message_type(23);
   static const int storesvr_updateobj_res_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj_res, modins_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_updateobj_res, opres_),
   };
   storesvr_updateobj_res_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -542,7 +542,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_execute_res_descriptor_ = file->message_type(25);
   static const int storesvr_execute_res_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, exe_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, opres_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_res, record_),
   };
   storesvr_execute_res_reflection_ =
@@ -576,7 +576,7 @@ void protobuf_AssignDesc_storesvr_5fsqldata_2eproto() {
   storesvr_execute_more_res_descriptor_ = file->message_type(27);
   static const int storesvr_execute_more_res_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, baseinfo_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, exe_opres_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, opres_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, is_lastbatch_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, row_count_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(storesvr_execute_more_res, record_),
@@ -749,93 +749,91 @@ void protobuf_AddDesc_storesvr_5fsqldata_2eproto() {
     "\022\n\nsel_fields\030\004 \003(\t\022\023\n\013max_records\030\005 \001(\r"
     "\022\024\n\014package_name\030\006 \001(\t\"C\n\016storesvr_opres"
     "\022\017\n\007mod_key\030\001 \001(\004\022\020\n\010err_code\030\002 \001(\005\022\016\n\006e"
-    "rrmsg\030\003 \001(\t\"}\n\014storesvr_sel\0225\n\010baseinfo\030"
+    "rrmsg\030\003 \001(\t\"y\n\014storesvr_sel\0225\n\010baseinfo\030"
     "\001 \001(\0132#.storesvr_sqldata.storesvr_basein"
-    "fo\0226\n\010sel_cond\030\002 \001(\0132$.storesvr_sqldata."
-    "storesvr_wherecond\"\267\001\n\020storesvr_sel_res\022"
-    "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
-    "resvr_baseinfo\0223\n\tsel_opres\030\002 \001(\0132 .stor"
-    "esvr_sqldata.storesvr_opres\022\024\n\014is_lastba"
-    "tch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\016\n\006record\030\005"
-    " \003(\014\"i\n\017storesvr_selobj\0225\n\010baseinfo\030\001 \001("
-    "\0132#.storesvr_sqldata.storesvr_baseinfo\022\017"
-    "\n\007mod_key\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"\221\001\n\023stor"
-    "esvr_selobj_res\0225\n\010baseinfo\030\001 \001(\0132#.stor"
-    "esvr_sqldata.storesvr_baseinfo\0223\n\tsel_op"
-    "res\030\002 \001(\0132 .storesvr_sqldata.storesvr_op"
-    "res\022\016\n\006record\030\003 \001(\014\"l\n\022storesvr_insertob"
-    "j\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
-    "toresvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006rec"
-    "ord\030\003 \001(\014\"\204\001\n\026storesvr_insertobj_res\0225\n\010"
-    "baseinfo\030\001 \001(\0132#.storesvr_sqldata.stores"
-    "vr_baseinfo\0223\n\tins_opres\030\002 \001(\0132 .storesv"
-    "r_sqldata.storesvr_opres\"i\n\017storesvr_ins"
-    "ert\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata"
-    ".storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006r"
-    "ecord\030\003 \003(\014\"\201\001\n\023storesvr_insert_res\0225\n\010b"
+    "fo\0222\n\004cond\030\002 \001(\0132$.storesvr_sqldata.stor"
+    "esvr_wherecond\"\263\001\n\020storesvr_sel_res\0225\n\010b"
     "aseinfo\030\001 \001(\0132#.storesvr_sqldata.storesv"
-    "r_baseinfo\0223\n\tins_opres\030\002 \001(\0132 .storesvr"
-    "_sqldata.storesvr_opres\"}\n\014storesvr_del\022"
-    "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
-    "resvr_baseinfo\0226\n\010del_cond\030\002 \001(\0132$.store"
-    "svr_sqldata.storesvr_wherecond\"~\n\020stores"
-    "vr_del_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_"
-    "sqldata.storesvr_baseinfo\0223\n\tdel_opres\030\002"
-    " \001(\0132 .storesvr_sqldata.storesvr_opres\"i"
-    "\n\017storesvr_delobj\0225\n\010baseinfo\030\001 \001(\0132#.st"
-    "oresvr_sqldata.storesvr_baseinfo\022\017\n\007mod_"
-    "key\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"\201\001\n\023storesvr_d"
-    "elobj_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_s"
-    "qldata.storesvr_baseinfo\0223\n\tdel_opres\030\002 "
-    "\001(\0132 .storesvr_sqldata.storesvr_opres\"\215\001"
-    "\n\014storesvr_mod\0225\n\010baseinfo\030\001 \001(\0132#.store"
-    "svr_sqldata.storesvr_baseinfo\0226\n\010mod_con"
-    "d\030\002 \001(\0132$.storesvr_sqldata.storesvr_wher"
-    "econd\022\016\n\006record\030\003 \001(\014\"~\n\020storesvr_mod_re"
-    "s\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
-    "toresvr_baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .st"
-    "oresvr_sqldata.storesvr_opres\"i\n\017storesv"
-    "r_modobj\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
-    "ldata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004"
-    "\022\016\n\006record\030\003 \001(\014\"\201\001\n\023storesvr_modobj_res"
-    "\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.st"
-    "oresvr_baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .sto"
-    "resvr_sqldata.storesvr_opres\"\220\001\n\017storesv"
-    "r_update\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
-    "ldata.storesvr_baseinfo\0226\n\010mod_cond\030\002 \001("
-    "\0132$.storesvr_sqldata.storesvr_wherecond\022"
-    "\016\n\006record\030\003 \001(\014\"\201\001\n\023storesvr_update_res\022"
-    "5\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.sto"
-    "resvr_baseinfo\0223\n\tmod_opres\030\002 \001(\0132 .stor"
-    "esvr_sqldata.storesvr_opres\"l\n\022storesvr_"
-    "updateobj\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_s"
-    "qldata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001("
-    "\004\022\016\n\006record\030\003 \001(\014\"\207\001\n\026storesvr_updateobj"
-    "_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldat"
-    "a.storesvr_baseinfo\0226\n\014modins_opres\030\002 \001("
-    "\0132 .storesvr_sqldata.storesvr_opres\"j\n\020s"
-    "toresvr_execute\0225\n\010baseinfo\030\001 \001(\0132#.stor"
+    "r_baseinfo\022/\n\005opres\030\002 \001(\0132 .storesvr_sql"
+    "data.storesvr_opres\022\024\n\014is_lastbatch\030\003 \001("
+    "\010\022\021\n\trow_count\030\004 \001(\005\022\016\n\006record\030\005 \003(\014\"i\n\017"
+    "storesvr_selobj\0225\n\010baseinfo\030\001 \001(\0132#.stor"
     "esvr_sqldata.storesvr_baseinfo\022\017\n\007mod_ke"
-    "y\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"\222\001\n\024storesvr_exe"
-    "cute_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
-    "ldata.storesvr_baseinfo\0223\n\texe_opres\030\002 \001"
-    "(\0132 .storesvr_sqldata.storesvr_opres\022\016\n\006"
-    "record\030\003 \001(\014\"o\n\025storesvr_execute_more\0225\n"
+    "y\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"\215\001\n\023storesvr_sel"
+    "obj_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sql"
+    "data.storesvr_baseinfo\022/\n\005opres\030\002 \001(\0132 ."
+    "storesvr_sqldata.storesvr_opres\022\016\n\006recor"
+    "d\030\003 \001(\014\"l\n\022storesvr_insertobj\0225\n\010baseinf"
+    "o\030\001 \001(\0132#.storesvr_sqldata.storesvr_base"
+    "info\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"\200\001"
+    "\n\026storesvr_insertobj_res\0225\n\010baseinfo\030\001 \001"
+    "(\0132#.storesvr_sqldata.storesvr_baseinfo\022"
+    "/\n\005opres\030\002 \001(\0132 .storesvr_sqldata.stores"
+    "vr_opres\"i\n\017storesvr_insert\0225\n\010baseinfo\030"
+    "\001 \001(\0132#.storesvr_sqldata.storesvr_basein"
+    "fo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006record\030\003 \003(\014\"}\n\023s"
+    "toresvr_insert_res\0225\n\010baseinfo\030\001 \001(\0132#.s"
+    "toresvr_sqldata.storesvr_baseinfo\022/\n\005opr"
+    "es\030\002 \001(\0132 .storesvr_sqldata.storesvr_opr"
+    "es\"y\n\014storesvr_del\0225\n\010baseinfo\030\001 \001(\0132#.s"
+    "toresvr_sqldata.storesvr_baseinfo\0222\n\004con"
+    "d\030\002 \001(\0132$.storesvr_sqldata.storesvr_wher"
+    "econd\"z\n\020storesvr_del_res\0225\n\010baseinfo\030\001 "
+    "\001(\0132#.storesvr_sqldata.storesvr_baseinfo"
+    "\022/\n\005opres\030\002 \001(\0132 .storesvr_sqldata.store"
+    "svr_opres\"i\n\017storesvr_delobj\0225\n\010baseinfo"
+    "\030\001 \001(\0132#.storesvr_sqldata.storesvr_basei"
+    "nfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006record\030\003 \001(\014\"}\n\023"
+    "storesvr_delobj_res\0225\n\010baseinfo\030\001 \001(\0132#."
+    "storesvr_sqldata.storesvr_baseinfo\022/\n\005op"
+    "res\030\002 \001(\0132 .storesvr_sqldata.storesvr_op"
+    "res\"\211\001\n\014storesvr_mod\0225\n\010baseinfo\030\001 \001(\0132#"
+    ".storesvr_sqldata.storesvr_baseinfo\0222\n\004c"
+    "ond\030\002 \001(\0132$.storesvr_sqldata.storesvr_wh"
+    "erecond\022\016\n\006record\030\003 \001(\014\"z\n\020storesvr_mod_"
+    "res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata"
+    ".storesvr_baseinfo\022/\n\005opres\030\002 \001(\0132 .stor"
+    "esvr_sqldata.storesvr_opres\"i\n\017storesvr_"
+    "modobj\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqld"
+    "ata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016"
+    "\n\006record\030\003 \001(\014\"}\n\023storesvr_modobj_res\0225\n"
     "\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.store"
-    "svr_baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006record\030"
-    "\003 \001(\014\"\300\001\n\031storesvr_execute_more_res\0225\n\010b"
-    "aseinfo\030\001 \001(\0132#.storesvr_sqldata.storesv"
-    "r_baseinfo\0223\n\texe_opres\030\002 \001(\0132 .storesvr"
-    "_sqldata.storesvr_opres\022\024\n\014is_lastbatch\030"
-    "\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\016\n\006record\030\005 \003(\014"
-    "*R\n\027storesvr_logic_operator\022\021\n\rE_LOGICOP"
-    "_AND\020\001\022\020\n\014E_LOGICOP_OR\020\002\022\022\n\016E_LOGICOP_NO"
-    "NE\020\003*\230\001\n\025storesvr_cmp_operator\022\021\n\rE_CMPO"
-    "P_EQUAL\020\001\022\023\n\017E_CMPOP_GREATER\020\002\022\020\n\014E_CMPO"
-    "P_LESS\020\003\022\030\n\024E_CMPOP_GREATEREQUAL\020\004\022\025\n\021E_"
-    "CMPOP_LESSEQUAL\020\005\022\024\n\020E_CMPOP_NOTEQUAL\020\006*"
-    "E\n\024storesvr_column_type\022\027\n\023E_COLUMNTYPE_"
-    "STRING\020\001\022\024\n\020E_COLUMNTYPE_NUM\020\002", 4110);
+    "svr_baseinfo\022/\n\005opres\030\002 \001(\0132 .storesvr_s"
+    "qldata.storesvr_opres\"\214\001\n\017storesvr_updat"
+    "e\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sqldata.s"
+    "toresvr_baseinfo\0222\n\004cond\030\002 \001(\0132$.storesv"
+    "r_sqldata.storesvr_wherecond\022\016\n\006record\030\003"
+    " \001(\014\"}\n\023storesvr_update_res\0225\n\010baseinfo\030"
+    "\001 \001(\0132#.storesvr_sqldata.storesvr_basein"
+    "fo\022/\n\005opres\030\002 \001(\0132 .storesvr_sqldata.sto"
+    "resvr_opres\"l\n\022storesvr_updateobj\0225\n\010bas"
+    "einfo\030\001 \001(\0132#.storesvr_sqldata.storesvr_"
+    "baseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006record\030\003 \001("
+    "\014\"\200\001\n\026storesvr_updateobj_res\0225\n\010baseinfo"
+    "\030\001 \001(\0132#.storesvr_sqldata.storesvr_basei"
+    "nfo\022/\n\005opres\030\002 \001(\0132 .storesvr_sqldata.st"
+    "oresvr_opres\"j\n\020storesvr_execute\0225\n\010base"
+    "info\030\001 \001(\0132#.storesvr_sqldata.storesvr_b"
+    "aseinfo\022\017\n\007mod_key\030\002 \001(\004\022\016\n\006record\030\003 \001(\014"
+    "\"\216\001\n\024storesvr_execute_res\0225\n\010baseinfo\030\001 "
+    "\001(\0132#.storesvr_sqldata.storesvr_baseinfo"
+    "\022/\n\005opres\030\002 \001(\0132 .storesvr_sqldata.store"
+    "svr_opres\022\016\n\006record\030\003 \001(\014\"o\n\025storesvr_ex"
+    "ecute_more\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_"
+    "sqldata.storesvr_baseinfo\022\017\n\007mod_key\030\002 \001"
+    "(\004\022\016\n\006record\030\003 \001(\014\"\274\001\n\031storesvr_execute_"
+    "more_res\0225\n\010baseinfo\030\001 \001(\0132#.storesvr_sq"
+    "ldata.storesvr_baseinfo\022/\n\005opres\030\002 \001(\0132 "
+    ".storesvr_sqldata.storesvr_opres\022\024\n\014is_l"
+    "astbatch\030\003 \001(\010\022\021\n\trow_count\030\004 \001(\005\022\016\n\006rec"
+    "ord\030\005 \003(\014*R\n\027storesvr_logic_operator\022\021\n\r"
+    "E_LOGICOP_AND\020\001\022\020\n\014E_LOGICOP_OR\020\002\022\022\n\016E_L"
+    "OGICOP_NONE\020\003*\230\001\n\025storesvr_cmp_operator\022"
+    "\021\n\rE_CMPOP_EQUAL\020\001\022\023\n\017E_CMPOP_GREATER\020\002\022"
+    "\020\n\014E_CMPOP_LESS\020\003\022\030\n\024E_CMPOP_GREATEREQUA"
+    "L\020\004\022\025\n\021E_CMPOP_LESSEQUAL\020\005\022\024\n\020E_CMPOP_NO"
+    "TEQUAL\020\006*E\n\024storesvr_column_type\022\027\n\023E_CO"
+    "LUMNTYPE_STRING\020\001\022\024\n\020E_COLUMNTYPE_NUM\020\002", 4039);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "storesvr_sqldata.proto", &protobuf_RegisterTypes);
   storesvr_vk::default_instance_ = new storesvr_vk();
@@ -2469,7 +2467,7 @@ void storesvr_opres::Swap(storesvr_opres* other) {
 
 #ifndef _MSC_VER
 const int storesvr_sel::kBaseinfoFieldNumber;
-const int storesvr_sel::kSelCondFieldNumber;
+const int storesvr_sel::kCondFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_sel::storesvr_sel()
@@ -2479,7 +2477,7 @@ storesvr_sel::storesvr_sel()
 
 void storesvr_sel::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  sel_cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
+  cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
 }
 
 storesvr_sel::storesvr_sel(const storesvr_sel& from)
@@ -2491,7 +2489,7 @@ storesvr_sel::storesvr_sel(const storesvr_sel& from)
 void storesvr_sel::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  sel_cond_ = NULL;
+  cond_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2502,7 +2500,7 @@ storesvr_sel::~storesvr_sel() {
 void storesvr_sel::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete sel_cond_;
+    delete cond_;
   }
 }
 
@@ -2532,8 +2530,8 @@ void storesvr_sel::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_sel_cond()) {
-      if (sel_cond_ != NULL) sel_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
+    if (has_cond()) {
+      if (cond_ != NULL) cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2555,17 +2553,17 @@ bool storesvr_sel::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_sel_cond;
+        if (input->ExpectTag(18)) goto parse_cond;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_wherecond sel_cond = 2;
+      // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sel_cond:
+         parse_cond:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_sel_cond()));
+               input, mutable_cond()));
         } else {
           goto handle_uninterpreted;
         }
@@ -2597,10 +2595,10 @@ void storesvr_sel::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_wherecond sel_cond = 2;
-  if (has_sel_cond()) {
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  if (has_cond()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->sel_cond(), output);
+      2, this->cond(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -2618,11 +2616,11 @@ void storesvr_sel::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_wherecond sel_cond = 2;
-  if (has_sel_cond()) {
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  if (has_cond()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->sel_cond(), target);
+        2, this->cond(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2643,11 +2641,11 @@ int storesvr_sel::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_wherecond sel_cond = 2;
-    if (has_sel_cond()) {
+    // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+    if (has_cond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->sel_cond());
+          this->cond());
     }
 
   }
@@ -2680,8 +2678,8 @@ void storesvr_sel::MergeFrom(const storesvr_sel& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_sel_cond()) {
-      mutable_sel_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.sel_cond());
+    if (from.has_cond()) {
+      mutable_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.cond());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -2707,7 +2705,7 @@ bool storesvr_sel::IsInitialized() const {
 void storesvr_sel::Swap(storesvr_sel* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(sel_cond_, other->sel_cond_);
+    std::swap(cond_, other->cond_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -2727,7 +2725,7 @@ void storesvr_sel::Swap(storesvr_sel* other) {
 
 #ifndef _MSC_VER
 const int storesvr_sel_res::kBaseinfoFieldNumber;
-const int storesvr_sel_res::kSelOpresFieldNumber;
+const int storesvr_sel_res::kOpresFieldNumber;
 const int storesvr_sel_res::kIsLastbatchFieldNumber;
 const int storesvr_sel_res::kRowCountFieldNumber;
 const int storesvr_sel_res::kRecordFieldNumber;
@@ -2740,7 +2738,7 @@ storesvr_sel_res::storesvr_sel_res()
 
 void storesvr_sel_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  sel_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_sel_res::storesvr_sel_res(const storesvr_sel_res& from)
@@ -2752,7 +2750,7 @@ storesvr_sel_res::storesvr_sel_res(const storesvr_sel_res& from)
 void storesvr_sel_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  sel_opres_ = NULL;
+  opres_ = NULL;
   is_lastbatch_ = false;
   row_count_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2765,7 +2763,7 @@ storesvr_sel_res::~storesvr_sel_res() {
 void storesvr_sel_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete sel_opres_;
+    delete opres_;
   }
 }
 
@@ -2795,8 +2793,8 @@ void storesvr_sel_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_sel_opres()) {
-      if (sel_opres_ != NULL) sel_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
     is_lastbatch_ = false;
     row_count_ = 0;
@@ -2821,17 +2819,17 @@ bool storesvr_sel_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_sel_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sel_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_sel_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -2910,10 +2908,10 @@ void storesvr_sel_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-  if (has_sel_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->sel_opres(), output);
+      2, this->opres(), output);
   }
 
   // optional bool is_lastbatch = 3;
@@ -2947,11 +2945,11 @@ void storesvr_sel_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-  if (has_sel_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->sel_opres(), target);
+        2, this->opres(), target);
   }
 
   // optional bool is_lastbatch = 3;
@@ -2988,11 +2986,11 @@ int storesvr_sel_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-    if (has_sel_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->sel_opres());
+          this->opres());
     }
 
     // optional bool is_lastbatch = 3;
@@ -3045,8 +3043,8 @@ void storesvr_sel_res::MergeFrom(const storesvr_sel_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_sel_opres()) {
-      mutable_sel_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.sel_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
     if (from.has_is_lastbatch()) {
       set_is_lastbatch(from.is_lastbatch());
@@ -3078,7 +3076,7 @@ bool storesvr_sel_res::IsInitialized() const {
 void storesvr_sel_res::Swap(storesvr_sel_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(sel_opres_, other->sel_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(is_lastbatch_, other->is_lastbatch_);
     std::swap(row_count_, other->row_count_);
     record_.Swap(&other->record_);
@@ -3402,7 +3400,7 @@ void storesvr_selobj::Swap(storesvr_selobj* other) {
 
 #ifndef _MSC_VER
 const int storesvr_selobj_res::kBaseinfoFieldNumber;
-const int storesvr_selobj_res::kSelOpresFieldNumber;
+const int storesvr_selobj_res::kOpresFieldNumber;
 const int storesvr_selobj_res::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
@@ -3413,7 +3411,7 @@ storesvr_selobj_res::storesvr_selobj_res()
 
 void storesvr_selobj_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  sel_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_selobj_res::storesvr_selobj_res(const storesvr_selobj_res& from)
@@ -3425,7 +3423,7 @@ storesvr_selobj_res::storesvr_selobj_res(const storesvr_selobj_res& from)
 void storesvr_selobj_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  sel_opres_ = NULL;
+  opres_ = NULL;
   record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -3440,7 +3438,7 @@ void storesvr_selobj_res::SharedDtor() {
   }
   if (this != default_instance_) {
     delete baseinfo_;
-    delete sel_opres_;
+    delete opres_;
   }
 }
 
@@ -3470,8 +3468,8 @@ void storesvr_selobj_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_sel_opres()) {
-      if (sel_opres_ != NULL) sel_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
     if (has_record()) {
       if (record_ != &::google::protobuf::internal::kEmptyString) {
@@ -3498,17 +3496,17 @@ bool storesvr_selobj_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_sel_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sel_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_sel_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -3554,10 +3552,10 @@ void storesvr_selobj_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-  if (has_sel_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->sel_opres(), output);
+      2, this->opres(), output);
   }
 
   // optional bytes record = 3;
@@ -3581,11 +3579,11 @@ void storesvr_selobj_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-  if (has_sel_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->sel_opres(), target);
+        2, this->opres(), target);
   }
 
   // optional bytes record = 3;
@@ -3613,11 +3611,11 @@ int storesvr_selobj_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres sel_opres = 2;
-    if (has_sel_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->sel_opres());
+          this->opres());
     }
 
     // optional bytes record = 3;
@@ -3657,8 +3655,8 @@ void storesvr_selobj_res::MergeFrom(const storesvr_selobj_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_sel_opres()) {
-      mutable_sel_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.sel_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
     if (from.has_record()) {
       set_record(from.record());
@@ -3687,7 +3685,7 @@ bool storesvr_selobj_res::IsInitialized() const {
 void storesvr_selobj_res::Swap(storesvr_selobj_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(sel_opres_, other->sel_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -4009,7 +4007,7 @@ void storesvr_insertobj::Swap(storesvr_insertobj* other) {
 
 #ifndef _MSC_VER
 const int storesvr_insertobj_res::kBaseinfoFieldNumber;
-const int storesvr_insertobj_res::kInsOpresFieldNumber;
+const int storesvr_insertobj_res::kOpresFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_insertobj_res::storesvr_insertobj_res()
@@ -4019,7 +4017,7 @@ storesvr_insertobj_res::storesvr_insertobj_res()
 
 void storesvr_insertobj_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  ins_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_insertobj_res::storesvr_insertobj_res(const storesvr_insertobj_res& from)
@@ -4031,7 +4029,7 @@ storesvr_insertobj_res::storesvr_insertobj_res(const storesvr_insertobj_res& fro
 void storesvr_insertobj_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  ins_opres_ = NULL;
+  opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4042,7 +4040,7 @@ storesvr_insertobj_res::~storesvr_insertobj_res() {
 void storesvr_insertobj_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete ins_opres_;
+    delete opres_;
   }
 }
 
@@ -4072,8 +4070,8 @@ void storesvr_insertobj_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_ins_opres()) {
-      if (ins_opres_ != NULL) ins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -4095,17 +4093,17 @@ bool storesvr_insertobj_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_ins_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ins_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_ins_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -4137,10 +4135,10 @@ void storesvr_insertobj_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-  if (has_ins_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->ins_opres(), output);
+      2, this->opres(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4158,11 +4156,11 @@ void storesvr_insertobj_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-  if (has_ins_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->ins_opres(), target);
+        2, this->opres(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4183,11 +4181,11 @@ int storesvr_insertobj_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-    if (has_ins_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->ins_opres());
+          this->opres());
     }
 
   }
@@ -4220,8 +4218,8 @@ void storesvr_insertobj_res::MergeFrom(const storesvr_insertobj_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_ins_opres()) {
-      mutable_ins_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.ins_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -4247,7 +4245,7 @@ bool storesvr_insertobj_res::IsInitialized() const {
 void storesvr_insertobj_res::Swap(storesvr_insertobj_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(ins_opres_, other->ins_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -4558,7 +4556,7 @@ void storesvr_insert::Swap(storesvr_insert* other) {
 
 #ifndef _MSC_VER
 const int storesvr_insert_res::kBaseinfoFieldNumber;
-const int storesvr_insert_res::kInsOpresFieldNumber;
+const int storesvr_insert_res::kOpresFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_insert_res::storesvr_insert_res()
@@ -4568,7 +4566,7 @@ storesvr_insert_res::storesvr_insert_res()
 
 void storesvr_insert_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  ins_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_insert_res::storesvr_insert_res(const storesvr_insert_res& from)
@@ -4580,7 +4578,7 @@ storesvr_insert_res::storesvr_insert_res(const storesvr_insert_res& from)
 void storesvr_insert_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  ins_opres_ = NULL;
+  opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4591,7 +4589,7 @@ storesvr_insert_res::~storesvr_insert_res() {
 void storesvr_insert_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete ins_opres_;
+    delete opres_;
   }
 }
 
@@ -4621,8 +4619,8 @@ void storesvr_insert_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_ins_opres()) {
-      if (ins_opres_ != NULL) ins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -4644,17 +4642,17 @@ bool storesvr_insert_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_ins_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_ins_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_ins_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -4686,10 +4684,10 @@ void storesvr_insert_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-  if (has_ins_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->ins_opres(), output);
+      2, this->opres(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4707,11 +4705,11 @@ void storesvr_insert_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-  if (has_ins_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->ins_opres(), target);
+        2, this->opres(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4732,11 +4730,11 @@ int storesvr_insert_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres ins_opres = 2;
-    if (has_ins_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->ins_opres());
+          this->opres());
     }
 
   }
@@ -4769,8 +4767,8 @@ void storesvr_insert_res::MergeFrom(const storesvr_insert_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_ins_opres()) {
-      mutable_ins_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.ins_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -4796,7 +4794,7 @@ bool storesvr_insert_res::IsInitialized() const {
 void storesvr_insert_res::Swap(storesvr_insert_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(ins_opres_, other->ins_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -4816,7 +4814,7 @@ void storesvr_insert_res::Swap(storesvr_insert_res* other) {
 
 #ifndef _MSC_VER
 const int storesvr_del::kBaseinfoFieldNumber;
-const int storesvr_del::kDelCondFieldNumber;
+const int storesvr_del::kCondFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_del::storesvr_del()
@@ -4826,7 +4824,7 @@ storesvr_del::storesvr_del()
 
 void storesvr_del::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  del_cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
+  cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
 }
 
 storesvr_del::storesvr_del(const storesvr_del& from)
@@ -4838,7 +4836,7 @@ storesvr_del::storesvr_del(const storesvr_del& from)
 void storesvr_del::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  del_cond_ = NULL;
+  cond_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -4849,7 +4847,7 @@ storesvr_del::~storesvr_del() {
 void storesvr_del::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete del_cond_;
+    delete cond_;
   }
 }
 
@@ -4879,8 +4877,8 @@ void storesvr_del::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_del_cond()) {
-      if (del_cond_ != NULL) del_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
+    if (has_cond()) {
+      if (cond_ != NULL) cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -4902,17 +4900,17 @@ bool storesvr_del::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_del_cond;
+        if (input->ExpectTag(18)) goto parse_cond;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_wherecond del_cond = 2;
+      // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_del_cond:
+         parse_cond:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_del_cond()));
+               input, mutable_cond()));
         } else {
           goto handle_uninterpreted;
         }
@@ -4944,10 +4942,10 @@ void storesvr_del::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_wherecond del_cond = 2;
-  if (has_del_cond()) {
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  if (has_cond()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->del_cond(), output);
+      2, this->cond(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -4965,11 +4963,11 @@ void storesvr_del::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_wherecond del_cond = 2;
-  if (has_del_cond()) {
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  if (has_cond()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->del_cond(), target);
+        2, this->cond(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -4990,11 +4988,11 @@ int storesvr_del::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_wherecond del_cond = 2;
-    if (has_del_cond()) {
+    // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+    if (has_cond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->del_cond());
+          this->cond());
     }
 
   }
@@ -5027,8 +5025,8 @@ void storesvr_del::MergeFrom(const storesvr_del& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_del_cond()) {
-      mutable_del_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.del_cond());
+    if (from.has_cond()) {
+      mutable_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.cond());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -5054,7 +5052,7 @@ bool storesvr_del::IsInitialized() const {
 void storesvr_del::Swap(storesvr_del* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(del_cond_, other->del_cond_);
+    std::swap(cond_, other->cond_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -5074,7 +5072,7 @@ void storesvr_del::Swap(storesvr_del* other) {
 
 #ifndef _MSC_VER
 const int storesvr_del_res::kBaseinfoFieldNumber;
-const int storesvr_del_res::kDelOpresFieldNumber;
+const int storesvr_del_res::kOpresFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_del_res::storesvr_del_res()
@@ -5084,7 +5082,7 @@ storesvr_del_res::storesvr_del_res()
 
 void storesvr_del_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  del_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_del_res::storesvr_del_res(const storesvr_del_res& from)
@@ -5096,7 +5094,7 @@ storesvr_del_res::storesvr_del_res(const storesvr_del_res& from)
 void storesvr_del_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  del_opres_ = NULL;
+  opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5107,7 +5105,7 @@ storesvr_del_res::~storesvr_del_res() {
 void storesvr_del_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete del_opres_;
+    delete opres_;
   }
 }
 
@@ -5137,8 +5135,8 @@ void storesvr_del_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_del_opres()) {
-      if (del_opres_ != NULL) del_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -5160,17 +5158,17 @@ bool storesvr_del_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_del_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_del_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_del_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -5202,10 +5200,10 @@ void storesvr_del_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-  if (has_del_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->del_opres(), output);
+      2, this->opres(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5223,11 +5221,11 @@ void storesvr_del_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-  if (has_del_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->del_opres(), target);
+        2, this->opres(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5248,11 +5246,11 @@ int storesvr_del_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-    if (has_del_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->del_opres());
+          this->opres());
     }
 
   }
@@ -5285,8 +5283,8 @@ void storesvr_del_res::MergeFrom(const storesvr_del_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_del_opres()) {
-      mutable_del_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.del_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -5312,7 +5310,7 @@ bool storesvr_del_res::IsInitialized() const {
 void storesvr_del_res::Swap(storesvr_del_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(del_opres_, other->del_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -5633,7 +5631,7 @@ void storesvr_delobj::Swap(storesvr_delobj* other) {
 
 #ifndef _MSC_VER
 const int storesvr_delobj_res::kBaseinfoFieldNumber;
-const int storesvr_delobj_res::kDelOpresFieldNumber;
+const int storesvr_delobj_res::kOpresFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_delobj_res::storesvr_delobj_res()
@@ -5643,7 +5641,7 @@ storesvr_delobj_res::storesvr_delobj_res()
 
 void storesvr_delobj_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  del_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_delobj_res::storesvr_delobj_res(const storesvr_delobj_res& from)
@@ -5655,7 +5653,7 @@ storesvr_delobj_res::storesvr_delobj_res(const storesvr_delobj_res& from)
 void storesvr_delobj_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  del_opres_ = NULL;
+  opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -5666,7 +5664,7 @@ storesvr_delobj_res::~storesvr_delobj_res() {
 void storesvr_delobj_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete del_opres_;
+    delete opres_;
   }
 }
 
@@ -5696,8 +5694,8 @@ void storesvr_delobj_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_del_opres()) {
-      if (del_opres_ != NULL) del_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -5719,17 +5717,17 @@ bool storesvr_delobj_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_del_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_del_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_del_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -5761,10 +5759,10 @@ void storesvr_delobj_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-  if (has_del_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->del_opres(), output);
+      2, this->opres(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -5782,11 +5780,11 @@ void storesvr_delobj_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-  if (has_del_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->del_opres(), target);
+        2, this->opres(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -5807,11 +5805,11 @@ int storesvr_delobj_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres del_opres = 2;
-    if (has_del_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->del_opres());
+          this->opres());
     }
 
   }
@@ -5844,8 +5842,8 @@ void storesvr_delobj_res::MergeFrom(const storesvr_delobj_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_del_opres()) {
-      mutable_del_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.del_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -5871,7 +5869,7 @@ bool storesvr_delobj_res::IsInitialized() const {
 void storesvr_delobj_res::Swap(storesvr_delobj_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(del_opres_, other->del_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -5891,7 +5889,7 @@ void storesvr_delobj_res::Swap(storesvr_delobj_res* other) {
 
 #ifndef _MSC_VER
 const int storesvr_mod::kBaseinfoFieldNumber;
-const int storesvr_mod::kModCondFieldNumber;
+const int storesvr_mod::kCondFieldNumber;
 const int storesvr_mod::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
@@ -5902,7 +5900,7 @@ storesvr_mod::storesvr_mod()
 
 void storesvr_mod::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  mod_cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
+  cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
 }
 
 storesvr_mod::storesvr_mod(const storesvr_mod& from)
@@ -5914,7 +5912,7 @@ storesvr_mod::storesvr_mod(const storesvr_mod& from)
 void storesvr_mod::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  mod_cond_ = NULL;
+  cond_ = NULL;
   record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -5929,7 +5927,7 @@ void storesvr_mod::SharedDtor() {
   }
   if (this != default_instance_) {
     delete baseinfo_;
-    delete mod_cond_;
+    delete cond_;
   }
 }
 
@@ -5959,8 +5957,8 @@ void storesvr_mod::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_mod_cond()) {
-      if (mod_cond_ != NULL) mod_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
+    if (has_cond()) {
+      if (cond_ != NULL) cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
     }
     if (has_record()) {
       if (record_ != &::google::protobuf::internal::kEmptyString) {
@@ -5987,17 +5985,17 @@ bool storesvr_mod::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_mod_cond;
+        if (input->ExpectTag(18)) goto parse_cond;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
+      // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mod_cond:
+         parse_cond:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_mod_cond()));
+               input, mutable_cond()));
         } else {
           goto handle_uninterpreted;
         }
@@ -6043,10 +6041,10 @@ void storesvr_mod::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-  if (has_mod_cond()) {
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  if (has_cond()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->mod_cond(), output);
+      2, this->cond(), output);
   }
 
   // optional bytes record = 3;
@@ -6070,11 +6068,11 @@ void storesvr_mod::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-  if (has_mod_cond()) {
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  if (has_cond()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->mod_cond(), target);
+        2, this->cond(), target);
   }
 
   // optional bytes record = 3;
@@ -6102,11 +6100,11 @@ int storesvr_mod::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-    if (has_mod_cond()) {
+    // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+    if (has_cond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->mod_cond());
+          this->cond());
     }
 
     // optional bytes record = 3;
@@ -6146,8 +6144,8 @@ void storesvr_mod::MergeFrom(const storesvr_mod& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_mod_cond()) {
-      mutable_mod_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.mod_cond());
+    if (from.has_cond()) {
+      mutable_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.cond());
     }
     if (from.has_record()) {
       set_record(from.record());
@@ -6176,7 +6174,7 @@ bool storesvr_mod::IsInitialized() const {
 void storesvr_mod::Swap(storesvr_mod* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(mod_cond_, other->mod_cond_);
+    std::swap(cond_, other->cond_);
     std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -6197,7 +6195,7 @@ void storesvr_mod::Swap(storesvr_mod* other) {
 
 #ifndef _MSC_VER
 const int storesvr_mod_res::kBaseinfoFieldNumber;
-const int storesvr_mod_res::kModOpresFieldNumber;
+const int storesvr_mod_res::kOpresFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_mod_res::storesvr_mod_res()
@@ -6207,7 +6205,7 @@ storesvr_mod_res::storesvr_mod_res()
 
 void storesvr_mod_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  mod_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_mod_res::storesvr_mod_res(const storesvr_mod_res& from)
@@ -6219,7 +6217,7 @@ storesvr_mod_res::storesvr_mod_res(const storesvr_mod_res& from)
 void storesvr_mod_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  mod_opres_ = NULL;
+  opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6230,7 +6228,7 @@ storesvr_mod_res::~storesvr_mod_res() {
 void storesvr_mod_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete mod_opres_;
+    delete opres_;
   }
 }
 
@@ -6260,8 +6258,8 @@ void storesvr_mod_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_mod_opres()) {
-      if (mod_opres_ != NULL) mod_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -6283,17 +6281,17 @@ bool storesvr_mod_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_mod_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mod_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_mod_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -6325,10 +6323,10 @@ void storesvr_mod_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  if (has_mod_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->mod_opres(), output);
+      2, this->opres(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6346,11 +6344,11 @@ void storesvr_mod_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  if (has_mod_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->mod_opres(), target);
+        2, this->opres(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6371,11 +6369,11 @@ int storesvr_mod_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-    if (has_mod_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->mod_opres());
+          this->opres());
     }
 
   }
@@ -6408,8 +6406,8 @@ void storesvr_mod_res::MergeFrom(const storesvr_mod_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_mod_opres()) {
-      mutable_mod_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.mod_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6435,7 +6433,7 @@ bool storesvr_mod_res::IsInitialized() const {
 void storesvr_mod_res::Swap(storesvr_mod_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(mod_opres_, other->mod_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -6756,7 +6754,7 @@ void storesvr_modobj::Swap(storesvr_modobj* other) {
 
 #ifndef _MSC_VER
 const int storesvr_modobj_res::kBaseinfoFieldNumber;
-const int storesvr_modobj_res::kModOpresFieldNumber;
+const int storesvr_modobj_res::kOpresFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_modobj_res::storesvr_modobj_res()
@@ -6766,7 +6764,7 @@ storesvr_modobj_res::storesvr_modobj_res()
 
 void storesvr_modobj_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  mod_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_modobj_res::storesvr_modobj_res(const storesvr_modobj_res& from)
@@ -6778,7 +6776,7 @@ storesvr_modobj_res::storesvr_modobj_res(const storesvr_modobj_res& from)
 void storesvr_modobj_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  mod_opres_ = NULL;
+  opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -6789,7 +6787,7 @@ storesvr_modobj_res::~storesvr_modobj_res() {
 void storesvr_modobj_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete mod_opres_;
+    delete opres_;
   }
 }
 
@@ -6819,8 +6817,8 @@ void storesvr_modobj_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_mod_opres()) {
-      if (mod_opres_ != NULL) mod_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -6842,17 +6840,17 @@ bool storesvr_modobj_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_mod_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mod_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_mod_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -6884,10 +6882,10 @@ void storesvr_modobj_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  if (has_mod_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->mod_opres(), output);
+      2, this->opres(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -6905,11 +6903,11 @@ void storesvr_modobj_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  if (has_mod_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->mod_opres(), target);
+        2, this->opres(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -6930,11 +6928,11 @@ int storesvr_modobj_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-    if (has_mod_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->mod_opres());
+          this->opres());
     }
 
   }
@@ -6967,8 +6965,8 @@ void storesvr_modobj_res::MergeFrom(const storesvr_modobj_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_mod_opres()) {
-      mutable_mod_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.mod_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -6994,7 +6992,7 @@ bool storesvr_modobj_res::IsInitialized() const {
 void storesvr_modobj_res::Swap(storesvr_modobj_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(mod_opres_, other->mod_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7014,7 +7012,7 @@ void storesvr_modobj_res::Swap(storesvr_modobj_res* other) {
 
 #ifndef _MSC_VER
 const int storesvr_update::kBaseinfoFieldNumber;
-const int storesvr_update::kModCondFieldNumber;
+const int storesvr_update::kCondFieldNumber;
 const int storesvr_update::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
@@ -7025,7 +7023,7 @@ storesvr_update::storesvr_update()
 
 void storesvr_update::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  mod_cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
+  cond_ = const_cast< ::storesvr_sqldata::storesvr_wherecond*>(&::storesvr_sqldata::storesvr_wherecond::default_instance());
 }
 
 storesvr_update::storesvr_update(const storesvr_update& from)
@@ -7037,7 +7035,7 @@ storesvr_update::storesvr_update(const storesvr_update& from)
 void storesvr_update::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  mod_cond_ = NULL;
+  cond_ = NULL;
   record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -7052,7 +7050,7 @@ void storesvr_update::SharedDtor() {
   }
   if (this != default_instance_) {
     delete baseinfo_;
-    delete mod_cond_;
+    delete cond_;
   }
 }
 
@@ -7082,8 +7080,8 @@ void storesvr_update::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_mod_cond()) {
-      if (mod_cond_ != NULL) mod_cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
+    if (has_cond()) {
+      if (cond_ != NULL) cond_->::storesvr_sqldata::storesvr_wherecond::Clear();
     }
     if (has_record()) {
       if (record_ != &::google::protobuf::internal::kEmptyString) {
@@ -7110,17 +7108,17 @@ bool storesvr_update::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_mod_cond;
+        if (input->ExpectTag(18)) goto parse_cond;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
+      // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mod_cond:
+         parse_cond:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_mod_cond()));
+               input, mutable_cond()));
         } else {
           goto handle_uninterpreted;
         }
@@ -7166,10 +7164,10 @@ void storesvr_update::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-  if (has_mod_cond()) {
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  if (has_cond()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->mod_cond(), output);
+      2, this->cond(), output);
   }
 
   // optional bytes record = 3;
@@ -7193,11 +7191,11 @@ void storesvr_update::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-  if (has_mod_cond()) {
+  // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+  if (has_cond()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->mod_cond(), target);
+        2, this->cond(), target);
   }
 
   // optional bytes record = 3;
@@ -7225,11 +7223,11 @@ int storesvr_update::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_wherecond mod_cond = 2;
-    if (has_mod_cond()) {
+    // optional .storesvr_sqldata.storesvr_wherecond cond = 2;
+    if (has_cond()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->mod_cond());
+          this->cond());
     }
 
     // optional bytes record = 3;
@@ -7269,8 +7267,8 @@ void storesvr_update::MergeFrom(const storesvr_update& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_mod_cond()) {
-      mutable_mod_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.mod_cond());
+    if (from.has_cond()) {
+      mutable_cond()->::storesvr_sqldata::storesvr_wherecond::MergeFrom(from.cond());
     }
     if (from.has_record()) {
       set_record(from.record());
@@ -7299,7 +7297,7 @@ bool storesvr_update::IsInitialized() const {
 void storesvr_update::Swap(storesvr_update* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(mod_cond_, other->mod_cond_);
+    std::swap(cond_, other->cond_);
     std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -7320,7 +7318,7 @@ void storesvr_update::Swap(storesvr_update* other) {
 
 #ifndef _MSC_VER
 const int storesvr_update_res::kBaseinfoFieldNumber;
-const int storesvr_update_res::kModOpresFieldNumber;
+const int storesvr_update_res::kOpresFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_update_res::storesvr_update_res()
@@ -7330,7 +7328,7 @@ storesvr_update_res::storesvr_update_res()
 
 void storesvr_update_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  mod_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_update_res::storesvr_update_res(const storesvr_update_res& from)
@@ -7342,7 +7340,7 @@ storesvr_update_res::storesvr_update_res(const storesvr_update_res& from)
 void storesvr_update_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  mod_opres_ = NULL;
+  opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7353,7 +7351,7 @@ storesvr_update_res::~storesvr_update_res() {
 void storesvr_update_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete mod_opres_;
+    delete opres_;
   }
 }
 
@@ -7383,8 +7381,8 @@ void storesvr_update_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_mod_opres()) {
-      if (mod_opres_ != NULL) mod_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -7406,17 +7404,17 @@ bool storesvr_update_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_mod_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_mod_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_mod_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -7448,10 +7446,10 @@ void storesvr_update_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  if (has_mod_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->mod_opres(), output);
+      2, this->opres(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -7469,11 +7467,11 @@ void storesvr_update_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-  if (has_mod_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->mod_opres(), target);
+        2, this->opres(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -7494,11 +7492,11 @@ int storesvr_update_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres mod_opres = 2;
-    if (has_mod_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->mod_opres());
+          this->opres());
     }
 
   }
@@ -7531,8 +7529,8 @@ void storesvr_update_res::MergeFrom(const storesvr_update_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_mod_opres()) {
-      mutable_mod_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.mod_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -7558,7 +7556,7 @@ bool storesvr_update_res::IsInitialized() const {
 void storesvr_update_res::Swap(storesvr_update_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(mod_opres_, other->mod_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -7879,7 +7877,7 @@ void storesvr_updateobj::Swap(storesvr_updateobj* other) {
 
 #ifndef _MSC_VER
 const int storesvr_updateobj_res::kBaseinfoFieldNumber;
-const int storesvr_updateobj_res::kModinsOpresFieldNumber;
+const int storesvr_updateobj_res::kOpresFieldNumber;
 #endif  // !_MSC_VER
 
 storesvr_updateobj_res::storesvr_updateobj_res()
@@ -7889,7 +7887,7 @@ storesvr_updateobj_res::storesvr_updateobj_res()
 
 void storesvr_updateobj_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  modins_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_updateobj_res::storesvr_updateobj_res(const storesvr_updateobj_res& from)
@@ -7901,7 +7899,7 @@ storesvr_updateobj_res::storesvr_updateobj_res(const storesvr_updateobj_res& fro
 void storesvr_updateobj_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  modins_opres_ = NULL;
+  opres_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -7912,7 +7910,7 @@ storesvr_updateobj_res::~storesvr_updateobj_res() {
 void storesvr_updateobj_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete modins_opres_;
+    delete opres_;
   }
 }
 
@@ -7942,8 +7940,8 @@ void storesvr_updateobj_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_modins_opres()) {
-      if (modins_opres_ != NULL) modins_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -7965,17 +7963,17 @@ bool storesvr_updateobj_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_modins_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres modins_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_modins_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_modins_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -8007,10 +8005,10 @@ void storesvr_updateobj_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres modins_opres = 2;
-  if (has_modins_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->modins_opres(), output);
+      2, this->opres(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -8028,11 +8026,11 @@ void storesvr_updateobj_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres modins_opres = 2;
-  if (has_modins_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->modins_opres(), target);
+        2, this->opres(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -8053,11 +8051,11 @@ int storesvr_updateobj_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres modins_opres = 2;
-    if (has_modins_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->modins_opres());
+          this->opres());
     }
 
   }
@@ -8090,8 +8088,8 @@ void storesvr_updateobj_res::MergeFrom(const storesvr_updateobj_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_modins_opres()) {
-      mutable_modins_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.modins_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -8117,7 +8115,7 @@ bool storesvr_updateobj_res::IsInitialized() const {
 void storesvr_updateobj_res::Swap(storesvr_updateobj_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(modins_opres_, other->modins_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -8438,7 +8436,7 @@ void storesvr_execute::Swap(storesvr_execute* other) {
 
 #ifndef _MSC_VER
 const int storesvr_execute_res::kBaseinfoFieldNumber;
-const int storesvr_execute_res::kExeOpresFieldNumber;
+const int storesvr_execute_res::kOpresFieldNumber;
 const int storesvr_execute_res::kRecordFieldNumber;
 #endif  // !_MSC_VER
 
@@ -8449,7 +8447,7 @@ storesvr_execute_res::storesvr_execute_res()
 
 void storesvr_execute_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  exe_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_execute_res::storesvr_execute_res(const storesvr_execute_res& from)
@@ -8461,7 +8459,7 @@ storesvr_execute_res::storesvr_execute_res(const storesvr_execute_res& from)
 void storesvr_execute_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  exe_opres_ = NULL;
+  opres_ = NULL;
   record_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -8476,7 +8474,7 @@ void storesvr_execute_res::SharedDtor() {
   }
   if (this != default_instance_) {
     delete baseinfo_;
-    delete exe_opres_;
+    delete opres_;
   }
 }
 
@@ -8506,8 +8504,8 @@ void storesvr_execute_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_exe_opres()) {
-      if (exe_opres_ != NULL) exe_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
     if (has_record()) {
       if (record_ != &::google::protobuf::internal::kEmptyString) {
@@ -8534,17 +8532,17 @@ bool storesvr_execute_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_exe_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_exe_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_exe_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -8590,10 +8588,10 @@ void storesvr_execute_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-  if (has_exe_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->exe_opres(), output);
+      2, this->opres(), output);
   }
 
   // optional bytes record = 3;
@@ -8617,11 +8615,11 @@ void storesvr_execute_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-  if (has_exe_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->exe_opres(), target);
+        2, this->opres(), target);
   }
 
   // optional bytes record = 3;
@@ -8649,11 +8647,11 @@ int storesvr_execute_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-    if (has_exe_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->exe_opres());
+          this->opres());
     }
 
     // optional bytes record = 3;
@@ -8693,8 +8691,8 @@ void storesvr_execute_res::MergeFrom(const storesvr_execute_res& from) {
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_exe_opres()) {
-      mutable_exe_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.exe_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
     if (from.has_record()) {
       set_record(from.record());
@@ -8723,7 +8721,7 @@ bool storesvr_execute_res::IsInitialized() const {
 void storesvr_execute_res::Swap(storesvr_execute_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(exe_opres_, other->exe_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(record_, other->record_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -9045,7 +9043,7 @@ void storesvr_execute_more::Swap(storesvr_execute_more* other) {
 
 #ifndef _MSC_VER
 const int storesvr_execute_more_res::kBaseinfoFieldNumber;
-const int storesvr_execute_more_res::kExeOpresFieldNumber;
+const int storesvr_execute_more_res::kOpresFieldNumber;
 const int storesvr_execute_more_res::kIsLastbatchFieldNumber;
 const int storesvr_execute_more_res::kRowCountFieldNumber;
 const int storesvr_execute_more_res::kRecordFieldNumber;
@@ -9058,7 +9056,7 @@ storesvr_execute_more_res::storesvr_execute_more_res()
 
 void storesvr_execute_more_res::InitAsDefaultInstance() {
   baseinfo_ = const_cast< ::storesvr_sqldata::storesvr_baseinfo*>(&::storesvr_sqldata::storesvr_baseinfo::default_instance());
-  exe_opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
+  opres_ = const_cast< ::storesvr_sqldata::storesvr_opres*>(&::storesvr_sqldata::storesvr_opres::default_instance());
 }
 
 storesvr_execute_more_res::storesvr_execute_more_res(const storesvr_execute_more_res& from)
@@ -9070,7 +9068,7 @@ storesvr_execute_more_res::storesvr_execute_more_res(const storesvr_execute_more
 void storesvr_execute_more_res::SharedCtor() {
   _cached_size_ = 0;
   baseinfo_ = NULL;
-  exe_opres_ = NULL;
+  opres_ = NULL;
   is_lastbatch_ = false;
   row_count_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -9083,7 +9081,7 @@ storesvr_execute_more_res::~storesvr_execute_more_res() {
 void storesvr_execute_more_res::SharedDtor() {
   if (this != default_instance_) {
     delete baseinfo_;
-    delete exe_opres_;
+    delete opres_;
   }
 }
 
@@ -9113,8 +9111,8 @@ void storesvr_execute_more_res::Clear() {
     if (has_baseinfo()) {
       if (baseinfo_ != NULL) baseinfo_->::storesvr_sqldata::storesvr_baseinfo::Clear();
     }
-    if (has_exe_opres()) {
-      if (exe_opres_ != NULL) exe_opres_->::storesvr_sqldata::storesvr_opres::Clear();
+    if (has_opres()) {
+      if (opres_ != NULL) opres_->::storesvr_sqldata::storesvr_opres::Clear();
     }
     is_lastbatch_ = false;
     row_count_ = 0;
@@ -9139,17 +9137,17 @@ bool storesvr_execute_more_res::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(18)) goto parse_exe_opres;
+        if (input->ExpectTag(18)) goto parse_opres;
         break;
       }
 
-      // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
+      // optional .storesvr_sqldata.storesvr_opres opres = 2;
       case 2: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_exe_opres:
+         parse_opres:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_exe_opres()));
+               input, mutable_opres()));
         } else {
           goto handle_uninterpreted;
         }
@@ -9228,10 +9226,10 @@ void storesvr_execute_more_res::SerializeWithCachedSizes(
       1, this->baseinfo(), output);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-  if (has_exe_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->exe_opres(), output);
+      2, this->opres(), output);
   }
 
   // optional bool is_lastbatch = 3;
@@ -9265,11 +9263,11 @@ void storesvr_execute_more_res::SerializeWithCachedSizes(
         1, this->baseinfo(), target);
   }
 
-  // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-  if (has_exe_opres()) {
+  // optional .storesvr_sqldata.storesvr_opres opres = 2;
+  if (has_opres()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        2, this->exe_opres(), target);
+        2, this->opres(), target);
   }
 
   // optional bool is_lastbatch = 3;
@@ -9306,11 +9304,11 @@ int storesvr_execute_more_res::ByteSize() const {
           this->baseinfo());
     }
 
-    // optional .storesvr_sqldata.storesvr_opres exe_opres = 2;
-    if (has_exe_opres()) {
+    // optional .storesvr_sqldata.storesvr_opres opres = 2;
+    if (has_opres()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->exe_opres());
+          this->opres());
     }
 
     // optional bool is_lastbatch = 3;
@@ -9363,8 +9361,8 @@ void storesvr_execute_more_res::MergeFrom(const storesvr_execute_more_res& from)
     if (from.has_baseinfo()) {
       mutable_baseinfo()->::storesvr_sqldata::storesvr_baseinfo::MergeFrom(from.baseinfo());
     }
-    if (from.has_exe_opres()) {
-      mutable_exe_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.exe_opres());
+    if (from.has_opres()) {
+      mutable_opres()->::storesvr_sqldata::storesvr_opres::MergeFrom(from.opres());
     }
     if (from.has_is_lastbatch()) {
       set_is_lastbatch(from.is_lastbatch());
@@ -9396,7 +9394,7 @@ bool storesvr_execute_more_res::IsInitialized() const {
 void storesvr_execute_more_res::Swap(storesvr_execute_more_res* other) {
   if (other != this) {
     std::swap(baseinfo_, other->baseinfo_);
-    std::swap(exe_opres_, other->exe_opres_);
+    std::swap(opres_, other->opres_);
     std::swap(is_lastbatch_, other->is_lastbatch_);
     std::swap(row_count_, other->row_count_);
     record_.Swap(&other->record_);
