@@ -521,6 +521,11 @@ int NFRedisDriver::SelectObj(const storesvr_sqldata::storesvr_selobj &select,
     if (!bRet)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "SelectDB:{} Failed! dbName:{} modkey:{}", NFREDIS_DB1, select.baseinfo().tbname(), select.mod_key());
+        return -1;
+    }
+
+    if (!EXISTS(db_key))
+    {
         return 1;
     }
 

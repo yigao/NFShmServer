@@ -58,12 +58,9 @@ public:
                              const std::unordered_set<std::string>& privateKeySet, std::unordered_set<std::string>& leftPrivateKeySet,
                              storesvr_sqldata::storesvr_update_res &select_res) = 0;
 public:
-    virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select,
-                          storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
-
+    virtual int SelectObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
     virtual int SaveObj(const std::string& packageName, const std::string& tbName, const std::string& clasname, const std::string& privateKey, const std::map<std::string, std::string>& recordsMap) = 0;
-    virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select,
-                        storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
+    virtual int SaveObj(const storesvr_sqldata::storesvr_selobj &select, storesvr_sqldata::storesvr_selobj_res &select_res) = 0;
     virtual int SaveObj(const storesvr_sqldata::storesvr_insertobj &select, storesvr_sqldata::storesvr_insertobj_res& select_res) = 0;
     virtual int SaveObj(const storesvr_sqldata::storesvr_modobj &select, storesvr_sqldata::storesvr_modobj_res& select_res) = 0;
     virtual int SaveObj(const storesvr_sqldata::storesvr_updateobj &select, storesvr_sqldata::storesvr_updateobj_res& select_res) = 0;
