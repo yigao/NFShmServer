@@ -9,8 +9,8 @@
 
 #pragma once
 
-#include "NFIDescStoreModule.h"
-#include "NFIDescStore.h"
+#include "NFServerComm/NFServerCommon/NFIDescStoreModule.h"
+#include "NFServerComm/NFServerCommon/NFIDescStore.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
 #include <unordered_map>

@@ -14,7 +14,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
-#include "NFIDescStoreModule.h"
+#include "NFServerComm/NFServerCommon/NFIDescStoreModule.h"
 #include <fstream>
 
 NFMysqlResTable::NFMysqlResTable(NFIPluginManager* p, NFResMysqlDB* pFileResDB, const std::string& name):NFResTable(p)

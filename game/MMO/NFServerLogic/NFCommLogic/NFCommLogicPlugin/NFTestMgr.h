@@ -15,7 +15,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
+#include "NFServerComm/NFServerCommon/NFIDescStore.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"

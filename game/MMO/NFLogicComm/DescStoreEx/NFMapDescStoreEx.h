@@ -11,7 +11,7 @@
 
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
+#include "NFServerComm/NFServerCommon/NFIDescStore.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "DescStore/MapMapDesc.h"

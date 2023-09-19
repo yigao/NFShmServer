@@ -385,7 +385,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     std::string desc_file_path = m_outPath + desc_file_name;
     std::string desc_file;
     desc_file += "#pragma once\n\n";
-    desc_file += "#include \"NFServerComm/NFDescStorePlugin/NFIDescStore.h\"\n";
+    desc_file += "#include \"NFServerComm/NFServerCommon/NFIDescStore.h\"\n";
     desc_file += "#include \"NFComm/NFShmCore/NFShmMgr.h\"\n";
     desc_file += "#include \"NFComm/NFShmStl/NFShmHashMap.h\"\n";
     desc_file += "#include \"NFComm/NFShmStl/NFShmVector.h\"\n";

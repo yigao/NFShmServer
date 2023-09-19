@@ -1,6 +1,6 @@
 #pragma once
 
-#include "NFServerComm/NFDescStorePlugin/NFIDescStore.h"
+#include "NFServerComm/NFServerCommon/NFIDescStore.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
