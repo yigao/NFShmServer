@@ -65,9 +65,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="redis mysql db read write">
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="delete python">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/xlstotxt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -457,14 +457,7 @@
       <workItem from="1694479084237" duration="53274000" />
       <workItem from="1694689725600" duration="28120000" />
       <workItem from="1694825978859" duration="17091000" />
-      <workItem from="1694998325179" duration="19299000" />
-    </task>
-    <task id="LOCAL-00092" summary="xls">
-      <created>1692754616154</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1692754616154</updated>
+      <workItem from="1694998325179" duration="22396000" />
     </task>
     <task id="LOCAL-00093" summary="xls">
       <created>1692759317532</created>
@@ -802,7 +795,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695108999942</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="delete python">
+      <created>1695109671968</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1695109671968</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -987,7 +987,8 @@
     <MESSAGE value="mysql nosql" />
     <MESSAGE value="redis mysql db" />
     <MESSAGE value="redis mysql db read write" />
-    <option name="LAST_COMMIT_MESSAGE" value="redis mysql db read write" />
+    <MESSAGE value="delete python" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete python" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
