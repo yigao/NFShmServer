@@ -206,7 +206,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::E_STORESVR_C2S_SELECTOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
         }
@@ -215,8 +216,8 @@ public:
 
     template<class DataType, typename ResponFunc>
     int64_t GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &func,
-                               const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
-                               const std::string &dbname = "")
+                                   const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                                   const std::string &dbname = "")
     {
         return GetRpcSelectObjServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields, dstBusId, dbname);
     }
@@ -229,9 +230,9 @@ public:
 private:
     template<class DataType, typename ResponFunc>
     int64_t GetRpcSelectObjServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &responFunc,
-                                    void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
-                                    const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
-                                    const std::string &dbname = "")
+                                        void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
+                                        const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                                        const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
@@ -247,9 +248,9 @@ private:
 public:
     ///////////////////////store server select////////////////////////////////////////////////////////////////////////////
     int GetRpcDescStoreService(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message *pDescStoreMessage,
-                            const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
-                            int max_records = 100, uint32_t dstBusId = 0,
-                            const std::string &dbname = "")
+                               const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
+                               int max_records = 100, uint32_t dstBusId = 0,
+                               const std::string &dbname = "")
     {
         std::string tempDBName = dbname;
         if (dbname.empty())
@@ -304,7 +305,8 @@ public:
                 const google::protobuf::Reflection *pSheetReflect = pDescStoreMessage->GetReflection();
                 CHECK_EXPR(pSheetReflect, -1, "pSheetFieldDesc == NULL");
 
-                if (pSheetFieldDesc->field_count() > 0) {
+                if (pSheetFieldDesc->field_count() > 0)
+                {
                     /*  比如 message Sheet_GameRoomDesc
                     *		{
                     *			repeated GameRoomDesc GameRoomDesc_List = 1  [(yd_fieldoptions.field_arysize)=100];
@@ -313,7 +315,8 @@ public:
                     */
                     const google::protobuf::FieldDescriptor *pSheetRepeatedFieldDesc = pSheetFieldDesc->field(0);
                     if (pSheetRepeatedFieldDesc->is_repeated() &&
-                        pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE) {
+                        pSheetRepeatedFieldDesc->cpp_type() == google::protobuf::FieldDescriptor::CPPTYPE_MESSAGE)
+                    {
                         //如果is_repeated 开始处理
                         for (int i = 0; i < (int) selRes.record_size(); i++)
                         {
@@ -337,7 +340,8 @@ public:
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcDescStoreService Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                                selRes.opres().errmsg());
                 }
-                else {
+                else
+                {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcDescStoreService Failed, iRet:{}", GetErrorStr(iRet));
                 }
 
@@ -353,7 +357,9 @@ public:
 
     template<typename DataType>
     int GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, std::vector<DataType> &respone,
-                            const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
+                            const std::vector<std::string> &vecFields = std::vector<std::string>(),
+                            const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                            const std::string &where_addtional_conds = "",
                             int max_records = 100, uint32_t dstBusId = 0,
                             const std::string &dbname = "")
     {
@@ -373,9 +379,6 @@ public:
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
         CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
-
-        std::vector<storesvr_sqldata::storesvr_vk> vk_list;
-        NFStoreProtoCommon::get_vk_list_from_proto(data, vk_list);
 
         NFStoreProtoCommon::storesvr_selectbycond(sel, tempDBName, tbname, mod_key, vecFields, vk_list, where_addtional_conds, max_records,
                                                   tbname, packageName);
@@ -427,7 +430,8 @@ public:
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::E_STORESVR_C2S_SELECT Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                                selRes.opres().errmsg());
                 }
-                else {
+                else
+                {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
                 }
 
@@ -443,26 +447,29 @@ public:
 
     template<class DataType, typename ResponFunc>
     int64_t GetRpcSelectService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &func,
-                            const std::vector<std::string> &vecFields = std::vector<std::string>(), const std::string &where_addtional_conds = "",
-                            int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
+                                const std::vector<std::string> &vecFields = std::vector<std::string>(),
+                                const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                                const std::string &where_addtional_conds = "",
+                                int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
     {
-        return GetRpcSelectServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields, where_addtional_conds, max_records, dstBusId,
+        return GetRpcSelectServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields, vk_list, where_addtional_conds, max_records, dstBusId,
                                         dbname);
     }
 
 private:
     template<class DataType, typename ResponFunc>
     int64_t GetRpcSelectServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const ResponFunc &responFunc,
-                                 void (ResponFunc::*pf)(int rpcRetCode, std::vector<DataType> &respone) const,
-                                 const std::vector<std::string> &vecFields = std::vector<std::string>(),
-                                 const std::string &where_addtional_conds = "", int max_records = 100, uint32_t dstBusId = 0,
-                                 const std::string &dbname = "")
+                                     void (ResponFunc::*pf)(int rpcRetCode, std::vector<DataType> &respone) const,
+                                     const std::vector<std::string> &vecFields = std::vector<std::string>(),
+                                     const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                                     const std::string &where_addtional_conds = "", int max_records = 100, uint32_t dstBusId = 0,
+                                     const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      std::vector<DataType> respone;
-                     int rpcRetCode = GetRpcSelectService(eType, mod_key, data, respone, vecFields, where_addtional_conds, max_records,
+                     int rpcRetCode = GetRpcSelectService(eType, mod_key, data, respone, vecFields, vk_list, where_addtional_conds, max_records,
                                                           dstBusId, dbname);
 
                      (responFunc.*pf)(rpcRetCode, respone);
@@ -508,7 +515,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_INSERTOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
         }
@@ -517,7 +525,7 @@ public:
 
     template<class DataType>
     int64_t GetRpcInsertObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
-                               uint32_t dstBusId = 0, const std::string &dbname = "")
+                                   uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
@@ -573,7 +581,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_MODIFYOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
         }
@@ -582,7 +591,7 @@ public:
 
     template<class DataType>
     int64_t GetRpcModifyObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
-                               uint32_t dstBusId = 0, const std::string &dbname = "")
+                                   uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
@@ -633,7 +642,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_UPDATEOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
         }
@@ -642,7 +652,7 @@ public:
 
     template<class DataType>
     int64_t GetRpcUpdateObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
-                               uint32_t dstBusId = 0, const std::string &dbname = "")
+                                   uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
@@ -693,7 +703,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_DELETEOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
         }
@@ -702,7 +713,7 @@ public:
 
     template<class DataType>
     int64_t GetRpcDeleteObjService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
-                               uint32_t dstBusId = 0, const std::string &dbname = "")
+                                   uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
@@ -719,7 +730,9 @@ public:
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////store server delete////////////////////////////////////////////////////////////////////////////
     template<typename DataType>
-    int GetRpcDeleteService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::string &where_addtional_conds = "",
+    int GetRpcDeleteService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data,
+                            const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                            const std::string &where_addtional_conds = "",
                             uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         std::string tempDBName = dbname;
@@ -738,8 +751,6 @@ public:
         std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
         CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
-        std::vector<storesvr_sqldata::storesvr_vk> vk_list;
-        NFStoreProtoCommon::get_vk_list_from_proto(data, vk_list);
         NFStoreProtoCommon::storesvr_deletebycond(selobj, tempDBName, tbname, mod_key, vk_list, where_addtional_conds, tbname, packageName);
 
         storesvr_sqldata::storesvr_del_res selobjRes;
@@ -756,7 +767,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_DELETE Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
         }
@@ -765,13 +777,14 @@ public:
 
     template<class DataType>
     int64_t GetRpcDeleteService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
-                            const std::string &where_addtional_conds = "",
-                            uint32_t dstBusId = 0, const std::string &dbname = "")
+                                const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                                const std::string &where_addtional_conds = "",
+                                uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
-                     int rpcRetCode = GetRpcDeleteService(eType, mod_key, data, where_addtional_conds, dstBusId, dbname);
+                     int rpcRetCode = GetRpcDeleteService(eType, mod_key, data, vk_list, where_addtional_conds, dstBusId, dbname);
                      if (func)
                      {
                          func(rpcRetCode);
@@ -819,7 +832,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_MODIFY Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
         }
@@ -828,11 +842,11 @@ public:
 
     template<class DataType>
     int64_t GetRpcModifyService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
-                            const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
-                            const std::string &where_addtional_conds = "",
-                            uint32_t
-                            dstBusId = 0,
-                            const std::string &dbname = "")
+                                const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                                const std::string &where_addtional_conds = "",
+                                uint32_t
+                                dstBusId = 0,
+                                const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
@@ -885,7 +899,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_MODINS Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
         }
@@ -894,11 +909,11 @@ public:
 
     template<class DataType>
     int64_t GetRpcUpdateService(NF_SERVER_TYPES eType, uint64_t mod_key, const DataType &data, const std::function<void(int)> &func,
-                            const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
-                            const std::string &where_addtional_conds = "",
-                            uint32_t
-                            dstBusId = 0,
-                            const std::string &dbname = "")
+                                const std::vector<storesvr_sqldata::storesvr_vk> &vk_list = std::vector<storesvr_sqldata::storesvr_vk>(),
+                                const std::string &where_addtional_conds = "",
+                                uint32_t
+                                dstBusId = 0,
+                                const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
@@ -951,7 +966,8 @@ public:
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_EXECUTE Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                            selobjRes.opres().errmsg());
             }
-            else {
+            else
+            {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
             }
 
@@ -969,9 +985,9 @@ public:
 private:
     template<class DataType, typename ResponFunc>
     int64_t GetRpcExecuteServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql,
-                                  const ResponFunc &responFunc, void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
-                                  uint32_t dstBusId = 0,
-                                  const std::string &dbname = "")
+                                      const ResponFunc &responFunc, void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
+                                      uint32_t dstBusId = 0,
+                                      const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
@@ -1058,7 +1074,8 @@ public:
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::NF_STORESVR_C2S_EXECUTE_MORE Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
                                selRes.opres().errmsg());
                 }
-                else {
+                else
+                {
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService Failed, iRet:{}", GetErrorStr(iRet));
                 }
 
@@ -1074,25 +1091,25 @@ public:
 
     template<typename ResponFunc>
     int64_t GetRpcExecuteMoreService(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql, const ResponFunc &func,
-                            int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
+                                     int max_records = 100, uint32_t dstBusId = 0, const std::string &dbname = "")
     {
         return GetRpcExecuteMoreServiceInner(eType, mod_key, sql, func, &ResponFunc::operator(), max_records, dstBusId,
-                                        dbname);
+                                             dbname);
     }
 
 private:
     template<class DataType, typename ResponFunc>
     int64_t GetRpcExecuteMoreServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, const std::string &sql, const ResponFunc &responFunc,
-                                 void (ResponFunc::*pf)(int rpcRetCode, std::vector<DataType> &respone) const,
-                                 int max_records = 100, uint32_t dstBusId = 0,
-                                 const std::string &dbname = "")
+                                          void (ResponFunc::*pf)(int rpcRetCode, std::vector<DataType> &respone) const,
+                                          int max_records = 100, uint32_t dstBusId = 0,
+                                          const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      std::vector<DataType> respone;
                      int rpcRetCode = GetRpcExecuteMoreService(eType, mod_key, respone, sql, max_records,
-                                                          dstBusId, dbname);
+                                                               dstBusId, dbname);
 
                      (responFunc.*pf)(rpcRetCode, respone);
                  });

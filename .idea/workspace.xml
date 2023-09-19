@@ -461,14 +461,7 @@
       <workItem from="1694479084237" duration="53274000" />
       <workItem from="1694689725600" duration="28120000" />
       <workItem from="1694825978859" duration="17091000" />
-      <workItem from="1694998325179" duration="11680000" />
-    </task>
-    <task id="LOCAL-00088" summary="xls">
-      <created>1692458730452</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1692458730452</updated>
+      <workItem from="1694998325179" duration="12067000" />
     </task>
     <task id="LOCAL-00089" summary="xls">
       <created>1692682494337</created>
@@ -806,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695002525220</updated>
     </task>
-    <option name="localTasksCounter" value="137" />
+    <task id="LOCAL-00137" summary="redis mysql db read write">
+      <created>1695091240334</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1695091240335</updated>
+    </task>
+    <option name="localTasksCounter" value="138" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1005,11 +1005,6 @@
           <url>file://$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp</url>
           <line>123</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp</url>
-          <line>113</line>
-          <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin/NFCAsyDBModule.cpp</url>

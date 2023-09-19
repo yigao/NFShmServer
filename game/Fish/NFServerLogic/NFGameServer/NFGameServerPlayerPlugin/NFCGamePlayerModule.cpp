@@ -111,7 +111,7 @@ NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t 
             {
                 NFGameRoomMgr::Instance(m_pObjPluginManager)->RegisterAllRoomToWorldServer();
 
-                proto_ff::E_FishRoom room;
+/*                proto_ff::E_FishRoom room;
                 room.set_m_entermin(1234);
                 std::vector<storesvr_sqldata::storesvr_vk> vk_list;
                 storesvr_sqldata::storesvr_vk vk1;
@@ -119,9 +119,9 @@ NFCGamePlayerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t 
                 vk1.set_column_value("3");
                 vk1.set_cmp_operator(::storesvr_sqldata::E_CMPOP_GREATEREQUAL);
                 vk_list.push_back(vk1);
-                FindModule<NFIServerMessageModule>()->GetRpcUpdateService(NF_ST_GAME_SERVER, 0, room, [](int iRet){
+                FindModule<NFIServerMessageModule>()->GetRpcSelectService(NF_ST_GAME_SERVER, 0, room, [](int iRet, std::vector<proto_ff::E_FishRoom> &respone){
                     NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcModifyService FishRoom iRet:{}", GetErrorStr(iRet));
-                }, vk_list, "m_id > 0");
+                }, std::vector<std::string>(), vk_list, "m_id > 0");*/
             }
         }
     }

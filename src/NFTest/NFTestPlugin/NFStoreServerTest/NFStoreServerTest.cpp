@@ -214,12 +214,13 @@ int NFStoreServerTest::Test_GetRpcDeleteService()
         flag = true;
 
         proto_ff::tbServerMgr data;
+        std::vector<storesvr_sqldata::storesvr_vk> vk_list;
         int iRet = FindModule<NFIServerMessageModule>()->GetRpcDeleteService
                 (NF_ST_LOGIC_SERVER, 0, data,
                  [](int rpcRetCode)
                  {
                      NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcDeleteObjService rpcRetCode:{}", GetErrorStr(rpcRetCode));
-                 }, "id <= 500");
+                 }, vk_list, "id <= 500");
 
         if (iRet != 0)
         {
@@ -231,7 +232,8 @@ int NFStoreServerTest::Test_GetRpcDeleteService()
                 ([this]()
                  {
                      proto_ff::tbServerMgr data;
-                     int iRet = FindModule<NFIServerMessageModule>()->GetRpcDeleteService(NF_ST_LOGIC_SERVER, 0, data, "id >= 500 and id <= 999");
+                     std::vector<storesvr_sqldata::storesvr_vk> vk_list;
+                     int iRet = FindModule<NFIServerMessageModule>()->GetRpcDeleteService(NF_ST_LOGIC_SERVER, 0, data, vk_list, "id >= 500 and id <= 999");
                      NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GetRpcDeleteObjService iRet:{}", GetErrorStr(iRet));
                  });
     }
