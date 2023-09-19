@@ -19,7 +19,7 @@ FishConfigDesc::~FishConfigDesc()
 
 int FishConfigDesc::CreateInit()
 {
-	return 0;
+	return Initialize();
 }
 
 int FishConfigDesc::ResumeInit()

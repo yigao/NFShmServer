@@ -93,42 +93,17 @@
         return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
     }\
 
-#define IMPL_RES_SIMPLE_DESC(DESCSTORENAME) \
+#define IMPL_RES_DESC_EX(DESCSTORENAME) \
     public:\
-	virtual int GetResNum() const  override {return 0;}  \
-    virtual int Initialize() override\
-    {\
-        return 0;\
-    }\
-    virtual int Reload(NFResDB *pDB) override\
+    virtual int Reload() override\
     {\
         PrepareReload();\
-        int iRetCode = Load( pDB );\
+        int iRetCode = Load();\
         return iRetCode;\
     }\
-    virtual std::string GetFileName() override\
-    {\
-        return std::string(#DESCSTORENAME);\
-    }\
-    virtual int Load(NFResDB* pDB) override;\
+    virtual int PrepareReload() override;\
+    virtual int Load() override;\
     virtual int CheckWhenAllDataLoaded() override;\
-    virtual int CalcUseRatio() override\
-    {\
-        return 0;\
-    }\
-    int SaveDescStore() override\
-    {\
-        return 0;\
-    }\
-	static DESCSTORENAME* DescStore()\
-    {\
-        return (DESCSTORENAME *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<DESCSTORENAME>();\
-    }\
-    static DESCSTORENAME* GetDescStore()\
-    {\
-        return (DESCSTORENAME *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<DESCSTORENAME>();\
-    }\
-
 
 
 #define MAX_MD5_STR_LEN  33

@@ -19,7 +19,7 @@ FishGunvalueDesc::~FishGunvalueDesc()
 
 int FishGunvalueDesc::CreateInit()
 {
-	return 0;
+	return Initialize();
 }
 
 int FishGunvalueDesc::ResumeInit()

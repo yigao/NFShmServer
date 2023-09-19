@@ -716,7 +716,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 ///////////////////////////////////////////////////////////
     desc_file += "int " + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc::CreateInit()\n";
     desc_file += "{\n";
-    desc_file += "\treturn 0;\n";
+    desc_file += "\treturn Initialize();\n";
     desc_file += "}\n\n";
 ////////////////////////////////////////////////////////////////
     desc_file += "int " + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc::ResumeInit()\n";

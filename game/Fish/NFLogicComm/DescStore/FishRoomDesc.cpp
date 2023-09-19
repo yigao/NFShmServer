@@ -19,7 +19,7 @@ FishRoomDesc::~FishRoomDesc()
 
 int FishRoomDesc::CreateInit()
 {
-	return 0;
+	return Initialize();
 }
 
 int FishRoomDesc::ResumeInit()

@@ -32,6 +32,8 @@ public:
 
     virtual void RegisterDescStore(const std::string& strClassName, int objType) = 0;
 
+    virtual void RegisterDescStoreEx(const std::string& strClassName, int objType) = 0;
+
 	virtual NFIDescStore* FindDescStore(const std::string& strDescName) = 0;
 
 	virtual NFIDescStore* FindDescStoreByFileName(const std::string& strDescName) = 0;

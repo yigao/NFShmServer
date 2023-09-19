@@ -19,7 +19,7 @@ FishCtrllevelDesc::~FishCtrllevelDesc()
 
 int FishCtrllevelDesc::CreateInit()
 {
-	return 0;
+	return Initialize();
 }
 
 int FishCtrllevelDesc::ResumeInit()

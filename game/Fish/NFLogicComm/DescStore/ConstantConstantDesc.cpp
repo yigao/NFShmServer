@@ -19,7 +19,7 @@ ConstantConstantDesc::~ConstantConstantDesc()
 
 int ConstantConstantDesc::CreateInit()
 {
-	return 0;
+	return Initialize();
 }
 
 int ConstantConstantDesc::ResumeInit()

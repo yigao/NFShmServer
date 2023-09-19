@@ -119,6 +119,7 @@ int NFCDescStoreModule::Initialize()
     m_pResSqlDB = CreateResDBFromRealDB();
 
     InitAllDescStore();
+    InitAllDescStoreEx();
 
     return 0;
 }
@@ -179,6 +180,23 @@ void NFCDescStoreModule::InitAllDescStore()
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
 }
 
+void NFCDescStoreModule::InitAllDescStoreEx()
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    for (int i = 0; i < (int) mDescStoreExRegisterList.size(); i++)
+    {
+        std::string name = mDescStoreExRegisterList[i];
+        NFIDescStoreEx *pDescStoreEx = dynamic_cast<NFIDescStoreEx *>(FindModule<NFISharedMemModule>()->GetHeadObj(mDescStoreExRegister[name]));
+        CHECK_EXPR_CONTINUE(pDescStoreEx, "can' get NFIDescStoreEx:{} ptr from shm", name);
+
+        int iRet = InitDescStoreEx(name, pDescStoreEx);
+        CHECK_EXPR_CONTINUE(iRet == 0, "InitDescStoreEx:{} Failed!", name);
+
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Init Desc Store Ex:{} Success", name);
+    }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+}
+
 bool NFCDescStoreModule::IsAllDescStoreLoad()
 {
     for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++)
@@ -200,16 +218,17 @@ int NFCDescStoreModule::InitDescStore(const std::string &descClass, NFIDescStore
     pDescStore->SetValid();
     AddDescStore(descClass, pDescStore);
 
-    if (FindModule<NFISharedMemModule>()->GetInitMode() == EN_OBJ_MODE_INIT)
-    {
-        int iRet = pDescStore->Initialize();
-        NF_ASSERT(iRet == 0);
-    }
-    else
-    {
-        int iRet = pDescStore->Resume();
-        NF_ASSERT(iRet == 0);
-    }
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFCDescStoreModule::InitDescStoreEx(const std::string& descClass, NFIDescStoreEx* pDescStoreEx)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    CHECK_EXPR(pDescStoreEx, -1, "pDescStore = NULL");
+
+    pDescStoreEx->SetValid();
+    AddDescStoreEx(descClass, pDescStoreEx);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -449,6 +468,30 @@ int NFCDescStoreModule::CheckWhenAllDataLoaded()
         pDescStore->SetChecked(true);
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store End CheckWhenAllDataLoaded:{}", iter->first);
     }
+    for (auto iter = mDescStoreExMap.begin(); iter != mDescStoreExMap.end(); iter++)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex Begin Loaded:{}", iter->first);
+        NFIDescStoreEx *pDescStoreEx = iter->second;
+        assert(pDescStoreEx);
+        iRet = pDescStoreEx->Load();
+
+        CHECK_EXPR(iRet == 0, iRet, "Desc Store Ex:{} Loaded Failed!", iter->first);
+
+        pDescStoreEx->SetLoaded(true);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex End Loaded:{}", iter->first);
+    }
+    for (auto iter = mDescStoreExMap.begin(); iter != mDescStoreExMap.end(); iter++)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex Begin CheckWhenAllDataLoaded:{}", iter->first);
+        NFIDescStoreEx *pDescStoreEx = iter->second;
+        assert(pDescStoreEx);
+        iRet = pDescStoreEx->CheckWhenAllDataLoaded();
+
+        CHECK_EXPR(iRet == 0, iRet, "Desc Store Ex:{} CheckWhenAllDataLoaded Failed!", iter->first);
+
+        pDescStoreEx->SetChecked(true);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex End CheckWhenAllDataLoaded:{}", iter->first);
+    }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
 }
@@ -481,6 +524,13 @@ void NFCDescStoreModule::RegisterDescStore(const std::string &strDescName, int o
     mDescStoreRegisterList.push_back(strDescName);
 }
 
+void NFCDescStoreModule::RegisterDescStoreEx(const std::string& strDescName, int objType)
+{
+    if (mDescStoreExRegister.find(strDescName) != mDescStoreExRegister.end()) return;
+    mDescStoreExRegister.insert(std::make_pair(strDescName, objType));
+    mDescStoreExRegisterList.push_back(strDescName);
+}
+
 void NFCDescStoreModule::AddDescStore(const std::string &strDescName, NFIDescStore *pDesc)
 {
     mDescStoreMap.insert(std::make_pair(strDescName, pDesc));
@@ -492,8 +542,12 @@ void NFCDescStoreModule::AddDescStore(const std::string &strDescName, NFIDescSto
     }
 }
 
-int
-NFCDescStoreModule::SaveDescStoreByFileName(const std::string &dbName, const std::string &strDescFileName, const google::protobuf::Message *pMessage)
+void NFCDescStoreModule::AddDescStoreEx(const std::string& strDescName, NFIDescStoreEx* pDescEx)
+{
+    mDescStoreExMap.insert(std::make_pair(strDescName, pDescEx));
+}
+
+int NFCDescStoreModule::SaveDescStoreByFileName(const std::string &dbName, const std::string &strDescFileName, const google::protobuf::Message *pMessage)
 {
     NFIDescStore *pDescStore = FindDescStoreByFileName(strDescFileName);
     CHECK_EXPR(pDescStore, -1, "FindDescStoreByFileName(strDescName) Failed! strDescName:{}", strDescFileName);

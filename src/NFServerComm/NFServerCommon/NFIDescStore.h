@@ -73,11 +73,6 @@ public:
         return 0;
     }
 
-    virtual int Resume()
-    {
-        return 0;    // recover
-    }
-
     virtual bool IsFileLoad()
     {
         return true;

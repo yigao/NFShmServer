@@ -13,6 +13,7 @@
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
+#include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
 #include <unordered_map>
 
 class NFCDescStoreModule : public NFIDescStoreModule
@@ -31,6 +32,7 @@ public:
 
 	virtual void RegisterDescStore(const std::string& strClassName, int objType, const std::string& dbName) override;
     virtual void RegisterDescStore(const std::string& strClassName, int objType) override;
+    virtual void RegisterDescStoreEx(const std::string& strClassName, int objType) override;
 
 	virtual NFIDescStore* FindDescStore(const std::string& strDescName) override;
 
@@ -43,6 +45,8 @@ public:
 
 	virtual void AddDescStore(const std::string& strDescName, NFIDescStore* pDesc);
 
+    virtual void AddDescStoreEx(const std::string& strDescName, NFIDescStoreEx* pDescEx);
+
 	virtual void RemoveDescStore(const std::string& strDescName);
 
     virtual int InsertDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) override;
@@ -50,8 +54,10 @@ public:
     virtual int SaveDescStoreByFileName(const std::string& dbName, const std::string& strDescName, const google::protobuf::Message *pMessage) override;;
 
 	virtual void InitAllDescStore();
+    virtual void InitAllDescStoreEx();
 
 	virtual int InitDescStore(const std::string& descClass, NFIDescStore* pDescStore);
+    virtual int InitDescStoreEx(const std::string& descClass, NFIDescStoreEx* pDescStore);
 	virtual int ExtraInitializeWhenRecover();
     virtual bool IsAllDescStoreLoad() override;;
 
@@ -87,4 +93,8 @@ private:
     NFResDB* m_pResSqlDB;
     bool m_bStartInit;
     bool m_bFinishAllLoaded;
+private:
+    std::unordered_map<std::string, NFIDescStoreEx*> mDescStoreExMap;
+    std::unordered_map<std::string, int> mDescStoreExRegister;
+    std::vector<std::string> mDescStoreExRegisterList;    //记录注册顺序，根据顺序来加载
 };
