@@ -67,9 +67,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="redis mysql db read write">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFCGamePlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFStoreServerTest/NFStoreServerTest.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTest/NFTestPlugin/NFStoreServerTest/NFStoreServerTest.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToStruct.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToStruct.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToStruct.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToStruct.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -460,14 +459,7 @@
       <workItem from="1694479084237" duration="53274000" />
       <workItem from="1694689725600" duration="28120000" />
       <workItem from="1694825978859" duration="17091000" />
-      <workItem from="1694998325179" duration="12911000" />
-    </task>
-    <task id="LOCAL-00090" summary="xls">
-      <created>1692752562840</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1692752562840</updated>
+      <workItem from="1694998325179" duration="18051000" />
     </task>
     <task id="LOCAL-00091" summary="xls">
       <created>1692753090793</created>
@@ -805,7 +797,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695092088677</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="redis mysql db read write">
+      <created>1695102929365</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1695102929375</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

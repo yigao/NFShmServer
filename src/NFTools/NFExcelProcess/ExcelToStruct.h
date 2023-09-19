@@ -27,6 +27,7 @@ struct ProtoMessageFieldDesc
         m_arraySize = 0;
         m_bufferSize = 0;
     }
+    std::string m_comment;
     std::string m_name;
     std::string m_c_type;
     std::string m_pb_type;

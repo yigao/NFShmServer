@@ -20,12 +20,12 @@ namespace proto_ff_s {
 		virtual ~tbFishAccountTable_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t player_id;
-		NFShmString<128> account;
-		NFShmString<128> password;
-		uint32_t account_type;
-		NFShmString<128> device_id;
-		uint64_t phonenum;
+		uint64_t player_id;//
+		NFShmString<128> account;//
+		NFShmString<128> password;//
+		uint32_t account_type;//
+		NFShmString<128> device_id;//
+		uint64_t phonenum;//
 
 		virtual void write_to_pbmsg(::proto_ff::tbFishAccountTable & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbFishAccountTable & msg);
@@ -39,17 +39,17 @@ namespace proto_ff_s {
 		virtual ~tbFishPlayerData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t player_id;
-		NFShmString<128> nickname;
-		uint32_t faceid;
-		uint64_t regdate;
-		uint32_t gender;
-		uint32_t age;
-		uint64_t phonenum;
-		uint64_t jetton;
-		NFShmString<64> ip;
-		uint64_t last_login_time;
-		uint64_t last_logout_time;
+		uint64_t player_id;//
+		NFShmString<128> nickname;//
+		uint32_t faceid;//
+		uint64_t regdate;//
+		uint32_t gender;//
+		uint32_t age;//
+		uint64_t phonenum;//
+		uint64_t jetton;//
+		NFShmString<64> ip;//
+		uint64_t last_login_time;//
+		uint64_t last_logout_time;//
 
 		virtual void write_to_pbmsg(::proto_ff::tbFishPlayerData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbFishPlayerData & msg);
@@ -63,12 +63,12 @@ namespace proto_ff_s {
 		virtual ~tbFishSnsPlayerSimpleData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t player_id;
-		NFShmString<128> nickname;
-		uint32_t faceid;
-		uint64_t last_login_time;
-		uint64_t last_logout_time;
-		uint64_t agent;
+		uint64_t player_id;//
+		NFShmString<128> nickname;//
+		uint32_t faceid;//
+		uint64_t last_login_time;//
+		uint64_t last_logout_time;//
+		uint64_t agent;//
 
 		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerSimpleData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerSimpleData & msg);
@@ -82,7 +82,7 @@ namespace proto_ff_s {
 		virtual ~GiveBankRecordDBData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct tbGiveBankJetton_s, DEFINE_GIVEBANKRECORDDBDATA_RECORD_MAX_NUM> record;
+		NFShmVector<struct tbGiveBankJetton_s, DEFINE_GIVEBANKRECORDDBDATA_RECORD_MAX_NUM> record;//
 
 		virtual void write_to_pbmsg(::proto_ff::GiveBankRecordDBData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GiveBankRecordDBData & msg);
@@ -96,10 +96,10 @@ namespace proto_ff_s {
 		virtual ~tbFishSnsPlayerDetailData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t player_id;
-		uint64_t bank_jetton;
-		NFShmString<128> bank_password;
-		struct GiveBankRecordDBData_s record;
+		uint64_t player_id;//
+		uint64_t bank_jetton;//
+		NFShmString<128> bank_password;//
+		struct GiveBankRecordDBData_s record;//
 
 		virtual void write_to_pbmsg(::proto_ff::tbFishSnsPlayerDetailData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbFishSnsPlayerDetailData & msg);

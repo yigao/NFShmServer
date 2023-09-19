@@ -58,7 +58,7 @@ int FishRoomDesc::Load(NFResDB *pDB)
 			NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc no value, {}", desc.Utf8DebugString());
 			continue;
 		}
-		NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
+		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{}", desc.Utf8DebugString());
 		if (m_astDescMap.find(desc.m_id()) != m_astDescMap.end())
 		{
 			if (IsReloading())

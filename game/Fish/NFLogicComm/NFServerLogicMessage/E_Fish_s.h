@@ -22,22 +22,22 @@ namespace proto_ff_s {
 		virtual ~E_FishRoom_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;
-		int32_t m_roomid;
-		int32_t m_gameid;
-		NFShmString<64> m_gamename;
-		int32_t m_roomtype;
-		int32_t m_roomlevel;
-		NFShmString<64> m_roomname;
-		int32_t m_sitenum;
-		int32_t m_deskcount;
-		int32_t m_maxpeople;
-		int32_t m_entermin;
-		int32_t m_entermax;
-		int32_t m_autochair;
-		int32_t m_isexpscene;
-		int32_t m_expscenegold;
-		int32_t m_tax;
+		int32_t m_id;//唯一ID
+		int32_t m_roomid;//房间ID
+		int32_t m_gameid;//游戏ID
+		NFShmString<64> m_gamename;//游戏名
+		int32_t m_roomtype;//房间类型
+		int32_t m_roomlevel;//房间等级
+		NFShmString<64> m_roomname;//房间名
+		int32_t m_sitenum;//座位数
+		int32_t m_deskcount;//桌子数
+		int32_t m_maxpeople;//最大玩家数
+		int32_t m_entermin;//最小筹码
+		int32_t m_entermax;//最大筹码
+		int32_t m_autochair;//选位置
+		int32_t m_isexpscene;//体验场
+		int32_t m_expscenegold;//体验场金币
+		int32_t m_tax;//抽水率
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishRoom & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishRoom & msg);
@@ -51,7 +51,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FishRoom_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FishRoom_s, DEFINE_SHEET_FISHROOM_E_FISHROOM_LIST_MAX_NUM> E_FishRoom_List;
+		NFShmVector<struct E_FishRoom_s, DEFINE_SHEET_FISHROOM_E_FISHROOM_LIST_MAX_NUM> E_FishRoom_List;//
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FishRoom & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FishRoom & msg);
@@ -65,12 +65,12 @@ namespace proto_ff_s {
 		virtual ~E_FishGunvalue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_id;
-		int32_t m_value;
-		int32_t m_gameid;
-		int32_t m_roomid;
-		int32_t m_gunid;
-		int32_t m_gameroomid;
+		int32_t m_id;//唯一ID
+		int32_t m_value;//值
+		int32_t m_gameid;//游戏Id
+		int32_t m_roomid;//房间ID
+		int32_t m_gunid;//炮Id
+		int32_t m_gameroomid;//游戏房间ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg);
@@ -84,7 +84,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FishGunvalue_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FishGunvalue_s, DEFINE_SHEET_FISHGUNVALUE_E_FISHGUNVALUE_LIST_MAX_NUM> E_FishGunvalue_List;
+		NFShmVector<struct E_FishGunvalue_s, DEFINE_SHEET_FISHGUNVALUE_E_FISHGUNVALUE_LIST_MAX_NUM> E_FishGunvalue_List;//
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FishGunvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FishGunvalue & msg);
@@ -98,8 +98,8 @@ namespace proto_ff_s {
 		virtual ~E_FishCtrllevel_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_controllevel;
-		int32_t m_controlrate;
+		int32_t m_controllevel;//唯一ID
+		int32_t m_controlrate;//控制概率
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishCtrllevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishCtrllevel & msg);
@@ -113,7 +113,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FishCtrllevel_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FishCtrllevel_s, DEFINE_SHEET_FISHCTRLLEVEL_E_FISHCTRLLEVEL_LIST_MAX_NUM> E_FishCtrllevel_List;
+		NFShmVector<struct E_FishCtrllevel_s, DEFINE_SHEET_FISHCTRLLEVEL_E_FISHCTRLLEVEL_LIST_MAX_NUM> E_FishCtrllevel_List;//
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FishCtrllevel & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FishCtrllevel & msg);
@@ -127,16 +127,16 @@ namespace proto_ff_s {
 		virtual ~E_FishConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_fishid;
-		int32_t m_fishtype;
-		int32_t m_buildfishtype;
-		int32_t m_ratiomin;
-		int32_t m_ratiomax;
-		int32_t m_doubleawardminratio;
-		int32_t m_childfishcount;
-		int32_t m_damageradius;
-		NFShmString<128> m_damagefishids;
-		NFShmVector<NFShmString<64>, DEFINE_E_FISHCONFIG_M_CHILDFISHIDS_MAX_NUM> m_childfishids;
+		int32_t m_fishid;//鱼Id
+		int32_t m_fishtype;//鱼类型
+		int32_t m_buildfishtype;//鱼build类型
+		int32_t m_ratiomin;//最新比例
+		int32_t m_ratiomax;//最大比例
+		int32_t m_doubleawardminratio;//双重奖励最小比率
+		int32_t m_childfishcount;//子鱼数
+		int32_t m_damageradius;//伤害半径
+		NFShmString<128> m_damagefishids;//伤害子鱼Ids
+		NFShmVector<NFShmString<64>, DEFINE_E_FISHCONFIG_M_CHILDFISHIDS_MAX_NUM> m_childfishids;//子鱼Ids
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishConfig & msg);
@@ -150,7 +150,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_FishConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_FishConfig_s, DEFINE_SHEET_FISHCONFIG_E_FISHCONFIG_LIST_MAX_NUM> E_FishConfig_List;
+		NFShmVector<struct E_FishConfig_s, DEFINE_SHEET_FISHCONFIG_E_FISHCONFIG_LIST_MAX_NUM> E_FishConfig_List;//
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_FishConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FishConfig & msg);

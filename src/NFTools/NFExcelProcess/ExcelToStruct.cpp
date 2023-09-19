@@ -110,6 +110,11 @@ int ExcelToStruct::ParseProto(const ::google::protobuf::FileDescriptorProto &fil
                 message_info.m_useStl = true;
             }
 
+            if (field_options.HasExtension(yd_fieldoptions::field_cname))
+            {
+                message_field_info->m_comment = field_options.GetExtension(yd_fieldoptions::field_cname);
+            }
+
             if (field_desc_proto.label() == ::google::protobuf::FieldDescriptorProto_Label_LABEL_REPEATED)
             {
                 message_field_info->m_isArray = true;
@@ -282,13 +287,13 @@ int ExcelToStruct::WriteH()
                     if (message_desc.m_useStl)
                     {
                         line += NF_FORMAT_FUNC("\t\tstd::vector<{}> {}", msg_field.m_c_type,  msg_field.m_name);
-                        line += ";\n";
+                        line += NF_FORMAT_FUNC(";//{}\n", msg_field.m_comment);
                     }
                     else
                     {
                         define_max_num += NF_FORMAT_FUNC("#define {} {}\n", define_max,  msg_field.m_arraySize);
                         line += NF_FORMAT_FUNC("\t\tNFShmVector<{}, {}> {}", msg_field.m_c_type, define_max,  msg_field.m_name);
-                        line += ";\n";
+                        line += NF_FORMAT_FUNC(";//{}\n", msg_field.m_comment);
                     }
                 }
                 else if (msg_field.m_isArray == false && msg_field.m_isBuffer == true)
@@ -296,11 +301,11 @@ int ExcelToStruct::WriteH()
                     if (message_desc.m_useStl)
                     {
                         line += NF_FORMAT_FUNC("\t\tstd::string {}", msg_field.m_name);
-                        line += ";\n";
+                        line += NF_FORMAT_FUNC(";//{}\n", msg_field.m_comment);
                     }
                     else {
                         line += NF_FORMAT_FUNC("\t\tNFShmString<{}> {}", msg_field.m_bufferSize, msg_field.m_name);
-                        line += ";\n";
+                        line += NF_FORMAT_FUNC(";//{}\n", msg_field.m_comment);
                     }
                 }
                 else if (msg_field.m_isArray == true && msg_field.m_isBuffer == true)
@@ -308,18 +313,18 @@ int ExcelToStruct::WriteH()
                     if (message_desc.m_useStl)
                     {
                         line += NF_FORMAT_FUNC("\t\tstd::vector<std::string> {}", msg_field.m_name);
-                        line += ";\n";
+                        line += NF_FORMAT_FUNC(";//{}\n", msg_field.m_comment);
                     }
                     else {
                         define_max_num += NF_FORMAT_FUNC("#define {} {}\n", define_max,  msg_field.m_arraySize);
                         line += NF_FORMAT_FUNC("\t\tNFShmVector<NFShmString<{}>, {}> {}", msg_field.m_bufferSize,  define_max, msg_field.m_name);
-                        line += ";\n";
+                        line += NF_FORMAT_FUNC(";//{}\n", msg_field.m_comment);
                     }
                 }
             }
             else {
                 line += NF_FORMAT_FUNC("\t\t{} {}", msg_field.m_c_type, msg_field.m_name);
-                line += ";\n";
+                line += NF_FORMAT_FUNC(";//{}\n", msg_field.m_comment);
             }
 
             line_struct += line;

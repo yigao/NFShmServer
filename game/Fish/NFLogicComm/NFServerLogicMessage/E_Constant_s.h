@@ -18,9 +18,9 @@ namespace proto_ff_s {
 		virtual ~E_ConstantConstant_s(){}
 		int CreateInit();
 		int ResumeInit();
-		int32_t m_constantid;
-		int64_t m_constantdata;
-		NFShmString<64> m_stringdata;
+		int32_t m_constantid;//配置id
+		int64_t m_constantdata;//数据
+		NFShmString<64> m_stringdata;//字符串数据
 
 		virtual void write_to_pbmsg(::proto_ff::E_ConstantConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_ConstantConstant & msg);
@@ -34,7 +34,7 @@ namespace proto_ff_s {
 		virtual ~Sheet_ConstantConstant_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct E_ConstantConstant_s, DEFINE_SHEET_CONSTANTCONSTANT_E_CONSTANTCONSTANT_LIST_MAX_NUM> E_ConstantConstant_List;
+		NFShmVector<struct E_ConstantConstant_s, DEFINE_SHEET_CONSTANTCONSTANT_E_CONSTANTCONSTANT_LIST_MAX_NUM> E_ConstantConstant_List;//
 
 		virtual void write_to_pbmsg(::proto_ff::Sheet_ConstantConstant & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Sheet_ConstantConstant & msg);

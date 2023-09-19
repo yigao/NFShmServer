@@ -20,12 +20,12 @@ namespace proto_ff_s {
 		virtual ~WorldExternalConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
-		bool TokenTimeCheck;
-		bool WhiteListState;
-		uint32_t MaxRegisterNum;
-		NFShmVector<uint64_t, DEFINE_WORLDEXTERNALCONFIG_WHITELIST_MAX_NUM> WhiteList;
-		uint32_t StartQueueNum;
-		uint32_t MaxQueueNum;
+		bool TokenTimeCheck;//
+		bool WhiteListState;//
+		uint32_t MaxRegisterNum;//
+		NFShmVector<uint64_t, DEFINE_WORLDEXTERNALCONFIG_WHITELIST_MAX_NUM> WhiteList;//
+		uint32_t StartQueueNum;//
+		uint32_t MaxQueueNum;//
 
 		virtual void write_to_pbmsg(::proto_ff::WorldExternalConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::WorldExternalConfig & msg);
@@ -39,8 +39,8 @@ namespace proto_ff_s {
 		virtual ~GameExternalGame_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint32_t GameId;
-		NFShmVector<uint32_t, DEFINE_GAMEEXTERNALGAME_ROOMID_MAX_NUM> RoomId;
+		uint32_t GameId;//
+		NFShmVector<uint32_t, DEFINE_GAMEEXTERNALGAME_ROOMID_MAX_NUM> RoomId;//
 
 		virtual void write_to_pbmsg(::proto_ff::GameExternalGame & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GameExternalGame & msg);
@@ -54,8 +54,8 @@ namespace proto_ff_s {
 		virtual ~GameExternalConfig_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmVector<struct GameExternalGame_s, DEFINE_GAMEEXTERNALCONFIG_GAME_MAX_NUM> Game;
-		uint32_t MaxDeskNunOneRoom;
+		NFShmVector<struct GameExternalGame_s, DEFINE_GAMEEXTERNALCONFIG_GAME_MAX_NUM> Game;//
+		uint32_t MaxDeskNunOneRoom;//
 
 		virtual void write_to_pbmsg(::proto_ff::GameExternalConfig & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GameExternalConfig & msg);

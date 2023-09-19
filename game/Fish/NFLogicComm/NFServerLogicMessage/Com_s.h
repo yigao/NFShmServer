@@ -32,8 +32,8 @@ namespace proto_ff_s {
 		virtual ~ComPair_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint32_t key;
-		uint32_t value;
+		uint32_t key;//
+		uint32_t value;//
 
 		virtual void write_to_pbmsg(::proto_ff::ComPair & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ComPair & msg);
@@ -47,8 +47,8 @@ namespace proto_ff_s {
 		virtual ~ComPair64_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t key;
-		uint64_t value;
+		uint64_t key;//
+		uint64_t value;//
 
 		virtual void write_to_pbmsg(::proto_ff::ComPair64 & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ComPair64 & msg);
@@ -62,8 +62,8 @@ namespace proto_ff_s {
 		virtual ~ComPairBool_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint32_t key;
-		bool value;
+		uint32_t key;//
+		bool value;//
 
 		virtual void write_to_pbmsg(::proto_ff::ComPairBool & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ComPairBool & msg);
@@ -77,8 +77,8 @@ namespace proto_ff_s {
 		virtual ~ComItem_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t item_id;
-		uint64_t item_num;
+		uint64_t item_id;//
+		uint64_t item_num;//
 
 		virtual void write_to_pbmsg(::proto_ff::ComItem & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ComItem & msg);
@@ -92,9 +92,9 @@ namespace proto_ff_s {
 		virtual ~ComItemWithType_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t item_id;
-		uint64_t item_num;
-		uint32_t type;
+		uint64_t item_id;//
+		uint64_t item_num;//
+		uint32_t type;//
 
 		virtual void write_to_pbmsg(::proto_ff::ComItemWithType & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::ComItemWithType & msg);
@@ -108,9 +108,9 @@ namespace proto_ff_s {
 		virtual ~Vector3PB_s(){}
 		int CreateInit();
 		int ResumeInit();
-		float x;
-		float y;
-		float z;
+		float x;//
+		float y;//
+		float z;//
 
 		virtual void write_to_pbmsg(::proto_ff::Vector3PB & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Vector3PB & msg);
@@ -124,8 +124,8 @@ namespace proto_ff_s {
 		virtual ~Vector2PB_s(){}
 		int CreateInit();
 		int ResumeInit();
-		float x;
-		float y;
+		float x;//
+		float y;//
 
 		virtual void write_to_pbmsg(::proto_ff::Vector2PB & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Vector2PB & msg);
@@ -139,8 +139,8 @@ namespace proto_ff_s {
 		virtual ~Attr64_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint32_t id;
-		int64_t value;
+		uint32_t id;//
+		int64_t value;//
 
 		virtual void write_to_pbmsg(::proto_ff::Attr64 & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Attr64 & msg);
@@ -154,16 +154,16 @@ namespace proto_ff_s {
 		virtual ~Proto_UserLoginExternalData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint32_t aread_id;
-		uint32_t agent_id;
-		uint32_t channel_id;
-		uint64_t referral_code;
-		NFShmString<32> platform_os;
-		NFShmString<32> country;
-		NFShmString<32> province;
-		NFShmString<32> city;
-		NFShmString<32> phone_mode;
-		NFShmString<32> device_id;
+		uint32_t aread_id;//
+		uint32_t agent_id;//
+		uint32_t channel_id;//
+		uint64_t referral_code;//
+		NFShmString<32> platform_os;//
+		NFShmString<32> country;//
+		NFShmString<32> province;//
+		NFShmString<32> city;//
+		NFShmString<32> phone_mode;//
+		NFShmString<32> device_id;//
 
 		virtual void write_to_pbmsg(::proto_ff::Proto_UserLoginExternalData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Proto_UserLoginExternalData & msg);
@@ -177,13 +177,13 @@ namespace proto_ff_s {
 		virtual ~Proto_UserDetailCommonData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		NFShmString<32> nick_name;
-		uint32_t face_id;
-		uint32_t gender;
-		uint64_t jetton;
-		uint64_t bank_jetton;
-		uint64_t agent_id;
-		uint64_t phonenum;
+		NFShmString<32> nick_name;//
+		uint32_t face_id;//
+		uint32_t gender;//
+		uint64_t jetton;//
+		uint64_t bank_jetton;//
+		uint64_t agent_id;//
+		uint64_t phonenum;//
 
 		virtual void write_to_pbmsg(::proto_ff::Proto_UserDetailCommonData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Proto_UserDetailCommonData & msg);
@@ -197,9 +197,9 @@ namespace proto_ff_s {
 		virtual ~Proto_LTSSyncData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		bool create_player_db_data;
-		NFShmString<32> nick_name;
-		uint32_t face_id;
+		bool create_player_db_data;//
+		NFShmString<32> nick_name;//
+		uint32_t face_id;//
 
 		virtual void write_to_pbmsg(::proto_ff::Proto_LTSSyncData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Proto_LTSSyncData & msg);
@@ -213,13 +213,13 @@ namespace proto_ff_s {
 		virtual ~tbGiveBankJetton_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t id;
-		uint64_t user_id;
-		NFShmString<32> user_name;
-		uint64_t give_user_id;
-		NFShmString<32> give_user_name;
-		uint64_t give_jetton;
-		uint64_t create_time;
+		uint64_t id;//
+		uint64_t user_id;//
+		NFShmString<32> user_name;//
+		uint64_t give_user_id;//
+		NFShmString<32> give_user_name;//
+		uint64_t give_jetton;//
+		uint64_t create_time;//
 
 		virtual void write_to_pbmsg(::proto_ff::tbGiveBankJetton & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::tbGiveBankJetton & msg);
@@ -233,11 +233,11 @@ namespace proto_ff_s {
 		virtual ~Proto_UserSimpleData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t userid;
-		NFShmString<32> nickname;
-		uint32_t face;
-		uint32_t gender;
-		uint32_t age;
+		uint64_t userid;//
+		NFShmString<32> nickname;//
+		uint32_t face;//
+		uint32_t gender;//
+		uint32_t age;//
 
 		virtual void write_to_pbmsg(::proto_ff::Proto_UserSimpleData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::Proto_UserSimpleData & msg);
@@ -251,14 +251,14 @@ namespace proto_ff_s {
 		virtual ~GamePlayerDetailData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t player_id;
-		int64_t cur_money;
-		uint32_t vip_level;
-		uint32_t sex;
-		int32_t chair_id;
-		NFShmString<128> nick_name;
-		uint32_t face;
-		bool isRobot;
+		uint64_t player_id;//
+		int64_t cur_money;//
+		uint32_t vip_level;//
+		uint32_t sex;//
+		int32_t chair_id;//
+		NFShmString<128> nick_name;//
+		uint32_t face;//
+		bool isRobot;//
 
 		virtual void write_to_pbmsg(::proto_ff::GamePlayerDetailData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GamePlayerDetailData & msg);
@@ -272,12 +272,12 @@ namespace proto_ff_s {
 		virtual ~GamePlayerWealthData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t player_id;
-		int64_t recharge;
-		int64_t total_lost;
-		int64_t total_win;
-		int64_t this_game_lost;
-		int64_t this_game_win;
+		uint64_t player_id;//
+		int64_t recharge;//
+		int64_t total_lost;//
+		int64_t total_win;//
+		int64_t this_game_lost;//
+		int64_t this_game_win;//
 
 		virtual void write_to_pbmsg(::proto_ff::GamePlayerWealthData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GamePlayerWealthData & msg);
@@ -291,8 +291,8 @@ namespace proto_ff_s {
 		virtual ~GamePlayerAchievementData_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t cur_ach;
-		uint64_t cur_fee;
+		uint64_t cur_ach;//
+		uint64_t cur_fee;//
 
 		virtual void write_to_pbmsg(::proto_ff::GamePlayerAchievementData & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GamePlayerAchievementData & msg);
@@ -306,9 +306,9 @@ namespace proto_ff_s {
 		virtual ~GameRoomStat_s(){}
 		int CreateInit();
 		int ResumeInit();
-		uint64_t cur_fee;
-		uint64_t cur_pour;
-		int64_t cur_win;
+		uint64_t cur_fee;//
+		uint64_t cur_pour;//
+		int64_t cur_win;//
 
 		virtual void write_to_pbmsg(::proto_ff::GameRoomStat & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::GameRoomStat & msg);
