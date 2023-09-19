@@ -41,8 +41,6 @@ StoreServer = {
         },
         RouteConfig = {
              RouteAgent = NF_ROUTE_AGENT_ID,
-             --NamingHost = NF_NAMING_HOST,
-             --NamingPath = NF_NAMING_PATH,
              MasterIp = NF_MASTER_IP,
              MasterPort = NF_MASTER_PORT,
         },
@@ -73,8 +71,6 @@ StoreServer = {
         },
         RouteConfig = {
              RouteAgent = NF_ROUTE_AGENT_ID2,
-             --NamingHost = NF_NAMING_HOST,
-             --NamingPath = NF_NAMING_PATH,
              MasterIp = NF_MASTER_IP,
              MasterPort = NF_MASTER_PORT,
         },

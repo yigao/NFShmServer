@@ -25,8 +25,6 @@ WorldServer = {
       HandleMsgNumPerFrame = NF_NORMAL_SERVER_HANDLE_MSG_COUNT,
       RouteConfig = {
          RouteAgent = NF_ROUTE_AGENT_ID,
-         --NamingHost = NF_NAMING_HOST,
-         --NamingPath = NF_NAMING_PATH,
          MasterIp = NF_MASTER_IP,
          MasterPort = NF_MASTER_PORT,
       },
