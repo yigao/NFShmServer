@@ -610,7 +610,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_sel &selec
         selectSql = "select " + privateKey + " from " + tableName;
 
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
-        if (whereCond.where_conds_size() > 0)
+        if (whereCond.where_conds_size() > 0 || whereCond.where_additional_conds().size() > 0)
         {
             selectSql += " where ";
         }
@@ -701,6 +701,11 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_sel &selec
             {
                 selectSql += sql;
             }
+        }
+
+        if (whereCond.where_conds_size() > 0 && whereCond.where_additional_conds().size() > 0)
+        {
+            selectSql += " and ";
         }
 
         if (whereCond.where_additional_conds().size() > 0)
@@ -918,7 +923,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_del &selec
         selectSql = "select " + privateKey + " from " + tableName;
 
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
-        if (whereCond.where_conds_size() > 0)
+        if (whereCond.where_conds_size() > 0 || whereCond.where_additional_conds().size() > 0)
         {
             selectSql += " where ";
         }
@@ -1009,6 +1014,11 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_del &selec
             {
                 selectSql += sql;
             }
+        }
+
+        if (whereCond.where_conds_size() > 0 && whereCond.where_additional_conds().size() > 0)
+        {
+            selectSql += " and ";
         }
 
         if (whereCond.where_additional_conds().size() > 0)
@@ -1244,7 +1254,12 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_mod &select, std:
             }
         }
 
-        if (whereCond.where_additional_conds().size() > 0)
+        if (whereCond.where_conds_size() > 0)
+        {
+            selectSql += " and ";
+        }
+
+        if (whereCond.where_additional_conds().size() > 0 && whereCond.where_additional_conds().size() > 0)
         {
             selectSql += " " + whereCond.where_additional_conds();
         }
@@ -1348,6 +1363,11 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_update &select, s
             }
         }
 
+        if (whereCond.where_conds_size() > 0 && whereCond.where_additional_conds().size() > 0)
+        {
+            selectSql += " and ";
+        }
+
         if (whereCond.where_additional_conds().size() > 0)
         {
             selectSql += " " + whereCond.where_additional_conds();
@@ -1386,8 +1406,12 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_del &select, std:
 
     if (select.has_cond())
     {
-        selectSql = "delete from " + tableName + " where ";
+        selectSql = "delete from " + tableName;
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
+        if (whereCond.where_conds_size() > 0 || whereCond.where_additional_conds().size() > 0)
+        {
+            selectSql += " where ";
+        }
         for (int i = 0; i < whereCond.where_conds_size(); i++)
         {
             std::string sql;
@@ -1475,6 +1499,11 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_del &select, std:
             {
                 selectSql += sql;
             }
+        }
+
+        if (whereCond.where_conds_size() > 0)
+        {
+            selectSql += " and ";
         }
 
         if (whereCond.where_additional_conds().size() > 0)
@@ -1569,7 +1598,7 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, std:
         selectSql = "select " + stringFileds + " from " + tableName;
 
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
-        if (whereCond.where_conds_size() > 0)
+        if (whereCond.where_conds_size() > 0 || whereCond.where_additional_conds().size() > 0)
         {
             selectSql += " where ";
         }
@@ -1660,6 +1689,11 @@ int NFCMysqlDriver::CreateSql(const storesvr_sqldata::storesvr_sel &select, std:
             {
                 selectSql += sql;
             }
+        }
+
+        if (whereCond.where_conds_size() > 0 && whereCond.where_additional_conds().size() > 0)
+        {
+            selectSql += " and ";
         }
 
         if (whereCond.where_additional_conds().size() > 0)
@@ -2503,7 +2537,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &selec
         selectSql = "select " + privateKey + " from " + tableName;
 
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
-        if (whereCond.where_conds_size() > 0)
+        if (whereCond.where_conds_size() > 0 || whereCond.where_additional_conds().size() > 0)
         {
             selectSql += " where ";
         }
@@ -2596,6 +2630,10 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_mod &selec
             }
         }
 
+        if (whereCond.where_conds_size() > 0 && whereCond.where_additional_conds().size() > 0)
+        {
+            selectSql += " and ";
+        }
         if (whereCond.where_additional_conds().size() > 0)
         {
             selectSql += " " + whereCond.where_additional_conds();
@@ -2841,7 +2879,7 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_update &se
         selectSql = "select " + privateKey + " from " + tableName;
 
         const ::storesvr_sqldata::storesvr_wherecond &whereCond = select.cond();
-        if (whereCond.where_conds_size() > 0)
+        if (whereCond.where_conds_size() > 0 || whereCond.where_additional_conds().size() > 0)
         {
             selectSql += " where ";
         }
@@ -2932,6 +2970,11 @@ int NFCMysqlDriver::GetPrivateKeySql(const storesvr_sqldata::storesvr_update &se
             {
                 selectSql += sql;
             }
+        }
+
+        if (whereCond.where_conds_size() > 0 && whereCond.where_additional_conds().size() > 0)
+        {
+            selectSql += " and ";
         }
 
         if (whereCond.where_additional_conds().size() > 0)

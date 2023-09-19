@@ -710,7 +710,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_delobj &select)
     if (bRet)
     {
         bRet = DEL(db_key);
-        if (iRet == false)
+        if (bRet == false)
         {
             return -1;
         }
@@ -743,7 +743,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_insertobj &select)
     if (bRet)
     {
         bRet = DEL(db_key);
-        if (iRet == false)
+        if (bRet == false)
         {
             return -1;
         }
@@ -777,7 +777,7 @@ int NFRedisDriver::DeleteObj(const storesvr_sqldata::storesvr_modobj &select)
     if (bRet)
     {
         bRet = DEL(db_key);
-        if (iRet == false)
+        if (bRet == false)
         {
             return -1;
         }

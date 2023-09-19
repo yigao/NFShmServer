@@ -449,7 +449,7 @@ public:
         mSelect = select;
         mCB = cb;
         iRet = 0;
-        m_taskName = GET_CLASS_NAME(NFDBDeleteObjTask) + std::string("_") + select.baseinfo().tbname();;
+        m_taskName = GET_CLASS_NAME(NFDBDeleteObjTask) + std::string("_") + select.baseinfo().tbname() + "_" + NFCommon::tostr(select.mod_key());
     }
 
     virtual ~NFDBDeleteObjTask()
