@@ -38,12 +38,12 @@ LoadPlugin =
 
 
 		ServerPlugins = {
-			"NFMasterServerPlugin",
-			"NFRouteServerPlugin",
+			--"NFMasterServerPlugin",
+			--"NFRouteServerPlugin",
 			"NFRouteAgentServerPlugin",
 			"NFStoreServerPlugin",
-			"NFProxyServerPlugin",
-			"NFProxyClientPlugin",
+			--"NFProxyServerPlugin",
+			--"NFProxyClientPlugin",
 			"NFProxyAgentServerPlugin",
 			"NFLoginServerPlugin",
 			"NFGameServerPlugin",
@@ -59,9 +59,9 @@ LoadPlugin =
 			"NFFishCommonPlugin",
 			--"NFLuaScriptPlugin",
 
-			"NFFishRobotPlugin",
+			--"NFFishRobotPlugin",
 
-			"NFFishProxyPlayerPlugin",
+			--"NFFishProxyPlayerPlugin",
 			"NFFishLoginPlayerPlugin",
 			"NFFishWorldPlayerPlugin",
 			"NFFishSnsPlayerPlugin",
