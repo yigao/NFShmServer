@@ -97,6 +97,9 @@ void ExcelToProto::WriteSheetDescStore()
         }
     }
 
+    WriteSheetDescStoreExH();
+    WriteSheetDescStoreExCPP();
+
     WriteDestStoreDefine();
 }
 
@@ -252,22 +255,25 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
             {
                 proto_file += ", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY";
             }
-            else {
+            else
+            {
                 if (pSheet->m_indexMap.find(pColInfo->m_structEnName) != pSheet->m_indexMap.end())
                 {
                     if (pSheet->m_indexMap[pColInfo->m_structEnName].m_unique)
                     {
                         proto_file += ", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_UNIQUE_INDEX";
                     }
-                    else {
+                    else
+                    {
                         proto_file += ", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX";
                     }
                 }
-                else {
-                    for(auto com_iter = pSheet->m_comIndexMap.begin(); com_iter != pSheet->m_comIndexMap.end(); com_iter++)
+                else
+                {
+                    for (auto com_iter = pSheet->m_comIndexMap.begin(); com_iter != pSheet->m_comIndexMap.end(); com_iter++)
                     {
                         bool find = false;
-                        for(int com_i = 0; com_i < (int)com_iter->second.m_index.size(); com_i++)
+                        for (int com_i = 0; com_i < (int) com_iter->second.m_index.size(); com_i++)
                         {
                             if (com_iter->second.m_index[com_i].m_key == pColInfo->m_structEnName)
                             {
@@ -376,6 +382,33 @@ void ExcelToProto::WriteSheetProto(ExcelSheet *pSheet, std::string &proto_file)
                   NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "_List = 1[(yd_fieldoptions.field_arysize)=" +
                   NFCommon::tostr(get_max_num(pSheet->m_rows)) + "];\n";
     proto_file += "}\n";
+}
+
+void ExcelToProto::WriteSheetDescStoreExH()
+{
+    std::string desc_file_name = NFStringUtility::Capitalize(m_excelName) + "DescEx.h";
+    std::string desc_file_path = m_outPath + desc_file_name;
+    std::string desc_file;
+    desc_file += "#pragma once\n\n";
+    desc_file += "#include \"NFServerComm/NFServerCommon/NFIDescStoreEx.h\"\n";
+    desc_file += "#include \"NFComm/NFShmCore/NFResDb.h\"\n";
+    desc_file += "#include \"NFComm/NFShmCore/NFShmMgr.h\"\n";
+    desc_file += "#include \"NFComm/NFShmStl/NFShmHashMap.h\"\n";
+    desc_file += "#include \"NFComm/NFShmStl/NFShmVector.h\"\n";
+    desc_file += "#include \"NFLogicCommon/NFDescStoreTypeDefines.h\"\n";
+
+    desc_file += "\nclass " + NFStringUtility::Capitalize(m_excelName) + "DescEx : public NFIDescStoreEx\n";
+    desc_file += "{\n";
+    desc_file += "public:\n";
+    desc_file += "\t" + NFStringUtility::Capitalize(m_excelName) + "DescEx();\n";
+    desc_file += "\tvirtual ~" + NFStringUtility::Capitalize(m_excelName) + "DescEx();\n";
+    desc_file += "\tint CreateInit();\n";
+    desc_file += "\tint ResumeInit();\n";
+    desc_file += "private:\n";
+    desc_file += "IMPL_RES_DESC_EX(" + NFStringUtility::Capitalize(m_excelName) + "DescEx)\n";
+    desc_file += "DECLARE_IDCREATE(" + NFStringUtility::Capitalize(m_excelName) + "DescEx)\n";
+    desc_file += "};\n";
+    NFFileUtility::WriteFile(desc_file_path, desc_file);
 }
 
 void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
@@ -666,6 +699,57 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
     NFFileUtility::WriteFile(desc_file_path, desc_file);
 }
 
+void ExcelToProto::WriteSheetDescStoreExCPP()
+{
+    std::string desc_file_name = NFStringUtility::Capitalize(m_excelName) + "DescEx.cpp";
+    std::string desc_file_path = m_outPath + desc_file_name;
+    std::string desc_file;
+    desc_file += "#include \"" + NFStringUtility::Capitalize(m_excelName) + "DescEx.h\"\n\n";
+    desc_file += "IMPLEMENT_IDCREATE_WITHTYPE(" + NFStringUtility::Capitalize(m_excelName) + "DescEx, EOT_CONST_" +
+                 NFStringUtility::Upper(m_excelName) + "_DESC_EX_ID, NFShmObj)\n\n";
+    desc_file += NFStringUtility::Capitalize(m_excelName) + "DescEx::" + NFStringUtility::Capitalize(m_excelName) +
+                 "DescEx():NFIDescStoreEx()\n";
+    desc_file += "{\n";
+    desc_file += "\tif (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {\n";
+    desc_file += "\t\tCreateInit();\n";
+    desc_file += "\t}\n";
+    desc_file += "\telse {\n";
+    desc_file += "\t\tResumeInit();\n";
+    desc_file += "\t}\n";
+    desc_file += "}\n\n";
+//////////////////////////////////////////////////////////////////
+    desc_file += NFStringUtility::Capitalize(m_excelName) + "DescEx::~" +
+                 NFStringUtility::Capitalize(m_excelName) + "DescEx()\n";
+    desc_file += "{\n";
+    desc_file += "}\n\n";
+///////////////////////////////////////////////////////////
+    desc_file += "int " + NFStringUtility::Capitalize(m_excelName) + "DescEx::CreateInit()\n";
+    desc_file += "{\n";
+    desc_file += "\treturn 0;\n";
+    desc_file += "}\n\n";
+////////////////////////////////////////////////////////////////
+    desc_file += "int " + NFStringUtility::Capitalize(m_excelName) + "DescEx::ResumeInit()\n";
+    desc_file += "{\n";
+    desc_file += "\treturn 0;\n";
+    desc_file += "}\n\n";
+////////////////////////////////////////////////////////////////
+    desc_file += "int " + NFStringUtility::Capitalize(m_excelName) + "DescEx::Load()\n";
+    desc_file += "{\n";
+    desc_file += "\treturn 0;\n";
+    desc_file += "}\n\n";
+////////////////////////////////////////////////////////////////
+    desc_file += "int " + NFStringUtility::Capitalize(m_excelName) + "DescEx::PrepareReload()\n";
+    desc_file += "{\n";
+    desc_file += "\treturn 0;\n";
+    desc_file += "}\n\n";
+////////////////////////////////////////////////////////////////
+    desc_file += "int " + NFStringUtility::Capitalize(m_excelName) + "DescEx::CheckWhenAllDataLoaded()\n";
+    desc_file += "{\n";
+    desc_file += "\treturn 0;\n";
+    desc_file += "}\n\n";
+    NFFileUtility::WriteFile(desc_file_path, desc_file);
+}
+
 void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 {
     ExcelSheetColInfo *one_col_info = pSheet->m_colInfoVec.begin()->second;
@@ -929,7 +1013,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 
 
                     desc_file += ", result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the " + relation.m_noFindError +
-                            "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
+                                 "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
                 }
                 else
                 {
@@ -954,7 +1038,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                         }
 
                         desc_file += ", result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the " + relation.m_noFindError +
-                                "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]);\n";
+                                     "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j]);\n";
                         desc_file += "\t\t}\n";
                     }
                     else
@@ -978,7 +1062,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                         }
 
                         desc_file += ", result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the " + relation.m_noFindError +
-                                "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
+                                     "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
                                      NFStringUtility::Lower(iter->second.m_myColName) + ");\n";
 
                         desc_file += "\t\t}\n";
@@ -1007,7 +1091,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 
                 desc_file += ", result, \"can't find the " + NFStringUtility::Lower(iter->second.m_myColName) + ":{} in the " + relation.m_noFindError +
                              "\", pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" +
-                             NFStringUtility::Lower(iter->second.m_myColSubName)+");\n";
+                             NFStringUtility::Lower(iter->second.m_myColSubName) + ");\n";
 
                 desc_file += "\t\t}\n";
             }
@@ -1250,6 +1334,10 @@ void ExcelToProto::WriteMakeFile()
             "\t${NFEXCELPROCESS} --work=\"exceltobin\" --src=${RESDB_EXCELMMO_PATH}/" + excel_src_file_name + "  --proto_ds=${PROTOCGEN_FILE_PATH}/" +
             m_excelName + ".proto.ds --dst=${PROTOCGEN_FILE_PATH}/;\n";
 
+    makefile_file += "\t${FILE_COPY_EXE} --work=\"filecopy_notexist\" --src=\"${PROTOCGEN_FILE_PATH}/" + NFStringUtility::Capitalize(m_excelName) +
+                     + "DescEx.h " + "${PROTOCGEN_FILE_PATH}/" +
+                     NFStringUtility::Capitalize(m_excelName) +
+                     "DescEx.cpp\" --dst=${DESC_STORE_EX_PATH}/\n";
     std::vector<MiniExcelReader::Sheet> &sheets = m_excelReader->sheets();
     for (MiniExcelReader::Sheet &sheet: sheets)
     {
@@ -1325,10 +1413,14 @@ void ExcelToProto::WriteDestStoreDefine()
             std::string sheet_name = pSheet->m_name;
             if (destStoreHeadFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) == std::string::npos)
             {
-                descStoreHeadFileStr +=
-                        "#include \"DescStore/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h\"\n";
+                descStoreHeadFileStr += "#include \"DescStore/" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc.h\"\n";
             }
         }
+    }
+
+    if (destStoreHeadFileRead.find(NFStringUtility::Capitalize(m_excelName) + "DescEx") == std::string::npos)
+    {
+        descStoreHeadFileStr += "#include \"DescStoreEx/" + NFStringUtility::Capitalize(m_excelName) + "DescEx.h\"\n";
     }
 
     for (MiniExcelReader::Sheet &sheet: sheets)
@@ -1339,10 +1431,14 @@ void ExcelToProto::WriteDestStoreDefine()
             std::string sheet_name = pSheet->m_name;
             if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name)) == std::string::npos)
             {
-                descStoreDefineFileStr +=
-                        "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_DESC_ID,\\\n";
+                descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_DESC_ID,\\\n";
             }
         }
+    }
+
+    if (descStoreDefineFileRead.find(NFStringUtility::Upper(m_excelName) + "_DESC_EX_ID") == std::string::npos)
+    {
+        descStoreDefineFileStr += "EOT_CONST_" + NFStringUtility::Upper(m_excelName) + "_DESC_EX_ID,\\\n";
     }
 
     for (MiniExcelReader::Sheet &sheet: sheets)
@@ -1354,10 +1450,15 @@ void ExcelToProto::WriteDestStoreDefine()
             if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name)) ==
                 std::string::npos)
             {
-                descStoreRegisterFileStr +=
-                        "REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\\\n";
+                descStoreRegisterFileStr += "REGISTER_DESCSTORE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\\\n";
             }
         }
+    }
+
+    if (descStoreRegisterFileRead.find(NFStringUtility::Capitalize(m_excelName) + "DescEx") ==
+        std::string::npos)
+    {
+        descStoreRegisterFileStr += "REGISTER_DESCSTORE_EX(" + NFStringUtility::Capitalize(m_excelName) + "DescEx);\\\n";
     }
 
     NFFileUtility::AWriteFile(descStoreHeadFile, descStoreHeadFileStr);
