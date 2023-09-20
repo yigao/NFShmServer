@@ -73,7 +73,10 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - redis缓存系统(2023.9.18已完成)
 - 完善excel导出sql语句，从db系统加载配置(2023.9.1已完成)
 - 实现actor的多线程Lua系统(类似skynet, 区别lua只负责逻辑，系统架构主要由C++实现)
-- 实现单线程python系统，重写kbe
+- 实现单线程python系统
+- 实现单线程js系统
+- 实现单线程php系统
+- 实现单线程c#系统
 - 实现actor的多线程python系统(类似skynet, 区别python只负责逻辑，系统架构主要由C++实现)
 - 继续完善excel到db系统机制，自动导出代码, 实现网页端的配置更新
 - 将平台升级到C++17
