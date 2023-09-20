@@ -2,7 +2,7 @@ include ./define.makefile
 
 .PHONY:all
 
-all:${PROTOCGEN_FILE_PATH}/constant_proto_finish ${PROTOCGEN_FILE_PATH}/Fish_proto_finish 
+all:${PROTOCGEN_FILE_PATH}/constant_proto_finish ${PROTOCGEN_FILE_PATH}/Fish_proto_finish ${PROTOCGEN_FILE_PATH}/storeserver_ds
 
 ${PROTOCGEN_FILE_PATH}/constant_proto_finish:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML} ${RESDB_META_PATH}/E_Constant.proto
 	mkdir -p ${PROTOCGEN_FILE_PATH}
@@ -20,5 +20,14 @@ ${PROTOCGEN_FILE_PATH}/Fish_proto_finish:${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XM
 	${NFEXCELPROCESS} --work="exceltostruct" --proto_ds=${PROTOCGEN_FILE_PATH}/Fish.proto.ds --src=E_Fish.proto --dst=${PROTOCGEN_FILE_PATH}/;
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_Fish.pb.h ${PROTOCGEN_FILE_PATH}/E_Fish.pb.cc ${PROTOCGEN_FILE_PATH}/E_Fish_s.h ${PROTOCGEN_FILE_PATH}/E_Fish_s.cpp " --dst=${NEW_PROTOCGEN_FILE_PATH}/
 	touch ${PROTOCGEN_FILE_PATH}/Fish_proto_finish
+
+${PROTOCGEN_FILE_PATH}/storeserver_ds:${COMMON_LOGIC_DESC_XML} ${PROTOCOL_COMM_XML} ${FIELD_OPTIONS_XML}
+	mkdir -p ${PROTOCGEN_FILE_PATH}
+	mkdir -p ${GAME_SQL_PATH}
+	rm -rf ${PROTOCGEN_FILE_PATH}/storeserver_ds
+	${PROTOC} $^ -I${THIRD_PARTY_INC_PATH} -I${RESDB_META_PATH} -I${PROTOCOL_COMM_PATH} -I${PROTOCOL_SS_LOGIC_PATH} -I${PROTOCOL_KERNEL_PATH} -I${COMMON_LOGIC_META_PATH}\
+			--include_imports --descriptor_set_out=${STORE_SERVER_META_DESCRIPTOR} --cpp_out=${PROTOCGEN_FILE_PATH}
+	${FILE_COPY_EXE} --work="filecopy" --src="${STORE_SERVER_META_DESCRIPTOR} " --dst=${GAME_SQL_PATH}/
+	touch ${PROTOCGEN_FILE_PATH}/storeserver_ds
 
 

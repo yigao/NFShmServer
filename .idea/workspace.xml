@@ -68,6 +68,7 @@
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/StoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/StoreServer.lua" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -459,14 +460,7 @@
       <workItem from="1694825978859" duration="17091000" />
       <workItem from="1694998325179" duration="32113000" />
       <workItem from="1695170001243" duration="14413000" />
-      <workItem from="1695193891566" duration="13000" />
-    </task>
-    <task id="LOCAL-00104" summary="xls">
-      <created>1693042057440</created>
-      <option name="number" value="00104" />
-      <option name="presentableId" value="LOCAL-00104" />
-      <option name="project" value="LOCAL" />
-      <updated>1693042057440</updated>
+      <workItem from="1695193891566" duration="1009000" />
     </task>
     <task id="LOCAL-00105" summary="xls">
       <created>1693276324201</created>
@@ -804,7 +798,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695191997956</updated>
     </task>
-    <option name="localTasksCounter" value="153" />
+    <task id="LOCAL-00153" summary="fish">
+      <created>1695194904057</created>
+      <option name="number" value="00153" />
+      <option name="presentableId" value="LOCAL-00153" />
+      <option name="project" value="LOCAL" />
+      <updated>1695194904058</updated>
+    </task>
+    <option name="localTasksCounter" value="154" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
