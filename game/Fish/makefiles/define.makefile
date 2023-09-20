@@ -12,6 +12,7 @@ MAKEFILE_PATH=${GAME_SRC_PATH}/game/${GAME_DIR}/makefiles
 MAKE_EXCELMAKEFILE_GEN=${MAKEFILE_PATH}/excelcreate_gen.makefile
 MAKE_RESMETAS_GEN=${MAKEFILE_PATH}/resmetas_gen.makefile
 MAKE_PROTOC_GEN=${MAKEFILE_PATH}/protoc_gen.makefile
+MAKE_STORE_GEN=${MAKEFILE_PATH}/store_gen.makefile
 MAKE_EXCEL_GEN=${MAKEFILE_PATH}/excel_gen.makefile
 MAKE_EXCELMMO_GEN=${MAKEFILE_PATH}/excelmmo_gen.makefile
 

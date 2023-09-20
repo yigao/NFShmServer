@@ -66,9 +66,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish">
+      <change afterPath="$PROJECT_DIR$/game/Fish/makefiles/store_ds.makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/StoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/StoreServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/protoc_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/protoc_gen.makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/resmetas_gen.makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -460,14 +461,7 @@
       <workItem from="1694825978859" duration="17091000" />
       <workItem from="1694998325179" duration="32113000" />
       <workItem from="1695170001243" duration="14413000" />
-      <workItem from="1695193891566" duration="1009000" />
-    </task>
-    <task id="LOCAL-00105" summary="xls">
-      <created>1693276324201</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1693276324201</updated>
+      <workItem from="1695193891566" duration="2857000" />
     </task>
     <task id="LOCAL-00106" summary="xls">
       <created>1693286393680</created>
@@ -805,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695194904058</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="fish">
+      <created>1695195665591</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1695195665591</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
