@@ -65,12 +65,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="NFIDescStoreEx">
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="protoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/makefiles/define.makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/makefiles/define.makefile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,7 +234,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=AllServer --ID=1.13.1.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+    <configuration name="NFPluginLoader" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=RobotServer --ID=1.13.1.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFPluginLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -466,21 +462,7 @@
       <workItem from="1694689725600" duration="28120000" />
       <workItem from="1694825978859" duration="17091000" />
       <workItem from="1694998325179" duration="32113000" />
-      <workItem from="1695170001243" duration="8451000" />
-    </task>
-    <task id="LOCAL-00098" summary="xls">
-      <created>1692840650827</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1692840650827</updated>
-    </task>
-    <task id="LOCAL-00099" summary="xls">
-      <created>1692953107954</created>
-      <option name="number" value="00099" />
-      <option name="presentableId" value="LOCAL-00099" />
-      <option name="project" value="LOCAL" />
-      <updated>1692953107954</updated>
+      <workItem from="1695170001243" duration="10161000" />
     </task>
     <task id="LOCAL-00100" summary="xls">
       <created>1692953329602</created>
@@ -811,7 +793,21 @@
       <option name="project" value="LOCAL" />
       <updated>1695172850605</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="protoc">
+      <created>1695181237028</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1695181237028</updated>
+    </task>
+    <task id="LOCAL-00148" summary="protoc">
+      <created>1695181810103</created>
+      <option name="number" value="00148" />
+      <option name="presentableId" value="LOCAL-00148" />
+      <option name="project" value="LOCAL" />
+      <updated>1695181810103</updated>
+    </task>
+    <option name="localTasksCounter" value="149" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1000,7 +996,8 @@
     <MESSAGE value="read me" />
     <MESSAGE value="NFIDescStore" />
     <MESSAGE value="NFIDescStoreEx" />
-    <option name="LAST_COMMIT_MESSAGE" value="NFIDescStoreEx" />
+    <MESSAGE value="protoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="protoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
