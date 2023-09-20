@@ -67,7 +67,9 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - 友好的日志控制，你可以单独控制，一个小模块的日志，甚至一个玩家的日志
 - 配套的 U3D 客户端，一个捕鱼项目 https://github.com/yigao/NFShmFrame_FishClient.git
 - 跨平台(Windows, Linux)
-
+ 
+## unity3d捕鱼demo游戏 [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)，群里提供apk下载, 客户端源码https://github.com/yigao/NFShmFrame_FishClient.git
+<p align="center"><img src="https://github.com/yigao/NFShmServer/blob/master/doc/logo.png" alt="nfshmserver" width="300"/></p>
 ## 后期开发目标
 - 使用C++重写excel的加载，验证，导出代码机制(python,lua的导出，在大型项目里太慢)(2023.8-2023.9已完成)
 - redis缓存系统(2023.9.18已完成)
@@ -139,6 +141,7 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
     -    内网使用TCP通信,master服务器来做分布式:执行脚本CreateScript.sh或CreateScript_TcpPlugin.sh，会生成Start.sh,Stop.sh,ReStart.sh,Alllog.sh等脚本，执行Start.sh，会一个一个启动服务器，执行Alllog.sh可以查看所有服务器的日志。
     -    内网使用Bus通信,master服务器来做分布式:执行脚本CreateScript_BusPlugin.sh，会生成Start.sh,Stop.sh,ReStart.sh,Alllog.sh等脚本，执行Start.sh，会一个一个启动服务器，执行Alllog.sh可以查看所有服务器的日志。
       
+
 ## Tutorial && Documents
 
 **Tutorial Chapters**:
@@ -172,8 +175,7 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 * [**Chapter 22: 定时器系统**](https://github.com/yigao/NFShmServer/wiki/Chapter-22:NFCTimerModule)
 * [**Chapter 23: 事件系统**](https://github.com/yigao/NFShmServer/wiki/Chapter-23:NFCEventModule)
 
-## 客户端下载，客户端代码还在整理，后面会开源，现在有一个捕鱼apk，可以玩玩
-[game.apk](https://github.com/yigao/NFShmServer/blob/master/doc/%E6%8D%95%E9%B1%BC%E6%B5%8B%E8%AF%951.apk)
+
 ## 服务器架构
 
 ### 进程架构:
