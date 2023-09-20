@@ -40,7 +40,7 @@ int NFFishDescStoreEx::ResumeInit()
 
 int NFFishDescStoreEx::Load()
 {
-    return NFIDescStoreEx::Load();
+    return 0;
 }
 
 int NFFishDescStoreEx::PrepareReload()
@@ -50,5 +50,5 @@ int NFFishDescStoreEx::PrepareReload()
 
 int NFFishDescStoreEx::CheckWhenAllDataLoaded()
 {
-    return NFIDescStoreEx::CheckWhenAllDataLoaded();
+    return 0;
 }

@@ -66,23 +66,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="NFIDescStore">
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStoreEx/NFFishDescStoreEx.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStoreEx/NFFishDescStoreEx.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIDescStoreEx.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIDescStoreEx.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/ConstantConstantDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishConfigDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishConfigDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishCtrllevelDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishCtrllevelDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/NFDescStoreDefine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFResDb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFResDb.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIDescStore.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIDescStore.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIDescStoreModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIDescStoreModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -478,14 +461,7 @@
       <workItem from="1694479084237" duration="53274000" />
       <workItem from="1694689725600" duration="28120000" />
       <workItem from="1694825978859" duration="17091000" />
-      <workItem from="1694998325179" duration="30398000" />
-    </task>
-    <task id="LOCAL-00095" summary="xls">
-      <created>1692778207779</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1692778207779</updated>
+      <workItem from="1694998325179" duration="30743000" />
     </task>
     <task id="LOCAL-00096" summary="xls">
       <created>1692780206789</created>
@@ -823,7 +799,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695115211599</updated>
     </task>
-    <option name="localTasksCounter" value="144" />
+    <task id="LOCAL-00144" summary="NFIDescStore">
+      <created>1695124369578</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1695124369578</updated>
+    </task>
+    <option name="localTasksCounter" value="145" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

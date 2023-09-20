@@ -3,5 +3,6 @@ REGISTER_DESCSTORE(ConstantConstantDesc);\
 REGISTER_DESCSTORE(FishRoomDesc);\
 REGISTER_DESCSTORE(FishGunvalueDesc);\
 REGISTER_DESCSTORE(FishCtrllevelDesc);\
-REGISTER_DESCSTORE(FishConfigDesc);\
+REGISTER_DESCSTORE(FishConfigDesc);        \
+REGISTER_DESCSTORE_EX(NFFishDescStoreEx);  \
 
