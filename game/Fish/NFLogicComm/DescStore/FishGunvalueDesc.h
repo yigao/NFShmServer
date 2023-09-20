@@ -33,8 +33,22 @@ struct FishGunvalueGameidRoomid
 {
 	FishGunvalueGameidRoomid()
 	{
+		if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+			CreateInit();
+		}
+		else {
+			ResumeInit();
+		}
+	}
+	int CreateInit()
+	{
 		m_gameId=0;
 		m_roomId=0;
+		return 0;
+	}
+	int ResumeInit()
+	{
+		return 0;
 	}
 	int64_t m_gameId;
 	int64_t m_roomId;
@@ -61,9 +75,23 @@ struct FishGunvalueGameidRoomidGunid
 {
 	FishGunvalueGameidRoomidGunid()
 	{
+		if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+			CreateInit();
+		}
+		else {
+			ResumeInit();
+		}
+	}
+	int CreateInit()
+	{
 		m_gameId=0;
 		m_roomId=0;
 		m_gunId=0;
+		return 0;
+	}
+	int ResumeInit()
+	{
+		return 0;
 	}
 	int64_t m_gameId;
 	int64_t m_roomId;

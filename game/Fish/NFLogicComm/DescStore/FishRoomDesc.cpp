@@ -100,6 +100,7 @@ int FishRoomDesc::Load(NFResDB *pDB)
 		CHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, "GetDesc != pDesc, id:{}", hashKey);
 	}
 	m_GameidIndexMap.clear();
+	m_GameidRoomidComIndexMap.clear();
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];

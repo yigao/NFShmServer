@@ -471,12 +471,26 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
         desc_file += "{\n";
         desc_file += "\t" + className + "()\n";
         desc_file += "\t{\n";
+        desc_file += "\t\tif (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {\n";
+        desc_file += "\t\t\tCreateInit();\n";
+        desc_file += "\t\t}\n";
+        desc_file += "\t\telse {\n";
+        desc_file += "\t\t\tResumeInit();\n";
+        desc_file += "\t\t}\n";
+        desc_file += "\t}\n";
+        desc_file += "\tint CreateInit()\n";
+        desc_file += "\t{\n";
         for (int i = 0; i < (int) comIndex.m_index.size(); i++)
         {
             ExcelSheetIndex &index = comIndex.m_index[i];
             std::string index_key = "m_" + index.m_key;
             desc_file += "\t\t" + index_key + "=0;\n";
         }
+        desc_file += "\t\treturn 0;\n";
+        desc_file += "\t}\n";
+        desc_file += "\tint ResumeInit()\n";
+        desc_file += "\t{\n";
+        desc_file += "\t\treturn 0;\n";
         desc_file += "\t}\n";
         for (int i = 0; i < (int) comIndex.m_index.size(); i++)
         {
@@ -896,6 +910,21 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
         ExcelSheetIndex &index = iter->second;
         std::string index_key = index.m_key;
         std::string index_map = "m_" + NFStringUtility::Capitalize(index_key) + "IndexMap";
+        desc_file += "\t" + index_map + ".clear();\n";
+    }
+
+    for (auto iter = pSheet->m_comIndexMap.begin(); iter != pSheet->m_comIndexMap.end(); iter++)
+    {
+        ExcelSheetComIndex &comIndex = iter->second;
+        std::string index_map = "m_";
+        std::string comIndexKey;
+        for (int i = 0; i < (int) comIndex.m_index.size(); i++)
+        {
+            ExcelSheetIndex &index = comIndex.m_index[i];
+            std::string index_key = index.m_key;
+            comIndexKey += NFStringUtility::Capitalize(index_key);
+        }
+        index_map += comIndexKey + "ComIndexMap";
         desc_file += "\t" + index_map + ".clear();\n";
     }
 
