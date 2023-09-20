@@ -56,6 +56,7 @@ public:
 	virtual ~FishRoomDesc();
 	int CreateInit();
 	int ResumeInit();
+	virtual bool IsFileLoad() { return false; }
 public:
 	const proto_ff_s::E_FishRoom_s* GetDesc(int64_t id) const;
 	proto_ff_s::E_FishRoom_s* GetDesc(int64_t id);

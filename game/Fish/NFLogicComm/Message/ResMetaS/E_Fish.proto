@@ -5,22 +5,22 @@ import "yd_fieldoptions.proto";
 
 message E_FishRoom
 {
-	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
-	optional int32 m_roomid = 2[(yd_fieldoptions.field_cname) = "房间ID"];
-	optional int32 m_gameid = 3[(yd_fieldoptions.field_cname) = "游戏ID"];
-	optional string m_gamename = 4[(yd_fieldoptions.field_cname) = "游戏名", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_roomtype = 5[(yd_fieldoptions.field_cname) = "房间类型"];
-	optional int32 m_roomlevel = 6[(yd_fieldoptions.field_cname) = "房间等级"];
-	optional string m_roomname = 7[(yd_fieldoptions.field_cname) = "房间名", (yd_fieldoptions.field_bufsize) = 64];
-	optional int32 m_sitenum = 8[(yd_fieldoptions.field_cname) = "座位数"];
-	optional int32 m_deskcount = 9[(yd_fieldoptions.field_cname) = "桌子数"];
-	optional int32 m_maxpeople = 10[(yd_fieldoptions.field_cname) = "最大玩家数"];
-	optional int32 m_entermin = 11[(yd_fieldoptions.field_cname) = "最小筹码"];
-	optional int32 m_entermax = 12[(yd_fieldoptions.field_cname) = "最大筹码"];
-	optional int32 m_autochair = 13[(yd_fieldoptions.field_cname) = "选位置"];
-	optional int32 m_isexpscene = 14[(yd_fieldoptions.field_cname) = "体验场"];
-	optional int32 m_expscenegold = 15[(yd_fieldoptions.field_cname) = "体验场金币"];
-	optional int32 m_tax = 16[(yd_fieldoptions.field_cname) = "抽水率"];
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID", (yd_fieldoptions.db_field_comment) = "唯一ID", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];
+	optional int32 m_roomid = 2[(yd_fieldoptions.field_cname) = "房间ID", (yd_fieldoptions.db_field_comment) = "房间ID", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];
+	optional int32 m_gameid = 3[(yd_fieldoptions.field_cname) = "游戏ID", (yd_fieldoptions.db_field_comment) = "游戏ID", (yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];
+	optional string m_gamename = 4[(yd_fieldoptions.field_cname) = "游戏名", (yd_fieldoptions.field_bufsize) = 64, (yd_fieldoptions.db_field_bufsize) = 64, (yd_fieldoptions.db_field_comment) = "游戏名"];
+	optional int32 m_roomtype = 5[(yd_fieldoptions.field_cname) = "房间类型", (yd_fieldoptions.db_field_comment) = "房间类型"];
+	optional int32 m_roomlevel = 6[(yd_fieldoptions.field_cname) = "房间等级", (yd_fieldoptions.db_field_comment) = "房间等级"];
+	optional string m_roomname = 7[(yd_fieldoptions.field_cname) = "房间名", (yd_fieldoptions.field_bufsize) = 64, (yd_fieldoptions.db_field_bufsize) = 64, (yd_fieldoptions.db_field_comment) = "房间名"];
+	optional int32 m_sitenum = 8[(yd_fieldoptions.field_cname) = "座位数", (yd_fieldoptions.db_field_comment) = "座位数"];
+	optional int32 m_deskcount = 9[(yd_fieldoptions.field_cname) = "桌子数", (yd_fieldoptions.db_field_comment) = "桌子数"];
+	optional int32 m_maxpeople = 10[(yd_fieldoptions.field_cname) = "最大玩家数", (yd_fieldoptions.db_field_comment) = "最大玩家数"];
+	optional int32 m_entermin = 11[(yd_fieldoptions.field_cname) = "最小筹码", (yd_fieldoptions.db_field_comment) = "最小筹码"];
+	optional int32 m_entermax = 12[(yd_fieldoptions.field_cname) = "最大筹码", (yd_fieldoptions.db_field_comment) = "最大筹码"];
+	optional int32 m_autochair = 13[(yd_fieldoptions.field_cname) = "选位置", (yd_fieldoptions.db_field_comment) = "选位置"];
+	optional int32 m_isexpscene = 14[(yd_fieldoptions.field_cname) = "体验场", (yd_fieldoptions.db_field_comment) = "体验场"];
+	optional int32 m_expscenegold = 15[(yd_fieldoptions.field_cname) = "体验场金币", (yd_fieldoptions.db_field_comment) = "体验场金币"];
+	optional int32 m_tax = 16[(yd_fieldoptions.field_cname) = "抽水率", (yd_fieldoptions.db_field_comment) = "抽水率"];
 }
 
 
