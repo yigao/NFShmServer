@@ -11,7 +11,6 @@ ${PROTOCGEN_FILE_PATH}/module_Fish_bin:${PROTOCGEN_FILE_PATH}/Fish.proto.ds ${RE
 	${FILE_COPY_EXE} --work="filecopy_notexist" --src="${PROTOCGEN_FILE_PATH}/FishDescEx.h ${PROTOCGEN_FILE_PATH}/FishDescEx.cpp" --dst=${DESC_STORE_EX_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FishRoom.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FishRoomDesc.h ${PROTOCGEN_FILE_PATH}/FishRoomDesc.cpp" --dst=${DESC_STORE_PATH}/
-	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/CreateTable_E_FishRoom.sql" --dst=${GAME_SQL_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FishGunvalue.bin" --dst=${GAME_DATA_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/FishGunvalueDesc.h ${PROTOCGEN_FILE_PATH}/FishGunvalueDesc.cpp" --dst=${DESC_STORE_PATH}/
 	${FILE_COPY_EXE} --work="filecopy" --src="${PROTOCGEN_FILE_PATH}/E_FishCtrllevel.bin" --dst=${GAME_DATA_PATH}/

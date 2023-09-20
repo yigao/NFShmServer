@@ -65,7 +65,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="protoc">
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="script">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -462,14 +462,7 @@
       <workItem from="1694689725600" duration="28120000" />
       <workItem from="1694825978859" duration="17091000" />
       <workItem from="1694998325179" duration="32113000" />
-      <workItem from="1695170001243" duration="10161000" />
-    </task>
-    <task id="LOCAL-00100" summary="xls">
-      <created>1692953329602</created>
-      <option name="number" value="00100" />
-      <option name="presentableId" value="LOCAL-00100" />
-      <option name="project" value="LOCAL" />
-      <updated>1692953329602</updated>
+      <workItem from="1695170001243" duration="12739000" />
     </task>
     <task id="LOCAL-00101" summary="xls">
       <created>1692955009637</created>
@@ -807,7 +800,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695181810103</updated>
     </task>
-    <option name="localTasksCounter" value="149" />
+    <task id="LOCAL-00149" summary="script">
+      <created>1695189225873</created>
+      <option name="number" value="00149" />
+      <option name="presentableId" value="LOCAL-00149" />
+      <option name="project" value="LOCAL" />
+      <updated>1695189225873</updated>
+    </task>
+    <option name="localTasksCounter" value="150" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -997,7 +997,8 @@
     <MESSAGE value="NFIDescStore" />
     <MESSAGE value="NFIDescStoreEx" />
     <MESSAGE value="protoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="protoc" />
+    <MESSAGE value="script" />
+    <option name="LAST_COMMIT_MESSAGE" value="script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
