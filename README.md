@@ -68,8 +68,9 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - 配套的 U3D 客户端，一个捕鱼项目 https://github.com/yigao/NFShmFrame_FishClient.git
 - 跨平台(Windows, Linux)
  
-## unity3d捕鱼demo游戏 [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)，群里提供apk下载, 客户端源码https://github.com/yigao/NFShmFrame_FishClient.git
-<p align="center"><img src="https://github.com/yigao/NFShmServer/blob/master/doc/logo.png" alt="nfshmserver" width="300"/></p>
+## unity3d捕鱼demo游戏 [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)，群里提供apk下载
+![}OXI`%2KDC3509YEVE Z00K](https://github.com/yigao/NFShmServer/assets/5827943/1624b292-871d-46da-a446-1755efb4bae8)
+
 ## 后期开发目标
 - 使用C++重写excel的加载，验证，导出代码机制(python,lua的导出，在大型项目里太慢)(2023.8-2023.9已完成)
 - redis缓存系统(2023.9.18已完成)
