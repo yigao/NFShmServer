@@ -2,7 +2,9 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 PROJECT(NFGameFishPlugin)
 
 include_directories( ${INCLUDE_DIR} "./")
+include_directories( ${INCLUDE_DIR} "./Config")
 AUX_SOURCE_DIRECTORY(. SRC)
+AUX_SOURCE_DIRECTORY(./Config SRC)
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Build/Lib/Release")
