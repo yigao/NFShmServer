@@ -342,7 +342,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
         }
         else if (serverType == NF_ST_GAME_SERVER)
         {
-            if (pPlayerInfo->GetGameBusId() > 0)
+            if (gameId == pPlayerInfo->GetGameId() && pPlayerInfo->GetGameBusId() > 0)
             {
                 NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "recv packet = {}, transfer to game server", packet.ToString());
                 FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetGameBusId(), NF_MODULE_CLIENT,
