@@ -19,6 +19,7 @@
 #include "NFFishWayBillConfig.h"
 #include "NFFishSettingConfig.h"
 #include "NFFishPromptConfig.h"
+#include "NFGameFish2004Desk.h"
 
 #define MAX_FISH_ROOM_DESK_COUNT 255
 #define MAX_GAME_FISH_ROBOT_COUNT 1000
@@ -67,6 +68,8 @@ bool NFGameFish2004Plugin::InitShmObjectRegister()
     NF_ASSERT(pGameConfig);
 
     uint32_t roomNum = FindModule<NFIGameConfig>()->GetRoomNum(GAME_ID_FISH_HAIWANG_2004);
+    uint32_t maxDeskNum =  FindModule<NFIGameConfig>()->GetRoomMaxDeskNum();
+    REGISTER_SHM_OBJ(NFGameFish2004Desk, roomNum*maxDeskNum*1.2);
     REGISTER_SHM_OBJ_WITH_HASH(NFFishTraceConfig, roomNum);
     REGISTER_SHM_OBJ_WITH_HASH(NFFishGroupConfig, roomNum);
     REGISTER_SHM_OBJ_WITH_HASH(NFFishConfigConfig, roomNum);

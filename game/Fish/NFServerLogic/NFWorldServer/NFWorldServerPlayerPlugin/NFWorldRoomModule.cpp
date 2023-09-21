@@ -338,7 +338,7 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
 
     if (pPlayerInfo->m_gameId > 0 || pPlayerInfo->m_roomId > 0)
     {
-        NFLogTrace(NF_LOG_SYSTEMLOG, playerId, "but player:{} doing game in the gameId:{}, roomId:{}", pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+        NFLogTrace(NF_LOG_SYSTEMLOG, playerId, "but player:{} doing game in the gameId:{}, roomId:{}", playerId, pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
         if (pPlayerInfo->m_gameId != xMsg.game_id() || pPlayerInfo->m_roomId != xMsg.room_id())
         {
             NFWorldRoom *pRoomInfo = NFWorldRoomMgr::GetInstance(m_pObjPluginManager)->GetRoom(pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);

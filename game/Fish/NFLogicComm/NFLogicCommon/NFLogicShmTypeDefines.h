@@ -74,6 +74,7 @@ typedef enum
     EOT_GAME_FISH_WAY_BILL_DESC_2004_ID,
     EOT_GAME_FISH_SETTING_DESC_2004_ID,
     EOT_GAME_FISH_PROMPT_CFG_DESC_2004_ID,
+    EOT_NFGameFish2004Desk_ID,
     ////////////////////////////game server/////////////////////////////
 	///////////////////////////////////////////////////////////
 	EOT_SF_END_ID = EOT_SERVER_FRAME_END_ID,

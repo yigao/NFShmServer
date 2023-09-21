@@ -291,7 +291,7 @@ NFIGameDeskImpl* NFCGameRoomModule::CreateDesk(uint32_t gameId)
         auto func = iter->second;
         if (func)
         {
-            return func(gameId);
+            return func(m_pObjPluginManager, gameId);
         }
     }
 

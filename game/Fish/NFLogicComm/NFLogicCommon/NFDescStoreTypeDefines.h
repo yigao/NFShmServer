@@ -18,6 +18,5 @@ typedef enum
     EOT_DESC_STORE_ALL_ID_DEFINE
 
     ///////////////////////////////////DescStoreEX///////////////////////////////////////////
-    EOT_GameRoomDescEx_ID,
     EOT_DS_END_ID = EOT_DESC_STORE_END_ID,
 } EN_DESC_STORE_SHMOBJ_TYPE;

@@ -18,6 +18,12 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "NFLogicCommon/NFIGamePlayer.h"
 
+#ifdef NF_DEBUG_MODE
+#define GAME_PLAYER_MAX_IDLE_TIME 150
+#else
+#define GAME_PLAYER_MAX_IDLE_TIME 15
+#endif
+
 class NFGamePlayer : public NFIGamePlayer
 {
 public:
@@ -77,7 +83,7 @@ public:
 
     virtual bool IsInGame() const { return m_gameId > 0 && m_roomId > 0 && m_deskId >= 0 && m_chairId >= 0;  }
 
-    virtual bool IsIdle() const { return m_gameId <= 0 && m_roomId <= 0 && m_deskId < 0 && m_chairId < 0 && NFTime::Now().UnixSec() - m_reservedTime > 15;  }
+    virtual bool IsIdle() const { return m_gameId <= 0 && m_roomId <= 0 && m_deskId < 0 && m_chairId < 0 && NFTime::Now().UnixSec() - m_reservedTime > GAME_PLAYER_MAX_IDLE_TIME;  }
 
     virtual void ClearGameData();
 

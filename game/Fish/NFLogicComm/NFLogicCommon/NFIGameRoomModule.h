@@ -12,7 +12,7 @@
 #include "NFFishDynamicModule.h"
 #include "NFIGameDeskImpl.h"
 
-typedef NFIGameDeskImpl*(*CreateDeskFunction)(uint32_t gameId);
+typedef NFIGameDeskImpl*(*CreateDeskFunction)(NFIPluginManager* pPluginManager, uint32_t gameId);
 
 class NFIGameRoomModule : public NFFishDynamicModule
 {

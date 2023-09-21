@@ -19,6 +19,7 @@
 #include "NFFishWayBillConfig.h"
 #include "NFFishSettingConfig.h"
 #include "NFFishPromptConfig.h"
+#include "NFGameFish2004Desk.h"
 
 NFGameFish2004Module::NFGameFish2004Module(NFIPluginManager *p) : NFISubGameModule(p)
 {
@@ -31,10 +32,10 @@ NFGameFish2004Module::~NFGameFish2004Module()
 
 bool NFGameFish2004Module::Awake()
 {
-    CreateDeskFunction createFunc = [](uint32_t gameId) -> NFIGameDeskImpl *
+    CreateDeskFunction createFunc = [](NFIPluginManager* pPluginManager, uint32_t gameId) -> NFIGameDeskImpl *
     {
         NF_ASSERT(gameId == GAME_ID_FISH_HAIWANG_2004);
-        return NULL;
+        return NFGameFish2004Desk::CreateObj(pPluginManager);
     };
     FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(GAME_ID_FISH_HAIWANG_2004, createFunc);
 
