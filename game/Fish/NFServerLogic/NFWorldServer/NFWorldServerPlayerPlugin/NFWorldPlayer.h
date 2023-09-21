@@ -49,6 +49,7 @@ public:
     uint32_t m_gameId;
     uint32_t m_roomId;
     uint32_t m_gameBusId;
+
 private:
     uint64_t m_playerId;
     uint32_t m_proxyId;

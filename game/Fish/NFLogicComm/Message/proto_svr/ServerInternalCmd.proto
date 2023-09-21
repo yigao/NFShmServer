@@ -39,4 +39,5 @@ enum Proto_SvrLogicMsgID
   NF_GTL_COIN_QUERY_BALANCE_RPC = 550; //查询当前账户数据
   //////////////////////game to logic world, notify leave game//////////////////////
   NF_STS_GAME_PLAYER_LEAVE_GAME = 551; //通知玩家离开游戏
+  NF_STS_PLAYER_CHANGE_GAME_SERVER = 552; //通知玩家改变游戏服务器
 }

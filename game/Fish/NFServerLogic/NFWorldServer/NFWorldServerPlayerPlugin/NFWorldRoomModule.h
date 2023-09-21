@@ -99,4 +99,6 @@ public:
      * @return
      */
     int OnHandleNotifyPlayerLeaveGame(uint32_t msgId, NFDataPackage& packet, uint64_t playerId, uint64_t param2);
+public:
+    int NotifyServerPlayerGameInfoChangeByRpc(uint64_t playerId, bool changeProxy = true, bool changeLogic = true);
 };

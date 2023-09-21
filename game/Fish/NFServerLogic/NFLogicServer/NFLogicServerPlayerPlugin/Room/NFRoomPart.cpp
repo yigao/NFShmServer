@@ -74,6 +74,7 @@ int NFRoomPart::RegisterMessage()
     AddRpcService<proto_ff::NF_CS_MSG_DeskListReq>(this, &NFRoomPart::GetDeskListReq, true);
     AddRpcService<proto_ff::NF_CS_MSG_EnterGameReq>(this, &NFRoomPart::EnterGameReq, true);
     AddRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(this, &NFRoomPart::ExitGameReq, true);
+    AddRpcService<proto_ff::NF_STS_PLAYER_CHANGE_GAME_SERVER>(this, &NFRoomPart::ChangeGameReq, true);
 
     RegisterClientMessage(proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME);
 
@@ -195,6 +196,20 @@ int NFRoomPart::ExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRs
         m_roomId = 0;
         m_gameBusId = 0;
     }
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFRoomPart::ChangeGameReq(proto_ff::Proto_STS_PlayerChangeGameServerReq& request, proto_ff::Proto_STS_PlayerChangeGameServerRsp& respone)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+
+    m_gameId = request.game_id();
+    m_roomId = request.room_id();
+    m_gameBusId = request.game_bus_id();
+
+    respone.set_ret_code(0);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;

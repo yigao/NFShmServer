@@ -41,6 +41,8 @@ bool NFCProxyPlayerModule::Awake()
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
     RegisterServerMessage(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_REDIRECT_MSG_TO_PROXY_SERVER_CMD);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_STS_PLAYER_CHANGE_GAME_SERVER>(NF_ST_PROXY_SERVER, this,
+                                                                                           &NFCProxyPlayerModule::OnRpcServicePlayerChangeGameServer);
 
     return true;
 }
@@ -947,5 +949,23 @@ int NFCProxyPlayerModule::OnHandlePlayerReconnectFromClient(uint64_t unLinkId, N
     FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SC_Msg_ReConnect_RSP, gcMsg, cgMsg.userid());
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFCProxyPlayerModule::OnRpcServicePlayerChangeGameServer(proto_ff::Proto_STS_PlayerChangeGameServerReq &request, proto_ff::Proto_STS_PlayerChangeGameServerRsp &respone)
+{
+    NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerLinkInfo = mPlayerLinkInfo.GetElement(request.player_id());
+    if (pPlayerLinkInfo == nullptr) {
+        NFLogError(NF_LOG_SYSTEMLOG, request.player_id(), "Can't find player info, change game server",
+                   request.player_id());
+        respone.set_ret_code(proto_ff::ERR_CODE_PLAYER_NOT_EXIST);
+        return 0;
+    }
+
+    pPlayerLinkInfo->SetGameId(request.game_id());
+    pPlayerLinkInfo->SetRoomId(request.room_id());
+    pPlayerLinkInfo->SetGameBusId(request.game_bus_id());
+
+    respone.set_ret_code(proto_ff::ERR_CODE_OK);
     return 0;
 }

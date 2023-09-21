@@ -226,3 +226,18 @@ message Proto_NotifyServerPlayerExitGame
   optional uint32 room_id = 3;
   optional uint32 desk_id = 4;
 }
+
+//NF_STS_PLAYER_CHANGE_GAME_SERVER = 552; //通知玩家改变游戏服务器
+message Proto_STS_PlayerChangeGameServerReq
+{
+  optional uint64 player_id = 1;
+  optional uint32 game_id = 2;
+  optional uint32 room_id = 3;
+  optional uint32 desk_id = 4;
+  optional uint32 game_bus_id = 5;
+}
+
+message Proto_STS_PlayerChangeGameServerRsp
+{
+  optional int32 ret_code = 1;
+}

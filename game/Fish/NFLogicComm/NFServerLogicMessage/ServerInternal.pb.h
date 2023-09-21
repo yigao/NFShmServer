@@ -67,6 +67,8 @@ class Proto_WTG_RegisterRoomInfoRsp;
 class Proto_QueryCoinBalanceReq;
 class Proto_QueryCoinBalanceRsp;
 class Proto_NotifyServerPlayerExitGame;
+class Proto_STS_PlayerChangeGameServerReq;
+class Proto_STS_PlayerChangeGameServerRsp;
 
 enum Proto_AccountState {
   E_ACCOUNTSTATE_OK = 0,
@@ -3146,6 +3148,210 @@ class Proto_NotifyServerPlayerExitGame : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static Proto_NotifyServerPlayerExitGame* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class Proto_STS_PlayerChangeGameServerReq : public ::google::protobuf::Message {
+ public:
+  Proto_STS_PlayerChangeGameServerReq();
+  virtual ~Proto_STS_PlayerChangeGameServerReq();
+
+  Proto_STS_PlayerChangeGameServerReq(const Proto_STS_PlayerChangeGameServerReq& from);
+
+  inline Proto_STS_PlayerChangeGameServerReq& operator=(const Proto_STS_PlayerChangeGameServerReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_STS_PlayerChangeGameServerReq& default_instance();
+
+  void Swap(Proto_STS_PlayerChangeGameServerReq* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_STS_PlayerChangeGameServerReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_STS_PlayerChangeGameServerReq& from);
+  void MergeFrom(const Proto_STS_PlayerChangeGameServerReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 player_id = 1;
+  inline bool has_player_id() const;
+  inline void clear_player_id();
+  static const int kPlayerIdFieldNumber = 1;
+  inline ::google::protobuf::uint64 player_id() const;
+  inline void set_player_id(::google::protobuf::uint64 value);
+
+  // optional uint32 game_id = 2;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // optional uint32 room_id = 3;
+  inline bool has_room_id() const;
+  inline void clear_room_id();
+  static const int kRoomIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 room_id() const;
+  inline void set_room_id(::google::protobuf::uint32 value);
+
+  // optional uint32 desk_id = 4;
+  inline bool has_desk_id() const;
+  inline void clear_desk_id();
+  static const int kDeskIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 desk_id() const;
+  inline void set_desk_id(::google::protobuf::uint32 value);
+
+  // optional uint32 game_bus_id = 5;
+  inline bool has_game_bus_id() const;
+  inline void clear_game_bus_id();
+  static const int kGameBusIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 game_bus_id() const;
+  inline void set_game_bus_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_STS_PlayerChangeGameServerReq)
+ private:
+  inline void set_has_player_id();
+  inline void clear_has_player_id();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+  inline void set_has_room_id();
+  inline void clear_has_room_id();
+  inline void set_has_desk_id();
+  inline void clear_has_desk_id();
+  inline void set_has_game_bus_id();
+  inline void clear_has_game_bus_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 player_id_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint32 room_id_;
+  ::google::protobuf::uint32 desk_id_;
+  ::google::protobuf::uint32 game_bus_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_STS_PlayerChangeGameServerReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class Proto_STS_PlayerChangeGameServerRsp : public ::google::protobuf::Message {
+ public:
+  Proto_STS_PlayerChangeGameServerRsp();
+  virtual ~Proto_STS_PlayerChangeGameServerRsp();
+
+  Proto_STS_PlayerChangeGameServerRsp(const Proto_STS_PlayerChangeGameServerRsp& from);
+
+  inline Proto_STS_PlayerChangeGameServerRsp& operator=(const Proto_STS_PlayerChangeGameServerRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const Proto_STS_PlayerChangeGameServerRsp& default_instance();
+
+  void Swap(Proto_STS_PlayerChangeGameServerRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  Proto_STS_PlayerChangeGameServerRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const Proto_STS_PlayerChangeGameServerRsp& from);
+  void MergeFrom(const Proto_STS_PlayerChangeGameServerRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.Proto_STS_PlayerChangeGameServerRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal_2eproto();
+
+  void InitAsDefaultInstance();
+  static Proto_STS_PlayerChangeGameServerRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -5498,6 +5704,146 @@ inline ::google::protobuf::uint32 Proto_NotifyServerPlayerExitGame::desk_id() co
 inline void Proto_NotifyServerPlayerExitGame::set_desk_id(::google::protobuf::uint32 value) {
   set_has_desk_id();
   desk_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_STS_PlayerChangeGameServerReq
+
+// optional uint64 player_id = 1;
+inline bool Proto_STS_PlayerChangeGameServerReq::has_player_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_has_player_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_has_player_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_player_id() {
+  player_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_player_id();
+}
+inline ::google::protobuf::uint64 Proto_STS_PlayerChangeGameServerReq::player_id() const {
+  return player_id_;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_player_id(::google::protobuf::uint64 value) {
+  set_has_player_id();
+  player_id_ = value;
+}
+
+// optional uint32 game_id = 2;
+inline bool Proto_STS_PlayerChangeGameServerReq::has_game_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_has_game_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 Proto_STS_PlayerChangeGameServerReq::game_id() const {
+  return game_id_;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// optional uint32 room_id = 3;
+inline bool Proto_STS_PlayerChangeGameServerReq::has_room_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_has_room_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_has_room_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_room_id() {
+  room_id_ = 0u;
+  clear_has_room_id();
+}
+inline ::google::protobuf::uint32 Proto_STS_PlayerChangeGameServerReq::room_id() const {
+  return room_id_;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_room_id(::google::protobuf::uint32 value) {
+  set_has_room_id();
+  room_id_ = value;
+}
+
+// optional uint32 desk_id = 4;
+inline bool Proto_STS_PlayerChangeGameServerReq::has_desk_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_has_desk_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_has_desk_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_desk_id() {
+  desk_id_ = 0u;
+  clear_has_desk_id();
+}
+inline ::google::protobuf::uint32 Proto_STS_PlayerChangeGameServerReq::desk_id() const {
+  return desk_id_;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_desk_id(::google::protobuf::uint32 value) {
+  set_has_desk_id();
+  desk_id_ = value;
+}
+
+// optional uint32 game_bus_id = 5;
+inline bool Proto_STS_PlayerChangeGameServerReq::has_game_bus_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_has_game_bus_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_has_game_bus_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::clear_game_bus_id() {
+  game_bus_id_ = 0u;
+  clear_has_game_bus_id();
+}
+inline ::google::protobuf::uint32 Proto_STS_PlayerChangeGameServerReq::game_bus_id() const {
+  return game_bus_id_;
+}
+inline void Proto_STS_PlayerChangeGameServerReq::set_game_bus_id(::google::protobuf::uint32 value) {
+  set_has_game_bus_id();
+  game_bus_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// Proto_STS_PlayerChangeGameServerRsp
+
+// optional int32 ret_code = 1;
+inline bool Proto_STS_PlayerChangeGameServerRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void Proto_STS_PlayerChangeGameServerRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void Proto_STS_PlayerChangeGameServerRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void Proto_STS_PlayerChangeGameServerRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 Proto_STS_PlayerChangeGameServerRsp::ret_code() const {
+  return ret_code_;
+}
+inline void Proto_STS_PlayerChangeGameServerRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
 }
 
 

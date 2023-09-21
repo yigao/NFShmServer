@@ -58,7 +58,7 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\027ServerInternalCmd.proto\022\010proto_ff*\276\007\n\023"
+    "\n\027ServerInternalCmd.proto\022\010proto_ff*\345\007\n\023"
     "Proto_SvrLogicMsgID\022\033\n\027NF_PTW_PLAYER_LOG"
     "IN_REQ\020d\022\033\n\027NF_WTP_PLAYER_LOGIN_RSP\020e\022\033\n"
     "\027NF_WTL_PLAYER_LOGIN_REQ\020f\022\033\n\027NF_LTW_PLA"
@@ -82,7 +82,8 @@ void protobuf_AddDesc_ServerInternalCmd_2eproto() {
     "\001\022&\n!NF_LTS_PLAYER_ADD_BANK_JETTON_RPC\020\364"
     "\003\022)\n$NF_LTS_PLAYER_REDUCE_BANK_JETTON_RP"
     "C\020\365\003\022\"\n\035NF_GTL_COIN_QUERY_BALANCE_RPC\020\246\004"
-    "\022\"\n\035NF_STS_GAME_PLAYER_LEAVE_GAME\020\247\004", 996);
+    "\022\"\n\035NF_STS_GAME_PLAYER_LEAVE_GAME\020\247\004\022%\n "
+    "NF_STS_PLAYER_CHANGE_GAME_SERVER\020\250\004", 1035);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd_2eproto);
@@ -127,6 +128,7 @@ bool Proto_SvrLogicMsgID_IsValid(int value) {
     case 501:
     case 550:
     case 551:
+    case 552:
       return true;
     default:
       return false;

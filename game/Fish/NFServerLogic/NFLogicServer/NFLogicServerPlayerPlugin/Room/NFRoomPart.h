@@ -162,6 +162,14 @@ public:
      * @return
      */
     int ExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRsp& respone);
+
+    /**
+     * @brief 游戏服务器被修改
+     * @param request
+     * @param respone
+     * @return
+     */
+    int ChangeGameReq(proto_ff::Proto_STS_PlayerChangeGameServerReq& request, proto_ff::Proto_STS_PlayerChangeGameServerRsp& respone);
 public:
     /**
      * @brief 通知玩家离开游戏

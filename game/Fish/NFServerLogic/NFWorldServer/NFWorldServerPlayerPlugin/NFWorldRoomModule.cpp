@@ -324,6 +324,58 @@ int NFWorldRoomModule::OnHandleDeskListReq(uint32_t msgId, NFDataPackage &packet
     return 0;
 }
 
+int NFWorldRoomModule::NotifyServerPlayerGameInfoChangeByRpc(uint64_t playerId, bool changeProxy, bool changeLogic)
+{
+    auto pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_NULL(pPlayerInfo);
+
+    if (changeProxy)
+    {
+        proto_ff::Proto_STS_PlayerChangeGameServerReq changeGameReq;
+        changeGameReq.set_player_id(playerId);
+        changeGameReq.set_game_id(pPlayerInfo->m_gameId);
+        changeGameReq.set_room_id(pPlayerInfo->m_roomId);
+        changeGameReq.set_game_bus_id(pPlayerInfo->m_gameBusId);
+
+        proto_ff::Proto_STS_PlayerChangeGameServerRsp changeGameRsp;
+        int iChangeGameRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STS_PLAYER_CHANGE_GAME_SERVER>(NF_ST_WORLD_SERVER, NF_ST_PROXY_SERVER,
+                                                                                                                       pPlayerInfo->GetProxyId(), changeGameReq, changeGameRsp,
+                                                                                                                       playerId);
+
+        if (iChangeGameRet != 0 || changeGameRsp.ret_code() != 0)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, playerId, "player game bus change, notify proxy server change game server failed");
+        }
+
+        pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+        CHECK_NULL(pPlayerInfo);
+    }
+
+    if (changeLogic)
+    {
+        proto_ff::Proto_STS_PlayerChangeGameServerReq changeGameReq;
+        changeGameReq.set_player_id(playerId);
+        changeGameReq.set_game_id(pPlayerInfo->m_gameId);
+        changeGameReq.set_room_id(pPlayerInfo->m_roomId);
+        changeGameReq.set_game_bus_id(pPlayerInfo->m_gameBusId);
+
+        proto_ff::Proto_STS_PlayerChangeGameServerRsp changeGameRsp;
+        int iChangeGameRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STS_PLAYER_CHANGE_GAME_SERVER>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER,
+                                                                                                                       pPlayerInfo->GetLogicId(), changeGameReq, changeGameRsp,
+                                                                                                                       playerId);
+
+        if (iChangeGameRet != 0 || changeGameRsp.ret_code() != 0)
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, playerId, "player game bus change, notify proxy server change game server failed");
+        }
+
+        pPlayerInfo = NFWorldPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+        CHECK_NULL(pPlayerInfo);
+    }
+
+    return 0;
+}
+
 int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packet, uint64_t playerId, uint64_t param2)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
@@ -377,6 +429,8 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
                 pPlayerInfo->m_gameId = 0;
                 pPlayerInfo->m_roomId = 0;
                 pPlayerInfo->m_gameBusId = 0;
+
+                NotifyServerPlayerGameInfoChangeByRpc(playerId, true, false);
             }
             else
             {
@@ -386,6 +440,8 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
                 pPlayerInfo->m_gameId = 0;
                 pPlayerInfo->m_roomId = 0;
                 pPlayerInfo->m_gameBusId = 0;
+
+                NotifyServerPlayerGameInfoChangeByRpc(playerId, true, true);
             }
         }
     }
@@ -414,6 +470,8 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
             {
                 pPlayerInfo->m_gameId = 0;
                 pPlayerInfo->m_roomId = 0;
+                pPlayerInfo->m_gameBusId = 0;
+                NotifyServerPlayerGameInfoChangeByRpc(playerId, true, false);
 
                 rspMsg.set_result(iRet);
                 NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "GetRpcService proto_ff::NF_CS_MSG_EnterGameReq Failed! iRet:{}",
@@ -421,6 +479,7 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
                 FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(),
                                                                            proto_ff::NF_SC_MSG_EnterGameRsp, rspMsg,
                                                                            pPlayerInfo->GetPlayerId());
+
                 return 0;
             }
 
@@ -428,6 +487,8 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
             {
                 pPlayerInfo->m_gameId = 0;
                 pPlayerInfo->m_roomId = 0;
+                pPlayerInfo->m_gameBusId = 0;
+                NotifyServerPlayerGameInfoChangeByRpc(playerId, true, false);
 
                 NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player:{} enter game:{} room:{} Failed! error:{}",
                            pPlayerInfo->GetPlayerId(), xMsg.game_id(), xMsg.room_id(), GetErrorStr(rspMsg.result()));
@@ -442,12 +503,19 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
             pPlayerInfo->m_roomId = xMsg.room_id();
             pPlayerInfo->m_gameBusId = pRoomInfo->m_busId;
 
+            NotifyServerPlayerGameInfoChangeByRpc(playerId, true, false);
+
             FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pPlayerInfo->GetProxyId(),
                                                                        proto_ff::NF_SC_MSG_EnterGameRsp, rspMsg,
                                                                        pPlayerInfo->GetPlayerId());
         }
         else
         {
+            pPlayerInfo->m_gameId = 0;
+            pPlayerInfo->m_roomId = 0;
+            pPlayerInfo->m_gameBusId = 0;
+            NotifyServerPlayerGameInfoChangeByRpc(playerId, true, true);
+
             proto_ff::EnterGameRsp rspMsg;
             rspMsg.set_result(proto_ff::ERR_CODE_GAME_ROOM_NOT_ONLINE);
             rspMsg.set_player_id(pPlayerInfo->GetPlayerId());
@@ -459,6 +527,11 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
     }
     else
     {
+        pPlayerInfo->m_gameId = 0;
+        pPlayerInfo->m_roomId = 0;
+        pPlayerInfo->m_gameBusId = 0;
+        NotifyServerPlayerGameInfoChangeByRpc(playerId, true, true);
+
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Can't find room for: xMsg.game_id() = {} , xMsg.room_id() = {}", xMsg.game_id(), xMsg.room_id());
         proto_ff::EnterGameRsp rspMsg;
         rspMsg.set_result(proto_ff::ERR_CODE_GAME_ROOM_NOT_EXIST);
@@ -515,6 +588,7 @@ int NFWorldRoomModule::OnHandleExitGameReq(uint32_t msgId, NFDataPackage &packet
         pPlayerInfo->m_gameId = 0;
         pPlayerInfo->m_roomId = 0;
         pPlayerInfo->m_gameBusId = 0;
+        NotifyServerPlayerGameInfoChangeByRpc(playerId, true, false);
     }
     else
     {

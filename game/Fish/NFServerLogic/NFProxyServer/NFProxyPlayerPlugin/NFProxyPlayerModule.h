@@ -122,6 +122,15 @@ public:
      * @return
      */
     int OnHandlePlayerReconnectFromClient(uint64_t unLinkId, NFDataPackage &packet);
+
+public:
+    /**
+     * @brief 玩家游戏游戏服务器RPC
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServicePlayerChangeGameServer(proto_ff::Proto_STS_PlayerChangeGameServerReq &request, proto_ff::Proto_STS_PlayerChangeGameServerRsp &respone);
 private:
     NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
     NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
