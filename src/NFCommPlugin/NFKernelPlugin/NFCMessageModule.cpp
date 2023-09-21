@@ -412,62 +412,64 @@ int NFCMessageModule::OnHandleReceiveNetPack(uint64_t connectionLink, uint64_t o
         }
 
         CHECK_EXPR(packet.mModuleId < NF_MODULE_MAX, -1, "nModuleId:{} >= NF_MODULE_MAX", packet.mModuleId);
-        CHECK_EXPR(packet.nMsgId < NF_NET_MAX_MSG_ID, -1, "nMsgID:{} >= NF_NET_MAX_MSG_ID", packet.nMsgId);
-        NetReceiveFunctor &netFunctor = callBack.mxReceiveCallBack[packet.mModuleId][packet.nMsgId];
-        if (netFunctor.m_pTarget != NULL)
+        if (packet.nMsgId < NF_NET_MAX_MSG_ID)
         {
-            NET_RECEIVE_FUNCTOR &pFun = netFunctor.m_pFunctor;
-            if (pFun)
+            NetReceiveFunctor &netFunctor = callBack.mxReceiveCallBack[packet.mModuleId][packet.nMsgId];
+            if (netFunctor.m_pTarget != NULL)
             {
-                int iRet = 0;
-                if (netFunctor.m_createCo)
+                NET_RECEIVE_FUNCTOR &pFun = netFunctor.m_pFunctor;
+                if (pFun)
                 {
-                    int64_t coId = FindModule<NFICoroutineModule>()->MakeCoroutine(
-                            [objectLinkId, packet, pFun]
-                            {
-                                //从消息层传过来的包中的数据，会在处理函数执行完后销毁掉，所以携程必须复制一份，以防万一yield后又用到。
-                                std::string tempCopyBuffer(packet.GetBuffer(), packet.GetSize());
-                                NFDataPackage tempPackage = packet;
-                                tempPackage.nBuffer = (char *) tempCopyBuffer.data();
-                                pFun(objectLinkId, tempPackage);
-                            });
-                    if (coId == INVALID_ID)
+                    int iRet = 0;
+                    if (netFunctor.m_createCo)
                     {
-                        iRet = proto_ff::ERR_CODE_RPC_TASK_OVERLOAD;
+                        int64_t coId = FindModule<NFICoroutineModule>()->MakeCoroutine(
+                                [objectLinkId, packet, pFun]
+                                {
+                                    //从消息层传过来的包中的数据，会在处理函数执行完后销毁掉，所以携程必须复制一份，以防万一yield后又用到。
+                                    std::string tempCopyBuffer(packet.GetBuffer(), packet.GetSize());
+                                    NFDataPackage tempPackage = packet;
+                                    tempPackage.nBuffer = (char *) tempCopyBuffer.data();
+                                    pFun(objectLinkId, tempPackage);
+                                });
+                        if (coId == INVALID_ID)
+                        {
+                            iRet = proto_ff::ERR_CODE_RPC_TASK_OVERLOAD;
+                        }
                     }
-                }
-                else
-                {
-                    iRet = pFun(objectLinkId, packet);
-                }
-                netFunctor.m_iCount++;
-                uint64_t useTime = NFGetMicroSecondTime() - startTime;
-                netFunctor.m_iAllUseTime += useTime;
-                if (useTime > netFunctor.m_iMaxTime)
-                {
-                    netFunctor.m_iMaxTime = useTime;
-                }
-                if (useTime < netFunctor.m_iMinTime)
-                {
-                    netFunctor.m_iMinTime = useTime;
-                }
-                if (useTime / 1000 > 33)
-                {
-                    NFLogError(NF_LOG_SYSTEMLOG, 0, "moduleId:{}, nMsgId:{} use time:{} ms, too long", packet.mModuleId, packet.nMsgId,
-                               useTime / 1000);
+                    else
+                    {
+                        iRet = pFun(objectLinkId, packet);
+                    }
+                    netFunctor.m_iCount++;
+                    uint64_t useTime = NFGetMicroSecondTime() - startTime;
+                    netFunctor.m_iAllUseTime += useTime;
+                    if (useTime > netFunctor.m_iMaxTime)
+                    {
+                        netFunctor.m_iMaxTime = useTime;
+                    }
+                    if (useTime < netFunctor.m_iMinTime)
+                    {
+                        netFunctor.m_iMinTime = useTime;
+                    }
+                    if (useTime / 1000 > 33)
+                    {
+                        NFLogError(NF_LOG_SYSTEMLOG, 0, "moduleId:{}, nMsgId:{} use time:{} ms, too long", packet.mModuleId, packet.nMsgId,
+                                   useTime / 1000);
+                    }
+
+                    if (!NFGlobalSystem::Instance()->IsSpecialMsg(packet.mModuleId, packet.nMsgId))
+                    {
+                        NFLogTrace(NF_LOG_RECV_MSG, 0, "packet:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
+                                   packet.ToString(), useTime, netFunctor.m_iCount, netFunctor.m_iAllUseTime,
+                                   netFunctor.m_iAllUseTime / netFunctor.m_iCount, netFunctor.m_iMinTime, netFunctor.m_iMaxTime);
+                    }
+
+                    CHECK_RET(iRet, "packet:{}", packet.ToString());
                 }
 
-                if (!NFGlobalSystem::Instance()->IsSpecialMsg(packet.mModuleId, packet.nMsgId))
-                {
-                    NFLogTrace(NF_LOG_RECV_MSG, 0, "packet:{} use time:{} us, count:{} allTime:{} perTime:{} minTime:{} maxTime:{}",
-                               packet.ToString(), useTime, netFunctor.m_iCount, netFunctor.m_iAllUseTime,
-                               netFunctor.m_iAllUseTime / netFunctor.m_iCount, netFunctor.m_iMinTime, netFunctor.m_iMaxTime);
-                }
-
-                CHECK_RET(iRet, "packet:{}", packet.ToString());
+                return 0;
             }
-
-            return 0;
         }
 
         auto iterator2 = callBack.mxOtherMsgCallBackList.find(connectionLink);

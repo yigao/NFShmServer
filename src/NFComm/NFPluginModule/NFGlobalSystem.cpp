@@ -143,7 +143,9 @@ bool NFGlobalSystem::RegisterSpecialMsg(uint32_t moduleId, uint32_t msgId)
 
 bool NFGlobalSystem::IsSpecialMsg(uint32_t moduleId, uint32_t msgId)
 {
-    CHECK_EXPR(moduleId < NF_MODULE_MAX, false, "");
-    CHECK_EXPR(msgId < NF_NET_MAX_MSG_ID, false, "");
-    return mSpecialMsgMap[moduleId][msgId];
+    if (moduleId < NF_MODULE_MAX && msgId < NF_NET_MAX_MSG_ID)
+    {
+        return mSpecialMsgMap[moduleId][msgId];
+    }
+    return false;
 }
