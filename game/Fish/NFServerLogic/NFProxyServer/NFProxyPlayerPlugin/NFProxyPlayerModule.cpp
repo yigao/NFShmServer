@@ -275,10 +275,18 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
 
     pPlayerInfo->SetOnline(true);
 
+    uint32_t msgId = packet.nMsgId;
+    uint32_t gameId = 0;
+    if (msgId >= NF_NET_MAX_MSG_ID)
+    {
+        gameId = HIGH_UINT16(packet.nMsgId);
+        msgId = LOW_UINT16(packet.nMsgId);
+    }
+
     int count = 0;
     int interval = 0;
-    pLinkInfo->AddPkgStatistic(packet.nMsgId, pLinkInfo->GetPlayerId(), unLinkId);
-    int ret = pLinkInfo->CheckPkgRate(&m_packetConfig, packet.nMsgId, count, interval);
+    pLinkInfo->AddPkgStatistic(msgId, pLinkInfo->GetPlayerId(), unLinkId);
+    int ret = pLinkInfo->CheckPkgRate(&m_packetConfig, msgId, count, interval);
     if (ret != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check player:{} linkId:{} count:{} interval:{} ret:{} packet:{}", pLinkInfo->GetPlayerId(), unLinkId, count,
@@ -294,7 +302,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             return 0;
         }
 
-        uint32_t serverType = FindModule<NFIProxyServerModule>()->GetClientMsgServer(packet.nMsgId);
+        uint32_t serverType = FindModule<NFIProxyServerModule>()->GetClientMsgServer(msgId);
         if (serverType == NF_ST_WORLD_SERVER)
         {
             NF_SHARE_PTR<NFServerData> pWorldServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_PROXY_SERVER,
@@ -304,7 +312,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             {
                 NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "recv packet = {}, transfer to world server", packet.ToString());
                 FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(),
-                                                                          NF_MODULE_CLIENT, packet.nMsgId,
+                                                                          NF_MODULE_CLIENT, msgId,
                                                                           packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetPlayerId(),
                                                                           0);
             }
@@ -321,7 +329,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             {
                 NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "recv packet = {}, transfer to logic server", packet.ToString());
                 FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetLogicBusId(), NF_MODULE_CLIENT,
-                                                                          packet.nMsgId,
+                                                                          msgId,
                                                                           packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetPlayerId(),
                                                                           0);
             }
@@ -336,7 +344,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             {
                 NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "recv packet = {}, transfer to game server", packet.ToString());
                 FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetGameBusId(), NF_MODULE_CLIENT,
-                                                                          packet.nMsgId,
+                                                                          msgId,
                                                                           packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetPlayerId(),
                                                                           0);
             }
@@ -354,7 +362,7 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
             {
                 NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "recv packet = {}, transfer to sns server", packet.ToString());
                 FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pSnsServer->mServerInfo.bus_id(), NF_MODULE_CLIENT,
-                                                                          packet.nMsgId,
+                                                                          msgId,
                                                                           packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetPlayerId(),
                                                                           0);
             }
