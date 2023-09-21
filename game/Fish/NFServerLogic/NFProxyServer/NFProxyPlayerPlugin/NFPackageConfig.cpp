@@ -14,7 +14,7 @@
 
 NFPackageConfig::NFPackageConfig()
 {
-    m_packetMsgConfig.resize(CLIENT_MAX_CMD_ID_VALUE);
+    m_packetMsgConfig.resize(NF_NET_MAX_MSG_ID);
 }
 
 NFPackageConfig::~NFPackageConfig()
@@ -57,7 +57,7 @@ int NFPackageConfig::LoadConfig(const string &path, const string &server)
     for (int i = 0; i < (int) serverMsg.packetmsg_size(); ++i)
     {
         const ::proto_ff::PacketMsg &msg = serverMsg.packetmsg(i);
-        CHECK_EXPR_ASSERT((msg.cmd() > 0 && msg.cmd() < CLIENT_MAX_CMD_ID_VALUE), -1, "invalid msg:{}", msg.cmd());
+        CHECK_EXPR_ASSERT((msg.cmd() > 0 && msg.cmd() < NF_NET_MAX_MSG_ID), -1, "invalid msg:{}", msg.cmd());
         m_packetMsgConfig[msg.cmd()] = msg;
     }
     return 0;
@@ -65,7 +65,7 @@ int NFPackageConfig::LoadConfig(const string &path, const string &server)
 
 const proto_ff::PacketMsg* NFPackageConfig::GetPacketConfig(uint32_t iMsgID)
 {
-    CHECK_EXPR((iMsgID > 0 && iMsgID < CLIENT_MAX_CMD_ID_VALUE), NULL, "invalid msg:{}", iMsgID);
+    CHECK_EXPR((iMsgID > 0 && iMsgID < NF_NET_MAX_MSG_ID), NULL, "invalid msg:{}", iMsgID);
 
     if (m_packetMsgConfig[iMsgID].has_cmd())
     {

@@ -24,7 +24,7 @@ NFPackageMng::~NFPackageMng()
 int NFPackageMng::CheckPkgRate(NFPackageConfig* pConfig, int iMsgID, int &count, int &interval)
 {
     CHECK_EXPR_ASSERT(pConfig, -1, "pConfig == NULL");
-    CHECK_EXPR((iMsgID > 0 && iMsgID < CLIENT_MAX_CMD_ID_VALUE), CMDID_OUT_MAX_VALUE, "invalid msg:{}", iMsgID);
+    CHECK_EXPR((iMsgID > 0 && iMsgID < NF_NET_MAX_MSG_ID), CMDID_OUT_MAX_VALUE, "invalid msg:{}", iMsgID);
 
     interval = 0;
     count = 0;
@@ -76,7 +76,7 @@ int NFPackageMng::CheckPkgRate(NFPackageConfig* pConfig, int iMsgID, int &count,
 
 int NFPackageMng::AddPkgStatistic(int iMsgID, uint64_t roleID, uint64_t linkId)
 {
-    CHECK_EXPR(iMsgID > 0 && iMsgID < CLIENT_MAX_CMD_ID_VALUE, CMDID_OUT_MAX_VALUE, "invalid msg:{}", iMsgID);
+    CHECK_EXPR(iMsgID > 0 && iMsgID < NF_NET_MAX_MSG_ID, CMDID_OUT_MAX_VALUE, "invalid msg:{}", iMsgID);
 
     int64_t ullTimeMs = NFTime::Now().UnixMSec();
     if (m_msgStatisticInfo[iMsgID].m_lastMinBeginTime == 0)

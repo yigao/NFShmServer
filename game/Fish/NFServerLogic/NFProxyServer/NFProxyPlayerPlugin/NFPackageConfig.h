@@ -15,8 +15,7 @@
 #include "NFServerLogicMessage/ServerConfig.pb.h"
 #include "NFServerLogicMessage/ClientServerCmd.pb.h"
 #include "proto_svr_common.pb.h"
-
-#define CLIENT_MAX_CMD_ID_VALUE 10000
+#include "NFComm/NFPluginModule/NFServerDefine.h"
 
 class NFPackageConfig : public NFILuaLoader
 {

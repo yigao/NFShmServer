@@ -80,6 +80,6 @@ public:
     int AddPkgStatistic(int iMsgID, uint64_t roleID, uint64_t linkId);
 
 private:
-    NFMsgInputInfo m_msgInputInfo[CLIENT_MAX_CMD_ID_VALUE];
-    NFMsgInputStatistic m_msgStatisticInfo[CLIENT_MAX_CMD_ID_VALUE];
+    NFMsgInputInfo m_msgInputInfo[NF_NET_MAX_MSG_ID];
+    NFMsgInputStatistic m_msgStatisticInfo[NF_NET_MAX_MSG_ID];
 };
