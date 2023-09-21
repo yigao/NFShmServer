@@ -67,7 +67,7 @@ LoadPlugin =
 			"NFFishSnsPlayerPlugin",
 			"NFFishLogicPlayerPlugin",
 			"NFFishGamePlayerPlugin",
-			"NFGameFish2004Plugin",
+			"NFGameFishPlugin",
 		};
 
 		ServerType = NF_ST_NONE;
@@ -169,7 +169,7 @@ LoadPlugin =
 			"NFFishCommonPlugin",
 
 			"NFFishGamePlayerPlugin",
-			"NFGameFish2004Plugin",
+			"NFGameFishPlugin",
 		};
 		ServerType = NF_ST_GAME_SERVER;
 	},
