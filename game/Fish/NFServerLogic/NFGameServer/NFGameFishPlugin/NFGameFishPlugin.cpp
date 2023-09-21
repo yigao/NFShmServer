@@ -13,13 +13,13 @@
 #include "NFGameFishModule.h"
 #include "NFLogicCommon/NFIGameConfig.h"
 #include "NFLogicCommon/NFFishDefine.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishTraceConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishGroupConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishConfigConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishWayBillConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishSettingConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishPromptConfig.h"
-#include "NFGameFishDesk.h"
+#include "Config/NFFishTraceConfig.h"
+#include "Config/NFFishGroupConfig.h"
+#include "Config/NFFishConfigConfig.h"
+#include "Config/NFFishWayBillConfig.h"
+#include "Config/NFFishSettingConfig.h"
+#include "Config/NFFishPromptConfig.h"
+#include "Desk/NFGameFishDesk.h"
 
 #define MAX_FISH_ROOM_DESK_COUNT 255
 #define MAX_GAME_FISH_ROBOT_COUNT 1000

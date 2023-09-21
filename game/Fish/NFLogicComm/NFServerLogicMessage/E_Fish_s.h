@@ -70,7 +70,6 @@ namespace proto_ff_s {
 		int32_t m_gameid;//游戏Id
 		int32_t m_roomid;//房间ID
 		int32_t m_gunid;//炮Id
-		int32_t m_gameroomid;//游戏房间ID
 
 		virtual void write_to_pbmsg(::proto_ff::E_FishGunvalue & msg) const;
 		virtual void read_from_pbmsg(const ::proto_ff::E_FishGunvalue & msg);

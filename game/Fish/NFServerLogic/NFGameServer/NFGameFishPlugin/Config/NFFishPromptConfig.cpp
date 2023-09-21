@@ -7,7 +7,7 @@
 #include "NFLogicCommon/NFFishDefine.h"
 #include "NFComm/NFCore/NFCommon.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishPromptConfig, EOT_GAME_FISH_PROMPT_CFG_DESC_2004_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishPromptConfig, EOT_GAME_FISH_PROMPT_CFG_DESC_ID, NFShmObj)
 
 NFFishPromptConfig::NFFishPromptConfig()
 {

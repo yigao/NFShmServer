@@ -1,0 +1,633 @@
+package gamefish;
+
+import "yd_fieldoptions.proto";
+
+message FishInfo {
+  optional uint32 usFishKind=1;    //鱼类型
+  optional uint32 usFishID=2;      //鱼唯一ID
+  repeated uint32 subFishKinds=3 [(yd_fieldoptions.field_arysize)=10];  //子鱼类型列表
+
+  optional uint32 usTraceId=4;     //轨迹ID
+  optional uint32 usStartIndex=5;  //鱼在轨迹上的起始点
+  optional uint32 usOffsetIndex=6; //这个暂时没用
+  optional int32  usOffsetPosX=7;  //轨迹偏移X,把轨迹的所有点偏移一个值后再使用
+  optional int32  usOffsetPoxY=8;  //轨迹偏移Y,把轨迹的所有点偏移一个值后再使用
+  optional uint32 usBirthDelay=9;  //出鱼延时
+
+  optional uint32 usIsRedFish=10;  //红鱼鱼王 1--红鱼 0--普通
+  optional uint32 usGroupId = 11;
+}
+
+message FishList {
+  repeated FishInfo Fishes=1  [(yd_fieldoptions.field_arysize)=500];//这个至少要500个
+}
+
+message cgUserReady {
+  optional int32 usResvered = 1;
+}
+
+message ShootBulletReq {
+  optional int32 usBulletId=1;	       //子弹标识
+  optional int32 sAngle=2;			   //发射角度
+  optional int32 byCannonLevelIndex = 3; //炮弹等级序号, 从0开始
+}
+
+message ShootBulletRsp {
+  optional int32 usBulletId=1;           //子弹Id
+  optional int32 sAngle=2;               //角度
+  optional int32 usSpeedIndex=3;         //速度index
+  optional int32 usIntervalIndex=4;      //间隔index
+  optional int32 usLevelIndex=5;         //等级index
+  optional int32 usChairId=6;            //座位号
+  optional int32 usErrorCode=7;          //错误码
+  optional int32 usProcUserChairId = 8;  //帮机器人判断捕获的真实玩家座位号: -1:无效(真人发子弹,这个值填-1) ， 机器人填值>-1
+}
+
+message cgBulletSpeed {
+  optional int32 usSpeedIndex=1;
+  optional int32 usIntervalIndex=2;
+}
+
+message gcBulletSpeed {
+  optional int32 usChairId=1;
+  optional int32 usSpeedIndex=2;
+  optional int32 usIntervalIndex=3;
+  optional int32 usErrorCode=4;
+}
+
+message gcStatus{
+  optional int32 usStatus = 1;
+}
+
+message cgHitfish
+{
+  optional int32 fishId = 1;
+  optional int32 subFishId = 2;
+  optional int32 bulletid = 3;
+  optional int32 usRobotChairId = 4; //机器人座位号  -1:无效(真人打到鱼,这个值填-1)
+}
+
+message gcKillSubFish
+{
+  optional int32 fishId = 1;
+  optional int32 fishType = 2;
+  optional int32 multiple = 3;
+  optional int32 score = 4;
+}
+
+message KillFishRsp
+{
+  optional int32 bombUID      = 1;
+  optional int32 mainFishUID  = 2;
+  optional int32 mainFishId   = 3;
+  optional int32 mainFishType = 4;
+  optional int32 mainMultiple = 5;
+  optional int32 mainScore    = 6;
+  optional int32 totalScore     = 7;
+  optional int32 totalRatio     = 8;
+  optional int32 chairId        = 9;
+  optional int32 usErrorCode    = 10;
+  optional int32 subFishCount   = 11;
+  repeated KillFishRsp SubFishes= 12;
+  optional int32 bulletid   = 13;
+  optional int32 bombFishId = 14;  //主鱼kind
+}
+
+message cgAutoShoot
+{
+  optional bool onOff = 1;
+}
+
+message gcAutoShoot
+{
+  optional int32 chairId = 1;
+  optional int32 onOff = 2;
+  optional int32 usErrorCode=3;
+}
+
+message cgLockOnOff
+{
+  optional bool onOff = 1;
+}
+
+message gcLockOnOff
+{
+  optional int32 chairId = 1;
+  optional bool  onOff = 2;
+  optional int32 usErrorCode=3;
+}
+
+message cgLockFish
+{
+  optional int32 fishId = 1;
+}
+
+message gcLockFish
+{
+  optional int32 chairId = 1;
+  optional int32 fishId = 2;
+  optional int32 usErrorCode=3;
+}
+
+message UserInfo
+{
+  optional uint32 chair_id   = 1;
+  optional string user_name  = 2 [(yd_fieldoptions.field_bufsize)=128, (yd_fieldoptions.db_field_bufsize)=128];
+  optional uint64 user_money = 3;
+  optional uint32 cannon_id  = 4;
+
+}
+
+message UserStatus
+{
+  optional uint32 chair_id        = 1;
+  optional bool   lockfish_onoff  = 2;
+  optional uint32 lockfish_uid    = 3;
+  optional bool   autoshoot_onoff = 4;
+  optional uint32 bullet_speedlev = 5;
+}
+//---------------------------------------
+//to do
+
+
+
+
+//---------------------------------------
+message UserStatusReq
+{
+  optional uint32 reserved = 1;
+
+}
+
+message UserStatusRsp
+{
+  repeated UserStatus userstatuslist = 1 [(yd_fieldoptions.field_arysize)=100];
+}
+
+
+
+//---------------------------------------
+message gcUserEnterDesk
+{
+  optional UserInfo userInfo = 1;
+}
+
+message gcUserLeaveDesk
+{
+  optional uint32 chair_id = 1;
+}
+
+message gcUserDisconnectDesk
+{
+  optional uint32 chair_id = 1;
+}
+//---------------------------------------
+
+message CannonInfo
+{
+  optional uint32 cannon_id       = 1;
+  optional uint32 cannon_value    = 2;
+  optional uint32 cannon_gun_id   = 3;
+}
+
+//----------------
+message cgChangeCannon
+{
+  optional uint32 cannon_id = 1;
+}
+
+message gcChangeCannon
+{
+  optional uint32 cannon_id = 1;
+  optional uint32 chair_id  = 3;
+}
+
+//message ChangeSceneRsp //切换场景
+//{
+//	optional uint32 sceneId = 1;       //场景编号
+//	optional uint32 fishGowayTime = 2;//鱼游走的时间ms
+//}
+
+message ChangeSceneRsp
+{
+  optional uint32 scene_id = 1;    //场景ID
+  optional float  time_seconds = 2;   //场景过度时间
+  optional uint32 scene_change_type = 3; //切换场景类型
+}
+
+//-----------------------
+
+////////
+//----------------
+
+message gcUserMoney
+{
+  optional uint32 chair_id = 1;
+  optional uint64 user_money = 2;
+
+}
+
+message FreezeFish
+{
+  optional uint32 fish_uid = 1;
+  optional uint32 fish_id  = 2;
+}
+
+message gcFreezeFishes
+{
+  optional uint32 mainfish_uid  = 1;
+  optional uint32 mainfish_id   = 2;
+  optional uint32 mainFishType  = 3;
+  optional bool IsFreeze        = 4;
+  repeated FreezeFish fishes    = 5 [(yd_fieldoptions.field_arysize)=500];//至少要500个
+}
+
+message SC_DoubleGunOnOff
+{
+  optional uint32 chairId = 1;  //玩家座位号
+  optional uint32 onOff   = 2;  //双倍炮开关 1-开  0-关
+}
+
+message PromptInfoRsp   //提示信息
+{
+  optional uint32 infoType   = 1;   //提示信息类型 0-鱼潮 1-提示鱼
+  optional uint32 fishKindId = 2;   //配置表里的鱼id (nfoType为0时无效， nfoType为1时是鱼id)
+}
+
+//////////////////////////////////////////////
+
+//NF_FISH_CMD_GAMESTATUS_RSP 10002
+message GameStatusRsp
+{
+  optional uint32 background_index = 1;
+  repeated CannonInfo cannonlist   = 2 [(yd_fieldoptions.field_arysize)=100];
+  repeated UserInfo   userlist     = 3 [(yd_fieldoptions.field_arysize)=100];
+}
+
+//===========================================================
+//电磁炮相关
+//#define NF_FISH_CMD_CREATEDIANCICANNON_RSP 10036  //产生电磁炮
+message CreateDianCiCannonRsp
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usDianCiCannonId = 2;  //电磁炮Id
+  optional int32 usKilledFishId   = 3;  //被打死鱼Id -- 打死这个鱼而产生炸弹
+  optional int32 usDianCiCannonStatus = 4;  //瞄准状态、发射状态
+  optional float usDianCiCannonStatusTime = 5;//瞄准状态时间，发射状态的时间
+  optional int32 usKilledFishKind = 6;  //被打死鱼的类型
+}
+
+//#define NF_FISH_CMD_DIANCICANNONAIM_REQ    10037  //电磁炮瞄准
+message DianCiCannonAimReq
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usDianCiCannonId = 2;  //电磁炮Id
+  optional int32 usAngle          = 3;  //方向角
+}
+
+//#define NF_FISH_CMD_DIANCICANNONAIM_RSP    10038  //电磁炮瞄准广播
+message DianCiCannonAimRsp
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usDianCiCannonId = 2;  //电磁炮Id
+  optional int32 usAngle          = 3;  //方向角
+}
+
+//#define NF_FISH_CMD_DIANCICANNONSHOOT_REQ   10039  //电磁炮发射
+message DianCiCannonShootReq
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usDianCiCannonId = 2;  //电磁炮Id
+  optional int32 usAngle          = 3;  //方向角
+}
+
+//#define NF_FISH_CMD_DIANCICANNONSHOOT_RSP   10040  //电磁炮发射广播
+message DianCiCannonShootRsp
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usDianCiCannonId = 2;  //电磁炮Id
+  optional int32 usAngle          = 3;  //方向角
+  optional int32 usProcUserChairId= 4;  //帮机器人判断捕获的真实玩家座位号: -1:无效(真人发子弹,这个值填-1) ， 机器人填值>-1
+}
+
+//#define NF_FISH_CMD_DIANCICANNONHITFISH_REQ 10041  //电磁炮攻击鱼上传
+message DianCiCannonHitFishReq
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usDianCiCannonId = 2;  //电磁炮Id
+  repeated int32 SubFishes        = 3;  //电磁炮攻击的子鱼列表
+  optional int32 usRobotChairId   = 4; //机器人座位号  -1:无效(真人打到鱼,这个值填-1)
+}
+
+//#define NF_FISH_CMD_DIANCICANNONDESTORY_RSP 10042  //电磁炮销毁
+message DianCiCannonDestroyRsp
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usDianCiCannonId = 2;  //电磁炮Id
+  optional int32 usTotalScore     = 3;  //总分
+  optional int32 usTotalMul       = 4;  //总倍数
+}
+//===========================================================
+//===========================================================
+//钻头蟹相关
+//#define NF_FISH_CMD_CREATEZUANTOU_RSP 10046  //产生钻头蟹的钻头
+message CreateZuanTouRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usZuanTouId         = 2;  //钻头Id
+  optional int32 usKilledFishId      = 3;  //被打死鱼Id -- 打死这个鱼而产生钻头
+  optional int32 usTraceId           = 4;  //钻头轨迹Id
+  optional int32 usTraceStartPt      = 5;  //轨迹开始点
+  optional int32 usZuanTouStatus     = 6;  //1-瞄准状态、2-攻击状态、3-爆炸状态
+  optional float usZuanTouStatusTime = 7;  //状态的时间
+  optional int32 bombFishId          = 8;  //主鱼kind
+}
+
+//#define NF_FISH_CMD_ZUANTOUAIM_REQ           10047  //钻头瞄准
+message ZuanTouAimReq
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usZuanTouId      = 2;  //钻头Id
+  optional int32 usAngle          = 3;  //方向角
+}
+
+//#define NF_FISH_CMD_ZUANTOUAIM_RSP           10048  //钻头瞄准广播
+message ZuanTouAimRsp
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usZuanTouId      = 2;  //钻头Id
+  optional int32 usAngle          = 3;  //方向角
+}
+
+//#define NF_FISH_CMD_ZUANTOUSHOOT_REQ        10049  //发射钻头
+message ZuanTouShootReq
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usZuanTouId      = 2;  //钻头Id
+  optional int32 usAngle          = 3;  //方向角
+}
+
+//#define NF_FISH_CMD_ZUANTOUSHOOT_RSP        10050  //发射钻头广播
+message ZuanTouShootRsp
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usZuanTouId      = 2;  //钻头Id
+  optional int32 usAngle          = 3;  //方向角
+  optional int32 usTraceId        = 4;  //钻头轨迹
+  optional int32 usTraceStartPt   = 5;  //轨迹开始点
+  optional int32 usProcUserChairId= 6;  //帮机器人判断捕获的真实玩家座位号: -1:无效(真人发子弹,这个值填-1) ， 机器人填值>-1
+}
+
+//#define NF_FISH_CMD_ZUANTOUHITFISH_REQ       10051  //钻头击中鱼上传
+message ZuanTouHitFishReq
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usZuanTouId      = 2;  //钻头Id
+  repeated int32 SubFishes        = 3;  //钻头攻击的子鱼列表
+  optional int32 usRobotChairId   = 4; //机器人座位号  -1:无效(真人打到鱼,这个值填-1)
+}
+
+//#define NF_FISH_CMD_ZUANTOUDESTORY_RSP       10052   //钻头爆炸
+message ZuanTouBombRsp
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usZuanTouId      = 2;  //钻头Id
+  optional int32 usTotalScore     = 3;  //总分
+  optional int32 usTotalMul       = 4;  //总倍数
+}
+//===========================================================
+//连环钻头蟹相关
+
+//钻头信息
+message SomeZuanTouInfo
+{
+  optional int32 usZuanTouId      = 1;  //钻头Id
+  optional int32 usAngle          = 2;  //方向角
+  optional int32 usTraceId        = 3;  //钻头轨迹
+  optional int32 usTraceStartPt   = 4;  //轨迹开始点
+}
+
+//#define NF_FISH_CMD_CREATESOMEZUANTOU_RSP    10060   //创建连环钻头
+message CreateSomeZuanTouRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usSomeZuanTouId     = 2;  //连环钻头Id
+  optional int32 usKilledFishId      = 3;  //被打死鱼Id -- 打死这个鱼而产生钻头
+  optional int32 usZuanTouStatus     = 4;  //1-  、2-  、3-
+  optional int32 usZuanTouStatusTime = 5;  //状态的时间
+  repeated SomeZuanTouInfo zuanTous  = 6;  //已发射钻头列表
+
+}
+
+//#define NF_FISH_CMD_SOMEZUANTOUSHOOT_RSP     10062   //发射钻头
+message SomeZuanTouShootRsp
+{
+  optional int32 usChairId             = 1;  //玩家座位号
+  optional int32 usSomeZuanTouId       = 2;  //连环钻头Id
+  optional SomeZuanTouInfo someZuanTou = 3;  //钻头Info
+}
+
+//#define NF_FISH_CMD_SOMEZUANTOUHITFISH_REQ   10064  //钻头击中鱼上传
+message SomeZuanTouHitFishReq
+{
+  optional int32 usChairId        = 1;  //玩家座位号
+  optional int32 usSomeZuanTouId  = 2;  //连环钻头Id
+  optional int32 usZuanTouId      = 3;  //钻头Id
+  repeated int32 SubFishes        = 4 [(yd_fieldoptions.field_arysize)=100];  //钻头攻击的子鱼列表
+}
+
+//#define NF_FISH_CMD_SOMEZUANTOBOMB_RSP    10066   //连环钻头爆炸
+message SomeZuanTouBombRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usSomeZuanTouId     = 2;  //连环钻头Id
+  optional int32 usTotalScore        = 3;  //总分
+  optional int32 usTotalMul          = 4;  //总倍数
+}
+//===========================================================
+//烈焰风爆相关
+//#define NF_FISH_CMD_CREATEFIRESTORM_RSP      10070   //创建烈焰风爆
+message CreateFireStormRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usFireStormId       = 2;  //烈焰风爆Id
+  optional int32 usKilledFishId      = 3;  //被打死鱼Id -- 打死这个鱼而产生钻头
+  optional int32 usStatus            = 4;  //1-待机状态、2-发射状态
+  optional int32 usStatusTime        = 5;  //当前状态已消耗免费时间
+  optional int32 usTotalScore        = 6;  //总分
+  optional int32 usTotalMul          = 7;  //总倍数
+}
+
+//#define NF_FISH_CMD_DESTORYFIRESTORM_RSP     10072   //销毁烈焰风爆
+message DestoryFireStormRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usFireStormId       = 2;  //烈焰风爆Id
+  optional int32 usTotalScore        = 3;  //总分
+  optional int32 usTotalMul          = 4;  //总倍数
+}
+
+//#define NF_FISH_CMD_FIRESTORMSTATUS_RSP      10074   //烈焰风爆状态
+message FireStormStatusRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usFireStormId       = 2;  //烈焰风爆Id
+  optional int32 usStatus            = 3;  //烈焰风爆状态 1-待机  2-发射
+}
+
+//#define NF_FISH_CMD_FIRESTORMSCORE_RSP         10076   //烈焰风爆分数
+message FireStormScoreRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usFireStormId       = 2;  //烈焰风爆Id
+  optional int32 usTotalScore        = 3;  //总分
+  optional int32 usTotalMul          = 4;  //总倍数
+}
+
+//===========================================================
+//疯牛相关
+//#define NF_FISH_CMD_CREATEMADCOW_RSP         10080   //创建疯牛
+message CreateMadCowRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usMadCowId          = 2;  //疯牛Id
+  optional int32 usKilledFishId      = 3;  //被打死的疯牛鱼id
+  optional int32 usRunDirection      = 4;  //1-向左、2-向右
+  optional int32 usStatus            = 5;  //1-待机、2-发射
+  optional int32 usStatusTime        = 6;  //当前状态已消耗免费时间
+  optional int32 usTotalScore        = 7;  //总分
+  optional int32 usTotalMul          = 8;  //总倍数
+}
+
+//#define NF_FISH_CMD_DESTORYMADCOW_RSP        10082   //销毁疯牛
+message DestoryMadCowRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usMadCowId          = 2;  //疯牛Id
+  optional int32 usTotalScore        = 3;  //总分
+  optional int32 usTotalMul          = 4;  //总倍数
+}
+
+//#define NF_FISH_CMD_MADCOWSTATUS_RSP          10084   //疯牛状态
+message MadCowStatusRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usMadCowId          = 2;  //疯牛Id
+  optional int32 usStatus            = 3;  //疯牛状态 1-待机  2-发射
+}
+
+//#define NF_FISH_CMD_MADCOWSCORE_RSP           10086   //疯牛分数
+message MadCowScoreRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usMadCowId          = 2;  //疯牛Id
+  optional int32 usTotalScore        = 3;  //总分
+  optional int32 usTotalMul          = 4;  //总倍数
+}
+
+//===========================================================
+//连环炸弹螃蟹相关
+//#define NF_FISH_CMD_CREATESERIALBOMBCRAB_RSP  10090  //创建连环炸弹螃蟹炸弹
+message CreateSerialBombCrabRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usSerialBombCrabId  = 2;  //连环炸弹螃蟹Id
+  optional int32 usKilledFishId      = 3;  //被打死的连环炸弹螃蟹鱼id
+  optional int32 usStatus            = 4;  //1-待机、 2-发射
+  optional int32 usStatusTime        = 5;  //当前状态已消耗免费时间
+  optional int32 usBombPosX          = 6;  //当前爆炸位置X
+  optional int32 usBombPosY          = 7;  //当前爆炸位置Y
+  optional int32 usNextBombPosX      = 8;  //下个爆炸位置X, 0表示无效
+  optional int32 usNextBombPosy      = 9;  //下个爆炸位置Y, 0表示无效
+  optional int32 usBombCount         = 10; //爆炸次数
+  optional int32 bombFishId          = 11;  //主鱼kind
+}
+
+//#define NF_FISH_CMD_SERIALBOMBCRAB_BOMB_RSP   10092   //连环炸弹螃蟹爆炸一次
+message SerialBombCrabBombRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usSerialBombCrabId  = 2;  //连环炸弹螃蟹Id
+  optional int32 usTotalScore        = 3;  //总分
+  optional int32 usTotalMul          = 4;  //总倍数
+  optional int32 usBombPosX          = 5;  //当前爆炸位置X
+  optional int32 usBombPosY          = 6;  //当前爆炸位置Y
+  optional int32 usNextBombPosX      = 7;  //下个爆炸位置X, 0表示无效
+  optional int32 usNextBombPosy      = 8;  //下个爆炸位置Y, 0表示无效
+  optional int32 usBombCount         = 9;  //爆炸次数
+}
+
+//#define NF_FISH_CMD_DESTORYSERIALBOMBCRAB_RSP 10094   //销毁连环炸弹螃蟹
+message DestorySerialBombCrabRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usSerialBombCrabId  = 2;  //连环炸弹螃蟹Id
+  optional int32 usTotalScore        = 3;  //总分
+  optional int32 usTotalMul          = 4;  //总倍数
+}
+//===========================================================
+//海王螃蟹相关
+//#define NF_FISH_CMD_HAIWANGCRABHITPART_REQ    10101   //海王螃蟹击中一个部位
+message HaiWangCrabHitPartReq
+{
+  optional int32 usBulletId       = 1;  //子弹Id
+  optional int32 usHaiWangCrabId  = 2;  //海王螃蟹鱼Id
+  optional int32 usPartId         = 3;  //部位Id 0-本鱼、1-左爪、2-右爪
+}
+
+message CrabPart
+{
+  optional int32 usChairId = 1; //玩家座位号
+  optional int32 usPartId  = 2; //部位Id 0-本鱼、1-左爪、2-右爪、
+  optional int32 usPartMul = 3; //倍率
+  optional int32 usScore   = 4; //分数
+}
+
+//#define NF_FISH_CMD_HAIWANGCRAB_KILLEDPART_RSP   10102   //海王螃蟹打死一个部位广播
+message HaiWangCrabKilledPartRsp
+{
+  optional int32 usHaiwangCrabId  = 1;  //海王螃蟹鱼Id
+  repeated CrabPart aryKilledParts   = 2;
+}
+
+//#define NF_FISH_CMD_HAIWANGCRABKILLEDDEAD_RSP 10104   //海王螃蟹自身被打死
+//本鱼通过这个命令下发，不走普通打死的协议了；
+message HaiWangCrabKilledDeadRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usHaiwangCrabId     = 2;  //海王螃蟹鱼uid
+  optional int32 usPartMul           = 3;  //打死爪子所乘的倍数
+  optional int32 usSelfScore         = 4;  //自身分数
+  optional int32 usTotalScore        = 5;  //总分
+  optional int32 usTotalMul          = 6;  //总倍数
+}
+
+
+//===========================================================
+//延时炸弹相关  技能id: 18
+//#define NF_FISH_CMD_CREATEDELAYBOMB_RSP       10106   //创建延时炸弹
+message CreateDelayBombRsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usDelayBombId       = 2;  //延时炸弹Id
+  optional int32 usKilledFishId      = 3;  //被打死鱼Id
+  optional int32 usStatus            = 4;  //1-待机状态
+  optional int32 usStatusTime        = 5;  //当前状态已消耗免费时间
+  optional int32 usPosX              = 6;  //X坐标
+  optional int32 usPoxY              = 7;  //Y坐标
+  optional int32 bombFishId          = 8;  //主鱼kind
+}
+
+//#define NF_FISH_CMD_DELAYBOMB_BOMB_RSP       10108   //延时炸弹爆炸
+message DelayBomb_Bomb_Rsp
+{
+  optional int32 usChairId           = 1;  //玩家座位号
+  optional int32 usDelayBombId       = 2;  //延时炸弹Id
+  optional int32 usTotalScore        = 3;  //总分
+  optional int32 usTotalMul          = 4;  //总倍数
+}
+//===========================================================
+
+
+
+

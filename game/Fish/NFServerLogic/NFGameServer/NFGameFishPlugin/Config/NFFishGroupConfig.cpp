@@ -14,7 +14,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFFishDefine.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishGroupConfig, EOT_FISH_GROUP_MGR_2004_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishGroupConfig, EOT_FISH_GROUP_MGR_ID, NFShmObj)
 
 
 NFFishGroupConfig::NFFishGroupConfig() {

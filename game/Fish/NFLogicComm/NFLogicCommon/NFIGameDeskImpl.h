@@ -161,6 +161,28 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint64_t playerId, NFDataPackage &packet) = 0;
+public:
+    virtual int UpdateUserMoney(uint64_t playerId, uint32_t changeType, uint64_t moneyChange);
+
+    virtual int DeduceGameMoney(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement = false);
+
+    virtual int AddGameMoney(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement = false);
+
+    virtual int ProcUserSettlement(uint64_t playerId);
+
+    virtual uint64_t GetPlayerCurMoney(uint64_t playerId);
+public:
+    virtual int GameDataCommit(uint64_t cur_fee, uint64_t cur_pour, int64_t cur_win);
+
+    virtual int64_t CommissionCount(uint64_t userid, int64_t CountByFee, int64_t pourJetton);
+
+    virtual int AchievementCount(uint64_t userid, uint64_t Count, uint64_t fee);
+public:
+    virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId);
+    virtual int BroadCastMsgToDesk(uint32_t nMsgId, const google::protobuf::Message &xData, int32_t chairId = INVALID_ID);
+    virtual int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId = 0);
+    virtual int SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId);
+    virtual int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId = 0);
 protected:
     uint32_t m_gameId;
     uint32_t m_roomId;

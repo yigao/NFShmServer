@@ -164,7 +164,7 @@ public:
     * @param moneyChange
     * @return
     */
-    int UpdateUserMoney(uint64_t playerId, uint32_t changeType, uint64_t moneyChange);
+    virtual int UpdateUserMoney(uint64_t playerId, uint32_t changeType, uint64_t moneyChange);
 
     /**
      * @brief 更新玩家信息
@@ -182,14 +182,7 @@ public:
      */
     int ProcUserSettlement(NFGameDeskStation* pDeskStation);
 
-    /**
-     * @brief 游戏中加减游戏币
-     * @param playerId
-     * @param moneyChange
-     * @param procUserSettlement
-     * @return
-     */
-    virtual int DeduceMoneyByGame(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement = false);
+    virtual int ProcUserSettlement(uint64_t playerId);
 
     /**
      * @brief 游戏中加减游戏币
@@ -198,7 +191,16 @@ public:
      * @param procUserSettlement
      * @return
      */
-    virtual int AddMoneyByGame(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement = false);
+    virtual int DeduceGameMoney(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement = false);
+
+    /**
+     * @brief 游戏中加减游戏币
+     * @param playerId
+     * @param moneyChange
+     * @param procUserSettlement
+     * @return
+     */
+    virtual int AddGameMoney(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement = false);
 
     /**
      * @brief 玩家金钱

@@ -661,7 +661,15 @@ int NFGameDesk::ChangeJiangChi(int64_t jiangchi)
     return m_deskHandle->ChangeJiangChi(jiangchi);
 }
 
-int NFGameDesk::DeduceMoneyByGame(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement)
+int NFGameDesk::ProcUserSettlement(uint64_t playerId)
+{
+    NFGameDeskStation* pDeskStation = GetDeskStationByPlayerId(playerId);
+    CHECK_EXPR(pDeskStation, -1, "ProcUserSettlement Error, can't find player:{} station", playerId);
+
+    return ProcUserSettlement(pDeskStation);
+}
+
+int NFGameDesk::DeduceGameMoney(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement)
 {
     NFGameDeskStation* pDeskStation = GetDeskStationByPlayerId(playerId);
     CHECK_EXPR(pDeskStation, -1, "DeduceGameMoney Error, can't find player:{} station", playerId);
@@ -684,7 +692,7 @@ int NFGameDesk::DeduceMoneyByGame(uint64_t playerId, uint64_t moneyChange, bool 
     return 0;
 }
 
-int NFGameDesk::AddMoneyByGame(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement)
+int NFGameDesk::AddGameMoney(uint64_t playerId, uint64_t moneyChange, bool procUserSettlement)
 {
     NFGameDeskStation* pDeskStation = GetDeskStationByPlayerId(playerId);
     CHECK_EXPR(pDeskStation, -1, "AddGameMoney Error, can't find player:{} station", playerId);

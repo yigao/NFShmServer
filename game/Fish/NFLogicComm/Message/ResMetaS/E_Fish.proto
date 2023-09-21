@@ -36,7 +36,6 @@ message E_FishGunvalue
 	optional int32 m_gameid = 3[(yd_fieldoptions.field_cname) = "游戏Id"];
 	optional int32 m_roomid = 4[(yd_fieldoptions.field_cname) = "房间ID"];
 	optional int32 m_gunid = 5[(yd_fieldoptions.field_cname) = "炮Id"];
-	optional int32 m_gameroomid = 6[(yd_fieldoptions.field_cname) = "游戏房间ID"];
 }
 
 

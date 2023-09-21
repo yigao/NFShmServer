@@ -15,7 +15,7 @@
 #include "NFComm/NFCore/NFCommon.h"
 #include <stdlib.h>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishWayBillConfig, EOT_GAME_FISH_WAY_BILL_DESC_2004_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishWayBillConfig, EOT_GAME_FISH_WAY_BILL_DESC_ID, NFShmObj)
 
 NFFishWayBillConfig::NFFishWayBillConfig()
 {

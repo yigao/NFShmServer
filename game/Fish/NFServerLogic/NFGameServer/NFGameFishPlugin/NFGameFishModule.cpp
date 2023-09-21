@@ -13,13 +13,13 @@
 #include "NFLogicCommon/NFIGameDeskImpl.h"
 #include "NFGameFishDefine.h"
 #include "NFLogicCommon/NFIGameConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishGroupConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishTraceConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishConfigConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishWayBillConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishSettingConfig.h"
-#include "NFGameServer/NFGameFishPlugin/Config/NFFishPromptConfig.h"
-#include "NFGameFishDesk.h"
+#include "Config/NFFishGroupConfig.h"
+#include "Config/NFFishTraceConfig.h"
+#include "Config/NFFishConfigConfig.h"
+#include "Config/NFFishWayBillConfig.h"
+#include "Config/NFFishSettingConfig.h"
+#include "Config/NFFishPromptConfig.h"
+#include "Desk/NFGameFishDesk.h"
 
 NFGameFishModule::NFGameFishModule(NFIPluginManager *p) : NFISubGameModule(p)
 {

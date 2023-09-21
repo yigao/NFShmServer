@@ -15,7 +15,7 @@
 #include "NFLogicCommon/NFFishDefine.h"
 #include <fstream>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishTraceConfig, EOT_FISH_TRACE_MGR_2004_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishTraceConfig, EOT_FISH_TRACE_MGR_ID, NFShmObj)
 
 
 NFFishTraceConfig::NFFishTraceConfig() {

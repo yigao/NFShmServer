@@ -17,7 +17,7 @@
 #include "NFLogicCommon/NFFishDefine.h"
 #include <fstream>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFishConfigConfig, EOT_FISH_CONFIG_MGR_2004_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFishConfigConfig, EOT_FISH_CONFIG_MGR_ID, NFShmObj)
 
 NFFishConfigConfig::NFFishConfigConfig()
 {

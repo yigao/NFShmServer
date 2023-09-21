@@ -461,13 +461,6 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   inline ::google::protobuf::int32 m_gunid() const;
   inline void set_m_gunid(::google::protobuf::int32 value);
 
-  // optional int32 m_gameroomid = 6;
-  inline bool has_m_gameroomid() const;
-  inline void clear_m_gameroomid();
-  static const int kMGameroomidFieldNumber = 6;
-  inline ::google::protobuf::int32 m_gameroomid() const;
-  inline void set_m_gameroomid(::google::protobuf::int32 value);
-
   // @@protoc_insertion_point(class_scope:proto_ff.E_FishGunvalue)
  private:
   inline void set_has_m_id();
@@ -480,8 +473,6 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   inline void clear_has_m_roomid();
   inline void set_has_m_gunid();
   inline void clear_has_m_gunid();
-  inline void set_has_m_gameroomid();
-  inline void clear_has_m_gameroomid();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -490,10 +481,9 @@ class E_FishGunvalue : public ::google::protobuf::Message {
   ::google::protobuf::int32 m_gameid_;
   ::google::protobuf::int32 m_roomid_;
   ::google::protobuf::int32 m_gunid_;
-  ::google::protobuf::int32 m_gameroomid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(6 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
 
   friend void  protobuf_AddDesc_E_5fFish_2eproto();
   friend void protobuf_AssignDesc_E_5fFish_2eproto();
@@ -1629,28 +1619,6 @@ inline ::google::protobuf::int32 E_FishGunvalue::m_gunid() const {
 inline void E_FishGunvalue::set_m_gunid(::google::protobuf::int32 value) {
   set_has_m_gunid();
   m_gunid_ = value;
-}
-
-// optional int32 m_gameroomid = 6;
-inline bool E_FishGunvalue::has_m_gameroomid() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void E_FishGunvalue::set_has_m_gameroomid() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void E_FishGunvalue::clear_has_m_gameroomid() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void E_FishGunvalue::clear_m_gameroomid() {
-  m_gameroomid_ = 0;
-  clear_has_m_gameroomid();
-}
-inline ::google::protobuf::int32 E_FishGunvalue::m_gameroomid() const {
-  return m_gameroomid_;
-}
-inline void E_FishGunvalue::set_m_gameroomid(::google::protobuf::int32 value) {
-  set_has_m_gameroomid();
-  m_gameroomid_ = value;
 }
 
 // -------------------------------------------------------------------
