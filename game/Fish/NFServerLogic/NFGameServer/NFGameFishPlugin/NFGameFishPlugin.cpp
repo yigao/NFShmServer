@@ -7,10 +7,10 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFGameFish2004Plugin.h"
+#include "NFGameFishPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
-#include "NFGameFish2004Module.h"
+#include "NFGameFishModule.h"
 #include "NFLogicCommon/NFIGameConfig.h"
 #include "NFLogicCommon/NFFishDefine.h"
 #include "NFFishTraceConfig.h"
@@ -19,7 +19,7 @@
 #include "NFFishWayBillConfig.h"
 #include "NFFishSettingConfig.h"
 #include "NFFishPromptConfig.h"
-#include "NFGameFish2004Desk.h"
+#include "NFGameFishDesk.h"
 
 #define MAX_FISH_ROOM_DESK_COUNT 255
 #define MAX_GAME_FISH_ROBOT_COUNT 1000
@@ -28,13 +28,13 @@
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-	CREATE_PLUGIN(pm, NFGameFish2004Plugin)
+	CREATE_PLUGIN(pm, NFGameFishPlugin)
 
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-	DESTROY_PLUGIN(pm, NFGameFish2004Plugin)
+	DESTROY_PLUGIN(pm, NFGameFishPlugin)
 };
 
 #endif
@@ -42,34 +42,34 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 //////////////////////////////////////////////////////////////////////////
 
-int NFGameFish2004Plugin::GetPluginVersion()
+int NFGameFishPlugin::GetPluginVersion()
 {
 	return 0;
 }
 
-std::string NFGameFish2004Plugin::GetPluginName()
+std::string NFGameFishPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFGameFish2004Plugin);
+	return GET_CLASS_NAME(NFGameFishPlugin);
 }
 
-void NFGameFish2004Plugin::Install()
+void NFGameFishPlugin::Install()
 {
-	REGISTER_MODULE(m_pObjPluginManager, NFGameFish2004Module,    NFGameFish2004Module);
+	REGISTER_MODULE(m_pObjPluginManager, NFGameFishModule,    NFGameFishModule);
 }
 
-void NFGameFish2004Plugin::Uninstall()
+void NFGameFishPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pObjPluginManager, NFGameFish2004Module,    NFGameFish2004Module);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFGameFishModule,    NFGameFishModule);
 }
 
-bool NFGameFish2004Plugin::InitShmObjectRegister()
+bool NFGameFishPlugin::InitShmObjectRegister()
 {
     auto pGameConfig = FindModule<NFIGameConfig>()->GetConfig();
     NF_ASSERT(pGameConfig);
 
     uint32_t roomNum = FindModule<NFIGameConfig>()->GetRoomNum(GAME_ID_FISH_HAIWANG_2004);
     uint32_t maxDeskNum =  FindModule<NFIGameConfig>()->GetRoomMaxDeskNum();
-    REGISTER_SHM_OBJ(NFGameFish2004Desk, roomNum*maxDeskNum*1.2);
+    REGISTER_SHM_OBJ(NFGameFishDesk, roomNum*maxDeskNum*1.2);
     REGISTER_SHM_OBJ_WITH_HASH(NFFishTraceConfig, roomNum);
     REGISTER_SHM_OBJ_WITH_HASH(NFFishGroupConfig, roomNum);
     REGISTER_SHM_OBJ_WITH_HASH(NFFishConfigConfig, roomNum);

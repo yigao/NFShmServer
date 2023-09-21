@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFGameFish2004Module.h"
+#include "NFGameFishModule.h"
 #include "NFLogicCommon/NFIGameRoomModule.h"
 #include "NFLogicCommon/NFFishDefine.h"
 #include "NFLogicCommon/NFIGameDeskImpl.h"
@@ -19,23 +19,23 @@
 #include "NFFishWayBillConfig.h"
 #include "NFFishSettingConfig.h"
 #include "NFFishPromptConfig.h"
-#include "NFGameFish2004Desk.h"
+#include "NFGameFishDesk.h"
 
-NFGameFish2004Module::NFGameFish2004Module(NFIPluginManager *p) : NFISubGameModule(p)
+NFGameFishModule::NFGameFishModule(NFIPluginManager *p) : NFISubGameModule(p)
 {
 
 }
 
-NFGameFish2004Module::~NFGameFish2004Module()
+NFGameFishModule::~NFGameFishModule()
 {
 }
 
-bool NFGameFish2004Module::Awake()
+bool NFGameFishModule::Awake()
 {
     CreateDeskFunction createFunc = [](NFIPluginManager* pPluginManager, uint32_t gameId) -> NFIGameDeskImpl *
     {
         NF_ASSERT(gameId == GAME_ID_FISH_HAIWANG_2004);
-        return NFGameFish2004Desk::CreateObj(pPluginManager);
+        return NFGameFishDesk::CreateObj(pPluginManager);
     };
     FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(GAME_ID_FISH_HAIWANG_2004, createFunc);
 
@@ -66,7 +66,7 @@ bool NFGameFish2004Module::Awake()
     return true;
 }
 
-int NFGameFish2004Module::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
+int NFGameFishModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
                                     const google::protobuf::Message *pMessage)
 {
     if (serverType == NF_ST_GAME_SERVER && nEventID == proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH && bySrcType == proto_ff::NF_EVENT_SERVER_TYPE &&

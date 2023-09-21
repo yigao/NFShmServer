@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT(NFGameFish2004Plugin)
+PROJECT(NFGameFishPlugin)
 
 include_directories( ${INCLUDE_DIR} "./")
 AUX_SOURCE_DIRECTORY(. SRC)

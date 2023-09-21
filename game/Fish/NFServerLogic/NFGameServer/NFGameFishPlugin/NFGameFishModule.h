@@ -14,12 +14,12 @@
 #include "NFLogicCommon/NFFishDynamicModule.h"
 #include "NFLogicCommon/NFISubGameModule.h"
 
-class NFGameFish2004Module : public NFISubGameModule
+class NFGameFishModule : public NFISubGameModule
 {
 public:
-    explicit NFGameFish2004Module(NFIPluginManager *p);
+    explicit NFGameFishModule(NFIPluginManager *p);
 
-    virtual ~NFGameFish2004Module();
+    virtual ~NFGameFishModule();
 
     virtual bool Awake() override;
 

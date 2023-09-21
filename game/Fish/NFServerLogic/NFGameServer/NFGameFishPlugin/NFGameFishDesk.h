@@ -16,12 +16,15 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFLogicCommon/NFIGameDeskImpl.h"
 
-class NFGameFish2004Desk : public NFIGameDeskImpl
+#define GAME_FISH_DESK_PLAYER_COUNT 4
+#define GAME_FISH_DESK_FISH_COUNT 1000
+
+class NFGameFishDesk : public NFIGameDeskImpl
 {
 public:
-    NFGameFish2004Desk();
+    NFGameFishDesk();
 
-    virtual ~NFGameFish2004Desk();
+    virtual ~NFGameFishDesk();
 
     int CreateInit();
 
@@ -136,5 +139,5 @@ public:
      */
     virtual int OnHandleServerMessage(uint64_t playerId, NFDataPackage &packet) override;
 private:
-DECLARE_IDCREATE(NFGameFish2004Desk)
+DECLARE_IDCREATE(NFGameFishDesk)
 };
