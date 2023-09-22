@@ -77,6 +77,7 @@ NFCDescStoreModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t b
     {
         if (serverType == NF_ST_NONE || m_pObjPluginManager->IsHasAppTask((NF_SERVER_TYPES) serverType, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE))
         {
+            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} Start LoadDBDestSotre.........", GetServerName((NF_SERVER_TYPES)serverType));
             LoadDBDestSotre();
         }
     }

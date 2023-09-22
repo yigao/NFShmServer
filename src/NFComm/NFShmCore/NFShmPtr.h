@@ -64,6 +64,7 @@ public:
 	NFShmPtr(const NFShmPtr<ObjType> &rT)
 	{
 		m_pObj = (ObjType*)rT.GetPoint();
+        m_iObjSeq = INVALID_ID;
 
 		if (m_pObj)
 		{
@@ -74,7 +75,6 @@ public:
 	const NFShmPtr<ObjType> &operator = (const NFShmPtr<ObjType> &rT)
 	{
 		m_pObj = (ObjType*)rT.GetPoint();
-
 		if (m_pObj)
 		{
 			m_iObjSeq = m_pObj->m_iObjSeq;

@@ -85,6 +85,7 @@ public:
 	uint32_t m_uReserved;         //保留
 };
 
+typedef NFShmVector<CFish, MAX_FISH_NUM> FISH_LIST;
 
 class CFishGroup {
 public:
@@ -98,7 +99,7 @@ public:
 
 	int Load(const std::string &strFile, uint32_t roomId, NFIPluginManager* pPluginManager);
 
-    const NFShmVector<CFish, MAX_FISH_NUM> &GetFishList();
+    const FISH_LIST &GetFishList();
 
     void SetId(uint32_t id) { m_unId = id; }
     unsigned int Id() const { return m_unId; }
@@ -122,7 +123,7 @@ protected:
 
 public:
     uint32_t m_unId;          //鱼阵ID
-    NFShmVector<CFish, MAX_FISH_NUM> m_FishList;     //鱼阵中的鱼的列表
+    FISH_LIST m_FishList;     //鱼阵中的鱼的列表
     uint16_t m_usFishCount;   //鱼阵中鱼的个数
     bool m_bValid;            //是否有效
     uint16_t m_usGroupType;   //鱼阵类型

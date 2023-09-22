@@ -180,7 +180,7 @@ public:
 
     int GetMyPointIndex();
 
-    CHMPoint GetMyPoint(NFIPluginManager* pPluginManager, uint32_t roomId);
+    CHMPoint GetMyPoint(NFFishTraceConfig* pTraceConfig);
 
     int GetBaseMul()
     {

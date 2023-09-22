@@ -18,6 +18,7 @@
 #define MAX_FISH_WAY_BILL_COUNT 1000
 
 class CFishWayBill;
+class NFFishWayBillConfig;
 class CFishWayBillData
 {
     friend class CFishWayBill;
@@ -68,7 +69,7 @@ public:
 public:
 	int  GetOneItem(FishWayBillItem & Item);
     bool ForcastOneItem(FishWayBillItem & Item);
-    int  Reset(NFIPluginManager* pPluginManager, uint32_t roomId);
+    int  Reset(NFFishWayBillConfig *pConfig);
 protected:
     NFShmList<FishWayBillItem, MAX_FISH_WAY_BILL_COUNT> m_ItemList4Use; //使用的路单项列表
     uint16_t    m_usInterval;  //两个点之间的时间间隔

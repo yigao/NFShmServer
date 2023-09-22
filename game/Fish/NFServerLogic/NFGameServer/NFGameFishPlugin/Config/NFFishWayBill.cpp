@@ -214,11 +214,9 @@ bool CFishWayBill::ForcastOneItem(FishWayBillItem &Item) {
     return true;
 }
 
-int  CFishWayBill::Reset(NFIPluginManager* pPluginManager, uint32_t roomId)
+int  CFishWayBill::Reset(NFFishWayBillConfig *pConfig)
 {
-    auto pConfig = NFFishWayBillConfig::GetObjByHashKey(pPluginManager, roomId);
-    CHECK_EXPR(pConfig, -1, "NFFishWayBillConfig roomId:{}", roomId);
-
+    CHECK_NULL(pConfig);
     CFishWayBillData* pData = pConfig->GetFishWayBillByFileName(GetFileName());
     if (pData)
     {

@@ -90,12 +90,10 @@ int NFGameFish::GetMyPointIndex()
     }
 }
 
-CHMPoint NFGameFish::GetMyPoint(NFIPluginManager *pPluginManager, uint32_t roomId)
+CHMPoint NFGameFish::GetMyPoint(NFFishTraceConfig* pTraceConfig)
 {
+    CHECK_EXPR(pTraceConfig, CHMPoint(), "");
     int index = GetMyPointIndex();
-
-    auto pTraceConfig = NFFishTraceConfig::GetObjByHashKey(pPluginManager, roomId);
-    CHECK_EXPR(pTraceConfig, CHMPoint(), "GetTraceConfig failed, roomId:{}", roomId);
 
     CHMPoint point = pTraceConfig->GetPointByIndex(m_uTraceId, index);
 
@@ -130,7 +128,7 @@ KilledCrabPartList &NFGameFish::GetKilledCrabParts()
 int NFGameFish::GetKillMyCrabPartCount(uint64_t llPlayerId)
 {
     int count = 0;
-    for (int i = 0; i < m_aryKilledCrabPart.size(); i++)
+    for (int i = 0; i < (int)m_aryKilledCrabPart.size(); i++)
     {
         KilledCrabPart *pPart = &m_aryKilledCrabPart[i];
         if (pPart != NULL)
@@ -148,7 +146,7 @@ int NFGameFish::GetKillMyCrabPartCount(uint64_t llPlayerId)
 int NFGameFish::GetKillAllCrabPartCount()
 {
     int count = 0;
-    for (int i = 0; i < m_aryKilledCrabPart.size(); i++)
+    for (int i = 0; i < (int)m_aryKilledCrabPart.size(); i++)
     {
         KilledCrabPart *pPart = &m_aryKilledCrabPart[i];
         if (pPart != NULL)
@@ -163,7 +161,7 @@ int NFGameFish::GetKillAllCrabPartCount()
 bool NFGameFish::IsCanKill(NFIPluginManager *pPluginManager, uint32_t roomId, int iSubFishKind)
 {
     auto pFishConfigDesc = NFFishConfigConfig::GetObjByHashKey(pPluginManager, roomId);
-    CHECK_NULL(pFishConfigDesc);
+    CHECK_EXPR(pFishConfigDesc, false, "");
     FishConfig *pFishConfig = pFishConfigDesc->GetFishBaseInfo(m_nFishKind);
     if (pFishConfig != NULL)
     {

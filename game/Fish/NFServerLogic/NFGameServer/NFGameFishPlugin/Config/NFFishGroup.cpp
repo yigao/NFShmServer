@@ -52,7 +52,7 @@ int CFishGroup::ResumeInit()
 CFishGroup::~CFishGroup() {
 }
 
-const NFShmVector<CFish, MAX_FISH_NUM> &CFishGroup::GetFishList() {
+const FISH_LIST &CFishGroup::GetFishList() {
     return m_FishList;
 }
 
