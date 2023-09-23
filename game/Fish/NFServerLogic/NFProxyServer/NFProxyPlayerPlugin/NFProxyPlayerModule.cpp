@@ -501,7 +501,7 @@ int NFCProxyPlayerModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDa
         auto pServerData = FindModule<NFIMessageModule>()->GetServerByServerId(NF_ST_PROXY_SERVER, srcBusId);
         if (pServerData)
         {
-            NFLogTrace(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "trans {} msg to client, packet:{}", pServerData->mServerInfo.server_name(),
+            NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "trans {} msg to client, packet:{}", pServerData->mServerInfo.server_name(),
                        packet.ToString());
         }
 
