@@ -504,7 +504,15 @@ int NFCProxyPlayerModule::OnHandleOtherServerToClientMsg(uint64_t unLinkId, NFDa
             NFLogTrace(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "trans {} msg to client, packet:{}", pServerData->mServerInfo.server_name(),
                        packet.ToString());
         }
-        FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), NF_MODULE_CLIENT, packet.nMsgId, (const char*)packet.GetBuffer(), (uint32_t)packet.GetSize());
+
+        if (pServerData->mServerInfo.server_type() == NF_ST_GAME_SERVER)
+        {
+            uint32_t msgId = MAKE_UINT32(packet.nMsgId, pPlayerInfo->GetGameId());
+            FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), NF_MODULE_CLIENT, msgId, (const char*)packet.GetBuffer(), (uint32_t)packet.GetSize());
+        }
+        else {
+            FindModule<NFIMessageModule>()->Send(pPlayerInfo->GetLinkId(), NF_MODULE_CLIENT, packet.nMsgId, (const char*)packet.GetBuffer(), (uint32_t)packet.GetSize());
+        }
     }
     else
     {
