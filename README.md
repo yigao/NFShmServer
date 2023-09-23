@@ -70,6 +70,7 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
  
 ## unity3d捕鱼demo游戏 [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)，群里提供apk下载
 ![}OXI`%2KDC3509YEVE Z00K](https://github.com/yigao/NFShmServer/assets/5827943/1624b292-871d-46da-a446-1755efb4bae8)
+![0 ZK~FM1IBM0{E%LI8 %)AJ](https://github.com/yigao/NFShmServer/assets/5827943/fc137349-de2b-4519-9b8b-325ea220251a)
 
 ## 后期开发目标
 - 使用C++重写excel的加载，验证，导出代码机制(python,lua的导出，在大型项目里太慢)(2023.8-2023.9已完成)
@@ -84,7 +85,7 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - 继续完善excel到db系统机制，自动导出代码, 实现网页端的配置更新
 - 将平台升级到C++17
 - 将db系统由mysql到libzdb, 兼容市场上大部分数据库(MySQL, PostgreSQL, SQLite and Oracle)
-- 完善捕鱼逻辑
+- 完善捕鱼逻辑(9.23已完成)
 - 实现一个MMO游戏的逻辑
 - 重写最后一战的服务器
 - 重写魔兽世界的服务器
