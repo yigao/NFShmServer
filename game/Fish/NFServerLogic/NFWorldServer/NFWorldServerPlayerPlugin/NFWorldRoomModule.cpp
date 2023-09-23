@@ -245,7 +245,7 @@ int NFWorldRoomModule::OnHandleDeskListReq(uint32_t msgId, NFDataPackage &packet
                 CHECK_NULL(pRoomInfo);
 
                 //failed
-                if (iRet != 0 || rpcRsp.exit_type() == 0)
+                if (iRet != 0 || rpcRsp.exit_type() != 0)
                 {
                     proto_ff::DeskListRsp rspMsg;
                     rspMsg.set_result(proto_ff::ERR_CODE_USER_IN_GAMEING);
@@ -411,7 +411,7 @@ int NFWorldRoomModule::OnHandleEnterGameReq(uint32_t msgId, NFDataPackage &packe
                 CHECK_NULL(pRoomInfo);
 
                 //failed
-                if (iRet != 0 || rpcRsp.exit_type() == 0)
+                if (iRet != 0 || rpcRsp.exit_type() != 0)
                 {
                     proto_ff::EnterGameRsp rspMsg;
                     rspMsg.set_result(proto_ff::ERR_CODE_USER_IN_GAMEING);
@@ -582,9 +582,9 @@ int NFWorldRoomModule::OnHandleExitGameReq(uint32_t msgId, NFDataPackage &packet
         return 0;
     }
 
-    if (xMsgRet.exit_type() != 0)
+    if (xMsgRet.exit_type() == 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, playerId, "player:{} exit game:{} room:{} success", playerId, pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
+        NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "player:{} exit game:{} room:{} success", playerId, pPlayerInfo->m_gameId, pPlayerInfo->m_roomId);
         pPlayerInfo->m_gameId = 0;
         pPlayerInfo->m_roomId = 0;
         pPlayerInfo->m_gameBusId = 0;

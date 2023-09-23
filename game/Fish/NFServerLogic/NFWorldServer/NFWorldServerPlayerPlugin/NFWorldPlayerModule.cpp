@@ -199,7 +199,7 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
             CHECK_NULL(pRoomInfo);
 
             //failed
-            if (iRet != 0 || rpcRsp.exit_type() == 0)
+            if (iRet != 0 || rpcRsp.exit_type() != 0)
             {
                 NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player login, exit old game:{} room:{} failed", pPlayerInfo->m_gameId, pPlayerInfo->m_roomId)
             }
@@ -357,7 +357,7 @@ int NFCWorldPlayerModule::OnRpcServicePlayerReconnect(proto_ff::PTWPlayerReconne
                 CHECK_NULL(pRoomInfo);
 
                 //failed
-                if (iRet != 0 || rpcRsp.exit_type() == 0)
+                if (iRet != 0 || rpcRsp.exit_type() != 0)
                 {
                     NFLogInfo(NF_LOG_SYSTEMLOG, pPlayerInfo->GetPlayerId(), "player login, exit old game:{} room:{} failed", pPlayerInfo->m_gameId, pPlayerInfo->m_roomId)
                 }
