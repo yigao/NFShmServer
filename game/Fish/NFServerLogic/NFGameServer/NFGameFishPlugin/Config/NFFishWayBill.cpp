@@ -89,7 +89,7 @@ int CFishWayBillData::Init(const std::string &strWayBillFile)
             }
 
             //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "read type = {} value = {}", item.usType, item.usValue);
-            if (m_ItemList.full())
+            if (m_ItemList.size() >= m_ItemList.max_size())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "m_ItemList full");
                 NFSLEEP(1000);

@@ -46,7 +46,7 @@ int NFQueryRole::Add(uint64_t roleId)
         return -1;
     }
 
-    if (m_queryRoleList.full())
+    if (m_queryRoleList.size() >= m_queryRoleList.max_size())
     {
         NFLogError(NF_LOG_SYSTEMLOG, m_roleId, "query role list full, add role:{} failed, ownerId:{}", roleId, m_roleId);
         return -1;

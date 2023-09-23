@@ -949,7 +949,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             }
             else
             {
-                desc_file += "\t\tif(" + index_map + ".full())\n";
+                desc_file += "\t\tif(" + index_map + ".size() >= " + index_map + ".max_size())\n";
                 desc_file += "\t\t{\n";
                 desc_file +=
                         "\t\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(pDesc->" + index_key_en_name + ") != " + index_map + ".end(), -1, \"index:" +
@@ -981,7 +981,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                 std::string index_key_en_name = "m_" + NFStringUtility::Lower(index_key);
                 desc_file += "\t\t\tdata.m_" + index_key + " = pDesc->" + index_key_en_name + ";\n";
             }
-            desc_file += "\t\t\tif(" + index_map + ".full())\n";
+            desc_file += "\t\t\tif(" + index_map + ".size() >= " + index_map + ".max_size())\n";
             desc_file += "\t\t\t{\n";
             desc_file += "\t\t\t\tCHECK_EXPR_ASSERT(" + index_map + ".find(data) != " + index_map +
                          ".end(), -1, \"space not enough\");\n";
@@ -992,7 +992,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
             }
             else
             {
-                desc_file += "\t\t\tCHECK_EXPR_ASSERT(!" + index_map + "[data].full(), -1, \"space not enough\");\n";
+                desc_file += "\t\t\tCHECK_EXPR_ASSERT(" + index_map + "[data].size() < " + index_map + "[data].max_size(), -1, \"space not enough\");\n";
                 desc_file += "\t\t\t" + index_map + "[data].push_back(i);\n";
             }
             desc_file += "\t\t}\n";

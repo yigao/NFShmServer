@@ -304,6 +304,7 @@ public:
 	{
 		return GetPoint() != pT;
 	}
+
 	operator bool() const
 	{
 		return 0 != GetPoint();

@@ -178,7 +178,7 @@ int NFFishSettingConfig::LoadConfig(uint32_t roomId)
             param.m_dbValuePercent = atof(str2.c_str());
             param.m_llMaxValue = 0;
 
-            if (m_AryCtrlParam.full())
+            if (m_AryCtrlParam.size() >= m_AryCtrlParam.max_size())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "m_AryCtrlParam full");
                 NFSLEEP(1000);
@@ -238,13 +238,7 @@ std::string NFFishSettingConfig::GetPriorWayBill(std::string strLastWayBillName 
 
                     if (iRand < iter->second)
                     {
-                        NFLogTrace(NF_LOG_SYSTEMLOG, 0, " =============> 11111111111 iRand = {} , *pValue = {}", iRand, iter->second);
-
                         return strKey;
-                    }
-                    else
-                    {
-                        NFLogTrace(NF_LOG_SYSTEMLOG, 0, " =============> 00000000000 iRand = {} , *pValue = {}", iRand, iter->second);
                     }
                 }
             }

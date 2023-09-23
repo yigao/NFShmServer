@@ -108,11 +108,11 @@ int FishGunvalueDesc::Load(NFResDB *pDB)
 			FishGunvalueGameidRoomid data;
 			data.m_gameId = pDesc->m_gameid;
 			data.m_roomId = pDesc->m_roomid;
-			if(m_GameidRoomidComIndexMap.full())
+			if(m_GameidRoomidComIndexMap.size() >= m_GameidRoomidComIndexMap.max_size())
 			{
 				CHECK_EXPR_ASSERT(m_GameidRoomidComIndexMap.find(data) != m_GameidRoomidComIndexMap.end(), -1, "space not enough");
 			}
-			CHECK_EXPR_ASSERT(!m_GameidRoomidComIndexMap[data].full(), -1, "space not enough");
+			CHECK_EXPR_ASSERT(m_GameidRoomidComIndexMap[data].size() < m_GameidRoomidComIndexMap[data].max_size(), -1, "space not enough");
 			m_GameidRoomidComIndexMap[data].push_back(i);
 		}
 		{
@@ -120,7 +120,7 @@ int FishGunvalueDesc::Load(NFResDB *pDB)
 			data.m_gameId = pDesc->m_gameid;
 			data.m_roomId = pDesc->m_roomid;
 			data.m_gunId = pDesc->m_gunid;
-			if(m_GameidRoomidGunidComIndexMap.full())
+			if(m_GameidRoomidGunidComIndexMap.size() >= m_GameidRoomidGunidComIndexMap.max_size())
 			{
 				CHECK_EXPR_ASSERT(m_GameidRoomidGunidComIndexMap.find(data) != m_GameidRoomidGunidComIndexMap.end(), -1, "space not enough");
 			}

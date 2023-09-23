@@ -63,7 +63,7 @@ int NFFishWayBillMgr::InitWayBills(NFFishWayBillConfig* pFishBillConfig, bool fl
 
         for (int i = 0; i < (int) pFishBillConfig->m_vecWayBills.size(); i++)
         {
-            CHECK_EXPR(!m_vecWayBills.full(), -1, "m_vecWayBills space not enough");
+            CHECK_EXPR(m_vecWayBills.size() < m_vecWayBills.max_size(), -1, "m_vecWayBills space not enough");
             m_vecWayBills.push_back();
             CFishWayBill *pBill = &m_vecWayBills.back();
             if (pBill)
@@ -77,7 +77,7 @@ int NFFishWayBillMgr::InitWayBills(NFFishWayBillConfig* pFishBillConfig, bool fl
         m_vecWayBills.clear();
         for (int i = 0; i < (int) pFishBillConfig->m_vecWayBillExts.size(); i++)
         {
-            CHECK_EXPR(!m_vecWayBills.full(), -1, "m_vecWayBills space not enough");
+            CHECK_EXPR(m_vecWayBills.size() < m_vecWayBills.max_size(), -1, "m_vecWayBills space not enough");
             m_vecWayBills.push_back();
             CFishWayBill *pBill = &m_vecWayBills.back();
             {
@@ -88,9 +88,6 @@ int NFFishWayBillMgr::InitWayBills(NFFishWayBillConfig* pFishBillConfig, bool fl
 
     RandomShuffleWayBills();
     m_iCurWayBillIndex = INVALID_ID;
-
-    CFishWayBill *pCurWayBill = GetWayBill();
-    CHECK_EXPR(pCurWayBill, -1, "LoadWayBills() ==> m_pCurWayBill == NULL !");
     return 0;
 }
 
@@ -108,19 +105,13 @@ CFishWayBill *NFFishWayBillMgr::GetWayBill()
 
     if (m_iCurWayBillIndex >= (int) m_vecWayBills.size())
     {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GetWayBill() {} >= {}", m_iCurWayBillIndex, m_vecWayBills.size());
-
         RandomShuffleWayBills();
         m_iCurWayBillIndex = 0;
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GetWayBill() m_iCurWayBillIndex = {} , m_vecWayBills.size() = {}", m_iCurWayBillIndex, m_vecWayBills.size());
-
     if (m_iCurWayBillIndex < (int)m_vecWayBills.size())
     {
         pWayBill = &(m_vecWayBills[m_iCurWayBillIndex]);
-
-        //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "GetWayBill() pWayBill Name: {}", pWayBill->GetFileName());
     }
 
     return pWayBill;

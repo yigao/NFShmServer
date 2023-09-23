@@ -66,7 +66,20 @@
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishGunvalueDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/FishRoomDesc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishConfigConfig.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishConfigConfig.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishGroup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishGroup.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishSettingConfig.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishSettingConfig.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishWayBill.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishWayBill.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishWayBillConfig.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config/NFFishWayBillConfig.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Desk/NFGameFishDesk.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Desk/NFGameFishDesk.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Desk/NFGameFishDesk.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Desk/NFGameFishDesk.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Player/NFFishWayBillMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Player/NFFishWayBillMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFQueryRole.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/Trans/NFQueryRole.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmPtr.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmPtr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFTools/NFExcelProcess/ExcelToProto.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/NFExcelProcess" beforeDir="false" afterPath="$PROJECT_DIR$/tools/NFExcelProcess" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -465,14 +478,7 @@
       <workItem from="1695170001243" duration="14413000" />
       <workItem from="1695193891566" duration="4379000" />
       <workItem from="1695199003458" duration="28609000" />
-      <workItem from="1695343428574" duration="26090000" />
-    </task>
-    <task id="LOCAL-00123" summary="redis mysql db">
-      <created>1694598942500</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1694598942500</updated>
+      <workItem from="1695343428574" duration="37972000" />
     </task>
     <task id="LOCAL-00124" summary="redis mysql db">
       <created>1694656708042</created>
@@ -810,7 +816,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695427471104</updated>
     </task>
-    <option name="localTasksCounter" value="172" />
+    <task id="LOCAL-00172" summary="fish">
+      <created>1695432186860</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1695432186860</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1018,39 +1031,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp</url>
-          <line>71</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp</url>
-          <line>123</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp</url>
-          <line>115</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp</url>
-          <line>108</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Player/NFGamePlayerMgr.cpp</url>
-          <line>100</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Room/NFRoomPart.cpp</url>
-          <line>205</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Desk/NFGameFishDesk.cpp</url>
-          <line>314</line>
-          <option name="timeStamp" value="40" />
+          <line>1410</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -99,7 +99,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFCFishConfigModule::LoadFishConfigCSV() ------------------------------------");
 	   // NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFCFishConfigModule::LoadFishConfigCSV() strId = {}", strId.c_str());
 
-       if (m_vectFishConfig.full())
+       if (m_vectFishConfig.size() >= m_vectFishConfig.max_size())
        {
            NFLogError(NF_LOG_SYSTEMLOG, 0, "m_vectFishConfig full");
            NFSLEEP(1000);
@@ -140,7 +140,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 		NFStringUtility::SplitStringToVectorInt(strChildFishIds_5, ":", vec5);
 		NFStringUtility::SplitStringToVectorInt(strChildFishIds_6, ":", vec6);
 
-        if (pCfg->vecVecChildFishes.full())
+        if (pCfg->vecVecChildFishes.size() >= pCfg->vecVecChildFishes.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " vecVecChildFishes full ! Space Not Enough");
             NFSLEEP(1000);
@@ -149,7 +149,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pCfg->vecVecChildFishes.push_back();
 		auto pChildFish1 = &pCfg->vecVecChildFishes.back();
-        if (pChildFish1->full())
+        if (pChildFish1->size() >= pChildFish1->max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " pChildFish1 full! Space Not Enough");
             NFSLEEP(1000);
@@ -158,7 +158,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pChildFish1->insert(pChildFish1->end(), vec1.begin(), vec1.end());
 
-        if (pCfg->vecVecChildFishes.full())
+        if (pCfg->vecVecChildFishes.size() >= pCfg->vecVecChildFishes.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " vecVecChildFishes full ! Space Not Enough");
             NFSLEEP(1000);
@@ -167,7 +167,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pCfg->vecVecChildFishes.push_back();
 		auto pChildFish2 = &pCfg->vecVecChildFishes.back();
-        if (pChildFish2->full())
+        if (pChildFish2->size() >= pChildFish2->max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " pChildFish2 full! Space Not Enough");
             NFSLEEP(1000);
@@ -176,7 +176,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pChildFish2->insert(pChildFish2->end(), vec2.begin(), vec2.end());
 
-        if (pCfg->vecVecChildFishes.full())
+        if (pCfg->vecVecChildFishes.size() >= pCfg->vecVecChildFishes.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " vecVecChildFishes full ! Space Not Enough");
             NFSLEEP(1000);
@@ -185,7 +185,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pCfg->vecVecChildFishes.push_back();
 		auto pChildFish3 = &pCfg->vecVecChildFishes.back();
-        if (pChildFish3->full())
+        if (pChildFish3->size() >= pChildFish3->max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " pChildFish3 full! Space Not Enough");
             NFSLEEP(1000);
@@ -194,7 +194,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pChildFish3->insert(pChildFish3->end(), vec3.begin(), vec3.end());
 
-        if (pCfg->vecVecChildFishes.full())
+        if (pCfg->vecVecChildFishes.size() >= pCfg->vecVecChildFishes.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " vecVecChildFishes full ! Space Not Enough");
             NFSLEEP(1000);
@@ -203,7 +203,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pCfg->vecVecChildFishes.push_back();
 		auto pChildFish4 = &pCfg->vecVecChildFishes.back();
-        if (pChildFish4->full())
+        if (pChildFish4->size() >= pChildFish4->max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " pChildFish4 full! Space Not Enough");
             NFSLEEP(1000);
@@ -212,7 +212,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pChildFish4->insert(pChildFish4->end(), vec4.begin(), vec4.end());
 
-        if (pCfg->vecVecChildFishes.full())
+        if (pCfg->vecVecChildFishes.size() >= pCfg->vecVecChildFishes.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " vecVecChildFishes full ! Space Not Enough");
             NFSLEEP(1000);
@@ -221,7 +221,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pCfg->vecVecChildFishes.push_back();
         auto pChildFish5 = &pCfg->vecVecChildFishes.back();
-        if (pChildFish5->full())
+        if (pChildFish5->size() >= pChildFish5->max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " pChildFish5 full! Space Not Enough");
             NFSLEEP(1000);
@@ -230,7 +230,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pChildFish5->insert(pChildFish5->end(), vec5.begin(), vec5.end());
 
-        if (pCfg->vecVecChildFishes.full())
+        if (pCfg->vecVecChildFishes.size() >= pCfg->vecVecChildFishes.max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " vecVecChildFishes full ! Space Not Enough");
             NFSLEEP(1000);
@@ -239,7 +239,7 @@ int NFFishConfigConfig::LoadFishConfigCSV(const std::string& strFishKindCfgFile)
 
         pCfg->vecVecChildFishes.push_back();
         auto pChildFish6 = &pCfg->vecVecChildFishes.back();
-        if (pChildFish5->full())
+        if (pChildFish5->size() >= pChildFish5->max_size())
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, " pChildFish6 full! Space Not Enough");
             NFSLEEP(1000);

@@ -61,7 +61,6 @@ int NFGameFishDesk::CreateInit()
 
     m_iTimerObjId = SetTimer(100, INVALID_ID, 0, 0, 1, 0);
     m_iTimerPlayerId = SetTimer(1000, INVALID_ID, 0, 0, 1, 0);
-    m_iTimerCtrlTime = SetTimer(1000, INVALID_ID, 0, 0, 1, 0);
 
     m_pCurWayBill = NULL;
     m_bIsCurRegularWayBill = false;
@@ -816,8 +815,6 @@ int NFGameFishDesk::OnHandleFishHitFish(uint64_t playerId, NFDataPackage &packet
         NFLogTrace(NF_LOG_SYSTEMLOG, 0, "iRobotChairId = {} => ", iRobotChairId, iRobotChairId - 1);
     }
 
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "iRobotChairId = {} , pPlayer->m_uChairId = {}", iRobotChairId, pPlayer->m_uChairId);
-
     NFFishBullet *pBullet = pPlayer->m_BulletMgr.GetBullet(cgHitFish.bulletid());
     if (!pBullet)
     {
@@ -826,16 +823,7 @@ int NFGameFishDesk::OnHandleFishHitFish(uint64_t playerId, NFDataPackage &packet
     }
 
     NFFishBullet bullet = *pBullet;
-
-    //////////////////////////////////////////////////////////////////////////
-    //这个要在前面做,因为中间有return，会导致子弹删不掉；
     pPlayer->m_BulletMgr.DeleteBullet(cgHitFish.bulletid());
-
-    //////////////////////////////////////////////////////////////////////////
-
-    //bool bOutIsSeatAlgoCtrl = false;
-    //uint32_t nShootMoneyCount = bullet.GetBulletMoney();//这个值是shootBullet时确认过的，并且是后台赋值的；
-    //现在可以直接使用，无需再次确认；
 
     NFGameFish *pFish = GetFish(cgHitFish.fishid());
     if (pFish == NULL)
@@ -855,32 +843,6 @@ int NFGameFishDesk::OnHandleFishHitFish(uint64_t playerId, NFDataPackage &packet
         return 0;
     }
 
-    //////////////////////////////////////////////////////////////////////////
-
-
-    //eAlgoDataType dataType = (eAlgoDataType)bullet.m_dataTypeAlgo;
-
-
-    CHECK_EXPR(pFish, -1, "pFish == NULL");
-
-
-    //if (!pPlayer->IsRobot() && bullet.m_dataTypeAlgo!= eBulletType_Free)
-    //{
-    //	if (en_FishCtrlType_no != pPlayer->GetGMCurCtrlData().btControlType) {
-    //		m_DataManager.UpdateYValueB((double)nShootMoneyCount);
-    //	}
-    //	else
-    //	{
-    //		m_DataManager.AddTableTotalShootMoney(dataType, nShootMoneyCount);//在这里加总押？
-    //	}
-    //}
-
-
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0,
-               "NFCGameFishModule::OnHandleFishHitFish() ==> pFish->fishKind = {} , m_btFishType = {}",
-               pFish->m_nFishKind, pFish->m_fishKind.m_btFishType);
-
-
     if (IsFishCanBeKilledByKillType(pPlayer, pFish, bullet))
     {
         uint64_t ullScoreMoney = m_FishTypeMgr->KillFishByType(pPlayer, pFish, bullet);
@@ -893,8 +855,6 @@ int NFGameFishDesk::OnHandleFishHitFish(uint64_t playerId, NFDataPackage &packet
         }
 
     }
-
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "==================> GetFishCount() = {}", GetFishCount());
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
@@ -978,7 +938,6 @@ int NFGameFishDesk::OnHandleFishLockFish(uint64_t playerId, NFDataPackage &packe
     gcLockFish.set_fishid(pPlayer->m_uLockFishId);
     gcLockFish.set_userrorcode(0);
 
-    //SendMsgToClientByPlayerId(playerId, NF_FISH_CMD_LOCKFISH_RSP, gcLockFish);
     SendMsgToAllClient(NF_FISH_CMD_LOCKFISH_RSP, gcLockFish);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
@@ -1024,17 +983,16 @@ int NFGameFishDesk::OnHandleChangeScene(uint64_t playerId, NFDataPackage &packet
     return 0;
 }
 
-NFGameFish NFGameFishDesk::CreateFishEx(CFish fishCfg, uint16_t nDefaultFishKind, int16_t nOffsetPosX, int16_t nOffsetPosY, bool bIsRedFish)
+int NFGameFishDesk::CreateFishEx(NFGameFish& fish, const CFish& fishCfg, uint16_t nDefaultFishKind, int16_t nOffsetPosX, int16_t nOffsetPosY, bool bIsRedFish)
 {
     uint16_t usFishKind = nDefaultFishKind == 0 ? fishCfg.m_usFishKind : nDefaultFishKind;
 
     NFFishConfigConfig* pFishConfigConfig = GetFishConfigConfig();
-    CHECK_EXPR(pFishConfigConfig, NFGameFish(), "");
+    CHECK_EXPR(pFishConfigConfig, -1, "");
 
     FishConfig* pFishConfig = pFishConfigConfig->GetFishBaseInfo(usFishKind);
-    CHECK_EXPR(pFishConfig, NFGameFish(), "NFGameFishMgr::CreateFish() pFishKind == NULL for FishKind = {}", usFishKind);
+    CHECK_EXPR(pFishConfig, -1, "NFGameFishMgr::CreateFish() pFishKind == NULL for FishKind = {}", usFishKind);
 
-    NFGameFish fish;
     fish.m_uFishId = m_maxFishId++;
 
     fish.m_uBirthTime = NFTime::Now().UnixMSec();
@@ -1067,7 +1025,7 @@ NFGameFish NFGameFishDesk::CreateFishEx(CFish fishCfg, uint16_t nDefaultFishKind
 
     fish.m_iDemageRadius = pFishConfig->nDamageRadius;
 
-    return fish;
+    return 0;
 }
 
 NFGameFish *NFGameFishDesk::CreateFish()
@@ -1430,13 +1388,6 @@ uint32_t NFGameFishDesk::GetSceneChangeInfo(float &fTimeSeconds, int &iChangeTyp
 
 int NFGameFishDesk::FishGroupBaseTimer(uint32_t uTimerCount)
 {
-    if (uTimerCount % 10 == 0)
-    {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "FishGroupBaseTimer111 m_tableId = {} ==> m_iCurStatus = {}", m_deskId, m_iCurStatus);
-
-        //m_FishWayBillMgr.Print();
-    }
-
     NFFishWayBillConfig *pFishWayBillConfig = GetFishWayBillConfig();
     CHECK_NULL(pFishWayBillConfig);
     NFFishSettingConfig* pFishSettingConfig = GetFishSettingConfig();
@@ -1487,7 +1438,7 @@ int NFGameFishDesk::FishGroupBaseTimer(uint32_t uTimerCount)
                 if (!m_bIsLastWayBillPrior)
                 {
                     m_pCurWayBill = m_FishWayBillMgr.GetPirorWayBill(pFishSettingConfig);
-                    if (m_pCurWayBill != NULL)
+                    if (m_pCurWayBill.GetPoint() != NULL)
                     {
                         bIsPrior = true;
                     }
@@ -1503,21 +1454,21 @@ int NFGameFishDesk::FishGroupBaseTimer(uint32_t uTimerCount)
                     bIsPrior = false;
                 }
 
-                if (m_pCurWayBill == NULL)
+                if (m_pCurWayBill.GetPoint() == NULL)
                 {
                     break;
                 }
 
-            } while ((m_pCurWayBill != NULL && m_pCurWayBill->GetFileName() == m_strLastWayBillName.GetString()) && (count++ < 10));
+            } while ((m_pCurWayBill.GetPoint() != NULL && m_pCurWayBill->GetFileName() == m_strLastWayBillName.GetString()) && (count++ < 10));
 
-            if (m_pCurWayBill == NULL)
+            if (m_pCurWayBill.GetPoint() == NULL)
             {
                 m_pCurWayBill = m_FishWayBillMgr.GetWayBill();
                 bIsPrior = false;
             }
 
             //////////////////////////////////////////////////////////////////////////
-            if (m_pCurWayBill != NULL)
+            if (m_pCurWayBill.GetPoint() != NULL)
             {
                 m_strLastWayBillName  = m_pCurWayBill->GetFileName();
                 m_bIsLastWayBillPrior = bIsPrior;
@@ -1576,16 +1527,11 @@ bool NFGameFishDesk::WayBillPlayPolling(uint32_t uTimerCount, CFishWayBill* pCur
         return true;//finish
     }
 
-    if (uTimerCount % 10 == 0)
-    {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "test Scene ======> CurWayBill = {} , m_nCurGroupId = {}  m_tableId = {} ==> m_iCurStatus = {}", pCurWayBill->GetFileName(), m_nCurGroupId, m_deskId, m_iCurStatus);
-    }
-
     switch (m_iCurStatus)
     {
         case STATUS_NEXT:
         {
-            while (1)//把连续的group一起发出去 //现在不要发了，默认一个timer时间间隔
+            while (true)//把连续的group一起发出去 //现在不要发了，默认一个timer时间间隔
             {
                 FishWayBillItem item;
                 int iLeftCount = pCurWayBill->GetOneItem(item);
@@ -1598,7 +1544,6 @@ bool NFGameFishDesk::WayBillPlayPolling(uint32_t uTimerCount, CFishWayBill* pCur
                     }
                     else
                     {
-                        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "WayBillPlayPolling return true; 111");
                         return true;
                     }
                     break;
@@ -1608,11 +1553,7 @@ bool NFGameFishDesk::WayBillPlayPolling(uint32_t uTimerCount, CFishWayBill* pCur
                 {
                     int iGroupId = item.usValue;
                     CFishGroup* pFishGroup = GetFishGroup(iGroupId);
-                    //CHECK_EXPR(pFishGroup, false, "pFishGroup == NULL ! iGroupId = {}", iGroupId);
-                    if (pFishGroup == NULL)
-                    {
-                        continue;
-                    }
+                    CHECK_EXPR_CONTINUE(pFishGroup, "pFishGroup == NULL ! iGroupId = {}", iGroupId);
 
                     //////////////////////////////////////////////////////////////////////////
                     float fTimeSeconds = 1;
@@ -1621,12 +1562,9 @@ bool NFGameFishDesk::WayBillPlayPolling(uint32_t uTimerCount, CFishWayBill* pCur
                     {
                         int32_t sceneId = pFishGroup->m_bySceneIndex;
 
-                        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "test Scene ======> ChangeType = {} , sceneId = {}", iChangeType, sceneId);
-
                         if (sceneId == -1)
                         {
                             sceneId = GetSceneChangeInfo(fTimeSeconds, iChangeType);
-                            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "test Scene ======>GetSceneChangeInfo() sceneId = {}", sceneId);
                         }
 
                         m_uSceneIndex = sceneId;
@@ -1646,10 +1584,6 @@ bool NFGameFishDesk::WayBillPlayPolling(uint32_t uTimerCount, CFishWayBill* pCur
 
                         break;
                     }
-
-                    //////////////////////////////////////////////////////////////////////////
-
-                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "item.usType == YUZHEN GroupId = {} , iGroupType = {}", item.usValue, pFishGroup->Type());
 
                     //if (pFishGroup->Type() == 1)//普通鱼群
                     {//所有Group都按普通鱼阵运行，现在是分普通录单或规则录单
@@ -1691,11 +1625,6 @@ bool NFGameFishDesk::WayBillPlayPolling(uint32_t uTimerCount, CFishWayBill* pCur
         {
             int fishCount = GetFishCount();
 
-            if (uTimerCount % 10 == 0)
-            {
-                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "m_iCurStatus == STATUS_WAIT_REGULAR_GROUP ! fishCount = {}", fishCount);
-            }
-
             if (fishCount <= 0)
             {
                 NFLogTrace(NF_LOG_SYSTEMLOG, 0, "m_iCurStatus == STATUS_WAIT_WAYBILL_FINISH ! fishCount <= 0");
@@ -1715,17 +1644,12 @@ bool NFGameFishDesk::WayBillPlayPolling(uint32_t uTimerCount, CFishWayBill* pCur
         case STATUS_TIMEDELAY_GROUP:
             if (NFTime::Now().UnixMSec() > m_ullNextTime)
             {
-                //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "STATUS_TIMEDELAY_GROUP ============================>!!!!!!!!!!!!!!!!!!!!!!!!");
-                //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "STATUS_TIMEDELAY_GROUP 2===========================> Now = {} , m_ullNextTime = {}", NFTime::Now().UnixMSec(), m_ullNextTime);
-
                 SendFishGroup(m_nGroupIdToSend);
                 m_nCurGroupId = m_nGroupIdToSend;
 
                 m_iCurStatus = STATUS_NEXT;
             }
-
             break;
-
         default:
             break;
     }
@@ -1763,12 +1687,17 @@ int NFGameFishDesk::CreateGroupFishes(vector<NFGameFish> &vecGroupFishes, int iG
         const CFish* pFish = &pFishList[i];
         if (pFish != NULL)
         {
-            NFGameFish fish = CreateFishEx(*pFish, byDefaultFishKind, nOffsetPosX, nOffsetPosY, (bIsWithRedFish && (i == iRedFishRandIndex)));
-            if (fish.m_uFishId != INVALID_FISHID)
+            vecGroupFishes.push_back(NFGameFish());
+            NFGameFish& fish = vecGroupFishes.back();
+            int ret = CreateFishEx(fish, *pFish, byDefaultFishKind, nOffsetPosX, nOffsetPosY, (bIsWithRedFish && (i == iRedFishRandIndex)));
+            if (ret != 0)
             {
-                fish.m_iGroupId = iGroupId;
-                vecGroupFishes.push_back(fish);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "CreateFishEx Failed, byDefaultFishKind:{} nOffsetPosX:{} nOffsetPosY:{} bIsWithRedFish:{} iRedFishRandIndex:{}",
+                           byDefaultFishKind, nOffsetPosX, nOffsetPosY, bIsWithRedFish, iRedFishRandIndex);
+                vecGroupFishes.pop_back();
+                continue;
             }
+            fish.m_iGroupId = iGroupId;
         }
     }
 
@@ -1841,13 +1770,8 @@ CFishGroup *NFGameFishDesk::GetFishGroup(uint16_t nGroupId)
 
 void NFGameFishDesk::SendFishGroup(int iGroupId, uint8_t byDefaultFishKind, bool bIsWithRedFish, uint16_t nDstPosX, uint16_t nDstPoxY)
 {
-    //////////////////////////////////////////////////////////////////////////
-    //gamefish::FishList fishList = GetFishGroupMessage(iGroupId, byDefaultFishKind, bIsWithRedFish, nDstPosX, nDstPoxY);
-    //SendMsgToAllClient(NF_FISH_CMD_FISHES_RSP, fishList);
-    //==========================
     std::vector<NFGameFish> vecGroupFishes;
     int fishCount = CreateGroupFishes(vecGroupFishes, iGroupId, byDefaultFishKind, bIsWithRedFish, nDstPosX, nDstPoxY);
-
 
     if (fishCount > 0)
     {

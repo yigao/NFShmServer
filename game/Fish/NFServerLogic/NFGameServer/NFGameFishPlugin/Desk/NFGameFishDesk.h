@@ -298,7 +298,7 @@ public:
 public:
     bool GetTypeRandAlgoRate(int iCannonIndex, int nBaseMul, double &dbRate);
 public:
-    NFGameFish CreateFishEx(CFish fishCfg, uint16_t nDefaultFishKind, int16_t nOffsetPosX, int16_t nOffsetPosY, bool bIsRedFish = false);
+    int CreateFishEx(NFGameFish& fish, const CFish& fishCfg, uint16_t nDefaultFishKind, int16_t nOffsetPosX, int16_t nOffsetPosY, bool bIsRedFish = false);
 
     NFGameFish *CreateFish();
 
@@ -401,14 +401,13 @@ public:
 
     int m_iTimerObjId;
     int m_iTimerPlayerId;
-    int m_iTimerCtrlTime;
 
     uint32_t m_maxFishId;
     NFShmHashMap<uint32_t, NFGameFish, GAME_FISH_DESK_FISH_COUNT> m_gameFishMap;
 
     NFShmPtr<NFFishTypeMgr> m_FishTypeMgr;
 
-    CFishWayBill *m_pCurWayBill;
+    NFRawShmPtr<CFishWayBill> m_pCurWayBill;
     bool m_bIsCurRegularWayBill;
     bool m_bForceRegularWayBill;
 

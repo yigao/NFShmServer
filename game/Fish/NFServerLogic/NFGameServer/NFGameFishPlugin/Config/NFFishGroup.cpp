@@ -183,7 +183,7 @@ int CFishGroup::ReadGroupFileVer0(FILE* fpGroup, NFIPluginManager* pPluginManage
 		}
 
 		uint32_t unFishId = m_unId * 1000 + unIndex;
-        CHECK_EXPR(!m_FishList.full(), -1, "Fish List Add Failed! list full");
+        CHECK_EXPR(m_FishList.size() < m_FishList.max_size(), -1, "Fish List Add Failed! list full");
         m_FishList.push_back();
 		CFish *fish = &m_FishList.back();
 		CHECK_EXPR(fish, -1, "Fish List Add Failed! list full");
@@ -246,7 +246,7 @@ int CFishGroup::ReadGroupFileVer1(FILE* fpGroup, NFIPluginManager* pPluginManage
 		//////////////////////////////////////////////////////////////////////////
 
 		uint32_t unFishId = m_unId * 1000 + unIndex;
-        CHECK_EXPR(!m_FishList.full(), -1, "Fish List Add Failed! list full");
+        CHECK_EXPR(m_FishList.size() < m_FishList.max_size(), -1, "Fish List Add Failed! list full");
         m_FishList.push_back();
 		CFish *fish = &m_FishList.back();
 		CHECK_EXPR(fish, -1, "Fish List Add Failed! list full");

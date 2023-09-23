@@ -104,7 +104,7 @@ int FishRoomDesc::Load(NFResDB *pDB)
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		if(m_GameidIndexMap.full())
+		if(m_GameidIndexMap.size() >= m_GameidIndexMap.max_size())
 		{
 			CHECK_EXPR_ASSERT(m_GameidIndexMap.find(pDesc->m_gameid) != m_GameidIndexMap.end(), -1, "index:gameId key:{}, space not enough", pDesc->m_gameid);
 		}
@@ -113,7 +113,7 @@ int FishRoomDesc::Load(NFResDB *pDB)
 			FishRoomGameidRoomid data;
 			data.m_gameId = pDesc->m_gameid;
 			data.m_roomId = pDesc->m_roomid;
-			if(m_GameidRoomidComIndexMap.full())
+			if(m_GameidRoomidComIndexMap.size() >= m_GameidRoomidComIndexMap.max_size())
 			{
 				CHECK_EXPR_ASSERT(m_GameidRoomidComIndexMap.find(data) != m_GameidRoomidComIndexMap.end(), -1, "space not enough");
 			}

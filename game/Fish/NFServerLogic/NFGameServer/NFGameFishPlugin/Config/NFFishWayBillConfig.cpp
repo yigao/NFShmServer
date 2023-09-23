@@ -81,7 +81,7 @@ void NFFishWayBillConfig::LoadWayBills(const std::string& strWayBillPath, NFShmV
 
         if (!find)
         {
-            if (vecWayBills.full())
+            if (vecWayBills.size() >= vecWayBills.max_size())
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "vecWayBills full");
                 NFSLEEP(1000);
