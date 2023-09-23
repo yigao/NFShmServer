@@ -1935,6 +1935,37 @@ bool NFGameFishDesk::IsFishCanBeKilledByKillType(NFGameFishPlayer *pPlayer, NFGa
     return IsFishCanBeKilled(pPlayer, pFish, bullet);
 }
 
+bool NFGameFishDesk::GetTypeRandAlgoRate(int iCannonIndex, int nBaseMul, double &dbRate)
+{
+    if (nBaseMul <= 0)
+    {
+        return false;
+    }
+
+    int iValP = 100; //NFRandomInt(0, 100);
+
+    if (iValP < 1)
+    {
+        iValP = 1;
+    }
+
+    //理论上多少次打死
+    //M = nBaseMul/iValP
+    double dbValM = nBaseMul * 1.0 / (iValP / 100.0);
+
+    dbRate = 1.0 / dbValM;
+
+
+    const int CONST_RATE_HIGH = 85;
+
+    if ((dbRate * 100) > CONST_RATE_HIGH)
+    {
+        dbRate = CONST_RATE_HIGH * 1.0 / 100.0;
+    }
+
+    return true;
+}
+
 bool NFGameFishDesk::IsFishCanBeKilled(NFGameFishPlayer *pPlayer, NFGameFish *pFish, const NFFishBullet &bullet)
 {
     NFFishSettingConfig* pFishSettingConfig = GetFishSettingConfig();
@@ -1968,18 +1999,21 @@ bool NFGameFishDesk::IsFishCanBeKilled(NFGameFishPlayer *pPlayer, NFGameFish *pF
     }
 
     double dbOutRate = 0;
-
-    const int ST_DATA_BILI = 10000;
-    int iRateKilled = int(ST_DATA_BILI * dbOutRate * dbBulletHarm);
-    int iRandTemp = NFRandomInt(0, ST_DATA_BILI);
-
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "IsFishCanKilled_NewLogic ==> m_nBaseMul = {} , dbBulletHarm = {} , dbOutRate = {} , iRateKilled = {} , iRandTemp = {}", iKilledFishMul, dbBulletHarm, dbOutRate, iRateKilled, iRandTemp);
-
-    if (iRandTemp < iRateKilled)
+    bool bRandAlgoRes = GetTypeRandAlgoRate(byCannonLevelIndex, iKilledFishMul, dbOutRate);
+    if (bRandAlgoRes)
     {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "IsFishCanKilled_NewLogic ==> true !!!");
+        const int ST_DATA_BILI = 10000;
+        int iRateKilled = int(ST_DATA_BILI * dbOutRate * dbBulletHarm);
+        int iRandTemp = NFRandomInt(0, ST_DATA_BILI);
 
-        return true;
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "IsFishCanKilled_NewLogic ==> m_nBaseMul = {} , dbBulletHarm = {} , dbOutRate = {} , iRateKilled = {} , iRandTemp = {}", iKilledFishMul, dbBulletHarm, dbOutRate, iRateKilled, iRandTemp);
+
+        if (iRandTemp < iRateKilled)
+        {
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "IsFishCanKilled_NewLogic ==> true !!!");
+
+            return true;
+        }
     }
 
     return false;

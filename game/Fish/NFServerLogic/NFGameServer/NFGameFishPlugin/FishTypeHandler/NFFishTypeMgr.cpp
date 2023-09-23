@@ -79,7 +79,7 @@ int NFFishTypeMgr::OnHandleClientMessage(NFGameFishPlayer* pPlayer, NFDataPackag
     for (auto iter = m_mapFishTypeHandler.begin(); iter != m_mapFishTypeHandler.end(); iter++)
     {
         int globalId = iter->second;
-        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(globalId, EOT_GAME_FISH_TYPE_HANDLE_ID, true);
+        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_GAME_FISH_TYPE_HANDLE_ID, globalId, true);
 
         if (pFishTypeHandler != NULL)
         {
@@ -152,7 +152,7 @@ int NFFishTypeMgr::OnAddScore(NFGameFishPlayer* pPlayer, NFGameFish* pFish, uint
     for (auto iter = m_mapFishTypeHandler.begin(); iter != m_mapFishTypeHandler.end(); iter++)
     {
         int globalId = iter->second;
-        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(globalId, EOT_GAME_FISH_TYPE_HANDLE_ID, true);
+        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_GAME_FISH_TYPE_HANDLE_ID, globalId, true);
 
         if (pFishTypeHandler != NULL)
         {
@@ -212,7 +212,7 @@ void NFFishTypeMgr::SyncFishBomb(NFGameFishPlayer* pPlayer)
     for(auto iter = m_mapFishTypeHandler.begin(); iter != m_mapFishTypeHandler.end(); iter++)
     {
         int globalId = iter->second;
-        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(globalId, EOT_GAME_FISH_TYPE_HANDLE_ID, true);
+        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_GAME_FISH_TYPE_HANDLE_ID, globalId, true);
         if (pFishTypeHandler != NULL)
         {
             pFishTypeHandler->SyncFishBomb(pPlayer);
@@ -225,7 +225,7 @@ void NFFishTypeMgr::UserLeftDesk(NFGameFishPlayer* pPlayer)
     for(auto iter = m_mapFishTypeHandler.begin(); iter != m_mapFishTypeHandler.end(); iter++)
     {
         int globalId = iter->second;
-        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(globalId, EOT_GAME_FISH_TYPE_HANDLE_ID, true);
+        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_GAME_FISH_TYPE_HANDLE_ID, globalId, true);
         if (pFishTypeHandler != NULL)
         {
             pFishTypeHandler->UserLeftDesk(pPlayer);
@@ -330,7 +330,7 @@ NFFishTypeHandler* NFFishTypeMgr::FindFishTypeHandler(int iFishType)
     if (iter != m_mapFishTypeHandler.end())
     {
         int globalId = iter->second;
-        return (NFFishTypeHandler*) FindModule<NFISharedMemModule>()->GetObjByGlobalId(globalId, EOT_GAME_FISH_TYPE_HANDLE_ID, true);
+        return (NFFishTypeHandler*) FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_GAME_FISH_TYPE_HANDLE_ID, globalId, true);
     }
     return NULL;
 }
@@ -340,7 +340,7 @@ void NFFishTypeMgr::ClearFishTypes()
     for(auto iter = m_mapFishTypeHandler.begin(); iter != m_mapFishTypeHandler.end(); iter++)
     {
         int globalId = iter->second;
-        NFFishTypeHandler* pHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(globalId, EOT_GAME_FISH_TYPE_HANDLE_ID, true);
+        NFFishTypeHandler* pHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_GAME_FISH_TYPE_HANDLE_ID, globalId, true);
         CHECK_EXPR(pHandler, , "ClearFishTypes error");
         FindModule<NFISharedMemModule>()->DestroyObj(pHandler);
     }

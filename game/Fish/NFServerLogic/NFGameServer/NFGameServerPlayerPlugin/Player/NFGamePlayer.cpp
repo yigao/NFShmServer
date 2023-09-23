@@ -96,13 +96,13 @@ int NFGamePlayer::SendMsgToWorld(uint32_t nMsgId, const google::protobuf::Messag
 int NFGamePlayer::SendMsgToLogic(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
     FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, m_logicId,
-                                                   nMsgId, xData);
+                                                   nMsgId, xData, m_playerId);
     return 0;
 }
 
 int NFGamePlayer::SendMsgToSns(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId, xData);
+    FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_GAME_SERVER, nMsgId, xData, m_playerId);
     return 0;
 }
 

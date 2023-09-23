@@ -80,7 +80,7 @@ bool NFGameFishPlugin::InitShmObjectRegister()
 
     REGISTER_SHM_OBJ(NFGameFishDesk, maxDeskNum);
     REGISTER_SHM_OBJ(NFFishTypeMgr, maxDeskNum);
-    REGISTER_SHM_OBJ(NFFishTypeHandler, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeHandler, maxDeskNum*10);
     REGISTER_SHM_OBJ(NFFishTypeDelayBomb, maxDeskNum);
 
 	return true;

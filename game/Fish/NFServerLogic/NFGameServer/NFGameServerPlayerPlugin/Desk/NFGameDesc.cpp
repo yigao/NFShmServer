@@ -946,7 +946,7 @@ int NFGameDesk::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message
     CHECK_EXPR(pPlayer, -1, "player:{} not exist", playerId);
     if (pPlayer->GetProxyId() > 0)
     {
-        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, pPlayer->GetProxyId(), nMsgId, xData);
+        FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_GAME_SERVER, pPlayer->GetProxyId(), nMsgId, xData, playerId);
     }
 
     return 0;
@@ -983,7 +983,7 @@ int NFGameDesk::SendMsgToLogicServer(uint32_t nMsgId, const google::protobuf::Me
     NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
     CHECK_EXPR(pPlayer, -1, "player:{} not exist", playerId);
     CHECK_EXPR(pPlayer->GetLogicId() > 0, -1, "player:{} no logic:{}", playerId, pPlayer->GetLogicId());
-    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, pPlayer->GetLogicId(), nMsgId, xData);
+    FindModule<NFIServerMessageModule>()->SendMsgToLogicServer(NF_ST_GAME_SERVER, pPlayer->GetLogicId(), nMsgId, xData, playerId);
     return 0;
 }
 
