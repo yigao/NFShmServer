@@ -1,9 +1,3 @@
-cd src/NFComm/makefiles
-make
-cd ../../..
-cd src/NFServerComm/makefiles
-make
-cd ../../..
 
 mkdir Build
 cd Build
