@@ -126,7 +126,7 @@ int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskLis
 
     if (pRoomCfg->m_isexpscene <= 0)
     {
-        if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_entermin || pJettonPart->GetJetton() > (uint64_t)pRoomCfg->m_entermax)
+        if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_entermin || (pRoomCfg->m_entermax > 0 && pJettonPart->GetJetton() > (uint64_t)pRoomCfg->m_entermax))
         {
             if (pJettonPart->GetJetton() < (uint64_t)pRoomCfg->m_entermin)
             {
