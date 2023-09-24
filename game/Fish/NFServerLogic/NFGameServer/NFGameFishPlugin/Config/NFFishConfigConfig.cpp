@@ -45,10 +45,10 @@ int NFFishConfigConfig::ResumeInit()
     return 0;
 }
 
-int NFFishConfigConfig::LoadConfig(uint32_t roomId)
+int NFFishConfigConfig::LoadConfig(uint32_t gameId, uint32_t roomId)
 {
     m_roomId = roomId;
-    std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(GAME_ID_FISH_HAIWANG_2004) + "_" + NFCommon::tostr(m_roomId);
+    std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(gameId) + "_" + NFCommon::tostr(m_roomId);
 	std::string strPath = NFFileUtility::NormalizePath(path) + "FishKind/FishConfig.csv";
     std::string fileMd5;
     int iRet = GetFileContainMD5(strPath, fileMd5);

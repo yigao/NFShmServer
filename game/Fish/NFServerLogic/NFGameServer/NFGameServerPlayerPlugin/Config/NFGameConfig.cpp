@@ -87,6 +87,16 @@ uint32_t NFGameConfig::GetRoomNum(uint32_t gameId) const
     return 0;
 }
 
+std::unordered_map<uint32_t, std::vector<uint32_t>> NFGameConfig::GetGameRoomList() const
+{
+    std::unordered_map<uint32_t, std::vector<uint32_t>> vecMap;
+    for (int i = 0; i < (int) m_config.Game.size(); i++)
+    {
+            vecMap.emplace(m_config.Game[i].GameId, m_config.Game[i].RoomId.to_vector());
+    }
+    return vecMap;
+}
+
 std::vector<uint32_t> NFGameConfig::GetRoomList(uint32_t gameId) const
 {
     for (int i = 0; i < (int) m_config.Game.size(); i++)

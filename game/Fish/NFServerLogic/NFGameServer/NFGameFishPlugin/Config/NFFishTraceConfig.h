@@ -28,7 +28,7 @@ public:
     int CreateInit();
     int ResumeInit();
 public:
-    virtual int LoadConfig(uint32_t roomId);
+    virtual int LoadConfig(uint32_t gameId, uint32_t roomId);
     int GetFileContainMD5(const std::string& strFileName, std::string& fileMd5);
 public:
 

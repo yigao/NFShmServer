@@ -25,7 +25,6 @@ CFishGroup::CFishGroup()
 
 int CFishGroup::CreateInit()
 {
-    m_roomId = 0;
     m_unId = 0;
 	m_FishList.clear();
     m_usFishCount = 0;
@@ -76,9 +75,9 @@ void CFishGroup::Clear()
 }
 
 
-int CFishGroup::Load(const std::string &strFile, uint32_t roomId, NFIPluginManager* pPluginManager)
+int CFishGroup::Load(const std::string &strFile, NFFishTraceConfig* pTrace)
 {
-    m_roomId = roomId;
+    CHECK_NULL(pTrace);
     FILE *fpGroup = NULL;
     int iRet = 0;
 
@@ -117,12 +116,12 @@ int CFishGroup::Load(const std::string &strFile, uint32_t roomId, NFIPluginManag
 
 		if (m_byVersion == 0)
 		{
-			iRet = ReadGroupFileVer0(fpGroup, pPluginManager);
+			iRet = ReadGroupFileVer0(fpGroup);
 
 		}
 		else if (m_byVersion == 1)
 		{
-			iRet = ReadGroupFileVer1(fpGroup, pPluginManager);
+			iRet = ReadGroupFileVer1(fpGroup, pTrace);
 		}
 		else
 		{
@@ -159,7 +158,7 @@ int CFishGroup::Load(const std::string &strFile, uint32_t roomId, NFIPluginManag
     return iRet;
 }
 
-int CFishGroup::ReadGroupFileVer0(FILE* fpGroup, NFIPluginManager* pPluginManager)
+int CFishGroup::ReadGroupFileVer0(FILE* fpGroup)
 {
 	int iRet = 0;
 	size_t bytes = 0;
@@ -203,12 +202,12 @@ int CFishGroup::ReadGroupFileVer0(FILE* fpGroup, NFIPluginManager* pPluginManage
 	return iRet;
 }
 
-int CFishGroup::ReadGroupFileVer1(FILE* fpGroup, NFIPluginManager* pPluginManager)
+int CFishGroup::ReadGroupFileVer1(FILE* fpGroup, NFFishTraceConfig* pTrace)
 {
 	int iRet = 0;
 	size_t bytes = 0;
 
-    NFFishTraceConfig* pTrace = NFFishTraceConfig::GetObjByHashKey(pPluginManager, m_roomId);
+    CHECK_NULL(pTrace);
 
 	uint32_t unIndex = 1;
 	while (!feof(fpGroup))

@@ -49,11 +49,11 @@ int NFFishSettingConfig::ResumeInit()
     return 0;
 }
 
-int NFFishSettingConfig::LoadConfig(uint32_t roomId)
+int NFFishSettingConfig::LoadConfig(uint32_t gameId, uint32_t roomId)
 {
     m_roomId = roomId;
     std::string strFishSettingPath = NFFileUtility::NormalizePath(
-            m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(GAME_ID_FISH_HAIWANG_2004) + "_" + NFCommon::tostr(m_roomId)) +
+            m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(gameId) + "_" + NFCommon::tostr(m_roomId)) +
                                      "FishKind/FishSetting.ini";
 
     NFINIReader iniReader;
@@ -81,63 +81,112 @@ int NFFishSettingConfig::LoadConfig(uint32_t roomId)
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iOneCannoKilled = {}", m_iOneCannonKilled);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iKillJudgeType = {}", m_iKillJudgeType);
 
-    std::set<std::string> setFields = iniReader.GetFields("waybillratio");
-    std::set<std::string>::iterator iter = setFields.begin();
-    for (; iter != setFields.end(); iter++)
+    if (gameId == 2004)
     {
-        std::string strKey = *iter;
-        std::string strValue = iniReader.Get("waybillratio", strKey, "");
-        int iValue = atoi(strValue.c_str());
-
-        if (m_mapWayBills.full())
+        std::set<std::string> setFields = iniReader.GetFields("waybillratio");
+        std::set<std::string>::iterator iter = setFields.begin();
+        for (; iter != setFields.end(); iter++)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "m_mapWayBills full");
-            NFSLEEP(1000);
-            exit(0);
-        }
-        m_mapWayBills.emplace(strKey, iValue);
+            std::string strKey = *iter;
+            std::string strValue = iniReader.Get("waybillratio", strKey, "");
+            int iValue = atoi(strValue.c_str());
 
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load waybillratio: {} = {}", strKey, iValue);
-    }
-
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iDNTGKilledGroup = {}", m_iDNTGKilledGroup);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iDNTGGroupInterval = {}", m_iDNTGGroupInterval);
-    //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iYuZhenIntervalMin = {}", m_iYuZhenIntervalMin);
-    //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iYuZhenIntervalMax = {}", m_iYuZhenIntervalMax);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iOneCannoKilled = {}", m_iOneCannonKilled);
-
-    /*std::set<std::string>*/ setFields = iniReader.GetFields("ZuanTouTrace");
-    /*std::set<std::string>::iterator*/ iter = setFields.begin();
-    for (; iter != setFields.end(); iter++)
-    {
-        std::string strKey = *iter;
-        std::string strValue = iniReader.Get("ZuanTouTrace", strKey, "");
-
-        int iKey = atoi(strKey.c_str());
-        std::vector<uint32_t> vec;
-        NFStringUtility::SplitStringToVectorInt(strValue, ",", vec);
-
-        NFShmVector<uint32_t, 20> ary;
-        ary.insert(ary.end(), vec.begin(), vec.end());
-
-        if (!m_mapShootTraces.full())
-        {
-            m_mapShootTraces.emplace(iKey, ary);
-
-            std::string strLog;
-            for (int i = 0; i < (int)ary.size(); i++)
+            if (m_mapWayBills.full())
             {
-                strLog += ",";
-                strLog += NFCommon::tostr(ary[i]);
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "m_mapWayBills full");
+                NFSLEEP(1000);
+                exit(0);
+            }
+            m_mapWayBills.emplace(strKey, iValue);
+
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load waybillratio: {} = {}", strKey, iValue);
+        }
+
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iDNTGKilledGroup = {}", m_iDNTGKilledGroup);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iDNTGGroupInterval = {}", m_iDNTGGroupInterval);
+        //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iYuZhenIntervalMin = {}", m_iYuZhenIntervalMin);
+        //NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iYuZhenIntervalMax = {}", m_iYuZhenIntervalMax);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load() m_iOneCannoKilled = {}", m_iOneCannonKilled);
+
+        /*std::set<std::string>*/ setFields = iniReader.GetFields("ZuanTouTrace");
+        /*std::set<std::string>::iterator*/ iter = setFields.begin();
+        for (; iter != setFields.end(); iter++)
+        {
+            std::string strKey = *iter;
+            std::string strValue = iniReader.Get("ZuanTouTrace", strKey, "");
+
+            int iKey = atoi(strKey.c_str());
+            std::vector<uint32_t> vec;
+            NFStringUtility::SplitStringToVectorInt(strValue, ",", vec);
+
+            NFShmVector<uint32_t, 20> ary;
+            if (ary.max_size() < vec.size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load ary.Add Full");
+            }
+            ary.insert(ary.end(), vec.begin(), vec.end());
+
+            if (!m_mapShootTraces.full())
+            {
+                m_mapShootTraces.emplace(iKey, ary);
+
+                std::string strLog;
+                for (int i = 0; i < (int)ary.size(); i++)
+                {
+                    strLog += ",";
+                    strLog += NFCommon::tostr(ary[i]);
+                }
+
+                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load ZuanTouTrace: {} = {}", iKey, strLog);
+            }
+            else
+            {
+                NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load m_mapChangeSceneType_Time Full !");
+            }
+        }
+    }
+    else if (gameId == 2001)
+    {
+        std::set<std::string> setFields = iniReader.GetFields("ZuanTouTrace");
+        std::set<std::string>::iterator iter = setFields.begin();
+        for (; iter != setFields.end(); iter++)
+        {
+            std::string strKey = *iter;
+            std::string strValue = iniReader.Get("ZuanTouTrace", strKey, "");
+
+            int iKey = atoi(strKey.c_str());
+            std::vector<uint32_t> vec;
+            NFStringUtility::SplitStringToVectorInt(strValue, ",", vec);
+
+            NFShmVector<uint32_t, 20> ary;
+            if (ary.max_size() < vec.size())
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load ary.Add Full");
             }
 
-            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load ZuanTouTrace: {} = {}", iKey, strLog);
-        }
-        else
-        {
-            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load m_mapChangeSceneType_Time Full !");
+            ary.insert(ary.end(), vec.begin(), vec.end());
+
+            if (m_mapShootTraces.size() < m_mapShootTraces.max_size())
+            {
+                m_mapShootTraces.emplace(iKey, ary);
+
+                std::string strLog;
+                int count = ary.size();
+                for (int i=0; i<count; i++)
+                {
+                    strLog += ",";
+                    strLog += NFCommon::tostr(ary[i]);
+                }
+
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load ZuanTouTrace: {} = {}", iKey, strLog);
+            }
+            else
+            {
+                NFLogError(NF_LOG_SYSTEMLOG, 0, "NFFishSetting::Load m_mapChangeSceneType_Time Full !");
+            }
         }
     }
+
 
     //////////////////////////////////////////////////////////////////////////
 

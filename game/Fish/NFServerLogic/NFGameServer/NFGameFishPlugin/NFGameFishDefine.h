@@ -154,6 +154,46 @@ enum eChangeSceneType
 //	en_FishCtrlType_FuDown  //控负值
 //};
 
+struct FishConfigGameidRoomidCombineHashKey
+{
+    FishConfigGameidRoomidCombineHashKey()
+    {
+        if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+            CreateInit();
+        }
+        else {
+            ResumeInit();
+        }
+    }
+    int CreateInit()
+    {
+        m_gameId=0;
+        m_roomId=0;
+        return 0;
+    }
+    int ResumeInit()
+    {
+        return 0;
+    }
+    int64_t m_gameId;
+    int64_t m_roomId;
+    bool operator==(const FishConfigGameidRoomidCombineHashKey& data) const
+    {
+        return m_gameId==data.m_gameId && m_roomId==data.m_roomId;
+    }
+};
+
+namespace std
+{
+    template<>
+    struct hash<FishConfigGameidRoomidCombineHashKey>
+    {
+        size_t operator()(const FishConfigGameidRoomidCombineHashKey& data) const
+        {
+            return NFHash::hash_combine(data.m_gameId,data.m_roomId);
+        }
+    };
+}
 
 
 

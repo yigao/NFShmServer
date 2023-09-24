@@ -158,9 +158,8 @@ int NFGameFish::GetKillAllCrabPartCount()
     return count;
 }
 
-bool NFGameFish::IsCanKill(NFIPluginManager *pPluginManager, uint32_t roomId, int iSubFishKind)
+bool NFGameFish::IsCanKill(NFFishConfigConfig *pFishConfigDesc, int iSubFishKind)
 {
-    auto pFishConfigDesc = NFFishConfigConfig::GetObjByHashKey(pPluginManager, roomId);
     CHECK_EXPR(pFishConfigDesc, false, "");
     FishConfig *pFishConfig = pFishConfigDesc->GetFishBaseInfo(m_nFishKind);
     if (pFishConfig != NULL)

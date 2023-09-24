@@ -99,10 +99,10 @@ void NFFishWayBillConfig::LoadWayBills(const std::string& strWayBillPath, NFShmV
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "LoadWayBills() FileCount: {}", vecWayBills.size());
 }
 
-int NFFishWayBillConfig::LoadConfig(uint32_t roomId)
+int NFFishWayBillConfig::LoadConfig(uint32_t gameId, uint32_t roomId)
 {
     m_roomId = roomId;
-    std::string strConfigPath = NFFileUtility::NormalizePath(m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(GAME_ID_FISH_HAIWANG_2004) + "_" + NFCommon::tostr(m_roomId));
+    std::string strConfigPath = NFFileUtility::NormalizePath(m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(gameId) + "_" + NFCommon::tostr(m_roomId));
     LoadWayBills(strConfigPath + NFFileUtility::Clean("WayBill"), m_vecWayBills);
     LoadWayBills(strConfigPath + NFFileUtility::Clean("WayBillExt"), m_vecWayBillExts);
     return 0;

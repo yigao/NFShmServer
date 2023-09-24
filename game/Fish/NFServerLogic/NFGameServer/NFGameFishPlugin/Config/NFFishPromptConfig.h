@@ -15,7 +15,7 @@ public:
     int ResumeInit();
 
 	float GetChangeSceneSeconds(int iChangeType);
-    int LoadConfig(uint32_t roomId);
+    int LoadConfig(uint32_t gameId, uint32_t roomId);
 public:
     uint32_t m_roomId;
 	int  m_iSceneCount;

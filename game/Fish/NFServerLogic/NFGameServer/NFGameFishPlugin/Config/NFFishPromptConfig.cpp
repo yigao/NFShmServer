@@ -38,10 +38,10 @@ int NFFishPromptConfig::ResumeInit()
     return 0;
 }
 
-int NFFishPromptConfig::LoadConfig(uint32_t roomId)
+int NFFishPromptConfig::LoadConfig(uint32_t gameId, uint32_t roomId)
 {
     m_roomId = roomId;
-	std::string strFishPromptIni = NFFileUtility::NormalizePath(m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(GAME_ID_FISH_HAIWANG_2004) + "_" + NFCommon::tostr(m_roomId)) + "FishKind/FishPrompt.ini";
+	std::string strFishPromptIni = NFFileUtility::NormalizePath(m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(gameId) + "_" + NFCommon::tostr(m_roomId)) + "FishKind/FishPrompt.ini";
 
 	NFINIReader iniReader;
 	int iRetCode = iniReader.Parse(strFishPromptIni);
