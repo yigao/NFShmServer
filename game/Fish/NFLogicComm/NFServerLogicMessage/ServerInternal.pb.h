@@ -587,14 +587,12 @@ class Proto_LogicToWorldLoginRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 user_id() const;
   inline void set_user_id(::google::protobuf::uint64 value);
 
-  // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
-  inline bool has_sns_sync() const;
-  inline void clear_sns_sync();
-  static const int kSnsSyncFieldNumber = 3;
-  inline const ::proto_ff::Proto_LTSSyncData& sns_sync() const;
-  inline ::proto_ff::Proto_LTSSyncData* mutable_sns_sync();
-  inline ::proto_ff::Proto_LTSSyncData* release_sns_sync();
-  inline void set_allocated_sns_sync(::proto_ff::Proto_LTSSyncData* sns_sync);
+  // optional bool create_player_db_data = 3;
+  inline bool has_create_player_db_data() const;
+  inline void clear_create_player_db_data();
+  static const int kCreatePlayerDbDataFieldNumber = 3;
+  inline bool create_player_db_data() const;
+  inline void set_create_player_db_data(bool value);
 
   // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
   inline bool has_detail_data() const;
@@ -611,17 +609,17 @@ class Proto_LogicToWorldLoginRsp : public ::google::protobuf::Message {
   inline void clear_has_result();
   inline void set_has_user_id();
   inline void clear_has_user_id();
-  inline void set_has_sns_sync();
-  inline void clear_has_sns_sync();
+  inline void set_has_create_player_db_data();
+  inline void clear_has_create_player_db_data();
   inline void set_has_detail_data();
   inline void clear_has_detail_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 user_id_;
-  ::proto_ff::Proto_LTSSyncData* sns_sync_;
-  ::proto_ff::Proto_UserDetailCommonData* detail_data_;
   ::google::protobuf::uint32 result_;
+  bool create_player_db_data_;
+  ::proto_ff::Proto_UserDetailCommonData* detail_data_;
 
   mutable int _cached_size_;
   ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
@@ -743,14 +741,21 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 logic_bus_id() const;
   inline void set_logic_bus_id(::google::protobuf::uint32 value);
 
-  // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
-  inline bool has_sns_sync() const;
-  inline void clear_sns_sync();
-  static const int kSnsSyncFieldNumber = 9;
-  inline const ::proto_ff::Proto_LTSSyncData& sns_sync() const;
-  inline ::proto_ff::Proto_LTSSyncData* mutable_sns_sync();
-  inline ::proto_ff::Proto_LTSSyncData* release_sns_sync();
-  inline void set_allocated_sns_sync(::proto_ff::Proto_LTSSyncData* sns_sync);
+  // optional bool create_player_db_data = 9;
+  inline bool has_create_player_db_data() const;
+  inline void clear_create_player_db_data();
+  static const int kCreatePlayerDbDataFieldNumber = 9;
+  inline bool create_player_db_data() const;
+  inline void set_create_player_db_data(bool value);
+
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 10;
+  inline bool has_detail_data() const;
+  inline void clear_detail_data();
+  static const int kDetailDataFieldNumber = 10;
+  inline const ::proto_ff::Proto_UserDetailCommonData& detail_data() const;
+  inline ::proto_ff::Proto_UserDetailCommonData* mutable_detail_data();
+  inline ::proto_ff::Proto_UserDetailCommonData* release_detail_data();
+  inline void set_allocated_detail_data(::proto_ff::Proto_UserDetailCommonData* detail_data);
 
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_WTSLoginReq)
  private:
@@ -768,8 +773,10 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   inline void clear_has_client_ip();
   inline void set_has_logic_bus_id();
   inline void clear_has_logic_bus_id();
-  inline void set_has_sns_sync();
-  inline void clear_has_sns_sync();
+  inline void set_has_create_player_db_data();
+  inline void clear_has_create_player_db_data();
+  inline void set_has_detail_data();
+  inline void clear_has_detail_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -779,11 +786,12 @@ class Proto_WTSLoginReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 game_bus_id_;
   ::google::protobuf::uint32 proxy_bus_id_;
   ::std::string* client_ip_;
-  ::proto_ff::Proto_LTSSyncData* sns_sync_;
   ::google::protobuf::uint32 logic_bus_id_;
+  bool create_player_db_data_;
+  ::proto_ff::Proto_UserDetailCommonData* detail_data_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(9 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -862,20 +870,32 @@ class Proto_STWLoginRsp : public ::google::protobuf::Message {
   inline ::google::protobuf::uint64 user_id() const;
   inline void set_user_id(::google::protobuf::uint64 value);
 
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
+  inline bool has_detail_data() const;
+  inline void clear_detail_data();
+  static const int kDetailDataFieldNumber = 4;
+  inline const ::proto_ff::Proto_UserDetailCommonData& detail_data() const;
+  inline ::proto_ff::Proto_UserDetailCommonData* mutable_detail_data();
+  inline ::proto_ff::Proto_UserDetailCommonData* release_detail_data();
+  inline void set_allocated_detail_data(::proto_ff::Proto_UserDetailCommonData* detail_data);
+
   // @@protoc_insertion_point(class_scope:proto_ff.Proto_STWLoginRsp)
  private:
   inline void set_has_result();
   inline void clear_has_result();
   inline void set_has_user_id();
   inline void clear_has_user_id();
+  inline void set_has_detail_data();
+  inline void clear_has_detail_data();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google::protobuf::uint64 user_id_;
+  ::proto_ff::Proto_UserDetailCommonData* detail_data_;
   ::google::protobuf::uint32 result_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(3 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal_2eproto();
   friend void protobuf_AssignDesc_ServerInternal_2eproto();
@@ -4025,42 +4045,26 @@ inline void Proto_LogicToWorldLoginRsp::set_user_id(::google::protobuf::uint64 v
   user_id_ = value;
 }
 
-// optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
-inline bool Proto_LogicToWorldLoginRsp::has_sns_sync() const {
+// optional bool create_player_db_data = 3;
+inline bool Proto_LogicToWorldLoginRsp::has_create_player_db_data() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void Proto_LogicToWorldLoginRsp::set_has_sns_sync() {
+inline void Proto_LogicToWorldLoginRsp::set_has_create_player_db_data() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void Proto_LogicToWorldLoginRsp::clear_has_sns_sync() {
+inline void Proto_LogicToWorldLoginRsp::clear_has_create_player_db_data() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void Proto_LogicToWorldLoginRsp::clear_sns_sync() {
-  if (sns_sync_ != NULL) sns_sync_->::proto_ff::Proto_LTSSyncData::Clear();
-  clear_has_sns_sync();
+inline void Proto_LogicToWorldLoginRsp::clear_create_player_db_data() {
+  create_player_db_data_ = false;
+  clear_has_create_player_db_data();
 }
-inline const ::proto_ff::Proto_LTSSyncData& Proto_LogicToWorldLoginRsp::sns_sync() const {
-  return sns_sync_ != NULL ? *sns_sync_ : *default_instance_->sns_sync_;
+inline bool Proto_LogicToWorldLoginRsp::create_player_db_data() const {
+  return create_player_db_data_;
 }
-inline ::proto_ff::Proto_LTSSyncData* Proto_LogicToWorldLoginRsp::mutable_sns_sync() {
-  set_has_sns_sync();
-  if (sns_sync_ == NULL) sns_sync_ = new ::proto_ff::Proto_LTSSyncData;
-  return sns_sync_;
-}
-inline ::proto_ff::Proto_LTSSyncData* Proto_LogicToWorldLoginRsp::release_sns_sync() {
-  clear_has_sns_sync();
-  ::proto_ff::Proto_LTSSyncData* temp = sns_sync_;
-  sns_sync_ = NULL;
-  return temp;
-}
-inline void Proto_LogicToWorldLoginRsp::set_allocated_sns_sync(::proto_ff::Proto_LTSSyncData* sns_sync) {
-  delete sns_sync_;
-  sns_sync_ = sns_sync;
-  if (sns_sync) {
-    set_has_sns_sync();
-  } else {
-    clear_has_sns_sync();
-  }
+inline void Proto_LogicToWorldLoginRsp::set_create_player_db_data(bool value) {
+  set_has_create_player_db_data();
+  create_player_db_data_ = value;
 }
 
 // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
@@ -4307,41 +4311,63 @@ inline void Proto_WTSLoginReq::set_logic_bus_id(::google::protobuf::uint32 value
   logic_bus_id_ = value;
 }
 
-// optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
-inline bool Proto_WTSLoginReq::has_sns_sync() const {
+// optional bool create_player_db_data = 9;
+inline bool Proto_WTSLoginReq::has_create_player_db_data() const {
   return (_has_bits_[0] & 0x00000080u) != 0;
 }
-inline void Proto_WTSLoginReq::set_has_sns_sync() {
+inline void Proto_WTSLoginReq::set_has_create_player_db_data() {
   _has_bits_[0] |= 0x00000080u;
 }
-inline void Proto_WTSLoginReq::clear_has_sns_sync() {
+inline void Proto_WTSLoginReq::clear_has_create_player_db_data() {
   _has_bits_[0] &= ~0x00000080u;
 }
-inline void Proto_WTSLoginReq::clear_sns_sync() {
-  if (sns_sync_ != NULL) sns_sync_->::proto_ff::Proto_LTSSyncData::Clear();
-  clear_has_sns_sync();
+inline void Proto_WTSLoginReq::clear_create_player_db_data() {
+  create_player_db_data_ = false;
+  clear_has_create_player_db_data();
 }
-inline const ::proto_ff::Proto_LTSSyncData& Proto_WTSLoginReq::sns_sync() const {
-  return sns_sync_ != NULL ? *sns_sync_ : *default_instance_->sns_sync_;
+inline bool Proto_WTSLoginReq::create_player_db_data() const {
+  return create_player_db_data_;
 }
-inline ::proto_ff::Proto_LTSSyncData* Proto_WTSLoginReq::mutable_sns_sync() {
-  set_has_sns_sync();
-  if (sns_sync_ == NULL) sns_sync_ = new ::proto_ff::Proto_LTSSyncData;
-  return sns_sync_;
+inline void Proto_WTSLoginReq::set_create_player_db_data(bool value) {
+  set_has_create_player_db_data();
+  create_player_db_data_ = value;
 }
-inline ::proto_ff::Proto_LTSSyncData* Proto_WTSLoginReq::release_sns_sync() {
-  clear_has_sns_sync();
-  ::proto_ff::Proto_LTSSyncData* temp = sns_sync_;
-  sns_sync_ = NULL;
+
+// optional .proto_ff.Proto_UserDetailCommonData detail_data = 10;
+inline bool Proto_WTSLoginReq::has_detail_data() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void Proto_WTSLoginReq::set_has_detail_data() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void Proto_WTSLoginReq::clear_has_detail_data() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void Proto_WTSLoginReq::clear_detail_data() {
+  if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
+  clear_has_detail_data();
+}
+inline const ::proto_ff::Proto_UserDetailCommonData& Proto_WTSLoginReq::detail_data() const {
+  return detail_data_ != NULL ? *detail_data_ : *default_instance_->detail_data_;
+}
+inline ::proto_ff::Proto_UserDetailCommonData* Proto_WTSLoginReq::mutable_detail_data() {
+  set_has_detail_data();
+  if (detail_data_ == NULL) detail_data_ = new ::proto_ff::Proto_UserDetailCommonData;
+  return detail_data_;
+}
+inline ::proto_ff::Proto_UserDetailCommonData* Proto_WTSLoginReq::release_detail_data() {
+  clear_has_detail_data();
+  ::proto_ff::Proto_UserDetailCommonData* temp = detail_data_;
+  detail_data_ = NULL;
   return temp;
 }
-inline void Proto_WTSLoginReq::set_allocated_sns_sync(::proto_ff::Proto_LTSSyncData* sns_sync) {
-  delete sns_sync_;
-  sns_sync_ = sns_sync;
-  if (sns_sync) {
-    set_has_sns_sync();
+inline void Proto_WTSLoginReq::set_allocated_detail_data(::proto_ff::Proto_UserDetailCommonData* detail_data) {
+  delete detail_data_;
+  detail_data_ = detail_data;
+  if (detail_data) {
+    set_has_detail_data();
   } else {
-    clear_has_sns_sync();
+    clear_has_detail_data();
   }
 }
 
@@ -4391,6 +4417,44 @@ inline ::google::protobuf::uint64 Proto_STWLoginRsp::user_id() const {
 inline void Proto_STWLoginRsp::set_user_id(::google::protobuf::uint64 value) {
   set_has_user_id();
   user_id_ = value;
+}
+
+// optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
+inline bool Proto_STWLoginRsp::has_detail_data() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void Proto_STWLoginRsp::set_has_detail_data() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void Proto_STWLoginRsp::clear_has_detail_data() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void Proto_STWLoginRsp::clear_detail_data() {
+  if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
+  clear_has_detail_data();
+}
+inline const ::proto_ff::Proto_UserDetailCommonData& Proto_STWLoginRsp::detail_data() const {
+  return detail_data_ != NULL ? *detail_data_ : *default_instance_->detail_data_;
+}
+inline ::proto_ff::Proto_UserDetailCommonData* Proto_STWLoginRsp::mutable_detail_data() {
+  set_has_detail_data();
+  if (detail_data_ == NULL) detail_data_ = new ::proto_ff::Proto_UserDetailCommonData;
+  return detail_data_;
+}
+inline ::proto_ff::Proto_UserDetailCommonData* Proto_STWLoginRsp::release_detail_data() {
+  clear_has_detail_data();
+  ::proto_ff::Proto_UserDetailCommonData* temp = detail_data_;
+  detail_data_ = NULL;
+  return temp;
+}
+inline void Proto_STWLoginRsp::set_allocated_detail_data(::proto_ff::Proto_UserDetailCommonData* detail_data) {
+  delete detail_data_;
+  detail_data_ = detail_data;
+  if (detail_data) {
+    set_has_detail_data();
+  } else {
+    clear_has_detail_data();
+  }
 }
 
 // -------------------------------------------------------------------

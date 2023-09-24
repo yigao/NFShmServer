@@ -53,9 +53,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* Proto_UserDetailCommonData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   Proto_UserDetailCommonData_reflection_ = NULL;
-const ::google::protobuf::Descriptor* Proto_LTSSyncData_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  Proto_LTSSyncData_reflection_ = NULL;
 const ::google::protobuf::Descriptor* tbGiveBankJetton_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   tbGiveBankJetton_reflection_ = NULL;
@@ -273,24 +270,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_UserDetailCommonData));
-  Proto_LTSSyncData_descriptor_ = file->message_type(11);
-  static const int Proto_LTSSyncData_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTSSyncData, create_player_db_data_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTSSyncData, nick_name_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTSSyncData, face_id_),
-  };
-  Proto_LTSSyncData_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      Proto_LTSSyncData_descriptor_,
-      Proto_LTSSyncData::default_instance_,
-      Proto_LTSSyncData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTSSyncData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LTSSyncData, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(Proto_LTSSyncData));
-  tbGiveBankJetton_descriptor_ = file->message_type(12);
+  tbGiveBankJetton_descriptor_ = file->message_type(11);
   static const int tbGiveBankJetton_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(tbGiveBankJetton, user_id_),
@@ -311,7 +291,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(tbGiveBankJetton));
-  Proto_UserSimpleData_descriptor_ = file->message_type(13);
+  Proto_UserSimpleData_descriptor_ = file->message_type(12);
   static const int Proto_UserSimpleData_offsets_[5] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, userid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_UserSimpleData, nickname_),
@@ -330,7 +310,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_UserSimpleData));
-  GamePlayerDetailData_descriptor_ = file->message_type(14);
+  GamePlayerDetailData_descriptor_ = file->message_type(13);
   static const int GamePlayerDetailData_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GamePlayerDetailData, player_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GamePlayerDetailData, cur_money_),
@@ -352,7 +332,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GamePlayerDetailData));
-  GamePlayerWealthData_descriptor_ = file->message_type(15);
+  GamePlayerWealthData_descriptor_ = file->message_type(14);
   static const int GamePlayerWealthData_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GamePlayerWealthData, player_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GamePlayerWealthData, recharge_),
@@ -372,7 +352,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GamePlayerWealthData));
-  GamePlayerAchievementData_descriptor_ = file->message_type(16);
+  GamePlayerAchievementData_descriptor_ = file->message_type(15);
   static const int GamePlayerAchievementData_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GamePlayerAchievementData, cur_ach_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GamePlayerAchievementData, cur_fee_),
@@ -388,7 +368,7 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GamePlayerAchievementData));
-  GameRoomStat_descriptor_ = file->message_type(17);
+  GameRoomStat_descriptor_ = file->message_type(16);
   static const int GameRoomStat_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameRoomStat, cur_fee_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameRoomStat, cur_pour_),
@@ -440,8 +420,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_UserDetailCommonData_descriptor_, &Proto_UserDetailCommonData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    Proto_LTSSyncData_descriptor_, &Proto_LTSSyncData::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     tbGiveBankJetton_descriptor_, &tbGiveBankJetton::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     Proto_UserSimpleData_descriptor_, &Proto_UserSimpleData::default_instance());
@@ -480,8 +458,6 @@ void protobuf_ShutdownFile_Com_2eproto() {
   delete Proto_UserLoginExternalData_reflection_;
   delete Proto_UserDetailCommonData::default_instance_;
   delete Proto_UserDetailCommonData_reflection_;
-  delete Proto_LTSSyncData::default_instance_;
-  delete Proto_LTSSyncData_reflection_;
   delete tbGiveBankJetton::default_instance_;
   delete tbGiveBankJetton_reflection_;
   delete Proto_UserSimpleData::default_instance_;
@@ -525,27 +501,24 @@ void protobuf_AddDesc_Com_2eproto() {
     "ata\022\021\n\tnick_name\030\001 \001(\t\022\017\n\007face_id\030\002 \001(\r\022"
     "\016\n\006gender\030\003 \001(\r\022\016\n\006jetton\030\004 \001(\004\022\023\n\013bank_"
     "jetton\030\005 \001(\004\022\020\n\010agent_id\030\006 \001(\004\022\020\n\010phonen"
-    "um\030\007 \001(\004\"V\n\021Proto_LTSSyncData\022\035\n\025create_"
-    "player_db_data\030\001 \001(\010\022\021\n\tnick_name\030\002 \001(\t\022"
-    "\017\n\007face_id\030\003 \001(\r\"\232\001\n\020tbGiveBankJetton\022\n\n"
-    "\002id\030\001 \002(\004\022\017\n\007user_id\030\002 \001(\004\022\021\n\tuser_name\030"
-    "\003 \001(\t\022\024\n\014give_user_id\030\004 \001(\004\022\026\n\016give_user"
-    "_name\030\005 \001(\t\022\023\n\013give_jetton\030\006 \001(\004\022\023\n\013crea"
-    "te_time\030\007 \001(\004\"c\n\024Proto_UserSimpleData\022\016\n"
-    "\006userid\030\001 \001(\004\022\020\n\010nickname\030\002 \001(\t\022\014\n\004face\030"
-    "\003 \001(\r\022\016\n\006gender\030\004 \001(\r\022\013\n\003age\030\005 \001(\r\"\254\001\n\024G"
-    "amePlayerDetailData\022\021\n\tplayer_id\030\001 \001(\004\022\021"
-    "\n\tcur_money\030\002 \001(\003\022\021\n\tvip_level\030\003 \001(\r\022\013\n\003"
-    "sex\030\004 \001(\r\022\020\n\010chair_id\030\005 \001(\005\022\035\n\tnick_name"
-    "\030\006 \001(\tB\n\220\301\024\200\001\310\202\024\200\001\022\014\n\004face\030\007 \001(\r\022\017\n\007isRo"
-    "bot\030\010 \001(\010\"\221\001\n\024GamePlayerWealthData\022\021\n\tpl"
-    "ayer_id\030\001 \001(\004\022\020\n\010recharge\030\002 \001(\003\022\022\n\ntotal"
-    "_lost\030\003 \001(\003\022\021\n\ttotal_win\030\004 \001(\003\022\026\n\016this_g"
-    "ame_lost\030\005 \001(\003\022\025\n\rthis_game_win\030\006 \001(\003\"=\n"
-    "\031GamePlayerAchievementData\022\017\n\007cur_ach\030\002 "
-    "\001(\004\022\017\n\007cur_fee\030\003 \001(\004\"B\n\014GameRoomStat\022\017\n\007"
-    "cur_fee\030\001 \001(\004\022\020\n\010cur_pour\030\002 \001(\004\022\017\n\007cur_w"
-    "in\030\003 \001(\003", 1608);
+    "um\030\007 \001(\004\"\232\001\n\020tbGiveBankJetton\022\n\n\002id\030\001 \002("
+    "\004\022\017\n\007user_id\030\002 \001(\004\022\021\n\tuser_name\030\003 \001(\t\022\024\n"
+    "\014give_user_id\030\004 \001(\004\022\026\n\016give_user_name\030\005 "
+    "\001(\t\022\023\n\013give_jetton\030\006 \001(\004\022\023\n\013create_time\030"
+    "\007 \001(\004\"c\n\024Proto_UserSimpleData\022\016\n\006userid\030"
+    "\001 \001(\004\022\020\n\010nickname\030\002 \001(\t\022\014\n\004face\030\003 \001(\r\022\016\n"
+    "\006gender\030\004 \001(\r\022\013\n\003age\030\005 \001(\r\"\254\001\n\024GamePlaye"
+    "rDetailData\022\021\n\tplayer_id\030\001 \001(\004\022\021\n\tcur_mo"
+    "ney\030\002 \001(\003\022\021\n\tvip_level\030\003 \001(\r\022\013\n\003sex\030\004 \001("
+    "\r\022\020\n\010chair_id\030\005 \001(\005\022\035\n\tnick_name\030\006 \001(\tB\n"
+    "\220\301\024\200\001\310\202\024\200\001\022\014\n\004face\030\007 \001(\r\022\017\n\007isRobot\030\010 \001("
+    "\010\"\221\001\n\024GamePlayerWealthData\022\021\n\tplayer_id\030"
+    "\001 \001(\004\022\020\n\010recharge\030\002 \001(\003\022\022\n\ntotal_lost\030\003 "
+    "\001(\003\022\021\n\ttotal_win\030\004 \001(\003\022\026\n\016this_game_lost"
+    "\030\005 \001(\003\022\025\n\rthis_game_win\030\006 \001(\003\"=\n\031GamePla"
+    "yerAchievementData\022\017\n\007cur_ach\030\002 \001(\004\022\017\n\007c"
+    "ur_fee\030\003 \001(\004\"B\n\014GameRoomStat\022\017\n\007cur_fee\030"
+    "\001 \001(\004\022\020\n\010cur_pour\030\002 \001(\004\022\017\n\007cur_win\030\003 \001(\003", 1520);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Com.proto", &protobuf_RegisterTypes);
   EmptyMessage::default_instance_ = new EmptyMessage();
@@ -559,7 +532,6 @@ void protobuf_AddDesc_Com_2eproto() {
   Attr64::default_instance_ = new Attr64();
   Proto_UserLoginExternalData::default_instance_ = new Proto_UserLoginExternalData();
   Proto_UserDetailCommonData::default_instance_ = new Proto_UserDetailCommonData();
-  Proto_LTSSyncData::default_instance_ = new Proto_LTSSyncData();
   tbGiveBankJetton::default_instance_ = new tbGiveBankJetton();
   Proto_UserSimpleData::default_instance_ = new Proto_UserSimpleData();
   GamePlayerDetailData::default_instance_ = new GamePlayerDetailData();
@@ -577,7 +549,6 @@ void protobuf_AddDesc_Com_2eproto() {
   Attr64::default_instance_->InitAsDefaultInstance();
   Proto_UserLoginExternalData::default_instance_->InitAsDefaultInstance();
   Proto_UserDetailCommonData::default_instance_->InitAsDefaultInstance();
-  Proto_LTSSyncData::default_instance_->InitAsDefaultInstance();
   tbGiveBankJetton::default_instance_->InitAsDefaultInstance();
   Proto_UserSimpleData::default_instance_->InitAsDefaultInstance();
   GamePlayerDetailData::default_instance_->InitAsDefaultInstance();
@@ -3942,309 +3913,6 @@ void Proto_UserDetailCommonData::Swap(Proto_UserDetailCommonData* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = Proto_UserDetailCommonData_descriptor_;
   metadata.reflection = Proto_UserDetailCommonData_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int Proto_LTSSyncData::kCreatePlayerDbDataFieldNumber;
-const int Proto_LTSSyncData::kNickNameFieldNumber;
-const int Proto_LTSSyncData::kFaceIdFieldNumber;
-#endif  // !_MSC_VER
-
-Proto_LTSSyncData::Proto_LTSSyncData()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void Proto_LTSSyncData::InitAsDefaultInstance() {
-}
-
-Proto_LTSSyncData::Proto_LTSSyncData(const Proto_LTSSyncData& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void Proto_LTSSyncData::SharedCtor() {
-  _cached_size_ = 0;
-  create_player_db_data_ = false;
-  nick_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  face_id_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-Proto_LTSSyncData::~Proto_LTSSyncData() {
-  SharedDtor();
-}
-
-void Proto_LTSSyncData::SharedDtor() {
-  if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete nick_name_;
-  }
-  if (this != default_instance_) {
-  }
-}
-
-void Proto_LTSSyncData::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* Proto_LTSSyncData::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return Proto_LTSSyncData_descriptor_;
-}
-
-const Proto_LTSSyncData& Proto_LTSSyncData::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
-  return *default_instance_;
-}
-
-Proto_LTSSyncData* Proto_LTSSyncData::default_instance_ = NULL;
-
-Proto_LTSSyncData* Proto_LTSSyncData::New() const {
-  return new Proto_LTSSyncData;
-}
-
-void Proto_LTSSyncData::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    create_player_db_data_ = false;
-    if (has_nick_name()) {
-      if (nick_name_ != &::google::protobuf::internal::kEmptyString) {
-        nick_name_->clear();
-      }
-    }
-    face_id_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool Proto_LTSSyncData::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional bool create_player_db_data = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &create_player_db_data_)));
-          set_has_create_player_db_data();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(18)) goto parse_nick_name;
-        break;
-      }
-
-      // optional string nick_name = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_nick_name:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_nick_name()));
-          ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-            this->nick_name().data(), this->nick_name().length(),
-            ::google::protobuf::internal::WireFormat::PARSE);
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_face_id;
-        break;
-      }
-
-      // optional uint32 face_id = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_face_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &face_id_)));
-          set_has_face_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void Proto_LTSSyncData::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional bool create_player_db_data = 1;
-  if (has_create_player_db_data()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(1, this->create_player_db_data(), output);
-  }
-
-  // optional string nick_name = 2;
-  if (has_nick_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nick_name().data(), this->nick_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    ::google::protobuf::internal::WireFormatLite::WriteString(
-      2, this->nick_name(), output);
-  }
-
-  // optional uint32 face_id = 3;
-  if (has_face_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->face_id(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* Proto_LTSSyncData::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional bool create_player_db_data = 1;
-  if (has_create_player_db_data()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(1, this->create_player_db_data(), target);
-  }
-
-  // optional string nick_name = 2;
-  if (has_nick_name()) {
-    ::google::protobuf::internal::WireFormat::VerifyUTF8String(
-      this->nick_name().data(), this->nick_name().length(),
-      ::google::protobuf::internal::WireFormat::SERIALIZE);
-    target =
-      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->nick_name(), target);
-  }
-
-  // optional uint32 face_id = 3;
-  if (has_face_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->face_id(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int Proto_LTSSyncData::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional bool create_player_db_data = 1;
-    if (has_create_player_db_data()) {
-      total_size += 1 + 1;
-    }
-
-    // optional string nick_name = 2;
-    if (has_nick_name()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::StringSize(
-          this->nick_name());
-    }
-
-    // optional uint32 face_id = 3;
-    if (has_face_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->face_id());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void Proto_LTSSyncData::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const Proto_LTSSyncData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const Proto_LTSSyncData*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void Proto_LTSSyncData::MergeFrom(const Proto_LTSSyncData& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_create_player_db_data()) {
-      set_create_player_db_data(from.create_player_db_data());
-    }
-    if (from.has_nick_name()) {
-      set_nick_name(from.nick_name());
-    }
-    if (from.has_face_id()) {
-      set_face_id(from.face_id());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void Proto_LTSSyncData::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void Proto_LTSSyncData::CopyFrom(const Proto_LTSSyncData& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool Proto_LTSSyncData::IsInitialized() const {
-
-  return true;
-}
-
-void Proto_LTSSyncData::Swap(Proto_LTSSyncData* other) {
-  if (other != this) {
-    std::swap(create_player_db_data_, other->create_player_db_data_);
-    std::swap(nick_name_, other->nick_name_);
-    std::swap(face_id_, other->face_id_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata Proto_LTSSyncData::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = Proto_LTSSyncData_descriptor_;
-  metadata.reflection = Proto_LTSSyncData_reflection_;
   return metadata;
 }
 

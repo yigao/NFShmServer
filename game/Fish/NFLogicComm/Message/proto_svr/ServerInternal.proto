@@ -49,7 +49,7 @@ message Proto_LogicToWorldLoginRsp
 {
   optional uint32 result = 1;
   optional uint64 user_id = 2;
-  optional Proto_LTSSyncData sns_sync = 3;
+  optional bool create_player_db_data = 3;
   optional Proto_UserDetailCommonData detail_data = 4;
 }
 
@@ -62,13 +62,15 @@ message Proto_WTSLoginReq
   optional uint32 proxy_bus_id = 5;
   optional string client_ip = 7;
   optional uint32 logic_bus_id = 8;
-  optional Proto_LTSSyncData sns_sync = 9;
+  optional bool create_player_db_data = 9;
+  optional Proto_UserDetailCommonData detail_data = 10;
 }
 
 message Proto_STWLoginRsp
 {
   optional uint32 result = 1;
   optional uint64 user_id = 2;
+  optional Proto_UserDetailCommonData detail_data = 4;
 }
 ////////////////////////////////////disconnect///////////////////////////////
 message NotifyPlayerDisconnect

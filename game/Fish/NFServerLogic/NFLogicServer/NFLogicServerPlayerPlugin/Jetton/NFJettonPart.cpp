@@ -92,6 +92,11 @@ int NFJettonPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 int NFJettonPart::LoadFromDB(const proto_ff::tbFishPlayerData &data)
 {
     m_jetton = data.jetton();
+    if (m_jetton < 1000000)
+    {
+        m_jetton = 1000000;
+        MarkDirty();
+    }
     return 0;
 }
 
@@ -105,6 +110,12 @@ int NFJettonPart::InitConfig(const proto_ff::tbFishPlayerData &data)
 int NFJettonPart::SaveDB(proto_ff::tbFishPlayerData &dbData)
 {
     dbData.set_jetton(m_jetton);
+    return 0;
+}
+
+int NFJettonPart::OnLogin(const proto_ff::Proto_WorldToLogicLoginReq& data, proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer)
+{
+    detailData.set_jetton(m_jetton);
     return 0;
 }
 

@@ -93,13 +93,6 @@ message Proto_UserDetailCommonData
   optional uint64 phonenum = 7; //手机
 }
 
-message Proto_LTSSyncData
-{
-  optional bool create_player_db_data = 1;
-  optional string nick_name = 2; //用户昵称
-  optional uint32 face_id = 3;	//头像标识
-}
-
 message tbGiveBankJetton
 {
   required uint64 id			= 1; //唯一ID

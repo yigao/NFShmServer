@@ -166,12 +166,12 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
     NFPlayerSimple* pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerSimpleByRpc(request.user_id());
     if (pPlayerSimple == NULL)
     {
-        if (request.sns_sync().create_player_db_data())
+        if (request.create_player_db_data())
         {
             proto_ff::tbFishSnsPlayerSimpleData dbSimpleData;
             dbSimpleData.set_player_id(request.user_id());
-            dbSimpleData.set_nickname(request.sns_sync().nick_name());
-            dbSimpleData.set_faceid(request.sns_sync().face_id());
+            dbSimpleData.set_nickname(request.detail_data().nick_name());
+            dbSimpleData.set_faceid(request.detail_data().face_id());
             pPlayerSimple = NFCacheMgr::Instance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbSimpleData);
             if (pPlayerSimple == NULL)
             {
@@ -185,10 +185,12 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
         }
     }
 
+    bool bCreatePlayer = false;
     NFPlayerDetail* pPlayerDetail = NFCacheMgr::Instance(m_pObjPluginManager)->QueryPlayerDetailByRpc(request.user_id());
     if (pPlayerDetail == NULL)
     {
-        if (request.sns_sync().create_player_db_data())
+        bCreatePlayer = true;
+        if (request.create_player_db_data())
         {
             proto_ff::tbFishSnsPlayerDetailData dbDetailData;
             dbDetailData.set_player_id(request.user_id());
@@ -217,6 +219,15 @@ int NFCSnsPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& req
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerSimple:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    *respone.mutable_detail_data() = *request.mutable_detail_data();
+    iRet = pPlayerDetail->OnLogin(*respone.mutable_detail_data(), bCreatePlayer);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "pPlayerDetail:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));
         respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
         return 0;
     }

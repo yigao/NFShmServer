@@ -22,6 +22,7 @@
 #include "NFLogicCommon/NFPlayerDefine.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "AllProtocol.h"
 
 class NFPart;
 class NFPlayer : public NFShmObj, public NFSeqOP
@@ -67,6 +68,12 @@ public:
      * @return
      */
     virtual int Update();
+
+    /**
+     * @brief 登陆入口
+     * @return
+     */
+    virtual int OnLogin(const proto_ff::Proto_WorldToLogicLoginReq& data, proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer);
 
     /**
      * @brief 登陆入口

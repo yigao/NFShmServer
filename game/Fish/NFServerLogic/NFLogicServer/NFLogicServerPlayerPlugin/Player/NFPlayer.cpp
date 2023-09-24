@@ -220,6 +220,22 @@ int NFPlayer::InitConfig(const proto_ff::tbFishPlayerData &data)
     return 0;
 }
 
+int NFPlayer::OnLogin(const proto_ff::Proto_WorldToLogicLoginReq& data, proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer)
+{
+    detailData.set_nick_name(m_nickName.data());
+    detailData.set_gender(m_gender);
+    detailData.set_face_id(m_faceId);
+    detailData.set_phonenum(0);
+    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnLogin(data, detailData, isCreatePlayer);
+        }
+    }
+    return 0;
+}
+
 int NFPlayer::OnLogin()
 {
     SetStatus(proto_ff::PLAYER_STATUS_ONLINE);

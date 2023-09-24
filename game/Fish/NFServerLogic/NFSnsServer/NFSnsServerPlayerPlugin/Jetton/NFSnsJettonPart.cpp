@@ -144,6 +144,12 @@ int NFSnsJettonPart::SaveDB(proto_ff::tbFishSnsPlayerDetailData &dbData)
     return 0;
 }
 
+int NFSnsJettonPart::OnLogin(proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer)
+{
+    detailData.set_bank_jetton(m_bankJetton);
+    return 0;
+}
+
 int NFSnsJettonPart::OnHandleGetBankDataReq(uint32_t msgId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");

@@ -342,36 +342,6 @@ void Proto_UserDetailCommonData_s::read_from_pbmsg(const ::proto_ff::Proto_UserD
 	phonenum = msg.phonenum();
 }
 
-Proto_LTSSyncData_s::Proto_LTSSyncData_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int Proto_LTSSyncData_s::CreateInit() {
-	create_player_db_data = (bool)0;
-	face_id = (uint32_t)0;
-	return 0;
-}
-
-int Proto_LTSSyncData_s::ResumeInit() {
-	return 0;
-}
-
-void Proto_LTSSyncData_s::write_to_pbmsg(::proto_ff::Proto_LTSSyncData & msg) const {
-	msg.set_create_player_db_data((bool)create_player_db_data);
-	msg.set_nick_name(nick_name.data());
-	msg.set_face_id((uint32_t)face_id);
-}
-
-void Proto_LTSSyncData_s::read_from_pbmsg(const ::proto_ff::Proto_LTSSyncData & msg) {
-	create_player_db_data = msg.create_player_db_data();
-	nick_name = msg.nick_name();
-	face_id = msg.face_id();
-}
-
 tbGiveBankJetton_s::tbGiveBankJetton_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();

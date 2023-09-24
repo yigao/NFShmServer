@@ -192,7 +192,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
   static const int Proto_LogicToWorldLoginRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, user_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, sns_sync_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, create_player_db_data_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_LogicToWorldLoginRsp, detail_data_),
   };
   Proto_LogicToWorldLoginRsp_reflection_ =
@@ -207,7 +207,7 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_LogicToWorldLoginRsp));
   Proto_WTSLoginReq_descriptor_ = file->message_type(4);
-  static const int Proto_WTSLoginReq_offsets_[8] = {
+  static const int Proto_WTSLoginReq_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, user_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, game_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, room_id_),
@@ -215,7 +215,8 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, proxy_bus_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, client_ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, logic_bus_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, sns_sync_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, create_player_db_data_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_WTSLoginReq, detail_data_),
   };
   Proto_WTSLoginReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -229,9 +230,10 @@ void protobuf_AssignDesc_ServerInternal_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(Proto_WTSLoginReq));
   Proto_STWLoginRsp_descriptor_ = file->message_type(5);
-  static const int Proto_STWLoginRsp_offsets_[2] = {
+  static const int Proto_STWLoginRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STWLoginRsp, result_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STWLoginRsp, user_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(Proto_STWLoginRsp, detail_data_),
   };
   Proto_STWLoginRsp_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -840,69 +842,72 @@ void protobuf_AddDesc_ServerInternal_2eproto() {
     "\001(\r\022\023\n\013game_bus_id\030\004 \001(\r\022\024\n\014proxy_bus_id"
     "\030\005 \001(\r\022\021\n\tclient_ip\030\007 \001(\t\0227\n\010ext_data\030\010 "
     "\001(\0132%.proto_ff.Proto_UserLoginExternalDa"
-    "ta\"\247\001\n\032Proto_LogicToWorldLoginRsp\022\016\n\006res"
-    "ult\030\001 \001(\r\022\017\n\007user_id\030\002 \001(\004\022-\n\010sns_sync\030\003"
-    " \001(\0132\033.proto_ff.Proto_LTSSyncData\0229\n\013det"
-    "ail_data\030\004 \001(\0132$.proto_ff.Proto_UserDeta"
-    "ilCommonData\"\311\001\n\021Proto_WTSLoginReq\022\017\n\007us"
-    "er_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id\030"
-    "\003 \001(\r\022\023\n\013game_bus_id\030\004 \001(\r\022\024\n\014proxy_bus_"
-    "id\030\005 \001(\r\022\021\n\tclient_ip\030\007 \001(\t\022\024\n\014logic_bus"
-    "_id\030\010 \001(\r\022-\n\010sns_sync\030\t \001(\0132\033.proto_ff.P"
-    "roto_LTSSyncData\"4\n\021Proto_STWLoginRsp\022\016\n"
-    "\006result\030\001 \001(\r\022\017\n\007user_id\030\002 \001(\004\"+\n\026Notify"
-    "PlayerDisconnect\022\021\n\tplayer_id\030\001 \001(\004\"@\n\025P"
-    "TWPlayerReconnectReq\022\021\n\tplayer_id\030\001 \001(\004\022"
-    "\024\n\014proxy_bus_id\030\002 \001(\r\"\206\001\n\024WTPPlayerRecon"
-    "nctRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001("
-    "\004\022\017\n\007game_id\030\003 \001(\r\022\017\n\007room_id\030\004 \001(\r\022\023\n\013g"
-    "ame_bus_id\030\005 \001(\r\022\024\n\014logic_bus_id\030\006 \001(\r\"w"
-    "\n\025WTLPlayerReconnectReq\022\021\n\tplayer_id\030\001 \001"
-    "(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\023\n\013"
-    "game_bus_id\030\004 \001(\r\022\024\n\014proxy_bus_id\030\006 \001(\r\""
-    ":\n\025LTWPlayerReconnectRsp\022\016\n\006result\030\001 \001(\005"
-    "\022\021\n\tplayer_id\030\002 \001(\004\"V\n\025LTGPlayerReconnec"
-    "tReq\022\021\n\tplayer_id\030\001 \001(\004\022\024\n\014proxy_bus_id\030"
-    "\002 \001(\r\022\024\n\014logic_bus_id\030\003 \001(\r\":\n\025GTLPlayer"
-    "ReconnectRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_i"
-    "d\030\002 \001(\004\"k\n\025WTSPlayerReconnectReq\022\021\n\tplay"
-    "er_id\030\001 \001(\004\022\024\n\014logic_bus_id\030\002 \001(\r\022\023\n\013gam"
-    "e_bus_id\030\003 \001(\r\022\024\n\014proxy_bus_id\030\004 \001(\r\":\n\025"
-    "STWPlayerReconnectRsp\022\016\n\006result\030\001 \001(\005\022\021\n"
-    "\tplayer_id\030\002 \001(\004\"*\n\025Proto_LTWLogoutNotif"
-    "y\022\021\n\tplayer_id\030\001 \001(\004\"*\n\025Proto_WTLLogoutN"
-    "otify\022\021\n\tplayer_id\030\001 \001(\004\"*\n\025Proto_WTSLog"
-    "outNotify\022\021\n\tplayer_id\030\001 \001(\004\"@\n\027Proto_LT"
-    "SBankGetDataReq\022\016\n\006jetton\030\001 \001(\004\022\025\n\rbank_"
-    "password\030\002 \001(\t\"6\n Proto_LTS_PlayerAddBan"
-    "kJettonReq\022\022\n\nadd_jetton\030\001 \001(\004\"]\n Proto_"
-    "STL_PlayerAddBankJettonRsp\022\020\n\010ret_code\030\001"
-    " \001(\005\022\022\n\nadd_jetton\030\002 \001(\004\022\023\n\013bank_jetton\030"
-    "\003 \001(\004\"<\n#Proto_LTS_PlayerReduceBankJetto"
-    "nReq\022\025\n\rreduce_jetton\030\001 \001(\004\"c\n#Proto_STL"
-    "_PlayerReduceBankJettonRsp\022\020\n\010ret_code\030\001"
-    " \001(\005\022\025\n\rreduce_jetton\030\002 \001(\004\022\023\n\013bank_jett"
-    "on\030\003 \001(\004\":\n!Proto_TS_QueryPlayerSimpleDa"
-    "taReq\022\025\n\rquery_user_id\030\001 \003(\004\"l\n!Proto_ST"
-    "_QueryPlayerSimpleDataRsp\022\016\n\006result\030\001 \001("
-    "\005\0227\n\017query_user_list\030\002 \003(\0132\036.proto_ff.Pr"
-    "oto_UserSimpleData\"Y\n\035Proto_GTW_Register"
-    "RoomInfoReq\022(\n\004game\030\001 \003(\0132\032.proto_ff.Gam"
-    "eExternalGame\022\016\n\006bus_id\030\002 \001(\r\"/\n\035Proto_W"
-    "TG_RegisterRoomInfoRsp\022\016\n\006result\030\001 \001(\005\"\033"
-    "\n\031Proto_QueryCoinBalanceReq\"b\n\031Proto_Que"
-    "ryCoinBalanceRsp\022\016\n\006result\030\001 \001(\005\0225\n\rplay"
-    "er_detail\030\002 \001(\0132\036.proto_ff.GamePlayerDet"
-    "ailData\"h\n Proto_NotifyServerPlayerExitG"
-    "ame\022\021\n\tplayer_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022"
-    "\017\n\007room_id\030\003 \001(\r\022\017\n\007desk_id\030\004 \001(\r\"\200\001\n#Pr"
-    "oto_STS_PlayerChangeGameServerReq\022\021\n\tpla"
-    "yer_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id"
-    "\030\003 \001(\r\022\017\n\007desk_id\030\004 \001(\r\022\023\n\013game_bus_id\030\005"
-    " \001(\r\"7\n#Proto_STS_PlayerChangeGameServer"
-    "Rsp\022\020\n\010ret_code\030\001 \001(\005*a\n\022Proto_AccountSt"
-    "ate\022\025\n\021E_ACCOUNTSTATE_OK\020\000\022\031\n\025E_ACCOUNTS"
-    "TATE_FREEZE\020\001\022\031\n\025E_ACCOUNTSTATE_FORBIT\020\002", 3160);
+    "ta\"\227\001\n\032Proto_LogicToWorldLoginRsp\022\016\n\006res"
+    "ult\030\001 \001(\r\022\017\n\007user_id\030\002 \001(\004\022\035\n\025create_pla"
+    "yer_db_data\030\003 \001(\010\0229\n\013detail_data\030\004 \001(\0132$"
+    ".proto_ff.Proto_UserDetailCommonData\"\364\001\n"
+    "\021Proto_WTSLoginReq\022\017\n\007user_id\030\001 \001(\004\022\017\n\007g"
+    "ame_id\030\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\023\n\013game_bu"
+    "s_id\030\004 \001(\r\022\024\n\014proxy_bus_id\030\005 \001(\r\022\021\n\tclie"
+    "nt_ip\030\007 \001(\t\022\024\n\014logic_bus_id\030\010 \001(\r\022\035\n\025cre"
+    "ate_player_db_data\030\t \001(\010\0229\n\013detail_data\030"
+    "\n \001(\0132$.proto_ff.Proto_UserDetailCommonD"
+    "ata\"o\n\021Proto_STWLoginRsp\022\016\n\006result\030\001 \001(\r"
+    "\022\017\n\007user_id\030\002 \001(\004\0229\n\013detail_data\030\004 \001(\0132$"
+    ".proto_ff.Proto_UserDetailCommonData\"+\n\026"
+    "NotifyPlayerDisconnect\022\021\n\tplayer_id\030\001 \001("
+    "\004\"@\n\025PTWPlayerReconnectReq\022\021\n\tplayer_id\030"
+    "\001 \001(\004\022\024\n\014proxy_bus_id\030\002 \001(\r\"\206\001\n\024WTPPlaye"
+    "rReconnctRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tplayer_i"
+    "d\030\002 \001(\004\022\017\n\007game_id\030\003 \001(\r\022\017\n\007room_id\030\004 \001("
+    "\r\022\023\n\013game_bus_id\030\005 \001(\r\022\024\n\014logic_bus_id\030\006"
+    " \001(\r\"w\n\025WTLPlayerReconnectReq\022\021\n\tplayer_"
+    "id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007room_id\030\003 \001"
+    "(\r\022\023\n\013game_bus_id\030\004 \001(\r\022\024\n\014proxy_bus_id\030"
+    "\006 \001(\r\":\n\025LTWPlayerReconnectRsp\022\016\n\006result"
+    "\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\004\"V\n\025LTGPlayerRe"
+    "connectReq\022\021\n\tplayer_id\030\001 \001(\004\022\024\n\014proxy_b"
+    "us_id\030\002 \001(\r\022\024\n\014logic_bus_id\030\003 \001(\r\":\n\025GTL"
+    "PlayerReconnectRsp\022\016\n\006result\030\001 \001(\005\022\021\n\tpl"
+    "ayer_id\030\002 \001(\004\"k\n\025WTSPlayerReconnectReq\022\021"
+    "\n\tplayer_id\030\001 \001(\004\022\024\n\014logic_bus_id\030\002 \001(\r\022"
+    "\023\n\013game_bus_id\030\003 \001(\r\022\024\n\014proxy_bus_id\030\004 \001"
+    "(\r\":\n\025STWPlayerReconnectRsp\022\016\n\006result\030\001 "
+    "\001(\005\022\021\n\tplayer_id\030\002 \001(\004\"*\n\025Proto_LTWLogou"
+    "tNotify\022\021\n\tplayer_id\030\001 \001(\004\"*\n\025Proto_WTLL"
+    "ogoutNotify\022\021\n\tplayer_id\030\001 \001(\004\"*\n\025Proto_"
+    "WTSLogoutNotify\022\021\n\tplayer_id\030\001 \001(\004\"@\n\027Pr"
+    "oto_LTSBankGetDataReq\022\016\n\006jetton\030\001 \001(\004\022\025\n"
+    "\rbank_password\030\002 \001(\t\"6\n Proto_LTS_Player"
+    "AddBankJettonReq\022\022\n\nadd_jetton\030\001 \001(\004\"]\n "
+    "Proto_STL_PlayerAddBankJettonRsp\022\020\n\010ret_"
+    "code\030\001 \001(\005\022\022\n\nadd_jetton\030\002 \001(\004\022\023\n\013bank_j"
+    "etton\030\003 \001(\004\"<\n#Proto_LTS_PlayerReduceBan"
+    "kJettonReq\022\025\n\rreduce_jetton\030\001 \001(\004\"c\n#Pro"
+    "to_STL_PlayerReduceBankJettonRsp\022\020\n\010ret_"
+    "code\030\001 \001(\005\022\025\n\rreduce_jetton\030\002 \001(\004\022\023\n\013ban"
+    "k_jetton\030\003 \001(\004\":\n!Proto_TS_QueryPlayerSi"
+    "mpleDataReq\022\025\n\rquery_user_id\030\001 \003(\004\"l\n!Pr"
+    "oto_ST_QueryPlayerSimpleDataRsp\022\016\n\006resul"
+    "t\030\001 \001(\005\0227\n\017query_user_list\030\002 \003(\0132\036.proto"
+    "_ff.Proto_UserSimpleData\"Y\n\035Proto_GTW_Re"
+    "gisterRoomInfoReq\022(\n\004game\030\001 \003(\0132\032.proto_"
+    "ff.GameExternalGame\022\016\n\006bus_id\030\002 \001(\r\"/\n\035P"
+    "roto_WTG_RegisterRoomInfoRsp\022\016\n\006result\030\001"
+    " \001(\005\"\033\n\031Proto_QueryCoinBalanceReq\"b\n\031Pro"
+    "to_QueryCoinBalanceRsp\022\016\n\006result\030\001 \001(\005\0225"
+    "\n\rplayer_detail\030\002 \001(\0132\036.proto_ff.GamePla"
+    "yerDetailData\"h\n Proto_NotifyServerPlaye"
+    "rExitGame\022\021\n\tplayer_id\030\001 \001(\004\022\017\n\007game_id\030"
+    "\002 \001(\r\022\017\n\007room_id\030\003 \001(\r\022\017\n\007desk_id\030\004 \001(\r\""
+    "\200\001\n#Proto_STS_PlayerChangeGameServerReq\022"
+    "\021\n\tplayer_id\030\001 \001(\004\022\017\n\007game_id\030\002 \001(\r\022\017\n\007r"
+    "oom_id\030\003 \001(\r\022\017\n\007desk_id\030\004 \001(\r\022\023\n\013game_bu"
+    "s_id\030\005 \001(\r\"7\n#Proto_STS_PlayerChangeGame"
+    "ServerRsp\022\020\n\010ret_code\030\001 \001(\005*a\n\022Proto_Acc"
+    "ountState\022\025\n\021E_ACCOUNTSTATE_OK\020\000\022\031\n\025E_AC"
+    "COUNTSTATE_FREEZE\020\001\022\031\n\025E_ACCOUNTSTATE_FO"
+    "RBIT\020\002", 3246);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal.proto", &protobuf_RegisterTypes);
   Proto_PTWUserLoginReq::default_instance_ = new Proto_PTWUserLoginReq();
@@ -2329,7 +2334,7 @@ void Proto_WorldToLogicLoginReq::Swap(Proto_WorldToLogicLoginReq* other) {
 #ifndef _MSC_VER
 const int Proto_LogicToWorldLoginRsp::kResultFieldNumber;
 const int Proto_LogicToWorldLoginRsp::kUserIdFieldNumber;
-const int Proto_LogicToWorldLoginRsp::kSnsSyncFieldNumber;
+const int Proto_LogicToWorldLoginRsp::kCreatePlayerDbDataFieldNumber;
 const int Proto_LogicToWorldLoginRsp::kDetailDataFieldNumber;
 #endif  // !_MSC_VER
 
@@ -2339,7 +2344,6 @@ Proto_LogicToWorldLoginRsp::Proto_LogicToWorldLoginRsp()
 }
 
 void Proto_LogicToWorldLoginRsp::InitAsDefaultInstance() {
-  sns_sync_ = const_cast< ::proto_ff::Proto_LTSSyncData*>(&::proto_ff::Proto_LTSSyncData::default_instance());
   detail_data_ = const_cast< ::proto_ff::Proto_UserDetailCommonData*>(&::proto_ff::Proto_UserDetailCommonData::default_instance());
 }
 
@@ -2353,7 +2357,7 @@ void Proto_LogicToWorldLoginRsp::SharedCtor() {
   _cached_size_ = 0;
   result_ = 0u;
   user_id_ = GOOGLE_ULONGLONG(0);
-  sns_sync_ = NULL;
+  create_player_db_data_ = false;
   detail_data_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -2364,7 +2368,6 @@ Proto_LogicToWorldLoginRsp::~Proto_LogicToWorldLoginRsp() {
 
 void Proto_LogicToWorldLoginRsp::SharedDtor() {
   if (this != default_instance_) {
-    delete sns_sync_;
     delete detail_data_;
   }
 }
@@ -2394,9 +2397,7 @@ void Proto_LogicToWorldLoginRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     result_ = 0u;
     user_id_ = GOOGLE_ULONGLONG(0);
-    if (has_sns_sync()) {
-      if (sns_sync_ != NULL) sns_sync_->::proto_ff::Proto_LTSSyncData::Clear();
-    }
+    create_player_db_data_ = false;
     if (has_detail_data()) {
       if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
     }
@@ -2438,17 +2439,19 @@ bool Proto_LogicToWorldLoginRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(26)) goto parse_sns_sync;
+        if (input->ExpectTag(24)) goto parse_create_player_db_data;
         break;
       }
 
-      // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
+      // optional bool create_player_db_data = 3;
       case 3: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sns_sync:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_sns_sync()));
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_create_player_db_data:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &create_player_db_data_)));
+          set_has_create_player_db_data();
         } else {
           goto handle_uninterpreted;
         }
@@ -2498,10 +2501,9 @@ void Proto_LogicToWorldLoginRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->user_id(), output);
   }
 
-  // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
-  if (has_sns_sync()) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      3, this->sns_sync(), output);
+  // optional bool create_player_db_data = 3;
+  if (has_create_player_db_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(3, this->create_player_db_data(), output);
   }
 
   // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
@@ -2528,11 +2530,9 @@ void Proto_LogicToWorldLoginRsp::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->user_id(), target);
   }
 
-  // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
-  if (has_sns_sync()) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        3, this->sns_sync(), target);
+  // optional bool create_player_db_data = 3;
+  if (has_create_player_db_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(3, this->create_player_db_data(), target);
   }
 
   // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
@@ -2567,11 +2567,9 @@ int Proto_LogicToWorldLoginRsp::ByteSize() const {
           this->user_id());
     }
 
-    // optional .proto_ff.Proto_LTSSyncData sns_sync = 3;
-    if (has_sns_sync()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->sns_sync());
+    // optional bool create_player_db_data = 3;
+    if (has_create_player_db_data()) {
+      total_size += 1 + 1;
     }
 
     // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
@@ -2614,8 +2612,8 @@ void Proto_LogicToWorldLoginRsp::MergeFrom(const Proto_LogicToWorldLoginRsp& fro
     if (from.has_user_id()) {
       set_user_id(from.user_id());
     }
-    if (from.has_sns_sync()) {
-      mutable_sns_sync()->::proto_ff::Proto_LTSSyncData::MergeFrom(from.sns_sync());
+    if (from.has_create_player_db_data()) {
+      set_create_player_db_data(from.create_player_db_data());
     }
     if (from.has_detail_data()) {
       mutable_detail_data()->::proto_ff::Proto_UserDetailCommonData::MergeFrom(from.detail_data());
@@ -2645,7 +2643,7 @@ void Proto_LogicToWorldLoginRsp::Swap(Proto_LogicToWorldLoginRsp* other) {
   if (other != this) {
     std::swap(result_, other->result_);
     std::swap(user_id_, other->user_id_);
-    std::swap(sns_sync_, other->sns_sync_);
+    std::swap(create_player_db_data_, other->create_player_db_data_);
     std::swap(detail_data_, other->detail_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
@@ -2672,7 +2670,8 @@ const int Proto_WTSLoginReq::kGameBusIdFieldNumber;
 const int Proto_WTSLoginReq::kProxyBusIdFieldNumber;
 const int Proto_WTSLoginReq::kClientIpFieldNumber;
 const int Proto_WTSLoginReq::kLogicBusIdFieldNumber;
-const int Proto_WTSLoginReq::kSnsSyncFieldNumber;
+const int Proto_WTSLoginReq::kCreatePlayerDbDataFieldNumber;
+const int Proto_WTSLoginReq::kDetailDataFieldNumber;
 #endif  // !_MSC_VER
 
 Proto_WTSLoginReq::Proto_WTSLoginReq()
@@ -2681,7 +2680,7 @@ Proto_WTSLoginReq::Proto_WTSLoginReq()
 }
 
 void Proto_WTSLoginReq::InitAsDefaultInstance() {
-  sns_sync_ = const_cast< ::proto_ff::Proto_LTSSyncData*>(&::proto_ff::Proto_LTSSyncData::default_instance());
+  detail_data_ = const_cast< ::proto_ff::Proto_UserDetailCommonData*>(&::proto_ff::Proto_UserDetailCommonData::default_instance());
 }
 
 Proto_WTSLoginReq::Proto_WTSLoginReq(const Proto_WTSLoginReq& from)
@@ -2699,7 +2698,8 @@ void Proto_WTSLoginReq::SharedCtor() {
   proxy_bus_id_ = 0u;
   client_ip_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
   logic_bus_id_ = 0u;
-  sns_sync_ = NULL;
+  create_player_db_data_ = false;
+  detail_data_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2712,7 +2712,7 @@ void Proto_WTSLoginReq::SharedDtor() {
     delete client_ip_;
   }
   if (this != default_instance_) {
-    delete sns_sync_;
+    delete detail_data_;
   }
 }
 
@@ -2750,8 +2750,11 @@ void Proto_WTSLoginReq::Clear() {
       }
     }
     logic_bus_id_ = 0u;
-    if (has_sns_sync()) {
-      if (sns_sync_ != NULL) sns_sync_->::proto_ff::Proto_LTSSyncData::Clear();
+    create_player_db_data_ = false;
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (has_detail_data()) {
+      if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
     }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -2872,17 +2875,33 @@ bool Proto_WTSLoginReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
-        if (input->ExpectTag(74)) goto parse_sns_sync;
+        if (input->ExpectTag(72)) goto parse_create_player_db_data;
         break;
       }
 
-      // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
+      // optional bool create_player_db_data = 9;
       case 9: {
         if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_create_player_db_data:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &create_player_db_data_)));
+          set_has_create_player_db_data();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(82)) goto parse_detail_data;
+        break;
+      }
+
+      // optional .proto_ff.Proto_UserDetailCommonData detail_data = 10;
+      case 10: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
             ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_sns_sync:
+         parse_detail_data:
           DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-               input, mutable_sns_sync()));
+               input, mutable_detail_data()));
         } else {
           goto handle_uninterpreted;
         }
@@ -2947,10 +2966,15 @@ void Proto_WTSLoginReq::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(8, this->logic_bus_id(), output);
   }
 
-  // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
-  if (has_sns_sync()) {
+  // optional bool create_player_db_data = 9;
+  if (has_create_player_db_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(9, this->create_player_db_data(), output);
+  }
+
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 10;
+  if (has_detail_data()) {
     ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      9, this->sns_sync(), output);
+      10, this->detail_data(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -3001,11 +3025,16 @@ void Proto_WTSLoginReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(8, this->logic_bus_id(), target);
   }
 
-  // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
-  if (has_sns_sync()) {
+  // optional bool create_player_db_data = 9;
+  if (has_create_player_db_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(9, this->create_player_db_data(), target);
+  }
+
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 10;
+  if (has_detail_data()) {
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
-        9, this->sns_sync(), target);
+        10, this->detail_data(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3068,11 +3097,18 @@ int Proto_WTSLoginReq::ByteSize() const {
           this->logic_bus_id());
     }
 
-    // optional .proto_ff.Proto_LTSSyncData sns_sync = 9;
-    if (has_sns_sync()) {
+    // optional bool create_player_db_data = 9;
+    if (has_create_player_db_data()) {
+      total_size += 1 + 1;
+    }
+
+  }
+  if (_has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    // optional .proto_ff.Proto_UserDetailCommonData detail_data = 10;
+    if (has_detail_data()) {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-          this->sns_sync());
+          this->detail_data());
     }
 
   }
@@ -3123,8 +3159,13 @@ void Proto_WTSLoginReq::MergeFrom(const Proto_WTSLoginReq& from) {
     if (from.has_logic_bus_id()) {
       set_logic_bus_id(from.logic_bus_id());
     }
-    if (from.has_sns_sync()) {
-      mutable_sns_sync()->::proto_ff::Proto_LTSSyncData::MergeFrom(from.sns_sync());
+    if (from.has_create_player_db_data()) {
+      set_create_player_db_data(from.create_player_db_data());
+    }
+  }
+  if (from._has_bits_[8 / 32] & (0xffu << (8 % 32))) {
+    if (from.has_detail_data()) {
+      mutable_detail_data()->::proto_ff::Proto_UserDetailCommonData::MergeFrom(from.detail_data());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -3156,7 +3197,8 @@ void Proto_WTSLoginReq::Swap(Proto_WTSLoginReq* other) {
     std::swap(proxy_bus_id_, other->proxy_bus_id_);
     std::swap(client_ip_, other->client_ip_);
     std::swap(logic_bus_id_, other->logic_bus_id_);
-    std::swap(sns_sync_, other->sns_sync_);
+    std::swap(create_player_db_data_, other->create_player_db_data_);
+    std::swap(detail_data_, other->detail_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -3177,6 +3219,7 @@ void Proto_WTSLoginReq::Swap(Proto_WTSLoginReq* other) {
 #ifndef _MSC_VER
 const int Proto_STWLoginRsp::kResultFieldNumber;
 const int Proto_STWLoginRsp::kUserIdFieldNumber;
+const int Proto_STWLoginRsp::kDetailDataFieldNumber;
 #endif  // !_MSC_VER
 
 Proto_STWLoginRsp::Proto_STWLoginRsp()
@@ -3185,6 +3228,7 @@ Proto_STWLoginRsp::Proto_STWLoginRsp()
 }
 
 void Proto_STWLoginRsp::InitAsDefaultInstance() {
+  detail_data_ = const_cast< ::proto_ff::Proto_UserDetailCommonData*>(&::proto_ff::Proto_UserDetailCommonData::default_instance());
 }
 
 Proto_STWLoginRsp::Proto_STWLoginRsp(const Proto_STWLoginRsp& from)
@@ -3197,6 +3241,7 @@ void Proto_STWLoginRsp::SharedCtor() {
   _cached_size_ = 0;
   result_ = 0u;
   user_id_ = GOOGLE_ULONGLONG(0);
+  detail_data_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -3206,6 +3251,7 @@ Proto_STWLoginRsp::~Proto_STWLoginRsp() {
 
 void Proto_STWLoginRsp::SharedDtor() {
   if (this != default_instance_) {
+    delete detail_data_;
   }
 }
 
@@ -3234,6 +3280,9 @@ void Proto_STWLoginRsp::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     result_ = 0u;
     user_id_ = GOOGLE_ULONGLONG(0);
+    if (has_detail_data()) {
+      if (detail_data_ != NULL) detail_data_->::proto_ff::Proto_UserDetailCommonData::Clear();
+    }
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -3272,6 +3321,20 @@ bool Proto_STWLoginRsp::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(34)) goto parse_detail_data;
+        break;
+      }
+
+      // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_detail_data:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_detail_data()));
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -3304,6 +3367,12 @@ void Proto_STWLoginRsp::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt64(2, this->user_id(), output);
   }
 
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
+  if (has_detail_data()) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      4, this->detail_data(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -3320,6 +3389,13 @@ void Proto_STWLoginRsp::SerializeWithCachedSizes(
   // optional uint64 user_id = 2;
   if (has_user_id()) {
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt64ToArray(2, this->user_id(), target);
+  }
+
+  // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
+  if (has_detail_data()) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        4, this->detail_data(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -3345,6 +3421,13 @@ int Proto_STWLoginRsp::ByteSize() const {
       total_size += 1 +
         ::google::protobuf::internal::WireFormatLite::UInt64Size(
           this->user_id());
+    }
+
+    // optional .proto_ff.Proto_UserDetailCommonData detail_data = 4;
+    if (has_detail_data()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->detail_data());
     }
 
   }
@@ -3380,6 +3463,9 @@ void Proto_STWLoginRsp::MergeFrom(const Proto_STWLoginRsp& from) {
     if (from.has_user_id()) {
       set_user_id(from.user_id());
     }
+    if (from.has_detail_data()) {
+      mutable_detail_data()->::proto_ff::Proto_UserDetailCommonData::MergeFrom(from.detail_data());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -3405,6 +3491,7 @@ void Proto_STWLoginRsp::Swap(Proto_STWLoginRsp* other) {
   if (other != this) {
     std::swap(result_, other->result_);
     std::swap(user_id_, other->user_id_);
+    std::swap(detail_data_, other->detail_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

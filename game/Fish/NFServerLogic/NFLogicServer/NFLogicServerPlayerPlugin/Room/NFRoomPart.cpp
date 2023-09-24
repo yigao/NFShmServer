@@ -69,6 +69,18 @@ int NFRoomPart::SaveDB(proto_ff::tbFishPlayerData &dbData)
     return NFPart::SaveDB(dbData);
 }
 
+int NFRoomPart::OnLogin(const proto_ff::Proto_WorldToLogicLoginReq& data, proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer)
+{
+    if (isCreatePlayer)
+    {
+        m_gameId = data.game_id();
+        m_roomId = data.room_id();
+        m_gameBusId = data.game_bus_id();
+    }
+
+    return 0;
+}
+
 int NFRoomPart::RegisterMessage()
 {
     AddRpcService<proto_ff::NF_CS_MSG_DeskListReq>(this, &NFRoomPart::GetDeskListReq, true);

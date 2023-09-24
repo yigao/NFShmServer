@@ -247,7 +247,8 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_PTWUserLoginRe
     reqSnsMsg.set_proxy_bus_id(pPlayerInfo->GetProxyId());
     reqSnsMsg.set_client_ip(request.client_ip());
     reqSnsMsg.set_logic_bus_id(pPlayerInfo->GetLogicId());
-    *reqSnsMsg.mutable_sns_sync() = rspLogicMsg.sns_sync();
+    reqSnsMsg.set_create_player_db_data(rspLogicMsg.create_player_db_data());
+    *reqSnsMsg.mutable_detail_data() = *rspLogicMsg.mutable_detail_data();
     proto_ff::Proto_STWLoginRsp rspSnsMsg;
     iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_WTS_PLAYER_LOGIN_REQ>(NF_ST_WORLD_SERVER, NF_ST_SNS_SERVER, 0, reqSnsMsg,
                                                                                             rspSnsMsg);

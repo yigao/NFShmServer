@@ -107,13 +107,14 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     respone.set_user_id(request.user_id());
     respone.set_result(0);
-    auto pSnsSync = respone.mutable_sns_sync();
-    pSnsSync->set_create_player_db_data(false);
+    respone.set_create_player_db_data(false);
 
     proto_ff::tbFishPlayerData selectobj;
     NFPlayer* pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(request.user_id());
+    bool isCreatePlayer = false;
     if (pPlayer == NULL)
     {
+        isCreatePlayer = true;
         selectobj.set_player_id(request.user_id());
         int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIC_SERVER, request.user_id(),
                                                                                 selectobj);
@@ -121,7 +122,7 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
         {
             if (iRet == proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
             {
-                pSnsSync->set_create_player_db_data(true);
+                respone.set_create_player_db_data(true);
 
                 proto_ff::tbFishPlayerData insertObj;
                 insertObj.set_player_id(request.user_id());
@@ -131,7 +132,7 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
                 insertObj.set_regdate(NFTime::Now().UnixSec());
 
                 insertObj.set_faceid(1);
-                insertObj.set_jetton(0);
+                insertObj.set_jetton(1000000);
                 auto pJettonDesc = ConstantConstantDesc::Instance(m_pObjPluginManager)->GetDesc(proto_ff::EN_CONST_USER_INIT_JETTON);
                 if (pJettonDesc)
                 {
@@ -198,16 +199,21 @@ int NFCLogicPlayerModule::OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLo
 
     CHECK_NULL(pPlayer);
 
-    int iRet = pPlayer->OnLogin();
+    int iRet = pPlayer->OnLogin(request, *respone.mutable_detail_data(), isCreatePlayer);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayer:{} OnLogin(request):{} Failed", request.user_id(), GetErrorStr(iRet));
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    iRet = pPlayer->OnLogin();
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, 0, "NFPlayer:{} OnLogin:{} Failed", request.user_id(), GetErrorStr(iRet));
         respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
         return 0;
     }
-
-    pSnsSync->set_nick_name(pPlayer->GetNickName());
-    pSnsSync->set_face_id(pPlayer->GetFaceId());
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;

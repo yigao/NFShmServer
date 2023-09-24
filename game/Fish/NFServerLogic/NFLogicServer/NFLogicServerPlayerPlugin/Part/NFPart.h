@@ -78,6 +78,12 @@ public:
     virtual int OnLogin() { return 0; }
 
     /**
+     * @brief 登陆入口
+     * @return
+     */
+    virtual int OnLogin(const proto_ff::Proto_WorldToLogicLoginReq& data, proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer) { return 0; }
+
+    /**
      * @brief 登出入口
      * @return
      */

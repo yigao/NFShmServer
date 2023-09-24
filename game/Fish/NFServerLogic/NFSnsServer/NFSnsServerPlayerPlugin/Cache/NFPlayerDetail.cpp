@@ -219,6 +219,18 @@ int NFPlayerDetail::OnLogin()
     return 0;
 }
 
+int NFPlayerDetail::OnLogin(proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer)
+{
+    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
+    {
+        if (m_pPart[i])
+        {
+            m_pPart[i]->OnLogin(detailData, isCreatePlayer);
+        }
+    }
+    return 0;
+}
+
 int NFPlayerDetail::OnLogout()
 {
     for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
