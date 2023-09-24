@@ -410,7 +410,7 @@ int NFGameDesk::NotifyServerPlayerExitGame(uint64_t playerId, int32_t chairId)
     msg.set_game_id(m_gameId);
     msg.set_room_id(m_roomId);
     msg.set_desk_id(chairId);
-    SendMsgToWorldServer(proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME, msg);
+    SendMsgToWorldServer(proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME, msg, playerId);
     return 0;
 }
 

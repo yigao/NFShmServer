@@ -76,12 +76,17 @@ int NFRoomPart::RegisterMessage()
     AddRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(this, &NFRoomPart::ExitGameReq, true);
     AddRpcService<proto_ff::NF_STS_PLAYER_CHANGE_GAME_SERVER>(this, &NFRoomPart::ChangeGameReq, true);
 
-    RegisterClientMessage(proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME);
+    RegisterServerMessage(proto_ff::NF_STS_GAME_PLAYER_LEAVE_GAME);
 
     return 0;
 }
 
 int NFRoomPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
+{
+    return 0;
+}
+
+int NFRoomPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 {
     switch (msgId)
     {
@@ -94,11 +99,6 @@ int NFRoomPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
             break;
     }
     return 0;
-}
-
-int NFRoomPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
-{
-    return NFPart::OnHandleServerMessage(msgId, packet);
 }
 
 int NFRoomPart::GetDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone)
@@ -180,7 +180,7 @@ int NFRoomPart::ExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRs
 
     if (m_gameId == 0 && m_roomId == 0 && m_gameBusId == 0)
     {
-        respone.set_exit_type(1);
+        respone.set_exit_type(0);
         return 0;
     }
 
@@ -190,7 +190,7 @@ int NFRoomPart::ExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRs
         return iRet;
     }
 
-    if (respone.exit_type() != 0)
+    if (respone.exit_type() == 0)
     {
         m_gameId = 0;
         m_roomId = 0;
@@ -221,6 +221,13 @@ int NFRoomPart::OnHandleNotifyPlayerLeaveGame(uint32_t msgId, NFDataPackage &pac
 
     proto_ff::Proto_NotifyServerPlayerExitGame xMsg;
     CLIENT_MSG_PROCESS_WITH_PRINTF(packet, xMsg);
+
+    if (m_gameId == 0 && m_roomId == 0 && m_gameBusId == 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "world server notify logic player, player:{} leave game:{} room:{} success", m_pMaster->GetPlayerId(), xMsg.game_id(),
+                  xMsg.room_id());
+       return 0;
+    }
 
     if (m_gameId == xMsg.game_id() && m_roomId == xMsg.room_id())
     {

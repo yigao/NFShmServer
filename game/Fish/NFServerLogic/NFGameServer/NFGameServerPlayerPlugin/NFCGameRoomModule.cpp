@@ -243,7 +243,7 @@ int NFCGameRoomModule::OnHandleExitGameReq(proto_ff::ExitGameReq& request, proto
     NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
     CHECK_PLAYER_EXPR(playerId, pPlayer, -1, "Get Player Failed, playerId:{}", playerId);
 
-    respone.set_exit_type(1);
+    respone.set_exit_type(0);
     if (pPlayer->m_gameId > 0 || pPlayer->m_roomId > 0)
     {
         NFGameRoom *pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
@@ -252,7 +252,7 @@ int NFCGameRoomModule::OnHandleExitGameReq(proto_ff::ExitGameReq& request, proto
             int iRet = pRoom->ExitGame(playerId);
             if (iRet != 0)
             {
-                respone.set_exit_type(0);
+                respone.set_exit_type(iRet);
                 return 0;
             }
         }

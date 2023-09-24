@@ -227,7 +227,7 @@ int NFGameFishDesk::UserLeftDesk(uint64_t playerId, int iDeskStation, proto_ff_s
     pPlayer->m_online = false;
     pPlayer->m_ready = false;
 
-    //m_FishTypeMgr.UserLeftDesk(pPlayer);
+    m_FishTypeMgr->UserLeftDesk(pPlayer);
 
     UserLeaveDesk(pPlayer);
 
