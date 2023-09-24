@@ -164,6 +164,14 @@ public:
     int ExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRsp& respone);
 
     /**
+     * @brief
+     * @param request
+     * @param respone
+     * @return
+     */
+    int ExitRoomReq(proto_ff::ExitRoomReq& request, proto_ff::ExitRoomRsp& respone);
+
+    /**
      * @brief 游戏服务器被修改
      * @param request
      * @param respone

@@ -83,6 +83,11 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_GTW_REGISTER_ROOM_INFO_RPC, proto_ff::Proto
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_DeskListReq, proto_ff::DeskListReq, proto_ff::DeskListRsp)
 
 /**
+ * @brief world,logic,game req desk list rpc
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_ChairCheckReq, proto_ff::ChairCheckReq, proto_ff::ChairCheckRsp)
+
+/**
  * @brief world,logic,game req enter game rpc
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_EnterGameReq, proto_ff::EnterGameReq, proto_ff::EnterGameRsp)
@@ -96,6 +101,16 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NF_STS_PLAYER_CHANGE_GAME_SERVER, proto_ff::Pr
  * @brief world,logic,game req exit game rpc
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_ExitGameReq, proto_ff::ExitGameReq, proto_ff::ExitGameRsp)
+
+/**
+ * @brief world,logic,game req exit room rpc
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_ExitRoomReq, proto_ff::ExitRoomReq, proto_ff::ExitRoomRsp)
+
+/**
+ * @brief world,logic,game req recome game rpc
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::NF_CS_MSG_UserRecomeReq, proto_ff::UserRecomeReq, proto_ff::UserRecomeRsp)
 
 /**
  * @brief game to logic get coin balance rpc

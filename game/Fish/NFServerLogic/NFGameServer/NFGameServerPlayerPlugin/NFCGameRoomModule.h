@@ -56,6 +56,16 @@ public:
     int OnHandleDeskListReq(proto_ff::DeskListReq& request, proto_ff::DeskListRsp& respone, uint64_t playerId, uint64_t param2);
 
     /**
+     * @brief
+     * @param request
+     * @param respone
+     * @param playerId
+     * @param param2
+     * @return
+     */
+    int OnHandleChairCheckReq(proto_ff::ChairCheckReq& request, proto_ff::ChairCheckRsp& respone, uint64_t playerId, uint64_t param2);
+
+    /**
      * @brief 请求进入游戏
      * @return
      */
@@ -66,6 +76,26 @@ public:
      * @return
      */
     int OnHandleExitGameReq(proto_ff::ExitGameReq& request, proto_ff::ExitGameRsp& respone, uint64_t playerId, uint64_t param2);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @param playerId
+     * @param param2
+     * @return
+     */
+    int OnHandleExitRoomReq(proto_ff::ExitRoomReq& request, proto_ff::ExitRoomRsp& respone, uint64_t playerId, uint64_t param2);
+
+    /**
+     * @brief
+     * @param request
+     * @param respone
+     * @param playerId
+     * @param param2
+     * @return
+     */
+    int OnHandleRecomeReq(proto_ff::UserRecomeReq& request, proto_ff::UserRecomeRsp& respone, uint64_t playerId, uint64_t param2);
 public:
     /**
      * @brief 注册创建桌子具体业务的函数

@@ -332,6 +332,14 @@ public:
      * @return
      */
     int ExitGame(uint64_t playerId, bool bOffline);
+
+    /**
+     * @brief
+     * @param playerId
+     * @param chairId
+     * @return
+     */
+    int CheckDeskStation(uint64_t playerId, int chairId);
 public:
     virtual int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData, uint64_t playerId);
 

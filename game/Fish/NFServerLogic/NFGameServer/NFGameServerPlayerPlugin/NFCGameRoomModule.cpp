@@ -24,8 +24,11 @@ NFCGameRoomModule::~NFCGameRoomModule()
 bool NFCGameRoomModule::Awake()
 {
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_DeskListReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleDeskListReq);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_ChairCheckReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleChairCheckReq);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_EnterGameReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleEnterGameReq, true);
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_ExitGameReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleExitGameReq);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_ExitRoomReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleExitRoomReq);
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_UserRecomeReq>(NF_ST_GAME_SERVER, this, &NFCGameRoomModule::OnHandleRecomeReq);
     return true;
 }
 
@@ -92,16 +95,59 @@ int NFCGameRoomModule::OnHandleDeskListReq(proto_ff::DeskListReq &request, proto
     }
     else
     {
-        pPlayer = NFGamePlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(playerId);
-        CHECK_PLAYER_EXPR(playerId, pPlayer, -1, "Create Player Failed, playerId:{}", playerId);
+        if (autoChairId == 0)
+        {
+            pPlayer = NFGamePlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(playerId);
+            CHECK_PLAYER_EXPR(playerId, pPlayer, -1, "Create Player Failed, playerId:{}", playerId);
 
-        pPlayer->SetClearFlag(false);
-        pPlayer->SetOnline(true);
-        pPlayer->SetOfflineTime(0);
-        pPlayer->SetLastMsgTime(NFTime::Now().UnixSec());
+            pPlayer->SetClearFlag(false);
+            pPlayer->SetOnline(true);
+            pPlayer->SetOfflineTime(0);
+            pPlayer->SetLastMsgTime(NFTime::Now().UnixSec());
+        }
     }
 
     pRoom->OnHandleReqDeskList(playerId, autoChairId, respone);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCGameRoomModule::OnHandleChairCheckReq(proto_ff::ChairCheckReq& request, proto_ff::ChairCheckRsp& respone, uint64_t playerId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+
+    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(request.game_id(), request.room_id());
+    if (!roomConfig)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "NFGameRoomDesc: find room failed! mGameId = {} , mRoomId = {}", request.game_id(), request.room_id());
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    NFGameRoom *pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(request.game_id(), request.room_id());
+    if (pRoom == NULL)
+    {
+        NFGameRoomMgr::GetInstance(m_pObjPluginManager)->ClearDirtyData(playerId);
+        NFLogError(NF_LOG_SYSTEMLOG, playerId, "gameId:{} roomId:{} not exist, player:{} enter game failed!", request.game_id(), request.room_id(), playerId);
+
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    int32_t deskId  = (int32_t) request.desk_id()  /*- 1*/; //客户端传来时就是从1开始
+    int32_t chairId = (int32_t) request.chair_id() /*- 1*/; //客户端传来时就是从1开始
+
+    int iRet = pRoom->CheckDeskStation(playerId, deskId, chairId);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "CheckDeskStation Failed, deskId:{} chairId:{}", deskId, chairId);
+        respone.set_result(proto_ff::ERR_CODE_DESK_NOT_EXIST);
+        return 0;
+    }
+
+    respone.set_result(0);
+    NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "Chair Check Success........");
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;
@@ -232,6 +278,67 @@ int NFCGameRoomModule::OnHandleEnterGameReq(proto_ff::EnterGameReq& request, pro
     respone.set_game_id(gameId);
     respone.set_room_id(roomId);
     respone.set_player_id(pPlayer->m_playerId);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int  NFCGameRoomModule::OnHandleRecomeReq(proto_ff::UserRecomeReq& request, proto_ff::UserRecomeRsp& respone, uint64_t playerId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    CHECK_PLAYER_EXPR(playerId, pPlayer, -1, "Get Player Failed, playerId:{}", playerId);
+
+    respone.set_result(0);
+
+    NFGameRoom *pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
+    if (pRoom == NULL)
+    {
+        respone.set_result(proto_ff::ERR_CODE_SYSTEM_ERROR);
+        return 0;
+    }
+
+    pPlayer->SetOnline(true);
+    pPlayer->SetOfflineTime(0);
+    pPlayer->SetLastMsgTime(NFTime::Now().UnixSec());
+
+    int iRet = pRoom->RecomeGame(playerId, pPlayer->m_deskId);
+    if (iRet == 0)
+    {
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "player recome success, gameId = {} , roomId = {} , deskId = {} , chairId = {}", pPlayer->m_gameId, pPlayer->m_roomId, pPlayer->m_deskId, pPlayer->m_chairId);
+    }
+    else {
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "player recome failed, gameId = {} , roomId = {} , deskId = {} , chairId = {}", pPlayer->m_gameId, pPlayer->m_roomId, pPlayer->m_deskId, pPlayer->m_chairId);
+    }
+
+    respone.set_result(iRet);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
+    return 0;
+}
+
+int NFCGameRoomModule::OnHandleExitRoomReq(proto_ff::ExitRoomReq& request, proto_ff::ExitRoomRsp& respone, uint64_t playerId, uint64_t param2)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- begin --");
+    NFGamePlayer *pPlayer = NFGamePlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(playerId);
+    if (!pPlayer)
+    {
+        NFGameRoomMgr::Instance(m_pObjPluginManager)->ClearDirtyData(playerId);
+        respone.set_result(0);
+        return 0;
+    }
+
+    respone.set_result(0);
+    if (pPlayer->m_gameId > 0 || pPlayer->m_roomId > 0)
+    {
+        NFGameRoom *pRoom = NFGameRoomMgr::GetInstance(m_pObjPluginManager)->GetGameRoom(pPlayer->m_gameId, pPlayer->m_roomId);
+        if (!pRoom)
+        {
+            NFGameRoomMgr::Instance(m_pObjPluginManager)->ClearDirtyData(playerId);
+            respone.set_result(0);
+            return 0;
+        }
+    }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

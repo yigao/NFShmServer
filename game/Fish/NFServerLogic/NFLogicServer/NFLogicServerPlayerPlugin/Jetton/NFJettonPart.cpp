@@ -251,4 +251,12 @@ int NFJettonPart::OnHandleCoinQueryBalanceRpc(proto_ff::Proto_QueryCoinBalanceRe
     return 0;
 }
 
+int NFJettonPart::SendMoneyToClient()
+{
+    proto_ff::MoneyChangeNotify notify;
+    notify.set_cur_money(GetJetton());
+    m_pMaster->SendMsgToClient(proto_ff::NF_SC_MSG_MoneyChangeNotify, notify);
+    return 0;
+}
+
 

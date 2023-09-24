@@ -167,6 +167,12 @@ public:
      */
     int OnHandleCoinQueryBalanceRpc(proto_ff::Proto_QueryCoinBalanceReq& request, proto_ff::Proto_QueryCoinBalanceRsp& respone);
 public:
+    /**
+     * @brief
+     * @return
+     */
+    int SendMoneyToClient();
+public:
     uint64_t GetJetton() const { return m_jetton; }
 private:
     uint64_t m_jetton;

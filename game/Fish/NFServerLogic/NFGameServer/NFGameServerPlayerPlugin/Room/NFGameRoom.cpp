@@ -479,6 +479,34 @@ int NFGameRoom::ChangeJiangChi(int64_t jiangchi)
     return 0;
 }
 
+int NFGameRoom::CheckDeskStation(uint64_t playerId, int deskId, int chairId)
+{
+    NFGameDesk *pDesk = GetGameDesk(deskId);
+    if (!pDesk)
+    {
+        return proto_ff::ERR_CODE_DESK_NOT_EXIST;
+    }
+
+    return pDesk->CheckDeskStation(playerId, chairId);
+}
+
+int NFGameRoom::RecomeGame(uint64_t playerId, uint32_t deskId)
+{
+    auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);
+    CHECK_NULL(roomConfig);
+
+    NFGameDesk *pDesk = GetGameDesk(deskId);
+    if (!pDesk)
+    {
+        return proto_ff::ERR_CODE_DESK_NOT_EXIST;
+    }
+
+    NFGameDeskStation* pDeskStation = pDesk->GetDeskStationByPlayerId(playerId);
+    CHECK_EXPR(pDeskStation, -1, "pDeskStation == NULL");
+
+    return pDesk->EnterGame(playerId, pDeskStation->m_chairId, pDeskStation->m_playerDetail);
+}
+
 int NFGameRoom::EnterGame(uint64_t playerId, int deskId, int chairId, proto_ff_s::GamePlayerDetailData_s& playerDetail)
 {
     auto roomConfig = FishRoomDesc::Instance(m_pObjPluginManager)->GetDescByGameidRoomid(m_gameId, m_roomId);

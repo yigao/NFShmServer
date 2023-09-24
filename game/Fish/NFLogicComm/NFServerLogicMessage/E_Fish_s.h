@@ -8,11 +8,9 @@
 #include "E_Fish.pb.h"
 #include "E_Fish_s.h"
 
-#define DEFINE_SHEET_FISHROOM_E_FISHROOM_LIST_MAX_NUM 8
-#define DEFINE_SHEET_FISHGUNVALUE_E_FISHGUNVALUE_LIST_MAX_NUM 64
+#define DEFINE_SHEET_FISHROOM_E_FISHROOM_LIST_MAX_NUM 32
+#define DEFINE_SHEET_FISHGUNVALUE_E_FISHGUNVALUE_LIST_MAX_NUM 256
 #define DEFINE_SHEET_FISHCTRLLEVEL_E_FISHCTRLLEVEL_LIST_MAX_NUM 16
-#define DEFINE_E_FISHCONFIG_M_CHILDFISHIDS_MAX_NUM 6
-#define DEFINE_SHEET_FISHCONFIG_E_FISHCONFIG_LIST_MAX_NUM 64
 
 
 namespace proto_ff_s {
@@ -120,43 +118,6 @@ namespace proto_ff_s {
 		static ::proto_ff::Sheet_FishCtrllevel make_pbmsg(){ return ::proto_ff::Sheet_FishCtrllevel(); }
 	};
 	typedef struct Sheet_FishCtrllevel_s Sheet_FishCtrllevel_t;
-
-	struct E_FishConfig_s : public NFDescStoreSeqOP {
-		E_FishConfig_s();
-		virtual ~E_FishConfig_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t m_fishid;//鱼Id
-		int32_t m_fishtype;//鱼类型
-		int32_t m_buildfishtype;//鱼build类型
-		int32_t m_ratiomin;//最新比例
-		int32_t m_ratiomax;//最大比例
-		int32_t m_doubleawardminratio;//双重奖励最小比率
-		int32_t m_childfishcount;//子鱼数
-		int32_t m_damageradius;//伤害半径
-		NFShmString<128> m_damagefishids;//伤害子鱼Ids
-		NFShmVector<NFShmString<64>, DEFINE_E_FISHCONFIG_M_CHILDFISHIDS_MAX_NUM> m_childfishids;//子鱼Ids
-
-		virtual void write_to_pbmsg(::proto_ff::E_FishConfig & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::E_FishConfig & msg);
-		static ::proto_ff::E_FishConfig* new_pbmsg(){ return new ::proto_ff::E_FishConfig(); }
-		static ::proto_ff::E_FishConfig make_pbmsg(){ return ::proto_ff::E_FishConfig(); }
-	};
-	typedef struct E_FishConfig_s E_FishConfig_t;
-
-	struct Sheet_FishConfig_s : public NFDescStoreSeqOP {
-		Sheet_FishConfig_s();
-		virtual ~Sheet_FishConfig_s(){}
-		int CreateInit();
-		int ResumeInit();
-		NFShmVector<struct E_FishConfig_s, DEFINE_SHEET_FISHCONFIG_E_FISHCONFIG_LIST_MAX_NUM> E_FishConfig_List;//
-
-		virtual void write_to_pbmsg(::proto_ff::Sheet_FishConfig & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::Sheet_FishConfig & msg);
-		static ::proto_ff::Sheet_FishConfig* new_pbmsg(){ return new ::proto_ff::Sheet_FishConfig(); }
-		static ::proto_ff::Sheet_FishConfig make_pbmsg(){ return ::proto_ff::Sheet_FishConfig(); }
-	};
-	typedef struct Sheet_FishConfig_s Sheet_FishConfig_t;
 
 }
 

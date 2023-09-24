@@ -7,17 +7,17 @@
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Fish_s.h"
 
-#define MAX_FISH_ROOM_NUM 8
+#define MAX_FISH_ROOM_NUM 32
 
 #define MAX_INDEX_FISH_ROOM_GAMEID_NUM 8
 
-#define UNIQUE_KEY_MAX_INDEX_FISH_ROOM_GAMEID_NUM 2
+#define UNIQUE_KEY_MAX_INDEX_FISH_ROOM_GAMEID_NUM 8
 
 #define MAX_COM_INDEX_FISH_ROOM_GAMEID_NUM 8
 
-#define UNIQUE_KEY_MAX_COM_INDEX_FISH_ROOM_GAMEID_NUM 2
+#define UNIQUE_KEY_MAX_COM_INDEX_FISH_ROOM_GAMEID_NUM 8
 
-#define MAX_COM_INDEX_FISH_ROOM_ROOMID_NUM 2
+#define MAX_COM_INDEX_FISH_ROOM_ROOMID_NUM 8
 
 #define UNIQUE_KEY_MAX_COM_INDEX_FISH_ROOM_ROOMID_NUM 8
 
@@ -70,7 +70,6 @@ public:
 	virtual ~FishRoomDesc();
 	int CreateInit();
 	int ResumeInit();
-	virtual bool IsFileLoad() { return false; }
 public:
 	const proto_ff_s::E_FishRoom_s* GetDesc(int64_t id) const;
 	proto_ff_s::E_FishRoom_s* GetDesc(int64_t id);

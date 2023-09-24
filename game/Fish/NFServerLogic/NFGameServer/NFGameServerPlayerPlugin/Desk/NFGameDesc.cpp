@@ -814,6 +814,25 @@ int NFGameDesk::AchievementCount(uint64_t userid, uint64_t ach, uint64_t fee)
     return 0;
 }
 
+int NFGameDesk::CheckDeskStation(uint64_t playerId, int chairIndex)
+{
+    NFGameDeskStation* pDeskStation = GetDeskStation(chairIndex);
+    CHECK_EXPR(pDeskStation, proto_ff::ERR_CODE_CHAIR_NOT_RIGHT, "pDeskStation == NULL");
+
+    //判断位置上是否有人,如果是自己，则放行，位置被自己占住，说明自己曾经异常退出，要么需要重新入座，要么先清理数据
+    if (pDeskStation->m_playerId > 0 && pDeskStation->m_playerId != playerId)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0,
+                   "Error:CGameDesk::CheckDeskStation() chairIndex:{} is using! Request sit down's playerID:{}, "
+                   "Aleady sit down's playerId:{}. OprInfo: m_nRoomID:{} DeskId:{}.",
+                   chairIndex, playerId, pDeskStation->m_playerId, m_roomId, m_deskId);
+
+        return proto_ff::ERR_CODE_CHAIR_HAS_OTHER_PLAYTER;
+    }
+
+    return 0;
+}
+
 int NFGameDesk::EnterGame(uint64_t playerId, int chairIndex, proto_ff_s::GamePlayerDetailData_s &playerDetail)
 {
     CHECK_EXPR(m_deskHandle, proto_ff::ERR_CODE_SYSTEM_ERROR, "param error, m_deskHandle == NULL");

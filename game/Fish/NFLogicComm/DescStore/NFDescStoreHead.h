@@ -5,6 +5,5 @@
 #include "DescStore/FishRoomDesc.h"
 #include "DescStore/FishGunvalueDesc.h"
 #include "DescStore/FishCtrllevelDesc.h"
-#include "DescStore/FishConfigDesc.h"
 #include "DescStoreEx/FishDescEx.h"
 

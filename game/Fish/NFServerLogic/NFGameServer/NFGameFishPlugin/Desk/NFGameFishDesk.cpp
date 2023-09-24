@@ -14,7 +14,6 @@
 #include "NFGameFishDefine.h"
 #include "Config/NFFishPromptConfig.h"
 #include "DescStore/FishGunvalueDesc.h"
-#include "DescStore/FishConfigDesc.h"
 
 #define STATUS_NEXT      0
 #define STATUS_TIMEDELAY 1

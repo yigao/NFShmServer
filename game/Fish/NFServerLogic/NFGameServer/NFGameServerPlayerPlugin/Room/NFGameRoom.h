@@ -228,6 +228,22 @@ public:
      * @return
      */
     int ExitGame(uint64_t playerId);
+
+    /**
+     * @brief
+     * @param playerId
+     * @return
+     */
+    int RecomeGame(uint64_t playerId, uint32_t deskId);
+
+    /**
+     * @brief
+     * @param playerId
+     * @param deskId
+     * @param chairId
+     * @return
+     */
+    int CheckDeskStation(uint64_t playerId, int deskId, int chairId);
 public:
     /**
      * @brief 重连
