@@ -34,10 +34,12 @@ bool NFGameFishModule::Awake()
 {
     CreateDeskFunction createFunc = [](NFIPluginManager* pPluginManager, uint32_t gameId) -> NFIGameDeskImpl *
     {
-        NF_ASSERT(gameId == GAME_ID_FISH_HAIWANG_2004);
         return NFGameFishDesk::CreateObj(pPluginManager);
     };
     FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(GAME_ID_FISH_HAIWANG_2004, createFunc);
+    FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(2003, createFunc);
+    FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(2002, createFunc);
+    FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(2001, createFunc);
 
     //////register client msg////////////////////
     RegisterClientMessage(NF_FISH_CMD_GAMESTATUS);
@@ -72,11 +74,14 @@ int NFGameFishModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t
     if (serverType == NF_ST_GAME_SERVER && nEventID == proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH && bySrcType == proto_ff::NF_EVENT_SERVER_TYPE &&
         nSrcID == APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE)
     {
-        std::vector<uint32_t> roomList = FindModule<NFIGameConfig>()->GetRoomList(GAME_ID_FISH_HAIWANG_2004);
+        std::vector<uint32_t> roomList4 = FindModule<NFIGameConfig>()->GetRoomList(2004);
+        std::vector<uint32_t> roomList3 = FindModule<NFIGameConfig>()->GetRoomList(2003);
+        std::vector<uint32_t> roomList2 = FindModule<NFIGameConfig>()->GetRoomList(2002);
+        std::vector<uint32_t> roomList1 = FindModule<NFIGameConfig>()->GetRoomList(2001);
 
-        for (int i = 0; i < (int) roomList.size(); i++)
+        for (int i = 0; i < (int) roomList4.size(); i++)
         {
-            uint32_t roomId = roomList[i];
+            uint32_t roomId = roomList4[i];
 
             if (!NFFishConfigConfig::GetObjByHashKey(m_pObjPluginManager, roomId))
             {

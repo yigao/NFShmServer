@@ -65,10 +65,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/Fish/Data/E_FishRoom.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/Fish/Data/E_FishRoom.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/Excel/Fish.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Room/NFRoomPart.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Room/NFRoomPart.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Desk/NFGameDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Desk/NFGameDesc.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -467,8 +464,42 @@
       <workItem from="1695170001243" duration="14413000" />
       <workItem from="1695193891566" duration="4379000" />
       <workItem from="1695199003458" duration="28609000" />
-      <workItem from="1695343428574" duration="39636000" />
-      <workItem from="1695516801572" duration="12023000" />
+      <workItem from="1695343428574" duration="37972000" />
+    </task>
+    <task id="LOCAL-00124" summary="redis mysql db">
+      <created>1694656708042</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1694656708042</updated>
+    </task>
+    <task id="LOCAL-00125" summary="redis mysql db">
+      <created>1694658719061</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1694658719061</updated>
+    </task>
+    <task id="LOCAL-00126" summary="redis mysql db">
+      <created>1694662889317</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1694662889317</updated>
+    </task>
+    <task id="LOCAL-00127" summary="redis mysql db">
+      <created>1694662899931</created>
+      <option name="number" value="00127" />
+      <option name="presentableId" value="LOCAL-00127" />
+      <option name="project" value="LOCAL" />
+      <updated>1694662899931</updated>
+    </task>
+    <task id="LOCAL-00128" summary="redis mysql db">
+      <created>1694662994312</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1694662994312</updated>
     </task>
     <task id="LOCAL-00129" summary="redis mysql db">
       <created>1694669491542</created>
@@ -778,42 +809,7 @@
       <option name="project" value="LOCAL" />
       <updated>1695432186860</updated>
     </task>
-    <task id="LOCAL-00173" summary="fish">
-      <created>1695447014648</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1695447014648</updated>
-    </task>
-    <task id="LOCAL-00174" summary="fish">
-      <created>1695516920238</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1695516920238</updated>
-    </task>
-    <task id="LOCAL-00175" summary="fish">
-      <created>1695524923223</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1695524923223</updated>
-    </task>
-    <task id="LOCAL-00176" summary="fish">
-      <created>1695528224319</created>
-      <option name="number" value="00176" />
-      <option name="presentableId" value="LOCAL-00176" />
-      <option name="project" value="LOCAL" />
-      <updated>1695528224319</updated>
-    </task>
-    <task id="LOCAL-00177" summary="fish">
-      <created>1695528897706</created>
-      <option name="number" value="00177" />
-      <option name="presentableId" value="LOCAL-00177" />
-      <option name="project" value="LOCAL" />
-      <updated>1695528897706</updated>
-    </task>
-    <option name="localTasksCounter" value="178" />
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -822,6 +818,12 @@
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.lua" />
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.log" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticEditVcpkgJson value="false" />
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticFoundErrors value="true" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ID_ORDER">
@@ -835,6 +837,12 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="4ca14f42-fcbd-41a3-9f17-bba2cbabe9c2" value="TOOL_WINDOW" />
+        <entry key="e4d0dc1a-2dc3-4d5f-9eb2-ef9d144b4e79" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="1dd8d341-ef35-4408-b708-d05815b42d63">
@@ -845,7 +853,6 @@
         <entry key="48a8a772-030e-4cf3-a437-d0c93bd629b5">
           <value>
             <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -864,13 +871,13 @@
                   </entry>
                 </map>
               </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
             </State>
           </value>
         </entry>
         <entry key="4ca14f42-fcbd-41a3-9f17-bba2cbabe9c2">
           <value>
             <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -889,13 +896,13 @@
                   </entry>
                 </map>
               </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
             </State>
           </value>
         </entry>
         <entry key="643dadc1-decf-44e6-a1f5-d5f8d81a95df">
           <value>
             <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -914,6 +921,7 @@
                   </entry>
                 </map>
               </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
             </State>
           </value>
         </entry>
@@ -925,7 +933,6 @@
         <entry key="cb87214b-815e-45bf-a550-8c4387a868a2">
           <value>
             <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -944,13 +951,13 @@
                   </entry>
                 </map>
               </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
             </State>
           </value>
         </entry>
         <entry key="e4d0dc1a-2dc3-4d5f-9eb2-ef9d144b4e79">
           <value>
             <State>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -969,15 +976,10 @@
                   </entry>
                 </map>
               </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
             </State>
           </value>
         </entry>
-      </map>
-    </option>
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="4ca14f42-fcbd-41a3-9f17-bba2cbabe9c2" value="TOOL_WINDOW" />
-        <entry key="e4d0dc1a-2dc3-4d5f-9eb2-ef9d144b4e79" value="TOOL_WINDOW" />
       </map>
     </option>
   </component>
@@ -1019,6 +1021,11 @@
           <url>file://$PROJECT_DIR$/game/Fish/NFLogicComm/DescStore/RoomRoomDesc.cpp</url>
           <line>123</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Desk/NFGameFishDesk.cpp</url>
+          <line>1410</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
