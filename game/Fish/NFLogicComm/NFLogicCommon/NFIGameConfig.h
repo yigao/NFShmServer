@@ -34,6 +34,8 @@ public:
 
     virtual std::vector<uint32_t> GetRoomList(uint32_t gameId) const = 0;
 
+    virtual std::unordered_map<uint32_t, std::vector<uint32_t>> GetGameRoomList() const = 0;
+
     virtual uint32_t GetAllRoomNum() const = 0;
 
     virtual uint32_t GetRoomMaxDeskNum() const = 0;

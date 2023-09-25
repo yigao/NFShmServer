@@ -27,7 +27,7 @@ public:
     int ResumeInit();
 
 
-    virtual int LoadConfig(uint32_t roomId);
+    virtual int LoadConfig(uint32_t gameId, uint32_t roomId);
     virtual int GetAllGroupFiles(const std::string& strFishGroupPath, std::list<std::string> & FilesList);
     int GetFileContainMD5(const std::string& strFileName, std::string& fileMd5);
 

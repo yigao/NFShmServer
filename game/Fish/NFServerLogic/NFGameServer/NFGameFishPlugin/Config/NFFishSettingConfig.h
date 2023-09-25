@@ -51,7 +51,7 @@ public:
 
 
 public:
-    int LoadConfig(uint32_t roomId);
+    int LoadConfig(uint32_t gameId, uint32_t roomId);
 
 	uint32_t GetShootTrace(int chairId, int traceIndex);
 	std::string GetPriorWayBill(std::string strLastWayBillName = "");

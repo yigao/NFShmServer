@@ -253,7 +253,7 @@ int NFDelayBomb::HandleDelayed()
 
                 if ((m_uTotalScore + iScore > (uint32_t)m_iMaxWinMoney)
                     || (m_uTotalScore + iScore > iMyMaxWinMoney)
-                    || (!m_bombFish.IsCanKill(m_pFishTypeDelayBomb->m_pObjPluginManager, m_pFishTypeDelayBomb->m_pDesk->GetRoomId(), pSubFish->m_nFishKind)))
+                    || (!m_bombFish.IsCanKill(m_pFishTypeDelayBomb->m_pDesk->GetFishConfigConfig(), pSubFish->m_nFishKind)))
                 {
                     if (m_uTotalScore + iScore > (uint32_t)m_iMaxWinMoney)
                     {
@@ -265,7 +265,7 @@ int NFDelayBomb::HandleDelayed()
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "KillFish()==>Normal ! m_uTotalScore + iScore > m_iMaxWinMoney ! {} + {} > {} !", m_uTotalScore, iScore, MyMaxWinMoney());
                     }
 
-                    if ((!m_bombFish.IsCanKill(m_pFishTypeDelayBomb->m_pObjPluginManager, m_pFishTypeDelayBomb->m_pDesk->GetRoomId(), pSubFish->m_nFishKind)))
+                    if ((!m_bombFish.IsCanKill(m_pFishTypeDelayBomb->m_pDesk->GetFishConfigConfig(), pSubFish->m_nFishKind)))
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "KillFish()==>Normal ! IsCanKill == false pSubFish->m_nFishKind = {}", pSubFish->m_nFishKind);
                     }

@@ -48,12 +48,15 @@ int NFFishGroupConfig::GetFileContainMD5(const std::string& strFileName, std::st
     return 0;
 }
 
-int NFFishGroupConfig::LoadConfig(uint32_t roomId)
+int NFFishGroupConfig::LoadConfig(uint32_t gameId, uint32_t roomId)
 {
     m_roomId = roomId;
+    uint64_t comKey = gameId * 100 + roomId;
+    NFFishTraceConfig* pTrace = NFFishTraceConfig::GetObjByHashKey(m_pObjPluginManager, comKey);
+    CHECK_NULL(pTrace);
 
     std::list<std::string> FilesList;
-    std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(GAME_ID_FISH_HAIWANG_2004) + "_" + NFCommon::tostr(m_roomId);
+    std::string path = m_pObjPluginManager->GetConfigPath() + "/Config" + NFCommon::tostr(gameId) + "_" + NFCommon::tostr(m_roomId);
 
     int iRet = 0;
 
@@ -96,7 +99,7 @@ int NFFishGroupConfig::LoadConfig(uint32_t roomId)
         }
 
 		//NFLogTrace(NF_LOG_SYSTEMLOG, 0, "CFishGroupMgr::Init() m_FishGroupMap[{}] = groupId = {}", unId, unId);
-        iRet = group->Load(*it, m_roomId, m_pObjPluginManager);
+        iRet = group->Load(*it, pTrace);
 
 		int iSceneType = group->m_bySceneType;
 		int iSceneIndex = group->m_bySceneIndex;

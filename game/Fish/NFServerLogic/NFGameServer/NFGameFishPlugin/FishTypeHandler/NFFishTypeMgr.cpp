@@ -165,7 +165,7 @@ int NFFishTypeMgr::OnAddScore(NFGameFishPlayer* pPlayer, NFGameFish* pFish, uint
 
 int NFFishTypeMgr::DoubleCannonHandler(NFGameFishPlayer* pPlayer, NFGameFish* pFish)
 {
-    auto pFishSettingConfig = NFFishSettingConfig::GetObjByHashKey(m_pObjPluginManager, m_pDesk->GetRoomId());
+    auto pFishSettingConfig = m_pDesk->GetFishSettingConfig();
     CHECK_NULL(pFishSettingConfig);
     if (pFishSettingConfig->m_iDoubleCannonEnable == 0)
     {

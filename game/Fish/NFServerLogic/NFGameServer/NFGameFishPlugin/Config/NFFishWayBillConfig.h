@@ -14,7 +14,7 @@ public:
     int CreateInit();
     int ResumeInit();
 
-    int LoadConfig(uint32_t roomId);
+    int LoadConfig(uint32_t gameId, uint32_t roomId);
 
     static void LoadWayBills(const std::string& strWayBillPath, NFShmVector<CFishWayBillData, MAX_WAYBILL_FILE_COUNT>& vecWayBills);
 

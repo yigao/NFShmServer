@@ -68,7 +68,7 @@ bool NFGameFishPlugin::InitShmObjectRegister()
     auto pGameConfig = FindModule<NFIGameConfig>()->GetConfig();
     NF_ASSERT(pGameConfig);
 
-    uint32_t roomNum = FindModule<NFIGameConfig>()->GetRoomNum(GAME_ID_FISH_HAIWANG_2004);
+    uint32_t roomNum = FindModule<NFIGameConfig>()->GetAllRoomNum();
     uint32_t maxDeskNumByRoom =  FindModule<NFIGameConfig>()->GetRoomMaxDeskNum();
     uint32_t maxDeskNum = roomNum*maxDeskNumByRoom*1.2;
     REGISTER_SHM_OBJ_WITH_HASH(NFFishTraceConfig, roomNum);

@@ -98,32 +98,38 @@ int NFGameFishDesk::Init(NFIGameDesk *pGameHandle, uint32_t gameId, uint32_t roo
 
 NFFishConfigConfig *NFGameFishDesk::GetFishConfigConfig()
 {
-    return NFFishConfigConfig::GetObjByHashKey(m_pObjPluginManager, m_roomId);
+    uint64_t comKey = m_gameId * 100 + m_roomId;
+    return NFFishConfigConfig::GetObjByHashKey(m_pObjPluginManager, comKey);
 }
 
 NFFishGroupConfig *NFGameFishDesk::GetFishGroupConfig()
 {
-    return NFFishGroupConfig::GetObjByHashKey(m_pObjPluginManager, m_roomId);
+    uint64_t comKey = m_gameId * 100 + m_roomId;
+    return NFFishGroupConfig::GetObjByHashKey(m_pObjPluginManager, comKey);
 }
 
 NFFishPromptConfig *NFGameFishDesk::GetFishPromptConfig()
 {
-    return NFFishPromptConfig::GetObjByHashKey(m_pObjPluginManager, m_roomId);
+    uint64_t comKey = m_gameId * 100 + m_roomId;
+    return NFFishPromptConfig::GetObjByHashKey(m_pObjPluginManager, comKey);
 }
 
 NFFishSettingConfig *NFGameFishDesk::GetFishSettingConfig()
 {
-    return NFFishSettingConfig::GetObjByHashKey(m_pObjPluginManager, m_roomId);
+    uint64_t comKey = m_gameId * 100 + m_roomId;
+    return NFFishSettingConfig::GetObjByHashKey(m_pObjPluginManager, comKey);
 }
 
 NFFishTraceConfig *NFGameFishDesk::GetFishTraceConfig()
 {
-    return NFFishTraceConfig::GetObjByHashKey(m_pObjPluginManager, m_roomId);
+    uint64_t comKey = m_gameId * 100 + m_roomId;
+    return NFFishTraceConfig::GetObjByHashKey(m_pObjPluginManager, comKey);
 }
 
 NFFishWayBillConfig *NFGameFishDesk::GetFishWayBillConfig()
 {
-    return NFFishWayBillConfig::GetObjByHashKey(m_pObjPluginManager, m_roomId);
+    uint64_t comKey = m_gameId * 100 + m_roomId;
+    return NFFishWayBillConfig::GetObjByHashKey(m_pObjPluginManager, comKey);
 }
 
 int NFGameFishDesk::UserReCome(uint64_t playerId, int iDeskStation, proto_ff_s::GamePlayerDetailData_s &playerDetail)

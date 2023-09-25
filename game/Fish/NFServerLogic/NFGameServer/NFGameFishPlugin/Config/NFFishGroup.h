@@ -13,6 +13,7 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmStl/NFShmString.h"
+#include "NFFishTraceConfig.h"
 
 #include <list>
 
@@ -97,7 +98,7 @@ public:
 
     int ResumeInit();
 
-	int Load(const std::string &strFile, uint32_t roomId, NFIPluginManager* pPluginManager);
+	int Load(const std::string &strFile, NFFishTraceConfig* pTrace);
 
     const FISH_LIST &GetFishList();
 
@@ -118,8 +119,8 @@ public:
     void SetFileMD5(const std::string& md5) { m_szMD5 = md5; }
 protected:
     
-	int ReadGroupFileVer0(FILE* fpGroup, NFIPluginManager* pPluginManager);
-	int ReadGroupFileVer1(FILE* fpGroup, NFIPluginManager* pPluginManager);
+	int ReadGroupFileVer0(FILE* fpGroup);
+	int ReadGroupFileVer1(FILE* fpGroup, NFFishTraceConfig* pTrace);
 
 public:
     uint32_t m_unId;          //鱼阵ID
@@ -135,5 +136,4 @@ public:
 	uint8_t  m_bySceneType;
 	int8_t   m_bySceneIndex;
     NFShmString<FISH_MAX_MD5_STR_LEN> m_szMD5;
-    uint32_t m_roomId;
 };

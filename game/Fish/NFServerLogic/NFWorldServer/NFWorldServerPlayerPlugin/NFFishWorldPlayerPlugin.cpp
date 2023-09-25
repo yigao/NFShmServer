@@ -70,7 +70,7 @@ bool NFFishWorldPlayerPlugin::InitShmObjectRegister()
     REGISTER_SINGLETON_SHM_OBJ(NFWorldPlayerMgr);//
 
     ///////init game room shm///////////////////
-    REGISTER_SHM_OBJ_WITH_HASH(NFWorldRoom, MAX_GAME_ROOM_NUM);
+    REGISTER_SHM_OBJ_WITH_HASH(NFWorldRoom, MAX_GAME_TYPE_NUM*MAX_GAME_ROOM_NUM);
     REGISTER_SINGLETON_SHM_OBJ(NFWorldRoomMgr);
 
 	return true;

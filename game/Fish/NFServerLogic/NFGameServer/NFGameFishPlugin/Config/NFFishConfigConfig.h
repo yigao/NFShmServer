@@ -152,7 +152,7 @@ public:
     int ResumeInit();
 
 public:
-    int LoadConfig(uint32_t roomId);
+    int LoadConfig(uint32_t gameId, uint32_t roomId);
 
 	virtual int LoadConfig(const std::string& strFishKindCfgFile);
 

@@ -13,6 +13,7 @@
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "Config/HMPoint.h"
 #include "Config/NFFishTraceConfig.h"
+#include "Config/NFFishConfigConfig.h"
 
 #define INVALID_FISHID   0
 #define INVALID_FISHKIND 255
@@ -207,7 +208,7 @@ public:
         }
     }
 
-    bool IsCanKill(NFIPluginManager *pPluginManager, uint32_t roomId, int iSubFishKind);
+    bool IsCanKill(NFFishConfigConfig *pFishConfigDesc, int iSubFishKind);
 
 public:
     uint32_t m_uFishId;

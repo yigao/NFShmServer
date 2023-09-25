@@ -34,10 +34,12 @@ bool NFGameFishModule::Awake()
 {
     CreateDeskFunction createFunc = [](NFIPluginManager* pPluginManager, uint32_t gameId) -> NFIGameDeskImpl *
     {
-        NF_ASSERT(gameId == GAME_ID_FISH_HAIWANG_2004);
         return NFGameFishDesk::CreateObj(pPluginManager);
     };
     FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(GAME_ID_FISH_HAIWANG_2004, createFunc);
+    FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(2003, createFunc);
+    FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(2002, createFunc);
+    FindModule<NFIGameRoomModule>()->RegisterCreateDeskFunction(2001, createFunc);
 
     //////register client msg////////////////////
     RegisterClientMessage(NF_FISH_CMD_GAMESTATUS);
@@ -72,53 +74,65 @@ int NFGameFishModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t
     if (serverType == NF_ST_GAME_SERVER && nEventID == proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH && bySrcType == proto_ff::NF_EVENT_SERVER_TYPE &&
         nSrcID == APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE)
     {
-        std::vector<uint32_t> roomList = FindModule<NFIGameConfig>()->GetRoomList(GAME_ID_FISH_HAIWANG_2004);
+        std::unordered_map<uint32_t, std::vector<uint32_t>> gameRoomMap = FindModule<NFIGameConfig>()->GetGameRoomList();
 
-        for (int i = 0; i < (int) roomList.size(); i++)
+        for(auto iter = gameRoomMap.begin(); iter != gameRoomMap.end(); iter++)
         {
-            uint32_t roomId = roomList[i];
-
-            if (!NFFishConfigConfig::GetObjByHashKey(m_pObjPluginManager, roomId))
+            uint32_t gameId = iter->first;
+            std::vector<uint32_t>& roomList = iter->second;
+            for (int i = 0; i < (int) roomList.size(); i++)
             {
-                NFFishConfigConfig *pFish = NFFishConfigConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
-                NF_ASSERT(pFish);
-                pFish->LoadConfig(roomId);
-            }
+                uint32_t roomId = roomList[i];
 
-            if (!NFFishSettingConfig::GetObjByHashKey(m_pObjPluginManager, roomId))
-            {
-                NFFishSettingConfig *pSetting = NFFishSettingConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
-                NF_ASSERT(pSetting);
-                pSetting->LoadConfig(roomId);
-            }
+                uint64_t comKey = gameId*100+roomId;
 
-            if (!NFFishPromptConfig::GetObjByHashKey(m_pObjPluginManager, roomId))
-            {
-                NFFishPromptConfig *pPrompt = NFFishPromptConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
-                NF_ASSERT(pPrompt);
-                pPrompt->LoadConfig(roomId);
-            }
+                if (!NFFishConfigConfig::GetObjByHashKey(m_pObjPluginManager, comKey))
+                {
+                    NFFishConfigConfig *pFish = NFFishConfigConfig::CreateObjByHashKey(m_pObjPluginManager, comKey);
+                    NF_ASSERT(pFish);
+                    int iRet = pFish->LoadConfig(gameId, roomId);
+                    CHECK_EXPR_ASSERT(iRet == 0, -1, "NFFishConfigConfig LoadConfig Failed, gameId:{} roomId:{}", gameId, roomId);
+                }
 
-            if (!NFFishWayBillConfig::GetObjByHashKey(m_pObjPluginManager, roomId))
-            {
-                NFFishWayBillConfig *pWayBill = NFFishWayBillConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
-                NF_ASSERT(pWayBill);
-                pWayBill->LoadConfig(roomId);
-            }
+                if (!NFFishSettingConfig::GetObjByHashKey(m_pObjPluginManager, comKey))
+                {
+                    NFFishSettingConfig *pSetting = NFFishSettingConfig::CreateObjByHashKey(m_pObjPluginManager, comKey);
+                    NF_ASSERT(pSetting);
+                    int iRet = pSetting->LoadConfig(gameId, roomId);
+                    CHECK_EXPR_ASSERT(iRet == 0, -1, "NFFishSettingConfig LoadConfig Failed, gameId:{} roomId:{}", gameId, roomId);
+                }
 
-            if (!NFFishTraceConfig::GetObjByHashKey(m_pObjPluginManager, roomId))
-            {
-                //trace must load before the group
-                NFFishTraceConfig *pTrace = NFFishTraceConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
-                NF_ASSERT(pTrace);
-                pTrace->LoadConfig(roomId);
-            }
+                if (!NFFishPromptConfig::GetObjByHashKey(m_pObjPluginManager, comKey))
+                {
+                    NFFishPromptConfig *pPrompt = NFFishPromptConfig::CreateObjByHashKey(m_pObjPluginManager, comKey);
+                    NF_ASSERT(pPrompt);
+                    int iRet = pPrompt->LoadConfig(gameId, roomId);
+                    CHECK_EXPR_ASSERT(iRet == 0, -1, "NFFishPromptConfig LoadConfig Failed, gameId:{} roomId:{}", gameId, roomId);
+                }
 
-            if (!NFFishGroupConfig::GetObjByHashKey(m_pObjPluginManager, roomId))
-            {
-                NFFishGroupConfig *pGroup = NFFishGroupConfig::CreateObjByHashKey(m_pObjPluginManager, roomId);
-                NF_ASSERT(pGroup);
-                pGroup->LoadConfig(roomId);
+                if (!NFFishWayBillConfig::GetObjByHashKey(m_pObjPluginManager, comKey))
+                {
+                    NFFishWayBillConfig *pWayBill = NFFishWayBillConfig::CreateObjByHashKey(m_pObjPluginManager, comKey);
+                    NF_ASSERT(pWayBill);
+                    int iRet = pWayBill->LoadConfig(gameId, roomId);
+                    CHECK_EXPR_ASSERT(iRet == 0, -1, "NFFishWayBillConfig LoadConfig Failed, gameId:{} roomId:{}", gameId, roomId);
+                }
+
+                if (!NFFishTraceConfig::GetObjByHashKey(m_pObjPluginManager, comKey))
+                {
+                    NFFishTraceConfig *pTrace = NFFishTraceConfig::CreateObjByHashKey(m_pObjPluginManager, comKey);
+                    NF_ASSERT(pTrace);
+                    int iRet = pTrace->LoadConfig(gameId, roomId);
+                    CHECK_EXPR_ASSERT(iRet == 0, -1, "NFFishWayBillConfig LoadConfig Failed, gameId:{} roomId:{}", gameId, roomId);
+                }
+
+                if (!NFFishGroupConfig::GetObjByHashKey(m_pObjPluginManager, comKey))
+                {
+                    NFFishGroupConfig *pGroup = NFFishGroupConfig::CreateObjByHashKey(m_pObjPluginManager, comKey);
+                    NF_ASSERT(pGroup);
+                    int iRet = pGroup->LoadConfig(gameId, roomId);
+                    CHECK_EXPR_ASSERT(iRet == 0, -1, "NFFishWayBillConfig LoadConfig Failed, gameId:{} roomId:{}", gameId, roomId);
+                }
             }
         }
     }
