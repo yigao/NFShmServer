@@ -227,20 +227,6 @@ message gcUserMoney
 
 }
 
-message FreezeFish
-{
-  optional uint32 fish_uid = 1;
-  optional uint32 fish_id  = 2;
-}
-
-message gcFreezeFishes
-{
-  optional uint32 mainfish_uid  = 1;
-  optional uint32 mainfish_id   = 2;
-  optional uint32 mainFishType  = 3;
-  optional bool IsFreeze        = 4;
-  repeated FreezeFish fishes    = 5 [(yd_fieldoptions.field_arysize)=500];//至少要500个
-}
 
 message SC_DoubleGunOnOff
 {

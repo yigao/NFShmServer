@@ -107,12 +107,6 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* gcUserMoney_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   gcUserMoney_reflection_ = NULL;
-const ::google::protobuf::Descriptor* FreezeFish_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  FreezeFish_reflection_ = NULL;
-const ::google::protobuf::Descriptor* gcFreezeFishes_descriptor_ = NULL;
-const ::google::protobuf::internal::GeneratedMessageReflection*
-  gcFreezeFishes_reflection_ = NULL;
 const ::google::protobuf::Descriptor* SC_DoubleGunOnOff_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   SC_DoubleGunOnOff_reflection_ = NULL;
@@ -736,42 +730,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(gcUserMoney));
-  FreezeFish_descriptor_ = file->message_type(29);
-  static const int FreezeFish_offsets_[2] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FreezeFish, fish_uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FreezeFish, fish_id_),
-  };
-  FreezeFish_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      FreezeFish_descriptor_,
-      FreezeFish::default_instance_,
-      FreezeFish_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FreezeFish, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FreezeFish, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(FreezeFish));
-  gcFreezeFishes_descriptor_ = file->message_type(30);
-  static const int gcFreezeFishes_offsets_[5] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, mainfish_uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, mainfish_id_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, mainfishtype_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, isfreeze_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, fishes_),
-  };
-  gcFreezeFishes_reflection_ =
-    new ::google::protobuf::internal::GeneratedMessageReflection(
-      gcFreezeFishes_descriptor_,
-      gcFreezeFishes::default_instance_,
-      gcFreezeFishes_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, _unknown_fields_),
-      -1,
-      ::google::protobuf::DescriptorPool::generated_pool(),
-      ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(gcFreezeFishes));
-  SC_DoubleGunOnOff_descriptor_ = file->message_type(31);
+  SC_DoubleGunOnOff_descriptor_ = file->message_type(29);
   static const int SC_DoubleGunOnOff_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SC_DoubleGunOnOff, chairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SC_DoubleGunOnOff, onoff_),
@@ -787,7 +746,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SC_DoubleGunOnOff));
-  PromptInfoRsp_descriptor_ = file->message_type(32);
+  PromptInfoRsp_descriptor_ = file->message_type(30);
   static const int PromptInfoRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PromptInfoRsp, infotype_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PromptInfoRsp, fishkindid_),
@@ -803,7 +762,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(PromptInfoRsp));
-  GameStatusRsp_descriptor_ = file->message_type(33);
+  GameStatusRsp_descriptor_ = file->message_type(31);
   static const int GameStatusRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameStatusRsp, background_index_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(GameStatusRsp, cannonlist_),
@@ -820,7 +779,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GameStatusRsp));
-  CreateDianCiCannonRsp_descriptor_ = file->message_type(34);
+  CreateDianCiCannonRsp_descriptor_ = file->message_type(32);
   static const int CreateDianCiCannonRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateDianCiCannonRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateDianCiCannonRsp, usdiancicannonid_),
@@ -840,7 +799,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateDianCiCannonRsp));
-  DianCiCannonAimReq_descriptor_ = file->message_type(35);
+  DianCiCannonAimReq_descriptor_ = file->message_type(33);
   static const int DianCiCannonAimReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonAimReq, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonAimReq, usdiancicannonid_),
@@ -857,7 +816,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DianCiCannonAimReq));
-  DianCiCannonAimRsp_descriptor_ = file->message_type(36);
+  DianCiCannonAimRsp_descriptor_ = file->message_type(34);
   static const int DianCiCannonAimRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonAimRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonAimRsp, usdiancicannonid_),
@@ -874,7 +833,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DianCiCannonAimRsp));
-  DianCiCannonShootReq_descriptor_ = file->message_type(37);
+  DianCiCannonShootReq_descriptor_ = file->message_type(35);
   static const int DianCiCannonShootReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonShootReq, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonShootReq, usdiancicannonid_),
@@ -891,7 +850,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DianCiCannonShootReq));
-  DianCiCannonShootRsp_descriptor_ = file->message_type(38);
+  DianCiCannonShootRsp_descriptor_ = file->message_type(36);
   static const int DianCiCannonShootRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonShootRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonShootRsp, usdiancicannonid_),
@@ -909,7 +868,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DianCiCannonShootRsp));
-  DianCiCannonHitFishReq_descriptor_ = file->message_type(39);
+  DianCiCannonHitFishReq_descriptor_ = file->message_type(37);
   static const int DianCiCannonHitFishReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonHitFishReq, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonHitFishReq, usdiancicannonid_),
@@ -927,7 +886,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DianCiCannonHitFishReq));
-  DianCiCannonDestroyRsp_descriptor_ = file->message_type(40);
+  DianCiCannonDestroyRsp_descriptor_ = file->message_type(38);
   static const int DianCiCannonDestroyRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonDestroyRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DianCiCannonDestroyRsp, usdiancicannonid_),
@@ -945,7 +904,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DianCiCannonDestroyRsp));
-  CreateZuanTouRsp_descriptor_ = file->message_type(41);
+  CreateZuanTouRsp_descriptor_ = file->message_type(39);
   static const int CreateZuanTouRsp_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateZuanTouRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateZuanTouRsp, uszuantouid_),
@@ -967,7 +926,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateZuanTouRsp));
-  ZuanTouAimReq_descriptor_ = file->message_type(42);
+  ZuanTouAimReq_descriptor_ = file->message_type(40);
   static const int ZuanTouAimReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouAimReq, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouAimReq, uszuantouid_),
@@ -984,7 +943,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZuanTouAimReq));
-  ZuanTouAimRsp_descriptor_ = file->message_type(43);
+  ZuanTouAimRsp_descriptor_ = file->message_type(41);
   static const int ZuanTouAimRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouAimRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouAimRsp, uszuantouid_),
@@ -1001,7 +960,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZuanTouAimRsp));
-  ZuanTouShootReq_descriptor_ = file->message_type(44);
+  ZuanTouShootReq_descriptor_ = file->message_type(42);
   static const int ZuanTouShootReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouShootReq, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouShootReq, uszuantouid_),
@@ -1018,7 +977,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZuanTouShootReq));
-  ZuanTouShootRsp_descriptor_ = file->message_type(45);
+  ZuanTouShootRsp_descriptor_ = file->message_type(43);
   static const int ZuanTouShootRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouShootRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouShootRsp, uszuantouid_),
@@ -1038,7 +997,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZuanTouShootRsp));
-  ZuanTouHitFishReq_descriptor_ = file->message_type(46);
+  ZuanTouHitFishReq_descriptor_ = file->message_type(44);
   static const int ZuanTouHitFishReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouHitFishReq, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouHitFishReq, uszuantouid_),
@@ -1056,7 +1015,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZuanTouHitFishReq));
-  ZuanTouBombRsp_descriptor_ = file->message_type(47);
+  ZuanTouBombRsp_descriptor_ = file->message_type(45);
   static const int ZuanTouBombRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouBombRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(ZuanTouBombRsp, uszuantouid_),
@@ -1074,7 +1033,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ZuanTouBombRsp));
-  SomeZuanTouInfo_descriptor_ = file->message_type(48);
+  SomeZuanTouInfo_descriptor_ = file->message_type(46);
   static const int SomeZuanTouInfo_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SomeZuanTouInfo, uszuantouid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SomeZuanTouInfo, usangle_),
@@ -1092,7 +1051,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SomeZuanTouInfo));
-  CreateSomeZuanTouRsp_descriptor_ = file->message_type(49);
+  CreateSomeZuanTouRsp_descriptor_ = file->message_type(47);
   static const int CreateSomeZuanTouRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSomeZuanTouRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSomeZuanTouRsp, ussomezuantouid_),
@@ -1112,7 +1071,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateSomeZuanTouRsp));
-  SomeZuanTouShootRsp_descriptor_ = file->message_type(50);
+  SomeZuanTouShootRsp_descriptor_ = file->message_type(48);
   static const int SomeZuanTouShootRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SomeZuanTouShootRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SomeZuanTouShootRsp, ussomezuantouid_),
@@ -1129,7 +1088,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SomeZuanTouShootRsp));
-  SomeZuanTouHitFishReq_descriptor_ = file->message_type(51);
+  SomeZuanTouHitFishReq_descriptor_ = file->message_type(49);
   static const int SomeZuanTouHitFishReq_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SomeZuanTouHitFishReq, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SomeZuanTouHitFishReq, ussomezuantouid_),
@@ -1147,7 +1106,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SomeZuanTouHitFishReq));
-  SomeZuanTouBombRsp_descriptor_ = file->message_type(52);
+  SomeZuanTouBombRsp_descriptor_ = file->message_type(50);
   static const int SomeZuanTouBombRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SomeZuanTouBombRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SomeZuanTouBombRsp, ussomezuantouid_),
@@ -1165,7 +1124,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SomeZuanTouBombRsp));
-  CreateFireStormRsp_descriptor_ = file->message_type(53);
+  CreateFireStormRsp_descriptor_ = file->message_type(51);
   static const int CreateFireStormRsp_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateFireStormRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateFireStormRsp, usfirestormid_),
@@ -1186,7 +1145,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateFireStormRsp));
-  DestoryFireStormRsp_descriptor_ = file->message_type(54);
+  DestoryFireStormRsp_descriptor_ = file->message_type(52);
   static const int DestoryFireStormRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DestoryFireStormRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DestoryFireStormRsp, usfirestormid_),
@@ -1204,7 +1163,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DestoryFireStormRsp));
-  FireStormStatusRsp_descriptor_ = file->message_type(55);
+  FireStormStatusRsp_descriptor_ = file->message_type(53);
   static const int FireStormStatusRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FireStormStatusRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FireStormStatusRsp, usfirestormid_),
@@ -1221,7 +1180,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FireStormStatusRsp));
-  FireStormScoreRsp_descriptor_ = file->message_type(56);
+  FireStormScoreRsp_descriptor_ = file->message_type(54);
   static const int FireStormScoreRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FireStormScoreRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FireStormScoreRsp, usfirestormid_),
@@ -1239,7 +1198,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(FireStormScoreRsp));
-  CreateMadCowRsp_descriptor_ = file->message_type(57);
+  CreateMadCowRsp_descriptor_ = file->message_type(55);
   static const int CreateMadCowRsp_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateMadCowRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateMadCowRsp, usmadcowid_),
@@ -1261,7 +1220,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateMadCowRsp));
-  DestoryMadCowRsp_descriptor_ = file->message_type(58);
+  DestoryMadCowRsp_descriptor_ = file->message_type(56);
   static const int DestoryMadCowRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DestoryMadCowRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DestoryMadCowRsp, usmadcowid_),
@@ -1279,7 +1238,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DestoryMadCowRsp));
-  MadCowStatusRsp_descriptor_ = file->message_type(59);
+  MadCowStatusRsp_descriptor_ = file->message_type(57);
   static const int MadCowStatusRsp_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MadCowStatusRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MadCowStatusRsp, usmadcowid_),
@@ -1296,7 +1255,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MadCowStatusRsp));
-  MadCowScoreRsp_descriptor_ = file->message_type(60);
+  MadCowScoreRsp_descriptor_ = file->message_type(58);
   static const int MadCowScoreRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MadCowScoreRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MadCowScoreRsp, usmadcowid_),
@@ -1314,7 +1273,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(MadCowScoreRsp));
-  CreateSerialBombCrabRsp_descriptor_ = file->message_type(61);
+  CreateSerialBombCrabRsp_descriptor_ = file->message_type(59);
   static const int CreateSerialBombCrabRsp_offsets_[11] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSerialBombCrabRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateSerialBombCrabRsp, usserialbombcrabid_),
@@ -1339,7 +1298,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateSerialBombCrabRsp));
-  SerialBombCrabBombRsp_descriptor_ = file->message_type(62);
+  SerialBombCrabBombRsp_descriptor_ = file->message_type(60);
   static const int SerialBombCrabBombRsp_offsets_[9] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SerialBombCrabBombRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SerialBombCrabBombRsp, usserialbombcrabid_),
@@ -1362,7 +1321,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(SerialBombCrabBombRsp));
-  DestorySerialBombCrabRsp_descriptor_ = file->message_type(63);
+  DestorySerialBombCrabRsp_descriptor_ = file->message_type(61);
   static const int DestorySerialBombCrabRsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DestorySerialBombCrabRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DestorySerialBombCrabRsp, usserialbombcrabid_),
@@ -1380,7 +1339,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(DestorySerialBombCrabRsp));
-  HaiWangCrabHitPartReq_descriptor_ = file->message_type(64);
+  HaiWangCrabHitPartReq_descriptor_ = file->message_type(62);
   static const int HaiWangCrabHitPartReq_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HaiWangCrabHitPartReq, usbulletid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HaiWangCrabHitPartReq, ushaiwangcrabid_),
@@ -1397,7 +1356,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(HaiWangCrabHitPartReq));
-  CrabPart_descriptor_ = file->message_type(65);
+  CrabPart_descriptor_ = file->message_type(63);
   static const int CrabPart_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CrabPart, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CrabPart, uspartid_),
@@ -1415,7 +1374,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CrabPart));
-  HaiWangCrabKilledPartRsp_descriptor_ = file->message_type(66);
+  HaiWangCrabKilledPartRsp_descriptor_ = file->message_type(64);
   static const int HaiWangCrabKilledPartRsp_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HaiWangCrabKilledPartRsp, ushaiwangcrabid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HaiWangCrabKilledPartRsp, arykilledparts_),
@@ -1431,7 +1390,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(HaiWangCrabKilledPartRsp));
-  HaiWangCrabKilledDeadRsp_descriptor_ = file->message_type(67);
+  HaiWangCrabKilledDeadRsp_descriptor_ = file->message_type(65);
   static const int HaiWangCrabKilledDeadRsp_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HaiWangCrabKilledDeadRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(HaiWangCrabKilledDeadRsp, ushaiwangcrabid_),
@@ -1451,7 +1410,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(HaiWangCrabKilledDeadRsp));
-  CreateDelayBombRsp_descriptor_ = file->message_type(68);
+  CreateDelayBombRsp_descriptor_ = file->message_type(66);
   static const int CreateDelayBombRsp_offsets_[8] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateDelayBombRsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateDelayBombRsp, usdelaybombid_),
@@ -1473,7 +1432,7 @@ void protobuf_AssignDesc_CSFish_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateDelayBombRsp));
-  DelayBomb_Bomb_Rsp_descriptor_ = file->message_type(69);
+  DelayBomb_Bomb_Rsp_descriptor_ = file->message_type(67);
   static const int DelayBomb_Bomb_Rsp_offsets_[4] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DelayBomb_Bomb_Rsp, uschairid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DelayBomb_Bomb_Rsp, usdelaybombid_),
@@ -1561,10 +1520,6 @@ void protobuf_RegisterTypes(const ::std::string&) {
     ChangeSceneRsp_descriptor_, &ChangeSceneRsp::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     gcUserMoney_descriptor_, &gcUserMoney::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    FreezeFish_descriptor_, &FreezeFish::default_instance());
-  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    gcFreezeFishes_descriptor_, &gcFreezeFishes::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     SC_DoubleGunOnOff_descriptor_, &SC_DoubleGunOnOff::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -1706,10 +1661,6 @@ void protobuf_ShutdownFile_CSFish_2eproto() {
   delete ChangeSceneRsp_reflection_;
   delete gcUserMoney::default_instance_;
   delete gcUserMoney_reflection_;
-  delete FreezeFish::default_instance_;
-  delete FreezeFish_reflection_;
-  delete gcFreezeFishes::default_instance_;
-  delete gcFreezeFishes_reflection_;
   delete SC_DoubleGunOnOff::default_instance_;
   delete SC_DoubleGunOnOff_reflection_;
   delete PromptInfoRsp::default_instance_;
@@ -1858,129 +1809,124 @@ void protobuf_AddDesc_CSFish_2eproto() {
     "\"S\n\016ChangeSceneRsp\022\020\n\010scene_id\030\001 \001(\r\022\024\n\014"
     "time_seconds\030\002 \001(\002\022\031\n\021scene_change_type\030"
     "\003 \001(\r\"3\n\013gcUserMoney\022\020\n\010chair_id\030\001 \001(\r\022\022"
-    "\n\nuser_money\030\002 \001(\004\"/\n\nFreezeFish\022\020\n\010fish"
-    "_uid\030\001 \001(\r\022\017\n\007fish_id\030\002 \001(\r\"\220\001\n\016gcFreeze"
-    "Fishes\022\024\n\014mainfish_uid\030\001 \001(\r\022\023\n\013mainfish"
-    "_id\030\002 \001(\r\022\024\n\014mainFishType\030\003 \001(\r\022\020\n\010IsFre"
-    "eze\030\004 \001(\010\022+\n\006fishes\030\005 \003(\0132\024.gamefish.Fre"
-    "ezeFishB\005\210\301\024\364\003\"3\n\021SC_DoubleGunOnOff\022\017\n\007c"
-    "hairId\030\001 \001(\r\022\r\n\005onOff\030\002 \001(\r\"5\n\rPromptInf"
-    "oRsp\022\020\n\010infoType\030\001 \001(\r\022\022\n\nfishKindId\030\002 \001"
-    "(\r\"\205\001\n\rGameStatusRsp\022\030\n\020background_index"
-    "\030\001 \001(\r\022.\n\ncannonlist\030\002 \003(\0132\024.gamefish.Ca"
-    "nnonInfoB\004\210\301\024d\022*\n\010userlist\030\003 \003(\0132\022.gamef"
-    "ish.UserInfoB\004\210\301\024d\"\266\001\n\025CreateDianCiCanno"
-    "nRsp\022\021\n\tusChairId\030\001 \001(\005\022\030\n\020usDianCiCanno"
-    "nId\030\002 \001(\005\022\026\n\016usKilledFishId\030\003 \001(\005\022\034\n\024usD"
-    "ianCiCannonStatus\030\004 \001(\005\022 \n\030usDianCiCanno"
-    "nStatusTime\030\005 \001(\002\022\030\n\020usKilledFishKind\030\006 "
-    "\001(\005\"R\n\022DianCiCannonAimReq\022\021\n\tusChairId\030\001"
-    " \001(\005\022\030\n\020usDianCiCannonId\030\002 \001(\005\022\017\n\007usAngl"
-    "e\030\003 \001(\005\"R\n\022DianCiCannonAimRsp\022\021\n\tusChair"
+    "\n\nuser_money\030\002 \001(\004\"3\n\021SC_DoubleGunOnOff\022"
+    "\017\n\007chairId\030\001 \001(\r\022\r\n\005onOff\030\002 \001(\r\"5\n\rPromp"
+    "tInfoRsp\022\020\n\010infoType\030\001 \001(\r\022\022\n\nfishKindId"
+    "\030\002 \001(\r\"\205\001\n\rGameStatusRsp\022\030\n\020background_i"
+    "ndex\030\001 \001(\r\022.\n\ncannonlist\030\002 \003(\0132\024.gamefis"
+    "h.CannonInfoB\004\210\301\024d\022*\n\010userlist\030\003 \003(\0132\022.g"
+    "amefish.UserInfoB\004\210\301\024d\"\266\001\n\025CreateDianCiC"
+    "annonRsp\022\021\n\tusChairId\030\001 \001(\005\022\030\n\020usDianCiC"
+    "annonId\030\002 \001(\005\022\026\n\016usKilledFishId\030\003 \001(\005\022\034\n"
+    "\024usDianCiCannonStatus\030\004 \001(\005\022 \n\030usDianCiC"
+    "annonStatusTime\030\005 \001(\002\022\030\n\020usKilledFishKin"
+    "d\030\006 \001(\005\"R\n\022DianCiCannonAimReq\022\021\n\tusChair"
     "Id\030\001 \001(\005\022\030\n\020usDianCiCannonId\030\002 \001(\005\022\017\n\007us"
-    "Angle\030\003 \001(\005\"T\n\024DianCiCannonShootReq\022\021\n\tu"
-    "sChairId\030\001 \001(\005\022\030\n\020usDianCiCannonId\030\002 \001(\005"
-    "\022\017\n\007usAngle\030\003 \001(\005\"o\n\024DianCiCannonShootRs"
-    "p\022\021\n\tusChairId\030\001 \001(\005\022\030\n\020usDianCiCannonId"
-    "\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\022\031\n\021usProcUserCha"
-    "irId\030\004 \001(\005\"p\n\026DianCiCannonHitFishReq\022\021\n\t"
-    "usChairId\030\001 \001(\005\022\030\n\020usDianCiCannonId\030\002 \001("
-    "\005\022\021\n\tSubFishes\030\003 \003(\005\022\026\n\016usRobotChairId\030\004"
-    " \001(\005\"o\n\026DianCiCannonDestroyRsp\022\021\n\tusChai"
-    "rId\030\001 \001(\005\022\030\n\020usDianCiCannonId\030\002 \001(\005\022\024\n\014u"
-    "sTotalScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001(\005\"\307\001"
-    "\n\020CreateZuanTouRsp\022\021\n\tusChairId\030\001 \001(\005\022\023\n"
-    "\013usZuanTouId\030\002 \001(\005\022\026\n\016usKilledFishId\030\003 \001"
-    "(\005\022\021\n\tusTraceId\030\004 \001(\005\022\026\n\016usTraceStartPt\030"
-    "\005 \001(\005\022\027\n\017usZuanTouStatus\030\006 \001(\005\022\033\n\023usZuan"
-    "TouStatusTime\030\007 \001(\002\022\022\n\nbombFishId\030\010 \001(\005\""
-    "H\n\rZuanTouAimReq\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013u"
-    "sZuanTouId\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\"H\n\rZua"
-    "nTouAimRsp\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013usZuanT"
-    "ouId\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\"J\n\017ZuanTouSh"
-    "ootReq\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013usZuanTouId"
-    "\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\"\220\001\n\017ZuanTouShoot"
-    "Rsp\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013usZuanTouId\030\002 "
-    "\001(\005\022\017\n\007usAngle\030\003 \001(\005\022\021\n\tusTraceId\030\004 \001(\005\022"
-    "\026\n\016usTraceStartPt\030\005 \001(\005\022\031\n\021usProcUserCha"
-    "irId\030\006 \001(\005\"f\n\021ZuanTouHitFishReq\022\021\n\tusCha"
-    "irId\030\001 \001(\005\022\023\n\013usZuanTouId\030\002 \001(\005\022\021\n\tSubFi"
-    "shes\030\003 \003(\005\022\026\n\016usRobotChairId\030\004 \001(\005\"b\n\016Zu"
-    "anTouBombRsp\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013usZua"
-    "nTouId\030\002 \001(\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nus"
-    "TotalMul\030\004 \001(\005\"b\n\017SomeZuanTouInfo\022\023\n\013usZ"
-    "uanTouId\030\001 \001(\005\022\017\n\007usAngle\030\002 \001(\005\022\021\n\tusTra"
-    "ceId\030\003 \001(\005\022\026\n\016usTraceStartPt\030\004 \001(\005\"\275\001\n\024C"
-    "reateSomeZuanTouRsp\022\021\n\tusChairId\030\001 \001(\005\022\027"
-    "\n\017usSomeZuanTouId\030\002 \001(\005\022\026\n\016usKilledFishI"
-    "d\030\003 \001(\005\022\027\n\017usZuanTouStatus\030\004 \001(\005\022\033\n\023usZu"
-    "anTouStatusTime\030\005 \001(\005\022+\n\010zuanTous\030\006 \003(\0132"
-    "\031.gamefish.SomeZuanTouInfo\"q\n\023SomeZuanTo"
-    "uShootRsp\022\021\n\tusChairId\030\001 \001(\005\022\027\n\017usSomeZu"
-    "anTouId\030\002 \001(\005\022.\n\013someZuanTou\030\003 \001(\0132\031.gam"
-    "efish.SomeZuanTouInfo\"q\n\025SomeZuanTouHitF"
-    "ishReq\022\021\n\tusChairId\030\001 \001(\005\022\027\n\017usSomeZuanT"
-    "ouId\030\002 \001(\005\022\023\n\013usZuanTouId\030\003 \001(\005\022\027\n\tSubFi"
-    "shes\030\004 \003(\005B\004\210\301\024d\"j\n\022SomeZuanTouBombRsp\022\021"
-    "\n\tusChairId\030\001 \001(\005\022\027\n\017usSomeZuanTouId\030\002 \001"
-    "(\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004"
-    " \001(\005\"\250\001\n\022CreateFireStormRsp\022\021\n\tusChairId"
-    "\030\001 \001(\005\022\025\n\rusFireStormId\030\002 \001(\005\022\026\n\016usKille"
-    "dFishId\030\003 \001(\005\022\020\n\010usStatus\030\004 \001(\005\022\024\n\014usSta"
-    "tusTime\030\005 \001(\005\022\024\n\014usTotalScore\030\006 \001(\005\022\022\n\nu"
-    "sTotalMul\030\007 \001(\005\"i\n\023DestoryFireStormRsp\022\021"
-    "\n\tusChairId\030\001 \001(\005\022\025\n\rusFireStormId\030\002 \001(\005"
-    "\022\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001"
-    "(\005\"P\n\022FireStormStatusRsp\022\021\n\tusChairId\030\001 "
-    "\001(\005\022\025\n\rusFireStormId\030\002 \001(\005\022\020\n\010usStatus\030\003"
-    " \001(\005\"g\n\021FireStormScoreRsp\022\021\n\tusChairId\030\001"
-    " \001(\005\022\025\n\rusFireStormId\030\002 \001(\005\022\024\n\014usTotalSc"
-    "ore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001(\005\"\272\001\n\017Create"
-    "MadCowRsp\022\021\n\tusChairId\030\001 \001(\005\022\022\n\nusMadCow"
-    "Id\030\002 \001(\005\022\026\n\016usKilledFishId\030\003 \001(\005\022\026\n\016usRu"
-    "nDirection\030\004 \001(\005\022\020\n\010usStatus\030\005 \001(\005\022\024\n\014us"
-    "StatusTime\030\006 \001(\005\022\024\n\014usTotalScore\030\007 \001(\005\022\022"
-    "\n\nusTotalMul\030\010 \001(\005\"c\n\020DestoryMadCowRsp\022\021"
-    "\n\tusChairId\030\001 \001(\005\022\022\n\nusMadCowId\030\002 \001(\005\022\024\n"
-    "\014usTotalScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001(\005\""
-    "J\n\017MadCowStatusRsp\022\021\n\tusChairId\030\001 \001(\005\022\022\n"
-    "\nusMadCowId\030\002 \001(\005\022\020\n\010usStatus\030\003 \001(\005\"a\n\016M"
-    "adCowScoreRsp\022\021\n\tusChairId\030\001 \001(\005\022\022\n\nusMa"
-    "dCowId\030\002 \001(\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nus"
-    "TotalMul\030\004 \001(\005\"\211\002\n\027CreateSerialBombCrabR"
-    "sp\022\021\n\tusChairId\030\001 \001(\005\022\032\n\022usSerialBombCra"
-    "bId\030\002 \001(\005\022\026\n\016usKilledFishId\030\003 \001(\005\022\020\n\010usS"
-    "tatus\030\004 \001(\005\022\024\n\014usStatusTime\030\005 \001(\005\022\022\n\nusB"
-    "ombPosX\030\006 \001(\005\022\022\n\nusBombPosY\030\007 \001(\005\022\026\n\016usN"
-    "extBombPosX\030\010 \001(\005\022\026\n\016usNextBombPosy\030\t \001("
-    "\005\022\023\n\013usBombCount\030\n \001(\005\022\022\n\nbombFishId\030\013 \001"
-    "(\005\"\335\001\n\025SerialBombCrabBombRsp\022\021\n\tusChairI"
-    "d\030\001 \001(\005\022\032\n\022usSerialBombCrabId\030\002 \001(\005\022\024\n\014u"
-    "sTotalScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001(\005\022\022\n"
-    "\nusBombPosX\030\005 \001(\005\022\022\n\nusBombPosY\030\006 \001(\005\022\026\n"
-    "\016usNextBombPosX\030\007 \001(\005\022\026\n\016usNextBombPosy\030"
-    "\010 \001(\005\022\023\n\013usBombCount\030\t \001(\005\"s\n\030DestorySer"
-    "ialBombCrabRsp\022\021\n\tusChairId\030\001 \001(\005\022\032\n\022usS"
-    "erialBombCrabId\030\002 \001(\005\022\024\n\014usTotalScore\030\003 "
-    "\001(\005\022\022\n\nusTotalMul\030\004 \001(\005\"V\n\025HaiWangCrabHi"
-    "tPartReq\022\022\n\nusBulletId\030\001 \001(\005\022\027\n\017usHaiWan"
-    "gCrabId\030\002 \001(\005\022\020\n\010usPartId\030\003 \001(\005\"S\n\010CrabP"
-    "art\022\021\n\tusChairId\030\001 \001(\005\022\020\n\010usPartId\030\002 \001(\005"
-    "\022\021\n\tusPartMul\030\003 \001(\005\022\017\n\007usScore\030\004 \001(\005\"_\n\030"
-    "HaiWangCrabKilledPartRsp\022\027\n\017usHaiwangCra"
-    "bId\030\001 \001(\005\022*\n\016aryKilledParts\030\002 \003(\0132\022.game"
-    "fish.CrabPart\"\230\001\n\030HaiWangCrabKilledDeadR"
-    "sp\022\021\n\tusChairId\030\001 \001(\005\022\027\n\017usHaiwangCrabId"
-    "\030\002 \001(\005\022\021\n\tusPartMul\030\003 \001(\005\022\023\n\013usSelfScore"
-    "\030\004 \001(\005\022\024\n\014usTotalScore\030\005 \001(\005\022\022\n\nusTotalM"
-    "ul\030\006 \001(\005\"\262\001\n\022CreateDelayBombRsp\022\021\n\tusCha"
-    "irId\030\001 \001(\005\022\025\n\rusDelayBombId\030\002 \001(\005\022\026\n\016usK"
+    "Angle\030\003 \001(\005\"R\n\022DianCiCannonAimRsp\022\021\n\tusC"
+    "hairId\030\001 \001(\005\022\030\n\020usDianCiCannonId\030\002 \001(\005\022\017"
+    "\n\007usAngle\030\003 \001(\005\"T\n\024DianCiCannonShootReq\022"
+    "\021\n\tusChairId\030\001 \001(\005\022\030\n\020usDianCiCannonId\030\002"
+    " \001(\005\022\017\n\007usAngle\030\003 \001(\005\"o\n\024DianCiCannonSho"
+    "otRsp\022\021\n\tusChairId\030\001 \001(\005\022\030\n\020usDianCiCann"
+    "onId\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\022\031\n\021usProcUse"
+    "rChairId\030\004 \001(\005\"p\n\026DianCiCannonHitFishReq"
+    "\022\021\n\tusChairId\030\001 \001(\005\022\030\n\020usDianCiCannonId\030"
+    "\002 \001(\005\022\021\n\tSubFishes\030\003 \003(\005\022\026\n\016usRobotChair"
+    "Id\030\004 \001(\005\"o\n\026DianCiCannonDestroyRsp\022\021\n\tus"
+    "ChairId\030\001 \001(\005\022\030\n\020usDianCiCannonId\030\002 \001(\005\022"
+    "\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001("
+    "\005\"\307\001\n\020CreateZuanTouRsp\022\021\n\tusChairId\030\001 \001("
+    "\005\022\023\n\013usZuanTouId\030\002 \001(\005\022\026\n\016usKilledFishId"
+    "\030\003 \001(\005\022\021\n\tusTraceId\030\004 \001(\005\022\026\n\016usTraceStar"
+    "tPt\030\005 \001(\005\022\027\n\017usZuanTouStatus\030\006 \001(\005\022\033\n\023us"
+    "ZuanTouStatusTime\030\007 \001(\002\022\022\n\nbombFishId\030\010 "
+    "\001(\005\"H\n\rZuanTouAimReq\022\021\n\tusChairId\030\001 \001(\005\022"
+    "\023\n\013usZuanTouId\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\"H\n"
+    "\rZuanTouAimRsp\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013usZ"
+    "uanTouId\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\"J\n\017ZuanT"
+    "ouShootReq\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013usZuanT"
+    "ouId\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\"\220\001\n\017ZuanTouS"
+    "hootRsp\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013usZuanTouI"
+    "d\030\002 \001(\005\022\017\n\007usAngle\030\003 \001(\005\022\021\n\tusTraceId\030\004 "
+    "\001(\005\022\026\n\016usTraceStartPt\030\005 \001(\005\022\031\n\021usProcUse"
+    "rChairId\030\006 \001(\005\"f\n\021ZuanTouHitFishReq\022\021\n\tu"
+    "sChairId\030\001 \001(\005\022\023\n\013usZuanTouId\030\002 \001(\005\022\021\n\tS"
+    "ubFishes\030\003 \003(\005\022\026\n\016usRobotChairId\030\004 \001(\005\"b"
+    "\n\016ZuanTouBombRsp\022\021\n\tusChairId\030\001 \001(\005\022\023\n\013u"
+    "sZuanTouId\030\002 \001(\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022"
+    "\n\nusTotalMul\030\004 \001(\005\"b\n\017SomeZuanTouInfo\022\023\n"
+    "\013usZuanTouId\030\001 \001(\005\022\017\n\007usAngle\030\002 \001(\005\022\021\n\tu"
+    "sTraceId\030\003 \001(\005\022\026\n\016usTraceStartPt\030\004 \001(\005\"\275"
+    "\001\n\024CreateSomeZuanTouRsp\022\021\n\tusChairId\030\001 \001"
+    "(\005\022\027\n\017usSomeZuanTouId\030\002 \001(\005\022\026\n\016usKilledF"
+    "ishId\030\003 \001(\005\022\027\n\017usZuanTouStatus\030\004 \001(\005\022\033\n\023"
+    "usZuanTouStatusTime\030\005 \001(\005\022+\n\010zuanTous\030\006 "
+    "\003(\0132\031.gamefish.SomeZuanTouInfo\"q\n\023SomeZu"
+    "anTouShootRsp\022\021\n\tusChairId\030\001 \001(\005\022\027\n\017usSo"
+    "meZuanTouId\030\002 \001(\005\022.\n\013someZuanTou\030\003 \001(\0132\031"
+    ".gamefish.SomeZuanTouInfo\"q\n\025SomeZuanTou"
+    "HitFishReq\022\021\n\tusChairId\030\001 \001(\005\022\027\n\017usSomeZ"
+    "uanTouId\030\002 \001(\005\022\023\n\013usZuanTouId\030\003 \001(\005\022\027\n\tS"
+    "ubFishes\030\004 \003(\005B\004\210\301\024d\"j\n\022SomeZuanTouBombR"
+    "sp\022\021\n\tusChairId\030\001 \001(\005\022\027\n\017usSomeZuanTouId"
+    "\030\002 \001(\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nusTotalM"
+    "ul\030\004 \001(\005\"\250\001\n\022CreateFireStormRsp\022\021\n\tusCha"
+    "irId\030\001 \001(\005\022\025\n\rusFireStormId\030\002 \001(\005\022\026\n\016usK"
     "illedFishId\030\003 \001(\005\022\020\n\010usStatus\030\004 \001(\005\022\024\n\014u"
-    "sStatusTime\030\005 \001(\005\022\016\n\006usPosX\030\006 \001(\005\022\016\n\006usP"
-    "oxY\030\007 \001(\005\022\022\n\nbombFishId\030\010 \001(\005\"h\n\022DelayBo"
-    "mb_Bomb_Rsp\022\021\n\tusChairId\030\001 \001(\005\022\025\n\rusDela"
-    "yBombId\030\002 \001(\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nu"
-    "sTotalMul\030\004 \001(\005", 7295);
+    "sStatusTime\030\005 \001(\005\022\024\n\014usTotalScore\030\006 \001(\005\022"
+    "\022\n\nusTotalMul\030\007 \001(\005\"i\n\023DestoryFireStormR"
+    "sp\022\021\n\tusChairId\030\001 \001(\005\022\025\n\rusFireStormId\030\002"
+    " \001(\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nusTotalMul"
+    "\030\004 \001(\005\"P\n\022FireStormStatusRsp\022\021\n\tusChairI"
+    "d\030\001 \001(\005\022\025\n\rusFireStormId\030\002 \001(\005\022\020\n\010usStat"
+    "us\030\003 \001(\005\"g\n\021FireStormScoreRsp\022\021\n\tusChair"
+    "Id\030\001 \001(\005\022\025\n\rusFireStormId\030\002 \001(\005\022\024\n\014usTot"
+    "alScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001(\005\"\272\001\n\017Cr"
+    "eateMadCowRsp\022\021\n\tusChairId\030\001 \001(\005\022\022\n\nusMa"
+    "dCowId\030\002 \001(\005\022\026\n\016usKilledFishId\030\003 \001(\005\022\026\n\016"
+    "usRunDirection\030\004 \001(\005\022\020\n\010usStatus\030\005 \001(\005\022\024"
+    "\n\014usStatusTime\030\006 \001(\005\022\024\n\014usTotalScore\030\007 \001"
+    "(\005\022\022\n\nusTotalMul\030\010 \001(\005\"c\n\020DestoryMadCowR"
+    "sp\022\021\n\tusChairId\030\001 \001(\005\022\022\n\nusMadCowId\030\002 \001("
+    "\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 "
+    "\001(\005\"J\n\017MadCowStatusRsp\022\021\n\tusChairId\030\001 \001("
+    "\005\022\022\n\nusMadCowId\030\002 \001(\005\022\020\n\010usStatus\030\003 \001(\005\""
+    "a\n\016MadCowScoreRsp\022\021\n\tusChairId\030\001 \001(\005\022\022\n\n"
+    "usMadCowId\030\002 \001(\005\022\024\n\014usTotalScore\030\003 \001(\005\022\022"
+    "\n\nusTotalMul\030\004 \001(\005\"\211\002\n\027CreateSerialBombC"
+    "rabRsp\022\021\n\tusChairId\030\001 \001(\005\022\032\n\022usSerialBom"
+    "bCrabId\030\002 \001(\005\022\026\n\016usKilledFishId\030\003 \001(\005\022\020\n"
+    "\010usStatus\030\004 \001(\005\022\024\n\014usStatusTime\030\005 \001(\005\022\022\n"
+    "\nusBombPosX\030\006 \001(\005\022\022\n\nusBombPosY\030\007 \001(\005\022\026\n"
+    "\016usNextBombPosX\030\010 \001(\005\022\026\n\016usNextBombPosy\030"
+    "\t \001(\005\022\023\n\013usBombCount\030\n \001(\005\022\022\n\nbombFishId"
+    "\030\013 \001(\005\"\335\001\n\025SerialBombCrabBombRsp\022\021\n\tusCh"
+    "airId\030\001 \001(\005\022\032\n\022usSerialBombCrabId\030\002 \001(\005\022"
+    "\024\n\014usTotalScore\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001("
+    "\005\022\022\n\nusBombPosX\030\005 \001(\005\022\022\n\nusBombPosY\030\006 \001("
+    "\005\022\026\n\016usNextBombPosX\030\007 \001(\005\022\026\n\016usNextBombP"
+    "osy\030\010 \001(\005\022\023\n\013usBombCount\030\t \001(\005\"s\n\030Destor"
+    "ySerialBombCrabRsp\022\021\n\tusChairId\030\001 \001(\005\022\032\n"
+    "\022usSerialBombCrabId\030\002 \001(\005\022\024\n\014usTotalScor"
+    "e\030\003 \001(\005\022\022\n\nusTotalMul\030\004 \001(\005\"V\n\025HaiWangCr"
+    "abHitPartReq\022\022\n\nusBulletId\030\001 \001(\005\022\027\n\017usHa"
+    "iWangCrabId\030\002 \001(\005\022\020\n\010usPartId\030\003 \001(\005\"S\n\010C"
+    "rabPart\022\021\n\tusChairId\030\001 \001(\005\022\020\n\010usPartId\030\002"
+    " \001(\005\022\021\n\tusPartMul\030\003 \001(\005\022\017\n\007usScore\030\004 \001(\005"
+    "\"_\n\030HaiWangCrabKilledPartRsp\022\027\n\017usHaiwan"
+    "gCrabId\030\001 \001(\005\022*\n\016aryKilledParts\030\002 \003(\0132\022."
+    "gamefish.CrabPart\"\230\001\n\030HaiWangCrabKilledD"
+    "eadRsp\022\021\n\tusChairId\030\001 \001(\005\022\027\n\017usHaiwangCr"
+    "abId\030\002 \001(\005\022\021\n\tusPartMul\030\003 \001(\005\022\023\n\013usSelfS"
+    "core\030\004 \001(\005\022\024\n\014usTotalScore\030\005 \001(\005\022\022\n\nusTo"
+    "talMul\030\006 \001(\005\"\262\001\n\022CreateDelayBombRsp\022\021\n\tu"
+    "sChairId\030\001 \001(\005\022\025\n\rusDelayBombId\030\002 \001(\005\022\026\n"
+    "\016usKilledFishId\030\003 \001(\005\022\020\n\010usStatus\030\004 \001(\005\022"
+    "\024\n\014usStatusTime\030\005 \001(\005\022\016\n\006usPosX\030\006 \001(\005\022\016\n"
+    "\006usPoxY\030\007 \001(\005\022\022\n\nbombFishId\030\010 \001(\005\"h\n\022Del"
+    "ayBomb_Bomb_Rsp\022\021\n\tusChairId\030\001 \001(\005\022\025\n\rus"
+    "DelayBombId\030\002 \001(\005\022\024\n\014usTotalScore\030\003 \001(\005\022"
+    "\022\n\nusTotalMul\030\004 \001(\005", 7099);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CSFish.proto", &protobuf_RegisterTypes);
   FishInfo::default_instance_ = new FishInfo();
@@ -2012,8 +1958,6 @@ void protobuf_AddDesc_CSFish_2eproto() {
   gcChangeCannon::default_instance_ = new gcChangeCannon();
   ChangeSceneRsp::default_instance_ = new ChangeSceneRsp();
   gcUserMoney::default_instance_ = new gcUserMoney();
-  FreezeFish::default_instance_ = new FreezeFish();
-  gcFreezeFishes::default_instance_ = new gcFreezeFishes();
   SC_DoubleGunOnOff::default_instance_ = new SC_DoubleGunOnOff();
   PromptInfoRsp::default_instance_ = new PromptInfoRsp();
   GameStatusRsp::default_instance_ = new GameStatusRsp();
@@ -2082,8 +2026,6 @@ void protobuf_AddDesc_CSFish_2eproto() {
   gcChangeCannon::default_instance_->InitAsDefaultInstance();
   ChangeSceneRsp::default_instance_->InitAsDefaultInstance();
   gcUserMoney::default_instance_->InitAsDefaultInstance();
-  FreezeFish::default_instance_->InitAsDefaultInstance();
-  gcFreezeFishes::default_instance_->InitAsDefaultInstance();
   SC_DoubleGunOnOff::default_instance_->InitAsDefaultInstance();
   PromptInfoRsp::default_instance_->InitAsDefaultInstance();
   GameStatusRsp::default_instance_->InitAsDefaultInstance();
@@ -10621,620 +10563,6 @@ void gcUserMoney::Swap(gcUserMoney* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = gcUserMoney_descriptor_;
   metadata.reflection = gcUserMoney_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int FreezeFish::kFishUidFieldNumber;
-const int FreezeFish::kFishIdFieldNumber;
-#endif  // !_MSC_VER
-
-FreezeFish::FreezeFish()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void FreezeFish::InitAsDefaultInstance() {
-}
-
-FreezeFish::FreezeFish(const FreezeFish& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void FreezeFish::SharedCtor() {
-  _cached_size_ = 0;
-  fish_uid_ = 0u;
-  fish_id_ = 0u;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-FreezeFish::~FreezeFish() {
-  SharedDtor();
-}
-
-void FreezeFish::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void FreezeFish::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* FreezeFish::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return FreezeFish_descriptor_;
-}
-
-const FreezeFish& FreezeFish::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_CSFish_2eproto();
-  return *default_instance_;
-}
-
-FreezeFish* FreezeFish::default_instance_ = NULL;
-
-FreezeFish* FreezeFish::New() const {
-  return new FreezeFish;
-}
-
-void FreezeFish::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    fish_uid_ = 0u;
-    fish_id_ = 0u;
-  }
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool FreezeFish::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 fish_uid = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &fish_uid_)));
-          set_has_fish_uid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_fish_id;
-        break;
-      }
-
-      // optional uint32 fish_id = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_fish_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &fish_id_)));
-          set_has_fish_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void FreezeFish::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint32 fish_uid = 1;
-  if (has_fish_uid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->fish_uid(), output);
-  }
-
-  // optional uint32 fish_id = 2;
-  if (has_fish_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->fish_id(), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* FreezeFish::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional uint32 fish_uid = 1;
-  if (has_fish_uid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->fish_uid(), target);
-  }
-
-  // optional uint32 fish_id = 2;
-  if (has_fish_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->fish_id(), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int FreezeFish::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint32 fish_uid = 1;
-    if (has_fish_uid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->fish_uid());
-    }
-
-    // optional uint32 fish_id = 2;
-    if (has_fish_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->fish_id());
-    }
-
-  }
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void FreezeFish::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const FreezeFish* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const FreezeFish*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void FreezeFish::MergeFrom(const FreezeFish& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_fish_uid()) {
-      set_fish_uid(from.fish_uid());
-    }
-    if (from.has_fish_id()) {
-      set_fish_id(from.fish_id());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void FreezeFish::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void FreezeFish::CopyFrom(const FreezeFish& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool FreezeFish::IsInitialized() const {
-
-  return true;
-}
-
-void FreezeFish::Swap(FreezeFish* other) {
-  if (other != this) {
-    std::swap(fish_uid_, other->fish_uid_);
-    std::swap(fish_id_, other->fish_id_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata FreezeFish::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = FreezeFish_descriptor_;
-  metadata.reflection = FreezeFish_reflection_;
-  return metadata;
-}
-
-
-// ===================================================================
-
-#ifndef _MSC_VER
-const int gcFreezeFishes::kMainfishUidFieldNumber;
-const int gcFreezeFishes::kMainfishIdFieldNumber;
-const int gcFreezeFishes::kMainFishTypeFieldNumber;
-const int gcFreezeFishes::kIsFreezeFieldNumber;
-const int gcFreezeFishes::kFishesFieldNumber;
-#endif  // !_MSC_VER
-
-gcFreezeFishes::gcFreezeFishes()
-  : ::google::protobuf::Message() {
-  SharedCtor();
-}
-
-void gcFreezeFishes::InitAsDefaultInstance() {
-}
-
-gcFreezeFishes::gcFreezeFishes(const gcFreezeFishes& from)
-  : ::google::protobuf::Message() {
-  SharedCtor();
-  MergeFrom(from);
-}
-
-void gcFreezeFishes::SharedCtor() {
-  _cached_size_ = 0;
-  mainfish_uid_ = 0u;
-  mainfish_id_ = 0u;
-  mainfishtype_ = 0u;
-  isfreeze_ = false;
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-}
-
-gcFreezeFishes::~gcFreezeFishes() {
-  SharedDtor();
-}
-
-void gcFreezeFishes::SharedDtor() {
-  if (this != default_instance_) {
-  }
-}
-
-void gcFreezeFishes::SetCachedSize(int size) const {
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-}
-const ::google::protobuf::Descriptor* gcFreezeFishes::descriptor() {
-  protobuf_AssignDescriptorsOnce();
-  return gcFreezeFishes_descriptor_;
-}
-
-const gcFreezeFishes& gcFreezeFishes::default_instance() {
-  if (default_instance_ == NULL) protobuf_AddDesc_CSFish_2eproto();
-  return *default_instance_;
-}
-
-gcFreezeFishes* gcFreezeFishes::default_instance_ = NULL;
-
-gcFreezeFishes* gcFreezeFishes::New() const {
-  return new gcFreezeFishes;
-}
-
-void gcFreezeFishes::Clear() {
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    mainfish_uid_ = 0u;
-    mainfish_id_ = 0u;
-    mainfishtype_ = 0u;
-    isfreeze_ = false;
-  }
-  fishes_.Clear();
-  ::memset(_has_bits_, 0, sizeof(_has_bits_));
-  mutable_unknown_fields()->Clear();
-}
-
-bool gcFreezeFishes::MergePartialFromCodedStream(
-    ::google::protobuf::io::CodedInputStream* input) {
-#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
-  ::google::protobuf::uint32 tag;
-  while ((tag = input->ReadTag()) != 0) {
-    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional uint32 mainfish_uid = 1;
-      case 1: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &mainfish_uid_)));
-          set_has_mainfish_uid();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(16)) goto parse_mainfish_id;
-        break;
-      }
-
-      // optional uint32 mainfish_id = 2;
-      case 2: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mainfish_id:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &mainfish_id_)));
-          set_has_mainfish_id();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(24)) goto parse_mainFishType;
-        break;
-      }
-
-      // optional uint32 mainFishType = 3;
-      case 3: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_mainFishType:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &mainfishtype_)));
-          set_has_mainfishtype();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(32)) goto parse_IsFreeze;
-        break;
-      }
-
-      // optional bool IsFreeze = 4;
-      case 4: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
-         parse_IsFreeze:
-          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
-                 input, &isfreeze_)));
-          set_has_isfreeze();
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_fishes;
-        break;
-      }
-
-      // repeated .gamefish.FreezeFish fishes = 5;
-      case 5: {
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
-         parse_fishes:
-          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_fishes()));
-        } else {
-          goto handle_uninterpreted;
-        }
-        if (input->ExpectTag(42)) goto parse_fishes;
-        if (input->ExpectAtEnd()) return true;
-        break;
-      }
-
-      default: {
-      handle_uninterpreted:
-        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
-            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
-          return true;
-        }
-        DO_(::google::protobuf::internal::WireFormat::SkipField(
-              input, tag, mutable_unknown_fields()));
-        break;
-      }
-    }
-  }
-  return true;
-#undef DO_
-}
-
-void gcFreezeFishes::SerializeWithCachedSizes(
-    ::google::protobuf::io::CodedOutputStream* output) const {
-  // optional uint32 mainfish_uid = 1;
-  if (has_mainfish_uid()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->mainfish_uid(), output);
-  }
-
-  // optional uint32 mainfish_id = 2;
-  if (has_mainfish_id()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->mainfish_id(), output);
-  }
-
-  // optional uint32 mainFishType = 3;
-  if (has_mainfishtype()) {
-    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->mainfishtype(), output);
-  }
-
-  // optional bool IsFreeze = 4;
-  if (has_isfreeze()) {
-    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->isfreeze(), output);
-  }
-
-  // repeated .gamefish.FreezeFish fishes = 5;
-  for (int i = 0; i < this->fishes_size(); i++) {
-    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      5, this->fishes(i), output);
-  }
-
-  if (!unknown_fields().empty()) {
-    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
-        unknown_fields(), output);
-  }
-}
-
-::google::protobuf::uint8* gcFreezeFishes::SerializeWithCachedSizesToArray(
-    ::google::protobuf::uint8* target) const {
-  // optional uint32 mainfish_uid = 1;
-  if (has_mainfish_uid()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->mainfish_uid(), target);
-  }
-
-  // optional uint32 mainfish_id = 2;
-  if (has_mainfish_id()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->mainfish_id(), target);
-  }
-
-  // optional uint32 mainFishType = 3;
-  if (has_mainfishtype()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->mainfishtype(), target);
-  }
-
-  // optional bool IsFreeze = 4;
-  if (has_isfreeze()) {
-    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->isfreeze(), target);
-  }
-
-  // repeated .gamefish.FreezeFish fishes = 5;
-  for (int i = 0; i < this->fishes_size(); i++) {
-    target = ::google::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        5, this->fishes(i), target);
-  }
-
-  if (!unknown_fields().empty()) {
-    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
-        unknown_fields(), target);
-  }
-  return target;
-}
-
-int gcFreezeFishes::ByteSize() const {
-  int total_size = 0;
-
-  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // optional uint32 mainfish_uid = 1;
-    if (has_mainfish_uid()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->mainfish_uid());
-    }
-
-    // optional uint32 mainfish_id = 2;
-    if (has_mainfish_id()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->mainfish_id());
-    }
-
-    // optional uint32 mainFishType = 3;
-    if (has_mainfishtype()) {
-      total_size += 1 +
-        ::google::protobuf::internal::WireFormatLite::UInt32Size(
-          this->mainfishtype());
-    }
-
-    // optional bool IsFreeze = 4;
-    if (has_isfreeze()) {
-      total_size += 1 + 1;
-    }
-
-  }
-  // repeated .gamefish.FreezeFish fishes = 5;
-  total_size += 1 * this->fishes_size();
-  for (int i = 0; i < this->fishes_size(); i++) {
-    total_size +=
-      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->fishes(i));
-  }
-
-  if (!unknown_fields().empty()) {
-    total_size +=
-      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
-        unknown_fields());
-  }
-  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
-  _cached_size_ = total_size;
-  GOOGLE_SAFE_CONCURRENT_WRITES_END();
-  return total_size;
-}
-
-void gcFreezeFishes::MergeFrom(const ::google::protobuf::Message& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  const gcFreezeFishes* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const gcFreezeFishes*>(
-      &from);
-  if (source == NULL) {
-    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
-  } else {
-    MergeFrom(*source);
-  }
-}
-
-void gcFreezeFishes::MergeFrom(const gcFreezeFishes& from) {
-  GOOGLE_CHECK_NE(&from, this);
-  fishes_.MergeFrom(from.fishes_);
-  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_mainfish_uid()) {
-      set_mainfish_uid(from.mainfish_uid());
-    }
-    if (from.has_mainfish_id()) {
-      set_mainfish_id(from.mainfish_id());
-    }
-    if (from.has_mainfishtype()) {
-      set_mainfishtype(from.mainfishtype());
-    }
-    if (from.has_isfreeze()) {
-      set_isfreeze(from.isfreeze());
-    }
-  }
-  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
-}
-
-void gcFreezeFishes::CopyFrom(const ::google::protobuf::Message& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-void gcFreezeFishes::CopyFrom(const gcFreezeFishes& from) {
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool gcFreezeFishes::IsInitialized() const {
-
-  return true;
-}
-
-void gcFreezeFishes::Swap(gcFreezeFishes* other) {
-  if (other != this) {
-    std::swap(mainfish_uid_, other->mainfish_uid_);
-    std::swap(mainfish_id_, other->mainfish_id_);
-    std::swap(mainfishtype_, other->mainfishtype_);
-    std::swap(isfreeze_, other->isfreeze_);
-    fishes_.Swap(&other->fishes_);
-    std::swap(_has_bits_[0], other->_has_bits_[0]);
-    _unknown_fields_.Swap(&other->_unknown_fields_);
-    std::swap(_cached_size_, other->_cached_size_);
-  }
-}
-
-::google::protobuf::Metadata gcFreezeFishes::GetMetadata() const {
-  protobuf_AssignDescriptorsOnce();
-  ::google::protobuf::Metadata metadata;
-  metadata.descriptor = gcFreezeFishes_descriptor_;
-  metadata.reflection = gcFreezeFishes_reflection_;
   return metadata;
 }
 

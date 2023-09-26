@@ -52,6 +52,8 @@ class GamePlayerDetailData;
 class GamePlayerWealthData;
 class GamePlayerAchievementData;
 class GameRoomStat;
+class FreezeFish;
+class gcFreezeFishes;
 
 // ===================================================================
 
@@ -1991,6 +1993,223 @@ class GameRoomStat : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static GameRoomStat* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class FreezeFish : public ::google::protobuf::Message {
+ public:
+  FreezeFish();
+  virtual ~FreezeFish();
+
+  FreezeFish(const FreezeFish& from);
+
+  inline FreezeFish& operator=(const FreezeFish& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const FreezeFish& default_instance();
+
+  void Swap(FreezeFish* other);
+
+  // implements Message ----------------------------------------------
+
+  FreezeFish* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const FreezeFish& from);
+  void MergeFrom(const FreezeFish& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 fish_uid = 1;
+  inline bool has_fish_uid() const;
+  inline void clear_fish_uid();
+  static const int kFishUidFieldNumber = 1;
+  inline ::google::protobuf::uint32 fish_uid() const;
+  inline void set_fish_uid(::google::protobuf::uint32 value);
+
+  // optional uint32 fish_id = 2;
+  inline bool has_fish_id() const;
+  inline void clear_fish_id();
+  static const int kFishIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 fish_id() const;
+  inline void set_fish_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.FreezeFish)
+ private:
+  inline void set_has_fish_uid();
+  inline void clear_has_fish_uid();
+  inline void set_has_fish_id();
+  inline void clear_has_fish_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 fish_uid_;
+  ::google::protobuf::uint32 fish_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static FreezeFish* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class gcFreezeFishes : public ::google::protobuf::Message {
+ public:
+  gcFreezeFishes();
+  virtual ~gcFreezeFishes();
+
+  gcFreezeFishes(const gcFreezeFishes& from);
+
+  inline gcFreezeFishes& operator=(const gcFreezeFishes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const gcFreezeFishes& default_instance();
+
+  void Swap(gcFreezeFishes* other);
+
+  // implements Message ----------------------------------------------
+
+  gcFreezeFishes* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const gcFreezeFishes& from);
+  void MergeFrom(const gcFreezeFishes& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 mainfish_uid = 1;
+  inline bool has_mainfish_uid() const;
+  inline void clear_mainfish_uid();
+  static const int kMainfishUidFieldNumber = 1;
+  inline ::google::protobuf::uint32 mainfish_uid() const;
+  inline void set_mainfish_uid(::google::protobuf::uint32 value);
+
+  // optional uint32 mainfish_id = 2;
+  inline bool has_mainfish_id() const;
+  inline void clear_mainfish_id();
+  static const int kMainfishIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 mainfish_id() const;
+  inline void set_mainfish_id(::google::protobuf::uint32 value);
+
+  // optional uint32 mainFishType = 3;
+  inline bool has_mainfishtype() const;
+  inline void clear_mainfishtype();
+  static const int kMainFishTypeFieldNumber = 3;
+  inline ::google::protobuf::uint32 mainfishtype() const;
+  inline void set_mainfishtype(::google::protobuf::uint32 value);
+
+  // optional bool IsFreeze = 4;
+  inline bool has_isfreeze() const;
+  inline void clear_isfreeze();
+  static const int kIsFreezeFieldNumber = 4;
+  inline bool isfreeze() const;
+  inline void set_isfreeze(bool value);
+
+  // repeated .proto_ff.FreezeFish fishes = 5;
+  inline int fishes_size() const;
+  inline void clear_fishes();
+  static const int kFishesFieldNumber = 5;
+  inline const ::proto_ff::FreezeFish& fishes(int index) const;
+  inline ::proto_ff::FreezeFish* mutable_fishes(int index);
+  inline ::proto_ff::FreezeFish* add_fishes();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FreezeFish >&
+      fishes() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FreezeFish >*
+      mutable_fishes();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.gcFreezeFishes)
+ private:
+  inline void set_has_mainfish_uid();
+  inline void clear_has_mainfish_uid();
+  inline void set_has_mainfish_id();
+  inline void clear_has_mainfish_id();
+  inline void set_has_mainfishtype();
+  inline void clear_has_mainfishtype();
+  inline void set_has_isfreeze();
+  inline void clear_has_isfreeze();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint32 mainfish_uid_;
+  ::google::protobuf::uint32 mainfish_id_;
+  ::google::protobuf::uint32 mainfishtype_;
+  bool isfreeze_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::FreezeFish > fishes_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static gcFreezeFishes* default_instance_;
 };
 // ===================================================================
 
@@ -4041,6 +4260,171 @@ inline ::google::protobuf::int64 GameRoomStat::cur_win() const {
 inline void GameRoomStat::set_cur_win(::google::protobuf::int64 value) {
   set_has_cur_win();
   cur_win_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// FreezeFish
+
+// optional uint32 fish_uid = 1;
+inline bool FreezeFish::has_fish_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void FreezeFish::set_has_fish_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void FreezeFish::clear_has_fish_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void FreezeFish::clear_fish_uid() {
+  fish_uid_ = 0u;
+  clear_has_fish_uid();
+}
+inline ::google::protobuf::uint32 FreezeFish::fish_uid() const {
+  return fish_uid_;
+}
+inline void FreezeFish::set_fish_uid(::google::protobuf::uint32 value) {
+  set_has_fish_uid();
+  fish_uid_ = value;
+}
+
+// optional uint32 fish_id = 2;
+inline bool FreezeFish::has_fish_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void FreezeFish::set_has_fish_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void FreezeFish::clear_has_fish_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void FreezeFish::clear_fish_id() {
+  fish_id_ = 0u;
+  clear_has_fish_id();
+}
+inline ::google::protobuf::uint32 FreezeFish::fish_id() const {
+  return fish_id_;
+}
+inline void FreezeFish::set_fish_id(::google::protobuf::uint32 value) {
+  set_has_fish_id();
+  fish_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// gcFreezeFishes
+
+// optional uint32 mainfish_uid = 1;
+inline bool gcFreezeFishes::has_mainfish_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void gcFreezeFishes::set_has_mainfish_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void gcFreezeFishes::clear_has_mainfish_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void gcFreezeFishes::clear_mainfish_uid() {
+  mainfish_uid_ = 0u;
+  clear_has_mainfish_uid();
+}
+inline ::google::protobuf::uint32 gcFreezeFishes::mainfish_uid() const {
+  return mainfish_uid_;
+}
+inline void gcFreezeFishes::set_mainfish_uid(::google::protobuf::uint32 value) {
+  set_has_mainfish_uid();
+  mainfish_uid_ = value;
+}
+
+// optional uint32 mainfish_id = 2;
+inline bool gcFreezeFishes::has_mainfish_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void gcFreezeFishes::set_has_mainfish_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void gcFreezeFishes::clear_has_mainfish_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void gcFreezeFishes::clear_mainfish_id() {
+  mainfish_id_ = 0u;
+  clear_has_mainfish_id();
+}
+inline ::google::protobuf::uint32 gcFreezeFishes::mainfish_id() const {
+  return mainfish_id_;
+}
+inline void gcFreezeFishes::set_mainfish_id(::google::protobuf::uint32 value) {
+  set_has_mainfish_id();
+  mainfish_id_ = value;
+}
+
+// optional uint32 mainFishType = 3;
+inline bool gcFreezeFishes::has_mainfishtype() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void gcFreezeFishes::set_has_mainfishtype() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void gcFreezeFishes::clear_has_mainfishtype() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void gcFreezeFishes::clear_mainfishtype() {
+  mainfishtype_ = 0u;
+  clear_has_mainfishtype();
+}
+inline ::google::protobuf::uint32 gcFreezeFishes::mainfishtype() const {
+  return mainfishtype_;
+}
+inline void gcFreezeFishes::set_mainfishtype(::google::protobuf::uint32 value) {
+  set_has_mainfishtype();
+  mainfishtype_ = value;
+}
+
+// optional bool IsFreeze = 4;
+inline bool gcFreezeFishes::has_isfreeze() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void gcFreezeFishes::set_has_isfreeze() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void gcFreezeFishes::clear_has_isfreeze() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void gcFreezeFishes::clear_isfreeze() {
+  isfreeze_ = false;
+  clear_has_isfreeze();
+}
+inline bool gcFreezeFishes::isfreeze() const {
+  return isfreeze_;
+}
+inline void gcFreezeFishes::set_isfreeze(bool value) {
+  set_has_isfreeze();
+  isfreeze_ = value;
+}
+
+// repeated .proto_ff.FreezeFish fishes = 5;
+inline int gcFreezeFishes::fishes_size() const {
+  return fishes_.size();
+}
+inline void gcFreezeFishes::clear_fishes() {
+  fishes_.Clear();
+}
+inline const ::proto_ff::FreezeFish& gcFreezeFishes::fishes(int index) const {
+  return fishes_.Get(index);
+}
+inline ::proto_ff::FreezeFish* gcFreezeFishes::mutable_fishes(int index) {
+  return fishes_.Mutable(index);
+}
+inline ::proto_ff::FreezeFish* gcFreezeFishes::add_fishes() {
+  return fishes_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::FreezeFish >&
+gcFreezeFishes::fishes() const {
+  return fishes_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::FreezeFish >*
+gcFreezeFishes::mutable_fishes() {
+  return &fishes_;
 }
 
 

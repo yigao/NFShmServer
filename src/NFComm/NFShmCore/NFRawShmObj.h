@@ -14,7 +14,7 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 
-class NFRawShmObj : public NFObject
+class NFRawShmObj
 {
 public:
     NFRawShmObj();
@@ -25,9 +25,10 @@ public:
 
     int ResumeInit();
 public:
-    int Init(NFShmObj* pShmObj);
+    int InitShmObj(NFShmObj* pShmObj);
+    NFShmObj* GetShmObj();
 public:
     virtual int OnTimer(int timeId, int callcount);
 protected:
-    NFShmPtr<NFShmObj> m_shmObj;
+    NFShmPtr<NFShmObj> m_pShmObj;
 };

@@ -43,7 +43,6 @@ void NFGameFishPlayer::ResetPlayerData()
     m_iGameId = 0;
     m_iRoomId = 0;
     m_iDeskId = INVALID_ID;
-    m_pDesk = NULL;
     m_isRobot = false;
     m_iDoubleGunValueOnOff = 0;
     m_iIndex = 0;
@@ -72,21 +71,16 @@ int NFGameFishPlayer::ResumeInit()
 
 uint64_t NFGameFishPlayer::GetCurMoney()
 {
-    CHECK_EXPR(m_pDesk, 0, "m_pDesk == NULL");
-    return m_pDesk->GetPlayerCurMoney(m_ullPlayerId);
+    CHECK_EXPR(GetDesk(), 0, "m_pDesk == NULL");
+    return GetDesk()->GetPlayerCurMoney(m_ullPlayerId);
 }
 
-int NFGameFishPlayer::ShootBullet(NFIPluginManager* pPluginManager, NFFishBullet& bullet)
+int NFGameFishPlayer::ShootBullet(NFFishBullet& bullet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "ShootBullet() ==========> bullet.m_iBulletLevel = {} , m_nCurBulletLevel = {}", bullet.m_iBulletLevel, m_nCurBulletLevel);
+    CHECK_NULL(m_pShmObj);
 
-    //if (bullet.m_iBulletLevel != m_nCurBulletLevel)//bullet.m_iBulletLevel 客户端传来的一直是0，暂不确认 todo:
-    //{
-    //	NFLogError(NF_LOG_SYSTEMLOG, 0, "bullet.m_iBulletLevel != m_nCurBulletLevel error !");
-    //	return 0;
-    //}
-
-    auto pGunValue = FishGunvalueDesc::Instance(pPluginManager)->GetDescByGameidRoomidGunid(m_iGameId, m_iRoomId, m_nCurBulletLevel);
+    auto pGunValue = FishGunvalueDesc::Instance(m_pShmObj->m_pObjPluginManager)->GetDescByGameidRoomidGunid(m_iGameId, m_iRoomId, m_nCurBulletLevel);
     CHECK_EXPR(pGunValue, -1, "GetDescByGameidRoomidGunid Failed, gameId:{} roomId:{} gunId:{}", m_iGameId, m_iRoomId, m_nCurBulletLevel);
 
     int nShootMoneyCount = pGunValue->m_value;
@@ -109,7 +103,7 @@ int NFGameFishPlayer::ShootBullet(NFIPluginManager* pPluginManager, NFFishBullet
         }
 
         AddUserChangedTotalShootMoney(nShootMoneyCount);
-        m_pDesk->DeduceGameMoney(m_ullPlayerId, nShootMoneyCount);
+        GetDesk()->DeduceGameMoney(m_ullPlayerId, nShootMoneyCount);
 
         GameDataCommit(0, nShootMoneyCount, nShootMoneyCount);
         SendUserMoney();
@@ -152,7 +146,7 @@ int NFGameFishPlayer::ShootBullet(NFIPluginManager* pPluginManager, NFFishBullet
 
     //SendMsgToClientByPlayerId(playerId, NF_FISH_CMD_SHOOTBULLET_RSP, gcShootBullet);
     //SendMsgToOtherClient(playerId, NF_FISH_CMD_SHOOTBULLET_RSP, gcShootBullet);
-    m_pDesk->SendMsgToAllClient(NF_FISH_CMD_SHOOTBULLET_RSP, shootBulletRsp);
+    GetDesk()->SendMsgToAllClient(NF_FISH_CMD_SHOOTBULLET_RSP, shootBulletRsp);
 
     return 0;
 }
@@ -175,7 +169,7 @@ void NFGameFishPlayer::SendUserMoney()
     gcUserMoney.set_chair_id(GetChairIdForClient());
     gcUserMoney.set_user_money(GetCurMoney());
 
-    m_pDesk->SendMsgToAllClient(NF_FISH_CMD_USERMONEY_RSP, gcUserMoney);
+    GetDesk()->SendMsgToAllClient(NF_FISH_CMD_USERMONEY_RSP, gcUserMoney);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "==============> SendUserMoney() , m_ullPlayerId = {} , m_ullUserMoney = {}", m_ullPlayerId, GetCurMoney());
 }
@@ -193,7 +187,7 @@ void NFGameFishPlayer::AddUserChangedTotalCaptureMoney(int64_t iChangedMoney)
 
 void NFGameFishPlayer::AddCaptureMoney(int64_t ullChangedMoney)
 {
-    m_pDesk->AddGameMoney(m_ullPlayerId, ullChangedMoney);
+    GetDesk()->AddGameMoney(m_ullPlayerId, ullChangedMoney);
 
     AddUserChangedTotalCaptureMoney(ullChangedMoney);
 
@@ -205,9 +199,9 @@ void NFGameFishPlayer::AddCaptureMoney(int64_t ullChangedMoney)
 
 int32_t NFGameFishPlayer::GetRealPlayerChairIdForRobot()
 {
-    CHECK_EXPR(m_pDesk, -1, "m_pDesk == NULL");
+    CHECK_EXPR(GetDesk(), -1, "m_pDesk == NULL");
 
-    return m_pDesk->GetRealPlayerChairIdForRobot();
+    return GetDesk()->GetRealPlayerChairIdForRobot();
 }
 
 double NFGameFishPlayer::GetBulletHarmData()
@@ -234,9 +228,9 @@ int NFGameFishPlayer::Tick()
     if (NFTime::Now().UnixSec() - m_lastSaveUserMoney >= 60)
     {
         m_lastSaveUserMoney = NFTime::Now().UnixSec();
-        if (m_pDesk)
+        if (GetDesk())
         {
-            m_pDesk->ProcUserSettlement(GetPlayerID());
+            GetDesk()->ProcUserSettlement(GetPlayerID());
         }
     }
     return 0;
@@ -244,18 +238,18 @@ int NFGameFishPlayer::Tick()
 
 int NFGameFishPlayer::GameDataCommit(uint64_t cur_fee, uint64_t cur_pour, int64_t cur_win)
 {
-    if (m_pDesk && !m_isRobot)
+    if (GetDesk() && !m_isRobot)
     {
-        m_pDesk->GameDataCommit(cur_fee, cur_pour, cur_win);
+        GetDesk()->GameDataCommit(cur_fee, cur_pour, cur_win);
     }
     return 0;
 }
 
 int NFGameFishPlayer::AchievementCount(uint64_t Count, uint64_t fee)
 {
-    if (m_pDesk && !m_isRobot)
+    if (GetDesk() && !m_isRobot)
     {
-        m_pDesk->AchievementCount(GetPlayerID(), Count, fee);
+        GetDesk()->AchievementCount(GetPlayerID(), Count, fee);
     }
     return 0;
 }
@@ -266,5 +260,10 @@ int NFGameFishPlayer::UpdateUserInfo(const proto_ff_s::GamePlayerDetailData_s* p
 
     SendUserMoney();
     return 0;
+}
+
+NFGameFishDesk* NFGameFishPlayer::GetDesk()
+{
+    return dynamic_cast<NFGameFishDesk*>(GetShmObj());
 }
 

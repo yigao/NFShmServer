@@ -18,12 +18,13 @@
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "Fish/NFFishBulletMgr.h"
+#include "NFComm/NFShmCore/NFRawShmObj.h"
 
 #define MAX_GAME_FISH_PLAYER_HIT_FISH_COUNT 500
 
 class NFGameFishDesk;
 class NFGameFish;
-class NFGameFishPlayer
+class NFGameFishPlayer : public NFRawShmObj
 {
 public:
     NFGameFishPlayer();
@@ -34,7 +35,6 @@ public:
 
     int ResumeInit();
 
-    void SetDeskHandle(NFGameFishDesk* pDesk) { m_pDesk = pDesk; }
     uint64_t GetPlayerID() const { return m_ullPlayerId; }
 
     void SetPlayerID(uint64_t playerId) { m_ullPlayerId = playerId; }
@@ -44,7 +44,7 @@ public:
 
     bool IsRobot() const { return m_isRobot; }
 
-    int ShootBullet(NFIPluginManager* pPluginManager, NFFishBullet& bullet);
+    int ShootBullet(NFFishBullet& bullet);
     void SetDoubleGunValueOn(int iOnOff);
     int  GetDoubeGunValueOn();
 
@@ -78,6 +78,8 @@ public:
 
     int UpdateUserInfo(const proto_ff_s::GamePlayerDetailData_s* pUserDetailInfo);
 public:
+    NFGameFishDesk* GetDesk();
+public:
     int m_iIndex;
     NFCommonStr m_strUserName;
     uint64_t m_ullPlayerId;
@@ -85,7 +87,6 @@ public:
     uint32_t m_iGameId;
     uint32_t m_iRoomId;
     int32_t m_iDeskId;
-    NFShmPtr<NFGameFishDesk> m_pDesk;
 
     bool m_isRobot;
     bool m_online;

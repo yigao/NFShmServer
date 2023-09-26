@@ -563,4 +563,75 @@ void GameRoomStat_s::read_from_pbmsg(const ::proto_ff::GameRoomStat & msg) {
 	cur_win = msg.cur_win();
 }
 
+FreezeFish_s::FreezeFish_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int FreezeFish_s::CreateInit() {
+	fish_uid = (uint32_t)0;
+	fish_id = (uint32_t)0;
+	return 0;
+}
+
+int FreezeFish_s::ResumeInit() {
+	return 0;
+}
+
+void FreezeFish_s::write_to_pbmsg(::proto_ff::FreezeFish & msg) const {
+	msg.set_fish_uid((uint32_t)fish_uid);
+	msg.set_fish_id((uint32_t)fish_id);
+}
+
+void FreezeFish_s::read_from_pbmsg(const ::proto_ff::FreezeFish & msg) {
+	fish_uid = msg.fish_uid();
+	fish_id = msg.fish_id();
+}
+
+gcFreezeFishes_s::gcFreezeFishes_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int gcFreezeFishes_s::CreateInit() {
+	mainfish_uid = (uint32_t)0;
+	mainfish_id = (uint32_t)0;
+	mainFishType = (uint32_t)0;
+	IsFreeze = (bool)0;
+	return 0;
+}
+
+int gcFreezeFishes_s::ResumeInit() {
+	return 0;
+}
+
+void gcFreezeFishes_s::write_to_pbmsg(::proto_ff::gcFreezeFishes & msg) const {
+	msg.set_mainfish_uid((uint32_t)mainfish_uid);
+	msg.set_mainfish_id((uint32_t)mainfish_id);
+	msg.set_mainfishtype((uint32_t)mainFishType);
+	msg.set_isfreeze((bool)IsFreeze);
+	for(int32_t i = 0; i < (int32_t)fishes.size(); ++i) {
+		::proto_ff::FreezeFish* temp_fishes = msg.add_fishes();
+		fishes[i].write_to_pbmsg(*temp_fishes);
+	}
+}
+
+void gcFreezeFishes_s::read_from_pbmsg(const ::proto_ff::gcFreezeFishes & msg) {
+	mainfish_uid = msg.mainfish_uid();
+	mainfish_id = msg.mainfish_id();
+	mainFishType = msg.mainfishtype();
+	IsFreeze = msg.isfreeze();
+	fishes.resize((int)msg.fishes_size() > (int)fishes.max_size() ? fishes.max_size() : msg.fishes_size());
+	for(int32_t i = 0; i < (int32_t)fishes.size(); ++i) {
+		const ::proto_ff::FreezeFish & temp_fishes = msg.fishes(i);
+		fishes[i].read_from_pbmsg(temp_fishes);
+	}
+}
+
 }

@@ -21,6 +21,18 @@
 #include "Config/NFFishPromptConfig.h"
 #include "Desk/NFGameFishDesk.h"
 #include "FishTypeHandler/NFFishTypeDelayBomb.h"
+#include "FishTypeHandler/NFFishTypeDianCiCannon.h"
+#include "FishTypeHandler/NFFishTypeFireStorm.h"
+#include "FishTypeHandler/NFFishTypeFreeze.h"
+#include "FishTypeHandler/NFFishTypeFullScrBomb.h"
+#include "FishTypeHandler/NFFishTypeZuanTou.h"
+#include "FishTypeHandler/NFFishTypeHaiWangCrab.h"
+#include "FishTypeHandler/NFFishTypeKindBomb.h"
+#include "FishTypeHandler/NFFishTypeLightLink.h"
+#include "FishTypeHandler/NFFishTypeLightningJellyFish.h"
+#include "FishTypeHandler/NFFishTypeMadCow.h"
+#include "FishTypeHandler/NFFishTypeSerialBombCrab.h"
+#include "FishTypeHandler/NFFishTypeSomeZuanTou.h"
 
 #define MAX_FISH_ROOM_DESK_COUNT 255
 #define MAX_GAME_FISH_ROBOT_COUNT 1000
@@ -79,9 +91,23 @@ bool NFGameFishPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ_WITH_HASH(NFFishPromptConfig, roomNum);
 
     REGISTER_SHM_OBJ(NFGameFishDesk, maxDeskNum);
+
     REGISTER_SHM_OBJ(NFFishTypeMgr, maxDeskNum);
-    REGISTER_SHM_OBJ(NFFishTypeHandler, maxDeskNum*10);
+    REGISTER_SHM_OBJ(NFFishTypeHandler, maxDeskNum);
     REGISTER_SHM_OBJ(NFFishTypeDelayBomb, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeDianCiCannon, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeFireStorm, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeFreeze, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeFullScrBomb, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeHaiWangCrab, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeKindBomb, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeLightLink, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeLightningJellyFish, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeMadCow, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeSerialBombCrab, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeSomeZuanTou, maxDeskNum);
+    REGISTER_SHM_OBJ(NFFishTypeZuanTou, maxDeskNum);
+
 
 	return true;
 }

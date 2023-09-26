@@ -9,7 +9,7 @@
 
 #include "NFRawShmObj.h"
 
-NFRawShmObj::NFRawShmObj():NFObject(NULL)
+NFRawShmObj::NFRawShmObj()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -27,7 +27,7 @@ NFRawShmObj::~NFRawShmObj()
 
 int NFRawShmObj::CreateInit()
 {
-    m_shmObj = nullptr;
+    m_pShmObj = nullptr;
     return 0;
 }
 
@@ -36,12 +36,17 @@ int NFRawShmObj::ResumeInit()
     return 0;
 }
 
-int NFRawShmObj::Init(NFShmObj* pShmObj)
+int NFRawShmObj::InitShmObj(NFShmObj* pShmObj)
 {
-    m_shmObj = pShmObj;
-    m_pObjPluginManager = pShmObj->m_pObjPluginManager;
+    m_pShmObj = pShmObj;
     return 0;
 }
+
+NFShmObj* NFRawShmObj::GetShmObj()
+{
+    return m_pShmObj.GetPoint();
+}
+
 
 int NFRawShmObj::OnTimer(int timeId, int callcount)
 {

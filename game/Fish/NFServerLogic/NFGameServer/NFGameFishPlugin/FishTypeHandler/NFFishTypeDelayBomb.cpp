@@ -29,12 +29,10 @@ NFFishTypeDelayBomb::NFFishTypeDelayBomb()
 
 NFFishTypeDelayBomb::~NFFishTypeDelayBomb()
 {
-    m_statusTimer = INVALID_ID;
 }
 
 int NFFishTypeDelayBomb::CreateInit()
 {
-    m_statusTimer = SetTimer(100, 0, 0, 0, 0, 0);
     return 0;
 }
 
@@ -45,18 +43,6 @@ int NFFishTypeDelayBomb::ResumeInit()
 
 int NFFishTypeDelayBomb::OnTimer(int timeId, int callcount)
 {
-    uint64_t nowTime = NFTime::Now().UnixMSec();
-    for(auto iter = m_mapDelayBomb.begin(); iter != m_mapDelayBomb.end();)
-    {
-        if (nowTime >= iter->second.m_uStatusEndTime)
-        {
-            iter->second.HandleDelayed();
-            iter = m_mapDelayBomb.erase(iter);
-        }
-        else {
-            iter++;
-        }
-    }
     return 0;
 }
 
@@ -117,8 +103,9 @@ int NFFishTypeDelayBomb::GetKilledFishMul(NFGameFish *pFish, const NFFishBullet 
     return iKilledFishMul;
 }
 
-void NFFishTypeDelayBomb::SyncFishBomb(NFGameFishPlayer *pPlayer)
+int NFFishTypeDelayBomb::SyncFishBomb(NFGameFishPlayer *pPlayer)
 {
+    CHECK_NULL(pPlayer);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishTypeDelayBomb::SyncFishBomb() ===============> m_ullPlayerId = {}", pPlayer->m_ullPlayerId);
 
     for (auto iter = m_mapDelayBomb.begin(); iter != m_mapDelayBomb.end(); iter++)
@@ -155,10 +142,13 @@ void NFFishTypeDelayBomb::SyncFishBomb(NFGameFishPlayer *pPlayer)
 
         }
     }
+    return 0;
 }
 
 NFDelayBomb *NFFishTypeDelayBomb::CreateDelayBomb(NFGameFishPlayer *pPlayer, NFGameFish *pBombFish, const NFFishBullet &bullet)
 {
+    CHECK_EXPR(pPlayer, NULL, "");
+    CHECK_EXPR(pBombFish, NULL, "");
     uint32_t id = FindModule<NFISharedMemModule>()->Get32UUID();
     CHECK_EXPR(!m_mapDelayBomb.full(), NULL, "m_mapDelayBomb Space Not Enough");
     CHECK_EXPR(m_mapDelayBomb.find(id) == m_mapDelayBomb.end(), NULL, "id:{} exist", id);
@@ -172,18 +162,18 @@ NFDelayBomb *NFFishTypeDelayBomb::CreateDelayBomb(NFGameFishPlayer *pPlayer, NFG
         return NULL;
     }
 
+    pBomb->InitShmObj(this);
     pBomb->m_uId = id;
     pBomb->m_uChairId = pPlayer->GetChairIdForClient();
     pBomb->m_ullPlayerId = pPlayer->m_ullPlayerId;
     pBomb->m_bombFish = *pBombFish;
     pBomb->m_ptMyPos  = pBombFish->GetMyPoint(pTraceConfig);
     pBomb->m_uStatus  = 1;
-    pBomb->m_uStatusEndTime = NFTime::Now().UnixMSec() + 3700;
+    pBomb->SetTimer(3700, 1, 0, 0, 0, 3700);
     pBomb->m_iBulletMul     = bullet.GetBulletMul();
     pBomb->m_iBulletMoney   = bullet.GetBulletMoney();
     pBomb->m_iMaxWinMoney   = pPlayer->GetMaxWinMoney();
     pBomb->m_uTotalScore    = 0;
-    pBomb->m_pFishTypeDelayBomb = this;
 
     return pBomb;
 }
@@ -196,16 +186,17 @@ std::vector<NFGameFish *> NFFishTypeDelayBomb::GetKilledSubFishes(CHMPoint ptCen
 //////////////////////////////////////////////////////////////////////////
 
 //must be virtual
-int NFDelayBomb::HandleDelayed()
+int NFDelayBomb::OnTimer(int timeId, int callcount)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFDelayBomb::OnTimer()");
-    CHECK_NULL(m_pFishTypeDelayBomb);
-    CHECK_NULL(m_pFishTypeDelayBomb->m_pDesk);
 
-    NFGameFishPlayer* pPlayerOwner = m_pFishTypeDelayBomb->m_pDesk->GetPlayer(m_ullPlayerId);
+    NFFishTypeDelayBomb* pFishTypeDelayBomb = dynamic_cast<NFFishTypeDelayBomb*>(GetFishTypeHandler());
+    CHECK_NULL(pFishTypeDelayBomb);
+
+    NFGameFishPlayer* pPlayerOwner = GetPlayer(m_ullPlayerId);
     if (pPlayerOwner != NULL && pPlayerOwner->m_ready)
     {
-        NFGameFishPlayer* pPlayer = m_pFishTypeDelayBomb->m_pDesk->GetPlayer(m_ullPlayerId);
+        NFGameFishPlayer* pPlayer = GetPlayer(m_ullPlayerId);
         CHECK_EXPR(pPlayer, -1, "Check pPlayer Failed! pPlayer == NULL");
 
         //if (pBomb->uStatus == 1)// only one status now , no need to judge !
@@ -225,7 +216,7 @@ int NFDelayBomb::HandleDelayed()
             gcKillFish.set_bombfishid(0);
             gcKillFish.set_subfishcount(0);
 
-            std::vector<NFGameFish *> vecSubFishes = m_pFishTypeDelayBomb->GetKilledSubFishes(m_ptMyPos, m_bombFish.m_iDemageRadius);
+            std::vector<NFGameFish *> vecSubFishes = pFishTypeDelayBomb->GetKilledSubFishes(m_ptMyPos, m_bombFish.m_iDemageRadius);
 
 
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "subfishcount = {}", vecSubFishes.size());
@@ -253,7 +244,7 @@ int NFDelayBomb::HandleDelayed()
 
                 if ((m_uTotalScore + iScore > (uint32_t)m_iMaxWinMoney)
                     || (m_uTotalScore + iScore > iMyMaxWinMoney)
-                    || (!m_bombFish.IsCanKill(m_pFishTypeDelayBomb->m_pDesk->GetFishConfigConfig(), pSubFish->m_nFishKind)))
+                    || (!m_bombFish.IsCanKill(pFishTypeDelayBomb->m_pDesk->GetFishConfigConfig(), pSubFish->m_nFishKind)))
                 {
                     if (m_uTotalScore + iScore > (uint32_t)m_iMaxWinMoney)
                     {
@@ -265,7 +256,7 @@ int NFDelayBomb::HandleDelayed()
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "KillFish()==>Normal ! m_uTotalScore + iScore > m_iMaxWinMoney ! {} + {} > {} !", m_uTotalScore, iScore, MyMaxWinMoney());
                     }
 
-                    if ((!m_bombFish.IsCanKill(m_pFishTypeDelayBomb->m_pDesk->GetFishConfigConfig(), pSubFish->m_nFishKind)))
+                    if ((!m_bombFish.IsCanKill(pFishTypeDelayBomb->m_pDesk->GetFishConfigConfig(), pSubFish->m_nFishKind)))
                     {
                         NFLogError(NF_LOG_SYSTEMLOG, 0, "KillFish()==>Normal ! IsCanKill == false pSubFish->m_nFishKind = {}", pSubFish->m_nFishKind);
                     }
@@ -297,7 +288,7 @@ int NFDelayBomb::HandleDelayed()
             gcKillFish.set_totalratio(m_uTotalScore / m_iBulletMoney);
             gcKillFish.set_subfishcount(iSubFishCount);
 
-            m_pFishTypeDelayBomb->m_pDesk->SendMsgToAllClient(NF_FISH_CMD_KILLFISH, gcKillFish);
+            pFishTypeDelayBomb->m_pDesk->SendMsgToAllClient(NF_FISH_CMD_KILLFISH, gcKillFish);
 
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishTypeDelayBomb::OnTimer() NF_FISH_CMD_KILLFISH ==> set_subfishcount = {}", vecSubFishes.size());
 
@@ -316,8 +307,15 @@ int NFDelayBomb::HandleDelayed()
     delayBomb_Bomb_Rsp.set_ustotalscore(m_uTotalScore);
     delayBomb_Bomb_Rsp.set_ustotalmul(m_uTotalScore / m_iBulletMoney);
 
-    m_pFishTypeDelayBomb->m_pDesk->SendMsgToAllClient(NF_FISH_CMD_DELAYBOMB_BOMB_RSP, delayBomb_Bomb_Rsp);
+    pFishTypeDelayBomb->m_pDesk->SendMsgToAllClient(NF_FISH_CMD_DELAYBOMB_BOMB_RSP, delayBomb_Bomb_Rsp);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "====> NFFishTypeDelayBomb::OnTimer() NF_FISH_CMD_DELAYBOMB_BOMB_RSP m_uTotalScore = {}", m_uTotalScore);
+
+    pFishTypeDelayBomb->DeleteDelayBomb(m_uId);
     return 0;
+}
+
+void NFFishTypeDelayBomb::DeleteDelayBomb(uint32_t id)
+{
+    m_mapDelayBomb.erase(id);
 }

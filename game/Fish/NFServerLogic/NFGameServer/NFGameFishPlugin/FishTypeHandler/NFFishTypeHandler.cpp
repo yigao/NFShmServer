@@ -142,14 +142,14 @@ uint32_t NFFishTypeHandler::GetFishMaxWinMoney(NFGameFish fish, uint32_t bulletM
     }
 }
 
-void NFFishTypeHandler::SyncFishBomb(NFGameFishPlayer *pPlayer)
+int NFFishTypeHandler::SyncFishBomb(NFGameFishPlayer *pPlayer)
 {
-
+    return 0;
 }
 
-void NFFishTypeHandler::UserLeftDesk(NFGameFishPlayer *pPlayer)
+int NFFishTypeHandler::UserLeftDesk(NFGameFishPlayer *pPlayer)
 {
-
+    return 0;
 }
 
 int NFFishTypeHandler::OnAddScore(NFGameFishPlayer *pPlayer, NFGameFish *pFish, uint64_t ullScoreMoney)

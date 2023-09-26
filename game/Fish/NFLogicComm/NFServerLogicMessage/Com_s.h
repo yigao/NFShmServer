@@ -10,6 +10,7 @@
 #include "ComDefine.pb.h"
 #include "ComDefine_s.h"
 
+#define DEFINE_GCFREEZEFISHES_FISHES_MAX_NUM 500
 
 
 namespace proto_ff_s {
@@ -300,6 +301,39 @@ namespace proto_ff_s {
 		static ::proto_ff::GameRoomStat make_pbmsg(){ return ::proto_ff::GameRoomStat(); }
 	};
 	typedef struct GameRoomStat_s GameRoomStat_t;
+
+	struct FreezeFish_s : public NFDescStoreSeqOP {
+		FreezeFish_s();
+		virtual ~FreezeFish_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t fish_uid;//
+		uint32_t fish_id;//
+
+		virtual void write_to_pbmsg(::proto_ff::FreezeFish & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::FreezeFish & msg);
+		static ::proto_ff::FreezeFish* new_pbmsg(){ return new ::proto_ff::FreezeFish(); }
+		static ::proto_ff::FreezeFish make_pbmsg(){ return ::proto_ff::FreezeFish(); }
+	};
+	typedef struct FreezeFish_s FreezeFish_t;
+
+	struct gcFreezeFishes_s : public NFDescStoreSeqOP {
+		gcFreezeFishes_s();
+		virtual ~gcFreezeFishes_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint32_t mainfish_uid;//
+		uint32_t mainfish_id;//
+		uint32_t mainFishType;//
+		bool IsFreeze;//
+		NFShmVector<struct FreezeFish_s, DEFINE_GCFREEZEFISHES_FISHES_MAX_NUM> fishes;//
+
+		virtual void write_to_pbmsg(::proto_ff::gcFreezeFishes & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::gcFreezeFishes & msg);
+		static ::proto_ff::gcFreezeFishes* new_pbmsg(){ return new ::proto_ff::gcFreezeFishes(); }
+		static ::proto_ff::gcFreezeFishes make_pbmsg(){ return ::proto_ff::gcFreezeFishes(); }
+	};
+	typedef struct gcFreezeFishes_s gcFreezeFishes_t;
 
 }
 

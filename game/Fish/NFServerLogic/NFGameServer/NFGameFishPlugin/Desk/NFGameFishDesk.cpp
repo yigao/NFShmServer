@@ -202,7 +202,6 @@ int NFGameFishDesk::UserSitDesk(uint64_t playerId, int iDeskStation, proto_ff_s:
     CHECK_EXPR(pPlayer->GetPlayerID() == playerId, -1, "GameFishDesk playerId error, playerId:{} != playerId:{}",
                pPlayer->GetPlayerID(), playerId);
 
-    pPlayer->SetDeskHandle(this);
     pPlayer->m_uChairId = iDeskStation;
     pPlayer->m_online = true;
     pPlayer->m_isRobot = playerDetail.isRobot;
@@ -502,12 +501,12 @@ NFGameFishPlayer *NFGameFishDesk::CreatePlayer(uint64_t playerId, int32_t iDeskS
     CHECK_PLAYER_EXPR(playerId, pPlayer == NULL, pPlayer, "Create Player Failed, failed exist:{}", playerId);
 
     NFGameFishPlayer *player = &m_playerList[iDeskStation];
+    player->InitShmObj(this);
     player->ResetPlayerData();
     player->SetPlayerID(playerId);
     player->m_iGameId = m_gameId;
     player->m_iRoomId = m_roomId;
     player->m_iDeskId = m_deskId;
-    player->m_pDesk = this;
 
     return player;
 }
@@ -772,7 +771,7 @@ int NFGameFishDesk::OnHandleFishShootBullet(uint64_t playerId, NFDataPackage &pa
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "OnHandleFishShootBullet() -- bullet.m_iBulletLevel = {} , bullet.m_iAngle = {}", bullet.m_iBulletLevel, bullet.m_iAngle);
 
-    pPlayer->ShootBullet(m_pObjPluginManager, bullet);
+    pPlayer->ShootBullet(bullet);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "-- end --");
     return 0;

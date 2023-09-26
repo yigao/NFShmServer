@@ -71,6 +71,12 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* GameRoomStat_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GameRoomStat_reflection_ = NULL;
+const ::google::protobuf::Descriptor* FreezeFish_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  FreezeFish_reflection_ = NULL;
+const ::google::protobuf::Descriptor* gcFreezeFishes_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  gcFreezeFishes_reflection_ = NULL;
 
 }  // namespace
 
@@ -385,6 +391,41 @@ void protobuf_AssignDesc_Com_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GameRoomStat));
+  FreezeFish_descriptor_ = file->message_type(17);
+  static const int FreezeFish_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FreezeFish, fish_uid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FreezeFish, fish_id_),
+  };
+  FreezeFish_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      FreezeFish_descriptor_,
+      FreezeFish::default_instance_,
+      FreezeFish_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FreezeFish, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FreezeFish, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(FreezeFish));
+  gcFreezeFishes_descriptor_ = file->message_type(18);
+  static const int gcFreezeFishes_offsets_[5] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, mainfish_uid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, mainfish_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, mainfishtype_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, isfreeze_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, fishes_),
+  };
+  gcFreezeFishes_reflection_ =
+    new ::google::protobuf::internal::GeneratedMessageReflection(
+      gcFreezeFishes_descriptor_,
+      gcFreezeFishes::default_instance_,
+      gcFreezeFishes_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(gcFreezeFishes, _unknown_fields_),
+      -1,
+      ::google::protobuf::DescriptorPool::generated_pool(),
+      ::google::protobuf::MessageFactory::generated_factory(),
+      sizeof(gcFreezeFishes));
 }
 
 namespace {
@@ -431,6 +472,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
     GamePlayerAchievementData_descriptor_, &GamePlayerAchievementData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     GameRoomStat_descriptor_, &GameRoomStat::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    FreezeFish_descriptor_, &FreezeFish::default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    gcFreezeFishes_descriptor_, &gcFreezeFishes::default_instance());
 }
 
 }  // namespace
@@ -470,6 +515,10 @@ void protobuf_ShutdownFile_Com_2eproto() {
   delete GamePlayerAchievementData_reflection_;
   delete GameRoomStat::default_instance_;
   delete GameRoomStat_reflection_;
+  delete FreezeFish::default_instance_;
+  delete FreezeFish_reflection_;
+  delete gcFreezeFishes::default_instance_;
+  delete gcFreezeFishes_reflection_;
 }
 
 void protobuf_AddDesc_Com_2eproto() {
@@ -518,7 +567,12 @@ void protobuf_AddDesc_Com_2eproto() {
     "\030\005 \001(\003\022\025\n\rthis_game_win\030\006 \001(\003\"=\n\031GamePla"
     "yerAchievementData\022\017\n\007cur_ach\030\002 \001(\004\022\017\n\007c"
     "ur_fee\030\003 \001(\004\"B\n\014GameRoomStat\022\017\n\007cur_fee\030"
-    "\001 \001(\004\022\020\n\010cur_pour\030\002 \001(\004\022\017\n\007cur_win\030\003 \001(\003", 1520);
+    "\001 \001(\004\022\020\n\010cur_pour\030\002 \001(\004\022\017\n\007cur_win\030\003 \001(\003"
+    "\"/\n\nFreezeFish\022\020\n\010fish_uid\030\001 \001(\r\022\017\n\007fish"
+    "_id\030\002 \001(\r\"\220\001\n\016gcFreezeFishes\022\024\n\014mainfish"
+    "_uid\030\001 \001(\r\022\023\n\013mainfish_id\030\002 \001(\r\022\024\n\014mainF"
+    "ishType\030\003 \001(\r\022\020\n\010IsFreeze\030\004 \001(\010\022+\n\006fishe"
+    "s\030\005 \003(\0132\024.proto_ff.FreezeFishB\005\210\301\024\364\003", 1716);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Com.proto", &protobuf_RegisterTypes);
   EmptyMessage::default_instance_ = new EmptyMessage();
@@ -538,6 +592,8 @@ void protobuf_AddDesc_Com_2eproto() {
   GamePlayerWealthData::default_instance_ = new GamePlayerWealthData();
   GamePlayerAchievementData::default_instance_ = new GamePlayerAchievementData();
   GameRoomStat::default_instance_ = new GameRoomStat();
+  FreezeFish::default_instance_ = new FreezeFish();
+  gcFreezeFishes::default_instance_ = new gcFreezeFishes();
   EmptyMessage::default_instance_->InitAsDefaultInstance();
   ComPair::default_instance_->InitAsDefaultInstance();
   ComPair64::default_instance_->InitAsDefaultInstance();
@@ -555,6 +611,8 @@ void protobuf_AddDesc_Com_2eproto() {
   GamePlayerWealthData::default_instance_->InitAsDefaultInstance();
   GamePlayerAchievementData::default_instance_->InitAsDefaultInstance();
   GameRoomStat::default_instance_->InitAsDefaultInstance();
+  FreezeFish::default_instance_->InitAsDefaultInstance();
+  gcFreezeFishes::default_instance_->InitAsDefaultInstance();
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Com_2eproto);
 }
 
@@ -6228,6 +6286,620 @@ void GameRoomStat::Swap(GameRoomStat* other) {
   ::google::protobuf::Metadata metadata;
   metadata.descriptor = GameRoomStat_descriptor_;
   metadata.reflection = GameRoomStat_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int FreezeFish::kFishUidFieldNumber;
+const int FreezeFish::kFishIdFieldNumber;
+#endif  // !_MSC_VER
+
+FreezeFish::FreezeFish()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void FreezeFish::InitAsDefaultInstance() {
+}
+
+FreezeFish::FreezeFish(const FreezeFish& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void FreezeFish::SharedCtor() {
+  _cached_size_ = 0;
+  fish_uid_ = 0u;
+  fish_id_ = 0u;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+FreezeFish::~FreezeFish() {
+  SharedDtor();
+}
+
+void FreezeFish::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void FreezeFish::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* FreezeFish::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return FreezeFish_descriptor_;
+}
+
+const FreezeFish& FreezeFish::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
+  return *default_instance_;
+}
+
+FreezeFish* FreezeFish::default_instance_ = NULL;
+
+FreezeFish* FreezeFish::New() const {
+  return new FreezeFish;
+}
+
+void FreezeFish::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    fish_uid_ = 0u;
+    fish_id_ = 0u;
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool FreezeFish::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 fish_uid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &fish_uid_)));
+          set_has_fish_uid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_fish_id;
+        break;
+      }
+
+      // optional uint32 fish_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_fish_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &fish_id_)));
+          set_has_fish_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void FreezeFish::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 fish_uid = 1;
+  if (has_fish_uid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->fish_uid(), output);
+  }
+
+  // optional uint32 fish_id = 2;
+  if (has_fish_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->fish_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* FreezeFish::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 fish_uid = 1;
+  if (has_fish_uid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->fish_uid(), target);
+  }
+
+  // optional uint32 fish_id = 2;
+  if (has_fish_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->fish_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int FreezeFish::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 fish_uid = 1;
+    if (has_fish_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->fish_uid());
+    }
+
+    // optional uint32 fish_id = 2;
+    if (has_fish_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->fish_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void FreezeFish::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const FreezeFish* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const FreezeFish*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void FreezeFish::MergeFrom(const FreezeFish& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_fish_uid()) {
+      set_fish_uid(from.fish_uid());
+    }
+    if (from.has_fish_id()) {
+      set_fish_id(from.fish_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void FreezeFish::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void FreezeFish::CopyFrom(const FreezeFish& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool FreezeFish::IsInitialized() const {
+
+  return true;
+}
+
+void FreezeFish::Swap(FreezeFish* other) {
+  if (other != this) {
+    std::swap(fish_uid_, other->fish_uid_);
+    std::swap(fish_id_, other->fish_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata FreezeFish::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = FreezeFish_descriptor_;
+  metadata.reflection = FreezeFish_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int gcFreezeFishes::kMainfishUidFieldNumber;
+const int gcFreezeFishes::kMainfishIdFieldNumber;
+const int gcFreezeFishes::kMainFishTypeFieldNumber;
+const int gcFreezeFishes::kIsFreezeFieldNumber;
+const int gcFreezeFishes::kFishesFieldNumber;
+#endif  // !_MSC_VER
+
+gcFreezeFishes::gcFreezeFishes()
+  : ::google::protobuf::Message() {
+  SharedCtor();
+}
+
+void gcFreezeFishes::InitAsDefaultInstance() {
+}
+
+gcFreezeFishes::gcFreezeFishes(const gcFreezeFishes& from)
+  : ::google::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+}
+
+void gcFreezeFishes::SharedCtor() {
+  _cached_size_ = 0;
+  mainfish_uid_ = 0u;
+  mainfish_id_ = 0u;
+  mainfishtype_ = 0u;
+  isfreeze_ = false;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+gcFreezeFishes::~gcFreezeFishes() {
+  SharedDtor();
+}
+
+void gcFreezeFishes::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void gcFreezeFishes::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* gcFreezeFishes::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return gcFreezeFishes_descriptor_;
+}
+
+const gcFreezeFishes& gcFreezeFishes::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Com_2eproto();
+  return *default_instance_;
+}
+
+gcFreezeFishes* gcFreezeFishes::default_instance_ = NULL;
+
+gcFreezeFishes* gcFreezeFishes::New() const {
+  return new gcFreezeFishes;
+}
+
+void gcFreezeFishes::Clear() {
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    mainfish_uid_ = 0u;
+    mainfish_id_ = 0u;
+    mainfishtype_ = 0u;
+    isfreeze_ = false;
+  }
+  fishes_.Clear();
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool gcFreezeFishes::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) return false
+  ::google::protobuf::uint32 tag;
+  while ((tag = input->ReadTag()) != 0) {
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional uint32 mainfish_uid = 1;
+      case 1: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &mainfish_uid_)));
+          set_has_mainfish_uid();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(16)) goto parse_mainfish_id;
+        break;
+      }
+
+      // optional uint32 mainfish_id = 2;
+      case 2: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mainfish_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &mainfish_id_)));
+          set_has_mainfish_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(24)) goto parse_mainFishType;
+        break;
+      }
+
+      // optional uint32 mainFishType = 3;
+      case 3: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_mainFishType:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &mainfishtype_)));
+          set_has_mainfishtype();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(32)) goto parse_IsFreeze;
+        break;
+      }
+
+      // optional bool IsFreeze = 4;
+      case 4: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_IsFreeze:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   bool, ::google::protobuf::internal::WireFormatLite::TYPE_BOOL>(
+                 input, &isfreeze_)));
+          set_has_isfreeze();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_fishes;
+        break;
+      }
+
+      // repeated .proto_ff.FreezeFish fishes = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_LENGTH_DELIMITED) {
+         parse_fishes:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+                input, add_fishes()));
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(42)) goto parse_fishes;
+        if (input->ExpectAtEnd()) return true;
+        break;
+      }
+
+      default: {
+      handle_uninterpreted:
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          return true;
+        }
+        DO_(::google::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+  return true;
+#undef DO_
+}
+
+void gcFreezeFishes::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // optional uint32 mainfish_uid = 1;
+  if (has_mainfish_uid()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->mainfish_uid(), output);
+  }
+
+  // optional uint32 mainfish_id = 2;
+  if (has_mainfish_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(2, this->mainfish_id(), output);
+  }
+
+  // optional uint32 mainFishType = 3;
+  if (has_mainfishtype()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(3, this->mainfishtype(), output);
+  }
+
+  // optional bool IsFreeze = 4;
+  if (has_isfreeze()) {
+    ::google::protobuf::internal::WireFormatLite::WriteBool(4, this->isfreeze(), output);
+  }
+
+  // repeated .proto_ff.FreezeFish fishes = 5;
+  for (int i = 0; i < this->fishes_size(); i++) {
+    ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      5, this->fishes(i), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+}
+
+::google::protobuf::uint8* gcFreezeFishes::SerializeWithCachedSizesToArray(
+    ::google::protobuf::uint8* target) const {
+  // optional uint32 mainfish_uid = 1;
+  if (has_mainfish_uid()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->mainfish_uid(), target);
+  }
+
+  // optional uint32 mainfish_id = 2;
+  if (has_mainfish_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->mainfish_id(), target);
+  }
+
+  // optional uint32 mainFishType = 3;
+  if (has_mainfishtype()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->mainfishtype(), target);
+  }
+
+  // optional bool IsFreeze = 4;
+  if (has_isfreeze()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteBoolToArray(4, this->isfreeze(), target);
+  }
+
+  // repeated .proto_ff.FreezeFish fishes = 5;
+  for (int i = 0; i < this->fishes_size(); i++) {
+    target = ::google::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        5, this->fishes(i), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  return target;
+}
+
+int gcFreezeFishes::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // optional uint32 mainfish_uid = 1;
+    if (has_mainfish_uid()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->mainfish_uid());
+    }
+
+    // optional uint32 mainfish_id = 2;
+    if (has_mainfish_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->mainfish_id());
+    }
+
+    // optional uint32 mainFishType = 3;
+    if (has_mainfishtype()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->mainfishtype());
+    }
+
+    // optional bool IsFreeze = 4;
+    if (has_isfreeze()) {
+      total_size += 1 + 1;
+    }
+
+  }
+  // repeated .proto_ff.FreezeFish fishes = 5;
+  total_size += 1 * this->fishes_size();
+  for (int i = 0; i < this->fishes_size(); i++) {
+    total_size +=
+      ::google::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+        this->fishes(i));
+  }
+
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void gcFreezeFishes::MergeFrom(const ::google::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const gcFreezeFishes* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const gcFreezeFishes*>(
+      &from);
+  if (source == NULL) {
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void gcFreezeFishes::MergeFrom(const gcFreezeFishes& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  fishes_.MergeFrom(from.fishes_);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_mainfish_uid()) {
+      set_mainfish_uid(from.mainfish_uid());
+    }
+    if (from.has_mainfish_id()) {
+      set_mainfish_id(from.mainfish_id());
+    }
+    if (from.has_mainfishtype()) {
+      set_mainfishtype(from.mainfishtype());
+    }
+    if (from.has_isfreeze()) {
+      set_isfreeze(from.isfreeze());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void gcFreezeFishes::CopyFrom(const ::google::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void gcFreezeFishes::CopyFrom(const gcFreezeFishes& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool gcFreezeFishes::IsInitialized() const {
+
+  return true;
+}
+
+void gcFreezeFishes::Swap(gcFreezeFishes* other) {
+  if (other != this) {
+    std::swap(mainfish_uid_, other->mainfish_uid_);
+    std::swap(mainfish_id_, other->mainfish_id_);
+    std::swap(mainfishtype_, other->mainfishtype_);
+    std::swap(isfreeze_, other->isfreeze_);
+    fishes_.Swap(&other->fishes_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google::protobuf::Metadata gcFreezeFishes::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = gcFreezeFishes_descriptor_;
+  metadata.reflection = gcFreezeFishes_reflection_;
   return metadata;
 }
 

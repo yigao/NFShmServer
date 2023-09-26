@@ -31,8 +31,6 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-    NFShmPtr<NFGameFishDesk> m_pDesk;
 public:
     int Init(NFGameFishDesk* pDesk);
     virtual int OnHandleClientMessage(NFGameFishPlayer* pPlayer, NFDataPackage &packet);
@@ -42,8 +40,10 @@ public:
     virtual int GetKilledFishMul(NFGameFish* pFish, const NFFishBullet& bullet);
     virtual int GetKilledDeathMul(NFGameFish* pFish, const NFFishBullet& bullet);
     virtual uint32_t GetFishMaxWinMoney(NFGameFish fish, uint32_t bulletMul, uint32_t bulletMoney);
-    virtual void SyncFishBomb(NFGameFishPlayer* pPlayer);
-    virtual void UserLeftDesk(NFGameFishPlayer* pPlayer);
+    virtual int SyncFishBomb(NFGameFishPlayer* pPlayer);
+    virtual int UserLeftDesk(NFGameFishPlayer* pPlayer);
     virtual int OnAddScore(NFGameFishPlayer* pPlayer, NFGameFish* pFish, uint64_t ullScoreMoney);//这个只用于技能里统计分数
+public:
+    NFShmPtr<NFGameFishDesk> m_pDesk;
 DECLARE_IDCREATE(NFFishTypeHandler)
 };
