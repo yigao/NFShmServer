@@ -74,8 +74,6 @@ void NFFishTypeMgr::Init(NFGameFishDesk* pDeskHandler)
 
 int NFFishTypeMgr::OnHandleClientMessage(NFGameFishPlayer* pPlayer, NFDataPackage &packet)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishTypeMgr::OnHandleClientMsg() ===============> nMsgId = {}", packet.nMsgId);
-
     for (auto iter = m_mapFishTypeHandler.begin(); iter != m_mapFishTypeHandler.end(); iter++)
     {
         int globalId = iter->second;
@@ -90,8 +88,6 @@ int NFFishTypeMgr::OnHandleClientMessage(NFGameFishPlayer* pPlayer, NFDataPackag
             }
         }
     }
-
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "NFFishTypeMgr::OnHandleClientMsg() ===============> return 0 !");
 
     return 0;
 }
@@ -252,8 +248,6 @@ NFFishTypeHandler* NFFishTypeMgr::AddFishTypeHandler(int iFishType)
 
 NFFishTypeHandler* NFFishTypeMgr::CreateFishTypeHandle(int iFishType)
 {
-    return (NFFishTypeHandler*) FindModule<NFISharedMemModule>()->CreateObj(EOT_GAME_FISH_TYPE_HANDLE_ID);
-
     switch (iFishType)
     {
         case NFGAME_FISHTYPE_NORMAL:

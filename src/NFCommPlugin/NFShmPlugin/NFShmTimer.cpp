@@ -44,6 +44,7 @@ int NFShmTimer::CreateInit()
 {
     m_shmObj = NULL;
     m_shmObjId = INVALID_ID;
+    m_rawShmObj = NULL;
 
     m_type = OnceTimer;
     m_beginTime = 0;
@@ -140,7 +141,13 @@ NFTimerRetType NFShmTimer::HandleTimer(int timeId, int callcount)
     }
 #endif
 
-    m_shmObj->OnTimer(timeId, callcount);
+    if (m_rawShmObj)
+    {
+        m_rawShmObj->OnTimer(timeId, callcount);
+    }
+    else {
+        m_shmObj->OnTimer(timeId, callcount);
+    }
 
     return eTimerTypeSuccess;
 }

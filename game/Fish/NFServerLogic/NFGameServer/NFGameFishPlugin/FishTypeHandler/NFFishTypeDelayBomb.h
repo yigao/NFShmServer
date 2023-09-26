@@ -17,9 +17,10 @@
 #include "NFFishTypeHandler.h"
 #include "Config/HMPoint.h"
 #include "Fish/NFGameFish.h"
+#include "NFComm/NFShmCore/NFRawTimerObj.h"
 
 class NFFishTypeDelayBomb;
-class NFDelayBomb
+class NFDelayBomb : public NFRawTimerObj<1>
 {
 public:
     NFDelayBomb()

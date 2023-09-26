@@ -12,6 +12,7 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmNodeList.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
+#include "NFComm/NFShmCore/NFRawShmObj.h"
 
 #define NFSHM_INFINITY_CALL                0xffffffff    // 调用无限次
 enum NFTimerRetType {
@@ -52,6 +53,11 @@ public:
     {
         m_shmObj = pObj;
         m_shmObjId = pObj->GetGlobalId();
+    }
+
+    void SetTimerRawShmObj(NFRawShmObj *pObj)
+    {
+        m_rawShmObj = pObj;
     }
 
     void PrintfDebug()
@@ -115,6 +121,7 @@ private:
 
 private:
     NFShmPtr<NFShmObj> m_shmObj;
+    NFRawShmPtr<NFRawShmObj> m_rawShmObj;
     int m_shmObjId;
     NFShmTimerType m_type;
 

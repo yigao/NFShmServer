@@ -822,16 +822,16 @@ int NFShmTimerManager::ClearShmObjTimer(NFShmTimer *pTimer)
     CHECK_NULL(pTimer);
 
     int globalId = pTimer->GetTimerShmObjId();
-    auto pNodeList = m_shmObjTimer.Find(globalId);
-    if (pNodeList)
+    auto iter = m_shmObjTimer.find(globalId);
+    if (iter != m_shmObjTimer.end())
     {
-        if (pTimer->GetListCheckID() == pNodeList->GetLastCheckID())
+        if (pTimer->GetListCheckID() == iter->second.GetLastCheckID())
         {
-            pNodeList->RemoveNode(m_pObjPluginManager, pTimer);
+            iter->second.RemoveNode(m_pObjPluginManager, pTimer);
         }
-        if (pNodeList->IsEmpty())
+        if (iter->second.IsEmpty())
         {
-            m_shmObjTimer.Erase(globalId);
+            m_shmObjTimer.erase(globalId);
         }
     }
     return 0;
@@ -841,43 +841,43 @@ int NFShmTimerManager::ClearAllTimer(NFShmObj *pObj)
 {
     CHECK_NULL(pObj);
 
-    auto pNodeList = m_shmObjTimer.Find(pObj->GetGlobalId());
-    if (pNodeList)
+    auto iter = m_shmObjTimer.find(pObj->GetGlobalId());
+    if (iter != m_shmObjTimer.end())
     {
-        auto pNode = pNodeList->GetHeadNodeObj(m_pObjPluginManager);
+        auto pNode = iter->second.GetHeadNodeObj(m_pObjPluginManager);
         while (pNode)
         {
             auto pLastNode = pNode;
-            pNode = pNodeList->GetNextNodeObj(m_pObjPluginManager, pNode);
+            pNode = iter->second.GetNextNodeObj(m_pObjPluginManager, pNode);
             pLastNode->SetWaitDelete();
-            pNodeList->RemoveNode(m_pObjPluginManager, pLastNode);
+            iter->second.RemoveNode(m_pObjPluginManager, pLastNode);
         }
 
-        m_shmObjTimer.Erase(pObj->GetGlobalId());
+        m_shmObjTimer.erase(pObj->GetGlobalId());
     }
     return 0;
 }
 
 int NFShmTimerManager::AddShmObjTimer(NFShmObj *pObj, NFShmTimer *newTimer)
 {
-    auto pNodeList = m_shmObjTimer.Find(pObj->GetGlobalId());
-    if (pNodeList == NULL)
+    auto iter = m_shmObjTimer.find(pObj->GetGlobalId());
+    if (iter == m_shmObjTimer.end())
     {
-        pNodeList = m_shmObjTimer.Insert(pObj->GetGlobalId());
-        if (pNodeList == NULL)
+        iter = m_shmObjTimer.emplace_hint(pObj->GetGlobalId(), NFShmNodeObjList<NFShmTimer>());
+        if (iter == m_shmObjTimer.end())
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "m_shmObjTimer Insert Failed, Space Not Enough, obj type:{}", pObj->GetClassType());
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "m_shmObjTimer full, Insert Failed, Space Not Enough, obj type:{}", pObj->GetClassType());
             Delete(newTimer->GetObjId());
 
             return INVALID_ID;
         }
     }
-    pNodeList->AddNode(m_pObjPluginManager, newTimer);
 
+    iter->second.AddNode(m_pObjPluginManager, newTimer);
     return newTimer->GetObjId();
 }
 
-int NFShmTimerManager::SetTimer(NFShmObj *pObj, int hour, int minutes, int second, int microSec)
+int NFShmTimerManager::SetTimer(NFShmObj *pObj, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     NFShmTimer *newTimer = (NFShmTimer *) FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer)
@@ -888,6 +888,7 @@ int NFShmTimerManager::SetTimer(NFShmObj *pObj, int hour, int minutes, int secon
     }
 
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::OnceTimer);
     if (!SetDistanceTime(newTimer, hour, minutes, second, microSec, 0, 1))
     {
@@ -903,7 +904,7 @@ int NFShmTimerManager::SetTimer(NFShmObj *pObj, int hour, int minutes, int secon
 }
 
 
-int NFShmTimerManager::SetCalender(NFShmObj *pObj, uint64_t timestamp)
+int NFShmTimerManager::SetCalender(NFShmObj *pObj, uint64_t timestamp, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     CHECK_EXPR(timestamp > (uint64_t) NFTime::Now().UnixSec(), INVALID_ID, "Create timer timestamp err");
 
@@ -915,6 +916,7 @@ int NFShmTimerManager::SetCalender(NFShmObj *pObj, uint64_t timestamp)
     }
 
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::OnceTimer);
     if (!SetDayTime(newTimer, timestamp, 0, 1))
     {
@@ -930,7 +932,7 @@ int NFShmTimerManager::SetCalender(NFShmObj *pObj, uint64_t timestamp)
 }
 
 int
-NFShmTimerManager::SetCalender(NFShmObj *pObj, int hour, int minutes, int second)
+NFShmTimerManager::SetCalender(NFShmObj *pObj, int hour, int minutes, int second, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     CHECK_EXPR(hour >= 0 && hour <= 23, INVALID_ID, "Create timer hour err");
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
@@ -944,6 +946,7 @@ NFShmTimerManager::SetCalender(NFShmObj *pObj, int hour, int minutes, int second
     }
 
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::OnceTimer);
     if (!SetDayTime(newTimer, hour, minutes, second, 0, 1))
     {
@@ -958,7 +961,7 @@ NFShmTimerManager::SetCalender(NFShmObj *pObj, int hour, int minutes, int second
     return AddShmObjTimer(pObj, newTimer);
 }
 
-int NFShmTimerManager::SetTimer(NFShmObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec)
+int NFShmTimerManager::SetTimer(NFShmObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     if (interval < SLOT_TICK_TIME)
     {
@@ -973,6 +976,7 @@ int NFShmTimerManager::SetTimer(NFShmObj *pObj, int interval, int callcount, int
     }
 
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::LoopTimer);
     if (callcount <= 0)
     {
@@ -991,7 +995,7 @@ int NFShmTimerManager::SetTimer(NFShmObj *pObj, int interval, int callcount, int
     return AddShmObjTimer(pObj, newTimer);
 }
 
-int NFShmTimerManager::SetDayTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
+int NFShmTimerManager::SetDayTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     NFShmTimer *newTimer = (NFShmTimer *) FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer)
@@ -1001,6 +1005,7 @@ int NFShmTimerManager::SetDayTime(NFShmObj *pObj, int callcount, int hour, int m
     }
 
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::LoopTimer);
     if (callcount <= 0)
     {
@@ -1019,7 +1024,7 @@ int NFShmTimerManager::SetDayTime(NFShmObj *pObj, int callcount, int hour, int m
     return AddShmObjTimer(pObj, newTimer);
 }
 
-int NFShmTimerManager::SetDayCalender(NFShmObj *pObj, int callcount, int hour, int minutes, int second)
+int NFShmTimerManager::SetDayCalender(NFShmObj *pObj, int callcount, int hour, int minutes, int second, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     CHECK_EXPR(hour >= 0 && hour <= 23, INVALID_ID, "Create timer hour err");
     CHECK_EXPR(minutes >= 0 && minutes <= 59, INVALID_ID, "Create timer minute err");
@@ -1033,6 +1038,7 @@ int NFShmTimerManager::SetDayCalender(NFShmObj *pObj, int callcount, int hour, i
     }
 
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::LoopTimer);
     if (callcount <= 0)
     {
@@ -1051,7 +1057,7 @@ int NFShmTimerManager::SetDayCalender(NFShmObj *pObj, int callcount, int hour, i
     return AddShmObjTimer(pObj, newTimer);
 }
 
-int NFShmTimerManager::SetWeekTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
+int NFShmTimerManager::SetWeekTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     NFShmTimer *newTimer = (NFShmTimer *) FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer)
@@ -1061,6 +1067,7 @@ int NFShmTimerManager::SetWeekTime(NFShmObj *pObj, int callcount, int hour, int 
     }
 
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::LoopTimer);
     if (callcount <= 0)
     {
@@ -1079,7 +1086,7 @@ int NFShmTimerManager::SetWeekTime(NFShmObj *pObj, int callcount, int hour, int 
     return AddShmObjTimer(pObj, newTimer);
 }
 
-int NFShmTimerManager::SetWeekCalender(NFShmObj *pObj, int callcount, int weekDay, int hour, int minutes, int second)
+int NFShmTimerManager::SetWeekCalender(NFShmObj *pObj, int callcount, int weekDay, int hour, int minutes, int second, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     CHECK_EXPR(weekDay >= 1 && weekDay <= 7, INVALID_ID, "Create timer week day err");
     CHECK_EXPR(hour >= 0 && hour <= 23, INVALID_ID, "Create timer hour err");
@@ -1098,6 +1105,7 @@ int NFShmTimerManager::SetWeekCalender(NFShmObj *pObj, int callcount, int weekDa
         callcount = NFSHM_INFINITY_CALL; //无线次数
     }
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::LoopTimer);
     if (!SetWeekTime(newTimer, weekDay, hour, minutes, second, callcount))
     {
@@ -1112,7 +1120,7 @@ int NFShmTimerManager::SetWeekCalender(NFShmObj *pObj, int callcount, int weekDa
     return AddShmObjTimer(pObj, newTimer);
 }
 
-int NFShmTimerManager::SetMonthTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec)
+int NFShmTimerManager::SetMonthTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     NFShmTimer *newTimer = (NFShmTimer *) FindModule<NFISharedMemModule>()->CreateObj(EOT_TYPE_TIMER_OBJ);
     if (!newTimer)
@@ -1126,6 +1134,7 @@ int NFShmTimerManager::SetMonthTime(NFShmObj *pObj, int callcount, int hour, int
         callcount = NFSHM_INFINITY_CALL; //无线次数
     }
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::MonthLoopTimer);
     if (!SetDistanceTime(newTimer, hour, minutes, second, microSec, 0, callcount))
     {
@@ -1140,7 +1149,7 @@ int NFShmTimerManager::SetMonthTime(NFShmObj *pObj, int callcount, int hour, int
     return AddShmObjTimer(pObj, newTimer);
 }
 
-int NFShmTimerManager::SetMonthCalender(NFShmObj *pObj, int callcount, int day, int hour, int minutes, int second)
+int NFShmTimerManager::SetMonthCalender(NFShmObj *pObj, int callcount, int day, int hour, int minutes, int second, NFRawShmObj* pRawShmObj/* = NULL*/)
 {
     CHECK_EXPR(day >= 1 && day <= 31, INVALID_ID, "Create timer month day err");
     CHECK_EXPR(hour >= 0 && hour <= 23, INVALID_ID, "Create timer hour err");
@@ -1159,6 +1168,7 @@ int NFShmTimerManager::SetMonthCalender(NFShmObj *pObj, int callcount, int day, 
         callcount = NFSHM_INFINITY_CALL; //无线次数
     }
     newTimer->SetTimerShmObj(pObj);
+    newTimer->SetTimerRawShmObj(pRawShmObj);
     newTimer->SetType(NFShmTimer::MonthLoopTimer);
     if (!SetMonthTime(newTimer, day, hour, minutes, second, callcount))
     {

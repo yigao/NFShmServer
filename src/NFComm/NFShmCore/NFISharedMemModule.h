@@ -15,10 +15,8 @@
 #include "NFShmObjIterator.h"
 
 class NFShmObj;
-
+class NFRawShmObj;
 class NFTransBase;
-
-class NFShmObj;
 
 class NFISharedMemModule : public NFIModule
 {
@@ -248,34 +246,34 @@ public:
     virtual int DeleteAllTimer(NFShmObj *pObj) = 0;
 
     //注册距离现在多少时间执行一次的定时器(hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒, 只执行一次)
-    virtual int SetTimer(NFShmObj *pObj, int hour, int minutes, int second, int microSec) = 0;
+    virtual int SetTimer(NFShmObj *pObj, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //注册某一个时间点执行一次的定时器(hour  minutes  second为第一次执行的时间点时分秒, 只执行一次)
-    virtual int SetCalender(NFShmObj *pObj, int hour, int minutes, int second) = 0;
+    virtual int SetCalender(NFShmObj *pObj, int hour, int minutes, int second, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //注册某一个时间点执行一次的定时器(timestamp为第一次执行的时间点的时间戳,单位是秒, 只执行一次)
-    virtual int SetCalender(NFShmObj *pObj, uint64_t timestamp) = 0;
+    virtual int SetCalender(NFShmObj *pObj, uint64_t timestamp, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //注册循环执行定时器（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒,  interval 为循环间隔时间，为毫秒）
-    virtual int SetTimer(NFShmObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec) = 0;
+    virtual int SetTimer(NFShmObj *pObj, int interval, int callcount, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //注册循环执行定时器（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒）
-    virtual int SetDayTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec) = 0;
+    virtual int SetDayTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //注册某一个时间点日循环执行定时器（hour  minutes  second为一天中开始执行的时间点，    23：23：23     每天23点23分23秒执行）
-    virtual int SetDayCalender(NFShmObj *pObj, int callcount, int hour, int minutes, int second) = 0;
+    virtual int SetDayCalender(NFShmObj *pObj, int callcount, int hour, int minutes, int second, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //周循环（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒）
-    virtual int SetWeekTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec) = 0;
+    virtual int SetWeekTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //注册某一个时间点周循环执行定时器（ weekDay  hour  minutes  second 为一周中某一天开始执行的时间点）
-    virtual int SetWeekCalender(NFShmObj *pObj, int callcount, int weekDay, int hour, int minutes, int second) = 0;
+    virtual int SetWeekCalender(NFShmObj *pObj, int callcount, int weekDay, int hour, int minutes, int second, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //月循环（hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒,最好是同一天）
-    virtual int SetMonthTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec) = 0;
+    virtual int SetMonthTime(NFShmObj *pObj, int callcount, int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     //注册某一个时间点月循环执行定时器（ day  hour  minutes  second 为一月中某一天开始执行的时间点）
-    virtual int SetMonthCalender(NFShmObj *pObj, int callcount, int day, int hour, int minutes, int second) = 0;
+    virtual int SetMonthCalender(NFShmObj *pObj, int callcount, int day, int hour, int minutes, int second, NFRawShmObj* pRawShmObj = NULL) = 0;
 
     /**
      * @brief 发送事件,并执行收到事件的对象的对应函数
