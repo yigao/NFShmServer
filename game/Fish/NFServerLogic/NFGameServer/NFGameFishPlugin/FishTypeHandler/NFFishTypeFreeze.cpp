@@ -158,4 +158,5 @@ int NFFishTypeFreeze::OnTimer(int timeId, int callcount)
 
         m_pDesk->SetIsFreezs(false);
     }
+    return 0;
 }

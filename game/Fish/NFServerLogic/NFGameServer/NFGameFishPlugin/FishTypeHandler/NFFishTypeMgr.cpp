@@ -17,6 +17,7 @@
 #include "NFFishTypeHandler.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "Config/NFFishSettingConfig.h"
+#include "NFGameFishModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFFishTypeMgr, EOT_NFFishTypeMgr_ID, NFShmObj)
 
@@ -74,22 +75,19 @@ void NFFishTypeMgr::Init(NFGameFishDesk* pDeskHandler)
 
 int NFFishTypeMgr::OnHandleClientMessage(NFGameFishPlayer* pPlayer, NFDataPackage &packet)
 {
-    for (auto iter = m_mapFishTypeHandler.begin(); iter != m_mapFishTypeHandler.end(); iter++)
+    int type = FindModule<NFGameFishModule>()->GetFishTypeHandlerByMsgId(packet.nMsgId);
+    if (type == INVALID_ID)
     {
-        int globalId = iter->second;
-        NFFishTypeHandler* pFishTypeHandler = (NFFishTypeHandler*)FindModule<NFISharedMemModule>()->GetObjByGlobalId(EOT_GAME_FISH_TYPE_HANDLE_ID, globalId, true);
-
-        if (pFishTypeHandler != NULL)
-        {
-            int ret = pFishTypeHandler->OnHandleClientMessage(pPlayer, packet);
-            if (ret == 1)
-            {
-                return 1;
-            }
-        }
+        return INVALID_ID;
     }
 
-    return 0;
+    auto pFishTypeHandler = FindFishTypeHandler(type);
+    if (pFishTypeHandler == NULL)
+    {
+        return INVALID_ID;
+    }
+
+    return pFishTypeHandler->OnHandleClientMessage(pPlayer, packet);
 }
 
 int NFFishTypeMgr::GetKilledFishMul(NFGameFish* pFish, const NFFishBullet& bullet)

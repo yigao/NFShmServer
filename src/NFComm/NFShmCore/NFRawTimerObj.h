@@ -34,7 +34,8 @@ public:
     {
         if (m_pShmObj)
         {
-            for(auto iter = m_timerIdMap.begin(); iter != m_timerIdMap.end(); iter++)
+            std::vector<int> vec(m_timerIdMap.begin(), m_timerIdMap.end());
+            for(auto iter = vec.begin(); iter != vec.end(); iter++)
             {
                 DeleteTimer(*iter);
             }

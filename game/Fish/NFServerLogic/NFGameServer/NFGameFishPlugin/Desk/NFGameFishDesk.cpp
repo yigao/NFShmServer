@@ -319,11 +319,7 @@ int NFGameFishDesk::OnHandleClientMessage(uint64_t playerId, NFDataPackage &pack
 
     NFGameFishPlayer *pPlayer = GetPlayer(playerId);
 
-    if (m_FishTypeMgr->OnHandleClientMessage(pPlayer, packet) == 1)
-    {
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "m_FishTypeMgr.OnHandleClientMsg() return 1 !!!");
-        return 1;
-    }
+
 
     int iRet = 0;
     switch (packet.nMsgId)
@@ -347,10 +343,11 @@ int NFGameFishDesk::OnHandleClientMessage(uint64_t playerId, NFDataPackage &pack
             break;
         case NF_FISH_CMD_SHOOTBULLET:
         {
+            m_FishTypeMgr->OnHandleClientMessage(pPlayer, packet);
             iRet = OnHandleFishShootBullet(playerId, packet);
             CHECK_PLAYER_EXPR(playerId, iRet == 0, -1, "OnHandleFishShootBullet ret:{}", iRet);
         }
-            break;
+        break;
         case NF_FISH_CMD_BULLETSPEED:
         {
             iRet = OnHandleFishBulletSpeed(playerId, packet);
@@ -386,8 +383,19 @@ int NFGameFishDesk::OnHandleClientMessage(uint64_t playerId, NFDataPackage &pack
             iRet = OnHandleChangeCannon(playerId, packet);
             CHECK_PLAYER_EXPR(playerId, iRet == 0, -1, "OnHandleFishLockFish ret:{}", iRet);
         }
-            break;
-
+        break;
+        case NF_FISH_CMD_DIANCICANNONAIM_REQ:
+        case NF_FISH_CMD_DIANCICANNONSHOOT_REQ:
+        case NF_FISH_CMD_DIANCICANNONHITFISH_REQ:
+        case NF_FISH_CMD_HAIWANGCRABHITPART_REQ:
+        case NF_FISH_CMD_SOMEZUANTOUHITFISH_REQ:
+        case NF_FISH_CMD_ZUANTOUAIM_REQ:
+        case NF_FISH_CMD_ZUANTOUSHOOT_REQ:
+        case NF_FISH_CMD_ZUANTOUHITFISH_REQ:
+        {
+            m_FishTypeMgr->OnHandleClientMessage(pPlayer, packet);
+        }
+        break;
         default:
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "nMsgId:{} not handle in the fishdesk", packet.nMsgId);

@@ -24,4 +24,9 @@ public:
     virtual bool Awake() override;
 
     virtual int OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage) override;
+public:
+    void RegisterMsgToFishTypeHandler(uint32_t msgId, int fishTypeHandler);
+    int GetFishTypeHandlerByMsgId(uint32_t msgId);
+public:
+    std::unordered_map<uint32_t, uint32_t> m_msgIdToFishTypeHandler;
 };

@@ -64,6 +64,7 @@ public:
 
     void SetIsFreezs(bool isfreeze) { m_bIsFreeze = isfreeze; }
     //int GetFishBaseMul(NFGameFish* pFish, FishConfig* pFishConfig);
+
 private:
     NFFishTypeHandler* AddFishTypeHandler(int iFishType);
 

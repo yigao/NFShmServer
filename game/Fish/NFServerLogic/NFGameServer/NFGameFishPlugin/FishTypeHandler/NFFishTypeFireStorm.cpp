@@ -90,6 +90,7 @@ int NFFireStorm::OnTimer(int timeId, int callcount)
             pFishTypeFireStore->DeleteFireStorm(m_uId);
         }
     }
+    return 0;
 }
 
 int NFFishTypeFireStorm::DeleteFireStorm(uint32_t id)
@@ -249,6 +250,7 @@ int NFFishTypeFireStorm::SyncFishBomb(NFGameFishPlayer *pPlayer)
             NFLogTrace(NF_LOG_SYSTEMLOG, 0, "===============> NF_FISH_CMD_CREATEFIRESTORM_RSP, usstatustime = {}", createFireStormRsp.usstatustime());
         }
     }
+    return 0;
 }
 
 int NFFishTypeFireStorm::OnHandleClientMessage(NFGameFishPlayer *pPlayer, NFDataPackage &packet)

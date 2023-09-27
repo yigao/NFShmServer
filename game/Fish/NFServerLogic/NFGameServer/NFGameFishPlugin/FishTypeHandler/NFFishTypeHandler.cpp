@@ -52,7 +52,7 @@ int NFFishTypeHandler::Init(NFGameFishDesk* pDesk)
 
 int NFFishTypeHandler::OnHandleClientMessage(NFGameFishPlayer* pPlayer, NFDataPackage &packet)
 {
-    return 0;
+    return 1;
 }
 
 int NFFishTypeHandler::OnKilllingFish(NFGameFishPlayer *pPlayer, NFGameFish *pFish, const NFFishBullet &bullet)

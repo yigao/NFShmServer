@@ -55,17 +55,44 @@ bool NFGameFishModule::Awake()
     RegisterClientMessage(NF_FISH_CMD_DIANCICANNONAIM_REQ);
     RegisterClientMessage(NF_FISH_CMD_DIANCICANNONSHOOT_REQ);
     RegisterClientMessage(NF_FISH_CMD_DIANCICANNONHITFISH_REQ);
+    RegisterMsgToFishTypeHandler(NF_FISH_CMD_DIANCICANNONAIM_REQ, NFGAME_FISHTYPE_DIANCICANNON);
+    RegisterMsgToFishTypeHandler(NF_FISH_CMD_DIANCICANNONSHOOT_REQ, NFGAME_FISHTYPE_DIANCICANNON);
+    RegisterMsgToFishTypeHandler(NF_FISH_CMD_DIANCICANNONHITFISH_REQ, NFGAME_FISHTYPE_DIANCICANNON);
 
     RegisterClientMessage(NF_FISH_CMD_ZUANTOUAIM_REQ);
     RegisterClientMessage(NF_FISH_CMD_ZUANTOUSHOOT_REQ);
     RegisterClientMessage(NF_FISH_CMD_ZUANTOUHITFISH_REQ);
+    RegisterMsgToFishTypeHandler(NF_FISH_CMD_ZUANTOUAIM_REQ, NFGAME_FISHTYPE_ZUANTOU);
+    RegisterMsgToFishTypeHandler(NF_FISH_CMD_ZUANTOUSHOOT_REQ, NFGAME_FISHTYPE_ZUANTOU);
+    RegisterMsgToFishTypeHandler(NF_FISH_CMD_ZUANTOUHITFISH_REQ, NFGAME_FISHTYPE_ZUANTOU);
 
     RegisterClientMessage(NF_FISH_CMD_SOMEZUANTOUHITFISH_REQ);
+
     RegisterClientMessage(NF_FISH_CMD_HAIWANGCRABHITPART_REQ);
+    RegisterMsgToFishTypeHandler(NF_FISH_CMD_HAIWANGCRABHITPART_REQ, NFGAME_FISHTYPE_HAIWANGCRAB);
+
+    RegisterClientMessage(NF_FISH_CMD_SOMEZUANTOUHITFISH_REQ);
+    RegisterMsgToFishTypeHandler(NF_FISH_CMD_SOMEZUANTOUHITFISH_REQ, NFGAME_FISHTYPE_SOMEZUANTOU);
+
 
     Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE,
               APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE, __FUNCTION__);
     return true;
+}
+
+void NFGameFishModule::RegisterMsgToFishTypeHandler(uint32_t msgId, int fishTypeHandler)
+{
+    m_msgIdToFishTypeHandler.emplace(msgId, fishTypeHandler);
+}
+
+int NFGameFishModule::GetFishTypeHandlerByMsgId(uint32_t msgId)
+{
+    auto iter = m_msgIdToFishTypeHandler.find(msgId);
+    if (iter != m_msgIdToFishTypeHandler.end())
+    {
+        return iter->second;
+    }
+    return INVALID_ID;
 }
 
 int NFGameFishModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID,
