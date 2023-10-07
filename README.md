@@ -108,13 +108,13 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 - openssl
 - theron
 
-## Tutorial && Documents
+## unity3d捕鱼demo && Documents
 
-**Tutorial Chapters(unity3d捕鱼demo游戏)**:
+**unity3d捕鱼demo游戏**:
 
-* [**Tutorial 1: Compile NFShmServer 编译服务器**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-CompileNF)
+* [**Tutorial 1: Compile NFShmServer 编译捕鱼demo服务器**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-CompileNF)
 
-* [**Tutorial 2: Import Mysql 导入数据库**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-ImportMysql)
+* [**Tutorial 2: Import Mysql 导入捕鱼demo数据库**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-ImportMysql)
 
 * [**Tutorial 3: Start NFShmServer 开启捕鱼demo服务器**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-StartServer)
 
