@@ -70,7 +70,14 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 ## unity3d捕鱼demo游戏 [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-nyiWUWLw3iWzCyn-3ZU8EFfi)，群里提供apk下载
 ![}OXI`%2KDC3509YEVE Z00K](https://github.com/yigao/NFShmServer/assets/5827943/1624b292-871d-46da-a446-1755efb4bae8)
 ![0 ZK~FM1IBM0{E%LI8 %)AJ](https://github.com/yigao/NFShmServer/assets/5827943/fc137349-de2b-4519-9b8b-325ea220251a)
+**unity3d捕鱼demo游戏**:
 
+* [**Tutorial 1: Compile NFShmServer 编译捕鱼demo服务器**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-CompileNF)
+
+* [**Tutorial 2: Import Mysql 导入捕鱼demo数据库**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-ImportMysql)
+
+* [**Tutorial 3: Start NFShmServer 开启捕鱼demo服务器**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-StartServer)
+  
 ## 后期开发目标
 - 使用C++重写excel的加载，验证，导出代码机制(python,lua的导出，在大型项目里太慢)(2023.8-2023.9已完成)
 - redis缓存系统(2023.9.18已完成)
@@ -117,9 +124,6 @@ QQ 群: [点击加群762414765](https://shang.qq.com/wpa/qunwpa?idkey=3dShwRu-ny
 * [**Tutorial 2: Import Mysql 导入捕鱼demo数据库**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-ImportMysql)
 
 * [**Tutorial 3: Start NFShmServer 开启捕鱼demo服务器**](https://github.com/yigao/NFShmServer/wiki/Tutorial:-StartServer)
-
--->
--------
 
 **Concept Chapters**:
 
