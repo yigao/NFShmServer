@@ -11,6 +11,9 @@ include_directories( ${INCLUDE_DIR} ${SERVER_INCLUDE_DIR})
 ADD_SUBDIRECTORY("NFLogicComm")
 ADD_SUBDIRECTORY("NFServerLogic")
 ADD_SUBDIRECTORY("NFFishRobot")
+if(WIN32)
+    ADD_SUBDIRECTORY("NFFishLoader")
+endif()
 
 
 

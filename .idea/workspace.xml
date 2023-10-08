@@ -43,6 +43,7 @@
       <config projectName="ShmNFrame" targetName="NFFishCommonPlugin" />
       <config projectName="ShmNFrame" targetName="NFMasterServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFFishRobotPlugin" />
+      <config projectName="ShmNFrame" targetName="NFFishLoader" />
       <config projectName="ShmNFrame" targetName="NFStoreServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFKernelMessage" />
       <config projectName="ShmNFrame" targetName="NFDescStorePlugin" />
@@ -64,21 +65,13 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish">
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="timer">
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishLoader/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishLoader/NFCLoadStaticPlugin.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishLoader/NFFrame.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/Fish/NFFishLoader/dllmain.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/FishTypeHandler/NFFishTypeBaseData.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/FishTypeHandler/NFFishTypeBaseData.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFISharedMemModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFISharedMemModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFRawShmObj.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFRawShmObj.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFRawShmObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFRawShmObj.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFRawTimerObj.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObj.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObj.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObj.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmTimer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmTimer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmTimer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmTimer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmTimerManager.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmTimerManager.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmTimerManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFShmTimerManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,33 +103,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;ToolWindow提交.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/src/NFCommPlugin/NFDBPlugin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CMakeSettings&quot;,
-    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "ToolWindow提交.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/game/Fish",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CMakeSettings",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/game/Fish" />
       <recent name="$PROJECT_DIR$/src/NFCommPlugin/NFDBPlugin" />
       <recent name="$PROJECT_DIR$/tools" />
       <recent name="$PROJECT_DIR$/src/NFTools" />
       <recent name="$PROJECT_DIR$/src/NFTools/NFExcelProcess" />
-      <recent name="$PROJECT_DIR$/tools/excel_2_bin" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Desk" />
@@ -147,6 +140,11 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NFCore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCore" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -178,6 +176,11 @@
       </method>
     </configuration>
     <configuration name="NFFishGamePlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFFishGamePlayerPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFFishLoader" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFFishLoader" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFFishLoader">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -372,6 +375,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="CMake 应用程序.NFFishLoader" />
       <item itemvalue="CMake 应用程序.NFFishRobotPlugin" />
       <item itemvalue="CMake 应用程序.NFDescStore" />
       <item itemvalue="CMake 应用程序.NFLogicCommon" />
@@ -481,14 +485,7 @@
       <workItem from="1695800454187" duration="7335000" />
       <workItem from="1695808689127" duration="60000" />
       <workItem from="1696638977917" duration="8117000" />
-      <workItem from="1696727939783" duration="3067000" />
-    </task>
-    <task id="LOCAL-00135" summary="redis mysql db read write">
-      <created>1694858420723</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1694858420724</updated>
+      <workItem from="1696727939783" duration="4067000" />
     </task>
     <task id="LOCAL-00136" summary="redis mysql db read write">
       <created>1695002525220</created>
@@ -826,7 +823,14 @@
       <option name="project" value="LOCAL" />
       <updated>1695806496002</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="timer">
+      <created>1696731162036</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1696731162036</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1018,7 +1022,8 @@
     <MESSAGE value="protoc" />
     <MESSAGE value="script" />
     <MESSAGE value="fish" />
-    <option name="LAST_COMMIT_MESSAGE" value="fish" />
+    <MESSAGE value="timer" />
+    <option name="LAST_COMMIT_MESSAGE" value="timer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
