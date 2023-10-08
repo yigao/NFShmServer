@@ -25,9 +25,12 @@
 #include "NFCommPlugin/NFKernelPlugin/NFKernelPlugin.h"
 #include "NFCommPlugin/NFNetPlugin/NFNetPlugin.h"
 #include "NFCommPlugin/NFShmPlugin/NFShmPlugin.h"
+#include "NFCommPlugin/NFDBPlugin/NFDBPlugin.h"
 #include "NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFLuaScriptPlugin.h"
 #include "NFServerComm/NFServerCommonPlugin/NFServerCommonPlugin.h"
+#include "NFServerComm/NFDescStorePlugin/NFDescStorePlugin.h"
 #include "NFTest/NFTestPlugin/NFTestPlugin.h"
+#include "NFLogicCommonPlugin/NFFishCommonPlugin.h"
 
 //////////////////////////////CommLogic Plugin/////////////////////////////////
 //////////////////////////////CommLogic Plugin/////////////////////////////////
@@ -41,15 +44,20 @@
 //////////////////////////////ProxyServer Plugin/////////////////////////////////
 #include "NFServer/NFProxyServer/NFProxyServerPlugin/NFProxyServerPlugin.h"
 #include "NFServer/NFProxyServer/NFProxyClientPlugin/NFProxyClientPlugin.h"
+#include "NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFFishProxyPlayerPlugin.h"
 //////////////////////////////ProxyServer Plugin/////////////////////////////////
 //////////////////////////////GameServer Plugin/////////////////////////////////
 #include "NFServer/NFGameServer/NFGameServerPlugin/NFGameServerPlugin.h"
+#include "NFServerLogic/NFGameServer/NFGameFishPlugin/NFGameFishPlugin.h"
+#include "NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/NFFishGamePlayerPlugin.h"
 //////////////////////////////GameServer Plugin/////////////////////////////////
 //////////////////////////////LoginServer Plugin/////////////////////////////////
 #include "NFServer/NFLoginServer/NFLoginServerPlugin/NFLoginServerPlugin.h"
+#include "NFServerLogic/NFLoginServer/NFLoginServerPlayerPlugin/NFFishLoginPlayerPlugin.h"
 //////////////////////////////LoginServer Plugin/////////////////////////////////
 //////////////////////////////WorldServer Plugin/////////////////////////////////
 #include "NFServer/NFWorldServer/NFWorldServerPlugin/NFWorldServerPlugin.h"
+#include "NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFFishWorldPlayerPlugin.h"
 //////////////////////////////WorldServer Plugin/////////////////////////////////
 //////////////////////////////RouteAgentServer Plugin/////////////////////////////////
 #include "NFServer/NFRouteAgentServer/NFRouteAgentServerPlugin/NFRouteAgentServerPlugin.h"
@@ -62,9 +70,11 @@
 //////////////////////////////StoreServer Plugin/////////////////////////////////
 //////////////////////////////SnsServer Plugin/////////////////////////////////
 #include "NFServer/NFSnsServer/NFSnsServerPlugin/NFSnsServerPlugin.h"
+#include "NFServerLogic/NFSnsServer/NFSnsServerPlayerPlugin/NFFishSnsPlayerPlugin.h"
 //////////////////////////////SnsServer Plugin/////////////////////////////////
 //////////////////////////////LogicServer Plugin/////////////////////////////////
 #include "NFServer/NFLogicServer/NFLogicServerPlugin/NFLogicServerPlugin.h"
+#include "NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/NFFishLogicPlayerPlugin.h"
 //////////////////////////////LogicServer Plugin/////////////////////////////////
 //////////////////////////////WebServer Plugin/////////////////////////////////
 #include "NFServer/NFWebServer/NFWebServerPlugin/NFWebServerPlugin.h"
@@ -80,16 +90,22 @@ bool NFCPluginManager::RegisterStaticPlugin()
 #pragma comment( lib, "NFKernelPlugin.lib" )
 #pragma comment( lib, "NFNetPlugin.lib" )
 #pragma comment( lib, "NFShmPlugin.lib" )
+#pragma comment( lib, "NFDBPlugin.lib" )
 #pragma comment( lib, "NFLuaScriptPlugin.lib" )
 #pragma comment( lib, "NFServerCommon.lib" )
 #pragma comment( lib, "NFServerCommonPlugin.lib" )
+#pragma comment( lib, "NFDescStorePlugin.lib" )
 #pragma comment( lib, "NFServerMessage.lib" )
 	REGISTER_STATIC_PLUGIN(this, NFKernelPlugin);
 	REGISTER_STATIC_PLUGIN(this, NFNetPlugin);
 	REGISTER_STATIC_PLUGIN(this, NFShmPlugin);
+	REGISTER_STATIC_PLUGIN(this, NFDBPlugin);
 	REGISTER_STATIC_PLUGIN(this, NFLuaScriptPlugin);
 	REGISTER_STATIC_PLUGIN(this, NFServerCommonPlugin);
-
+	REGISTER_STATIC_PLUGIN(this, NFDescStorePlugin);
+	
+#pragma comment( lib, "NFFishCommonPlugin.lib" )
+	REGISTER_STATIC_PLUGIN(this, NFFishCommonPlugin);
 //////////////////////////////CommLogic Plugin/////////////////////////////////
 //////////////////////////////CommLogic Plugin/////////////////////////////////
 
@@ -107,20 +123,29 @@ bool NFCPluginManager::RegisterStaticPlugin()
 	REGISTER_STATIC_PLUGIN(this, NFProxyServerPlugin);
 #pragma comment( lib, "NFProxyClientPlugin.lib" )
 	REGISTER_STATIC_PLUGIN(this, NFProxyClientPlugin);
+#pragma comment( lib, "NFFishProxyPlayerPlugin.lib" )
+	REGISTER_STATIC_PLUGIN(this, NFFishProxyPlayerPlugin);
 	
 	//////////////////////////////ProxyServer Plugin/////////////////////////////////
 //////////////////////////////GameServer Plugin/////////////////////////////////
 #pragma comment( lib, "NFGameServerPlugin.lib" )
 	REGISTER_STATIC_PLUGIN(this, NFGameServerPlugin);
-
+#pragma comment( lib, "NFFishGamePlayerPlugin.lib" )
+	REGISTER_STATIC_PLUGIN(this, NFFishGamePlayerPlugin);
+#pragma comment( lib, "NFGameFishPlugin.lib" )
+	REGISTER_STATIC_PLUGIN(this, NFGameFishPlugin);
 //////////////////////////////GameServer Plugin/////////////////////////////////
 //////////////////////////////LoginServer Plugin/////////////////////////////////
 #pragma comment( lib, "NFLoginServerPlugin.lib" )
 	REGISTER_STATIC_PLUGIN(this, NFLoginServerPlugin);
+#pragma comment( lib, "NFFishLoginPlayerPlugin.lib" )
+	REGISTER_STATIC_PLUGIN(this, NFFishLoginPlayerPlugin);
 //////////////////////////////LoginServer Plugin/////////////////////////////////
 //////////////////////////////WorldServer Plugin/////////////////////////////////
 #pragma comment( lib, "NFWorldServerPlugin.lib" )
 	REGISTER_STATIC_PLUGIN(this, NFWorldServerPlugin);
+#pragma comment( lib, "NFFishWorldPlayerPlugin.lib" )
+	REGISTER_STATIC_PLUGIN(this, NFFishWorldPlayerPlugin);
 //////////////////////////////WorldServer Plugin/////////////////////////////////
 //////////////////////////////RouteAgentServer Plugin/////////////////////////////////
 #pragma comment( lib, "NFRouteAgentServerPlugin.lib" )
@@ -137,10 +162,14 @@ bool NFCPluginManager::RegisterStaticPlugin()
 //////////////////////////////SnsServer Plugin/////////////////////////////////
 #pragma comment( lib, "NFSnsServerPlugin.lib" )
 	REGISTER_STATIC_PLUGIN(this, NFSnsServerPlugin);
+#pragma comment( lib, "NFFishSnsPlayerPlugin.lib" )
+	REGISTER_STATIC_PLUGIN(this, NFFishSnsPlayerPlugin);
 //////////////////////////////SnsServer Plugin/////////////////////////////////
 //////////////////////////////LogicServer Plugin/////////////////////////////////
 #pragma comment( lib, "NFLogicServerPlugin.lib" )
 	REGISTER_STATIC_PLUGIN(this, NFLogicServerPlugin);
+#pragma comment( lib, "NFFishLogicPlayerPlugin.lib" )
+	REGISTER_STATIC_PLUGIN(this, NFFishLogicPlayerPlugin);
 //////////////////////////////LogicServer Plugin/////////////////////////////////
 	//////////////////////////////WebServer Plugin/////////////////////////////////
 #pragma comment( lib, "NFWebServerPlugin.lib" )

@@ -17,6 +17,11 @@ AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/thirdparty/LuaBind/lua_protobuf SRC)
 AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/thirdparty/LuaBind/luafilesystem SRC)
 AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/thirdparty/LuaBind/lua-fmt SRC)
 
+AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/game/Fish/NFLogicComm/DescStore SRC)
+AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/game/Fish/NFLogicComm/DescStoreEx SRC)
+AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/game/Fish/NFLogicComm/NFLogicCommon SRC)
+AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/game/Fish/NFLogicComm/NFServerLogicMessage SRC)
+
 if(WIN32)
 	AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/thirdparty/common/sigar/win32 SRC)
 	AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/thirdparty/common/hiredis/hiredis_win/hiredis SRC)
@@ -32,49 +37,49 @@ AUX_SOURCE_DIRECTORY(${CMAKE_SOURCE_DIR}/thirdparty/common/lzf SRC)
 ADD_EXECUTABLE(${PROJECT_NAME} ${SRC})
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
-if(UNIX)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt  pthread libprotobuf.a)
-else(WIN32)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrt.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
-endif()
-	SET_TARGET_PROPERTIES(${PROJECT_NAME}
-		PROPERTIES 
-		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Release"
-	)
+	if(UNIX)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt  pthread libprotobuf.a)
+	else(WIN32)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrt.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
+	endif()
+		SET_TARGET_PROPERTIES(${PROJECT_NAME}
+			PROPERTIES 
+			RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Release"
+		)
 elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
-if(UNIX)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
-else(WIN32)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
-endif()
-	SET_TARGET_PROPERTIES(${PROJECT_NAME}
-		PROPERTIES 
-		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Debug"
-	)
+	if(UNIX)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
+	else(WIN32)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
+	endif()
+		SET_TARGET_PROPERTIES(${PROJECT_NAME}
+			PROPERTIES 
+			RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Debug"
+		)
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
-if(UNIX)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
-else(WIN32)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
-endif()
-	message("CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}")
+	if(UNIX)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
+	else(WIN32)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
+	endif()
+		message("CMAKE_CXX_FLAGS = ${CMAKE_CXX_FLAGS}")
 
-	SET_TARGET_PROPERTIES(${PROJECT_NAME}
-		PROPERTIES
-		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
-	)
+		SET_TARGET_PROPERTIES(${PROJECT_NAME}
+			PROPERTIES
+			RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
+		)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
-if(UNIX)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
-else(WIN32)
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
-endif()
-	#TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
-	SET_TARGET_PROPERTIES(${PROJECT_NAME} 
-		PROPERTIES 
-		RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
-	)
+	if(UNIX)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
+	else(WIN32)
+		TARGET_LINK_LIBRARIES(${PROJECT_NAME} msvcrtd.lib ws2_32.lib version.lib netapi32.lib Dbghelp.lib)
+	endif()
+		#TARGET_LINK_LIBRARIES(${PROJECT_NAME} resolv dl rt pthread libprotobuf.a)
+		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
+		SET_TARGET_PROPERTIES(${PROJECT_NAME} 
+			PROPERTIES 
+			RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
+		)
 endif()
 
 

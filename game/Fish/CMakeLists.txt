@@ -4,6 +4,7 @@ SET(SERVER_INCLUDE_DIR
         "${CMAKE_SOURCE_DIR}/game/Fish/NFLogicComm"
         "${CMAKE_SOURCE_DIR}/game/Fish/NFLogicComm/NFServerLogicMessage"
         "${CMAKE_SOURCE_DIR}/game/Fish/NFServerLogic"
+        "${CMAKE_SOURCE_DIR}/game/Fish"
         "${CMAKE_SOURCE_DIR}/src/NFServerComm/NFServerMessage")
 
 include_directories( ${INCLUDE_DIR} ${SERVER_INCLUDE_DIR})

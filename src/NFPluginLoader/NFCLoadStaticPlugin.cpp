@@ -25,8 +25,10 @@
 #include "NFCommPlugin/NFKernelPlugin/NFKernelPlugin.h"
 #include "NFCommPlugin/NFNetPlugin/NFNetPlugin.h"
 #include "NFCommPlugin/NFShmPlugin/NFShmPlugin.h"
+#include "NFCommPlugin/NFDBPlugin/NFDBPlugin.h"
 #include "NFCommPlugin/NFXPlugin/NFLuaScriptPlugin/NFLuaScriptPlugin.h"
 #include "NFServerComm/NFServerCommonPlugin/NFServerCommonPlugin.h"
+#include "NFServerComm/NFDescStorePlugin/NFDescStorePlugin.h"
 #include "NFTest/NFTestPlugin/NFTestPlugin.h"
 
 //////////////////////////////CommLogic Plugin/////////////////////////////////
@@ -83,12 +85,14 @@ bool NFCPluginManager::RegisterStaticPlugin()
 #pragma comment( lib, "NFLuaScriptPlugin.lib" )
 #pragma comment( lib, "NFServerCommon.lib" )
 #pragma comment( lib, "NFServerCommonPlugin.lib" )
+#pragma comment( lib, "NFDescStorePlugin.lib" )
 #pragma comment( lib, "NFServerMessage.lib" )
 	REGISTER_STATIC_PLUGIN(this, NFKernelPlugin);
 	REGISTER_STATIC_PLUGIN(this, NFNetPlugin);
 	REGISTER_STATIC_PLUGIN(this, NFShmPlugin);
 	REGISTER_STATIC_PLUGIN(this, NFLuaScriptPlugin);
 	REGISTER_STATIC_PLUGIN(this, NFServerCommonPlugin);
+	REGISTER_STATIC_PLUGIN(this, NFDescStorePlugin);
 
 //////////////////////////////CommLogic Plugin/////////////////////////////////
 //////////////////////////////CommLogic Plugin/////////////////////////////////
