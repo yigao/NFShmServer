@@ -32,14 +32,7 @@ public:
 
     virtual ~NFRawTimerObj()
     {
-        if (m_pShmObj)
-        {
-            std::vector<int> vec(m_timerIdMap.begin(), m_timerIdMap.end());
-            for(auto iter = vec.begin(); iter != vec.end(); iter++)
-            {
-                DeleteTimer(*iter);
-            }
-        }
+        DeleteAllTimer();
     }
 
     int CreateInit()
@@ -64,8 +57,13 @@ public:
     virtual int DeleteAllTimer()
     {
         CHECK_NULL(m_pShmObj);
+        for (auto iter = m_timerIdMap.begin(); iter != m_timerIdMap.end();)
+        {
+            m_pShmObj->DeleteTimer(*iter);
+            iter = m_timerIdMap.erase(iter);
+        }
         m_timerIdMap.clear();
-        return m_pShmObj->DeleteAllTimer();
+        return 0;
     }
 
     ////注册距离现在多少时间执行一次的定时器(hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒, 只执行一次)

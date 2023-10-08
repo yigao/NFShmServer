@@ -67,90 +67,90 @@ endif()
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
     set(CMAKE_BUILD_TYPE "Release")
-if(UNIX)
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -std=c++11 -g -O3 -Wall")
-    add_definitions(
-            -DNDEBUG
-            -Wcomment
-            -DNF_STATIC_PLUGIN
-            -DEVPP_HTTP_CLIENT_SUPPORTS_SSL   #evpp http client ssl
-            -DEVPP_HTTP_SERVER_SUPPORTS_SSL   #evpp http server ssl
-            -DH_HAVE_CAMERON314_CONCURRENTQUEUE  #evpp need
-            -DLUA_COMPAT_5_1
-            -DLUA_USE_LINUX
-            -fPIC
-    )
-else(WIN32)
-    set(CMAKE_CXX_FLAGS_RELEASE "/MT")
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi /O2 -DNDEBUG -DWIN32_LEAN_AND_MEAN -D_WINSOCK_DEPRECATED_NO_WARNINGS -D_LIB -D_WIN32 -D_CONSOLE -DNF_NONCLIENT_BUILD -DUNICODE -D_UNICODE -D_WINDOWS -DWIN32 -DNF_STATIC_PLUGIN -DLUA_COMPAT_5_1 -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_USRDLL -DDLL_EXPORTS -DMYSQLPP_MAKING_DLL -DHAVE_MYSQL_SSL_SET  -DBUILDING_LIBCURL -DCURL_STATICLIB ")	
-endif()	
+    if(UNIX)
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -std=c++11 -g -O3 -Wall")
+        add_definitions(
+                -DNDEBUG
+                -Wcomment
+                -DNF_STATIC_PLUGIN
+                -DEVPP_HTTP_CLIENT_SUPPORTS_SSL   #evpp http client ssl
+                -DEVPP_HTTP_SERVER_SUPPORTS_SSL   #evpp http server ssl
+                -DH_HAVE_CAMERON314_CONCURRENTQUEUE  #evpp need
+                -DLUA_COMPAT_5_1
+                -DLUA_USE_LINUX
+                -fPIC
+        )
+    else(WIN32)
+        set(CMAKE_CXX_FLAGS_RELEASE "/MT")
+	    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi /O2 -DNDEBUG -DWIN32_LEAN_AND_MEAN -D_WINSOCK_DEPRECATED_NO_WARNINGS -D_LIB -D_WIN32 -D_CONSOLE -DNF_NONCLIENT_BUILD -DUNICODE -D_UNICODE -D_WINDOWS -DWIN32 -DNF_STATIC_PLUGIN -DLUA_COMPAT_5_1 -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_USRDLL -DDLL_EXPORTS -DMYSQLPP_MAKING_DLL -DHAVE_MYSQL_SSL_SET  -DBUILDING_LIBCURL -DCURL_STATICLIB ")	
+    endif()	
 elseif (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(CMAKE_BUILD_TYPE "Debug")
-if(UNIX)	
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O0 -Wall -g -ggdb -fPIC")
-    add_definitions(
-            -D_DEBUG
-            -Wcomment
-            -DNF_STATIC_PLUGIN
-            -DEVPP_HTTP_CLIENT_SUPPORTS_SSL   #evpp http client ssl
-            -DEVPP_HTTP_SERVER_SUPPORTS_SSL   #evpp http server ssl
-            -DH_HAVE_CAMERON314_CONCURRENTQUEUE  #evpp need
-            -DLUA_COMPAT_5_1
-            -DLUA_USE_LINUX
-            -fPIC
-    )
-else(WIN32)
-    set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWIN32_LEAN_AND_MEAN -D_WINSOCK_DEPRECATED_NO_WARNINGS -D_LIB -D_WIN32 -D_CONSOLE -DNF_NONCLIENT_BUILD -DUNICODE -D_UNICODE -D_WINDOWS -DWIN32 -D_DEBUG -DNF_STATIC_PLUGIN -DLUA_COMPAT_5_1 -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_USRDLL -DDLL_EXPORTS -DMYSQLPP_MAKING_DLL -DHAVE_MYSQL_SSL_SET  -DBUILDING_LIBCURL -DCURL_STATICLIB ")	
-endif()	
+    if(UNIX)	
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O0 -Wall -g -ggdb -fPIC")
+        add_definitions(
+                -D_DEBUG
+                -Wcomment
+                -DNF_STATIC_PLUGIN
+                -DEVPP_HTTP_CLIENT_SUPPORTS_SSL   #evpp http client ssl
+                -DEVPP_HTTP_SERVER_SUPPORTS_SSL   #evpp http server ssl
+                -DH_HAVE_CAMERON314_CONCURRENTQUEUE  #evpp need
+                -DLUA_COMPAT_5_1
+                -DLUA_USE_LINUX
+                -fPIC
+        )
+    else(WIN32)
+        set(CMAKE_CXX_FLAGS_DEBUG "/MTd")
+	    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWIN32_LEAN_AND_MEAN -D_WINSOCK_DEPRECATED_NO_WARNINGS -D_LIB -D_WIN32 -D_CONSOLE -DNF_NONCLIENT_BUILD -DUNICODE -D_UNICODE -D_WINDOWS -DWIN32 -D_DEBUG -DNF_STATIC_PLUGIN -DLUA_COMPAT_5_1 -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_USRDLL -DDLL_EXPORTS -DMYSQLPP_MAKING_DLL -DHAVE_MYSQL_SSL_SET  -DBUILDING_LIBCURL -DCURL_STATICLIB ")	
+    endif()	
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
     set(CMAKE_BUILD_TYPE "DynamicDebug")
-if(UNIX)	
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
-    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O0 -Wall -g3 -ggdb -fPIC -Wextra -Wno-unused-parameter -Wno-conversion-null -Wno-unused-but-set-variable -Wno-int-to-pointer-cast -Wno-array-bounds")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O0 -Wall -g3 -ggdb -fPIC")
-    add_definitions(
-            -D_DEBUG
-            -DCHECK_MEM_LEAK
-            -Wcomment
-            -DLUA_COMPAT_5_1
-            -DLUA_USE_LINUX
-            -DNF_DYNAMIC_PLUGIN
-            -DEVPP_HTTP_CLIENT_SUPPORTS_SSL   #evpp http client ssl
-            -DEVPP_HTTP_SERVER_SUPPORTS_SSL   #evpp http server ssl
-            -DH_HAVE_CAMERON314_CONCURRENTQUEUE  #evpp need
-            -fPIC
-            -Wno-error
-    )
-else(WIN32)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWIN32_LEAN_AND_MEAN -D_WINSOCK_DEPRECATED_NO_WARNINGS -D_LIB -D_WIN32 -D_CONSOLE -DNF_NONCLIENT_BUILD -DUNICODE -D_UNICODE -D_WINDOWS -DWIN32 -D_DEBUG -DNF_STATIC_PLUGIN -DLUA_COMPAT_5_1 -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_USRDLL -DDLL_EXPORTS -DMYSQLPP_MAKING_DLL -DHAVE_MYSQL_SSL_SET  -DBUILDING_LIBCURL -DCURL_STATICLIB ")	
-endif()	
+    if(UNIX)	
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+        #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O0 -Wall -g3 -ggdb -fPIC -Wextra -Wno-unused-parameter -Wno-conversion-null -Wno-unused-but-set-variable -Wno-int-to-pointer-cast -Wno-array-bounds")
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O0 -Wall -g3 -ggdb -fPIC")
+        add_definitions(
+                -D_DEBUG
+                -DCHECK_MEM_LEAK
+                -Wcomment
+                -DLUA_COMPAT_5_1
+                -DLUA_USE_LINUX
+                -DNF_DYNAMIC_PLUGIN
+                -DEVPP_HTTP_CLIENT_SUPPORTS_SSL   #evpp http client ssl
+                -DEVPP_HTTP_SERVER_SUPPORTS_SSL   #evpp http server ssl
+                -DH_HAVE_CAMERON314_CONCURRENTQUEUE  #evpp need
+                -fPIC
+                -Wno-error
+        )
+    else(WIN32)
+	    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWIN32_LEAN_AND_MEAN -D_WINSOCK_DEPRECATED_NO_WARNINGS -D_LIB -D_WIN32 -D_CONSOLE -DNF_NONCLIENT_BUILD -DUNICODE -D_UNICODE -D_WINDOWS -DWIN32 -D_DEBUG -DNF_STATIC_PLUGIN -DLUA_COMPAT_5_1 -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_USRDLL -DDLL_EXPORTS -DMYSQLPP_MAKING_DLL -DHAVE_MYSQL_SSL_SET  -DBUILDING_LIBCURL -DCURL_STATICLIB ")	
+    endif()	
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
     set(CMAKE_BUILD_TYPE "DynamicRelease")
-if(UNIX)
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
-    #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -std=c++11 -O3 -g -Wall")
-    #don't use -O3 用-O3来编译所有的软件包将产生更大体积更耗内存的二进制文件，
-    #大大增加编译失败的机会或不可预知的程序行为（包括错误）。 这样做将得不偿失，记住过犹不及。 在gcc 4.x.中使用-O3是不推荐的
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2 -Wall -fPIC")
+    if(UNIX)
+        set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+        #set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}  -fPIC -std=c++11 -O3 -g -Wall")
+        #don't use -O3 用-O3来编译所有的软件包将产生更大体积更耗内存的二进制文件，
+        #大大增加编译失败的机会或不可预知的程序行为（包括错误）。 这样做将得不偿失，记住过犹不及。 在gcc 4.x.中使用-O3是不推荐的
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -O2 -Wall -fPIC")
 
-    add_definitions(
-            -DNDEBUG
-            -Wcomment
-            -DLUA_COMPAT_5_1
-            -DLUA_USE_LINUX
-            -DNF_DYNAMIC_PLUGIN
-            -DEVPP_HTTP_CLIENT_SUPPORTS_SSL   #evpp http client ssl
-            -DEVPP_HTTP_SERVER_SUPPORTS_SSL   #evpp http server ssl
-            -DH_HAVE_CAMERON314_CONCURRENTQUEUE  #evpp need
-            -fPIC
-            -Wno-error
-    )
-else(WIN32)
-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWIN32_LEAN_AND_MEAN -D_WINSOCK_DEPRECATED_NO_WARNINGS -D_LIB -D_WIN32 -D_CONSOLE -DNF_NONCLIENT_BUILD -DUNICODE -D_UNICODE -D_WINDOWS -DWIN32 -D_DEBUG -DNF_STATIC_PLUGIN -DLUA_COMPAT_5_1 -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_USRDLL -DDLL_EXPORTS -DMYSQLPP_MAKING_DLL -DHAVE_MYSQL_SSL_SET  -DBUILDING_LIBCURL -DCURL_STATICLIB ")	
-endif()	
+        add_definitions(
+                -DNDEBUG
+                -Wcomment
+                -DLUA_COMPAT_5_1
+                -DLUA_USE_LINUX
+                -DNF_DYNAMIC_PLUGIN
+                -DEVPP_HTTP_CLIENT_SUPPORTS_SSL   #evpp http client ssl
+                -DEVPP_HTTP_SERVER_SUPPORTS_SSL   #evpp http server ssl
+                -DH_HAVE_CAMERON314_CONCURRENTQUEUE  #evpp need
+                -fPIC
+                -Wno-error
+        )
+    else(WIN32)
+	    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DWIN32_LEAN_AND_MEAN -D_WINSOCK_DEPRECATED_NO_WARNINGS -D_LIB -D_WIN32 -D_CONSOLE -DNF_NONCLIENT_BUILD -DUNICODE -D_UNICODE -D_WINDOWS -DWIN32 -D_DEBUG -DNF_STATIC_PLUGIN -DLUA_COMPAT_5_1 -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS -D_CRT_SECURE_NO_DEPRECATE -D_CRT_NONSTDC_NO_DEPRECATE -D_USRDLL -DDLL_EXPORTS -DMYSQLPP_MAKING_DLL -DHAVE_MYSQL_SSL_SET  -DBUILDING_LIBCURL -DCURL_STATICLIB ")	
+    endif()	
 endif()
 
 message("PROJECT_SOURCE_DIR = ${PROJECT_SOURCE_DIR}")
@@ -200,77 +200,77 @@ else(WIN32)
 endif()
 
 if (CMAKE_BUILD_TYPE STREQUAL "Release")
-if(UNIX)
-    SET(LIB_DIR "/usr/lib"
-            "${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
-            "${CMAKE_SOURCE_DIR}/Build/Lib/Release")
+    if(UNIX)
+        SET(LIB_DIR "/usr/lib"
+                "${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
+                "${CMAKE_SOURCE_DIR}/Build/Lib/Release")
 
-    SET(LIB_LINK_DEP resolv dl rt pthread libprotobuf.a libCommon.a libLuaBind.a libNFMessageDefine.a libNFCore.a libNFPluginModule.a)
+        SET(LIB_LINK_DEP resolv dl rt pthread libprotobuf.a libCommon.a libLuaBind.a libNFMessageDefine.a libNFCore.a libNFPluginModule.a)
 
-    SET(LIB_LINK_NF libNFKernelPlugin.a NFTestPlugin.a)
-else(WIN32)
-	SET(LIB_DIR "${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
-		"${CMAKE_SOURCE_DIR}/Build/Lib/Release")	
-endif()		
+        SET(LIB_LINK_NF libNFKernelPlugin.a NFTestPlugin.a)
+    else(WIN32)
+	    SET(LIB_DIR "${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
+		    "${CMAKE_SOURCE_DIR}/Build/Lib/Release")	
+    endif()		
 elseif (CMAKE_BUILD_TYPE STREQUAL "Debug")
-if(UNIX)
-    SET(LIB_DIR "/usr/lib"
-            "${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
-            "${CMAKE_SOURCE_DIR}/Build/Lib/Debug")
+    if(UNIX)
+        SET(LIB_DIR "/usr/lib"
+                "${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
+                "${CMAKE_SOURCE_DIR}/Build/Lib/Debug")
 
-    SET(LIB_LINK_DEP resolv dl rt pthread libprotobuf.a libCommon.a libLuaBind.a libNFMessageDefine.a libNFCore.a libNFPluginModule.a)
+        SET(LIB_LINK_DEP resolv dl rt pthread libprotobuf.a libCommon.a libLuaBind.a libNFMessageDefine.a libNFCore.a libNFPluginModule.a)
 
-    SET(LIB_LINK_NF libNFKernelPlugin.a NFTestPlugin.a)
-else(WIN32)
-	SET(LIB_DIR "${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
-		"${CMAKE_SOURCE_DIR}/Build/Lib/Debug")	
-endif()		
+        SET(LIB_LINK_NF libNFKernelPlugin.a NFTestPlugin.a)
+    else(WIN32)
+	    SET(LIB_DIR "${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
+		    "${CMAKE_SOURCE_DIR}/Build/Lib/Debug")	
+    endif()		
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
-if(UNIX)
-    message("DISTRO_ID: ${DISTRO_ID} ")
-    message("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
-
-    if (DISTRO_ID STREQUAL "centos")
+    if(UNIX)
         message("DISTRO_ID: ${DISTRO_ID} ")
         message("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
-        SET(LIB_DIR "./" "/usr/lib"
-                "${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
-                "${CMAKE_SOURCE_DIR}/Build/Lib/Release"
-                "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
-                )
-    elseif (DISTRO_ID STREQUAL "ubuntu")
-        SET(LIB_DIR "./" "/usr/lib"
-                "${CMAKE_SOURCE_DIR}/thirdparty/lib64_release/ubuntu"
-                "${CMAKE_SOURCE_DIR}/Build/Lib/Release"
-                "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
-                )
-    endif ()
+
+        if (DISTRO_ID STREQUAL "centos")
+            message("DISTRO_ID: ${DISTRO_ID} ")
+            message("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
+            SET(LIB_DIR "./" "/usr/lib"
+                    "${CMAKE_SOURCE_DIR}/thirdparty/lib64_release"
+                    "${CMAKE_SOURCE_DIR}/Build/Lib/Release"
+                    "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
+                    )
+        elseif (DISTRO_ID STREQUAL "ubuntu")
+            SET(LIB_DIR "./" "/usr/lib"
+                    "${CMAKE_SOURCE_DIR}/thirdparty/lib64_release/ubuntu"
+                    "${CMAKE_SOURCE_DIR}/Build/Lib/Release"
+                    "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release"
+                    )
+        endif ()
 
 
-    SET(LIB_LINK_DEP resolv dl rt pthread)
-endif()		
+        SET(LIB_LINK_DEP resolv dl rt pthread)
+    endif()		
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
-if(UNIX)
-    message("DISTRO_ID: ${DISTRO_ID} ")
-    message("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
+    if(UNIX)
+        message("DISTRO_ID: ${DISTRO_ID} ")
+        message("DISTRO_VERSION_ID: ${DISTRO_VERSION_ID} ")
 
-    if (DISTRO_ID STREQUAL "centos")
-        SET(LIB_DIR "." "/usr/lib"
-                "${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
-                "${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
-                "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
-                )
-    elseif (DISTRO_ID STREQUAL "ubuntu")
-        SET(LIB_DIR "." "/usr/lib"
-                "${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug/ubuntu"
-                "${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
-                "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
-                )
-    endif ()
+        if (DISTRO_ID STREQUAL "centos")
+            SET(LIB_DIR "." "/usr/lib"
+                    "${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug"
+                    "${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
+                    "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
+                    )
+        elseif (DISTRO_ID STREQUAL "ubuntu")
+            SET(LIB_DIR "." "/usr/lib"
+                    "${CMAKE_SOURCE_DIR}/thirdparty/lib64_debug/ubuntu"
+                    "${CMAKE_SOURCE_DIR}/Build/Lib/Debug"
+                    "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug"
+                    )
+        endif ()
 
 
-    SET(LIB_LINK_DEP resolv dl rt pthread)
-endif()	
+        SET(LIB_LINK_DEP resolv dl rt pthread)
+    endif()	
 endif()
 
 include_directories(${INCLUDE_DIR})

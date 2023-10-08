@@ -36,8 +36,13 @@ NFShmTimer::~NFShmTimer()
 void NFShmTimer::DeleteFunc()
 {
     // 是在SubscriberSlot 创建的，必须在这销毁
+    if (m_rawShmObj)
+    {
+        m_rawShmObj->DeleteTimer();
+    }
     m_shmObj = NULL;
     m_shmObjId = INVALID_ID;
+    m_rawShmObj = NULL;
 }
 
 int NFShmTimer::CreateInit()

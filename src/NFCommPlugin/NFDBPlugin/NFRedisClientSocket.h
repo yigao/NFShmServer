@@ -70,7 +70,7 @@
 #include "libevent/include/event2/bufferevent_struct.h"
 #include "libevent/include/event2/event.h"
 
-#include "common/hiredis/hiredis_linux/hiredis/hiredis.h"
+#include "hiredis/hiredis.h"
 
 
 class NFRedisClientSocket
