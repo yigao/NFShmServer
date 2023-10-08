@@ -283,8 +283,8 @@ public:
         svrPkg.set_msg_id(proto_ff::NF_STORESVR_C2S_SELECT);
         svrPkg.set_msg_data(sel.SerializeAsString());
         svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
-        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFCRC32::Sum(sel.GetTypeName()));
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFCRC32::Sum(selRes.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFHash::hash<std::string>()(sel.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFHash::hash<std::string>()(selRes.GetTypeName()));
         svrPkg.mutable_rpc_info()->set_req_server_type(eType);
         svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
 
@@ -393,8 +393,8 @@ public:
         svrPkg.set_msg_id(proto_ff::NF_STORESVR_C2S_SELECT);
         svrPkg.set_msg_data(sel.SerializeAsString());
         svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
-        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFCRC32::Sum(sel.GetTypeName()));
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFCRC32::Sum(selRes.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFHash::hash<std::string>()(sel.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFHash::hash<std::string>()(selRes.GetTypeName()));
         svrPkg.mutable_rpc_info()->set_req_server_type(eType);
         svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
 
@@ -1037,8 +1037,8 @@ public:
         svrPkg.set_msg_id(proto_ff::NF_STORESVR_C2S_EXECUTE_MORE);
         svrPkg.set_msg_data(sel.SerializeAsString());
         svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
-        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFCRC32::Sum(sel.GetTypeName()));
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFCRC32::Sum(selRes.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFHash::hash<std::string>()(sel.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFHash::hash<std::string>()(selRes.GetTypeName()));
         svrPkg.mutable_rpc_info()->set_req_server_type(eType);
         svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
 
