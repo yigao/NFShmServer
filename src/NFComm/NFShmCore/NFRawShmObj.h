@@ -39,8 +39,11 @@ public:
 
     virtual int DeleteAllTimer()
     {
-        CHECK_NULL(m_pShmObj);
-        return m_pShmObj->DeleteAllTimer(this);
+        if (m_pShmObj)
+        {
+            return m_pShmObj->DeleteAllTimer(this);
+        }
+        return 0;
     }
 
     ////注册距离现在多少时间执行一次的定时器(hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒, 只执行一次)
