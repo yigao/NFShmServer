@@ -65,10 +65,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="fish loader">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/Common.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/FishBusPlugin/Plugin.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFRawShmObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFRawShmObj.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFIMessageModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCMessageModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFServerCommon/NFIServerMessageModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -476,14 +475,7 @@
       <workItem from="1695800454187" duration="7335000" />
       <workItem from="1695808689127" duration="60000" />
       <workItem from="1696638977917" duration="8117000" />
-      <workItem from="1696727939783" duration="5703000" />
-    </task>
-    <task id="LOCAL-00137" summary="redis mysql db read write">
-      <created>1695091240334</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1695091240335</updated>
+      <workItem from="1696727939783" duration="8704000" />
     </task>
     <task id="LOCAL-00138" summary="redis mysql db read write">
       <created>1695092088677</created>
@@ -821,7 +813,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696732536551</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="fish loader">
+      <created>1696736370586</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1696736370586</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

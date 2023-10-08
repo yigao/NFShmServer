@@ -714,8 +714,8 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                                 svrPkg.rpc_info().rsp_rpc_id()));
                         if (pRespone && svrPkg.rpc_info().rpc_ret_code() == 0)
                         {
-                            if (svrPkg.rpc_info().req_rpc_hash() == std::hash<std::string>()(pRespone->req_type()) &&
-                                svrPkg.rpc_info().rsp_rpc_hash() == std::hash<std::string>()(pRespone->rsp_type()))
+                            if (svrPkg.rpc_info().req_rpc_hash() == NFCRC32::Sum(pRespone->req_type()) &&
+                                svrPkg.rpc_info().rsp_rpc_hash() == NFCRC32::Sum(pRespone->rsp_type()))
                             {
                                 pRespone->set_respone(svrPkg.msg_data());
                             }
@@ -737,7 +737,7 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                         google::protobuf::Message *pRespone = FindModule<NFICoroutineModule>()->GetUserData(svrPkg.rpc_info().rsp_rpc_id());
                         if (pRespone && svrPkg.rpc_info().rpc_ret_code() == 0)
                         {
-                            if (svrPkg.rpc_info().rsp_rpc_hash() == std::hash<std::string>()(pRespone->GetTypeName()))
+                            if (svrPkg.rpc_info().rsp_rpc_hash() == NFCRC32::Sum(pRespone->GetTypeName()))
                             {
                                 pRespone->ParseFromString(svrPkg.msg_data());
                             }

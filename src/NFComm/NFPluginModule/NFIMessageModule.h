@@ -13,6 +13,7 @@
 #include "NFComm/NFPluginModule/NFIModule.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
+#include "NFComm/NFCore/NFCRC32.h"
 #include "google/protobuf/message.h"
 #include "NFComm/NFKernelMessage/storesvr_sqldata.pb.h"
 #include "NFICoroutineModule.h"
@@ -78,9 +79,9 @@ public:
         {
             RequestType req;
             ResponeType rsp;
-            CHECK_EXPR(std::hash<std::string>()(req.GetTypeName()) == reqSvrPkg.rpc_info().req_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED,
+            CHECK_EXPR(NFCRC32::Sum(req.GetTypeName()) == reqSvrPkg.rpc_info().req_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED,
                        "NFCRpcService reqHash Not Equal:{}, nMsgId:{}", req.GetTypeName(), reqSvrPkg.msg_id());
-            CHECK_EXPR(std::hash<std::string>()(rsp.GetTypeName()) == reqSvrPkg.rpc_info().rsp_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED,
+            CHECK_EXPR(NFCRC32::Sum(rsp.GetTypeName()) == reqSvrPkg.rpc_info().rsp_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED,
                        "NFCRpcService rspHash Not Equal:{}, nMsgId:{}", rsp.GetTypeName(), reqSvrPkg.msg_id());
 
             req.ParseFromString(reqSvrPkg.msg_data());
@@ -187,9 +188,9 @@ public:
         virtual int run(uint64_t unLinkId, const proto_ff::Proto_SvrPkg &reqSvrPkg, uint64_t param1, uint64_t param2) override
         {
             std::string rsp;
-            CHECK_EXPR(std::hash<std::string>()(m_reqType) == reqSvrPkg.rpc_info().req_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED,
+            CHECK_EXPR(NFCRC32::Sum(m_reqType) == reqSvrPkg.rpc_info().req_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED,
                        "NFCScriptRpcService reqHash Not Equal:{}, nMsgId:{}", m_reqType, reqSvrPkg.msg_id());
-            CHECK_EXPR(std::hash<std::string>()(m_rspType) == reqSvrPkg.rpc_info().rsp_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED,
+            CHECK_EXPR(NFCRC32::Sum(m_rspType) == reqSvrPkg.rpc_info().rsp_rpc_hash(), proto_ff::ERR_CODE_RPC_DECODE_FAILED,
                        "NFCScriptRpcService rspHash Not Equal:{}, nMsgId:{}", m_rspType, reqSvrPkg.msg_id());
 
             uint32_t eServerType = GetServerTypeFromUnlinkId(unLinkId);
@@ -464,8 +465,8 @@ public:
         svrPkg.set_msg_id(msgId);
         svrPkg.set_msg_data(request.SerializeAsString());
         svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
-        svrPkg.mutable_rpc_info()->set_req_rpc_hash(std::hash<std::string>()(request.GetTypeName()));
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(std::hash<std::string>()(respone.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFCRC32::Sum(request.GetTypeName()));
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFCRC32::Sum(respone.GetTypeName()));
         svrPkg.mutable_rpc_info()->set_req_server_type(serverType);
         svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
         svrPkg.mutable_rpc_info()->set_is_script_rpc(false);
@@ -515,8 +516,8 @@ public:
         svrPkg.set_msg_id(msgId);
         svrPkg.set_msg_data(request);
         svrPkg.mutable_rpc_info()->set_req_rpc_id(FindModule<NFICoroutineModule>()->CurrentTaskId());
-        svrPkg.mutable_rpc_info()->set_req_rpc_hash(std::hash<std::string>()(reqType));
-        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(std::hash<std::string>()(rspType));
+        svrPkg.mutable_rpc_info()->set_req_rpc_hash(NFCRC32::Sum(reqType));
+        svrPkg.mutable_rpc_info()->set_rsp_rpc_hash(NFCRC32::Sum(rspType));
         svrPkg.mutable_rpc_info()->set_req_server_type(serverType);
         svrPkg.mutable_rpc_info()->set_req_bus_id(pConfig->BusId);
         svrPkg.mutable_rpc_info()->set_is_script_rpc(true);
