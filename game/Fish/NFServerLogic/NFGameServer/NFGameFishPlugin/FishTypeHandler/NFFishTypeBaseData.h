@@ -11,12 +11,12 @@
 
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFShmCore/NFRawTimerObj.h"
+#include "NFComm/NFShmCore/NFRawShmObj.h"
 
 class NFGameFishPlayer;
 class NFFishTypeHandler;
 class NFGameFishDesk;
-class NFFishTypeBaseData: public NFRawTimerObj<2>
+class NFFishTypeBaseData: public NFRawShmObj
 {
 public:
     NFFishTypeBaseData();

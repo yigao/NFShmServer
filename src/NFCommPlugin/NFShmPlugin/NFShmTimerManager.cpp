@@ -858,6 +858,29 @@ int NFShmTimerManager::ClearAllTimer(NFShmObj *pObj)
     return 0;
 }
 
+int NFShmTimerManager::ClearAllTimer(NFShmObj *pObj, NFRawShmObj* pRawShmObj)
+{
+    CHECK_NULL(pObj);
+    CHECK_NULL(pRawShmObj);
+
+    auto iter = m_shmObjTimer.find(pObj->GetGlobalId());
+    if (iter != m_shmObjTimer.end())
+    {
+        auto pNode = iter->second.GetHeadNodeObj(m_pObjPluginManager);
+        while (pNode)
+        {
+            auto pLastNode = pNode;
+            pNode = iter->second.GetNextNodeObj(m_pObjPluginManager, pNode);
+            if (pLastNode->GetTimerRawShmObj() == pRawShmObj)
+            {
+                pLastNode->SetWaitDelete();
+                iter->second.RemoveNode(m_pObjPluginManager, pLastNode);
+            }
+        }
+    }
+    return 0;
+}
+
 int NFShmTimerManager::AddShmObjTimer(NFShmObj *pObj, NFShmTimer *newTimer)
 {
     auto iter = m_shmObjTimer.find(pObj->GetGlobalId());

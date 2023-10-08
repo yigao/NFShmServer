@@ -113,6 +113,7 @@ public:
     int AddShmObjTimer(NFShmObj* pObj, NFShmTimer* pTimer);
     int ClearShmObjTimer(NFShmTimer* pTimer);
     int ClearAllTimer(NFShmObj* pObj);
+    int ClearAllTimer(NFShmObj* pObj, NFRawShmObj* pRawShmObj);
 private:
     bool AttachTimer(NFShmTimer *timer, int64_t tick, bool isNewTimer);
 

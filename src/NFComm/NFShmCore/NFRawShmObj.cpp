@@ -23,6 +23,7 @@ NFRawShmObj::NFRawShmObj()
 
 NFRawShmObj::~NFRawShmObj()
 {
+    DeleteAllTimer();
 }
 
 int NFRawShmObj::CreateInit()

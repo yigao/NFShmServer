@@ -60,6 +60,11 @@ public:
         m_rawShmObj = pObj;
     }
 
+    NFRawShmObj* GetTimerRawShmObj()
+    {
+        return m_rawShmObj;
+    }
+
     void PrintfDebug()
     {
 //	 cout << "ID:" << m_iGlobalID << " Type:" << m_type << " begin:" << m_beginTime << " next:" << m_nextRun << " interval:" << m_interval << " round:" << m_round <<endl;

@@ -164,6 +164,11 @@ int NFShmObj::DeleteAllTimer()
     return m_pObjPluginManager->FindModule<NFISharedMemModule>()->DeleteAllTimer(this);
 }
 
+int NFShmObj::DeleteAllTimer(NFRawShmObj* pRawShmObj)
+{
+    return m_pObjPluginManager->FindModule<NFISharedMemModule>()->DeleteAllTimer(this, pRawShmObj);
+}
+
 int NFShmObj::DeleteTimer(int timeObjId)
 {
     return FindModule<NFISharedMemModule>()->DeleteTimer(this, timeObjId);

@@ -184,6 +184,7 @@ public:
     //delete objid
     virtual int DeleteTimer(int timeObjId);
     virtual int DeleteAllTimer();
+    virtual int DeleteAllTimer(NFRawShmObj* pRawShmObj);
 
     ////注册距离现在多少时间执行一次的定时器(hour  minutes  second  microSec为第一次执行距离现在的时分秒毫秒, 只执行一次)
     virtual int SetTimer(int hour, int minutes, int second, int microSec, NFRawShmObj* pRawShmObj = NULL);
