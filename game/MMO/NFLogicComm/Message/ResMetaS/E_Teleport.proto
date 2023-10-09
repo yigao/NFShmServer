@@ -1,0 +1,29 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_TeleportTeleport
+{
+	optional int64 m_teleportid = 1[(yd_fieldoptions.field_cname) = "传送点ID"];
+	optional int32 m_teleporttype = 2[(yd_fieldoptions.field_cname) = "传送门类型"];
+	optional string m_name = 3[(yd_fieldoptions.field_cname) = "传送点名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_monsterid = 4[(yd_fieldoptions.field_cname) = "传送门怪物ID"];
+	optional int32 m_showcondition = 5[(yd_fieldoptions.field_cname) = "出现条件"];
+	optional string m_conditionvalue = 6[(yd_fieldoptions.field_cname) = "条件参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_canenter = 7[(yd_fieldoptions.field_cname) = "进入权限"];
+	optional int64 m_showpathid = 8[(yd_fieldoptions.field_cname) = "默认位置点"];
+	optional int64 m_topathid = 9[(yd_fieldoptions.field_cname) = "传送目的位置点"];
+	optional int64 m_toduplicateid = 10[(yd_fieldoptions.field_cname) = "传送副本ID"];
+	optional string m_entercost = 11[(yd_fieldoptions.field_cname) = "进入道具消耗", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_trigrange = 12[(yd_fieldoptions.field_cname) = "触发范围"];
+	optional int32 m_livingtime = 13[(yd_fieldoptions.field_cname) = "传送门存在时间"];
+	optional int64 m_openchatid = 14[(yd_fieldoptions.field_cname) = "开启时的跑马灯ID"];
+	optional int64 m_progresschatid = 15[(yd_fieldoptions.field_cname) = "进度跑马灯ID"];
+}
+
+
+message Sheet_TeleportTeleport
+{
+	repeated E_TeleportTeleport E_TeleportTeleport_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

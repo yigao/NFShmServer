@@ -1,0 +1,52 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_AttributeAttribute
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_percent = 2[(yd_fieldoptions.field_cname) = "百分比"];
+	optional float m_power = 3[(yd_fieldoptions.field_cname) = "战斗力"];
+	optional int32 m_systemtype = 4[(yd_fieldoptions.field_cname) = "模块类型"];
+}
+
+
+message Sheet_AttributeAttribute
+{
+	repeated E_AttributeAttribute E_AttributeAttribute_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_AttributeSuppress
+{
+	optional int32 m_lvldiff = 1[(yd_fieldoptions.field_cname) = "等级差"];
+	optional int32 m_hitsuppve = 2[(yd_fieldoptions.field_cname) = "命中压制"];
+	optional int32 m_critsuppve = 3[(yd_fieldoptions.field_cname) = "暴击压制"];
+	optional int32 m_killsuppve = 4[(yd_fieldoptions.field_cname) = "必杀压制"];
+	optional int32 m_statesuppve = 5[(yd_fieldoptions.field_cname) = "状态压制"];
+	optional int32 m_lvsuppve = 6[(yd_fieldoptions.field_cname) = "等级压制"];
+	optional int32 m_hitsuppvp = 7[(yd_fieldoptions.field_cname) = "命中压制"];
+	optional int32 m_critsuppvp = 8[(yd_fieldoptions.field_cname) = "暴击压制"];
+	optional int32 m_killsuppvp = 9[(yd_fieldoptions.field_cname) = "必杀压制"];
+	optional int32 m_statesuppvp = 10[(yd_fieldoptions.field_cname) = "状态压制"];
+	optional int32 m_lvsuppvp = 11[(yd_fieldoptions.field_cname) = "等级压制"];
+}
+
+
+message Sheet_AttributeSuppress
+{
+	repeated E_AttributeSuppress E_AttributeSuppress_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_AttributePowersup
+{
+	optional int32 m_powerdiff = 1[(yd_fieldoptions.field_cname) = "战力差"];
+	optional int32 m_powersuppve = 2[(yd_fieldoptions.field_cname) = "战力压制"];
+	optional int32 m_powersuppvp = 3[(yd_fieldoptions.field_cname) = "战力压制"];
+}
+
+
+message Sheet_AttributePowersup
+{
+	repeated E_AttributePowersup E_AttributePowersup_List = 1[(yd_fieldoptions.field_arysize)=128];
+}

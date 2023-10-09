@@ -1,0 +1,72 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_MallMall
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "商品ID"];
+	optional int32 m_itemid = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_malltype = 3[(yd_fieldoptions.field_cname) = "商城分类"];
+	optional int32 m_priority = 4[(yd_fieldoptions.field_cname) = "优先级"];
+	optional int32 m_moneytype = 5[(yd_fieldoptions.field_cname) = "货币类型"];
+	optional int32 m_price = 6[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 m_secondarymoneytype = 7[(yd_fieldoptions.field_cname) = "次级货币"];
+	optional int32 m_discount = 8[(yd_fieldoptions.field_cname) = "折扣"];
+	optional int32 m_buylimittype = 9[(yd_fieldoptions.field_cname) = "限制购买类型"];
+	optional int32 m_buyamount = 10[(yd_fieldoptions.field_cname) = "购买数量"];
+	optional int32 m_viplimit = 11[(yd_fieldoptions.field_cname) = "VIP等级解锁"];
+	optional int32 m_lvlimit = 12[(yd_fieldoptions.field_cname) = "等级限制"];
+	optional int32 m_vipunlock = 13[(yd_fieldoptions.field_cname) = "vip或等级解锁"];
+	optional int32 m_isclose = 14[(yd_fieldoptions.field_cname) = "是否下架"];
+	optional int32 m_cantbuy = 15[(yd_fieldoptions.field_cname) = "下架情况下是否能购买"];
+	optional int32 m_ismarkbind = 16[(yd_fieldoptions.field_cname) = "是否标记为已绑定"];
+}
+
+
+message Sheet_MallMall
+{
+	repeated E_MallMall E_MallMall_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_MallMalltype_tab
+{
+	optional int32 m_priority = 1[(yd_fieldoptions.field_cname) = "优先级"];
+	optional int32 m_functionunlock = 2[(yd_fieldoptions.field_cname) = "开启条件"];
+}
+
+
+message Sheet_MallMalltype_tab
+{
+	repeated E_MallMalltype_tab E_MallMalltype_tab_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_MallMalltype
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "组ID"];
+	optional string m_title = 2[(yd_fieldoptions.field_cname) = "商店名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_grouptype = 3[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 m_priority = 4[(yd_fieldoptions.field_cname) = "优先级"];
+	optional int32 m_functionunlock = 5[(yd_fieldoptions.field_cname) = "开启条件"];
+}
+
+
+message Sheet_MallMalltype
+{
+	repeated E_MallMalltype E_MallMalltype_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_MallHolybeast
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_mountid = 2[(yd_fieldoptions.field_cname) = "坐骑id"];
+	optional int32 m_itemid = 3[(yd_fieldoptions.field_cname) = "商品id"];
+	optional int32 m_costid = 4[(yd_fieldoptions.field_cname) = "兑换道具"];
+	optional int32 m_costnum = 5[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+
+message Sheet_MallHolybeast
+{
+	repeated E_MallHolybeast E_MallHolybeast_List = 1[(yd_fieldoptions.field_arysize)=32];
+}

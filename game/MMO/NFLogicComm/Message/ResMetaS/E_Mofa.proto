@@ -1,0 +1,185 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_MofaSetupZfDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_MofaSetup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "排序"];
+	optional int32 m_positionid = 2[(yd_fieldoptions.field_cname) = "部位id"];
+	optional int32 m_unlock = 3[(yd_fieldoptions.field_cname) = "解锁道具"];
+	optional int32 m_zyatt = 4[(yd_fieldoptions.field_cname) = "阵眼属性组"];
+	optional int32 m_bless = 5[(yd_fieldoptions.field_cname) = "祝福道具"];
+	optional int32 m_blessbonus = 6[(yd_fieldoptions.field_cname) = "祝福属性加成"];
+	optional int32 m_jxzyatt = 7[(yd_fieldoptions.field_cname) = "觉醒阵眼属性组"];
+	optional int32 m_jxblessbonus = 8[(yd_fieldoptions.field_cname) = "觉醒祝福属性加成"];
+	optional int32 m_jxblessatt = 9[(yd_fieldoptions.field_cname) = "觉醒祝福属性组"];
+	repeated E_MofaSetupZfDesc m_zf = 10[(yd_fieldoptions.field_cname) = "祝福属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_MofaSetup
+{
+	repeated E_MofaSetup E_MofaSetup_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_MofaYuansuAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_MofaYuansuAwakenDesc
+{
+	optional int32 m_lvaddratio = 1[(yd_fieldoptions.field_cname) = "升级属性加成百分比"];
+	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "材料数量"];
+}
+
+message E_MofaYuansu
+{
+	optional int32 m_itemid = 1[(yd_fieldoptions.field_cname) = "道具ID"];
+	optional int32 m_attritype = 2[(yd_fieldoptions.field_cname) = "物品类型排序"];
+	optional int32 m_mosaic = 3[(yd_fieldoptions.field_cname) = "可镶嵌部位"];
+	optional int32 m_lvitem = 4[(yd_fieldoptions.field_cname) = "升级道具"];
+	optional int32 m_awaken_can = 5[(yd_fieldoptions.field_cname) = "是否可觉醒"];
+	optional int32 m_awaken_lvmax = 6[(yd_fieldoptions.field_cname) = "觉醒上限"];
+	optional int32 m_awaken_item = 7[(yd_fieldoptions.field_cname) = "觉醒材料"];
+	repeated E_MofaYuansuAttributeDesc m_attribute = 8[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_MofaYuansuAwakenDesc m_awaken = 9[(yd_fieldoptions.field_cname) = "觉醒", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_MofaYuansu
+{
+	repeated E_MofaYuansu E_MofaYuansu_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_MofaDecompose
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_dpqua = 2[(yd_fieldoptions.field_cname) = "分解品质"];
+	optional int32 m_dpitem = 3[(yd_fieldoptions.field_cname) = "分解返还道具"];
+	optional int32 m_dpess = 4[(yd_fieldoptions.field_cname) = "分解精华"];
+}
+
+
+message Sheet_MofaDecompose
+{
+	repeated E_MofaDecompose E_MofaDecompose_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_MofaLvexp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "升级所需经验"];
+}
+
+
+message Sheet_MofaLvexp
+{
+	repeated E_MofaLvexp E_MofaLvexp_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_MofaLvatt
+{
+	optional int64 m_attid = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	repeated int32 m_att = 2[(yd_fieldoptions.field_cname) = "属性等级", (yd_fieldoptions.field_arysize) = 100];
+}
+
+
+message Sheet_MofaLvatt
+{
+	repeated E_MofaLvatt E_MofaLvatt_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_MofaZyattZyDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_MofaZyatt
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "排序"];
+	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "品质"];
+	repeated E_MofaZyattZyDesc m_zy = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_MofaZyatt
+{
+	repeated E_MofaZyatt E_MofaZyatt_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_MofaZyjxattZyjxDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_MofaZyjxatt
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "排序"];
+	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_jxlv = 3[(yd_fieldoptions.field_cname) = "觉醒需求"];
+	repeated E_MofaZyjxattZyjxDesc m_zyjx = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_MofaZyjxatt
+{
+	repeated E_MofaZyjxatt E_MofaZyjxatt_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_MofaZyjxzfattZyjxzfDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_MofaZyjxzfatt
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "排序"];
+	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_jxlv = 3[(yd_fieldoptions.field_cname) = "觉醒需求"];
+	repeated E_MofaZyjxzfattZyjxzfDesc m_zyjxzf = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_MofaZyjxzfatt
+{
+	repeated E_MofaZyjxzfatt E_MofaZyjxzfatt_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_MofaExchange
+{
+	optional int32 m_itemid = 1[(yd_fieldoptions.field_cname) = "道具ID"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_ecitem = 3[(yd_fieldoptions.field_cname) = "兑换道具"];
+	optional int32 m_ecnum = 4[(yd_fieldoptions.field_cname) = "兑换道具数量"];
+}
+
+
+message Sheet_MofaExchange
+{
+	repeated E_MofaExchange E_MofaExchange_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_MofaName
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_functionid = 2[(yd_fieldoptions.field_cname) = "功能id"];
+}
+
+
+message Sheet_MofaName
+{
+	repeated E_MofaName E_MofaName_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

@@ -1,0 +1,76 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_RandomnameManfirst
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_RandomnameManfirst
+{
+	repeated E_RandomnameManfirst E_RandomnameManfirst_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_RandomnameMansecond
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_RandomnameMansecond
+{
+	repeated E_RandomnameMansecond E_RandomnameMansecond_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_RandomnameManthird
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_RandomnameManthird
+{
+	repeated E_RandomnameManthird E_RandomnameManthird_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_RandomnameWomanfirst
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_RandomnameWomanfirst
+{
+	repeated E_RandomnameWomanfirst E_RandomnameWomanfirst_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_RandomnameWomansecond
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_RandomnameWomansecond
+{
+	repeated E_RandomnameWomansecond E_RandomnameWomansecond_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_RandomnameWomanthird
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_RandomnameWomanthird
+{
+	repeated E_RandomnameWomanthird E_RandomnameWomanthird_List = 1[(yd_fieldoptions.field_arysize)=512];
+}

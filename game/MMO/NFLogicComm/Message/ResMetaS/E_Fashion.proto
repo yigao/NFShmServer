@@ -1,0 +1,39 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_FashionFashionAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_FashionFashionActiveattributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_FashionFashion
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "时装ID"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "时装名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "外观类型"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "时装品质"];
+	optional string m_professionlimit = 5[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_activationitem = 6[(yd_fieldoptions.field_cname) = "激活道具ID"];
+	optional int32 m_activationnum = 7[(yd_fieldoptions.field_cname) = "激活道具数量"];
+	optional int64 m_starid = 8[(yd_fieldoptions.field_cname) = "升星道具id"];
+	optional string m_starnum = 9[(yd_fieldoptions.field_cname) = "升星道具数量", (yd_fieldoptions.field_bufsize) = 256];
+	optional int32 m_starup = 10[(yd_fieldoptions.field_cname) = "升星等级上限"];
+	optional int32 m_starber = 11[(yd_fieldoptions.field_cname) = "每次升星属性增加的百分比值"];
+	repeated E_FashionFashionAttributeDesc m_attribute = 12[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+	repeated E_FashionFashionActiveattributeDesc m_activeattribute = 13[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_FashionFashion
+{
+	repeated E_FashionFashion E_FashionFashion_List = 1[(yd_fieldoptions.field_arysize)=64];
+}

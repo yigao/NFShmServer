@@ -1,0 +1,201 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_DupDup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "副本ID"];
+	optional int32 m_scripid = 2[(yd_fieldoptions.field_cname) = "刷怪脚本ID"];
+	optional int32 m_scriptype = 3[(yd_fieldoptions.field_cname) = "刷怪脚本类型"];
+	optional int32 m_duplevel = 4[(yd_fieldoptions.field_cname) = "副本等级"];
+	optional int32 m_scripmontype = 5[(yd_fieldoptions.field_cname) = "脚本怪物类型"];
+	optional string m_scripmonid = 6[(yd_fieldoptions.field_cname) = "脚本怪物id", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_groupid = 7[(yd_fieldoptions.field_cname) = "所属副本组ID"];
+	optional int32 m_subtype = 8[(yd_fieldoptions.field_cname) = "子类型"];
+	optional int32 m_layer = 9[(yd_fieldoptions.field_cname) = "层级"];
+	optional int32 m_duplicatetype = 10[(yd_fieldoptions.field_cname) = "副本内容类型"];
+	optional int64 m_mapid = 11[(yd_fieldoptions.field_cname) = "场景ID"];
+	optional int32 m_levellimit = 12[(yd_fieldoptions.field_cname) = "等级要求下限"];
+	optional int32 m_functionid = 13[(yd_fieldoptions.field_cname) = "额外功能开放要求"];
+	optional int32 m_pre = 14[(yd_fieldoptions.field_cname) = "前置副本要求"];
+	optional int32 m_isautofight = 15[(yd_fieldoptions.field_cname) = "是否允许自动战斗"];
+	optional string m_condition = 16[(yd_fieldoptions.field_cname) = "副本胜利条件类型", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_revivemaxtimes = 17[(yd_fieldoptions.field_cname) = "复活次数上限"];
+	optional int32 m_teamobjectid = 18[(yd_fieldoptions.field_cname) = "组队目标ID"];
+	optional string m_gradecondition = 19[(yd_fieldoptions.field_cname) = "星级时间", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_sweeprewardboxid = 20[(yd_fieldoptions.field_cname) = "扫荡奖励BOXID"];
+	optional int32 m_sweeprewardexp = 21[(yd_fieldoptions.field_cname) = "扫荡经验奖励"];
+	optional int32 m_sweepexptype = 22[(yd_fieldoptions.field_cname) = "扫荡经验类型"];
+	optional string m_trackpoint = 23[(yd_fieldoptions.field_cname) = "副本寻路点", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_pathofmonster = 24[(yd_fieldoptions.field_cname) = "副本寻路点对应怪物", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_ispatrol = 25[(yd_fieldoptions.field_cname) = "寻路前是否巡敌"];
+	optional int32 m_failurebox = 26[(yd_fieldoptions.field_cname) = "失败奖励"];
+	optional int32 m_planes = 27[(yd_fieldoptions.field_cname) = "位面"];
+	repeated int32 m_box = 28[(yd_fieldoptions.field_cname) = "奖励组", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_DupDup
+{
+	repeated E_DupDup E_DupDup_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_DupBplevel
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	repeated int64 m_bgdup = 2[(yd_fieldoptions.field_cname) = "八卦本", (yd_fieldoptions.field_arysize) = 5];
+	repeated int64 m_bgdupsweep = 3[(yd_fieldoptions.field_cname) = "八卦本", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_DupBplevel
+{
+	repeated E_DupBplevel E_DupBplevel_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_DupTtowerwaveClearDesc
+{
+	optional int32 m_add = 1[(yd_fieldoptions.field_cname) = "增加关数"];
+	optional int32 m_time = 2[(yd_fieldoptions.field_cname) = "时间"];
+}
+
+message E_DupTtowerwave
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "波id"];
+	optional int32 m_scripid = 2[(yd_fieldoptions.field_cname) = "刷怪脚本ID"];
+	optional string m_scripgid = 3[(yd_fieldoptions.field_cname) = "刷怪脚本类型", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_scriptype = 4[(yd_fieldoptions.field_cname) = "刷怪脚本类型"];
+	optional int32 m_duplevel = 5[(yd_fieldoptions.field_cname) = "副本等级"];
+	optional int32 m_scripmontype = 6[(yd_fieldoptions.field_cname) = "脚本怪物类型"];
+	optional string m_scripmonid = 7[(yd_fieldoptions.field_cname) = "脚本怪物id", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_recommendpower = 8[(yd_fieldoptions.field_cname) = "推荐战力"];
+	optional int32 m_reward = 9[(yd_fieldoptions.field_cname) = "结算奖励"];
+	optional int32 m_firstpass = 10[(yd_fieldoptions.field_cname) = "首通奖励"];
+	optional int32 m_bp = 11[(yd_fieldoptions.field_cname) = "平均战力"];
+	repeated E_DupTtowerwaveClearDesc m_clear = 12[(yd_fieldoptions.field_cname) = "通关", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_DupTtowerwave
+{
+	repeated E_DupTtowerwave E_DupTtowerwave_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_DupTowerreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_cond = 3[(yd_fieldoptions.field_cname) = "领取条件"];
+	optional int32 m_boxid = 4[(yd_fieldoptions.field_cname) = "box"];
+}
+
+
+message Sheet_DupTowerreward
+{
+	repeated E_DupTowerreward E_DupTowerreward_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_DupGroup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "副本组ID"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "副本组名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_privilegetype = 3[(yd_fieldoptions.field_cname) = "特权类型"];
+	optional int32 m_dynamiclevel = 4[(yd_fieldoptions.field_cname) = "是否动态等级"];
+	optional int32 m_grouptimestype = 5[(yd_fieldoptions.field_cname) = "组次数类型"];
+	optional int32 m_resetcycle = 6[(yd_fieldoptions.field_cname) = "重置周期"];
+	optional int32 m_grouptimes = 7[(yd_fieldoptions.field_cname) = "次数上限值"];
+	optional int32 m_enteritemid = 8[(yd_fieldoptions.field_cname) = "副本进入道具"];
+	optional int32 m_sweeptype = 9[(yd_fieldoptions.field_cname) = "扫荡类型"];
+	optional int32 m_sweepcondition = 10[(yd_fieldoptions.field_cname) = "扫荡条件"];
+	optional int32 m_mergecondition = 11[(yd_fieldoptions.field_cname) = "合并条件"];
+	optional int32 m_additemid = 12[(yd_fieldoptions.field_cname) = "增加次数物品ID"];
+	optional int32 m_buytype = 13[(yd_fieldoptions.field_cname) = "购买次数消耗货币"];
+	optional int32 m_buyitemid = 14[(yd_fieldoptions.field_cname) = "购买次数消耗物品"];
+	optional string m_buycost = 15[(yd_fieldoptions.field_cname) = "购买进入次数消耗", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_countdown = 16[(yd_fieldoptions.field_cname) = "倒计时时间"];
+	optional int32 m_enddown = 17[(yd_fieldoptions.field_cname) = "结束倒计时"];
+	optional int32 m_accountdown = 18[(yd_fieldoptions.field_cname) = "结算倒计时"];
+	optional int32 m_funcionid = 19[(yd_fieldoptions.field_cname) = "功能ID"];
+	optional int32 m_closefuncionid = 20[(yd_fieldoptions.field_cname) = "关闭功能ID"];
+	optional int64 m_link = 21[(yd_fieldoptions.field_cname) = "副本结束打开界面"];
+	optional int32 m_festvialtype = 22[(yd_fieldoptions.field_cname) = "活动id"];
+}
+
+
+message Sheet_DupGroup
+{
+	repeated E_DupGroup E_DupGroup_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_DupSweepmonsternum
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_sweepexptype = 2[(yd_fieldoptions.field_cname) = "扫荡类型"];
+	optional int32 m_minlevel = 3[(yd_fieldoptions.field_cname) = "玩家等极下限"];
+	optional int32 m_maxlevel = 4[(yd_fieldoptions.field_cname) = "玩家等极上限"];
+	optional int32 m_killnumber = 5[(yd_fieldoptions.field_cname) = "杀怪标准数量"];
+	optional int32 m_monstervaluetype = 6[(yd_fieldoptions.field_cname) = "怪物数值类型"];
+}
+
+
+message Sheet_DupSweepmonsternum
+{
+	repeated E_DupSweepmonsternum E_DupSweepmonsternum_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_DupWorldlvreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "副本组id"];
+	optional int32 m_lvtype = 3[(yd_fieldoptions.field_cname) = "世界等级类型"];
+	optional int32 m_lvmin = 4[(yd_fieldoptions.field_cname) = "世界等级下限"];
+	optional int32 m_failurebox = 5[(yd_fieldoptions.field_cname) = "失败奖励"];
+	repeated int32 m_box = 6[(yd_fieldoptions.field_cname) = "星奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_DupWorldlvreward
+{
+	repeated E_DupWorldlvreward E_DupWorldlvreward_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_DupPlanes
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "位面id"];
+	optional int32 m_planestype = 2[(yd_fieldoptions.field_cname) = "位面类型"];
+	optional string m_typeargs = 3[(yd_fieldoptions.field_cname) = "类型参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_areaid = 4[(yd_fieldoptions.field_cname) = "区域id"];
+}
+
+
+message Sheet_DupPlanes
+{
+	repeated E_DupPlanes E_DupPlanes_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_DupYt_dupClearDesc
+{
+	optional int32 m_add = 1[(yd_fieldoptions.field_cname) = "增加关数"];
+	optional int32 m_time = 2[(yd_fieldoptions.field_cname) = "时间"];
+}
+
+message E_DupYt_dup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "副本id"];
+	optional int32 m_layer = 2[(yd_fieldoptions.field_cname) = "所属层级"];
+	optional int32 m_stage = 3[(yd_fieldoptions.field_cname) = "关卡等级"];
+	optional int32 m_recommendlv = 4[(yd_fieldoptions.field_cname) = "推荐等级"];
+	optional int32 m_recommendyk = 5[(yd_fieldoptions.field_cname) = "推荐妖抗"];
+	optional int32 m_reward = 6[(yd_fieldoptions.field_cname) = "结算奖励"];
+	optional int32 m_firstpass = 7[(yd_fieldoptions.field_cname) = "首通奖励"];
+	optional int32 m_overlordbox = 8[(yd_fieldoptions.field_cname) = "霸主奖励"];
+	optional int32 m_overlordtime = 9[(yd_fieldoptions.field_cname) = "霸主时间"];
+	repeated E_DupYt_dupClearDesc m_clear = 10[(yd_fieldoptions.field_cname) = "通关", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_DupYt_dup
+{
+	repeated E_DupYt_dup E_DupYt_dup_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}

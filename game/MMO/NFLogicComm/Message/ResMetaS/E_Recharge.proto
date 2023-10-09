@@ -1,0 +1,68 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_RechargeRechargeChannelDesc
+{
+	optional string m_point = 1[(yd_fieldoptions.field_cname) = "计费点", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_RechargeRechargeItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_RechargeRecharge
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_defaultpoint = 3[(yd_fieldoptions.field_cname) = "默认计费点", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_type = 4[(yd_fieldoptions.field_cname) = "充值类型"];
+	optional string m_unit = 5[(yd_fieldoptions.field_cname) = "单位", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_beizhu = 6[(yd_fieldoptions.field_cname) = "备注", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_quantity = 7[(yd_fieldoptions.field_cname) = "获取档位"];
+	optional int32 m_itemnum = 8[(yd_fieldoptions.field_cname) = "获得物品的数量"];
+	optional int64 m_multipletimes = 9[(yd_fieldoptions.field_cname) = "重复次数"];
+	optional int64 m_multiplereward = 10[(yd_fieldoptions.field_cname) = "重复奖励"];
+	optional int32 m_zuanshitype = 11[(yd_fieldoptions.field_cname) = "获取类型"];
+	optional int32 m_vipexp = 12[(yd_fieldoptions.field_cname) = "vip经验"];
+	optional int32 m_vipexplimit = 13[(yd_fieldoptions.field_cname) = "vip经验限制"];
+	optional int32 m_activitycount = 14[(yd_fieldoptions.field_cname) = "运营活动计数"];
+	optional int32 m_price = 15[(yd_fieldoptions.field_cname) = "售价"];
+	optional int32 m_presentid = 16[(yd_fieldoptions.field_cname) = "首充赠送物品id"];
+	optional int32 m_fristpresent = 17[(yd_fieldoptions.field_cname) = "首充赠送数量"];
+	optional string m_icon = 18[(yd_fieldoptions.field_cname) = "图标", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_RechargeRechargeChannelDesc m_channel = 19[(yd_fieldoptions.field_cname) = "渠道", (yd_fieldoptions.field_arysize) = 4];
+	repeated E_RechargeRechargeItemDesc m_item = 20[(yd_fieldoptions.field_cname) = "充值赠送物品", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_RechargeRecharge
+{
+	repeated E_RechargeRecharge E_RechargeRecharge_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_RechargeOneclickbuyAllbuyDesc
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_RechargeOneclickbuy
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_allowid = 3[(yd_fieldoptions.field_cname) = "允许充值的rechargeid列表", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_num_limit = 4[(yd_fieldoptions.field_cname) = "允许充值rechargeid的次数限制", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_discount = 5[(yd_fieldoptions.field_cname) = "一键购买的折扣"];
+	optional int32 m_rechargeid = 6[(yd_fieldoptions.field_cname) = "全部购买rechargeid"];
+	repeated E_RechargeOneclickbuyAllbuyDesc m_allbuy = 7[(yd_fieldoptions.field_cname) = "全部购买的渠道", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_RechargeOneclickbuy
+{
+	repeated E_RechargeOneclickbuy E_RechargeOneclickbuy_List = 1[(yd_fieldoptions.field_arysize)=4];
+}

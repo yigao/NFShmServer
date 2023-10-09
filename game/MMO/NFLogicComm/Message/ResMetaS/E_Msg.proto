@@ -1,0 +1,17 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_MsgPhpmsg
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "下标"];
+	optional string m_content = 2[(yd_fieldoptions.field_cname) = "显示信息", (yd_fieldoptions.field_bufsize) = 128];
+	optional string m_note = 3[(yd_fieldoptions.field_cname) = "备注", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_MsgPhpmsg
+{
+	repeated E_MsgPhpmsg E_MsgPhpmsg_List = 1[(yd_fieldoptions.field_arysize)=128];
+}

@@ -1,0 +1,282 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_RoleBornItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_name = 2[(yd_fieldoptions.field_cname) = "名称"];
+}
+
+message E_RoleBornMailDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_name = 2[(yd_fieldoptions.field_cname) = "名称"];
+}
+
+message E_RoleBorn
+{
+	optional int64 m_bornid = 1[(yd_fieldoptions.field_cname) = "主键ID"];
+	optional int32 m_professionid = 2[(yd_fieldoptions.field_cname) = "职业ID"];
+	optional string m_professionname = 3[(yd_fieldoptions.field_cname) = "职业名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_placement = 4[(yd_fieldoptions.field_cname) = "职业介绍", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_gender = 5[(yd_fieldoptions.field_cname) = "性别"];
+	optional int32 m_bornlevel = 6[(yd_fieldoptions.field_cname) = "出生等级"];
+	optional int32 m_borntitle = 7[(yd_fieldoptions.field_cname) = "携带称号"];
+	optional int64 m_diamond = 8[(yd_fieldoptions.field_cname) = "携带钻石"];
+	optional int64 m_binddiamond = 9[(yd_fieldoptions.field_cname) = "携带绑定钻石"];
+	optional int64 m_gold = 10[(yd_fieldoptions.field_cname) = "携带金币"];
+	optional int64 m_mapid = 11[(yd_fieldoptions.field_cname) = "出生地图ID"];
+	optional int32 m_birthface = 12[(yd_fieldoptions.field_cname) = "出生朝向"];
+	optional string m_icons = 13[(yd_fieldoptions.field_cname) = "头像图标", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_loginavata = 14[(yd_fieldoptions.field_cname) = "创角界面模型", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_newweapon = 15[(yd_fieldoptions.field_cname) = "新手副本武器模型", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_newclothing = 16[(yd_fieldoptions.field_cname) = "新手副本衣服模型", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_weaponavata = 17[(yd_fieldoptions.field_cname) = "出生时武器模型", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_roleavata = 18[(yd_fieldoptions.field_cname) = "出生时模型", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_marryavata = 19[(yd_fieldoptions.field_cname) = "出生时模型", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_haircolor = 20[(yd_fieldoptions.field_cname) = "头发色值"];
+	optional int32 m_clothescolor = 21[(yd_fieldoptions.field_cname) = "衣服色值"];
+	optional int32 m_skincolor = 22[(yd_fieldoptions.field_cname) = "皮肤色值"];
+	optional int64 m_carryweapons = 23[(yd_fieldoptions.field_cname) = "装备武器"];
+	optional int64 m_carryarmor = 24[(yd_fieldoptions.field_cname) = "装备衣服"];
+	optional int64 m_carrycloak = 25[(yd_fieldoptions.field_cname) = "装备披风"];
+	optional int64 m_carryshoes = 26[(yd_fieldoptions.field_cname) = "装备鞋子"];
+	optional int64 m_carrynecklace = 27[(yd_fieldoptions.field_cname) = "装备项链"];
+	optional int64 m_carryamulet = 28[(yd_fieldoptions.field_cname) = "装备护符"];
+	optional int64 m_carrybracer = 29[(yd_fieldoptions.field_cname) = "装备护腕"];
+	optional int64 m_carryring = 30[(yd_fieldoptions.field_cname) = "装备戒指"];
+	optional int64 m_carryfashionweapons = 31[(yd_fieldoptions.field_cname) = "装备时装（武器）"];
+	optional int64 m_carryfashionarmor = 32[(yd_fieldoptions.field_cname) = "装备时装（衣服）"];
+	optional int64 m_carrywings = 33[(yd_fieldoptions.field_cname) = "翅膀"];
+	optional int32 m_mspeed = 34[(yd_fieldoptions.field_cname) = "初始移动速度"];
+	optional int32 m_view = 35[(yd_fieldoptions.field_cname) = "视野"];
+	optional int32 m_radius = 36[(yd_fieldoptions.field_cname) = "人物半径"];
+	optional int32 m_group = 37[(yd_fieldoptions.field_cname) = "技能组"];
+	optional int64 m_sheny = 38[(yd_fieldoptions.field_cname) = "神装衣服"];
+	optional int64 m_shenw = 39[(yd_fieldoptions.field_cname) = "神装武器"];
+	repeated int32 m_actbuff = 40[(yd_fieldoptions.field_cname) = "生成buff", (yd_fieldoptions.field_arysize) = 4];
+	repeated int64 m_actskill = 41[(yd_fieldoptions.field_cname) = "生成技能", (yd_fieldoptions.field_arysize) = 14];
+	repeated E_RoleBornItemDesc m_item = 42[(yd_fieldoptions.field_cname) = "背包物品", (yd_fieldoptions.field_arysize) = 35];
+	repeated E_RoleBornMailDesc m_mail = 43[(yd_fieldoptions.field_cname) = "邮件物品", (yd_fieldoptions.field_arysize) = 1];
+}
+
+
+message Sheet_RoleBorn
+{
+	repeated E_RoleBorn E_RoleBorn_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_RoleMastermaleAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_RoleMastermale
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	optional int32 m_upgradepoint = 2[(yd_fieldoptions.field_cname) = "升级获得点数"];
+	repeated E_RoleMastermaleAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_RoleMastermale
+{
+	repeated E_RoleMastermale E_RoleMastermale_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleMasterfemaleAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_RoleMasterfemale
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	optional int32 m_upgradepoint = 2[(yd_fieldoptions.field_cname) = "升级获得点数"];
+	repeated E_RoleMasterfemaleAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_RoleMasterfemale
+{
+	repeated E_RoleMasterfemale E_RoleMasterfemale_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleSicklemaleAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_RoleSicklemale
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	optional int32 m_upgradepoint = 2[(yd_fieldoptions.field_cname) = "升级获得点数"];
+	repeated E_RoleSicklemaleAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_RoleSicklemale
+{
+	repeated E_RoleSicklemale E_RoleSicklemale_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleSicklefemaleAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_RoleSicklefemale
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	optional int32 m_upgradepoint = 2[(yd_fieldoptions.field_cname) = "升级获得点数"];
+	repeated E_RoleSicklefemaleAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_RoleSicklefemale
+{
+	repeated E_RoleSicklefemale E_RoleSicklefemale_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleSwordmaleAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_RoleSwordmale
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	optional int32 m_upgradepoint = 2[(yd_fieldoptions.field_cname) = "升级获得点数"];
+	repeated E_RoleSwordmaleAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_RoleSwordmale
+{
+	repeated E_RoleSwordmale E_RoleSwordmale_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleSwordfemaleAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_RoleSwordfemale
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	optional int32 m_upgradepoint = 2[(yd_fieldoptions.field_cname) = "升级获得点数"];
+	repeated E_RoleSwordfemaleAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_RoleSwordfemale
+{
+	repeated E_RoleSwordfemale E_RoleSwordfemale_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleTaidaomaleAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_RoleTaidaomale
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	optional int32 m_upgradepoint = 2[(yd_fieldoptions.field_cname) = "升级获得点数"];
+	repeated E_RoleTaidaomaleAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_RoleTaidaomale
+{
+	repeated E_RoleTaidaomale E_RoleTaidaomale_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleTaidaofemaleAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_RoleTaidaofemale
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "玩家等级"];
+	optional int32 m_upgradepoint = 2[(yd_fieldoptions.field_cname) = "升级获得点数"];
+	repeated E_RoleTaidaofemaleAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_RoleTaidaofemale
+{
+	repeated E_RoleTaidaofemale E_RoleTaidaofemale_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleExp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 m_exp = 2[(yd_fieldoptions.field_cname) = "当前等级升级需要经验"];
+	optional int32 m_skillpoint = 3[(yd_fieldoptions.field_cname) = "天赋点"];
+	optional int32 m_preparemodedexp = 4[(yd_fieldoptions.field_cname) = "活动玩法场地动态经验"];
+	optional int32 m_fengshen = 5[(yd_fieldoptions.field_cname) = "封神台"];
+	optional int32 m_pet = 6[(yd_fieldoptions.field_cname) = "宠物副本"];
+	optional int32 m_dragon = 7[(yd_fieldoptions.field_cname) = "养龙寺"];
+	optional int32 m_equip = 8[(yd_fieldoptions.field_cname) = "装备副本"];
+	optional int32 m_arena = 9[(yd_fieldoptions.field_cname) = "竞技场"];
+	optional int32 m_solo = 10[(yd_fieldoptions.field_cname) = "单人pk"];
+	optional int32 m_multibattle = 11[(yd_fieldoptions.field_cname) = "三人组"];
+	optional int32 m_qingyun = 12[(yd_fieldoptions.field_cname) = "青云之巅"];
+	optional int32 m_yaochi = 13[(yd_fieldoptions.field_cname) = "瑶池"];
+	optional int32 m_wedding = 14[(yd_fieldoptions.field_cname) = "婚礼"];
+	optional int32 m_bagua = 15[(yd_fieldoptions.field_cname) = "八卦迷阵"];
+}
+
+
+message Sheet_RoleExp
+{
+	repeated E_RoleExp E_RoleExp_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_RoleSkilltype
+{
+	optional int64 m_skillid = 1[(yd_fieldoptions.field_cname) = "技能ID"];
+	optional int32 m_skilltype = 2[(yd_fieldoptions.field_cname) = "技能类型"];
+}
+
+
+message Sheet_RoleSkilltype
+{
+	repeated E_RoleSkilltype E_RoleSkilltype_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_RoleAddskill
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int64 m_skillid = 2[(yd_fieldoptions.field_cname) = "技能类型"];
+}
+
+
+message Sheet_RoleAddskill
+{
+	repeated E_RoleAddskill E_RoleAddskill_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_RoleWorldexp
+{
+	optional int64 m_lv = 1[(yd_fieldoptions.field_cname) = "等级差"];
+	optional int32 m_worldexp = 2[(yd_fieldoptions.field_cname) = "经验加成"];
+}
+
+
+message Sheet_RoleWorldexp
+{
+	repeated E_RoleWorldexp E_RoleWorldexp_List = 1[(yd_fieldoptions.field_arysize)=512];
+}

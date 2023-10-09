@@ -1,0 +1,81 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_VipVip
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_level = 2[(yd_fieldoptions.field_cname) = "vip等级"];
+	optional int32 m_exp = 3[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_privilege_group = 4[(yd_fieldoptions.field_cname) = "特权组"];
+	optional int32 m_dailybox = 5[(yd_fieldoptions.field_cname) = "每日福利奖励"];
+	optional int32 m_vipgift = 6[(yd_fieldoptions.field_cname) = "专属礼包box"];
+	optional int32 m_pricetype = 7[(yd_fieldoptions.field_cname) = "专属礼包价格类型"];
+	optional int32 m_originalprice = 8[(yd_fieldoptions.field_cname) = "专属礼包原价"];
+	optional int32 m_price = 9[(yd_fieldoptions.field_cname) = "专属礼包价格"];
+}
+
+
+message Sheet_VipVip
+{
+	repeated E_VipVip E_VipVip_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_VipPrivilege
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "特权组"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "特权类型"];
+	optional int32 m_arg = 4[(yd_fieldoptions.field_cname) = "功能参数"];
+	optional string m_args = 5[(yd_fieldoptions.field_cname) = "整数功能参数", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_VipPrivilege
+{
+	repeated E_VipPrivilege E_VipPrivilege_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_VipChat
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+
+message Sheet_VipChat
+{
+	repeated E_VipChat E_VipChat_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_VipCosntant
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_fvipprice = 2[(yd_fieldoptions.field_cname) = "零元vip的价格"];
+	optional int32 m_fviprtime = 3[(yd_fieldoptions.field_cname) = "零元vip的返还开服时间"];
+	optional int32 m_fvipprivage = 4[(yd_fieldoptions.field_cname) = "零元VIP的特权"];
+	optional int32 m_fviplv = 5[(yd_fieldoptions.field_cname) = "零元vip对应的vip等级"];
+	optional int32 m_fvipexp = 6[(yd_fieldoptions.field_cname) = "获得的vip经验"];
+	optional int32 m_vipitemicon = 7[(yd_fieldoptions.field_cname) = "vip道具图标"];
+	optional int32 m_foreverguide = 8[(yd_fieldoptions.field_cname) = "永久玩法映射"];
+	optional int32 m_unactiveguide = 9[(yd_fieldoptions.field_cname) = "临时玩法映射"];
+	optional int32 m_vipexp = 10[(yd_fieldoptions.field_cname) = "vip消费经验"];
+}
+
+
+message Sheet_VipCosntant
+{
+	repeated E_VipCosntant E_VipCosntant_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_VipExplimit
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 m_limit = 2[(yd_fieldoptions.field_cname) = "经验上限"];
+}
+
+
+message Sheet_VipExplimit
+{
+	repeated E_VipExplimit E_VipExplimit_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}

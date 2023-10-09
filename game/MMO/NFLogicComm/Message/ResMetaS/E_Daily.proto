@@ -1,0 +1,92 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_DailyDaily
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "类型ID"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "显示名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "活动类型"];
+	optional int32 m_args = 4[(yd_fieldoptions.field_cname) = "玩法参数"];
+	optional int32 m_playtype = 5[(yd_fieldoptions.field_cname) = "玩法类型"];
+	optional int32 m_playargs = 6[(yd_fieldoptions.field_cname) = "玩法参数"];
+	optional int64 m_funciontid = 7[(yd_fieldoptions.field_cname) = "功能ID"];
+	optional int32 m_number = 8[(yd_fieldoptions.field_cname) = "次数"];
+	optional int32 m_eachscore = 9[(yd_fieldoptions.field_cname) = "每次活跃值"];
+	optional int32 m_cycle = 10[(yd_fieldoptions.field_cname) = "重置周期"];
+	optional int32 m_regreward = 11[(yd_fieldoptions.field_cname) = "报名奖励道具boxid"];
+}
+
+
+message Sheet_DailyDaily
+{
+	repeated E_DailyDaily E_DailyDaily_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_DailyReward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "索引"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_activescore = 3[(yd_fieldoptions.field_cname) = "活跃度值"];
+	optional int64 m_rewardid = 4[(yd_fieldoptions.field_cname) = "奖励ID"];
+	optional int32 m_rewardnum = 5[(yd_fieldoptions.field_cname) = "奖励数量"];
+}
+
+
+message Sheet_DailyReward
+{
+	repeated E_DailyReward E_DailyReward_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_DailyCultivateAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_DailyCultivate
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 3[(yd_fieldoptions.field_cname) = "升级所需经验"];
+	repeated E_DailyCultivateAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_DailyCultivate
+{
+	repeated E_DailyCultivate E_DailyCultivate_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_DailySports
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_functionid = 3[(yd_fieldoptions.field_cname) = "功能开放ID"];
+	optional int32 m_peractivityid = 4[(yd_fieldoptions.field_cname) = "活动id"];
+	optional int32 m_des = 5[(yd_fieldoptions.field_cname) = "ui说明"];
+	optional int32 m_linkid = 6[(yd_fieldoptions.field_cname) = "linkID"];
+}
+
+
+message Sheet_DailySports
+{
+	repeated E_DailySports E_DailySports_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_DailyHelper
+{
+	optional int32 m_helperid = 1[(yd_fieldoptions.field_cname) = "扫荡ID"];
+	optional string m_playid = 2[(yd_fieldoptions.field_cname) = "玩法ID", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_helpertype = 3[(yd_fieldoptions.field_cname) = "扫荡玩法的类型"];
+	optional int32 m_linkid = 4[(yd_fieldoptions.field_cname) = "跳转ID"];
+	optional string m_name = 5[(yd_fieldoptions.field_cname) = "标题显示", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_condition = 6[(yd_fieldoptions.field_cname) = "条件显示", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_DailyHelper
+{
+	repeated E_DailyHelper E_DailyHelper_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

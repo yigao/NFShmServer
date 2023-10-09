@@ -1,0 +1,420 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_XiuzhenStagesItemDesc
+{
+	optional int64 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenStagesSkillDesc
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenStagesAttributeDesc
+{
+	optional int64 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenStages
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_success_rate = 2[(yd_fieldoptions.field_cname) = "成功率"];
+	optional int32 m_blessing = 3[(yd_fieldoptions.field_cname) = "失败增加祝福值"];
+	repeated E_XiuzhenStagesItemDesc m_item = 4[(yd_fieldoptions.field_cname) = "材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_XiuzhenStagesSkillDesc m_skill = 5[(yd_fieldoptions.field_cname) = "技能", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_XiuzhenStagesAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_XiuzhenStages
+{
+	repeated E_XiuzhenStages E_XiuzhenStages_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_XiuzhenGb_areas
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "大陆名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_subarea = 3[(yd_fieldoptions.field_cname) = "区域名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_body_lv = 4[(yd_fieldoptions.field_cname) = "大陆开启肉身等级"];
+	optional int32 m_enter_item = 5[(yd_fieldoptions.field_cname) = "进仙域消耗道具"];
+	optional int32 m_enter_item_num = 6[(yd_fieldoptions.field_cname) = "道具数量"];
+	optional int32 m_enter_rate = 7[(yd_fieldoptions.field_cname) = "进成功的概率"];
+	optional int32 m_energy_addmin = 8[(yd_fieldoptions.field_cname) = "每间隔提升修为最少值"];
+	optional int32 m_energy_addmax = 9[(yd_fieldoptions.field_cname) = "每间隔提升修为最多"];
+	optional int32 m_energy_min = 10[(yd_fieldoptions.field_cname) = "大陆获得的最小修为"];
+	optional int32 m_energy_max = 11[(yd_fieldoptions.field_cname) = "最大修为"];
+	optional int32 m_eventrate = 12[(yd_fieldoptions.field_cname) = "事件概率"];
+	optional int32 m_eventrateenergyadd = 13[(yd_fieldoptions.field_cname) = "事件修为爆增概率"];
+	optional int32 m_eventgetitemsrate = 14[(yd_fieldoptions.field_cname) = "事件获得道具的概率"];
+}
+
+
+message Sheet_XiuzhenGb_areas
+{
+	repeated E_XiuzhenGb_areas E_XiuzhenGb_areas_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_XiuzhenGb_area_eventsItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "Num"];
+	optional int64 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenGb_area_events
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int64 m_areaid = 2[(yd_fieldoptions.field_cname) = "所在区域"];
+	optional int32 m_rate = 3[(yd_fieldoptions.field_cname) = "随机概率"];
+	optional int32 m_type = 4[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_bodylvl = 5[(yd_fieldoptions.field_cname) = "需要肉身等级"];
+	optional string m_chattitle = 6[(yd_fieldoptions.field_cname) = "文字标题", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_chats = 7[(yd_fieldoptions.field_cname) = "文字内容", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_chatbgf = 8[(yd_fieldoptions.field_cname) = "文字背景女", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_chatbgm = 9[(yd_fieldoptions.field_cname) = "文字背景男", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_energyadd = 10[(yd_fieldoptions.field_cname) = "修为爆增百分比"];
+	repeated E_XiuzhenGb_area_eventsItemDesc m_item = 11[(yd_fieldoptions.field_cname) = "获得道具", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_XiuzhenGb_area_events
+{
+	repeated E_XiuzhenGb_area_events E_XiuzhenGb_area_events_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XiuzhenGb_lvlupItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenGb_lvlupAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenGb_lvlup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_needenergy = 2[(yd_fieldoptions.field_cname) = "升级需要修为"];
+	repeated E_XiuzhenGb_lvlupItemDesc m_item = 3[(yd_fieldoptions.field_cname) = "材料", (yd_fieldoptions.field_arysize) = 1];
+	repeated E_XiuzhenGb_lvlupAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_XiuzhenGb_lvlup
+{
+	repeated E_XiuzhenGb_lvlup E_XiuzhenGb_lvlup_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_XiuzhenEvolveItemDesc
+{
+	optional int64 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenEvolveAttributeDesc
+{
+	optional int64 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenEvolve
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 m_needxw = 2[(yd_fieldoptions.field_cname) = "升级消耗修为"];
+	optional int32 m_success_rate = 3[(yd_fieldoptions.field_cname) = "成功率"];
+	optional int32 m_blessing = 4[(yd_fieldoptions.field_cname) = "失败增加祝福值"];
+	optional int32 m_specialattriid = 5[(yd_fieldoptions.field_cname) = "特殊属性"];
+	optional int64 m_specialattrivalue = 6[(yd_fieldoptions.field_cname) = "特殊属性值"];
+	optional int32 m_linggen = 7[(yd_fieldoptions.field_cname) = "全灵根加成"];
+	repeated E_XiuzhenEvolveItemDesc m_item = 8[(yd_fieldoptions.field_cname) = "材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_XiuzhenEvolveAttributeDesc m_attribute = 9[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 12];
+}
+
+
+message Sheet_XiuzhenEvolve
+{
+	repeated E_XiuzhenEvolve E_XiuzhenEvolve_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_XiuzhenLgtypesAttriDesc
+{
+	optional int32 m_epa = 1[(yd_fieldoptions.field_cname) = "epa"];
+	optional int32 m_np = 2[(yd_fieldoptions.field_cname) = "np"];
+	optional int32 m_value = 3[(yd_fieldoptions.field_cname) = "value"];
+	optional int32 m_id = 4[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_XiuzhenLgtypesLgattDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_lim = 2[(yd_fieldoptions.field_cname) = "阈值"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XiuzhenLgtypes
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "灵根类型"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_shortname = 3[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_namecolor = 4[(yd_fieldoptions.field_cname) = "tips信息中名称的颜色", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_bookmodel = 5[(yd_fieldoptions.field_cname) = "锁模型", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_bodymodel = 6[(yd_fieldoptions.field_cname) = "灵根模型", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_unlockbook = 7[(yd_fieldoptions.field_cname) = "解锁需要的心法"];
+	optional int32 m_bookcount = 8[(yd_fieldoptions.field_cname) = "心法数量"];
+	optional int32 m_addpoints = 9[(yd_fieldoptions.field_cname) = "每升一级加多少点"];
+	repeated E_XiuzhenLgtypesAttriDesc m_attri = 10[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_XiuzhenLgtypesLgattDesc m_lgatt = 11[(yd_fieldoptions.field_cname) = "灵根属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_XiuzhenLgtypes
+{
+	repeated E_XiuzhenLgtypes E_XiuzhenLgtypes_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_XiuzhenLglvlup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 m_needxw = 2[(yd_fieldoptions.field_cname) = "消耗修为"];
+}
+
+
+message Sheet_XiuzhenLglvlup
+{
+	repeated E_XiuzhenLglvlup E_XiuzhenLglvlup_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_XiuzhenLgpotionsLgDesc
+{
+	optional int64 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XiuzhenLgpotions
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "物品id"];
+	repeated E_XiuzhenLgpotionsLgDesc m_lg = 2[(yd_fieldoptions.field_cname) = "加点", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_XiuzhenLgpotions
+{
+	repeated E_XiuzhenLgpotions E_XiuzhenLgpotions_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XiuzhenGftypes
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "功法类型"];
+	optional string m_name = 3[(yd_fieldoptions.field_cname) = "功法名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_icon = 4[(yd_fieldoptions.field_cname) = "功法图标", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_activationitem = 5[(yd_fieldoptions.field_cname) = "激活消耗道具"];
+	optional int32 m_itemnum = 6[(yd_fieldoptions.field_cname) = "道具数量"];
+	optional int32 m_buylv = 7[(yd_fieldoptions.field_cname) = "购买等级"];
+	optional int32 m_rechargeid = 8[(yd_fieldoptions.field_cname) = "充值id"];
+}
+
+
+message Sheet_XiuzhenGftypes
+{
+	repeated E_XiuzhenGftypes E_XiuzhenGftypes_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XiuzhenGflvlupAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenGflvlup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "功法类型"];
+	optional int32 m_first_level = 3[(yd_fieldoptions.field_cname) = "小周天等级"];
+	optional int32 m_middle_level = 4[(yd_fieldoptions.field_cname) = "大周天等级"];
+	optional int32 m_high_level = 5[(yd_fieldoptions.field_cname) = "几重天"];
+	optional int32 m_roushen_level = 6[(yd_fieldoptions.field_cname) = "所需肉身等级"];
+	optional int32 m_itemid = 7[(yd_fieldoptions.field_cname) = "材料ID"];
+	optional int32 m_itemnum = 8[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_xw = 9[(yd_fieldoptions.field_cname) = "需要修为"];
+	optional int32 m_awakeskill = 10[(yd_fieldoptions.field_cname) = "觉醒技能"];
+	optional int32 m_awakeskilllvl = 11[(yd_fieldoptions.field_cname) = "觉醒技能等级"];
+	optional int32 m_specialattriid = 12[(yd_fieldoptions.field_cname) = "specialAttriId"];
+	optional int32 m_specialattrivalue = 13[(yd_fieldoptions.field_cname) = "specialAttriValue"];
+	repeated E_XiuzhenGflvlupAttributeDesc m_attribute = 14[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_XiuzhenGflvlup
+{
+	repeated E_XiuzhenGflvlup E_XiuzhenGflvlup_List = 1[(yd_fieldoptions.field_arysize)=16384];
+}
+
+message E_XiuzhenGfstageupAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenGfstageup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "功法类型"];
+	optional int32 m_high_level = 3[(yd_fieldoptions.field_cname) = "阶级"];
+	optional string m_highlevel_icon = 4[(yd_fieldoptions.field_cname) = "阶级图标", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_itemid = 5[(yd_fieldoptions.field_cname) = "材料ID"];
+	optional int32 m_itemnum = 6[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_awakeskill1 = 7[(yd_fieldoptions.field_cname) = "觉醒技能"];
+	optional int32 m_awakeskilllvl1 = 8[(yd_fieldoptions.field_cname) = "觉醒技能等级"];
+	optional int32 m_awakeskill2 = 9[(yd_fieldoptions.field_cname) = "觉醒技能"];
+	optional int32 m_awakeskilllvl2 = 10[(yd_fieldoptions.field_cname) = "觉醒技能等级"];
+	repeated E_XiuzhenGfstageupAttributeDesc m_attribute = 11[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_XiuzhenGfstageup
+{
+	repeated E_XiuzhenGfstageup E_XiuzhenGfstageup_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_XiuzhenJmtypes
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_gongfa = 2[(yd_fieldoptions.field_cname) = "对应功法"];
+}
+
+
+message Sheet_XiuzhenJmtypes
+{
+	repeated E_XiuzhenJmtypes E_XiuzhenJmtypes_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_XiuzhenJmlvlupItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenJmlvlupAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenJmlvlup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "经脉类型"];
+	optional int32 m_lvl = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int64 m_needxw = 4[(yd_fieldoptions.field_cname) = "消耗修为"];
+	optional int32 m_success_rate = 5[(yd_fieldoptions.field_cname) = "成功率"];
+	optional int32 m_specialattriid = 6[(yd_fieldoptions.field_cname) = "特殊属性id"];
+	optional int32 m_specialattrivalue = 7[(yd_fieldoptions.field_cname) = "特殊属性变量"];
+	repeated E_XiuzhenJmlvlupItemDesc m_item = 8[(yd_fieldoptions.field_cname) = "材料", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_XiuzhenJmlvlupAttributeDesc m_attribute = 9[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_XiuzhenJmlvlup
+{
+	repeated E_XiuzhenJmlvlup E_XiuzhenJmlvlup_List = 1[(yd_fieldoptions.field_arysize)=8192];
+}
+
+message E_XiuzhenJmstageupItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenJmstageupAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenJmstageup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "经脉类型"];
+	optional int32 m_stage = 3[(yd_fieldoptions.field_cname) = "品阶"];
+	optional string m_name = 4[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_needgfunlock = 5[(yd_fieldoptions.field_cname) = "需要解锁功法ID"];
+	optional int32 m_success_rate = 6[(yd_fieldoptions.field_cname) = "成功率"];
+	optional int32 m_blessing = 7[(yd_fieldoptions.field_cname) = "失败增加祝福值"];
+	optional int32 m_awakeskillid = 8[(yd_fieldoptions.field_cname) = "觉醒技能"];
+	optional int32 m_awakeskilllvl = 9[(yd_fieldoptions.field_cname) = "觉醒技能等级"];
+	repeated E_XiuzhenJmstageupItemDesc m_item = 10[(yd_fieldoptions.field_cname) = "材料", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_XiuzhenJmstageupAttributeDesc m_attribute = 11[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_XiuzhenJmstageup
+{
+	repeated E_XiuzhenJmstageup E_XiuzhenJmstageup_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_XiuzhenJmmergeupCsDesc
+{
+	optional int32 m_stage = 1[(yd_fieldoptions.field_cname) = "品阶"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XiuzhenJmmergeupAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenJmmergeup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "合俱品级"];
+	optional int32 m_gf_type = 2[(yd_fieldoptions.field_cname) = "功法类型"];
+	optional int32 m_awakeskillid = 3[(yd_fieldoptions.field_cname) = "觉醒技能"];
+	optional int32 m_awakeskilllvl = 4[(yd_fieldoptions.field_cname) = "asdfas"];
+	repeated E_XiuzhenJmmergeupCsDesc m_cs = 5[(yd_fieldoptions.field_cname) = "需要品阶", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_XiuzhenJmmergeupAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_XiuzhenJmmergeup
+{
+	repeated E_XiuzhenJmmergeup E_XiuzhenJmmergeup_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XiuzhenPrivilegePtaddDesc
+{
+	optional int32 m_v = 1[(yd_fieldoptions.field_cname) = "变量"];
+	optional string m_n = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_t = 3[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XiuzhenPrivilegeAttriDesc
+{
+	optional int64 m_v = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_t = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XiuzhenPrivilege
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_price = 2[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 m_activeavatar = 3[(yd_fieldoptions.field_cname) = "激活外观"];
+	optional string m_avatarname = 4[(yd_fieldoptions.field_cname) = "外观名", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_XiuzhenPrivilegePtaddDesc m_ptadd = 5[(yd_fieldoptions.field_cname) = "修真曾益", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_XiuzhenPrivilegeAttriDesc m_attri = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_XiuzhenPrivilege
+{
+	repeated E_XiuzhenPrivilege E_XiuzhenPrivilege_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

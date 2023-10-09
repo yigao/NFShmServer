@@ -1,0 +1,514 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_MountFragmentAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_MountFragment
+{
+	optional int64 m_fragmentid = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
+	optional int64 m_item = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_itemnum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
+	repeated E_MountFragmentAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_MountFragment
+{
+	repeated E_MountFragment E_MountFragment_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_MountValueAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountValue
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 4[(yd_fieldoptions.field_cname) = "升级需要经验"];
+	optional int32 m_speed = 5[(yd_fieldoptions.field_cname) = "默认乘骑速度值"];
+	repeated E_MountValueAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 9];
+}
+
+
+message Sheet_MountValue
+{
+	repeated E_MountValue E_MountValue_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_MountDisplayMaterialDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_MountDisplay
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_speed = 2[(yd_fieldoptions.field_cname) = "默认乘骑速度值"];
+	optional int32 m_uplvtype = 3[(yd_fieldoptions.field_cname) = "升级参考类型"];
+	optional string m_skillid = 4[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_fxid = 5[(yd_fieldoptions.field_cname) = "幻化特效", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_starup = 6[(yd_fieldoptions.field_cname) = "星星上限"];
+	optional int32 m_lvmax = 7[(yd_fieldoptions.field_cname) = "等级上限"];
+	repeated E_MountDisplayMaterialDesc m_material = 8[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 2];
+	repeated int64 m_fragmentid = 9[(yd_fieldoptions.field_cname) = "关联碎片ID", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_MountDisplay
+{
+	repeated E_MountDisplay E_MountDisplay_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_MountUnlock
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_modelid = 3[(yd_fieldoptions.field_cname) = "模型id"];
+}
+
+
+message Sheet_MountUnlock
+{
+	repeated E_MountUnlock E_MountUnlock_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_MountChangeMaterialDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_MountChangeAttributeDesc
+{
+	optional int32 m_upvalue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_upber = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountChange
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_speed = 2[(yd_fieldoptions.field_cname) = "默认乘骑速度值"];
+	optional int32 m_uplvtype = 3[(yd_fieldoptions.field_cname) = "升级参考类型"];
+	optional int32 m_activeskill = 4[(yd_fieldoptions.field_cname) = "激活获得技能"];
+	optional string m_skillid = 5[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_fxid = 6[(yd_fieldoptions.field_cname) = "幻化特效", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_starmax = 7[(yd_fieldoptions.field_cname) = "星星上限"];
+	optional int32 m_lvmax = 8[(yd_fieldoptions.field_cname) = "等级上限"];
+	optional int32 m_modelid = 9[(yd_fieldoptions.field_cname) = "模型id"];
+	optional int32 m_activationitem = 10[(yd_fieldoptions.field_cname) = "激活需要的道具"];
+	optional int32 m_activationnum = 11[(yd_fieldoptions.field_cname) = "激活需要的道具数量"];
+	optional int32 m_starid = 12[(yd_fieldoptions.field_cname) = "升星需要道具ID"];
+	optional string m_starnum = 13[(yd_fieldoptions.field_cname) = "升星需要数量", (yd_fieldoptions.field_bufsize) = 256];
+	optional int32 m_starber = 14[(yd_fieldoptions.field_cname) = "每星级提升百分比"];
+	optional int32 m_upattributeid = 15[(yd_fieldoptions.field_cname) = "进阶类型"];
+	repeated E_MountChangeMaterialDesc m_material = 16[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_MountChangeAttributeDesc m_attribute = 17[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_MountChange
+{
+	repeated E_MountChange E_MountChange_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_MountAdvanceUpattributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_MountAdvance
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_upattributeid = 2[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional int32 m_starid = 3[(yd_fieldoptions.field_cname) = "进阶专属需求星星数量"];
+	optional int32 m_skillid = 4[(yd_fieldoptions.field_cname) = "进阶专属技能"];
+	repeated E_MountAdvanceUpattributeDesc m_upattribute = 5[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_MountAdvance
+{
+	repeated E_MountAdvance E_MountAdvance_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_MountHuakunUplvDesc
+{
+	optional int32 m_upvalue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_upber = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountHuakunMaterialDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_MountHuakunAdvanceDesc
+{
+	optional int32 m_upvalue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_upber = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountHuakunAttributeDesc
+{
+	optional int32 m_upvalue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_upber = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountHuakun
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_modelid = 2[(yd_fieldoptions.field_cname) = "模型"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "坐骑品质"];
+	optional int32 m_speed = 4[(yd_fieldoptions.field_cname) = "默认乘骑速度值"];
+	optional int32 m_uplvtype = 5[(yd_fieldoptions.field_cname) = "升级参考类型"];
+	optional int32 m_activateitem = 6[(yd_fieldoptions.field_cname) = "激活材料"];
+	optional int32 m_activateitemnum = 7[(yd_fieldoptions.field_cname) = "激活材料需要数量"];
+	optional int32 m_advancetype = 8[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional int32 m_starvancetype = 9[(yd_fieldoptions.field_cname) = "星级类型"];
+	optional int32 m_starlimit = 10[(yd_fieldoptions.field_cname) = "星级上限"];
+	optional int32 m_starber = 11[(yd_fieldoptions.field_cname) = "每星级提升百分比"];
+	optional string m_skill_lg = 12[(yd_fieldoptions.field_cname) = "灵根技能", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_skill_bd = 13[(yd_fieldoptions.field_cname) = "被动", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_soaringattributeid = 14[(yd_fieldoptions.field_cname) = "飞升类型"];
+	optional int32 m_comprehend = 15[(yd_fieldoptions.field_cname) = "提悟类型"];
+	optional string m_exclusive = 16[(yd_fieldoptions.field_cname) = "提悟专属", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_comprehendskill = 17[(yd_fieldoptions.field_cname) = "提悟技能", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_potential = 18[(yd_fieldoptions.field_cname) = "潜能", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_comprehendupitem = 19[(yd_fieldoptions.field_cname) = "提悟升品显示"];
+	optional int32 m_comprehendtype = 20[(yd_fieldoptions.field_cname) = "提悟属性类型"];
+	optional int32 m_ratio = 21[(yd_fieldoptions.field_cname) = "提悟非百分比属性比例"];
+	optional int32 m_ratiopercentage = 22[(yd_fieldoptions.field_cname) = "提悟百分比属性比例"];
+	optional string m_equipsuit = 23[(yd_fieldoptions.field_cname) = "鲲灵套装", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_qualitymax = 24[(yd_fieldoptions.field_cname) = "鲲灵穿戴最大品质"];
+	repeated E_MountHuakunUplvDesc m_uplv = 25[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated E_MountHuakunMaterialDesc m_material = 26[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_MountHuakunAdvanceDesc m_advance = 27[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated int32 m_upstaritem = 28[(yd_fieldoptions.field_cname) = "升星需要道具ID", (yd_fieldoptions.field_arysize) = 2];
+	repeated string m_upstarnum = 29[(yd_fieldoptions.field_cname) = "升星总共需要数量", (yd_fieldoptions.field_arysize) = 2, (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_MountHuakunAttributeDesc m_attribute = 30[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_MountHuakun
+{
+	repeated E_MountHuakun E_MountHuakun_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_MountHuakun_valueAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_MountHuakun_value
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_huakuntype = 2[(yd_fieldoptions.field_cname) = "属性类型"];
+	optional int32 m_huakunlv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_huakunexp = 4[(yd_fieldoptions.field_cname) = "升级所需经验"];
+	repeated E_MountHuakun_valueAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_MountHuakun_value
+{
+	repeated E_MountHuakun_value E_MountHuakun_value_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_MountHuakun_advancevalueItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountHuakun_advancevalue
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_advancetype = 3[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional int32 m_winprob = 4[(yd_fieldoptions.field_cname) = "进阶成功概率"];
+	optional int32 m_faillv = 5[(yd_fieldoptions.field_cname) = "进阶失败掉级"];
+	repeated E_MountHuakun_advancevalueItemDesc m_item = 6[(yd_fieldoptions.field_cname) = "需求道具", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_MountHuakun_advancevalue
+{
+	repeated E_MountHuakun_advancevalue E_MountHuakun_advancevalue_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_MountHuakun_changeAttributeDesc
+{
+	optional int32 m_upvalue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_upber = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountHuakun_change
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_speed = 2[(yd_fieldoptions.field_cname) = "默认乘骑速度值"];
+	optional string m_fxid = 3[(yd_fieldoptions.field_cname) = "幻化特效", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_modelid = 4[(yd_fieldoptions.field_cname) = "模型id"];
+	optional int32 m_activationitem = 5[(yd_fieldoptions.field_cname) = "激活需要的道具"];
+	optional int32 m_activationnum = 6[(yd_fieldoptions.field_cname) = "激活需要的道具数量"];
+	optional int32 m_starattributeid = 7[(yd_fieldoptions.field_cname) = "升星类型"];
+	optional int32 m_starmax = 8[(yd_fieldoptions.field_cname) = "星星上限"];
+	optional int32 m_starid = 9[(yd_fieldoptions.field_cname) = "升星需要道具ID"];
+	optional string m_starnum = 10[(yd_fieldoptions.field_cname) = "升星需要数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_starber = 11[(yd_fieldoptions.field_cname) = "每星级提升百分比"];
+	optional int32 m_changeattributeid = 12[(yd_fieldoptions.field_cname) = "异化飞升类型"];
+	repeated E_MountHuakun_changeAttributeDesc m_attribute = 13[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_MountHuakun_change
+{
+	repeated E_MountHuakun_change E_MountHuakun_change_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_MountHuakun_advanceUpattributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_MountHuakun_advance
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_upattributeid = 2[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional int32 m_starid = 3[(yd_fieldoptions.field_cname) = "进阶专属需求星星数量"];
+	optional int32 m_skillid = 4[(yd_fieldoptions.field_cname) = "进阶专属技能"];
+	repeated E_MountHuakun_advanceUpattributeDesc m_upattribute = 5[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_MountHuakun_advance
+{
+	repeated E_MountHuakun_advance E_MountHuakun_advance_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_MountBloodAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountBlood
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "星数"];
+	repeated E_MountBloodAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_MountBlood
+{
+	repeated E_MountBlood E_MountBlood_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_MountHuakun_equip
+{
+	optional int32 m_equipid = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_part = 2[(yd_fieldoptions.field_cname) = "部位"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_equipintensify = 4[(yd_fieldoptions.field_cname) = "强化类型"];
+	optional int32 m_srtongup = 5[(yd_fieldoptions.field_cname) = "强化上限"];
+	optional int32 m_advanceintensify = 6[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional int32 m_equipttop = 7[(yd_fieldoptions.field_cname) = "突破类型"];
+	optional int32 m_resolve = 8[(yd_fieldoptions.field_cname) = "鲲灵分解材料"];
+	optional int32 m_resolvemun = 9[(yd_fieldoptions.field_cname) = "分解数量"];
+}
+
+
+message Sheet_MountHuakun_equip
+{
+	repeated E_MountHuakun_equip E_MountHuakun_equip_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_MountEquip_valueAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountEquip_value
+{
+	optional int32 m_equipintensify = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_equipvalue = 2[(yd_fieldoptions.field_cname) = "属性类型"];
+	optional int32 m_equiplv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_equipitem = 4[(yd_fieldoptions.field_cname) = "道具消耗"];
+	optional int32 m_equipmun = 5[(yd_fieldoptions.field_cname) = "消耗数量"];
+	repeated E_MountEquip_valueAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_MountEquip_value
+{
+	repeated E_MountEquip_value E_MountEquip_value_List = 1[(yd_fieldoptions.field_arysize)=4096];
+}
+
+message E_MountEquipsuitAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_MountEquipsuit
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "要求品质"];
+	optional int32 m_piece = 3[(yd_fieldoptions.field_cname) = "套装件数"];
+	repeated E_MountEquipsuitAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_MountEquipsuit
+{
+	repeated E_MountEquipsuit E_MountEquipsuit_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_MountEquiptopTopDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "属性"];
+}
+
+message E_MountEquiptopPercentDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "属性"];
+}
+
+message E_MountEquiptop
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_positionid = 2[(yd_fieldoptions.field_cname) = "装备部位id"];
+	optional int32 m_equipttop = 3[(yd_fieldoptions.field_cname) = "突破类型"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "品质"];
+	repeated E_MountEquiptopTopDesc m_top = 5[(yd_fieldoptions.field_cname) = "非百分比", (yd_fieldoptions.field_arysize) = 8];
+	repeated E_MountEquiptopPercentDesc m_percent = 6[(yd_fieldoptions.field_cname) = "百分比", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_MountEquiptop
+{
+	repeated E_MountEquiptop E_MountEquiptop_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_MountEquiptopvalue
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "鲲灵品质"];
+	optional int32 m_top = 3[(yd_fieldoptions.field_cname) = "鲲灵突破"];
+	optional int32 m_value = 4[(yd_fieldoptions.field_cname) = "初始进度值"];
+}
+
+
+message Sheet_MountEquiptopvalue
+{
+	repeated E_MountEquiptopvalue E_MountEquiptopvalue_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_MountBaby_egg
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "蛋道具id"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "道具id"];
+	optional int32 m_time = 3[(yd_fieldoptions.field_cname) = "蛋生成时间"];
+	optional int32 m_itembox = 4[(yd_fieldoptions.field_cname) = "奖励盒id"];
+}
+
+
+message Sheet_MountBaby_egg
+{
+	repeated E_MountBaby_egg E_MountBaby_egg_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_MountEmpowermenttour_debris
+{
+	optional int32 m_fairylandid = 1[(yd_fieldoptions.field_cname) = "仙境id"];
+	optional int32 m_fairylandnextid = 2[(yd_fieldoptions.field_cname) = "下一个仙境id"];
+	optional string m_fairylandskin = 3[(yd_fieldoptions.field_cname) = "仙境获取皮肤预览", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_MountEmpowermenttour_debris
+{
+	repeated E_MountEmpowermenttour_debris E_MountEmpowermenttour_debris_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_MountEmpowermentTourDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_MountEmpowerment
+{
+	optional int32 m_tourid = 1[(yd_fieldoptions.field_cname) = "游记id"];
+	optional int32 m_fairylandid = 2[(yd_fieldoptions.field_cname) = "仙境id"];
+	optional int32 m_touritem = 3[(yd_fieldoptions.field_cname) = "碎片id"];
+	optional int32 m_tourdebris = 4[(yd_fieldoptions.field_cname) = "游记总碎片"];
+	repeated E_MountEmpowermentTourDesc m_tour = 5[(yd_fieldoptions.field_cname) = "游记属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_MountEmpowerment
+{
+	repeated E_MountEmpowerment E_MountEmpowerment_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_MountEmpowerment_position
+{
+	optional int32 m_empowermentslot = 1[(yd_fieldoptions.field_cname) = "历练槽位"];
+	optional int32 m_unlocktime = 2[(yd_fieldoptions.field_cname) = "解锁条件"];
+	optional int32 m_unlocknum = 3[(yd_fieldoptions.field_cname) = "解锁数量"];
+}
+
+
+message Sheet_MountEmpowerment_position
+{
+	repeated E_MountEmpowerment_position E_MountEmpowerment_position_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_MountEmpowerment_slot
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_dissociatelevel = 2[(yd_fieldoptions.field_cname) = "游历级别"];
+	optional int32 m_dissociatetime = 3[(yd_fieldoptions.field_cname) = "时间档位"];
+	optional int32 m_dissociatehour = 4[(yd_fieldoptions.field_cname) = "时长"];
+	optional int32 m_dissociateitem = 5[(yd_fieldoptions.field_cname) = "游离级别消耗"];
+	optional int32 m_dissociatenum = 6[(yd_fieldoptions.field_cname) = "消耗数量"];
+	optional string m_eventtime = 7[(yd_fieldoptions.field_cname) = "播放事件时间间隔范围", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_dissociatebox = 8[(yd_fieldoptions.field_cname) = "服务器奖励"];
+}
+
+
+message Sheet_MountEmpowerment_slot
+{
+	repeated E_MountEmpowerment_slot E_MountEmpowerment_slot_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_MountEmpowerment_event
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_eventtype = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_weight = 3[(yd_fieldoptions.field_cname) = "权重"];
+}
+
+
+message Sheet_MountEmpowerment_event
+{
+	repeated E_MountEmpowerment_event E_MountEmpowerment_event_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

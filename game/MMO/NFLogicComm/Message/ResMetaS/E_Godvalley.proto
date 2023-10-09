@@ -1,0 +1,86 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_GodvalleyBattle
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_roomplayersmax = 2[(yd_fieldoptions.field_cname) = "一个房间最大人数"];
+	optional string m_team1n = 3[(yd_fieldoptions.field_cname) = "组名", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_team2n = 4[(yd_fieldoptions.field_cname) = "组名", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_name1 = 5[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_name2 = 6[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_winscore = 7[(yd_fieldoptions.field_cname) = "胜利的资源点"];
+	optional int32 m_timescore = 8[(yd_fieldoptions.field_cname) = "时间增加积分"];
+	optional int32 m_killscore = 9[(yd_fieldoptions.field_cname) = "杀人得积分"];
+	optional int32 m_killkeepscore = 10[(yd_fieldoptions.field_cname) = "连杀得积分"];
+	optional int32 m_breakkillkeepscore = 11[(yd_fieldoptions.field_cname) = "打断别人连杀得积分"];
+	optional int32 m_killmonsterscore = 12[(yd_fieldoptions.field_cname) = "杀怪得积分"];
+	optional int32 m_crystalpoints = 13[(yd_fieldoptions.field_cname) = "运水晶加资源点"];
+	optional int32 m_crystalscore = 14[(yd_fieldoptions.field_cname) = "运水晶加个人积分"];
+	optional int32 m_interceptpoints = 15[(yd_fieldoptions.field_cname) = "拦截水晶增加资源点"];
+	optional int32 m_interceptscore = 16[(yd_fieldoptions.field_cname) = "拦截水晶增加个人积分"];
+	optional int32 m_crystalreborntime = 17[(yd_fieldoptions.field_cname) = "水晶刷新时间（秒"];
+	optional int32 m_crystalmonsterid = 18[(yd_fieldoptions.field_cname) = "水晶采集物id"];
+	optional string m_crystalpos = 19[(yd_fieldoptions.field_cname) = "水晶位置", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_match_s = 20[(yd_fieldoptions.field_cname) = "匹配时间"];
+	optional int32 m_duration_s = 21[(yd_fieldoptions.field_cname) = "打多久"];
+	optional string m_matchmapentry = 22[(yd_fieldoptions.field_cname) = "匹配地图出生位置", (yd_fieldoptions.field_bufsize) = 64];
+	optional int64 m_mapid = 23[(yd_fieldoptions.field_cname) = "所在地图"];
+	optional string m_mapentry1 = 24[(yd_fieldoptions.field_cname) = "青云起始位置", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_mapentry2 = 25[(yd_fieldoptions.field_cname) = "蜀山起始位置", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_monster1 = 26[(yd_fieldoptions.field_cname) = "青云怪物", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_revivalpoint1 = 27[(yd_fieldoptions.field_cname) = "青云怪物复活点", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_monster2 = 28[(yd_fieldoptions.field_cname) = "妖龙之末怪物", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_revivalpoint2 = 29[(yd_fieldoptions.field_cname) = "妖龙之末怪物复活点", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_monster3 = 30[(yd_fieldoptions.field_cname) = "蜀山怪物", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_revivalpoint3 = 31[(yd_fieldoptions.field_cname) = "蜀山怪物复活点", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_npc1pos = 32[(yd_fieldoptions.field_cname) = "青云神匠", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_npc2pos = 33[(yd_fieldoptions.field_cname) = "蜀山神匠", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_actid = 34[(yd_fieldoptions.field_cname) = "所在活动ID"];
+	optional int32 m_skill = 35[(yd_fieldoptions.field_cname) = "模版技能"];
+}
+
+
+message Sheet_GodvalleyBattle
+{
+	repeated E_GodvalleyBattle E_GodvalleyBattle_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_GodvalleyRewardsRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_GodvalleyRewards
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_score = 2[(yd_fieldoptions.field_cname) = "积分数量"];
+	repeated E_GodvalleyRewardsRewardDesc m_reward = 3[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_GodvalleyRewards
+{
+	repeated E_GodvalleyRewards E_GodvalleyRewards_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_GodvalleyAttributeAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_GodvalleyAttribute
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	repeated E_GodvalleyAttributeAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_GodvalleyAttribute
+{
+	repeated E_GodvalleyAttribute E_GodvalleyAttribute_List = 1[(yd_fieldoptions.field_arysize)=2];
+}

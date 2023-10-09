@@ -1,0 +1,51 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_Pk1v1Rank
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_mark = 2[(yd_fieldoptions.field_cname) = "段位标识"];
+	optional int32 m_scoremin = 3[(yd_fieldoptions.field_cname) = "分数下限"];
+	optional int32 m_scoremax = 4[(yd_fieldoptions.field_cname) = "分数上限"];
+	optional int32 m_sucessscore = 5[(yd_fieldoptions.field_cname) = "胜利加分"];
+	optional int32 m_defeatscore = 6[(yd_fieldoptions.field_cname) = "失败扣分"];
+	optional int32 m_sucessbox = 7[(yd_fieldoptions.field_cname) = "单场获胜奖励"];
+	optional int32 m_defeatbox = 8[(yd_fieldoptions.field_cname) = "单场失败奖励"];
+	optional int32 m_tiebox = 9[(yd_fieldoptions.field_cname) = "单场平局奖励"];
+}
+
+
+message Sheet_Pk1v1Rank
+{
+	repeated E_Pk1v1Rank E_Pk1v1Rank_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_Pk1v1Reward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_boxid = 3[(yd_fieldoptions.field_cname) = "奖励内容"];
+	repeated int32 m_typearg = 4[(yd_fieldoptions.field_cname) = "类型参数", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_Pk1v1Reward
+{
+	repeated E_Pk1v1Reward E_Pk1v1Reward_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_Pk1v1Dailyreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "奖励名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_times = 3[(yd_fieldoptions.field_cname) = "参与次数"];
+	optional int32 m_boxid = 4[(yd_fieldoptions.field_cname) = "奖励内容"];
+}
+
+
+message Sheet_Pk1v1Dailyreward
+{
+	repeated E_Pk1v1Dailyreward E_Pk1v1Dailyreward_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

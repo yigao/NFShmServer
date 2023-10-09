@@ -1,0 +1,95 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_JinglianSimple
+{
+	optional int32 m_position = 1[(yd_fieldoptions.field_cname) = "装备部位对应ID"];
+	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "对应属性组ID"];
+	optional int32 m_openlv = 3[(yd_fieldoptions.field_cname) = "开启等级"];
+	optional int32 m_default_attrs = 4[(yd_fieldoptions.field_cname) = "默认属性条数"];
+	repeated int32 m_open_attr = 5[(yd_fieldoptions.field_cname) = "解锁属性精炼等级", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_JinglianSimple
+{
+	repeated E_JinglianSimple E_JinglianSimple_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_JinglianLvCostDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_JinglianLvAttrDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_JinglianLv
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "对应属性组ID"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	repeated E_JinglianLvCostDesc m_cost = 4[(yd_fieldoptions.field_cname) = "精炼升级", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_JinglianLvAttrDesc m_attr = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_JinglianLv
+{
+	repeated E_JinglianLv E_JinglianLv_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_JinglianRace
+{
+	optional int32 m_quality = 1[(yd_fieldoptions.field_cname) = "词条品质"];
+	optional int32 m_min = 2[(yd_fieldoptions.field_cname) = "词条品质范围"];
+	optional int32 m_max = 3[(yd_fieldoptions.field_cname) = "词条品质范围"];
+	optional int32 m_quanz = 4[(yd_fieldoptions.field_cname) = "词条抽取权重"];
+	optional int32 m_min_1 = 5[(yd_fieldoptions.field_cname) = "词条品质范围"];
+	optional int32 m_max_1 = 6[(yd_fieldoptions.field_cname) = "词条品质范围"];
+	optional int32 m_quanz_1 = 7[(yd_fieldoptions.field_cname) = "词条抽取权重"];
+}
+
+
+message Sheet_JinglianRace
+{
+	repeated E_JinglianRace E_JinglianRace_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_JinglianCostCostDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_JinglianCost
+{
+	optional int32 m_lockid = 1[(yd_fieldoptions.field_cname) = "锁定词条数量"];
+	repeated E_JinglianCostCostDesc m_cost = 2[(yd_fieldoptions.field_cname) = "精炼洗属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_JinglianCost
+{
+	repeated E_JinglianCost E_JinglianCost_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_JinglianGm
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "精炼共鸣等级"];
+	optional int32 m_lock_num = 2[(yd_fieldoptions.field_cname) = "解锁数量"];
+	optional int32 m_lock_quality = 3[(yd_fieldoptions.field_cname) = "解锁品质"];
+	optional int32 m_addval = 4[(yd_fieldoptions.field_cname) = "加成万分比"];
+}
+
+
+message Sheet_JinglianGm
+{
+	repeated E_JinglianGm E_JinglianGm_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

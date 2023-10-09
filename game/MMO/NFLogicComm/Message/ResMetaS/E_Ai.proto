@@ -1,0 +1,36 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_AiAiHpDesc
+{
+	optional int64 m_chat = 1[(yd_fieldoptions.field_cname) = "场景广播"];
+	optional int64 m_skill = 2[(yd_fieldoptions.field_cname) = "技能"];
+	optional int32 m_percent = 3[(yd_fieldoptions.field_cname) = "百分比"];
+}
+
+message E_AiAi
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "表ID"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ai类型"];
+	optional string m_deadhateremain = 3[(yd_fieldoptions.field_cname) = "死亡仇恨保留", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_invisibleremain = 4[(yd_fieldoptions.field_cname) = "隐身仇恨保留", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_isactive = 5[(yd_fieldoptions.field_cname) = "是否为主动怪"];
+	optional int32 m_returntype = 6[(yd_fieldoptions.field_cname) = "回归类型"];
+	optional int32 m_view = 7[(yd_fieldoptions.field_cname) = "视野"];
+	optional int32 m_isattackedshowoff = 8[(yd_fieldoptions.field_cname) = "是否关闭受击表现"];
+	optional int32 m_pursuerange = 9[(yd_fieldoptions.field_cname) = "追击范围"];
+	optional int32 m_actionrange = 10[(yd_fieldoptions.field_cname) = "怪物活动范围"];
+	optional int32 m_wakeupradius = 11[(yd_fieldoptions.field_cname) = "唤醒半径"];
+	optional int32 m_isaiworkwhennobody = 12[(yd_fieldoptions.field_cname) = "是否无人时启用AI"];
+	optional int32 m_borneffectaidelay = 13[(yd_fieldoptions.field_cname) = "出生AI延时"];
+	optional string m_initskills = 14[(yd_fieldoptions.field_cname) = "技能池初始技能组", (yd_fieldoptions.field_bufsize) = 128];
+	repeated E_AiAiHpDesc m_hp = 15[(yd_fieldoptions.field_cname) = "触发血量", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_AiAi
+{
+	repeated E_AiAi E_AiAi_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

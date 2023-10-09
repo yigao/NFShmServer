@@ -1,0 +1,157 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_EquipimproveUpqualityMaterialDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_EquipimproveUpqualityAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_EquipimproveUpquality
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品阶"];
+	optional string m_position = 3[(yd_fieldoptions.field_cname) = "装备部位", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_wearqualitylimit = 4[(yd_fieldoptions.field_cname) = "装备品阶下限"];
+	optional int32 m_star = 5[(yd_fieldoptions.field_cname) = "星级等级"];
+	optional int32 m_starnum = 6[(yd_fieldoptions.field_cname) = "星级星数"];
+	optional int32 m_success = 7[(yd_fieldoptions.field_cname) = "升星基础成功率"];
+	optional int32 m_luckid = 8[(yd_fieldoptions.field_cname) = "幸运道具id"];
+	optional int32 m_lucksuccess = 9[(yd_fieldoptions.field_cname) = "加成成功率"];
+	optional int32 m_lucknum = 10[(yd_fieldoptions.field_cname) = "幸运道具数量"];
+	optional int32 m_qualityatt = 11[(yd_fieldoptions.field_cname) = "品阶属性"];
+	optional int32 m_qualityvalue = 12[(yd_fieldoptions.field_cname) = "品阶属性值"];
+	repeated E_EquipimproveUpqualityMaterialDesc m_material = 13[(yd_fieldoptions.field_cname) = "升星材料", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_EquipimproveUpqualityAttributeDesc m_attribute = 14[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_EquipimproveUpquality
+{
+	repeated E_EquipimproveUpquality E_EquipimproveUpquality_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_EquipimproveAwakenAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_EquipimproveAwakenBreakDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_EquipimproveAwaken
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品阶"];
+	optional string m_position = 3[(yd_fieldoptions.field_cname) = "装备部位", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_wearqualitylimit = 4[(yd_fieldoptions.field_cname) = "装备品阶下限"];
+	optional int32 m_qualitylimit = 5[(yd_fieldoptions.field_cname) = "装备品质下限"];
+	optional int32 m_wearstarlimit = 6[(yd_fieldoptions.field_cname) = "装备星级下限"];
+	optional int32 m_awakenlv = 7[(yd_fieldoptions.field_cname) = "觉醒等级"];
+	optional int32 m_material_id = 8[(yd_fieldoptions.field_cname) = "觉醒材料ID"];
+	optional int32 m_material_num = 9[(yd_fieldoptions.field_cname) = "觉醒材料数量"];
+	optional int32 m_break_id = 10[(yd_fieldoptions.field_cname) = "突破材料ID"];
+	optional int32 m_break_num = 11[(yd_fieldoptions.field_cname) = "突破材料数量"];
+	repeated E_EquipimproveAwakenAttributeDesc m_attribute = 12[(yd_fieldoptions.field_cname) = "觉醒属性", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_EquipimproveAwakenBreakDesc m_break = 13[(yd_fieldoptions.field_cname) = "突破属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_EquipimproveAwaken
+{
+	repeated E_EquipimproveAwaken E_EquipimproveAwaken_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_EquipimproveSoaringAttrDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_EquipimproveSoaring
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lvid = 2[(yd_fieldoptions.field_cname) = "飞升等级"];
+	optional int32 m_awaken = 3[(yd_fieldoptions.field_cname) = "觉醒品阶下限"];
+	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "飞升材料"];
+	optional int32 m_itemnum = 5[(yd_fieldoptions.field_cname) = "飞升材料数量"];
+	optional string m_position = 6[(yd_fieldoptions.field_cname) = "部位id", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_EquipimproveSoaringAttrDesc m_attr = 7[(yd_fieldoptions.field_cname) = "飞升属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_EquipimproveSoaring
+{
+	repeated E_EquipimproveSoaring E_EquipimproveSoaring_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_EquipimproveSealSealDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_EquipimproveSeal
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "印符物品id"];
+	optional string m_sealposition = 2[(yd_fieldoptions.field_cname) = "印符镶嵌部位", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_seallv = 3[(yd_fieldoptions.field_cname) = "印符品阶"];
+	optional int32 m_preid = 4[(yd_fieldoptions.field_cname) = "上阶印符ID"];
+	optional int32 m_nextid = 5[(yd_fieldoptions.field_cname) = "下阶印符ID"];
+	optional string m_numb = 6[(yd_fieldoptions.field_cname) = "对应一阶印符数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_nextvalue = 7[(yd_fieldoptions.field_cname) = "下级差值"];
+	repeated E_EquipimproveSealSealDesc m_seal = 8[(yd_fieldoptions.field_cname) = "印符属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_EquipimproveSeal
+{
+	repeated E_EquipimproveSeal E_EquipimproveSeal_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_EquipimproveSealslot
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "槽位id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "所需装备品阶"];
+	optional int32 m_character = 3[(yd_fieldoptions.field_cname) = "所需装备品质"];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "所需装备星数"];
+}
+
+
+message Sheet_EquipimproveSealslot
+{
+	repeated E_EquipimproveSealslot E_EquipimproveSealslot_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_EquipimproveSealsuitSuitDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_EquipimproveSealsuit
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_wearnum = 2[(yd_fieldoptions.field_cname) = "装配数量"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "装配品阶"];
+	optional string m_position = 4[(yd_fieldoptions.field_cname) = "装备部位", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_EquipimproveSealsuitSuitDesc m_suit = 5[(yd_fieldoptions.field_cname) = "印符属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_EquipimproveSealsuit
+{
+	repeated E_EquipimproveSealsuit E_EquipimproveSealsuit_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}

@@ -1,0 +1,94 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_Pk3v3Level
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "段位类型"];
+	optional string m_name = 3[(yd_fieldoptions.field_cname) = "段位名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_starnum = 4[(yd_fieldoptions.field_cname) = "星星数量"];
+	optional int32 m_scoring = 5[(yd_fieldoptions.field_cname) = "积分值"];
+	optional string m_badge = 6[(yd_fieldoptions.field_cname) = "段位徽章", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_showbadge = 7[(yd_fieldoptions.field_cname) = "展示段位徽章", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_scoringadd = 8[(yd_fieldoptions.field_cname) = "胜场积分奖励"];
+	optional int32 m_scoringcut = 9[(yd_fieldoptions.field_cname) = "负场积分扣除"];
+}
+
+
+message Sheet_Pk3v3Level
+{
+	repeated E_Pk3v3Level E_Pk3v3Level_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_Pk3v3Reward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "奖励类型"];
+	optional int32 m_condition = 3[(yd_fieldoptions.field_cname) = "领奖条件"];
+	optional int64 m_reward = 4[(yd_fieldoptions.field_cname) = "奖励ID"];
+	repeated int32 m_param = 5[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_Pk3v3Reward
+{
+	repeated E_Pk3v3Reward E_Pk3v3Reward_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_Pk3v3Badge
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "条件类型"];
+	repeated int32 m_param = 4[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_Pk3v3Badge
+{
+	repeated E_Pk3v3Badge E_Pk3v3Badge_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_Pk3v3Constant
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional int32 m_teammember = 2[(yd_fieldoptions.field_cname) = "战队人数上限"];
+	optional int32 m_teamtoplimit = 3[(yd_fieldoptions.field_cname) = "战队上限"];
+	optional int32 m_cedetime = 4[(yd_fieldoptions.field_cname) = "转让队长时间"];
+	optional int32 m_punishtime = 5[(yd_fieldoptions.field_cname) = "离队惩罚时间"];
+	optional int32 m_breaktime = 6[(yd_fieldoptions.field_cname) = "战队解散时间"];
+	optional int32 m_entryreward = 7[(yd_fieldoptions.field_cname) = "参赛奖励"];
+	optional int32 m_entrtimes = 8[(yd_fieldoptions.field_cname) = "参赛获奖次数"];
+	optional int32 m_mvpreward = 9[(yd_fieldoptions.field_cname) = "mvp奖励"];
+	optional int32 m_mvptimes = 10[(yd_fieldoptions.field_cname) = "mvp奖励次数"];
+	optional int32 m_matchtime = 11[(yd_fieldoptions.field_cname) = "单场时间"];
+	optional int32 m_unitname = 12[(yd_fieldoptions.field_cname) = "修改战队名称"];
+	optional int32 m_unitcost = 13[(yd_fieldoptions.field_cname) = "修改花费数量"];
+	optional int32 m_initialzlid = 14[(yd_fieldoptions.field_cname) = "初始战令id"];
+	optional string m_initialzlname = 15[(yd_fieldoptions.field_cname) = "初始战令名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_robotname = 16[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_matetime = 17[(yd_fieldoptions.field_cname) = "匹配预计时间"];
+	optional int32 m_addtime = 18[(yd_fieldoptions.field_cname) = "匹配增量时间"];
+	optional string m_initialnotice = 19[(yd_fieldoptions.field_cname) = "初始公告", (yd_fieldoptions.field_bufsize) = 256];
+	repeated int32 m_showreward = 20[(yd_fieldoptions.field_cname) = "展示奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_Pk3v3Constant
+{
+	repeated E_Pk3v3Constant E_Pk3v3Constant_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_Pk3v3Exp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_mateexp = 2[(yd_fieldoptions.field_cname) = "匹配经验"];
+}
+
+
+message Sheet_Pk3v3Exp
+{
+	repeated E_Pk3v3Exp E_Pk3v3Exp_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}

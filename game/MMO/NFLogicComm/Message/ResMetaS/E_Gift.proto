@@ -1,0 +1,52 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_GiftFree
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_costid = 3[(yd_fieldoptions.field_cname) = "货币id"];
+	optional int32 m_price = 4[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 m_freeday = 5[(yd_fieldoptions.field_cname) = "返还服务器天数"];
+	optional int32 m_boxid = 6[(yd_fieldoptions.field_cname) = "礼包内容box"];
+}
+
+
+message Sheet_GiftFree
+{
+	repeated E_GiftFree E_GiftFree_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_GiftCondition
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_conditiontype = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_arg = 3[(yd_fieldoptions.field_cname) = "参数"];
+	optional int32 m_time = 4[(yd_fieldoptions.field_cname) = "礼包持续时间"];
+	optional int32 m_pricetype = 5[(yd_fieldoptions.field_cname) = "价格类型"];
+	optional int32 m_price = 6[(yd_fieldoptions.field_cname) = "价格"];
+	optional int32 m_boxid = 7[(yd_fieldoptions.field_cname) = "礼包内容box"];
+}
+
+
+message Sheet_GiftCondition
+{
+	repeated E_GiftCondition E_GiftCondition_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_GiftMust
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_boxid = 2[(yd_fieldoptions.field_cname) = "boxid"];
+	optional int32 m_original = 3[(yd_fieldoptions.field_cname) = "原价"];
+	optional int32 m_pricetype = 4[(yd_fieldoptions.field_cname) = "价格类型"];
+	optional int32 m_price = 5[(yd_fieldoptions.field_cname) = "现价"];
+}
+
+
+message Sheet_GiftMust
+{
+	repeated E_GiftMust E_GiftMust_List = 1[(yd_fieldoptions.field_arysize)=32];
+}

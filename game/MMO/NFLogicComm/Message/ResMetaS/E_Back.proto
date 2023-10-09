@@ -1,0 +1,31 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_BackBack
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "找回类型"];
+	optional int32 m_typeparam = 3[(yd_fieldoptions.field_cname) = "类型参数"];
+	optional string m_name = 4[(yd_fieldoptions.field_cname) = "显示名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_group = 5[(yd_fieldoptions.field_cname) = "组"];
+	optional int32 m_functionunlock = 6[(yd_fieldoptions.field_cname) = "关联功能开放"];
+	optional int32 m_levellimit = 7[(yd_fieldoptions.field_cname) = "等级要求下限"];
+	optional int64 m_pboxid = 8[(yd_fieldoptions.field_cname) = "完美找回物品box"];
+	optional int64 m_boxid = 9[(yd_fieldoptions.field_cname) = "找回物品box"];
+	optional int32 m_backday = 10[(yd_fieldoptions.field_cname) = "找回天数"];
+	optional int32 m_costitemid = 11[(yd_fieldoptions.field_cname) = "普通找回消耗物"];
+	optional int32 m_costnum = 12[(yd_fieldoptions.field_cname) = "普通找回消耗数量"];
+	optional int32 m_pcostitemid = 13[(yd_fieldoptions.field_cname) = "完美找回消耗物"];
+	optional int32 m_pcostnum = 14[(yd_fieldoptions.field_cname) = "完美找回消耗数量"];
+	optional int32 m_acostitemid = 15[(yd_fieldoptions.field_cname) = "额外找回消耗物"];
+	optional int32 m_acostnum = 16[(yd_fieldoptions.field_cname) = "额外找回小号数量"];
+	repeated int32 m_param = 17[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_BackBack
+{
+	repeated E_BackBack E_BackBack_List = 1[(yd_fieldoptions.field_arysize)=64];
+}

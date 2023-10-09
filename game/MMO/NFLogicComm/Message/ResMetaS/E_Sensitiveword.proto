@@ -1,0 +1,40 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_SensitivewordWord1
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional string m_sensitiveword = 2[(yd_fieldoptions.field_cname) = "敏感字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_SensitivewordWord1
+{
+	repeated E_SensitivewordWord1 E_SensitivewordWord1_List = 1[(yd_fieldoptions.field_arysize)=32768];
+}
+
+message E_SensitivewordWord2
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional string m_sensitiveword = 2[(yd_fieldoptions.field_cname) = "敏感字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_SensitivewordWord2
+{
+	repeated E_SensitivewordWord2 E_SensitivewordWord2_List = 1[(yd_fieldoptions.field_arysize)=32768];
+}
+
+message E_SensitivewordWord3
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "序号"];
+	optional string m_sensitiveword = 2[(yd_fieldoptions.field_cname) = "敏感字", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_SensitivewordWord3
+{
+	repeated E_SensitivewordWord3 E_SensitivewordWord3_List = 1[(yd_fieldoptions.field_arysize)=32768];
+}

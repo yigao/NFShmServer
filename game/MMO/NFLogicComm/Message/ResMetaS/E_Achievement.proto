@@ -1,0 +1,47 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_AchievementAchievementItemrewardDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int64 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_AchievementAchievement
+{
+	optional int32 m_achievementid = 1[(yd_fieldoptions.field_cname) = "成就ID"];
+	optional int32 m_achievementlevel = 2[(yd_fieldoptions.field_cname) = "成就触发等级"];
+	optional int32 m_achievementtype = 3[(yd_fieldoptions.field_cname) = "成就类型"];
+	optional int32 m_achievementsubtype = 4[(yd_fieldoptions.field_cname) = "事件类型"];
+	optional int32 m_subtype = 5[(yd_fieldoptions.field_cname) = "事件细分"];
+	optional int32 m_achievementobjectvalue = 6[(yd_fieldoptions.field_cname) = "事件目标完成值"];
+	optional string m_typename = 7[(yd_fieldoptions.field_cname) = "类型名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_label = 8[(yd_fieldoptions.field_cname) = "二级标签", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_achievementpoint = 9[(yd_fieldoptions.field_cname) = "获取成就点数量"];
+	optional int32 m_overview = 10[(yd_fieldoptions.field_cname) = "是否进入总览进度"];
+	repeated int32 m_param = 11[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_AchievementAchievementItemrewardDesc m_itemreward = 12[(yd_fieldoptions.field_cname) = "获得物品", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_AchievementAchievement
+{
+	repeated E_AchievementAchievement E_AchievementAchievement_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_AchievementTotalachievements
+{
+	optional int32 m_totalsum = 1[(yd_fieldoptions.field_cname) = "总额成就ID"];
+	optional string m_totalachievementname = 2[(yd_fieldoptions.field_cname) = "总览成就名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_achievedpoints = 3[(yd_fieldoptions.field_cname) = "达成点数"];
+	optional int32 m_totalitems = 4[(yd_fieldoptions.field_cname) = "总览奖励物品"];
+	optional int32 m_rewardvalue = 5[(yd_fieldoptions.field_cname) = "奖励物品数量"];
+}
+
+
+message Sheet_AchievementTotalachievements
+{
+	repeated E_AchievementTotalachievements E_AchievementTotalachievements_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

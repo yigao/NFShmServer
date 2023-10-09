@@ -1,0 +1,193 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_AvatarFragmentAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_AvatarFragment
+{
+	optional int64 m_fragmentid = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
+	optional int64 m_item = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_itemnum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
+	repeated E_AvatarFragmentAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_AvatarFragment
+{
+	repeated E_AvatarFragment E_AvatarFragment_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_AvatarValueAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarValue
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_cost = 4[(yd_fieldoptions.field_cname) = "升星消耗数量"];
+	optional int32 m_exp = 5[(yd_fieldoptions.field_cname) = "升级需要经验"];
+	repeated E_AvatarValueAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 9];
+}
+
+
+message Sheet_AvatarValue
+{
+	repeated E_AvatarValue E_AvatarValue_List = 1[(yd_fieldoptions.field_arysize)=4096];
+}
+
+message E_AvatarDisplayMaterialDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_AvatarDisplay
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_uplvtype = 2[(yd_fieldoptions.field_cname) = "升级参考类型"];
+	optional string m_skillid = 3[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_AvatarDisplayMaterialDesc m_material = 4[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 m_fragmentid = 5[(yd_fieldoptions.field_cname) = "关联碎片ID", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_AvatarDisplay
+{
+	repeated E_AvatarDisplay E_AvatarDisplay_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_AvatarChangeMaterialDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_AvatarChangeAttributeDesc
+{
+	optional int32 m_upvalue = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_upber = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarChange
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_uplvtype = 3[(yd_fieldoptions.field_cname) = "升级参考类型"];
+	optional int64 m_avatarskill = 4[(yd_fieldoptions.field_cname) = "变身技能"];
+	optional int32 m_avatarcd = 5[(yd_fieldoptions.field_cname) = "变身cd"];
+	optional int32 m_avatartime = 6[(yd_fieldoptions.field_cname) = "变身时长"];
+	optional int32 m_avatarshield = 7[(yd_fieldoptions.field_cname) = "变身护盾效率"];
+	optional string m_skillid = 8[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_starmax = 9[(yd_fieldoptions.field_cname) = "星星上限"];
+	optional int32 m_lvmax = 10[(yd_fieldoptions.field_cname) = "等级上限"];
+	optional int32 m_modelid = 11[(yd_fieldoptions.field_cname) = "模型id"];
+	optional int32 m_advance = 12[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional int32 m_activationitem = 13[(yd_fieldoptions.field_cname) = "激活需要的道具"];
+	optional int32 m_activationnum = 14[(yd_fieldoptions.field_cname) = "激活需要的道具数量"];
+	optional int32 m_starid = 15[(yd_fieldoptions.field_cname) = "升星需要道具ID"];
+	optional string m_starnum = 16[(yd_fieldoptions.field_cname) = "升星需要数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_starupattributeid = 17[(yd_fieldoptions.field_cname) = "星级属性类型"];
+	optional int32 m_fununlock = 18[(yd_fieldoptions.field_cname) = "天神解锁条件"];
+	optional int32 m_maxequip = 19[(yd_fieldoptions.field_cname) = "最高装备品质"];
+	optional int32 m_equipsuit = 20[(yd_fieldoptions.field_cname) = "套装id"];
+	optional int32 m_starber = 21[(yd_fieldoptions.field_cname) = "每星级提升百分比"];
+	repeated E_AvatarChangeMaterialDesc m_material = 22[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 m_initiativeskill = 23[(yd_fieldoptions.field_cname) = "主动技能", (yd_fieldoptions.field_arysize) = 7];
+	repeated E_AvatarChangeAttributeDesc m_attribute = 24[(yd_fieldoptions.field_cname) = "百分比属性", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_AvatarChange
+{
+	repeated E_AvatarChange E_AvatarChange_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_AvatarChangetab
+{
+	optional int32 m_tabid = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+
+message Sheet_AvatarChangetab
+{
+	repeated E_AvatarChangetab E_AvatarChangetab_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_AvatarBattleslot
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "解锁类型"];
+	optional string m_arg = 3[(yd_fieldoptions.field_cname) = "解锁参数", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_AvatarBattleslot
+{
+	repeated E_AvatarBattleslot E_AvatarBattleslot_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_AvatarAdvanceUpattributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_AvatarAdvance
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_upattributeid = 2[(yd_fieldoptions.field_cname) = "进阶类型"];
+	optional int32 m_starid = 3[(yd_fieldoptions.field_cname) = "进阶专属需求星星数量"];
+	optional int32 m_skillid = 4[(yd_fieldoptions.field_cname) = "进阶专属技能"];
+	repeated E_AvatarAdvanceUpattributeDesc m_upattribute = 5[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_AvatarAdvance
+{
+	repeated E_AvatarAdvance E_AvatarAdvance_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_AvatarSkill
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_belong = 2[(yd_fieldoptions.field_cname) = "归属页签"];
+	optional int32 m_order = 3[(yd_fieldoptions.field_cname) = "排序"];
+	optional int32 m_skillid = 4[(yd_fieldoptions.field_cname) = "技能id"];
+}
+
+
+message Sheet_AvatarSkill
+{
+	repeated E_AvatarSkill E_AvatarSkill_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_AvatarEquipsuitAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AvatarEquipsuit
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_quality = 3[(yd_fieldoptions.field_cname) = "要求品质"];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "要求星级"];
+	repeated E_AvatarEquipsuitAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_AvatarEquipsuit
+{
+	repeated E_AvatarEquipsuit E_AvatarEquipsuit_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

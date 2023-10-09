@@ -1,0 +1,119 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_DragonFragmentAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_DragonFragment
+{
+	optional int64 m_fragmentid = 1[(yd_fieldoptions.field_cname) = "碎片ID"];
+	optional int64 m_item = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_itemnum = 3[(yd_fieldoptions.field_cname) = "碎片使用上限"];
+	repeated E_DragonFragmentAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_DragonFragment
+{
+	repeated E_DragonFragment E_DragonFragment_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_DragonDisplayMaterialDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验值"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_DragonDisplay
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_funid = 2[(yd_fieldoptions.field_cname) = "功能开放"];
+	optional int32 m_uplvtype = 3[(yd_fieldoptions.field_cname) = "升级参考类型"];
+	optional int32 m_lvmax = 4[(yd_fieldoptions.field_cname) = "等级上限"];
+	optional string m_skillid = 5[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_exskillid = 6[(yd_fieldoptions.field_cname) = "解锁专属技能组", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_staritem = 7[(yd_fieldoptions.field_cname) = "升星道具"];
+	optional int32 m_upstartype = 8[(yd_fieldoptions.field_cname) = "升星参考类型"];
+	optional int32 m_starup = 9[(yd_fieldoptions.field_cname) = "星星上限"];
+	optional int32 m_luck = 10[(yd_fieldoptions.field_cname) = "每幸运值增加的成功率"];
+	repeated E_DragonDisplayMaterialDesc m_material = 11[(yd_fieldoptions.field_cname) = "升级材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated int64 m_fragmentid = 12[(yd_fieldoptions.field_cname) = "关联碎片ID", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_DragonDisplay
+{
+	repeated E_DragonDisplay E_DragonDisplay_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_DragonChange
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_funid = 2[(yd_fieldoptions.field_cname) = "功能开放"];
+	optional string m_skillid = 3[(yd_fieldoptions.field_cname) = "解锁技能组", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_exskillid = 4[(yd_fieldoptions.field_cname) = "解锁专属技能组", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_fxid = 5[(yd_fieldoptions.field_cname) = "幻化特效", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_starmax = 6[(yd_fieldoptions.field_cname) = "星星上限"];
+	optional int32 m_startype = 7[(yd_fieldoptions.field_cname) = "星级数值类型"];
+	optional int32 m_activationitem = 8[(yd_fieldoptions.field_cname) = "激活需要的道具"];
+	optional int32 m_activationnum = 9[(yd_fieldoptions.field_cname) = "激活需要的道具数量"];
+	optional int32 m_starid = 10[(yd_fieldoptions.field_cname) = "升星需要道具ID"];
+}
+
+
+message Sheet_DragonChange
+{
+	repeated E_DragonChange E_DragonChange_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_DragonLvvalueAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_DragonLvvalue
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "升级需要经验"];
+	optional int32 m_gold = 3[(yd_fieldoptions.field_cname) = "花费金币"];
+	optional int32 m_starlimit = 4[(yd_fieldoptions.field_cname) = "星级要求"];
+	repeated E_DragonLvvalueAttributeDesc m_attribute = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 9];
+}
+
+
+message Sheet_DragonLvvalue
+{
+	repeated E_DragonLvvalue E_DragonLvvalue_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_DragonStarvalueAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_DragonStarvalue
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_star = 3[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_gold = 4[(yd_fieldoptions.field_cname) = "金币"];
+	optional int32 m_starnum = 5[(yd_fieldoptions.field_cname) = "升星消耗"];
+	optional int32 m_sucess = 6[(yd_fieldoptions.field_cname) = "升级基础成功率"];
+	optional int32 m_luckmax = 7[(yd_fieldoptions.field_cname) = "幸运值上限"];
+	optional int32 m_failluck = 8[(yd_fieldoptions.field_cname) = "失败幸运值"];
+	optional int32 m_model = 9[(yd_fieldoptions.field_cname) = "模型"];
+	repeated E_DragonStarvalueAttributeDesc m_attribute = 10[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 9];
+}
+
+
+message Sheet_DragonStarvalue
+{
+	repeated E_DragonStarvalue E_DragonStarvalue_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}

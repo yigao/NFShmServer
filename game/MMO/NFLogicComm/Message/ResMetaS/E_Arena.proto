@@ -1,0 +1,122 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_ArenaRobotAttrDesc
+{
+	optional int32 m_val = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_ArenaRobot
+{
+	optional int32 m_arenaid = 1[(yd_fieldoptions.field_cname) = "竞技场排名ID"];
+	optional string m_robotname = 2[(yd_fieldoptions.field_cname) = "机器人名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_aiid = 3[(yd_fieldoptions.field_cname) = "aiID"];
+	optional int32 m_rankid = 4[(yd_fieldoptions.field_cname) = "排名id"];
+	optional int32 m_robotprofession = 5[(yd_fieldoptions.field_cname) = "机器人职业"];
+	optional int32 m_robotlv = 6[(yd_fieldoptions.field_cname) = "机器人等级"];
+	optional int32 m_sword = 7[(yd_fieldoptions.field_cname) = "战力"];
+	optional int32 m_facadeid = 8[(yd_fieldoptions.field_cname) = "外观ID"];
+	optional int32 m_occupationid = 9[(yd_fieldoptions.field_cname) = "转职ID"];
+	repeated E_ArenaRobotAttrDesc m_attr = 10[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 70];
+}
+
+
+message Sheet_ArenaRobot
+{
+	repeated E_ArenaRobot E_ArenaRobot_List = 1[(yd_fieldoptions.field_arysize)=8192];
+}
+
+message E_ArenaRobotfacadeFacadeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_ArenaRobotfacade
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_color = 2[(yd_fieldoptions.field_cname) = "创建颜色"];
+	repeated E_ArenaRobotfacadeFacadeDesc m_facade = 3[(yd_fieldoptions.field_cname) = "外观", (yd_fieldoptions.field_arysize) = 17];
+}
+
+
+message Sheet_ArenaRobotfacade
+{
+	repeated E_ArenaRobotfacade E_ArenaRobotfacade_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_ArenaArenawardRewardDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_ArenaArenaward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lvdown = 2[(yd_fieldoptions.field_cname) = "下限等级"];
+	optional int32 m_lvup = 3[(yd_fieldoptions.field_cname) = "上限等级"];
+	repeated E_ArenaArenawardRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ArenaArenaward
+{
+	repeated E_ArenaArenaward E_ArenaArenaward_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_ArenaRankawardRewardDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_ArenaRankaward
+{
+	optional int32 m_prizeid = 1[(yd_fieldoptions.field_cname) = "奖励ID"];
+	optional int32 m_arenadown = 2[(yd_fieldoptions.field_cname) = "下限排名"];
+	optional int32 m_arenaup = 3[(yd_fieldoptions.field_cname) = "上限排名"];
+	repeated E_ArenaRankawardRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ArenaRankaward
+{
+	repeated E_ArenaRankaward E_ArenaRankaward_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_ArenaFirstrankRewardDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_ArenaFirstrank
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_rankdown = 2[(yd_fieldoptions.field_cname) = "下限排名"];
+	optional int32 m_rankup = 3[(yd_fieldoptions.field_cname) = "上限排名"];
+	repeated E_ArenaFirstrankRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ArenaFirstrank
+{
+	repeated E_ArenaFirstrank E_ArenaFirstrank_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_ArenaBuychallenge
+{
+	optional int32 m_count = 1[(yd_fieldoptions.field_cname) = "购买计次"];
+	optional int32 m_costtype = 2[(yd_fieldoptions.field_cname) = "花费类型"];
+	optional int32 m_cost = 3[(yd_fieldoptions.field_cname) = "花费"];
+}
+
+
+message Sheet_ArenaBuychallenge
+{
+	repeated E_ArenaBuychallenge E_ArenaBuychallenge_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

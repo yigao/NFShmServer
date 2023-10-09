@@ -1,0 +1,342 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_GuildConstant
+{
+	optional int32 m_constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
+	optional int32 m_setitem = 2[(yd_fieldoptions.field_cname) = "创建公会需要道具ID"];
+	optional int32 m_nameitem = 3[(yd_fieldoptions.field_cname) = "公会改名需要道具ID"];
+	optional int32 m_editrequirelv = 4[(yd_fieldoptions.field_cname) = "修改公会公告要求公告等级"];
+	optional int32 m_giftcd = 5[(yd_fieldoptions.field_cname) = "红包清理时间"];
+	optional int32 m_dismiss = 6[(yd_fieldoptions.field_cname) = "解散公会时间"];
+	optional int32 m_transferguild = 7[(yd_fieldoptions.field_cname) = "代理会长可申请时间"];
+	optional int32 m_territory = 8[(yd_fieldoptions.field_cname) = "公会领地场景id"];
+	optional int32 m_autominlv = 9[(yd_fieldoptions.field_cname) = "自动审批最低等级"];
+	optional int32 m_autominbp = 10[(yd_fieldoptions.field_cname) = "自动审批最低战力"];
+	optional int32 m_donatetimes = 11[(yd_fieldoptions.field_cname) = "捐款次数"];
+	optional int32 m_packetmaxd = 12[(yd_fieldoptions.field_cname) = "红包绑钻每日限制"];
+	optional int32 m_packetmaxbd = 13[(yd_fieldoptions.field_cname) = "红包魔晶每日限制"];
+	optional int32 m_packetmaxsend = 14[(yd_fieldoptions.field_cname) = "自费红包限制"];
+	optional int32 m_packetvip = 15[(yd_fieldoptions.field_cname) = "红包加成的vip等级"];
+	optional int32 m_packetadd = 16[(yd_fieldoptions.field_cname) = "红包加成比例"];
+	optional int32 m_prestigetasonekeyvip = 17[(yd_fieldoptions.field_cname) = "声望任务一键vip"];
+	optional int32 m_prestigetasonekeylv = 18[(yd_fieldoptions.field_cname) = "声望任务一键viplv"];
+	optional int32 m_prestigetaskprivage = 19[(yd_fieldoptions.field_cname) = "声望任务特权id"];
+	optional int32 m_prestigetaskflash = 20[(yd_fieldoptions.field_cname) = "声望任务免费刷新次数"];
+	optional int32 m_prestigetaskflashprice = 21[(yd_fieldoptions.field_cname) = "声望任务付费刷新价格"];
+	optional int32 m_prestigetasktimes = 22[(yd_fieldoptions.field_cname) = "声望任务每日次数"];
+	optional int32 m_rewardcd = 23[(yd_fieldoptions.field_cname) = "晚宴持续收益间隔"];
+	optional int32 m_answerdelay = 24[(yd_fieldoptions.field_cname) = "晚宴答题间隔"];
+	optional int32 m_answernum = 25[(yd_fieldoptions.field_cname) = "题目数"];
+	optional int32 m_answertime = 26[(yd_fieldoptions.field_cname) = "每道题的最长作答事件"];
+	optional int32 m_answerresulttime = 27[(yd_fieldoptions.field_cname) = "每道题的答案时间"];
+	optional int32 m_answerlimit = 28[(yd_fieldoptions.field_cname) = "答题限时奖励"];
+	optional int32 m_answerfirst = 29[(yd_fieldoptions.field_cname) = "答题首答奖励"];
+	optional int32 m_answersuccess = 30[(yd_fieldoptions.field_cname) = "答题答对奖励"];
+	optional int32 m_answebasics = 31[(yd_fieldoptions.field_cname) = "答题安慰奖励"];
+	optional int32 m_linklvupper = 32[(yd_fieldoptions.field_cname) = "传功每级提高经验万分比"];
+	optional int32 m_linklvupmax = 33[(yd_fieldoptions.field_cname) = "传功提高经验上限"];
+	optional int32 m_linktime = 34[(yd_fieldoptions.field_cname) = "传功的行为时间"];
+	optional int32 m_monsterid = 35[(yd_fieldoptions.field_cname) = "采集物id"];
+	optional int32 m_point = 36[(yd_fieldoptions.field_cname) = "采集物刷新点"];
+	optional int32 m_collecttimes = 37[(yd_fieldoptions.field_cname) = "每次开启可采集次数"];
+	optional int32 m_shens_daytimes = 38[(yd_fieldoptions.field_cname) = "神兽每日次数"];
+	optional int32 m_shens_weektimes = 39[(yd_fieldoptions.field_cname) = "神兽每周次数"];
+	optional int32 m_shens_dup = 40[(yd_fieldoptions.field_cname) = "神兽副本id"];
+	optional int32 m_shensitem = 41[(yd_fieldoptions.field_cname) = "神兽祭品id"];
+	optional int32 m_shenscost = 42[(yd_fieldoptions.field_cname) = "神兽祭品消耗"];
+	optional int32 m_shenscostactive = 43[(yd_fieldoptions.field_cname) = "神兽祭品消耗"];
+	optional int32 m_shouh_dup = 44[(yd_fieldoptions.field_cname) = "守护副本id"];
+	optional int32 m_shouhexpskill = 45[(yd_fieldoptions.field_cname) = "守护副本技能"];
+	optional string m_shouhmosid = 46[(yd_fieldoptions.field_cname) = "守护npcid", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_gwdupid = 47[(yd_fieldoptions.field_cname) = "帮派战副本id"];
+	optional int32 m_gwbattletime = 48[(yd_fieldoptions.field_cname) = "帮派战单场时间"];
+	optional int32 m_gwresttime = 49[(yd_fieldoptions.field_cname) = "帮派战休息时间"];
+	optional int32 m_gwcentermid = 50[(yd_fieldoptions.field_cname) = "帮派战水晶怪物id"];
+	optional int32 m_gwtowermid = 51[(yd_fieldoptions.field_cname) = "帮派战塔怪物id"];
+	optional int32 m_gwtankmid = 52[(yd_fieldoptions.field_cname) = "帮派战车怪物id"];
+	optional int32 m_gwbornrpoint = 53[(yd_fieldoptions.field_cname) = "帮派战红出生point"];
+	optional int32 m_gwcenterrpoint = 54[(yd_fieldoptions.field_cname) = "帮派战红水晶point"];
+	optional string m_gwtowerrpoint = 55[(yd_fieldoptions.field_cname) = "帮派战红塔point", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_gwtankrpoint = 56[(yd_fieldoptions.field_cname) = "帮派红战车point"];
+	optional int32 m_gwbornbpoint = 57[(yd_fieldoptions.field_cname) = "帮派战蓝出生point"];
+	optional int32 m_gwcenterbpoint = 58[(yd_fieldoptions.field_cname) = "帮派战蓝水晶point"];
+	optional string m_gwtowerbpoint = 59[(yd_fieldoptions.field_cname) = "帮派战蓝塔point", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_gwtankbpoint = 60[(yd_fieldoptions.field_cname) = "帮派蓝战车point"];
+	optional int32 m_tanknum = 61[(yd_fieldoptions.field_cname) = "战车初始数量"];
+	optional int32 m_tankresttime = 62[(yd_fieldoptions.field_cname) = "战车补充间隔"];
+	optional int32 m_tankrestnum = 63[(yd_fieldoptions.field_cname) = "战车补充数量"];
+	optional int32 m_dominatedaily = 64[(yd_fieldoptions.field_cname) = "主宰神殿每日奖励"];
+	optional int32 m_dominatebossreward = 65[(yd_fieldoptions.field_cname) = "主宰神殿会长临时奖励"];
+	optional int32 m_freepoint = 66[(yd_fieldoptions.field_cname) = "每次获得的积分"];
+	optional int32 m_deffreepoint = 67[(yd_fieldoptions.field_cname) = "处于防御塔范围额外积分"];
+	optional int32 m_playerpoint = 68[(yd_fieldoptions.field_cname) = "击杀玩家积分"];
+	optional int32 m_tankpoint = 69[(yd_fieldoptions.field_cname) = "击杀工程车积分"];
+	optional int32 m_towerpoint = 70[(yd_fieldoptions.field_cname) = "机破防御塔积分"];
+	optional int32 m_centerpoint = 71[(yd_fieldoptions.field_cname) = "水晶积分"];
+	optional int32 m_assistradio = 72[(yd_fieldoptions.field_cname) = "助攻的积分系数"];
+	optional int32 m_tteamdamageadd = 73[(yd_fieldoptions.field_cname) = "组队增加伤害"];
+	optional int32 m_tweekclosetime = 74[(yd_fieldoptions.field_cname) = "周结算前关闭时间"];
+}
+
+
+message Sheet_GuildConstant
+{
+	repeated E_GuildConstant E_GuildConstant_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_GuildLevel
+{
+	optional int32 m_guildlevel = 1[(yd_fieldoptions.field_cname) = "公会等级"];
+	optional int32 m_guildlevel_exp = 2[(yd_fieldoptions.field_cname) = "公会升级经验"];
+	optional int32 m_guildlevel_member = 3[(yd_fieldoptions.field_cname) = "公会成员总人数"];
+	optional int32 m_guildlevel_vp = 4[(yd_fieldoptions.field_cname) = "公会副会长人数"];
+	optional int32 m_guildlevel_np = 5[(yd_fieldoptions.field_cname) = "公会长老数"];
+	optional int32 m_guildlevel_g = 6[(yd_fieldoptions.field_cname) = "护法人数"];
+}
+
+
+message Sheet_GuildLevel
+{
+	repeated E_GuildLevel E_GuildLevel_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_GuildPosition
+{
+	optional int32 m_positionid = 1[(yd_fieldoptions.field_cname) = "职位ID"];
+	optional int32 m_admitnewcomer = 2[(yd_fieldoptions.field_cname) = "接收新成员"];
+	optional int32 m_appointandremovevp = 3[(yd_fieldoptions.field_cname) = "任命/解除副会长"];
+	optional int32 m_appointandremoveelder = 4[(yd_fieldoptions.field_cname) = "任命/解除长老"];
+	optional int32 m_appointandremoveg = 5[(yd_fieldoptions.field_cname) = "任命/解除护法"];
+	optional int32 m_appointandremoveelite = 6[(yd_fieldoptions.field_cname) = "任命/解除精英"];
+	optional int32 m_expelvp = 7[(yd_fieldoptions.field_cname) = "踢出副会长"];
+	optional int32 m_expelelder = 8[(yd_fieldoptions.field_cname) = "踢出长老"];
+	optional int32 m_expelg = 9[(yd_fieldoptions.field_cname) = "踢出护法"];
+	optional int32 m_expelmass = 10[(yd_fieldoptions.field_cname) = "踢出普通成员"];
+	optional int32 m_announcementediting = 11[(yd_fieldoptions.field_cname) = "编辑公告"];
+	optional int32 m_rname = 12[(yd_fieldoptions.field_cname) = "修改名字"];
+	optional int32 m_joincondition = 13[(yd_fieldoptions.field_cname) = "设置加入方式"];
+	optional int32 m_guildactivity = 14[(yd_fieldoptions.field_cname) = "开启公会玩法"];
+	optional int32 m_dissolveassignguild = 15[(yd_fieldoptions.field_cname) = "解散/转让公会"];
+	optional int32 m_changename = 16[(yd_fieldoptions.field_cname) = "改名权限"];
+	optional int32 m_recruitchat = 17[(yd_fieldoptions.field_cname) = "发布招贤纳士"];
+	optional int32 m_guildpacket = 18[(yd_fieldoptions.field_cname) = "发送公会玩法红包"];
+}
+
+
+message Sheet_GuildPosition
+{
+	repeated E_GuildPosition E_GuildPosition_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_GuildSalaryRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "物品"];
+}
+
+message E_GuildSalary
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional int32 m_typearg = 3[(yd_fieldoptions.field_cname) = "类型参数"];
+	optional int32 m_times = 4[(yd_fieldoptions.field_cname) = "次数参数"];
+	repeated E_GuildSalaryRewardDesc m_reward = 5[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_GuildSalary
+{
+	repeated E_GuildSalary E_GuildSalary_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_GuildDonateRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "物品"];
+}
+
+message E_GuildDonate
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_costitem = 2[(yd_fieldoptions.field_cname) = "花费物品id"];
+	optional int32 m_costnum = 3[(yd_fieldoptions.field_cname) = "花费物品数量"];
+	repeated E_GuildDonateRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_GuildDonate
+{
+	repeated E_GuildDonate E_GuildDonate_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_GuildPacket
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "红包ID"];
+	optional int32 m_belongtype = 2[(yd_fieldoptions.field_cname) = "红包归属类型"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "红包触发类型"];
+	optional int32 m_typearg = 4[(yd_fieldoptions.field_cname) = "类型参数"];
+	optional int32 m_itemid = 5[(yd_fieldoptions.field_cname) = "红包领取类型"];
+	optional int32 m_itemnum = 6[(yd_fieldoptions.field_cname) = "红包金额"];
+	optional int32 m_num = 7[(yd_fieldoptions.field_cname) = "红包份数"];
+	optional int32 m_pre = 8[(yd_fieldoptions.field_cname) = "前置红包"];
+	optional int32 m_daily = 9[(yd_fieldoptions.field_cname) = "每日限制触发次数"];
+}
+
+
+message Sheet_GuildPacket
+{
+	repeated E_GuildPacket E_GuildPacket_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_GuildPrestigetask
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_level = 2[(yd_fieldoptions.field_cname) = "任务分级"];
+	optional int32 m_weight = 3[(yd_fieldoptions.field_cname) = "权重"];
+	optional int32 m_taskpool = 4[(yd_fieldoptions.field_cname) = "随机的任务池id"];
+	optional int32 m_reward = 5[(yd_fieldoptions.field_cname) = "任务奖励类型id"];
+}
+
+
+message Sheet_GuildPrestigetask
+{
+	repeated E_GuildPrestigetask E_GuildPrestigetask_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_GuildLvreward
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_partyexp = 2[(yd_fieldoptions.field_cname) = "晚宴经验"];
+	optional int32 m_partyeontribution = 3[(yd_fieldoptions.field_cname) = "晚宴贡献"];
+	optional int32 m_linkexp = 4[(yd_fieldoptions.field_cname) = "链接经验"];
+}
+
+
+message Sheet_GuildLvreward
+{
+	repeated E_GuildLvreward E_GuildLvreward_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_GuildCollegeAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_GuildCollege
+{
+	optional int32 m_uid = 1[(yd_fieldoptions.field_cname) = "唯一id"];
+	optional int32 m_skillid = 2[(yd_fieldoptions.field_cname) = "技能id"];
+	optional int32 m_skilllv = 3[(yd_fieldoptions.field_cname) = "心法等级"];
+	optional int32 m_guildlv = 4[(yd_fieldoptions.field_cname) = "开放学习需求公会等级"];
+	optional int32 m_playerlvlimit = 5[(yd_fieldoptions.field_cname) = "要求玩家等级"];
+	optional int32 m_preskillid = 6[(yd_fieldoptions.field_cname) = "要求前置技能ID"];
+	optional int32 m_preskilllv = 7[(yd_fieldoptions.field_cname) = "要求前置技能等级"];
+	optional int32 m_costcontribute = 8[(yd_fieldoptions.field_cname) = "心法消耗贡献"];
+	repeated E_GuildCollegeAttributeDesc m_attribute = 9[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_GuildCollege
+{
+	repeated E_GuildCollege E_GuildCollege_List = 1[(yd_fieldoptions.field_arysize)=16384];
+}
+
+message E_GuildAnswer
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional string m_answer = 2[(yd_fieldoptions.field_cname) = "答案", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_GuildAnswer
+{
+	repeated E_GuildAnswer E_GuildAnswer_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_GuildRank_reward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional string m_note = 3[(yd_fieldoptions.field_cname) = "备注", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_rankmin = 4[(yd_fieldoptions.field_cname) = "排名下限"];
+	optional int32 m_rankmax = 5[(yd_fieldoptions.field_cname) = "排名上限"];
+	optional int32 m_lvmin = 6[(yd_fieldoptions.field_cname) = "跨服世界等级下限"];
+	optional int32 m_rewards = 7[(yd_fieldoptions.field_cname) = "服务器奖励"];
+}
+
+
+message Sheet_GuildRank_reward
+{
+	repeated E_GuildRank_reward E_GuildRank_reward_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_GuildShouhskillRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_GuildShouhskill
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_costid = 3[(yd_fieldoptions.field_cname) = "花费id"];
+	optional int32 m_costnum = 4[(yd_fieldoptions.field_cname) = "花费数量"];
+	optional int32 m_skillid = 5[(yd_fieldoptions.field_cname) = "技能id"];
+	optional int32 m_times = 6[(yd_fieldoptions.field_cname) = "次数"];
+	repeated E_GuildShouhskillRewardDesc m_reward = 7[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_GuildShouhskill
+{
+	repeated E_GuildShouhskill E_GuildShouhskill_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_GuildGwreward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+	optional string m_reward = 3[(yd_fieldoptions.field_cname) = "本服奖励", (yd_fieldoptions.field_bufsize) = 256];
+	optional string m_crossreward = 4[(yd_fieldoptions.field_cname) = "跨服奖励", (yd_fieldoptions.field_bufsize) = 256];
+	repeated int32 m_arg = 5[(yd_fieldoptions.field_cname) = "参数", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_GuildGwreward
+{
+	repeated E_GuildGwreward E_GuildGwreward_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_GuildGwwinstreak
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_winstreak = 2[(yd_fieldoptions.field_cname) = "连胜数"];
+	optional int32 m_winreward = 3[(yd_fieldoptions.field_cname) = "连胜奖励"];
+	optional int32 m_endreward = 4[(yd_fieldoptions.field_cname) = "终结奖励"];
+	optional int32 m_challengeskill = 5[(yd_fieldoptions.field_cname) = "士气技能"];
+}
+
+
+message Sheet_GuildGwwinstreak
+{
+	repeated E_GuildGwwinstreak E_GuildGwwinstreak_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_GuildTtower
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_dupid = 2[(yd_fieldoptions.field_cname) = "副本id"];
+	optional int32 m_breakbox = 3[(yd_fieldoptions.field_cname) = "通关奖励"];
+	optional int32 m_clearbox = 4[(yd_fieldoptions.field_cname) = "单次结算奖励"];
+}
+
+
+message Sheet_GuildTtower
+{
+	repeated E_GuildTtower E_GuildTtower_List = 1[(yd_fieldoptions.field_arysize)=128];
+}

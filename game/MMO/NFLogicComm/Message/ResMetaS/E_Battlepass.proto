@@ -1,0 +1,99 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_BattlepassBattlepass
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_reward = 2[(yd_fieldoptions.field_cname) = "奖励组"];
+	optional int32 m_task = 3[(yd_fieldoptions.field_cname) = "任务组"];
+	optional string m_tasknum = 4[(yd_fieldoptions.field_cname) = "抽取任务数量", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_freshcost = 5[(yd_fieldoptions.field_cname) = "刷新消耗"];
+	optional int32 m_shop = 6[(yd_fieldoptions.field_cname) = "店铺组"];
+	optional int32 m_shopcurrency = 7[(yd_fieldoptions.field_cname) = "商店货币"];
+	optional int32 m_severopentype = 8[(yd_fieldoptions.field_cname) = "服务器开放类型"];
+	optional int32 m_openseverday = 9[(yd_fieldoptions.field_cname) = "开始开服时间"];
+	optional int32 m_closeseverday = 10[(yd_fieldoptions.field_cname) = "关闭时间"];
+	optional int32 m_pricetype = 11[(yd_fieldoptions.field_cname) = "价格类型"];
+	optional int32 m_price = 12[(yd_fieldoptions.field_cname) = "普通版价格"];
+	optional int32 m_pricep = 13[(yd_fieldoptions.field_cname) = "高级版额外价格"];
+	optional int32 m_presentexp = 14[(yd_fieldoptions.field_cname) = "高级版赠送的经验值"];
+	optional int32 m_expcost = 15[(yd_fieldoptions.field_cname) = "经验货币"];
+	optional int32 m_expprice = 16[(yd_fieldoptions.field_cname) = "每货币兑换经验值"];
+	optional int32 m_expitem = 17[(yd_fieldoptions.field_cname) = "获得道具自动获得经验"];
+}
+
+
+message Sheet_BattlepassBattlepass
+{
+	repeated E_BattlepassBattlepass E_BattlepassBattlepass_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_BattlepassRewardItemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_BattlepassRewardProitemDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_BattlepassReward
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_groupid = 2[(yd_fieldoptions.field_cname) = "组类型"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 4[(yd_fieldoptions.field_cname) = "升级所需经验"];
+	optional int32 m_core = 5[(yd_fieldoptions.field_cname) = "核心节点标识"];
+	optional int32 m_buylevel = 6[(yd_fieldoptions.field_cname) = "购买节点标识"];
+	optional int32 m_showitem = 7[(yd_fieldoptions.field_cname) = "展示物id"];
+	repeated E_BattlepassRewardItemDesc m_item = 8[(yd_fieldoptions.field_cname) = "奖励物品", (yd_fieldoptions.field_arysize) = 1];
+	repeated E_BattlepassRewardProitemDesc m_proitem = 9[(yd_fieldoptions.field_cname) = "加强奖励物品", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_BattlepassReward
+{
+	repeated E_BattlepassReward E_BattlepassReward_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_BattlepassTask
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_taskrefresh = 3[(yd_fieldoptions.field_cname) = "任务类型"];
+	optional int32 m_lv = 4[(yd_fieldoptions.field_cname) = "开放等级"];
+	optional int32 m_tag = 5[(yd_fieldoptions.field_cname) = "所属页签"];
+	optional int32 m_eventtype = 6[(yd_fieldoptions.field_cname) = "事件类型"];
+	optional int32 m_reachprice = 7[(yd_fieldoptions.field_cname) = "达成值"];
+	optional int32 m_link = 8[(yd_fieldoptions.field_cname) = "链接"];
+	optional int32 m_exp = 9[(yd_fieldoptions.field_cname) = "经验"];
+	repeated int32 m_param = 10[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_BattlepassTask
+{
+	repeated E_BattlepassTask E_BattlepassTask_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_BattlepassShop
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_itemid = 3[(yd_fieldoptions.field_cname) = "物品id"];
+	optional int32 m_itemnum = 4[(yd_fieldoptions.field_cname) = "物品数量"];
+	optional int32 m_costitem = 5[(yd_fieldoptions.field_cname) = "花费道具"];
+	optional int32 m_costnum = 6[(yd_fieldoptions.field_cname) = "花费数量"];
+	optional int32 m_numlimit = 7[(yd_fieldoptions.field_cname) = "限购数量"];
+}
+
+
+message Sheet_BattlepassShop
+{
+	repeated E_BattlepassShop E_BattlepassShop_List = 1[(yd_fieldoptions.field_arysize)=32];
+}

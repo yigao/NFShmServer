@@ -1,0 +1,148 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_AncientgodAncientgodFraDesc
+{
+	optional int32 m_attid = 1[(yd_fieldoptions.field_cname) = "解锁获得属性ID"];
+	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "解锁数量"];
+}
+
+message E_AncientgodAncientgod
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "神灵ID"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "神灵名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional float m_parama = 3[(yd_fieldoptions.field_cname) = "神灵品质系数"];
+	optional int32 m_showlv = 4[(yd_fieldoptions.field_cname) = "神灵显示等级"];
+	optional int32 m_unlocklv = 5[(yd_fieldoptions.field_cname) = "神灵解锁等级"];
+	optional string m_condition = 6[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_lvlimit = 7[(yd_fieldoptions.field_cname) = "进阶等级上限"];
+	optional int32 m_stars = 8[(yd_fieldoptions.field_cname) = "部位进阶星数"];
+	repeated E_AncientgodAncientgodFraDesc m_fra = 9[(yd_fieldoptions.field_cname) = "碎片", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_AncientgodAncientgod
+{
+	repeated E_AncientgodAncientgod E_AncientgodAncientgod_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_AncientgodLvupAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AncientgodLvup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "部位等级"];
+	optional int32 m_ancientid = 3[(yd_fieldoptions.field_cname) = "神灵ID"];
+	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "升级道具"];
+	optional int32 m_mallid = 5[(yd_fieldoptions.field_cname) = "商品ID"];
+	optional int32 m_num = 6[(yd_fieldoptions.field_cname) = "升级数量"];
+	optional int32 m_initialvalue = 7[(yd_fieldoptions.field_cname) = "进阶初始值"];
+	optional int32 m_position = 8[(yd_fieldoptions.field_cname) = "部位类型"];
+	repeated E_AncientgodLvupAttributeDesc m_attribute = 9[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_AncientgodLvup
+{
+	repeated E_AncientgodLvup E_AncientgodLvup_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_AncientgodEquipvalue
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_quality = 2[(yd_fieldoptions.field_cname) = "装备品质"];
+	optional int32 m_wearquality = 3[(yd_fieldoptions.field_cname) = "装备品阶"];
+	optional int32 m_star = 4[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_value = 5[(yd_fieldoptions.field_cname) = "初始进度值"];
+}
+
+
+message Sheet_AncientgodEquipvalue
+{
+	repeated E_AncientgodEquipvalue E_AncientgodEquipvalue_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_AncientgodBlessAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AncientgodBless
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_ancientid = 2[(yd_fieldoptions.field_cname) = "神灵ID"];
+	optional int32 m_position = 3[(yd_fieldoptions.field_cname) = "部位ID"];
+	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "祝福消耗道具"];
+	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "消耗数量"];
+	repeated E_AncientgodBlessAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_AncientgodBless
+{
+	repeated E_AncientgodBless E_AncientgodBless_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_AncientgodAdvanceAttributeDesc
+{
+	optional int32 m_star = 1[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_value = 2[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_AncientgodAdvance
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_ancientid = 2[(yd_fieldoptions.field_cname) = "神灵ID"];
+	optional int32 m_position = 3[(yd_fieldoptions.field_cname) = "部位ID"];
+	repeated E_AncientgodAdvanceAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "属性ID", (yd_fieldoptions.field_arysize) = 20];
+}
+
+
+message Sheet_AncientgodAdvance
+{
+	repeated E_AncientgodAdvance E_AncientgodAdvance_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_AncientgodAttAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AncientgodAtt
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "属性ID"];
+	repeated E_AncientgodAttAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_AncientgodAtt
+{
+	repeated E_AncientgodAtt E_AncientgodAtt_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_AncientgodStarcollectAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_AncientgodStarcollect
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "星数"];
+	repeated E_AncientgodStarcollectAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_AncientgodStarcollect
+{
+	repeated E_AncientgodStarcollect E_AncientgodStarcollect_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}

@@ -1,0 +1,35 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_GodrelicsGodrelics
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_functionid = 2[(yd_fieldoptions.field_cname) = "功能开放id"];
+	optional int32 m_group = 3[(yd_fieldoptions.field_cname) = "条件组ID"];
+	optional int32 m_skillid = 4[(yd_fieldoptions.field_cname) = "激活技能"];
+}
+
+
+message Sheet_GodrelicsGodrelics
+{
+	repeated E_GodrelicsGodrelics E_GodrelicsGodrelics_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_GodrelicsCondition
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "条件组id"];
+	optional int32 m_conditon = 3[(yd_fieldoptions.field_cname) = "条件类型"];
+	optional int32 m_count = 4[(yd_fieldoptions.field_cname) = "完成次数"];
+	optional int32 m_rewarditem = 5[(yd_fieldoptions.field_cname) = "奖励道具"];
+	optional int32 m_rewardnumber = 6[(yd_fieldoptions.field_cname) = "奖励道具数量"];
+	repeated int32 m_param = 7[(yd_fieldoptions.field_cname) = "事件完成参数", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_GodrelicsCondition
+{
+	repeated E_GodrelicsCondition E_GodrelicsCondition_List = 1[(yd_fieldoptions.field_arysize)=128];
+}

@@ -1,0 +1,17 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_ConstantConstant
+{
+	optional int32 m_constantid = 1[(yd_fieldoptions.field_cname) = "配置id"];
+	optional int64 m_constantdata = 2[(yd_fieldoptions.field_cname) = "数据"];
+	optional string m_stringdata = 3[(yd_fieldoptions.field_cname) = "字符串数据", (yd_fieldoptions.field_bufsize) = 256];
+}
+
+
+message Sheet_ConstantConstant
+{
+	repeated E_ConstantConstant E_ConstantConstant_List = 1[(yd_fieldoptions.field_arysize)=512];
+}

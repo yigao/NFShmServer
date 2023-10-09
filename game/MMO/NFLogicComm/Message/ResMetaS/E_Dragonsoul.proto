@@ -1,0 +1,157 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_DragonsoulHole
+{
+	optional int32 m_number = 1[(yd_fieldoptions.field_cname) = "激活个数"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "孔的类型"];
+	optional string m_position = 3[(yd_fieldoptions.field_cname) = "装备位置", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_lv = 4[(yd_fieldoptions.field_cname) = "激活等级"];
+	optional int64 m_id = 5[(yd_fieldoptions.field_cname) = "激活道具id"];
+	optional int32 m_num = 6[(yd_fieldoptions.field_cname) = "激活道具数量"];
+}
+
+
+message Sheet_DragonsoulHole
+{
+	repeated E_DragonsoulHole E_DragonsoulHole_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_DragonsoulOfferexpQualityDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_DragonsoulOfferexp
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "材料类型"];
+	optional string m_position = 3[(yd_fieldoptions.field_cname) = "装备位置", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_itemid = 4[(yd_fieldoptions.field_cname) = "道具id"];
+	optional int32 m_itemexp = 5[(yd_fieldoptions.field_cname) = "道具经验值"];
+	repeated E_DragonsoulOfferexpQualityDesc m_quality = 6[(yd_fieldoptions.field_cname) = "品质", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_DragonsoulOfferexp
+{
+	repeated E_DragonsoulOfferexp E_DragonsoulOfferexp_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_DragonsoulStrongexp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "升级所需经验"];
+}
+
+
+message Sheet_DragonsoulStrongexp
+{
+	repeated E_DragonsoulStrongexp E_DragonsoulStrongexp_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_DragonsoulFlyexp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "阶级"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "升级所需经验"];
+}
+
+
+message Sheet_DragonsoulFlyexp
+{
+	repeated E_DragonsoulFlyexp E_DragonsoulFlyexp_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_DragonsoulFlyatt
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性id"];
+	optional int32 m_count = 3[(yd_fieldoptions.field_cname) = "计算方式"];
+	optional int32 m_atttype = 4[(yd_fieldoptions.field_cname) = "属性类型"];
+	repeated int32 m_att = 5[(yd_fieldoptions.field_cname) = "属性觉醒", (yd_fieldoptions.field_arysize) = 11];
+}
+
+
+message Sheet_DragonsoulFlyatt
+{
+	repeated E_DragonsoulFlyatt E_DragonsoulFlyatt_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_DragonsoulFlyTypeDesc
+{
+	optional string m_num = 1[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_DragonsoulFly
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "部位ID"];
+	optional int32 m_position = 2[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 m_offerexp = 3[(yd_fieldoptions.field_cname) = "提供经验值"];
+	optional int32 m_quality = 4[(yd_fieldoptions.field_cname) = "装备品质"];
+	optional int32 m_srtongup = 5[(yd_fieldoptions.field_cname) = "强化上限"];
+	repeated E_DragonsoulFlyTypeDesc m_type = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 m_flyatt = 7[(yd_fieldoptions.field_cname) = "飞升属性", (yd_fieldoptions.field_arysize) = 32];
+}
+
+
+message Sheet_DragonsoulFly
+{
+	repeated E_DragonsoulFly E_DragonsoulFly_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_DragonsoulAwakeAwakeDesc
+{
+	optional int32 m_flyaddratio = 1[(yd_fieldoptions.field_cname) = "飞升属性加成百分比"];
+	optional int32 m_lvaddratio = 2[(yd_fieldoptions.field_cname) = "升级属性加成百分比"];
+	optional int32 m_value = 3[(yd_fieldoptions.field_cname) = "属性值"];
+	optional int32 m_att = 4[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_num = 5[(yd_fieldoptions.field_cname) = "材料数量"];
+}
+
+message E_DragonsoulAwake
+{
+	optional int32 m_position = 1[(yd_fieldoptions.field_cname) = "装备部位"];
+	optional int32 m_awakeitem = 2[(yd_fieldoptions.field_cname) = "觉醒材料"];
+	optional int32 m_awaketoplimit = 3[(yd_fieldoptions.field_cname) = "觉醒上限"];
+	repeated E_DragonsoulAwakeAwakeDesc m_awake = 4[(yd_fieldoptions.field_cname) = "觉醒", (yd_fieldoptions.field_arysize) = 11];
+}
+
+
+message Sheet_DragonsoulAwake
+{
+	repeated E_DragonsoulAwake E_DragonsoulAwake_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_DragonsoulName
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_functionid = 2[(yd_fieldoptions.field_cname) = "功能id"];
+}
+
+
+message Sheet_DragonsoulName
+{
+	repeated E_DragonsoulName E_DragonsoulName_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_DragonsoulStarcollectAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_DragonsoulStarcollect
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "星数"];
+	repeated E_DragonsoulStarcollectAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_DragonsoulStarcollect
+{
+	repeated E_DragonsoulStarcollect E_DragonsoulStarcollect_List = 1[(yd_fieldoptions.field_arysize)=32];
+}

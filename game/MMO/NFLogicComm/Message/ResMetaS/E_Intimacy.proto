@@ -1,0 +1,40 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_IntimacyIntimacyAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_IntimacyIntimacy
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_intimacymin = 2[(yd_fieldoptions.field_cname) = "亲密度要求"];
+	optional int32 m_intimacymax = 3[(yd_fieldoptions.field_cname) = "亲密度要求"];
+	repeated E_IntimacyIntimacyAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_IntimacyIntimacy
+{
+	repeated E_IntimacyIntimacy E_IntimacyIntimacy_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_IntimacyGift
+{
+	optional int32 m_mallid = 1[(yd_fieldoptions.field_cname) = "商城id"];
+	optional int32 m_itemid = 2[(yd_fieldoptions.field_cname) = "道具id"];
+	optional int32 m_nametype = 3[(yd_fieldoptions.field_cname) = "名称类型"];
+	optional string m_uipic = 4[(yd_fieldoptions.field_cname) = "底框图片", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_intimacy = 5[(yd_fieldoptions.field_cname) = "亲密度"];
+	optional int32 m_charm = 6[(yd_fieldoptions.field_cname) = "魅力值"];
+}
+
+
+message Sheet_IntimacyGift
+{
+	repeated E_IntimacyGift E_IntimacyGift_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

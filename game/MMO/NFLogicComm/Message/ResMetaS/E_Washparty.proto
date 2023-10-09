@@ -1,0 +1,44 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_WashpartyWashparty
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_collectid = 2[(yd_fieldoptions.field_cname) = "采集物id"];
+	optional int32 m_collectnum = 3[(yd_fieldoptions.field_cname) = "采集次数"];
+	optional int32 m_collectposid = 4[(yd_fieldoptions.field_cname) = "采集物位置id"];
+	optional int32 m_collectgeninterval = 5[(yd_fieldoptions.field_cname) = "采集物刷新时间间隔"];
+	optional int32 m_collectmax = 6[(yd_fieldoptions.field_cname) = "采集物最大数量"];
+	optional int32 m_splashnum = 7[(yd_fieldoptions.field_cname) = "泼水次数"];
+	optional int32 m_splashreward = 8[(yd_fieldoptions.field_cname) = "泼水奖励id"];
+	optional int32 m_massagenum = 9[(yd_fieldoptions.field_cname) = "按摩次数"];
+	optional int32 m_massagetime = 10[(yd_fieldoptions.field_cname) = "按摩时长"];
+	optional int32 m_massagereward = 11[(yd_fieldoptions.field_cname) = "按摩奖励id"];
+	optional int32 m_pairexpaddition = 12[(yd_fieldoptions.field_cname) = "双修时经验加成"];
+	optional int32 m_mapid = 13[(yd_fieldoptions.field_cname) = "所在地图id"];
+	optional int32 m_duration = 14[(yd_fieldoptions.field_cname) = "持续时间"];
+	optional int32 m_expaddinterval = 15[(yd_fieldoptions.field_cname) = "多少秒获得一次经验"];
+	optional int32 m_splashsi = 16[(yd_fieldoptions.field_cname) = "泼水技能ID"];
+	optional int32 m_birthareaid = 17[(yd_fieldoptions.field_cname) = "出生区域"];
+	optional int32 m_actid = 18[(yd_fieldoptions.field_cname) = "活动ID"];
+}
+
+
+message Sheet_WashpartyWashparty
+{
+	repeated E_WashpartyWashparty E_WashpartyWashparty_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_WashpartyExp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_washexp = 2[(yd_fieldoptions.field_cname) = "泡澡经验"];
+}
+
+
+message Sheet_WashpartyExp
+{
+	repeated E_WashpartyExp E_WashpartyExp_List = 1[(yd_fieldoptions.field_arysize)=512];
+}

@@ -1,0 +1,54 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_XiuzhenworldConstantTimeitemDesc
+{
+	optional int32 m_time = 1[(yd_fieldoptions.field_cname) = "时间"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_XiuzhenworldConstantTypeDesc
+{
+	optional string m_num = 1[(yd_fieldoptions.field_cname) = "值", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XiuzhenworldConstant
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional string m_freetimemoment = 2[(yd_fieldoptions.field_cname) = "获得免费时间的时间点", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_freetime = 3[(yd_fieldoptions.field_cname) = "每次获得的时间"];
+	optional int32 m_freetimemax = 4[(yd_fieldoptions.field_cname) = "免费时间上限"];
+	optional int32 m_helpid = 5[(yd_fieldoptions.field_cname) = "帮助信息"];
+	optional int32 m_addgexpmax = 6[(yd_fieldoptions.field_cname) = "神元经验上限"];
+	optional int32 m_pripricetype = 7[(yd_fieldoptions.field_cname) = "特权价格类型"];
+	optional int32 m_pricevalue = 8[(yd_fieldoptions.field_cname) = "特权价格"];
+	optional int32 m_gexppribonus = 9[(yd_fieldoptions.field_cname) = "特权神元经验加成"];
+	optional int32 m_gexpgroupbonus = 10[(yd_fieldoptions.field_cname) = "组队加成"];
+	optional int32 m_mapstart = 11[(yd_fieldoptions.field_cname) = "地图开始"];
+	optional int32 m_mapend = 12[(yd_fieldoptions.field_cname) = "地图结束"];
+	optional int32 m_expitemid = 13[(yd_fieldoptions.field_cname) = "经验的物品ID"];
+	repeated E_XiuzhenworldConstantTimeitemDesc m_timeitem = 14[(yd_fieldoptions.field_cname) = "时间道具", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_XiuzhenworldConstantTypeDesc m_type = 15[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_XiuzhenworldConstant
+{
+	repeated E_XiuzhenworldConstant E_XiuzhenworldConstant_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_XiuzhenworldExpmap
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_conditionglv = 2[(yd_fieldoptions.field_cname) = "进入转生要求"];
+	optional int32 m_mapid = 3[(yd_fieldoptions.field_cname) = "地图id"];
+}
+
+
+message Sheet_XiuzhenworldExpmap
+{
+	repeated E_XiuzhenworldExpmap E_XiuzhenworldExpmap_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

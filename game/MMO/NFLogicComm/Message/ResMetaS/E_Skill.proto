@@ -1,0 +1,234 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_SkillBuff
+{
+	optional int64 m_buffid = 1[(yd_fieldoptions.field_cname) = "附加buffid"];
+	optional string m_buffname = 2[(yd_fieldoptions.field_cname) = "buff名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_bufficon = 3[(yd_fieldoptions.field_cname) = "buff图标", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_effectresources = 4[(yd_fieldoptions.field_cname) = "特效路径", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_showtpye = 5[(yd_fieldoptions.field_cname) = "显示类型"];
+	optional int32 m_startprobability = 6[(yd_fieldoptions.field_cname) = "生效概率"];
+	optional int32 m_probability_up = 7[(yd_fieldoptions.field_cname) = "概率成长系数ID"];
+	optional int32 m_starttype = 8[(yd_fieldoptions.field_cname) = "生效条件"];
+	optional string m_starttypevalue = 9[(yd_fieldoptions.field_cname) = "生效条件参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_endtype = 10[(yd_fieldoptions.field_cname) = "常规结束条件"];
+	optional string m_endtypevalue = 11[(yd_fieldoptions.field_cname) = "结束条件参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_endtypea = 12[(yd_fieldoptions.field_cname) = "额外结束条件A"];
+	optional string m_endtypevaluea = 13[(yd_fieldoptions.field_cname) = "额外结束条件参数A", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_endtypeb = 14[(yd_fieldoptions.field_cname) = "额外结束条件B"];
+	optional string m_endtypevalueb = 15[(yd_fieldoptions.field_cname) = "额外结束条件参数B", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_group = 16[(yd_fieldoptions.field_cname) = "buff组"];
+	optional string m_buffrule = 17[(yd_fieldoptions.field_cname) = "同一状态组叠加规则", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_immune = 18[(yd_fieldoptions.field_cname) = "免疫的组id", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_dispel = 19[(yd_fieldoptions.field_cname) = "驱散的组id", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_buffcd = 20[(yd_fieldoptions.field_cname) = "buff冷却"];
+	optional int32 m_effect_time = 21[(yd_fieldoptions.field_cname) = "buff时间"];
+	optional int32 m_effect_type = 22[(yd_fieldoptions.field_cname) = "效果类型"];
+	optional string m_effect_param = 23[(yd_fieldoptions.field_cname) = "效果参数", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_effect_up = 24[(yd_fieldoptions.field_cname) = "成长系数ID"];
+}
+
+
+message Sheet_SkillBuff
+{
+	repeated E_SkillBuff E_SkillBuff_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_SkillBuffup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id序号"];
+	optional int32 m_addstartprobability = 2[(yd_fieldoptions.field_cname) = "概率成长值"];
+	optional int32 m_attributeid = 3[(yd_fieldoptions.field_cname) = "属性类型"];
+	optional int32 m_parama = 4[(yd_fieldoptions.field_cname) = "成长值"];
+}
+
+
+message Sheet_SkillBuffup
+{
+	repeated E_SkillBuffup E_SkillBuffup_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_SkillSkillBuffDesc
+{
+	optional int32 m_target = 1[(yd_fieldoptions.field_cname) = "归属"];
+	optional int32 m_point = 2[(yd_fieldoptions.field_cname) = "生效点"];
+	optional int64 m_id = 3[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_SkillSkillAwakebuffDesc
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_SkillSkillAdvancetype1buffDesc
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_SkillSkillAdvancetype2buffDesc
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_SkillSkillAdvancetype3buffDesc
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+}
+
+message E_SkillSkill
+{
+	optional int64 m_skillid = 1[(yd_fieldoptions.field_cname) = "技能id"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_skilltype = 3[(yd_fieldoptions.field_cname) = "技能类型"];
+	optional int32 m_group = 4[(yd_fieldoptions.field_cname) = "技能组"];
+	optional int32 m_position = 5[(yd_fieldoptions.field_cname) = "技能位置"];
+	optional int32 m_displacetime = 6[(yd_fieldoptions.field_cname) = "位移开始时间点"];
+	optional int32 m_displacesign = 7[(yd_fieldoptions.field_cname) = "位移正负标记"];
+	optional string m_displacespeed = 8[(yd_fieldoptions.field_cname) = "位移速度", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_distimes = 9[(yd_fieldoptions.field_cname) = "位移时间", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_targetdisplacetime = 10[(yd_fieldoptions.field_cname) = "目标位移开始时间点"];
+	optional int32 m_targetdisplacesign = 11[(yd_fieldoptions.field_cname) = "目标位移正负标记"];
+	optional string m_targetdisplacespeed = 12[(yd_fieldoptions.field_cname) = "目标位移速度", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_targetdistimes = 13[(yd_fieldoptions.field_cname) = "目标位移时间", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_breaktype = 14[(yd_fieldoptions.field_cname) = "打断类型"];
+	optional int32 m_cdskill = 15[(yd_fieldoptions.field_cname) = "CD能否减少"];
+	optional int64 m_relation = 16[(yd_fieldoptions.field_cname) = "普攻关联"];
+	optional string m_unlockcondition = 17[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_type = 18[(yd_fieldoptions.field_cname) = "目标类型"];
+	optional int32 m_cd = 19[(yd_fieldoptions.field_cname) = "cd"];
+	optional int32 m_nolock = 20[(yd_fieldoptions.field_cname) = "是否锁定"];
+	optional int32 m_priority = 21[(yd_fieldoptions.field_cname) = "挂机使用优先级"];
+	optional int32 m_fighting = 22[(yd_fieldoptions.field_cname) = "初始战斗力"];
+	optional float m_fightingparama = 23[(yd_fieldoptions.field_cname) = "战斗力成长系数"];
+	optional int32 m_releasetype = 24[(yd_fieldoptions.field_cname) = "释放类型"];
+	optional int32 m_processtypes = 25[(yd_fieldoptions.field_cname) = "过程类型"];
+	optional string m_releasetime = 26[(yd_fieldoptions.field_cname) = "第几次释放", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_flyspeed = 27[(yd_fieldoptions.field_cname) = "飞行速度"];
+	optional int32 m_acttime = 28[(yd_fieldoptions.field_cname) = "动作总时间"];
+	optional int32 m_readytime = 29[(yd_fieldoptions.field_cname) = "攻击特效延迟时间"];
+	optional int32 m_readytimeex = 30[(yd_fieldoptions.field_cname) = "攻击特效延迟时间ex"];
+	optional int32 m_attacktime = 31[(yd_fieldoptions.field_cname) = "攻击总时间"];
+	optional string m_damagetime = 32[(yd_fieldoptions.field_cname) = "伤害生效时间点", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_damagetimeex = 33[(yd_fieldoptions.field_cname) = "伤害生效时间点ex", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_attackdistance = 34[(yd_fieldoptions.field_cname) = "攻击距离"];
+	optional int32 m_rangetype = 35[(yd_fieldoptions.field_cname) = "范围类型"];
+	optional string m_rangetypevalue = 36[(yd_fieldoptions.field_cname) = "范围类型值", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_rangetypeex = 37[(yd_fieldoptions.field_cname) = "范围类型ex"];
+	optional string m_rangetypevalueex = 38[(yd_fieldoptions.field_cname) = "范围类型值ex", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_warn = 39[(yd_fieldoptions.field_cname) = "预警id"];
+	optional int32 m_dazetime = 40[(yd_fieldoptions.field_cname) = "发呆时间"];
+	optional int32 m_warntime = 41[(yd_fieldoptions.field_cname) = "预警时间"];
+	optional string m_infomationid = 42[(yd_fieldoptions.field_cname) = "提示ID", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_attackmindistance = 43[(yd_fieldoptions.field_cname) = "攻击最小距离"];
+	optional int32 m_goalmaxnum = 44[(yd_fieldoptions.field_cname) = "目标最大数量"];
+	optional int32 m_goalmaxnummonster = 45[(yd_fieldoptions.field_cname) = "目标最大数量（怪物）"];
+	optional int32 m_damagetype = 46[(yd_fieldoptions.field_cname) = "伤害类型"];
+	optional int32 m_damagerate = 47[(yd_fieldoptions.field_cname) = "伤害倍率"];
+	optional int32 m_awakedamagerate = 48[(yd_fieldoptions.field_cname) = "觉醒后技能倍率"];
+	optional int32 m_advancetype1damagerate = 49[(yd_fieldoptions.field_cname) = "进阶火后技能倍率加成"];
+	optional int32 m_advancetype2damagerate = 50[(yd_fieldoptions.field_cname) = "进阶雷后技能倍率加成"];
+	optional int32 m_advancetype3damagerate = 51[(yd_fieldoptions.field_cname) = "进阶冰后技能倍率加成"];
+	optional int32 m_damagevalue = 52[(yd_fieldoptions.field_cname) = "附加伤害初始值"];
+	optional float m_damageparama = 53[(yd_fieldoptions.field_cname) = "伤害固定值成长系数"];
+	optional float m_damagerateparama = 54[(yd_fieldoptions.field_cname) = "伤害倍率成长系数"];
+	optional int32 m_addhitrate = 55[(yd_fieldoptions.field_cname) = "附加命中率"];
+	optional int64 m_attackbuff = 56[(yd_fieldoptions.field_cname) = "给攻击方施加的buff"];
+	optional int64 m_behitbuff = 57[(yd_fieldoptions.field_cname) = "给受击方施加的buff"];
+	repeated E_SkillSkillBuffDesc m_buff = 58[(yd_fieldoptions.field_cname) = "buff包", (yd_fieldoptions.field_arysize) = 8];
+	repeated E_SkillSkillAwakebuffDesc m_awakebuff = 59[(yd_fieldoptions.field_cname) = "觉醒buff包", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_SkillSkillAdvancetype1buffDesc m_advancetype1buff = 60[(yd_fieldoptions.field_cname) = "进阶火buff等级", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_SkillSkillAdvancetype2buffDesc m_advancetype2buff = 61[(yd_fieldoptions.field_cname) = "进阶雷buff等级", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_SkillSkillAdvancetype3buffDesc m_advancetype3buff = 62[(yd_fieldoptions.field_cname) = "进阶冰buff等级", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_SkillSkill
+{
+	repeated E_SkillSkill E_SkillSkill_List = 1[(yd_fieldoptions.field_arysize)=4096];
+}
+
+message E_SkillSkilladvance
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_profession = 2[(yd_fieldoptions.field_cname) = "职业"];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "类型"];
+	optional int32 m_advancelv = 4[(yd_fieldoptions.field_cname) = "进阶等级"];
+	optional string m_advancecondition = 5[(yd_fieldoptions.field_cname) = "进阶条件", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_skillid = 6[(yd_fieldoptions.field_cname) = "技能ID", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+
+message Sheet_SkillSkilladvance
+{
+	repeated E_SkillSkilladvance E_SkillSkilladvance_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_SkillSkillup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一id"];
+	optional int32 m_group = 2[(yd_fieldoptions.field_cname) = "组id"];
+	optional int32 m_skilllv = 3[(yd_fieldoptions.field_cname) = "技能等级"];
+	optional string m_skillids = 4[(yd_fieldoptions.field_cname) = "技能ID组", (yd_fieldoptions.field_bufsize) = 128];
+	optional int32 m_rolelv = 5[(yd_fieldoptions.field_cname) = "需求人物等级"];
+	optional int64 m_costitemid = 6[(yd_fieldoptions.field_cname) = "消耗的道具ID"];
+	optional int32 m_costnum = 7[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+
+message Sheet_SkillSkillup
+{
+	repeated E_SkillSkillup E_SkillSkillup_List = 1[(yd_fieldoptions.field_arysize)=4096];
+}
+
+message E_SkillSkillawake
+{
+	optional int32 m_skillid = 1[(yd_fieldoptions.field_cname) = "技能ID"];
+	optional int32 m_costitemid = 2[(yd_fieldoptions.field_cname) = "消耗的道具ID"];
+	optional int32 m_costnum = 3[(yd_fieldoptions.field_cname) = "道具数量"];
+}
+
+
+message Sheet_SkillSkillawake
+{
+	repeated E_SkillSkillawake E_SkillSkillawake_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_SkillSkillgroupSkillDesc
+{
+	optional int32 m_position = 1[(yd_fieldoptions.field_cname) = "位置"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_SkillSkillgroup
+{
+	optional int32 m_skillgroup = 1[(yd_fieldoptions.field_cname) = "技能组"];
+	optional string m_showskilltype = 2[(yd_fieldoptions.field_cname) = "显示技能类型", (yd_fieldoptions.field_bufsize) = 64];
+	repeated E_SkillSkillgroupSkillDesc m_skill = 3[(yd_fieldoptions.field_cname) = "技能", (yd_fieldoptions.field_arysize) = 10];
+}
+
+
+message Sheet_SkillSkillgroup
+{
+	repeated E_SkillSkillgroup E_SkillSkillgroup_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_SkillAttgroupAttributeDesc
+{
+	optional int64 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_SkillAttgroup
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	repeated E_SkillAttgroupAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 10];
+}
+
+
+message Sheet_SkillAttgroup
+{
+	repeated E_SkillAttgroup E_SkillAttgroup_List = 1[(yd_fieldoptions.field_arysize)=2];
+}

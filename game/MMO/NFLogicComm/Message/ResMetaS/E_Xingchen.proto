@@ -1,0 +1,387 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_XingchenXcsetup
+{
+	optional int32 m_xsid = 1[(yd_fieldoptions.field_cname) = "星宿id"];
+	optional int32 m_unlockdj = 2[(yd_fieldoptions.field_cname) = "解锁条件天数"];
+	optional int32 m_unlockpf = 3[(yd_fieldoptions.field_cname) = "解锁条件评分"];
+	optional int32 m_xstype = 4[(yd_fieldoptions.field_cname) = "星宿类型"];
+	optional int32 m_xssubtype = 5[(yd_fieldoptions.field_cname) = "星宿子类型"];
+}
+
+
+message Sheet_XingchenXcsetup
+{
+	repeated E_XingchenXcsetup E_XingchenXcsetup_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XingchenXcmosaic
+{
+	optional int32 m_positionnum = 1[(yd_fieldoptions.field_cname) = "部位序号"];
+	optional int32 m_positionid = 2[(yd_fieldoptions.field_cname) = "部位ID"];
+	optional int32 m_posx = 3[(yd_fieldoptions.field_cname) = "当前位置X"];
+	optional int32 m_posy = 4[(yd_fieldoptions.field_cname) = "当前位置Y"];
+	optional int32 m_next_posx = 5[(yd_fieldoptions.field_cname) = "下个位置X"];
+	optional int32 m_next_posy = 6[(yd_fieldoptions.field_cname) = "下个位置Y"];
+}
+
+
+message Sheet_XingchenXcmosaic
+{
+	repeated E_XingchenXcmosaic E_XingchenXcmosaic_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_XingchenXcmaterialQualityDesc
+{
+	optional int32 m_exp = 1[(yd_fieldoptions.field_cname) = "经验"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XingchenXcmaterial
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_materialtype = 2[(yd_fieldoptions.field_cname) = "材料类型"];
+	optional int32 m_functiontype = 3[(yd_fieldoptions.field_cname) = "功能类型"];
+	optional string m_xcposition = 4[(yd_fieldoptions.field_cname) = "星辰位置", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_itemid = 5[(yd_fieldoptions.field_cname) = "道具id"];
+	optional int32 m_itemexp = 6[(yd_fieldoptions.field_cname) = "道具经验值"];
+	repeated E_XingchenXcmaterialQualityDesc m_quality = 7[(yd_fieldoptions.field_cname) = "品质", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_XingchenXcmaterial
+{
+	repeated E_XingchenXcmaterial E_XingchenXcmaterial_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_XingchenXinchenAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XingchenXinchen
+{
+	optional int32 m_xcequip = 1[(yd_fieldoptions.field_cname) = "装备id"];
+	repeated E_XingchenXinchenAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_XingchenXinchen
+{
+	repeated E_XingchenXinchen E_XingchenXinchen_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_XingchenXclvatt
+{
+	optional int64 m_attid = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	repeated int32 m_att = 2[(yd_fieldoptions.field_cname) = "属性等级", (yd_fieldoptions.field_arysize) = 100];
+}
+
+
+message Sheet_XingchenXclvatt
+{
+	repeated E_XingchenXclvatt E_XingchenXclvatt_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_XingchenXclvexp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "升级所需经验"];
+}
+
+
+message Sheet_XingchenXclvexp
+{
+	repeated E_XingchenXclvexp E_XingchenXclvexp_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_XingchenXctpTpDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XingchenXctp
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_positionid = 2[(yd_fieldoptions.field_cname) = "部位ID"];
+	optional int32 m_xcquality = 3[(yd_fieldoptions.field_cname) = "星辰品质"];
+	optional int32 m_xclvmax = 4[(yd_fieldoptions.field_cname) = "突破上限"];
+	repeated E_XingchenXctpTpDesc m_tp = 5[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated int32 m_attr = 6[(yd_fieldoptions.field_cname) = "突破属性", (yd_fieldoptions.field_arysize) = 20];
+}
+
+
+message Sheet_XingchenXctp
+{
+	repeated E_XingchenXctp E_XingchenXctp_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XingchenXctpexp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "下个等级"];
+	optional string m_lvdisplay = 2[(yd_fieldoptions.field_cname) = "等级显示", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_exp = 3[(yd_fieldoptions.field_cname) = "突破所需经验"];
+}
+
+
+message Sheet_XingchenXctpexp
+{
+	repeated E_XingchenXctpexp E_XingchenXctpexp_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XingchenXctpaddi
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	optional int64 m_attid = 2[(yd_fieldoptions.field_cname) = "属性id"];
+	optional int32 m_count = 3[(yd_fieldoptions.field_cname) = "计算方式"];
+	optional int32 m_atttype = 4[(yd_fieldoptions.field_cname) = "属性类型"];
+	optional int32 m_att = 5[(yd_fieldoptions.field_cname) = "属性突破"];
+}
+
+
+message Sheet_XingchenXctpaddi
+{
+	repeated E_XingchenXctpaddi E_XingchenXctpaddi_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_XingchenXctpatt
+{
+	optional int64 m_attid = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	repeated int32 m_att = 2[(yd_fieldoptions.field_cname) = "属性等级", (yd_fieldoptions.field_arysize) = 16];
+}
+
+
+message Sheet_XingchenXctpatt
+{
+	repeated E_XingchenXctpatt E_XingchenXctpatt_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_XingchenXcstarAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_XingchenXcstar
+{
+	optional int32 m_starlv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "星数"];
+	repeated E_XingchenXcstarAttributeDesc m_attribute = 3[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_XingchenXcstar
+{
+	repeated E_XingchenXcstar E_XingchenXcstar_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_XingchenXcawakenAwakenDesc
+{
+	optional int32 m_tpaddratio = 1[(yd_fieldoptions.field_cname) = "突破属性加成百分比"];
+	optional int32 m_lvaddratio = 2[(yd_fieldoptions.field_cname) = "升级属性加成百分比"];
+	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "材料数量"];
+}
+
+message E_XingchenXcawaken
+{
+	optional int32 m_positionnum = 1[(yd_fieldoptions.field_cname) = "部位序号"];
+	optional int32 m_positionid = 2[(yd_fieldoptions.field_cname) = "部位ID"];
+	optional int32 m_awaken_quality = 3[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_awaken_lvmax = 4[(yd_fieldoptions.field_cname) = "觉醒上限"];
+	optional int32 m_awaken_item = 5[(yd_fieldoptions.field_cname) = "觉醒材料"];
+	repeated E_XingchenXcawakenAwakenDesc m_awaken = 6[(yd_fieldoptions.field_cname) = "觉醒", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_XingchenXcawaken
+{
+	repeated E_XingchenXcawaken E_XingchenXcawaken_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XingchenXcmagicalHhDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XingchenXcmagical
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_hhquality = 2[(yd_fieldoptions.field_cname) = "品质"];
+	optional int32 m_isadvanced = 3[(yd_fieldoptions.field_cname) = "是否可进阶"];
+	optional int32 m_hhact = 4[(yd_fieldoptions.field_cname) = "激活消耗"];
+	optional int32 m_hhstar = 5[(yd_fieldoptions.field_cname) = "升星消耗"];
+	optional int32 m_advskill = 6[(yd_fieldoptions.field_cname) = "进阶组"];
+	repeated E_XingchenXcmagicalHhDesc m_hh = 7[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_XingchenXcmagical
+{
+	repeated E_XingchenXcmagical E_XingchenXcmagical_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XingchenXcmagatt
+{
+	optional int64 m_attid = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	repeated int32 m_att = 2[(yd_fieldoptions.field_cname) = "属性等级", (yd_fieldoptions.field_arysize) = 11];
+}
+
+
+message Sheet_XingchenXcmagatt
+{
+	repeated E_XingchenXcmagatt E_XingchenXcmagatt_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
+
+message E_XingchenXcadvattUpattributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_XingchenXcadvatt
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "唯一ID"];
+	optional int64 m_upattributeid = 2[(yd_fieldoptions.field_cname) = "进阶属性组ID"];
+	optional int32 m_classlv = 3[(yd_fieldoptions.field_cname) = "阶级等级"];
+	optional int32 m_starid = 4[(yd_fieldoptions.field_cname) = "星级"];
+	optional int32 m_skillid = 5[(yd_fieldoptions.field_cname) = "技能id"];
+	optional int32 m_activeskillidlv = 6[(yd_fieldoptions.field_cname) = "技能等级"];
+	repeated E_XingchenXcadvattUpattributeDesc m_upattribute = 7[(yd_fieldoptions.field_cname) = "激活属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_XingchenXcadvatt
+{
+	repeated E_XingchenXcadvatt E_XingchenXcadvatt_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_XingchenXcguizhenXxDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XingchenXcguizhenGzDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "属性"];
+}
+
+message E_XingchenXcguizhen
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_xsid = 2[(yd_fieldoptions.field_cname) = "星宿id"];
+	optional int32 m_gzquality = 3[(yd_fieldoptions.field_cname) = "激活所需品质"];
+	optional int32 m_gznum = 4[(yd_fieldoptions.field_cname) = "激活所需数量"];
+	optional int32 m_gzxh = 5[(yd_fieldoptions.field_cname) = "归真消耗"];
+	repeated E_XingchenXcguizhenXxDesc m_xx = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 8];
+	repeated E_XingchenXcguizhenGzDesc m_gz = 7[(yd_fieldoptions.field_cname) = "归真", (yd_fieldoptions.field_arysize) = 8];
+}
+
+
+message Sheet_XingchenXcguizhen
+{
+	repeated E_XingchenXcguizhen E_XingchenXcguizhen_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XingchenXingjunActDesc
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "ID"];
+	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "所需数量"];
+}
+
+message E_XingchenXingjun
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_xstype = 2[(yd_fieldoptions.field_cname) = "星宿类型"];
+	optional int32 m_xjquality = 3[(yd_fieldoptions.field_cname) = "激活所需品质"];
+	repeated E_XingchenXingjunActDesc m_act = 4[(yd_fieldoptions.field_cname) = "激活", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_XingchenXingjun
+{
+	repeated E_XingchenXingjun E_XingchenXingjun_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_XingchenXjattXjDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "类型"];
+}
+
+message E_XingchenXjatt
+{
+	optional int64 m_attid = 1[(yd_fieldoptions.field_cname) = "属性组id"];
+	repeated E_XingchenXjattXjDesc m_xj = 2[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_XingchenXjatt
+{
+	repeated E_XingchenXjatt E_XingchenXjatt_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XingchenXingji
+{
+	optional int32 m_xjid = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_xjclass = 2[(yd_fieldoptions.field_cname) = "星技分类"];
+	optional int32 m_xjskill = 3[(yd_fieldoptions.field_cname) = "星技技能"];
+	optional int32 m_skillid = 4[(yd_fieldoptions.field_cname) = "技能id"];
+	repeated int32 m_unlock = 5[(yd_fieldoptions.field_cname) = "解锁条件", (yd_fieldoptions.field_arysize) = 3];
+	repeated int32 m_unlocklv = 6[(yd_fieldoptions.field_cname) = "解锁技能等级", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_XingchenXingji
+{
+	repeated E_XingchenXingji E_XingchenXingji_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_XingchenXjcw
+{
+	optional int32 m_xjslot = 1[(yd_fieldoptions.field_cname) = "星技槽位"];
+	optional int32 m_unlock = 2[(yd_fieldoptions.field_cname) = "解锁货币"];
+	optional int32 m_num = 3[(yd_fieldoptions.field_cname) = "消耗数量"];
+}
+
+
+message Sheet_XingchenXjcw
+{
+	repeated E_XingchenXjcw E_XingchenXjcw_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_XingchenXjlvexp
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_exp = 2[(yd_fieldoptions.field_cname) = "升级所需货币"];
+	optional int32 m_time = 3[(yd_fieldoptions.field_cname) = "时间"];
+}
+
+
+message Sheet_XingchenXjlvexp
+{
+	repeated E_XingchenXjlvexp E_XingchenXjlvexp_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_XingchenZbshop
+{
+	optional int32 m_shopid = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_shopitem = 2[(yd_fieldoptions.field_cname) = "物品ID"];
+	optional int32 m_shopquota = 3[(yd_fieldoptions.field_cname) = "限购"];
+	optional int32 m_shopnum = 4[(yd_fieldoptions.field_cname) = "可购买次数"];
+	optional int32 m_buyconsume = 5[(yd_fieldoptions.field_cname) = "消耗道具"];
+	optional int32 m_buynum = 6[(yd_fieldoptions.field_cname) = "消耗数量"];
+}
+
+
+message Sheet_XingchenZbshop
+{
+	repeated E_XingchenZbshop E_XingchenZbshop_List = 1[(yd_fieldoptions.field_arysize)=16];
+}

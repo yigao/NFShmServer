@@ -1,0 +1,16 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_TasktrackerTasktracker
+{
+	optional int32 m_comid = 1[(yd_fieldoptions.field_cname) = "完成条件类型ID"];
+	optional int32 m_trueid = 2[(yd_fieldoptions.field_cname) = "实际完成条件类型ID"];
+}
+
+
+message Sheet_TasktrackerTasktracker
+{
+	repeated E_TasktrackerTasktracker E_TasktrackerTasktracker_List = 1[(yd_fieldoptions.field_arysize)=64];
+}

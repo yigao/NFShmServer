@@ -1,0 +1,84 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_EscortEscort
+{
+	optional int32 m_convoyid = 1[(yd_fieldoptions.field_cname) = "镖车ID"];
+	optional string m_convoyname = 2[(yd_fieldoptions.field_cname) = "物资车名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_monsterid = 3[(yd_fieldoptions.field_cname) = "物资车ID"];
+	optional string m_scalle = 4[(yd_fieldoptions.field_cname) = "大小与y轴朝向", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_convoylevel = 5[(yd_fieldoptions.field_cname) = "镖车等级"];
+	optional int32 m_chance = 6[(yd_fieldoptions.field_cname) = "默认获得权重"];
+	optional int32 m_rewardlvmultiply = 7[(yd_fieldoptions.field_cname) = "基础经验倍率"];
+}
+
+
+message Sheet_EscortEscort
+{
+	repeated E_EscortEscort E_EscortEscort_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_EscortChanceEscortDesc
+{
+	optional int32 m_chance = 1[(yd_fieldoptions.field_cname) = "权重"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_EscortChance
+{
+	optional int32 m_convoyid = 1[(yd_fieldoptions.field_cname) = "镖车ID"];
+	repeated E_EscortChanceEscortDesc m_escort = 2[(yd_fieldoptions.field_cname) = "镖车", (yd_fieldoptions.field_arysize) = 4];
+}
+
+
+message Sheet_EscortChance
+{
+	repeated E_EscortChance E_EscortChance_List = 1[(yd_fieldoptions.field_arysize)=4];
+}
+
+message E_EscortRewardRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "物品"];
+	optional int32 m_id = 3[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_EscortReward
+{
+	optional int32 m_lv = 1[(yd_fieldoptions.field_cname) = "角色等级"];
+	optional int64 m_exp = 2[(yd_fieldoptions.field_cname) = "物资车奖励经验"];
+	repeated E_EscortRewardRewardDesc m_reward = 3[(yd_fieldoptions.field_cname) = "镖车奖励", (yd_fieldoptions.field_arysize) = 12];
+}
+
+
+message Sheet_EscortReward
+{
+	repeated E_EscortReward E_EscortReward_List = 1[(yd_fieldoptions.field_arysize)=2048];
+}
+
+message E_EscortConst
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_tokenid = 2[(yd_fieldoptions.field_cname) = "护送令商品id"];
+	optional int32 m_tokennumber = 3[(yd_fieldoptions.field_cname) = "物资卷轴数量"];
+	optional int32 m_daytime = 4[(yd_fieldoptions.field_cname) = "每日次数"];
+	optional int32 m_freenum = 5[(yd_fieldoptions.field_cname) = "免费次数"];
+	optional int32 m_mapid = 6[(yd_fieldoptions.field_cname) = "地图ID"];
+	optional int32 m_startnpcid = 7[(yd_fieldoptions.field_cname) = "开始任务npcID"];
+	optional int32 m_startnpcpointid = 8[(yd_fieldoptions.field_cname) = "开始任务npc坐标点"];
+	optional int32 m_overnpcid = 9[(yd_fieldoptions.field_cname) = "完成任务npcID"];
+	optional int32 m_activityid = 10[(yd_fieldoptions.field_cname) = "活动信息id"];
+	optional int32 m_taskid = 11[(yd_fieldoptions.field_cname) = "任务id"];
+	optional int32 m_distancea = 12[(yd_fieldoptions.field_cname) = "最大距离"];
+	optional int32 m_distanceb = 13[(yd_fieldoptions.field_cname) = "跟进距离"];
+	optional int32 m_distancec = 14[(yd_fieldoptions.field_cname) = "最近距离"];
+	optional int32 m_timelimit = 15[(yd_fieldoptions.field_cname) = "任务时间限制"];
+}
+
+
+message Sheet_EscortConst
+{
+	repeated E_EscortConst E_EscortConst_List = 1[(yd_fieldoptions.field_arysize)=8];
+}

@@ -1,0 +1,424 @@
+package proto_ff;
+
+import "yd_fieldoptions.proto";
+
+
+message E_ShentiConstantTimeDesc
+{
+	optional string m_close = 1[(yd_fieldoptions.field_cname) = "结束时间", (yd_fieldoptions.field_bufsize) = 64];
+	optional string m_open = 2[(yd_fieldoptions.field_cname) = "开启时间", (yd_fieldoptions.field_bufsize) = 64];
+}
+
+message E_ShentiConstant
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lvlimit = 2[(yd_fieldoptions.field_cname) = "助阵等级要求"];
+	optional int32 m_remanietimes = 3[(yd_fieldoptions.field_cname) = "每天免费转生次数"];
+	optional int32 m_currencyid = 4[(yd_fieldoptions.field_cname) = "消耗货币id"];
+	optional int32 m_currencynum = 5[(yd_fieldoptions.field_cname) = "消耗货币数量"];
+	optional int32 m_currencytimes = 6[(yd_fieldoptions.field_cname) = "最大使用货币转生次数"];
+	optional int32 m_baglimit = 7[(yd_fieldoptions.field_cname) = "神体背包上限"];
+	optional int32 m_itemid = 8[(yd_fieldoptions.field_cname) = "神元经验道具id"];
+	repeated E_ShentiConstantTimeDesc m_time = 9[(yd_fieldoptions.field_cname) = "天时时间段", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_ShentiConstant
+{
+	repeated E_ShentiConstant E_ShentiConstant_List = 1[(yd_fieldoptions.field_arysize)=2];
+}
+
+message E_ShentiPreposeRewardDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_item = 2[(yd_fieldoptions.field_cname) = "道具"];
+}
+
+message E_ShentiPrepose
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_condition = 2[(yd_fieldoptions.field_cname) = "条件"];
+	optional int32 m_value = 3[(yd_fieldoptions.field_cname) = "条件值"];
+	repeated E_ShentiPreposeRewardDesc m_reward = 4[(yd_fieldoptions.field_cname) = "奖励", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ShentiPrepose
+{
+	repeated E_ShentiPrepose E_ShentiPrepose_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_ShentiUpgradeAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_ShentiUpgrade
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "等级"];
+	optional int32 m_changelv = 3[(yd_fieldoptions.field_cname) = "转生等级"];
+	optional int64 m_exp = 4[(yd_fieldoptions.field_cname) = "下级所需神元"];
+	optional int64 m_explimit = 5[(yd_fieldoptions.field_cname) = "神元储存上限"];
+	repeated E_ShentiUpgradeAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_ShentiUpgrade
+{
+	repeated E_ShentiUpgrade E_ShentiUpgrade_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_ShentiRemanieAttrDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = "ID"];
+}
+
+message E_ShentiRemanie
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "转生等级"];
+	optional int32 m_remanielv = 2[(yd_fieldoptions.field_cname) = "转生等级要求"];
+	optional int32 m_lv = 3[(yd_fieldoptions.field_cname) = "等级要求"];
+	optional int32 m_tiansuccess = 4[(yd_fieldoptions.field_cname) = "天时增加成功率"];
+	optional int32 m_disuccess = 5[(yd_fieldoptions.field_cname) = "地利初始成功率"];
+	optional int32 m_losesuccess = 6[(yd_fieldoptions.field_cname) = "地利失败提升成功率"];
+	optional int32 m_rensuccess = 7[(yd_fieldoptions.field_cname) = "人和提升成功率"];
+	optional int32 m_rensuccesslimit = 8[(yd_fieldoptions.field_cname) = "人和成功率上限"];
+	optional int32 m_reward = 9[(yd_fieldoptions.field_cname) = "转生奖励"];
+	repeated E_ShentiRemanieAttrDesc m_attr = 10[(yd_fieldoptions.field_cname) = "转生属性", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_ShentiRemanie
+{
+	repeated E_ShentiRemanie E_ShentiRemanie_List = 1[(yd_fieldoptions.field_arysize)=8];
+}
+
+message E_ShentiEquip
+{
+	optional int64 m_id = 1[(yd_fieldoptions.field_cname) = "装备ID"];
+	optional string m_name = 2[(yd_fieldoptions.field_cname) = "装备名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_type = 3[(yd_fieldoptions.field_cname) = "装备大类"];
+	optional int32 m_remanielv = 4[(yd_fieldoptions.field_cname) = "装备转生"];
+	optional int32 m_position = 5[(yd_fieldoptions.field_cname) = "装备位置"];
+	optional string m_profession = 6[(yd_fieldoptions.field_cname) = "职业限制", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_professionlv = 7[(yd_fieldoptions.field_cname) = "转职等级"];
+	optional int32 m_quality = 8[(yd_fieldoptions.field_cname) = "装备品质"];
+	optional int32 m_attributeid = 9[(yd_fieldoptions.field_cname) = "属性ID"];
+	optional int32 m_suitgroup = 10[(yd_fieldoptions.field_cname) = "套装组"];
+	optional int32 m_stargroup = 11[(yd_fieldoptions.field_cname) = "随机星级属性组"];
+	optional int32 m_iscanbind = 12[(yd_fieldoptions.field_cname) = "是否绑定"];
+	optional int32 m_istradebind = 13[(yd_fieldoptions.field_cname) = "是否交易绑定"];
+	optional int32 m_sellprice = 14[(yd_fieldoptions.field_cname) = "出售价格"];
+	optional string m_icon = 15[(yd_fieldoptions.field_cname) = "装备图标名", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_broadcast = 16[(yd_fieldoptions.field_cname) = "是否播放跑马灯"];
+}
+
+
+message Sheet_ShentiEquip
+{
+	repeated E_ShentiEquip E_ShentiEquip_List = 1[(yd_fieldoptions.field_arysize)=1024];
+}
+
+message E_ShentiAttributeAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiAttributeXpcomDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiAttributeXpstarDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiAttributeGodDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiAttributeSpecialDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiAttribute
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "属性ID"];
+	repeated E_ShentiAttributeAttributeDesc m_attribute = 2[(yd_fieldoptions.field_cname) = "基础属性", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_ShentiAttributeXpcomDesc m_xpcom = 3[(yd_fieldoptions.field_cname) = "星级属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_ShentiAttributeXpstarDesc m_xpstar = 4[(yd_fieldoptions.field_cname) = "特殊星级属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_ShentiAttributeGodDesc m_god = 5[(yd_fieldoptions.field_cname) = "神装属性", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_ShentiAttributeSpecialDesc m_special = 6[(yd_fieldoptions.field_cname) = "特殊属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ShentiAttribute
+{
+	repeated E_ShentiAttribute E_ShentiAttribute_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_ShentiStrongMaterialDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiStrongAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+}
+
+message E_ShentiStrong
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_lv = 2[(yd_fieldoptions.field_cname) = "强化等级"];
+	optional string m_position = 3[(yd_fieldoptions.field_cname) = "强化部位", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_remanielv = 4[(yd_fieldoptions.field_cname) = "装备转生"];
+	repeated E_ShentiStrongMaterialDesc m_material = 5[(yd_fieldoptions.field_cname) = "强化材料", (yd_fieldoptions.field_arysize) = 3];
+	repeated E_ShentiStrongAttributeDesc m_attribute = 6[(yd_fieldoptions.field_cname) = "强化属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ShentiStrong
+{
+	repeated E_ShentiStrong E_ShentiStrong_List = 1[(yd_fieldoptions.field_arysize)=512];
+}
+
+message E_ShentiEvolveAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiEvolveXpcomDesc
+{
+	optional int32 m_weight = 1[(yd_fieldoptions.field_cname) = "权重"];
+}
+
+message E_ShentiEvolveXpstarDesc
+{
+	optional int32 m_weight = 1[(yd_fieldoptions.field_cname) = "权重"];
+}
+
+message E_ShentiEvolve
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_evolvelv = 2[(yd_fieldoptions.field_cname) = "进化等级"];
+	optional string m_position = 3[(yd_fieldoptions.field_cname) = "进化部位", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_remanielv = 4[(yd_fieldoptions.field_cname) = "装备转生"];
+	optional int32 m_need_quality = 5[(yd_fieldoptions.field_cname) = "装备品质要求"];
+	optional int32 m_need_star = 6[(yd_fieldoptions.field_cname) = "装备星级要求"];
+	optional int32 m_material_id = 7[(yd_fieldoptions.field_cname) = "进化材料"];
+	optional int32 m_material_num = 8[(yd_fieldoptions.field_cname) = "进化材料数量"];
+	optional int32 m_mallid = 9[(yd_fieldoptions.field_cname) = "商品ID"];
+	optional int32 m_initialvalue = 10[(yd_fieldoptions.field_cname) = "进化初始值"];
+	optional int32 m_specialstar = 11[(yd_fieldoptions.field_cname) = "是否为特殊星级属性"];
+	repeated E_ShentiEvolveAttributeDesc m_attribute = 12[(yd_fieldoptions.field_cname) = "进化属性", (yd_fieldoptions.field_arysize) = 5];
+	repeated E_ShentiEvolveXpcomDesc m_xpcom = 13[(yd_fieldoptions.field_cname) = "星级属性随机库", (yd_fieldoptions.field_arysize) = 7];
+	repeated E_ShentiEvolveXpstarDesc m_xpstar = 14[(yd_fieldoptions.field_cname) = "特殊星级属性随机库", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_ShentiEvolve
+{
+	repeated E_ShentiEvolve E_ShentiEvolve_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_ShentiEvolveprogress
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_evolvelv = 2[(yd_fieldoptions.field_cname) = "进化等级"];
+	optional int32 m_remanielv = 3[(yd_fieldoptions.field_cname) = "装备转生"];
+	optional int32 m_equipquality = 4[(yd_fieldoptions.field_cname) = "材料装备品质"];
+	optional int32 m_equipstar = 5[(yd_fieldoptions.field_cname) = "材料装备星级"];
+	repeated int32 m_evolve = 6[(yd_fieldoptions.field_cname) = "完美度", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_ShentiEvolveprogress
+{
+	repeated E_ShentiEvolveprogress E_ShentiEvolveprogress_List = 1[(yd_fieldoptions.field_arysize)=256];
+}
+
+message E_ShentiStarlibraryXpcomDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiStarlibraryXpstarDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiStarlibrary
+{
+	optional int32 m_stargroup = 1[(yd_fieldoptions.field_cname) = "随机星级属性组"];
+	repeated E_ShentiStarlibraryXpcomDesc m_xpcom = 2[(yd_fieldoptions.field_cname) = "星级属性", (yd_fieldoptions.field_arysize) = 7];
+	repeated E_ShentiStarlibraryXpstarDesc m_xpstar = 3[(yd_fieldoptions.field_cname) = "特殊星级属性", (yd_fieldoptions.field_arysize) = 7];
+}
+
+
+message Sheet_ShentiStarlibrary
+{
+	repeated E_ShentiStarlibrary E_ShentiStarlibrary_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_ShentiAwakenAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiAwakenAfflatusattDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiAwaken
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_awakenlv = 2[(yd_fieldoptions.field_cname) = "觉醒等级"];
+	optional string m_position = 3[(yd_fieldoptions.field_cname) = "觉醒部位", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_remanielv = 4[(yd_fieldoptions.field_cname) = "装备转生"];
+	optional int32 m_need_quality = 5[(yd_fieldoptions.field_cname) = "装备品质要求"];
+	optional int32 m_need_star = 6[(yd_fieldoptions.field_cname) = "装备星级要求"];
+	optional int32 m_material_id = 7[(yd_fieldoptions.field_cname) = "觉醒材料"];
+	optional int32 m_material_num = 8[(yd_fieldoptions.field_cname) = "觉醒材料数量"];
+	optional int32 m_mallid = 9[(yd_fieldoptions.field_cname) = "商品ID"];
+	optional int32 m_initialvalue = 10[(yd_fieldoptions.field_cname) = "觉醒初始值"];
+	repeated E_ShentiAwakenAttributeDesc m_attribute = 11[(yd_fieldoptions.field_cname) = "觉醒属性", (yd_fieldoptions.field_arysize) = 4];
+	repeated E_ShentiAwakenAfflatusattDesc m_afflatusatt = 12[(yd_fieldoptions.field_cname) = "神悟属性", (yd_fieldoptions.field_arysize) = 3];
+}
+
+
+message Sheet_ShentiAwaken
+{
+	repeated E_ShentiAwaken E_ShentiAwaken_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_ShentiAwakenprogress
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_awakenlv = 2[(yd_fieldoptions.field_cname) = "觉醒等级"];
+	optional int32 m_remanielv = 3[(yd_fieldoptions.field_cname) = "装备转生"];
+	optional int32 m_equipquality = 4[(yd_fieldoptions.field_cname) = "材料装备品质"];
+	optional int32 m_equipstar = 5[(yd_fieldoptions.field_cname) = "材料装备星级"];
+	repeated int32 m_awaken = 6[(yd_fieldoptions.field_cname) = "觉醒度", (yd_fieldoptions.field_arysize) = 6];
+}
+
+
+message Sheet_ShentiAwakenprogress
+{
+	repeated E_ShentiAwakenprogress E_ShentiAwakenprogress_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_ShentiSuitAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiSuit
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_suitgroup = 2[(yd_fieldoptions.field_cname) = "套装组"];
+	optional int32 m_suitlv = 3[(yd_fieldoptions.field_cname) = "套装等级"];
+	optional int32 m_num = 4[(yd_fieldoptions.field_cname) = "套装激活件数"];
+	optional string m_name = 5[(yd_fieldoptions.field_cname) = "套装名称", (yd_fieldoptions.field_bufsize) = 64];
+	optional int32 m_skill = 6[(yd_fieldoptions.field_cname) = "套装技能"];
+	repeated E_ShentiSuitAttributeDesc m_attribute = 7[(yd_fieldoptions.field_cname) = "套装属性", (yd_fieldoptions.field_arysize) = 10];
+}
+
+
+message Sheet_ShentiSuit
+{
+	repeated E_ShentiSuit E_ShentiSuit_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_ShentiCompose
+{
+	optional int32 m_need_equip = 1[(yd_fieldoptions.field_cname) = "所需装备id"];
+	optional int32 m_target_equip = 2[(yd_fieldoptions.field_cname) = "目标装备id"];
+	optional int32 m_compose_tips = 3[(yd_fieldoptions.field_cname) = "合成材料"];
+}
+
+
+message Sheet_ShentiCompose
+{
+	repeated E_ShentiCompose E_ShentiCompose_List = 1[(yd_fieldoptions.field_arysize)=128];
+}
+
+message E_ShentiStar_upMaterialDesc
+{
+	optional int32 m_num = 1[(yd_fieldoptions.field_cname) = "数量"];
+	optional int32 m_id = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiStar_upXpstarDesc
+{
+	optional int32 m_weight = 1[(yd_fieldoptions.field_cname) = "权重"];
+}
+
+message E_ShentiStar_up
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_star = 2[(yd_fieldoptions.field_cname) = "升星星数"];
+	optional int32 m_position = 3[(yd_fieldoptions.field_cname) = "升星部位"];
+	optional int32 m_need_quality = 4[(yd_fieldoptions.field_cname) = "装备品质要求"];
+	repeated E_ShentiStar_upMaterialDesc m_material = 5[(yd_fieldoptions.field_cname) = "升星材料", (yd_fieldoptions.field_arysize) = 2];
+	repeated E_ShentiStar_upXpstarDesc m_xpstar = 6[(yd_fieldoptions.field_cname) = "属性", (yd_fieldoptions.field_arysize) = 5];
+}
+
+
+message Sheet_ShentiStar_up
+{
+	repeated E_ShentiStar_up E_ShentiStar_up_List = 1[(yd_fieldoptions.field_arysize)=32];
+}
+
+message E_ShentiStrengtitelAttributeDesc
+{
+	optional int32 m_value = 1[(yd_fieldoptions.field_cname) = "数值"];
+	optional int32 m_type = 2[(yd_fieldoptions.field_cname) = ""];
+}
+
+message E_ShentiStrengtitel
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_remanielv = 2[(yd_fieldoptions.field_cname) = "装备转生"];
+	optional int32 m_strenglv = 3[(yd_fieldoptions.field_cname) = "强化目标"];
+	repeated E_ShentiStrengtitelAttributeDesc m_attribute = 4[(yd_fieldoptions.field_cname) = "强化属性", (yd_fieldoptions.field_arysize) = 2];
+}
+
+
+message Sheet_ShentiStrengtitel
+{
+	repeated E_ShentiStrengtitel E_ShentiStrengtitel_List = 1[(yd_fieldoptions.field_arysize)=64];
+}
+
+message E_ShentiStartitel
+{
+	optional int32 m_id = 1[(yd_fieldoptions.field_cname) = "id"];
+	optional int32 m_num = 2[(yd_fieldoptions.field_cname) = "星级数量"];
+	optional int32 m_attribute_type = 3[(yd_fieldoptions.field_cname) = "属性"];
+	optional int32 m_attribute_value = 4[(yd_fieldoptions.field_cname) = "属性数值"];
+}
+
+
+message Sheet_ShentiStartitel
+{
+	repeated E_ShentiStartitel E_ShentiStartitel_List = 1[(yd_fieldoptions.field_arysize)=16];
+}
