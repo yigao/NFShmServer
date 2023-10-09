@@ -13,15 +13,15 @@
 #include "NFLogicCommon/NFFishDynamicModule.h"
 
 
-class NFCommLogicModule : public NFFishDynamicModule
+class NFFishCommonModule : public NFFishDynamicModule
 {
 public:
-	NFCommLogicModule(NFIPluginManager* p) :NFFishDynamicModule(p)
+	NFFishCommonModule(NFIPluginManager* p) : NFFishDynamicModule(p)
 	{
 
 	}
 
-	virtual ~NFCommLogicModule()
+	virtual ~NFFishCommonModule()
 	{
 
 	}

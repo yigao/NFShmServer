@@ -1,5 +1,5 @@
 ﻿// -------------------------------------------------------------------------
-//    @FileName         :    NFCommLogicModule.h
+//    @FileName         :    NFCommLogicModule.cpp
 //    @Author           :    xxxxx
 //    @Date             :   xxxx-xx-xx
 //    @Email			:    xxxxxxxxx@xxx.xxx
@@ -7,24 +7,12 @@
 //
 // -------------------------------------------------------------------------
 
-#pragma once
+#include "NFFishCommonModule.h"
+#include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFLogicCommon/NFLogicError.h"
 
-
-#include "NFLogicCommon/NFMMODynamicModule.h"
-
-
-class NFMMOLogicModule : public NFMMODynamicModule
+bool NFFishCommonModule::Awake()
 {
-public:
-	NFMMOLogicModule(NFIPluginManager* p) : NFMMODynamicModule(p)
-	{
-
-	}
-
-	virtual ~NFMMOLogicModule()
-	{
-
-	}
-
-    virtual bool Awake();
-};
+    NFError::Instance()->SetErrorFunction(GetLogicErrorStr);
+    return true;
+}

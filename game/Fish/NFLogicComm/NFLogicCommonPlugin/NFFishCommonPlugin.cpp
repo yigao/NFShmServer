@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFFishCommonPlugin.h"
-#include "NFCommLogicModule.h"
+#include "NFFishCommonModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 
 #include "DescStore/NFDescStoreHead.h"
@@ -44,7 +44,7 @@ std::string NFFishCommonPlugin::GetPluginName()
 
 void NFFishCommonPlugin::Install()
 {
-	REGISTER_MODULE(m_pObjPluginManager, NFCommLogicModule, NFCommLogicModule)
+	REGISTER_MODULE(m_pObjPluginManager, NFFishCommonModule, NFFishCommonModule)
 }
 
 void NFFishCommonPlugin::Uninstall()

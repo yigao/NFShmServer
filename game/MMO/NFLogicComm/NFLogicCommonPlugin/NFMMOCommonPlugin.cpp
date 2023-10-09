@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFMMOCommonPlugin.h"
-#include "NFMMOLogicModule.h"
+#include "NFMMOCommonModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 
 #include "DescStore/NFDescStoreHead.h"
@@ -44,7 +44,7 @@ std::string NFMMOCommonPlugin::GetPluginName()
 
 void NFMMOCommonPlugin::Install()
 {
-	REGISTER_MODULE(m_pObjPluginManager, NFMMOLogicModule, NFMMOLogicModule)
+	REGISTER_MODULE(m_pObjPluginManager, NFMMOCommonModule, NFMMOCommonModule)
 }
 
 void NFMMOCommonPlugin::Uninstall()

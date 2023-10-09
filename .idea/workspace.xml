@@ -69,10 +69,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="mmo excel">
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicError.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicError.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalMuban_donate_singleDesc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/DescStore/FestivalMuban_donate_singleDesc.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFFishCommonPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOCommonPlugin.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFFishCommonPlugin.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOCommonPlugin.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommonPlugin/NFCommLogicModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommonPlugin/NFFishCommonModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommonPlugin/NFCommLogicModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommonPlugin/NFFishCommonModule.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommonPlugin/NFFishCommonPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/Fish/NFLogicComm/NFLogicCommonPlugin/NFFishCommonPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOCommonPlugin.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOCommonPlugin.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOLogicModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOCommonModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOLogicModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommonPlugin/NFMMOCommonModule.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +97,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFMMOLogicCommon" />
+    <option name="configuration" value="0-DynamicDebug-NFMMOCommonPlugin" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -505,14 +510,7 @@
       <workItem from="1695808689127" duration="60000" />
       <workItem from="1696638977917" duration="8117000" />
       <workItem from="1696727939783" duration="11227000" />
-      <workItem from="1696816585335" duration="4743000" />
-    </task>
-    <task id="LOCAL-00143" summary="NFIDescStore">
-      <created>1695115211598</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1695115211599</updated>
+      <workItem from="1696816585335" duration="5255000" />
     </task>
     <task id="LOCAL-00144" summary="NFIDescStore">
       <created>1695124369578</created>
@@ -850,7 +848,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696820761663</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="mmo excel">
+      <created>1696821599690</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1696821599690</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

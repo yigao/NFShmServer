@@ -7,11 +7,11 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFCommLogicModule.h"
+#include "NFMMOCommonModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFLogicCommon/NFLogicError.h"
 
-bool NFCommLogicModule::Awake()
+bool NFMMOCommonModule::Awake()
 {
     NFError::Instance()->SetErrorFunction(GetLogicErrorStr);
     return true;
