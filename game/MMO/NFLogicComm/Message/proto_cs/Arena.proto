@@ -1,0 +1,281 @@
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+
+// 挑战结果
+enum ARENA_CHALL_RESULT_E
+{
+    ACRE_WIN = 0;  // 胜利
+	ACRE_LOSE = 1; // 失败
+}
+
+message CWArenaRankInfoReq
+{
+	optional uint64 char_id = 1;
+	optional bool can_miao_sha = 2;
+}
+
+//竞技场信息
+message ArenaRankInfo
+{
+	optional uint64 dstId = 1;					//对手ID
+	optional uint32 type = 2;					//对手的类型
+	optional string dstName = 3;				//对手的名字
+	optional uint32 rankId = 4;					//排名
+	optional uint32 lv = 5;						//等级
+	optional uint32 fight = 6;					//战力
+	optional uint32 prof = 8;					//职业
+	optional RoleFacadeProto facade = 9;		//外观
+	optional int32	vipLv	= 10;				//vip等级
+	optional int32  chall_type = 11; //0：挑战， 1：秒杀
+}
+
+message WCArenaRankInfoRsp
+{
+	optional uint32 ret = 1;
+	optional uint64 charId = 2;					//服务器内部使用的ID 客户端需要管
+	optional uint32 rankId = 3;					//自己的排名
+	repeated ArenaRankInfo arenaRankInfo = 4;	//主角可以挑战的角色排行信息, 最大返回4个
+	optional uint32 times = 5;					// 可挑战次数
+	optional uint32 all_times = 6;
+	optional int32 buyChallengeTimes	= 7;	//已购买挑战次数
+}
+
+//购买挑战次数
+//CLIENT_TO_SERVER_ARENA_BUY_CHALLENGE_REQ
+message WCArenaBuyChallengeTimesReq
+{
+	
+}
+
+//SERVER_TO_CLIENT_ARENA_BUY_CHALLENGE_RSP
+message WCArenaBuyChallengeTimesRsp
+{
+	optional int32	retCode	= 1;
+	optional uint32 times = 2;					//可挑战次数
+	optional uint32 all_times = 3;
+	optional int32 buyChallengeTimes	= 4;	//已购买次数
+}
+
+
+//刷新对手
+message CWArenaUpdateOpponentInfoReq
+{
+	optional uint64 char_id = 1;
+	optional bool can_miao_sha = 2;
+}
+
+message WCArenaUpdateOpponentInfoRsp
+{
+	optional uint32 ret = 1;
+	repeated ArenaRankInfo arenaRankInfo = 2;	//主角可以挑战的角色排行信息, 最大返回4个
+	optional uint32 rank = 3;					//玩家自己的排名
+}
+
+//请求前100名排行版
+message CWArenaTopListReq
+{
+
+}
+
+message WCArenaTopListRsp
+{
+	optional uint32 ret = 1;
+	repeated ArenaRankInfo arenaRankInfo = 2;
+}
+
+//发起挑战
+message CWArenaChallReq
+{
+	optional uint64 dstId = 1;	//对手ID
+	optional uint32 rankId = 2;	//挑战的排名
+	optional uint32 type = 3; //对手类型
+	optional uint32 chall_type = 4; //0：挑战， 1：秒杀
+}
+
+message WCArenaChallRsp
+{
+	optional uint32 ret = 1;
+}
+
+//CLIENT_TO_SERVER_ARENA_ABANDON
+message ArenaAbandonReq
+{
+
+}
+
+
+//扫荡竞技场 CLIENT_TO_SERVER_ARENA_SWEEP_REQ
+message ArenaSweepReq
+{
+
+}
+
+//扫荡竞技场返回 LOGIC_TO_CLIENT_ARENA_SWEEP_RSP
+message ArenaSweepRsp
+{
+	optional uint32 ret = 1; 
+	optional int32 	challengeTimes = 2;		//扫荡后剩余次数
+	optional int32  sweep_num = 3;			//扫荡的次数
+	repeated ComItem items = 4;
+}
+
+
+
+//竞技场结算
+message WCArenaChallResult
+{
+	required uint32 ret = 1;
+	optional uint32 rankId =  2;
+	optional uint32 old_rankId = 3;
+	repeated ComItem items = 4;
+}
+
+//挑战阵营首领结果
+message WCArenaCampChallResult
+{
+	optional uint32 ret = 1;
+}
+
+//以下所有协议为服务器内部使用
+//服务器内部使用
+message WGArenaConfirmChall
+{
+	optional uint64 charId = 1;
+	optional uint64 dstId = 2;
+	optional uint32 type = 3;
+}
+
+message GWArenaConfirmChall
+{
+	optional uint64 charId = 1;
+	optional uint64 dstId = 2;
+	optional uint32 type = 4;
+	optional uint32 ret = 5;
+}
+
+//加载完镜像数据后的回调
+message AreanLoadMirrorDataCallBack
+{
+	optional uint64 charId = 1;
+	optional uint64 dstId = 2;		//镜像数据玩家的ID
+}
+
+//竞技场结束逻辑服通知中心服
+message GWArenaChallResult
+{
+	optional uint64 srcCharId = 1;	//挑战者ID
+	optional uint32 srcScore = 2;	//挑战者的积分数
+	optional uint64 dstCharId = 3;	//竞技场对手
+	optional uint32 type = 4; //对手类型
+	optional uint32 ret = 5; //与其挑战的结果(ACRE_WIN表示挑战方胜利 ACRE_LOSE表示挑战方失败)
+	optional uint32 historyRankId = 6;	//历史最高排名
+	optional uint32 continue_win = 7;	//连胜场次
+	optional uint64	begin_time = 8;		//开始挑战时间(日志统计)
+	optional int32 challenge_num = 9;	//当前已经挑战了的次数(日志统计)
+	optional int32 playerLv	= 10;		//玩家等级
+}
+
+//阵营首领挑战结果逻辑服通知中心服
+message GWArenaCampChallResult
+{
+	optional uint64 srcCharId = 1;	//挑战者ID
+	optional uint32 ret = 2; //与其挑战的结果(ACRE_WIN表示挑战方胜利 ACRE_LOSE表示挑战方失败)
+}
+
+//中心副通知逻辑服玩家竞技场排名改变
+message GWArenaRankChangeNotify
+{
+	optional uint64 charid = 1;	//玩家CID
+	optional int32 rank = 2;	//当前排名
+}
+
+
+//逻辑服请求中心服开始挑战
+message GWArenaChallReq
+{
+	optional uint64 srcId = 1; //挑战者ID
+	optional uint64 dstId = 2;	//对手ID
+	optional uint32 rankId = 3;	//挑战的排名
+	optional uint32 type = 4; //对手类型
+	optional uint32 chall_type = 5;
+	optional uint32 can_miaosha = 6;
+}
+
+//发放奖励
+//CENTER_TO_LOGIC_ADD_REWARD
+message C2LSendArenaReward
+{
+	optional uint64 charId	= 1;
+	repeated ComItem items = 2;
+}
+
+//CLIENT_TO_LOGIC_ARENA_GET_CHALL_RESULT_REQ = 1416; //获取挑战记录
+message C2LArenaGetChallResultReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_ARENA_GET_CHALL_RESULT_RSP = 1417; //获取挑战记录
+message L2CArenaGetChallResultRsp
+{
+	optional int32 ret = 1;
+	repeated ArenaChallResult chall_result = 2;
+}
+
+//CLIENT_TO_LOGIC_ARENA_GET_CHALL_REWARD_REQ = 1420; //获取挑战奖励
+message C2LArenaGetChallRewardReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_ARENA_GET_CHALL_REWARD_RSP = 1421; //获取挑战奖励
+message L2CArenaGetChallRewardRsp
+{
+	optional int32 ret = 1;
+	repeated ChallArenaReward reward = 2;
+}
+
+//LOGIC_TO_CLIENT_CHALL_REWARD_CHANGE_NOTIFY = 1423; //挑战奖励修改通知
+message L2CArenaChallRewardNotify
+{
+	optional int32 ret = 1;
+	repeated ChallArenaReward reward = 2;
+	optional int32 rank_id = 3;
+	optional int32 history_rank_id = 4;
+}
+
+//CLIENT_TO_LOGIC_ARENA_RECEIVE_CHALL_REWARD_REQ = 1426; //领取挑战奖励
+message C2LArenaReceiveChallRewardReq
+{
+	optional uint64 id = 1;
+}
+//LOGIC_TO_CLIENT_ARENA_RECEIVE_CHALL_REWARD_RSP = 1427; //领取挑战奖励
+message L2CArenaReceiveChallRewardRsp
+{
+	optional int32 ret = 1;
+	repeated ChallArenaReward reward = 2;
+}
+
+//模拟协议
+//CENTER_TO_LOGIC_ARENA_DUP_BATTLE_RESULT						= 757; //
+message C2LArenaDupBattleResult
+{
+	optional uint64 char_id = 1;
+	optional uint64 char_rank = 2;
+	optional uint64 dst_id = 3;
+	optional uint64 dst_rank = 4;
+	optional uint32 result = 8;
+}
+
+//CLIENT_TO_LOGIC_ARENA_SKIP_BATTLE_REQ = 1428; //跳过战斗
+message C2LArenaSkipBattleReq
+{
+}
+
+//CLIENT_TO_LOGIC_ARENA_SKIP_BATTLE_RSP = 1429; //跳过战斗
+message L2CArenaSkipBattleRsp
+{
+	optional int32 ret = 1;
+}

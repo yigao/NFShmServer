@@ -1,0 +1,611 @@
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
+
+//========================================通信=========================================
+//1:通知自己的结婚数据  NOTIFY_MARRY_SELF
+message NotifyMarrySelf
+{
+	optional MarrySelfInfo info = 1;	 //自己的详细信息
+}
+
+//2:通知结婚对象的数据 NOTIFY_MARRY_DST
+message NotifyMarryDst
+{
+	optional RolePlayerMiniInfo mini = 1; //对方人物信息
+	optional MarryBrief brief = 2;		  //对方结婚简要信息
+}
+
+
+//4-1:结婚请求 MARRY_REQ
+message MarryReq
+{
+	optional uint64 dst_cid = 1;
+	optional int32 gear = 2;
+}
+//4-2:结婚返回 MARRY_RSP
+message MarryRsp
+{
+	optional int32 ret = 1;
+	optional uint64 dst_cid = 2;
+	optional int32 gear = 3;
+}
+//5-1:结婚申请通知。 NOTIFY_MARRY_APPLY
+message NotifyMarryApply
+{
+	optional RolePlayerMiniInfo src = 1; //申请方信息
+	optional int32 gear = 2;
+}
+
+//6-1:结婚申请(同意/拒绝)操作 MARRY_APPLY_OPT_REQ
+message MarryApplyOptReq
+{
+	optional int32 opt =1;		//0：同意。1拒绝
+}
+
+//6-2:结婚申请(同意/拒绝)操作返回 MARRY_APPLY_OPT_RSP
+message MarryApplyOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 opt = 2;
+}
+
+//7:拒绝通知  NOTIFY_MARRY_REFUSE
+message NotifyMarryRefuse
+{
+	optional int32 ret = 1;
+	optional RolePlayerMiniInfo dst = 2; //目标
+}
+
+//8:结婚完成通知 NOTIFY_MARRY_CMPT
+message NotifyMarryCmpt
+{
+	optional RolePlayerMiniInfo dst = 1; //目标
+	optional int32 gear = 2;			 //档位
+	optional uint64 applyer = 3;		 //申请方ID
+	optional int32 marry_id = 4;		 //结婚id
+}
+
+//8-1: 全服广播，通知其他玩家  NOTIFY_NEW_MARRY
+message NotifyNewMarry
+{
+	optional RolePlayerMiniInfo src = 1; //发起方
+	optional RolePlayerMiniInfo dst = 2; //发起方
+	optional int32 marry_id = 3;
+	optional int32 gear = 4;
+}
+
+//9-1:领取结婚奖励 MARRY_RECV_GEAR_REWARD_REQ
+message MarryRecvGearRewardReq
+{
+}
+
+//9-2:领取结婚奖励返回 MARRY_RECV_GEAR_REWARD_RSP
+message MarryRecvGearRewardRsp
+{
+	optional int32 ret = 1;
+}
+
+
+//9-1:领取仙娃id请求 MARRY_RECV_CHILD_REQ
+message MarryRecvChildReq
+{
+	optional int32 child_id = 1;
+}
+//9-2:领取仙娃id返回 MARRY_RECV_CHILD_RSP
+message MarryRecvChildRsp
+{
+	optional int32 ret = 1;
+	optional int32 child_id = 2;
+}
+
+
+
+//11-1: 离婚请求 DIVORCE_REQ
+message DivorceReq
+{
+	
+}
+//11-2: 离婚返回 DIVORCE_RSP
+message DivorceRsp
+{
+	optional int32 ret = 1;
+}
+
+//12-1:仙娃养成 MARRY_CHILD_OPT_REQ
+message MarryChildOptReq
+{
+	optional int32 type = 1; //1:升级 2:激活 3:幻化 4:升星
+	optional int32 child_id = 2;
+}
+
+//12-2:仙娃养成返回 MARRY_CHILD_OPT_RSP
+message MarryChildOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 type = 2;
+	optional int32 child_id = 3;
+}
+
+//13-1:表白请求 EXPRESS_REQ
+message ExpressReq
+{
+	optional uint64 cid = 1;
+	optional uint64 item = 2;
+	optional int32 num = 3;
+	optional int32 text_id = 4;
+}
+
+//13-2:表白返回 EXPRESS_RSP
+message ExpressRsp
+{
+	optional int32 ret = 1;
+	optional uint64 cid = 2;
+	optional uint64 item = 3;
+	optional int32 num = 4;
+	optional int32 text_id = 5;
+}
+
+//14:表白通知 NOTIFY_EXPRESS_TO_DST
+message NotifyExpressToDst
+{
+	optional RolePlayerMiniInfo src = 1; //发起方
+	optional uint64 item = 2;
+	optional int32 num = 3;
+	optional int32 text_id = 4;
+	optional uint64 time = 5;	
+}
+
+//15-1:请求表白数据 EXPRESS_DATA_REQ
+message ExpressDataReq
+{
+	optional int32 type = 1; //1:所有表白,2 对我表白，3我的表白
+}
+
+//15-2:表白数据返回 EXPRESS_DATA_RSP
+message ExpressDataRsp
+{
+	optional int32 type = 1;
+	repeated ExpressLog logs = 2;
+}
+
+//16-1:让目标购买情缘副本次数 MARRY_INVITE_DST_BUY_DUP_REQ
+message MarryInviteDstBuyDupReq
+{
+	
+}
+//16-2:目标购买情缘副本次数返回 MARRY_INVITE_DST_BUY_DUP_RSP
+message MarryInviteDstBuyDupRsp
+{
+	optional int32 ret = 1;
+}
+
+//17-1: 给目标弹框购买副本次数 NOTIFY_MARRY_DST_BUY_DUP
+message NotifyMarryDstBuyDup
+{
+	
+}
+//17-2:拒绝购买副本请求 MARRY_BUY_REFUSE_REQ
+message MarryBuyRefuseReq
+{
+}
+
+//18-1: 自己购买情缘副本次数 MARRY_BUY_DUP_REQ
+message MarryBuyDupReq
+{
+	optional int32 type =1;	//0:自己买，1别人邀请你买
+}
+//18-2: 自己购买情缘副本返回  MARRY_BUY_DUP_RSP
+message MarryBuyDupRsp
+{
+	optional int32 ret = 1;
+}
+
+//19-1: 通知对方自己购买副本次数成功 NOTIFY_MARRY_BUY_RESULT
+message NotifyMarryBuyResult
+{
+	optional int32 ret = 1;		//有可能失败的。要弹错误码
+}
+
+//20-1:同心锁升级 MARRY_LOCK_LV_REQ
+message MarryLockLvReq
+{
+}
+//20-2:同心锁升级返回  MARRY_LOCK_LV_RSP
+message MarryLockLvRsp
+{
+	optional int32 ret = 1;
+}
+
+//21-1: 购买宝匣 MARRY_BOX_BUY_REQ
+message MarryBoxBuyReq
+{
+	
+}
+
+//21-1: 购买宝匣返回 MARRY_BOX_BUY_RSP
+message MarryBoxBuyRsp
+{
+	optional int32 ret = 1;
+}
+
+//22-1:领取宝匣奖励 MARRY_BOX_RECV_REQ
+message MarryBoxRecvReq
+{
+	optional int32 type =1; //0:领取立即购买奖励，1：领取每日宝匣奖励 2:领取对方宝匣奖励
+}
+//22-2:领取宝匣奖励返回 MARRY_BOX_RECV_RSP
+message MarryBoxRecvRsp
+{
+	optional int32 ret = 1;
+	optional int32 type =2; //0:领取立即购买奖励，1：领取每日宝匣奖励 2:领取对方宝匣奖励
+}
+
+//23-1：通知情缘副本选图案  NOTIFY_MARRY_DUP_SELECT
+message NotifyMarryDupSelect
+{
+}
+//24-1:情缘副本选图案 MARRY_DUP_SELECT_REQ
+message MarryDupSelectReq
+{
+	optional int32 id = 1;
+}
+//24-2:情缘副本选图案返回 MARRY_DUP_SELECT_RSP
+message MarryDupSelectRsp
+{
+	optional int32 id = 1;
+}
+
+//25-1:情缘副本产出 NOTIFY_MARRY_DUP_RESULT
+message NotifyMarryDupResult
+{
+	optional int32 ret = 1;	//0 成功 1失败
+	optional int32 code = 2; //0:不双倍(双方选择不同），1 双倍(双方相同)
+	optional int32 exp = 3;  //经验
+	optional int32 boxid = 4;  //奖励boxid
+}
+
+//26-1:添加没有结婚好友 SEARCH_MARRY_FRIEND_REQ
+message SearchMarryFriendReq
+{
+}
+
+//26-2:添加没有结婚好友 SEARCH_MARRY_FRIEND_RSP
+message SearchMarryFriendRsp
+{
+	repeated RolePlayerMiniInfo infos = 1; 
+}
+//27-1:领取结婚预告奖励 MARRY_TASK_RECV_REQ
+message MarryTaskRecvReq
+{
+}
+//27-2:领取结婚预告奖励 MARRY_TASK_RECV_RSP
+message MarryTaskRecvRsp
+{
+	optional int32 ret = 1;
+}
+//-----------------婚宴相关---------------------------------
+//10-1:婚宴页面数据 MARRY_WEDDING_DATA_REQ (月老界面）
+message MarryWeddingDataReq
+{
+	
+}
+
+//10-2:婚宴数据通知 NOTIFY_WEDDING_DATA (月老界面）
+message NotifyWeddingData
+{
+	optional int32 type = 1; //0:更新所有。1：单个婚宴更新
+	repeated WeddingSimpleInfo infos = 2;
+	optional int32 wedding_num = 3;		//剩余婚宴次数
+}
+
+//31-1: 当日开启的婚宴列表（上线通知,新增通知) NOTIFY_WEDDING_PLAN 
+message NotifyWeddingPlan
+{
+	repeated WeddingSimpleInfo infos = 1;
+}
+
+//31-2: 当前进行中婚宴状态更新 NOTIFY_WEDDING_STEP
+message NotifyWeddingStep
+{
+	optional int32 wedding_id =1;
+	optional int32	step = 2;
+}
+
+//31-2: 玩家个人婚宴数据 NOTIFY_WEDDING_ROLE
+message NotifyWeddingRole
+{
+	repeated int32 can_join_wedding = 1;	//可参与的婚宴列表
+	repeated int32 apply_wedding = 2;		//申请的婚宴信息
+	repeated WeddingDetail detail = 3;		//管理者婚宴信息(自己是主办方，才有详细信息)
+}
+
+//28-1:预约婚宴 MAKE_WEDDING_REQ
+message MakeWeddingReq
+{
+	optional int32 		wedding_id					= 1;		//婚宴ID
+	optional int32		wedding_gear				= 2;		//婚宴档位 (目前客户端不需要传值)
+}
+//28-2 预约婚宴返回 MAKE_WEDDING_RSP
+message MakeWeddingRsp
+{
+	optional int32 		ret							= 1;		//婚宴返回码
+}
+
+//29-1 婚宴邀请 WEDDING_INVITE_REQ
+message WeddingInviteReq
+{
+	optional int32 		invite_type					= 1;		//邀请途径 1:好友 2:工会,3申请列表
+	repeated uint64  	invite_cid_list				= 2;		//邀请人cid 
+	optional int32 		wedding_id					= 3;		//婚宴唯一ID
+}
+
+//29-2 婚宴邀请返回 WEDDING_INVITE_RSP
+message WeddingInviteRsp
+{
+	optional int32 		ret							= 1;
+	optional int32 		invite_type					= 2;		//邀请途径 1:好友 2:工会,3申请列表
+	repeated uint64  	invite_cid_list				= 3;		//返回当前已被邀请人cid
+	optional int32		wedding_id					= 4;		//婚宴唯一ID
+}
+
+//30-1 加入婚宴副本请求 ENTER_WEDDING_DUP_REQ
+message EnterWeddingDupReq
+{
+	optional int32	  wedding_id					= 1;
+}
+
+//30-2 加入婚宴副本返回 ENTER_WEDDING_DUP_RSP
+message EnterWeddingDupRsp
+{
+	optional int32 	 ret							= 1;
+	optional int32 	 wedding_id						= 2;
+}
+ 
+//32-1: 邀请成功通知对方弹框 NOTIFY_WEDDING_INVITE
+message NotifyWeddingInvite
+{
+	optional int32 wedding_id = 1;
+}
+
+//33-1: 购买婚宴席位 WEDDING_BUY_SEAT_REQ
+message WeddingBuySeatReq
+{
+	optional int32 wedding_id =1;
+}
+
+//33-2: 购买婚宴席位返回 WEDDING_BUY_SEAT_RSP
+message WeddingBuySeatRsp
+{
+	optional int32 ret = 1;
+	optional int32 wedding_id = 2;
+}
+
+//34-1: 索要婚宴请帖 WEDDING_APPLY_REQ
+message WeddingApplyReq
+{
+	optional int32 wedding_id = 1;
+}
+
+//34-2: 索要婚宴请帖返回 WEDDING_APPLY_RSP
+message WeddingApplyRsp
+{
+	optional int32 ret = 1;
+	optional int32 wedding_id = 2;
+}
+
+//35-1:通知巡游玩家跟随怪物 NOTIFY_WEDDING_TOUR_FOLLOW
+message NotifyWeddingTourFollow
+{
+	optional uint64 monster_cid = 1;
+}
+
+//36—1:通知主办方有人申请 NOTIFY_WEDDING_APPLY
+message NotifyWeddingApply
+{
+	optional int32 wedding_id = 1;
+}
+
+//================婚宴副本============================
+//婚宴签到  WEDDING_SIGN_REQ
+message WeddingSignReq
+{
+}
+
+//婚宴签到返回  WEDDING_SIGN_RSP
+message WeddingSignRsp
+{
+	optional int32 ret = 1;
+}
+
+//婚宴放烟花 WEDDING_FIRE_REQ
+message WeddingFireReq
+{
+	optional int32 itemid = 1;
+}
+//婚宴放烟花返回 WEDDING_FIRE_RSP
+message WeddingFireRsp
+{
+	optional int32 ret = 1;
+	optional int32 itemid = 2;
+}
+
+//广播放烟花  NOTIFY_BROAD_FIRE
+message NotifyBroadFire
+{
+	optional uint64 cid = 1;
+	optional int32 itemid = 2;
+}
+
+
+//婚宴副本数据通知 NOTIFY_WEDDING_DUP_DATA
+message NotifyWeddingDupData
+{
+	optional int32 step = 1; 			//当前阶段 
+	optional int32 enter = 2;			//是否刚切入这个阶段 1：表示刚切入到这个阶段
+	optional uint64 step_end_time = 3;  //阶段结束时间
+	optional uint64 qinyou_npc_cid = 4;  //亲友NPC cid  （3阶段亲友）
+	optional int32 qinyou_result = 5;   //亲友怪击杀结果，0:进行中，1失败，2成功  （3阶段亲友）
+	optional int32 warm_value = 6;		//温馨值
+	repeated RolePlayerMiniInfo infos = 7; 
+}
+
+//个人婚宴本显示数据 NOTIFY_WEDDING_DUP_ROLE
+message NotifyWeddingDupRole
+{
+	optional int32 sign_num = 1; 		//0:没签到 1已签到 
+	optional uint64 exp = 2;		 	//当日已增加的经验
+	optional int32 cakeRewardNum = 3;	//当日采集蛋糕奖励了次数
+	optional int32 curCakeNum = 4;		//当前可以使用的蛋糕数
+	repeated uint64 yanxi_cid = 5;		//已经采集宴席的cid
+}
+//丢蛋糕 THROW_CAKE_REQ
+message throwCakeReq
+{
+	optional uint64 target_cid =1;
+}
+
+//丢蛋糕 THROW_CAKE_RSP
+message throwCakeRsp
+{
+	optional int32 ret = 1;
+}
+
+//通知巡游红包数量 NOTIFY_MARRY_RED_NUM 
+message NotifyMarryRedNum 
+{
+	optional int32 num = 1;
+}
+//发送巡游红包 SEND_MARRY_RED_REQ
+message SendMarryRedReq
+{
+	
+}
+//发送巡游红包 SEND_MARRY_RED_RSP
+message SendMarryRedRsp
+{
+	optional int32 ret = 1;
+}
+
+
+//===========================服务器内部消息=============================
+//中心服请求结婚到逻辑服 C2L_MARRY_REQ
+message C2LMarryReq
+{
+	optional uint64 src_id = 1;
+	optional uint64 dst_cid = 2;
+	optional int32 gear = 3;
+}
+//逻辑服返回请求结婚结果 L2C_MARRY_RSP
+message L2CMarryRsp
+{
+	optional int32 ret = 1;
+	optional uint64 src_id = 2;
+	optional uint64 dst_cid = 3;
+	optional int32 gear = 4;
+}
+
+//中心服结婚完成通知逻辑服。C2L_NOTIFY_MARRY_CMPT
+message C2LNotifyMarryCmpt
+{
+	optional RolePlayerMiniInfo dst = 1; //目标
+	optional int32 gear = 2;			 //档位
+	optional uint64 applyer = 3;		 //申请方ID
+	optional int32 marry_id = 4;		 //结婚id
+	optional uint64 cid = 5;			 //cid
+}
+
+//逻辑服更新结婚简要信息  L2C_UPDATE_MARRY_BRIEF
+message L2CUpdateMarryBrief 
+{
+	optional uint64 cid = 1;
+	optional MarryBrief brief = 2;
+}
+//中心服通知逻辑服离婚 C2L_NOTIFY_DIVORCE
+message C2LNotifyDivorce
+{
+	optional uint64 cid = 1;
+}
+
+//表白到逻辑服扣物品 C2L_EXPRESS_REQ
+message C2LExpressReq
+{
+	optional uint64 cid = 1;
+	optional bytes name = 2;
+	optional ExpressReq req = 3;
+}
+
+//表白成功到中心服 L2C_NOTIFY_EXPRESS_SUCCESS
+message L2CNotifyExpressSuccess
+{
+	optional uint64 cid = 1;
+	optional ExpressReq req = 2;
+}
+
+//表白通知玩家 C2L_NOTIFY_EXPRESS_TO_DST
+message C2LNotifyExpressToDst
+{
+	optional uint64 cid = 1;
+	optional NotifyExpressToDst req = 2;
+}
+
+//更新结婚信息到逻辑服  C2L_NOTIFY_MARRY_DST
+message C2LNotifyMarryDst
+{
+	optional int32 type = 1;			//0：登录同步数据 1：其他更新
+	optional uint64 cid = 2;			//
+	optional int32 my_dst_recv_day = 3;	//我自己宝匣被对方使用的天数
+	optional int32 dst_give_dup_num = 4;
+	optional int32 marry_id = 5;
+	optional MarryBrief brief = 6;		//对象简要信息
+	optional bytes dst_name = 7;		//对象名字
+	repeated int32 gear = 8;
+}
+
+//请求所有表白 C2L_GLOBAL_EXPRESS_REQ
+message C2LGlobalExpressReq
+{
+	optional uint64 cid = 1;
+}
+
+//通知购买成功到中心服 C2L_NOTIFY_MARRY_BUY_SUCCESS
+message C2LNotifyMarryBuySuccess
+{
+	optional uint64 cid = 1;
+	optional int32 ret = 2;
+	optional int32 type = 3;
+}
+//领取过宝匣天数 C2L_MARRY_RECV_DST_CARD
+message C2LMarryRecvDstCard
+{
+	optional uint64 cid = 1;
+	optional int32 days = 2;
+}
+//中心服购买席位请求到逻辑服 C2L_WEDDING_BUY_SEAT_REQ
+message C2LWeddingBuySeatReq
+{
+	optional uint64 cid = 1;
+	optional int32 wedding_id =2;
+}
+//逻辑服购买席位返回中心服 L2C_WEDDING_BUY_SEAT_RSP
+message L2CWeddingBuySeatRsp
+{
+	optional int32 ret = 1;
+	optional uint64 cid = 2;
+	optional int32 wedding_id =3;
+}
+
+//通知逻辑服玩家巡游信息 C2L_NOTIFY_WEDDING_TOUR
+message C2LNotifyWeddingTour
+{
+	optional uint32 wedding_id = 1;
+	optional uint64 scene_id = 2;
+	optional uint64 tour_end_time =3;
+	optional uint64 src_cid = 4;
+	optional uint64 dst_cid = 5;
+}
+//中心服通知巡游结束 C2L_WEDDING_TOUR_OVER
+message C2LWeddingTourOver
+{
+	
+}

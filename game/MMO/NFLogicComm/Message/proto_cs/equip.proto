@@ -1,0 +1,346 @@
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
+
+//======================================结构===================================//
+
+//身上的装备信息
+message EquipInfoList
+{
+	repeated EquipInfo infos = 1;
+}
+
+//======================================通信===================================//
+
+//1-1:装备穿戴请求  CLIENT_EQUIP_DRESS_REQ
+message EquipDressReq
+{
+	optional int32 bag_pos = 1;	//背包中位置
+}
+//1-2:装备穿戴返回  CLIENT_EQUIP_DRESS_RSP
+message EquipDressRsp
+{
+	optional int32 bag_pos = 1;	//背包中位置
+	optional int32 ret = 2; //错误码
+}
+
+//2-1: 装备卸下请求  CLIENT_EQUIP_UNDRESS_REQ
+message EquipUnDressReq
+{
+	optional int32 slot_pos = 1;	//装备位置
+}
+
+//2-2: 装备卸下返回  CLIENT_EQUIP_UNDRESS_RSP
+message EquipUnDressRsp
+{
+	optional int32 slot_pos = 1;	//装备位置
+	optional int32 ret = 2; //错误码
+}
+
+//3：装备更新(全更新，单更新都走这条协议, 上线会发送所有装备信息) NOTIFY_EQUIP_INFO_RSP
+message NotifyEquipInfoRsp
+{
+	optional int32 	type =1;			//0：全拉 1单更
+	repeated EquipInfo infos = 2;
+}
+
+//4-1:装备强化  CLIENT_EQUIP_STRONG_REQ
+message EquipStrongReq
+{
+	optional int32 slot_pos = 1;
+}
+//4-2:装备强化返回  CLIENT_EQUIP_STRONG_RSP
+message EquipStrongRsp
+{
+	optional int32 ret = 1; //错误码
+	optional int32  slot_pos = 2;
+}
+
+//5-1:装备总等级加成激活 ClIENT_EQUIP_LV_ATTR_ACTIVE_REQ
+message EquipLvAttrActiveReq
+{
+	optional int32 type =1;
+}
+
+//5-2:装备总等级加成激活返回 CLIENT_EQUIP_LV_ATTR_ACTIVE_RSP
+message EquipLvAttrActiveRsp
+{
+	optional int32 ret = 1; //错误码
+	optional int32 type = 2;
+}
+
+//6: 更新槽位等级加成属性  NOTIFY_EQUIP_LV_ATTR_RSP
+message NotifyEquipLvAttrRsp
+{
+	repeated EquipLvAttrInfo lv_attr = 3;  //装备槽位等级加成属性
+}
+
+//7: 宝石镶嵌 CLIENT_STONE_INLAY_REQ
+message StoneInlayReq
+{
+	optional int32 slot_pos = 1;	//装备槽位
+	optional int32 stone_pos = 2;	//宝石槽位
+	optional int32 bag_pos =3;		//宝石在背包的位置
+}
+
+//7-1: 宝石镶嵌返回 CLIENT_STONE_INLAY_RSP
+message StoneInlayRsp
+{
+	optional int32 ret = 1;			//错误码
+	optional int32 slot_pos = 2;	//装备槽位
+	optional int32 stone_pos = 3;	//宝石槽位
+	optional int32 bag_pos =4;		//宝石在背包的位置
+}
+
+//8-1: 宝石升级 CLIENT_STONE_LV_REQ
+message StoneLvReq
+{
+	optional int32 slot_pos = 1;	//装备槽位
+	optional int32 stone_pos = 2;	//宝石槽位
+}
+
+//8-2: 宝石升级返回 CLIENT_STONE_LV_RSP
+message StoneLvRsp
+{
+	optional int32 ret = 1;			//错误码
+	optional int32 slot_pos = 2;	//装备槽位
+	optional int32 stone_pos = 3;	//宝石槽位
+}
+
+//9-1: 解锁付费宝石槽位 CLIENT_STONE_OPEN_SLOT_REQ
+message StoneOpenSlotReq
+{
+	optional int32 slot_pos = 1;	//装备槽位
+	optional int32 stone_pos = 2;	//宝石槽位
+}
+
+//9-2: 解锁付费宝石槽位返回 CLIENT_STONE_OPEN_SLOT_RSP
+message StoneOpenSlotRsp
+{
+	optional int32 ret = 1;			//错误码
+	optional int32 slot_pos = 2;	//装备槽位
+	optional int32 stone_pos = 3;	//宝石槽位
+}
+
+//CLIENT_EQUIP_STOVE_INFO_REQ = 320; //获取当前熔炉熔炼信息
+message EquipStoveInfoReq
+{
+
+}
+//CLIENT_EQUIP_STOVE_INFO_RSP = 321; //获取当前熔炉熔炼信息
+message EquipStoveInfoRsp
+{
+	optional uint32 stove_level = 1;
+	optional uint64 stove_exp = 2;
+	repeated Attr64 attrs = 3;
+}
+
+//CLIENT_EQUIP_STOVE_SMELT_REQ = 322; //熔炉熔炼装备
+message EquipStoveSmeltReq
+{
+	repeated uint32 gridlist=1;//物品背包格子
+}
+//CLIENT_EQUIP_STOVE_SMELT_RSP = 323; //熔炉熔炼装备
+message EquipStoveSmeltRsp
+{
+	optional uint32 retcode = 1;
+	optional uint32 stove_level = 2;
+	optional uint64 stove_exp = 3;
+	repeated Attr64 attrs = 4;
+	optional uint32 all_num = 5;
+}
+
+
+//=========================洗练相关===================
+//解锁槽位 EQUIP_WASH_UNLOCK_REQ
+message EquipWashUnlockReq
+{
+	optional int32 equip_slot = 1;  //装备槽位
+	optional int32 wash_slot = 2;  	//从0开始 0-3
+	optional int32 useItem = 3; 	//使用物品解锁 >0 使用物品解锁
+}
+
+//解锁槽位返回 EQUIP_WASH_UNLOCK_RSP
+message EquipWashUnlockRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_slot = 2;
+	optional int32 wash_slot = 3;
+	optional int32 useItem = 4;
+}
+
+//洗练请求 EQUIP_WASH_REQ
+message EquipWashReq
+{
+	optional int32 equip_slot = 1;
+	repeated int32 lock_wash_slot = 2;  //锁定的槽位
+	optional int64 useItem = 3; 		//使用高级物品ID
+}
+
+//洗练返回 EQUIP_WASH_RSP
+message EquipWashRsp
+{
+	optional int32 ret = 1;
+	optional int32 equip_slot = 2;
+	repeated int32 lockslot = 3; //锁定的槽位
+	optional int64 useItem = 4;  //使用高级物品ID
+}
+
+
+//===================================套装操作=============================================//
+//1-1:套装操作(升级) EQUIP_SUIT_LV_REQ
+message EquipSuitLvReq
+{
+	optional int32 equip_pos = 1;		// 位置
+}
+
+//1-2:套装操作返 EQUIP_SUIT_LV_RSP
+message EquipSuitLvRsp
+{
+	optional int32 ret =1;				// 返回码
+	optional int32 equip_pos = 2;		// 位置
+	optional int32 suitlv	= 3;		// 升级后槽位套装等级
+}
+
+//==================================精炼=================================================
+//精炼升级请求 EQUIP_REFINE_LV_REQ
+message EquipRefineLvReq
+{
+	optional int32 slot_pos = 1;
+}
+//精炼升级返回 EQUIP_REFINE_LV_RSP
+message EquipRefineLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+}
+
+//精炼解锁 EQUIP_REFINE_UNLOCK_REQ
+message EquipRefineUnLockReq
+{
+	optional int32 slot_pos = 1;
+	optional int32 attr_pos = 2;	//属性索引 从1开始
+}
+
+
+//精炼解锁 EQUIP_REFINE_UNLOCK_RSP
+message EquipRefineUnLockRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+	optional int32 attr_pos = 3;	//属性索引 从1开始
+}
+
+//精炼生成属性 EQUIP_REFINE_GEN_ATTR_REQ
+message EquipRefineGenAttrReq
+{
+	optional int32 slot_pos = 1;
+}
+
+//精炼生成属性 EQUIP_REFINE_GEN_ATTR_RSP
+message EquipRefineGenAttrRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+}
+
+//精炼锁定槽位 EQUIP_REFINE_LOCK_REQ 
+message EquipRefineLockReq
+{
+	optional int32 slot_pos = 1;
+	optional int32 attr_pos = 2;	//属性索引 从1开始
+}
+
+//精炼锁定槽位 EQUIP_REFINE_LOCK_RSP 
+message EquipRefineLockRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+	optional int32 attr_pos = 3;	//属性索引 从1开始
+}
+
+
+//====================觉醒/飞升/升品/=========================
+
+//1-1:觉醒升级请求 EQUIP_AWAKEN_LV_REQ  （有突破也发送）
+message EquipAwakenLvReq
+{
+	optional int32 slot_pos = 1;
+}
+//1-2:觉醒升级返回 EQUIP_AWAKEN_LV_RSP
+message EquipAwakenLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+}
+
+//2-1:觉醒飞升请求 EQUIP_SOARING_LV_REQ
+message EquipSoaringLvReq
+{
+	optional int32 slot_pos = 1;
+}
+//2-2:觉醒飞升返回 EQUIP_SOARING_LV_RSP
+message EquipSoaringLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+}
+
+//3-1:升品请求 EQUIP_QUALITY_LV_REQ
+message EquipQualityLvReq
+{
+	optional int32 slot_pos = 1;
+	optional int32 cost_xinyu = 2; //是否消耗幸运符 。1 消耗 
+}
+//3-2:升品返回 EQUIP_QUALITY_LV_RSP
+message EquipQualityLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2;
+	optional int32 code = 3; //0：失败 1 成功
+}
+//4-1:印记镶嵌请求  EQUIP_SEAL_INLAY_REQ
+message EquipSealInlayReq
+{
+	optional int32 slot_pos = 1; //装备位置
+	optional int32 seal_pos = 2; //印记槽位位置。从1开始
+	optional int32 bag_pos = 3;	 //镶嵌物品背包位置
+}
+
+//4-2:印记镶嵌返回  EQUIP_SEAL_INLAY_RSP
+message EquipSealInlayRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2; //装备位置
+	optional int32 seal_pos = 3; //印记槽位位置。从1开始
+	optional int32 bag_pos = 4;
+}
+//5-1:印记升级请求 EQUIP_SEAL_LV_REQ
+message EquipSealLvReq
+{
+	optional int32 slot_pos = 1; //装备位置
+	optional int32 seal_pos = 2; //印记槽位位置。从1开始
+}
+//5-2:印记升级返回 EQUIP_SEAL_LV_RSP
+message EquipSealLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 slot_pos = 2; //装备位置
+	optional int32 seal_pos = 3; //印记槽位位置。从1开始
+}
+
+//6-1:印记套装激活请求 EQUIP_ACTIVE_SEAL_SUIT_REQ
+message EquipActiveSealSuitReq
+{
+	optional int32 id = 1;	//激活那个sealsuit id
+	optional int32 slot_pos = 2; //装备位置
+}
+//6-2:印记套装激活返回 EQUIP_ACTIVE_SEAL_SUIT_RSP
+message EquipActiveSealSuitRsp
+{
+	optional int32 ret = 1;
+	optional int32 id = 2;	//激活那个sealsuit id
+	optional int32 slot_pos = 3; //装备位置
+}
+
+

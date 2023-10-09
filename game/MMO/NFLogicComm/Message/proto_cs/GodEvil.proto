@@ -1,0 +1,209 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+
+
+//请求领取预告奖励 GOD_EVIL_FETCH_PRE_REQ
+message GodEvil_FetchPreReq
+{
+	//空
+}
+//返回领取预告奖励结果 GOD_EVIL_FETCH_PRE_RSP
+message GodEvil_FetchPreRsp
+{
+	required int32 ret = 1;
+}
+
+//请求领取神魔阶段任务奖励 GOD_EVIL_FETCH_TASK_REQ
+message GodEvil_FetchTaskReq
+{
+	optional int32 id = 1;
+}
+//返回领取神魔阶段任务奖励结果 GOD_EVIL_FETCH_TASK_RSP
+message GodEvil_FetchTaskRsp
+{
+	required int32 ret = 1;
+}
+//更新神魔阶段任务信息 GOD_EVIL_UPDATE_TASK_RSP	
+message GodEvil_UpdateTaskRsp
+{
+	optional GodEvilStageProto stage = 1;
+}
+
+
+//请求激活神魔系统 GOD_EVIL_ACTIVE_REQ
+message GodEvil_ActiveReq
+{
+	optional int32 type = 1;  //1-化神，2-入魔
+}
+//返回激活神魔系统结果	GOD_EVIL_ACTIVE_RSP
+message GodEvil_ActiveRsp
+{
+	required int32 ret = 1;
+	optional int32 type = 2;  //1-化神，2-入魔
+}
+//请求神魔升级	GOD_EVIL_UPGRADE_REQ	
+message GodEvil_UpgradeReq
+{
+	//空
+}
+//返回神魔升级结果	GOD_EVIL_UPGRADE_RSP
+message GodEvil_UpgradeRsp
+{
+	required int32 ret = 1;
+}
+
+//请求神魔变身	GOD_EVIL_CHG_FACADE_REQ
+message GodEvil_ChgFacadeReq
+{
+	//空
+}
+//返回神魔变身结果	GOD_EVIL_CHG_FACADE_RSP
+message GodEvil_ChgFacadeRsp
+{
+	required int32 ret = 1;
+	optional int32 cd = 2;
+}
+
+//请求神魔购买 GOD_EVIL_BUY_REQ
+message GodEvil_BuyReq
+{
+	optional int32 type = 1; //购买类型 1-神魔鼎，2-轮回境
+}
+//返回神魔购买结果 GOD_EVIL_BUY_RSP
+message GodEvil_BuyRsp
+{
+	required int32 ret = 1;
+}
+
+//更新 神魔特权等级 GOD_EVIL_PRIV_LEV_NOTIFY
+message GodEvil_PrivLevNotify
+{
+	optional int32 vessel_lev = 1;			//神魔鼎特权等级
+	optional int32 mirror_lev = 2;			//轮回镜权等级
+}
+
+//请求 神魔切换 GOD_EVIL_CHANGE_REQ
+message GodEvil_ChangeReq
+{
+	//空
+}
+//返回 神魔切换结果 GOD_EVIL_CHANGE_RSP	
+message GodEvil_ChangeRsp
+{
+	required int32 ret = 1;
+	optional int32 type = 2;   //1-化神，2-入魔
+}
+
+//更新 额外存储的神魔之息 GOD_EVIL_EXTRA_EXP_NOTIFY
+message GodEvil_ExtraExpNotify
+{
+	required int64 extra_exp = 1;
+}
+
+//更新 神魔鼎或神魔镜装备信息 GOD_EVIL_UPDATE_EQUIP_RSP
+message GodEvil_UpdateEquipRsp
+{
+	repeated ItemProtoInfo info = 1; //
+}
+
+
+
+
+//请求神魔装备列表 GOD_EVIL_EQUIP_LIST_REQ
+message GodEvil_EquipListReq
+{
+	//空
+}
+//返回神魔装备列表 GOD_EVIL_EQUIP_LIST_RSP
+message GodEvil_EquipListRsp
+{
+	repeated ItemProtoInfo equip = 1;
+}
+//更新神魔装备信息 GOD_EVIL_EQUIP_UPDATE_RSP	 
+message GodEvil_EquipUpdateRsp
+{
+	repeated ItemProtoInfo equip = 1;
+}
+
+//请求穿戴神魔装备 GOD_EVIL_EQUIP_DRESS_REQ	 
+message GodEvil_EquipDressReq
+{
+	optional uint32 index = 1; //穿戴的装备位于背包哪个格子索引
+}
+//返回穿戴神魔装备结果 GOD_EVIL_EQUIP_DRESS_RSP		
+message GodEvil_EquipDressRsp
+{
+	required int32 ret = 1;		//返回码
+}
+
+//请求卸下神魔装备 GOD_EVIL_EQUIP_UNDRESS_REQ	
+message GodEvil_EquipUnDressReq
+{
+	optional uint32 pos = 1;	//装备位置
+}
+//返回卸下神魔装备结果 GOD_EVIL_EQUIP_UNDRESS_RSP	
+message GodEvil_EquipUnDressRsp
+{
+	required int32 ret = 1;		//返回码
+	optional uint32 pos = 2;	//装备位置
+}
+//请求装备转移  GOD_EVIL_EQUIP_TRANS_REQ	
+message GodEvil_EquipTransReq
+{
+	optional uint32 index = 1; //转移的装备位于背包哪个格子索引
+}
+//返回装备转移结果  GOD_EVIL_EQUIP_TRANS_RSP
+message GodEvil_EquipTransRsp
+{
+	required int32 ret = 1;		//返回码
+}
+//请求强化  GOD_EVIL_EQUIP_STRONG_REQ	
+message GodEvil_EquipStrongReq
+{
+	optional uint32 pos = 1;		//装备位置
+	repeated uint32 index_lst = 2;	//神魔背包消耗材料的格子列表
+	repeated ComPair64 items = 3;	//材料背包中的道具 itemid-num
+}
+//返回强化结果   GOD_EVIL_EQUIP_STRONG_RSP	
+message GodEvil_EquipStrongRsp
+{
+	required int32 ret = 1;		//返回码
+}
+//请求升阶  GOD_EVIL_EQUIP_WEAR_QUA_REQ	
+message GodEvil_EquipWearQuaReq
+{
+	optional uint32 pos = 1;		//装备位置
+	repeated uint32 index = 2;		//装备背包中格子索引列表
+	optional uint32 num = 3;		//材料背包中 升阶材料的数量
+}
+//返回升阶结果  GOD_EVIL_EQUIP_WEAR_QUA_RSP
+message GodEvil_EquipWearQuaRsp
+{
+	required int32 ret = 1;		//返回码
+}
+//请求升品  GOD_EVIL_EQUIP_QUA_REQ	
+message GodEvil_EquipQuaReq
+{
+	optional uint32 pos = 1;		//装备位置
+	optional int32 is_auto = 2;		//悟性不足，是否自动使用材料不足 0-否，1-是
+}
+//返回升品结果  GOD_EVIL_EQUIP_QUA_RSP	
+message GodEvil_EquipQuaRsp
+{
+	required int32 ret = 1;		//返回码
+}
+//请求打造 GOD_EVIL_EQUIP_MAKE_REQ		
+message GodEvil_EquipMakeReq
+{
+	optional int32 type = 1;		//打造类型 1-陨星打造，2-极品打造-基础，3-极品打造-仙器
+	optional uint64 item_id = 2;	//图纸道具ID，为0表示不使用图纸
+}
+//返回升品  GOD_EVIL_EQUIP_MAKE_RSP
+message GodEvil_EquipMakeRsp
+{
+	required int32 ret = 1;		//返回码
+}

@@ -1,0 +1,292 @@
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+//----------------------------------数据结构----------------------------------------
+
+//上次击杀记录
+message BossLastKillInfo
+{
+	optional uint64 	teamId 	=1;
+	optional string 	name = 2;
+	optional uint64		id = 3;
+}
+
+// 1：boss基本信息
+message BossInfo {
+	
+	optional uint64 id 				= 1;		// 配置ID
+	optional int32  num 			= 2;		// 存活的数量
+	optional uint64 refresh_time 	= 3;		// 刷新时间(未来时间戳)
+	optional BossLastKillInfo last  = 4;		// 击杀信息
+}
+
+
+//2：组简单信息(包括各种类型的次数等,包括BOSS组类型)
+message BossSimpleInfo
+{
+	optional int32  boss_type 		= 1;		// 组类型
+	optional int32	cur_num			= 2;		// 当前使用的次数
+	optional int32 	max_num			= 3;		// 最大次数
+	optional int32  back_num		= 4;		// 找回次数
+	optional int32 	back_max_num	= 5;		// 找回最大次数
+	optional int32 	enter_num		= 6;		// 进场景次数
+	optional int32 	enter_max_num	= 7;		// 进场景最大次数
+	repeated ComPair groupInfo		= 8;		// 组类型-击杀次数
+}
+
+
+// boss掉落信息
+message BossDropInfo {
+	optional int32  drop_time 		= 1;		// 掉落时间
+	optional uint64 id 				= 2;		// 玩家ID
+	optional string name 			= 3;		// 玩家名称
+	optional uint64 boss_id 		= 4;		// BOSS ID
+	optional ItemProtoInfo iteminfo = 5;		// 装备信息
+}
+
+//鸿蒙数据
+message HarmoneyInfo
+{
+	optional int32 layerid = 1; //层ID
+	optional int32 zoneid = 2;	//所属zoneid  为0 是共有跨服小组
+	optional int32 bossnum = 3;	//boss剩余数量
+}
+
+//--------------------------------获取BOSS页数据--------------------------------
+
+
+//1-1:BOSS简单数据 NOTIFY_BOSS_SIMPLE_RSP
+message NotifyBossSimpleRsp
+{
+	optional int32 flag = 1;				//0 全发，1 单更新
+	repeated BossSimpleInfo simples			= 2;
+}
+
+//2: 请求层数据 BOSS_LAYER_REQ
+message BossLayerReq
+{
+	optional int32 layerid = 1;
+}
+//2-1: boss层数据返回  BOSS_LAYER_RSP
+message BossLayerRsp
+{
+	optional int32 layerid = 1;
+	repeated BossInfo infos = 2;
+	optional int32 scene_num =3; 	//当前场景人数(跨服动态副本有效)
+}
+
+//3-1:请求鸿蒙boss数据信息 HARMONY_BOSS_REQ
+message HarmonyBossReq
+{
+	optional int32 layer_order = 1;	//层顺序1,2,3
+}
+
+//3-2:请求鸿蒙boss数据信息返回 HARMONY_BOSS_RSP
+message HarmonyBossRsp
+{
+	optional int32 layer_order = 1;	//层顺序1,2,3
+	repeated HarmoneyInfo infos = 2; //鸿蒙信息
+}
+
+//4:关注数据通知更新 NOTIFY_BOSS_ATTENT
+message NotifyBossAttent
+{
+	repeated int32 ids = 1;
+}
+
+//5:通知boss已刷新 NOTIFY_BOSS_REFRESHED
+message NotifyBossRefreshed
+{
+	repeated int32 ids = 1;
+}
+
+
+//3-1：场景BOSS数据 NOTIFY_SCENE_BOSS_DATA_RSP
+message NotifySceneBossDataRsp
+{
+	repeated BossInfo infos = 1;
+}
+//3-2 ：BOSS 场景更新 NOTIFY_SCENE_BOSS_UPDATE_RSP
+message NotifySceneBossUpdateRsp
+{
+	optional BossInfo info = 1;
+}
+
+// 5-1进入BOSS地图	 ENTER_BOSS_MAP_REQ			
+message EnterBossMapReq 
+{
+	optional int64		id				= 1;		// 配置唯一ID
+}
+
+// 5-2进入BOSS地图返回	ENTER_BOSS_MAP_RSP
+message EnterBossMapRsp
+{
+	optional int32 ret					= 1;		// 返回成功0 
+	optional int64 id					= 2;		// 配置唯一ID
+}
+
+
+// 6-1关注Boss请求	ATTENT_BOSS_REQ
+message AttentBossReq {
+	optional int64		id				= 1;		// 配置唯一ID
+	optional int32		opt 			= 2;		// 取消关注(0) 关注1
+}
+
+// 6-2关注BOSS返回 ATTENT_BOSS_RSP
+message AttentBossRsp
+{
+	optional int64		id				= 1;		// 配置唯一ID
+	optional int32		opt 			= 2;		// 取消关注(0) 关注1
+	optional int32 		ret				= 3;		// 返回码
+}
+
+
+//8-1: boss掉落 BOSS_DROP_REQ
+message BossDropReq 
+{
+	optional int32 	enterType = 1;	//enterType == 1 本服， 2 跨服
+}
+//8-2: boss掉落 BOSS_DROP_RSP
+message BossDropRsp
+{
+	optional int32 	enterType = 1;
+	repeated BossDropInfo bossDrop = 2;
+}
+
+//9-1 boss结算 NOTIFY_BOSS_RESULT_RSP
+message NotifyBossResultRsp
+{
+	optional int32 	flag = 1;		//0:客户端判断能否快速击杀 1：已经快速击杀过
+	optional int64  id = 2;
+	repeated ItemProtoInfo com = 3;
+	repeated ItemProtoInfo first = 4;
+
+}
+
+//10-1: 快速击杀boss 	BOSS_KILL_REQ 
+message BossKillReq
+{
+	optional uint64 id = 1;
+}
+//10-1: 快速击杀boss BOSS_KILL_RSP
+message BossKillRsp
+{
+	optional uint64 id = 1;
+	optional int32 ret = 2;
+}
+
+
+//===============================================服务器内部消息=========================================
+
+message RunBossInfo
+{
+	optional uint64 	id  = 1;		//bossid
+	optional int32  	num = 2;		//存活的数量
+	optional int32  	refresh_time = 3; //下次刷新时间
+	
+}
+
+//更新BOSS数据 L2C_UPDATE_BOSS_REQ
+message L2CUpdateBossReq
+{
+	optional int32 type = 1;	//1:添加 2：更新
+	optional int32 	layerKey = 2;
+	optional int32 	groupId = 3;
+	repeated RunBossInfo infos = 4;
+	
+}
+
+//更新boss数据到社交服 L2S_UPDATE_BOSS_REQ
+message L2SUpdateBossReq
+{
+	optional int32 type = 1;		//1:添加 2：更新
+	optional int32 	layerKey = 2;
+	optional int32 	groupId = 3;
+	optional int32  zoneid = 4;
+	repeated RunBossInfo infos = 5;
+	optional int32  scene_num = 6;
+}
+
+
+//同步关注信息 L2C_SYN_ATTENT_REQ    
+message L2CSynAttentReq
+{
+	optional int64 cid = 1;
+	repeated int64 ids = 2;
+}
+
+//同步关注信息到社交服 C2S_SYN_ATTENT_REQ
+message C2SSynAttentReq
+{
+	optional int64 cid = 1;
+	optional int32 zoneid = 2;
+	repeated int64 ids = 3;
+}
+
+
+
+//推送boss数据给玩家  L2C_KILL_BOSS_REQ
+message L2CKillBossInfoReq
+{
+	optional uint64 	teamId 	=1;
+	optional string 	name = 2;
+	optional uint64		id = 3;
+	optional uint64 	kill_cid = 4;
+}
+
+//推送boss数据给玩家  L2S_KILL_BOSS_REQ
+message L2SKillBossInfoReq
+{
+	optional uint64 	teamId 	=1;
+	optional string 	name = 2;
+	optional uint64		id = 3;
+	optional int32 		groupId = 4;
+}
+
+//boss 掉落数据 L2C_BOSS_DROP_REQ
+message L2CDropRecordReq
+{
+	repeated BossDropInfo drop_info = 1;
+}
+
+//C2S_BOSS_DROP_REQ
+message C2SDropRecordReq
+{
+	optional L2CDropRecordReq record = 1;
+	optional int32 zoneid = 2;
+}
+
+
+
+// 请求社交服 boss信息  C2S_BOSS_LAYER_REQ
+message C2SBossLayerReq
+{
+	optional int32 layerid = 1;
+	optional int64 cid = 2;
+	optional int32 zoneid = 3;
+}
+
+//L2C_ATTENT_OPT_REQ 关注操作到中心服
+message L2CAttentOptReq
+{
+	optional int32 opt = 1; //1:添加 2删除
+	optional int64 cid = 2;
+	optional int32 bossId = 3;
+}
+
+//C2S_ATTENT_OPT_REQ 关注操作到社交服
+message C2SAttentOptReq
+{
+	optional int32 opt = 1; //1:添加 2删除
+	optional int64 cid = 2;
+	optional int32 bossId = 3;
+	optional int32 zoneid = 4;
+}
+
+//C2S_BOSS_LOG_REQ 查看日志请求到社交服
+message C2SBossLogReq 
+{
+	optional int32 	enterType = 1;	//enterType == 1 本服， 2 跨服
+	optional int64 cid = 2;
+}

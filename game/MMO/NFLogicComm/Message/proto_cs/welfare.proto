@@ -1,0 +1,252 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+//CL_WelfareGetSignDataReq = 3150; //获得月签到数据
+message WelfareGetSignDataReq
+{
+
+}
+
+//LC_WelfareGetSignDataRsp = 3151; //获得月签到数据
+message WelfareGetSignDataRsp
+{
+  repeated WelfareSignPBData sign = 1;
+  repeated WelfareAccrueRewardPBData accure = 2;
+}
+
+//CL_WelfareGetSignRewardReq = 3152; //获得月签到奖励
+message WelfareGetSignRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_WelfareGetSignRewardRsp = 3153; //获得月签到奖励
+message WelfareGetSignRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareSignPBData sign = 2;
+}
+
+//CL_WelfareGetAccrueRewardReq = 3156; //获得本月已签到奖励
+message WelfareGetAccureRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_WelfareGetAccrueRewardRsp = 3157; //获得本月已签到奖励
+message WelfareGetAccureRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareAccrueRewardPBData accure = 2;
+}
+
+
+////////////////////等级奖励////////////////////////
+//CL_WelfareGetLvRewardDataReq = 3160; //获得等级奖励数据
+message WelfareGetLvRewardDataReq
+{
+}
+
+//LC_WelfareGetLvRewardDataRsp = 3161; //获得等级奖励数据
+message WelfareGetLvRewardDataRsp
+{
+  repeated WelfareLvRewardPBData lv = 1;
+}
+
+//CL_WelfareGetLvRewardRewardReq = 3162; //获得等级奖励奖励
+message WelfareGetLvRewardRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_WelfareGetLvRewardRewardRsp = 3163; //获得等级奖励奖励
+message WelfareGetLvRewardRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareLvRewardPBData lv = 2;
+}
+
+//////////////////在线奖励//////////////////
+//CL_WelfareGetOnlineRewardDataReq = 3165; //获得在线奖励数据
+message WelfareGetOnlineRewardDataReq
+{
+
+}
+
+//LC_WelfareGetOnlineRewardDataRsp = 3166; //获得在线奖励数据
+message WelfareGetOnlineRewardDataRsp
+{
+  repeated WelfareOnlineRewardPBData online = 1;
+  optional int32 online_time = 2;
+}
+
+//CL_WelfareGetOnlineRewardRewardReq = 3167; //获得在线奖励奖励
+message WelfareGetOnlineRewardRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_WelfareGetOnlineRewardRewardRsp = 3168; //获得在线奖励奖励
+message WelfareGetOnlineRewardRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareOnlineRewardPBData online = 2;
+}
+
+//////////////////////公告//////////////////////////
+//CL_WelfareGetNotifyRewardDataReq = 3170; //获得公告奖励数据
+message WelfareGetNotifyRewardDataReq
+{
+
+}
+
+//LC_WelfareGetNotifyRewardDataRsp = 3171; //获得公告奖励数据
+message WelfareGetNotifyRewardDataRsp
+{
+  optional WelfareNotifyRewardPBData notify = 1;
+}
+
+//CL_WelfareGetNotifyRewardRewardReq = 3172; //获得公告奖励奖励
+message WelfareGetNotifyRewardRewardReq
+{
+
+}
+
+//LC_WelfareGetNotifyRewardRewardRsp = 3173; //获得公告奖励奖励
+message WelfareGetNotifyRewardRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareNotifyRewardPBData notify = 2;
+}
+
+/////////////////////////////防诈骗/////////////////////////
+//CL_WelfareGetFraudRewardDataReq = 3176; //获得防诈骗数据
+message WelfareGetFraudRewardDataReq
+{
+
+}
+
+//LC_WelfareGetFraudRewardDataRsp = 3177; //获得防诈骗数据
+message WelfareGetFraudRewardDataRsp
+{
+  optional WelfareFraudRewardPBData fraud = 1;
+}
+
+//CL_WelfareGetFraudRewardRewardReq = 3178; //获得防诈骗奖励
+message WelfareGetFraudRewardRewardReq
+{
+  repeated int32 id = 1;
+}
+
+//LC_WelfareGetFraudRewardRewardRsp = 3179; //获得防诈骗奖励
+message WelfareGetFraudRewardRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareFraudRewardPBData fraud = 2;
+}
+
+///////////////////////////////////////////////////
+//CL_WelfareGetWeekEndRewardDataReq = 3180; //获得周末奖励数据
+message WelfareGetWeekEndRewardDataReq
+{
+
+}
+
+//LC_WelfareGetWeekEndRewardDataRsp = 3181; //获得周末奖励数据
+message WelfareGetWeekEndRewardDataRsp
+{
+  repeated WelfareWeekEndRewardPBData data = 1;
+}
+
+//CL_WelfareGetWeekEndRewardRewardReq = 3182; //获得周末奖励奖励
+message WelfareGetWeekEndRewardRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_WelfareGetWeekEndRewardRewardRsp = 3183; //获得周末奖励奖励
+message WelfareGetWeekEndRewardRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareWeekEndRewardPBData data = 2;
+}
+
+//////////////祈福/////////////////////////////////////////////
+//CL_WelfareGetQiFuDataReq = 3184; //获得祈福数据
+message WelfareGetQiFuDataReq
+{
+
+}
+
+//LC_WelfareGetQiFuDataRsp = 3185; //获得祈福数据
+message WelfareGetQiFuDataRsp
+{
+  optional WelfareQiFuData data = 1;
+}
+
+//CL_WelfareQiFuReq = 3186; //祈福
+message WelfareQiFuReq
+{
+  optional int32 type = 1; //0:免费祈福 1:元宝祈福 2:经验祈福
+}
+
+//LC_WelfareQiFuRsp = 3187; //祈福
+message WelfareQiFuRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareQiFuData data = 2;
+}
+
+//CL_WelfareSaveMoneyReq = 3188; //存钱
+message WelfareSaveMoneyReq
+{
+
+}
+
+//LC_WelfareSaveMoneyRsp = 3189; //存钱
+message WelfareSaveMoneyRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareQiFuData data = 2;
+}
+
+//CL_WelfareGetMoneyReq = 3190; //取钱
+message WelfareGetMoneyReq
+{
+  optional int32 type = 1; //0:取利息 1:取本金
+}
+
+//LC_WelfareGetMoneyRsp = 3191; //取钱
+message WelfareGetMoneyRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareQiFuData data = 2;
+}
+
+//////////////////Logon////////////////////////
+//CL_WelfareGetLogonDataReq = 3192; //获得Logon数据
+message WelfareGetLogonDataReq
+{
+
+}
+
+//LC_WelfareGetLogonDataRsp = 3193; //获得Logon数据
+message WelfareGetLogonDataRsp
+{
+  repeated WelfareLogonData logon = 13;
+}
+
+//CL_WelfareGetLogonRewardReq = 3194; //获得Logon奖励
+message WelfareGetLogonRewardReq
+{
+  optional int64 id = 1;
+}
+
+//LC_WelfareGetLogonRewardRsp = 3195; //获得Logon奖励
+message WelfareGetLogonRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional WelfareLogonData data = 2;
+}

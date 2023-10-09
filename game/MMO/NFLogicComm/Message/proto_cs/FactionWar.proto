@@ -1,0 +1,373 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+//赛区帮派信息
+message RaceFactionProto
+{
+	optional uint32 faction_id = 1;
+	optional bytes name = 2;
+	optional uint32 zid = 3;
+}
+//赛区帮派匹配信息
+message RaceFactionMatchProto
+{
+	repeated RaceFactionProto match = 1;  //匹配的两个帮派信息
+	optional uint32 faction_id = 2;		  //胜利的帮派
+
+}
+//赛区信息
+message RaceProto
+{
+	optional int32 race = 1;					//赛区，1-人级赛区 2-地级赛区 3-天级赛区 4-仙级赛区 5-神级赛区
+	repeated RaceFactionProto info_lst = 2;		//赛区帮派信息
+}
+//赛区列表信息
+message RaceListProto
+{
+	repeated RaceProto race_lst = 1;	//赛区列表
+}
+
+//赛区匹配
+message RaceMatchProto
+{
+	optional int32 race = 1;							//赛区，1-人级赛区 2-地级赛区 3-天级赛区 4-仙级赛区 5-神级赛区
+	repeated RaceFactionMatchProto info_lst = 2;		//赛区帮派匹配信息
+	optional uint32 faction_id = 3;						//赛区中第一名的帮派ID
+}
+//赛区匹配列表信息
+message RaceMatchListProto
+{
+	repeated RaceMatchProto info_lst = 1;	//赛区列表
+}
+
+//帮派战排名信息
+message WarRankProto
+{
+	optional int32 rank = 1;
+	optional uint32 faction_id = 2;
+	optional bytes name = 3;
+	optional uint32 zid = 4;		
+}
+//帮派战排名列表信息
+message WarRankListProto
+{
+	repeated WarRankProto info_lst = 1;
+}
+//帮派战防御塔血量信息
+message WarTowerProto
+{
+	optional uint64 mons_id = 1;	//怪物配置id
+	optional bool is_dead = 2;		//是否死亡 true:死亡，false:未死亡
+	optional int64 hp = 3;			//当前血量
+	optional int64 maxhp = 4;		//最大血量
+	optional Vector3PB pos = 5;		//坐标
+}
+//帮派战防御塔血量列表信息
+message WarTowerListProto
+{
+	repeated WarTowerProto info_lst = 1;
+}
+
+
+//帮派战个人积分排名信息
+message WarScoreRankProto
+{
+	optional int32 rank = 1;
+	optional uint64 cid = 2;
+	optional bytes name = 3;
+	optional int32 score = 4;
+}
+//帮派战个人积分排名列表信息
+message WarScoreRankListProto
+{
+	repeated WarScoreRankProto info_lst = 1;
+}
+
+
+//帮派战 战斗信息
+message WarFightProto
+{
+	optional int32 rank = 1;
+	optional int32 score = 2;
+	optional uint64 cid = 3;
+	optional bytes name = 4;
+	optional uint32 zid = 5;
+	optional int32 kill = 6;		//击杀数量
+	optional int32 dead = 7;		//死亡次数
+	optional int32 tower = 8;		//破塔数量
+	repeated ComItem reward = 9;	//排行奖励
+}
+
+//帮派战 主宰帮派帮主信息
+message WarLeaderInfo
+{
+	optional uint64 cid = 1;
+	optional bytes name = 2;
+	optional uint32 zid = 3;
+	optional RoleFacadeProto facade = 4;
+}
+
+
+
+
+
+
+
+
+
+
+//请求帮派战赛区信息 FACTION_WAR_RACE_INFO_REQ
+message FactionWar_RaceReq
+{
+	//空
+}
+//返回帮派战赛区信息 FACTION_WAR_RACE_NFO_RSP
+message FactionWar_RaceRsp
+{
+	optional RaceListProto race = 1;		//
+	optional RaceMatchListProto match =2;	//
+	optional int32 stage = 3;				//赛事进程 0-未开启 1-第一轮 2-中场休息  3-第二轮，4-第二轮结束
+}
+		
+//通知赛区匹配信息  FACTION_WAR_RACE_MATCH_RSP
+message FactionWar_MatchRsp
+{
+	optional RaceMatchListProto match = 1;
+}
+
+
+//请求帮派战 帮派排名 FACTION_WAR_RANK_REQ
+message FactionWar_RankReq
+{
+	//空
+}
+//返回帮派战 帮派排名 FACTION_WAR_RANK_RSP
+message FactionWar_RankRsp
+{
+	optional WarRankListProto info = 1;
+}
+//请求进入帮派战 战场 FACTION_WAR_ENTER_BATTLE_REQ
+message FactionWar_EnterBattleReq
+{
+
+}
+//返回进入帮派战 战场结果 FACTION_WAR_ENTER_BATTLE_RSP
+message FactionWar_EnterBattleRsp
+{
+	required int32 ret = 1; //返回码
+}
+//通知战场信息 FACTION_WAR_BATTLE_INFO_RSP
+message FactionWar_BattleInfoRsp
+{
+	optional int32 stage = 1;	//轮次
+	optional int32 score = 2;	//个人积分
+	optional int32 car_num = 3;	//工程车数量
+	optional int32 camp = 4;    //阵营
+}
+//通知战场防御塔血量信息 FACTION_WAR_DEF_TOWER_RSP
+message FactionWar_TowerHpRsp
+{
+	optional WarTowerListProto tower = 1;
+}
+
+//通知战场个人积分排名 FACTION_WAR_SCORE_RANK_RSP 
+message FactionWar_ScoreRankRsp
+{
+	optional WarScoreRankListProto rank = 1;
+}
+
+
+//通知帮派积分 FACTION_WAR_SCORE_RSP
+message FactionWar_ScoreRsp
+{
+	optional int32 blue_score = 1;	//蓝方帮派积分
+	optional int32 red_score = 2;	//红方帮派积分
+	optional int32 blue_num = 3;	//蓝方帮派防御塔剩余数量
+	optional int32 red_num = 4;		//红方帮派防御塔剩余数量
+	optional bytes blue_name = 5;	//蓝方帮派名字
+	optional bytes red_name = 6;	//红方帮派名字
+}
+
+
+//通知帮派战 结果 FACTION_WAR_RESULT_RSP
+message FactionWar_ResultRsp
+{
+	optional int32 result = 1;			//结果 0-成功，1-失败
+	repeated WarFightProto info = 2;	//战斗信息
+}
+
+
+
+//请求连胜信息 FACTION_WAR_WIN_INFO_REQ
+message FactionWar_WinInfoReq
+{
+	//空
+}
+//返回连胜信息 FACTION_WAR_WIN_INFO_RSP
+message FactionWar_WinInfoRsp
+{
+	optional uint32 faction_id = 1;	//连胜帮派ID
+	optional bytes name = 2;		//连胜帮派名字
+	optional int32 win_num = 3;		//连胜次数
+}
+
+
+//请求连胜帮主信息 FACTION_WAR_WIN_LEADER_REQ
+message FactionWar_WinLeaderReq
+{
+	//空
+}
+//返回连胜帮主信息 FACTION_WAR_WIN_LEADER_RSP
+message FactionWar_WinLeaderRsp
+{
+	optional WarLeaderInfo  leader = 1;  //帮主
+	optional WarLeaderInfo  wife = 2;	 //帮主夫人
+}
+
+//请求领取连胜每日俸禄 FACTION_WAR_WIN_FETCH_REQ 
+message FactionWar_WinFetchReq
+{
+	//空
+}
+
+//返回 领取连胜每日俸禄 结果 FACTION_WAR_WIN_FETCH_RSP
+message FactionWar_WinFetchRsp
+{
+	required int32 ret = 1;  //返回码
+}
+
+//返回 今日是否已领取帮派战 每日俸禄 FACTION_WAR_IS_FETCH_RSP
+message FactionWar_IsFetchRsp
+{
+	optional int32 fetch_war = 1;	//今日是否已领取帮派战 每日俸禄
+}
+
+//-------------------------------------- center and social ----------------------------------------------------
+
+//拉取的帮派信息
+message PullFactionProto
+{
+	optional uint32 faction_id = 1;
+	optional bytes name = 2;
+	optional uint64 fight = 3;		//活跃成员的战力
+}
+
+//帮派战信息
+message FactionWarProto
+{
+	optional uint32 faction_id = 1;
+	optional bytes name = 2;
+	optional uint32 zid = 3;
+	optional uint64 fight = 4;
+}
+
+//帮派战 帮派排名信息
+message FactionWarRankProto
+{
+	optional uint32 faction_id = 1;
+	optional int32 rank = 2;
+}
+
+//社交服请求中心服赛区帮派信息 FACTION_WAR_S2C_PULL_RACE_FACTION_REQ
+message FactionWar_S2C_PullReq
+{
+	optional int32 num = 1;	//拉取数量
+	optional int32 type = 2;//类型，原样返回
+}
+//中心服返回社交服赛区帮派信息 FACTION_WAR_C2S_PULL_RACE_FACTION_RSP
+message FactionWar_C2S_PullRsp
+{
+	optional uint32 zid = 1;
+	repeated PullFactionProto info = 2;
+	optional int32 type = 3;//类型，原样返回
+}
+
+
+
+//社交服通知逻辑服帮派信息 FACTION_WAR_S2L_FACTION_INFO_RSP
+message FactionWar_S2L_InfoRsp
+{
+	optional uint64 sceneid = 1;
+	repeated FactionWarProto info  = 2;
+	optional int32 state = 3; //赛事进程 0-未开启 1-第一轮 2-中场休息  3-第二轮，4-第二轮结束
+	optional int32 race = 4; //赛区，1-人级赛区 2-地级赛区 3-天级赛区 4-仙级赛区 5-神级赛区
+	optional int32 index = 5;//帮派战索引
+	optional uint32 win_id = 6;//连胜帮派ID
+	optional uint32 win_num = 7;//连胜次数
+}
+
+//逻辑服通知社交服帮派战结果 FACTION_WAR_L2S_WAR_RESULT
+message FactionWar_S2L_WarResultRsp
+{
+	optional int32 index = 1;			//帮派战索引
+	optional int32 race = 2;			//赛区，1-人级赛区 2-地级赛区 3-天级赛区 4-仙级赛区 5-神级赛区
+	optional int32 state = 3;			//赛事进程
+	optional uint32 faction_id1 = 4;
+	optional uint32 faction_id2 = 5;
+	optional uint32 success_id = 6;
+	repeated uint64 cid_lst1 = 7;
+	repeated uint64 cid_lst2 = 8;
+}
+
+//社交服通知中心服发放帮派战排名奖励 FACTION_WAR_RANK_REWARD_RSP
+message FactionWar_S2C_RankRewardRsp
+{
+	optional uint32 faction_id = 1;
+	optional int32 rank = 2;
+	repeated uint64 cids = 3;
+	optional int32 type = 4;  //1-本服，2-跨服
+}
+
+//社交服通知中心服发放终结连胜奖励 FACTION_WAR_END_WIN_REWARD_RSP
+message FactionWar_S2C_EndWinRewardRsp
+{
+	optional uint32 faction_id = 1;		//被终结的帮派ID
+	optional int32 win_num = 2;			//被终结的连胜次数
+	optional uint32 win_zid = 3;		//被终结的帮派所属区服ID
+	optional uint32 fa_id = 4;			//主动终结的帮派ID
+	repeated uint64 cids = 5;			//参与主动终结帮派的成员列表
+}
+
+//社交服通知中心服更新连胜信息 FACTION_WAR_WIN_INFO_RSP
+message FactionWar_S2C_WinInfoRsp
+{
+	optional uint32 faction_id = 1;		//连胜的帮派ID
+	optional int32 win_num = 2;			//连胜次数
+	optional bool reward = 3;			//是否需要发放连胜奖励
+	repeated uint64 cids = 4;			//参与连胜的成员
+}
+
+//社交服通知中心服移除连胜信息 FACTION_WAR_DEL_WIN_RSP
+message FactionWar_S2C_DelWinRsp
+{
+	//空
+}
+
+//社交服请求中心服连胜帮派帮主信息 FACTION_WAR_S2C_LEADER_INFO_REQ
+message FactionWar_S2C_LeaderInfoReq
+{
+	optional uint32 index = 1;
+	optional uint32 faction_id = 2;
+}
+//中心服返回社交服连胜帮派帮主信息 FACTION_WAR_C2S_LEADER_INFO_RSP
+message FactionWar_S2C_LeaderInfoRsp
+{
+	optional uint32 index = 1;
+	optional WarLeaderInfo leader = 2;
+	optional WarLeaderInfo wife = 3;
+}
+
+//中心服通知逻辑服领取主宰帮派每日俸禄 FACTION_WAR_C2L_FETCH_WIN_REWARD
+message FactionWar_C2L_FetchWinRewardReq
+{
+	optional uint64 cid = 1;
+}
+
+//中心服通知逻辑服主宰帮派解散 FACTION_WAR_C2S_WIN_DISMISS
+message FactionWar_C2S_WinDismissRsp
+{
+	optional uint32 faction_id = 1;		//帮派ID
+	optional uint32 zid = 2;
+}

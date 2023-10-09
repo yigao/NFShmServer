@@ -1,0 +1,112 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+//条件礼包信息
+message GiftCondProto
+{
+	optional int32 id = 1;		//配置ID
+	optional int32 buy = 2;		//是否已购买 0-没买，1-已购
+	optional int32 close = 3;	//礼包活动是否已关闭
+	optional int32 lefttime = 4; //礼包剩余时间，单位：秒
+}
+
+//0元礼包信息
+message GiftZeroProto
+{
+	optional int32 id = 1;		//配置ID
+	optional int32 buy = 2;		//是否已购买 0-没买，1-已购
+	optional int32 fetch = 3;	//是否已领取返还的货币
+}
+
+//0元礼包日志信息
+message GiftZeroLogProto
+{
+	optional bytes name = 1;	//角色名字
+	optional int32 type = 2;	//1-购买，2-领取
+	optional int32 value = 3;	//type=1时，表示购买的0元礼包配置ID，type=2时，表示领取的钻石数量
+}
+
+
+
+//请求条件礼包信息 GIFT_COND_INFO_REQ
+message GiftCond_InfoReq
+{
+	//空
+}
+//返回 条件礼包信息 GIFT_COND_INFO_RSP
+message GiftCond_InfoRsp
+{
+	repeated GiftCondProto cond = 1;
+}
+
+//更新 条件礼包信息 GIFT_COND_UPDATE_RSP
+message GiftCond_UpdateRsp
+{
+	repeated GiftCondProto cond = 1;
+}
+
+//购买 条件礼包 GIFT_COND_BUY_REQ
+message GiftCond_BuyReq
+{
+	optional int32 id = 1; //配置ID
+}
+
+//返回 购买 条件礼包结果 GIFT_COND_BUY_RSP
+message GiftCond_BuyRsp
+{
+	required int32 ret = 1;  //返回码
+}
+
+
+
+//请求0元礼包信息 GIFT_ZERO_INFO_REQ
+message GiftZero_InfoReq
+{
+	//空
+}
+//返回0元礼包信息 GIFT_ZERO_INFO_RSP
+message GiftZero_InfoRsp
+{
+	repeated GiftZeroProto zero = 1;
+}
+//更新 0元礼包信息 GIFT_ZERO_UPDATE_RSP
+message GiftZero_UpdateRsp
+{
+	repeated GiftZeroProto zero = 1;
+}
+
+
+//购买 0元礼包 GIFT_ZERO_BUY_REQ
+message GiftZero_BuyReq
+{
+	optional int32 id = 1;
+}
+//返回 购买0元礼包 结果 GIFT_ZERO_BUY_RSP
+message GiftZero_BuyRsp
+{
+	required int32 ret = 1;
+}
+//领取0元礼包返还的货币 GIFT_ZERO_FETCH_REQ
+message GiftZero_FetchReq
+{
+	optional int32 id = 1;
+}
+//领取0元礼包返还的货币 的结果 GIFT_ZERO_FETCH_RSP
+message GiftZero_FetchRsp
+{
+	required int32 ret = 1;
+}
+
+//请求 0元礼包购买日志 GIFT_ZERO_LOG_REQ
+message GiftZero_LogReq
+{
+	//空
+}
+//返回 0元礼包购买日志 GIFT_ZERO_LOG_RSP
+message GiftZero_LogRsp
+{
+	repeated GiftZeroLogProto log = 1;
+}

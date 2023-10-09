@@ -1,0 +1,243 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+/////////////////////真龙寻宝 3610-3650////////////////////////
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_GET_RECORD_REQ = 3690; //请求个人中奖记录
+message CLFindTreausreGetRecordReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_GET_RECORD_RSP = 3691; //请求个人中奖记录
+message LCFindTreausreGetRecordRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  repeated FindTreasureRewardRecord record = 3;
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_GET_SERVER_RECORD_REQ = 3692; //请求全服中奖记录
+message CLFindTreausreGetServerRecrodReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_GET_SERVER_RECORD_RSP = 3693; //请求全服中奖记录
+message LCFindTreausreGetServerRecrodRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  repeated FindTreasureRewardRecord record = 3;
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_PACKAGE_REQ = 3694; //全服仓库里取奖励
+message CLFindTreasurePackageReq
+{
+  optional int32 type = 1;
+  repeated int32 grid_list = 2; //
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_PACKAGE_RSP = 3695; //全服仓库里取奖励
+message LCFindTreasurePackageRsp
+{
+  optional int32 ret_code = 2;
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_GET_SERVER_CHOUJIANG_NUM_REQ = 3696; //全服抽奖次数
+message CLFindTreasureGetServerChouJiangNumReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_GET_SERVER_CHOUJIANG_NUM_RSP = 3697; //全服抽奖次数
+message LCFindTreasureGetServerChouJiangNumRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  optional int32 server_all_num = 3;
+}
+
+///////////////////////////////////巨龙宝藏///////////////////////////////////////////////
+//CLIENT_TO_LOGIC_FIND_TREASURE_BIG_DRAGON_INFO_REQ = 3610; //请巨龙宝藏数据
+message CLFindTreasureBigDragonInfoReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_BIG_DRAGON_INFO_RSP = 3611; //请求巨龙宝藏数据
+message LCFindTreasureBigDragonInfoRsp
+{
+  optional int32 ret_code = 1;
+  optional FindTreasureBigDragonData data = 2;
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_BIG_DRAGON_CHOUJIANG_REQ = 3612; //请求巨龙宝藏抽奖
+message CLFindTreasureBigDragonChouJiangReq
+{
+  optional int32 id = 1;
+  optional int32 num_type = 2; //0: 抽一次 1：抽10次 2：抽50次
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_BIG_DRAGON_CHOUJIANG_RSP = 3613; //请求巨龙宝藏抽奖
+message LCFindTreasureBigDragonChouJiangRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  repeated int32 reward_id = 3; //findPool
+  optional int32 all_num = 4;
+  repeated FindTreasureBigDragonRewardData total_reward = 5;
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_BIG_DRAGON_GET_TOTAL_REWARD_REQ = 3614; //请求巨龙宝藏累积奖励
+message CLFindTreasureBigDragonGetTotalRewardReq
+{
+  optional int32 id = 1;
+  optional int32 total_id = 2;//0:一键领取
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_BIG_DRAGON_GET_TOTAL_REWARD_RSP = 3615; //请求巨龙宝藏累积奖励
+message LCFindTreasureBigDragonGetTotalRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  repeated FindTreasureBigDragonRewardData reward = 3;
+}
+
+///////////////////////////////////巨龙宝藏///////////////////////////////////////////////
+///////////////////////////////////神机百炼///////////////////////////////////////////////
+//CLIENT_TO_LOGIC_FIND_TREASURE_BAI_LIAN_INFO_REQ = 3625; //请求神机百炼数据
+message CLFindTreasureBaiLianInfoReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_BAI_LIAN_INFO_RSP = 3626; //请求神机百炼数据
+message LCFindTreasureBaiLianInfoRsp
+{
+  optional int32 ret_code = 1;
+  optional FindTreasureBaiLianData data = 2;
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_BAI_LIAN_CHOUJIANG_REQ = 3627; //请求神机百炼抽奖
+message CLFindTreasureBaiLianChouJiangReq
+{
+  optional int32 id = 1;
+  optional int32 num_type = 2; //0: 抽一次 1：抽10次
+  optional int32 use_special = 3; //0:普通物品抽奖 1:使用特殊物品
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_BAI_LIAN_CHOUJIANG_RSP = 3628; //请求神机百炼抽奖
+message LCFindTreasureBaiLianChouJiangRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  repeated int32 reward_id = 3; //findpool
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_BAI_LIAN_EXCHANGE_REQ = 3633; //请求巨龙宝藏兑换
+message CLFindTreasureBaiLianExchangeReq
+{
+  optional int32 shop_id = 1;
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_BAI_LIAN_EXCHANGE_RSP = 3634; //请求巨龙宝藏兑换
+message LCFindTreasureBaiLianExchangeRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 shop_id = 2;
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_BAI_LIAN_BUY_SHOP_REQ = 3635; //请求巨龙宝藏商店购买
+message CLFindTreasureBaiLianBuyShopReq
+{
+  optional int32 id = 1;
+  optional int32 active_id = 2;
+  optional int32 active_shop_id = 3;
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_BAI_LIAN_BUY_SHOP_RSP = 3636; //请求巨龙宝藏商店购买
+message LCFindTreasureBaiLianBuyShopRsp
+{
+  optional int32 ret_code =1 ;
+  optional int32 id = 2;
+  optional int32 active_id = 3;
+  optional FindTreasureBaiLianShopData shop_data = 4;
+}
+
+//NOTIFY_FIND_TREASURE_BAI_LIAN_ACTIVE_CHANGE = 3637; //百炼抽奖活动数据修改
+message NotifyFindTreasureBaiLianActiveChange
+{
+  optional int32 id = 1;
+  optional FindTreasureBaiLianActiveData data = 2;
+}
+
+///////////////////////////////////神机百炼///////////////////////////////////////////////
+///////////////////////////////////四圣抽奖///////////////////////////////////////////////
+//CLIENT_TO_LOGIC_FIND_TREASURE_SI_SHENG_INFO_REQ = 3650; //请求四圣抽奖数据
+message CLFindTreasureSiShengInfoReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_SI_SHENG_INFO_RSP = 3651; //请求四圣抽奖数据
+message LCFindTreasuareSiShengInfoRsp
+{
+  optional int32 ret_code = 1;
+  optional FindTreasureSiShengData data = 2;
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_SI_SHENG_CHOUJIANG_REQ = 3652; //请求四圣抽奖抽奖
+message CLFindTreasureSiShengChouJiangReq
+{
+  optional int32 id = 1;
+  optional int32 num_type = 2; //0: 抽一次 1：抽10次 2：抽50次
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_SI_SHENG_CHOUJIANG_RSP = 3653; //请求四圣抽奖抽奖
+message LCFindTreasureSiShengChouJiangRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  repeated int32 reward_id = 3; //find pool
+  optional int32 all_num = 4; //个人抽奖总数目
+  repeated FindTreasureSiShengRewardData person_total_reward = 5; //四圣个人奖励
+  repeated FindTreasureSiShengRewardData server_total_reward = 6; //四圣全服奖励
+  optional int32 server_all_num = 7; //全服抽奖总数目
+}
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_SI_SHENG_GET_TOTAL_REWARD_REQ = 3654; //请求四圣抽奖累积奖励
+message CLFindTreasureSiShengGetTotalRewardReq
+{
+  optional int32 id = 1;
+  optional int32 total_id = 2;//0:一键领取
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_SI_SHENG_GET_TOTAL_REWARD_RSP = 3655; //请求四圣抽奖累积奖励
+message LCFindTreasureSiShengGetTotalRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  repeated FindTreasureSiShengRewardData reward = 3;
+}
+
+
+//CLIENT_TO_LOGIC_FIND_TREASURE_SI_SHENG_GET_SERVER_TOTAL_REWARD_REQ = 3656; //请求全服四圣抽奖累积奖励
+message CLFindTreasureSiShengGetServerTotalRewardReq
+{
+  optional int32 id = 1;
+  optional int32 total_id = 2;//0:一键领取
+}
+
+//LOGIC_TO_CLIENT_FIND_TREASURE_SI_SHENG_GET_SERVER_TOTAL_REWARD_RSP = 3657; //请求全服四圣抽奖累积奖励
+message LCFindTreasureSiShengGetServerTotalRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  repeated FindTreasureSiShengRewardData reward = 3;
+  optional int32 all_num = 4; //全服抽奖次数
+}
+
+///////////////////////////////////四圣抽奖///////////////////////////////////////////////

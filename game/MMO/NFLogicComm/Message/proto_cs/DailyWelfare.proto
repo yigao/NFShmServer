@@ -1,0 +1,425 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+//////////////////////////幸运密匙/////////////////////////////////
+//CL_DailyWelfareGetXingYunDataReq = 3350; //获得幸运密匙数据
+message DailyWelfareGetXingYunDataReq
+{
+
+}
+
+//LC_DailyWelfareGetXingYunDataRsp = 3351; //获得幸运密匙数据
+message DailyWelfareGetXingYunDataRsp
+{
+  repeated XingYunMiShiPBData data = 1;
+  optional int32 super_gift_status = 2; //0:没达到 1:可以领取奖励 2:已经领取奖励
+}
+
+//LC_DailyWelfareXingYunBuyNotify = 3352; //幸运密匙购买
+message DailyWelfareXinYunBuyNotify
+{
+  optional XingYunMiShiPBData data = 1;
+  optional int32 super_gift_status = 2; //0:没达到 1:可以领取奖励 2:已经领取奖励
+}
+
+//CL_DailyWelfareGetXingYunRecordReq = 3354; //获得幸运密匙购买数据
+message DailyWelfareGetXingYunRecordReq
+{
+
+}
+
+//LC_DailyWelfareGetXingYunRecordRsp = 3355; //获得幸运密匙购买数据
+message DailyWelfareGetXingYunRecordRsp
+{
+  repeated XingYunMiShiPBRecord record = 1;
+}
+
+//CL_DailyWelfareGetXingYunSuperGiftRewardReq = 3384; //获得幸运密匙超级礼包奖励
+message DailyWelfareGetXingYunSuperGiftRewardReq
+{
+
+}
+
+//LC_DailyWelfareGetXingYunSuperGiftRewardRsp = 3385; //获得幸运密匙超级礼包奖励
+message DailyWelfareGetXingYunSuperGiftRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 super_gift_status = 2; //0:没达到 1:可以领取奖励 2:已经领取奖励
+}
+
+//CL_DailyWelfareGetFreeXingYunRewardReq = 3386; //获得幸运密匙免费奖励
+message DailyWelfareGetFreeXingYunRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_DailyWelfareGetFreeXingYunSRewardRsp = 3387; //获得幸运密匙免费奖励
+message DailyWelfareGetFreeXingYunSRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional XingYunMiShiPBData data = 2;
+}
+
+/////////////////////每日礼包//////////////////////
+//CL_DailyWelfareGetDailyGiftDataReq = 3355; //获得每日礼包数据
+message DailyWelfareGetDailyGiftDataReq
+{
+
+}
+
+//LC_DailyWelfareGetDailyGiftDataRsp = 3356; //获得每日礼包数据
+message DailyWelfareGetDailyGiftDataRsp
+{
+  repeated DailyGiftPBData data = 1;
+}
+
+//LC_DailyWelfareDailyGiftBuyNotify = 3357; //每日礼包购买
+message DailyWelfareDailyGiftBuyNotify
+{
+  optional DailyGiftPBData data = 1;
+}
+
+//CL_DailyWelfareGetDailyGiftRecordReq = 3358; //获得每日礼包购买数据
+message DailyWelfareGetDailyGiftRecordReq
+{
+
+}
+
+//LC_DailyWelfareGetDailyGiftRecordRsp = 3359; //获得每日礼包购买数据
+message DailyWelfareGetDailyGiftRecordRsp
+{
+  repeated DailyGiftPBDataRecord record = 1;
+}
+
+//CL_DailyWelfareGetFreeDailyGiftRewardReq = 3360; //获得免费奖励
+message DailyWelfareGetFreeDailyGiftRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_DailyWelfareGetFreeDailyGiftRewardRsp = 3361; //获得免费奖励
+message DailyWelfareGetFreeDailyGiftRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional DailyGiftPBData data = 2;
+}
+
+//////////////////////////////////连冲豪礼///////////////////////////////////////////
+//CL_DailyWelfareGetTodayRechargeDataReq = 3362; //获得今天充值数据
+message DailyWelfareGetTodayRechargeDataReq
+{
+
+}
+
+//LC_DailyWelfareGetTodayRechargeDataRsp = 3363; //获得今天充值数据
+message DailyWelfareGetTodayRechargeDataRsp
+{
+  repeated LianChongTodayPBData data = 1;
+}
+
+//CL_DailyWelfareGetTodayRechargeRecordReq = 3364; //获得今天充值记录
+message DailyWelfareGetTodayRechargeRecordReq
+{
+
+}
+
+//LC_DailyWelfareGetTodayRechargeRecordRsp = 3365; //获得今天充值记录
+message DailyWelfareGetTodayRechargeRecordRsp
+{
+  repeated LianChongTodayPBDataRecord record = 1;
+}
+
+//LC_DailyWelfareGetTodayRechargeNotify	= 3366; //今天充值变更
+message DailyWelfareGetTodayRechargeNotify
+{
+  optional LianChongTodayPBData data = 1;
+}
+
+//CL_DailyWelfareGetAccRechargeDataReq = 3367; //获得累积充值数据
+message DailyWelfareGetAccRechargeDataReq
+{
+
+}
+
+//LC_DailyWelfareGetAccRechargeDataRsp = 3368; //获得累积充值数据
+message DailyWelfareGetAccRechargeDataRsp
+{
+  repeated LianChongAccPBData data = 1;
+}
+
+//CL_DailyWelfareGetAccRechargeRecordReq = 3369; //获得累积充值记录
+message DailyWelfareGetAccRechargeRecordReq
+{
+
+}
+
+//LC_DailyWelfareGetAccRechargeRecordRsp = 3370; //获得累积充值记录
+message DailyWelfareGetAccRechargeRecordRsp
+{
+  repeated LianChongAccPBDataRecord record = 1;
+}
+
+//LC_DailyWelfareGetAccRechargeNotify	= 3371; //累积充值变更
+message DailyWelfareGetAccRechargeNotify
+{
+  optional LianChongAccPBData data = 1;
+}
+
+//CL_DailyWelfareGetTodayRechargeRewardReq = 3372; //获得今天充值奖励
+message DailyWelfareGetTodayRechargeRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_DailyWelfareGetTodayRechargeRewardRsp = 3373; //获得今天充值奖励
+message DailyWelfareGetTodayRechargeRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional LianChongTodayPBData data = 2;
+}
+
+//CL_DailyWelfareGetAccRechargeRewardReq = 3374; //获得累积充值奖励
+message DailyWelfareGetAccRechargeRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_DailyWelfareGetAccRechargeRewardRsp = 3375; //获得累积充值奖励
+message DailyWelfareGetAccRechargeRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional LianChongAccPBData data = 2;
+}
+
+//////////////////////////月卡///////////////////////////////
+//CL_DailyWelfareGetMonthCardDataReq = 3376; //获得月卡数据
+message DailyWelfareGetMonthCardDataReq
+{
+
+}
+
+message DailyWelfareMonthCardData
+{
+  optional MonthCardPBData data = 1;
+  optional int32 left_day = 3; //剩余天数
+  optional int32 can_get_day = 4; //可以领取天数
+}
+
+//LC_DailyWelfareGetMonthCardDataRsp = 3377; //获得月卡数据
+message DailyWelfareGetMonthCardDataRsp
+{
+  repeated DailyWelfareMonthCardData data = 1;
+}
+
+//CL_DailyWelfareGetMonthCardRewardReq = 3378; //获得月卡奖励
+message DailyWelfareGetMonthCardRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_DailyWelfareGetMonthCardRewardRsp = 3379; //获得月卡奖励
+message DailyWelfareGetMonthCardRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional DailyWelfareMonthCardData data = 2;
+}
+
+//CL_DailyWelfareGetMonthCardRecordReq = 3380; //获得月卡记录
+message DailyWelfareGetMonthCardRecordReq
+{
+
+}
+
+//LC_DailyWelfareGetMonthCardRecordRsp = 3381; //获得月卡记录
+message DailyWelfareGetMonthCardRecordRsp
+{
+  repeated MonthCardPBDataRecord record = 1;
+}
+
+//LC_DailyWelfareMonthCardNotify = 3383; //月卡数据变更
+message DailyWelfareMonthCardNotify
+{
+  optional DailyWelfareMonthCardData data = 1;
+}
+
+
+/////////////////////////////转盘/////////////////////////
+//LC_DailyWelfareTurnableAccNotify = 3388; //转盘累冲数据变更
+message DailyWelfareTurnableAccNotify
+{
+  optional TurntableAccPBData data = 1;
+}
+
+//CL_DailyWelfareGetTurnableDataReq = 3389; //获得转盘数据
+message DailyWelfareGetTurnableDataReq
+{
+
+}
+
+//LC_DailyWelfareGetTurnableDataRsp = 3390; //获得转盘数据
+message DailyWelfareGetTurnableDataRsp
+{
+  repeated TurntableAccPBData turntable_acc = 1; //转盘充值累计
+  repeated TurntablePBData turntable = 2; //转盘
+}
+
+//CL_DailyWelfareGetTurnableAccRewardReq = 3391; //获得转盘累冲奖励
+message DailyWelfareGetTurnableAccRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_DailyWelfareGetTTurnableAccRewardRsp = 3392; //获得转盘累冲奖励
+message DailyWelfareGetTTurnableAccRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional TurntableAccPBData data = 2;
+}
+
+//CL_DailyWelfareTurnableReq = 3393; //转盘转动
+message DailyWelfareTurnableReq
+{
+  optional int32 id = 1;
+  optional int32 num = 2;
+}
+
+//LC_DailyWelfareTurnableRsp = 3394; //转盘转动
+message DailyWelfareTurnableRsp
+{
+  optional int32 ret_code = 1;
+  optional TurntablePBData data = 2; //转盘
+  repeated int32 jackpot_id = 3;
+}
+
+//CL_DailyWelfareGetTurnableRewardReq = 3395; //获得转盘奖励
+message DailyWelfareGetTurnableRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LC_DailyWelfareGetTurnableRewardRsp = 3396; //获得转盘奖励
+message DailyWelfareGetTurnableRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional TurntablePBData data = 2; //转盘
+}
+
+//CL_DailyWelfareGetTurnableRecordReq = 3397; //获得全服转盘记录
+message DailyWelfareGetTurnableRecordReq
+{
+
+}
+
+//LC_DailyWelfareGetTurnableRecordRsp = 3398; //获得全服转盘记录
+message DailyWelfareGetTurnableRecordRsp
+{
+  repeated TurntablePBDataRecord record = 1;
+}
+
+
+//CL_DailyWelfareGetPersonTurnableRecordReq = 3399; //获得个人转盘记录
+message DailyWelfareGetPersonTurnableRecordReq
+{
+
+}
+
+//LC_DailyWelfareGetPersonTurnableRecordRsp = 3400; //获得个人转盘记录
+message DailyWelfareGetPersonTurnableRecordRsp
+{
+  repeated TurntablePBDataRecord record = 1;
+}
+
+
+/////////////////////////gift 超值必买 ////////////////////////////////
+//CLIENT_TO_LOGIC_GIFT_SUPER_BUY_INFO_REQ = 3570; //请求超值必买数据
+message CLGetGiftSuperBuyInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_GIFT_SUPER_BUY_INFO_RSP = 3571; //请求超值必买数据
+message LCGetGiftSuperBuyInfoRsp
+{
+  repeated OneSuperGiftBuy super_buy = 1; //超值必买
+}
+
+//CLIENT_TO_LOGIC_BUY_GIFT_SUPER_BUY_REQ = 3572; //请求购买超值必买里的仙玉礼包
+message CLBuyGiftSuperBuyReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_LOGIC_BUY_GIFT_SUPER_BUY_RSP = 3573; //请求购买超值必买里的仙玉礼包
+message LCBuyGiftSuperBuyRsp
+{
+  optional int32 ret_code = 1;
+  optional OneSuperGiftBuy super_buy = 2; //超值必买
+}
+
+//NOTIFY_GIFT_SUPER_BUY_CHANGE = 3574; //超值必买数据更改
+message NotifyGiftSuperBuyChange
+{
+  optional OneSuperGiftBuy super_buy = 1; //超值必买
+}
+
+/////////////////////////特权投资 3580-3600////////////////////////////////
+//CLIENT_TO_LOGIC_GET_INVEST_INFO_REQ = 3580; //请求特权投资数据
+message CLGetInvestInfoReq
+{
+  optional int32 invest_id = 1;
+}
+
+//LOGIC_TO_CLIENT_GET_INVEST_INFO_RSP = 3581; //请求特权投资数据
+message LCGetInvestInfoRsp
+{
+  optional int32 ret_code = 1;
+  optional OneWelfareInvestData data = 2;
+}
+
+//CLIENT_TO_LOGIC_GET_INVEST_REWARD_REQ = 3582; //请求特权投资奖励
+message CLGetInvestRewardReq
+{
+  optional int32 invest_reward_id = 1;
+}
+
+//LOGIC_TO_CLIENT_GET_INVEST_REWARD_RSP = 3583; //请求特权投资奖励
+message LCGetInvestRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional OnWelfareInvestRewardData data = 2;
+}
+
+//NOTIFY_INVEST_REWARD_DATA_CHANGE = 3584; //权投资奖励数据改变通知
+message NotifyInvestRewardDataChange
+{
+  optional OnWelfareInvestRewardData data = 1;
+}
+
+//CLIENT_TO_LOGIC_BUY_INVEST_REQ = 3585; //购买特权投资
+message CLGetBuyInvestReq
+{
+  optional int32 invest_id = 1;
+}
+
+//LOGIC_TO_CLIENT_BUY_INVEST_RSP = 3586; //购买特权投资
+message LCGetBuyInvestRsp
+{
+  optional int32 ret_code = 1;
+  optional OneWelfareInvestData data = 2;
+}
+
+//CL_DailyWelfareGetYTTLGiftDataReq = 3420; //获得倚天/屠龙
+message DailyWelfareGetYTTLGiftDataReq
+{
+
+}
+
+//LC_DailyWelfareGetYTTLGiftDataRsp = 3421; //获得倚天/屠龙
+message DailyWelfareGetYTTLGiftDataRsp
+{
+  optional int32 ret_code = 1;
+  repeated OneYTTLGift yttl_gift = 2; //倚天/屠龙
+}
+

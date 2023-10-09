@@ -1,0 +1,98 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+
+//商城信息
+message MallProto
+{
+	optional int64 id = 1;  //商品ID
+	optional uint32 num = 2; //已购买数量
+}
+//多个商城信息
+message MallMutProto
+{
+	repeated MallProto lst = 1;
+}
+
+
+//请求 商城信息  MALL_INFO_REQ
+message MallInfoReq
+{
+	//空
+}
+//返回商城信息 MALL_INFO_RSP
+message MallInfoRsp
+{
+	optional MallMutProto day = 1;		//每日
+	optional MallMutProto week = 2;		//每周
+	optional MallMutProto forever = 3;	//永久
+}
+
+
+//请求购买商品  MALL_BUY_REQ
+message MallBuyReq
+{
+	required int64 id = 1;    //商品ID
+	required uint32 num = 2;  //购买数量
+}
+//返回购买商品结果  MALL_BUY_RSP
+message MallBuyRsp
+{
+	required int32 ret = 1; //返回码
+	optional int32 id = 2;	//商品ID
+}
+
+//商城信息更新 MALL_INFO_UPDATE_RSP
+message MallUpdateRsp
+{
+	optional MallMutProto day = 1;		//每日
+	optional MallMutProto week = 2;		//每周
+	optional MallMutProto forever = 3;	//永久
+}
+
+//MALL_HOLY_BEAST_EXCHARGE_REQ = 2055; //四方圣兽兑换
+message MallHolyBeastExchargeReq
+{
+
+}
+
+//MALL_HOLY_BEAST_EXCHARGE_RSP = 2056; //四方圣兽兑换
+message MallHolyBeastExchargeRsp
+{
+	optional int32 ret = 1;
+}
+
+//MALL_SEND_FLOW_GIFT_REQ = 2057; //
+message MallSendFlowerGiftReq
+{
+	optional int32 gift_id = 1;
+	optional int32 gift_num = 2;
+	optional uint64 recv_cid = 3;
+}
+
+//MALL_SEND_FLOW_GIFT_RSP = 2058; //
+message MallSendFlowerGiftRsp
+{
+	optional int32 ret = 1;
+}
+
+//MALL_RECV_FLOW_GIFT_NOTIFY = 2059;
+message MallRecvFlowerGiftNotify
+{
+	optional int32 gift_id = 1;
+	optional int32 gift_num = 2;
+	optional uint64 send_cid = 3;
+	optional bytes send_name = 4;
+}
+
+message LCSendFlowerGift
+{
+	optional int32 gift_id = 1;
+	optional int32 gift_num = 2;
+	optional uint64 recv_cid = 3;
+	optional uint64 send_cid = 4;
+	optional bool use_item = 5;
+}

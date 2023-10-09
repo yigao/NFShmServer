@@ -1,0 +1,319 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+//不灭星辰4450-4500
+//CL_STAR_INFO_REQ = 4450; 						//获取信息
+message CLStarInfoReq
+{
+
+}
+
+//LC_STAR_INFO_RSP = 4451;						//获取信息
+message LCStarInfoRsp
+{
+  optional int32 ret_code = 1;
+  optional StarData all_data = 2;
+}
+
+//CL_STAR_SETUP_ACTIVE_REQ = 4452;		//激活星君
+message LCStarSetupActiveReq
+{
+  optional int32 id = 1;
+}
+
+//LC_STAR_SETUP_ACTIVE_RSP = 4453;    //激活星君
+message CLStarSetupActiveRsp
+{
+  optional int32 ret_code = 1;
+  optional StarSetupData data = 2;
+}
+
+//CL_STAR_HOLE_DRESS_REQ = 4454;			//槽位嵌套
+message CLStarHoleDressReq
+{
+  optional int32 id = 1; //星君id
+  optional int32 hole_pos = 2; //槽位51,52...
+  optional int32 bag_pos = 3;	//背包中位置
+}
+
+//LC_STAR_HOLE_DRESS_RSP = 4455;			//槽位嵌套
+message LCStarHoleDressRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  optional int32 hole_pos = 3;
+  optional int32 bag_pos = 4;	//背包中位置
+  optional StarSetupHoleData data = 5;
+}
+
+//CL_STAR_HOLE_UNDRESS_REQ = 4456;		//槽位卸下来
+message CLStarHoleUnDressReq
+{
+  optional int32 id = 1; //星君id
+  optional int32 hole_pos = 2;
+}
+
+//LC_STAR_HOLE_UNDRESS_RSP = 4457;		//槽位卸下来
+message LCStarHoleUnDressRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+  optional int32 hole_pos = 3;
+  optional StarSetupHoleData data = 4;
+}
+
+//CL_STAR_HOLE_STRONG_REQ = 4458;			//升级的是装备的强化等级  EquipInfo.ItemProtoInfo.strong_lv(strong_exp)
+message CLStarHoleStrongReq
+{
+  optional int32 id = 1; //星君id
+  optional int32 hole_pos = 2;
+  repeated uint32 gridlist = 3;//物品背包格子
+}
+
+//LC_STAR_HOLE_STRONG_RSP = 4459;			//升级的是装备的强化等级  EquipInfo.ItemProtoInfo.strong_lv(strong_exp)
+message LCStarHoleStrongRsp
+{
+  optional int32 ret_code = 1; //错误码
+  optional int32 id = 2; //星君id
+  optional int32 hole_pos = 3;
+  optional StarSetupHoleData data = 4;
+}
+
+//CL_STAR_HOLE_STRONG_QUALITY_REQ = 4460;			//突破(升品)  升级的是装备的品质 EquipInfo.ItemProtoInfo.strong_wear_quality(strong_wear_quality_exp)
+message CLStarHoleStrongQualityReq
+{
+  optional int32 id = 1; //星君id
+  optional int32 hole_pos = 2;
+  repeated uint32 gridlist = 3;//物品背包格子
+}
+
+//LC_STAR_HOLE_STRONG_QUALITY_RSP = 4461;			//突破(升品)  升级的是装备的品质 EquipInfo.ItemProtoInfo.strong_wear_quality(strong_wear_quality_exp)
+message LCStarHoleStrongQualityRsp
+{
+  optional int32 ret_code = 1; //错误码
+  optional int32 id = 2; //星君id
+  optional int32 hole_pos = 3;
+  optional StarSetupHoleData data = 4;
+}
+
+//CL_STAR_HOLE_WAKE_REQ = 4462;				//觉醒 升级的是槽位本身的觉醒等级 不随物品走 EquipInfo.EquipSlotInfo.awaken_lv
+message CLStarHoleWakeReq
+{
+  optional int32 id = 1; //星君id
+  optional int32 hole_pos = 2;
+}
+
+//LC_STAR_HOLE_WAKE_RSP = 4463;				//觉醒 升级的是槽位本身的觉醒等级 不随物品走 EquipInfo.EquipSlotInfo.awaken_lv
+message LCStarHoleWakeRsp
+{
+  optional int32 ret_code = 1; //错误码
+  optional int32 id = 2; //星君id
+  optional int32 hole_pos = 3;
+  optional StarSetupHoleData data = 4;
+}
+
+//CL_STAR_FANTASY_ACTIVE_REQ = 4464;	//激活幻化
+message CLStarFantasyActiveReq
+{
+  optional uint32 id = 1;
+}
+//LC_STAR_FANTASY_ACTIVE_RSP = 4465;  //激活幻化
+message LCStarFantasyActiveRsp
+{
+  optional int32 ret_code = 1;
+  optional StarFantasyData data = 2;
+}
+//CL_STAR_FANTASY_LEVEL_REQ = 4466;   //升级幻化
+message CLStarFantasyLevelReq
+{
+  optional uint32 id = 1;
+}
+
+//LC_STAR_FANTASY_LEVEL_RSP = 4467;   //升级幻化
+message LCStarFantasyLevelRsp
+{
+  optional int32 ret_code = 1;
+  optional StarFantasyData data = 2;
+}
+
+//CL_STAR_ATTR_ACTIVE_REQ = 4468;  //星辰星宿属性激活
+message CLStarAttrActiveReq
+{
+  optional uint32 star_id = 1;
+  optional uint32 guizhen_id = 2;
+}
+
+//LC_STAR_ATTR_ACTIVE_RSP = 4469;  //星辰星宿属性激活
+message LCStarAttrActiveRsp
+{
+  optional int32 ret_code = 1;
+  optional uint32 star_id = 2;
+  optional uint32 guizhen_id = 3;
+  optional uint32 guizhen_status = 4;
+}
+
+//CL_STAR_ATTR_GUIZHEN_REQ = 4470; //星辰星宿属性归真
+message CLStarAttrGuiZhenReq
+{
+  optional uint32 star_id = 1;
+}
+
+//LC_STAR_ATTR_GUIZHEN_RSP = 4471; //星辰星宿属性归真
+message LCStarAttrGuiZhenRsp
+{
+  optional int32 ret_code = 1;
+  optional uint32 star_id = 2;
+  optional uint32 guizhen_id = 3;
+  optional uint32 guizhen_status = 4;
+}
+
+//CL_STAR_FANTASY_FANTASY_REQ = 4472;	//幻化
+message CLStarFantasyFantasyReq
+{
+  optional uint32 id = 1;
+}
+
+//CL_STAR_FANTASY_FANTASY_RSP = 4473;	//幻化
+message LCStarFantasyFantasyRsp
+{
+  optional int32 ret_code = 1;
+  optional uint32 cur_fantasy_id = 2;
+}
+
+//CL_STAR_FANTASY_FANTASY_CANCEL_REQ = 4474;	//取消幻化
+message CLStarFantasyFantasyCancelReq
+{
+  optional uint32 id = 1;
+}
+
+//CL_STAR_FANTASY_FANTASY_CANCEL_RSP = 4475;	//取消幻化
+message LCStarFantasyFantasyCancelRsp
+{
+  optional int32 ret_code = 1;
+  optional uint32 cur_fantasy_id = 2;
+}
+
+//CL_STAR_ACTIVE_STAR_ATTR_INFO_REQ = 4476;  //星辰星宿激活的星星属性
+message CLStarActiveStarAttrInfoReq
+{
+  optional uint32 star_id = 1;
+}
+
+//LC_STAR_ACTIVE_STAR_ATTR_INFO_RSP = 4477;  //星辰星宿激活的星星属性
+message LCStarActiveStarAttrInfoRsp
+{
+  optional uint32 ret_code = 1;
+  optional uint32 star_id = 2;
+  optional uint32 star_num = 3;
+  repeated StarSetupStarAttrData star_attr = 4;
+}
+
+//CL_STAR_ACTIVE_STAR_ATTR_REQ = 4478;  //星辰星宿激活星星属性
+message CLStarActiveStarAttrReq
+{
+  optional uint32 star_id = 1;
+  optional uint32 star_attr_id = 2;
+}
+
+//LC_STAR_ACTIVE_STAR_ATTR_RSP = 4479;  //星辰星宿激活星星属性
+message LCStarActiveStarAttrRsp
+{
+  optional uint32 ret_code = 1;
+  optional uint32 star_id = 2;
+  optional uint32 star_attr_id = 3;
+}
+
+//CL_STAR_FANTASY_ADVANCELV_REQ = 4480;   //升阶幻化
+message CLStarFantasyAdvanceLvReq
+{
+  optional uint32 id = 1;
+}
+
+//LC_STAR_FANTASY_ADVANCELV_RSP = 4481;   //升阶幻化
+message LCStarFantasyAdvanceLvRsp
+{
+  optional int32 ret_code = 1;
+  optional StarFantasyData data = 2;
+}
+
+//CL_STAR_GET_SKILL_INFO_REQ = 4482; //获取技能消息
+message CLStarGetSkillInfoReq
+{
+
+}
+
+//LC_STAR_GET_SKILL_INFO_RSP = 4483; //获取技能消息
+message LCStarGetSkillInfoRsp
+{
+  repeated StarSkillData skill_data = 1;
+  repeated StarSkillSlotData skill_slot_data = 2;
+}
+
+//CL_STAR_UNLOCK_SKILL_SLOT_REQ = 4484; //解锁技能槽位
+message CLStarUnlockSkillSlotReq
+{
+  optional uint32 slot_id = 1;
+}
+
+//LC_STAR_UNLOCK_SKILL_SLOT_RSP = 4485; //解锁技能槽位
+message LCStarUnlockSkillSlotRsp
+{
+  optional int32 ret_code = 1;
+  optional StarSkillSlotData skill_slot_data = 2;
+}
+
+//CL_STAR_FINISH_SKILL_LEVEL_REQ = 4486; //立即完成技能升级
+message CLStarFinishSkillLevelReq
+{
+  optional uint32 id = 1;
+}
+
+//LC_STAR_FINISH_SKILL_LEVEL_RSP = 4487; //立即完成技能升级
+message LCStarFinishSkillLevelRsp
+{
+  optional int32 ret_code = 1;
+  optional StarSkillData skill_data = 2;
+  optional StarSkillSlotData skill_slot_data = 3;
+}
+
+//CL_STAR_YANJIU_SKILL_LEVEL_REQ = 4488; //研究技能升级升级
+message CLStarYanJiuSkillLevelReq
+{
+  optional uint32 id = 1;
+}
+
+//LC_STAR_YANJIU_SKILL_LEVEL_RSP = 4489; //研究技能升级升级
+message LCStarYanJiuSkillLevelRsp
+{
+  optional int32 ret_code = 1;
+  optional StarSkillData skill_data = 2;
+  optional StarSkillSlotData skill_slot_data = 3;
+}
+
+//CL_STAR_GET_SHOP_INFO_REQ = 4490; //获取商品消息
+message CLStarGetShopInfoReq
+{
+
+}
+
+//LC_STAR_GET_SHOP_INFO_RSP = 4491; //获取商品消息
+message LCStarGetShopInfoRsp
+{
+  repeated StarShopData shop_data = 1;
+}
+
+//CL_STAR_BUY_SHOP_REQ = 4492; //购买商品消息
+message CLStarBuyShopReq
+{
+  optional uint32 id = 1;
+  optional uint32 num = 2;
+}
+
+//LC_STAR_BUY_SHOP_RSP = 4493; //购买商品消息
+message LCStarBuyShopRsp
+{
+  optional int32 ret_code = 1;
+  optional StarShopData shop_data = 2;
+}

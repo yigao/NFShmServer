@@ -1,0 +1,211 @@
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
+
+//商品信息
+message Goods
+{
+	optional uint64 order_id =1;			//商品id
+	optional int32 	market_type = 2;		//商品所属市场 1：世界 2工会
+	optional uint64 market_owner = 3;		//世界0：工会id
+	optional uint64 role_id = 4;			//上架者cid
+	optional uint64 start_time = 5;			//挂单时间
+	optional uint64 end_time = 6;			//结束时间
+	optional uint64 vie_id = 7;				//当前竞价玩家cid
+	optional int32 	state = 8;				//0：交易中 1成交 2流拍
+	optional int32 isdelete = 9;			//是否删除
+	optional uint64 cmpt_time =10;			//交易完成时间
+	optional int32 cur_price = 11;			//当前价格
+	optional int32 cmpt_price = 12;			//成交价格
+	optional uint64 buyer_id = 13;			//购买方id
+	optional ItemProtoInfo item_data = 14; 	//物品信息
+	optional int32 item_price = 15;			//物品总价
+	optional int32 take_num  = 16;			//分红人数
+	optional int32 has_take = 17;			//是否参与分红
+}
+
+//1:获得市场物品标签 MARKET_ITEM_REQ
+message MarketItemReq
+{
+	optional int32 market_type = 1; //1:世界 2工会
+	optional int32 bigId = 2;  
+	optional int32 smallId = 3;
+	optional int32 sort_type = 4;  		//排序类型 1时间升 2时间降 3：价格升 4：价格降
+	optional int32 fiter_star = 5; 		//过滤星级 0:所有 2,3 4,5
+	optional int32 is_same_prof = 6; 	//显示本职业
+	optional int32 cur_page = 7;		//查询页
+}
+
+//1-2: 获得市场物品标签返回 MARKET_ITEM_RSP
+message MarketItemRsp
+{
+	optional int32 market_type = 1; 		//1:世界 2工会
+	optional int32 bigId = 2;  		
+	optional int32 smallId = 3;
+	optional int32 sort_type = 4;  //排序类型 1时间升 2时间降 3：价格升 4：价格降
+	optional int32 fiter_star = 5; //过滤星级 0:所有 2,3 4,5
+	optional int32 is_same_prof = 6; //显示本职业
+	repeated Goods infos = 7;
+	optional int32 cur_page = 8;		//查询页
+	optional int32 all_page = 9;		//总的页签
+	repeated ComPair small_view = 10;	//子页签数量 key(small_id) value(num)
+}
+
+//2:请求我的信息  MARKET_ROLE_REQ
+message MarketRoleReq
+{
+	optional int32 type = 1;  // 1：我的拍卖 2：我的上架
+}
+//2-1:请求我的信息返回 MARKET_ROLE_RSP
+message MarketRoleRsp
+{
+	optional int32 type = 1;  // 1：我的拍卖 2：我的上架
+	repeated Goods infos = 2;
+}
+
+//3-1:关注的商品上架通知 NOTIFY_NEW_GOODS
+message NotifyNewGoods
+{
+	optional int32 itemid = 1;
+	optional int32 market_type =2; //1:世界 2工会
+}
+
+//4-1:关注物品 MARKET_FOLLOW_REQ
+message MarketFollowReq
+{
+	optional int32 item_id = 1;
+	optional int32 opt = 2; // 0取消关注 1关注
+}
+
+//4-2:关注物品返回 MARKET_FOLLOW_RSP
+message MarketFollowRsp
+{
+	optional int32 ret = 1;
+	optional int32 item_id = 2;
+	optional int32 opt = 3; // 0取消关注 1关注
+}
+//5-1: 关注通知 NOTIFY_MARKET_FOLLOW
+message NotifyMarketFollow
+{
+	repeated int32 follow_ids = 1;	//关注的item id 列表
+}
+
+//6-1 查看交易记录 MARKET_LOG_REQ
+message MarketLogReq
+{
+	optional int32 type = 1; //1：个人 2：工會  3:世界 
+}
+
+//6-2 查看交易记录返回 MARKET_LOG_RSP
+message MarketLogRsp
+{
+	optional int32 type = 1; //1：个人 2：工會  3:世界 
+	repeated Goods list = 2;
+}
+
+//7-1: 玩家交易操作请求 MARKET_ROLE_OPT_REQ
+message MarketRoleOptReq
+{
+	optional int32 type = 1; //1:上架 2下架 3竞价 4一口价购买
+	optional int32 package_type = 2;
+	optional int32 index = 3;
+	optional int32 num = 4;
+	optional int32 price = 5;
+	optional uint64 order_id = 6;
+}
+
+//7-2: 玩家交易操作返回 MARKET_ROLE_OPT_RSP
+message MarketRoleOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 type = 2; //1:上架 2下架 3竞价 4一口价购买
+	optional int32 pos = 3;
+	optional int32 num = 4;
+	optional Goods info = 5;
+}
+//8-1: NOTIFY_MARKET_FACTION_START
+message NotifyMarketFactionStart
+{
+	
+}
+
+
+
+
+//==============================服务器=====================
+
+
+//市场玩家信息 
+message MarketRoleInfo
+{
+	optional uint64 cid = 1;
+	optional uint64 refresh_time = 2;
+	repeated int32 follow_ids = 3;
+	optional int32 recovery_num = 4;
+}
+
+//玩家上架请求 C2L_MARKET_ROLE_UP_REQ 
+message C2LMarketRoleUpReq
+{
+	optional int32 type = 1; //1:上架 2下架 3竞价 4一口价购买
+	optional int32 package_type = 2;
+	optional int32 index = 3;
+	optional int32 num = 4;
+	optional uint64 role_id = 5;
+}
+
+//玩家上架返回  L2C_MARKET_ROLE_UP_RSP
+message L2CMarketRoleUpRsp
+{
+	optional int32 ret = 1;
+	optional int32 type = 2; //1:上架 2下架 3竞价 4一口价购买
+	optional int32 package_type = 3;
+	optional int32 index = 4;
+	optional int32 num = 5;
+	optional uint64 role_id = 6;
+	optional ItemProtoInfo item_data = 7;
+}
+//玩家竞拍请求 C2L_MARKET_VIE_REQ
+message C2LMarketVieReq
+{
+	optional int32  type = 1;
+	optional uint64 role_id = 2;
+	optional int32 	price = 3;
+	optional int32  price_type = 4;
+	optional int32  opt = 5; //1扣钱，2返还
+	optional uint64 order_id = 6;
+}
+//玩家竞拍请求 L2C_MARKET_VIE_RSP
+message L2CMarketVieRsp
+{
+	optional int32 ret = 1;
+	optional int32 type = 2;
+	optional uint64 role_id = 3;
+	optional int32 	price = 4;
+	optional int32  price_type = 5;
+	optional uint64 order_id = 6;
+}
+
+//玩家一口价请求 C2L_MARKET_BUY_REQ
+message C2LMarketBuyReq
+{
+	optional int32  type = 1;
+	optional uint64 role_id = 2;
+	optional int32 	price = 3;
+	optional int32  price_type = 4;
+	optional int32  opt = 5; //1扣钱，2返还
+	optional uint64 order_id = 6;
+}
+
+//玩家一口价请求 L2C_MARKET_BUY_RSP
+message L2CMarketBuyRsp
+{
+	optional int32 ret = 1;
+	optional int32 type = 2;
+	optional uint64 role_id = 3;
+	optional int32 	price = 4;
+	optional int32  price_type = 5;
+	optional uint64 order_id = 6;
+}
+
+

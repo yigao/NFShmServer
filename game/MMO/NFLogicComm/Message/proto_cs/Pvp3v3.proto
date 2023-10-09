@@ -1,0 +1,254 @@
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+import "ProtoBuffer/Clan.proto";
+package ProtoBuf;
+
+//上线会通知玩家战队重要数据，其他变化的数据一律请求 NOTIFY_CLAN3_ROLE_DATA
+message NotifyClan3RoleData
+{
+	optional int32 clan_id					= 1;
+	optional int32 role_join_num 			= 2;  	//总参与场次
+	optional int32 role_win_num 			= 3;	//胜利场次
+	optional int32 role_cw_num 				= 4;	//连胜场次
+	optional uint64 ban_time 				= 5;	//封禁时间(未来时间戳，1小时不能创建战队加入战队)
+	optional int32 day_join_num 			= 6;	//当日参与次数
+	repeated int32 recv_id 					= 7;	//当日已领奖id
+}
+
+
+//(1-1):3v3战队榜排行数据  CLAN3_SEASON_RANK_REQ 
+message Clan3SeasonRankReq
+{
+	optional int32 type = 1; //0:当前赛季排名，1： 上个赛季排名
+}
+
+//(1-2):3v3战队榜排行数据返回 CLAN3_SEASON_RANK_RSP
+message Clan3SeasonRankRsp
+{
+	optional int32 type = 1; 		//0:当前赛季排名，1： 上个赛季排名
+	repeated ClanComInfo rank = 2;  //排名
+	optional ClanComInfo my = 3;	//自己战队
+}
+
+//(2-1)：进入3v3活动 ENTER_3V3_ACT_REQ
+message Enter3v3ActReq
+{
+
+}
+//(2-2)：进入3v3活动返回 ENTER_3V3_ACT_RSP
+message Enter3v3ActRsp
+{
+	optional int32 ret = 1;
+}
+
+//(3-1): 3v3等待场景数据
+message WaitDupMember
+{
+	optional uint64 cid = 1;
+	optional bytes name = 2;
+	optional int32 state = 3; //1:在线 2离线 3 附近 
+}
+//等待副本界面数据 NOTIFY_WAIT_DUP_SCENE_DATA 
+message NotifyWaitDupSceneData
+{
+	optional ClanComInfo info = 1;
+	repeated WaitDupMember mems = 2;
+}
+// 4-1 ：加入3v3匹配 CLAN3_JOIN_MATHCH_REQ
+message Clan3JoinMathchReq
+{
+	optional int32 type = 1; //0:单人匹配，1战队匹配（必须是队长,而且组队)
+}
+
+// 4-2：加入3v3匹配 CLAN3_JOIN_MATHCH_RSP
+message Clan3JoinMathchRsp
+{
+	optional int32 ret = 1;
+	optional int32 join_time = 2;
+}
+
+// 5-1 取消匹配  CLAN3_CANCEL_MATCH_REQ
+message Clan3CancelMatchReq
+{
+	
+}
+//5-2: 取消匹配返回  NOTIFY_CANCEL_MATCH_RSP
+message NotifyCancelMatchRsp
+{
+	
+}
+
+message Clan3MatchEntry
+{
+	optional uint64 cid = 1;
+	optional int32 is_robot = 2;	// 是否是机器人 1:机器人
+	optional int32 zid = 3;
+	optional uint64 clan_id = 4;  //战队id 机器人没有战队id
+	optional int32 score = 5;
+	optional bytes clan_name = 6;
+	optional bytes name = 7;
+	optional RoleHeadPicProto head = 8;
+	optional int32 level= 9;
+	optional uint64 maxHP = 10;
+	optional uint64 curHp = 11;
+	optional int32 killNum = 12;
+	optional int32 mvp = 13; //1：mvp
+	optional int32 mvp_reward = 14; // 1：获得MVP奖励
+	optional int32 day_reward = 15; // 1:获得参赛奖励
+	optional int32 match_type = 16;	// 0：单人形式的匹配， 1多人形式的战队匹配
+	
+}
+
+//6-1: 匹配成功 NOTIFY_CLAN3_MATCH_SUCCESS
+message NotifyClan3MatchSuccess
+{
+	repeated Clan3MatchEntry red = 1;
+	repeated Clan3MatchEntry blue = 2;
+}
+
+//7-1:血量 NOTIFY_CLAN3_DUP_RUN
+message NotifyClan3DupRun
+{
+	repeated Clan3MatchEntry red = 1;
+	repeated Clan3MatchEntry blue = 2;
+}
+ 
+//8-1: 結果 NOTIFY_CLAN_RESULT
+message NotifyClan3Result
+{
+	repeated Clan3MatchEntry red = 1;
+	repeated Clan3MatchEntry blue = 2;
+	optional int32 result = 3; 			//1:红方胜利 2：蓝方胜利
+	optional int32 clanScore = 4; 		//战队最新积分
+	optional int32 clanAddScore = 5; 	//战队增加积分
+}
+//9-1:领取个人宝箱 CLAN3_RECV_ROLE_REWARD_REQ
+message Clan3RecvRoleRewardReq
+{
+	optional int32 id = 1;
+}
+//9-1:领取个人宝箱 CLAN3_RECV_ROLE_REWARD_RSP
+message Clan3RecvRoleRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 id = 2;
+}
+
+
+//===================================服務器==========================
+
+message PVP3DB
+{
+	optional uint64 last_time = 1;
+	optional int32 	season = 2;				//赛季
+	repeated ClanComInfo last_season = 3;   //上个赛季排名
+	repeated ClanComInfo last_race = 4;			//最近一次排名
+	optional int32 send_season = 5;			//死否發送了奖励
+}
+
+//新赛季通知 NOTIFY_PVP3_SEASON
+message NotifyPvp3Season
+{
+	optional int32 zid = 1;
+	optional int32 season = 2;
+}
+
+//查看当前排行 C2S_CLAN3_RANK_REQ
+message C2SClan3RankReq
+{
+	optional int32 zid = 1;
+	optional uint64 cid = 2;
+	optional uint64 clan_id = 3;
+}
+
+//匹配到社交服 L2S_CLAN3_JOIN_MATHCH_REQ
+message L2SClan3JoinMathchReq
+{
+	optional int32 type = 1;
+	repeated uint64 cids = 2;
+	optional uint64 fight = 3;
+	optional int32 zid = 4;
+	optional uint64 clan_id = 5;
+	optional int32 logic_id = 6;
+}
+message Clan3MatchRole
+{
+	optional uint64 cid = 1;
+	optional int32 zid = 2;
+	optional uint64 clanid = 3;
+	optional int32 match_type = 4; //0:单人匹配 1：多人匹配
+}
+message Clan3MatchRobot
+{
+	optional uint64 cid = 1;
+	optional int32 zid = 2;
+}
+
+
+message Clan3MatchResult
+{
+	repeated Clan3MatchRole red = 1;
+	repeated Clan3MatchRobot red_robot = 2;
+	repeated Clan3MatchRole blue = 3;
+	repeated Clan3MatchRobot blue_robot = 4;
+}
+
+//取消匹配到社交服 L2S_CLAN3_CANCEL_MATCH_REQ
+message L2SClan3CancelMatchReq
+{
+	optional int64 cid = 1;
+	optional int32 zid = 2;
+	optional int32 clanId = 3;
+	
+}
+
+//玩家进入3v3等待副本通知中心服  NOTIFY_CLAN3_ACTION_WAIT_DUP
+message NotifyClan3ActionWaitDup
+{
+	optional uint64 cid = 1;
+	optional int32 opt = 2; //1進入 2離開
+}
+//副本产生结果通知中心服 L2S_NOTIFY_CLAN3_DUP_RESULT
+message L2SNotifyClan3DupResult
+{
+	repeated Clan3MatchEntry red = 1;
+	repeated Clan3MatchEntry blue = 2;
+	optional int32 result = 3; 			//1:红方胜利 2：蓝方胜利
+	optional uint64 mvp = 4;
+	repeated uint64 deads = 5;
+	repeated uint64 cids = 6;		//在副本中的玩家
+}
+
+//社交服发送奖励
+message C2SClan3SendReward
+{
+	optional uint64 cid = 1;
+	optional int32 type = 2;
+}
+
+//玩家领取宝箱奖励  C2L_CLAN3_RECV_ROLE_REWARD_REQ
+message C2LClan3RecvRoleRewardReq
+{
+	optional uint64 cid = 1;
+	optional int32 id = 2;
+}
+
+//0点社交服同步下上一次排名到中心服 S2C_SYN_CLAN3_ZERO_UPDATE
+message S2CSynClan3ZeroUpdate
+{
+	repeated ClanComInfo last_race = 1;			//最近一次排名
+}
+
+//		NOTIFY_CLAN3_DUPKILL
+message NotifyClan3DupKill
+{
+	optional Clan3MatchEntry killer = 1;
+	optional Clan3MatchEntry beKiller = 2;
+}
+
+//中心服发奖请求到逻辑服 C2L_CLAN3_REWARD_REQ
+message C2LClan3RewardReq
+{
+	optional int32 type = 1;
+	optional uint64 cid = 2;
+}

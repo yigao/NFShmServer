@@ -1,0 +1,235 @@
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
+
+message PTErrorRsp
+{
+    required uint32 errcode=1;
+};
+
+//获取完成数据
+message PTDataReq
+{};
+message PTDataRsp
+{
+    required PracticeTrueDBData datas=1;
+    required uint32 gbxlstate = 2;//修练状态1
+};
+
+message PTGBXLStateChanged
+{
+    required uint32 gbxlstate = 1;//修练状态1
+};
+
+
+//升境界请求
+message PTStageUpReq
+{};
+message PTStageUpRsp
+{
+    required uint32 djSuccess=1;
+    required uint32 djFailInvigoration=2;
+    optional uint32 level=3;//当前级别
+};
+//领取事件奖励
+message PTGBEventItemsRecvReq
+{};
+message PTGBEventItemsRecvRsp
+{
+    repeated PTGBEventItem gbEventItems=1;
+};
+//进入新的区域
+message PTGBEnterAreaReq
+{};
+message PTGBEnterAreaRsp
+{
+    required uint32 enterAreaResult=1;
+    optional uint32 gbArea=2;//当前区域
+    optional uint64 gbXLRemainTime=3;
+};
+//开始修练
+message PTGBXLStartReq
+{};
+message PTGBXLStartRsp
+{
+    required uint32 gbXLStartResultRsp=1;
+    required uint32 gbXLRemainTime=2;
+};
+
+message PTGBEngryAddNT
+{
+    required uint64 gbEnergyAdd=1;
+    required uint64 gbCritAdd=2;
+    required uint64 gbEnergy=3;
+    repeated PTGBEventLog gbEventsLog=4;//神魂所在区域事件日志
+    repeated PTGBEventItem gbEventItems=5;
+};
+
+//神魂升级请求
+message PTgbLvlUpReq
+{}
+message PTgbLvlUpRsp
+{
+    required uint32 gbLvlUpCostXW=1;
+    required uint32 gbLevel=2;
+    required uint32 gbEnergy=3;
+}
+
+//淬炼升级请求
+message PTebLvlUpReq
+{}
+message PTebLvlUpRsp
+{
+   required uint32 ebLvlUpResult=1;//1成功，0失败
+   required uint32 gbLvlUpCostXW=2;
+   required uint32 gbEnergy=3;
+   optional uint32 ebLevel=4;
+   optional uint32 ebFlyFailInvigoration=5;
+    repeated uint32 lgTypes=6;
+    repeated uint32 lgPoints=7;
+    repeated uint32 lgPointsAdd=8;
+}
+
+//功法
+message PTgfActiveReq
+{
+    required uint32 gfType=1;
+}
+message PTgfActiveRsp
+{
+    required uint32 gfActiveResult=1;
+    required uint32 gfType=2;
+    required uint32 gfLvl=3;
+}
+message PTgfLvlUpReq{
+    required uint32 gfType=1;
+}
+message PTgfLvlUpRsp{
+    required uint32 gfLvlUpResult=1;
+    required uint32 gfType=2;
+    required uint32 gfLvl=3;
+    required uint32 gbEnergy=4;
+}
+
+message PTgfStageUpReq{
+    required uint32 gfType=1;
+}
+
+message PTgfStageUpRsp{
+    required uint32 gfStageUpResult=1;
+    required uint32 gfType=2;
+    required uint32 gfStage=3;
+}
+
+message PTjmLvlUpReq{
+    required uint32 jmType=1;
+}
+message PTjmLvlUpRsp{
+    required bool success=1;
+    optional uint32 jmType=2;
+    optional uint32 lvl=3;
+    optional uint64 gbEnergy=4;
+}
+message PTjmStageUpReq{
+    required uint32 jmType=1;
+}
+message PTjmStageUpRsp{
+    required uint32 error=1;//0 成功，1需要解锁功法 2概率失败
+    optional uint32 jmType=2;
+    optional uint32 stage=3; 
+    optional uint32 gfType=4;
+    optional uint32 jmStageUpFailInvigoration=5;
+}
+
+message PTjmMergeUpReq{}
+
+message PTjmMergeUpRsp{
+    required uint32 error=1; //0成功，1经脉阶级不够
+    optional uint32 jmMergeLvl=2;
+    optional uint32 jmType=3;//for error
+    optional uint32 jmNeedStageLvl=4;
+}
+
+message PTlgLvlUpReq{
+    required uint32 lgType=1;
+}
+
+message PTlgLvlUpRsp{
+    required uint32 error=1;
+    optional uint32 lgType=2;
+    optional uint32 lgLvl=3;
+    optional uint32 lgPoints=4;
+    optional uint64 gbEnergy=5;
+}
+
+message PTlgPotionUseReq{
+    required uint64 itemId=1;
+}
+message PTlgPotionUseRsp{
+    repeated uint32 lgTypes=1;
+    repeated uint32 lgPoints=2;
+    repeated uint32 lgPointsAdd=3;
+}
+
+message PTPurchasedResult{
+    required PTPurchaseRecord purchasedRecord =1;//购买记录
+    optional uint32 gbXLForever=2;//是否永久修炼
+    optional uint32 gbXWPAdd=3;
+    optional uint32 gbEnergyCritRate=4;
+    optional uint32 gbXLEventXWPAdd=5;
+    optional uint32 gbXLEventGetItemRate=6;
+    optional uint32 ebLvlUpRate=7;
+    optional uint32 ebFlyRateAdd=8;
+    optional uint32 ebFlyFailInvigorationAdd=9;
+    optional uint32 jmLvlUpRateAdd=10;
+    optional uint32 jmStageUpRateAdd=11;
+}
+
+message PTPurchaseGfBookResult{
+    required uint32 success=1;
+    required uint32 gfType=2;
+    required uint64 purchasedTime=3;
+}
+
+
+
+
+message PSDatasReq{
+
+}
+message PSDatasRsp{
+    required PSDatas datas=1;
+}
+
+
+message PSPurchaseReq{
+    required uint32 shopId=1;
+    required uint32 goodsId=2;
+}
+
+message PSPurchaseRsp{
+    required uint32 errcode=1;
+    optional uint32 shopId=2;
+    optional uint32 goodsId=3;
+    optional uint32 amount=4;
+    optional uint64 shopTime=5;
+}
+
+message PSRefreshReq{
+    required uint32 shopId=1;
+}
+
+message PSRefreshRsp{
+    required uint32 errcode=1;
+    optional uint32 shopId=2;
+    repeated PSDGoods saleList=3;//正在出售的商品列表
+    optional uint32 freeRefreshCount = 4;
+}
+
+message PSShopsRmvNt{
+    repeated uint32 shopIds=1;
+}
+
+message PSShopAddNt{
+    required PSDShop shop=1;
+}

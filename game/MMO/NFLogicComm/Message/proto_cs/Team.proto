@@ -1,0 +1,430 @@
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ClientServerCmd.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
+
+	
+/////////////////////////////////////////////////////////////////////////////
+
+//队伍成员信息
+message TeamMemProto
+{
+	optional uint64 cid = 1; 				//角色ID
+	optional bytes name = 2;				//角色名字
+	optional uint32 level = 3;				//角色等级
+	optional int32 prof = 4;				//职业
+	optional RoleFacadeProto facade = 5;	//外观
+	optional int32 vip_level = 6;			//vip等级
+	optional uint64 joinTime = 7;			//入队时间
+	optional uint64 fight = 8;				//战斗力
+	optional int32  online = 9;				//是否在线 0 离线， 1 在线
+	optional uint64 mapid = 10;				//所在场景id
+	optional uint64 hp = 11;				//当前血量
+	optional uint64 maxhp = 12;				//最大血量
+	optional int32 robotflag=13;			//是否是机器人的标记，1：是，0：不是 
+	optional uint32 unionid = 14;			//工会ID
+	optional int32 palace_layer=15;			//工会地宫层数
+	optional int32 break_count = 16;		//工会地宫突破次数
+}
+
+//多个队伍成员信息
+message TeamMultMemProto
+{
+	repeated TeamMemProto mem_lst = 1; //成员列表
+}
+
+//队伍成员简要信息
+message TeamMemSimpleProto
+{
+	optional uint64 cid = 1;		//队员cid
+	optional uint64 hp = 2;			//当前血量
+	optional uint64 maxhp = 3;		//最大血量
+}
+//多个队伍成员简要信息
+message TeamMultMemSimpleProto
+{
+	repeated TeamMemSimpleProto mem_simple = 1; //简要信息
+}
+
+//队伍信息
+message TeamProto
+{
+	optional uint32 teamid = 1;				//队伍ID
+	optional uint64 object_id = 2;			//队伍目标
+	optional int32 min_level = 3;			//目标最小等级
+	optional int32 max_level = 4;			//目标最大等级
+	optional uint64 leader = 5;				//队长cid
+	optional int32  auto_match = 6;			//是否自动匹配中 1 是，0 否
+	optional TeamMultMemProto mems = 7;		//队伍成员
+}
+
+
+//队伍申请信息
+message TeamApplyProto
+{
+	optional uint64 cid = 1; 				//角色ID
+	optional bytes name = 2;				//角色名字
+	optional uint32 level = 3;				//角色等级
+	optional int32 prof = 4;				//职业
+	optional uint64 fight = 5;				//战力
+	optional uint64 apply_time = 6;			//申请时间
+}
+
+//多个 队伍申请信息
+message TeamMultApplyProto
+{
+	repeated TeamApplyProto apply_lst = 1; //申请列表
+}
+
+
+//中心服队伍成员信息
+message CenterTeamMemProto
+{
+	optional uint64 cid = 1;		//角色ID
+	optional bytes name = 2;		//名字
+	optional int32 prof = 3;		//职业
+	optional uint32 level = 4;		//角色等级
+	optional int32 robotflag=5;		//是否是机器人的标记，1：是，0：不是 
+	optional uint32 unionid = 6;	//工会ID
+	optional int32 palace_layer=7;	//工会地宫层数
+	optional int32 palace_breakcount = 8;	//工会地宫突破次数
+	
+}
+//中心服多个队伍成员信息
+message CenterMultiTeamMemProto
+{
+	repeated CenterTeamMemProto mem = 1;
+}
+
+///////////////////////////////////////////////////////////////////////
+
+
+//请求创建队伍
+message CreateTeamReq
+{
+	required uint64 object_id = 1; //队伍目标
+	required int32 min_level = 2;  //目标最小等级
+	required int32 max_level = 3;  //目标最大等级
+}
+
+//返回客户端
+message CreateTeamRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//申请列表
+message TeamApplyLstReq
+{
+	//空
+}
+
+//返回申请列表
+message TeamApplyLstRsp
+{
+	required int32 retcode = 1; //返回码
+	optional TeamMultApplyProto apply = 2; //申请列表
+}
+
+//回复申请
+message TeamReplyApplyReq
+{
+	required uint64 cid = 1; //同意加入队伍的玩家cid
+}
+//返回  回复申请
+message TeamReplyApplyRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//更新队伍成员信息（ 除队员 血量，最大血量，战力变化外，都是通过这条消息更新）
+message TeamUpdateMemNotify
+{
+	repeated uint64 del_mem = 1;		//需要移除队伍成员的 cid 列表
+	optional int32 reason = 2;			//移除原因 1 主动退出，2 被踢出
+	optional TeamMultMemProto mems = 3;	//更新的队伍成员 
+}
+
+//更新队伍成员简要信息( 队员 血量、 都是通过这条消息更新)
+message TeamUpdateMemSimpleNotify
+{
+	optional TeamMultMemSimpleProto simple_info = 1; //简要信息
+}
+
+//更新队伍信息 (玩家登陆、重连、 创建队伍、新加入队伍 都会返回这个消息)
+message TeamUpdateInfoNotify
+{
+	optional TeamProto info = 1; //队伍信息
+}
+
+//更新队伍简要信息( 队长变化，队伍目标变化，自动匹配变化 都会返回这条消息)
+message TeamUpdateSimpleNotify
+{
+	optional uint64 object_id = 1; //队伍目标
+	optional int32 min_level = 2;  //目标最小等级
+	optional int32 max_level = 3;  //目标最大等级
+	optional uint64 leader = 4;	   //队长cid
+	optional int32 auto_match = 5; //是否自动匹配中 1 是，0 否
+}
+
+//清空申请列表
+message TeamClearApplyLstReq
+{
+	//空
+}
+//返回 清空申请列表
+message TeamClearApplyLstRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//更新申请列表通知
+message TeamUpdateApplyNotify
+{
+	repeated uint64 del_apply = 1;			//需要移除申请的cid 列表
+	optional TeamMultApplyProto apply = 2;	//新的申请信息
+}
+
+//申请加入队伍 
+message ApplyJoinTeamReq
+{
+	required uint32 teamid = 1; //队伍ID
+}
+
+//返回 申请加入队伍
+message ApplyJoinTeamRsp
+{
+	required int32 retcode = 1; //返回码
+}
+
+//邀请入队
+message InviteJoinTeamReq
+{
+	required uint64 invite_cid = 1; //被邀请的玩家cid
+}
+//返回 邀请入队
+message InviteJoinTeamRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//邀请加入队伍通知
+message InviteJoinTeamNotify
+{
+	optional uint64 invite_cid = 1;		//邀请者cid
+	optional bytes  invite_name = 2;	//邀请者名字
+	optional uint32 teamid = 3;			//邀请进入的队伍ID
+}
+
+//请求 回复邀请入队
+message ReplyInviteJoinTeamReq
+{
+	required int32 reply = 1; //回复邀请入队，1 同意，2 拒绝
+	required uint32 teamid = 2; //队伍ID
+}
+
+//返回 回复邀请入队
+message ReplyInviteJoinTeamRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+
+//设置队伍目标
+message TeamSetObjReq
+{
+	required uint64 object_id = 1; //队伍目标ID
+	required int32 min_level = 2;  //目标最小等级
+	required int32 max_level = 3;  //目标最大等级
+}
+//返回 设置队伍目标
+message TeamSetObjRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//提升为队长
+message TeamPromoteLeaderReq
+{
+	required uint64 cid = 1; //被提升为队长的成员cid
+}
+//返回 提升为队长
+message TeamPromoteLeaderRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//自动匹配
+message TeamAutoMatchReq
+{
+	required int32 auto_match = 1;		//自动匹配， 1 开始自动匹配，2 取消自动匹配
+	required uint64 object_id = 2;	//目标ID
+	required int32 min_level = 3;  //目标最小等级
+	required int32 max_level = 4;  //目标最大等级
+}
+//返回自动匹配
+message TeamAutoMatchRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//请离队员   
+message TeamKickMemReq
+{
+	required uint64 kick_cid = 1; //被请离队员的cid
+}
+//返回请离队员   
+message TeamKickMemRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//请求退出队伍
+message TeamQuitReq
+{
+	//空
+}
+//返回 退出队伍
+message TeamQuitRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+//队伍拒绝通知
+message TeamRefuseNotify
+{
+	optional int32 type = 1;	// 1 拒绝邀请(发给队长)，2 拒绝申请加入队伍(发给队员)
+	optional bytes name = 2;	//拒绝者名字
+}
+//请求立即匹配 CLIENT_TO_CENTER_TEAM_MATCH_ATONCE
+message TeamMatchAtonceReq
+{
+	//空
+}
+//返回 立即匹配结果 CENTER_TO_CLIENT_TEAM_MATCH_ATONCE
+message TeamMatchAtonceRsp
+{
+	optional int32 retcode = 1;  //返回码
+}
+
+
+///////////////////////////////////// center and social  //////////////////////////////////////
+
+//社交服通知中心服创建队伍
+message SCCreteTeam
+{
+	optional uint32 teamid = 1; //队伍ID
+	optional CenterTeamMemProto info = 2;	//队长信息
+}
+
+//社交服通知中心服玩家加入队伍
+message SCJoinTeam
+{
+	optional uint32 teamid = 1; //队伍ID
+	optional CenterTeamMemProto info = 2;	//玩家信息
+}
+//社交服通知中心服玩家加入队伍
+message SCQuitTeam
+{
+	optional uint64 cid = 1;	//玩家cid
+	optional uint32 teamid = 2;	//队伍ID
+}
+//社交服通知中心服队伍成员信息更新
+message SCUpdateTeam
+{
+	optional uint32 teamid = 1; //队伍ID
+	optional CenterMultiTeamMemProto info = 2; //队员信息
+}
+
+//社交服通知中心服队长改变
+message SCTeamLeader
+{
+	optional uint32 teamid = 1;	//队伍ID
+	optional uint64 leader = 2;	//队长cid
+}
+
+//社交服通知中心服队伍解散
+message SCTeamDismiss
+{
+	optional uint32 teamid = 1;	//队伍ID
+}
+
+///////////////////////////////////// center and logic  //////////////////////////////////////
+
+
+//组队信息更新
+message CLCharTeamUpdate
+{
+	optional uint64 cid = 1;	//玩家cid
+	optional uint32 teamid = 2;	//队伍ID
+	optional uint64 leader = 3; //队长cid
+	optional int32 mem_cnt = 4; //队伍人数
+}
+
+//队伍简要信息更新
+message CLUpdateSimpleTeam
+{
+	optional uint32 teamid = 1;					//队伍ID
+	optional uint64 leadercid = 2;				//队长CID
+	optional CenterMultiTeamMemProto info = 3;	//成员信息
+}
+
+//解散队伍
+message CLDismissTeam
+{
+	optional uint32 teamid = 1;	//队伍ID
+}
+
+//组队亲密度等级更新
+message CLCharTeamClonessUpdate
+{
+	optional uint64 cid = 1;			//玩家cid
+	optional int32 cloness_lev = 2;		//亲密度等级
+}
+
+///////////////////////////////////// social and logic  //////////////////////////////////////
+//逻辑服组队机器人同步血量到社交服
+message LSTeamRobotHpSync
+{
+	optional uint32 teamid = 1;
+	optional uint64 robotcid = 2;
+	optional uint64 curhp = 3;
+	optional uint64 maxhp = 4;
+}
+
+//--------------------------- 副本相关协议，先写在这里，后续副本通了，在移到副本处 ---------------------------
+//邀请状态
+message DupInviteStateProto
+{
+	optional uint64 cid = 1;	//玩家ID
+	optional int32 state = 2;	//状态 0 初始（等待回复），1 同意，2 拒绝
+}
+//所有的邀请状态
+message DupAllInviteStateProto
+{
+	repeated DupInviteStateProto all_state = 1; //所有的状态
+}
+//取消组队状态通知
+message Duplicate_CancelStateNotify
+{
+	required int32 retcode = 1;	//取消原因，同返回码一样
+}
+//副本组队机器人信息
+message DupTeamRobotProto
+{
+	optional uint64 charcid = 1;			//机器人取哪个角色的属性
+	optional uint32 coef = 2;				//机器人取角色属性的万分比
+	optional uint32 zid = 3;				//机器人取属性的角色所在的区服，逻辑服根据区服区对应的数据库取角色属性
+	optional uint64 robotcid = 4; 			//机器人ID,机器人再队伍中用的cid
+	optional bytes name = 5;				//机器人名字
+	optional uint32 level = 6;				//机器人等级
+	optional int32 prof = 7;				//机器人职业
+	optional RoleFacadeProto facade = 8;	//机器人外观
+	optional int32 vip_level = 9;			//机器人vip等级
+	optional uint64 fight = 10;				//机器人战斗力
+}
+//多个副本组队机器人信息
+message DupMultTeamRobotProto
+{
+	repeated DupTeamRobotProto info = 1;
+}

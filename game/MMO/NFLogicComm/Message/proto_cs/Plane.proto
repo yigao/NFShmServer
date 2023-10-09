@@ -1,0 +1,30 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+
+//请求 进入位面 PLANE_ENTER_REQ
+message Plane_EnterReq
+{
+	optional int32 id = 1;  //配置ID
+}
+//返回 进入位面的结果 PLANE_ENTER_RSP
+message Plane_EnterRsp
+{
+	required int32 ret = 1;  //返回码
+	optional int32 id = 2;   //配置ID
+}
+
+//请求 退出位面 PLANE_QUIT_REQ
+message Plane_QuitReq
+{
+	//空
+}
+//返回 退出位面的结果 PLANE_QUIT_RSP
+message Plane_QuitRsp
+{
+	required int32 ret = 1;  //返回码
+	optional int32 id = 2;   //配置ID
+}

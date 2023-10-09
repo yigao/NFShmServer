@@ -1,0 +1,381 @@
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
+
+/* 注释
+enum ClanType
+{
+	ClanType_3 = 1; //3v3
+	ClanType_5 = 2; //5v5
+}
+
+enum ClanAction
+{
+	ClanAction_create 		= 1;  	//创建战队
+	ClanAction_login  		= 2;   	//登录
+	ClanAction_logout 		= 3;   	//登出
+	ClanAction_join 		= 4; 	//加入战队
+	ClanAction_leader 		= 5;  	//任命为队长(系统任命）
+	ClanAction_leave 		= 6;	//离开战队
+	ClanAction_trans 		= 7;	//主动转让队长
+	ClanAction_kick 		= 8;	//踢出队员
+	ClanAction_chg_score 	= 9; 	//积分变化
+	ClanAction_dis			= 10;   //解散
+}
+*/
+
+//=======================================通用战队数据结构============================
+
+//日志
+message ClanLog
+{
+	optional int32 chat_id   = 1;	//事件ID
+	repeated bytes text 	= 2;	//字符参数
+	repeated uint64 params 	= 3;	//整形参数
+	optional uint64 time 	= 4;	//时间
+}
+
+//战队通用数据
+message ClanComInfo
+{
+	optional uint64 clan_id 		= 1;	//战队ID
+	optional bytes name 			= 2; 	//战队名称
+	optional int32 score 			= 3;	//战队积分
+	optional int32 rank 			= 4;	//排名
+	optional int32 zid 	 			= 5; 	//战队zid
+	optional int32 badge_id 		= 6;	//战徽
+	optional bytes badge_name 		= 7;	//战徽名称
+	optional uint64 fight 			= 8;	//团队战力
+	optional bytes notice 			= 9;	//公告
+	repeated ClanLog logs 			= 10;	//日志
+	optional int32 clan_join_num 	= 11;	//战队总场次
+	optional int32 clan_win_num 	= 12; 	//战队胜场
+}
+
+//申请信息
+message ApplyClanInfo
+{
+	optional ClanComInfo clan = 1;
+	optional int32 state = 2;		// 0：未申请,1:在申请中
+	optional int32 num = 3;			// 成员数量
+	optional bytes leader_name = 4;	// 队长名字
+}
+
+//==================================3v3战团数据结构==============================
+//(3v3)战队成员数据
+message Clan3MemberInfo
+{
+	optional RolePlayerMiniInfo mini = 1;
+	optional uint64 last_join_time = 2;		//上次参赛时间
+	optional int32  win_num = 3;			//胜场
+	optional int32  join_num = 4;			//总场
+	optional int32 	leader = 5;				//是否是队长 1 队长
+}
+
+
+//=======================================通信============================
+
+// (1-1): 查看可申请战队列表 APPLY_CLAN_LIST_REQ
+message ApplyClanListReq
+{
+	optional int32 clan_type = 1;
+}
+
+// (1-2):可申请战队列表 NOTIFY_APPLY_CLAN_LIST
+message NotifyApplyClanList
+{
+	optional int32 clan_type = 1;
+	repeated ApplyClanInfo info =2;
+}
+
+
+//(2-1):申请战队 APPLY_CLAN_REQ
+message ApplyClanReq
+{
+	optional int32 clan_type = 1;
+	repeated uint64 clan_id = 2;
+}
+
+//(2-2): 申请战队返回 APPLY_CLAN_RSP
+message ApplyClanRsp
+{
+	optional int32 ret = 1;
+	optional int32 clan_type = 2;
+	repeated uint64 clan_id = 3;
+}
+
+//(3-1):创建战队 CLAN_CREATE_REQ
+message ClanCreateReq
+{
+	optional int32 clan_type = 1;
+	optional bytes clan_name = 2;
+}
+
+//(3-2):创建战队返回 CLAN_CREATE_RSP
+message ClanCreateRsp
+{
+	optional int32 ret = 1;
+	optional int32 clan_type = 2;
+	optional bytes clan_name = 3;
+}
+
+
+//(4-1):玩家战队数据请求 CLAN_DATA_REQ
+message ClanDataReq
+{
+	optional int32 clan_type = 1; //1: 3v3  2:5v5
+}
+
+//(4-2):3v3战队数据返回 NOTIFY_CLAN3_DATA
+message NotifyClan3Data
+{
+	optional ClanComInfo info 			= 1;	//战队通用信息
+	repeated Clan3MemberInfo members    = 2;	//成员信息
+	repeated int32 open_badges 			= 3;	//解锁的勋章
+	repeated RolePlayerMiniInfo apply 	= 4;  	//申请方信息
+}
+
+//(5-1):修改战队信息 MODIFY_CLAN_INFO_REQ
+message ModifyClanInfoReq
+{
+	optional int32 clan_type =1;
+	optional int32 opt_type = 2; //1:改战令外观，2：改战队名称 3：改战队公告
+	optional bytes name = 3;
+	optional int32 badge_id = 4; //战令外观id
+}
+
+//(5-2):修改战队信息 MODIFY_CLAN_INFO_RSP
+message ModifyClanInfoRsp
+{
+	optional int32 ret = 1;
+	optional int32 clan_type =2;
+	optional int32 opt_type = 3; //1:改战令外观，2：改战队名称 3：改战队公告
+	optional bytes name = 4;
+	optional int32 badge_id = 5; //战令外观id
+}
+
+
+//(6-1):战队申请列表操作 CLAN_APPLY_OPT_REQ
+message ClanApplyOptReq
+{
+	optional int32 clan_type = 1;
+	optional int32 type = 2; 		//0:拒绝 ，1同意
+	optional uint64 target_cid = 3;
+	optional int32 flag = 4;		//0：不拒绝 1：今日拒绝该申请
+}
+//(6-2): 战队申请列表操作 CLAN_APPLY_OPT_RSP
+message ClanApplyOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 clan_type = 2;
+	optional int32 type = 3; //0:拒绝 ，1同意
+	optional uint64 target_cid = 4;
+}
+
+
+//(7-1):战队玩家操作请求 CLAN_ROLE_OPT_REQ
+message ClanRoleOptReq
+{
+	optional int32 clan_type = 1;
+	optional int32 type = 2; //1:转让队长 2：踢出队员 3：主动离开战队
+	optional uint64 target_cid = 3;
+}
+
+//(7-2):战队玩家操作返回 CLAN_ROLE_OPT_RSP
+message ClanRoleOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 clan_type = 2;
+	optional int32 opt = 3;
+	optional uint64 target_cid = 4;
+}
+
+		//(8-1):邀请信息查看 CLAN_INVITE_INFO_REQ
+		message ClanInviteInfoReq
+		{
+			optional int32 clan_type = 1;
+			optional int32 type = 2; //1:好友 2：附近 3:帮派
+		}
+		//(8-2):邀请信息查看 NOTIFY_CLAN_INVITE_INFO
+		message NotifyClanInviteInfo
+		{
+			optional int32 clan_type = 1;
+			optional int32 type = 2; //1:好友 2：附近 3:帮派
+			repeated RolePlayerMiniInfo infos = 3;
+		}
+		
+//(9-1):邀请请求 CLAN_INVITE_ROLE_REQ
+message ClanInviteRoleReq
+{
+	optional int32 clan_type = 1;
+	optional int32 type = 2; //1:好友 2：附近 3:帮派
+	repeated uint64 target_cids = 3; //玩家id
+}
+//(9-2):邀请返回 CLAN_INVITE_ROLE_RSP
+message ClanInviteRoleRsp
+{
+	optional int32 ret = 1;
+	optional int32 clan_type = 2;
+	optional int32 type = 3;
+	repeated uint64 target_cids = 4; //成功邀请的玩家
+}
+
+//(10-1):被邀请通知 NOTIFY_ADD_CLAN_INVITE
+message NotifyAddClanInvite
+{
+	optional uint64 send_cid = 1;
+	optional bytes send_name = 2;
+	optional int32 clan_type = 3;
+	optional uint64 clan_id = 4;
+	optional bytes clan_name = 5;
+	optional int32 clan_score= 6;
+	optional int32 fight = 7;
+}
+
+//(11-1):被邀请着操作 INVITE_TARGET_OPT_REQ
+message InviteTargetOptReq
+{
+	optional int32 clan_type = 1;
+	optional uint64 clan_id = 2;
+	optional int32 opt_type = 3;//0:拒绝 1：同意
+	optional int32 flag = 4; //1：今日拒绝该申请
+}
+//(11-2):被邀请着操作返回 INVITE_TARGET_OPT_RSP
+message InviteTargetOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 clan_type = 2;
+	optional uint64 clan_id = 3;
+	optional int32 opt_type = 4;
+	optional int32 clan_score = 5;
+}
+
+//(12-1):同步玩家战队排行 NOTIFY_ROLE_CLAN_RANK
+message NotifyRoleClanRank
+{
+	optional int32 clan_type = 1;
+	optional int32 rank = 2;
+}
+
+//通知玩家加入战队 NOTIFY_ROLE_JOIN_CLAN
+message NotifyRoleJoinClan
+{
+	optional uint64 clan_id = 1;
+}
+
+
+
+
+//------------------------服务器内部-----------------
+//通用战队数据
+message ClanComInfoDB
+{
+	optional uint64 clan_id = 1;
+	optional int32 zid = 2;
+	optional bytes	name = 3;
+	optional int32  score = 4;
+	optional int32  badge_id = 5;
+	optional bytes 	badge_name = 6;
+	optional bytes  notice = 7;
+	repeated ClanLog logs  = 8;			//日志
+	optional uint64 leader_cid = 9;		
+	repeated uint64 members = 10;		//成员id
+	repeated uint64 refuse_list = 11;	// 今日拒绝申请玩家列表
+	repeated uint64 apply_list = 12;	//申请列表
+	optional uint64 update_score_time = 13; //更新积分时间
+	optional int32 	clan_join_num = 14;
+	optional int32  clan_win_num = 15;
+	repeated int32 	open_badge = 16;		//解锁的勋章
+	optional uint64 refresh_time = 17;		//刷新时间
+	optional uint64 fight = 18;				//团队战力
+}
+//3v3 战队数据
+message Clan3InfoDB
+{
+	optional ClanComInfoDB com = 1;
+	
+}
+//5v5 战队数据
+message Clan5InfoDB
+{
+	optional ClanComInfoDB com = 1;
+}
+
+
+//通用战队个人数据
+message ClanRoleComInfoDB
+{
+	optional uint64  cid  = 1;
+	optional uint64  ban_time = 2;
+	repeated uint64  refuse_invite_list = 3;
+	optional uint64  update_time = 4; //更新时间
+	optional uint64  last_join_time = 5; //上次参赛时间
+	repeated uint64  invite_list = 6; //邀请玩家列表
+}
+//3v3 数据
+
+message Clan3RoleInfoDB
+{
+	optional ClanRoleComInfoDB com =1;
+	optional int32 	 role_join_num = 2;	  //个人总参与次数
+	optional int32 	 role_win_num = 3;	  //个人胜利次数
+	optional int32 	 role_cw_num = 4;	 //连胜次数
+	optional int32 	 role_dead_num = 5;  //死亡次数
+	optional int32   role_cl_num =  6;   //连败次数
+	optional int32 	 day_join_num = 7;   //今日参与次数
+	repeated int32 	 day_recv_id = 8;
+	optional int32 	 mvp_num = 9;			//今日mvp次数
+	
+}
+
+//5v5 数据
+message Clan5RoleInfoDB
+{
+	optional ClanRoleComInfoDB com =1;
+}
+
+message ClanSimple
+{
+	optional uint64 clan_id = 1;
+	optional int32  zid = 2;
+	optional bytes	name = 3;
+	optional int32  score = 4;
+	optional int32  badge_id = 5;
+	optional bytes 	badge_name = 6;
+	optional uint64 leader_cid = 7;
+	repeated uint64 members = 8;			//成员id
+	optional uint64 update_score_time = 9;  //更新积分时间
+	optional uint64 fight = 10;				//团队战力
+}
+
+
+//服务器间同步操作 CLAN_SYS_OPT_REQ
+message ClanSysOptReq
+{
+	optional int32 type = 1;	//1:同步 2:刪除战队,3刪除成员,4添加成员,
+	optional int32 clan_type = 2;
+	optional int32 zid = 3;
+	repeated ClanSimple infos= 4;
+	repeated uint64 	cids = 5;
+}
+
+//同步排名信息 NOTIFY_CLAN_SYN_RANK
+message NotifyClanSynRank
+{
+	optional int32 clan_type = 1;
+	repeated ComPair64 rank = 2;
+}
+
+//修改战队名称 MODIFY_CLAN_NAME_REQ
+message C2LModifyClanInfoReq
+{
+	optional uint64 cid = 1;
+	optional ModifyClanInfoReq req = 2;
+}
+//修改战队名称 MODIFY_CLAN_NAME_RSP
+message L2CModifyClanInfoRsp
+{
+	optional int32 ret = 1;
+	optional uint64 cid = 2;
+	optional ModifyClanInfoReq req = 3;
+}

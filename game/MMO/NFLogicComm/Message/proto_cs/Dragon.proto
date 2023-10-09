@@ -1,0 +1,91 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+//帝弑影龙信息
+message ShadowProto
+{
+	optional int32 lev = 1;	//等级
+	optional int32 exp = 2;		//经验
+	optional int32 star = 3;	//星级
+	optional int32 lucky = 4;	//幸运值
+	repeated ComPair frag = 5;	//碎片信息 fragid - num
+	optional int32 curstar = 6; //当前幻化的星级
+}
+
+//光环类信息
+message HaloProto
+{
+	repeated ComPair info = 1;  //id-star
+	optional int32 curid = 2;	//当前幻化的 id
+	optional int32 curstar = 3; //当前幻化的 星级
+}
+
+
+//请求幻世烛龙信息 DRAGON_INFO_REQ
+message Dragon_InfoReq
+{
+	//空
+}
+//返回幻世烛龙信息 DRAGON_INFO_RSP
+message Dragon_InfoRsp
+{
+	optional ShadowProto shadow = 1;
+	optional HaloProto halo = 2;
+}
+//请求升级 DRAGON_UPGRADE_REQ
+message Dragon_UpgradeReq
+{
+}
+//返回升级结果 DRAGON_UPGRADE_RSP
+message Dragon_UpgradeRsp
+{
+	required int32 ret = 1;
+}
+//请求使用碎片 DRAGON_USE_FRAG_REQ 
+message Dragon_UseFragReq
+{
+	optional int64 fragid = 1; //碎片ID
+}
+//返回使用碎片结果 DRAGON_USE_FRAG_RSP
+message Dragon_UseFragRsp
+{
+	required int32 ret = 1;
+}
+//请求升星 DRAGON_STAR_REQ
+message Dragon_StarReq
+{
+	optional int32 id = 1;			//影龙或者光环类的 配置ID
+}
+//返回升星结果 DRAGON_STAR_RSP
+message Dragon_StarRsp
+{
+	required int32 ret = 1;
+	optional int32 id = 2;
+	optional int32 star = 3;
+}
+//请求幻化 DRAGON_FANTASY_REQ
+message Dragon_FatansyReq
+{
+	optional int32 id = 1;			//影龙或者光环类的 配置ID
+	optional int32 star = 2;		//星级
+	optional int32 undress = 3;		//是否是卸下，1-是，0-否, 如果是卸载， id 和 star 字段可以不用传值
+}
+//返回幻化结果 DRAGON_FANTASY_RSP
+message Dragon_FatansyRsp
+{
+	required int32 ret = 1;
+}
+
+//返回 帝弑影龙信息 DRAGON_SHADOW_INFO_RSP
+message Dragon_ShadowInfoRsp
+{
+	optional ShadowProto shadow = 1;
+}
+//返回 光环类信息 DRAGON_HALO_INFO_RSP
+message Dragon_HaloInfoRsp
+{
+	optional HaloProto halo = 1;
+}

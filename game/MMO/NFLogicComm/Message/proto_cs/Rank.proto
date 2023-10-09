@@ -1,0 +1,72 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+//请求排行数据  CLIENT_TO_LOGIC_RANK_DATA_REQ
+message RankDataRequest
+{
+  required uint32 rankType = 1;	//排行类型
+}
+
+//中心服返回排行数据 LOGIC_TO_CLIENT_RANK_DATA_RSP
+message RankDataResponse
+{
+  optional RankDataInfo info = 1;
+}
+
+
+//逻辑服转发请求排行榜数据 LOGIC_TO_CENTER_RANKDATA									= 1180;	//逻辑服通知中心服取排行榜数据
+message GWRankDataReq
+{
+  required uint32 rankType = 1;	//排行类型
+  required uint64 charId = 2;     //玩家id
+  required uint64 value = 3;     //排行数值
+}
+
+
+//逻辑服请求中心服更新排行榜 LOGIC_TO_CENTER_UPDATERANK									= 1181;	//逻辑服通知中心服更新排行榜
+message GWUpdateRankReq
+{
+  required uint32 rankType = 1;	//排行类型
+  required uint64 charId = 2;     //玩家id
+  required uint64 value = 3;     //排行数值
+}
+
+// 逻辑服更新排行榜 LOGIC_TO_SOCIAL_RANK_UPDATE_REQ
+message GSUpdateRankReq
+{
+  optional uint32 rankType = 1;	// 排行类型
+  optional uint64 charId = 2;     // 玩家id
+  optional int32  zid = 3;		// zid
+  optional int64	value = 4;		// 值
+  repeated int64	paramInt = 5;	// 整数列表
+  repeated string paramStr = 6;	// 字符列表
+}
+
+//CENTER_TO_LOGIC_RANK_REQ
+message WGRankDataRequest
+{
+  required uint32 rankType = 1;	//排行类型
+  optional int64	charId = 2;
+}
+
+//LOGIC_TO_SOCIAL_RANK_REQ
+message GSRankDataRequest
+{
+  required uint32 rankType = 1;	//排行类型
+  optional int64	charId = 2;
+  optional string	charname = 3;
+  optional int64	value = 4;
+  repeated int64	paramInt = 5;	// 整数列表
+  repeated string paramStr = 6;	// 字符列表
+}
+
+// 社交服添加或删除称号  SOCIAL_TO_LOGIC_OPT_TITLE_REQ
+message SocialRankOptTitleReq
+{
+  optional int64  charId											= 1;
+  optional int64 	title											= 2;
+  optional int32 	opt 											= 3;	//1 添加 2删除
+}

@@ -1,0 +1,1280 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+//节日活动简要信息
+message FestSimpleProto
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 state = 2;			//活动状态，1-开启，2-结束
+	optional int32 period = 3;			//期数
+	optional int32 redpoint = 4;		//是否有红点 0-没有，1-有
+	optional uint64 endtime = 5;		//活动结束时间，unix 秒数
+	optional uint64 begintime = 6;		//活动开始时间，unix 秒数
+}
+//节日活动列表
+message FestSimpleListProto
+{
+	repeated FestSimpleProto info = 1; 
+}
+
+//节日活动红点信息
+message FestRedPointProto
+{
+	optional int32 template_id = 1;		//活动模板ID
+	optional int32 redpoint = 2;		//是否有红点 0-没有，1-有
+}
+//节日活动红点信息列表
+message FestRedPointListProto
+{
+	repeated FestRedPointProto info = 1;
+}
+
+//限时商店购买信息
+message FestShopProto
+{
+	optional int32 id = 1;	//muban_shop表 id
+	optional int32 num = 2;	//已购买次数
+}
+//限时商店详细数据
+message FestShopDetailProto
+{
+	repeated FestShopProto buy = 1;
+}
+//签到(天天养龙)
+message FestSignDetailProto
+{
+	optional int32 is_sign = 1; //是否已经签到 0-未签到，1-已签到
+}
+
+message FestDailyTotalRechargeDetailProto
+{
+	repeated FestDailyTotalRechargeOneProto data = 1;
+	optional uint32 total_recharge = 2;
+}
+
+//金库(天天养龙)
+message FestGoldStoreProto
+{
+	repeated ComPair info = 1;	//
+}
+
+
+//砸蛋(天天养龙)日志
+message FestDigEggLogProto
+{
+	optional bytes name = 1;
+	optional int32 id = 2;		//muban_zadan 表 id
+	optional uint64 cid = 3;    
+}
+
+//砸蛋(天天养龙)任务
+message FestDigEggTaskProto
+{
+	optional int32 id = 1;		//配置ID
+	optional int32 cur = 2;		//当前进度
+	optional int32 fetch = 3;	//是否已领取 0-未领取，1-已领取
+}
+
+//砸蛋(天天养龙)抽奖
+message FestDigEggProto
+{
+	repeated ComPair info = 1;					//muban_zadan 表 id列表 - 客户端的位置
+	optional int32 free = 2;					//已经免费重置的次数
+	repeated FestDigEggTaskProto task = 3;		//任务
+}
+//烛龙挑战(天天养龙)
+message FestCandleProto
+{
+	repeated int32 id_lst = 1;  //已领取奖励的 id 列表  muban_leiji
+}
+
+//烛龙挑战排名信息
+message FestCandRankProto
+{
+	optional uint64 cid = 1;
+	optional bytes name = 2;
+	optional uint64 harm = 3;
+	optional uint32 zid = 4;
+	optional int32 rank = 5;
+}
+
+//转盘多倍返玉
+message FestRTurnableRechargeProto
+{
+	repeated FestRTurnableRechargeOneProto info = 1;
+}
+
+//活跃转盘
+message FestTurnableProto
+{
+	repeated FestTurnableTaskProto task = 1;
+	optional uint32 left_num = 2; //可以转动的剩余次数
+	repeated int32 chou_jiang_ids = 5; //已经被抽奖的id
+}
+
+//全民嗨翻天
+message FestDonateProto
+{
+	repeated FestDonateSingleProto single = 1;
+	repeated FestDonateServerProto server = 2;
+	optional uint32 single_num = 3;
+	repeated FestDonateTaskProto task = 4;
+}
+
+//定时福利
+message FestOnlineProto
+{
+	repeated FestOnlineOneProto data = 1;
+}
+
+//开服集字
+message FestCollectWordProto
+{
+	repeated FestCollectWordOneProto data = 1;
+}
+
+//boss
+message FestBossDetailProto
+{
+	repeated int32 recv_kill_ids = 1;  //领取过的击杀奖励(活動配置muban_BossFristKill id)
+	repeated int32 recv_red_ids = 2;	//领取过的首杀红包(活動配置muban_BossFristKill id)
+	repeated int32 my_kills_ids = 3;	//我击杀过的boss (活動配置muban_BossFristKill id)
+	repeated int32 kill_ids = 4;		//被击杀过的boss (活動配置muban_BossFristKill id) 废弃
+}
+//完美情人个人数据
+message FestMarryDetail
+{
+	repeated FMarryTask tasks = 1;
+	repeated int32 process_ids = 2; //已领取进度id
+	optional int32 score= 3; 		//个人积分
+}
+
+
+//节日活动详细信息
+message FestDetailProto
+{
+	//通用字段
+	optional int32 template_id = 1;												//活动模板ID
+	//TODO：这里添加各个活动的字段
+	optional FestShopDetailProto shop = 2;										//限时商店		severType = 4
+	optional FestDailyTotalRechargeDetailProto daily_total_recharge = 3;		//每日累充		serverType =11
+	optional FestSignDetailProto sign = 4;										//签到(天天养龙)  serverType = 12
+	optional FestGoldStoreProto gold_store = 5;									//金库(天天养龙)  serverType = 13
+	optional FestDigEggProto dig_egg = 6;										//砸蛋(天天养龙)  serverType = 14
+	optional FestRTurnableRechargeProto rturnable_recharge = 7; //转盘多倍返玉
+	optional FestTurnableProto turntable = 8; //活跃转盘
+	optional FestDonateProto donate = 9; //全民嗨翻天
+	optional FestOnlineProto online = 10; //定时福利
+	optional FestCollectWordProto collect_word = 11; //开服集字
+	optional DrawPizeProto draw_pize = 12; //开服庆典
+	optional FestBossDetailProto boss = 13; //boss首杀
+	optional FestRankDBData server_rank = 14; //开服比拼
+	optional FestHuiMengXiYouData hui_meng_xi_you = 15; //回梦西游
+	optional FestMarryDetail marry = 16;			//完美情人个人数据
+	optional FestCandleProto candle = 17;										//烛龙挑战(天天养龙) serverType = 15
+}
+
+
+/////////////////////////////////////// 客户端协议  //////////////////////////////////////////////
+
+//返回节日活动简要信息 FEST_SIMPLE_LIST_RSP
+message Fest_SimpleListRsp
+{
+	optional FestSimpleListProto simple = 1;
+}
+
+//通知节日活动简要信息更新 FEST_SIMPLE_INFO_NOTIFY
+message Fest_SimpleInfoNotify
+{
+	optional FestSimpleListProto simple = 1;
+}
+//请求节日活动详细信息 FEST_DETAIL_INFO_REQ
+message Fest_DetailReq
+{
+	//当 fest_id > 0 并且 template_id = 0 表示请求某个节日活动下所有子活动的详细信息
+	//当 fest_id = 0 并且 template_id > 0 表示请求某个子活动的详细信息
+	//当 fest_id > 0 并且 template_id > 0 表示请求某个节日活动下某个子活动的详细信息
+	//当 fest_id = 0 并且 template_id = 0 表示请求所有节日活动下所有的子活动详细信息
+ 	optional int32 fest_id = 1;			//节日活动ID
+	optional int32 template_id = 2;		//活动模板ID
+}
+//返回节日活动详细信息 FEST_DETAIL_INFO_RSP
+message Fest_DetailRsp
+{
+	repeated FestDetailProto detail = 1;
+}
+
+//更新节日活动详细信息 FEST_DETAIL_UPDATE_RSP		
+message Fest_DetailUpdateRsp
+{
+	repeated FestDetailProto detail = 1;
+}
+
+
+//节日活动 红点信息 FEST_REDPOINT_INFO_RSP
+message Fest_RedPointInfoRsp
+{
+	optional FestRedPointListProto redpoint = 1;
+}
+//节日活动 更新红点信息 FEST_REDPOINT_INFO_NOTIFY
+message  Fest_RedPointInfoNotify
+{
+	optional FestRedPointListProto redpoint = 1;
+}
+
+//////////////////////////////////////////// 限时商店  serverType = 4   ////////////////////////////////////////////////////////
+
+//请求 限时商店购买 FEST_SHOP_BUY_REQ
+message Fest_ShopBuyReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 id = 2;			//muban_shop表 id
+}
+//返回 限时商店购买结果 FEST_SHOP_BUY_RSP
+message Fest_ShopBuyRsp
+{
+	required int32 ret = 1;		//返回码
+	optional int32 template_id = 2; //活动模板ID
+	optional int32 id = 3;		//muban_shop表 id
+	optional int32 num = 4;		//已购买次数
+}
+
+////////////////////////////////////////////每日累充 serverType =11 ////////////////////////////////////////////////////////
+//FEST_GET_DAILY_RECHARGE_REWARD_REQ = 4007; ////请求 每日累计充值 奖励
+message Fest_GetDailyRechargeRewardReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 id = 2;			//
+}
+
+//FEST_GET_DAILY_RECHARGE_STATUS_NOTIFY = 4008; ////每日累计充值 状态改变
+message Fest_DailyRechargeStatusNotify
+{
+	required int32 ret = 1;		//返回码
+	optional int32 template_id = 2; //活动模板ID
+	optional int32 total_recharge = 3;
+	repeated FestDailyTotalRechargeOneProto data = 4;
+}
+
+////////////////////////////////////////////转盘多倍返玉 ////////////////////////////////////////////////////////
+//FEST_RTURNTABLE_RECHARGE_TURNABLE_REQ = 4018; //转盘多倍返玉 转盘
+message FestRTurnableRechargeTurnableReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 id = 2;			//
+}
+
+//FEST_RTURNTABLE_RECHARGE_TURNABLE_RSP = 4019; //转盘多倍返玉 通知
+message FestRTurnableRechargeTurnableRsp
+{
+	required int32 ret = 1;		//返回码
+	optional int32 template_id = 2; //活动模板ID
+	optional int32 turnable_id = 3; //转盘转到的ID
+	repeated FestRTurnableRechargeOneProto data = 4;
+}
+
+
+
+////////////////////////////////////////////////////  签到(天天养龙) serverType =12 //////////////////////////////////
+
+//请求签到(天天养龙) FEST_SIGN_REQ	
+message Fest_SignReq
+{
+	optional int32 template_id = 1; //活动模板ID
+}
+//返回 签到(天天养龙) 结果 FEST_SIGN_RSP
+message Fest_SignRsp
+{
+	required int32 ret = 1; //返回码
+	required int32 template_id = 2; //活动模板ID
+}
+
+/////////////////////////////////////////////// 金库(天天养龙) serverType =13  /////////////////////////////////////////
+
+//更新金库购买信息(天天养龙) FEST_GOLD_STORE_UPDATE_BUY_RSP
+message Fest_GoldStoreUpateBuyRsp
+{
+	optional int32 template_id = 1; //活动模板ID	
+	optional int32 id = 2;			//muban_recharge 表 id
+	optional int32 num = 3;			//已购买次数
+}
+
+////////////////////////////////////////////////////  砸蛋(天天养龙) serverType =14  ////////////////////////////////////
+
+//请求砸蛋抽奖(天天养龙) FEST_DIG_EGG_REQ
+message Fest_DigEggReq
+{
+	optional int32 template_id = 1; //活动模板ID	
+	optional uint32 pos = 2;			//客户端位置
+}
+
+//返回砸蛋抽奖 结果(天天养龙) FEST_DIG_EGG_RSP
+message Fest_DigEggRsp
+{
+	required int32 ret = 1;         //返回码
+	required int32 template_id = 2; //活动模板ID	
+	optional int32 id = 3;			//muban_zadan 表 id
+	optional uint32 pos = 4;			//客户端位置
+}
+ //请求重置砸蛋抽奖(天天养龙) FEST_DIG_EGG_RESET_REQ
+ message Fest_DigEggRestReq
+{
+	optional int32 template_id = 1; //活动模板ID	
+}
+//返回重置砸蛋抽奖 结果(天天养龙) FEST_DIG_EGG_RESET_RSP
+message Fest_DigEggRestRsp
+{
+	required int32 ret = 1;         //返回码
+	required int32 template_id = 2; //活动模板ID
+	optional int32 free = 3;		//已经免费重置的次数
+}
+//请求砸蛋日志(天天养龙) FEST_DIG_EGG_LOG_REQ
+message Fest_DigEggLogReq
+{
+	optional int32 template_id = 1; //活动模板ID	
+}
+//返回砸蛋日志(天天养龙) FEST_DIG_EGG_LOG_RSP 
+message Fest_DigEggLogRsp
+{
+	required int32 ret = 1;					//返回码
+	required int32 template_id = 2;			//活动模板ID
+	repeated FestDigEggLogProto log = 3;	//日志
+}
+//请求砸蛋任务领奖(天天养龙) FEST_DIG_EGG_TASK_FETCH_REQ
+message Fest_DigEggTaskFetchReq
+{
+	required int32 template_id = 1;			//活动模板ID
+	required int32 id = 2;					//
+}
+//返回砸蛋任务领奖 结果(天天养龙) FEST_DIG_EGG_TASK_FETCH_RSP
+message Fest_DigEggTaskFetchRsp
+{
+	required int32 ret = 1;					//返回码
+	required int32 template_id = 2;			//活动模板ID
+}
+//更新砸蛋任务信息(天天养龙) FEST_DIG_EGG_TASK_UPDATE_RSP
+message Fest_DigEggTaskUpdateRsp
+{
+	repeated FestDigEggTaskProto task = 1;
+}
+
+
+//请求转盘多倍返玉日志 FEST_RTURNTABLE_LOG_REQ
+message Fest_RTuranbleLogReq
+{
+	optional int32 template_id = 1; //活动模板ID
+}
+//返回转盘多倍返玉日志 FEST_RTURNTABLE_LOG_RSP
+message Fest_RTuranbleLogRsp
+{
+	required int32 ret = 1;					//返回码
+	required int32 template_id = 2;			//活动模板ID
+	repeated RTurnableLogDBProto log = 3;	//日志
+}
+
+
+////////////////////////////////////////////////////  活跃转盘任务  ////////////////////////////////////
+//FEST_TURNTABLE_TURNABLE_REQ = 4022; //活跃转盘 转一次
+message TurntableTurnTableReq
+{
+	optional int32 template_id = 1; //活动模板ID
+}
+
+//FEST_TURNTABLE_TURNABLE_RSP = 4023; //活跃转盘 转一次
+message TurntableTurnTableRsp
+{
+	optional int32 ret = 1;					//返回码
+	optional int32 template_id = 2;		//活动模板ID
+	optional int32 left_num = 3; ////可以转动的剩余次数
+	optional int32 turntable_id = 4; //turntable_pool id
+	repeated int32 chou_jiang_ids = 5; //已经被抽奖的id
+}
+
+//FEST_TURNTABLE_REWARD_REQ = 4024;	 //请求 活跃转盘 奖励
+message TurntableRewardReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 id = 2;
+}
+
+//FEST_TURNTABLE_REWARD_RSP = 4025;	 //请求 活跃转盘 奖励
+message TurntableRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2; //
+}
+
+//FEST_TURNTABLE_STATUS_NOTIFY = 4026; //活跃转盘  任务状态通知
+message TurntableStatusChange
+{
+	optional int32 template_id = 1;
+	repeated FestTurnableTaskProto task = 2;
+	optional uint32 left_num = 3; //可以转动的剩余次数
+}
+
+////////////////////////////////////////////////////  全民嗨翻天  ////////////////////////////////////
+//FEST_DONATE_GET_SERVER_NUM_REQ = 4027; //全民嗨翻天 获得全服数目
+message FestDonateGetServerNumReq
+{
+	optional int32 template_id = 1;
+}
+
+//FEST_DONATE_GET_SERVER_NUM_RSP = 4028; //全民嗨翻天 获得全服数目
+message FestDonateGetServerNumRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional uint32 server_num = 3;
+}
+
+//FEST_DONATE_DONATE_REQ = 4029; //全民嗨翻天 捐献
+message FestDonateDonateReq
+{
+	optional int32 template_id = 1;
+	optional int32 type = 2; //0:1次 1:10次
+}
+
+//FEST_DONATE_DONATE_RSP = 4030; //全民嗨翻天 捐献
+message FestDonateDonateRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional uint32 single_num = 3;
+}
+
+//FEST_DONATE_GET_SINGEL_REWARD_REQ = 4031; //全民嗨翻天 领取个人奖励
+message FestDonateGetSingleRewardReq
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+}
+
+//FEST_DONATE_GET_SINGEL_REWARD_RSP = 4032; //全民嗨翻天 领取个人奖励
+message FestDonateGetSingleRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional FestDonateSingleProto data = 3;
+}
+
+//FEST_DONATE_GET_SERVER_REWARD_REQ = 4033; //全民嗨翻天 领取全服奖励
+message FestDonateGetServerRewardReq
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+}
+
+//FEST_DONATE_GET_SERVER_REWARD_RSP = 4034; //全民嗨翻天 领取全服奖励
+message FestDonateGetServerRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional FestDonateServerProto data = 3;
+}
+
+//FEST_DONATE_GET_TASK_REWARD_REQ = 4035; //全民嗨翻天 领取任务奖励
+message FestDonateGetTaskRewardReq
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+}
+
+//FEST_DONATE_GET_TASK_REWARD_RSP = 4036; //全民嗨翻天 领取任务奖励
+message FestDonateGetTaskRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional FestDonateTaskProto data = 3;
+}
+
+//FEST_DONATE_TASK_STATUS_CHANGE = 4037; //全民嗨翻天 任务奖励 通知
+message FestDonateTaskTtatusChange
+{
+	optional int32 template_id = 1;
+	repeated FestDonateTaskProto data = 2;
+}
+
+//////////////////////////////////////////////////////  定时福利  ////////////////////////////////////
+//FEST_ONLINE_GET_REWARD_REQ = 4038; //定时福利 领取奖励
+message FestOnlineGetRewardReq
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+}
+
+//FEST_ONLINE_GET_REWARD_RSP = 4039; //定时福利 领取奖励
+message FestOnlineGetRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional FestOnlineOneProto data = 3;
+}
+
+//////////////////////////////////////////////////////  开服集字   ////////////////////////////////////
+//FEST_COLLECT_WORLD_EXCHARGE_REQ = 4040; //开服集字 兑换
+message FestCollectWorldExchargeReq
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+}
+
+//FEST_COLLECT_WORLD_EXCHARGE_RSP = 4041; //开服集字 兑换
+message FestCollectWorldExchargeRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional FestCollectWordOneProto data = 3;
+}
+
+//////////////////////////////////////////////////////  开服庆典   ////////////////////////////////////
+//FEST_DRAWPIZE_CHOUJIANG_REQ = 4042; //开服庆典 抽奖
+message FestDrawPizeChouJiangReq
+{
+	optional int32 template_id = 1;
+	optional int32 type = 2; //0：一次 1:10次 2:50次
+}
+
+//FEST_DRAWPIZE_CHOUJIANG_RSP = 4043; //开服庆典 抽奖
+message FestDrawPizeChouJiangRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	repeated int32 choujiang_id = 3;
+	optional uint32 choujiang_num = 5;
+}
+
+//FEST_DRAWPIZE_GET_REWARD_REQ = 4044; //开服庆典 领取奖励
+message FestDrawPizeGetRewardReq
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+}
+
+//FEST_DRAWPIZE_GET_REWARD_RSP = 4045; //开服庆典 领取奖励
+message FestDrawPizeGetRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional DrawPizeTaskProto data = 3;
+}
+
+//FEST_DRAWPIZE_LOG_REQ = 4046; //开服庆典 日志
+message FestDrawPizeLogReq
+{
+	optional int32 template_id = 1;
+}
+
+//FEST_DRAWPIZE_LOG_RSP = 4047; //开服庆典 日志
+message FestDrawPizeLogRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	repeated DrawPizeLogDBProto log = 3;
+}
+
+//FEST_DRAWPIZE_GET_SERVER_NUM_REQ = 4048; //开服庆典 全服数目
+message FestDrawPizeGetServerNumReq
+{
+	optional int32 template_id = 1;
+}
+
+//FEST_DRAWPIZE_GET_SERVER_NUM_RSP = 4049; //开服庆典 全服数目
+message FestDrawPizeGetServerNumRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional uint32 server_num = 3;
+}
+
+////////////////////////////////////开服比拼////////////////////////////////////////////////////
+//开服比拼 4100-4150
+//FEST_SERVERANK_GET_REWARD_REQ = 4100; //开服比拼 获取奖励
+message FestServerRankGetRewardReq
+{
+	optional int32 template_id = 1;
+	optional int32 rank_id = 2;
+	optional int32 reward_id = 3;
+}
+
+//FEST_SERVERANK_GET_REWARD_RSP = 4101; //开服比拼 获取奖励
+message FestServerRankGetRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional int32 rank_id = 3;
+	optional FestRankRewardData data = 4;
+}
+
+//FEST_SERVERANK_REWARD_STATUS_CHANGE = 4102; //开服比拼 奖励状态修改
+message FestServerRankRewardStatusChange
+{
+	optional int32 template_id = 1;
+	optional int32 rank_id = 2;
+	repeated FestRankRewardData data = 3;
+}
+
+//FEST_SERVERRANK_GET_MY_RANK_REQ = 4103; //获取我的排行榜数据
+message FestServerRankGetMyRankReq
+{
+	optional int32 template_id = 1;
+	optional int32 rank_id = 2;
+}
+
+//FEST_SERVERRANK_GET_MY_RANK_RSP = 4104; //获取我的排行榜数据
+message FestServerRankGetMyRankRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional int32 rank_id = 3;
+	optional int32 my_rank = 4;
+	optional uint64 param = 5;
+}
+
+//FEST_SERVERRANK_BUY_GIFT_REQ = 4105; //购买礼包
+message FestServerRankBuyGiftReq
+{
+	optional int32 template_id = 1;
+	optional int32 rank_id = 2;
+}
+
+//FEST_SERVERRANK_BUY_GIFT_RSP = 4106; //购买礼包
+message FestServerRankBuyGiftRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional int32 rank_id = 3;
+	optional uint32 gift_status = 4;
+}
+
+//FEST_SERVERRANK_GET_REDPOINT_REWARD_REQ = 4107; //获得红点礼包
+message FestServerRankGetRedPointRewardReq
+{
+	optional int32 template_id = 1;
+	optional int32 rank_id = 2;
+}
+
+//FEST_SERVERRANK_GET_REDPOINT_REWARD_RSP = 4108; //获得红点礼包
+message FestServerRankGetRedPointRewardRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	optional int32 rank_id = 3;
+	optional uint32 red_point_status = 4;
+}
+
+//FEST_SERVERRANK_RANK_STATUS_CHANGE = 4109; //排行榜开启状态改变
+message FestServerRankStatusChange
+{
+	optional int32 template_id = 1;
+	repeated FestRankData rank = 2;
+}
+
+
+
+//////////////////////////////////////// 烛龙挑战(天天养龙)  /////////////////////////////////////////
+
+//请求领取 烛龙挑战奖励(天天养龙) FEST_CANDLE_FETCH_REQ
+message FestCandleFetchReq
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+}
+
+//返回领取 烛龙挑战奖励 结果(天天养龙) FEST_CANDLE_FETCH_RSP
+message FestCandleFetchRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+}
+
+//返回 烛龙挑战(天天养龙) 所有已领取奖励列表 FEST_CANDLE_FETCH_LST_RSP
+message FestCandleFetchLstRsp
+{
+	optional int32 template_id = 1;
+	repeated int32 id_lst = 2;
+}
+
+//请求 烛龙挑战排行榜(天天养龙) FEST_CANDLE_RANK_INFO_REQ
+message FestCandleRankReq
+{
+	optional int32 template_id = 1;
+}
+
+//返回 烛龙挑战排行榜(天天养龙) FEST_CANDLE_RANK_INFO_RSP
+message FestCandleRankRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2;
+	repeated FestCandRankProto rank = 3;
+	optional uint64 harm = 4;				//自己的伤害值
+}
+
+//////////////////////////////////////////////// 服务器之间的协议  ////////////////////////////////////////
+
+//逻辑服通知中心服 砸蛋抽奖操作 FEST_L2C_DIG_EGG_OPERATE_RSP
+message Fest_L2C_DigEgg_OpRsp
+{
+	optional bytes name = 1;
+	optional int32 id = 2;
+	optional int32 template_id = 3;			//活动模板ID
+	optional uint64 cid = 4;
+}
+//逻辑服请求中心服，砸蛋日志 FEST_L2C_DIG_EGG_LOG_REQ
+message Fest_L2C_LogReq
+{
+	optional uint64 cid = 1;
+	optional int32 template_id = 2;			//活动模板ID
+}
+
+//逻辑服通知中心服 转盘多倍返玉 FEST_L2C_RTURNABLE_OPERATE_RSP
+message Fest_L2C_RTurnable_OpRsp
+{
+	optional int32 template_id = 1;			//活动模板ID
+	optional RTurnableLogDBProto log = 2;
+}
+//逻辑服请求中心服，转盘多倍返玉日志 FEST_L2C_RTURNABLE_LOG_REQ
+message Fest_L2C_RTurnable_LogReq
+{
+	optional uint64 cid = 1;
+	optional int32 template_id = 2;			//活动模板ID
+}
+
+//FEST_L2C_DONATE_OPERATE_NOTIFY = 1424;  //逻辑服通知中心服 全民嗨翻天 捐献操作
+message Fest_L2C_DonateOperate_Notify
+{
+	optional uint64 cid = 1;
+	optional int32 template_id = 2;			//活动模板ID
+	optional uint32 single_num = 3;
+}
+
+//FEST_C2L_DONATE_GET_SERVER_REWARD_REQ = 1425;  //中心服通知逻辑服 全民嗨翻天 领取全服奖励
+message Fest_C2L_DonateGetServerRewardReq
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+	optional uint32 server_num = 3;
+	optional uint64 cid = 4;
+}
+
+//FEST_L2C_DRAWPIZE_LOG_REQ = 1426; //逻辑服请求中心服，开服庆典日志
+message Fest_L2C_DrawPizeLogReq
+{
+	optional int32 template_id = 1;			//活动模板ID
+	repeated DrawPizeLogDBProto log = 2;
+	optional int32 choujiang_num = 3;
+}
+
+//FEST_L2C_DRAWPIZE_CHOUJIANG_GET_SERVER_NUM_REQ = 1427; //逻辑服请求中心服，开服庆典 全服
+message Fest_L2C_DrawPizeChouJiangGetServerNumReq
+{
+	optional int32 template_id = 1;			//活动模板ID
+	optional int32 type = 2;
+	optional uint64 cid = 3;
+}
+
+//FEST_C2L_DRAWPIZE_CHOUJIANG_GET_SERVER_NUM_RSP = 1428; //中心服 to 逻辑服，开服庆典 全服
+message Fest_C2L_DrawPizeChouJiangGetServerNumRsp
+{
+	optional int32 template_id = 1;			//活动模板ID
+	optional int32 type = 2;
+	optional uint32 server_num = 3;
+	optional uint64 cid = 4;
+}
+
+//FEST_C2L_FEST_SERVERRANK_SYNC_REQ = 1429; //排行榜同步请求
+message Fest_C2L_ServerRankSyncReq
+{
+	optional uint64 cid = 1;
+	optional int32 template_id = 2;			//活动模板ID
+	optional int32 rank_id = 3;
+	optional int32 rank_type = 4;
+}
+
+//FEST_C2L_FEST_SERVERRANK_SYNC_RSP = 1430; //排行榜同步请求
+message Fest_C2L_ServerRankSyncRsp
+{
+	optional uint64 cid = 1;
+	optional int32 template_id = 2;			//活动模板ID
+	optional int32 rank_id = 3;
+	optional int32 rank_type = 4;
+	optional int32 my_rank = 5;
+	optional uint64 param = 6;
+	optional bool finish = 7;
+}
+
+////////////////////////////  烛龙挑战(天天养龙)  /////////////////////////////////////////////
+
+//社交服通知中心服发放烛龙挑战排名奖励 S2C_CANDLE_RANK_REWARD
+message Fest_S2C_CandleRankReward
+{
+	repeated ComPair64 cidrank  = 1;
+}
+//逻辑服通知社交服 新的烛龙挑战伤害 L2S_CANDLE_ADD_HARM_NOTIFY
+message Fest_L2S_CandleAddHarm
+{
+	optional uint64 cid = 1;
+	optional bytes name = 2;
+	optional int64 harm = 3;
+	optional uint32 zid = 4;
+	optional uint32 logicid = 5;
+}
+
+//社交服通知逻辑服 玩家总伤害值 S2L_CANDLE_TOTAL_HARM_RSP
+message Fest_S2L_CandleTotalHarmRsp
+{
+	optional uint64 cid = 1;
+	optional int64 total_harm = 2;
+}
+//逻辑服向社交服请求排名信息 L2S_CANDLE_RANK_REQ
+message Fest_L2S_CandleRankReq
+{
+	optional uint64 cid = 1;
+	optional int64 harm = 2;
+	optional uint32 zid = 3;
+}
+
+//==================================boss首杀==============================
+
+//boss首杀領取  FEST_BOSS_FIRST_OPT_REQ
+message Fest_BossFirstOptReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 id = 2;			//muban_BossFristKill id
+	optional int32 type = 3;		//1:首杀红包 2 首杀奖励
+}
+//boss首杀領取返回 FEST_BOSS_FIRST_OPT_RSP
+message Fest_BossFirstOptRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id = 2; //活动模板ID
+	optional int32 id = 3;			//muban_BossFristKill id
+	optional int32 type = 4;		//1:首杀红包 2 首杀奖励
+}
+
+//boss首杀 boss数据 FEST_BOSS_INFO_REQ
+message Fest_BossInfoReq
+{
+	optional int32 template_id = 1; //活动模板ID
+}
+message FestBossInfo
+{
+	optional int32 id = 1; 				//muban_BossFristKill id
+	optional uint64 refresh_time = 2; 	//刷新时间
+	optional uint64 kill_cid = 3;		//手杀玩家cid
+	optional bytes kill_name = 4;		//击杀玩家名字
+	optional uint64 kill_time = 5;		//首杀时间
+	optional uint32 teamid = 6;			//是否有队伍
+	optional RoleHeadPicProto  head = 7; //头像
+	
+}
+//boss首杀 boss数据 FEST_BOSS_INFO_RSP
+message Fest_BossInfoRsp
+{
+	optional int32 template_id = 1; 	//活动模板ID
+	repeated FestBossInfo infos = 2;	//boss 信息
+}
+
+
+
+//==================服务器信息===========
+message Fest_BFGlobalDBKill
+{
+	optional int32 id = 1;
+	optional uint64 kill_cid = 2;
+	optional uint64 kill_time = 3;
+	optional uint32  teamid = 4;
+}
+
+message Fest_BFGlobalDBEntry
+{
+	optional int32 tmpId = 1;
+	repeated Fest_BFGlobalDBKill infos = 2;
+}
+//全局数据
+message Fest_BFGlobalDB
+{
+	repeated Fest_BFGlobalDBEntry entrys = 1;
+}
+//通知簡單信息 L2C_FEST_BOSSKF_SIMPLE_REQ
+message L2CFest_BossKFSimpleReq
+{
+	optional uint64 roleid = 1;
+	optional int32 template_id = 2;
+	optional FestSimpleProto proto = 3;
+	repeated int32 recv_red_ids = 4;	//领取的击杀紅包
+}
+
+// 守杀通知 C2LFEST_BOSS_KF_NOTIFY
+message C2LFest_BossKFNotify
+{
+	optional int32 template_id = 1;
+	optional int32 id = 2;
+	optional uint64 roleid = 3;
+	optional int32 teamid = 4;
+	optional int32 zid = 5;
+}
+ // C2LFEST_BOSS_INFO_REQ
+message C2LFest_BossInfoReq
+{
+	optional uint64 roleId = 1;
+	optional int32 template_id = 2; 	//活动模板ID
+	repeated FestBossInfo infos = 3;	//boss 信息
+}
+//C2L_FEST_BOSS_FIRST_OPT_REQ
+message C2LFest_BossFirstOptReq
+{
+	optional int32 template_id = 1; //活动模板ID
+	optional int32 id = 2;			//muban_BossFristKill id
+	optional int32 type = 3;		//1:首杀红包 2 首杀奖励
+	optional uint64 roleid = 4;	
+	optional int32 flag = 5; 		
+}
+
+////////////////////////////////回梦西游///////////////////////////////////////////
+//FEST_HUIMENGXIYOU_GET_REWARD_REQ = 4120; //回梦西游 获取奖励
+message C2LFest_HuiMengXiYou_GetRewardReq
+{
+	optional int32 template_id = 1; 	//活动模板ID
+	optional int32 id = 2;
+}
+
+//FEST_HUIMENGXIYOU_GET_REWARD_RSP = 4121; //回梦西游 获取奖励
+message L2CFest_HuiMengXiYou_GetRewardRsp
+{
+	optional int32 ret_code = 1;
+	optional int32 template_id = 2; 	//活动模板ID
+	optional FestHuiMengXiYouReward reward = 3;
+}
+
+//FEST_HUIMENGXIYOU_REWARD_STATUS_CHANGE = 4123; //回梦西游 奖励状态修改
+message NotifyFest_HuiMengXiYouRewardStatusChange
+{
+	optional int32 template_id = 1; 	//活动模板ID
+	repeated FestHuiMengXiYouReward reward = 2;
+	optional int32 cur_points = 3; //积分
+}
+
+message XiYouGameInfo
+{
+	optional int32 id = 1; //muban_play_game id
+	optional int32 status = 2; //0:关闭 1：准备阶段 2:玩游戏阶段 3:完成阶段
+}
+
+//FEST_HUIMENGXIYOU_NotifyStart = 4124; //回梦西游 通知活动开启
+message NotiftFest_HuiMengXiYouStart
+{
+	optional int32 play_id = 1; 	//muban_play id
+	repeated XiYouGameInfo info = 2;
+	optional int32 cur_state = 3; //当前阶段Id
+	optional int32 left_time = 4;
+}
+
+message	NotiftFest_LogicHuiMengXiYouStart
+{
+	repeated uint64 cid = 1;
+	optional NotiftFest_HuiMengXiYouStart start = 2;
+}
+
+//FEST_HUIMENGXIYOU_SceneChange = 4125; //回梦西游 进入西游准备场景后，数据修改通知
+message NotifyFest_HuiMengXiYouSceneChange
+{
+	optional int32 play_id = 1; 	//muban_play id
+	repeated XiYouGameInfo info = 2;
+	optional int32 cur_state = 3; //当前阶段Id
+	optional int32 left_time = 4;
+}
+
+//FEST_HUIMENGXIYOU_NotifyGameStart = 4126; //回梦西游 通知子活动活动开启
+message NotiftFest_HuiMengXiYouGameStart
+{
+	optional int32 play_id = 1; 	//muban_play id
+	repeated XiYouGameInfo info = 2;
+	optional int32 cur_state = 3; //当前阶段Id
+	optional int32 left_time = 4;
+}
+
+//FEST_HUIMENGXIYOU_NotifyEnd = 4128; //回梦西游 通知活动结束
+message NotiftFest_HuiMengXiYouEnd
+{
+	optional int32 play_id = 1; 	//muban_play id
+	optional int32 points = 2;
+}
+
+//FEST_HUIMENGXIYOU_NotifyGameInfo = 4127; //回梦西游 子活动数据信息
+message NotiftFest_HuiMengXiYouGameInfo
+{
+	optional int32 play_id = 1;
+	optional int32 game_id = 2;
+	optional int32 task_schedule = 3; //任务进度
+	optional int32 cur_points = 4; //当前分数(评分）
+	optional int32 points_level = 5;// 评分等级
+	optional int32 my_cur_points = 6; //我的当前声望分数
+	optional int32 my_all_points = 7; //我的全部声望分数
+	optional int32 left_time = 8;
+}
+
+//FEST_HUIMENGXIYOU_NotifyGameEnd = 4129; //回梦西游 子活动结束
+message NotifyFest_HuiMengXiYouGameEnd
+{
+	optional int32 play_id = 1;
+	optional int32 game_id = 2;
+	optional int32 points_level = 5;// 评分等级
+	optional int32 my_cur_points = 6; //我的当前声望分数
+	repeated ComItem reward = 7;
+}
+
+//FEST_HUIMENGXIYOU_EnterReq = 4130; //进入活动
+message NotifyFest_HuiMengXiYouEnterReq
+{
+	optional int32 template_id = 1; 	//活动模板ID
+}
+
+//FEST_HUIMENGXIYOU_EnterRsp = 4131; //进入活动
+message NotifyFest_HuiMengXiYouEnterRsp
+{
+	optional int32 ret_code = 1;
+	optional int32 template_id = 2; 	//活动模板ID
+}
+
+//FEST_HUIMENGXIYOU_EnterGameReq = 4132; //进入子活动
+message NotifyFest_HuiMengXiYouEnterGameReq
+{
+	optional int32 template_id = 1; 	//活动模板ID
+}
+
+//FEST_HUIMENGXIYOU_EnterGameRsp = 4133; //进入子活动
+message NotifyFest_HuiMengXiYouEnterGameRsp
+{
+	optional int32 ret_code = 1;
+	optional int32 template_id = 2; 	//活动模板ID
+}
+
+//FEST_HUIMENGXIYOU_GiveCaijiReq = 4134; //递交采集物
+message C2LFest_HuiMengXiYouGiveCaiJiReq
+{
+	optional int32 template_id = 1; 	//活动模板ID
+}
+
+//FEST_HUIMENGXIYOU_GiveCaijiRsp = 4135; //递交采集物
+message L2CFest_HuiMengXiYouGiveCaiJiRsp
+{
+	optional int32 ret_code = 1;
+	optional int32 template_id = 2; 	//活动模板ID
+}
+
+message XiYouCaiJiCollectInfo
+{
+	optional uint64 cid	= 1;		//collect cid
+	optional Vector3PB pos = 5;		//坐标
+}
+
+//FEST_HUIMENGXIYOU_CollectNotify = 4136; //采集物变化通知
+message NotifyFest_HuiMengXiYouCollect
+{
+	repeated XiYouCaiJiCollectInfo collects = 1;
+}
+
+message XiYouCaiJiCollectMonsterInfo
+{
+	optional uint32 monster_id = 1;
+	optional uint32 num = 2;
+	optional uint32 item_id = 3;
+}
+
+//FEST_HUIMENGXIYOU_CollectSuccessNotify = 4137; //采集成功通知
+message NotifyFest_HuiMengXiYouCollectSuccess
+{
+	repeated XiYouCaiJiCollectMonsterInfo monster_info = 1;
+}
+
+//FEST_HUIMENGXIYOU_ROUBAOZINotify = 4138; //肉包子状态通知
+message NotifyFest_HuiMengXiYou_RoubaoziNotify
+{
+	optional uint32 cur_fresh_wave = 1;
+	optional uint32 all_fresh_wave = 2;
+	optional uint64 npc_cid = 3;
+	optional Vector3PB npc_pos = 4;
+	optional uint32 npc_status = 5; //0:等待状态 1:移动状态 2:战斗状态 3:结束状态
+}
+//====================================================================================//====================================================================================
+//=================================完美情人=================================
+//积分排行
+message FMarryRankInfo
+{
+	optional int32 rank = 1; //0沒上榜 空位不发
+	repeated RolePlayerMiniInfo roles = 2;
+	optional int32 score = 3;
+}
+//表白积分排行
+message FMarryExpressRankInfo
+{
+	optional int32 rank = 1;
+	optional uint64 cid = 2;
+	optional bytes name = 3;
+	optional int32 score = 4;
+}
+
+
+//1-1:完美情人排行数据 F_MARRY_RANK_REQ
+message FMarryRankReq
+{
+	optional int32 template_id = 1; //活动模板ID
+}
+
+//1-2:完美情人排行数据返回 F_MARRY_RANK_RSP
+message FMarryRankRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	repeated FMarryRankInfo entrys = 2;
+	optional FMarryRankInfo my = 3;
+}
+
+//2-1:表白数据请求 F_MARRY_EXPRESS_REQ
+message FMarryExpressReq
+{
+	optional int32 template_id = 1; //活动模板ID
+}
+//2-2:表白数据返回 F_MARRY_EXPRESS_RSP
+message FMarryExpressRsp
+{
+	optional int32 template_id = 1; 		   //活动模板ID
+	repeated FMarryExpressRankInfo sends = 2;  //表白排行帮
+	repeated FMarryExpressRankInfo recvs = 3;  //被表白排行榜
+	repeated ExpressLog logs = 4;			   //日志
+}
+//3-1:玩家个人数据 F_MARRY_ROLE_REQ (废弃)
+message FMarryRoleReq
+{
+	optional int32 template_id = 1; //活动模板ID
+}
+//3-2:玩家个人数据 F_MARRY_ROLE_RSP (废弃)
+message FMarryRoleRsp
+{
+	optional int32 template_id = 1; //活动模板ID
+	repeated FMarryTask tasks = 2;
+	repeated int32 process_ids = 3; //已领取进度id
+}
+//4-1:领取奖励 F_MARRY_ROLE_RECV_REQ
+message FMarryRoleRecvReq
+{
+	optional int32 template_id  = 1;
+	optional int32 type =2; //1: 任务奖励 2个人进度奖励
+	optional int32 id = 3;
+}
+//4-2:领取奖励 F_MARRY_ROLE_RECV_RSP
+message FMarryRoleRecvRsp
+{
+	optional int32 ret = 1;
+	optional int32 template_id  = 2;
+	optional int32 type =3; //1: 任务奖励 2个人进度奖励
+	optional int32 id = 4;
+}
+
+//---完美情人服务器数据-----------------
+message FMarryRecord
+{
+	optional int32 marry_id = 1;
+	optional int32 val =2;
+	optional uint64 time = 3;
+}
+
+message FMarryExpress
+{
+	optional uint64 cid = 1;
+	optional uint64 time = 2;
+	optional int32 val = 3;
+}
+
+message FMarryDBEntry
+{
+	optional int32 tmpId = 1;
+	optional int32 groupId= 2;
+	repeated FMarryRecord  records = 3;
+	repeated FMarryExpress sends = 4;
+	repeated FMarryExpress recvs = 5;
+}
+
+//表白积分排行榜
+message FMarryDB
+{
+	repeated FMarryDBEntry entrys = 1;
+}
+
+//==================回梦西游 服务器信息===========
+message Fest_XiYouGlobalDBInfo
+{
+	optional int32 id = 1; //muban_play_game id
+	optional int32 status = 2; //0:关闭 1:开启 2:完成
+	optional int32 state = 3; //2:肉包子 3:采酒 4:打boss
+}
+//同步积分 C2L_FMARRY_SYN_SCORE_REQ
+message C2LFMarrySynScoreReq
+{
+	optional int32 tmpId = 1;
+	optional int32 marry_id =2;
+	optional uint64 cid = 3;
+}
+
+//同步积分 L2C_FMARRY_SYN_SCORE_RSP
+message L2CFMarrySynScoreRsp
+{
+	optional int32 tmpId = 1;
+	optional int32 marry_id =2;
+	optional uint64 cid = 3;
+	optional int32 score = 4;
+}
+
+
+
+
+
+
+//=======================================完美情人结束===========================
+
+message Fest_XiYouGlobalDBEntry
+{
+	optional int32 tmpId = 1;
+	repeated Fest_XiYouGlobalDBInfo info = 2;
+	optional int32 state = 3; //当前阶段 2:肉包子 3:采酒 4:打boss
+	optional bool open = 4;
+	optional int32 readyId = 5; //muban_play_game id
+}
+
+//全局数据
+message Fest_XiYouGlobalDB
+{
+	repeated Fest_XiYouGlobalDBEntry entrys = 1;
+}
+
+//FEST_S2S_XIYOU_SYNC_NOTIFY = 1445;		//西游状态同步
+message Fest_XiYouSyncNotify
+{
+	optional int32 template_id = 1;
+	optional int32 cur_state_id = 2;
+	optional int32 cur_state_status = 3;
+	optional int32 cur_state_time = 4;
+}
+
+//FEST_L2S_XIYOU_SYNC_LOGIC = 1446;		//西游同步
+message Fest_XiYouSyncLogic
+{
+	optional int32 cur_state = 1;
+	optional int32 zid = 2;
+	optional int32 logic_id = 3;
+}
+
+//FEST_L2L_XIYOU_SYNC_FINISH = 1447; //
+message Fest_XiYouSyncFinish
+{
+	optional int32 game_id = 1;
+	optional int32 ready_id = 2;
+}
+
+//FEST_L2L_XIYOU_SYNC_FORCE_CLOSE = 1448; //同步强制结束
+message Fest_XiYouSyncForceClose
+{
+	optional int32 ready_id = 1;
+	optional int32 cur_state = 2;
+}

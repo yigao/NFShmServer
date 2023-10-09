@@ -1,0 +1,82 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+//首充 累计充值信息
+message ChargeFirstTotalProto
+{
+	optional int32 type = 1;		//类型 1-首充，2-钻石秘宝，3-星耀秘宝，4-王者秘宝，5-超值续充
+	optional int32 total = 2;		//累计充值
+}
+
+
+
+//请求首充活动信息 CHARGE_FIRST_INFO_REQ
+message Charge_FirstInfoReq
+{
+	//空
+}
+//返回首充活动信息 CHARGE_FIRST_INFO_RSP
+message Charge_FirstInfoRsp
+{
+	optional int32 first_rmb =  1;		//首充 累计充值
+	repeated int32 first_fetch = 2;		//首充 已领取的奖励
+	optional int32 dia_rmb = 3;			//首充 钻石秘宝累计充值
+	repeated int32 dia_fetch = 4;		//首充 钻石秘宝已领取的奖励
+	optional int32 star_rmb = 5;		//首充 星耀秘宝累计充值
+	repeated int32 star_fetch = 6;		//首充 星耀秘宝已领取的奖励
+	optional int32 king_rmb = 7;		//首充 王者秘宝累计充值
+	repeated int32 king_fetch = 8;		//首充 王者秘宝已领取的奖励
+	optional int32 second_rmb = 9;		//首充 超值续充累计充值
+	repeated int32 second_fetch = 10;	//首充 超值续充已领取的奖励
+}
+//请求领取首充活动奖励 CHARGE_FIRST_FETCH_REQ
+message Charge_FirstFetchReq
+{
+	optional int32 type = 1;		//类型 1-首充，2-钻石秘宝，3-星耀秘宝，4-王者秘宝，5-超值续充
+	optional int32 id = 2;			//配置ID
+	optional int32 one_key = 3;		//是否是一键领取 1- 一键领取
+}
+//返回领取首充活动奖励结果 CHARGE_FIRST_FETCH_RSP
+message Charge_FirstFetchRsp
+{
+	required int32 ret = 1;			//返回码
+	optional int32 type = 2;		//类型 1-首充，2-钻石秘宝，3-星耀秘宝，4-王者秘宝，5-超值续充
+	repeated int32 id_lst = 3;		//成功领取的配置ID 列表
+}
+
+//返回首充活动累计充值额度 CHARGE_FIRST_TOTAL_RSP
+message Charge_FirstTotalRsp
+{
+	repeated ChargeFirstTotalProto info = 1;
+}
+
+//请求开服累充活动信息 CHARGE_OPEN_TOTAL_INFO_REQ
+message Charge_OpenTotalInfoReq
+{
+	//空
+}
+//返回开服累充活动信息 CHARGE_OPEN_TOTAL_INFO_RSP
+message Charge_OpenTotalInfoRsp
+{
+	optional int32 total = 1;  //已经累计充值的钻石
+	repeated int32 fetch = 2;  //已经领取的奖励的 配置ID列表
+}
+//请求领取开服累充奖励 CHARGE_OPEN_TOTAL_FETCH_REQ
+message Charge_OpenTotalFetchReq
+{
+	optional int32 id = 1; //开服累充配置ID
+}
+
+//返回领取开服累充奖励结果 CHARGE_OPEN_TOTAL_FETCH_RSP
+message Charge_OpenTotalFetchRsp
+{
+	required int32 ret = 1;		//返回码
+	optional int32 id = 2;		//开服累充配置ID
+}
+//更新开服累充 总额度 CHARGE_OPEN_TOTAL_UPDATE_RSP
+message Charge_UpdateOpenTotalRsp
+{
+	optional int32 total = 1;  //已经累计充值的钻石
+}

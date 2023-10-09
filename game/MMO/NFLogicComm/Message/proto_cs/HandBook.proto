@@ -1,0 +1,245 @@
+import "ProtoBuffer/ComDefine.proto";
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+//藏经阁 图鉴
+//CLIENT_TO_LOGIC_HANDBOOK_INFO_REQ = 2450; //藏经阁图鉴信息
+message CLHandBookInfoReq
+{
+}
+//LOGIC_TO_CLIENT_HANDBOOK_INFO_RSP = 2451; //藏经阁图鉴信息
+message LCHandBookInfoRsp
+{
+  repeated HandBookPBInfo info = 1;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_ACTIVE_REQ = 2452; //激活图鉴
+message CLHandBookActiveReq
+{
+  optional uint64 id = 1;
+}
+
+//LOGIC_TO_CLIENT_HANDBOOK_ACTIVE_RSP = 2453; //激活图鉴
+message LCHandBookActiveRsp
+{
+  optional int32 ret_code = 1;
+  optional HandBookPBInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_LEVEL_UP_REQ = 2454; //升级图鉴
+message CLHandBookLevelUpReq
+{
+  optional uint64 id = 1;
+}
+
+//LOGIC_TO_CLIENT_HANDBOOK_LEVEL_UP_RSP = 2455; //升级图鉴
+message LCHandBookLevelUpRsp
+{
+  optional int32 ret_code = 1;
+  optional HandBookPBInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_STAR_UP_REQ = 2456; //升星图鉴
+message CLHandBookStarUpReq
+{
+  optional uint64 id = 1;
+}
+//LOGIC_TO_CLIENT_HANDBOOK_STAR_UP_RSP = 2457; //升星图鉴
+message LCHandBookStarUpRsp
+{
+  optional int32 ret_code = 1;
+  optional HandBookPBInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_DECOMPOSE_REQ = 2458; //分解图鉴
+message CLHandBookDecomposeReq
+{
+  repeated uint32 gridlist=1;//物品背包格子
+}
+//LOGIC_TO_CLIENT_HANDBOOK_DECOMPOSE_RSP = 2459; //分解图鉴
+message LCHandBookDecomposeRsp
+{
+  optional int32 ret_code = 1;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_FETTERS_REQ = 2560; //藏经阁图鉴羁绊信息
+message CLHandleBookFettersReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_HANDBOOK_FETTERS_RSP = 2561; //藏经阁图鉴羁绊信息
+message LCHandleBookFettersRsp
+{
+  repeated uint64 fellters = 1;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_FETTERS_ACTIVE_REQ = 2562; //藏经阁图鉴羁绊信息
+message CLHandleBookFettersActiveReq
+{
+  optional uint64 id = 1;
+}
+
+//LOGIC_TO_CLIENT_HANDBOOK_FETTERS_ACTIVE_RSP = 2563; //藏经阁图鉴羁绊信息
+message LCHandleBookFettersActiveRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 id = 2;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_EMPLOY_INFO_REQ = 2564; //收录信息
+message CLHandBookEmployInfoReq
+{
+
+}
+//LOGIC_TO_CLIENT_HANDBOOK_EMPLOY_INFO_RSP = 2565; //收录信息
+message LCHandBookEmployInfoRsp
+{
+  repeated HandBookEmployPBInfo employs = 1;
+  repeated HandBookTablePBInfo tables = 2;
+}
+
+//CLIENT_TO_CLIENT_HANDBOOK_EMPLOY_ACTIVE_REQ = 2566; //激活收录
+message CLHandBookEmployActiveReq
+{
+  optional uint64 id = 1;
+}
+//LOGIC_TO_CLIENT_HANDBOOK_EMPLOY_ACTIVE_RSP = 2567; //激活收录
+message LCHandBookEmployActiveRsp
+{
+  optional int32 ret_code = 1;
+}
+
+//NOTIFY_HANDBOOK_EMPLOY_STATUS_CHANGE = 2568; //收录状态改变
+message NotifyHandBookEmployStatusChange
+{
+  optional HandBookEmployPBInfo info = 1;
+}
+
+//NOTIFY_HANDBOOK_TABLE_STATUS_CHANGE = 2569; //天机普状态改变
+message NotifyHandBookTableStatusChange
+{
+  optional HandBookTablePBInfo info = 1;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_BEAST_INFO_REQ = 2570; //获取神兽信息
+message CGHandBookBeastInfoReq
+{
+
+}
+//LOGIC_TO_CLIENT_HANDBOOK_BEAST_INFO_RSP = 2571; //获取神兽信息
+message GCHandBookBeastInfoRsp
+{
+  repeated HandBookBeastPBData beasts = 1; //神兽
+  repeated HandBookBeastBattleSlotData slots = 2;
+  optional uint64 beast_priv_id = 3;
+}
+
+//NOTIFY_HANDBOOK_BEAST_CHANGE_INFO = 2585; //神兽更新
+message NotifyHandBookBeastChangeInfo
+{
+  optional HandBookBeastPBData beast = 1;
+}
+
+
+//CLIENT_TO_LOGIC_HANDBOOK_BEAST_EQUIP_DRESS_REQ = 2572; //神兽装备穿戴
+message CGHandBookBeastEquipDressReq
+{
+  optional uint64 beast_id = 1;
+  repeated int32 bag_pos = 2;	//背包中位置
+  optional uint32 type = 3; //0:默认, 1:一键穿戴
+}
+//LOGIC_TO_CLIENT_HANDBOOK_BEAST_EQUIP_DRESS_RSP = 2573; //神兽装备穿戴
+message GCHandBookBeastEquipDressRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 beast_id = 2;
+  optional int32 bag_pos = 3;	//背包中位置
+  optional uint32 type = 4; //0:默认, 1:一键穿戴
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_BEAST_UNDRESS_REQ = 2574; //神兽装备卸下来
+message CGHandBookBeastEquipUnDressReq
+{
+  optional uint64 beast_id = 1;
+  optional int32 slot_pos = 2;	//装备位置
+  optional uint32 type = 3; //0:默认, 1:一键卸下来
+}
+//LOGIC_TO_CLIENT_HANDBOOK_BEAST_UNDRESS_RSP = 2575; //神兽装备卸下来
+message GCHandBookBeastEquipUnDressRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 beast_id = 2;
+  optional int32 slot_pos = 3;	//装备位置
+  optional uint32 type = 4; //0:默认, 1:一键卸下来
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_BEAST_EQUIP_STRONG_REQ = 2576; //神兽装备强化
+message CGHandBookBeastEquipStrongReq
+{
+  optional uint64 beast_id = 1;
+  optional int32 slot_pos = 2;
+  repeated uint32 gridlist = 3;//物品背包格子
+}
+
+//LOGIC_TO_CLIENT_HANDBOOK_BEAST_EQUIP_STRONG_RSP = 2577; //神兽装备强化
+message GCHandBookBeastEquipStrongRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 beast_id = 2;
+  optional int32 slot_pos = 3;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_BEAST_EQUIP_STRONG_QUALITY_REQ = 2578; //神兽装备强化品质
+message CGHandBookBeastEquipStrongQualityReq
+{
+  optional uint64 beast_id = 1;
+  optional int32 slot_pos = 2;
+}
+
+//LOGIC_TO_CLIENT_HANDBOOK_BEAST_EQUIP_STRONG_QUALITY_RSP = 2579; //神兽装备强化品质
+message GCHandBookBeastEquipStrongQualityRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 beast_id = 2;
+  optional int32 slot_pos = 3;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_BEAST_ENTER_BATTLE_REQ = 2580; //神兽助战
+message CGHandBookBeastEnterBattleReq
+{
+  optional uint64 beast_id = 1;
+}
+
+//LOGIC_TO_CLIENT_HANDBOOK_BEAST_ENTER_BATTLE_RSP = 2581; //神兽助战
+message CGHandBookBeastEnterBattleRsp
+{
+  optional int32 ret_code = 1;
+  optional HandBookBeastBattleSlotData slot_data = 2;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_BEAST_QUIT_BATTLE_REQ = 2582; //神兽找回
+message CGHandBookBeastQuitBattleReq
+{
+  optional uint32 battle_slot = 1;
+}
+
+//LOGIC_TO_CLIENT_HANDBOOK_BEAST_QUIT_BATTLE_RSP = 2583; //神兽找回
+message GCHandBookBeastQuitBattleRsp
+{
+  optional int32 ret_code = 1;
+  optional HandBookBeastBattleSlotData slot_data = 2;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_BATTLE_SLOT_UNLOCK_REQ = 2586;
+message CGHandBookBattleSlotUnlockReq
+{
+  optional uint32 battle_slot = 1;
+}
+
+//CLIENT_TO_LOGIC_HANDBOOK_BATTLE_SLOT_UNLOCK_RSP = 2587;
+message GCHandBookBattleSlotUnlockRsp
+{
+  optional int32 ret_code = 1;
+  optional HandBookBeastBattleSlotData slot_data = 2;
+}

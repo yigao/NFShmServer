@@ -1,0 +1,233 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+//战徽战旗信息
+message WarEmblemProto
+{
+	optional int32 id = 1;		//配置ID
+	optional int32 lv = 2;		//阶级
+	optional int32 star = 3;	//星级
+}
+//战徽战旗列表
+message WarEmblemListProto
+{
+	repeated WarEmblemProto lst = 1;
+}
+
+//1v1英雄榜信息
+message Pk1v1RankProto
+{
+	optional int32 rank = 1; //排名
+	optional uint64 cid = 2; //cid
+	optional bytes name = 3; //名字
+	optional int32 prof = 4; //职业
+	optional uint64 fight = 5;//战力
+	optional uint32 zid = 6; //区服ID
+	optional int32 score = 7;//积分
+}
+//1v1排名简要信息
+message Pk1v1RankSimpleProto
+{
+	optional int32 rank = 1; //排名
+	optional bytes name = 2; //名字
+	optional uint32 zid = 3; //区服ID
+	optional int32 score = 4;//积分
+	optional uint64 cid = 5; //cid
+}
+
+
+
+
+
+//请求修改PK模式 PVP_CHG_PK_MODE_REQ
+message Pvp_ChgPkModeReq
+{
+	optional int32 pkmode = 1;
+}
+
+//返回 修改PK模式的结果 PVP_CHG_PK_MODE_RSP
+message Pvp_ChgPkModeRsp
+{
+	required int32 ret = 1;
+}
+//反击列表通知 PVP_STRIKE_LIST_NOTIFY
+message Pvp_StrikeListNotify
+{
+	repeated uint64 strike_lst = 1;	
+}
+ //PK模式通知 PVP_PK_MODE_NOTIFY
+message Pvp_PkModeNotify
+{
+	optional int32 pkmode = 1;
+}			
+
+//请求 战徽/战旗数据 PVP_WAR_EMBLEM_REQ
+message Pvp_WarEmblemReq
+{
+	optional int32 type = 1;  //类型，1-战徽，2-战旗，其他值-战徽和战旗
+}
+//返回 战徽/战旗数据 PVP_WAR_EMBLEM_RSP	
+message Pvp_WarEmblemRsp
+{
+	required int32 type = 1;  //类型，1-战徽，2-战旗，其他值-战徽和战旗
+	optional WarEmblemListProto info = 2;
+}
+//更新 战徽/战旗数据 PVP_WAR_EMBLEM_UPDATE_RSP
+message Pvp_WarEmblemUpdateRsp
+{
+	optional WarEmblemListProto info = 1;
+}
+//请求 战徽/战旗 注魂 PVP_WAR_EMBLEM_SOUL_REQ
+message Pvp_WarEmblemSoulReq
+{
+	required int32 id = 1;
+}
+//返回 战徽/战旗 注魂 结果 PVP_WAR_EMBLEM_SOUL_RSP
+message Pvp_WarEmblemSoulRsp
+{
+	required int32 ret = 1;		//返回码
+}
+//请求 战徽/战旗 升星 PVP_WAR_EMBLEM_STAR_REQ
+message Pvp_WarEmblemStarReq
+{
+	required int32 id = 1;
+}
+//返回 战徽/战旗 升星 结果 PVP_WAR_EMBLEM_STAR_RSP
+message Pvp_WarEmblemStarRsp
+{
+	required int32 ret = 1;		//返回码
+	optional int32 success = 2; //是否成功 1-成功，0-失败
+}
+
+//请求1v1赛季信息 PVP_1V1_INFO_REQ
+message Pvp_1v1InfoReq
+{
+	//空
+}
+//返回1v1赛季信息 PVP_1V1_INFO_RSP
+message Pvp_1v1InfoRsp
+{
+	optional int32 score = 1;			//积分
+	optional int32 match_num = 2;		//已经匹配的场次
+	optional int32 win_num = 3;			//胜利场次
+	optional int32 conti_num = 4;		//连胜场次
+	optional int32 reward_num = 5;		//今日已奖励次数
+	repeated int32 already_fetch = 6;   //已领取的宝箱奖励
+}
+
+//更新1v1赛季信息 PVP_1V1_INFO_UPDATE_RSP
+message Pvp_1v1InfoUpdateRsp
+{
+	optional int32 score = 1;			//积分
+	optional int32 match_num = 2;		//已经匹配的场次
+	optional int32 win_num = 3;			//胜利场次
+	optional int32 conti_num = 4;		//连胜场次
+	optional int32 reward_num = 5;		//今日已奖励次数
+	repeated int32 already_fetch = 6;   //已领取的宝箱奖励
+}
+
+//请求领取1v1宝箱奖励 PVP_1V1_FETCH_REWARD_REQ
+message Pvp_1v1FetchRewardReq
+{	
+	optional int32 id = 1;		//pk1v1->dailyReward 配置表ID
+}
+//返回领取1v1宝箱奖励的结果 PVP_1V1_FETCH_REWARD_RSP
+message Pvp_1v1FetchRewardRsp
+{	
+	required int32 ret = 1;  //返回码
+	optional int32 id = 2;   //
+}
+//请求1v1英雄榜 PVP_1V1_RANK_REQ
+message Pvp_1v1RankReq
+{
+	//空
+}
+//返回 1v1英雄榜 PVP_1V1_RANK_RSP
+message Pvp_1v1RankRsp
+{
+	repeated Pk1v1RankProto rank = 1;	
+	optional int32 myrank = 2; //我的排名
+}
+//返回 1v1英雄榜简要信息 PVP_1V1_RANK_SIMPLE_RSP
+message Pvp_1v1RankSimpleRsp
+{
+	repeated Pk1v1RankSimpleProto rank_simple = 1;
+	optional int32 score = 2;  //我的积分
+	optional int32 myrank = 3; //我的排名
+}
+
+//返回 1v1结果信息 PVP_1V1_RESULT_RSP
+message Pvp_1v1ResultRsp
+{
+	optional int32 result = 1;		// 0-胜利，1-失败, 3-平局
+	optional int32 old_score = 2;	//
+	optional int32 new_score = 3;	//
+	repeated ComItem reward = 4;	//奖励
+}
+
+//请求 1v1匹配 PVP_1V1_MATCH_REQ
+message Pvp_1v1MatchReq
+{
+	optional int32 cancel = 1;  //是否是取消匹配，1-是，0-否
+}
+//返回 1v1匹配结果 PVP_1V1_MATCH_RSP
+message Pvp_1v1MatchRsp
+{
+	required int32 ret = 1;
+	optional int32 cancel = 2;  //是否是取消匹配，1-是，0-否
+	optional uint64 cid = 3;
+	optional bytes name = 4;
+	optional int32 prof = 5;
+	optional int32 level = 6;
+	optional uint64 fight = 7;
+	optional int32 begintime = 8;		//匹配开始时间
+	optional RoleHeadPicProto head = 9;	//头像
+}
+
+
+
+///////////////////////////////////////////////////////////////////////////////////
+
+//逻辑服请求社交服1v1排名 PVP_L2S_1V1_RANK_REQ
+message Pvp_L2S_1v1RankReq
+{
+	repeated uint64 cid = 1;
+	repeated int32 score = 2;   //1v1积分
+}
+//社交服通知逻辑服1v1排名更新通知 PVP_S2L_1V1_RANK_NOTIFY
+message Pvp_S2L_1v1RankNotify
+{
+}
+
+//逻辑服通知社交服1v1玩家积分变化 PVP_L2S_1V1_SCORE_CHG_REQ
+message Pvp_L2S_1v1ScoreChgReq
+{
+	required uint64 cid = 1;
+	required uint32 zid = 2;
+	required int32 score = 3;   //1v1积分
+	required int32 match_num = 4;
+}
+//逻辑服请求社交服1v1匹配 PVP_L2S_1V1_MATCH_REQ	
+message Pvp_L2S_1v1MatchReq
+{
+	required uint64 cid = 1;
+	required uint32 zid = 2;
+	required int32 score = 3;   //1v1积分
+	required int32 cancel = 4;  //
+}
+
+//逻辑服请求社交服1v1赛季信息 PVP_L2S_1V1_RACE_INFO_REQ
+message Pvp_L2S_1v1RaceInfoReq
+{	
+	required uint32 zid = 1;
+	required uint32 logicid = 2;
+}
+
+//社交服通知逻辑服1v1赛季信息 PVP_S2L_1V1_RACE_INFO_RSP
+message Pvp_S2L_1v1RaceInfoRsp
+{
+	required int32 num = 1;  //第几个赛季
+}

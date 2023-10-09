@@ -1,0 +1,160 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+
+//返回 玩家信息 CLIENT_PLAYER_INFO_RSP
+message	PlayerInfoRsp
+{
+	optional uint64 cid = 1;						//cid
+	optional bytes name = 2;						//名字
+	optional uint32 zid = 3;						//区服ID
+	optional uint64 opentime = 4;					//区服开服 UTC 时间，
+	optional uint64 createtime = 5;					//角色创建时间
+	optional RoleFacadeProto facade = 6;			//角色外观
+	repeated Attr64 attr = 7;						//属性
+	optional uint64 mapid = 8;						//地图ID
+	optional Vector3PB pos = 9;						//坐标
+	optional FunctionUnlockInfo unlockInfo	= 10;	//功能解锁信息
+	optional int32 state = 11;						//状态，详见 Com.proto中的枚举 ECState
+	optional SkillGroupListProto skill_group = 12;	//技能组信息
+	optional GodEvilProto godevil = 13;				//神魔信息
+	optional int32 donate = 14;						//已经捐献次数
+	optional int32 pkmode = 15;						//pk模式
+	optional int32 killvalue = 16;					//杀戮值
+	optional int32 is_yellow = 17;					//是否黄名
+	optional bytes marry_dst_name = 18;				//结婚对象名字
+	optional int32 tour_state = 19;					//巡游状态(0不是巡游状态，1巡游状态)
+	optional RechargeProto recharge = 20;			//充值相关的信息
+	optional uint32 anger_value = 21;				//技能怒气值
+	optional WPPState wpp_state	= 22;				//瑶池中的状态（按摩或双修）
+	optional int32 fetch_war = 23;					//今日是否已领取帮派战 每日俸禄
+	optional string  strGuidelines	= 24;	 		//新手指引数据
+	repeated ClanView clan_infos 	= 25;			//战队视野3v3,5v5
+	optional int32 	vip_hide = 26;					//vip是否隐藏 0：不隐藏 1隐藏
+	optional int32 subpack_type = 27;				//分包类型 1-小包，2-大包
+	optional int32 subpack_fetch = 28;				//是否已领取分包奖励 1-已领取，0-未领取
+	optional int32 world_lv = 29;					//世界等级
+	optional int32 world_lv_4 = 30;					//世界等级
+	optional int32 world_lv_8 = 31;					//世界等级
+	optional int32 world_lv_16 = 32;				//世界等级
+	optional int32 is_merge = 33;					//是否合服 1-是，0-否
+}
+
+
+
+ //生物属性同步 CREATURE_ATTR_SYN
+ message CreatureAttrSyn
+ {
+	optional uint64 cid = 1;			//cid
+	repeated Attr64 attr = 2;			//属性列表
+ }
+
+ //生物属性广播 CREATURE_ATTR_BROAD
+ message CreatureAttrBroadRsp
+ {
+	optional uint64 cid = 1;			//cid
+	repeated Attr64 attr = 2;			//属性列表
+ }
+
+ //生物状态广播 CREATURE_STATE_BROAD
+message CreatureStateBroadRsp
+{
+	optional uint64 cid = 1;			//cid
+	optional uint32 curstate = 2;		//当前状态
+	optional uint32 beforestate = 3;	//前一个状态
+}
+
+ //通知客户端显示信息(主要用于客户端提示、飘字等显示用)  CLIENT_SHOW_INFO_RSP
+message NoticeShowInfoRsp
+{
+	optional int32 show_type = 1;				 //显示类型 1-经验, 2-掉落物品(前端掉落飘入背包的效果)
+	optional uint64 add_val = 2;				 //增加的值
+	optional MultItemSimpleProto item_lst = 3;   //物品ID列表(显示类型为2的时候用到)
+}
+
+//请求 角色改名 CLIENT_CHG_NAME_REQ
+message ChgNameReq
+{
+	optional string name = 1;        //新名字
+}
+//返回 角色改名 结果 CLIENT_CHG_NAME_RSP	 
+message ChgNameRsp
+{
+	required int32 retcode = 1;  //返回码
+	optional bytes name = 2;		 //新名字
+}
+
+
+//通知客户端死亡复活 PLAYER_RELIVE_NOTIFY
+message PlayerReliveNotify
+{
+	optional bytes name = 1;		//被谁击杀
+	optional int32 left_num = 2;    //再经过多少次复活就会进入复活疲劳
+	optional int32 sec = 3;			//复活倒计时,单位：秒
+	optional bool is_tired = 4;		//是否处于疲劳状态
+	optional int32 already_num = 5;	//当前地图中已经复活的次数
+}
+
+//请求复活  PLAYER_RELIVE_REQ
+message PlayerReliveReq
+{
+	optional int32 type = 1; //复活类型 1-普通复活，2-原地复活
+}
+//返回 复活结果  PLAYER_RELIVE_RSP
+message PlayerReliveRsp
+{
+	required int32 ret = 1; //返回码
+}
+
+//玩家请求采集 CLIENT_PLAYER_COLLECT_REQ
+message PlayerCollectReq
+{
+	required uint64 cid = 1;  //采集物的cid
+}
+//返回玩家采集结果 CLIENT_PLAYER_COLLECT_RSP
+message PlayerCollectRsp
+{
+	required int32 ret = 1;			//返回码
+	optional uint64 mons_cid = 2;	//采集怪物cid
+}
+
+//通知玩家采集成功 CLIENT_PLAYER_COLLECT_SUCCESS_RSP
+message PlayerCollectSuccessRsp
+{
+	//空
+}
+
+//玩家PVP状态通知 PLAYER_PVP_STATE_NOTIFY
+message PlayerPvpStateNotify
+{
+	required int32 pvp_state = 1;  //是否处于PVP状态 1-是，0-否
+}
+
+//请求 领取兑换码奖励 PLAYER_EXCHANGE_REQ
+message PlayerExchangeReq
+{
+	required bytes exchange_code = 1;	//兑换码
+}
+//返回 领取兑换码奖励 结果 PLAYER_EXCHANGE_RSP
+message PlayerExchangeRsp
+{
+	required int32 ret = 1; //返回码
+}
+
+//请求 保存分包信息 PLAYER_SUB_PACK_SAVE_REQ
+message PlayerSubPackSaveReq
+{
+	required int32 type = 1;  //分包类型，1-小包，2-大包
+}
+//请求 领取分包奖励 PLAYER_SUB_PACK_FETCH_REQ
+message PlayerSubPackFetchReq
+{
+	//空
+}
+//返回 领取分包奖励结果 PLAYER_SUB_PACK_FETCH_RSP
+message PlayerSubPackFetchRsp
+{
+	required int32 ret = 1;  //返回码
+}

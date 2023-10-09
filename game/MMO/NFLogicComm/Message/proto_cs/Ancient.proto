@@ -1,0 +1,89 @@
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
+
+//======================================结构===================================//
+
+
+//1数据通知 NOTIFY_ANCIENT
+message NotifyAncient
+{
+	optional int32 	type = 1; 	//0更新所有。1 更新神灵 2：更新星级
+	repeated AncientInfo infos 	= 2;
+	optional int32 	unlock_star_id 	= 3;	//当前已经解锁的星级ID
+}
+
+//2-1:解锁神灵数量  ANCIENT_UNLOCK_NUM_REQ
+message AncientUnlockNumReq
+{
+	optional int32 	id = 1;
+	optional int32 	nums_index = 2;	 //1开始 
+}
+
+//2-2:解锁神灵数量返回  ANCIENT_UNLOCK_NUM_RSP
+message AncientUnlockNumRsp
+{
+	optional int32 	ret = 1;
+	optional int32 	id = 2;
+	optional int32 	nums_index = 3;	 //1开始 
+}
+
+//3-1:解锁神灵  ANCIENT_UNLOCK_REQ
+message AncientUnlockReq
+{
+	optional int32 id = 1;
+}
+
+//3-2:解锁神灵返回  ANCIENT_UNLOCK_RSP
+message AncientUnlockRsp
+{
+	optional int32 ret = 1;
+	optional int32 id = 2;
+}
+
+
+//4-1: 神灵进阶 ANCIENT_LV_REQ
+message AncientLvReq
+{
+	optional int32 id = 1;
+	optional int32 slot = 2;
+	optional int32 mallBuy = 3; //1:不足自动购买
+	repeated int32 bag_pos = 4;	//背包装备位置
+}
+
+//4-2: 神灵进阶返回 ANCIENT_LV_RSP
+message AncientLvRsp
+{
+	optional int32 ret = 1;
+	optional int32 id = 2;
+	optional int32 mallBuy = 3; //1:不足自动购买
+	repeated int32 bag_pos = 4;	//背包装备位置
+}
+
+
+//5-1:解锁星级 ANCIENT_STAR_UNLCOK_REQ
+message AncientStarUnlcokReq
+{
+
+}
+
+//5-2:解锁星级返回 ANCIENT_STAR_UNLCOK_RSP
+message AncientStarUnlcokRsp
+{
+	optional int32 ret = 1;
+}
+
+
+//6-1:加幸运 ANCIENT_BLESS_REQ
+message AncientBlessReq
+{
+	optional int32 id = 1;
+	optional int32 slot = 2;
+}
+//6-2:加幸运 ANCIENT_BLESS_RSP
+message AncientBlessRsp
+{
+	optional int32 ret = 1;
+	optional int32 id = 2;
+	optional int32 slot = 3;
+}	

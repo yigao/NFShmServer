@@ -1,0 +1,129 @@
+// 定义公用message，注意与ComDefine.proto区别
+
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
+//龙魂 3050-3080
+//CL_DragonSoulInfoReq = 3050; //龙魂信息请求
+message DragonSoulInfoReq
+{
+
+}
+
+//LC_DragonSoulInfoRsp = 3051; //龙魂信息请求
+message DragonSoulInfoRsp
+{
+  repeated DragonSoulHoleData hole_data = 1;
+}
+
+//CL_DragonSoulActiveHoleReq = 3052; // 激活槽位
+message DragonSoulActiveHoleReq
+{
+  optional int32 pos = 1;
+}
+
+//LC_DragonSoulActiveHoleRsp = 3053; // 激活槽位
+message DragonSoulActiveHoleRsp
+{
+  optional int32 ret_code = 1;
+  optional DragonSoulHoleData data = 2;
+}
+
+//CL_DragonSoulDressReq = 3054; // 龙魂附身
+message DragonSoulDressReq
+{
+  optional int32 hole_pos = 1;
+  optional int32 bag_pos = 2;	//背包中位置
+}
+
+//LC_DragonSoulDressRsp = 3055; // 龙魂附身
+message DragonSoulDressRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 hole_pos = 2;
+  optional int32 bag_pos = 3;	//背包中位置
+  optional DragonSoulHoleData data = 4;
+}
+
+//CL_DragonSoulUnDressReq = 3056; // 龙魂附身卸下来
+message DragonSoulUnDressReq
+{
+  optional int32 hole_pos = 1;
+}
+
+//LC_DragonSoulUnDressRsp = 3057; // 龙魂附身卸下来
+message DragonSoulUnDressRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 hole_pos = 2;
+  optional DragonSoulHoleData data = 4;
+}
+
+//CL_DragonSoulEquipStrongReq = 3058; //龙魂装备强化
+message DragonSoulEquipStrongReq
+{
+  optional int32 hole_pos = 1;
+  repeated uint32 gridlist = 2;//物品背包格子
+}
+
+//LC_DragonSoulEquipStrongRsp = 3059; //龙魂装备强化
+message DragonSoulEquipStrongRsp
+{
+  optional int32  hole_pos = 1;
+  optional int32 ret_code = 2; //错误码
+  optional DragonSoulHoleData data = 3;
+}
+
+//CL_DragonSoulEquipStrongQualityReq = 3060; //龙魂装备飞升
+message DragonSoulEquipStrongQualityReq
+{
+  optional int32 hole_pos = 1;
+  repeated uint32 gridlist = 2;//物品背包格子
+}
+
+//LC_DragonSoulEquipStrongQualityRsp = 3061; //龙魂装备飞升
+message DragonSoulEquipStrongQualityRsp
+{
+  optional int32  hole_pos = 1;
+  optional int32 ret_code = 2; //错误码
+  optional DragonSoulHoleData data = 3;
+}
+
+//CL_DragonSoulEquipWakeLvReq = 3062; //龙魂装备龙魂觉醒
+message DragonSoulEquipWakeLvReq
+{
+  optional int32 hole_pos = 1;
+}
+
+//LC_DragonSoulEquipWakeLvRsp = 3063; //龙魂装备龙魂觉醒
+message DragonSoulEquipWakeLvRsp
+{
+  optional int32  hole_pos = 1;
+  optional int32 ret_code = 2; //错误码
+  optional DragonSoulHoleData data = 3;
+}
+
+//CL_DragonSoulEquipStarInfoReq = 3064; //龙魂凝集
+message DragonSoulEquipStarInfoReq
+{
+
+}
+
+//LC_DragonSoulEquipStarInfoRsp = 3065; //龙魂凝集
+message DragonSoulEquipStarInfoRsp
+{
+  repeated DragonSoulStar star = 1;
+}
+
+//CL_DragonSoulEquipStarActiveReq = 3067; //龙魂凝集激活
+message DragonSoulEquipStarActiveReq
+{
+  optional int32 id = 1;
+}
+
+//LC_DragonSoulEquipStarActiveRsp = 3068; //龙魂凝集激活
+message DragonSoulEquipStarActiveRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 id = 2;
+}
