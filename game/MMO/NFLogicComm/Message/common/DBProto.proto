@@ -18,7 +18,7 @@ message RoleReliveProto
 //角色DB 基础数据
 message RoleDBBaseData
 {
-  required string name = 1;				// 名字
+  required bytes name = 1;				// 名字
   required uint32 prof = 2;				// 职业
   required uint32 level = 3;			// 等级
   required int64  exp = 4;				// 经验
@@ -55,7 +55,7 @@ message RoleDBBaseData
   optional int64 bdia = 27;				//绑钻
   optional int64 magic = 28;			//魔晶
   optional int64 prestige = 29;			//声望
-  optional int32 vipLv = 30;			//vip等级
+  optional int32 contri = 30;			//贡献
   optional int64 arenacoin		= 31;	//竞技币
   optional int64 godevil_exp	= 32;	//神魔经验
   optional int32 godevil_level  = 33;	//神魔等级
@@ -64,8 +64,20 @@ message RoleDBBaseData
   optional int64  best_aq		= 36;	//神机装备暗器精华
   optional int64  best_lj		= 37;	//神机装备灵甲精华
 
+  optional uint32 day_prestige	= 38;	//今日获得的声望
+  optional uint64 prestige_time = 39;	//今日获得的声望重置时间
 
+  optional uint32 pt_stage = 40; //修真
+  optional string guide			= 41;	//新手指引信息
+  optional int64 battlepass_xiance = 42; //A_BATTLEPASS_XIANCE = 240; //天降福源 福源石
+  optional int64 battlepass_baoding = 43; //A_BATTLEPASS_BAODING = 241; //天降福源 金仙丹
+  optional int64 findtreasure_shengfu = 44; //A_FINDTREASURE_SHENGJIFU = 242; //真龙寻宝 神机符
+  optional int64 findtreasure_battlesoul = 45;//A_FINDTREASURE_BATTLE_SOUL = 243; //真龙寻宝 战魂碎片
+  optional int64 holybeast_build = 46; ////A_HOLYBEAST_BUILD = 218; //神兽令牌
+  optional int64 magic_sum = 47; //magic sum
 
+  optional int32 subpack_type = 48;		//分包下载类型
+  optional int32 subpack_fetch = 49;    //是否已领取分包下载奖励
 }
 
 
@@ -85,7 +97,7 @@ message BagDBSimpleData
 
 message RoleDBUnitBagData
 {
-  optional string table_name = 1;
+  optional bytes table_name = 1;
   optional BagDBSimpleData simple = 2;
   repeated BagItemsDBData parts = 3;
 }
@@ -154,6 +166,7 @@ message MiniDBData
   optional uint64 lastTime = 1;
   optional DayUseItemData useItem = 2;
   optional CharacterArenaData arena_data = 3;
+  repeated ComPair64 use_item_add_attr = 4;
 }
 
 message FacadeDataInfo
@@ -187,6 +200,12 @@ message MountDataInfo
   optional uint32 ride_state = 12;
   optional uint64 mount_model_id = 13;
   optional uint64 last_mount_model_id = 14;
+  repeated MountKunChangeData kun_change_data = 15;
+  optional uint64 equip_kun_id = 16;
+  optional uint64 equip_kun_change_id = 17;
+  repeated MountFairyLand fairy_land = 18;
+  repeated MountFairySlot fairy_slot = 19;
+  optional uint64 cur_fairy_land = 20;
 }
 
 
@@ -250,7 +269,18 @@ message PetSkillCdDB
   optional uint64 use_msec = 2;
   optional int64 pet_instid = 3;
 }
-
+//技能天赋信息
+message SkillDBTalentProto
+{
+  optional int32 id = 1;
+  optional int32 level = 2;
+}
+//技能天赋数据
+message SkillDBTalent
+{
+  repeated SkillDBTalentProto info = 1;	//天赋信息
+  optional uint32 cnt = 2;				//可用天赋点数
+}
 //技能数据
 message SkillDBData
 {
@@ -262,6 +292,8 @@ message SkillDBData
   repeated SkillDBAdvInfo adv_info = 6;
   optional uint32 cur_advpos = 7;
   repeated PetSkillCdDB pet_cd = 8;
+  optional SkillDBTalent talent = 9;
+  optional uint32 anger_value = 10;
 }
 
 message GodRelicsActivityData
@@ -293,7 +325,7 @@ message DupGroupData
 }
 message DupTowerDBRecordEntry
 {
-  optional string name = 1;
+  optional bytes name = 1;
   optional uint64 time = 2;
   optional uint64 cid = 3;
 }
@@ -309,15 +341,45 @@ message DupTowerDBData
   repeated uint64 ids = 1;				//已领取的ids
 }
 
+message GhostDBData
+{
+  optional int32 wave = 1;
+  optional int32 time = 2;
+  repeated int32 recv_ids = 3;			//首通领取的id
+}
+
+message MoyuDBData
+{
+  repeated int32 recv_layer = 1;			//已领取层数奖励
+  optional uint64 day_harm = 2;			//当日伤害
+  optional uint64 week_harm = 3;			//本周伤害
+  optional uint64 last_day_harm = 4;		//昨日伤害
+  optional uint64 last_week_harm = 5;		//上周伤害
+  optional uint64 time = 6;
+}
+
+message YaoTaDBData
+{
+  repeated int32 pass_ids = 1;			//已领副本通关奖励id(都是副本id)
+  repeated int32 first_pass_ids = 2;		//首通副本id奖励列表(都是副本id)
+  optional uint64 pass_time_point = 3;	//最高层副本通关时间点
+  optional int32 pass_duration = 4;		//通关时长
+}
 
 message DupDBData
 {
   repeated DupRecord		record = 1;			//副本历史记录
   repeated DupGroupData 	groups = 2;			//副本组数据
   optional DupTowerDBData	 tower = 3;			//爬塔数据
+  optional GhostDBData	 ghost = 4;			//幽冥古殿
+  optional MoyuDBData		 moyu = 5;			//镇魂魔域
+  optional YaoTaDBData	 yaota = 6;			//九层妖塔数据
 }
 
-
+message GhostDupRankDB
+{
+  repeated GHostDupRankInfo ranks =1;
+}
 
 //buff详细信息
 message BuffDBInfo
@@ -333,6 +395,11 @@ message BuffDBInfo
   optional int64 param2 = 9;          //效果参数2
   optional int64 extramsec = 10;      //额外时间，单位：毫秒
   optional int32 is_end = 11;			//是否结束了
+  optional int64 param3 = 12;         //效果参数3
+  optional int64 param4 = 13;         //效果参数4
+  optional int64 param5 = 14;         //效果参数5
+  optional int64 param6 = 15;         //效果参数6
+  optional int64 param7 = 16;         //效果参数7
 }
 //buff 冷却时间信息
 message BuffDBCdInfo
@@ -340,11 +407,18 @@ message BuffDBCdInfo
   optional uint64 buffid = 1;         //buff id
   optional uint64 lastmsec = 2;       //buff最近一次的冷却时间，单位：unix毫秒
 }
+//buff 护盾信息
+message BuffDBShieldInfo
+{
+  optional int64 god_shield = 1;	//天神护盾已吸收的伤害
+  optional int64 mag_shield = 2;	//神魔护盾已吸收的伤害
+}
 //buff数据
 message BuffDBData
 {
   repeated BuffDBInfo info_lst = 1;
   repeated BuffDBCdInfo cd_lst = 2;
+  optional BuffDBShieldInfo shield = 3;
 }
 
 //打boss
@@ -356,6 +430,7 @@ message BossSimpleInfoDB
   optional int32 	back_max_num	= 5;		// 找回最大次数
   optional int32 	enter_num		= 6;		// 进场景次数
   optional int32  use_item_num	= 7;		// 使用物品加成的次数
+  repeated ComPair groupInfo 		= 8;		// 使用组信息
 }
 
 
@@ -368,8 +443,20 @@ message BossDBData
 
 message VipDBData
 {
-  optional int32 	vipExp = 1;		//当前VIP经验
-  optional int32 	expDiamond = 2;	//剩余加经验的砖石
+  optional int32 	vipExp = 1;					//当前VIP经验
+  optional int32 	expDiamond = 2;				//剩余加经验的砖石
+  repeated int32 	privilege_ids = 3; 			//开放的特权
+  optional int32 vip_hide = 4;	 			//0:不隐藏vip 1：隐藏VIP
+  optional int32 active_type = 5; 			//0:未激活   1:限时激活 2:永久激活
+  optional uint64  outtime = 6; 				//过期时间。 未来时间戳 限时激活才有效
+  optional uint64 last_recv_day_gift_time = 7;		//上次领取每日礼包的时间
+  repeated int32  lv_gift = 8;				//已购买的vip专属等級礼包
+  optional int32  zero_state = 9; 			//0元购物是否买了 0：没买，1：买了
+  optional int32 	recv_zero = 10; 			//0沒有领取0元够礼包， 1已领取
+  optional uint64 add_exp = 11;				//经验
+  optional int32 	recv_exp = 12;				//是否领取了经验
+  optional uint64 refresh_time = 13;			//更新时间
+  optional uint64 active_time = 14;			//激活时间
 }
 
 
@@ -386,6 +473,15 @@ message PetDBRecord
   repeated ComPair64 costPet = 3; //消耗的宠物
 }
 
+message PetGrowDB
+{
+  optional int32 cfgid = 1;  	   //宠物配置id
+  optional int32 stronglv = 2;   //强化等級 (默认0级)
+  optional int32 starlv = 3; 	   //升星等级 (默认0星)
+  optional int32 starindex = 4; //星级默认选中索引(1) starValue 表 advance_Type 下标。
+  optional int32 failnum = 5; 	//失败的次数
+}
+
 message PetDBData
 {
   repeated int32 	fetter = 1;	 //已领取的羁绊
@@ -393,6 +489,7 @@ message PetDBData
   repeated PetHatchInfo hatchs = 3;	//孵化的槽位信息
   repeated PetDBRecord records = 4;   //培养记录
   repeated int64 	cfgids = 5;			//获得过的宠物
+  repeated PetGrowDB grows = 6;		//宠物专属养成列表(这里是已激活的列表)
 }
 
 //商城DB信息
@@ -481,18 +578,21 @@ message GodEvilDBData
   optional int32 vessel_lev = 5;			//神魔鼎特权等级
   optional int32 mirror_lev = 6;			//轮回境特权等级
   optional int64 extra_exp = 7;			//额外存储的神魔经验
+  repeated ItemProtoInfo equip = 8;		//神魔特权装备
+  repeated ItemProtoInfo dress = 9;		//神魔穿戴装备
 }
 
 //充值 DB数据
 message PayDBData
 {
   repeated uint32 db_id = 1;		//已发货的离线充值的dbid
-  repeated string product = 2;	//已充值过的计费点
-  optional uint32 relrmb = 3;		//累计充值人名币
+  repeated bytes product = 2;		//已充值过的计费点
+  optional uint32 relrmb = 3;		//累计充值人名币(包括模拟充值)
   optional uint32 rmb = 4;		//累计充值人名币(运营活动)
-  optional uint32 fakermb = 5;	//web后台模拟充值的人名币
+  optional uint32 fakermb = 5;	//w模拟充值的人名币(web后台,充值卡等虚拟物品)
   optional uint32 todayrmb = 6;	//今日充值人名币
   optional uint64 todaytime = 7;	//今日最近一次充值时间
+  optional uint32 sdkrmb = 8;		//累计充值人名币(sdk充值)
 }
 
 //帮派工资
@@ -503,6 +603,36 @@ message FactionDBSalary
   optional int32 fetch = 3;
 }
 
+//帮派晚宴，传功数据
+message FactionDBDinner
+{
+  optional int32 trans = 1;		//传功次数
+  optional int32 meat = 2;		//吃肉次数
+  optional uint32 exp = 3;		//经验
+  optional uint32 contri = 4;		//贡献
+  optional uint64 time = 5;		//最近参加晚宴的时间
+  optional uint64 trans_time = 6;	//最近刷新传功次数的时间
+}
+//帮派 技能数据
+message FactionDBSkillProto
+{
+  optional int32 id = 1;
+  optional int32 level = 2;
+}
+message FactionDBSkill
+{
+  repeated FactionDBSkillProto info = 1;
+}
+
+message FactionDBGuard
+{
+  optional uint32 exp = 1;
+  optional uint32 contri = 2;
+  optional uint64 cur_encouragement_gold_count = 3;
+  optional uint64 cur_encouragement_diamond_count = 4;
+}
+
+
 //角色帮派DB数据
 message RoleFactionDBData
 {
@@ -510,23 +640,336 @@ message RoleFactionDBData
   optional uint64 donate_fresh = 2;	//最近一次刷新捐献次数的时间
   repeated FactionDBSalary salary = 3;//工资
   optional uint64 salary_fresh = 4;	//最近一次刷新工资的时间
+  optional FactionDBDinner dinner = 5;//帮派晚宴活动数据
+  optional FactionDBSkill skill = 6;	//帮派技能
+  optional FactionDBGuard guard = 7;
+  optional int32 fetch_war = 8;		//今日是否领取过帮派战每日俸禄
+  optional uint64 fetch_time = 9;		//最近一次领取帮派战每日俸禄的时间
 }
 
 //角色神机装备数据
 message RoleBestEQDBData
 {
-  repeated BestEQEquipInfo equips = 1;	//所有的神机装备
-  repeated BestEQSlotInfo	 slots = 2;		//神机装备槽位
-  repeated BestEQTask	tasks = 3;			//神机装备前置任务
+  repeated BestEQSlotInfo	 slots = 1;		//神机装备槽位
+  repeated BestEQTask	tasks = 2;			//神机装备前置任务
+}
+
+//上古神灵数据
+message AncientDBData
+{
+  optional int32 unlock_star_id 	= 1;	//当前已经解锁的星级ID
+  repeated AncientInfo infos 	= 2;
+}
+
+//角色战徽战旗数据
+message RoleEmblemDBInfo
+{
+  optional int32 id = 1;		//配置ID
+  optional int32 lv = 2;		//阶级
+  optional int32 star = 3;	//星级
+}
+//角色1v1赛季信息
+message Role1v1DBInfo
+{
+  optional int32 score = 1;			//积分
+  optional int32 match_num = 2;		//已匹配场次
+  optional int32 win_num = 3;			//胜利场次
+  optional int32 conti_num = 4;       //连胜场次
+  optional int32 reward_num = 5;		//今日以获得奖励次数
+  repeated int32 already_fetch = 6;	//已领取奖励
+  optional uint64 reward_time = 7;	//最近重置奖励次数的时间
+  optional uint64 reset_time = 8;		//最近重置赛季信息的时间
+  optional int32 cur_conti_num = 9;   //当前连胜场次
+
+}
+//角色 PVP DB数据
+message RolePvpDBData
+{
+  optional int32 pkmode = 1;
+  optional int32 chg_time = 2;
+  optional int32 killvalue = 3;
+  optional int32 onlinesec = 4;
+  repeated RoleEmblemDBInfo emblem = 5;
+  optional Role1v1DBInfo pk1v1 = 6;
+}
+
+message RoleMarryExpress
+{
+  optional bytes name = 1;
+  optional uint64 item = 2;
+  optional int32 text_id = 3;
+  optional uint64 time = 4;
 }
 
 
+//结婚数据
+message RoleMarryDBData
+{
+  optional MarrySelfInfo info = 1;
+  repeated RoleMarryExpress toSlef = 2;   //对我表白
+  repeated RoleMarryExpress toOther = 3;  //对他表白
+  optional WeddingDupRoleInfo dup_record = 4;	//婚宴副本记录
+  optional uint64 lastTime = 5;
+}
+
+//藏经阁
+message EncylopediaDBData
+{
+  optional HandBookPBData hand_book = 1;
+}
+
 // 角色DB数据
+message GVBPData
+{
+  repeated uint32 rewards_state=1;
+  optional uint32 daily_score=2;
+  optional uint64 record_time=3;
+}
+
+//角色充值相关的活动DB数据
+message ChargeDBData
+{
+  optional int32 first_rmb =  1;		//首充 累计充值
+  repeated int32 first_fetch = 2;		//首充 已领取的奖励
+  optional int32 dia_rmb = 3;			//首充 钻石秘宝累计充值
+  repeated int32 dia_fetch = 4;		//首充 钻石秘宝已领取的奖励
+  optional int32 star_rmb = 5;		//首充 星耀秘宝累计充值
+  repeated int32 star_fetch = 6;		//首充 星耀秘宝已领取的奖励
+  optional int32 king_rmb = 7;		//首充 王者秘宝累计充值
+  repeated int32 king_fetch = 8;		//首充 王者秘宝已领取的奖励
+  optional int32 second_rmb = 9;		//首充 超值续充累计充值
+  repeated int32 second_fetch = 10;	//首充 超值续充已领取的奖励
+  optional int32 open_total = 11;		//贵族 开服累充 已充值额度
+  repeated int32 open_total_fetch = 12;//贵族 开服累充 已领取奖励
+}
+
+//条件礼包DB信息
+message GiftCondDBProto
+{
+  optional int32 id = 1;		//配置ID
+  optional uint64 time = 2;	//开启时间
+  optional int32 buy = 3;		//是否已购买
+  optional int32 close = 4;   //活动已关闭
+}
+//0元礼包DB信息
+message GiftZeroDBProto
+{
+  optional int32 id = 1;		//配置ID
+  optional int32 buy = 2;		//是否已购买
+  optional int32 fetch = 3;	//是否已领取奖励
+}
+//0元礼包日志信息
+message GiftZeroLogDBProto
+{
+  optional bytes name = 1;	//角色名字
+  optional int32 type = 2;	//1-购买，2-领取
+  optional int32 value = 3;	//type=1时，表示购买的0元礼包配置ID，type=2时，表示领取的钻石数量
+}
+
+
+//角色礼包相关的DB数据
+message GiftDBData
+{
+  repeated GiftCondDBProto cond = 1;
+  repeated GiftZeroDBProto zero = 2;
+  repeated GiftZeroLogDBProto zero_log = 3;
+}
+
+//节日活动简要信息
+message FestSimpleDBProto
+{
+
+}
+
+//限时商店数据
+message FestShopDBProto
+{
+  repeated ComPair info = 1;	//购买信息
+}
+//签到(天天养龙)
+message FestSignDBProto
+{
+  optional int32 is_sign = 1;  //是否签到
+}
+//金库(天天养龙)
+message FestGoldStoreDBProto
+{
+  repeated ComPair info = 1;
+}
+//砸蛋(天天养龙)任务
+message FestDigEggTaskDBProto
+{
+  optional int32 id = 1;		//配置ID
+  optional int32 cur = 2;		//当前进度
+  optional int32 fetch = 3;	//是否已领取 0-未领取，1-已领取
+}
+//砸蛋(天天养龙)
+message FestDigEggDBProto
+{
+  repeated ComPair id_lst = 1;				//已抽奖 id 列表
+  optional int32 free = 2;					//今日已经免费重置了多少次
+  optional uint64 time = 3;					//最近一次免费重置时间
+  optional uint64 auto_time = 4;				//最近一次自动重置的时间
+  repeated FestDigEggTaskDBProto task = 5;	//任务
+  optional uint64 task_time = 6;				//任务最近一次重置时间
+}
+
+//天天养龙（烛龙挑战）
+message FestCandleDBProto
+{
+  repeated int32 id_lst = 1;		//已领取奖励id列表
+  optional uint64 time = 2;		//最近重置的时间
+  optional int64 harm = 3;		//总伤害
+}
+
+//天天养龙（变态养龙寺）
+message FestBtDragonDBProto
+{
+}
+
+
+
+//转盘多倍返玉
+message FestRTurnableRechargeDBProto
+{
+  repeated FestRTurnableRechargeOneProto info = 1;
+}
+
+
+
+message FestDailyTotalRechargeDBProto
+{
+  repeated FestDailyTotalRechargeOneProto info = 1; //每日累计充值
+  optional uint32 total_recharge = 2;
+  optional uint64 flush_time = 3;
+}
+
+//活跃转盘
+message FestTurnableDBProto
+{
+  repeated FestTurnableTaskProto task = 1;
+  optional uint32 left_num = 2; //可以转动的剩余次数
+  optional uint64 flush_time = 3;
+  repeated int32 chou_jiang_ids = 5; //已经被抽奖的id
+}
+
+//全民嗨翻天
+message FestDonateDBProto
+{
+  repeated FestDonateSingleProto single = 1;
+  repeated FestDonateServerProto server = 2;
+  optional uint32 single_num = 3;
+  repeated FestDonateTaskProto task = 4;
+}
+
+//定时福利
+message FestOnlineDBProto
+{
+  repeated FestOnlineOneProto data = 1;
+  optional uint64 flush_time = 2;
+}
+
+//开服集字
+message FestCollectWordDBProto
+{
+  repeated FestCollectWordOneProto data = 1;
+}
+message FestBossFirstDB
+{
+  repeated int32 recv_kill_ids = 1;   //领取过的击杀奖励(活動配置muban_BossFristKill id)
+  repeated int32 recv_red_ids = 2;	//领取过的首杀红包(活動配置muban_BossFristKill id)
+  repeated int32 m_kills_ids = 3;		//我击杀过的boss(活動配置muban_BossFristKill id)
+}
+
+message FMarryRoleDB
+{
+  repeated FMarryTask tasks = 1;
+  repeated int32 process_ids = 2; //已领取进度id
+  optional int32 score = 3;		//积分
+}
+//节日活动详细数据
+message FestDetailDBProto
+{
+  required int32 template_id = 1;										//活动模板ID
+  required int32 period = 2;											//期数
+  required uint64 begintime = 3;										//活动开始时间
+  optional FestShopDBProto shop = 4;									//限时商店
+  optional FestDailyTotalRechargeDBProto daily_total_recharge = 5;	//每日累计充值
+  optional FestSignDBProto sign = 6;									//签到(天天养龙)
+  optional FestGoldStoreDBProto gold_store = 7;						//金库(天天养龙)
+  optional FestDigEggDBProto dig_egg = 8;								//砸蛋(天天养龙)
+  optional FestRTurnableRechargeDBProto rturnable_recharge = 9;		//转盘多倍返玉
+  optional FestTurnableDBProto turntable = 10;						//活跃转盘
+  optional FestDonateDBProto donate = 11;								//全民嗨翻天
+  optional FestOnlineDBProto online = 12;								//定时福利
+  optional FestCollectWordDBProto collect_word = 13;					//开服集字
+  optional DrawPizeProto draw_pize = 14;								//开服庆典
+  optional FestRankDBData server_rank = 15;							//开服比拼
+  optional FestBossFirstDB boss = 16;									//BOSS首杀
+  optional FestHuiMengXiYouData hui_meng_xi_you = 17; //回梦西游
+  optional FestBtDragonDBProto bt_dragon = 18;						//变态养龙寺(天天养龙)
+  optional FestCandleDBProto candle = 19;								//烛龙挑战(天天养龙)
+  optional FMarryRoleDB marry = 20;									//完美情人
+}
+
+//节日活动
+message FestDBData
+{
+  repeated FestDetailDBProto info = 1;		//限时商店
+  repeated int32 close = 2;					//已经关闭了的活动模板ID列表
+}
+
+
+//帝弑影龙信息
+message ShadowDBProto
+{
+  optional int32 lev = 1;	//等级
+  optional int32 exp = 2;		//经验
+  optional int32 star = 3;	//星级
+  optional int32 lucky = 4;	//幸运值
+  repeated ComPair frag = 5;	//碎片信息 itemid - num
+  optional int32 curstar = 6; //当前幻化的星级
+}
+//光环类信息
+message HaloDBProto
+{
+  repeated ComPair info = 1;  //id-star
+  optional int32 curid = 2;	//当前幻化的 id
+  optional int32 curstar = 3; //当前幻化的 星级
+}
+//幻世烛龙
+message DragonDBData
+{
+  optional ShadowDBProto shadow = 1;
+  optional HaloDBProto halo = 2;
+}
+
+//转生装备信息
+message RoleDBTurnData
+{
+  repeated TurnEntry entrys = 1;		//所有转生养成
+  optional TurnSimple simple = 2;
+  repeated TurnHelper helper = 3;
+  optional uint64 refresh_time = 4;
+  repeated TurnTask tasks = 5;
+}
+
+//神元区域
+message GMADbData{
+  optional uint32 remainTime=1;//总时间
+  optional uint32 freeTimeRemain=2;//当前免费时间剩余
+  optional uint32 freeTime=3;//总免费时间
+  optional uint32 privilege=4;//是否充特权
+  optional uint64 recvFreeTimePrev=5;//上一次领取免费时间（utc)
+  optional int64 expTotal=6;//总经验
+  optional int64 expAccumulate=7;//特权累积经验
+}
+
 message RoleDBData
 {
-  required uint64                 cid					= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];	// role cid
-  required uint32                 zid					= 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];    // 区服ID
-  optional uint32					uid					= 3[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];    // UID
+  required uint64                 cid					= 1;	// role cid
+  required uint32                 zid					= 2;    // 区服ID
+  optional uint32					uid					= 3;    // UID
   optional RoleDBBaseData         base				= 4;    // 基础数据
   optional RoleDBBagData          bag				    = 5;    // 背包数据
   optional RoleDBEquipData	    equip				= 6;	// 装备数据
@@ -551,10 +994,33 @@ message RoleDBData
   optional AssistDBData			assist				= 25;	//boss助战
   optional TitleDBData			title				= 26;
   optional GodEvilDBData			godevil				= 27;   //神魔数据
-  optional OccupationMissionData occupatoin = 28; //转职数据
+  optional OccupationMissionData occupatoin			= 28;	//转职数据
   optional PayDBData				pay					= 29;	//充值数据
   optional RoleFactionDBData      role_faction        = 30;   //角色帮派数据
   optional RoleBestEQDBData		best_equip			= 31;	//神机装备
+
+  optional AchievementData		achievement			= 32;	//成就系统
+  optional AncientDBData			ancient				= 33;	//上古神灵
+  optional RolePvpDBData          pvp                 = 34;   //PVP
+  optional PracticeTrueDBData 	ptdata=35;
+  optional RoleMarryDBData		role_marry			= 36;	//结婚
+  optional EncylopediaDBData		encylopeddia		= 37; //藏经阁
+
+  optional GVBPData  				gvb_pdata			= 38; //神机谷战场数据
+  optional PSDatas				psdatas 			= 39; //个人商店
+  optional DragonSoulData			dragon_soul			= 40; //龙魂
+  optional WelfarePBData			welfare				= 41; //福利
+  optional DailyWelfarePBData daily_welfare			= 42; //每日特惠
+  optional ChargeDBData			charge				= 43; //福利-充值活动相关的数据
+  optional GiftDBData				gift				= 44; //礼包活动相关的数据
+  optional FindTreatureDBData find_treature			= 45; //真龙寻宝
+  optional FestDBData				fest				= 46; //节日活动
+  optional DragonDBData			dragon				= 47; //幻世烛龙
+  optional StarData				star				= 48; //不灭星辰
+  optional int32					change				= 49; //是否是切换逻辑服(切换逻辑服填充)
+  optional RoleDBTurnData			turn				= 50; //神体装备
+
+  optional GMADbData 				gma_datas			= 51;//神元区域
 }
 
 //待发送红包信息
@@ -636,13 +1102,17 @@ message RoleMirrorData
     TeamRebot = 4;	//组队机器人
   }
 
-  optional uint64 cid					= 1;//角色ID, 当是玩家时是玩家cid, 当是机器人时表示机器人表配置ID
-  optional int32 type					= 2;//类型，用于区分玩家和机器人  1-竞技场玩家镜像，2-竞技场机器人, 3-组队玩家镜像, 4-组队机器人
-  optional uint32 teamid				= 3;//队伍ID,组队机器人才需要赋值
-  optional uint32 zid					= 4;//区服ID，玩家镜像需要赋值
-  optional AttrDBData attr			= 5;//总属性
-  optional SkillDBData skill          = 6;//技能数据
-  optional RoleDBBaseData base		= 7;//基础数据（包含外观数据）
+  optional uint64 cid							= 1;//角色ID, 当是玩家时是玩家cid, 当是机器人时表示机器人表配置ID
+  optional int32 type							= 2;//类型，用于区分玩家和机器人  1-竞技场玩家镜像，2-竞技场机器人, 3-组队玩家镜像, 4-组队机器人
+  optional uint32 teamid						= 3;//队伍ID,组队机器人才需要赋值
+  optional uint32 zid							= 4;//区服ID，玩家镜像需要赋值
+  optional AttrDBData attr					= 5;//总属性
+  optional SkillDBData skill					= 6;//技能数据
+  optional RoleDBBaseData base				= 7;//基础数据（包含外观数据）
+  optional RoleDBEquipData equip				= 8;//装备数据
+  repeated BestEQEquipInfo beast_equips		= 9;//所有的神机装备
+  repeated BestEQSlotInfo	 beast_slots		= 10;//神机装备槽位
+  optional int32 campid						= 11;//机器人阵营id
 }
 
 
@@ -706,12 +1176,68 @@ message FactionDBBase
   optional FactionMultMemDBProto member		= 13;	//帮派成员
   optional FactionMultApplyDBProto apply      = 14;   //帮派申请
   optional FactionMutRecordDBProto record		= 15;   //帮派记录
+  optional int32 apply_type					= 16;	//申请方式
+  optional int32 apply_lev					= 17;	//申请的最小等级
+  optional uint64 apply_fight					= 18;   //申请的最低战力
+}
+
+//帮派神兽排名DB数据
+message FactionBeastHarmDBProto
+{
+  optional uint64 cid = 1;
+  optional int64 harm = 2;
+}
+
+//帮派神兽DB数据
+message FactionBeastDBData
+{
+  repeated FactionBeastHarmDBProto harm = 1;		//排名
+  optional uint32 star = 2;						//星级
+  optional int32 is_open = 3;						//是否已开启
+  optional uint32 tribute = 4;					//神兽贡品
+  optional uint32 today_count = 5;				//今日开启次数
+  optional uint64 today_fresh = 6;				//最近一次刷新今日开启次数的时间
+  optional uint32 week_count = 7;					//本周开启次数
+  optional uint64 week_fresh = 8;					//最近一次刷新本周开启次数的时间
+  optional int32 level = 9;						//神兽等级
+  optional uint64 opentime = 10;					//最近一次开启的时间
+}
+
+//帮派守卫排名信息
+message FactionGuardHarmDBProto
+{
+  optional uint64 cid = 1;		//玩家cid
+  optional bytes name = 2;		//玩家名字
+  optional int64 harm = 3;		//伤害
+}
+
+//帮派守卫DB数据
+message FactionGuardDBData
+{
+  repeated FactionGuardHarmDBProto harm = 1;		//排名
+  repeated FactionGuardHarmDBProto old_harm = 2;		//排名
+  optional bool can_enter = 3;
+}
+
+//帮派镇魂魔域
+message FactionMoyu
+{
+  optional uint64 week_harm = 1; 		//本周伤害
+  optional uint64 last_week_harm = 2; //上周伤害
+  optional int32 cur_layer = 3;
+  optional uint64 cur_hp = 4;
+  optional uint64 max_hp = 5;
+  optional uint64 harm_time = 6;		//伤害时间
+  optional uint64 refresh_time = 7; 	//时间
+  optional int32 pass_layer = 8;		//通关的层
 }
 
 //帮派其他数据
 message FactionDBData
 {
-
+  optional FactionBeastDBData beast = 1;  //帮派神兽
+  optional FactionGuardDBData guard = 2; //帮派守卫
+  optional FactionMoyu 		moyu = 3;	//帮派镇魂魔域
 }
 
 //帮派所有的DB数据
@@ -722,8 +1248,27 @@ message FactionAllDBData
   optional FactionDBData data = 3;	//其他数据
 }
 
+message FactionDBMoyuRankEntry
+{
+  optional uint64 id = 1;
+  optional bytes name = 2;
+  optional int32 zid = 3;
+  optional uint64 harm = 4;
+  optional uint64 harm_time =5;
+}
 
+message FactionDBMoyuRank
+{
+  optional int32 type = 1;	//类型
+  optional int32 group = 2;	//分組
+  repeated FactionDBMoyuRankEntry rank =3;
+  optional uint64 time = 4;
+}
 
+message FactionDBMoyuRankDB
+{
+  repeated FactionDBMoyuRank infos=1;
+}
 
 //------------------------------------ 登录 -------------------------------------
 
@@ -799,14 +1344,14 @@ message RoleInfoUpdateDBReq
 message RoleChgNameDBReq
 {
   required uint64 cid = 1;
-  required string name = 2;
+  required bytes name = 2;
 }
 //返回 角色改名 DB_ROLE_CHG_NAME_RSP
 message RoleChgNameDBRsp
 {
   required int32 ret = 1;
   required uint64 cid = 2;
-  required string name = 3;
+  required bytes name = 3;
 }
 
 //---------------------------------- 中心服角色简要数据缓存 ------------------------
@@ -827,7 +1372,7 @@ message RoleSimpleListDBRsp{
 //玩家切逻辑节点请求
 message CreatureTransLogicDBReq
 {
-  optional string trans_data = 1; //切换逻辑节点数据 LogicCreatureTransSceneReq 序列化之后的数据
+  optional bytes trans_data = 1; //切换逻辑节点数据 LogicCreatureTransSceneReq 序列化之后的数据
 }
 //DB返回逻辑服 生物切场景(主要用于玩家) 结果   DB_CREATURE_TRANS_SCENE_RSP
 message CreatureTransLogicDBRsp
@@ -899,7 +1444,6 @@ message MaxMailIDRequest
 message MaxMailIDResponse
 {
   required uint32 maxZoneMailId = 1; //全服邮件最大id
-  optional uint32 maxMailId = 2;
 }
 
 //删除角色邮件数据
@@ -919,6 +1463,7 @@ message ZoneMailTransCharacterMailReq
 {
   required uint32 mailId = 1;
   required uint64 cid = 2;
+  required uint64 createtime = 3;
 }
 
 //DBPROXY_PROTOCOL_ZONE_MAIL_TRANS_RSP
@@ -926,6 +1471,7 @@ message ZoneMailTransCharacterMailRsp
 {
   required uint64   cid = 1;
   repeated MailInfo data = 2;          //需要更新到角色邮件的全服邮件数据
+  required uint32 max_zone_mailid = 3; //全服邮件最大ID
 }
 
 //中心服向DB请求角色web邮件相关的数据 DBPROXY_PROTOCOL_WEB_MAIL_DATA_REQ
@@ -936,7 +1482,7 @@ message WebMailDBDataReq
   optional uint32 pernum = 3;    //每页邮件数量
   optional uint32 curpage = 4;  //当前页
   repeated uint32 id_lst = 5;    //需要撤回附件的邮件ID 列表
-  required string webId = 6;    //web唯一ID的字符串
+  required bytes webId = 6;    //web唯一ID的字符串
 }
 //DB返回中心服角色web邮件相关的数据 DBPROXY_PROTOCOL_WEB_MAIL_DATA_RSP
 message WebMailDBDataRsp
@@ -947,7 +1493,7 @@ message WebMailDBDataRsp
   optional uint32 totalcount = 4;      //总数量
   repeated uint32 id_lst = 5;        //成功撤回附件的邮件ID 列表
   repeated WebMailDataProto info_lst = 6;  //邮件数据列表
-  required string webId = 7;        //web唯一ID的字符串
+  required bytes webId = 7;        //web唯一ID的字符串
 }
 //------------------------------------ Mail -------------------------------------
 
@@ -1035,6 +1581,19 @@ message GlobalComData
   repeated DupTowerDBRecord towerDupReward =1;	 //爬塔副本领奖记录
 }
 
+message GlobalYaotaDupDBEntry
+{
+  optional int32 dupid = 1;
+  repeated RolePlayerMiniInfo info = 2;
+  optional uint64 time = 3;
+}
+
+//九层妖塔霸主记录
+message GlobalYaotaDupDBData
+{
+  repeated GlobalYaotaDupDBEntry entrys = 3;
+}
+
 
 ////////////////////////////////////// 活动  //////////////////////////////////////////
 
@@ -1107,7 +1666,7 @@ message RoleMirrorDBReq
 {
   required uint64 cid = 1;		//角色cid
   required int64 int_param = 2;   //参数,原样返回
-  required string str_param = 3;  //参数,原样返回
+  required bytes str_param = 3;  //参数,原样返回
   required uint32 reqtype = 4;	//请求类型,原样返回
 
 }
@@ -1118,7 +1677,7 @@ message RoleMirrorDBRsp
   required int32 ret = 1;
   required uint64 cid = 2;			//角色cid
   required int64 int_param = 3;		//参数
-  required string str_param = 4;		//参数
+  required bytes str_param = 4;		//参数
   required uint32 reqtype = 5;		//请求类型
   optional RoleMirrorData data = 6;	//数据
 }
@@ -1156,7 +1715,7 @@ message FactionRedDBRsp
   repeated RedDBData data_lst = 1;
   optional int32 finish = 2;
 }
-//保存帮派数据  DB_RED_SAVE_REQ
+//保存帮派红包数据  DB_RED_SAVE_REQ
 message FactionRedSaveDBReq
 {
   required uint32 faction_id = 1;
@@ -1180,24 +1739,293 @@ message RoleRedDBRsp
   optional int32 finish = 2;
 }
 
-//---------------------------------- 中心服 角色 DB数据表 ---------------------------------
-//中心服加载角色数据(用于玩家数据存放在中心服，通用的DB请求) DB_CENTER_LOAD_ROLE_REQ
-message CenterLoadRoleDBReq
+//---------------------------------- 通用的 DB数据表 ---------------------------------
+//------ 适用于 只有两个字段的数据库表的加载和保存以及删除
+//------ 表名自定义，表字段固定为 id-bigint,  data-blob
+
+//通用的 请求从DB加载数据 DB_COM_LOAD_REQ
+message ComLoadDBReq
 {
-  required uint64 cid = 1;		//角色cid
-  required string table_name = 2;	//表名
-  required uint32 cmd = 3;		//DB数据通过哪个命令id返回
+  required uint64 id = 1;			//角色cid或者唯一ID
+  required bytes table_name = 2;	//数据库表名
+  required uint32 cmd = 3;		//加载DB数据后,通过哪个命令id返回给请求加载数据的服务器
 }
-//返回中心服 角色DB数据
-message CenterLoadRoleDBRsp
+//通用的返回 DB数据(返回的消息id是 ComLoadDBReq 中的 cmd)
+message ComLoadDBRsp
 {
-  required uint64 cid = 1;		//角色cid
+  required uint64 id = 1;			//角色cid或者唯一ID
   required bytes data = 2;		//DB数据
 }
-//保存中心服 角色DB数据  DB_CENTER_SAVE_ROLE_REQ
-message CenterSaveRoleDBReq
+
+//通用的 请求从DB加载所有数据 DB_COM_LOAD_ALL_REQ
+message ComLoadAllDBReq
 {
-  required uint64 cid = 1;		//角色cid
+  required bytes table_name = 1;	//数据库表名
+  required uint32 cmd = 2;		//加载DB数据后,通过哪个命令id返回给请求加载数据的服务器
+}
+//通用的结构
+message ComDBProto
+{
+  required uint64 id = 1;			//角色cid或者唯一ID
+  required bytes data = 2;		//DB数据
+}
+//通用的 返回 从DB加载所有数据 (返回的消息id是 ComLoadAllDBReq 中的 cmd)
+message ComLoadAllDBRsp
+{
+  repeated ComDBProto data = 1;
+  required int32 is_finish = 2;   //是否发送完了
+}
+
+
+//通用的 保存DB数据  DB_COM_SAVE_REQ
+message ComSaveDBReq
+{
+  required uint64 id = 1;			//角色cid或者唯一ID
   required bytes data = 2;		//数据
-  required string table_name = 3;	//表名
+  required bytes table_name = 3;	//表名
+}
+//通用的 删除DB数据 DB_COM_DEL_REQ
+message ComDelDBReq
+{
+  required bytes table_name = 1;	//数据库表名
+  repeated uint64 id_lst = 2;		//待删除的唯一ID列表
+}
+//------------------------------------------结婚----------------------------------------------------
+
+message MarryApply
+{
+  optional uint64 apply_dst_id = 1;	//目标cid
+  optional uint64 time = 2; 			//申请时间
+  optional int32 gear = 3;			//档位
+}
+
+message MarrySimpleInfo
+{
+  optional uint64 m_id = 1;
+  optional uint64 dst_id = 2;
+  optional uint32 marry_id = 3;		//第几对
+  optional MarryBrief brief = 4;		//简要数据
+  optional MarryApply apply = 5;		//申请信息
+  optional int32 state = 6;			//状态
+}
+
+//1-1:加载结婚数据 	DB_LOAD_MARRY_REQ
+message MarryDBLoadReq
+{
+  optional int32 offset = 1;		//数据库记录的偏移
+}
+
+//1-2:db返回结婚数据  DB_LOAD_MARRY_RSP
+message MarryDBLoadRsp
+{
+  optional int32 ret = 1;						//返回码
+  optional int32 offset = 2;					//数据库记录的偏移
+  repeated MarrySimpleInfo simple = 3;
+}
+
+//2-1:保存结婚数据 DB_MARRY_SAVE_REQ
+message MarryDBSaveReq
+{
+  optional MarrySimpleInfo info = 1;
+}
+
+//---------------- 帮派答题排名 --------------------------
+//帮派答题排名DB信息
+message AnswerRankDBProto
+{
+  optional uint32 factionid = 1;
+  optional bytes name = 2;
+  optional uint32 count = 3;
+  optional uint32 zid = 4;
+}
+//帮派答题DB数据
+message AnswerDBData
+{
+  repeated AnswerRankDBProto rank = 1;
+}
+
+//---------------- 帮派守卫排名 --------------------------
+//帮派守卫排名DB信息
+message GuardRankDBProto
+{
+  optional uint32 factionid = 1;
+  optional bytes name = 2;
+  optional uint32 count = 3;
+  optional uint64 time = 4;
+  optional uint32 zid = 5;
+}
+
+//帮派守卫DB数据
+message GuardDBData
+{
+  repeated GuardRankDBProto old_rank = 1;
+  repeated GuardRankDBProto cur_rank = 2;
+}
+
+
+//-------------------------- 跨服1v1 -----------------------------------
+//1v1排名
+message Rank1v1DBProto
+{
+  optional int32 rank = 1; //排名
+  optional uint64 cid = 2; //cid
+  optional bytes name = 3; //名字
+  optional int32 prof = 4; //职业
+  optional uint64 fight = 5;//战力
+  optional uint32 zid = 6; //区服ID
+  optional int32 score = 7;//积分
+  optional uint64 time = 8;//时间
+  optional int32 match_num = 9;//参与场次
+}
+//1v1 DB数据
+message Act1v1DBData
+{
+  repeated Rank1v1DBProto rank = 1;
+  optional uint64 reset_time = 2;
+  optional int32 num = 3;
+}
+
+//---------------------------- 帮派战 ----------------------------------
+
+//赛区帮派DB信息
+message RaceFactionDBProto
+{
+  optional uint32 faction_id = 1;
+  optional bytes name = 2;
+  optional uint64 fight = 3;
+  optional uint32 zid = 4;
+}
+//赛区帮派匹配信息
+message RaceMatchDBProto
+{
+  optional uint32 faction_id1 = 1;
+  optional uint32 faction_id2 = 2;
+  optional uint32 faction_id = 3;		  //胜利的帮派
+}
+//赛区信息
+message RaceDBProto
+{
+  optional int32 race = 1;					//赛区，1-人级赛区 2-地级赛区 3-天级赛区 4-仙级赛区 5-神级赛区
+  repeated RaceFactionDBProto info_lst = 2;	//赛区帮派信息
+}
+//帮派排名
+message WarRankDBProto
+{
+  optional uint32 faction_id = 1;
+  optional bytes name = 2;
+  optional uint32 zid = 3;
+  optional int32 rank = 4;
+}
+
+//帮派战DB数据
+message FactionWarDBData
+{
+  repeated RaceDBProto race = 1;			//赛区信息
+  repeated WarRankDBProto rank = 2;		//帮派排名
+  optional uint32 win_id = 3;
+  optional bytes win_name = 4;
+  optional int32 win_num = 5;
+  optional uint32 win_zid = 6;
+}
+
+//砸蛋日志(天天养龙)
+message DigEggLogDBProto
+{
+  optional bytes name = 1;
+  optional int32 id = 2;
+  optional uint64 cid = 3;
+}
+//节日活动砸蛋日志
+message FestDigEggLogDBProto
+{
+  optional int32 template_id = 1;
+  repeated DigEggLogDBProto info = 2;
+}
+//所有的 节日活动砸蛋日志 数据
+message FestDigEggLogDBData
+{
+  repeated FestDigEggLogDBProto log = 1;
+}
+
+//所有的 节日活动转盘多倍返玉 数据
+message FestRTurnableLogDBData
+{
+  repeated FestRTurnableLogDBProto log = 1;
+}
+
+//所有的 全民嗨翻天 数据
+message FestDonateDBData
+{
+  repeated DonateServerDBProto data = 1;
+}
+
+//所有的 开服庆典 数据
+message FestDrawPizeLogDBData
+{
+  repeated FestDrawPizeLogDBProto log = 1;
+}
+//===============市场=====================
+//商品信息
+message GoodsDB
+{
+  optional uint64 order_id =1;			//商品id
+  optional int32 	market_type = 2;		//商品所属市场 1：世界 2工会
+  optional uint64 market_owner = 3;		//世界0：工会id
+  optional uint64 role_id = 4;			//上架者cid
+  optional uint64 start_time = 5;			//挂单时间
+  optional uint64 end_time = 6;			//结束时间
+  optional uint64 vie_id = 7;				//当前竞价玩家cid
+  optional int32 	state = 8;				//0交易中 1成交 2流拍
+  optional int32 isdelete = 9;			//是否删除
+  optional uint64 cmpt_time =10;			//交易完成时间
+  optional int32 cur_price = 11;			//当前价格
+  optional int32 cmpt_price = 12;			//成交价格
+  optional uint64 buyer_id = 13;			//购买方id
+  optional uint64 vie_time = 14;			//竞价时间
+  optional ItemProtoInfo item_data = 15; 	//物品信息
+  optional int32 item_price = 16;			//物品总价
+  optional bytes take_list = 17;			//分红者cids
+  optional bytes vie_list = 18;			//参与竞价的玩家ids
+  optional uint64 ready_time = 19;			//准备时间
+  optional int32 is_take = 20;			//是否已分红
+}
+//加载市场商品 LOAD_GOODS_REQ
+message LoadGoodsReq
+{
+  optional int64 start_time = 1;
+}
+//商品信息加载 MARKET_DB_LOAD_RSP
+message MarketDBLoadRsp
+{
+  repeated GoodsDB infos =1;
+  optional int32 is_finish = 2;
+}
+//商品信息保存 MARKET_SAVE_REQ
+message MarketSaveReq
+{
+  optional GoodsDB info = 1;
+}
+//删除商品 MARKET_DEL_REQ
+message MarketDelReq
+{
+  optional uint64 order_id = 1;
+}
+
+//===========================  烛龙挑战(天天养龙)  DB数据 =================================
+
+message CandleHarmDBProto
+{
+  optional uint64 cid = 1;
+  optional bytes name = 2;
+  optional uint64 harm = 3;
+  optional uint32 zid = 4;
+  optional int32 rank = 5;
+}
+
+//烛龙挑战DB数据
+message CandleDBData
+{
+  optional int32 index = 1;
+  repeated CandleHarmDBProto ham = 2;		//排名伤害
+  optional uint64 time = 3;				//上一次重置的时间
 }

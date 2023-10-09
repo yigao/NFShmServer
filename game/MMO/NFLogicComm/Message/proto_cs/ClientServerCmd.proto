@@ -1,7 +1,5 @@
-package proto_ff;
+package ProtoBuf;
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
 
 //客户端和服务器之间的协议ID
 enum ClientServerCmd
@@ -35,15 +33,22 @@ enum ClientServerCmd
 
 	CLIENT_LOGOUT_NOTIFY = 17;		//服务器通知客户端登出
 
-
+	CLIENT_TO_LOGIC_PLAYER_GUIDELINES				= 18;	 //保存新手指引
 
 	//视野 101 - 150
 	NOTIFY_CLIENT_CREATURE_CREATE = 101;		//通知客户端创建生物
 	NOTIFY_CLIENT_CREATURE_DESTORY = 102;		//通知客户端销毁生物
 	BROAD_CHG_NAME = 103;						//广播角色改名
 	BROAD_FACTION_INFO = 104;					//广播帮派信息
-
-
+	BROAD_COLLECT_INFO = 105;					//广播采集信息
+	BROAD_KILL_VALUE = 106;						//广播PK值
+	BROAD_YELLOW_NAME = 107;					//广播是否黄名
+	BROAD_GOD_EVIL_CHG_FACADE = 108;			//广播神魔变身
+	BROAD_SHIELD = 109;							//广播护盾
+	BROAD_MARRY_DST_NAME = 110;					//广播结婚对象名字
+	BROAD_TOUR_STATE = 111;						//广播巡游状态
+	BROAD_CLAN_VIEW = 112;						//广播战队视野数据
+	BROAD_VIP_HIDE = 113;						//广播VIP状态是否隐藏
 	//场景 151 - 200
 	NOTIFY_CLIENT_LOAD_MAP	= 151;				//通知客户端加载场景
 	NOTIFY_CLIENT_TRANS_SCENE_RSP = 152;		//通知客户端切换场景结果
@@ -69,6 +74,8 @@ enum ClientServerCmd
 
 	CLIENT_TO_LOGIC_PACKAGE_SELL = 209;		//出售物品
 	LOGIC_TO_CLIENT_PACKAGE_SELL = 210;		//出售
+	PACKAGE_EXPAND_REQ = 211;	//背包扩展
+	PACKAGE_EXPAND_RSP = 212;	//背包扩展
 	
 	//玩家 250-300
 	CLIENT_PLAYER_INFO_RSP	= 251;	 //返回 玩家信息
@@ -82,13 +89,24 @@ enum ClientServerCmd
 
 
 	// 打坐
-	CLIENT_TO_LOGIC_PLAYER_SEAT_REQ					= 259;	 //玩家请求打坐
-	LOGIC_TO_CLIENT_SEAT_RSP								= 260;	// 打坐返回
-	LOGIC_TO_CLIENT_SEAT_EXP_RSP						= 261;	// 打坐没分钟经验返回
-	CLIENT_TO_LOGIC_LOGIN_HANGUP_DATA_REQ		= 262;	 //玩家登陆获取挂机数据
-	LOGIC_TO_CLIENT_LOGIN_HANGUP_DATA_RSP		= 263;	// 获取上线挂机数据返回
+	CLIENT_TO_LOGIC_PLAYER_SEAT_REQ			= 259;	 //玩家请求打坐
+	LOGIC_TO_CLIENT_SEAT_RSP				= 260;	// 打坐返回
+	LOGIC_TO_CLIENT_SEAT_EXP_RSP			= 261;	// 打坐没分钟经验返回
+	CLIENT_TO_LOGIC_LOGIN_HANGUP_DATA_REQ	= 262;	 //玩家登陆获取挂机数据
+	LOGIC_TO_CLIENT_LOGIN_HANGUP_DATA_RSP	= 263;	// 获取上线挂机数据返回
 	CLIENT_TO_LOGIC_GET_HANGUP_REWARD_REQ   = 264;  //获取挂机奖励
 	LOGIC_TO_CLIENT_GET_HANGUP_REWARD_RSP   = 265;  //获取挂机奖励返回
+	CLIENT_PLAYER_COLLECT_REQ				= 266;  //玩家请求采集
+	CLIENT_PLAYER_COLLECT_RSP				= 267;  //返回玩家采集结果
+	CLIENT_PLAYER_COLLECT_SUCCESS_RSP		= 268;  //通知玩家采集成功
+	PLAYER_PVP_STATE_NOTIFY					= 269;  //玩家PVP状态通知
+
+	PLAYER_EXCHANGE_REQ						= 276;	//请求 领取兑换码奖励
+	PLAYER_EXCHANGE_RSP						= 277;	//返回 领取兑换码奖励 结果
+	PLAYER_SUB_PACK_SAVE_REQ				= 278;	//请求 保存分包信息
+	PLAYER_SUB_PACK_FETCH_REQ				= 279;	//请求 领取分包奖励
+	PLAYER_SUB_PACK_FETCH_RSP				= 280;	//返回 领取分包奖励结果
+
 
 	//GM模块
 	CLIENT_GM_REQ = 270;		//GM请求
@@ -130,6 +148,26 @@ enum ClientServerCmd
 	EQUIP_WASH_RSP	= 327;				//洗练返回
 	EQUIP_SUIT_LV_REQ = 328;			//套装升级
 	EQUIP_SUIT_LV_RSP = 329;			//套装升级返回
+	EQUIP_REFINE_LV_REQ = 330;			//精炼升级请求
+	EQUIP_REFINE_LV_RSP = 331;			//精炼升级返回
+	EQUIP_REFINE_UNLOCK_REQ = 332;		//精炼解锁
+	EQUIP_REFINE_UNLOCK_RSP = 333;		//精炼解锁返回
+	EQUIP_REFINE_GEN_ATTR_REQ = 334;	//精炼生成属性
+	EQUIP_REFINE_GEN_ATTR_RSP = 335;	//精炼生成属性
+	EQUIP_AWAKEN_LV_REQ = 336;			//觉醒升级请求
+	EQUIP_AWAKEN_LV_RSP = 337;			//觉醒升级返回
+	EQUIP_SOARING_LV_REQ = 338;			//觉醒飞升请求
+	EQUIP_SOARING_LV_RSP = 339;			//觉醒飞升返回
+	EQUIP_QUALITY_LV_REQ = 340;			//升品请求
+	EQUIP_QUALITY_LV_RSP = 341;			//升品返回
+	EQUIP_SEAL_INLAY_REQ = 342;			//印记镶嵌请求
+	EQUIP_SEAL_INLAY_RSP = 343;			//印记镶嵌返回
+	EQUIP_SEAL_LV_REQ = 344;			//印记升级请求
+	EQUIP_SEAL_LV_RSP = 345;			//印记升级返回
+	EQUIP_ACTIVE_SEAL_SUIT_REQ = 346;	//印记套装激活请求
+	EQUIP_ACTIVE_SEAL_SUIT_RSP = 347;	//印记套装激活返回
+	EQUIP_REFINE_LOCK_REQ = 348;		//精炼锁定槽位
+	EQUIP_REFINE_LOCK_RSP = 349;		//精炼锁定槽位返回
 
 	//任务模块 350 - 400
 	CLIENT_TO_SERVER_MISSION_BEGIN			= 350;
@@ -240,6 +278,8 @@ enum ClientServerCmd
 	CLIENT_MOVE_REQ = 601;				//请求移动
 	MOVE_BROAD_RSP = 602;				//生物移动广播
 	MOVE_TELEPORT_RSP = 603;			//瞬移通知
+	MOVE_TELEPORT_REQ = 604;			//请求瞬移
+	MOVE_TELEPORT_RESULT_RSP = 605;		//返回瞬移结果
 
 	//死亡复活 651 - 700
 	PLAYER_RELIVE_NOTIFY = 651;			//通知客户端死亡复活
@@ -258,8 +298,8 @@ enum ClientServerCmd
 	SKILL_INFO_REQ = 709;				//请求技能详细信息
 	SKILL_INFO_RSP = 710;				//返回技能详细信息
 	SKILL_INFO_UPDATE_RSP = 711;		//技能详细信息更新
-	//SKILL_GROUP_CHG_REQ = 712;		//请求切换技能组
-	//SKILL_GROUP_CHG_RSP = 713;		//返回 切换技能组 结果
+	SKILL_BREAK_SKILL_REQ = 712;		//客户端请求中断连续性技能
+	SKILL_BREAK_BROAD_RSP = 713;		//客户端中断连续性技能 广播
 	SKILL_INFO_DEL_RSP = 714;			//返回 移除技能
 	SKILL_WAKE_UP_REQ = 715;			//请求技能觉醒
 	SKILL_WAKE_UP_RSP = 716;			//返回技能觉醒结果
@@ -278,6 +318,16 @@ enum ClientServerCmd
 	SKILL_ADVANCE_UPDATE_RSP = 729;		//更新技能进阶数据
 	SKILL_ADVANCE_UNLOCK_POS_REQ = 730;  //解锁 进阶位置
 	SKILL_ADVANCE_UNLOCK_POS_RSP = 731;  //返回  解锁 进阶位置 结果
+	SKILL_TALENT_INFO_REQ = 732;		 //请求技能天赋信息
+	SKILL_TALENT_INFO_RSP = 733;		 //返回技能天赋信息
+	SKILL_TALENT_POINT_RSP = 734;        //返回天赋点数信息
+	SKILL_TALENT_RESET_REQ = 735;		 //请求天赋重置
+	SKILL_TALENT_RESET_RSP = 736;		 //返回天赋重置结果
+	SKILL_TALENT_USE_POINT_REQ = 737;	 //请求使用技能天赋点
+	SKILL_TALENT_USE_POINT_RSP = 738;	 //返回 使用技能天赋点结果
+	SKILL_ANGER_UPDAT_RSP = 739;		 //技能怒气值更新
+
+
 
 
 
@@ -306,6 +356,14 @@ enum ClientServerCmd
 	NOTIFY_BOSS_RESULT_RSP = 862;	//boss结算
 	BOSS_KILL_REQ = 863;			//快速击杀boss
 	BOSS_KILL_RSP = 864;			//快速击杀boss返回
+	BOSS_LAYER_REQ	= 865;			//BOSS层数据请求
+	BOSS_LAYER_RSP = 866;			//boss层数据返回
+	HARMONY_BOSS_REQ = 867;			//请求鸿蒙boss数据信息
+	HARMONY_BOSS_RSP = 868;			//请求鸿蒙boss数据信息返回
+	NOTIFY_BOSS_ATTENT = 869;		//更新boss关注
+	NOTIFY_BOSS_REFRESHED = 870;	 //boss已刷新
+	
+	
 	//外关模块 900 - 950
 	CLIENT_TO_LOGIC_FACADE_BEGIN					= 900;
 	CLIENT_TO_LOGIC_FACADE_INFO_REQ					= 901;//外观信息
@@ -421,10 +479,17 @@ enum ClientServerCmd
 	DUP_TEAM_OPT_RSP = 1020;			//组队副本同意拒绝操作返回
 	DUP_SWEEP_REQ = 1021;				//副本扫荡请求
 	DUP_SWEEP_RSP = 1022;				//副本扫荡返回
-
+	GHOST_DUP_RANK_REQ = 1023;			//幽冥古殿排行榜数据请求
+	GHOST_DUP_RANK_RSP = 1024;			//幽冥古殿排行榜数据返回
+	NOTIFY_GHOST_DUP_RUN = 1025;		//幽冥古殿运行数据
+	NOTIFY_GHOST_DUP_RES = 1026;		//幽冥古殿运行奖励
+	NOTIFY_GHOST_CHG_STEP = 1027;		//启动波数倒计时
+	GHOST_RECV_PASS_REQ = 1028;			//领取幽冥古殿首通奖励
+	GHOST_RECV_PASS_RSP = 1029;			//领取幽冥古殿首通奖励
 	//活动 1201 - 1300
 	ACT_LIST_REQ = 1201;			//请求活动列表
 	ACT_LIST_RSP = 1202;			//返回活动列表
+	ACT_UPDATE_RSP = 1203;			//更新活动信息
 
 	//组队 1300 - 1399
 	CLIENT_TO_CENTER_CREATE_TEAM			= 1301;	//请求创建队伍
@@ -505,9 +570,17 @@ enum ClientServerCmd
 	DROP_HEAD_NOTIFY = 1452;		//玩家头顶 掉落归属 
 
 	//vip 
-	NOTIFY_VIP_DATA_RSP = 1480;		//vip 经验
-
-
+	NOTIFY_VIP_DATA_RSP = 1460;		//vip 经验
+	NOTIFY_PRIVILEGE_OPT = 1461;	 // 权限更新
+	BUY_VIP_GIFT_REQ = 1462;		//购买vip礼包请求
+	BUY_VIP_GIFT_RSP = 1463;		//购买vip礼包返回
+	RCVE_VIP_REWARD_REQ = 1464;		//领取礼包请求
+	RCVE_VIP_REWARD_RSP = 1465;		//领取礼包返回
+	VIP_HIDE_REQ = 1466;			//隐藏vip请求
+	VIP_HIDE_RSP = 1467;			//隐藏vip返回
+	NOTIFY_VIP_EVENT = 1468;		//VIP事件更新
+	RECV_VIP_CACHE_EXP_REQ = 1469;	//领取vip缓存经验
+	RECV_VIP_CACHE_EXP_RSP = 1470;	//领取vip缓存经验返回
 	//测试消息
 	NOTIFY_SERVER_FLAG_RSP = 1481;
 
@@ -574,6 +647,54 @@ enum ClientServerCmd
 
 	CLIENT_TO_LOGIC_MOUNT_RIDE_OFF_REQ			= 1556; //客户端请求下坐骑
 	LOGIC_TO_CLIENT_MOUNT_RIDE_OFF_RSP			= 1557; //客户端请求下坐骑
+
+	CLIENT_TO_LOGIC_MOUNT_KUN_ADVANCE_LEVELUP_REQ = 1558;//化鲲进阶
+	LOGIC_TO_CLIENT_MOUNT_KUN_ADVANCE_LEVELUP_RSP = 1559;//化鲲进阶
+
+	CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_DRESS_REQ = 1560;			//化鲲装备穿戴请求
+	LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_DRESS_RSP = 1561;			//化鲲装备穿戴返回
+	CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_UNDRESS_REQ = 1562;		//化鲲装备卸下请求
+	LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_UNDRESS_RSP = 1563;		//化鲲装备卸下返回
+	CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_STRONG_REQ = 1565;			//化鲲装备强化
+	LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_STRONG_RSP = 1566;			//化鲲装备强化返回
+	CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_STRONG_LV_REQ = 1567;  //化鲲装备强化进阶
+	LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_STRONG_LV_RSP = 1568;  //化鲲装备强化进阶
+	CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_SUIT_ACTIVE_REQ = 1569; //化鲲装备套装激活
+	LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_SUIT_ACTIVE_RSP = 1570; //化鲲装备套装激活
+	CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_DECOMPOSE_REQ = 1571; //化鲲装备分解
+	LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_DECOMPOSE_RSP = 1572; //化鲲装备分解
+	CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_WAKE_LV_REQ = 1574;  //化鲲装备突破
+	LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_WAKE_LV_RSP = 1575;  //化鲲装备突破
+	CLIENT_TO_LOGIC_MOUNT_KUN_TIWU_LV_REQ = 1576;  //化鲲提悟升级
+	LOGIC_TO_CLIENT_MOUNT_KUN_TIWU_LV_RSP = 1577;  //化鲲提悟升级
+	CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_ACTIVE_REQ = 1578;  //化鲲异化激活
+	LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_ACTIVE_RSP = 1579;  //化鲲异化激活
+	CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_STAR_REQ = 1580;  //化鲲异化升星
+	LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_STAR_RSP = 1581;  //化鲲异化升星
+	CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_DRESS_REQ = 1582;  //化鲲异化穿戴
+	LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_DRESS_RSP = 1583;  //化鲲异化穿戴
+	CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_UNDRESS_REQ = 1584;  //化鲲异化穿戴
+	LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_UNDRESS_RSP = 1585;  //化鲲异化穿戴
+	CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_INFO_REQ = 1586;  //化鲲异化信息
+	LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_INFO_RSP = 1587;  //化鲲异化信息
+	CLIENT_TO_LOGIC_MOUNT_BLOOD_INFO_REQ	= 1588;//血脉信息
+	LOGIC_TO_CLIENT_MOUNT_BLOOD_INFO_RSP	= 1589;//血脉信息
+
+	CLIENT_TO_LOGIC_MOUNT_BLOOD_RESET_REQ	= 1590;//血脉重置
+	LOGIC_TO_CLIENT_MOUNT_BLOOD_RESET_RSP	= 1591;//血脉重置
+
+	CLIENT_TO_LOGIC_MOUNT_FAIRY_LAND_INFO_REQ = 1592; //坐骑历练信息
+	LOGIC_TO_CLIENT_MOUNT_FAIRY_LAND_INFO_RSP = 1593; //坐骑历练信息
+	NOTIFY_MOUNT_FAIRY_TOUR_CHANGE = 1594; //坐骑游历信息改变
+	CLIENT_TO_LOGIC_MOUNT_SELECT_FAIRY_SLOT_REQ = 1595; //坐骑历练
+	LOGIC_TO_CLIENT_MOUNT_SELECT_FAIRY_SLOT_RSP = 1596; //坐骑历练
+	NOTIFY_FAIRY_SLOT_GET_REWARD = 1597; //通知领取奖励
+	CLIENT_TO_LOGIC_MOUNT_GET_FAIRY_SLOT_REWARD_REQ = 1598; //坐骑历练领取奖励
+	LOGIC_TO_CLIENT_MOUNT_GET_FAIRY_SLOT_REWARD_RSP = 1599; //坐骑历练领取奖励
+	CLIENT_TO_LOGIC_MOUNT_ACTIVE_FAIRY_TOUR_REQ = 1527; //坐骑历练激活游记
+	LOGIC_TO_CLIENT_MOUNT_ACTIVE_FAIRY_TOUR_RSP = 1528; //坐骑历练激活游记
+	CLIENT_TO_LOGIC_MOUNT_UNLOCK_FAIRY_SLOT_REQ = 1512; //坐骑历练解锁槽位
+	LOGIC_TO_CLIENT_MOUNT_UNLOCK_FAIRY_SLOT_RSP = 1513; //坐骑历练解锁槽位
 
 	//天神系统 1600 - 1699
 	/////////////////////////////////////////////////////////////////
@@ -656,14 +777,23 @@ enum ClientServerCmd
 	NOTIFY_PET_GETED_LIST_RSP		= 1729;	//获得过的宠物配置ID列表
 	CLIENT_PET_REVIEW_REQ			= 1730;	//宠物重生预览请求
 	CLIENT_PET_REVIEW_RSP			= 1731;	//宠物重生预览返回
-
+	NOTIFY_PET_GROW					= 1732;	//更新宠物专属列表信息
+	PET_GROW_OPT_REQ				= 1733;	//宠物专属操作
+	PET_GROW_OPT_RSP				= 1734;	//宠物专属操作返回
+	
+	
 	//商城 2050-2100
 	MALL_INFO_REQ					= 2050;	//请求商城信息
 	MALL_INFO_RSP					= 2051; //返回商城信息
 	MALL_BUY_REQ					= 2052;	//请求购买商品
 	MALL_BUY_RSP					= 2053;	//返回购买商品结果
 	MALL_INFO_UPDATE_RSP			= 2054; //商城信息更新
-	
+	MALL_HOLY_BEAST_EXCHARGE_REQ = 2055; //四方圣兽兑换
+	MALL_HOLY_BEAST_EXCHARGE_RSP = 2056; //四方圣兽兑换
+	MALL_SEND_FLOW_GIFT_REQ = 2057; //
+	MALL_SEND_FLOW_GIFT_RSP = 2058; //
+	MALL_RECV_FLOW_GIFT_NOTIFY = 2059;
+
 	//帮派 2101 - 2300
 	FACTION_SYNC_LOGIN				= 2101; //登录同步帮派信息给玩家
 	FACTION_SYNC_INFO				= 2102; //同步帮派信息给玩家
@@ -712,6 +842,50 @@ enum ClientServerCmd
 	FACTION_SALARY_FETCH_REQ		= 2145;	//请求 领取帮派工资奖励
 	FACTION_SALARY_FETCH_RSP		= 2146;	//返回 领取帮派工资奖励
 
+	FACTION_DINNER_INFO_UPDATE_RSP	= 2147; //更新 帮派晚宴信息
+	FACTION_TRANS_INVITE_LIST_REQ   = 2148; //请求 可邀请传功的角色列表
+	FACTION_TRANS_INVITE_LIST_RSP   = 2149; //返回 可邀请传功的角色列表
+	FACTION_TRANS_ACCEPT_LIST_RSP	= 2150; //返回 可接受传功的角色列表
+	FACTION_TRANS_INVITE_REQ		= 2151; //发出 传功邀请
+	FACTION_TRANS_INVITE_RSP		= 2152; //发出 传功邀请
+	FACTION_TRANS_INVITE_NOTIFY		= 2153; //通知 玩家收到传功邀请
+	FACTION_TRANS_AGREE_REQ			= 2154; //同意 传功邀请 
+	FACTION_TRANS_AGREE_RSP			= 2155; //返回 同意 传功邀请 的操作结果
+	FACTION_TRANS_ACCEPT_DEL		= 2156; //通知 从可接受传功列表中移除
+
+	FACTION_SKILL_INFO_REQ			= 2157;	//请求 帮派技能信息
+	FACTION_SKILL_INFO_RSP			= 2158;	//返回 帮派技能信息
+	FACTION_SKILL_UPDATE_RSP		= 2159;	//帮派技能更新
+	FACTION_SKILL_UPGRADE_REQ		= 2160; //请求 帮派技能升级
+	FACTION_SKILL_UPGRADE_RSP		= 2161; //返回 帮派技能升级结果
+
+	FACTION_ANSWER_RANK_LIST_REQ	= 2162;  //请求帮派答题排名
+	FACTION_ANSWER_RANK_LIST_RSP	= 2163;  //返回 帮派答题排名
+	FACTION_ANSWER_CUR_RANK_RSP		= 2164;  //返回 当前答题活动的答题排名
+	FACTION_ANSWER_STAGE_RSP		= 2165;  //返回 答题阶段信息
+	FACTION_ANSWER_RESULT_RSP		= 2166;  //返回 答题结果
+	FACTION_ANSWER_FINAL_RSP		= 2174;  //返回 答题最终的排名信息
+
+	FACTION_BEAST_INFO_REQ			= 2167;	//请求帮派神兽信息
+	FACTION_BEAST_INFO_RSP			= 2168;	//返回帮派神兽信息
+	FACTION_BEAST_NOTIFY_OPEN_INFO	= 2169; //通知帮派神兽开启信息
+	FACTION_BEAST_OPEN_REQ			= 2170;	//请求开启帮派神兽
+	FACTION_BEAST_OPEN_RSP			= 2171;	//返回开启帮派神兽结果
+	FACTION_BEAST_CUR_HARM_RANK_RSP	= 2172; //返回帮派神兽当前实时伤害排名
+	FACTION_BEAST_FINISH_RSP		= 2173;	//返回帮派神兽完成信息
+
+	FACTION_GUARD_PERSON_RANK_INFO_REQ			= 2180;	//请求帮派守卫个人排名信息(外部)
+	FACTION_GUARD_PERSON_RANK_INFO_RSP			= 2181;	//返回帮派守卫个人排名信息(外部)
+	FACTION_GUARD_PERSON_INTO_UPDATE = 2182; //通知帮派守卫个人排名信息(个人排名更新(场景里自动推送))
+	FACTION_GUARD_SOCIAL_RANK_LIST_REQ	= 2183;  //请求帮派守卫跨服排名(外部)
+	FACTION_GUARD_SOCIAL_RANK_LIST_RSP	= 2184;  //返回 帮派守卫跨服排名(外部)
+	FATION_GUARD_SOCIAL_RANK_LIST_UPDATE		= 2185;  //通知帮派守卫跨服排名信息(个人排名更新(场景里自动推送))
+	FACTION_GUARD_SCENE_INFO_REQ	= 2186;	//请求帮派守卫场景信息
+	FACTION_GUARD_SCENE_INFO_RSP	= 2187;	//返回帮派守卫场景信息
+	FACTION_GUARD_MONSTER_INFO_NOTIFY = 2188; //怪物信息返回
+	FACTION_GUARD_FINISH_RSP = 2189; ////返回帮派守卫完成信息
+	FACTION_GUARD_ENCOURAGEMENT_REQ = 2190; //帮派守卫鼓舞
+	FACTION_GUARD_ENCOURAGEMENT_RSP = 2191; //帮派守卫鼓舞
 
 	//护送
 	NOTIFY_CONVOY_INFO				= 2200; //护送信息
@@ -746,12 +920,15 @@ enum ClientServerCmd
 	ASSIST_RECV_THANK_REQ		= 2237;	//领取感谢奖励
 	ASSIST_RECV_THANK_RSP		= 2238;	//领取感谢奖励
 	NOTIFY_SEND_HELP_STATE		= 2239;	//求援人状态
+	NOTIFY_BOSS_GO_BACK			= 2240;	//通知boss回归
+	
 
 	//神机谷战场2250 - 2300
 	GVB_ENTER_REQ 		= 2250;//请求进入战场
 	GVB_ENTER_RSP		= 2251;//返回进入结果
 	GVB_DatasRR 		= 2252;//请求完成数据
 	GVB_ExitReq			= 2253;//退出
+	GVB_TransFailed		= 2254;//传送失败
 	GVB_ResultBC 		= 2255;//结算
 	GVB_SelfInfoUpdateNT= 2256;//个人战场信息更新
 	GVB_KillPlayerBC    = 2257;//广播杀人
@@ -765,6 +942,11 @@ enum ClientServerCmd
 	GVB_M3AttrChgBC		 =2265;	//广播怪物属性发生变化
 	GVB_DailyScoreDataRsp=2266;
 	GVB_DailyScoreDataReq=2267;
+	GVB_DailyScoreRewardRcvReq=2268;//领取日积分奖励
+	GVB_DailyScoreRewardRcvRsp=2269;
+	GVB_CrystalOwnerPosReq=2270;//获取水晶拥有者的位置
+	GVB_CrystalOwnerPosRsp=2271;//获取水晶拥有者的位置
+	GVB_EnterError=2272;//进入出错
 
 
 	//神魔 2300 - 2400
@@ -785,6 +967,26 @@ enum ClientServerCmd
 	GOD_EVIL_CHANGE_REQ			= 2314;	//请求 神魔切换
 	GOD_EVIL_CHANGE_RSP			= 2315;	//返回 神魔切换结果
 	GOD_EVIL_EXTRA_EXP_NOTIFY	= 2316; //更新 额外存储的神魔之息
+	GOD_EVIL_UPDATE_EQUIP_RSP	= 2317; //更新 神魔鼎或神魔镜装备信息
+	GOD_EVIL_EQUIP_LIST_REQ		= 2318;	//请求神魔装备列表
+	GOD_EVIL_EQUIP_LIST_RSP		= 2319;	//返回神魔装备列表
+	GOD_EVIL_EQUIP_UPDATE_RSP	= 2320; //更新神魔装备信息
+	GOD_EVIL_EQUIP_DRESS_REQ	= 2321; //请求穿戴神魔装备
+	GOD_EVIL_EQUIP_DRESS_RSP	= 2322;	//返回穿戴神魔装备结果
+	GOD_EVIL_EQUIP_UNDRESS_REQ	= 2323;	//请求卸下神魔装备
+	GOD_EVIL_EQUIP_UNDRESS_RSP	= 2324;	//返回卸下神魔装备结果
+	GOD_EVIL_EQUIP_TRANS_REQ	= 2325;	//请求装备转移
+	GOD_EVIL_EQUIP_TRANS_RSP	= 2326;	//返回装备转移结果
+	GOD_EVIL_EQUIP_STRONG_REQ	= 2327;	//请求强化
+	GOD_EVIL_EQUIP_STRONG_RSP	= 2328;	//返回强化结果
+	GOD_EVIL_EQUIP_WEAR_QUA_REQ	= 2329;	//请求升阶
+	GOD_EVIL_EQUIP_WEAR_QUA_RSP	= 2330;	//返回升阶结果
+	GOD_EVIL_EQUIP_QUA_REQ		= 2331;	//请求升品
+	GOD_EVIL_EQUIP_QUA_RSP		= 2332;	//返回升品结果
+	GOD_EVIL_EQUIP_MAKE_REQ		= 2333;	//请求打造
+	GOD_EVIL_EQUIP_MAKE_RSP		= 2334;	//返回升品
+
+
 
 	//title
 	CLIENT_TO_LOGIC_TITLE_INFO_REQ = 2400; //请求标题信息
@@ -823,6 +1025,63 @@ enum ClientServerCmd
 
 	CLIENT_TO_LOGIC_GUILD_PRESTIGE_MISSION_RECV_REWARD_REQ = 2438; //公会声望任务领取奖励
 	LOGIC_TO_CLIENT_GUILD_PRESTIGE_MISSION_RECV_REWARD_RSP = 2439; //公会声望任务领取奖励
+
+	//藏经阁 图鉴
+	CLIENT_TO_LOGIC_HANDBOOK_INFO_REQ = 2450; //藏经阁图鉴信息
+	LOGIC_TO_CLIENT_HANDBOOK_INFO_RSP = 2451; //藏经阁图鉴信息
+
+	CLIENT_TO_LOGIC_HANDBOOK_ACTIVE_REQ = 2452; //激活图鉴
+	LOGIC_TO_CLIENT_HANDBOOK_ACTIVE_RSP = 2453; //激活图鉴
+
+	CLIENT_TO_LOGIC_HANDBOOK_LEVEL_UP_REQ = 2454; //升级图鉴
+	LOGIC_TO_CLIENT_HANDBOOK_LEVEL_UP_RSP = 2455; //升级图鉴
+
+	CLIENT_TO_LOGIC_HANDBOOK_STAR_UP_REQ = 2456; //升星图鉴
+	LOGIC_TO_CLIENT_HANDBOOK_STAR_UP_RSP = 2457; //升星图鉴
+
+	CLIENT_TO_LOGIC_HANDBOOK_DECOMPOSE_REQ = 2458; //分解图鉴
+	LOGIC_TO_CLIENT_HANDBOOK_DECOMPOSE_RSP = 2459; //分解图鉴
+
+	CLIENT_TO_LOGIC_HANDBOOK_FETTERS_REQ = 2560; //藏经阁图鉴羁绊信息
+	LOGIC_TO_CLIENT_HANDBOOK_FETTERS_RSP = 2561; //藏经阁图鉴羁绊信息
+
+	CLIENT_TO_LOGIC_HANDBOOK_FETTERS_ACTIVE_REQ = 2562; //藏经阁图鉴羁绊信息
+	LOGIC_TO_CLIENT_HANDBOOK_FETTERS_ACTIVE_RSP = 2563; //藏经阁图鉴羁绊信息
+
+	CLIENT_TO_LOGIC_HANDBOOK_EMPLOY_INFO_REQ = 2564; //收录信息
+	LOGIC_TO_CLIENT_HANDBOOK_EMPLOY_INFO_RSP = 2565; //收录信息
+
+	CLIENT_TO_CLIENT_HANDBOOK_EMPLOY_ACTIVE_REQ = 2566; //激活收录
+	LOGIC_TO_CLIENT_HANDBOOK_EMPLOY_ACTIVE_RSP = 2567; //激活收录
+
+	NOTIFY_HANDBOOK_EMPLOY_STATUS_CHANGE = 2568; //收录状态改变
+	NOTIFY_HANDBOOK_TABLE_STATUS_CHANGE = 2569; //天机普状态改变
+
+	CLIENT_TO_LOGIC_HANDBOOK_BEAST_INFO_REQ = 2570; //获取神兽信息
+	LOGIC_TO_CLIENT_HANDBOOK_BEAST_INFO_RSP = 2571; //获取神兽信息
+
+	CLIENT_TO_LOGIC_HANDBOOK_BEAST_EQUIP_DRESS_REQ = 2572; //神兽装备穿戴
+	LOGIC_TO_CLIENT_HANDBOOK_BEAST_EQUIP_DRESS_RSP = 2573; //神兽装备穿戴
+
+	CLIENT_TO_LOGIC_HANDBOOK_BEAST_UNDRESS_REQ = 2574; //神兽装备卸下来
+	LOGIC_TO_CLIENT_HANDBOOK_BEAST_UNDRESS_RSP = 2575; //神兽装备卸下来
+
+	CLIENT_TO_LOGIC_HANDBOOK_BEAST_EQUIP_STRONG_REQ = 2576; //神兽装备强化
+	LOGIC_TO_CLIENT_HANDBOOK_BEAST_EQUIP_STRONG_RSP = 2577; //神兽装备强化
+
+	CLIENT_TO_LOGIC_HANDBOOK_BEAST_EQUIP_STRONG_QUALITY_REQ = 2578; //神兽装备强化品质
+	LOGIC_TO_CLIENT_HANDBOOK_BEAST_EQUIP_STRONG_QUALITY_RSP = 2579; //神兽装备强化品质
+
+	CLIENT_TO_LOGIC_HANDBOOK_BEAST_ENTER_BATTLE_REQ = 2580; //神兽助战
+	LOGIC_TO_CLIENT_HANDBOOK_BEAST_ENTER_BATTLE_RSP = 2581; //神兽助战
+
+	CLIENT_TO_LOGIC_HANDBOOK_BEAST_QUIT_BATTLE_REQ = 2582; //神兽找回
+	LOGIC_TO_CLIENT_HANDBOOK_BEAST_QUIT_BATTLE_RSP = 2583; //神兽找回
+
+	NOTIFY_HANDBOOK_BEAST_CHANGE_INFO = 2585; //神兽更新
+
+	CLIENT_TO_LOGIC_HANDBOOK_BATTLE_SLOT_UNLOCK_REQ = 2586;
+	CLIENT_TO_LOGIC_HANDBOOK_BATTLE_SLOT_UNLOCK_RSP = 2587;
 
 	//充值 2500-2550
 	PAY_ORDER_ID_REQ		= 2500; //请求订单号
@@ -877,11 +1136,807 @@ enum ClientServerCmd
 	RED_FETCH_EXTRA_RSP			= 2614;	//返回领取额外奖励结果
 	RED_UPDATE_SEND_LIST_RSP	= 2615; //更新已发送红包列表
 
-
 	//修真2651-2700
 	PT_DataReq	=2651;
 	PT_DataRsp	=2652;
+	PT_StageUpReq=2653;
+	PT_StageUpRsp=2655;
+	PT_GBEventItemsRecvReq=2656;
+	PT_GBEnterAreaReq=2657;
+	PT_GBXLStartReq=2658;
+	PT_GBXLStartRsp=2659;
+	PT_GBEngryAddNT=2660;
+	PT_GBEventItemsRecvRsp=2661;
+	PT_ErrorRsp=2662;
+	PT_GBEnterAreaRsp=2663;
+	PT_gbLvlUpReq=2664;
+	PT_gbLvlUpRsp=2665;
+	PT_ebLvlUpReq=2666;
+	PT_ebLvlUpRsp=2667;
+	PT_gfActiveReq=2668;
+	PT_gfActiveRsp=2669;
+	PT_gfLvlUpReq=2670;
+	PT_gfLvlUpRsp=2671;
+	PT_gfStageUpReq=2672;
+	PT_gfStageUpRsp=2673;
+	PT_jmLvlUpReq=2674;
+	PT_jmLvlUpRsp=2675;
+	PT_jmStageUpReq=2676;
+	PT_jmStageUpRsp=2677;
+	PT_lgLvlUpReq=2678;
+	PT_lgLvlUpRsp=2679;
+	PT_jmMergeUpReq=2680;
+	PT_jmMergeUpRsp=2681;
+	PT_lgPotionUseReq=2682;//使用灵根丹药
+	PT_lgPotionUseRsp=2683;//使用结果
+	PT_PurchasedResult=2684;//修真特权购买
+	PT_PurchaseGfBookResult=2685;//修真购买功法秘籍
+	PT_GBXLStateChanged = 2686;//修练状态发生变化
 
 
+
+	//////////////////////////成就系统2700-2710////////////////////////////////
+	CLIENT_TO_LOGIC_ACHIEVEMENT_INFO_REQ = 2700; //请求成就系统数据
+	LOGIC_TO_CLIENT_ACHIEVEMENT_INFO_RSP = 2701; //请求成就系统数据
+
+	CLIENT_TO_LOGIC_ACHIEVEMENT_GET_REWARD_REQ = 2702; //获取成就系统奖励
+	LOGIC_TO_CLIENT_ACHIEVEMENT_GET_REWARD_RSP = 2703; //获取成就系统奖励
+
+	CLIENT_TO_LOGIC_ACHIEVEMENT_TOTAL_GET_REWARD_REQ = 2704; //获取成就总览系统奖励
+	LOGIC_TO_CLIENT_ACHIEVEMENT_TOTAL_GET_REWARD_RSP = 2705; //获取成就总览系统奖励
+
+	NOTIFY_ACHIEVEMENT_DATA_CHANGE = 2706; //成就系统数据改变
+	NOTIFY_ACHIEVEMENT_TOTAL_DATA_CHANGE = 2707; //成就总览数据改变
+
+	//////////////////////////排行榜2710-2720////////////////////////////////
+	CLIENT_TO_LOGIC_RANK_DATA_REQ					= 2710;	// 请求排行榜数据
+	LOGIC_TO_CLIENT_RANK_DATA_RSP					= 2711;	//排行榜数据
+
+
+	//PVP 2730-2750
+	PVP_CHG_PK_MODE_REQ = 2730;				//请求修改PK模式
+	PVP_CHG_PK_MODE_RSP = 2731;				//返回 修改PK模式的结果
+	PVP_STRIKE_LIST_NOTIFY = 2732;			//反击列表通知
+	PVP_PK_MODE_NOTIFY = 2733;				//PK模式通知
+	PVP_WAR_EMBLEM_REQ = 2734;				//请求 战徽/战旗数据
+	PVP_WAR_EMBLEM_RSP = 2735;				//返回 战徽/战旗数据
+	PVP_WAR_EMBLEM_UPDATE_RSP = 2736;		//更新 战徽/战旗数据
+	PVP_WAR_EMBLEM_SOUL_REQ	= 2737;			//请求 战徽/战旗 注魂
+	PVP_WAR_EMBLEM_SOUL_RSP = 2738;			//返回 战徽/战旗 注魂 结果
+	PVP_WAR_EMBLEM_STAR_REQ	= 2739;			//请求 战徽/战旗 升星
+	PVP_WAR_EMBLEM_STAR_RSP = 2740;			//返回 战徽/战旗 升星 结果
+	PVP_1V1_INFO_REQ = 2741;				//请求1v1赛季信息
+	PVP_1V1_INFO_RSP = 2742;				//返回1v1赛季信息
+	PVP_1V1_INFO_UPDATE_RSP = 2743;			//更新1v1赛季信息
+	PVP_1V1_FETCH_REWARD_REQ = 2744;		//请求领取1v1宝箱奖励
+	PVP_1V1_FETCH_REWARD_RSP = 2745;		//返回领取1v1宝箱奖励的结果
+	PVP_1V1_RANK_REQ = 2746;				//请求1v1英雄榜
+	PVP_1V1_RANK_RSP = 2747;				//返回 1v1英雄榜
+	PVP_1V1_RANK_SIMPLE_RSP = 2748;			//返回 1v1英雄榜简要信息
+	PVP_1V1_RESULT_RSP = 2749;				//返回 1v1结果信息
+	PVP_1V1_MATCH_REQ = 2750;				//请求 1v1匹配
+	PVP_1V1_MATCH_RSP = 2751;				//返回 1v1匹配结果
+
+
+	//上古神灵
+	NOTIFY_ANCIENT	= 2800;					//1数据通知
+	ANCIENT_UNLOCK_NUM_REQ = 2801;			//解锁神灵数量
+	ANCIENT_UNLOCK_NUM_RSP = 2802;			//解锁神灵数量返回
+	ANCIENT_UNLOCK_REQ = 2803;				//解锁神灵
+	ANCIENT_UNLOCK_RSP = 2804;				//解锁神灵返回
+	ANCIENT_LV_REQ = 2805;					//神灵进阶
+	ANCIENT_LV_RSP = 2806;					//神灵进阶返回
+	ANCIENT_STAR_UNLCOK_REQ = 2807;			//解锁星级
+	ANCIENT_STAR_UNLCOK_RSP = 2808;			//解锁星级返回
+	ANCIENT_BLESS_REQ = 2809;				//加幸运
+	ANCIENT_BLESS_RSP = 2810;				//加幸运返回
+	
+	//结婚
+	NOTIFY_MARRY_SELF = 2820;				//通知自己的结婚数据
+	NOTIFY_MARRY_DST = 2821;				//通知结婚对象的数据
+	NOTIFY_MARRY_SHARE = 2822;				//双方共享的数据
+	MARRY_REQ = 2823;						//结婚请求
+	MARRY_RSP = 2824;						//结婚返回
+	NOTIFY_MARRY_APPLY = 2825;				//结婚申请通知
+	MARRY_APPLY_OPT_REQ = 2826;				//结婚申请(同意/拒绝)操作
+	MARRY_APPLY_OPT_RSP = 2827;				//结婚申请(同意/拒绝)操作返回
+	NOTIFY_MARRY_REFUSE = 2828;				//拒绝通知
+	NOTIFY_MARRY_CMPT = 2829;				//结婚完成通知
+	MARRY_RECV_CHILD_REQ = 2830;			//领取仙娃id请求
+	MARRY_RECV_CHILD_RSP = 2831;			//领取仙娃id返回
+	MARRY_WEDDING_DATA_REQ = 2832;			//婚宴页面数据
+	NOTIFY_WEDDING_DATA = 2833;				//婚宴数据通知
+	DIVORCE_REQ = 2834;						//离婚请求
+	DIVORCE_RSP = 2835;						//离婚返回
+	MARRY_CHILD_OPT_REQ = 2836;				//仙娃养成
+	MARRY_CHILD_OPT_RSP = 2837;				//仙娃养成返回
+	EXPRESS_REQ = 2838;						//表白请求
+	EXPRESS_RSP = 2839;						//表白返回
+	NOTIFY_EXPRESS_TO_DST = 2840;			//表白通知
+	EXPRESS_DATA_REQ = 2841;				//请求表白数据
+	EXPRESS_DATA_RSP = 2842;				//表白数据返回
+	MARRY_INVITE_DST_BUY_DUP_REQ = 2843;	//让目标购买情缘副本次数
+	MARRY_INVITE_DST_BUY_DUP_RSP = 2844;	//目标购买情缘副本次数返回
+	NOTIFY_MARRY_DST_BUY_DUP = 2845;		//给目标弹框购买副本次数
+	MARRY_BUY_DUP_REQ = 2846;				//自己购买情缘副本次数
+	MARRY_BUY_DUP_RSP = 2847;				//自己购买情缘副本返回
+	MARRY_RECV_GEAR_REWARD_REQ = 2848;		//领取结婚奖励请求
+	MARRY_RECV_GEAR_REWARD_RSP = 2849;		//领取结婚奖励请求
+	NOTIFY_MARRY_BUY_RESULT	= 2850;			//通知对方自己购买副本结果
+	MARRY_LOCK_LV_REQ	= 2851;				//同心锁升级
+	MARRY_LOCK_LV_RSP	= 2852;				//同心锁返回
+	MARRY_BOX_BUY_REQ	= 2853;				//购买宝匣
+	MARRY_BOX_BUY_RSP	= 2854;				//购买宝匣返回
+	MARRY_BOX_RECV_REQ  = 2855;				//领取宝匣奖励
+	MARRY_BOX_RECV_RSP  = 2856;				//领取宝匣奖励返回
+	NOTIFY_NEW_MARRY	= 2857;				//全服新婚通知
+	NOTIFY_MARRY_DUP_SELECT = 2858;			//结婚副本图案选择
+	MARRY_DUP_SELECT_REQ	= 2859;			//情缘副本选图案
+	MARRY_DUP_SELECT_RSP	= 2860;			//情缘副本选图案返回
+	NOTIFY_MARRY_DUP_RESULT	= 2861;			//通知情缘副本结果
+	SEARCH_MARRY_FRIEND_REQ = 2862;			//查找周围没有结婚的好友
+	SEARCH_MARRY_FRIEND_RSP = 2863;			//查找周围没有结婚的好友
+	MARRY_BUY_REFUSE_REQ = 2864;			//对方拒绝购买副本
+	MARRY_TASK_RECV_REQ	= 2865;				//领取结婚预告奖励
+	MARRY_TASK_RECV_RSP = 2866;				//领取结婚预告奖励返回
+	MAKE_WEDDING_REQ = 2867;				//预约婚宴
+	MAKE_WEDDING_RSP = 2868;				//预约婚宴返回
+	WEDDING_INVITE_REQ = 2869;				//婚宴邀请
+	WEDDING_INVITE_RSP = 2870;				//婚宴邀请返回
+	NOTIFY_WEDDING_PLAN	= 2871;				//当日开启的婚宴列表
+	NOTIFY_WEDDING_ROLE = 2872;				//玩家个人婚宴数据
+	NOTIFY_WEDDING_STEP = 2873;				//当前婚宴阶段通知
+	NOTIFY_WEDDING_INVITE = 2874;			//通知被邀请成功
+	WEDDING_BUY_SEAT_REQ = 2875;			//购买婚宴席位
+	WEDDING_BUY_SEAT_RSP = 2876;			//购买婚宴席位返回
+	WEDDING_APPLY_REQ = 2877;				//索要请帖
+	WEDDING_APPLY_RSP = 2878;				//索要请帖返回
+	NOTIFY_WEDDING_TOUR_FOLLOW = 2879;		//通知巡游玩家跟随怪物
+	NOTIFY_WEDDING_APPLY = 2880;			//通知主办方有人申请
+	//婚宴副本
+	WEDDING_SIGN_REQ = 2885;				//婚宴签到
+	WEDDING_SIGN_RSP = 2886;				//婚宴签到
+	WEDDING_FIRE_REQ = 2887;				//婚宴放烟花
+	WEDDING_FIRE_RSP = 2888;				//婚宴放烟花
+	NOTIFY_WEDDING_DUP_DATA = 2889;			//更新婚宴副本数据
+	NOTIFY_WEDDING_DUP_ROLE = 2890;			//更新婚宴副本玩家数据
+	THROW_CAKE_REQ = 2891;					//丢蛋糕
+	THROW_CAKE_RSP = 2892;					//丢蛋糕返回
+	NOTIFY_BROAD_FIRE = 2893;				//广播烟花
+	NOTIFY_MARRY_RED_NUM = 2894;			//广播红包数量
+	SEND_MARRY_RED_REQ = 2895;				//发送巡游红包
+	SEND_MARRY_RED_RSP = 2896;				//发送巡游红包返回
+	//合成
+	MERGE_REQ 	= 3000;						//合成请求
+	MERGE_RSP 	= 3001;						//合成返回
+
+	//个人商店3020 - 3040
+	PS_DatasReq = 3020;					
+	PS_DatasRsp = 3021;
+	PS_PurchaseReq = 3022;
+	PS_PurchaseRsp = 3023;
+	PS_RefreshReq = 3024;
+	PS_RefreshRsp = 3025;
+	PS_ShopsRmvNt = 3026;
+	PS_ShopAddNt  =3027;
+
+	//龙魂 3050-3080
+	CL_DragonSoulInfoReq = 3050; //龙魂信息请求
+	LC_DragonSoulInfoRsp = 3051; //龙魂信息请求
+	CL_DragonSoulActiveHoleReq = 3052; // 激活槽位
+	LC_DragonSoulActiveHoleRsp = 3053; // 激活槽位
+	CL_DragonSoulDressReq = 3054; // 龙魂附身
+	LC_DragonSoulDressRsp = 3055; // 龙魂附身
+	CL_DragonSoulUnDressReq = 3056; // 龙魂附身卸下来
+	LC_DragonSoulUnDressRsp = 3057; // 龙魂附身卸下来
+	CL_DragonSoulEquipStrongReq = 3058; //龙魂装备强化
+	LC_DragonSoulEquipStrongRsp = 3059; //龙魂装备强化
+	CL_DragonSoulEquipStrongQualityReq = 3060; //龙魂装备飞升
+	LC_DragonSoulEquipStrongQualityRsp = 3061; //龙魂装备飞升
+	CL_DragonSoulEquipWakeLvReq = 3062; //龙魂装备龙魂觉醒
+	LC_DragonSoulEquipWakeLvRsp = 3063; //龙魂装备龙魂觉醒
+	CL_DragonSoulEquipStarInfoReq = 3064; //龙魂凝集
+	LC_DragonSoulEquipStarInfoRsp = 3065; //龙魂凝集
+	CL_DragonSoulEquipStarActiveReq = 3067; //龙魂凝集激活
+	LC_DragonSoulEquipStarActiveRsp = 3068; //龙魂凝集激活
+
+	//神母瑶池 3081 - 3100
+	WPP_EnterReq		=3081;//请求进入
+	WPP_EnterRsp		=3082;//
+	WPP_PairPracticeReq	=3083;//双修
+	WPP_PairPracticeRsp	=3084;//
+	WPP_MassageReq		=3085;//按摩
+	WPP_MassageRsp		=3086;//
+	WPP_SplashReq		=3087;//泼水
+	WPP_SplashRsp		=3088;//
+	WPP_ExpAddNt		=3089;//定期加经验通知
+	WPP_CollectCDNt		=3090;//通知客户端采集刷新倒计时
+	WPP_CollectRsp		=3092;//采集返回
+	WPP_ActionNt		=3093;//通知视野开始或退出按摩或双修行为状态
+	WPP_CancelCurActReq =3094;//取消当前行为
+	WPP_CancelCurActRsp =3095;//
+	WPP_ExitReq			=3096;
+	//青云之巅
+	ENTER_QY_ACT_REQ	=3100; //进入青云之巅活动
+	ENTER_QY_ACT_RSP	= 3101;	//进入青云之巅活动
+	NOTIFY_QY_ACT_DUP_DATA = 3102;	//青云之巅副本数据通知
+	NOTIFY_QY_ACT_RANK = 3103;	//青云之巅排行榜
+	NOTIFY_QY_PASS_LAYER = 3104;	//青云通关
+	
+	//帮派战 3120 - 3150
+	FACTION_WAR_RACE_INFO_REQ	 = 3120;		//请求帮派战赛区信息
+	FACTION_WAR_RACE_NFO_RSP	 = 3121;		//返回帮派战赛区信息
+	FACTION_WAR_RACE_MATCH_RSP	 = 3122;		//通知赛区匹配信息 
+	FACTION_WAR_RANK_REQ		 = 3123;		//请求帮派战 帮派排名
+	FACTION_WAR_RANK_RSP		 = 3124;		//返回帮派战 帮派排名
+	FACTION_WAR_ENTER_BATTLE_REQ = 3125;		//请求进入帮派战 战场
+	FACTION_WAR_ENTER_BATTLE_RSP = 3126;		//返回进入帮派战 战场结果
+	FACTION_WAR_BATTLE_INFO_RSP  = 3127;        //通知战场信息
+	FACTION_WAR_DEF_TOWER_RSP	 = 3128;		//通知战场防御塔血量信息
+	FACTION_WAR_SCORE_RANK_RSP   = 3129;		//通知战场个人积分排名
+	FACTION_WAR_SCORE_RSP		 = 3130;		//通知帮派积分
+	FACTION_WAR_RESULT_RSP		 = 3131;		//通知帮派战 结果
+	FACTION_WAR_WIN_INFO_REQ	 = 3132;		//请求连胜信息
+	FACTION_WAR_WIN_INFO_RSP	 = 3133;		//返回连胜信息
+	FACTION_WAR_WIN_LEADER_REQ	 = 3234;		//请求连胜帮主信息
+	FACTION_WAR_WIN_LEADER_RSP	 = 3235;		//返回连胜帮主信息
+	FACTION_WAR_WIN_FETCH_REQ    = 3236;		//请求领取连胜每日俸禄
+	FACTION_WAR_WIN_FETCH_RSP    = 3237;		//返回 领取连胜每日俸禄 结果
+	FACTION_WAR_IS_FETCH_RSP	 = 3238;		//返回 今日是否已领取帮派战 每日俸禄
+
+
+
+	///////////福利 3150 - 3200/////////////////////////
+	CL_WelfareGetSignDataReq = 3150; //获得月签到数据
+	LC_WelfareGetSignDataRsp = 3151; //获得月签到数据
+	CL_WelfareGetSignRewardReq = 3152; //获得月签到奖励
+	LC_WelfareGetSignRewardRsp = 3153; //获得月签到奖励
+	CL_WelfareGetAccrueRewardReq = 3156; //获得本月已签到奖励
+	LC_WelfareGetAccrueRewardRsp = 3157; //获得本月已签到奖励
+
+	CL_WelfareGetLvRewardDataReq = 3160; //获得等级奖励数据
+	LC_WelfareGetLvRewardDataRsp = 3161; //获得等级奖励数据
+	CL_WelfareGetLvRewardRewardReq = 3162; //获得等级奖励奖励
+	LC_WelfareGetLvRewardRewardRsp = 3163; //获得等级奖励奖励
+
+	CL_WelfareGetOnlineRewardDataReq = 3165; //获得在线奖励数据
+	LC_WelfareGetOnlineRewardDataRsp = 3166; //获得在线奖励数据
+	CL_WelfareGetOnlineRewardRewardReq = 3167; //获得在线奖励奖励
+	LC_WelfareGetOnlineRewardRewardRsp = 3168; //获得在线奖励奖励
+
+	CL_WelfareGetNotifyRewardDataReq = 3170; //获得公告奖励数据
+	LC_WelfareGetNotifyRewardDataRsp = 3171; //获得公告奖励数据
+	CL_WelfareGetNotifyRewardRewardReq = 3172; //获得公告奖励奖励
+	LC_WelfareGetNotifyRewardRewardRsp = 3173; //获得公告奖励奖励
+
+	CL_WelfareGetFraudRewardDataReq = 3176; //获得防诈骗数据
+	LC_WelfareGetFraudRewardDataRsp = 3177; //获得防诈骗数据
+	CL_WelfareGetFraudRewardRewardReq = 3178; //获得防诈骗奖励
+	LC_WelfareGetFraudRewardRewardRsp = 3179; //获得防诈骗奖励
+
+	CL_WelfareGetWeekEndRewardDataReq = 3180; //获得周末奖励数据
+	LC_WelfareGetWeekEndRewardDataRsp = 3181; //获得周末奖励数据
+	CL_WelfareGetWeekEndRewardRewardReq = 3182; //获得周末奖励奖励
+	LC_WelfareGetWeekEndRewardRewardRsp = 3183; //获得周末奖励奖励
+////////////////祈福/////////////////////////////////
+	CL_WelfareGetQiFuDataReq = 3184; //获得祈福数据
+	LC_WelfareGetQiFuDataRsp = 3185; //获得祈福数据
+	CL_WelfareQiFuReq = 3186; //祈福
+	LC_WelfareQiFuRsp = 3187; //祈福
+	CL_WelfareSaveMoneyReq = 3188; //存钱
+	LC_WelfareSaveMoneyRsp = 3189; //存钱
+	CL_WelfareGetMoneyReq = 3190; //取钱
+	LC_WelfareGetMoneyRsp = 3191; //取钱
+
+	CL_WelfareGetLogonDataReq = 3192; //获得Logon数据
+	LC_WelfareGetLogonDataRsp = 3193; //获得Logon数据
+	CL_WelfareGetLogonRewardReq = 3194; //获得Logon励
+	LC_WelfareGetLogonRewardRsp = 3195; //获得Logon奖励
+
+	//clan 团队数据
+	APPLY_CLAN_LIST_REQ = 3300;				//查看可申请战队列表
+	NOTIFY_APPLY_CLAN_LIST = 3301;			//可申请战队列表通知
+	APPLY_CLAN_REQ = 3302;					//申请战队
+	APPLY_CLAN_RSP = 3303;					//申请战队返回
+	CLAN_CREATE_REQ = 3304;					//创建战队
+	CLAN_CREATE_RSP = 3305;					//创建战队返回
+	CLAN_DATA_REQ = 3306;					//玩家战队数据请求
+	NOTIFY_CLAN3_DATA = 3307;				//3v3战队数据通知
+	MODIFY_CLAN_INFO_REQ = 3308;			//修改战队信息
+	MODIFY_CLAN_INFO_RSP = 3309;			//修改战队信息返回
+	CLAN_APPLY_OPT_REQ = 3310;				//战队申请列表操作
+	CLAN_APPLY_OPT_RSP = 3311;				//战队申请列表操作返回
+	CLAN_ROLE_OPT_REQ = 3312;				//战队玩家操作请求
+	CLAN_ROLE_OPT_RSP = 3313;				//战队玩家操作返回
+	CLAN_INVITE_INFO_REQ = 3314;			//邀请信息查看
+	NOTIFY_CLAN_INVITE_INFO = 3315;			//邀请信息返回
+	CLAN_INVITE_ROLE_REQ = 3316;			//邀请请求
+	CLAN_INVITE_ROLE_RSP = 3317;			//邀请返回
+	NOTIFY_ADD_CLAN_INVITE = 3318;			//被邀请通知
+	INVITE_TARGET_OPT_REQ = 3319;			//被邀请着操作
+	INVITE_TARGET_OPT_RSP = 3320;			//被邀请着操作返回
+	NOTIFY_ROLE_CLAN_RANK = 3321;			//同步玩家战队排行
+	NOTIFY_ROLE_JOIN_CLAN = 3322;			//通知玩家加入战队
+	//pvp 3v3 
+	NOTIFY_CLAN3_ROLE_DATA = 3330;			//玩家3V3个人数据
+	CLAN3_SEASON_RANK_REQ = 3331;			//3v3赛季数据
+	CLAN3_SEASON_RANK_RSP = 3332;			//3v3赛季数据
+	ENTER_3V3_ACT_REQ = 3333;				//进入3v3活动
+	ENTER_3V3_ACT_RSP = 3334;				//进入3v3活动返回
+	CLAN3_JOIN_MATHCH_REQ = 3335;			//加入3v3匹配
+	CLAN3_JOIN_MATHCH_RSP = 3336;			//加入3v3匹配返回
+	CLAN3_CANCEL_MATCH_REQ = 3337;			//取消匹配
+	NOTIFY_CANCEL_MATCH_RSP = 3338;			//通知取消匹配
+	NOTIFY_CLAN3_MATCH_SUCCESS = 3339;		//匹配成功
+	NOTIFY_CLAN3_DUP_RUN = 3340;			//血量更新
+	NOTIFY_CLAN_RESULT = 3341;				//副本结果
+	NOTIFY_WAIT_DUP_SCENE_DATA = 3342;			//等待副本更新
+	CLAN3_RECV_ROLE_REWARD_REQ = 3343;			//领取个人宝箱
+	CLAN3_RECV_ROLE_REWARD_RSP = 3344;			//领取个人宝箱
+	NOTIFY_CLAN3_DUPKILL = 3345;				//杀人通知
+	
+	
+	//////////////////每日特惠3350-3400/////////////////////////////
+	CL_DailyWelfareGetXingYunDataReq = 3350; //获得幸运密匙数据
+	LC_DailyWelfareGetXingYunDataRsp = 3351; //获得幸运密匙数据
+	LC_DailyWelfareXingYunBuyNotify = 3352; //幸运密匙购买
+	CL_DailyWelfareGetXingYunRecordReq = 3353; //获得幸运密匙购买数据
+	LC_DailyWelfareGetXingYunRecordRsp = 3354; //获得幸运密匙购买数据
+	CL_DailyWelfareGetDailyGiftDataReq = 3355; //获得每日礼包数据
+	LC_DailyWelfareGetDailyGiftDataRsp = 3356; //获得每日礼包数据
+	LC_DailyWelfareDailyGiftBuyNotify = 3357; //每日礼包购买
+	CL_DailyWelfareGetDailyGiftRecordReq = 3358; //获得每日礼包购买数据
+	LC_DailyWelfareGetDailyGiftRecordRsp = 3359; //获得每日礼包购买数据
+	CL_DailyWelfareGetFreeDailyGiftRewardReq = 3360; //获得免费奖励
+	LC_DailyWelfareGetFreeDailyGiftRewardRsp = 3361; //获得免费奖励
+	CL_DailyWelfareGetTodayRechargeDataReq = 3362; //获得今天充值数据
+	LC_DailyWelfareGetTodayRechargeDataRsp = 3363; //获得今天充值数据
+	CL_DailyWelfareGetTodayRechargeRecordReq = 3364; //获得今天充值记录
+	LC_DailyWelfareGetTodayRechargeRecordRsp = 3365; //获得今天充值记录
+	LC_DailyWelfareGetTodayRechargeNotify	= 3366; //今天充值变更
+	CL_DailyWelfareGetAccRechargeDataReq = 3367; //获得累积充值数据
+	LC_DailyWelfareGetAccRechargeDataRsp = 3368; //获得累积充值数据
+	CL_DailyWelfareGetAccRechargeRecordReq = 3369; //获得累积充值记录
+	LC_DailyWelfareGetAccRechargeRecordRsp = 3370; //获得累积充值记录
+	LC_DailyWelfareGetAccRechargeNotify	= 3371; //累积充值变更
+	CL_DailyWelfareGetTodayRechargeRewardReq = 3372; //获得今天充值奖励
+	LC_DailyWelfareGetTodayRechargeRewardRsp = 3373; //获得今天充值奖励
+	CL_DailyWelfareGetAccRechargeRewardReq = 3374; //获得累积充值奖励
+	LC_DailyWelfareGetAccRechargeRewardRsp = 3375; //获得累积充值奖励
+	CL_DailyWelfareGetMonthCardDataReq = 3376; //获得月卡数据
+	LC_DailyWelfareGetMonthCardDataRsp = 3377; //获得月卡数据
+	CL_DailyWelfareGetMonthCardRewardReq = 3378; //获得月卡奖励
+	LC_DailyWelfareGetMonthCardRewardRsp = 3379; //获得月卡奖励
+	CL_DailyWelfareGetMonthCardRecordReq = 3380; //获得月卡记录
+	LC_DailyWelfareGetMonthCardRecordRsp = 3381; //获得月卡记录
+	LC_DailyWelfareMonthCardNotify = 3383; //月卡数据变更
+	CL_DailyWelfareGetXingYunSuperGiftRewardReq = 3384; //获得幸运密匙超级礼包奖励
+	LC_DailyWelfareGetXingYunSuperGiftRewardRsp = 3385; //获得幸运密匙超级礼包奖励
+	CL_DailyWelfareGetFreeXingYunRewardReq = 3386; //获得幸运密匙免费奖励
+	LC_DailyWelfareGetFreeXingYunSRewardRsp = 3387; //获得幸运密匙免费奖励
+	LC_DailyWelfareTurnableAccNotify = 3388; //转盘累冲数据变更
+	CL_DailyWelfareGetTurnableDataReq = 3389; //获得转盘数据
+	LC_DailyWelfareGetTurnableDataRsp = 3390; //获得转盘数据
+	CL_DailyWelfareGetTurnableAccRewardReq = 3391; //获得转盘累冲奖励
+	LC_DailyWelfareGetTTurnableAccRewardRsp = 3392; //获得转盘累冲奖励
+	CL_DailyWelfareTurnableReq = 3393; //转盘转动
+	LC_DailyWelfareTurnableRsp = 3394; //转盘转动
+	CL_DailyWelfareGetTurnableRewardReq = 3395; //获得转盘奖励
+	LC_DailyWelfareGetTurnableRewardRsp = 3396; //获得转盘奖励
+	CL_DailyWelfareGetTurnableRecordReq = 3397; //获得全服转盘记录
+	LC_DailyWelfareGetTurnableRecordRsp = 3398; //获得全服转盘记录
+	CL_DailyWelfareGetPersonTurnableRecordReq = 3399; //获得个人转盘记录
+	LC_DailyWelfareGetPersonTurnableRecordRsp = 3400; //获得个人转盘记录
+	CL_DailyWelfareGetYTTLGiftDataReq = 3420; //获得倚天/屠龙
+	LC_DailyWelfareGetYTTLGiftDataRsp = 3421; //获得倚天/屠龙
+
+	//夜战云颠(3401-3430)
+	CTP_EnterReq	=3401;
+	CTP_EnterRsp	=3402;
+	CTP_Result		=3403;//结算
+	CTP_ReadyStart 	=3404;//准备。。。
+	CTP_RoundStart 	=3405;//开始一轮
+	CTP_ScoreRankNt =3406;//积分排名通知
+	CTP_ScoreChgNt	=3407;//积分变更通知
+	CTP_KillNt		=3408;//杀人通知
+	CTP_PlayersChgNt=3409;//队人数发生变化通知
+	CTP_ExitReq		=3410;//退出
+	//////////////////////////修真之路3430-3450////////////////////////////////
+	CLIENT_TO_LOGIC_XIUZHENROAD_INFO_REQ = 3430; //请求修真之路数据
+	LOGIC_TO_CLIENT_XIUZHENROAD_INFO_RSP = 3431; //请求修真之路数据
+	CLIENT_TO_LOGIC_XIUZHENROAD_GET_REWARD_REQ = 3432; //获取修真之路奖励
+	LOGIC_TO_CLIENT_XIUZHENROAD_GET_REWARD_RSP = 3433; //获取修真之路奖励
+	NOTIFY_XIUZHENROAD_DATA_CHANGE = 3434; //修真之路数据改变
+	CLIENT_TO_LOGIC_XIUZHENROAD_POINTS_GET_REWARD_REQ = 3437; //获取修真之路奖励点奖励
+	LOGIC_TO_CLIENT_XIUZHENROAD_POINTS_GET_REWARD_RSP = 3438; //获取修真之路奖励点奖励
+	NOTIFY_XIUZHENROAD_POINTS_DATA_CHANGE = 3439; //修真之路奖励点数据改变
+	NOTIFY_XIUZHENROAD_RECHARGE_DATA_CHANGE = 3440; //修真之路充值数据改变
+	CLIENT_TO_LOGIC_XIUZHENROAD_BACK_INFO_REQ = 3441; //请求修真之路找回数据
+	LOGIC_TO_CLIENT_XIUZHENROAD_BACK_INFO_RSP = 3442; //请求修真之路找回数据
+	CLIENT_TO_LOGIC_XIUZHENROAD_GET_BACK_REWARD_INFO_REQ = 3443; //请求修真之路获取找回奖励
+	LOGIC_TO_CLIENT_XIUZHENROAD_GET_BACK_REWARD_INFO_RSP = 3444; //请求修真之路获取找回奖励
+
+
+	//充值相关的活动 3450 - 3500  （首充、贵族-开服累充、一元豪礼）
+	CHARGE_FIRST_INFO_REQ		= 3450;			//请求首充活动信息
+	CHARGE_FIRST_INFO_RSP		= 3451;			//返回首充活动信息
+	CHARGE_FIRST_FETCH_REQ		= 3452;			//请求领取首充活动奖励
+	CHARGE_FIRST_FETCH_RSP		= 3453;			//返回领取首充活动奖励结果
+	CHARGE_FIRST_TOTAL_RSP		= 3454;			//返回首充活动累计充值额度
+	CHARGE_OPEN_TOTAL_INFO_REQ	= 3455;			//请求开服累充活动信息
+	CHARGE_OPEN_TOTAL_INFO_RSP	= 3456;			//返回开服累充活动信息
+	CHARGE_OPEN_TOTAL_FETCH_REQ = 3457;			//请求领取开服累充奖励
+	CHARGE_OPEN_TOTAL_FETCH_RSP = 3458;			//返回领取开服累充奖励结果
+	CHARGE_OPEN_TOTAL_UPDATE_RSP = 3459;		//更新开服累充 总额度
+
+
+	//礼包相关活动  3520 - 3550
+	GIFT_COND_INFO_REQ			= 3520;			//请求条件礼包信息
+	GIFT_COND_INFO_RSP			= 3521;			//返回 条件礼包信息
+	GIFT_COND_UPDATE_RSP		= 3522;         //更新 条件礼包信息
+	GIFT_COND_BUY_REQ			= 3523;			//购买 条件礼包
+	GIFT_COND_BUY_RSP			= 3524;			//返回 购买 条件礼包结果
+
+	GIFT_ZERO_INFO_REQ			= 3525;			//请求0元礼包信息
+	GIFT_ZERO_INFO_RSP			= 3526;			//返回0元礼包信息
+	GIFT_ZERO_UPDATE_RSP		= 3527;			//更新 0元礼包信息
+	GIFT_ZERO_BUY_REQ			= 3528;			//购买 0元礼包
+	GIFT_ZERO_BUY_RSP			= 3529;			//返回 购买0元礼包 结果
+	GIFT_ZERO_FETCH_REQ			= 3530;			//领取0元礼包返还的货币
+	GIFT_ZERO_FETCH_RSP			= 3531;			//领取0元礼包返还的货币 的结果
+	GIFT_ZERO_LOG_REQ			= 3532;			//请求 0元礼包购买日志
+	GIFT_ZERO_LOG_RSP			= 3533;			//返回 0元礼包购买日志
+
+	//////////////////////////传奇项链 goal task 3550-3570////////////////////////////////
+	CLIENT_TO_LOGIC_GOAL_INFO_REQ = 3550; //请求传奇项链goal数据
+	LOGIC_TO_CLIENT_GOAL_INFO_RSP = 3551; //请求传奇项链goal数据
+	CLIENT_TO_LOGIC_GOAL_GET_REWARD_REQ = 3552; //请求传奇项链goal奖励
+	LOGIC_TO_CLIENT_GOAL_GET_REWARD_RSP = 3553; //请求传奇项链goal奖励
+	CLIENT_TO_LOGIC_GOAL_GET_TASK_REWARD_REQ = 3554; //请求传奇项链goal任务奖励
+	LOGIC_TO_CLIENT_GOAL_GET_TASK_REWARD_RSP = 3555; //请求传奇项链goal任务奖励
+	LOGIC_TO_CLIENT_GOAL_TASK_CHANGE_NOTIFY = 3556; //请求传奇项链goal任务数据改变
+	/////////////////////////gift 超值必买 3570-3580////////////////////////////////
+	CLIENT_TO_LOGIC_GIFT_SUPER_BUY_INFO_REQ = 3570; //请求超值必买数据
+	LOGIC_TO_CLIENT_GIFT_SUPER_BUY_INFO_RSP = 3571; //请求超值必买数据
+	CLIENT_TO_LOGIC_BUY_GIFT_SUPER_BUY_REQ = 3572; //请求购买超值必买里的仙玉礼包
+	LOGIC_TO_CLIENT_LOGIC_BUY_GIFT_SUPER_BUY_RSP = 3573; //请求购买超值必买里的仙玉礼包
+	NOTIFY_GIFT_SUPER_BUY_CHANGE = 3574; //超值必买数据更改
+	/////////////////////////特权投资 3580-3590////////////////////////////////
+	CLIENT_TO_LOGIC_GET_INVEST_INFO_REQ = 3580; //请求特权投资数据
+	LOGIC_TO_CLIENT_GET_INVEST_INFO_RSP = 3581; //请求特权投资数据
+	CLIENT_TO_LOGIC_GET_INVEST_REWARD_REQ = 3582; //请求特权投资奖励
+	LOGIC_TO_CLIENT_GET_INVEST_REWARD_RSP = 3583; //请求特权投资奖励
+	NOTIFY_INVEST_REWARD_DATA_CHANGE = 3584; //权投资奖励数据改变通知
+	CLIENT_TO_LOGIC_BUY_INVEST_REQ = 3585; //购买特权投资
+	LOGIC_TO_CLIENT_BUY_INVEST_RSP = 3586; //购买特权投资
+	/////////////////////天降福源3580-3610////////////////////////
+	CLIENT_TO_LOGIC_GET_BATTLE_PASS_INFO_REQ = 3590; //请求天降福源数据
+	LOGIC_TO_CLIENT_GET_BATTLE_PASS_INFO_RSP = 3591; //请求天降福源数据
+	CLIENT_TO_LOGIC_GET_BATTLE_PASS_REWARD_REQ = 3592; //请求天降福源奖励
+	LOGIC_TO_CLIENT_GET_BATTLE_PASS_REWARD_RSP = 3593; //请求天降福源奖励
+	CLIENT_TO_LOGIC_GET_BATTLE_PASS_TASK_REWARD_REQ = 3594; //请求天降福源任务奖励
+	LOGIC_TO_CLIENT_GET_BATTLE_PASS_TASK_REWARD_RSP = 3595; //请求天降福源任务奖励
+	CLIENT_TO_LOGIC_BUY_BATTLE_PASS_SHOP_REQ = 3596; //购买天降福源商店商品
+	LOGIC_TO_CLIENT_BUY_BATTLE_PASS_SHOP_RSP = 3597; //购买天降福源商店商品
+	CLIENT_TO_LOGIC_BUY_BATTLE_PASS_SUPER_REQ = 3598; //购买天降福源特权
+	LOGIC_TO_CLIENT_BUY_BATTLE_PASS_SUPER_RSP = 3599; //购买天降福源特权
+	NOTIFY_BATTLE_PASS_TASK_DATA_CHANGE = 3600; //通知天降福源任务数据修改
+	CLIENT_TO_LOGIC_IMMEDIATELY_GET_BATTLE_PASS_REWARD_REQ = 3601; //立即请求天降福源奖励
+	LOGIC_TO_CLIENT_IMMEDIATELY_GET_BATTLE_PASS_REWARD_RSP = 3602; //立即请求天降福源奖励
+	CLIENT_TO_LOGIC_REFRESH_BATTLE_PASS_TASK_REQ = 3603; //刷新天降福源奖励
+	LOGIC_TO_CLIENT_REFRESH_BATTLE_PASS_TASK_RSP = 3604; //刷新天降福源奖励
+
+	/////////////////////真龙寻宝 3610-3660////////////////////////
+	CLIENT_TO_LOGIC_FIND_TREASURE_GET_RECORD_REQ = 3690; //请求个人中奖记录
+	LOGIC_TO_CLIENT_FIND_TREASURE_GET_RECORD_RSP = 3691; //请求个人中奖记录
+	CLIENT_TO_LOGIC_FIND_TREASURE_GET_SERVER_RECORD_REQ = 3692; //请求全服中奖记录
+	LOGIC_TO_CLIENT_FIND_TREASURE_GET_SERVER_RECORD_RSP = 3693; //请求全服中奖记录
+	CLIENT_TO_LOGIC_FIND_TREASURE_PACKAGE_REQ = 3694; //全服仓库里取奖励
+	LOGIC_TO_CLIENT_FIND_TREASURE_PACKAGE_RSP = 3695; //全服仓库里取奖励
+	CLIENT_TO_LOGIC_FIND_TREASURE_GET_SERVER_CHOUJIANG_NUM_REQ = 3696; //全服抽奖次数
+	LOGIC_TO_CLIENT_FIND_TREASURE_GET_SERVER_CHOUJIANG_NUM_RSP = 3697; //全服抽奖次数
+
+	//巨龙宝藏
+	CLIENT_TO_LOGIC_FIND_TREASURE_BIG_DRAGON_INFO_REQ = 3610; //请巨龙宝藏数据
+	LOGIC_TO_CLIENT_FIND_TREASURE_BIG_DRAGON_INFO_RSP = 3611; //请求巨龙宝藏数据
+	CLIENT_TO_LOGIC_FIND_TREASURE_BIG_DRAGON_CHOUJIANG_REQ = 3612; //请求巨龙宝藏抽奖
+	LOGIC_TO_CLIENT_FIND_TREASURE_BIG_DRAGON_CHOUJIANG_RSP = 3613; //请求巨龙宝藏抽奖
+	CLIENT_TO_LOGIC_FIND_TREASURE_BIG_DRAGON_GET_TOTAL_REWARD_REQ = 3614; //请求巨龙宝藏累积奖励
+	LOGIC_TO_CLIENT_FIND_TREASURE_BIG_DRAGON_GET_TOTAL_REWARD_RSP = 3615; //请求巨龙宝藏累积奖励
+
+	//神机百炼
+	CLIENT_TO_LOGIC_FIND_TREASURE_BAI_LIAN_INFO_REQ = 3625; //请求神机百炼数据
+	LOGIC_TO_CLIENT_FIND_TREASURE_BAI_LIAN_INFO_RSP = 3626; //请求神机百炼数据
+	CLIENT_TO_LOGIC_FIND_TREASURE_BAI_LIAN_CHOUJIANG_REQ = 3627; //请求神机百炼抽奖
+	LOGIC_TO_CLIENT_FIND_TREASURE_BAI_LIAN_CHOUJIANG_RSP = 3628; //请求神机百炼抽奖
+	CLIENT_TO_LOGIC_FIND_TREASURE_BAI_LIAN_EXCHANGE_REQ = 3633; //请求百炼抽奖兑换
+	LOGIC_TO_CLIENT_FIND_TREASURE_BAI_LIAN_EXCHANGE_RSP = 3634; //请求百炼抽奖兑换
+	CLIENT_TO_LOGIC_FIND_TREASURE_BAI_LIAN_BUY_SHOP_REQ = 3635; //请求百炼抽奖商店购买
+	LOGIC_TO_CLIENT_FIND_TREASURE_BAI_LIAN_BUY_SHOP_RSP = 3636; //请求百炼抽奖商店购买
+	NOTIFY_FIND_TREASURE_BAI_LIAN_ACTIVE_CHANGE = 3637; //百炼抽奖活动数据修改
+	//四圣抽奖
+	CLIENT_TO_LOGIC_FIND_TREASURE_SI_SHENG_INFO_REQ = 3650; //请求四圣抽奖数据
+	LOGIC_TO_CLIENT_FIND_TREASURE_SI_SHENG_INFO_RSP = 3651; //请求四圣抽奖数据
+	CLIENT_TO_LOGIC_FIND_TREASURE_SI_SHENG_CHOUJIANG_REQ = 3652; //请求四圣抽奖抽奖
+	LOGIC_TO_CLIENT_FIND_TREASURE_SI_SHENG_CHOUJIANG_RSP = 3653; //请求四圣抽奖抽奖
+	CLIENT_TO_LOGIC_FIND_TREASURE_SI_SHENG_GET_TOTAL_REWARD_REQ = 3654; //请求四圣抽奖累积奖励
+	LOGIC_TO_CLIENT_FIND_TREASURE_SI_SHENG_GET_TOTAL_REWARD_RSP = 3655; //请求四圣抽奖累积奖励
+	CLIENT_TO_LOGIC_FIND_TREASURE_SI_SHENG_GET_SERVER_TOTAL_REWARD_REQ = 3656; //请求全服四圣抽奖累积奖励
+	LOGIC_TO_CLIENT_FIND_TREASURE_SI_SHENG_GET_SERVER_TOTAL_REWARD_RSP = 3657; //请求全服四圣抽奖累积奖励
+
+	//市场(拍卖行)
+	MARKET_ITEM_REQ = 3700; //获得市场物品标签
+	MARKET_ITEM_RSP = 3701;	//获得市场物品标签返回
+	MARKET_ROLE_REQ = 3702;	//请求我的信息
+	MARKET_ROLE_RSP = 3703;	//请求我的信息返回
+	NOTIFY_NEW_GOODS = 3704; //关注的商品上架通知
+	MARKET_FOLLOW_REQ = 3705;	//关注物品
+	MARKET_FOLLOW_RSP = 3706;	//关注物品返回
+	NOTIFY_MARKET_FOLLOW = 3708;	//关注通知
+	MARKET_LOG_REQ = 3709;	//查看交易记录
+	MARKET_LOG_RSP = 3710; //查看交易记录返回
+	MARKET_ROLE_OPT_REQ = 3711;	//玩家交易操作请求
+	MARKET_ROLE_OPT_RSP = 3712;	//玩家交易操作返回
+	NOTIFY_MARKET_FACTION_START = 3713; //帮派拍卖开始通知
+	
+
+	//节日活动 4000 - 4300
+	FEST_SIMPLE_LIST_RSP =  4000;					//返回节日活动简要信息
+	FEST_SIMPLE_INFO_NOTIFY = 4001;					//通知节日活动简要信息更新
+	FEST_DETAIL_INFO_REQ = 4002;					//请求节日活动详细信息
+	FEST_DETAIL_INFO_RSP = 4003;					//返回节日活动详细信息
+	FEST_DETAIL_UPDATE_RSP = 4004;					//更新节日活动详细信息
+	FEST_SHOP_BUY_REQ = 4005;						//请求 限时商店购买
+	FEST_SHOP_BUY_RSP = 4006;						//返回 限时商店购买结果
+	FEST_GET_DAILY_RECHARGE_REWARD_REQ = 4007;		//请求 每日累计充值 奖励
+	FEST_GET_DAILY_RECHARGE_STATUS_NOTIFY = 4008;	//每日累计充值 状态改变
+	FEST_SIGN_REQ	= 4009;							//请求签到(天天养龙)
+	FEST_SIGN_RSP	= 4010;							//返回 签到(天天养龙) 结果
+	FEST_GOLD_STORE_UPDATE_BUY_RSP	= 4011;			//更新金库购买信息(天天养龙)
+	FEST_DIG_EGG_REQ = 4012;						//请求砸蛋抽奖(天天养龙)
+	FEST_DIG_EGG_RSP = 4013;						//返回砸蛋抽奖 结果(天天养龙)
+	FEST_DIG_EGG_RESET_REQ = 4014;					//请求重置砸蛋抽奖(天天养龙)
+	FEST_DIG_EGG_RESET_RSP = 4015;					//返回重置砸蛋抽奖 结果(天天养龙)
+	FEST_DIG_EGG_LOG_REQ = 4016;					//请求砸蛋日志(天天养龙)
+	FEST_DIG_EGG_LOG_RSP = 4017;					//返回砸蛋日志(天天养龙)
+	FEST_RTURNTABLE_RECHARGE_TURNABLE_REQ = 4018; //转盘多倍返玉 转盘
+	FEST_RTURNTABLE_RECHARGE_TURNABLE_RSP = 4019; //转盘多倍返玉 通知
+	FEST_RTURNTABLE_LOG_REQ = 4020;					//请求转盘多倍返玉日志
+	FEST_RTURNTABLE_LOG_RSP = 4021;					//返回转盘多倍返玉日志
+	FEST_TURNTABLE_TURNABLE_REQ = 4022; //活跃转盘 转一次
+	FEST_TURNTABLE_TURNABLE_RSP = 4023; //活跃转盘 转一次
+	FEST_TURNTABLE_REWARD_REQ = 4024;	 //请求 活跃转盘 奖励
+	FEST_TURNTABLE_REWARD_RSP = 4025;	 //请求 活跃转盘 奖励
+	FEST_TURNTABLE_STATUS_NOTIFY = 4026; //活跃转盘  任务状态通知
+	FEST_DONATE_GET_SERVER_NUM_REQ = 4027; //全民嗨翻天 获得全服数目
+	FEST_DONATE_GET_SERVER_NUM_RSP = 4028; //全民嗨翻天 获得全服数目
+	FEST_DONATE_DONATE_REQ = 4029; //全民嗨翻天 捐献
+	FEST_DONATE_DONATE_RSP = 4030; //全民嗨翻天 捐献
+	FEST_DONATE_GET_SINGEL_REWARD_REQ = 4031; //全民嗨翻天 领取个人奖励
+	FEST_DONATE_GET_SINGEL_REWARD_RSP = 4032; //全民嗨翻天 领取个人奖励
+	FEST_DONATE_GET_SERVER_REWARD_REQ = 4033; //全民嗨翻天 领取全服奖励
+	FEST_DONATE_GET_SERVER_REWARD_RSP = 4034; //全民嗨翻天 领取全服奖励
+	FEST_DONATE_GET_TASK_REWARD_REQ = 4035; //全民嗨翻天 领取任务奖励
+	FEST_DONATE_GET_TASK_REWARD_RSP = 4036; //全民嗨翻天 领取任务奖励
+	FEST_DONATE_TASK_STATUS_CHANGE = 4037; //全民嗨翻天 任务奖励 通知
+	FEST_ONLINE_GET_REWARD_REQ = 4038; //定时福利 领取奖励
+	FEST_ONLINE_GET_REWARD_RSP = 4039; //定时福利 领取奖励
+	FEST_COLLECT_WORLD_EXCHARGE_REQ = 4040; //开服集字 兑换
+	FEST_COLLECT_WORLD_EXCHARGE_RSP = 4041; //开服集字 兑换
+	FEST_DRAWPIZE_CHOUJIANG_REQ = 4042; //开服庆典 抽奖
+	FEST_DRAWPIZE_CHOUJIANG_RSP = 4043; //开服庆典 抽奖
+	FEST_DRAWPIZE_GET_REWARD_REQ = 4044; //开服庆典 领取奖励
+	FEST_DRAWPIZE_GET_REWARD_RSP = 4045; //开服庆典 领取奖励
+	FEST_DRAWPIZE_LOG_REQ = 4046; //开服庆典 日志
+	FEST_DRAWPIZE_LOG_RSP = 4047; //开服庆典 日志
+	FEST_DRAWPIZE_GET_SERVER_NUM_REQ = 4048; //开服庆典 全服数目
+	FEST_DRAWPIZE_GET_SERVER_NUM_RSP = 4049; //开服庆典 全服数目
+
+	FEST_REDPOINT_INFO_RSP		= 4050;	//节日活动 红点信息
+	FEST_REDPOINT_INFO_NOTIFY	= 4051;	//节日活动 更新红点信息
+
+	FEST_DIG_EGG_TASK_FETCH_REQ = 4052;	//请求砸蛋任务领奖(天天养龙)
+	FEST_DIG_EGG_TASK_FETCH_RSP = 4053;	//返回砸蛋任务领奖 结果(天天养龙)
+	FEST_DIG_EGG_TASK_UPDATE_RSP = 4054;//更新砸蛋任务信息(天天养龙)
+
+	FEST_CANDLE_FETCH_REQ = 4055;		//请求领取 烛龙挑战奖励(天天养龙)
+	FEST_CANDLE_FETCH_RSP = 4056;		//返回领取 烛龙挑战奖励 结果(天天养龙)
+	FEST_CANDLE_RANK_INFO_REQ = 4057;	//请求 烛龙挑战排行榜(天天养龙)
+	FEST_CANDLE_RANK_INFO_RSP = 4058;	//返回 烛龙挑战排行榜(天天养龙)
+	FEST_CANDLE_FETCH_LST_RSP = 4059;	//返回 烛龙挑战(天天养龙) 所有已领取奖励列表
+	
+	FEST_BOSS_FIRST_OPT_REQ = 4070;	//boss 操作请求
+	FEST_BOSS_FIRST_OPT_RSP = 4071;	//boss 操作返回
+	FEST_BOSS_INFO_REQ = 4072;		//boss 数据请求
+	FEST_BOSS_INFO_RSP = 4073;		//boss 数据返回
+
+
+	//开服比拼 4100-4120
+	FEST_SERVERANK_GET_REWARD_REQ = 4100; //开服比拼 获取奖励
+	FEST_SERVERANK_GET_REWARD_RSP = 4101; //开服比拼 获取奖励
+	FEST_SERVERANK_REWARD_STATUS_CHANGE = 4102; //开服比拼 奖励状态修改
+	FEST_SERVERRANK_GET_MY_RANK_REQ = 4103; //获取我的排行榜数据
+	FEST_SERVERRANK_GET_MY_RANK_RSP = 4104; //获取我的排行榜数据
+	FEST_SERVERRANK_BUY_GIFT_REQ = 4105; //购买礼包
+	FEST_SERVERRANK_BUY_GIFT_RSP = 4106; //购买礼包
+	FEST_SERVERRANK_GET_REDPOINT_REWARD_REQ = 4107; //获得红点礼包
+	FEST_SERVERRANK_GET_REDPOINT_REWARD_RSP = 4108; //获得红点礼包
+	FEST_SERVERRANK_RANK_STATUS_CHANGE = 4109; //排行榜开启状态改变
+	//回梦西游 4120-4150
+	FEST_HUIMENGXIYOU_GET_REWARD_REQ = 4120; //回梦西游 获取奖励
+	FEST_HUIMENGXIYOU_GET_REWARD_RSP = 4121; //回梦西游 获取奖励
+	FEST_HUIMENGXIYOU_REWARD_STATUS_CHANGE = 4123; //回梦西游 奖励状态修改
+	FEST_HUIMENGXIYOU_NotifyStart = 4124; //回梦西游 通知活动开启
+	FEST_HUIMENGXIYOU_SceneChange = 4125; //回梦西游 进入西游准备场景后，数据修改通知
+	FEST_HUIMENGXIYOU_NotifyGameStart = 4126; //回梦西游 通知子活动活动开启
+	FEST_HUIMENGXIYOU_NotifyGameInfo = 4127; //回梦西游 子活动数据信息
+	FEST_HUIMENGXIYOU_NotifyEnd = 4128; //回梦西游 通知活动结束
+	FEST_HUIMENGXIYOU_NotifyGameEnd = 4129; //回梦西游 子活动结束
+	FEST_HUIMENGXIYOU_EnterReq = 4130; //进入活动
+	FEST_HUIMENGXIYOU_EnterRsp = 4131; //进入活动
+	FEST_HUIMENGXIYOU_EnterGameReq = 4132; //进入子活动
+	FEST_HUIMENGXIYOU_EnterGameRsp = 4133; //进入子活动
+	FEST_HUIMENGXIYOU_GiveCaijiReq = 4134; //递交采集物
+	FEST_HUIMENGXIYOU_GiveCaijiRsp = 4135; //递交采集物
+	FEST_HUIMENGXIYOU_CollectNotify = 4136; //采集物变化通知
+	FEST_HUIMENGXIYOU_CollectSuccessNotify = 4137; //采集成功通知
+	FEST_HUIMENGXIYOU_ROUBAOZINotify = 4138; //肉包子状态通知
+
+	NOTIFY_WORLD_INFO = 4150;		//更新世界等级
+	//完美情人活动
+	F_MARRY_RANK_REQ = 4151;		//完美情人排行数据
+	F_MARRY_RANK_RSP = 4152;		//完美情人排行数据
+	F_MARRY_EXPRESS_REQ = 4153;		//表白数据请求
+	F_MARRY_EXPRESS_RSP = 4154;		//表白数据返回
+	F_MARRY_ROLE_REQ = 4155;		//玩家个人数据
+	F_MARRY_ROLE_RSP = 4156;		//玩家个人数据
+	F_MARRY_ROLE_RECV_REQ = 4157;	//领取奖励
+	F_MARRY_ROLE_RECV_RSP = 4158;	//领取奖励返回
+
+
+	
+	//幻世烛龙 4350 - 4380
+	DRAGON_INFO_REQ =  4350;			//请求幻世烛龙信息
+	DRAGON_INFO_RSP =  4351;			//返回幻世烛龙信息
+	DRAGON_UPGRADE_REQ = 4352;			//请求升级
+	DRAGON_UPGRADE_RSP = 4353;			//返回升级结果
+	DRAGON_USE_FRAG_REQ = 4354;			//请求使用碎片
+	DRAGON_USE_FRAG_RSP = 4355;			//返回使用碎片结果
+	DRAGON_STAR_REQ = 4356;				//请求升星
+	DRAGON_STAR_RSP = 4357;				//返回升星结果
+	DRAGON_FANTASY_REQ = 4358;			//请求幻化
+	DRAGON_FANTASY_RSP = 4359;			//返回幻化结果
+	DRAGON_SHADOW_INFO_RSP = 4360;		//返回 帝弑影龙信息
+	DRAGON_HALO_INFO_RSP = 4361;		//返回 光环类信息
+
+
+	//位面 4400 - 4420
+	PLANE_ENTER_REQ = 4400;				//请求 进入位面
+	PLANE_ENTER_RSP = 4401;				//返回 进入位面的结果
+	PLANE_QUIT_REQ = 4402;				//请求 退出位面
+	PLANE_QUIT_RSP = 4403;				//返回 退出位面的结果
+
+  //不灭星辰4450-4500
+	CL_STAR_INFO_REQ = 4450; 						//获取信息
+	LC_STAR_INFO_RSP = 4451;						//获取信息
+	CL_STAR_SETUP_ACTIVE_REQ = 4452;		//激活星君
+	LC_STAR_SETUP_ACTIVE_RSP = 4453;    //激活星君
+	CL_STAR_HOLE_DRESS_REQ = 4454;			//槽位嵌套
+	LC_STAR_HOLE_DRESS_RSP = 4455;			//槽位嵌套
+	CL_STAR_HOLE_UNDRESS_REQ = 4456;		//槽位卸下来
+	LC_STAR_HOLE_UNDRESS_RSP = 4457;		//槽位卸下来
+	CL_STAR_HOLE_STRONG_REQ = 4458;			//升级(强化)  升级的是装备的强化等级  EquipInfo.ItemProtoInfo.strong_lv(strong_exp)
+	LC_STAR_HOLE_STRONG_RSP = 4459;			//升级(强化)  升级的是装备的强化等级  EquipInfo.ItemProtoInfo.strong_lv(strong_exp)
+	CL_STAR_HOLE_STRONG_QUALITY_REQ = 4460;			//突破(升品)  升级的是装备的品质 EquipInfo.ItemProtoInfo.strong_wear_quality(strong_wear_quality_exp)
+	LC_STAR_HOLE_STRONG_QUALITY_RSP = 4461;			//突破(升品)  升级的是装备的品质 EquipInfo.ItemProtoInfo.strong_wear_quality(strong_wear_quality_exp)
+	CL_STAR_HOLE_WAKE_REQ = 4462;				//觉醒 升级的是槽位本身的觉醒等级 不随物品走 EquipInfo.EquipSlotInfo.awaken_lv
+	LC_STAR_HOLE_WAKE_RSP = 4463;				//觉醒 升级的是槽位本身的觉醒等级 不随物品走 EquipInfo.EquipSlotInfo.awaken_lv
+	CL_STAR_FANTASY_ACTIVE_REQ = 4464;	//激活幻化
+	LC_STAR_FANTASY_ACTIVE_RSP = 4465;  //激活幻化
+	CL_STAR_FANTASY_LEVEL_REQ = 4466;   //升级幻化
+	LC_STAR_FANTASY_LEVEL_RSP = 4467;   //升级幻化
+	CL_STAR_ATTR_ACTIVE_REQ = 4468;  //星辰星宿属性激活
+	LC_STAR_ATTR_ACTIVE_RSP = 4469;  //星辰星宿属性激活
+	CL_STAR_ATTR_GUIZHEN_REQ = 4470; //星辰星宿属性归真
+	LC_STAR_ATTR_GUIZHEN_RSP = 4471; //星辰星宿属性归真
+	CL_STAR_FANTASY_FANTASY_REQ = 4472;	//幻化
+	CL_STAR_FANTASY_FANTASY_RSP = 4473;	//幻化
+	CL_STAR_FANTASY_FANTASY_CANCEL_REQ = 4474;	//取消幻化
+	CL_STAR_FANTASY_FANTASY_CANCEL_RSP = 4475;	//取消幻化
+	CL_STAR_ACTIVE_STAR_ATTR_INFO_REQ = 4476;  //星辰星宿激活的星星属性
+	LC_STAR_ACTIVE_STAR_ATTR_INFO_RSP = 4477;  //星辰星宿激活的星星属性
+	CL_STAR_ACTIVE_STAR_ATTR_REQ = 4478;  //星辰星宿激活星星属性
+	LC_STAR_ACTIVE_STAR_ATTR_RSP = 4479;  //星辰星宿激活星星属性
+	CL_STAR_FANTASY_ADVANCELV_REQ = 4480;   //升阶幻化
+	LC_STAR_FANTASY_ADVANCELV_RSP = 4481;   //升阶幻化
+	CL_STAR_GET_SKILL_INFO_REQ = 4482; //获取技能消息
+	LC_STAR_GET_SKILL_INFO_RSP = 4483; //获取技能消息
+	CL_STAR_UNLOCK_SKILL_SLOT_REQ = 4484; //解锁技能槽位
+	LC_STAR_UNLOCK_SKILL_SLOT_RSP = 4485; //解锁技能槽位
+	CL_STAR_FINISH_SKILL_LEVEL_REQ = 4486; //立即完成技能升级
+	LC_STAR_FINISH_SKILL_LEVEL_RSP = 4487; //立即完成技能升级
+	CL_STAR_YANJIU_SKILL_LEVEL_REQ = 4488; //研究技能升级升级
+	LC_STAR_YANJIU_SKILL_LEVEL_RSP = 4489; //研究技能升级升级
+	CL_STAR_GET_SHOP_INFO_REQ = 4490; //获取商品消息
+	LC_STAR_GET_SHOP_INFO_RSP = 4491; //获取商品消息
+	CL_STAR_BUY_SHOP_REQ = 4492; //购买商品消息
+	LC_STAR_BUY_SHOP_RSP = 4493; //购买商品消息
+
+	//神体
+	NOTIFY_TURN = 4500; 			//更新转生信息
+	NOTIFY_TURN_GROW = 4501; 		//更新某个转生装备养成
+	NOTIFY_TURN_SIMPLE = 4502; 		//更新转生简单信息
+	NOTIFY_TURN_HELPER = 4503; 		//更新转生助战信息
+	NOTIFY_TURN_TASK = 4504; 		//更新转生前置任务全发的
+	TURN_RECV_TASK_REQ = 4506; 		//领取前置任务
+	TURN_RECV_TASK_RSP = 4507; 		//领取前置任务返回
+	TURN_LV_REQ = 4508;				//转生等级升级
+	TURN_LV_RSP = 4509;				//转生等级返回
+	TURN_HELPER_REQ = 4510;			//神体助战转生
+	TURN_HELPER_RSP = 4511;			//神体助战转生返回
+	NOTIFY_TURN_NEW_HELPER = 4512;	//通知转生玩家有人帮助转生
+	TURN_CHG_REQ = 4513;			//神体转生
+	TURN_CHG_RSP = 4514;			//转生转生
+	TURN_EQUIP_DRESS_REQ = 4515;	//装备穿戴请求
+	TURN_EQUIP_DRESS_RSP = 4516;	//装备穿戴返回
+	TURN_STRONG_REQ = 4517;			//神体强化
+	TURN_STRONG_RSP = 4518;			//神体强化返回
+	TURN_EVOLVE_REQ = 4519;			//神体进化
+	TURN_EVOLVE_RSP = 4520;			//神体进化返回
+	TURN_AWAKEN_REQ = 4521;			//神体觉醒
+	TURN_AWAKEN_RSP = 4522;			//神体觉醒返回
+	TURN_COMPOSE_REQ = 4523;		//神体神炼
+	TURN_COMPOSE_RSP = 4524;		//神体神炼返回
+	TURN_STAR_REQ = 4525;			//神炼升星
+	TURN_STAR_RSP = 4526;			//神炼升星返回
+	TURN_STRONG_ACTIVE_REQ = 4527;	//神体强化激活
+	TURN_STRONG_ACTIVE_RSP = 4528;	//神体强化激活返回
+	TURN_STAR_ACTIVE_REQ = 4529;	//神体星级激活
+	TURN_STAR_ACTIVE_RSP = 4530;	//神体星级激活返回
+	//鼓舞
+	ENCOURAGE_REQ = 4540;			//鼓舞请求
+	ENCOURAGE_RSP = 4541;			//鼓舞返回
+	NOTIFY_ENCOURAGE = 4542;		//鼓舞通知
+	
+	//神元区域4550-4570
+	GMA_Datas	= 4550;//神元区域数据
+	GMA_BossInfoReq	= 4551;//请求boss信息
+	GMA_BossInfoRsp	= 4552;
+	GMA_BossInfoSingleReq = 4553;//请求单个boss信息
+	GMA_BossInfoSingleRsp = 4554;
+	GMA_PauseReq = 4555; //请求暂停
+	GMA_PauseRsp = 4556;
+	GMA_PayReq	= 4557;	//购买特权
+	GMA_PayRsp	= 4558;//
+	GMA_EnterReq = 4559;
+	GMA_GotoFloorReq = 4560; //去其它层
+	GMA_GotoFloorRsp = 4561;
+	GMA_TimeRechargeReq=4562;//用道具总换时间
+	GMA_TimeRechargeRsp=4563;
+	GMA_ExitReq=4564;//退出
+	GMA_ResultReq=4565;//请求结算数据并暂停
+	GMA_ResultRsp=4566;
+	
+	//镇魂魔域
+	FACTION_MOYU_RANK_REQ = 4580;	//镇魂魔域排行榜
+	NT_FACTION_MOYU_RANK = 4581;	//镇魂魔域排行榜通知
+	FACTION_MOYU_RECV_REQ = 4582;	//领取通关奖励
+	FACTION_MOYU_RECV_RSP = 4583;	//领取通关奖励
+	NT_FACTION_MOYU_DUP_KILL = 4584; //致死一击时间通知
+	NT_FACTION_MOYU = 4585;			 //更新公会魔域信息
+	NOTIFY_FACTION_MOYU_DUP = 4586;	 //镇魂魔域进入通知信息
+	FACTION_MOYU_END_RSP = 4587;	  //镇魂魔域结算
+	FACTION_MOYU_REQ = 4588;		  //镇魂魔域主界面信息请求
+	NT_FACTION_MOYU_HARM = 4589;	 //伤害信息通知
+	//九层妖塔
+	YAOTA_REQ	= 4600;						//九层妖塔页面数据请求
+	NOTIFY_YAOTA_FIRST_PASS = 4601;	 //1:通知玩家可以领取(首通奖励)集合
+	YAOTA_DUP_FIRST_PASS_INFO_REQ = 4602;	//请求首通队伍信息
+	YAOTA_DUP_FIRST_PASS_INFO_RSP = 4603;	//请求首通队伍信息返回
+	YAOTA_RECV_REQ = 4604;					//妖塔领取奖励請求
+	YAOTA_RECV_RSP = 4605;					//妖塔领取奖励返回
+	NOTIFY_YAOTA_DUP_RES = 4606;			//通知九层妖塔副本结果
+	
+	
 	CLIENT_SERVER_MAX_CMD = 5000;	//最大协议ID
-};	
+};

@@ -1,10 +1,8 @@
-package proto_ff;
+// 定义公用message，注意与ComDefine.proto区别
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
 
-import "Com.proto";
 
 
 
@@ -21,16 +19,13 @@ message CreateSceneParamProto
 	optional int32  alive_time_sec = 7;		//副本预估存活时间(如果玩家一直没有进入存活多久消亡,可选不填，字段无效)
 	optional int32  mergenum = 8;			//副本合并次数
 	optional int32 	teamid = 9;				//队伍id
-	//repeated RoleMirrorData mirrors = 10;	//机器人
+	repeated RolePlayerMiniInfo marry	= 10; //结婚双方信息 
+	optional string str_param = 11;			//字符串参数，根据 key_type 不同表示不同的意思，
+	optional uint64 factionid = 12;			//工会id
+	optional uint64 layer = 13;				//魔域层
+	optional uint64 cur_hp = 14;			//共享boss血量
 }
 
-//切逻辑服时携带的参数
-message SceneTransParam
-{
-	optional uint64 src_map = 1;	//源地图ID
-	optional int32 trans_type = 2;	//切换类型,详见 SceneDefine.h中 ETransType 枚举
-	optional uint64 trans_val = 3;	//切换类型对应的类型值
-}
 
 //玩家切逻辑服需要携带的参数
 message PlayerTransParam
@@ -74,6 +69,7 @@ message NotifyLoadMap
 {
 	required uint64 mapid = 1;
 	required Vector3PB pos = 2;
+	optional uint32 zid = 3;
 }
 
 // 请求场景传送  CLIENT_SCENE_TRANS_REQ
@@ -135,8 +131,7 @@ message CenterCreateSceneReq{
 //中心服创建场景的结果 CENTER_CREATE_SCENE_RSP_LOGIC
 message CenterCreateSceneRsp
 {
-	required uint64 sceneId = 1;
-	required uint64 mapId = 2;
+	repeated SceneProto info = 1;
 }
 
 //社交服通知中心服添加新的场景  SOCIAL_TO_CENTER_ADD_NEW_SCENE
@@ -184,6 +179,7 @@ message CenterCreatureTransSceneSuccessRsp
 	required uint64 dst_sceneid = 1;		//目标场景
 	required uint64 dst_mapid = 2;			//目标场景
 	required CreatureTransParam param = 3;	//生物切场景参数
+	optional int32 	dst_zid = 4;			//目标生物zid
 }
 
 
@@ -193,7 +189,8 @@ message NotifyRoleEnterScene
 	required uint64 cid	= 1;		//玩家cid
 	required uint64 scene_id = 2;	//场景ID
 	required uint64 map_id = 3;		//地图ID
-	optional Vector3PB pos = 4;		//坐标
+	required uint32 scene_zid = 4;  //场景所属区服ID
+	optional Vector3PB pos = 5;		//坐标
 	
 }
 
@@ -204,4 +201,65 @@ message NotifyRoleChgLogic
 	required uint32 uid = 2;		//UID
 	required uint32 clientid = 3;	//
 	required uint32 logicid = 4;	//逻辑服ID
+}
+
+//逻辑服请求中心服分配 场景ID LC_NEW_SCENE_REQ
+message LC_NewSceneReq
+{
+	required uint32 count = 1;    //分配数量
+}
+//中心服返回逻辑服 分配的场景ID CL_NEW_SCENE_RSP
+message CL_NewSceneRsp
+{
+	required uint32 zid = 1;			//区服ID
+	repeated uint64 sceneid_lst = 2;	//新分配的场景ID列表
+}
+
+//逻辑服通知所有中心服主城信息 LC_MAIN_CITY_INFO_REQ
+message LC_MainCityInfoReq
+{
+	repeated SceneProto info = 1;
+}
+//中心服通知其他逻辑服主城信息 CL_MAIN_CITY_INFO_RSP
+message CL_MainCityInfoRsp
+{
+	enum Type
+	{
+		update   =1;	//更新
+		all	 =2;		//全部
+	}
+	optional uint32 type = 1;		//只针对 info 字段有效，1-更新，2-全部
+	repeated SceneProto info = 2;
+	repeated uint64 del_scene = 3; 
+}
+
+
+
+//创建、销毁动态场景的过程
+message CSGenSceneIdReq{
+	required uint64 session=1;
+}
+//向中心发送请求创建场景过程
+//生成场景id
+message CSGenSceneIdRsp{
+	required uint64 session=1;
+	required uint64 sceneId=2;
+}
+//通知逻辑服创建场景
+message CSNtLSCreateScene{
+	required uint64 session=1;
+	required uint32 mapId=2;
+	required uint64 sceneId=3;
+	optional uint32 zid = 4;
+}
+//注册场景到中心服
+message CSRegToCenterServer{
+	required uint64 session=1;
+	required uint32 mapId=2;
+	required uint64 sceneId=3;
+}
+//销毁
+message CSDestroyReq{
+	required uint64 sceneId=1;
+	required bool notifyLogicServer=2;
 }

@@ -3,13 +3,13 @@ package proto_ff;
 
 // calm 自定义的fieldoption都在该文件中
 import "yd_fieldoptions.proto";
-import "common_logic.proto";
+import "ServerConfig.proto";
 
 enum PingConfig
 {
   option allow_alias  = true;
-  CLIENT_PING_INTERVAL = 9;					// 客户端发ping包的间隔(s)
-  SERVER_PING_INTERVAL = 9;					// 服务端之间发ping包的(s) （由于网络底层采用LRU机制超时，客户端和服务的超时时间需要一致，待后期分开后再改小点）
+  CLIENT_PING_INTERVAL = 10;					// 客户端发ping包的间隔(s)
+  SERVER_PING_INTERVAL = 10;					// 服务端之间发ping包的(s) （由于网络底层采用LRU机制超时，客户端和服务的超时时间需要一致，待后期分开后再改小点）
 };
 
 //角色性别
@@ -93,20 +93,32 @@ enum EItemType
   EItemType_PetEgg = 5;	//宠物蛋
   EItemType_Pet = 6;		//宠物
   EItemType_MountEgg = 12; //坐骑蛋
+  EItemType_HandBook = 13; //藏经阁图鉴
 
-  EItemType_Limit = 13;
+  EItemType_Limit = 14;
 };
 
 //包裹类型
 enum EPackageType
 {
   EPackageType_None = 0;
-  EPackageType_Common = 1;	//背包
-  EPackageType_Storage = 2;	//仓库
-  EPackageType_MountEgg = 3; //坐骑
-  EPackageType_PetEgg = 4;  //宠物蛋
-  EPackageType_DeityEquip = 5; //神饰
-  EPackageType_Limit = 6;
+  EPackageType_Common = 1;		//背包
+  EPackageType_Storage = 2;		//仓库
+  EPackageType_MountEgg = 3;		//坐骑
+  EPackageType_PetEgg = 4;		//宠物蛋
+  EPackageType_DeityEquip = 5;	//神饰
+  EPackageType_HandBook = 6;		//藏经阁图鉴
+  EPackageType_BeastEquip = 7;	//神兽装备背包
+  EPackageType_Longhun = 8;		//龙魂
+  EPackageType_FindTreasure = 9;  //真龙寻宝探宝背包
+  EPackageType_BigDragon = 10;	//真龙寻宝巨龙背包
+  EPackageType_shenji_aq = 11;	//神机装备暗器
+  EPackageType_shenji_lj = 12;	//神机装备灵甲
+  EPackageType_GodEvil = 13;		//神魔背包
+  EPackageType_star = 14;		//不灭星辰
+  EPackageType_turn = 15;		//转生装备
+  EPackageType_MountKun = 16;		//坐化鲲装备
+  EPackageType_Limit = 17;
 };
 
 //品质
@@ -114,15 +126,19 @@ enum EQuality
 {
   option allow_alias = true;
 
-  EQuality_grey	= 1;	//灰
-  EQuality_white	= 2;	//白
-  EQuality_green	= 3;	//绿
-  EQuality_blue	= 4;	//蓝
-  EQuality_purple = 5;	//紫
-  EQuality_orange = 6;	//橙
-  EQuality_red	= 7;	//红
-  EQuality_gold	= 8;	//金
+  //EQuality_grey	= 1;	//灰
+  EQuality_white	= 1;	//白
+  EQuality_green	= 2;	//绿
+  EQuality_blue	= 3;	//蓝
+  EQuality_purple = 4;	//紫
+  EQuality_orange = 5;	//橙
+  EQuality_red	= 6;	//红
+  EQuality_gold	= 7;	//金
+  EQuality_color	= 8;    //彩
+  EQuality_dark	= 9;	//暗金
+  EQuality_fairy  = 10;	//神话
 }
+
 
 
 //装备位置定义:1.主武器；2.副武器；3.帽子；4衣服；5.护手；6.腰带；7.鞋子；8.项链；9手镯；10.戒指
@@ -150,18 +166,25 @@ enum EEquipPos
 
 enum EConst
 {
-  EConst_RelationRecentSize = 20;		//最近联系人上限
-  EConst_RelationFriendSize = 21;		//好友上限
-  EConst_RelationHateSize = 22;		//仇人上限
-  EConst_RelationBlackSize = 23;		//黑名单上限
+  EConst_RelationRecentSize = 20;			//最近联系人上限
+  EConst_RelationFriendSize = 21;			//好友上限
+  EConst_RelationHateSize = 22;			//仇人上限
+  EConst_RelationBlackSize = 23;			//黑名单上限
+
+  EConst_DieReduceKillValue = 25;			//死亡减少杀戮值
+  EConst_Dup_Sweep = 26;                  //副本扫荡卷
 
   EConst_ServerUpdateTime = 34;			//服务器更新时间
 
   EConst_ChgNameItemId = 61;				//改名卡物品ID
+  EConst_KillAddKillValue = 66;			//杀人增加杀戮值
 
   EConst_WorldChatLevLimit = 75;			//世界聊天频道等级限制
   EConst_CrossChatLevLimit = 76;			//跨服聊天频道等级限制
   EConst_CrossChatCost = 113;				//跨服聊天消耗绑钻
+
+  EConst_OnlineReduceKillValue = 118;		//杀戮值在线减少时间（需要时间（分），减少点数）
+
   EConst_WorldChannelNeedPay= 142;		//世界聊天频道需要的充值金额
   EConst_CreateUnionNeedPay = 143;		//创建工会需要的充值额度
   EConst_SceneChatLevLimit = 146;			//场景聊天功能充值金额限制
@@ -183,31 +206,53 @@ enum EConst
   EConstTiredReliveSec = 202;				//疲劳状态下的复活时间
   EConst_ImmediateReliveCostItem =  203;  //原地复活的道具ID
   EConst_ImmediateReliveCost =  206;		//原地复活货币数量
-  EConst_PackageMountEggSlotNum = 214; //坐骑渡化-格子数量
-  EConst_MountDuHua_ActiveSlot = 215; //坐骑渡化-格子需求道具、数量
-  EConst_MountDuHua_TimeGoldCost = 216; //坐骑渡化-时间加速货币id、每个货币消耗时间
-  EConst_MountDuHua_TimeItemCost = 217; //坐骑渡化-时间加速道具id、每个道具消耗时间
+  EConst_PackageMountEggSlotNum = 214;	//坐骑渡化-格子数量
+  EConst_MountDuHua_ActiveSlot = 215;		//坐骑渡化-格子需求道具、数量
+  EConst_MountDuHua_TimeGoldCost = 216;	//坐骑渡化-时间加速货币id、每个货币消耗时间
+  EConst_MountDuHua_TimeItemCost = 217;	//坐骑渡化-时间加速道具id、每个道具消耗时间
   EConst_AutoPickDropSec = 231;			//自动拾取的服务器强制发送时间
 
   EConst_PartnerFllowDistance = 232;		//契灵跟随距离（毫米，契灵与玩家距离大于此值后契灵开始跟随移动）
   EConst_PartnerTeleportDistance = 233;	//契灵传送距离（毫米，契灵与玩家距离大于此值后契灵传送至玩家身边）
 
-  EConst_ArenaResultTime = 234; //竞技场，每日结算时间
-  EConst_ArenaChallengTimes = 235; //竞技场，每日结算时间
-  EConst_ArenaVipChallengTimes = 236; //竞技场，vip权限
+  EConst_ArenaResultTime = 234;			//竞技场，每日结算时间
+  EConst_ArenaChallengTimes = 235;		//竞技场，每日结算时间
+  EConst_ArenaVipChallengTimes = 236;		//竞技场，vip权限
 
-  EConst_SkillAdvanceUnlockCost = 240;   //技能进阶解锁方案1和2的价格，方案1的货币；方案1价格|方案2的货币；方案2的价格
-  EConst_SkillAdvanceResetCost = 241;    //重置进阶消耗的道具ID;道具数量
+  EConst_SkillAdvanceUnlockCost = 240;	//技能进阶解锁方案1和2的价格，方案1的货币；方案1价格|方案2的货币；方案2的价格
+  EConst_SkillAdvanceResetCost = 241;		//重置进阶消耗的道具ID;道具数量
 
-  EConst_TeamMemCountExpAdd = 242;	   //组队人数加成经验，人数;加成值
+  EConst_TeamMemCountExpAdd = 242;		//组队人数加成经验，人数;加成值
+
+  EConst_Pet_hatch_cost = 249;            //宠物蛋格子开启费用，孵化位；绑钻价格
 
   EConst_GodEvilNoticeReward = 252;		//神魔预告奖励
   EConst_GodEvilActiveReward = 253;		//神魔激活奖励
   EConst_GodEvilChgFacadeCd = 254;		//神魔变身CD
 
+  EConst_Pet_atk  = 266;                  //宠物战斗中的攻击属性=自身攻击类属性*200%+主人攻击类属性*20%；系数1；系数2，万分比
+  EConst_Armor = 267;                     //玄功真甲0元贵族增加属性的万分比;权限ID(暂时填0后期改)
   EConst_GodEvilGodChgSkill = 269;		//化神变身后附加的技能
   EConst_GodEvilEvilChgSkill = 270;		//入魔变身后附加的技能
 
+  EConst_TalentPointLev = 272;			//天赋技能点数产生的等级
+  EConst_TalentRestItem = 273;			//天赋重置消耗的道具；道具数量
+
+  EConst_RedNameSkill = 276;				//红名状态附带的技能
+  EConst_PvpStateTime = 277;				//pvp状态持续时间
+  EConst_YellowNameTime = 278;			//黄名状态持续时间
+
+  EConst_1v1DailyRewardNum = 291;			//1v1 1V1每日奖励次数
+  EConst_XiuZhenRoadPet = 296;			//修真之路宠物碎片
+
+  EConst_1v1RankScoreNeed = 300;			//1v1排行榜进入的积分要求
+
+  EConst_ExpandItem = 306;               //扩展背包道具
+  EConst_SubpackReward = 307;				//小包下载的奖励boxID
+  EConst_ExpandMallId = 308;             //扩展背包道具商城id
+  EConst_GodEvilWearQuaLvExp = 314;		//神魔装备进阶默认材料ID;经验值
+  EConst_GodEvilQuaLvMallId = 316;		//升品神灵悟性不足时候去找商品ID抵扣
+  EConst_boss_sg_rtime = 319;				//上古boss的刷新时间
 
   EConst_OneKeyFinishGuildMissionCost = 1000;	//工会任务一键扫荡消耗货币数量
   EConst_OnceFinishTaskCost = 1001;		//立即完成公会任务消耗钻石金额
@@ -230,8 +275,9 @@ enum ERetCode
   RET_VIP_LEVEL_LACK		= 8;	//vip等级不足
   RET_PROF_ERROR			= 10;	//职业错误
   RET_PLAYER_NOT_ONLINE	= 11;	//玩家不在线
-  RET_RACE_ERROR			= 12;	//种族错误
-  RET_SEX_ERROR			= 13;	//性别错误
+  RET_CONTRI_LACK			= 12;	//帮派贡献不足
+  //RET_SEX_ERROR			= 13;	//性别错误
+  RET_OCCUPATION_LEV_LACK = 13;	//转职等级不足
   RET_NOT_ONLINE			= 14;	//不在线
   RET_DATA_ERROR			= 15;	//角色数据异常
   RET_NOT_HAVE_CHARACTER  = 16;	//角色不存在
@@ -243,15 +289,15 @@ enum ERetCode
   RET_REPEATED_OPERATE	= 22;	//不可重复操作
   RET_UNAVAILABLE			= 23;	//不可用
   RET_FIGHT_LACK			= 24;	//战力不足
-  RET_APTITUDE_LACK		= 25;	//境界不走
+  //RET_APTITUDE_LACK		= 25;	//境界不走
   RET_OVER_MAX_NUM		= 26;	//超过最大次数
-  RET_PRICE_ERROR			= 27;	//价格不对
+  //RET_PRICE_ERROR			= 27;	//价格不对
   RET_OTHER_NOT_ONLINE	= 28;	//对方不在线
-  RET_STAR_ESSENCE_LACK	= 29;	//命星精华不足
-  RET_STAR_LAYER_LIMIT	= 30;	//命星塔层数限制
-  RET_OCCUPATION_ERROR	= 31;	//转职职业错误
-  RET_SMALL_SPIRIT_LACK	= 32;	//小灵魄不足
-  RET_SMALL_BIG_LACK		= 33;	//大灵魄不足
+  //RET_STAR_ESSENCE_LACK	= 29;	//命星精华不足
+  //RET_STAR_LAYER_LIMIT	= 30;	//命星塔层数限制
+  //RET_OCCUPATION_ERROR	= 31;	//转职职业错误
+  //RET_SMALL_SPIRIT_LACK	= 32;	//小灵魄不足
+  //RET_SMALL_BIG_LACK		= 33;	//大灵魄不足
   RET_ITEM_PARAM_ERROR	= 34;	//物品参数错误
   RET_CAN_NOT_RECONNECT	= 35;	//不能重连
   RET_DISALLOW_ENTER_GAME	= 36;	//不允许进入游戏
@@ -260,6 +306,8 @@ enum ERetCode
   RET_PRESTIGE_LACK		= 39;	//声望不足
   RET_FUNC_NOT_OPEN		= 40;   //功能未开启
   RET_LLLEGAL_OPT			= 41;	//非法操作
+  RET_CURRENCY_LEAK		= 42;	//货币不足
+  RET_LEAVE_MAX			= 43;	//等级已满
 
   //登录 100 - 199
   RET_LOGIN_BAD_USER_NAME_LEN		= 100;		//用户名长度错误
@@ -323,6 +371,7 @@ enum ERetCode
   RET_PACKAGE_LACK_CHANGE_NAME_ITEM		= 436;		//改名道具不足
   RET_PACKAGE_USE_ITEM_NOT_REMOVE			= 437;		//背包物品使用后不减少
   RET_PACKAGE_FUSHI_CARD_MAX				= 438;		//使用符石超过20小时不能使用
+  RET_PACKAGE_SELECT_ITEM_NOT_EXIST		= 439;		//自选的物品不存在
 
   RET_PACKAGE_TASK_SPACE_NOT_ENOUGH		= 440;		//任务背包空间不够
   RET_PACKAGE_STAR_SPACE_NOT_ENOUGH		= 441;		//命星背包空间不够
@@ -332,11 +381,12 @@ enum ERetCode
   RET_PACKAGE_SYMBOL_SPACE_NOT_ENOUGH		= 445;		//符印背包空间不够
   RET_PACKAGE_BOSSIDENTIFY_SPACE_NOT_ENOUGH= 446;		//BOSS图鉴包背包空间不够
   RET_PACKAGE_FAILIDENTIFY_SPACE_NOT_ENOUGH= 447;		//仙阵图鉴包背包空间不够
-  RET_PACKAGE_USE_NOT_HAVE_PK_VALUE = 448;		   //使用清除杀戮值物品，没有杀戮值 不能使用
-  RET_PACKAGE_ITEM_USE_LIMIT	 = 449;					//物品达到日使用上限
+  RET_PACKAGE_USE_NOT_HAVE_PK_VALUE		= 448;		   //使用清除杀戮值物品，没有杀戮值 不能使用
+  RET_PACKAGE_ITEM_USE_LIMIT				= 449;					//物品达到日使用上限
   RET_PACKAGE_ITEM_LOGIN_GIFT_FETCHED		= 450;		//登录礼包已领取
   RET_PACKAGE_USE_ITEM_MAP_LIMIT			= 451;		//该地图上不允许使用
   RET_PACKAGE_PET_SPACE_NOT_ENOUGH		= 452;		//宠物背包空间不足
+  RET_PACKAGE_GODEVIL_SPACE_NOT_ENOUGH	= 453;		//神魔背包空间不足
 
   //养成 500 - 510
   RET_GROW_PART_ENTRY_LEVEL_FULL			= 500;		//星级已满级
@@ -356,20 +406,20 @@ enum ERetCode
   RET_FACADE_FRAGMENT_USE_LIMIT			= 554;		//羽灵达到使用上限
   RET_FACADE_NOT_BREAK					= 555;		//外观未突破
   RET_FACADE_ALREADY_BREAK				= 556;		//外观已突破
-  RET_FACADE_SOUL_NO_SKILL_RESET  = 557; //没有技能需要重置
-  RET_FACADE_SOUL_LEVELUP_FAIL_LEVEL_RAIL = 558; //升级失败，等级降低
-  RET_FACADE_SOUL_LEVELUP_FAIL = 559; //升级失败，等级没有变化
+  RET_FACADE_SOUL_NO_SKILL_RESET			= 557;		//没有技能需要重置
+  RET_FACADE_SOUL_LEVELUP_FAIL_LEVEL_RAIL = 558;		//升级失败，等级降低
+  RET_FACADE_SOUL_LEVELUP_FAIL			= 559;		//升级失败，等级没有变化
 
   //GM 601 - 619
   RET_GM_NOT_KEY							= 601;  //GM没有关键字
-  RET_GM_PRAMA_COUNT_ERROR				= 602;	 //GM参数有错
-  RET_GM_NOT_FIND							= 603;	 //找不到该命令
+  RET_GM_PRAMA_COUNT_ERROR				= 602;	//GM参数有错
+  RET_GM_NOT_FIND							= 603;	//找不到该命令
 
   //装备 620-700
-  RET_EQUIP_NOT_EXIST						= 620;	 //装备不存在
-  RET_EQUIP_POS_NOT_EXIT_EQUIP			= 621;	 //身上装备不存在
-  RET_EQUIP_STRONG_MAX					= 622;	 //强化已满级
-  RET_EQUIP_TOTAL_LV_MAX					= 623;	 //总等级已满级
+  RET_EQUIP_NOT_EXIST						= 620;	//装备不存在
+  RET_EQUIP_POS_NOT_EXIT_EQUIP			= 621;	//身上装备不存在
+  RET_EQUIP_STRONG_MAX					= 622;	//强化已满级
+  RET_EQUIP_TOTAL_LV_MAX					= 623;	//总等级已满级
   RET_EQUIP_ISNOT_STONE					= 624;	//不是宝石
   RET_EQUIP_GEM_INLAY_TYPE_ERR			= 625;	//镶嵌宝石类型错误
   RET_EQUIP_GEM_POS_ERR					= 626;	//镶嵌宝石位置错误
@@ -378,13 +428,30 @@ enum ERetCode
   RET_EQUIP_TOTAL_LACK					= 629;	//激活总等级不足
   RET_STONE_TYPE_ERR						= 630;	//镶嵌的宝石类型错误
   //洗练
-  RET_WASH_POS_IS_ACTIVE					= 631;	//洗练槽位已激活。
+  RET_WASH_POS_IS_ACTIVE					= 631;	//洗练槽位已激活
   RET_WASH_LOCK_MAX						= 632;	//洗练槽位锁定满
   //套装
   RET_EQUIP_SUIT_LV_MAX					= 633;	//套装已满级
   RET_EQUIP_SUIT_LV_LACK					= 634;	//套装升级装备等级不足
   RET_EQUIP_SUIT_NOT_QUALITY_ENOUGH		= 635;	//套装操作阶级不够
   RET_EQUIP_SUIT_LV_NOT_OTHER_FULL		= 636;	//当前套装未升满，不能再升级。
+  //精炼
+  RET_EQUIP_REFINE_LV_MAX					= 637;	//等级已满
+  RET_EQUIP_REFINE_UNLOCK_LV_LACK			= 638;	//精炼等级不足
+  RET_EQUIP_REFINE_UNLOCKED				= 639;	//已解锁
+  //觉醒 飞升 印记 升品
+  RET_EQUIP_AWAKEN_MAX					= 640;	//觉醒已满级
+  RET_EQUIP_SOARING_MAX					= 641;	//飞升已满级
+  RET_EQUIP_SOARING_QUALITY_LACK			= 642;	//飞升觉醒品阶不足
+  RET_EQUIP_QUALITY_LV_MAX				= 643;	//升品等级已满
+  RET_EQUIP_QUALITY_WEAR_QULITY_LACK		= 644;	//升品装备品阶等级不足
+  RET_EQUIP_SEAL_POS_ERR					= 645;	//印记镶嵌装备错误
+  RET_EQUIP_SEAL_INLAY_COND_LACK			= 646;	//印记镶嵌品阶或星级不足
+  RET_EQUIP_SEAL_LV_MAX					= 647;	//印记已满级
+  RET_EQUIP_SEAL_LV_LEAK					= 649;	//印记不足,不能升级
+  RET_EQUIP_SEAL_INLAY_NOT_FULL			= 650;	//印记没有镶嵌满,不能激活套装
+  RET_EQUIP_SEAL_SUIT_HAS_ACTIVED			= 651;	//印记已激活
+  RET_EQUIP_SEAL_SUIT_NUM_LACK			= 652;	//装备品阶数量不足
   //任务 700-799
   RET_MISSION_HAVE_ACCEPT					= 700;	//该任务已经接取过
   RET_MISSION_CAN_NOT_ACCEPT				= 701;	//该任务无法接取
@@ -405,11 +472,12 @@ enum ERetCode
   RET_MISSION_NOT_ACCEPT_UNION			= 716;	//没有接取工会任务
   RET_MISSION_CAN_NOT_ONCE_FINISH			= 717;	//不能立即完成
   RET_MISSION_ALREADY_SUBMIT				= 718;	//任务已经提交
-  RET_MISSION_GUILD_PRESTIGE_ACCEPT_NUM = 719; //帮派声望任务接取次数不够
-  RET_MISSION_GUILD_PRESTIGE_FRESH_NUM = 720; //帮派声望任务刷新次数不够
-  RET_MISSION_GUILD_PRESTIGE_STATE_ERROR = 721; //帮派声望任务状态错误
+  RET_MISSION_GUILD_PRESTIGE_ACCEPT_NUM	= 719; //帮派声望任务接取次数不够
+  RET_MISSION_GUILD_PRESTIGE_FRESH_NUM	= 720; //帮派声望任务刷新次数不够
+  RET_MISSION_GUILD_PRESTIGE_STATE_ERROR	= 721; //帮派声望任务状态错误
   RET_MISSION_GUILD_PRESTIGE_REFRESH_NOT_FINISH = 723; //帮派声望任务没有完成，不能刷新
-  RET_MISSION_FUNCTION_UNLOCK_LIMIT = 724; //功能开发限制
+  RET_MISSION_FUNCTION_UNLOCK_LIMIT		= 724; //功能开发限制
+  RET_MISSION_NOT_ACCEPT_SPEC				= 725; //没有接取指定任务
 
   //好友 800-899
   RET_RELATION_HAVE_APPLY					= 800;  //已经申请过了
@@ -546,6 +614,11 @@ enum ERetCode
   RET_SKILL_ADVANCE_NOT					= 1012; //技能不能进阶
   RET_SKILL_ADVANCE_NOT_RESET				= 1013;	//当前不可重置
   RET_SKILL_IN_GOD_STATE					= 1014;	//处于天神状态
+  RET_SKILL_TALENT_CNT_LACK				= 1015;	//技能天赋点不足
+  RET_SKILL_TALENT_LEV_MAX				= 1016; //技能天赋等级已达上限
+  RET_SKILL_TALENT_PRE_LEV_LIMIT			= 1017; //前置技能天赋等级限制
+  RET_SKILL_TALENT_CAN_NOT_UPGRADE		= 1018; //技能天赋不能升级
+  RET_SKILL_ANGER_NOT_FULL				= 1019; //怒气值不够
 
   //玩家 1101 - 1200
   RET_PLAYER_TIRED_STATE			= 1101;	//玩家处于疲劳状态
@@ -553,6 +626,7 @@ enum ERetCode
   RET_PLAYER_CAN_NOT_RELIVE		= 1103; //不能复活
   RET_PLAYER_MAP_NOT_RELIVE		= 1104;	//地图不允许复活
   RET_PLAYER_RELIVE_NUM_LIMIT		= 1105;	//复活次数用完
+  RET_PLAYER_IN_PVP_STATE			= 1106; //处于PVP状态
 
 
   //队伍 1700-1799
@@ -579,6 +653,7 @@ enum ERetCode
   RET_TEAM_NOT_FULL						= 1720;	//队伍没有满员
   RET_TEAM_NOT_PROMOTE_LEADER				= 1721;	//不能提升为队长
   RET_TEAM_IN_MATCH_NOT_OPERATE			= 1722; //当前处于匹配中，不可操作
+  RET_TEAM_INVALID_OBJECT					= 1723; //无效的队伍目标
 
   //使用物品
   RET_USE_ITEM_DAY_LIMIT					= 1800; //当日使用该物品次数已满
@@ -613,6 +688,29 @@ enum ERetCode
   RET_FACTION_DONATE_NUM_LIMIT				= 1926;	//捐献次数限制
   RET_FACTION_ALREADY_FETCH_SALARY			= 1927; //已领取工资奖励
   RET_FACTION_CAN_NOT_FETCH_SALARY			= 1928; //不可领取工资奖励
+  RET_FACTION_OTHER_IN_TRANS					= 1929; //对方正在传功中
+  RET_FACTION_IN_TRANS						= 1930; //正在传功中
+  RET_FACTION_OTHER_NOT_IN_SCENE				= 1931; //对方不在帮派场景中
+  RET_FACTION_NOT_IN_SCENE					= 1932; //不在帮派场景中
+  RET_FACTION_TRANS_ALREADY_INVITE			= 1933; //已经邀请过
+  RET_FACTION_TRANS_OTHER_NOT_INVITE_SELF		= 1934; //对方没有邀请过自己
+  RET_FACTION_CAN_NOT_ENTER_TRANS				= 1935; //自己不能进入传功状态
+  RET_FACTION_OTHER_CAN_NOT_ENTER_TRANS		= 1936; //对方不能进入传功状态
+  RET_FACTION_SKILL_FULL_LEV					= 1937; //帮派技能已满级
+  RET_FACTION_LEV_LIMIT						= 1938; //帮派等级限制
+  RET_FACTION_PRE_SKILL_LEV_LACK				= 1939; //前置技能等级不足
+  RET_FACTION_CAN_NOT_DISMISS_IN_FACTION_ACT	= 1940; //帮派活动期间不允许解散帮派
+  RET_FACTION_BEAST_ALREADY_OPEN				= 1941; //帮派神兽已开启
+  RET_FACTION_BEAST_TRIBUTE_LACK				= 1942; //神兽贡品不足
+  RET_FACTION_BEAST_OPEN_COUNT_LIMIT			= 1943; //神兽开启次数限制
+  RET_FACTION_BEAST_NOT_OPEN					= 1944; //帮派神兽未开启
+  RET_FACTION_CAN_NOT_QUIT_IN_BEAST_DUP		= 1945; //帮派神兽副本期间不允许解散帮派
+  RET_FACTION_NOT_FACTION_MEMBER				= 1946; //不是帮派成员
+  RET_FACTION_WAR_RACE_LOCK					= 1947; //帮派战赛区锁定期间不允许退出帮派
+  RET_FACTION_CAN_NOT_QUIT_IN_FACTION_ACT		= 1948; //帮派活动期间不允许退出
+  RET_FACTION_NOT_WIN_FACTION_MEM				= 1949; //不是主宰帮派成员
+  RET_FACTION_ALREADY_FETCH_WAR_WIN_REWARD	= 1950; //已领取主宰帮派每日俸禄
+  RET_FACTION_GUARD_ALREAD_JOIN_NOT_AGAIN		= 1951;	//本次活动，公会守护已经进行过了，不能再次参与
 
   //竞技场
   RET_ARENA_CAN_NOT_CHALL_MYSELF				= 2000;	//不能挑战自己
@@ -626,17 +724,18 @@ enum ERetCode
   RET_ARENA_DEAD_LIMIT						= 2008;	//死亡状态不能挑战
 
   //坐骑 2050 - 2099
-  RET_MOUNT_BABY_EGG_SLOT_ERROR = 2050; //槽位错误
-  RET_MOUNT_BABY_EGG_SLOT_STATE_ERROR = 2051; //槽位非空闲状态
-  RET_MOUNT_BABY_EGG_ITEM_EROR = 2052; //物品错误
-  RET_MOUNT_BABY_EGG_TIMEOUT_ERROR = 2053; //超时
-  RET_MOUNT_UNACTIVE							= 2054;		//坐骑未激活
-  RET_MOUNT_UNUSE_STATE						= 2055;		//坐骑未使用
-  RET_MOUNT_LEVEL_MAX							= 2056;		//达到升星上限
-  RET_MOUNT_UNSELECT							= 2057;		//未选中任何一个坐骑，无法乖骑
-  RET_MOUNT_HAVE_SELECT_THIS			= 2058;		//已经牵出该坐骑
-  RET_MOUNT_HAVE_RIDEON						= 2059;		//重复上马
-  RET_MOUNT_HAVE_RIDEOFF					= 2060;		//重复下马
+  RET_MOUNT_BABY_EGG_SLOT_ERROR				= 2050; //槽位错误
+  RET_MOUNT_BABY_EGG_SLOT_STATE_ERROR			= 2051; //槽位非空闲状态
+  RET_MOUNT_BABY_EGG_ITEM_EROR				= 2052; //物品错误
+  RET_MOUNT_BABY_EGG_TIMEOUT_ERROR			= 2053; //超时
+  RET_MOUNT_UNACTIVE							= 2054;	//坐骑未激活
+  RET_MOUNT_UNUSE_STATE						= 2055;	//坐骑未使用
+  RET_MOUNT_LEVEL_MAX							= 2056;	//达到升星上限
+  RET_MOUNT_UNSELECT							= 2057;	//未选中任何一个坐骑，无法乖骑
+  RET_MOUNT_HAVE_SELECT_THIS					= 2058;	//已经牵出该坐骑
+  RET_MOUNT_HAVE_RIDEON						= 2059;	//重复上马
+  RET_MOUNT_HAVE_RIDEOFF						= 2060;	//重复下马
+  RET_MOUNT_KUN_MAX_WAKE_LEVEL = 2061; //坐骑化鲲最大突破等级
 
   //商城 2100 - 2200
   RET_MALL_CAN_NOT_BUY						= 2100;		//不能购买
@@ -654,6 +753,16 @@ enum ERetCode
   RET_DEITY_NOT_EXITST = 2206; //天神不存在
   RET_DEITY_MAX_LEVEL = 2207; //天神等级达到最大等级了
   RET_DEITY_MAX_STAR = 2208; //天神星级达到最大等级了
+  RET_DEITY_EQUP_QUALITY_max = 2209; //装备品质超过天神能穿戴的最高品质
+
+  //藏经阁图鉴
+  RET_ENCYLOPSEDDIA_HOOD_BOOK_EXIST = 2250; //图鉴已经存在
+  RET_ENCYLOPSEDDIA_HOOD_BOOK_NOT_EXIST = 2251; //图鉴不存在
+  RET_ENCYLOPSEDDIA_HOOD_BOOK_MAX_LEVEL = 2252; //升级达到上限
+  RET_ENCYLOPSEDDIA_HOOD_BOOK_FLEETS_EXIST = 2253; //羁绊已经存在
+  RET_ENCYLOPSEDDIA_HOOD_BOOK_EMPLOY_NOT_EXIST = 2254; //收录不存在
+  RET_ENCYLOPSEDDIA_HOOD_BOOK_EMPLOY_NOT_CAN_AVTIVE = 2255; //收录不能激活
+
 
   //boss
   RET_BOSS_DRIVE_FULL	 = 2550;			//BOSS 驱离
@@ -676,6 +785,9 @@ enum ERetCode
   RET_PET_NOT_DECOMPOSE						= 2585;		//培养过的宠物不能分解
   RET_PET_NOT_CAN_STAR						= 2586;		//当前宠物不能升星
   RET_PET_REPEATED_FIGHT						= 2587;		//不能出站相同的宠物
+  RET_PET_NOT_GETED_NO_ACTIVE					= 2588;		//没有获得宠物不能激活
+  RET_PET_IS_ACTIVE							= 2589;		//已激活过该宠物
+  RET_PET_GROW_STAR_NO_GROW					= 2590;		//宠物未升星,不能重置星级
 
   //镖车
   RET_ESCORT_TASK_NOT_EXIST					= 2700;	//当前没有镖车任务
@@ -703,9 +815,37 @@ enum ERetCode
   RET_GODEVIL_NOT_CHG_FACADE					= 2806; //当前状态无法变身
   RET_GODEVIL_IN_CHG_STATE					= 2807;	//处于神魔变身状态
   RET_GODEVIL_ALREADY_ACTIVE					= 2808; //已激活
-  //神机谷战场
-  RET_GVB_MATCH_END							= 2820; //匹配已结束,已经开始了不能再进
+  RET_GODEVIL_EQUIP_NOT_EXIST					= 2809;	//神魔装备不存在
+  RET_GODEVIL_EQUIP_POS_LOCK					= 2810; //装备位置未解锁
+  RET_GODEVIL_EQUIP_POS_NO_DRESS				= 2811; //位置上没有装备
+  RET_GODEVIL_LEVEL_LACK						= 2812;	//神魔等级不足
+  RET_GODEVIL_QUA_LACK						= 2813;	//装备品质限制
+  RET_GODEVIL_QUA_LACK_MATERIAL				= 2814;	//缺少升阶材料
+  RET_GODEVIL_QUA_LV_MAX						= 2815;	//已达到最大阶级
+  RET_GODEVIL_CAN_NOT_WEAR_QUA_LV				= 2816;	//不能升阶
+  RET_GODEVIL_STRONG_EXP_OVERFLOW				= 2817; //强化经验溢出
+  RET_GODEVIL_WEAR_QUA_EXP_OVERFLOW			= 2818; //升阶经验溢出
+  RET_GODEVIL_QUA_LV_QUALITY_LIMIT			= 2819; //升品达到上限
+  RET_GODEVIL_CAN_NOT_QUA_LV					= 2840; //不能升品
+  RET_GODEVIL_WEAR_QUA_LV_LACK				= 2841;	//品阶限制
+  RET_GODEVIL_QUA_LV_MATERIAL_LACK			= 2842; //升品材料不足
+  RET_GODEVIL_SAVVY_LACK						= 2843; //悟性不足
+  RET_GODEVIL_QUA_NOT_TRANS					= 2844;	//该品质的装备不允许转移
+  RET_GODEVIL_CAN_NOT_TRANS					= 2845;	//该位置的装备不能转移
+  RET_GODEVIL_MAKE_LACK_MATERIAL				= 2846;	//缺少打造材料
+  RET_GODEVIL_EQUIP_MAKE_POS_LOCK				= 2847; //打造部位未解锁
 
+
+  //修真
+  RET_PT_LvUpMaterialNotEnough				= 2820; //修真升级材料不够
+  RET_PT_DjFailed								= 2821; //修真渡劫失败
+  RET_PT_GB_PARTICLE_NOT_CMPT 				= 2822;//修练时间还未完成
+  RET_PT_GBEnterAreaLvlNotEnough				=2823;//神塊等级不够
+  RET_PT_EnergyNotEnough						=2824;//修为值不够
+  RET_PT_LevelLimit							=2825;//已到顶级，不能再升了
+  RET_PT_EnergyLack							=2826;//修为不够
+  RET_GVB_ScoreLack							=2827;//神机战场积分不够
+  RET_GVB_DailyRecved							=2828;//神机战场日积分奖励已领取过，不能再领了
 
 
   //红包 2900-2950
@@ -719,12 +859,46 @@ enum ERetCode
   RET_RED_FETCH_VAL_LIMIT						= 2907;	//每日领取金额限制
   RET_RED_WORD_LEN_LIMIT						= 2908; //寄语长度限制
 
+  //采集 3000-3050
+  RET_COLLECT_IN_COLLECT_STATE				= 3000; //正在采集中
+  RET_COLLECT_NOT_EXIST						= 3001; //采集物不存在
+  RET_COLLECT_ALREADY_DEAD					= 3002; //采集物已消失
+  RET_COLLECT_CAN_NOT_COLLECT					= 3003; //不可采集
+  RET_COLLECT_HAS_NO_FUNC						= 3004; //没有采集功能
+  RET_COLLECT_NUM_LIMIT						= 3005; //采集次数限制
+
+
+  //活动 3100-3300
+  RET_ACT_NOT_OPEN							= 3100; //活动未开启
+  RET_ACT_ALREADY_CLOSE						= 3101; //活动已结束
+  //青云之巅
+  RET_QY_PASSED								= 3102;	//已通关青云之巅
+  //pvp 3301 - 3350
+  RET_PVP_ALREADY_PK_MODE						= 3301; //已经是此PK模式了
+  RET_PVP_PK_MODE_CD							= 3302; //PK模式CD中
+  RET_PVP_MAP_CAN_NOT_CHG_PK_MODE				= 3303;	//该地图禁止切换PK模式
+  RET_PVP_CAN_NOT_CHG_PK_MODE					= 3304; //不允许切换到此PK模式
+  RET_PVP_EMBLEM_LV_ALREADY_MAX				= 3305; //以达到最大阶级
+  RET_PVP_EMBLEM_STAR_ALREADY_MAX				= 3306; //以达到最大阶级
+  RET_PVP_EMBLEM_NOT_ACTIVE					= 3307; //未激活
+  RET_PVP_1V1_ALREADY_FETCH					= 3308; //已领取奖励
+  RET_PVP_1V1_CAN_NOT_FETCH					= 3309; //不能领取奖励
+  RET_PVP_1V1_NOT_IN_MATCH_MAP				= 3310; //不在1v1匹配场景
+  RET_PVP_1V1_CAN_NOT_MATCH					= 3311;	//不允许匹配
+  RET_PVP_1V1_IN_MATCH						= 3312; //已经在匹配中
+  RET_PVP_1V1_IN_READY						= 3313; //准备进入战斗场景，不允许匹配
+
+
   //支付 3800-3860
   RET_PAY_USED_PAYMENT						= 3800;    //已生效的支付
   RET_PAY_INVALID_PAYMENT						= 3801;    //支付内部错误
   RET_PAY_INVALID_MONEY						= 3802;    //支付金额不对
   RET_PAY_REQ_ODER_CONF_ERR					= 3803;    //申请订单失败，产品id未找到
   RET_PAY_REQ_ODER_NOT_OPEN					= 3804;	   //申请订单失败，功能未开启
+  RET_PAY_REQ_ODER_CHAN_FORBIDDEN				= 3805;    //申请订单失败，渠道限制
+  RET_PAY_REQ_ODER_INVALID_PRODUCT			= 3806;    //申请订单失败，无效的产品id
+  RET_PAY_REQ_ODER_PRODUCT_LST_LEN			= 3807;    //申请订单失败，产品列表长度错误
+  RET_PAY_REQ_ODER_PRICE_ERR					= 3808;    //申请订单失败, 价格错误
   RET_PAY_WEB_ORDER_RETCODE					= 3850;    //请求订单号，web返回的错误码
   RET_PAY_WEB_PAY_RETCODE						= 3851;    //请求支付，web返回的错误码
 
@@ -745,8 +919,221 @@ enum ERetCode
   RET_SJ_BREAK_MAX							= 3912;	  //铭刻已满级
   RET_SJ_AWAKEN_MAX							= 3913;	  //觉醒已满级
 
+  //上古神灵
+  RET_AT_NUM_LEAK								= 3950;	  //数量不足，不能解锁
+  RET_AT_IS_UNLOCKED							= 3951;	  //上古神灵已经解锁
+  RET_AT_NOT_FULL_UNLOCK						= 3952;  //未全解锁神灵，不能解锁
+  RET_AT_LV_MAX								= 3953;	//神灵等级已满
+  RET_AT_PRCOSS_LEAK							= 3954; //神灵升级装备不足
+  RET_AT_STAR_LEAK							= 3955;	//星星不足
+  RET_AT_STAR_MAX								= 3956; //星级已满
+  RET_AT_IS_BLESSED							= 3957;	//已加过幸运
+
+  //结婚
+  RET_MARRY_APPLYING							= 4000; //无法同时送出两份结缘
+  RET_MARRY_ACKING							= 4001; //提亲对象正在处理别人的求婚请求
+  RET_MARRY_NOT_APPLY_OTHER					= 4002;	//已结婚,不能向其他人申请结婚
+  RET_MARRY_IS_MARRYED						= 4003;	//对方已婚
+  RET_MARRY_IS_INDUP							= 4004;	//该玩家正在战斗中哦，稍等下吧~
+  RET_MARRY_DST_LEAVE_LACK					= 4005; //对方等级不足
+  RET_MARRY_LEAVE_LACK						= 4006; //等级不足
+  RET_MARRY_NOT_FRIEND						= 4007; //不是好友不能结婚
+  RET_MARRY_NOT_ONLINE						= 4008;	//对方不在线
+  RET_MARRY_CHILD_NOT_TIME					= 4009; //未到仙娃领取时间
+  RET_MARRY_DIVORCE_NO_MARRY					= 4010;	//您尚未结缘，无需解除
+  RET_MARRY_CHILD_IS_ACTIVED					= 4011;	//仙娃已激活了
+  RET_MARRY_CHILD_NO_ACTIVE					= 4012;	//仙娃未激活
+  RET_MARRY_CHILD_LV_MAX						= 4013;	//仙娃等级已满
+  RET_MARRY_CHILD_STAR_MAX					= 4014;	//仙娃星级已满
+  RET_MARRY_EXPRESS_NO_FRIEND					= 4015;	//不是好友不能表白
+  RET_MARRY_NOT_ONLINE_EXPRESS				= 4016;	//您的好友不在线，请表白其他好友
+  RET_MARRY_EXPRESS_MAX						= 4017;	//表白经验已满，不能在表白
+  RET_MARRY_NOT_MARRY							= 4018;	//没有结婚
+  RET_MARRY_BUY_NUM_LEAK						= 4019;	//购买次数已用完
+  RET_MARRY_NO_DRESS_LOCK						= 4020;	//没有穿戴同心锁
+  RET_MARRY_LOCK_LV_MAX						= 4021;	//同心锁已满级,
+  RET_MARRY_DST_DUP_LIMIT						= 4022;	//您伴侣今日购买次数已用完
+  RET_MARRY_DST_GIVE_DUP_LIMIT				= 4023;	//今日伴侣赠送次数已达上限
+  RET_MARRY_CARD_NOT_TIME_OUT					= 4024;	//宝匣未过期,不能购买
+  RET_MARRY_CARD_NOT_BUY						= 4025;	//未购买过宝匣
+  RET_MARRY_NOT_CARD_RECV						= 4026; //没有宝匣奖励可领
+  RET_MARRY_DST_REFUSE_BUY					= 4027;	//对方拒绝购买情缘副本次数
+  RET_MARRY_WEDDING_NO_MARRY					= 4028;	//没有结婚不能预约婚宴
+  RET_MARRY_WEDDING_DUE						= 4029;	//当前婚宴已被预约
+  RET_MARRY_OUT_APPLY_TIME					= 4030; //超过预约时间
+  RET_MARRY_NOT_WEDDING_NUM					= 4031; //没有预约婚宴次数
+  RET_MARRY_WEDDING_NOT_MASTER				= 4032; //不是主办方不能邀请人
+  RET_MARRY_WEDDING_IS_OVER					= 4033;	//婚宴已结束
+  RET_MARRY_WEDDING_INVITE_FULL				= 4034;	//邀请人数已满
+  RET_MARRY_NO_IN_APPLY						= 4035; //不在申请列表
+  RET_MARRY_INVITED							= 4036;	//已邀请该玩家
+  RET_MARRY_WEDDING_NO_START					= 4037; //婚宴未开始
+  RET_MARRY_NO_ACCESS							= 4038;	//没有权限
+  RET_MARRY_NO_WEDDING						= 4039;	//当前没有进行的婚宴
+  RET_MARRY_APPLY_FULL						= 4040;	//婚宴申请列表已满
+  RET_MARRY_IN_APPLY							= 4041; //已索要请帖
+  RET_MARRY_HAS_WEDDING_NO_DIVOCE				= 4042;	//有婚宴次数不能离婚
+  RET_MARRY_IS_IN_INVITE						= 4043;	//可以参与婚宴，不能在申请
+  RET_MARRY_WARM_FULL							= 4044;	//温馨值已满
+  RET_MARRY_YX_IS_COL							= 4045; //当前宴席已采集过
+  RET_MARRY_CAKE_NUM_LEAK						= 4046; //蛋糕不足
+
+  //合成
+  RET_MERGE_COST_ERR							= 4200;	//合成材料错误
+  RET_MERGE_MAX								= 4201; //已满级
+  RET_MERGE_COND_ERR							= 4202;	//合成条件不满足
+
+  //龙魂
+  RET_DRAGON_SOUL_WEAR_QUALITY_LACK			= 4230; //装备装备品阶不足
+  RET_DRAGON_SOUL_NO_UNDRESS_WAKEUP			= 4231; //觉醒后无法卸下
+  RET_DRAGON_SOUL_WAKEUP_POSITION_LACK		= 4232; //觉醒只能同时同种龙魂
+  RET_DRAGON_SOUL_WAKEUP_MAX_LEVEL			= 4233; //觉醒觉醒最大等级
+
+  //首充  4400 - 4450
+  RET_CHARGE_OPEN_DAY_LIMIT				=  4400;    //开服天数限制
+  RET_CHARGE_ALREADY_FETCH				=  4401;    //奖励已领取
+  RET_CHARGE_CAN_NOT_FETCH				=  4402;	//不能领取奖励
+
+  //条件礼包 4450 - 4500
+  RET_GIFT_COND_ALREADY_BUY				= 4450;		//已购买条件礼包
+  RET_GIFT_COND_ALREADY_CLOSE				= 4451;		//条件礼包已关闭
+  RET_GIFT_COND_CAN_NOT_BUY				= 4452;		//不能购买条件礼包
+  RET_GIFT_COND_NOT_OPEN					= 4453;		//条件礼包未开启
+  RET_GIFT_ZERO_ALREADY_BUY				= 4454;		//已购买0元礼包
+  RET_GIFT_ZERO_NOT_BUY					= 4455;		//未购买0元礼包
+  RET_GIFT_ZERO_ALREADY_FETCH				= 4456;		//已领取0元礼包返还的货币
+  RET_GIFT_ZERO_CAN_NOT_FETCH				= 4457;		//不能领取 0元礼包返还的货币
+
+  //vip
+  RET_VIP_IS_FORERVE						= 4470;		//vip已永久激活
+  RET_VIP_HAS_BUY_LV_GIFT					= 4471;		//已购买过该等级礼包
+  RET_VIP_HAS_BUY_ZERO					= 4472;		//已购买过0点礼包
+  RET_VIP_NOT_ACTIVE						= 4473;		//VIP未激活
+  RET_VIP_RECVED_DAY_GIFT					= 4474;		//已领取过vip等级礼包
+  RET_VIP_NO_BUY_ZERO						= 4475;		//没有购买0元礼包
+  RET_VIP_RECV_TIME_LEAK					= 4476;		//未到领取时间
+  RET_VIP_RECVED_EXP						= 4477;		//已领取过vip缓存经验
+
+
+  //节日活动 4500 - 4600
+  RET_FEST_SHOP_NUM_LIMIT					= 4500;		//购买次数限制
+  RET_FEST_SIGN_ALREADY					= 4501;		//已经签到
+  RET_FEST_DIG_EGG_CAN_NOT_LOTTERY		= 4502;		//不能抽奖了
+  RET_FEST_SHOP_GIFT_NOT_OPEN				= 4503;		//礼包未开启
+  RET_FEST_SHOP_GIFT_ALREADY_CLOSE		= 4504;		//礼包已经关闭
+  RET_FEST_RANK_NOT_OPEN					= 4505;		//排行榜未开放
+  RET_FEST_BOSSKF_NO_KILL					= 4506;		//BOSS未击杀
+  RET_FEST_IS_RECVED						= 4507;		//奖励已领取
+  RET_FEST_DIG_EGG_TASK_NOT_EXIST			= 4508;		//任务不存在
+  RET_FEST_DIG_EGG_TASK_NOT_FETCH			= 4509;		//不能领取奖励
+  RET_FEST_REWARD_NOT_EXIST				= 4510;		//奖励不存在
+
+
+  //交易行
+  RET_MARKET_IS_FOLLOW					= 4520;		//已关注
+  RET_MARKET_FOLLOW_LIMIT					= 4521;		//关注到达上限
+  RET_MARKET_DONWED						= 4522;		//商品已下架
+  RET_MARKET_VIE_FAIL						= 4523;		//商品竞价失败
+  RET_MARKET_VIE_OWNER					= 4524;		//不能买自己的商品
+  RET_MARKET_VIE_ING						= 4525;		//已竞价
+  RET_MARKET_UP_UNBIND					= 4526;		//绑定的不能上架
+  RET_MARKET_UP_LIMIT						= 4527;		//上架到达上限
+
+
+  //兑换码 4550-4570
+  RET_EXCHANGE_CODE_IN_CD					= 4550;		//CD中
+  RET_EXCHANGE_CODE_ERROR					= 4551;		//兑换码不正确
+  RET_EXCHANGE_CODE_ALREADY_USE			= 4552;		//兑换码已使用过
+  RET_EXCHANGE_CODE_NOT_EXISTS			= 4553;		//礼包不存在
+  RET_EXCHANGE_CODE_NO_EFFECT				= 4554;		//礼包已经失效
+  RET_EXCHANGE_CODE_NOT_START				= 4555;		//礼包兑换未开始
+  RET_EXCHANGE_CODE_END					= 4556;		//礼包兑换已结束
+  RET_EXCHANGE_CODE_CHAN_LIMIT			= 4557;		//无法在此渠道兑换礼包
+  RET_EXCHANGE_CODE_SERVER_LIMIT			= 4558;		//无法在此区服兑换礼包
+  RET_EXCHANGE_CODE_ONCE					= 4559;		//礼包只能兑换一次
+
+  //幻世烛龙 4601-4650
+  RET_DRAGON_ALREADY_MAX_LEV					= 4601;		//以达到最大等级
+  RET_DRAGON_CAN_NOT_LEVUP					= 4602;		//不能升级
+  RET_DRAGON_STAR_LIMIT						= 4603;		//以达到最大星级
+  RET_DRAGON_NOT_ACTIVE						= 4604;		//未激活
+  RET_DRAGON_USE_FRAG_LIMIT					= 4605;		//碎片使用达到上限
+  RET_DRAGON_LEVUP_STAR_LIMIT					= 4606;		//星级限制
+
+  //分包奖励 4670-4680
+  RET_SUBPACK_ALREADY_FETCH					= 4670;		//已领取分包奖励
+  RET_SUBPACK_INVALID_TYPE					= 4671;		//无效的分包类型
+  RET_SUBPACK_CAN_NOT_FETCH					= 4672;		//不能领取分包奖励
+
+
+  //战队
+  RET_CLAN_APPLY_FULL					= 5250;	//战队申请列表已满
+  RET_CLAN_MAX						= 5251; //战队已满
+  RET_HAS_CLAN_NO_CREATE				= 5252; //已有战队,不能创建
+  RET_ONE_HOUR_NO_CREATE				= 5253;	//1个小时不能创建战队
+  RET_CLAN_REFUSE_APPLY				= 5254;	//拒绝申请
+  RET_CLAN_NO_LEADER					= 5255;	//不是队长不能操作
+  RET_CLAN_BADGE_NOT_GET				= 5256;	//战令未获得
+  RET_CLAN_NAME_EMPTY					= 5257;	//名称不能为空
+  RET_CLAN_NO_IN_APPLY				= 5258;	//不在申请列表
+  RET_CLAN_TARGE_IN_BAN				= 5259;	//对方在1个小时内不能加入战队
+  RET_CLAN_NO_MEM						= 5260;	//不是队伍成员
+  RET_CLAN_KICK_NO_TIME				= 5261; //1-21号不能踢出成员
+  RET_CLAN_IS_MEM						= 5262;	//已是队伍成员
+  RET_CLAN_FULL						= 5263;	//战队已满员
+  RET_CLAN_INVITE_REFUSE				= 5264;	//对方拒绝邀请
+  RET_CLAN_DIS						= 5265; //战队已解散
+  RET_CLAN_NO_CLAN3					= 5267;	//没有加入战队
+  RET_CLAN_NO_CLAN5					= 5268;	//没有加入战团
+  RET_CLAN_DAY_INVITE					= 5269;	//已邀请过该玩家
+  RET_CLAN3_NOT_MATCH_HAS_TEAM		= 5270; //单人匹配不能有队伍
+  RET_CLAN3_NO_CLAN_NO_MATCH			= 5271;	//没有战队不能匹配
+  RET_CLAN3_NO_MATCH_NO_TEAM			= 5272;	//没有组队,不能战队匹配
+  RET_CLAN3_NO_MATCH_TEAM_HAS_OTHER	= 5273; //队伍有非战队成员,不能匹配
+  RET_CLAN3_NO_LEADER_NO_MATCH		= 5274;	//不是战队队长,不能进行战队匹配
+  RET_CLAN3_NO_MATCH_TEAM_MEM_NO_WAIT = 5275;	//队伍成员不在匹配场景
+  RET_CLAN3_RECV_DAY_REWARD			= 5276;	//今日已领过参与宝箱
+  RET_CLAN3_DAY_REWARD_LACK			= 5277;	//今日参与次数不足
+  RET_CLAN3_ACT_OPEN_NO_KICK			= 5278;	//活动期间不能踢玩家
+  RET_CLAN3_ACT_OPEN_NO_LEAVE			= 5279;	//活动期间不能离开战队
+  RET_CLAN3_HAS_CLAN					= 5280;	//已有战队
+  RET_CLAN3_MATCH_MEM_LACK			= 5281;	//战队匹配人数不足
+
+  //神体错误码
+  RET_TURN_LV_MAX						= 5290; //当前转生等级已满
+  RET_TURN_LV_EXP_LACK				= 5291;	//神元不足,不能升级
+  RET_TURN_CHGED						= 5292;	//仙友已成功渡劫转生
+  RET_TURN_HELPERD					= 5293;	//已援助仙友转生
+  RET_TURN_HELP_LV_LACK				= 5294; //神体转生援助等级不足
+  RET_TURN_LV_MAX_NOT_CHG				= 5295;	//当前等级未满不能转生
+  RET_TURN_NUM_LACK					= 5296; //今日转生次数不足
+  RET_TURN_CHG_MAX					= 5297;	//转生等级已满
+  RET_TURN_CHG_LV_LACK				= 5298; //转生当前等级不足
+  RET_TURN_NO_DRESS_EQUIP				= 5299; //未穿戴神体装备
+  RET_TURN_STRONG_MAX					= 5300;	//强化等级已满
+  RET_TURN_EVOLE_MAX					= 5301;	//进化等级已满
+  RET_TURN_EVOLE_COND_LACK			= 5302; //进化条件错误(品质或星级不足)
+  RET_TURN_EVOLE_COST_ERR				= 5303; //进化消耗错误
+  RET_TURN_AWAKEN_MAX					= 5304;	//觉醒等级已满
+  RET_TURN_AWAKEN_COND_LACK			= 5305; //觉醒条件错误(品质或星级不足)
+  RET_TURN_AWAKEN_COST_ERR			= 5306; //觉醒消耗错误
+  RET_TURN_STAR_MAX					= 5307; //神体星级已满
+  RET_TURN_STAR_UP_COND_LACK			= 5308; //神体星级条件不足
+  RET_TURN_STRONG_LV_LACK				= 5309;	//强化总等级不足
+  RET_TURN_STAR_NUM_LACK				= 5310; //总星数不足
+  RET_TURN_STAR_ACTIVE_BF				= 5311;	//清激活前面一个星级
+
+
 }
 
+//特权类型
+enum Privilege_Type
+{
+  pt_yaoci_add_exp = 18; 					//圣母瑶池温泉经验加成，填写万分比
+  pt_sj_add_exp = 19;						//赏金经验加成，填写万分比
+  pt_kill_monster_add_exp = 20; 			//打怪经验加成，填写万分比
+  pt_seat_add_exp = 21;					//离线经验加成，填写万分比
+}
 
 //中心服通知下线类型
 enum LOGOUT_TYPE
@@ -787,7 +1174,9 @@ enum CHAT_CHANNEL
   CHAT_CHANNEL_BACKEND_RUMOR = 11; //运营后台跑马灯
   CHAT_CHANNEL_ACTIVITY = 12;		//活动频道
   CHAT_CHANNEL_POKERROOM = 13;	//扑克聊天室
-  CHAT_CHANNEL_LIMIT = 14;
+  CHAT_CHANNEL_CLAN3		= 14;	//战队
+  CHAT_CHANNEL_CLAN5		= 15; 	//战团
+  CHAT_CHANNEL_LIMIT = 16;
 }
 
 enum FacadeType
@@ -799,18 +1188,14 @@ enum FacadeType
   FACADE_TYPE_MAX = 5;
 }
 
-//Facede外观类型
-enum EFacadeType
-{
-  EFacadeType_Advance = 1;		//进阶外观
-  EFacadeType_Fantasy = 2;		//幻化外观
-};
+
 
 //功能开放功能ID枚举
 enum FunctionUnlock_ID_TYPE
 {
   FunctionUnlock_ID_TYPE_ROLE                                 = 1001;    //角色
   FunctionUnlock_ID_TYPE_SKILL                            	= 1002;    //技能
+  FunctionUnlock_ID_TYPE_RANKING								= 1024;    //排行
   FunctionUnlock_ID_TYPE_MOUNTS								= 2014;			//坐骑
   FunctionUnlock_ID_TYPE_WING									= 2022;    //翅膀
   FunctionUnlock_ID_TYPE_TREASURE                            	= 2026;    //宝具
@@ -818,9 +1203,22 @@ enum FunctionUnlock_ID_TYPE
   FunctionUnlock_ID_TYPE_PARTNER                            	= 2036;    //剑灵
   FunctionUnlock_ID_TYPE_GodEvilNotice						= 2063;	   //神魔预告
   FunctionUnlock_ID_TYPE_GodEvilTask							= 2064;	   //神魔任务
-
-
+  FunctionUnlock_ID_TYPE_Marry								= 2029;	   //仙缘
+  FunctionUnlock_ID_TYPE_Turn									= 2075;	   //转生
   FunctionUnlock_ID_TYPE_ARENA_MIAOSHANG						= 3053;   //竞技场秒杀
+
+  FunctionUnlock_ID_TYPE_ChargeFirst							= 4005;	   //首充-首充
+  FunctionUnlock_ID_TYPE_ChargeSecond							= 4024;	   //首充（超值续充）
+  FunctionUnlock_ID_TYPE_ChargeDia							= 4025;	   //首充（钻石秘宝）
+  FunctionUnlock_ID_TYPE_ChargeStar							= 4026;	   //首充（星耀秘宝）
+  FunctionUnlock_ID_TYPE_ChargeKing							= 4027;	   //首充（王者秘宝）
+  FunctionUnlock_ID_TYPE_OpenTotal							= 4028;	   //贵族 开服累充
+  FunctionUnlock_ID_TYPE_XiuZhenRoad							= 4029;	   //修真之路
+  FunctionUnlock_ID_TYPE_1v1									= 4101;	   //1v1
+
+
+  FunctionUnlock_ID_TYPE_LOGON_REWARD_CANCLE	= 4023; //
+  FunctionUnlock_ID_TYPE_DIETY								= 4070;			//天神
 }
 
 enum EFacadeAttrType
@@ -835,6 +1233,13 @@ enum EFacadeAttrType
 enum EDailyTaskPlayType
 {
   EDailyTaskPlayType_DUP = 1; //副本
+  EDailyTaskPlayType_BOSS = 2; //kill boss
+  EDailyTaskPlayType_TASK = 3; //finish task
+  EDailyTaskPlayType_ExpQIFU = 4; //经验祈福
+  EDailyTaskPlayType_FactionTrans = 5; //公会传功
+  EDailyTaskPlayType_YaoChi = 6; //瑶池
+
+
 }
 
 enum EDailyTaskBackType
@@ -842,7 +1247,7 @@ enum EDailyTaskBackType
   EDailyTaskBackType_DUP = 1; //副本
 }
 
-//权限枚举
+//特权限枚举
 enum PGType {
   PGType_world_boss_add_num = 1; 	//世界boss每日次数增加，填写增加值
   PGType_boss_dup_add_num =2;		//专属boss每日可购买次数增加，填写增加值
@@ -854,6 +1259,31 @@ enum PGType {
   PGType_bagua_dup_add_num =8;	//八卦副本每日可购买次数增加，填写加值
   PGType_dujie_dup_add_num =9;	//渡劫仙舟副本每日可购买次数增加，填写加值
   PGType_equip_dup_add_num =10;	//装备副本每日可购买次数增加，填写加值
+  PGType_jinji_num = 11;			//竞技场每日可购买次数
+  PGType_ronglian_exp = 12;		//熔炼装备获得经验值+50%
+  PGType_kill_monster_exp = 13;	//提高玩家打怪经验加成百分比|参数经验甲辰，万分比
+  PGType_refresh_s = 14;			//必定第一个刷新S次数+xxx|
+  PGType_sw_refresh = 15;			//声望刷新次数
+  PGType_yaoci_exp_add = 16;		//瑶池圣母温泉经验加成
+  PGType_sw_ex_add = 22;			//获取声望额外加成25%
+  PGType_sw_xz_add = 23;			//协助及日常声望上限加成25%
+  PGType_yb_add	= 24;			//获得元宝额外加成25%
+  PGType_qd_race = 107;			//签到奖励翻倍
+  PGType_exp_qindao = 108;		//经验祈祷次数+xxx
+  PGType_glob_qindao = 109;		//金币祈祷次数+xxx
+  PGType_open_sj = 110;			//开启一件赏金功能
+  PGType_open_bpsw = 111; 		//开启一件帮派声望任务
+  PGType_open_fltb = 112;			//开启一件蓬莱探宝
+  PGType_open_zdcs = 113;			//自动触手蓝绿装
+  PGType_wxfx	= 114;				//无线飞鞋
+  PGType_merge_save = 115;		//装备合成失败保留xxx件
+  PGType_merge_race = 116;		//装备和成成功率+xxx
+  PGType_offline_add = 117;		//离线经验+xxx
+  PGType_km_exp = 118;			//杀怪经验+xxx
+  PGType_red_r = 119;				//红包奖励+xxx
+  PGType_sj_exp = 120;			//赏金任务经验+xxx
+  PGType_add_skill = 121;			//增加指定技能
+  PGType_open_sh = 122;			//开启装备守护栏位
 }
 
 //挑战类型
@@ -877,11 +1307,13 @@ enum ArenaChallType
   ARENA_CHALL_TYPE_MIAO_SHA = 1; //1：秒杀
 }
 
-//VIP特权
+//VIP特权(废弃)
 enum VIP_PRIVILEGE_TYPE {
   VIP_PRIVILEGE_EQUIP_STOVE = 12;			//熔炼装备获得的经验值+50%
   VIP_PRIVILEGE_GUILD_PRESTIGE_MISSION_REFRESH_S = 14; //刷新S次数
   VIP_PRIVILEGE_GUILD_PRESTIGE_MISSION_REFRESH_ADD_NUM = 15; //刷新S次数
+  VIP_PRIVILEGE_EXP_QIFU_NUM = 108; //经验可祈祷次数为1
+  VIP_PRIVILEGE_GOLD_QIFU_NUM = 109; //元宝可祈祷次数为7
 }
 
 //乖骑状态
@@ -896,7 +1328,7 @@ enum EDeityEquipPos
 {
   option allow_alias = true;
   EDeityEquipPos_start			= 20;	//
-  EDeityEquipPos_ring			= 0;	//神戒
+  EDeityEquipPos_ring				= 0;	//神戒
   EDeityEquipPos_bracelet			= 1;	//神镯
   EDeityEquipPos_jade				= 2;	//神玺
   EDeityEquipPos_necklace			= 3;	//神坠
@@ -905,7 +1337,7 @@ enum EDeityEquipPos
 
 enum EMoneyRewardTaskReward
 {
-  EMoneyRewardTask_BOUNTY = 3;//赏金任务
+  EMoneyRewardTask_BOUNTY = 5;//赏金任务
 }
 
 enum ETitleSubType
@@ -923,4 +1355,72 @@ enum ETitleTimeType
   E_TITLE_TIME_TYPE_COMPETITION_SEASON = 1; //1赛季时间计算，赛季结束则失效
   E_TITLE_TIME_TYPE_NEXT_ACTIVITY_INVALID = 2; //2下次活动开启失效
   E_TITLE_TIME_TYPE_LOST_RANKING = 3; //3失去排名失效
+}
+
+//神兽装备位置定义:1:兽角 2:兽盔 3:兽爪 4:兽蹄 5:兽鞍
+enum EBeastEquipPos
+{
+  option allow_alias = true;
+  EBeastEquipPos_start			= 25;	//
+  EBeastEquipPos_Horn			= 0;	//兽角
+  EBeastEquipPos_Helm			= 1;	//兽盔
+  EBeastEquipPos_Claw			= 2;	//兽爪
+  EBeastEquipPos_Hoof			= 3;	//兽蹄
+  EBeastEquipPos_Saddle		= 4;	//兽鞍
+  EBeastEquipPos_Limit		= 5;
+}
+
+//龙魂装备位置定义
+enum EDragonSoulEquipPos
+{
+  option allow_alias = true;
+  EDragonSoulEquipPos_start			= 30;	//
+  EDragonSoulEquipPos_one				= 0;	//
+  EDragonSoulEquipPos_special1		= 8;	//
+  EDragonSoulEquipPos_special2		= 9;	//
+  EDragonSoulEquipPos_limit			= 10;
+}
+
+//神魔装备位置定义
+enum EGodEvilEquipPos
+{
+  option allow_alias = true;
+  EGodEvilEquipPos_weapon		= 41;	//武器
+  EGodEvilEquipPos_dagger		= 42;	//匕首
+  EGodEvilEquipPos_hat		= 43;	//头盔
+  EGodEvilEquipPos_armor		= 44;	//护甲
+  EGodEvilEquipPos_hand		= 45;	//护腕
+  EGodEvilEquipPos_belt		= 46;	//腰带
+  EGodEvilEquipPos_shoe		= 47;	//靴子
+  EGodEvilEquipPos_bracelet	= 48;	//手镯
+  EGodEvilEquipPos_ring		= 49;	//戒指
+  EGodEvilEquipPos_necklace	= 50;	//项链
+}
+
+
+//渠道ID
+enum ChannelId
+{
+  option allow_alias = true;
+  Chan_Dev				= 1;			//开发渠道
+  Chan_Aofei_andrioid		= 90000000;		//奥飞安卓(融合SDK)
+  Chan_Aofei_ios			= 200000000;	//奥飞IOS
+};
+
+//不灭星辰位置定义
+enum EStarEquipPos
+{
+  option allow_alias = true;
+  EStarEquipPos_start			= 51;
+  EStarEquipPos_jiao			= 0;
+  EStarEquipPos_limit			= 8;
+}
+
+//坐骑鲲装备位置定义
+enum EMountKunEquipPos
+{
+  option allow_alias = true;
+  EMountKunEquipPos_start			= 59;
+  EMountKunEquipPos_first			= 0;
+  EMountKunEquipPos_limit			= 5;
 }

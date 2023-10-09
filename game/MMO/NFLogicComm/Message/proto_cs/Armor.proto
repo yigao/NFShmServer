@@ -1,10 +1,6 @@
-package proto_ff;
-
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
 
 
 //1:玄真护甲数据通知 NOTIFY_ARMOR_RSP

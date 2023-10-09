@@ -1,10 +1,8 @@
-package proto_ff;
+// 定义公用message，注意与ComDefine.proto区别
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
 
-import "Com.proto";
 
 //任务完成条件数据
 message CItemInfo
@@ -67,6 +65,17 @@ message SubmitMissionInfo
 	optional uint32 index = 1;
 	optional uint32 goodsNum = 2;
 }
+
+//任务奖励参数
+message MissionRewardProto
+{
+	repeated Attr64 attr = 1; //属性奖励类型
+	repeated ComPair64 item = 2; //物品
+	repeated uint64 skill = 3; //技能奖励
+	optional int32 use_contri = 4; //工会贡献
+	optional int32 union_exp = 5; //工会经验
+}
+
 
 enum EGuildPrestigeMissionState
 {
@@ -185,6 +194,7 @@ message CGOnekeyMissionReq
 {
 	optional int32 type = 1;   //类型，1-诺林冒险，2-工会任务,3-赏金任务
 	optional int32 num = 2;
+	optional int32 show_type = 3; //方便客户端显示，0：默认，1：仙梦助手
 }
 
 //返回一键完任务
@@ -194,7 +204,9 @@ message CGOnekeyMissionRsp
 	optional int32 accept_num = 2;				//已经接取了的次数
 	repeated int64 gold_lst = 3;				//金币列表
 	repeated int64 exp_lst = 4;					//经验列表
-	optional int32 type = 5;   					//类型，1-诺林冒险，2-工会任务
+	optional int32 type = 5;   					//类型，1-诺林冒险，2-工会任务,3-赏金任务,4-赏金任务 免费一键完成
+	optional int32 show_type = 6; //方便客户端显示，0：默认，1：仙梦助手
+	optional MissionRewardProto reward = 7; //方便客户端仙梦助手显示
 }
 
 //立即完成任务

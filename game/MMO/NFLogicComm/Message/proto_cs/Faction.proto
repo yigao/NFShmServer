@@ -1,10 +1,7 @@
-package proto_ff;
+// 定义公用message，注意与ComDefine.proto区别
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
 
 
 
@@ -58,6 +55,9 @@ message FactionMemProto
 	optional uint64 total_contri = 8;		//总贡献
 	optional int32 is_online = 9;			//是否在线
 	optional uint64 logout_time = 10;		//上次下线的 unix 时间（单位：秒）
+	optional uint64 clan3_id = 11;			//3v3战队Id
+	optional uint64 clan5_id = 12;			//5v5战队Id
+	optional RoleHeadPicProto head = 13;	//头像
 }
 //帮派成员信息列表
 message FactionMemListProto
@@ -137,6 +137,83 @@ message FactionSalaryListProto
 	repeated FactionSalaryProto info = 1;
 }
 
+//晚宴信息
+message FactionDinnerProto
+{
+	optional uint32 trans = 1; //已经传功的次数
+	optional uint32 meat = 2;  //已经吃肉的次数
+	optional uint32 exp = 3;   //已经获得的经验
+	optional uint32 contri = 4;//已经获得的贡献
+}
+//传功可邀请的信息
+message FactionInviteProto
+{
+	optional uint64 cid = 1;
+	optional bytes name = 2;
+	optional int32 level = 3;
+	optional int32 prof = 4;
+	optional RoleHeadPicProto head = 5;
+}
+
+
+//帮派技能信息
+message FactionSkillProto
+{
+	optional int32 id = 1;		//技能ID
+	optional int32 level = 2;	//等级
+}
+//帮派技能列表信息
+message FactionSkillListProto
+{
+	repeated FactionSkillProto info = 1;
+}
+
+
+//帮派答题排名信息
+message FactionAnswerRankProto
+{
+	optional int32 rank = 1;		//排名
+	optional uint32 faction_id = 2;	//帮派ID
+	optional bytes name = 3;		//帮派名字
+	optional uint32 zid = 4;		//区服ID
+	optional int32 count = 5;		//正确题数
+}
+//帮派答题排名列表信息
+message FactionAnswerRankListProto
+{
+	repeated FactionAnswerRankProto lst = 1;
+}
+
+//帮派答题最终排名信息
+message FactionAnswerFinalProto
+{
+	optional int32 rank = 1;			//排名
+	optional uint32 faction_id = 2;		//帮派ID
+	optional bytes name = 3;			//帮派名字
+	optional uint32 zid = 4;			//区服ID
+	optional uint64 cid = 5;			//答题最多的玩家
+	optional uint32 count = 6;			//答题最多的玩家答对了多少道题目
+	optional int32 sec = 7;				//帮派答题用时，单位：秒
+	optional bytes player_name = 8;		//答题最多的玩家名字
+	optional uint32 faction_count = 9;	//帮派答对了多少道题目
+}
+
+
+
+//帮派神兽排名信息
+message FactionBeastRankProto
+{
+	optional int32 rank = 1;		//排名
+	optional uint64 cid = 2;		//玩家cid
+	optional bytes name = 3;		//玩家名字
+	optional int64 harm = 4;		//伤害
+}
+//帮派神兽排名列表信息
+message FactionBeastRankListProto
+{
+	repeated FactionBeastRankProto lst = 1;
+}
+
 //-------------------------------------------------------------------------------
 
 
@@ -153,6 +230,7 @@ message Faction_SyncInfoRsp
 	optional uint32 faction_id = 1;		//帮派ID
 	optional bytes name = 2;			//帮派名字
 	optional int32 duty = 3;			//职务
+	optional int32 level = 4;			//帮派等级
 }
 
 //玩家 帮派详细信息 FACTION_INFO_REQ
@@ -418,6 +496,196 @@ message Faction_SalaryFetchRsp
 	required int32 ret = 1;
 }
 
+//更新 帮派晚宴信息 FACTION_DINNER_INFO_UPDATE_RSP
+message Faction_DinnerUpdateRsp
+{
+	optional FactionDinnerProto info = 1;
+}
+
+ //请求 可邀请传功的角色列表 FACTION_TRANS_INVITE_LIST_REQ
+ message Faction_TransInviteListReq
+ {
+	  //空
+ }
+
+//返回 可邀请传功的角色列表 FACTION_TRANS_INVITE_LIST_RSP 
+ message Faction_TransInviteListRsp
+ {
+	 repeated FactionInviteProto invite = 1;
+ }
+
+//返回 可接受传功的角色列表 FACTION_TRANS_ACCEPT_LIST_RSP
+ message Faction_TransAcceptListRsp
+ {
+	repeated FactionInviteProto accept = 1;
+ }
+//发出 传功邀请 FACTION_TRANS_INVITE_REQ
+message Faction_TransInviteReq
+{
+	optional uint64 invite_cid = 1; //被邀请的玩家cid
+}
+
+//发出 传功邀请 FACTION_TRANS_INVITE_RSP
+message Faction_TransInviteRsp
+{
+	required int32 ret = 1;			//返回码
+	optional uint64 invite_cid = 2; //被邀请的玩家cid
+}
+
+//通知 玩家收到传功邀请 FACTION_TRANS_INVITE_NOTIFY
+message Faction_TransInviteNotify
+{
+	optional FactionInviteProto info = 1;  //邀请者的信息
+}
+
+//通知 从可接受传功列表中移除 FACTION_TRANS_ACCEPT_DEL
+message Faction_TransDelAcceptNotify
+{
+	repeated uint64 del_cid = 1;
+}
+
+//同意 传功邀请  FACTION_TRANS_AGREE_REQ
+message Faction_TransAgreeReq
+{
+	optional uint64 cid = 1; //同意其他玩家的邀请，其他玩家的cid
+}
+//返回 同意 传功邀请 的操作结果 FACTION_TRANS_AGREE_RSP
+message Faction_TransAgreeRsp
+{
+	required int32 ret = 1;  //返回码
+}
+
+
+//请求 帮派技能信息 FACTION_SKILL_INFO_REQ
+message Faction_SkillInfoReq
+{
+	//空
+}
+//返回 帮派技能信息 FACTION_SKILL_INFO_RSP
+message Faction_SkillInfoRsp
+{
+	optional FactionSkillListProto skill = 1;
+}
+//帮派技能更新 FACTION_SKILL_UPDATE_RSP
+message Faction_SkillUpdateRsp
+{
+	optional FactionSkillListProto skill = 1;
+}
+//请求 帮派技能升级 FACTION_SKILL_UPGRADE_REQ
+message Faction_SkillUpgradeReq
+{
+	optional int32 id = 1; //技能ID
+}
+//返回 帮派技能升级结果 FACTION_SKILL_UPGRADE_RSP
+message Faction_SkillUpgradeRsp
+{
+	required int32 ret = 1;		//返回码
+}
+
+
+
+
+//请求帮派答题排名 FACTION_ANSWER_RANK_LIST_REQ	
+message Faction_AnswerRankListReq
+{
+	//空
+}
+//返回 帮派答题排名 FACTION_ANSWER_RANK_LIST_RSP
+message Faction_AnswerRankListRsp
+{
+	optional FactionAnswerRankListProto rank = 1;
+	optional uint32 count = 2;	//自己帮派答对题数
+}
+
+//返回 当前答题活动的答题排名 FACTION_ANSWER_CUR_RANK_RSP
+message Faction_AnswerCurRankRsp
+{
+	optional FactionAnswerRankListProto rank = 1;
+}
+
+
+//返回 答题阶段信息 FACTION_ANSWER_STAGE_RSP
+message Faction_AnswerStageRsp
+{
+	required int32 stage = 1;  //答题活动阶段 1-准备阶段,2-答题阶段，3-答案展示阶段，4-答题结束
+	required int32 sec = 2;    //答题活动阶段剩余时间,单位：秒
+	optional int32 num = 3;	   //第几道题目
+	optional int32 id = 4;	   //题目ID
+	optional bytes name = 5;   //回答正确玩家名字
+	optional uint64 cid = 6;   //回答正确玩家cid
+}
+//返回 玩家答题结果 FACTION_ANSWER_RESULT_RSP
+message Faction_AnswerResultRsp
+{
+	optional int32 id = 1;	   //题目ID
+	optional uint64 cid = 2;   //回答正确玩家cid
+	optional bytes name = 3;   //回答正确的玩家名字
+	optional int32 count = 4;  //玩家已经答对了几道题
+}
+
+//返回 答题最终的排名信息 FACTION_ANSWER_FINAL_RSP
+message Faction_AnswerFinalRsp
+{
+	repeated FactionAnswerFinalProto final = 1;
+}
+
+
+//请求帮派神兽信息 FACTION_BEAST_INFO_REQ
+message Faction_BeastInfoReq
+{
+	//空
+}
+//返回帮派神兽信息 FACTION_BEAST_INFO_RSP
+message Faction_BeastInfoRsp
+{
+	optional FactionBeastRankListProto rank = 1;
+	optional uint32 myrank = 2;						//个人排名
+	optional int64 myharm = 3;						//个人伤害
+	optional int32 star = 4;						//星级
+	optional int32 is_open = 5;						//是否开启了帮派神兽 1-开启，0-未开启
+	optional uint32 today_count = 6;				//今日已开启次数
+	optional uint32 week_count = 7;					//本周已开启次数
+	optional int32 level = 8;						//神兽等级
+	optional uint32 tribute = 9;					//神兽贡品
+}
+//通知帮派神兽开启信息 FACTION_BEAST_NOTIFY_OPEN_INFO
+message Faction_BeastOpenInfoNotify
+{
+	optional int32 is_open = 1;			//是否开启了帮派神兽
+	optional uint32 today_count = 2;	//今日已开启次数
+	optional uint32 week_count = 3;		//本周已开启次数
+	optional int32 level = 4;			//神兽等级
+	optional uint32 tribute = 5;		//神兽贡品
+}
+//请求开启帮派神兽 FACTION_BEAST_OPEN_REQ
+message Faction_BeastOpenReq
+{
+	//空
+}
+//返回开启帮派神兽结果 FACTION_BEAST_OPEN_RSP
+message Faction_BeastOpenRsp
+{
+	required int32 ret = 1; 
+}
+	
+//返回帮派神兽当前实时伤害排名 FACTION_BEAST_CUR_HARM_RANK_RSP
+message Faction_BeastCurHarmRankRsp
+{
+	optional FactionBeastRankListProto rank = 1;
+	optional int64 myharm = 2;						//自己造成的伤害
+}
+
+//返回帮派神兽完成信息 FACTION_BEAST_FINISH_RSP
+message Faction_BeastFinishRsp
+{
+	optional int32 sec = 1;					//通关时间
+	optional int32 star = 2;				//星级
+	optional int64 harm = 3;				//个人伤害
+	optional int32 rank = 4;				//个人排名
+	repeated ComItem reward = 5;			//个人奖励
+	repeated ComItem faction_reward = 6;	//帮派奖励
+
+}
 
 //----------------------------------------------------------
 
@@ -462,3 +730,428 @@ message CL_FactionDismissNotify
 {
 	required uint32 faction_id = 1;		//帮派ID
 }
+
+//逻辑服通知中心服增加帮派属性值  FACTION_LC_ADD_ATTR_REQ
+message LC_FactionAddAttrReq
+{
+	required uint32 faction_id = 1;		//帮派ID
+	optional uint32 exp = 2;			//帮派经验
+	optional int32 tribute = 3;			//帮派神兽贡品
+	// TODO: 下面增加其他字段
+}			
+
+//逻辑服通知社交服帮派答题数信息 FACTION_LS_ANSWER_COUNT
+message LS_FactionAnswerCount
+{
+	required uint32 faction_id = 1;		//帮派ID
+	required bytes faction_name = 2;	//帮派名字
+	required uint32 count = 3;			//答对数
+	required uint32 zid = 4;
+}
+//社交服通知逻辑服帮派答题排名信息 FACTION_SL_ANSWER_RANK
+message SL_FactionAnswerRank
+{
+	optional FactionAnswerRankListProto rank = 1;
+}
+
+//逻辑服请求社交服答题当前排名信息 FACTION_LS_ANSWER_CUR_RANK_REQ
+message SL_FactionAnswerCurRankReq
+{
+	required uint64 cid = 1;
+}
+
+//社交服通知中心服帮派答题排名 FACTION_SC_ANSWER_RANK	
+message SC_FactionAnswerRankRsp
+{
+	repeated uint32 factionid = 1;
+	repeated uint32 rank = 2;
+}
+
+//逻辑服通知社交服帮派答题结束 FACTION_LS_ANSWER_END
+message LS_FactionAnswerEndRsp
+{
+	required uint32 factionid = 1;
+	required uint32 zid = 2;
+	required uint64 endtime = 3;
+	required uint64 cid = 4;
+	required uint32 count = 5;
+	required bytes player_name = 6;
+	required int32 sec = 7; 
+	required uint32 faction_count = 8;
+}
+
+//逻辑服通知中心服帮派神兽完成信息 FACTION_LC_BEAST_FINISH
+message LC_FactionBeastFinishRsp
+{
+	required uint32 factionid = 1;
+	repeated uint64 cid_lst = 2;
+	repeated int64 harm_lst = 3;
+	optional int32 star = 4;
+	repeated ComItemBind reward = 5;
+}
+
+/////////////////////////////////帮派守卫//////////////////////////////////////////////////
+
+//帮派守卫数据
+message FactionGuardData
+{
+	optional uint64 acc_person_exp = 1; //累计获取的个人经验
+	optional uint64 acc_faction_contri = 2;		//累计获取的建设度
+	optional uint32 cur_encouragement_gold_count = 3;
+	optional uint32 cur_encouragement_diamond_count = 4;
+}
+
+//FACTION_GUARD_SCENE_INFO_REQ			= 2185;	//请求帮派守卫场景信息
+message Faction_GuardSceneInfoReq
+{
+	//空
+}
+
+//FACTION_GUARD_SCENE_INFO_RSP			= 2186;	//返回帮派守卫场景信息
+message Faction_GuardSceneInfoRsp
+{
+	optional FactionGuardData data = 1;
+	optional uint32 cur_guard_encouragement_gold_count = 2;
+	optional uint32 cur_guard_encouragement_diamond_count = 3;
+}
+
+//帮派守卫排名信息
+message FactionGuardRankProto
+{
+	optional int32 rank = 1;		//排名
+	optional uint64 cid = 2;		//玩家cid
+	optional bytes name = 3;		//玩家名字
+	optional int64 harm = 4;		//伤害
+}
+
+//帮派守卫排名列表信息
+message FactionGuardRankListProto
+{
+	repeated FactionGuardRankProto lst = 1;
+}
+
+//	FACTION_GUARD_PERSON_RANK_INFO_REQ			= 2180;	//请求帮派守卫个人排名信息(外部)
+message Faction_GuardPersonRankInfoReq
+{
+	//空
+}
+
+//FACTION_GUARD_PERSON_RANK_INFO_RSP			= 2181;	//返回帮派守卫个人排名信息(外部)
+//FACTION_GUARD_PERSON_INTO_UPDATE = 2182; //通知帮派守卫个人排名信息(个人排名更新(场景里自动推送))
+message Faction_GuardPersonRankInfoRsp
+{
+	optional int32 ret = 1;
+	optional FactionGuardRankListProto rank = 2;
+	optional uint32 myrank = 3;						//个人排名
+	optional int64 myharm = 4;						//个人伤害
+}
+
+message FactionGuardSocialRankProto
+{
+	optional uint32 factionid = 1;
+	optional bytes name = 2;
+	optional uint64 count = 3;
+	optional uint32 zid = 4;
+	optional uint64 time = 5;
+	optional uint32 rank = 6;
+	optional int64 harm = 7;		//伤害
+};
+
+message FactionGuardSocialRankListProto
+{
+	repeated FactionGuardSocialRankProto lst = 1;
+}
+
+//FACTION_GUARD_SOCIAL_RANK_LIST_REQ	= 2183;  //请求帮派守卫跨服排名(外部)
+message Faction_GuardSocialRankListReq
+{
+	//空
+}
+
+//FACTION_GUARD_SOCIAL_RANK_LIST_RSP	= 2184;  //返回 帮派守卫跨服排名(外部)
+//FATION_GUARD_SOCIAL_RANK_LIST_UPDATE		= 2185;  //通知帮派守卫跨服排名信息(个人排名更新(场景里自动推送))
+message Faction_GuardSocialRankListRsp
+{
+	optional int32 ret = 1;
+	optional FactionGuardSocialRankListProto rank = 2;
+	optional uint32 count = 3;	//自己帮派守卫
+}
+
+message GuardMonInfo
+{
+	optional int64 mon_id = 1;
+	optional int64 cid = 2;
+	optional int64 hp = 3;
+	optional int64 max_hp = 4;
+	optional Vector3PB pos = 5;
+	optional int32 is_target = 6;
+	optional int32 is_battle = 7; //战斗时间
+}
+
+message Faction_GuardMonsterInfo
+{
+	repeated GuardMonInfo mons = 1;
+}
+
+//FACTION_GUARD_MONSTER_INFO_NOTIFY = 2188; //怪物信息返回
+message Faction_GuardMonsterInfoNotify
+{
+	optional Faction_GuardMonsterInfo mons = 1;
+	optional int32 type = 2; //0 1
+}
+
+//关卡奖励
+message Faction_GuardWaveReward
+{
+	optional int32 wave = 1;
+	repeated ComItem reward = 2;			//个人奖励
+}
+
+//返回帮派守卫完成信息 FACTION_GUARD_FINISH_RSP
+message Faction_GuardFinishRsp
+{
+	optional int32 result = 1;
+	optional int32 sec = 2;					//通关时间
+	optional int64 harm = 3;				//个人伤害
+	optional int32 rank = 4;				//个人排名
+	optional uint64 fation_rank = 5;
+	optional uint32 fation_count = 6;
+	repeated ComItem reward = 8;			//个人奖励
+	repeated ComItem faction_reward = 9;	//帮派奖励
+	repeated Faction_GuardWaveReward wave_reward = 10;
+}
+
+//FACTION_GUARD_ENCOURAGEMENT_REQ = 2190; //帮派守卫鼓舞
+message Faction_GuardEncouragementReq
+{
+	optional int32 type = 1; //0金币:1砖石
+}
+
+//FACTION_GUARD_ENCOURAGEMENT_RSP = 2191; //帮派守卫鼓舞
+message Faction_GuardEncouragementRsp
+{
+	optional int32 ret_code = 1;
+	optional int32 type = 2; //0金币:1砖石
+}
+
+///////////////////////////////////帮派守卫内网////////////////////////////////////////////
+//FACTION_LS_GUARD_COUNT					= 950;      //逻辑服通知社交服帮派守卫信息
+message LS_FactionGuardCount
+{
+	required uint32 faction_id = 1;		//帮派ID
+	required bytes faction_name = 2;	//帮派名字
+	required uint32 count = 3;			//答对数
+	required uint32 zid = 4;
+	required uint64 harm = 5;
+	required uint64 time = 6;
+}
+
+//FACTION_SL_GUARD_RANK					= 951;		//社交服通知逻辑服帮派守卫排名信息
+message SL_FactionGuardRank
+{
+	optional FactionGuardSocialRankListProto rank = 1;
+}
+
+//FACTION_LS_GUARD_CUR_RANK_REQ			= 952;		//逻辑服请求社交服帮派守卫当前排名信息
+message SL_FactionGuardCurRankReq
+{
+	required uint64 cid = 1;
+}
+
+//FACTION_SL_GUARD_RANK_RESULT					= 953;		//社交服通知中心服帮派守卫排名
+message SC_FactionGuardRankResultNotify
+{
+	optional FactionGuardSocialRankProto rank = 1;
+}
+
+//FACTION_LS_GUARD_END					= 954;		//逻辑服通知社交服帮派守卫结束
+message LS_FactionGuardEndRsp
+{
+	required uint32 factionid = 1;
+	required uint32 zid = 2;
+	required uint64 endtime = 3;
+}
+
+//FACTION_LC_GUARD_RANK_END = 957; ////逻辑服通知中心服帮派守卫结束
+message LC_FactionGuardEndRsp
+{
+	required uint32 factionid = 1;
+	repeated uint64 cid_lst = 2;
+	repeated ComItemBind reward = 3;
+}
+
+message GuardPlayerHarm
+{
+	required uint64 cid = 1;
+	required uint64 harm = 2;
+}
+
+//FACTION_LC_GUARD_PLAYER_HARM = 955; //逻辑服通知中心服帮派守卫信息
+message LC_FactionGuardPlayerHarm
+{
+
+	repeated GuardPlayerHarm players = 1;
+	required uint32 logicid = 2;
+  required uint32 faction_id = 3;
+	required uint64 scene_id = 4;
+}
+
+//社交服通知中心服帮派答题最终排名信息 FACTION_SC_ANSWER_FINAL_RSP
+message SC_FactionAnswerFinalRsp
+{
+	repeated FactionAnswerFinalProto final = 1;
+}
+
+//中心服通知逻辑服帮派答题 FACTION_CL_ANSWER_QUESTION_RSP
+message CL_FactionAnswerQuestionRsp
+{
+	required uint64 cid = 1;
+	required int32 first = 2;
+	required int32 curnum = 3;
+	required bytes content = 4;
+}
+//=========================镇魂魔域===========================
+//公会排行
+message FactionMoyuRankEntry
+{
+	optional uint64 id = 1; 
+	optional bytes name = 2;
+	optional int32 zid = 3;
+	optional uint64 harm = 4;
+	optional int32 rank = 5;
+}
+
+//镇魂魔域排行榜  FACTION_MOYU_RANK_REQ
+message FactionMoyuRankReq
+{
+	optional int32 type = 1; //1:本周帮会排行 2:历史工会排行 3：个人跨服排行 4：个人昨日排行
+}
+
+//镇魂魔域公会排行通知 NT_FACTION_MOYU_RANK
+message NtFactionMoyuRank
+{
+	optional int32 type = 1; //1:本周帮会排行 2:历史工会排行 3：个人跨服排行 4：个人昨日排行
+	repeated FactionMoyuRankEntry infos = 2;
+	optional uint64 harm = 3; //自己帮会伤害信息
+	optional int32 rank = 4; //0未上榜
+}
+
+//领取通关奖励  FACTION_MOYU_RECV_REQ
+message FactionMoyuRecvReq
+{
+	optional int32 layerid= 1;
+}
+
+//领取通关奖励 FACTION_MOYU_RECV_RSP
+message FactionMoyuRecvRsp
+{
+	optional int32 ret = 1;
+	optional int32 layerid= 2;
+}
+
+//镇魂魔域进入通知信息  NOTIFY_FACTION_MOYU_DUP
+message NotifyFactionMoyuDup
+{
+	optional uint64 target_cid = 1;
+	optional uint64 max_hp = 2;
+	optional uint64 cur_hp = 3;
+}
+
+//结束时候展示奖励
+message FactionMoyuTeam
+{
+	optional RolePlayerMiniInfo info = 1;
+	optional uint64 harm = 2; //伤害
+	optional uint32 state = 3; //是否在进行中，0：结束，1：进行中(没死，还在副本中)
+	optional uint64 max_hp = 4;
+	repeated ItemProtoInfo rewaditem = 5;	//奖励物品
+}
+//魔域结算  FACTION_MOYU_END_RSP
+message FactionMoyuEndRsp
+{
+	optional uint64 dupid = 1;
+	repeated FactionMoyuTeam mem = 2;
+}
+//主界面魔域信息请求 FACTION_MOYU_REQ
+message FactionMoyuReq
+{
+
+}
+//伤害信息通知 NT_FACTION_MOYU_HARM
+message NtFactionMoyuHarm
+{
+	repeated FactionMoyuTeam mem = 1;
+}
+
+
+//致死一击时间通知 NT_FACTION_MOYU_DUP_KILL
+message NtFactionMoyuDupKill
+{
+	optional int32 endtime = 1;
+}
+//更新公会魔域信息  NT_FACTION_MOYU
+message NtFactionMoyu
+{
+	optional int32 cur_layer = 1;
+	optional uint64 cur_hp = 2;
+	optional uint64 max_hp = 3;
+	optional int32 pass_layer = 4;
+}
+
+//镇魂魔域奖励发放 FACTION_MOYU_REWARD_REQ
+message FactionMoyuRewardReq
+{
+	optional uint64 factionId = 1;
+	optional uint64 boxid = 2;
+	optional int32 rank = 3;
+}
+
+//镇魂魔域奖励更新排行  FACTION_MOYU_UPDATE_REQ
+message FactionMoyuUpdateReq
+{
+	optional int32 type = 1;  //1:本周工會 3個人跨服
+	optional int32 opt = 2; //1:更新 2 刪除
+	optional uint64 id = 3; 
+	optional bytes name = 4;
+	optional int32 zid = 5;
+	optional uint64 harm = 6;
+	optional uint64 harm_time = 7; //伤害时间
+}
+//添加工會傷害 FACTION_MOYU_ADD_HARM_REQ
+message FactionMoyuAddHarmReq
+{
+	optional uint64 factionid =1 ;
+	optional uint64 add_harm = 2;
+}
+//同步下血量 FACTION_SYN_MOYU_REQ
+message FactionSynMoyuReq
+{
+	optional uint64 factionid = 1;
+	optional int32 cur_layer = 2;
+	optional uint64 cur_hp = 3;
+}
+//通关魔域 FACTION_PASS_MOYU_REQ
+message FactionMoyuPassReq
+{
+	optional uint64 factionid = 1;
+	optional uint32 layerid = 2;
+}
+//查看排行 CL_FACTION_MOYU_RANK_REQ
+message LCFactionMoyuRankReq
+{
+	optional uint64 factionid = 1;
+	optional uint64 id = 2;
+	optional uint64 harm = 3;
+	optional int32 type = 4;
+	optional int32 zid = 5;
+}
+//领取通关奖励 CL_FACTION_MOYU_RECV_REQ
+message CLFactionMoyuRecvReq
+{
+	optional int32 layerid= 1;
+	optional uint64 cid = 2;
+	
+}
+
+
+//=========================镇魂魔域结束===========================

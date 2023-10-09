@@ -1,10 +1,6 @@
-package proto_ff;
-
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
 
 
 //===============================================背包系统===============================================//
@@ -103,5 +99,20 @@ message PackageSellReq
 message PackageSellRet
 {
 	required int32 retcode = 1;				//返回码
+}
+
+// PACKAGE_EXPAND_REQ
+message PackageExpandReq
+{
+	optional int32 package_type = 1;//背包类型
+	optional int32 expand_grid = 2; //扩展格子数
+}
+
+//背包扩展	PACKAGE_EXPAND_RSP
+message PackageExpandRsp
+{
+	optional int32 ret = 1;
+	optional int32 package_type = 2;//背包类型
+	optional int32 expand_grid = 3; //扩展格子数
 }
 //===============================================================================================//

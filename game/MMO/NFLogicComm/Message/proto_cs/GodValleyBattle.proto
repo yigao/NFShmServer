@@ -1,14 +1,6 @@
-package proto_ff;
-
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
-
 //神机谷战场
-
-
+import "ProtoBuffer/Skill.proto";
+import "ProtoBuffer/Com.proto";
 message GVBEnterReq
 {
     required uint32 unused=1;
@@ -36,7 +28,10 @@ message GVBExitReq
 {
     required uint32 unused=1;
 };
-
+message GVBTransFailed
+{
+     required uint32 error=1;
+};
 
 message GVBMonster
 {
@@ -45,14 +40,13 @@ message GVBMonster
  required uint64 hpmax=3;
 };
 
-
 message GVBDataReq
 {
     required uint32 unused=1;
 };
 message GVBDatasRsp
 {
-    required uint32 state=1;//1匹配中，2准备战斗中，3战斗中
+    required uint32 state=1;//1匹配中，2战斗中
     required uint32 countdown=2;//倒计时
     optional uint32 team1Score=3;//队1的积分
     optional uint32 team2Score=4;//队2的积分
@@ -82,6 +76,8 @@ message GVBRankPlayerInfo{
     required uint32 rank=1;
     required string name=2;
     required uint32 score=3;
+    required uint32 team=4;
+    required uint64 cid=5;
 }
 message GVBRankRsp
 {
@@ -98,6 +94,7 @@ message GVBPlayerInfo{
     required uint32 crystalCount=5;//运水晶次数
     required string name=6;
     required uint32 team=7;
+    required uint32 killMonsterCount=8;
 }
 
 message GVBResultBC{
@@ -127,14 +124,25 @@ message GVBSelfInfoUpdateNT{
 };
 
 
-//广播杀人
-message GVBKillPlayerBC
-{
-    required uint32 killerTeam=1;
-    required uint32 killedTeam=2;
-    required uint32 killerProf=3;
-    required uint32 killedProf=4;
+message GVBKillPlayerInfo{
+    required uint32 killsCount=1;
+    required string name=2;
+    required ProtoBuf.RoleFacadeProto facade=3;
+    required uint32 team=4;
 };
+//广播杀人
+message GVBKillPlayerBC{
+    required GVBKillPlayerInfo atker=1;
+    required GVBKillPlayerInfo behit=2;
+};
+
+// message GVBKillPlayerBC
+// {
+//     required uint32 killerTeam=1;
+//     required uint32 killedTeam=2;
+//     required uint32 killerProf=3;
+//     required uint32 killedProf=4;
+// };
 
 //广播资源点数量变更
 message GVBResPointChg
@@ -163,12 +171,8 @@ message GVBCrystalCollectRsp
     required uint32 type=1;//1采集开始，2被别人采了，3水晶生成倒计时
 };
 
-
-
 message GVBDailyScoreDataReq
-{
-   
-};
+{};
 
 message GVBDailyScoreDataRsp
 {
@@ -176,6 +180,325 @@ message GVBDailyScoreDataRsp
    required uint32 dailyScore=2;
 };
 
+message GVBDailyScoreRewardRcvReq
+{
+    required uint32 idx=1;
+};
+
+message GVBDailyScoreRewardRcvRsp
+{
+   required uint32 error=1;
+   optional uint32 idx=2;
+};
+
+
+message GVBRoomReq{
+    required uint64 cid=1;//player id
+    required uint64 fromLogicServerId=2;
+    required uint64 fromZone=3;
+    required uint32 type = 4;
+    required bool   enterPrev=5;
+    optional uint32 playersMax=6;
+    optional uint32 lifeTime=7;//多久后关闭，关闭后两分钟后销毁
+    required uint32 mapId=8;
+    required uint64 session=9;
+    required uint32 actId=10;//活动id
+}
+message GVBRoomRsp{
+    required uint64 cid=1;
+    optional uint64 roomId=2;
+    required uint32 mapId=3;
+    required uint32 type=4;
+    required uint64 session=5;
+    optional uint32 error=6;//1活动未开启，2已参与过
+}
+message GVBRoomCloseReq{
+    required uint32 type=1;
+    required uint64 roomId=2;
+    required uint32 option=3;
+}
+
+
+message GVBCrystalOwnerPosReq{
+
+}
+
+message GVBCrystalOwnerPosRsp{
+    required ProtoBuf.Vector3PB pos=1;
+}
+
+//////////////WashParty
+
+//错误码 1采集次数已达上限,2泼水次数已达上限,3按摩次数已达上限,4无目标,5状态不允许,6对方已离开
+
+
+message WPPEnterReq
+{
+};
+message WPPExitReq
+{
+};
+message WPPEnterRsp
+{   
+    required uint32 collectTimes=1;
+    required uint64 expTotal=2;
+    required uint32 splashTimes=3;
+    required uint32 massageTimes=4;
+    required int64 collectCD=5;
+    required uint32 wpp_state=6;
+};
+
+
+//双修
+message WPPPairPracticeReq
+{
+    required uint64 target=1;
+    required ProtoBuf.Vector3PB selfPos=2;
+    required ProtoBuf.Vector3PB selfDir=3;
+    required ProtoBuf.Vector3PB targetPos=4;
+}
+//双修返回
+message WPPPairPracticeRsp{
+    required uint32 error=1;
+}
+
+//按摩
+message WPPMassageReq{
+    required uint64 target=1;
+    required ProtoBuf.Vector3PB selfPos=2;
+    required ProtoBuf.Vector3PB selfDir=3;
+    required ProtoBuf.Vector3PB targetPos=4;
+}
+
+//按摩返回
+message WPPMassageRsp{
+    required uint32 error=1;
+    optional uint32 massageTimes=2;
+}
+
+//泼水
+message WPPSplashReq{
+   required ProtoBuf.SkillUseReq skillReq=1;
+}
+//泼水返回
+message WPPSplashRsp
+{
+   required uint32 error=1;
+   required uint32 splashTimes=2;
+}
+
+//采集返回
+message WPPCollectRsp{
+    required uint32 error=1;
+    optional uint32 collectTimes=2;
+}
+
+//定期加经验通知
+message WPPExpAddNt
+{   
+    required uint64 expTotal=1;
+    required uint64 expAdd=2;
+};
+//采集物刷新计时通知
+message WPPCollectCDNt{
+    required uint64 cd=1;
+};
+
+//通知视野开始或退出按摩或双修状态
+message WPPActionNt
+{
+    //1按摩，2双修，3退出按摩，4退出双修
+    required uint32 type=1;
+    required uint64 cid=2;
+    optional uint64 other=3;
+    optional ProtoBuf.Vector3PB pos=4;
+    optional ProtoBuf.Vector3PB dir=5;
+};
+
+message WPPCancelCurActReq
+{}
+
+message WPPCancelCurActRsp
+{
+    required uint32 error=1;
+}
 
 
 
+
+///////////////////////////////////
+
+message CTPEnterReq{
+
+};
+
+message CTPExitReq
+{
+};
+
+message CTPPlayerInfo{
+    required uint64 cid=1;
+    required string name=2;
+    required uint32 team=3;
+    required uint64 serverId=4;
+    required uint32 killCount=5;
+    required uint64 atkPower=6;
+    required uint32 dieCount=7;
+    required uint32 score=8;
+    required bool isRebot=9;
+};
+
+message CTPResult{
+    required uint32 winTeam=1;
+    repeated CTPPlayerInfo rank=2;
+    required uint32 team1Score=3;
+    required uint32 team2Score=4; 
+    required bool last=5;
+};
+
+message CTPEnterRsp{
+    optional uint64 matchStartTime=1;
+    optional uint64 readyStartTime=2;
+    optional uint64 relifeStartTime=3;
+    optional uint64 roundStartTime=4;
+    optional uint32 roundStart=5;//--第几轮
+    required uint32 team1Score=6;
+    required uint32 team2Score=7;
+    required uint32 team1Players=8;
+    required uint32 team2Players=9;
+    required uint32 myScore=10;
+    repeated CTPPlayerInfo  rank=11;//当前排名
+    required uint32 team=12;//我所在的队
+    repeated CTPResult results=13;//每轮的结果
+    optional uint32 team1RealPlayers=14;//队1真人数量
+    optional uint32 team2RealPlayers=15;
+};
+
+message CTPReadyStart{
+    required uint64 readyStartTime=1;
+};
+
+message CTPRoundStart{
+    required uint64 roundStartTime=1;
+    required uint32 roundStart=2;//--第几轮
+};
+
+message CTPScoreRankNt{
+    repeated CTPPlayerInfo rank=1;
+    required uint32 team1Score=2;
+    required uint32 team2Score=3;
+};
+
+message CTPScoreChgNt{
+    required uint64 cid=1;
+    required uint32 team1Score=2;
+    required uint32 team2Score=3;
+};
+
+
+message CTPKillPlayerInfo{
+    required uint32 killsCount=1;
+    required string name=2;
+    required ProtoBuf.RoleFacadeProto facade=3;
+    required uint32 team=4;
+};
+
+message CTPKillNt{
+    required CTPKillPlayerInfo atker=1;
+    required CTPKillPlayerInfo behit=2;
+};
+
+message CTPPlayersChgNt{
+    required uint32 team1Players=1;
+    required uint32 team2Players=2;
+    required uint32 team1RealPlayers=3;
+    required uint32 team2RealPlayers=4;
+};
+
+message GVBEnterError{
+    required uint32 errcode=1;
+};
+
+
+
+
+
+//-------------------------------------
+
+message GMADatas{
+    optional uint32 remainTime=1;//总时间
+    optional uint32 freeTimeRemain=2;//当前免费时间剩余
+    optional uint32 freeTime=3;//总免费时间
+    optional uint32 privilege=4;
+    optional uint64 recvFreeTimePrev=5;//上一次领取免费时间（utc)
+    optional bool isPause=6;
+    optional uint32 expGet=7;
+    optional uint32 getFreeTimeCD=8; //多久后可获取免费时间
+    optional int64  expTotal=9;
+    optional int64 expAccumulate=10;//特权累积经验
+};
+message GMABossInfo{
+    required uint32 players=1;
+    required uint32 posId=2;
+    required uint32 cfgId=3;
+};
+message GMABossInfoReqData{
+    required uint32 cfgId=1;
+    required uint32 posId=2;
+}
+message GMABossInfoReq
+{
+    repeated GMABossInfoReqData list=1;
+};
+message GMABossInfoRsp
+{
+    repeated  GMABossInfo bossListInfo=1;
+};
+message GMABossInfoSingleReq
+{
+    required uint32 mapId=1;//cfg id
+    required uint32 posId=2;//pos id
+};
+message GMABossInfoSingleRsp
+{
+    required uint32 players=1;
+    required uint32 posId=2;
+};
+message GMAPauseReq{
+     required bool isPause=1;
+};
+message GMAPauseRsp{
+    required bool isPause=1;
+};
+message GMAPayReq//特权购买
+{};
+message GMAPayRsp
+{
+    required uint32 error=1;
+    required uint32 privilege=2;
+};
+message GMAEnterReq
+{}
+message GMAGotoFloorReq{
+    required uint32 posIdx=1;
+};
+message GMAGotoFloorRsp{
+    required uint32 error=1;
+};
+message GMATimeRechargeReq{//兑换时间
+    required uint32 itemId=1;
+    required uint32 count=2;
+};
+message GMATimeRechargeRsp{//兑换时间
+    required uint32 error=1;
+};
+message GMAExitReq
+{};
+message GMAResultReq
+{};
+message GMAResultRsp
+{
+    repeated uint64 itemIds=1;
+    repeated uint64 itemCounts=2;
+    required uint64 timeUsed=3;
+};

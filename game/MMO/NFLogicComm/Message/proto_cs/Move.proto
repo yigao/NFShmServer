@@ -1,10 +1,7 @@
-package proto_ff;
+// 定义公用message，注意与ComDefine.proto区别
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
 
 //请求移动  CLIENT_MOVE_REQ
 message MoveReq
@@ -25,6 +22,31 @@ message MoveBroadRsp
 	required Vector2PB dir = 4;		//生物移动的方向
 }
 
+
+//请求瞬移 MOVE_TELEPORT_REQ = 604
+message MoveTeleportReq
+{
+	/*
+		type：瞬移类型，详见  MoveTeleportRsp 消息中 Type 枚举
+
+		任务  type = 6, param1:动态任务ID， param2: point.xlsx->point 表配置ID
+	*/
+
+	required int32 type = 1;   //瞬移类型	
+	optional int64 param1 = 2; //类型参数1
+	optional int64 param2 = 3; //类型参数2
+}
+
+//返回瞬移结果 MOVE_TELEPORT_RESULT_RSP
+message MoveTeleportResultRsp
+{
+	required int32 ret = 1;		//返回码
+	optional int32 type = 2;    //瞬移类型	
+	optional int64 param1 = 3;  //类型参数1
+	optional int64 param2 = 4;  //类型参数2
+}
+
+
 //瞬移消息 MOVE_TELEPORT_RSP
 message MoveTeleportRsp
 {
@@ -35,6 +57,8 @@ message MoveTeleportRsp
 		skill	 =2;	//技能传送
 		dup		= 3;	//副本内瞬移
 		relive	= 4;	//复活瞬移
+		trans	= 5;    //帮派传功
+		task	= 6;    //任务
 	}
 
 	required int32  type	   = 1;	//瞬移类型

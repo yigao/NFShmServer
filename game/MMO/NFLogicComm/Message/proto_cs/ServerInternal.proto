@@ -1,10 +1,6 @@
-package proto_ff;
-
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
-import "ComDefine.proto";
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
 
 
 //关闭服务器 SYS_CLOSE_SERVER
@@ -54,11 +50,13 @@ message LogicRegisterGateRsp
 	required uint32 gateid = 2;
 	required int32  result = 3;
 }
+
 //逻辑服向中心服注册 LOGIC_REGISTER_CENTER
 message LogicRegisterCenterReq
 {
 	required uint32 logicid = 1;
 	repeated uint64 mapid_list = 2;
+	repeated SceneProto info = 3; //主城
 }
 //中心服返回逻辑服 注册结果 LOGIC_REGISTER_CENTER_RSP
 message LogicRegisterCenterRsp
@@ -66,6 +64,15 @@ message LogicRegisterCenterRsp
 	required int32  result = 1;
 	required uint32 zid = 2;
 	optional uint64 open_time = 3;	
+	repeated SceneProto info = 4; //主城
+}
+
+//中心服通知逻辑服合服信息 NOTIFY_MERGE_INFO_RSP
+message MergeInfoRsp
+{
+	required uint32 zid = 1;
+	optional int32 merge = 2;	
+	optional uint64 init_open_time = 3;	
 }
 
 //中心服向网关注册 CENTER_REGISTE_GATE
@@ -98,11 +105,18 @@ message GateNotifyDisconnect
 	required int32 reason = 2;
 }
 
-//内部日志请求 INNER_LOG_REQ
-message InnerLogReq
+//公司内部日志请求 SY_LOG_REQ
+message SyLogReq
 {
 	required int32 type = 1;		//日志类型
 	required string content = 2;	//日志内容
+}
+
+//奥飞日志请求 AO_FEI_LOG_REQ
+message AofeiLogReq
+{
+	required int32 type = 1;		//日志类型
+	required bytes content = 2;		//日志内容
 }
 
 
@@ -115,6 +129,7 @@ message NotifyLogicDataUpdate
 		week = 2;			//每周更新
 		daily_zero = 3;		//每日零点更新
 		week_zero = 4;		//每周一零点更新
+		month_zero = 5;		//每月1日零点更新
 	}
 	required Type update_type = 1;
 	required uint64 update_time = 2;
@@ -161,6 +176,7 @@ message NotifyLogicEnterGameReq
 	required uint32 channelId = 8;
 	required uint32 zid = 9;			//玩家区服ID
 	optional LoginSyncProto sync = 10;  //玩家登录中心服这边玩家属性数据（工会,队伍，房间等）
+	optional string ip = 11;			//
 }
 
 //逻辑服返回中心服进入游戏结果 NOTIFY_LOGIC_ENTER_GAME_RSP
@@ -295,4 +311,102 @@ message NotifyGateRetRoleList
 {	
 	required uint32 clientid = 1;
 	required uint32 uid = 2;
+}
+
+//分组信息
+message ServerZoneGroup
+{
+	optional int32 groupId = 1;		//分组id,1开始
+	repeated int32 zones = 2;
+}
+
+//跨服分组信息 NOTIFY_SERVER_ZONE_PLAN
+message NotifyServerZonePlan
+{
+	repeated int32 	allzones = 1;				//所有跨服组
+	repeated ServerZoneGroup eigth_group = 2;  	//8份一组
+	repeated ServerZoneGroup four_group = 3;	//4份一组
+}
+
+//----------------------------------排行榜------------------------------------------
+//请求排行榜数据
+message GetDBRankDataRequest
+{
+}
+
+//排行榜数据返回
+message GetDBRankDataResponse
+{
+	required int32 retcode = 1;					//返回码
+	repeated RankTypeDBData typeList = 2;		//排行榜分类数据
+}
+
+//保存玩家商城数据
+message SaveDBRankDataRequest
+{
+	required RankTypeDBData rankData = 1;		//排行榜分类数据
+}
+//-----------------------------------------------------------------------------
+
+///////////////每日特惠 真龙寻宝抽奖记录/////////////////////////
+//每日特惠 1320-1330
+//DB_DAILY_WELFARE_LOAD_ALL_RSP	 = 1320;				//DB返回每日特惠所有数据
+message DailyWelfareRecordDBData
+{
+	repeated XingYunMiShiPBRecord xing_yun = 1;
+	repeated DailyGiftPBDataRecord daily_gift = 2;
+	repeated LianChongTodayPBDataRecord today_recharge = 3;
+	repeated LianChongAccPBDataRecord acc_recharge = 4;
+	repeated MonthCardPBDataRecord month_card = 5;
+	repeated TurntablePBDataRecord turtable = 6;
+	repeated FindTreasureRewardRecordDBData find_treasure = 7;
+}
+
+//DAILY_WELFARE_L2S_SAVE_RECORD_RSP = 1321;    //逻辑服通知社交服记录数据
+message SaveDailyWelfareRecordRsp
+{
+	optional XingYunMiShiPBRecord xing_yun = 1;
+	optional DailyGiftPBDataRecord daily_gift = 2;
+	optional LianChongTodayPBDataRecord today_recharge = 3;
+	optional LianChongAccPBDataRecord acc_recharge = 4;
+	optional MonthCardPBDataRecord month_card = 5;
+	optional TurntablePBDataRecord turtable = 6;
+	optional FindTreasureRewardRecordDBData find_treasure = 7;
+}
+
+//CENTER_TO_LOGIC_ACH_COMMON_ADD = 1321; //中心服通知逻辑服成就增加
+message CenterToLogicAchCommonAdd
+{
+	optional int64 cid = 1;
+	optional int32 add_num = 2;
+	optional int32 param1 = 3;
+	optional int32 param2 = 4;
+	optional int32 type = 5;
+}
+
+//CENTER_TO_LOGIC_FIND_TREASURE_SI_SHENG_GET_SERVER_TOTAL_REWARD_REQ = 1323; //请求全服四圣抽奖累积奖励
+message CenterToLogicFindTreasureSiShengGetServerTotalRewardReq
+{
+	optional int32 id = 1;
+	optional int32 total_id = 2;
+	optional int32 all_num = 3; //全服抽奖次数
+	optional uint64 cid = 4;
+}
+
+//CENTER_TO_LOGIC_FIND_TREASURE_SI_SHENG_CHOUJIANG_REQ = 1324; //请求四圣抽奖抽奖
+message CenterToLogicFindTreasureSiShengChouJiangReq
+{
+	optional int32 id = 1;
+	optional int32 num_type = 2; //0: 抽一次 1：抽10次 2：抽50次
+	optional int32 all_num = 3;
+	optional uint64 cid = 4;
+}
+
+
+
+//------------------------------------- 版本号 ------------------------
+//中心服通知逻辑服版本号更新 C2L_VERSION_ID_UPDATE_RSP
+message C2L_VersionIdRsp
+{
+	required int32 version_id = 1;  //版本号
 }

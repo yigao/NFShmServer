@@ -1,10 +1,7 @@
-package proto_ff;
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+package ProtoBuf;
 
 //功能解锁返回结果
 //LOGIC_TO_CLIENT_FUNCTIONUNLOCK_INFO
@@ -380,6 +377,7 @@ message GetDailyTaskDataReq
 message GetDailyTaskDataRsp
 {
   optional DailyTaskAllData data = 1;
+  optional bool money_reward_finish = 2;
 }
 
 //LOGIC_TO_CLIENT_UPDATE_DAILY_TASK_NOTIFY = 962; //任务更新, 任务完成，解锁，状态改变
@@ -675,6 +673,19 @@ message	MountKunLevelupRsp
   optional uint32 ret_code = 2;
 }
 
+//CLIENT_TO_LOGIC_MOUNT_KUN_ADVANCE_LEVELUP_REQ = 1558;//化鲲进阶
+message MountKunAdvnaceLevelupReq
+{
+  optional uint64 kun_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_ADVANCE_LEVELUP_RSP = 1559;//化鲲进阶
+message	MountKunAdvnaceLevelupRsp
+{
+  optional MountKunData kun_data = 1;
+  optional uint32 ret_code = 2;
+}
+
 //CLIENT_TO_LOGIC_MOUNT_KUN_STARUP_REQ = 1536;//化鲲升星
 message	MountKunStarUpReq
 {
@@ -716,6 +727,7 @@ message	MountKunUnDressRsp
 message MountKunBloodActiveReq
 {
   optional int64 blood_id = 1;
+  optional int32 attr_id = 2;
 }
 
 //LOGIC_TO_CLIENT_MOUNT_BLOOD_ACTIVE_RSP	= 1543;//血脉激活
@@ -818,7 +830,287 @@ message MountRideOffRsp
   optional uint32 retCode = 1;	//错误代码
 }
 
+//CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_DRESS_REQ;			//化鲲装备穿戴请求
+message MountKunEquipDressReq
+{
+  optional uint64 kun_id = 1;
+  optional int32 bag_pos = 2;	//背包中位置
+}
 
+//LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_DRESS_RSP;			//化鲲装备穿戴返回
+message MountKunEquipDressRsp
+{
+  optional MountKunData kun_data = 1;
+  optional int32 bag_pos = 2;	//背包中位置
+  optional int32 ret_code = 3; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_UNDRESS_REQ;		//化鲲装备卸下请求
+message MountKunEquipUnDressReq
+{
+  optional uint64 kun_id = 1;
+  optional int32 slot_pos = 2;	//装备位置
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_UNDRESS_RSP;		//化鲲装备卸下返回
+message MountKunEquipUnDressRsp
+{
+  optional MountKunData kun_data = 1;
+  optional int32 slot_pos = 2;	//装备位置
+  optional int32 ret_code = 3; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_STRONG_REQ;			//化鲲装备强化
+message MountKunEquipStrongReq
+{
+  optional uint64 kun_id = 1;
+  optional int32 slot_pos = 2;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_STRONG_RSP;			//化鲲装备强化返回
+message MountKunEquipStrongRsp
+{
+  optional MountKunData kun_data = 1;
+  optional int32  slot_pos = 2;
+  optional int32 ret_code = 3; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_STRONG_LV_REQ;  //化鲲装备强化进阶
+message MountKunEquipStrongLvReq
+{
+  optional uint64 kun_id = 1;
+  optional int32 slot_pos = 2;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_STRONG_LV_RSP;  //化鲲装备强化进阶
+message MountKunEquipStrongLvRsp
+{
+  optional MountKunData kun_data = 1;
+  optional int32  slot_pos = 2;
+  optional int32 ret_code = 3; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_SUIT_ACTIVE_REQ; //化鲲装备套装激活
+message MountKunEquipSuitActiveReq
+{
+  optional uint64 kun_id = 1;
+  optional uint64 equip_suit = 2;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_SUIT_ACTIVE_RSP; //化鲲装备套装激活
+message MountKunEquipSuitActiveRsp
+{
+  optional MountKunData kun_data = 1;
+  optional int32 ret_code = 2; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_DECOMPOSE_REQ; //化鲲装备分解
+message MountKunEquipDecomposeReq
+{
+  repeated uint32 gridlist=1;//物品背包格子
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_DECOMPOSE_RSP; //化鲲装备分解
+message MountKunEquipDecomposeRsp
+{
+  optional int32 ret_code = 1; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_EQUIP_WAKE_LV_REQ = 1574;  //化鲲装备突破
+message MountKunEquipWakeLvReq
+{
+  optional uint64 kun_id = 1;
+  optional int32 slot_pos = 2;
+  repeated uint32 gridlist = 3;//物品背包格子
+}
+//LOGIC_TO_CLIENT_MOUNT_KUN_EQUIP_WAKE_LV_RSP = 1575;  //化鲲装备突破
+message MountKunEquipWakeLvRsp
+{
+  optional MountKunData kun_data = 1;
+  optional int32 ret_code = 2; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_TIWU_LV_REQ = 1576;  //化鲲提悟升级
+message MountKunTiWuLvReq
+{
+  optional uint64 kun_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_TIWU_LV_RSP = 1577;  //化鲲提悟升级
+message MountKunTiWuLvRsp
+{
+  optional MountKunData kun_data = 1;
+  optional int32 ret_code = 2; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_ACTIVE_REQ = 1578;  //化鲲异化激活
+message MountKunChangeActiveReq
+{
+  optional uint64 kun_change_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_ACTIVE_RSP = 1579;  //化鲲异化激活
+message MountKunChangeActiveRsp
+{
+  optional MountKunChangeData kun_data = 1;
+  optional int32 ret_code = 2; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_STAR_REQ = 1580;  //化鲲异化升星
+message MountKunChangeStarReq
+{
+  optional uint64 kun_change_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_STAR_RSP = 1581;  //化鲲异化升星
+message MountKunChangeStarRsp
+{
+  optional MountKunChangeData kun_data = 1;
+  optional int32 ret_code = 2; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_DRESS_REQ = 1582;  //化鲲异化穿戴
+message MountKunChangeDressReq
+{
+  optional uint64 equip_kun_change_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_DRESS_RSP = 1583;  //化鲲异化穿戴
+message MountKunChangeDressRsp
+{
+  optional uint32 ret_code = 1;
+  optional uint64 equip_kun_change_id = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_UNDRESS_REQ = 1584;  //化鲲异化穿戴
+message MountKunChangeUnDressReq
+{
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_UNDRESS_RSP = 1585;  //化鲲异化穿戴
+message MountKunChangeUnDressRsp
+{
+  optional int32 ret_code = 1; //错误码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_CHANGE_INFO_REQ = 1586;  //化鲲异化信息
+message MountKunChangeInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_CHANGE_INFO_RSP = 1587;  //化鲲异化信息
+message MountKunChangeInfoRsp
+{
+  optional uint64 equip_kun_change_id = 1;
+  repeated MountKunChangeData data = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_BLOOD_INFO_REQ	= 1588;//血脉信息
+message MountBloodInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_MOUNT_BLOOD_INFO_RSP	= 1589;//血脉信息
+message MountBloodInfoRsp
+{
+  repeated MountBloodData data = 1;
+  optional uint32 blood_point = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_BLOOD_RESET_REQ	= 1590;//血脉重置
+message MountBloodResetReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_MOUNT_BLOOD_RESET_RSP	= 1591;//血脉重置
+message MountBloodResetRsp
+{
+  optional int32 ret_code = 1;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_FAIRY_LAND_INFO_REQ = 1592; //坐骑历练信息
+message MountFairyLandInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_MOUNT_FAIRY_LAND_INFO_RSP = 1593; //坐骑历练信息
+message MountFairyLandInfoRsp
+{
+  repeated MountFairyLand land = 1;
+  repeated MountFairySlot slot = 2;
+  optional int64 cur_fairy_land_id = 3;
+}
+
+//NOTIFY_MOUNT_FAIRY_TOUR_CHANGE = 1594; //坐骑游历信息改变
+message NotifyMountFairyTourChange
+{
+  optional MountFairyLand land = 1;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_SELECT_FAIRY_SLOT_REQ = 1595; //坐骑历练
+message MountSelectFairySlotReq
+{
+  optional int64 slot_id = 1;
+  optional uint32 kun_id = 2;
+  optional uint32 dissociate_level = 3;
+  optional uint32 dissociate_time = 4;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_SELECT_FAIRY_SLOT_RSP = 1596; //坐骑历练
+message MountSelectFairySlotRsp
+{
+  optional int32 ret_code = 1;
+  optional MountFairySlot slot = 2;
+}
+
+//NOTIFY_FAIRY_SLOT_GET_REWARD = 1597; //通知领取奖励
+message NotifyFairySlotGetReward
+{
+  optional MountFairySlot slot = 1;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_GET_FAIRY_SLOT_REWARD_REQ = 1598; //坐骑历练领取奖励
+message MountGetFairySlotRewardReq
+{
+  optional int64 slot_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_GET_FAIRY_SLOT_REWARD_RSP = 1599; //坐骑历练领取奖励
+message MountGetFairySlotRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional MountFairySlot slot = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_ACTIVE_FAIRY_TOUR_REQ = 1527; //激活游记
+message MountActiveFairyTourReq
+{
+  optional int64 tour_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_ACTIVE_FAIRY_TOUR_RSP = 1528; //激活游记
+message MountActiveFairyTourRsp
+{
+  optional int32 ret_code = 1;
+  optional MountFairyLand land = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_UNLOCK_SLOT_REQ = 1512; //坐骑历练解锁槽位
+message MountUnlockSlotReq
+{
+  optional int32 slot_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_UNLOCK_SLOT_RSP = 1513; //坐骑历练解锁槽位
+message MountUnlockSlotRsp
+{
+  optional int32 ret_code = 1;
+  optional MountFairySlot slot = 2;
+}
 
 /////////////////////////////////天神系统//////////////////////////////////////////////
 //天神信息	CLIENT_TO_LOGIC_DEITY_INFO_REQ
@@ -1226,3 +1518,344 @@ message GCUnlockFlyUpwardRsp
   optional int32 stage = 2;
 }
 
+//////////////////////////成就系统////////////////////////////////
+//CLIENT_TO_LOGIC_ACHIEVEMENT_INFO_REQ = 2700; //请求成就系统数据
+message CGAchievementInfoReq
+{
+
+}
+//LOGIC_TO_CLIENT_ACHIEVEMENT_INFO_RSP = 2701; //请求成就系统数据
+message GCAchievementInfoRsp
+{
+  optional AchievementData data = 1;
+}
+
+//CLIENT_TO_LOGIC_ACHIEVEMENT_GET_REWARD_REQ = 2702; //获取成就系统奖励
+message CGAchievementGetRewardReq
+{
+  optional int64 id = 1;
+}
+
+//LOGIC_TO_CLIENT_ACHIEVEMENT_GET_REWARD_RSP = 2703; //获取成就系统奖励
+message GCAchievementGetRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int64 id = 2;
+}
+
+//CLIENT_TO_LOGIC_ACHIEVEMENT_TOTAL_GET_REWARD_REQ = 2704; //获取成就总览系统奖励
+message CGAchievementTotalGetRewardReq
+{
+  optional int64 id = 1;
+}
+
+//LOGIC_TO_CLIENT_ACHIEVEMENT_TOTAL_GET_REWARD_RSP = 2705; //获取成就总览系统奖励
+message GCAchievementTotalGetRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int64 id = 2;
+}
+
+//NOTIFY_ACHIEVEMENT_DATA_CHANGE = 2706; //成就系统数据改变
+message NotifyAchievementDataChange
+{
+  optional int64 ach_point = 1;
+  optional OneAchievementData data = 2;
+}
+
+//NOTIFY_ACHIEVEMENT_TOTAL_DATA_CHANGE = 2707; //成就总览数据改变
+message NotifyAchievementTotalDataChange
+{
+  optional int64 ach_point = 1;
+  optional OneAchievementData data = 2;
+}
+
+//////////////////////////成就系统////////////////////////////////
+
+//保存新手指引
+//CLIENT_TO_LOGIC_PLAYER_GUIDELINES
+message GuidelinesSaveReq
+{
+  required string strSave=1;	//需要保存的数据
+}
+
+//////////////////////////修真之路3430-3450////////////////////////////////
+//CLIENT_TO_LOGIC_XIUZHENROAD_INFO_REQ = 3430; //请求修真之路数据
+message XiuZhenRoadInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_XIUZHENROAD_INFO_RSP = 3431; //请求修真之路数据
+message XiuZhenRoadInfoRsp
+{
+  repeated OneXiuZhenRoadTaskData data = 1;
+  optional uint64 xiuezhenroad_point = 2;
+  repeated OneXiuZhenRoadPointsData xiuzhenroad_points_data = 3;
+  repeated OneXiuZhenRoadRechargeData xiuzheroad_recharge_data = 4;
+  optional uint64 xiuzhenroad_open_time = 5;
+}
+
+//CLIENT_TO_LOGIC_XIUZHENROAD_GET_REWARD_REQ = 3432; //获取修真之路奖励
+message XiuZhenRoadGetRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_XIUZHENROAD_GET_REWARD_RSP = 3433; //获取修真之路奖励
+message XiuZhenRoadGetRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional OneXiuZhenRoadTaskData data = 2;
+  optional int64 xiuezhenroad_point = 3;
+}
+
+//NOTIFY_XIUZHENROAD_DATA_CHANGE = 3434; //修真之路数据改变
+message XiuZhenRoadChangeNotify
+{
+  optional OneXiuZhenRoadTaskData data = 1;
+}
+
+//CLIENT_TO_LOGIC_XIUZHENROAD_POINTS_GET_REWARD_REQ = 3437; //获取修真之路奖励点奖励
+message XiuZhenRoadPointsGetRewardReq
+{
+  optional int32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_XIUZHENROAD_POINTS_GET_REWARD_RSP = 3438; //获取修真之路奖励点奖励
+message XiuZhenRoadPointsGetRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional OneXiuZhenRoadPointsData data = 2;
+}
+
+//NOTIFY_XIUZHENROAD_POINTS_DATA_CHANGE = 3439; //修真之路奖励点数据改变
+message XiuZhenRoadPointsChangeNotify
+{
+  optional OneXiuZhenRoadPointsData data = 1;
+}
+
+//NOTIFY_XIUZHENROAD_RECHARGE_DATA_CHANGE = 3440; //修真之路充值数据改变
+message XiuZhenRoadRechargeChangeNotify
+{
+  optional OneXiuZhenRoadRechargeData data = 1;
+}
+
+//CLIENT_TO_LOGIC_XIUZHENROAD_BACK_INFO_REQ = 3441; //请求修真之路找回数据
+message XiuZhenRoadBackInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_XIUZHENROAD_BACK_INFO_RSP = 3442; //请求修真之路找回数据
+message XiuZhenRoadBackInfoRsp
+{
+  optional int32 xiuzhenroad_back_status = 1; //0:未达成1:可领取2:已达成
+  repeated ComItem attr = 2;
+  repeated ComItem items = 3; //奖励数量
+  optional int32 need_num = 4; //需要的碎片数量
+  optional uint64 back_end_time = 5; //
+}
+
+//CLIENT_TO_LOGIC_XIUZHENROAD_GET_BACK_REWARD_INFO_REQ = 3443; //请求修真之路获取找回奖励
+message XiuZhenRoadGetBackRewardInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_XIUZHENROAD_GET_BACK_REWARD_INFO_RSP = 3444; //请求修真之路获取找回奖励
+message XiuZhenRoadGetBackRewardInfoRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 xiuzhenroad_back_status = 2; //0:未达成1:可领取2:已达成
+}
+
+//////////////////////////修真之路////////////////////////////////
+
+//////////////////////////传奇项链 goal task 3550-3600////////////////////////////////
+//CLIENT_TO_LOGIC_GOAL_INFO_REQ = 3550; //请求传奇项链goal数据
+message CLGetGoalInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_GOAL_INFO_RSP = 3551; //请求传奇项链goal数据
+message LCGetGoalInfoRsp
+{
+  repeated OneGoalData goal_data = 1;
+}
+
+//CLIENT_TO_LOGIC_GOAL_GET_REWARD_REQ = 3552; //请求传奇项链goal奖励
+message CLGetGloalRewardReq
+{
+  optional int32 group_id = 1;
+}
+
+//LOGIC_TO_CLIENT_GOAL_GET_REWARD_RSP = 3553; //请求传奇项链goal奖励
+message LCGetGoalRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 group_id = 2;
+  optional int32 group_status = 3;
+}
+
+//CLIENT_TO_LOGIC_GOAL_GET_TASK_REWARD_REQ = 3554; //请求传奇项链goal任务奖励
+message CLGetGoalTaskRewardReq
+{
+  optional int32 group_id = 1;
+  optional int64 task_id = 2;
+}
+
+//LOGIC_TO_CLIENT_GOAL_GET_TASK_REWARD_RSP = 3555; //请求传奇项链goal任务奖励
+message LCGetGoalTaskRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 group_id = 2;
+  optional int32 group_status = 3;
+  optional int64 task_id = 4;
+  optional int32 task_status = 5;
+}
+
+//LOGIC_TO_CLIENT_GOAL_TASK_CHANGE_NOTIFY = 3556; //请求传奇项链goal任务数据改变
+message LCGoalTaskChangeNotify
+{
+  optional OneGoalData data = 1;
+}
+
+/////////////////////天降福源3580-3610////////////////////////
+//CLIENT_TO_LOGIC_GET_BATTLE_PASS_INFO_REQ = 3590; //请求天降福源数据
+message CLGetBattlePassInfoReq
+{
+  optional int32 type = 1; //1:福源仙册 2:举世宝鼎
+}
+
+//LOGIC_TO_CLIENT_GET_BATTLE_PASS_INFO_RSP = 3591; //请求天降福源数据
+message LCGetBattlePassInfoRsp
+{
+  optional int32 type = 1; //1:福源仙册 2:举世宝鼎
+  optional OneBattlePassData data = 2;
+}
+
+//CLIENT_TO_LOGIC_GET_BATTLE_PASS_REWARD_REQ = 3592; //请求天降福源奖励
+message LCGetBattlePassRewardReq
+{
+  optional int32 type = 1; //1:福源仙册 2:举世宝鼎
+  optional int32 id = 2; //id == 0, 表示已经一键领取
+}
+
+//LOGIC_TO_CLIENT_GET_BATTLE_PASS_REWARD_RSP = 3593; //请求天降福源奖励
+message CLGetBattlePassRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 type = 2; //1:福源仙册 2:举世宝鼎
+  repeated OneBattlePassRewardData data = 3;
+}
+
+//CLIENT_TO_LOGIC_GET_BATTLE_PASS_TASK_REWARD_REQ = 3594; //请求天降福源任务奖励
+message CLGetBattlePassTaskRewardReq
+{
+  optional int32 type = 1; //1:福源仙册 2:举世宝鼎
+  optional int32 id = 2;
+}
+
+//LOGIC_TO_CLIENT_GET_BATTLE_PASS_TASK_REWARD_RSP = 3595; //请求天降福源任务奖励
+message LCGetBattlePassTaskRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 type = 2; //1:福源仙册 2:举世宝鼎
+  optional OneBattlePassTaskData data = 3;
+  optional int32 exp = 4;
+  optional int32 lv = 5;
+  repeated OneBattlePassRewardData reward = 6;
+}
+
+//CLIENT_TO_LOGIC_BUY_BATTLE_PASS_SHOP_REQ = 3596; //购买天降福源商店商品
+message CLGetBuyBattlePassShopReq
+{
+  optional int32 type = 1; //1:福源仙册 2:举世宝鼎
+  optional int32 id = 2;
+}
+
+//LOGIC_TO_CLIENT_BUY_BATTLE_PASS_SHOP_RSP = 3597; //购买天降福源商店商品
+message LCGetBuyBattlePassShopRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 type = 2; //1:福源仙册 2:举世宝鼎
+  optional OneBattlePassShopData data = 3;
+}
+
+//NOTIFY_BATTLE_PASS_TASK_DATA_CHANGE = 3600; //通知天降福源任务数据修改
+message NotifyBattlePassTaskChange
+{
+  optional OneBattlePassTaskData data = 1;
+  optional int32 type = 2; //1:福源仙册 2:举世宝鼎
+}
+
+//CLIENT_TO_LOGIC_BUY_BATTLE_PASS_SUPER_REQ = 3598; //购买天降福源特权
+message CLBuyBattlePassSuperReq
+{
+  optional int32 type = 1; //1:福源仙册 2:举世宝鼎
+  optional int32 buy_ver = 2; //1:购买普通版 2：购买高级版
+}
+
+//LOGIC_TO_CLIENT_BUY_BATTLE_PASS_SUPER_RSP = 3599; //购买天降福源特权
+message LCBuyBattlePassSuperRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 type = 2; //1:福源仙册 2:举世宝鼎
+  optional int32 buy_status = 3; ////0:未购买 1:已购买普通版 2：已购买高级版
+  optional int32 exp = 4;
+  optional int32 lv = 5;
+  repeated OneBattlePassRewardData reward = 6;
+}
+
+//CLIENT_TO_LOGIC_IMMEDIATELY_GET_BATTLE_PASS_REWARD_REQ = 3601; //立即请求天降福源奖励
+message CLImmediatelyGetBattlePassRewardReq
+{
+  optional int32 type = 1; //1:福源仙册 2:举世宝鼎
+  optional int32 id = 2;
+}
+
+//LOGIC_TO_CLIENT_IMMEDIATELY_GET_BATTLE_PASS_REWARD_RSP = 3602; //立即请求天降福源奖励
+message LCImmediatelyGetBattlePassRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 type = 2; //1:福源仙册 2:举世宝鼎
+  repeated OneBattlePassRewardData data = 3;
+  optional int32 exp = 4;
+  optional int32 lv = 5;
+}
+
+//CLIENT_TO_LOGIC_REFRESH_BATTLE_PASS_TASK_REQ = 3603; //刷新天降福源奖励
+message CLRefreshBattlePassTaskReq
+{
+  optional int32 type = 1; //1:福源仙册 2:举世宝鼎
+  optional int32 id = 2;
+}
+
+//LOGIC_TO_CLIENT_REFRESH_BATTLE_PASS_TASK_RSP = 3604; //刷新天降福源奖励
+message LCRefreshBattlePassTaskRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 type = 2; //1:福源仙册 2:举世宝鼎
+  optional int32 old_id = 3;
+  optional OneBattlePassTaskData new_task = 5;
+}
+
+//鼓舞请求 ENCOURAGE_REQ
+message EncourageReq
+{
+	optional int32 id = 1;
+	optional int32 num = 2;
+}
+
+//鼓舞返回 ENCOURAGE_RSP
+message EncourageRsp
+{
+	optional int32 ret = 1;
+}
+//鼓舞信息 NOTIFY_ENCOURAGE
+message NotifyEncourage
+{
+	repeated ComPair infos = 1;
+}

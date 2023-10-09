@@ -1,10 +1,8 @@
-package proto_ff;
+// 定义公用message，注意与ComDefine.proto区别
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
 
-import "Com.proto";
 
 //通知客户端创建生物  NOTIFY_CLIENT_CREATURE_CREATE
 message CreatureCreateData
@@ -22,6 +20,18 @@ message CreatureCreateData
 		optional bytes titleName			= 9;	//称号名称
 		optional BuffListProto bufflst		= 10;	//buff列表
 		optional int32 head					= 11;	//是否有头顶归属标记
+		optional uint64 collect_id			= 12;	//采集怪物配置ID
+		optional Vector3PB  collect_pos		= 13;	//采集物坐标
+		optional int32 killvalue			= 14;	//杀戮值
+		optional int32 is_yellow			= 15;	//是否黄名 0-否，1-是
+		optional int32 duty					= 16;   //帮派职位
+		optional int64 max_shield			= 17;	//最大护盾值
+		optional int64 cur_shield			= 18;	//当前护盾值
+		optional bytes marry_dst_name		= 19;	//结婚对象名字
+		optional int32 tour_state 			= 20;	//巡游状态(0不是巡游状态，1巡游状态)
+		optional WPPState wpp_state			= 21;	//瑶池中的状态（按摩或双修）
+		repeated ClanView clan_infos 		= 22;	//战队视野3v3,5v5
+		optional int32 	vip_hide			= 23;	//vip是否隐藏 0不隐藏 1隐藏
 	}
 	message Monster
 	{
@@ -33,7 +43,7 @@ message CreatureCreateData
 		optional bool	isNewCreate				= 6;	//是否是刚创建的
 		
 		optional uint32 func_type				= 7;	//功能类型 对应怪物配置表中的functionType字段
-		required Vector2PB	dir					= 8;	//生物朝向
+		required Vector2PB	dir					= 8;	//初始生物朝向
 		optional int32 left_live_sec			= 9;	//剩余生存时间，大于0时前端显示倒计时，其他不显示
 		optional int64 guild_id					= 10;	//所属的工会ID
 		optional bytes guild_name				= 11;	//所属的工会名字
@@ -42,6 +52,8 @@ message CreatureCreateData
 		optional bytes ownername				= 14;	//所属主人名字
 		optional BuffListProto bufflst			= 15;	//buff列表
 		optional int32 instid					= 16;	//模块内部实力ID(目前宠物有用)
+		optional int64 max_shield				= 17;	//最大护盾值
+		optional int64 cur_shield				= 18;	//当前护盾值
 	}
 	message Drop
 	{
@@ -81,4 +93,67 @@ message BroadFactionInfo
 	required uint64 cid = 1;		//角色cid
 	required uint32 faction_id = 2; //帮派ID
 	required bytes name = 3;		//帮派名字
+	required int32 duty = 4;		//帮派职位
+}
+
+//广播采集信息 BROAD_COLLECT_INFO
+message BroadCollectInfo
+{
+	required uint64 cid = 1;			//角色cid
+	required int32 cancel = 2;			//是否取消采集 0-否，1-是
+	optional uint64 collect_id = 3;		//采集怪物配置ID
+	optional Vector3PB  collect_pos = 4;//采集物坐标
+}
+
+
+//广播杀戮值 BROAD_KILL_VALUE
+message BroadKillValue
+{
+	required uint64 cid = 1;			//角色cid
+	required int32 killvalue = 2;		//杀戮值
+}
+//广播是否黄名 BROAD_YELLOW_NAME
+message BroadYellowName
+{
+	required uint64 cid = 1;			//角色cid
+	required int32 is_yellow = 2;		//是否黄名 0-否，1-是
+}
+//广播神魔变身  BROAD_GOD_EVIL_CHG_FACADE
+message BroadGodEvilChgFacade
+{
+	required uint64 cid = 1;			//角色cid
+	required int32 type = 2;		    //神魔类型 1-成神，2-入魔
+}
+
+//广播护盾 BROAD_SHIELD
+message BroadShield
+{
+	required uint64 cid = 1;		//玩家cid
+	required int64 max_shield = 2;	//最大护盾值
+	required int64 cur_shield = 3;	//当前护盾值
+}
+//广播结婚对象名字  BROAD_MARRY_DST_NAME
+message BroadMarryDstName
+{
+	required uint64 cid = 1;		//角色cid
+	optional bytes marry_dst_name = 2;	//对象名字
+}
+//广播巡游状态  BROAD_TOUR_STATE
+message BroadTourState
+{
+	required uint64 cid = 1;		//角色cid
+	optional int32 tour_state = 2;
+}
+
+//广播战队视野数据 BROAD_CLAN_VIEW
+message BroadClanView
+{
+	optional ClanView info = 1;
+}
+
+//广播vip状态是否隐藏  BROAD_VIP_HIDE
+message BroadVipHide
+{
+	required uint64 cid = 1;		//角色cid
+	optional int32 vip_hide = 2;
 }

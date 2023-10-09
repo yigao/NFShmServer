@@ -1,10 +1,7 @@
-package proto_ff;
-
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
+import "ProtoBuffer/Com.proto";
+import "ProtoBuffer/ComDefine.proto";
+import "ProtoBuffer/ClientServerCmd.proto";
+package ProtoBuf;
 
 //角色属性数据
 message QueryCharacterDetailInfo
@@ -17,10 +14,13 @@ message QueryCharacterDetailInfo
 	optional bytes  unionName=6;			// 工会名
 	optional uint32  unionDuty=7;			// 工会职务
 	optional RoleFacadeProto facade = 8;	// 外观数据
-	repeated ItemProtoInfo equips = 9;		// 装备数据
-	repeated EquipSlotInfo slots = 10;		// 装备槽位数据
+	repeated EquipInfo equips = 9;		// 装备数据
 	optional uint32 vipLevel = 11;			// VIP等级
 	optional uint64 partnerId = 12;			// 出战的伙伴
+	repeated Attr64 attr_lst = 13;
+	optional bytes marry_name = 14; //情侣名字
+	optional uint32 zid_id = 15; //区分
+	repeated BestEQSlotInfo	 best_slots = 16;		//神机装备槽位
 }
 
 

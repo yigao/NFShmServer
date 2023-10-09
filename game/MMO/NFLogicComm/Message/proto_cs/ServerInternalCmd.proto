@@ -1,10 +1,5 @@
-package proto_ff;
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
+package ProtoBuf;
 
 //服务器和服务器之间的协议号定义
 enum ServerInternalCmd
@@ -40,9 +35,11 @@ enum ServerInternalCmd
 
 	NOTIFY_LOGIC_STATE				 = 27;			// 中心服通知社交服，各个逻辑服的状态
 
-	INNER_LOG_REQ					 = 31;			//内部日志请求
+	SY_LOG_REQ						 = 31;			//公司内部日志请求
 
 	NOTIFY_LOGIC_DATA_UPDATE		 = 32;			//通知逻辑服 数据更新(0点更新)
+
+	NOTIFY_MERGE_INFO_RSP			 = 33;			//中心服通知逻辑服合服信息
 
 	//登录 300 - 400
 	DB_ROLE_LIST_REQ				 = 301;			//从DB加载角色列表
@@ -81,6 +78,8 @@ enum ServerInternalCmd
 
 	NOTIFY_CENTER_RECONNECT_SUCCESS  = 329;			//逻辑服通知中心服玩家重连成功
 
+	AO_FEI_LOG_REQ					 = 330;			//奥飞日志请求
+
 
 	//场景 400 - 450
 	CENTER_CREATE_SCENE_REQ_LOGIC								= 401;  //中心服通知逻辑服服创建场景
@@ -99,6 +98,17 @@ enum ServerInternalCmd
 
 	NOTIFY_ROLE_ENTER_SCENE										= 411;	//逻辑服通知中心服玩家进入场景
 	NOTIFY_ROLE_CHANGE_LOGIC									= 412;	//逻辑服通知中心服玩家切换逻辑服成功
+
+	//LC_NEW_SCENE_REQ											= 413;	//逻辑服请求中心服分配 场景ID
+	//CL_NEW_SCENE_RSP											= 414;  //中心服返回逻辑服 分配的场景ID
+	//LC_MAIN_CITY_INFO_REQ										= 415;	//逻辑服通知所有中心服更新主城信息
+	CL_MAIN_CITY_INFO_RSP										= 416;  //中心服通知其他逻辑服更新主城信息
+
+	CS_GenSceneIdReq											=417;//创建场景id
+	CS_GenSceneIdRsp											=418;
+	CS_NtLSCreateScene											=419;//通知逻辑服创建场景
+	CS_RegToCenterServer										=420;//将场景注册到中心服
+	CS_DestroyReq												=421;//销毁场景
 
 	//邮件 450 - 479
 	DBPROXY_PROTOCOL_MAIL_BEGIN										= 450;
@@ -144,7 +154,9 @@ enum ServerInternalCmd
 	CENTER_TO_LOGIC_ADD_FRIEND									= 554;  //通知逻辑服添加好友成功
 	LOGIC_TO_CENTER_GIVING_GIFT									= 555;  //逻辑服通知中心服送礼
 	CENTER_TO_LOGIC_GIVING_GIFT_ERROR							= 556;  //中心服通知逻辑服送礼错误
-
+	LOGIC_TO_CENTER_GIFT_GIVING_FLOWER				 = 557; //逻辑服通知中心服送花
+	CENTER_TO_LOGIC_GIVING_FLOWER_ERROR							= 558;  //中心服通知逻辑服送礼错误
+	C2L_GIVE_FLOWER_RSP = 559;											//中心服送花成功通知逻辑服
 	//好友
 	DBPROXY_PROTOCOL_ALL_FRIEND_DATA_REQ				= 560;	// 获取所有好友数据
 	DBPROXY_PROTOCOL_SAVE_FRIEND_DATA_REQ				= 561;	// 保存好友数据
@@ -175,8 +187,15 @@ enum ServerInternalCmd
 	C2L_ROLE_ROBOT_ENTER_DUP_REQ			= 615;			//中心服玩家机器人进入副本
 	L2C_DUP_RESULT_RSP						= 616;			//逻辑服通知中心服副本结果
 	C2S_NOTIFY_DUP_FINISH_RSP				= 617;			//中心服通知社交服副本产生结果
-
-
+	S2L_CREATE_DUP_REQ						= 618;			//社交服通知逻辑服创建副本
+	L2S_CREATE_DUP_RSP						= 619;			//逻辑服创建副本返回给社交服
+	S2L_NOTIFY_ROLE_ENTER_DUP				= 620;			//社交服通知逻辑服玩家进入副本
+	L2S_NOTIFY_DUP_FINISH_RSP				= 621;			//逻辑服产生副本结果到社交服
+	L2C_GHOST_DUP_RANK_REQ					= 622;			//逻辑服请求幽冥古殿排行榜
+	L2C_UPDATE_GHOST_DUP_RANK_REQ			= 623;			//逻辑服更新幽冥古殿排行榜
+	L2C_DUP_TEAM_INVITE_REQ					= 624;			//逻辑服邀请玩家进副本转发到中心服
+	C2S_TEAM_ENTER_DUP_REQ					= 625;			//通知社交服让队伍所有人进入副本(所有人都准备就绪，或者进入下一层副本等)
+	
 	//全局数据
 	DB_GET_GLOBAL_REQ						= 650;			//获取全局数据请求
 	DB_GET_GLOBAL_RSP						= 651;			//全局数据返回
@@ -187,7 +206,17 @@ enum ServerInternalCmd
 	L2C_SYN_ATTENT_REQ						= 661;			//同步关注信息
 	L2C_KILL_BOSS_REQ						= 662;			//击杀boss信息
 	L2C_BOSS_DROP_REQ						= 663;			//boss掉落数据
-
+	L2S_UPDATE_BOSS_REQ						= 664;			//跨服逻辑服更新数据到社交服
+	C2S_SYN_ATTENT_REQ						= 665;			//同步关注信息
+	C2S_BOSS_LAYER_REQ						= 666;			//boss请求到社交服
+	L2S_KILL_BOSS_REQ						= 667;			//boss击杀记录
+	L2C_ATTENT_OPT_REQ						= 668;			//关注操作请求
+	C2S_ATTENT_OPT_REQ						= 669;			//关注操作请求
+	C2S_BOSS_DROP_REQ						= 670;			//掉落到社交服
+	C2S_BOSS_LOG_REQ						= 671;			//查看日志
+	
+	
+	
 	//活动 700 - 800
 	DB_ACT_GET_DATA_REQ						= 700;			//获取活动数据
 	DB_ACT_GET_DATA_RSP						= 701;			//返回活动数据
@@ -246,6 +275,15 @@ enum ServerInternalCmd
 	FACTION_LC_CHG_NAME						= 908;		//逻辑服请求中心服帮派改名
 	FACTION_CL_CHG_NAME_RESULT				= 909;		//中心服返回逻辑服帮派改名结果
 	FACTION_CL_DISMISS_NOTIFY				= 910;		//中心服通知逻辑服帮派解散
+	FACTION_LC_ADD_ATTR_REQ					= 911;		//逻辑服通知中心服增加帮派属性
+	FACTION_LS_ANSWER_COUNT					= 912;      //逻辑服通知社交服帮派答题数信息
+	FACTION_SL_ANSWER_RANK					= 913;		//社交服通知逻辑服帮派答题排名信息
+	FACTION_LS_ANSWER_CUR_RANK_REQ			= 914;		//逻辑服请求社交服答题当前排名信息
+	FACTION_SC_ANSWER_RANK					= 915;		//社交服通知中心服帮派答题排名
+	FACTION_LS_ANSWER_END					= 916;		//逻辑服通知社交服帮派答题结束
+	FACTION_LC_BEAST_FINISH					= 917;		//逻辑服通知中心服帮派神兽完成信息
+	FACTION_SC_ANSWER_FINAL_RSP				= 918;		//社交服通知中心服帮派答题最终排名信息
+	FACTION_CL_ANSWER_QUESTION_RSP			= 919;		//中心服通知逻辑服帮派答题
 
 	//boss求助
 	L2C_SYN_ASSIST_REQ						= 920;		//boss求助同步
@@ -255,6 +293,17 @@ enum ServerInternalCmd
 	C2L_ASSIST_RMV_REQ						= 924;		//删除救援
 	L2C_ASSIST_THANK_REQ					= 925;		//感谢玩家
 
+	//帮派守卫
+	FACTION_LS_GUARD_COUNT					= 950;      //逻辑服通知社交服帮派守卫信息
+	FACTION_SL_GUARD_RANK					= 951;		//社交服通知逻辑服帮派守卫排名信息
+	FACTION_LS_GUARD_CUR_RANK_REQ			= 952;		//逻辑服请求社交服帮派守卫当前排名信息
+	FACTION_SL_GUARD_RANK_RESULT					= 953;		//社交服通知中心服帮派守卫排名
+	FACTION_LS_GUARD_END					= 954;		//逻辑服通知社交服帮派守卫结束
+	FACTION_LC_GUARD_PLAYER_HARM = 955; //逻辑服通知中心服帮派守卫信息
+	FACTION_CL_GUARD_PLAYER_RANK = 956; //中心服通知逻辑服帮派守卫信息
+	FACTION_LC_GUARD_RANK_END = 957; ////逻辑服通知中心服帮派守卫结束
+
+
 	//充值 1000-1050
 	PAY_CL_DELIVER_NOTIFY					= 1000;		//中心服通知逻辑服充值发货
 	PAY_LC_DELIVER_FAIL_RSP					= 1001;		//逻辑服返回中心副充值发货失败
@@ -263,22 +312,206 @@ enum ServerInternalCmd
 	DB_PAY_SAVE_REQ							= 1004;		//保存玩家离线充值信息
 	DB_PAY_UPDATE_REQ						= 1005;		//更新玩家离线充值信息
 
-	//红包 1051-1060
+	//红包 1051-1070
 	DB_RED_REQ								= 1051;		//请求帮派红包数据
 	DB_RED_RSP								= 1052;     //返回帮派红包数据
 	DB_RED_SAVE_REQ							= 1053;		//请求保存帮派红包数据
 	DB_RED_DEL_REQ							= 1054;		//请求删除帮派红包数据
-	DB_RED_ROLE_REQ							= 1055;		//请求角色红包数据
+	//DB_RED_ROLE_REQ							= 1055;		//请求角色红包数据
 	DB_RED_ROLE_RSP							= 1056;		//返回角色红包数据
 	RED_LC_SEND_REQ							= 1057;		//逻辑服通知中心服发红包
 	RED_CL_FETCH_RSP						= 1058;		//中心服通知逻辑服领取红包
 	RED_CL_SEND_FAIL_RSP					= 1059;		//中心服通知逻辑服发送红包失败
 	RED_LC_RECHARGE							= 1060;		//逻辑服通知中心服充值触发红包
+	RED_CL_TRIGGER_RED_RSP					= 1061;		//中心服通知逻辑服触发红包
 
-	//中心服加载角色数据 1071 - 1080
-	DB_CENTER_LOAD_ROLE_REQ					= 1071;		//中心服加载角色数据(用于玩家数据存放在中心服，通用的DB请求)
-	DB_CENTER_SAVE_ROLE_REQ					= 1072;		//保存中心服角色DB数据
-
+	//通用的加载DB数据 1071 - 1080
+	DB_COM_LOAD_REQ							= 1071;		//通用的 请求加载DB数据
+	DB_COM_SAVE_REQ							= 1072;		//通用的 保存DB数据
+	DB_COM_DEL_REQ							= 1073;		//通用的 删除DB数据
+	DB_COM_LOAD_ALL_REQ						= 1074;		//通用的 请求加载所有DB数据
 	
+	NOTIFY_SERVER_ZONE_PLAN					= 1100;		//跨服分组通知
+	NOTIFY_SERVER_ZONE_PLAN_EX				= 1101;		//跨服分组通知
+	//结婚
+	DB_LOAD_MARRY_REQ						= 1120;		//DB加载结婚数据
+	DB_LOAD_MARRY_RSP						= 1121;		//DB加载结婚数据返回
+	DB_MARRY_SAVE_REQ						= 1122;		//DB保存结婚数据
+	C2L_MARRY_REQ							= 1123;		//中心服请求结婚到逻辑服
+	L2C_MARRY_RSP							= 1124;		//逻辑服返回结婚结果到中心服
+	C2L_NOTIFY_MARRY_CMPT					= 1125;		//中心服结婚完成通知逻辑服
+	L2C_UPDATE_MARRY_BRIEF					= 1126;		//逻辑服更新简要信息到中心服
+	C2L_NOTIFY_DIVORCE						= 1127;		//中心服通知逻辑服离婚了
+	C2L_EXPRESS_REQ							= 1128;		//表白请求到逻辑服
+	L2C_NOTIFY_EXPRESS_SUCCESS				= 1129;		//表白成功到中心服
+	C2L_NOTIFY_EXPRESS_TO_DST				= 1130;		//表白通知玩家
+	C2L_NOTIFY_MARRY_DST					= 1131;		//更新对象的信息到逻辑服
+	C2L_GLOBAL_EXPRESS_REQ					= 1132;		//全局表白数据
+	C2L_NOTIFY_MARRY_BUY_SUCCESS			= 1133;		//通知购买成功到中心服
+	C2L_MARRY_RECV_DST_CARD					= 1144;		//领取过宝匣天数
+	C2L_WEDDING_BUY_SEAT_REQ				= 1145;		//中心服购买席位请求到逻辑服
+	L2C_WEDDING_BUY_SEAT_RSP				= 1146;		//逻辑服购买席位返回中心服
+	C2L_NOTIFY_WEDDING_TOUR					= 1147;		//通知逻辑服玩家巡游
+	C2L_WEDDING_TOUR_OVER					= 1148;		//中心服通知巡游结束
+	
+	//神机谷战场、瑶池、衣战云颠 1160 - 1180
+	GVB_RoomReq						=1160;
+	GVB_RoomRsp						=1161;
+	GVB_RoomCloseReq				=1166;
+	
+	//排行榜1180-1200
+	LOGIC_TO_CENTER_RANKDATA									= 1180;	//逻辑服通知中心服取排行榜数据
+	LOGIC_TO_CENTER_UPDATERANK								= 1181;	//逻辑服通知中心服更新排行榜
+	//跨服排行榜
+	LOGIC_TO_SOCIAL_RANK_UPDATE_REQ						= 1182; //跨服排行榜更新
+	CENTER_TO_SOCIAL_RANK_INFO_REQ						= 1183;	//中心服请求排行榜信息
+	CENTER_TO_LOGIC_RANK_REQ									= 1184;	//中心服转发排行榜消息到逻辑服
+	LOGIC_TO_SOCIAL_RANK_REQ									= 1185;	//逻辑服转发消息到社交服
+	SOCIAL_TO_LOGIC_OPT_TITLE_REQ							= 1186;	//社交服通知称号
+	//排行榜
+	DBPROXY_PROTOCOL_ALL_RANK_DATA_REQ				= 1188;	//请求所有排行榜数据
+	DBPROXY_PROTOCOL_ALL_RANK_DATA_RSP				= 1189;	//返回所有排行榜数据
+	DBPROXY_PROTOCOL_SAVE_RANK_DATA_REQ				= 1190;	//保存排行榜数据
+	DBPROXY_PROTOCOL_ALL_RANK_DATA_EX_REQ			= 1191;	//请求所有排行榜数据
+	DBPROXY_PROTOCOL_ALL_RANK_DATA_EX_RSP			= 1192;	//返回所有排行榜数据
+	DBPROXY_PROTOCOL_SAVE_RANK_DATA_EX_REQ		= 1193;	//保存排行榜数据
+
+
+
+	//PVP  1200 - 1250
+	PVP_L2S_1V1_RANK_REQ			= 1200;  //逻辑服请求社交服1v1排名
+	PVP_S2L_1V1_RANK_NOTIFY			= 1201;  //社交服通知逻辑服1v1排名更新通知
+	PVP_L2S_1V1_SCORE_CHG_REQ		= 1202;	 //逻辑服通知社交服1v1玩家积分变化
+	PVP_L2S_1V1_MATCH_REQ			= 1203;	 //逻辑服请求社交服1v1匹配
+	PVP_L2S_1V1_RACE_INFO_REQ		= 1204;	 //逻辑服请求社交服1v1赛季信息
+	PVP_S2L_1V1_RACE_INFO_RSP		= 1205;	 //社交服返回逻辑服1v1赛季信息
+
+	//查询
+	SERVER_INTERAL_QUERY_BEGIN								= 1250;
+	CENTER_TO_LOGIC_CHARACTER_DETAIL_DATA					= 1251;
+	LOGIC_TO_CENTER_CHARACTER_DETAIL_DATA					= 1252;
+	SERVET_TO_SERVER_QUERY_CHAR_DETAIL_REQ					= 1253;
+	SERVET_TO_SERVER_QUERY_CHAR_DETAIL_RSP					= 1254;
+	SERVET_TO_SERVER_QUERY_CHAR_MINI_REQ					= 1255;
+	SERVET_TO_SERVER_QUERY_CHAR_MINI_RSP					= 1256;
+	SERVER_TO_SERVER_QUERY_CHAR_FUNC_FIGHT_DATA_REQ			= 1257;
+	SERVER_TO_SERVER_QUERY_CHAR_FUNC_FIGHT_DATA_RSP			= 1258;
+	SERVER_INTERAL_QUERY_END								= 1270;
+
+
+	//帮派战 1300 - 1310
+	DB_FACTION_WAR_LOAD_ALL_RSP	 = 1300;				//DB返回帮派战所有数据
+	FACTION_WAR_S2C_PULL_RACE_FACTION_REQ = 1301;		//社交服请求中心服赛区帮派信息
+	FACTION_WAR_C2S_PULL_RACE_FACTION_RSP = 1302;		//中心服返回社交服赛区帮派信息
+	FACTION_WAR_S2L_FACTION_INFO_RSP = 1303;			//社交服通知逻辑服帮派信息
+	FACTION_WAR_L2S_WAR_RESULT = 1304;					//逻辑服通知社交服帮派战结果
+	FACTION_WAR_S2C_RANK_REWARD_RSP = 1305;				//社交服通知中心服发放帮派战排名奖励
+	FACTION_WAR_S2C_END_WIN_REWARD_RSP	= 1306;			//社交服通知中心服发放终结连胜奖励
+	FACTION_WAR_S2C_WIN_INFO_RSP = 1307;				//社交服通知中心服更新连胜信息
+	FACTION_WAR_S2C_DEL_WIN_RSP = 1308;					//社交服通知中心服移除连胜信息
+	FACTION_WAR_S2C_LEADER_INFO_REQ = 1309;				//社交服请求中心服连胜帮派帮主信息
+	FACTION_WAR_C2S_LEADER_INFO_RSP = 1310;				//中心服返回社交服连胜帮派帮主信息
+	FACTION_WAR_C2L_FETCH_WIN_REWARD = 1311;			//中心服通知逻辑服领取主宰帮派每日俸禄
+	FACTION_WAR_C2S_WIN_DISMISS = 1312;					//中心服通知逻辑服主宰帮派解散
+
+	//每日特惠 1320-1330
+	DAILY_WELFARE_L2S_SAVE_RECORD_RSP = 1320;    //逻辑服通知社交服记录数据
+	CENTER_TO_LOGIC_ACH_COMMON_ADD = 1321; //中心服通知逻辑服成就增加
+	CENTER_TO_LOGIC_FIND_TREASURE_SI_SHENG_GET_SERVER_TOTAL_REWARD_REQ = 1323; //请求全服四圣抽奖累积奖励
+	CENTER_TO_LOGIC_FIND_TREASURE_SI_SHENG_CHOUJIANG_REQ = 1324; //请求四圣抽奖抽奖
+
+	//战队
+	CLAN3_DB_RSP	= 1352; //3v3战队数据返回
+	CLAN5_DB_RSP	= 1353; //5v5战队数据返回
+	ROLE_3V3_DB_RSP	= 1354;	//玩家3v3数据
+	ROLE_5V5_DB_RSP	= 1355;	//玩家5v5数据
+	CLAN_SYS_OPT_REQ = 1356; //战队同步操作
+	NOTIFY_PVP3_SEASON = 1357;	//赛季通知
+	NOTIFY_CLAN_SYN_RANK = 1358; //同步排名信息
+	MODIFY_CLAN_NAME_REQ = 1359;	//修改战队名称
+	MODIFY_CLAN_NAME_RSP = 1360;	//修改战队名称返回
+	//3v3
+	C2S_CLAN3_RANK_REQ = 1361;		//3v3当前排行
+	L2S_CLAN3_JOIN_MATHCH_REQ = 1362;	//加入匹配3v3匹配
+	C2S_SYN_INIT_RANK_REQ = 1363;			//把战力排行同步到社交服
+	L2S_CLAN3_CANCEL_MATCH_REQ = 1364;			//取消匹配
+	NOTIFY_CLAN3_ACTION_WAIT_DUP = 1365;		//玩家进入3v3等待副本通知中心服
+	L2S_NOTIFY_CLAN3_DUP_RESULT = 1366;			//3v3副本产生结果通知中心服
+	C2L_CLAN3_RECV_ROLE_REWARD_REQ = 1367;		//3v3玩家领取每日宝匣奖励
+	S2C_SYN_CLAN3_ZERO_UPDATE = 1378;			//社交服0点更新
+	C2L_CLAN3_REWARD_REQ = 1379;				//中心服奖励请求到逻辑服
+
+	//版本号 1400 - 1410
+	C2L_VERSION_ID_UPDATE_RSP	=  1400;		//中心服通知逻辑服版本号更新
+	//拍卖行
+	LOAD_GOODS_REQ = 1405;						//请求拍卖行数据
+	MARKET_DB_LOAD_RSP = 1406;					//拍卖行数据返回
+	LOAD_MARKET_ROLE_RSP = 1407;				//加载拍卖行玩家数据返回
+	MARKET_SAVE_REQ = 1408;						// 保存商品
+	MARKET_DEL_REQ = 1409;						// 删除商品
+	C2L_MARKET_ROLE_UP_REQ = 1410;				// 玩家上架请求
+	L2C_MARKET_ROLE_UP_RSP = 1411;				// 玩家上架返回
+	C2L_MARKET_VIE_REQ = 1412;					// 玩家竞拍请求
+	L2C_MARKET_VIE_RSP = 1413;					// 玩家竞拍返回
+	C2L_MARKET_BUY_REQ = 1415;					// 玩家一口价请求
+	L2C_MARKET_BUY_RSP = 1416;					// 玩家一口价返回
+	//节日活动 1420 - 1450
+	FEST_L2C_DIG_EGG_OPERATE_RSP = 1420;		//逻辑服通知中心服 砸蛋抽奖操作
+	FEST_L2C_DIG_EGG_LOG_REQ = 1421;			//逻辑服请求中心服，砸蛋日志
+	FEST_L2C_RTURNABLE_OPERATE_RSP = 1422;		//逻辑服通知中心服 转盘多倍返玉抽奖操作
+	FEST_L2C_RTURNABLE_LOG_REQ = 1423;			//逻辑服请求中心服，转盘多倍返玉日志
+	FEST_L2C_DONATE_OPERATE_NOTIFY = 1424;  //逻辑服通知中心服 全民嗨翻天 捐献操作
+	FEST_C2L_DONATE_GET_SERVER_REWARD_REQ = 1425;  //中心服通知逻辑服 全民嗨翻天 领取全服奖励
+	FEST_L2C_DRAWPIZE_LOG_REQ = 1426; //逻辑服请求中心服，开服庆典日志
+	FEST_L2C_DRAWPIZE_CHOUJIANG_GET_SERVER_NUM_REQ = 1427; //逻辑服请求中心服，开服庆典 全服
+	FEST_C2L_DRAWPIZE_CHOUJIANG_GET_SERVER_NUM_RSP = 1428; //中心服 to 逻辑服，开服庆典 全服
+	FEST_C2L_FEST_SERVERRANK_SYNC_REQ = 1429; //排行榜同步请求
+	FEST_C2L_FEST_SERVERRANK_SYNC_RSP = 1430; //排行榜同步请求
+
+	L2C_FEST_BOSSKF_SIMPLE_REQ = 1431;					//boss首杀简单信息到中心服
+	C2LFEST_BOSS_KF_NOTIFY = 1432;						//boss首杀通知
+	C2LFEST_BOSS_INFO_REQ = 1433;						//boss请求
+	C2L_FEST_BOSS_FIRST_OPT_REQ = 1434;					//boss领取
+	//节日活动 1420 - 1450
+	FEST_S2S_XIYOU_SYNC_NOTIFY = 1445;		//西游状态同步
+	FEST_L2S_XIYOU_SYNC_LOGIC = 1446;		//西游同步
+	FEST_L2L_XIYOU_SYNC_FINISH = 1447; //同步子游戏结束
+	FEST_L2L_XIYOU_SYNC_FORCE_CLOSE = 1448; //同步强制结束
+
+	SYN_WORLD_INFO_REQ = 1450;							//更新世界等级
+	SYN_WORLD_INFO_EX_REQ = 1451;						//更新世界等级中心副
+	//完美情人
+	C2L_FMARRY_SYN_SCORE_REQ = 1452;					//同步积分
+	L2C_FMARRY_SYN_SCORE_RSP = 1453;					//同步积分
+
+	//烛龙挑战(天天养龙) 1470 - 1480
+	DB_CANDLE_LOAD_ALL_RSP	 = 1470;				    //DB返回烛龙挑战(天天养龙)所有数据
+	S2C_CANDLE_RANK_REWARD = 1471;						//社交服通知中心服发放烛龙挑战排名奖励
+	L2S_CANDLE_ADD_HARM_NOTIFY = 1472;					//逻辑服通知社交服 新的烛龙挑战伤害
+	S2L_CANDLE_TOTAL_HARM_RSP = 1473;					//社交服通知逻辑服 玩家总伤害值
+	L2S_CANDLE_RANK_REQ = 1474;							//逻辑服向社交服请求排名信息
+	//活动进入
+	L2C_ENTER_ACT_REQ	= 1480;							//请求进入其他逻辑节点的活动
+	C2L_ENTER_ACT_REQ = 1481;							//请求进入其他逻辑节点的活动
+	L2C_ENTER_ACT_RSP = 1482;							//其他逻辑节点返回結果
+	NT_ENTER_ACT_RSP = 1483;							//通知结果到源逻辑节点
+	//神体助战转生
+	LC_TURN_HELPER_REQ = 1490;							//神体助战转生
+	CL_NOTIFY_TURN_HELPER = 1491;						//帮助转生通知
+	LC_TURN_HELPER_RSP =1492;							//帮助结果通知
+	//镇魂魔域
+	FACTION_MOYU_REWARD_REQ = 1500;						//镇魂魔域奖励
+	FACTION_MOYU_UPDATE_REQ = 1501;						//镇魂魔域排行更新
+	FACTION_MOYU_ADD_HARM_REQ = 1502;					//添加工會傷害
+	FACTION_SYN_MOYU_REQ = 1503;						//同步下血量
+	FACTION_PASS_MOYU_REQ = 1504;						//通关魔域
+	CL_FACTION_MOYU_RANK_REQ = 1505;					//查看排行
+	CS_FACTION_MOYU_RANK_REQ = 1506;					//查看排行
+	CL_FACTION_MOYU_RECV_REQ = 1507;					//领取通关奖励
+	//九成妖塔
+	L2C_SYN_PASS_YAOTA_REQ	= 1510;						//通关九成妖塔副本
+	NOTIFY_DUP_TEAM_DIS_REQ = 1511;						//逻辑服请求解散副本队伍
+	LC_NOTIFY_YAOTA_FIRST_PASS_REQ = 1512;				//九层妖塔数据发到中心服
+	CL_YAOTA_RECV_REQ = 1513;							//九层妖塔数据領取奖励
 	SERVER_INTER_MAX_CMD					= 5000;	  //最大协议ID
 };

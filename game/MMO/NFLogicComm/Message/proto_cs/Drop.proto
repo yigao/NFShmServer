@@ -1,7 +1,8 @@
-package proto_ff;
+// 定义公用message，注意与ComDefine.proto区别
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
+
 
 
 //请求拾取掉落  DROP_PICK_REQ
@@ -23,4 +24,5 @@ message DropHeadNotify
 {
 	repeated uint64 new_head_lst = 1;	//新增加头顶掉落归属显示的生物cid
 	repeated uint64 del_head_lst = 2;	//移除头顶掉落归属显示的生物cid
+	optional uint64 cid = 3;			//怪物cid
 }

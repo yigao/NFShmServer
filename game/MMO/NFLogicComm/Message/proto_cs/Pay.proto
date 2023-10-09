@@ -1,10 +1,6 @@
-package proto_ff;
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
-import "Com.proto";
+import "ProtoBuffer/Com.proto";
+package ProtoBuf;
 
 
 ////////////////////////////// client - server //////////////////////////////////////////////////
@@ -31,8 +27,9 @@ message PayRsp
 message PayOrderIdReq
 {
 	required uint32 channId = 1;
-	required string productId = 2;
+	required string productId = 2;	 //产品ID列表，如果是一件购买，列表可能有多个元素
 	optional string orderString = 3; //附加字段, 客户端申请订单号可能需要渠道参数
+	repeated string productLst = 4;	 //productId 表示一键购买的产品ID的时候才有效，此时表示 recharge表中的产品ID
 }
 
 //返回订单号 PAY_ORDER_ID_RSP
@@ -44,6 +41,7 @@ message PayOrderIdRsp
 	optional string cbUrl = 4;        //附加字段，有些渠道可能需要回调地址做传参
 	optional string productId = 5;    //产品id
 	optional string retMsg =6;		  //错误描述
+	repeated string productLst = 7;	  //productId 表示一键购买的产品ID的时候才有效，此时表示 recharge表中的产品ID
 }
 //充值计费点通知 PAY_PRODUCT_NOTIFY
 message PayProductNotify
@@ -66,9 +64,11 @@ message PayProto
 	required string productId = 5;//产品号
 	required uint32 money = 6;    //金额
 	required string order = 7;    //订单号
-	optional uint32 dbid = 8;     //db id (web不用)
+	optional uint32 dbid = 8;     //db id (由游戏服务器填充)
 	required string myOrder = 9;  //游戏自定义订单号
 	required bool   fakePay = 10; //是否模拟充值
+	repeated string productLst = 11;//产品ID列表，如果是一键购买，列表可能有多个元素
+	optional int64 payTime = 12;	//充值到账时间(非游戏发货时间)，由游戏服务器填充，客户端忽略
 }
 
 //中心服通知逻辑服充值发货 PAY_CL_DELIVER_NOTIFY
