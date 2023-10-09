@@ -1,0 +1,31 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+//1:玄真护甲数据通知 NOTIFY_ARMOR_RSP
+message NotifyArmorRsp
+{
+	optional int32 type = 1; //0:全部更新，1单个更新
+	repeated ArmorInfo infos = 2;
+}
+
+//2-1:玄真护甲激活 ID，套装索引 ARMOR_ACTIVE_REQ
+message ArmorActiveReq
+{
+	optional int32 id = 1;
+	optional int32 index = 2;
+}
+
+//2-2:玄功真甲激活返回 ARMOR_ACTIVE_RSP
+message ArmorActiveRsp
+{
+	optional int32 ret =1;
+	optional int32 id = 2;
+	optional int32 index = 3;
+}
+

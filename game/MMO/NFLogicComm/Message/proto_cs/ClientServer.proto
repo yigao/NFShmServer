@@ -1,0 +1,1228 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+//功能解锁返回结果
+//LOGIC_TO_CLIENT_FUNCTIONUNLOCK_INFO
+message FunctionUnlockInfoRsp
+{
+  required int32 retCode	= 1;
+  required int32 synType  = 2;    //同步类型 1全部解锁功能   2新增解锁功能
+  repeated FunctionUnlockInfoData	data = 3;
+}
+
+//CLIENT_TO_SERVER_FUNCTIONUNLOCK_GET_REWARD_REQ		= 582;
+message FunctionUnlockGetRewardReq
+{
+  optional uint64 function_id = 1;
+}
+
+//SERVER_TO_CLIENT_FUNCTIONUNLOCK_GET_REWARD_RSP		= 583;
+message FunctionUnlockGetRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional FunctionUnlockInfoData data = 2;
+}
+
+/////////////////////////////////外观系统(包过 翅膀，宝具， 剑灵， 神器系统)//////////////////////////////////////////////
+
+/*enum FacadeType
+{
+  FACADE_WING_TYPE = 1; //翅膀
+  FACADE_TREASURE_TYPE = 2; //宝具
+  FACADE_ARTIFACT_TYPE = 3; //神器系统
+  FACADE_PARTNER_TYPE = 4; //剑灵(伙伴)系统，
+}*/
+//外观信息	CLIENT_TO_LOGIC_FACADE_INFO_REQ
+message FacadeInfoReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+
+//外观信息	LOGIC_TO_CLIENT_FACADE_INFO_RSP
+message FacadeInfoRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint64 facade_id = 2;		//外观ID
+  optional uint32 facade_lev = 3;
+  optional uint64 facade_exp = 4;   	//进阶外观经验值
+  optional bool use_facade = 5;		//外观是否使用
+  optional bool use_soul_item = 6; //器魂道具是否使用
+  repeated FacadeFragmentData fragment_data = 7; //羽灵信息
+  optional uint64 fight_value = 8; //战力
+  repeated FacadeSkillData skill_data = 9; //技能数据
+}
+
+//CLIENT_TO_LOGIC_FACADE_SKILL_UNLOCK_NOTIFY = 915; //外观技能解锁
+message FacadeSkillUnlockNotify
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional FacadeSkillData skill_data = 2; //技能数据
+}
+
+//CLIENT_TO_LOGIC_FACADE_SKILL_LEV_REQ = 916; //技能升级
+message FacadeSkillLevReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint64 skill_id = 2;
+}
+//LOGIC_TO_CLIENT_FACADE_SKILL_LEV_RSP = 917; //技能升级
+message FacadeSkillLevRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional FacadeSkillData skill_data = 3; //技能数据
+}
+
+//外观升级请求	CLIENT_TO_LOGIC_FACADE_LEVUP_REQ
+message	FacadeLevupReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint64 material_id = 2;
+}
+
+//外观升级请求	LOGIC_TO_CLIENT_FACADE_LEVUP_RSP
+message FacadeLevupRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;		//
+  optional uint64 facade_id = 3;		//外观ID
+  optional uint32 facade_lev = 4;
+  optional uint64 facade_exp = 5;   	//进阶外观经验值
+  optional uint64 fight_value = 8; //战力
+}
+
+//外观穿戴	CLIENT_TO_LOGIC_FACADE_DRESS_REQ
+message	FacadeDressReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+
+//外观穿戴	LOGIC_TO_CLIENT_FACADE_DRESS_RSP
+message	FacadeDressRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional bool use_facade = 3;		//外观是否使用
+  optional uint64 fight_value = 8; //战力
+}
+
+//外观重置	CLIENT_TO_LOGIC_FACADE_UNDRESS_REQ
+message	FacadeUnDressReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+
+//外观重置	LOGIC_TO_CLIENT_FACADE_UNDRESS_RSP
+message	FacadeUnDressRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional bool use_facade = 3;		//外观是否使用
+  optional uint64 fight_value = 8; //战力
+}
+
+//羽灵使用	CLIENT_TO_LOGIC_FACADE_FRAGEMNT_USE_REQ
+message	FacadeFragmentUseReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint64 fragment_id = 2;
+}
+
+//羽灵使用	LOGIC_TO_CLIENT_FACADE_FRAGEMNT_USE_RSP
+message	FacadeFragmentUseRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  repeated FacadeFragmentData fragment_data = 3; //羽灵信息
+  optional uint64 fight_value = 4; //战力
+}
+
+//外观幻化信息	CLIENT_TO_LOGIC_FACADE_FANTASY_INFO_REQ
+message FacadeFantasyInfoReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+
+//幻化信息	LOGIC_TO_CLIENT_FACADE_FANTASY_INFO_RSP
+message FacadeFantasyInfoRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  repeated FacadeFantasyData fantasy_data = 5;	//幻化外观ID
+  optional uint64 equip_fantasy_id = 6;		//装备的外观ID(幻化中的一个)
+}
+
+//幻化激活请求	CLIENT_TO_LOGIC_FACADE_FASTASY_ACTIVE_REQ
+message	FacadeFantasyActiveReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint64 fantasy_id = 2;
+}
+
+//幻化激活请求	LOGIC_TO_CLIENT_FACADE_FASTASY_ACTIVE_RSP
+message	FacadeFastasyActiveRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional FacadeFantasyData fantasy_data = 2;
+  optional uint32 ret_code = 3;
+}
+
+//幻化升级请求	CLIENT_TO_LOGIC_FACADE_FASTASY_LEVELUP_REQ
+message	FacadeFantasyLevelupReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint64 fantasy_id = 2;
+}
+
+//幻化升级请求	LOGIC_TO_CLIENT_FACADE_FASTASY_LEVELUP_RSP
+message	FacadeFastasyLevelupRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional FacadeFantasyData fantasy_data = 2;
+  optional uint32 ret_code = 3;
+}
+
+//幻化穿戴	CLIENT_TO_LOGIC_FACADE_FANTASY_DRESS_REQ
+message	FacadeFastasyDressReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint64 equip_fantasy_id = 2;	//幻化ID
+}
+
+//幻化穿戴	LOGIC_TO_CLIENT_FACADE_FANTASY_DRESS_RSP
+message	FacadeFastasyDressRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional uint64 equip_fantasy_id = 3;
+}
+
+//幻化重置	CLIENT_TO_LOGIC_FACADE_FANTASY_UNDRESS_REQ
+message	FacadeFastasyUnDressReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+
+//幻化重置	LOGIC_TO_CLIENT_FACADE_FANTASY_UNDRESS_RSP
+message	FacadeFastasyUnDressRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+}
+
+//CLIENT_TO_LOGIC_FACADE_BUY_SOUL_REQ = 930; //器魂购买
+message FacadeBuySoulReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+
+//LOGIC_TO_CLIENT_FACADE_BUG_SOUL_RSP = 931; //器魂购买
+message FacadeBuySoulRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional FacadeSoulData soul_data = 3;
+}
+
+//CLIENT_TO_LOGIC_FACADE_SOUL_INFO_REQ = 932; //器魂信息
+message FacadeSoulInfoReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+//LOGIC_TO_CLIENT_FACADE_SOUL_INFO_RSP = 933; //器魂信息
+message FacadeSoulInfoRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional FacadeSoulData soul_data = 2;
+}
+
+//CLIENT_TO_LOGIC_FACADE_SOUL_ACTIVE_REQ = 936; //器魂激活
+message FacadeSoulActiveReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+
+//LOGIC_TO_CLIENT_FACADE_SOUL_ACTIVE_RSP = 937; //器魂激活
+message FacadeSoulActiveRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional FacadeSoulData soul_data = 3;
+}
+
+//CLIENT_TO_LOGIC_FACADE_SOUL_LEVELUP_REQ = 938; //器魂升级
+message FacadeSoulLevelUpReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+
+//LOGIC_TO_CLIENT_FACADE_SOUL_LEVELUP_RSP = 939; //器魂升级
+message FacadeSoulLevelUpRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional uint32 soul_level = 3;
+  optional uint32 old_soul_level = 4;
+}
+
+//CLIENT_TO_LOGIC_FACADE_SOUL_ACTIVITY_RECV_REQ = 940; //器魂成就领取
+message FacadeSoulActivityRecvReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional int64 activity_id = 2;
+}
+
+//LOGIC_TO_CLIENT_FACADE_SOUL_ACTIVITY_RECV_RSP = 941; //器魂成就领取
+message FacadeSoulActivityRecvRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional FacadeSoulActivityData activity_data = 3;
+}
+
+//LOGIC_TO_CLIENT_FACADE_SOUL_ACTIVITY_NOTIFY = 942; //器魂成就修改
+message FacadeSoulActivityNotify
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional FacadeSoulData soul_data = 2;
+}
+
+//LOGIC_TO_CLIENT_FACADE_SOUL_SKILL_INFO_NOTIFY = 943; //器魂技能状态修改
+message FacadeSoulSkillNotify
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional FacadeSoulData soul_data = 2;
+}
+
+//CLIENT_TO_LOGIC_FACADE_SOUL_RESET_SKILL_REQ = 944; //器魂技能重置
+message FacadeSoulResetSkilLReq
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+}
+//LOGIC_TO_CLIENT_FACADE_SOUL_RESET_SKILL_RSP = 945; //器魂技能重置
+message FacadeSoulResetSkillRsp
+{
+  optional uint32 facade_type = 1; //FacadeType定义在ComDefine里
+  optional uint32 ret_code = 2;
+  optional FacadeSoulData soul_data = 3;
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
+// 打坐请求 CLIENT_TO_LOGIC_PLAYER_SEAT_REQ
+message PlayerSeatReq
+{
+  optional int32	opt = 1;	// 1 打坐 , 0 取消打坐
+}
+
+// 打坐返回 LOGIC_TO_CLIENT_SEAT_RSP
+message PlayerSeatRsp
+{
+  optional int32	opt = 1;	// 1 打坐 , 0 取消打坐
+  optional int32 	ret = 2;	// 0 成功, 其他失败
+  optional uint64 exp = 3;
+  optional uint32 online_hangup_time = 4;
+  optional uint64 online_all_exp = 5;
+  repeated ComPair64 items = 6;	// 奖励物品
+}
+
+// 打坐每分钟经验 返回给客户端 LOGIC_TO_CLIENT_SEAT_EXP_RSP
+message PlayerSeatExpRsp
+{
+  optional uint64 exp = 1;
+  optional uint32 online_hangup_time = 2;
+  optional uint64 online_all_exp = 3;
+  repeated ComPair64 items = 4;	// 奖励物品
+}
+
+// 登陆获取挂机数据(客户端登陆进来就发) CLIENT_TO_LOGIC_LOGIN_HANGUP_DATA_REQ
+message PlayerLoginHangUpDataReq
+{
+
+}
+
+// 登陆获取挂机数据返回 LOGIC_TO_CLIENT_LOGIN_HANGUP_DATA_RSP
+message PlayerLoginHangUpDataRsp
+{
+  optional int32 hangup_time 					= 1;	// 冥想时间(秒)
+  optional int32 hangup_surplus_time 			= 2;	// 挂机剩余时间
+  optional uint64 add_exp						= 3;	// 加成经验
+  optional int32 before_lv					= 4;	// 挂机前等级
+  optional int32  after_lv					= 5;	// 挂机后等级
+  optional uint64 before_fight				= 6;	// 之前战力
+  optional uint64 after_fight					= 7;	// 之后战力
+  repeated ComPair64 items					= 8;	// 奖励物品
+  repeated int32	add_value					= 9;	// 加成值(vip,特权,神权)
+}
+
+// 获取挂机奖励 CLIENT_TO_LOGIC_GET_HANGUP_REWARD_REQ
+message PlayerHangUpRewardReq
+{
+  optional int32 opt = 1; //0 offline reward 1 online reward
+}
+
+// 获取挂机奖励 LOGIC_TO_CLIENT_GET_HANGUP_REWARD_RSP
+message PlayerHangUpRewardRsp
+{
+  optional int32 	ret = 2;	// 0 成功, 其他失败
+}
+
+//CLIENT_TO_LOGIC_GET_DAILY_TASK_DATA_REQ = 960; //获得Daily活动数据
+message GetDailyTaskDataReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_GET_DAILY_TASK_DATA_RSP = 961; //获得Daily活动数据
+message GetDailyTaskDataRsp
+{
+  optional DailyTaskAllData data = 1;
+}
+
+//LOGIC_TO_CLIENT_UPDATE_DAILY_TASK_NOTIFY = 962; //任务更新, 任务完成，解锁，状态改变
+message UpdateDailyTaskNotify
+{
+  repeated DailyTaskEntry data = 1;
+  repeated DailyTaskLimitEntry limit_data = 2;
+  repeated DailyTaskRewardEntry reward_data = 3;
+  repeated DailyTaskBackEntry back_data = 4;
+  optional uint32 daily_score = 5; //当前活跃值
+  optional uint64 daily_exp = 6; //用来升级的经验
+}
+
+//CLIENT_TO_LOGIC_GET_DAILY_TASK_REWARD_REQ = 964; //请求每日任务奖励
+message GetDailyTaskRewardReq
+{
+  optional int32 reward_id = 1;
+}
+
+//LOGIC_TO_CLIENT_GET_DAILY_TASK_REWARD_RSP = 965; //请求每日任务奖励
+message GetDailyTaskRewardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 reward_id = 2;
+}
+
+//CLIENT_TO_LOGIC_DAILY_TASK_LEVELUP_REQ = 966; //每日任务养成等级提升
+message DailyTaskLevelupReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_DAILY_TASK_LEVELUP_RSP = 967; //每日任务养成等级提升
+message DailyTaskLevelupRsp
+{
+  optional int32 ret_code = 1;
+  optional uint32 daily_level = 2; //当前等级
+  optional uint64 daily_exp = 3; //用来升级的经验
+}
+
+//CLIENT_TO_LOGIC_DAILY_LIMIT_TASK_ADD_READY_REQ = 968; //限时任务投名
+message DailyLimitTaskAddReadyReq
+{
+  optional int64 task_id = 1;
+}
+
+//LOGIC_TO_CLIENT_DAILY_LIMIT_TASK_ADD_READY_RSP = 969; //限时任务投名
+message DailyLimitTaskAddReadyRsp
+{
+  optional int32 ret_code = 1;
+  optional DailyTaskLimitEntry data = 2;
+}
+
+//CLIENT_TO_LOGIC_DAILY_BACK_TASK_BACK_REQ = 970; //找回请求
+message DailyBackTaskBackReq
+{
+  optional int64 back_id = 1;
+  optional int32 left_time = 2;
+  optional int32 external_left_time = 3;
+  optional int32 type = 4; //0:use gold //1:use diamond
+}
+
+//LOGIC_TO_CLIENT_DAILY_BACK_TASK_BACK_RSP = 971; //找回请求
+message DailyBackTaskBackRsp
+{
+  optional int32 ret_code = 1;
+  optional DailyTaskBackEntry data = 2;
+}
+
+//CLIENT_TO_LOGIC_DAILY_LIMIT_TASK_ADD_ALL_READY_REQ = 972; //限时任务投名
+message DailyLimitTaskAddAllReadyReq
+{
+}
+//LOGIC_TO_CLIENT_DAILY_LIMIT_TASK_ADD_ALL_READY_RSP = 973; //限时任务投名
+message DailyLimitTaskAddAllReadyRsp
+{
+  optional int32 ret_code = 1;
+  repeated DailyTaskLimitEntry data = 2;
+}
+
+//CLIENT_TO_LOGIC_DAILY_BACK_ALL_TASK_BACK_REQ = 974; //找回请求
+message DailyBackTaskBackAllReq
+{
+  optional int32 type = 1; //0:use gold //1:use diamond
+  optional bool back = 2;
+  optional bool external_back = 3;
+}
+
+//LOGIC_TO_CLIENT_DAILY_BACK_ALL_TASK_BACK_RSP = 975; //找回请求
+message DailyBackTaskBackAllRsp
+{
+  optional int32 ret_code = 1;
+  repeated DailyTaskBackEntry data = 2;
+}
+
+
+
+/////////////////////////////////坐骑系统//////////////////////////////////////////////
+//坐骑信息	CLIENT_TO_LOGIC_MOUNT_INFO_REQ
+message MountInfoReq
+{
+
+}
+
+//坐骑信息	LOGIC_TO_CLIENT_MOUNT_INFO_RSP
+message MountInfoRsp
+{
+  optional uint64 mount_id = 2;		//坐骑ID
+  optional uint32 mount_lev = 3;
+  optional uint64 mount_exp = 4;   	//进阶外观经验值
+  optional uint64 mount_model_id = 6;
+  repeated MountFragmentData fragment_data = 7; //羽灵信息
+  optional uint64 fight_value = 8; //战力
+  repeated MountSkillData skill_data = 9; //技能数据
+}
+
+//CLIENT_TO_LOGIC_MOUNT_SKILL_UNLOCK_NOTIFY = 915; //坐骑技能解锁
+message MountSkillUnlockNotify
+{
+  optional MountSkillData skill_data = 1; //技能数据
+}
+
+//坐骑升级请求	CLIENT_TO_LOGIC_MOUNT_LEVUP_REQ
+message	MountLevupReq
+{
+  optional uint64 material_id = 1;
+}
+
+//外观升级请求	LOGIC_TO_CLIENT_MOUNT_LEVUP_RSP
+message MountLevupRsp
+{
+  optional uint32 ret_code = 1;		//
+  optional uint64 mount_id = 2;		//坐骑ID
+  optional uint32 mount_lev = 3;
+  optional uint64 mount_exp = 4;   	//进阶坐骑经验值
+  optional uint64 fight_value = 5; //战力
+}
+
+//坐骑穿戴	CLIENT_TO_LOGIC_MOUNT_DRESS_REQ
+message	MountDressReq
+{
+  optional uint64 mount_model_id = 1;
+}
+
+//坐骑穿戴	LOGIC_TO_CLIENT_MOUNT_DRESS_RSP
+message	MountDressRsp
+{
+  optional uint32 ret_code = 1;
+  optional uint64 fight_value = 3; //战力
+  optional uint64 mount_model_id = 4;
+}
+
+//坐骑重置	CLIENT_TO_LOGIC_MOUNT_UNDRESS_REQ
+message	MountUnDressReq
+{
+}
+
+//坐骑外观重置	LOGIC_TO_CLIENT_FACADE_UNDRESS_RSP
+message	MountUnDressRsp
+{
+  optional uint32 ret_code = 1;
+  optional bool use_facade = 2;		//坐骑外观是否使用
+  optional uint64 fight_value = 3; //战力
+}
+
+//坐骑魂兽使用	CLIENT_TO_LOGIC_MOUNT_FRAGEMNT_USE_REQ
+message	MountFragmentUseReq
+{
+  optional uint64 fragment_id = 1;
+}
+
+//坐骑魂兽使用	LOGIC_TO_CLIENT_MOUNT_FRAGEMNT_USE_RSP
+message	MountFragmentUseRsp
+{
+  optional uint32 ret_code = 1;
+  repeated MountFragmentData fragment_data = 2; //羽灵信息
+  optional uint64 fight_value = 3; //战力
+}
+
+//坐骑幻化信息	CLIENT_TO_LOGIC_MOUNT_FANTASY_INFO_REQ
+message MountFantasyInfoReq
+{
+}
+
+//坐骑幻化信息	LOGIC_TO_CLIENT_MOUNT_FANTASY_INFO_RSP
+message MountFantasyInfoRsp
+{
+  repeated MountFantasyData fantasy_data = 1;	//幻化外观ID
+  optional uint64 equip_fantasy_id = 2;		//装备的外观ID(幻化中的一个)
+}
+
+//幻化激活请求	CLIENT_TO_LOGIC_MOUNT_FANTASY_ACTIVE_REQ
+message	MountFantasyActiveReq
+{
+  optional uint64 fantasy_id = 1;
+}
+
+//坐骑幻化激活	LOGIC_TO_CLIENT_MOUNT_FANTASY_ACTIVE_RSP
+message	MountFastasyActiveRsp
+{
+  optional MountFantasyData fantasy_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//坐骑幻化升级	CLIENT_TO_LOGIC_MOUNT_FANTASY_LEVELUP_REQ
+message	MountFantasyLevelupReq
+{
+  optional uint64 fantasy_id = 1;
+  optional uint64 material_id = 2;
+}
+
+//坐骑幻化升级	LOGIC_TO_CLIENT_MOUNT_FANTASY_LEVELUP_RSP
+message	MountFastasyLevelupRsp
+{
+  optional MountFantasyData fantasy_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//坐骑幻化升星	CLIENT_TO_LOGIC_MOUNT_FANTASY_STARUP_REQ
+message	MountFantasyStarUpReq
+{
+  optional uint64 fantasy_id = 1;
+}
+
+//坐骑幻化升星	LOGIC_TO_CLIENT_MOUNT_FANTASY_STARUP_RSP
+message	MountFastasyStarUpRsp
+{
+  optional MountFantasyData fantasy_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//坐骑幻化穿戴	CLIENT_TO_LOGIC_MOUNT_FANTASY_DRESS_REQ
+message	MountFastasyDressReq
+{
+  optional uint64 equip_fantasy_id = 1;	//幻化ID
+}
+
+//坐骑幻化穿戴	LOGIC_TO_CLIENT_MOUNT_FANTASY_DRESS_RSP
+message	MountFastasyDressRsp
+{
+  optional uint32 ret_code = 1;
+  optional uint64 equip_fantasy_id = 2;
+}
+
+//坐骑幻化重置	CLIENT_TO_LOGIC_MOUNT_FANTASY_UNDRESS_REQ
+message	MountFastasyUnDressReq
+{
+}
+
+//坐骑幻化重置	LOGIC_TO_CLIENT_MOUNT_FANTASY_UNDRESS_RSP
+message	MountFastasyUnDressRsp
+{
+  optional uint32 ret_code = 1;
+}
+
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_INFO_REQ		= 1530;//化鲲信息
+message MountKunInfoReq
+{
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_INFO_RSP		= 1531;//化鲲信息
+message MountKunInfoRsp
+{
+  repeated MountKunData kun_data = 1;	//幻化外观ID
+  optional uint64 equip_fantasy_id = 2;		//装备的外观ID(幻化中的一个)
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_ACTIVE_REQ	= 1532;//化鲲激活
+message	MountKunActiveReq
+{
+  optional uint64 kun_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_ACTIVE_RSP	= 1533;//化鲲激活
+message	MountKunActiveRsp
+{
+  optional MountKunData kun_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_LEVELUP_REQ = 1534;//化鲲升级
+message	MountKunLevelupReq
+{
+  optional uint64 kun_id = 1;
+  optional uint64 material_id = 2;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_LEVELUP_RSP = 1535;//化鲲升级
+message	MountKunLevelupRsp
+{
+  optional MountKunData kun_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_STARUP_REQ = 1536;//化鲲升星
+message	MountKunStarUpReq
+{
+  optional uint64 kun_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_STARUP_RSP = 1537;//化鲲升星
+message	MountKunStarUpRsp
+{
+  optional MountKunData kun_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_DRESS_REQ   = 1538;//坐化鲲穿戴
+message	MountKunDressReq
+{
+  optional uint64 equip_fantasy_id = 1;	//幻化ID
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_DRESS_RSP   = 1539;//化鲲穿戴
+message	MountKunDressRsp
+{
+  optional uint32 ret_code = 1;
+  optional uint64 equip_fantasy_id = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_KUN_UNDRESS_REQ	= 1540;//化鲲重置
+message	MountKunUnDressReq
+{
+}
+
+//LOGIC_TO_CLIENT_MOUNT_KUN_UNDRESS_RSP	= 1541;//化鲲重置
+message	MountKunUnDressRsp
+{
+  optional uint32 ret_code = 1;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_BLOOD_ACTIVE_REQ	= 1542;//血脉激活
+message MountKunBloodActiveReq
+{
+  optional int64 blood_id = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_BLOOD_ACTIVE_RSP	= 1543;//血脉激活
+message MountKunBloodActiveRsp
+{
+  optional uint32 ret_code = 1;
+  optional MountBloodData blood_data = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_BABY_EGG_INFO_REQ = 1544; //度化信息
+message MountBabyEggInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_MOUNT_BABY_EGG_INFO_RSP = 1545; //度化信息
+message MountBabyEggInfoRsp
+{
+  repeated MountBabySlotData slot_data = 1;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_BABY_CREATE_EGG_REQ = 1546; //创建度化需要的蛋蛋
+message MountBabyCreateEggReq
+{
+  repeated uint32 grid =1;//背包格子
+  repeated uint32 slot = 2;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_BABY_CREATE_EGG_RSP = 1547; //创建度化需要的蛋蛋
+message MountBabyCreateEggRsp
+{
+  optional int32 ret_code = 1;
+  repeated MountBabySlotData slot_data = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_BABY_DUHUA_REQ = 1548; //渡化
+message MountBabyDuHuaReq
+{
+  optional int32 type = 1; //0:立即度 1:一键度化
+  optional int32 slot = 2;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_BABY_DUHUA_SUCCESS_NOTIFY = 1549; //渡化成功
+message MountBabyDuHuaNotify
+{
+  optional int32 ret_code = 1;
+  optional int32 type = 2; //0:立即度化 1:一键度化
+  repeated MountBabySlotData slot_data = 3;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_BABY_RECV_DUHUA_KUN_REQ = 1550; //获取度化的鲲
+message MountBabyRecvDuHuaKunReq
+{
+  optional int32 type = 1; //0:获取 1:一键获取
+  optional int32 slot = 2;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_BABY_RECV_DUHUA_KUN_RSP = 1551; //获取度化的鲲
+message MountBabyRecvDuHuaKunRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 type = 2; //0:获取 1:一键获取
+  repeated MountBabySlotData slot_data = 3;
+  repeated ComItem item_data = 4;
+  repeated uint64 mount_data = 5;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_BABY_UNLOCK_REQ = 1552; //解锁度化蛋蛋的槽位
+message MountBabyUnlockReq
+{
+  optional int32 slot = 1;
+}
+
+//LOGIC_TO_CLIENT_MOUNT_BABY_UNLOCK_RSP = 1553; //解锁度化蛋蛋的槽位
+message MountBabyUnlockRsp
+{
+  optional int32 ret_code = 1;
+  repeated MountBabySlotData slot_data = 2;
+}
+
+//CLIENT_TO_LOGIC_MOUNT_RIDE_ON_REQ				= 1554;	//客户端请求上坐骑
+message MountRideOnReq
+{
+}
+
+//LOGIC_TO_CLIENT_MOUNT_RIDE_ON_RSP				= 1555;	//客户端请求上坐骑
+message MountRideOnRsp
+{
+  optional uint32 retCode = 1;	//错误代码
+}
+
+//CLIENT_TO_LOGIC_MOUNT_RIDE_OFF_REQ			= 1556; //客户端请求下坐骑
+message MountRideOffReq
+{
+}
+
+//LOGIC_TO_CLIENT_MOUNT_RIDE_OFF_RSP			= 1557; //客户端请求下坐骑
+message MountRideOffRsp
+{
+  optional uint32 retCode = 1;	//错误代码
+}
+
+
+
+/////////////////////////////////天神系统//////////////////////////////////////////////
+//天神信息	CLIENT_TO_LOGIC_DEITY_INFO_REQ
+message DeityInfoReq
+{
+
+}
+
+//天神信息	LOGIC_TO_CLIENT_DEITY_INFO_RSP
+message DeityInfoRsp
+{
+  optional uint64 deity_id = 1;		//天神ID
+  optional uint32 deity_lev = 2;
+  optional uint64 deity_exp = 3;   	//进阶外观经验值
+  repeated DeityFragmentData fragment_data = 4; //神力信息
+  optional uint64 fight_value = 5; //战力
+  repeated DeitySkillData skill_data = 6; //技能数据
+  repeated DeityBattleSlotData battle_data = 7; //出战数据
+}
+
+//CLIENT_TO_LOGIC_DEITY_SKILL_UNLOCK_NOTIFY //天神技能解锁
+message DeitySkillUnlockNotify
+{
+  optional DeitySkillData skill_data = 1; //技能数据
+}
+
+//LOGIC_TO_CLIENT_DEITY_BATTLE_SLOT_UNLOCK_NOTIFY = 1612; //天神战斗槽位解锁
+message DeityBattleSlotUnlockNotify
+{
+  optional DeityBattleSlotData battle_data = 1; //出战数据
+}
+
+//CLIENT_TO_LOGIC_DEITY_UNLOCK_BATTLE_SLOT_REQ = 1613; //客户端主动解锁天神战斗槽位
+message DeityUnlockBattleSlotReq
+{
+  optional uint32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_DEITY_UNLOCK_BATTLE_SLOT_RSP = 1614; //客户端主动解锁天神战斗槽位
+message DeityUnlockBattleSlotRsp
+{
+  optional int32 ret_code = 1;
+  optional DeityBattleSlotData battle_data = 2; //出战数据
+}
+
+//天神升级请求	CLIENT_TO_LOGIC_DEITY_LEVUP_REQ
+message	DeityLevupReq
+{
+  optional uint64 material_id = 1;
+}
+
+//天神升级请求	LOGIC_TO_CLIENT_DEITY_LEVUP_RSP
+message DeityLevupRsp
+{
+  optional uint32 ret_code = 1;		//
+  optional uint64 deity_id = 2;		//
+  optional uint32 deity_lev = 3;
+  optional uint64 deity_exp = 4;   	//经验值
+  optional uint64 fight_value = 5; //战力
+}
+
+//天神出战	CLIENT_TO_LOGIC_DEITY_FANTASY_BATTLE_REQ
+message	DeityFantasyBattleReq
+{
+  optional uint64 deity_fantasy_id = 1;
+  optional uint32 battle_slot = 2;
+}
+
+//天神出战	LOGIC_TO_CLIENT_DEITY_FANTASY_BATTLE_RSP
+message	DeityFantasyBattleRsp
+{
+  optional uint32 ret_code = 1;
+  optional uint64 fight_value = 2; //战力
+  optional DeityBattleSlotData battle_data = 3;
+}
+
+//天神退战	CLIENT_TO_LOGIC_DEITY_FANTASY_QUIT_BATTLE_REQ
+message	DeityFantasyQuitBattleReq
+{
+  optional uint32 battle_slot = 1;
+}
+
+//天神退战	LOGIC_TO_CLIENT_DEITY_FANTASY_QUIT_BATTLE_RSP
+message	DeityFantasyQuitBattleRsp
+{
+  optional uint32 ret_code = 1;
+  optional uint64 fight_value = 2; //战力
+  optional DeityBattleSlotData battle_data = 3;
+}
+
+//天神神力使用	CLIENT_TO_LOGIC_DEITY_FRAGEMNT_USE_REQ
+message	DeityFragmentUseReq
+{
+  optional uint64 fragment_id = 1;
+}
+
+//天神神力使用	LOGIC_TO_CLIENT_DEITY_FRAGEMNT_USE_RSP
+message	DeityFragmentUseRsp
+{
+  optional uint32 ret_code = 1;
+  repeated DeityFragmentData fragment_data = 2; //神力信息
+  optional uint64 fight_value = 3; //战力
+}
+
+
+//天神幻化信息	CLIENT_TO_LOGIC_DEITY_FANTASY_INFO_REQ
+message DeityFantasyInfoReq
+{
+}
+
+
+
+//天神幻化信息	LOGIC_TO_CLIENT_DEITY_FANTASY_INFO_RSP
+message DeityFantasyInfoRsp
+{
+  repeated DeityFantasyData fantasy_data = 1;	//幻化外观ID
+}
+
+//天神幻化激活	CLIENT_TO_LOGIC_DEITY_FANTASY_ACTIVE_REQ
+message	DeityFantasyActiveReq
+{
+  optional uint64 fantasy_id = 1;
+}
+
+//天神幻化激活	LOGIC_TO_CLIENT_DEITY_FANTASY_ACTIVE_RSP
+message	DeityFastasyActiveRsp
+{
+  optional DeityFantasyData fantasy_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//天神幻化升级	CLIENT_TO_LOGIC_DEITY_FANTASY_LEVELUP_REQ
+message	DeityFantasyLevelupReq
+{
+  optional uint64 fantasy_id = 1;
+  optional uint64 material_id = 2;
+}
+
+//天神幻化升级	LOGIC_TO_CLIENT_DEITY_FANTASY_LEVELUP_RSP
+message	DeityFastasyLevelupRsp
+{
+  optional DeityFantasyData fantasy_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//天神幻化升星	CLIENT_TO_LOGIC_DEITY_FANTASY_STARUP_REQ
+message	DeityFantasyStarUpReq
+{
+  optional uint64 fantasy_id = 1;
+}
+
+//天神幻化升星	LOGIC_TO_CLIENT_DEITY_FANTASY_STARUP_RSP
+message	DeityFastasyStarUpRsp
+{
+  optional DeityFantasyData fantasy_data = 1;
+  optional uint32 ret_code = 2;
+}
+
+//CLIENT_TO_LOGIC_DEITY_FANTASY_ENTER_WAR_REQ = 1623;//天神参战
+message DeityFantasyEnterWarReq
+{
+  optional uint32 id = 1;
+}
+
+//LOGIC_TO_CLIENT_DEITY_FANTASY_ENTER_WAR_RSP = 1624;//天神参战
+message DeityFantasyEnterWarRsp
+{
+  optional uint32 ret_code = 1;
+  optional DeityBattleSlotData battle_data = 2;
+}
+
+//CLIENT_TO_LOGIC_DEITY_SHOW_FANTASY_LIST_REQ		= 1625;//天神幻化信息
+message DeityShowFantasyListReq
+{
+
+}
+
+message DeityFantasyShowData
+{
+  optional uint64 fantasy_id = 1;
+  optional bool active = 2;
+  optional uint64 fantasy_fight = 3;
+}
+
+//LOGIC_TO_CLIENT_DEITY_SHOW_FANTASY_LIST_RSP		= 1626;//天神幻化信息
+message DeityShowFantasyListRsp
+{
+  repeated DeityFantasyShowData fantasy_data = 1;	//幻化外观ID
+}
+
+//CLIENT_DEITY_EQUIP_DRESS_REQ = 1627;			//天神装备穿戴请求
+message DeityEquipDressReq
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 bag_pos = 2;	//背包中位置
+}
+//CLIENT_DEITY_EQUIP_DRESS_RSP = 1628;			//天神装备穿戴返回
+message DeityEquipDressRsp
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 bag_pos = 2;	//背包中位置
+  optional int32 ret_code = 3; //错误码
+}
+
+//CLIENT_DEITY_EQUIP_UNDRESS_REQ = 1629;		//天神装备卸下请求
+message DeityEquipUnDressReq
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 slot_pos = 2;	//装备位置
+}
+
+//CLIENT_DEITY_EQUIP_UNDRESS_RSP = 1630;		//天神装备卸下返回
+message DeityEquipUnDressRsp
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 slot_pos = 2;	//装备位置
+  optional int32 ret_code = 3; //错误码
+}
+
+//NOTIFY_DEITY_EQUIP_INFO_RSP 	= 1631;			//天神装备更新通知
+message NotifyDeityEquipInfoRsp
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 	type =2;			//0：全拉 1单更
+  repeated EquipInfo infos = 3;
+}
+
+//CLIENT_DEITY_EQUIP_STRONG_REQ = 1632;			//天神装备强化
+message DeityEquipStrongReq
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 slot_pos = 2;
+}
+
+//CLIENT_DEITY_EQUIP_STRONG_RSP = 1633;			//天神装备强化返回
+message DeityEquipStrongRsp
+{
+  optional uint64 fantasy_id = 1;
+  optional int32  slot_pos = 2;
+  optional int32 ret_code = 3; //错误码
+}
+
+//CLIENT_DEITY_EQUIP_STRONG_LV_REQ = 1634;  //天神装备强化进阶
+message DeityEquipStrongLvReq
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 slot_pos = 2;
+}
+//CLIENT_DEITY_EQUIP_STRONG_LV_RSP = 1635;  //天神装备强化进阶
+message DeityEquipStrongLvRsp
+{
+  optional uint64 fantasy_id = 1;
+  optional int32  slot_pos = 2;
+  optional int32 ret_code = 3; //错误码
+}
+
+//CLIENT_DEITY_EQUIP_SUIT_ACTIVE_REQ = 1636; //天神装备套装激活
+message DeityEquipSuitActiveReq
+{
+  optional uint64 fantasy_id = 1;
+  optional uint64 equip_suit = 2;
+}
+
+//CLIENT_DEITY_EQUIP_SUIT_ACTIVE_RSP = 1637; //天神装备套装激活
+message DeityEquipSuitActiveRsp
+{
+  optional uint64 fantasy_id = 1;
+  optional int32 ret_code = 2; //错误码
+  repeated DeityEquipSuitData equip_suit_data = 3;
+}
+
+//CLIENT_DEITY_EQUIP_DECOMPOSE_REQ = 1638; //天神装备分解备
+message DeityEquipDecomposeReq
+{
+  repeated uint32 gridlist=1;//物品背包格子
+}
+
+//CLIENT_DEITY_EQUIP_DECOMPOSE_RSP = 1639; //天神装备分解备
+message DeityEquipDecomposeRsp
+{
+  optional int32 ret_code = 1; //错误码
+}
+
+//CLIENT_DEITY_EQUIP_DISASSEMBLE_REQ = 1640; //天神装备拆解
+message DeityEquipDisassembleReq
+{
+  optional uint32 grid = 1;//物品背包格子
+}
+
+//CLIENT_DEITY_EQUIP_DISASSEMBLE_RSP = 1641; //天神装备拆解
+message DeityEquipDisassembleRsp
+{
+  optional int32 ret_code = 1; //错误码
+}
+
+//CLIENT_TO_LOGIC_TITLE_INFO_REQ = 2300; //请求标题信息
+message CGTitleInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_TITLE_INFO_RSP = 2301; //请求标题信息
+message GCTitleInfoRsp
+{
+  optional uint64 cur_wearing_title = 1;
+  repeated TitleInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_TITLE_ACTIVE_REQ = 2302; //激活标题
+message CGTitleInfoActiveReq
+{
+  optional int64 title_id = 1;
+}
+
+//LOGIC_TO_CLIENT_TITLE_ACTIVE_RSP = 2303; //激活标题
+message GCTitleInfoActiveRsp
+{
+  optional int32 ret_code = 1;
+  optional TitleInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_TITLE_STAR_LV_REQ = 2304; //标题升星
+message CGTitleStarLvReq
+{
+  optional int64 title_id = 1;
+}
+
+//LOGIC_TO_CLIENT_TITLE_STAR_LV_RSP = 2305; //标题升星
+message GCTitleStarLvRsp
+{
+  optional int32 ret_code = 1;
+  optional TitleInfo data = 2;
+}
+
+//CLIENT_TO_LOGIC_TITLE_DRESS_REQ = 2306; //标题穿戴
+message CGTitleDressReq
+{
+  optional int64 title_id = 1;
+}
+
+//LOGIC_TO_CLIENT_TITLE_DRESS_RSP = 2307; //标题穿戴
+message GCTitleDressRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 cur_wearing_title = 2;
+  optional TitleInfo data = 3;
+}
+
+//CLIENT_TO_LOGIC_TITLE_UNDRESS_REQ = 2308; //标题卸下
+message CGTitleUnDressReq
+{
+  optional int64 title_id = 1;
+}
+
+//LOGIC_TO_CLIENT_TITLE_UNDRESS_RSP = 2309; //标题卸下
+message GCTitleUnDressRsp
+{
+  optional int32 ret_code = 1;
+  optional uint64 cur_wearing_title = 2;
+  optional TitleInfo data = 3;
+}
+
+//CLIENT_TO_LOGIC_OCCUPATION_SOUL_INFO_REQ = 2418; //转职任务龙魂信息
+message CGOccupationSoulInfoReq
+{
+
+}
+
+//LOGIC_TO_CLIENT_OCCUPATION_SOUL_INFO_RSP = 2419; //转职任务龙魂信息
+message GCOccupationSoulInfoRsp
+{
+  repeated OccupationMissionGradeData grade_data = 1;
+}
+
+//转职任务点亮龙魂
+//CLIENT_TO_LOGIC_OCCUPATION_LIGHT_SOUL_REQ = 2420;
+message CGOccupationLightSoulReq
+{
+  optional int32 grade = 1; //大阶段
+  optional int32 stage = 2; //小阶段
+  optional int32 soul_type = 3; //龙魂类型
+  optional int32 soul_pos = 4; //龙魂位置
+}
+
+//转职任务点亮龙魂
+//LOGIC_TO_CLIENT_OCCUPATION_LIGHT_SOUL_RSP = 2421;
+message GCOccupationLightSoulRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 grade = 2; //大阶段
+  optional int32 stage = 3; //小阶段
+  optional OccupationMissionSoulData soul_data = 4;
+}
+
+//CLIENT_TO_LOGIC_UNLOCK_FLY_UPWARD_REQ = 2422; //解锁飞升
+message CGUnlockFlyUpwardReq
+{
+  optional int32 stage = 1;
+}
+
+//LOGIC_TO_CLIENT_UNLOCK_FLY_UPWARD_RSP = 2423; //解锁飞升
+message GCUnlockFlyUpwardRsp
+{
+  optional int32 ret_code = 1;
+  optional int32 stage = 2;
+}
+

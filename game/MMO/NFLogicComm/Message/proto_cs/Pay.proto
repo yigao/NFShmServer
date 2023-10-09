@@ -1,0 +1,110 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+////////////////////////////// client - server //////////////////////////////////////////////////
+
+//请求查询支付结果  PAY_PAY_REQ
+message PayReq
+{
+	required uint32 chanId = 1;			//渠道id
+	required string productId = 2;		//产品id
+	required string payString = 3;      //不同渠道支付字符串(通用字段，客户端视渠道sdk传，多个参数的话用json打包)
+	required string myoder = 4;         //自定义订单号
+}
+
+//返回 支付结果 PAY_PAY_RSP
+message PayRsp
+{
+	required string productId = 1;      //产品id
+	required uint32 payRet    = 2;      //支付返回码
+	optional string payRspString = 3;   //回复字符串(客户端自己解析)
+	optional string payRetMsg    = 4;   //支付返回信息
+}
+
+//请求订单号 PAY_ORDER_ID_REQ
+message PayOrderIdReq
+{
+	required uint32 channId = 1;
+	required string productId = 2;
+	optional string orderString = 3; //附加字段, 客户端申请订单号可能需要渠道参数
+}
+
+//返回订单号 PAY_ORDER_ID_RSP
+message PayOrderIdRsp
+{
+	required uint32 retCode = 1;
+	optional string order = 2;
+	optional string orderString = 3;  //附加字段, 客户端支付可能需要渠道参数
+	optional string cbUrl = 4;        //附加字段，有些渠道可能需要回调地址做传参
+	optional string productId = 5;    //产品id
+	optional string retMsg =6;		  //错误描述
+}
+//充值计费点通知 PAY_PRODUCT_NOTIFY
+message PayProductNotify
+{
+	optional string productId = 1;    //计费点ID(发货成功之后才会通知)
+	optional int32 isfirst = 2;	      //是否是第一次充值 0-不是第一次，1-第一次
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+//支付信息
+message PayProto
+{
+	required uint32 zid = 1;      //区服id
+	required uint32 channId = 2;  //渠道号
+	required uint32 uid   = 3;    //帐号id
+	required uint64 cid = 4;      //角色id
+	required string productId = 5;//产品号
+	required uint32 money = 6;    //金额
+	required string order = 7;    //订单号
+	optional uint32 dbid = 8;     //db id (web不用)
+	required string myOrder = 9;  //游戏自定义订单号
+	required bool   fakePay = 10; //是否模拟充值
+}
+
+//中心服通知逻辑服充值发货 PAY_CL_DELIVER_NOTIFY
+message CL_PayDeliverNotify
+{
+	required PayProto info = 1;
+	required uint32 zid = 2;
+}
+//逻辑服返回中心服充值发货失败  PAY_LC_DELIVER_FAIL_RSP
+message LC_PayDeliverFailRsp
+{
+	required PayProto info = 1;
+}
+
+// 请求 玩家离线充值信息 DB_PAY_REQ
+message LoadPayDBReq
+{
+	required uint64 cid = 1;
+}
+
+//返回 玩家离线充值信息   DB_PAY_RSP
+message LoadPayDBRsp
+{
+	required uint64 cid = 1;
+	repeated PayProto info_lst = 2;
+}
+
+//保存玩家离线充值信息 DB_PAY_SAVE_REQ
+message SavePayDBReq
+{
+	required uint64 cid = 1;
+	required PayProto info = 2;
+}
+
+//更新玩家离线充值信息  DB_PAY_UPDATE_REQ
+message UpdatePayDBReq
+{
+	repeated uint32 dbid = 1; //充值dbid列表
+}

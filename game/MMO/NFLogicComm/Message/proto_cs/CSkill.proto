@@ -1,0 +1,262 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "common_logic.proto";
+
+import "Com.proto";
+
+
+//技能进阶信息
+message SkillAdvanceProto
+{
+	optional int32 advance = 1;		//进阶类型 0-没有，1-火，2-雷，3-冰
+	optional int32 level = 2;		//等级
+}
+//技能进阶位置信息
+message SkillAdvancePosProto
+{
+	optional int32 pos = 1;			//位置，从1开始
+	optional int32 advance = 2;		//进阶类型 0-没有，1-火，2-雷，3-冰
+	optional int32 unlock = 3;		//是否解锁，0-没有，1-已解锁
+}
+//技能进阶信息列表
+message SkillAdvanceListProto
+{
+	repeated SkillAdvancePosProto pos_lst = 1;
+	repeated SkillAdvanceProto lst = 2;
+	optional int32 curpos = 3;  //当前选中的位置
+}
+
+
+//技能详细信息
+message SkillInfoProto
+{
+	optional uint64 skill_id = 1;
+	optional int32 level = 2;		//等级
+	optional int32 wakeup = 3;		//是否觉醒，1-已觉醒，0-未觉醒
+}
+//技能详细信息列表
+message SkillInfoListProto
+{
+	repeated SkillInfoProto lst = 1;
+}
+
+
+
+
+//请求 使用技能 SKILL_USE_REQ
+message SkillUseReq
+{
+	required  uint64    skill_id = 1;		//技能ID
+	required  Vector3PB dir     = 2;		//玩家方向
+	required  Vector3PB pos     =3;			//当前位置
+	repeated  uint64	cid_lst = 4;		//目标生物cid列表
+	optional  Vector3PB target_pos = 5;		//目标坐标
+}
+
+//同步 技能目标 SKILL_TARGET_SYNC_REQ
+message SkillSyncTargetReq
+{
+	required uint64 skill_id = 1;			//技能ID
+	repeated  uint64 cid_lst = 2;			//目标生物cid列表
+	optional int32 is_extend = 3;			//是否是同步技能的扩展伤害目标, 1-是，0-否
+}
+
+//取消 使用技能  SKILL_CANCEL_USE_REQ
+message SkillCancalUseReq
+{
+	required  uint64    skill_id = 1;		//技能ID
+}
+
+//使用技能结果 广播 SKILL_USE_RESULT_BROAD
+message SkillUseResultBroadRsp
+{
+	//技能受击者
+	message Target
+	{
+		required  uint64    cid		= 1;		  //受击者cid
+		repeated  Attr64    attr	= 2;		  //造成生物的属性同步(都是广播属性)
+		repeated  DigPerfor digital   = 3;		  //数字表现列表
+		optional  bool      beDead       = 4;	  //目标死亡
+		optional  bool		isDeadBeback = 5;	  //是否死亡击飞
+		optional Vector3PB  bebackDir	 = 6;	  //死亡击飞方向
+		optional  int32     type = 7;			  //类型,攻击者处于神魔变身状态时，飘字表现，1-光，2-暗
+	}
+	required uint64 skill_id = 1;	//技能ID
+	required uint64 cid = 2;		//使用技能者cid
+	repeated Target target_lst = 3;	//受击者列表
+}
+
+
+//生物使用技能 广播 SKILL_USE_BROAD_RSP
+message SkillUseBroadRsp
+{
+	required uint64 skill_id = 1;           //技能ID
+	required Vector3PB dir = 2;				//方向
+	required uint64 cid = 3;				//使用者的cid
+	repeated uint64 cid_lst = 4;			//目标生物cid列表
+	optional Vector3PB target_pos = 5;		//目标位置
+	repeated Vector3PB pos_lst = 6;			//多目标点的技能走这个字段
+}
+
+
+//技能预警 广播 SKILL_WARN_BROAD_RSP
+message SkillWarnBroadRsp
+{
+	required uint64 cid = 1;				//使用技能者cid
+	required uint64 skill_id = 2;			//使用的技能ID
+	optional Vector3PB target_pos = 3;		//目标位置
+	repeated Vector3PB pos_lst = 4;			//多目标点的技能走这个字段
+}
+
+//取消使用技能  广播  SKILL_CANCEL_USE_BROAD_RSP
+message SkillCancelUseBroadRsp
+{
+	required uint64 skill_id = 1;           //技能ID
+	required uint64 cid = 2;				//使用者的cid
+}
+
+
+//技能组更新 SKILL_GROUP_UPDATE_RSP
+message SkillGroupUpdateRsp
+{
+	optional SkillGroupListProto skill_group = 1;
+}
+
+//请求技能详细信息 SKILL_INFO_REQ
+message SkillInfoReq
+{
+	//空
+}
+//返回技能详细信息 	SKILL_INFO_RSP
+message SkillInfoRsp
+{
+	optional SkillInfoListProto info = 1;
+	optional SkillAdvanceListProto advance_info = 2;
+}
+
+//技能详细信息更新 SKILL_INFO_UPDATE_RSP
+message SkillInfoUpdateRsp
+{
+	optional SkillInfoListProto info = 1;
+}
+
+//请求切换技能组 SKILL_GROUP_CHG_REQ
+message SkillGroupChgReq
+{
+	optional uint32 group = 1; //技能组ID
+}
+//返回 切换技能组 结果 SKILL_GROUP_CHG_RSP
+message SkillGroupChgRsp
+{
+	required int32 ret = 1; //返回码
+	optional uint32 group = 2; //技能组ID
+}
+
+//返回 移除技能 SKILL_INFO_DEL_RSP
+message SkillInfoDelRsp
+{
+	repeated uint64 skill_lst = 1; //技能ID列表
+}
+
+
+//请求技能觉醒 SKILL_WAKE_UP_REQ
+message SkillWakeupReq
+{
+	optional uint64 skill_id = 1;           //技能ID
+}
+//返回技能觉醒结果 SKILL_WAKE_UP_RSP
+message SkillWakeupRsp
+{
+	required int32 ret = 1; //返回码
+}
+
+//请求改变技能位置 SKILL_CHG_POS_REQ
+message SkillChgPosReq
+{
+	optional uint64 skill_id = 1;           //技能ID
+	optional uint32 pos = 2;				//位置
+}
+
+//返回改变技能位置结果 SKILL_CHG_POS_RSP
+message SkillChgPosRsp
+{
+	required int32 ret = 1; //返回码
+}
+
+
+//请求技能升级 SKILL_UPGRADE_REQ
+message SkillUpgradeReq
+{
+	optional uint64 skill_id = 1;           //技能ID	
+	optional int32 type = 2;				//是否一键升级 0-否，1-是
+}
+//返回技能升级 SKILL_UPGRADE_RSP
+message SkillUpgradeRsp
+{
+	required int32 ret = 1; //返回码
+}
+
+//请求设置技能自动释放 SKILL_SET_AUTO_USE_REQ
+message SkillSetAutoUseReq
+{
+	optional uint64 skill_id = 1;           //技能ID	
+	optional int32 is_auto = 2;				//是否自动，1-自动，0-否
+}
+
+//返回 设置技能自动释放 结果 SKILL_SET_AUTO_USE_RSP
+message SkillSetAutoUseRsp
+{
+	required int32 ret = 1; //返回码
+}
+
+
+//请求进阶 SKILL_ADVANCE_REQ
+message SkillAdvanceReq
+{
+	required uint32 advance = 1;  //进阶类型 1-火，2-雷，3-冰
+} 
+//返回进阶结果 SKILL_ADVANCE_RSP
+message SkillAdvanceRsp
+{
+	required int32 ret = 1;				   //返回码
+}
+
+
+//切换进阶位置 SKILL_ADVANCE_CHG_POS_REQ
+message SkillAdvanceChgPosReq
+{
+	required uint32 pos = 1; //进阶位置，1-3
+}
+//返回 切换进阶位置 结果 SKILL_ADVANCE_CHG_POS_RSP
+message SkillAdvanceChgPosRsp
+{
+	required int32 ret = 1;				   //返回码
+}
+//技能进阶重置 SKILL_ADVANCE_RESET_REQ
+message SkillAdvanceResetReq
+{
+	//空
+}
+//返回 技能进阶重置 结果 SKILL_ADVANCE_RESET_RSP
+message SkillAdvanceResetRsp
+{
+	required int32 ret = 1;				   //返回码
+}
+//更新技能进阶数据 SKILL_ADVANCE_UPDATE_RSP
+message SkillAdvanceUpdateRsp
+{
+	optional SkillAdvanceListProto advance_info = 1;
+}
+
+//解锁 进阶位置 SKILL_ADVANCE_UNLOCK_POS_REQ
+message SkillAdvanceUnlockPosReq
+{
+  //空
+}
+ //返回  解锁 进阶位置 结果 SKILL_ADVANCE_UNLOCK_POS_RSP
+ message SkillAdvanceUnlockPosRsp
+ {
+	required int32 ret = 1;	 //返回码
+ }

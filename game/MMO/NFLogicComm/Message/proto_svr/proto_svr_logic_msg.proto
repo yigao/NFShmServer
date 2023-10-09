@@ -1,0 +1,13 @@
+import "yd_fieldoptions.proto";
+import "proto_common.proto";
+import "proto_svr_common.proto";
+import "proto_svr_logic_common.proto";
+
+package proto_ff;
+
+// 服务器内部的消息id，是个统一的
+// 
+enum Proto_SvrLogicMsgID
+{
+  NF_TEST_REQ = 40; //server to store server, check exist
+}
