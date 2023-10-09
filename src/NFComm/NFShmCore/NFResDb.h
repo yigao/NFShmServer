@@ -15,15 +15,12 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFPluginModule/NFObject.h"
 
-#define NF_MAX_DESC_STORE_INDEX_SIZE 10000
-
 #define CHECK_DESC_RELOADING(DESCSTORENAME) if (DESCSTORENAME::Instance(m_pObjPluginManager)->IsReloading()) return true;
 
 #define IMPL_RES_HASH_DESC(class_name, DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
     private:\
     NFShmVector<DESCCLASSNAME, DESCNUM> m_astDesc;\
     NFShmHashMap<uint64_t, int, DESCNUM> m_astDescMap;\
-    NFShmVector<int, NF_MAX_DESC_STORE_INDEX_SIZE> m_astDescIndex;\
     public:\
     virtual int GetResNum() const override { return m_astDesc.size();}\
     NFShmVector<DESCCLASSNAME, DESCNUM>& GetResDesc() { return m_astDesc; }\
@@ -32,11 +29,6 @@
     const NFShmVector<DESCCLASSNAME, DESCNUM>* GetResDescPtr() const { return &m_astDesc; }\
     virtual int Initialize() override\
     {\
-        m_astDescIndex.resize(m_astDescIndex.max_size());\
-        for(int i = 0; i < (int)m_astDescIndex.size(); i++)\
-        {\
-            m_astDescIndex[i] = -1;\
-        }\
         return 0;\
     }\
     virtual int Reload(NFResDB *pDB) override\

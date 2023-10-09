@@ -50,10 +50,13 @@ bool NFCDescStoreModule::AfterInitShmMem()
     LoadFileDestSotre();
     if (!HasDBDescStore())
     {
-        int iRet = CheckWhenAllDataLoaded();
-        if (iRet != 0)
+        if (FindModule<NFISharedMemModule>()->GetInitMode() == EN_OBJ_MODE_INIT)
         {
-            return false;
+            int iRet = CheckWhenAllDataLoaded();
+            if (iRet != 0)
+            {
+                return false;
+            }
         }
     }
     return true;
@@ -92,10 +95,13 @@ bool NFCDescStoreModule::Execute()
         {
             if (HasDBDescStore())
             {
-                int iRet = CheckWhenAllDataLoaded();
-                if (iRet != 0)
+                if (FindModule<NFISharedMemModule>()->GetInitMode() == EN_OBJ_MODE_INIT)
                 {
-                    return false;
+                    int iRet = CheckWhenAllDataLoaded();
+                    if (iRet != 0)
+                    {
+                        return false;
+                    }
                 }
             }
 

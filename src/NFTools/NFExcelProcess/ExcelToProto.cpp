@@ -884,25 +884,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file +=
             "\t\tCHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, \"m_astDescMap.Insert Failed desc.id:{}, key maybe exist\", desc." + key_en_name +
             "());\n";
-    desc_file += "\t\tuint64_t hashKey = desc." + key_en_name + "();\n";
-    desc_file += "\t\tif (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)\n";
-    desc_file += "\t\t{\n";
-    desc_file += "\t\t\tif (m_astDescIndex[hashKey] != -1)\n";
-    desc_file += "\t\t\t{\n";
-    desc_file += "\t\t\t\tNFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc store:{} exist repeated key:{}\", GetFileName(), hashKey);\n";
-    desc_file += "\t\t\t\tm_astDescIndex[hashKey] = -1;\n";
-    desc_file += "\t\t\t}\n";
-    desc_file += "\t\t\telse\n";
-    desc_file += "\t\t\t{\n";
-    desc_file += "\t\t\t\tm_astDescIndex[hashKey] = curIndex;\n";
-    desc_file += "\t\t\t}\n";
-    desc_file += "\t\t}\n";
-    desc_file += "\t\telse\n";
-    desc_file += "\t\t{\n";
-    desc_file += "\t\t\t//NFLogError(NF_LOG_SYSTEMLOG, 0, \"the desc store:{} exist key:{} than the max index:{}\", GetFileName(), hashKey, NF_MAX_DESC_STORE_INDEX_SIZE);\n";
-    desc_file += "\t\t}\n";
-    desc_file += "\t\tCHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, \"GetDesc != pDesc, id:{}\", hashKey);\n";
-
+    desc_file += "\t\tCHECK_EXPR_ASSERT(GetDesc(desc." + key_en_name + "()) == pDesc, -1, \"GetDesc != pDesc, id:{}\", desc." + key_en_name + "());\n";
 
     desc_file += "\t}\n";
     for (auto iter = pSheet->m_indexMap.begin(); iter != pSheet->m_indexMap.end(); iter++)
@@ -1029,10 +1011,10 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                     for (int i = 0; i < (int) relation.m_dst.size(); i++)
                     {
                         ExcelRelationDst &relationDst = relation.m_dst[i];
-                        desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+                        desc_file += "(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + " <= 0 || " + NFStringUtility::Capitalize(relationDst.m_excelName) +
                                      NFStringUtility::Capitalize(relationDst.m_sheetName) +
                                      "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                                     ")";
+                                     "))";
 
                         if (i != (int) relation.m_dst.size() - 1)
                         {
@@ -1055,10 +1037,11 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                         for (int i = 0; i < (int) relation.m_dst.size(); i++)
                         {
                             ExcelRelationDst &relationDst = relation.m_dst[i];
-                            desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+                            desc_file += "(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j] <= 0 || " +
+                                         NFStringUtility::Capitalize(relationDst.m_excelName) +
                                          NFStringUtility::Capitalize(relationDst.m_sheetName) +
                                          "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
-                                         "[j])";
+                                         "[j]))";
 
                             if (i != (int) relation.m_dst.size() - 1)
                             {
@@ -1079,10 +1062,11 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                         for (int i = 0; i < (int) relation.m_dst.size(); i++)
                         {
                             ExcelRelationDst &relationDst = relation.m_dst[i];
-                            desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+                            desc_file += "(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + " <= 0 || " +
+                                         NFStringUtility::Capitalize(relationDst.m_excelName) +
                                          NFStringUtility::Capitalize(relationDst.m_sheetName) +
                                          "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
-                                         + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + ")";
+                                         + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + "))";
 
                             if (i != (int) relation.m_dst.size() - 1)
                             {
@@ -1107,10 +1091,11 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                 for (int i = 0; i < (int) relation.m_dst.size(); i++)
                 {
                     ExcelRelationDst &relationDst = relation.m_dst[i];
-                    desc_file += NFStringUtility::Capitalize(relationDst.m_excelName) +
+                    desc_file += "(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + " <= 0 || " +
+                                 NFStringUtility::Capitalize(relationDst.m_excelName) +
                                  NFStringUtility::Capitalize(relationDst.m_sheetName) +
                                  "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
-                                 + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + ")";
+                                 + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + "))";
 
                     if (i != (int) relation.m_dst.size() - 1)
                     {
@@ -1138,16 +1123,6 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
     desc_file += "const proto_ff_s::E_" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "_s * " +
                  NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc::GetDesc(int64_t id) const\n";
     desc_file += "{\n";
-    desc_file += "\tif (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)\n";
-    desc_file += "\t{\n";
-    desc_file += "\t\tint index = m_astDescIndex[id];\n";
-    desc_file += "\t\tif (index >= 0)\n";
-    desc_file += "\t\t{\n";
-    desc_file += "\t\t\tCHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, \"the index:{} of the id:{} exist error, than the m_astDesc max index:{}\", index, id, m_astDesc.size());\n";
-    desc_file += "\t\t\treturn &m_astDesc[index];\n";
-    desc_file += "\t\t}\n";
-    desc_file += "\t}\n";
-    desc_file += "\n";
     desc_file += "\tauto iter = m_astDescMap.find(id);\n";
     desc_file += "\tif (iter != m_astDescMap.end())\n";
     desc_file += "\t{\n";

@@ -82,24 +82,7 @@ int XingchenXinchenDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		auto iter = m_astDescMap.emplace_hint(desc.m_xcequip(), curIndex);
 		CHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_xcequip());
-		uint64_t hashKey = desc.m_xcequip();
-		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
-		{
-			if (m_astDescIndex[hashKey] != -1)
-			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc store:{} exist repeated key:{}", GetFileName(), hashKey);
-				m_astDescIndex[hashKey] = -1;
-			}
-			else
-			{
-				m_astDescIndex[hashKey] = curIndex;
-			}
-		}
-		else
-		{
-			//NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc store:{} exist key:{} than the max index:{}", GetFileName(), hashKey, NF_MAX_DESC_STORE_INDEX_SIZE);
-		}
-		CHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, "GetDesc != pDesc, id:{}", hashKey);
+		CHECK_EXPR_ASSERT(GetDesc(desc.m_xcequip()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_xcequip());
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_xingchenxinchen_list_size());
@@ -115,11 +98,11 @@ int XingchenXinchenDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT(AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_type), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
 		}
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT(XingchenXclvattDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_value), result, "can't find the attribute:{} in the  excel:xingchen sheet:XcLvAtt", pDesc->m_attribute[j].m_value);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_value <= 0 || XingchenXclvattDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_value)), result, "can't find the attribute:{} in the  excel:xingchen sheet:XcLvAtt", pDesc->m_attribute[j].m_value);
 		}
 	}
 	return result;
@@ -127,16 +110,6 @@ int XingchenXinchenDesc::CheckWhenAllDataLoaded()
 
 const proto_ff_s::E_XingchenXinchen_s * XingchenXinchenDesc::GetDesc(int64_t id) const
 {
-	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
-	{
-		int index = m_astDescIndex[id];
-		if (index >= 0)
-		{
-			CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-			return &m_astDesc[index];
-		}
-	}
-
 	auto iter = m_astDescMap.find(id);
 	if (iter != m_astDescMap.end())
 	{

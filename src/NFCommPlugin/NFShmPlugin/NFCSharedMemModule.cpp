@@ -641,7 +641,7 @@ NFCSharedMemModule::RegisterClassToObjSeg(int bType, size_t nObjSize, int iItemC
         m_iObjSegSizeTotal += siThisObjSegTotal;
         m_iTotalObjCount += pCounter->m_iItemCount;
 
-        if (siThisObjSegTotal / 1024.0 / 1024.0 >= 10)
+        if (siThisObjSegTotal / 1024.0 / 1024.0 >= 1)
         {
             NFLogWarning(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} M count {} tablesize {} M total obj count {}", pszClassName,
                          pCounter->m_nObjSize / 1024.0 / 1024.0, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);

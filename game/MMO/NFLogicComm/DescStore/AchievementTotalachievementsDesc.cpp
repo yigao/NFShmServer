@@ -81,24 +81,7 @@ int AchievementTotalachievementsDesc::Load(NFResDB *pDB)
 		pDesc->read_from_pbmsg(desc);
 		auto iter = m_astDescMap.emplace_hint(desc.m_totalsum(), curIndex);
 		CHECK_EXPR_ASSERT(iter != m_astDescMap.end(), -1, "m_astDescMap.Insert Failed desc.id:{}, key maybe exist", desc.m_totalsum());
-		uint64_t hashKey = desc.m_totalsum();
-		if (hashKey < NF_MAX_DESC_STORE_INDEX_SIZE)
-		{
-			if (m_astDescIndex[hashKey] != -1)
-			{
-				NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc store:{} exist repeated key:{}", GetFileName(), hashKey);
-				m_astDescIndex[hashKey] = -1;
-			}
-			else
-			{
-				m_astDescIndex[hashKey] = curIndex;
-			}
-		}
-		else
-		{
-			//NFLogError(NF_LOG_SYSTEMLOG, 0, "the desc store:{} exist key:{} than the max index:{}", GetFileName(), hashKey, NF_MAX_DESC_STORE_INDEX_SIZE);
-		}
-		CHECK_EXPR_ASSERT(GetDesc(hashKey) == pDesc, -1, "GetDesc != pDesc, id:{}", hashKey);
+		CHECK_EXPR_ASSERT(GetDesc(desc.m_totalsum()) == pDesc, -1, "GetDesc != pDesc, id:{}", desc.m_totalsum());
 	}
 
 	NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load {}, num={}", iRet, table.e_achievementtotalachievements_list_size());
@@ -112,23 +95,13 @@ int AchievementTotalachievementsDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT(ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_totalitems), result, "can't find the totalitems:{} in the  excel:item sheet:item", pDesc->m_totalitems);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_totalitems <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_totalitems)), result, "can't find the totalitems:{} in the  excel:item sheet:item", pDesc->m_totalitems);
 	}
 	return result;
 }
 
 const proto_ff_s::E_AchievementTotalachievements_s * AchievementTotalachievementsDesc::GetDesc(int64_t id) const
 {
-	if (id >= 0 && id < NF_MAX_DESC_STORE_INDEX_SIZE)
-	{
-		int index = m_astDescIndex[id];
-		if (index >= 0)
-		{
-			CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-			return &m_astDesc[index];
-		}
-	}
-
 	auto iter = m_astDescMap.find(id);
 	if (iter != m_astDescMap.end())
 	{

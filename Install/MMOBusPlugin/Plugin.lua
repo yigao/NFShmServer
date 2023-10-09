@@ -38,12 +38,12 @@ LoadPlugin =
 
 
 		ServerPlugins = {
-			--"NFMasterServerPlugin",
-			--"NFRouteServerPlugin",
+			"NFMasterServerPlugin",
+			"NFRouteServerPlugin",
 			"NFRouteAgentServerPlugin",
 			"NFStoreServerPlugin",
-			--"NFProxyServerPlugin",
-			--"NFProxyClientPlugin",
+			"NFProxyServerPlugin",
+			"NFProxyClientPlugin",
 			"NFProxyAgentServerPlugin",
 			"NFLoginServerPlugin",
 			"NFGameServerPlugin",
@@ -51,23 +51,10 @@ LoadPlugin =
 			"NFSnsServerPlugin",
 			"NFLogicServerPlugin",
 			"NFWebServerPlugin",
-
-			--"NFMonitorServerPlugin",
 		};
 
 		WorkPlugins = {
-			"NFFishCommonPlugin",
-			--"NFLuaScriptPlugin",
-
-			--"NFFishRobotPlugin",
-
-			--"NFFishProxyPlayerPlugin",
-			"NFFishLoginPlayerPlugin",
-			"NFFishWorldPlayerPlugin",
-			"NFFishSnsPlayerPlugin",
-			"NFFishLogicPlayerPlugin",
-			"NFFishGamePlayerPlugin",
-			"NFGameFishPlugin",
+			"NFMMOCommonPlugin",
 		};
 
 		ServerType = NF_ST_NONE;
