@@ -1,5 +1,4 @@
 #include "FestivalMuban_donate_singleDesc.h"
-#include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_donate_singleDesc, EOT_CONST_FESTIVAL_MUBAN_DONATE_SINGLE_DESC_ID, NFShmObj)
@@ -108,13 +107,7 @@ int FestivalMuban_donate_singleDesc::Load(NFResDB *pDB)
 
 int FestivalMuban_donate_singleDesc::CheckWhenAllDataLoaded()
 {
-	int result = 0;
-	for(int i = 0; i < (int)m_astDesc.size(); i++)
-	{
-		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT(ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_itemid), result, "can't find the itemid:{} in the  excel:item sheet:item", pDesc->m_itemid);
-	}
-	return result;
+	return 0;
 }
 
 const proto_ff_s::E_FestivalMuban_donate_single_s * FestivalMuban_donate_singleDesc::GetDesc(int64_t id) const

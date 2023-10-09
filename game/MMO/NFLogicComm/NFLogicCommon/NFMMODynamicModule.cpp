@@ -1,21 +1,21 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFFishDynamicModule.cpp
+//    @FileName         :    NFMMODynamicModule.cpp
 //    @Author           :    gaoyi
 //    @Date             :    23-8-2
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFFishDynamicModule
+//    @Module           :    NFMMODynamicModule
 //
 // -------------------------------------------------------------------------
 
-#include "NFFishDynamicModule.h"
+#include "NFMMODynamicModule.h"
 
 
-NFFishDynamicModule::NFFishDynamicModule(NFIPluginManager* p):NFIDynamicModule(p)
+NFMMODynamicModule::NFMMODynamicModule(NFIPluginManager* p): NFIDynamicModule(p)
 {
 
 }
 
-NFFishDynamicModule::~NFFishDynamicModule()
+NFMMODynamicModule::~NFMMODynamicModule()
 {
 }
 

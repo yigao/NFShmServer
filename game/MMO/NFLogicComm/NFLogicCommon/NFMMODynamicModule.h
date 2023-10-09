@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFFishDynamicModule.h
+//    @FileName         :    NFMMODynamicModule.h
 //    @Author           :    gaoyi
 //    @Date             :    23-8-2
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFFishDynamicModule
+//    @Module           :    NFMMODynamicModule
 //
 // -------------------------------------------------------------------------
 
@@ -25,10 +25,10 @@
 #include "NFLogicBindRpcService.h"
 #include "AllProtocol.h"
 
-class NFFishDynamicModule : public NFIDynamicModule
+class NFMMODynamicModule : public NFIDynamicModule
 {
 public:
-    NFFishDynamicModule(NFIPluginManager* p);
+    NFMMODynamicModule(NFIPluginManager* p);
 
-    virtual ~NFFishDynamicModule();
+    virtual ~NFMMODynamicModule();
 };

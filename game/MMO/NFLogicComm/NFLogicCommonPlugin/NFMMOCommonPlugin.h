@@ -14,10 +14,10 @@
 #include <string>
 
 //////////////////////////////////////////////////////////////////////////
-class NFFishCommonPlugin : public NFIPlugin
+class NFMMOCommonPlugin : public NFIPlugin
 {
 public:
-	explicit NFFishCommonPlugin(NFIPluginManager* p): NFIPlugin(p)
+	explicit NFMMOCommonPlugin(NFIPluginManager* p): NFIPlugin(p)
 	{
 		
 	}

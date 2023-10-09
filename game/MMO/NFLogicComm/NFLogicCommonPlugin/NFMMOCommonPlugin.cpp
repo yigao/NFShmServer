@@ -7,8 +7,8 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFFishCommonPlugin.h"
-#include "NFCommLogicModule.h"
+#include "NFMMOCommonPlugin.h"
+#include "NFMMOLogicModule.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 
 #include "DescStore/NFDescStoreHead.h"
@@ -18,13 +18,13 @@
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-    CREATE_PLUGIN(pm, NFFishCommonPlugin)
+    CREATE_PLUGIN(pm, NFMMOCommonPlugin)
 
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-    DESTROY_PLUGIN(pm, NFFishCommonPlugin)
+    DESTROY_PLUGIN(pm, NFMMOCommonPlugin)
 };
 
 #endif
@@ -32,27 +32,27 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 //////////////////////////////////////////////////////////////////////////
 
-int NFFishCommonPlugin::GetPluginVersion()
+int NFMMOCommonPlugin::GetPluginVersion()
 {
 	return 0;
 }
 
-std::string NFFishCommonPlugin::GetPluginName()
+std::string NFMMOCommonPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFFishCommonPlugin);
+	return GET_CLASS_NAME(NFMMOCommonPlugin);
 }
 
-void NFFishCommonPlugin::Install()
+void NFMMOCommonPlugin::Install()
 {
-	REGISTER_MODULE(m_pObjPluginManager, NFCommLogicModule, NFCommLogicModule)
+	REGISTER_MODULE(m_pObjPluginManager, NFMMOLogicModule, NFMMOLogicModule)
 }
 
-void NFFishCommonPlugin::Uninstall()
+void NFMMOCommonPlugin::Uninstall()
 {
 	UNREGISTER_MODULE(m_pObjPluginManager, NFCommLogicModule, NFCommLogicModule)
 }
 
-bool NFFishCommonPlugin::InitShmObjectRegister()
+bool NFMMOCommonPlugin::InitShmObjectRegister()
 {
     ////////init excel load shm///////////////////
     EOT_DESC_STORE_ALL_REGISTER_DEFINE

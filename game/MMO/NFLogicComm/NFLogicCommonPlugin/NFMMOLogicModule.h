@@ -10,18 +10,18 @@
 #pragma once
 
 
-#include "NFLogicCommon/NFFishDynamicModule.h"
+#include "NFLogicCommon/NFMMODynamicModule.h"
 
 
-class NFCommLogicModule : public NFFishDynamicModule
+class NFMMOLogicModule : public NFMMODynamicModule
 {
 public:
-	NFCommLogicModule(NFIPluginManager* p) :NFFishDynamicModule(p)
+	NFMMOLogicModule(NFIPluginManager* p) : NFMMODynamicModule(p)
 	{
 
 	}
 
-	virtual ~NFCommLogicModule()
+	virtual ~NFMMOLogicModule()
 	{
 
 	}
