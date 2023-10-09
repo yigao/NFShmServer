@@ -1,8 +1,6 @@
-// 定义公用message，注意与ComDefine.proto区别
-
-import "ProtoBuffer/Com.proto";
-package ProtoBuf;
-
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 
 //已领取红包信息

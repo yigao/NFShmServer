@@ -1,5 +1,6 @@
-
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 //服务器和服务器之间的协议号定义
 enum ServerInternalCmd

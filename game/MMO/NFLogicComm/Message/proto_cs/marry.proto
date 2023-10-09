@@ -1,6 +1,6 @@
-import "ProtoBuffer/Com.proto";
-import "ProtoBuffer/ComDefine.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 //========================================通信=========================================
 //1:通知自己的结婚数据  NOTIFY_MARRY_SELF

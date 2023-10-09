@@ -1,8 +1,6 @@
-// 定义公用message，注意与ComDefine.proto区别
-
-import "ProtoBuffer/Com.proto";
-package ProtoBuf;
-
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 //CL_WelfareGetSignDataReq = 3150; //获得月签到数据
 message WelfareGetSignDataReq
 {

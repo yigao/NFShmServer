@@ -1,7 +1,6 @@
-
-import "ProtoBuffer/Com.proto";
-import "ProtoBuffer/ComDefine.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 //功能解锁返回结果
 //LOGIC_TO_CLIENT_FUNCTIONUNLOCK_INFO

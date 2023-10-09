@@ -1,6 +1,6 @@
-import "ProtoBuffer/Com.proto";
-import "ProtoBuffer/ComDefine.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 //援助信息 一个玩家只能有一个援助信息
 message AssistInfo

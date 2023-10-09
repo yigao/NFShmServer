@@ -1,9 +1,7 @@
 package proto_ff;
 
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-import "DBProto.proto";
-import "DBProto2.proto";
+import "DBProxy.proto";
+import "DBProxy2.proto";
 
 import "Com.proto";
 import "ComDefine.proto";

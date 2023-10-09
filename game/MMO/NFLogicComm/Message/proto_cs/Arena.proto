@@ -1,5 +1,6 @@
-import "ProtoBuffer/Com.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 
 

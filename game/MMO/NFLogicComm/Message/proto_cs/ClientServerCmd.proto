@@ -1,4 +1,6 @@
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 
 //客户端和服务器之间的协议ID

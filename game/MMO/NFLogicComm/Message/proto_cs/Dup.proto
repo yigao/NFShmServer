@@ -1,8 +1,8 @@
-import "ProtoBuffer/Com.proto";
-import "ProtoBuffer/ComDefine.proto";
-import "ProtoBuffer/Scene.proto";
-import "ProtoBuffer/DBProxy.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
+import "Scene.proto";
+import "DBProxy.proto";
 
 
 //=================================结构=============================================

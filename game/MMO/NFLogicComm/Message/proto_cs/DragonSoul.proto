@@ -1,7 +1,6 @@
-// 定义公用message，注意与ComDefine.proto区别
-
-import "ProtoBuffer/Com.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 //龙魂 3050-3080
 //CL_DragonSoulInfoReq = 3050; //龙魂信息请求

@@ -1,8 +1,7 @@
-import "ProtoBuffer/Com.proto";
-import "ProtoBuffer/ComDefine.proto";
-import "ProtoBuffer/ClientServerCmd.proto";
-import "ProtoBuffer/Chat.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
+import "Chat.proto";
 
 
 //增加关系同步消息 (添加好友，黑名单 成功后发送的玩家信息)

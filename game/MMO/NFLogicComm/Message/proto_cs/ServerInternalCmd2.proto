@@ -1,10 +1,7 @@
 package proto_ff;
 
-// calm 自定义的fieldoption都在该文件中
-import "yd_fieldoptions.proto";
-import "common_logic.proto";
-
 import "Com.proto";
+import "ComDefine.proto";
 
 //服务器和服务器之间的协议号定义 5000-100000
 enum ServerInternalCmd2

@@ -1,6 +1,6 @@
-import "ProtoBuffer/Com.proto";
-import "ProtoBuffer/ComDefine.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 
 //1:玄真护甲数据通知 NOTIFY_ARMOR_RSP

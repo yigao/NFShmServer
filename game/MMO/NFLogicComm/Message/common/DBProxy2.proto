@@ -4,7 +4,7 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 import "Com.proto";
 import "ComDefine.proto";
-import "DBProto.proto";
+import "DBProxy.proto";
 
 //用来测试db的
 message dbServerMgr

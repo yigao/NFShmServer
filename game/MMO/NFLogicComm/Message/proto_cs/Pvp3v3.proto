@@ -1,7 +1,7 @@
-import "ProtoBuffer/Com.proto";
-import "ProtoBuffer/ComDefine.proto";
-import "ProtoBuffer/Clan.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
+import "Clan.proto";
 
 //上线会通知玩家战队重要数据，其他变化的数据一律请求 NOTIFY_CLAN3_ROLE_DATA
 message NotifyClan3RoleData

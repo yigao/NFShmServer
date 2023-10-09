@@ -1,6 +1,6 @@
-import "ProtoBuffer/ComDefine.proto";
-import "ProtoBuffer/Com.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 //藏经阁 图鉴
 //CLIENT_TO_LOGIC_HANDBOOK_INFO_REQ = 2450; //藏经阁图鉴信息

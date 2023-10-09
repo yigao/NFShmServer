@@ -1,7 +1,6 @@
-// 定义公用message，注意与ComDefine.proto区别
-
-import "ProtoBuffer/Com.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 //CLIENT_TO_LOGIC_GET_GOD_RELICS_INFO_REQ = 952; //获得天机谱活动数据
 message GetGodRelicsInfoReq

@@ -1,6 +1,6 @@
-import "ProtoBuffer/Com.proto";
-import "ProtoBuffer/ComDefine.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 //======================================结构===================================//
 //上线通知所有数据 NOTIFY_BEST_EQ_DATA

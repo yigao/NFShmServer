@@ -1,7 +1,6 @@
-// 定义公用message，注意与ComDefine.proto区别
-
-import "ProtoBuffer/Com.proto";
-package ProtoBuf;
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
 
 
 //客户端登陆请求(连上网关第一个请求) CLIENT_LOGIN_REQ

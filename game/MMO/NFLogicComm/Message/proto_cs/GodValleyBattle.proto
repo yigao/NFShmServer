@@ -1,6 +1,9 @@
 //神机谷战场
-import "ProtoBuffer/Skill.proto";
-import "ProtoBuffer/Com.proto";
+package proto_ff;
+import "Com.proto";
+import "ComDefine.proto";
+import "Skill.proto";
+
 message GVBEnterReq
 {
     required uint32 unused=1;
@@ -127,7 +130,7 @@ message GVBSelfInfoUpdateNT{
 message GVBKillPlayerInfo{
     required uint32 killsCount=1;
     required string name=2;
-    required ProtoBuf.RoleFacadeProto facade=3;
+    required RoleFacadeProto facade=3;
     required uint32 team=4;
 };
 //广播杀人
@@ -224,7 +227,7 @@ message GVBCrystalOwnerPosReq{
 }
 
 message GVBCrystalOwnerPosRsp{
-    required ProtoBuf.Vector3PB pos=1;
+    required Vector3PB pos=1;
 }
 
 //////////////WashParty
@@ -253,9 +256,9 @@ message WPPEnterRsp
 message WPPPairPracticeReq
 {
     required uint64 target=1;
-    required ProtoBuf.Vector3PB selfPos=2;
-    required ProtoBuf.Vector3PB selfDir=3;
-    required ProtoBuf.Vector3PB targetPos=4;
+    required Vector3PB selfPos=2;
+    required Vector3PB selfDir=3;
+    required Vector3PB targetPos=4;
 }
 //双修返回
 message WPPPairPracticeRsp{
@@ -265,9 +268,9 @@ message WPPPairPracticeRsp{
 //按摩
 message WPPMassageReq{
     required uint64 target=1;
-    required ProtoBuf.Vector3PB selfPos=2;
-    required ProtoBuf.Vector3PB selfDir=3;
-    required ProtoBuf.Vector3PB targetPos=4;
+    required Vector3PB selfPos=2;
+    required Vector3PB selfDir=3;
+    required Vector3PB targetPos=4;
 }
 
 //按摩返回
@@ -278,7 +281,7 @@ message WPPMassageRsp{
 
 //泼水
 message WPPSplashReq{
-   required ProtoBuf.SkillUseReq skillReq=1;
+   required SkillUseReq skillReq=1;
 }
 //泼水返回
 message WPPSplashRsp
@@ -311,8 +314,8 @@ message WPPActionNt
     required uint32 type=1;
     required uint64 cid=2;
     optional uint64 other=3;
-    optional ProtoBuf.Vector3PB pos=4;
-    optional ProtoBuf.Vector3PB dir=5;
+    optional Vector3PB pos=4;
+    optional Vector3PB dir=5;
 };
 
 message WPPCancelCurActReq
@@ -399,7 +402,7 @@ message CTPScoreChgNt{
 message CTPKillPlayerInfo{
     required uint32 killsCount=1;
     required string name=2;
-    required ProtoBuf.RoleFacadeProto facade=3;
+    required RoleFacadeProto facade=3;
     required uint32 team=4;
 };
 
