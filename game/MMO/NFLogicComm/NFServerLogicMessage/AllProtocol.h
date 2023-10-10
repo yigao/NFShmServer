@@ -9,5 +9,10 @@
 
 #pragma once
 
+#include "Com.pb.h"
+#include "Com_s.h"
+#include "ComDefine.pb.h"
+#include "ComDefine_s.h"
+
 
 

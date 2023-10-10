@@ -428,6 +428,69 @@ void LoginRoleProto_s::read_from_pbmsg(const ::proto_ff::LoginRoleProto & msg) {
 	facade.read_from_pbmsg(temp_facade);
 }
 
+MarryBrief_s::MarryBrief_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int MarryBrief_s::CreateInit() {
+	cid = (uint64_t)0;
+	child_id = (int32_t)0;
+	card_buy_time = (uint64_t)0;
+	express_lv = (int32_t)0;
+	buy_dup_num = (int32_t)0;
+	marry_flag = (int32_t)0;
+	dst_recv_day = (int32_t)0;
+	dst_give_dup_num = (int32_t)0;
+	card_surplus_day = (int32_t)0;
+	return 0;
+}
+
+int MarryBrief_s::ResumeInit() {
+	return 0;
+}
+
+void MarryBrief_s::write_to_pbmsg(::proto_ff::MarryBrief & msg) const {
+	msg.set_cid((uint64_t)cid);
+	msg.set_child_id((int32_t)child_id);
+	msg.set_card_buy_time((uint64_t)card_buy_time);
+	msg.set_express_lv((int32_t)express_lv);
+	for(int32_t i = 0; i < (int32_t)gears.size(); ++i) {
+		msg.add_gears((int32_t)gears[i]);
+	}
+	msg.set_buy_dup_num((int32_t)buy_dup_num);
+	msg.set_marry_flag((int32_t)marry_flag);
+	for(int32_t i = 0; i < (int32_t)recved_gears.size(); ++i) {
+		msg.add_recved_gears((int32_t)recved_gears[i]);
+	}
+	msg.set_dst_recv_day((int32_t)dst_recv_day);
+	msg.set_dst_give_dup_num((int32_t)dst_give_dup_num);
+	msg.set_card_surplus_day((int32_t)card_surplus_day);
+}
+
+void MarryBrief_s::read_from_pbmsg(const ::proto_ff::MarryBrief & msg) {
+	cid = msg.cid();
+	child_id = msg.child_id();
+	card_buy_time = msg.card_buy_time();
+	express_lv = msg.express_lv();
+	gears.resize((int)msg.gears_size() > (int)gears.max_size() ? gears.max_size() : msg.gears_size());
+	for(int32_t i = 0; i < (int32_t)gears.size(); ++i) {
+		gears[i] = msg.gears(i);
+	}
+	buy_dup_num = msg.buy_dup_num();
+	marry_flag = msg.marry_flag();
+	recved_gears.resize((int)msg.recved_gears_size() > (int)recved_gears.max_size() ? recved_gears.max_size() : msg.recved_gears_size());
+	for(int32_t i = 0; i < (int32_t)recved_gears.size(); ++i) {
+		recved_gears[i] = msg.recved_gears(i);
+	}
+	dst_recv_day = msg.dst_recv_day();
+	dst_give_dup_num = msg.dst_give_dup_num();
+	card_surplus_day = msg.card_surplus_day();
+}
+
 LoginSynMarry_s::LoginSynMarry_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -1867,6 +1930,57 @@ void NotifyRoleFacadeCastRsp_s::read_from_pbmsg(const ::proto_ff::NotifyRoleFaca
 	roleid = msg.roleid();
 	const ::proto_ff::RoleFacadeProto & temp_facade = msg.facade();
 	facade.read_from_pbmsg(temp_facade);
+}
+
+ArenaChallResult_s::ArenaChallResult_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int ArenaChallResult_s::CreateInit() {
+	result = (int32_t)0;
+	chall = (bool)0;
+	time = (int64_t)0;
+	src_rank_id = (int32_t)0;
+	dst_rank_id = (int32_t)0;
+	dup_id = (int64_t)0;
+	return 0;
+}
+
+int ArenaChallResult_s::ResumeInit() {
+	return 0;
+}
+
+void ArenaChallResult_s::write_to_pbmsg(::proto_ff::ArenaChallResult & msg) const {
+	msg.set_result((int32_t)result);
+	msg.set_chall((bool)chall);
+	msg.set_time((int64_t)time);
+	msg.set_dst_name(dst_name.data());
+	msg.set_src_rank_id((int32_t)src_rank_id);
+	msg.set_dst_rank_id((int32_t)dst_rank_id);
+	for(int32_t i = 0; i < (int32_t)items.size(); ++i) {
+		::proto_ff::ComItem* temp_items = msg.add_items();
+		items[i].write_to_pbmsg(*temp_items);
+	}
+	msg.set_dup_id((int64_t)dup_id);
+}
+
+void ArenaChallResult_s::read_from_pbmsg(const ::proto_ff::ArenaChallResult & msg) {
+	result = msg.result();
+	chall = msg.chall();
+	time = msg.time();
+	dst_name = msg.dst_name();
+	src_rank_id = msg.src_rank_id();
+	dst_rank_id = msg.dst_rank_id();
+	items.resize((int)msg.items_size() > (int)items.max_size() ? items.max_size() : msg.items_size());
+	for(int32_t i = 0; i < (int32_t)items.size(); ++i) {
+		const ::proto_ff::ComItem & temp_items = msg.items(i);
+		items[i].read_from_pbmsg(temp_items);
+	}
+	dup_id = msg.dup_id();
 }
 
 FunctionUnlockInfoData_s::FunctionUnlockInfoData_s() {
@@ -4135,57 +4249,6 @@ void RecvVipCacheExpRsp_s::read_from_pbmsg(const ::proto_ff::RecvVipCacheExpRsp 
 	ret = msg.ret();
 }
 
-ArenaChallResult_s::ArenaChallResult_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int ArenaChallResult_s::CreateInit() {
-	result = (int32_t)0;
-	chall = (bool)0;
-	time = (int64_t)0;
-	src_rank_id = (int32_t)0;
-	dst_rank_id = (int32_t)0;
-	dup_id = (int64_t)0;
-	return 0;
-}
-
-int ArenaChallResult_s::ResumeInit() {
-	return 0;
-}
-
-void ArenaChallResult_s::write_to_pbmsg(::proto_ff::ArenaChallResult & msg) const {
-	msg.set_result((int32_t)result);
-	msg.set_chall((bool)chall);
-	msg.set_time((int64_t)time);
-	msg.set_dst_name(dst_name.data());
-	msg.set_src_rank_id((int32_t)src_rank_id);
-	msg.set_dst_rank_id((int32_t)dst_rank_id);
-	for(int32_t i = 0; i < (int32_t)items.size(); ++i) {
-		::proto_ff::ComItem* temp_items = msg.add_items();
-		items[i].write_to_pbmsg(*temp_items);
-	}
-	msg.set_dup_id((int64_t)dup_id);
-}
-
-void ArenaChallResult_s::read_from_pbmsg(const ::proto_ff::ArenaChallResult & msg) {
-	result = msg.result();
-	chall = msg.chall();
-	time = msg.time();
-	dst_name = msg.dst_name();
-	src_rank_id = msg.src_rank_id();
-	dst_rank_id = msg.dst_rank_id();
-	items.resize((int)msg.items_size() > (int)items.max_size() ? items.max_size() : msg.items_size());
-	for(int32_t i = 0; i < (int32_t)items.size(); ++i) {
-		const ::proto_ff::ComItem & temp_items = msg.items(i);
-		items[i].read_from_pbmsg(temp_items);
-	}
-	dup_id = msg.dup_id();
-}
-
 DailyArenaReward_s::DailyArenaReward_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -6184,69 +6247,6 @@ void ExpressLog_s::read_from_pbmsg(const ::proto_ff::ExpressLog & msg) {
 	dst_id = msg.dst_id();
 	text_id = msg.text_id();
 	item = msg.item();
-}
-
-MarryBrief_s::MarryBrief_s() {
-	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
-		CreateInit();
-	} else {
-		ResumeInit();
-	}
-}
-
-int MarryBrief_s::CreateInit() {
-	cid = (uint64_t)0;
-	child_id = (int32_t)0;
-	card_buy_time = (uint64_t)0;
-	express_lv = (int32_t)0;
-	buy_dup_num = (int32_t)0;
-	marry_flag = (int32_t)0;
-	dst_recv_day = (int32_t)0;
-	dst_give_dup_num = (int32_t)0;
-	card_surplus_day = (int32_t)0;
-	return 0;
-}
-
-int MarryBrief_s::ResumeInit() {
-	return 0;
-}
-
-void MarryBrief_s::write_to_pbmsg(::proto_ff::MarryBrief & msg) const {
-	msg.set_cid((uint64_t)cid);
-	msg.set_child_id((int32_t)child_id);
-	msg.set_card_buy_time((uint64_t)card_buy_time);
-	msg.set_express_lv((int32_t)express_lv);
-	for(int32_t i = 0; i < (int32_t)gears.size(); ++i) {
-		msg.add_gears((int32_t)gears[i]);
-	}
-	msg.set_buy_dup_num((int32_t)buy_dup_num);
-	msg.set_marry_flag((int32_t)marry_flag);
-	for(int32_t i = 0; i < (int32_t)recved_gears.size(); ++i) {
-		msg.add_recved_gears((int32_t)recved_gears[i]);
-	}
-	msg.set_dst_recv_day((int32_t)dst_recv_day);
-	msg.set_dst_give_dup_num((int32_t)dst_give_dup_num);
-	msg.set_card_surplus_day((int32_t)card_surplus_day);
-}
-
-void MarryBrief_s::read_from_pbmsg(const ::proto_ff::MarryBrief & msg) {
-	cid = msg.cid();
-	child_id = msg.child_id();
-	card_buy_time = msg.card_buy_time();
-	express_lv = msg.express_lv();
-	gears.resize((int)msg.gears_size() > (int)gears.max_size() ? gears.max_size() : msg.gears_size());
-	for(int32_t i = 0; i < (int32_t)gears.size(); ++i) {
-		gears[i] = msg.gears(i);
-	}
-	buy_dup_num = msg.buy_dup_num();
-	marry_flag = msg.marry_flag();
-	recved_gears.resize((int)msg.recved_gears_size() > (int)recved_gears.max_size() ? recved_gears.max_size() : msg.recved_gears_size());
-	for(int32_t i = 0; i < (int32_t)recved_gears.size(); ++i) {
-		recved_gears[i] = msg.recved_gears(i);
-	}
-	dst_recv_day = msg.dst_recv_day();
-	dst_give_dup_num = msg.dst_give_dup_num();
-	card_surplus_day = msg.card_surplus_day();
 }
 
 WeddingDBInfo_s::WeddingDBInfo_s() {

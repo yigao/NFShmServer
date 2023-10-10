@@ -24,8 +24,8 @@ bool NFCProxyPlayerModule::Awake()
 {
     NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, proto_ff::NF_CS_Msg_HeartBeat_REQ);
     NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, proto_ff::NF_SC_Msg_HeartBeat_RSP);
-    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, NF_SERVER_TO_SERVER_HEART_BEAT);
-    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT);
+    NFGlobalSystem::Instance()->RegisterSpecialMsg(NF_MODULE_CLIENT, proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
 
     m_packetConfig.LoadConfig(m_pObjPluginManager->GetConfigPath() + "/Server", "ProxyServer");
     SetTimer(NF_PROXY_CLIENT_TIMER_ID, NF_PROXY_CLIENT_INTERVAL_TIME);
@@ -35,7 +35,7 @@ bool NFCProxyPlayerModule::Awake()
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_MSG_RegisterAccountReq, true);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_MSG_UserLoginReq, true);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_Msg_HeartBeat_REQ);
-    RegisterClientMessage(NF_ST_PROXY_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT);
+    RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::NF_CS_Msg_ReConnect_REQ, true);
 
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
@@ -145,9 +145,9 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
 
     switch (packet.nMsgId)
     {
-        case NF_SERVER_TO_SERVER_HEART_BEAT:
+        case proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT:
         {
-            FindModule<NFIMessageModule>()->Send(unLinkId, NF_SERVER_TO_SERVER_HEART_BEAT_RSP, NULL, 0);
+            FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT_RSP, NULL, 0);
         }
         case proto_ff::NF_CS_Msg_HeartBeat_REQ:
         {

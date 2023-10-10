@@ -11,6 +11,8 @@
 #include "ComDefine_s.h"
 
 #define DEFINE_ROLEFACADEPROTO_GROWFACADE_MAX_NUM 1
+#define DEFINE_MARRYBRIEF_GEARS_MAX_NUM 1
+#define DEFINE_MARRYBRIEF_RECVED_GEARS_MAX_NUM 1
 #define DEFINE_PETINFO_EXCLUSIVESKILLLVVEC_MAX_NUM 1
 #define DEFINE_PETINFO_PASSIVESKILLLVVEC_MAX_NUM 1
 #define DEFINE_TURNATTR_COM_POS_MAX_NUM 1
@@ -35,6 +37,7 @@
 #define DEFINE_MAILATTACHMENTLIST_ITEMINFO_MAX_NUM 1
 #define DEFINE_WEBMAILDATAPROTO_ITEMLIST_MAX_NUM 1
 #define DEFINE_USEITEMARGPROTO_ITEM_LST_MAX_NUM 1
+#define DEFINE_ARENACHALLRESULT_ITEMS_MAX_NUM 1
 #define DEFINE_FUNCTIONUNLOCKINFO_DATA_MAX_NUM 1
 #define DEFINE_RELATIONDBINFO_FRIENDLIST_MAX_NUM 1
 #define DEFINE_RELATIONDBINFO_BLACKLIST_MAX_NUM 1
@@ -67,7 +70,6 @@
 #define DEFINE_NOTIFYVIPDATARSP_IDS_MAX_NUM 1
 #define DEFINE_NOTIFYVIPDATARSP_LV_GIFT_MAX_NUM 1
 #define DEFINE_NOTIFYPRIVILEGEOPT_IDS_MAX_NUM 1
-#define DEFINE_ARENACHALLRESULT_ITEMS_MAX_NUM 1
 #define DEFINE_FACADESOULDATA_SKILL_DATA_MAX_NUM 1
 #define DEFINE_FACADESOULDATA_ACVIITY_DATA_MAX_NUM 1
 #define DEFINE_DEITYEQUIPDATA_INFOS_MAX_NUM 1
@@ -108,8 +110,6 @@
 #define DEFINE_MARRYSELFINFO_RECVED_GEARS_MAX_NUM 1
 #define DEFINE_MARRYWEDDINGINFO_MINI_MAX_NUM 1
 #define DEFINE_MARRYWEDDINGINFO_INVITE_LIST_MAX_NUM 1
-#define DEFINE_MARRYBRIEF_GEARS_MAX_NUM 1
-#define DEFINE_MARRYBRIEF_RECVED_GEARS_MAX_NUM 1
 #define DEFINE_WEDDINGDBINFO_INVITE_LIST_MAX_NUM 1
 #define DEFINE_WEDDINGDBINFO_APPLY_LIST_MAX_NUM 1
 #define DEFINE_WEDDINGDBLIST_INFOS_MAX_NUM 1
@@ -401,6 +401,30 @@ namespace proto_ff_s {
 		static ::proto_ff::LoginRoleProto make_pbmsg(){ return ::proto_ff::LoginRoleProto(); }
 	};
 	typedef struct LoginRoleProto_s LoginRoleProto_t;
+
+	struct MarryBrief_s : public NFDescStoreSeqOP {
+		MarryBrief_s();
+		virtual ~MarryBrief_s(){}
+		int CreateInit();
+		int ResumeInit();
+		uint64_t cid;//
+		int32_t child_id;//
+		uint64_t card_buy_time;//
+		int32_t express_lv;//
+		NFShmVector<int32_t, DEFINE_MARRYBRIEF_GEARS_MAX_NUM> gears;//
+		int32_t buy_dup_num;//
+		int32_t marry_flag;//
+		NFShmVector<int32_t, DEFINE_MARRYBRIEF_RECVED_GEARS_MAX_NUM> recved_gears;//
+		int32_t dst_recv_day;//
+		int32_t dst_give_dup_num;//
+		int32_t card_surplus_day;//
+
+		virtual void write_to_pbmsg(::proto_ff::MarryBrief & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::MarryBrief & msg);
+		static ::proto_ff::MarryBrief* new_pbmsg(){ return new ::proto_ff::MarryBrief(); }
+		static ::proto_ff::MarryBrief make_pbmsg(){ return ::proto_ff::MarryBrief(); }
+	};
+	typedef struct MarryBrief_s MarryBrief_t;
 
 	struct LoginSynMarry_s : public NFDescStoreSeqOP {
 		LoginSynMarry_s();
@@ -1019,6 +1043,27 @@ namespace proto_ff_s {
 		static ::proto_ff::NotifyRoleFacadeCastRsp make_pbmsg(){ return ::proto_ff::NotifyRoleFacadeCastRsp(); }
 	};
 	typedef struct NotifyRoleFacadeCastRsp_s NotifyRoleFacadeCastRsp_t;
+
+	struct ArenaChallResult_s : public NFDescStoreSeqOP {
+		ArenaChallResult_s();
+		virtual ~ArenaChallResult_s(){}
+		int CreateInit();
+		int ResumeInit();
+		int32_t result;//
+		bool chall;//
+		int64_t time;//
+		NFShmString<32> dst_name;//
+		int32_t src_rank_id;//
+		int32_t dst_rank_id;//
+		NFShmVector<struct ComItem_s, DEFINE_ARENACHALLRESULT_ITEMS_MAX_NUM> items;//
+		int64_t dup_id;//
+
+		virtual void write_to_pbmsg(::proto_ff::ArenaChallResult & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::ArenaChallResult & msg);
+		static ::proto_ff::ArenaChallResult* new_pbmsg(){ return new ::proto_ff::ArenaChallResult(); }
+		static ::proto_ff::ArenaChallResult make_pbmsg(){ return ::proto_ff::ArenaChallResult(); }
+	};
+	typedef struct ArenaChallResult_s ArenaChallResult_t;
 
 	struct FunctionUnlockInfoData_s : public NFDescStoreSeqOP {
 		FunctionUnlockInfoData_s();
@@ -2065,27 +2110,6 @@ namespace proto_ff_s {
 	};
 	typedef struct RecvVipCacheExpRsp_s RecvVipCacheExpRsp_t;
 
-	struct ArenaChallResult_s : public NFDescStoreSeqOP {
-		ArenaChallResult_s();
-		virtual ~ArenaChallResult_s(){}
-		int CreateInit();
-		int ResumeInit();
-		int32_t result;//
-		bool chall;//
-		int64_t time;//
-		NFShmString<32> dst_name;//
-		int32_t src_rank_id;//
-		int32_t dst_rank_id;//
-		NFShmVector<struct ComItem_s, DEFINE_ARENACHALLRESULT_ITEMS_MAX_NUM> items;//
-		int64_t dup_id;//
-
-		virtual void write_to_pbmsg(::proto_ff::ArenaChallResult & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::ArenaChallResult & msg);
-		static ::proto_ff::ArenaChallResult* new_pbmsg(){ return new ::proto_ff::ArenaChallResult(); }
-		static ::proto_ff::ArenaChallResult make_pbmsg(){ return ::proto_ff::ArenaChallResult(); }
-	};
-	typedef struct ArenaChallResult_s ArenaChallResult_t;
-
 	struct DailyArenaReward_s : public NFDescStoreSeqOP {
 		DailyArenaReward_s();
 		virtual ~DailyArenaReward_s(){}
@@ -2964,30 +2988,6 @@ namespace proto_ff_s {
 		static ::proto_ff::ExpressLog make_pbmsg(){ return ::proto_ff::ExpressLog(); }
 	};
 	typedef struct ExpressLog_s ExpressLog_t;
-
-	struct MarryBrief_s : public NFDescStoreSeqOP {
-		MarryBrief_s();
-		virtual ~MarryBrief_s(){}
-		int CreateInit();
-		int ResumeInit();
-		uint64_t cid;//
-		int32_t child_id;//
-		uint64_t card_buy_time;//
-		int32_t express_lv;//
-		NFShmVector<int32_t, DEFINE_MARRYBRIEF_GEARS_MAX_NUM> gears;//
-		int32_t buy_dup_num;//
-		int32_t marry_flag;//
-		NFShmVector<int32_t, DEFINE_MARRYBRIEF_RECVED_GEARS_MAX_NUM> recved_gears;//
-		int32_t dst_recv_day;//
-		int32_t dst_give_dup_num;//
-		int32_t card_surplus_day;//
-
-		virtual void write_to_pbmsg(::proto_ff::MarryBrief & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::MarryBrief & msg);
-		static ::proto_ff::MarryBrief* new_pbmsg(){ return new ::proto_ff::MarryBrief(); }
-		static ::proto_ff::MarryBrief make_pbmsg(){ return ::proto_ff::MarryBrief(); }
-	};
-	typedef struct MarryBrief_s MarryBrief_t;
 
 	struct WeddingDBInfo_s : public NFDescStoreSeqOP {
 		WeddingDBInfo_s();

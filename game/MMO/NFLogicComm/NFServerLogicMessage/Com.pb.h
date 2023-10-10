@@ -49,6 +49,7 @@ class RoleFacadeProto;
 class RoleHeadPicProto;
 class RoleListDBProto;
 class LoginRoleProto;
+class MarryBrief;
 class LoginSynMarry;
 class AoPlatProto;
 class LoginSyncProto;
@@ -80,6 +81,7 @@ class WebMailItemProto;
 class WebMailDataProto;
 class UseItemArgProto;
 class NotifyRoleFacadeCastRsp;
+class ArenaChallResult;
 class FunctionUnlockInfoData;
 class FunctionUnlockInfo;
 class RolePlayerMiniInfo;
@@ -142,7 +144,6 @@ class VipHideRsp;
 class NotifyVipEvent;
 class RecvVipCacheExpReq;
 class RecvVipCacheExpRsp;
-class ArenaChallResult;
 class DailyArenaReward;
 class ChallArenaReward;
 class NotifyServerFlag;
@@ -194,7 +195,6 @@ class MarryChild;
 class MarrySelfInfo;
 class MarryWeddingInfo;
 class ExpressLog;
-class MarryBrief;
 class WeddingDBInfo;
 class WeddingDBList;
 class WeddingSimpleInfo;
@@ -2497,6 +2497,194 @@ class LoginRoleProto : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static LoginRoleProto* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class MarryBrief : public ::google::protobuf::Message {
+ public:
+  MarryBrief();
+  virtual ~MarryBrief();
+
+  MarryBrief(const MarryBrief& from);
+
+  inline MarryBrief& operator=(const MarryBrief& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const MarryBrief& default_instance();
+
+  void Swap(MarryBrief* other);
+
+  // implements Message ----------------------------------------------
+
+  MarryBrief* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const MarryBrief& from);
+  void MergeFrom(const MarryBrief& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional int32 child_id = 2;
+  inline bool has_child_id() const;
+  inline void clear_child_id();
+  static const int kChildIdFieldNumber = 2;
+  inline ::google::protobuf::int32 child_id() const;
+  inline void set_child_id(::google::protobuf::int32 value);
+
+  // optional uint64 card_buy_time = 3;
+  inline bool has_card_buy_time() const;
+  inline void clear_card_buy_time();
+  static const int kCardBuyTimeFieldNumber = 3;
+  inline ::google::protobuf::uint64 card_buy_time() const;
+  inline void set_card_buy_time(::google::protobuf::uint64 value);
+
+  // optional int32 express_lv = 4;
+  inline bool has_express_lv() const;
+  inline void clear_express_lv();
+  static const int kExpressLvFieldNumber = 4;
+  inline ::google::protobuf::int32 express_lv() const;
+  inline void set_express_lv(::google::protobuf::int32 value);
+
+  // repeated int32 gears = 5;
+  inline int gears_size() const;
+  inline void clear_gears();
+  static const int kGearsFieldNumber = 5;
+  inline ::google::protobuf::int32 gears(int index) const;
+  inline void set_gears(int index, ::google::protobuf::int32 value);
+  inline void add_gears(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      gears() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_gears();
+
+  // optional int32 buy_dup_num = 6;
+  inline bool has_buy_dup_num() const;
+  inline void clear_buy_dup_num();
+  static const int kBuyDupNumFieldNumber = 6;
+  inline ::google::protobuf::int32 buy_dup_num() const;
+  inline void set_buy_dup_num(::google::protobuf::int32 value);
+
+  // optional int32 marry_flag = 7;
+  inline bool has_marry_flag() const;
+  inline void clear_marry_flag();
+  static const int kMarryFlagFieldNumber = 7;
+  inline ::google::protobuf::int32 marry_flag() const;
+  inline void set_marry_flag(::google::protobuf::int32 value);
+
+  // repeated int32 recved_gears = 8;
+  inline int recved_gears_size() const;
+  inline void clear_recved_gears();
+  static const int kRecvedGearsFieldNumber = 8;
+  inline ::google::protobuf::int32 recved_gears(int index) const;
+  inline void set_recved_gears(int index, ::google::protobuf::int32 value);
+  inline void add_recved_gears(::google::protobuf::int32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+      recved_gears() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+      mutable_recved_gears();
+
+  // optional int32 dst_recv_day = 9;
+  inline bool has_dst_recv_day() const;
+  inline void clear_dst_recv_day();
+  static const int kDstRecvDayFieldNumber = 9;
+  inline ::google::protobuf::int32 dst_recv_day() const;
+  inline void set_dst_recv_day(::google::protobuf::int32 value);
+
+  // optional int32 dst_give_dup_num = 10;
+  inline bool has_dst_give_dup_num() const;
+  inline void clear_dst_give_dup_num();
+  static const int kDstGiveDupNumFieldNumber = 10;
+  inline ::google::protobuf::int32 dst_give_dup_num() const;
+  inline void set_dst_give_dup_num(::google::protobuf::int32 value);
+
+  // optional int32 card_surplus_day = 11;
+  inline bool has_card_surplus_day() const;
+  inline void clear_card_surplus_day();
+  static const int kCardSurplusDayFieldNumber = 11;
+  inline ::google::protobuf::int32 card_surplus_day() const;
+  inline void set_card_surplus_day(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.MarryBrief)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_child_id();
+  inline void clear_has_child_id();
+  inline void set_has_card_buy_time();
+  inline void clear_has_card_buy_time();
+  inline void set_has_express_lv();
+  inline void clear_has_express_lv();
+  inline void set_has_buy_dup_num();
+  inline void clear_has_buy_dup_num();
+  inline void set_has_marry_flag();
+  inline void clear_has_marry_flag();
+  inline void set_has_dst_recv_day();
+  inline void clear_has_dst_recv_day();
+  inline void set_has_dst_give_dup_num();
+  inline void clear_has_dst_give_dup_num();
+  inline void set_has_card_surplus_day();
+  inline void clear_has_card_surplus_day();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 card_buy_time_;
+  ::google::protobuf::int32 child_id_;
+  ::google::protobuf::int32 express_lv_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > gears_;
+  ::google::protobuf::int32 buy_dup_num_;
+  ::google::protobuf::int32 marry_flag_;
+  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > recved_gears_;
+  ::google::protobuf::int32 dst_recv_day_;
+  ::google::protobuf::int32 dst_give_dup_num_;
+  ::google::protobuf::int32 card_surplus_day_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static MarryBrief* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -7114,6 +7302,166 @@ class NotifyRoleFacadeCastRsp : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static NotifyRoleFacadeCastRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ArenaChallResult : public ::google::protobuf::Message {
+ public:
+  ArenaChallResult();
+  virtual ~ArenaChallResult();
+
+  ArenaChallResult(const ArenaChallResult& from);
+
+  inline ArenaChallResult& operator=(const ArenaChallResult& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ArenaChallResult& default_instance();
+
+  void Swap(ArenaChallResult* other);
+
+  // implements Message ----------------------------------------------
+
+  ArenaChallResult* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ArenaChallResult& from);
+  void MergeFrom(const ArenaChallResult& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 result = 1;
+  inline bool has_result() const;
+  inline void clear_result();
+  static const int kResultFieldNumber = 1;
+  inline ::google::protobuf::int32 result() const;
+  inline void set_result(::google::protobuf::int32 value);
+
+  // optional bool chall = 2;
+  inline bool has_chall() const;
+  inline void clear_chall();
+  static const int kChallFieldNumber = 2;
+  inline bool chall() const;
+  inline void set_chall(bool value);
+
+  // optional int64 time = 3;
+  inline bool has_time() const;
+  inline void clear_time();
+  static const int kTimeFieldNumber = 3;
+  inline ::google::protobuf::int64 time() const;
+  inline void set_time(::google::protobuf::int64 value);
+
+  // optional bytes dst_name = 4;
+  inline bool has_dst_name() const;
+  inline void clear_dst_name();
+  static const int kDstNameFieldNumber = 4;
+  inline const ::std::string& dst_name() const;
+  inline void set_dst_name(const ::std::string& value);
+  inline void set_dst_name(const char* value);
+  inline void set_dst_name(const void* value, size_t size);
+  inline ::std::string* mutable_dst_name();
+  inline ::std::string* release_dst_name();
+  inline void set_allocated_dst_name(::std::string* dst_name);
+
+  // optional int32 src_rank_id = 5;
+  inline bool has_src_rank_id() const;
+  inline void clear_src_rank_id();
+  static const int kSrcRankIdFieldNumber = 5;
+  inline ::google::protobuf::int32 src_rank_id() const;
+  inline void set_src_rank_id(::google::protobuf::int32 value);
+
+  // optional int32 dst_rank_id = 6;
+  inline bool has_dst_rank_id() const;
+  inline void clear_dst_rank_id();
+  static const int kDstRankIdFieldNumber = 6;
+  inline ::google::protobuf::int32 dst_rank_id() const;
+  inline void set_dst_rank_id(::google::protobuf::int32 value);
+
+  // repeated .proto_ff.ComItem items = 7;
+  inline int items_size() const;
+  inline void clear_items();
+  static const int kItemsFieldNumber = 7;
+  inline const ::proto_ff::ComItem& items(int index) const;
+  inline ::proto_ff::ComItem* mutable_items(int index);
+  inline ::proto_ff::ComItem* add_items();
+  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >&
+      items() const;
+  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >*
+      mutable_items();
+
+  // optional int64 dup_id = 8;
+  inline bool has_dup_id() const;
+  inline void clear_dup_id();
+  static const int kDupIdFieldNumber = 8;
+  inline ::google::protobuf::int64 dup_id() const;
+  inline void set_dup_id(::google::protobuf::int64 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ArenaChallResult)
+ private:
+  inline void set_has_result();
+  inline void clear_has_result();
+  inline void set_has_chall();
+  inline void clear_has_chall();
+  inline void set_has_time();
+  inline void clear_has_time();
+  inline void set_has_dst_name();
+  inline void clear_has_dst_name();
+  inline void set_has_src_rank_id();
+  inline void clear_has_src_rank_id();
+  inline void set_has_dst_rank_id();
+  inline void clear_has_dst_rank_id();
+  inline void set_has_dup_id();
+  inline void clear_has_dup_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 result_;
+  bool chall_;
+  ::google::protobuf::int64 time_;
+  ::std::string* dst_name_;
+  ::google::protobuf::int32 src_rank_id_;
+  ::google::protobuf::int32 dst_rank_id_;
+  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem > items_;
+  ::google::protobuf::int64 dup_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
+
+  friend void  protobuf_AddDesc_Com_2eproto();
+  friend void protobuf_AssignDesc_Com_2eproto();
+  friend void protobuf_ShutdownFile_Com_2eproto();
+
+  void InitAsDefaultInstance();
+  static ArenaChallResult* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -14102,166 +14450,6 @@ class RecvVipCacheExpRsp : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class ArenaChallResult : public ::google::protobuf::Message {
- public:
-  ArenaChallResult();
-  virtual ~ArenaChallResult();
-
-  ArenaChallResult(const ArenaChallResult& from);
-
-  inline ArenaChallResult& operator=(const ArenaChallResult& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const ArenaChallResult& default_instance();
-
-  void Swap(ArenaChallResult* other);
-
-  // implements Message ----------------------------------------------
-
-  ArenaChallResult* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const ArenaChallResult& from);
-  void MergeFrom(const ArenaChallResult& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional int32 result = 1;
-  inline bool has_result() const;
-  inline void clear_result();
-  static const int kResultFieldNumber = 1;
-  inline ::google::protobuf::int32 result() const;
-  inline void set_result(::google::protobuf::int32 value);
-
-  // optional bool chall = 2;
-  inline bool has_chall() const;
-  inline void clear_chall();
-  static const int kChallFieldNumber = 2;
-  inline bool chall() const;
-  inline void set_chall(bool value);
-
-  // optional int64 time = 3;
-  inline bool has_time() const;
-  inline void clear_time();
-  static const int kTimeFieldNumber = 3;
-  inline ::google::protobuf::int64 time() const;
-  inline void set_time(::google::protobuf::int64 value);
-
-  // optional bytes dst_name = 4;
-  inline bool has_dst_name() const;
-  inline void clear_dst_name();
-  static const int kDstNameFieldNumber = 4;
-  inline const ::std::string& dst_name() const;
-  inline void set_dst_name(const ::std::string& value);
-  inline void set_dst_name(const char* value);
-  inline void set_dst_name(const void* value, size_t size);
-  inline ::std::string* mutable_dst_name();
-  inline ::std::string* release_dst_name();
-  inline void set_allocated_dst_name(::std::string* dst_name);
-
-  // optional int32 src_rank_id = 5;
-  inline bool has_src_rank_id() const;
-  inline void clear_src_rank_id();
-  static const int kSrcRankIdFieldNumber = 5;
-  inline ::google::protobuf::int32 src_rank_id() const;
-  inline void set_src_rank_id(::google::protobuf::int32 value);
-
-  // optional int32 dst_rank_id = 6;
-  inline bool has_dst_rank_id() const;
-  inline void clear_dst_rank_id();
-  static const int kDstRankIdFieldNumber = 6;
-  inline ::google::protobuf::int32 dst_rank_id() const;
-  inline void set_dst_rank_id(::google::protobuf::int32 value);
-
-  // repeated .proto_ff.ComItem items = 7;
-  inline int items_size() const;
-  inline void clear_items();
-  static const int kItemsFieldNumber = 7;
-  inline const ::proto_ff::ComItem& items(int index) const;
-  inline ::proto_ff::ComItem* mutable_items(int index);
-  inline ::proto_ff::ComItem* add_items();
-  inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >&
-      items() const;
-  inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >*
-      mutable_items();
-
-  // optional int64 dup_id = 8;
-  inline bool has_dup_id() const;
-  inline void clear_dup_id();
-  static const int kDupIdFieldNumber = 8;
-  inline ::google::protobuf::int64 dup_id() const;
-  inline void set_dup_id(::google::protobuf::int64 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.ArenaChallResult)
- private:
-  inline void set_has_result();
-  inline void clear_has_result();
-  inline void set_has_chall();
-  inline void clear_has_chall();
-  inline void set_has_time();
-  inline void clear_has_time();
-  inline void set_has_dst_name();
-  inline void clear_has_dst_name();
-  inline void set_has_src_rank_id();
-  inline void clear_has_src_rank_id();
-  inline void set_has_dst_rank_id();
-  inline void clear_has_dst_rank_id();
-  inline void set_has_dup_id();
-  inline void clear_has_dup_id();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::int32 result_;
-  bool chall_;
-  ::google::protobuf::int64 time_;
-  ::std::string* dst_name_;
-  ::google::protobuf::int32 src_rank_id_;
-  ::google::protobuf::int32 dst_rank_id_;
-  ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem > items_;
-  ::google::protobuf::int64 dup_id_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(8 + 31) / 32];
-
-  friend void  protobuf_AddDesc_Com_2eproto();
-  friend void protobuf_AssignDesc_Com_2eproto();
-  friend void protobuf_ShutdownFile_Com_2eproto();
-
-  void InitAsDefaultInstance();
-  static ArenaChallResult* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class DailyArenaReward : public ::google::protobuf::Message {
  public:
   DailyArenaReward();
@@ -20233,194 +20421,6 @@ class ExpressLog : public ::google::protobuf::Message {
 
   void InitAsDefaultInstance();
   static ExpressLog* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class MarryBrief : public ::google::protobuf::Message {
- public:
-  MarryBrief();
-  virtual ~MarryBrief();
-
-  MarryBrief(const MarryBrief& from);
-
-  inline MarryBrief& operator=(const MarryBrief& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google::protobuf::Descriptor* descriptor();
-  static const MarryBrief& default_instance();
-
-  void Swap(MarryBrief* other);
-
-  // implements Message ----------------------------------------------
-
-  MarryBrief* New() const;
-  void CopyFrom(const ::google::protobuf::Message& from);
-  void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const MarryBrief& from);
-  void MergeFrom(const MarryBrief& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google::protobuf::io::CodedOutputStream* output) const;
-  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-
-  ::google::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // optional uint64 cid = 1;
-  inline bool has_cid() const;
-  inline void clear_cid();
-  static const int kCidFieldNumber = 1;
-  inline ::google::protobuf::uint64 cid() const;
-  inline void set_cid(::google::protobuf::uint64 value);
-
-  // optional int32 child_id = 2;
-  inline bool has_child_id() const;
-  inline void clear_child_id();
-  static const int kChildIdFieldNumber = 2;
-  inline ::google::protobuf::int32 child_id() const;
-  inline void set_child_id(::google::protobuf::int32 value);
-
-  // optional uint64 card_buy_time = 3;
-  inline bool has_card_buy_time() const;
-  inline void clear_card_buy_time();
-  static const int kCardBuyTimeFieldNumber = 3;
-  inline ::google::protobuf::uint64 card_buy_time() const;
-  inline void set_card_buy_time(::google::protobuf::uint64 value);
-
-  // optional int32 express_lv = 4;
-  inline bool has_express_lv() const;
-  inline void clear_express_lv();
-  static const int kExpressLvFieldNumber = 4;
-  inline ::google::protobuf::int32 express_lv() const;
-  inline void set_express_lv(::google::protobuf::int32 value);
-
-  // repeated int32 gears = 5;
-  inline int gears_size() const;
-  inline void clear_gears();
-  static const int kGearsFieldNumber = 5;
-  inline ::google::protobuf::int32 gears(int index) const;
-  inline void set_gears(int index, ::google::protobuf::int32 value);
-  inline void add_gears(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      gears() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_gears();
-
-  // optional int32 buy_dup_num = 6;
-  inline bool has_buy_dup_num() const;
-  inline void clear_buy_dup_num();
-  static const int kBuyDupNumFieldNumber = 6;
-  inline ::google::protobuf::int32 buy_dup_num() const;
-  inline void set_buy_dup_num(::google::protobuf::int32 value);
-
-  // optional int32 marry_flag = 7;
-  inline bool has_marry_flag() const;
-  inline void clear_marry_flag();
-  static const int kMarryFlagFieldNumber = 7;
-  inline ::google::protobuf::int32 marry_flag() const;
-  inline void set_marry_flag(::google::protobuf::int32 value);
-
-  // repeated int32 recved_gears = 8;
-  inline int recved_gears_size() const;
-  inline void clear_recved_gears();
-  static const int kRecvedGearsFieldNumber = 8;
-  inline ::google::protobuf::int32 recved_gears(int index) const;
-  inline void set_recved_gears(int index, ::google::protobuf::int32 value);
-  inline void add_recved_gears(::google::protobuf::int32 value);
-  inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-      recved_gears() const;
-  inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-      mutable_recved_gears();
-
-  // optional int32 dst_recv_day = 9;
-  inline bool has_dst_recv_day() const;
-  inline void clear_dst_recv_day();
-  static const int kDstRecvDayFieldNumber = 9;
-  inline ::google::protobuf::int32 dst_recv_day() const;
-  inline void set_dst_recv_day(::google::protobuf::int32 value);
-
-  // optional int32 dst_give_dup_num = 10;
-  inline bool has_dst_give_dup_num() const;
-  inline void clear_dst_give_dup_num();
-  static const int kDstGiveDupNumFieldNumber = 10;
-  inline ::google::protobuf::int32 dst_give_dup_num() const;
-  inline void set_dst_give_dup_num(::google::protobuf::int32 value);
-
-  // optional int32 card_surplus_day = 11;
-  inline bool has_card_surplus_day() const;
-  inline void clear_card_surplus_day();
-  static const int kCardSurplusDayFieldNumber = 11;
-  inline ::google::protobuf::int32 card_surplus_day() const;
-  inline void set_card_surplus_day(::google::protobuf::int32 value);
-
-  // @@protoc_insertion_point(class_scope:proto_ff.MarryBrief)
- private:
-  inline void set_has_cid();
-  inline void clear_has_cid();
-  inline void set_has_child_id();
-  inline void clear_has_child_id();
-  inline void set_has_card_buy_time();
-  inline void clear_has_card_buy_time();
-  inline void set_has_express_lv();
-  inline void clear_has_express_lv();
-  inline void set_has_buy_dup_num();
-  inline void clear_has_buy_dup_num();
-  inline void set_has_marry_flag();
-  inline void clear_has_marry_flag();
-  inline void set_has_dst_recv_day();
-  inline void clear_has_dst_recv_day();
-  inline void set_has_dst_give_dup_num();
-  inline void clear_has_dst_give_dup_num();
-  inline void set_has_card_surplus_day();
-  inline void clear_has_card_surplus_day();
-
-  ::google::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google::protobuf::uint64 cid_;
-  ::google::protobuf::uint64 card_buy_time_;
-  ::google::protobuf::int32 child_id_;
-  ::google::protobuf::int32 express_lv_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > gears_;
-  ::google::protobuf::int32 buy_dup_num_;
-  ::google::protobuf::int32 marry_flag_;
-  ::google::protobuf::RepeatedField< ::google::protobuf::int32 > recved_gears_;
-  ::google::protobuf::int32 dst_recv_day_;
-  ::google::protobuf::int32 dst_give_dup_num_;
-  ::google::protobuf::int32 card_surplus_day_;
-
-  mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(11 + 31) / 32];
-
-  friend void  protobuf_AddDesc_Com_2eproto();
-  friend void protobuf_AssignDesc_Com_2eproto();
-  friend void protobuf_ShutdownFile_Com_2eproto();
-
-  void InitAsDefaultInstance();
-  static MarryBrief* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -34670,6 +34670,258 @@ inline void LoginRoleProto::set_allocated_facade(::proto_ff::RoleFacadeProto* fa
 
 // -------------------------------------------------------------------
 
+// MarryBrief
+
+// optional uint64 cid = 1;
+inline bool MarryBrief::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void MarryBrief::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void MarryBrief::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void MarryBrief::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 MarryBrief::cid() const {
+  return cid_;
+}
+inline void MarryBrief::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional int32 child_id = 2;
+inline bool MarryBrief::has_child_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MarryBrief::set_has_child_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MarryBrief::clear_has_child_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MarryBrief::clear_child_id() {
+  child_id_ = 0;
+  clear_has_child_id();
+}
+inline ::google::protobuf::int32 MarryBrief::child_id() const {
+  return child_id_;
+}
+inline void MarryBrief::set_child_id(::google::protobuf::int32 value) {
+  set_has_child_id();
+  child_id_ = value;
+}
+
+// optional uint64 card_buy_time = 3;
+inline bool MarryBrief::has_card_buy_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MarryBrief::set_has_card_buy_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MarryBrief::clear_has_card_buy_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MarryBrief::clear_card_buy_time() {
+  card_buy_time_ = GOOGLE_ULONGLONG(0);
+  clear_has_card_buy_time();
+}
+inline ::google::protobuf::uint64 MarryBrief::card_buy_time() const {
+  return card_buy_time_;
+}
+inline void MarryBrief::set_card_buy_time(::google::protobuf::uint64 value) {
+  set_has_card_buy_time();
+  card_buy_time_ = value;
+}
+
+// optional int32 express_lv = 4;
+inline bool MarryBrief::has_express_lv() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MarryBrief::set_has_express_lv() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MarryBrief::clear_has_express_lv() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MarryBrief::clear_express_lv() {
+  express_lv_ = 0;
+  clear_has_express_lv();
+}
+inline ::google::protobuf::int32 MarryBrief::express_lv() const {
+  return express_lv_;
+}
+inline void MarryBrief::set_express_lv(::google::protobuf::int32 value) {
+  set_has_express_lv();
+  express_lv_ = value;
+}
+
+// repeated int32 gears = 5;
+inline int MarryBrief::gears_size() const {
+  return gears_.size();
+}
+inline void MarryBrief::clear_gears() {
+  gears_.Clear();
+}
+inline ::google::protobuf::int32 MarryBrief::gears(int index) const {
+  return gears_.Get(index);
+}
+inline void MarryBrief::set_gears(int index, ::google::protobuf::int32 value) {
+  gears_.Set(index, value);
+}
+inline void MarryBrief::add_gears(::google::protobuf::int32 value) {
+  gears_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MarryBrief::gears() const {
+  return gears_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MarryBrief::mutable_gears() {
+  return &gears_;
+}
+
+// optional int32 buy_dup_num = 6;
+inline bool MarryBrief::has_buy_dup_num() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MarryBrief::set_has_buy_dup_num() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MarryBrief::clear_has_buy_dup_num() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MarryBrief::clear_buy_dup_num() {
+  buy_dup_num_ = 0;
+  clear_has_buy_dup_num();
+}
+inline ::google::protobuf::int32 MarryBrief::buy_dup_num() const {
+  return buy_dup_num_;
+}
+inline void MarryBrief::set_buy_dup_num(::google::protobuf::int32 value) {
+  set_has_buy_dup_num();
+  buy_dup_num_ = value;
+}
+
+// optional int32 marry_flag = 7;
+inline bool MarryBrief::has_marry_flag() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void MarryBrief::set_has_marry_flag() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void MarryBrief::clear_has_marry_flag() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void MarryBrief::clear_marry_flag() {
+  marry_flag_ = 0;
+  clear_has_marry_flag();
+}
+inline ::google::protobuf::int32 MarryBrief::marry_flag() const {
+  return marry_flag_;
+}
+inline void MarryBrief::set_marry_flag(::google::protobuf::int32 value) {
+  set_has_marry_flag();
+  marry_flag_ = value;
+}
+
+// repeated int32 recved_gears = 8;
+inline int MarryBrief::recved_gears_size() const {
+  return recved_gears_.size();
+}
+inline void MarryBrief::clear_recved_gears() {
+  recved_gears_.Clear();
+}
+inline ::google::protobuf::int32 MarryBrief::recved_gears(int index) const {
+  return recved_gears_.Get(index);
+}
+inline void MarryBrief::set_recved_gears(int index, ::google::protobuf::int32 value) {
+  recved_gears_.Set(index, value);
+}
+inline void MarryBrief::add_recved_gears(::google::protobuf::int32 value) {
+  recved_gears_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
+MarryBrief::recved_gears() const {
+  return recved_gears_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
+MarryBrief::mutable_recved_gears() {
+  return &recved_gears_;
+}
+
+// optional int32 dst_recv_day = 9;
+inline bool MarryBrief::has_dst_recv_day() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void MarryBrief::set_has_dst_recv_day() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void MarryBrief::clear_has_dst_recv_day() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void MarryBrief::clear_dst_recv_day() {
+  dst_recv_day_ = 0;
+  clear_has_dst_recv_day();
+}
+inline ::google::protobuf::int32 MarryBrief::dst_recv_day() const {
+  return dst_recv_day_;
+}
+inline void MarryBrief::set_dst_recv_day(::google::protobuf::int32 value) {
+  set_has_dst_recv_day();
+  dst_recv_day_ = value;
+}
+
+// optional int32 dst_give_dup_num = 10;
+inline bool MarryBrief::has_dst_give_dup_num() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void MarryBrief::set_has_dst_give_dup_num() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void MarryBrief::clear_has_dst_give_dup_num() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void MarryBrief::clear_dst_give_dup_num() {
+  dst_give_dup_num_ = 0;
+  clear_has_dst_give_dup_num();
+}
+inline ::google::protobuf::int32 MarryBrief::dst_give_dup_num() const {
+  return dst_give_dup_num_;
+}
+inline void MarryBrief::set_dst_give_dup_num(::google::protobuf::int32 value) {
+  set_has_dst_give_dup_num();
+  dst_give_dup_num_ = value;
+}
+
+// optional int32 card_surplus_day = 11;
+inline bool MarryBrief::has_card_surplus_day() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void MarryBrief::set_has_card_surplus_day() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void MarryBrief::clear_has_card_surplus_day() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void MarryBrief::clear_card_surplus_day() {
+  card_surplus_day_ = 0;
+  clear_has_card_surplus_day();
+}
+inline ::google::protobuf::int32 MarryBrief::card_surplus_day() const {
+  return card_surplus_day_;
+}
+inline void MarryBrief::set_card_surplus_day(::google::protobuf::int32 value) {
+  set_has_card_surplus_day();
+  card_surplus_day_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // LoginSynMarry
 
 // optional int32 my_dst_recv_day = 1;
@@ -41087,6 +41339,237 @@ inline void NotifyRoleFacadeCastRsp::set_allocated_facade(::proto_ff::RoleFacade
 
 // -------------------------------------------------------------------
 
+// ArenaChallResult
+
+// optional int32 result = 1;
+inline bool ArenaChallResult::has_result() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ArenaChallResult::set_has_result() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ArenaChallResult::clear_has_result() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ArenaChallResult::clear_result() {
+  result_ = 0;
+  clear_has_result();
+}
+inline ::google::protobuf::int32 ArenaChallResult::result() const {
+  return result_;
+}
+inline void ArenaChallResult::set_result(::google::protobuf::int32 value) {
+  set_has_result();
+  result_ = value;
+}
+
+// optional bool chall = 2;
+inline bool ArenaChallResult::has_chall() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ArenaChallResult::set_has_chall() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ArenaChallResult::clear_has_chall() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ArenaChallResult::clear_chall() {
+  chall_ = false;
+  clear_has_chall();
+}
+inline bool ArenaChallResult::chall() const {
+  return chall_;
+}
+inline void ArenaChallResult::set_chall(bool value) {
+  set_has_chall();
+  chall_ = value;
+}
+
+// optional int64 time = 3;
+inline bool ArenaChallResult::has_time() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ArenaChallResult::set_has_time() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ArenaChallResult::clear_has_time() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ArenaChallResult::clear_time() {
+  time_ = GOOGLE_LONGLONG(0);
+  clear_has_time();
+}
+inline ::google::protobuf::int64 ArenaChallResult::time() const {
+  return time_;
+}
+inline void ArenaChallResult::set_time(::google::protobuf::int64 value) {
+  set_has_time();
+  time_ = value;
+}
+
+// optional bytes dst_name = 4;
+inline bool ArenaChallResult::has_dst_name() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void ArenaChallResult::set_has_dst_name() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void ArenaChallResult::clear_has_dst_name() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void ArenaChallResult::clear_dst_name() {
+  if (dst_name_ != &::google::protobuf::internal::kEmptyString) {
+    dst_name_->clear();
+  }
+  clear_has_dst_name();
+}
+inline const ::std::string& ArenaChallResult::dst_name() const {
+  return *dst_name_;
+}
+inline void ArenaChallResult::set_dst_name(const ::std::string& value) {
+  set_has_dst_name();
+  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
+    dst_name_ = new ::std::string;
+  }
+  dst_name_->assign(value);
+}
+inline void ArenaChallResult::set_dst_name(const char* value) {
+  set_has_dst_name();
+  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
+    dst_name_ = new ::std::string;
+  }
+  dst_name_->assign(value);
+}
+inline void ArenaChallResult::set_dst_name(const void* value, size_t size) {
+  set_has_dst_name();
+  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
+    dst_name_ = new ::std::string;
+  }
+  dst_name_->assign(reinterpret_cast<const char*>(value), size);
+}
+inline ::std::string* ArenaChallResult::mutable_dst_name() {
+  set_has_dst_name();
+  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
+    dst_name_ = new ::std::string;
+  }
+  return dst_name_;
+}
+inline ::std::string* ArenaChallResult::release_dst_name() {
+  clear_has_dst_name();
+  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
+    return NULL;
+  } else {
+    ::std::string* temp = dst_name_;
+    dst_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+    return temp;
+  }
+}
+inline void ArenaChallResult::set_allocated_dst_name(::std::string* dst_name) {
+  if (dst_name_ != &::google::protobuf::internal::kEmptyString) {
+    delete dst_name_;
+  }
+  if (dst_name) {
+    set_has_dst_name();
+    dst_name_ = dst_name;
+  } else {
+    clear_has_dst_name();
+    dst_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
+  }
+}
+
+// optional int32 src_rank_id = 5;
+inline bool ArenaChallResult::has_src_rank_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void ArenaChallResult::set_has_src_rank_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void ArenaChallResult::clear_has_src_rank_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void ArenaChallResult::clear_src_rank_id() {
+  src_rank_id_ = 0;
+  clear_has_src_rank_id();
+}
+inline ::google::protobuf::int32 ArenaChallResult::src_rank_id() const {
+  return src_rank_id_;
+}
+inline void ArenaChallResult::set_src_rank_id(::google::protobuf::int32 value) {
+  set_has_src_rank_id();
+  src_rank_id_ = value;
+}
+
+// optional int32 dst_rank_id = 6;
+inline bool ArenaChallResult::has_dst_rank_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void ArenaChallResult::set_has_dst_rank_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void ArenaChallResult::clear_has_dst_rank_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void ArenaChallResult::clear_dst_rank_id() {
+  dst_rank_id_ = 0;
+  clear_has_dst_rank_id();
+}
+inline ::google::protobuf::int32 ArenaChallResult::dst_rank_id() const {
+  return dst_rank_id_;
+}
+inline void ArenaChallResult::set_dst_rank_id(::google::protobuf::int32 value) {
+  set_has_dst_rank_id();
+  dst_rank_id_ = value;
+}
+
+// repeated .proto_ff.ComItem items = 7;
+inline int ArenaChallResult::items_size() const {
+  return items_.size();
+}
+inline void ArenaChallResult::clear_items() {
+  items_.Clear();
+}
+inline const ::proto_ff::ComItem& ArenaChallResult::items(int index) const {
+  return items_.Get(index);
+}
+inline ::proto_ff::ComItem* ArenaChallResult::mutable_items(int index) {
+  return items_.Mutable(index);
+}
+inline ::proto_ff::ComItem* ArenaChallResult::add_items() {
+  return items_.Add();
+}
+inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >&
+ArenaChallResult::items() const {
+  return items_;
+}
+inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >*
+ArenaChallResult::mutable_items() {
+  return &items_;
+}
+
+// optional int64 dup_id = 8;
+inline bool ArenaChallResult::has_dup_id() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void ArenaChallResult::set_has_dup_id() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void ArenaChallResult::clear_has_dup_id() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void ArenaChallResult::clear_dup_id() {
+  dup_id_ = GOOGLE_LONGLONG(0);
+  clear_has_dup_id();
+}
+inline ::google::protobuf::int64 ArenaChallResult::dup_id() const {
+  return dup_id_;
+}
+inline void ArenaChallResult::set_dup_id(::google::protobuf::int64 value) {
+  set_has_dup_id();
+  dup_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
 // FunctionUnlockInfoData
 
 // optional uint64 unlockId = 1;
@@ -46980,237 +47463,6 @@ inline void RecvVipCacheExpRsp::set_ret(::google::protobuf::int32 value) {
 
 // -------------------------------------------------------------------
 
-// ArenaChallResult
-
-// optional int32 result = 1;
-inline bool ArenaChallResult::has_result() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void ArenaChallResult::set_has_result() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void ArenaChallResult::clear_has_result() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void ArenaChallResult::clear_result() {
-  result_ = 0;
-  clear_has_result();
-}
-inline ::google::protobuf::int32 ArenaChallResult::result() const {
-  return result_;
-}
-inline void ArenaChallResult::set_result(::google::protobuf::int32 value) {
-  set_has_result();
-  result_ = value;
-}
-
-// optional bool chall = 2;
-inline bool ArenaChallResult::has_chall() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void ArenaChallResult::set_has_chall() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void ArenaChallResult::clear_has_chall() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void ArenaChallResult::clear_chall() {
-  chall_ = false;
-  clear_has_chall();
-}
-inline bool ArenaChallResult::chall() const {
-  return chall_;
-}
-inline void ArenaChallResult::set_chall(bool value) {
-  set_has_chall();
-  chall_ = value;
-}
-
-// optional int64 time = 3;
-inline bool ArenaChallResult::has_time() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void ArenaChallResult::set_has_time() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void ArenaChallResult::clear_has_time() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void ArenaChallResult::clear_time() {
-  time_ = GOOGLE_LONGLONG(0);
-  clear_has_time();
-}
-inline ::google::protobuf::int64 ArenaChallResult::time() const {
-  return time_;
-}
-inline void ArenaChallResult::set_time(::google::protobuf::int64 value) {
-  set_has_time();
-  time_ = value;
-}
-
-// optional bytes dst_name = 4;
-inline bool ArenaChallResult::has_dst_name() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void ArenaChallResult::set_has_dst_name() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void ArenaChallResult::clear_has_dst_name() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void ArenaChallResult::clear_dst_name() {
-  if (dst_name_ != &::google::protobuf::internal::kEmptyString) {
-    dst_name_->clear();
-  }
-  clear_has_dst_name();
-}
-inline const ::std::string& ArenaChallResult::dst_name() const {
-  return *dst_name_;
-}
-inline void ArenaChallResult::set_dst_name(const ::std::string& value) {
-  set_has_dst_name();
-  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
-    dst_name_ = new ::std::string;
-  }
-  dst_name_->assign(value);
-}
-inline void ArenaChallResult::set_dst_name(const char* value) {
-  set_has_dst_name();
-  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
-    dst_name_ = new ::std::string;
-  }
-  dst_name_->assign(value);
-}
-inline void ArenaChallResult::set_dst_name(const void* value, size_t size) {
-  set_has_dst_name();
-  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
-    dst_name_ = new ::std::string;
-  }
-  dst_name_->assign(reinterpret_cast<const char*>(value), size);
-}
-inline ::std::string* ArenaChallResult::mutable_dst_name() {
-  set_has_dst_name();
-  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
-    dst_name_ = new ::std::string;
-  }
-  return dst_name_;
-}
-inline ::std::string* ArenaChallResult::release_dst_name() {
-  clear_has_dst_name();
-  if (dst_name_ == &::google::protobuf::internal::kEmptyString) {
-    return NULL;
-  } else {
-    ::std::string* temp = dst_name_;
-    dst_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-    return temp;
-  }
-}
-inline void ArenaChallResult::set_allocated_dst_name(::std::string* dst_name) {
-  if (dst_name_ != &::google::protobuf::internal::kEmptyString) {
-    delete dst_name_;
-  }
-  if (dst_name) {
-    set_has_dst_name();
-    dst_name_ = dst_name;
-  } else {
-    clear_has_dst_name();
-    dst_name_ = const_cast< ::std::string*>(&::google::protobuf::internal::kEmptyString);
-  }
-}
-
-// optional int32 src_rank_id = 5;
-inline bool ArenaChallResult::has_src_rank_id() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
-}
-inline void ArenaChallResult::set_has_src_rank_id() {
-  _has_bits_[0] |= 0x00000010u;
-}
-inline void ArenaChallResult::clear_has_src_rank_id() {
-  _has_bits_[0] &= ~0x00000010u;
-}
-inline void ArenaChallResult::clear_src_rank_id() {
-  src_rank_id_ = 0;
-  clear_has_src_rank_id();
-}
-inline ::google::protobuf::int32 ArenaChallResult::src_rank_id() const {
-  return src_rank_id_;
-}
-inline void ArenaChallResult::set_src_rank_id(::google::protobuf::int32 value) {
-  set_has_src_rank_id();
-  src_rank_id_ = value;
-}
-
-// optional int32 dst_rank_id = 6;
-inline bool ArenaChallResult::has_dst_rank_id() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void ArenaChallResult::set_has_dst_rank_id() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void ArenaChallResult::clear_has_dst_rank_id() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void ArenaChallResult::clear_dst_rank_id() {
-  dst_rank_id_ = 0;
-  clear_has_dst_rank_id();
-}
-inline ::google::protobuf::int32 ArenaChallResult::dst_rank_id() const {
-  return dst_rank_id_;
-}
-inline void ArenaChallResult::set_dst_rank_id(::google::protobuf::int32 value) {
-  set_has_dst_rank_id();
-  dst_rank_id_ = value;
-}
-
-// repeated .proto_ff.ComItem items = 7;
-inline int ArenaChallResult::items_size() const {
-  return items_.size();
-}
-inline void ArenaChallResult::clear_items() {
-  items_.Clear();
-}
-inline const ::proto_ff::ComItem& ArenaChallResult::items(int index) const {
-  return items_.Get(index);
-}
-inline ::proto_ff::ComItem* ArenaChallResult::mutable_items(int index) {
-  return items_.Mutable(index);
-}
-inline ::proto_ff::ComItem* ArenaChallResult::add_items() {
-  return items_.Add();
-}
-inline const ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >&
-ArenaChallResult::items() const {
-  return items_;
-}
-inline ::google::protobuf::RepeatedPtrField< ::proto_ff::ComItem >*
-ArenaChallResult::mutable_items() {
-  return &items_;
-}
-
-// optional int64 dup_id = 8;
-inline bool ArenaChallResult::has_dup_id() const {
-  return (_has_bits_[0] & 0x00000080u) != 0;
-}
-inline void ArenaChallResult::set_has_dup_id() {
-  _has_bits_[0] |= 0x00000080u;
-}
-inline void ArenaChallResult::clear_has_dup_id() {
-  _has_bits_[0] &= ~0x00000080u;
-}
-inline void ArenaChallResult::clear_dup_id() {
-  dup_id_ = GOOGLE_LONGLONG(0);
-  clear_has_dup_id();
-}
-inline ::google::protobuf::int64 ArenaChallResult::dup_id() const {
-  return dup_id_;
-}
-inline void ArenaChallResult::set_dup_id(::google::protobuf::int64 value) {
-  set_has_dup_id();
-  dup_id_ = value;
-}
-
-// -------------------------------------------------------------------
-
 // DailyArenaReward
 
 // optional int32 cfg_id = 1;
@@ -52475,258 +52727,6 @@ inline ::google::protobuf::uint64 ExpressLog::item() const {
 inline void ExpressLog::set_item(::google::protobuf::uint64 value) {
   set_has_item();
   item_ = value;
-}
-
-// -------------------------------------------------------------------
-
-// MarryBrief
-
-// optional uint64 cid = 1;
-inline bool MarryBrief::has_cid() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void MarryBrief::set_has_cid() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void MarryBrief::clear_has_cid() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void MarryBrief::clear_cid() {
-  cid_ = GOOGLE_ULONGLONG(0);
-  clear_has_cid();
-}
-inline ::google::protobuf::uint64 MarryBrief::cid() const {
-  return cid_;
-}
-inline void MarryBrief::set_cid(::google::protobuf::uint64 value) {
-  set_has_cid();
-  cid_ = value;
-}
-
-// optional int32 child_id = 2;
-inline bool MarryBrief::has_child_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void MarryBrief::set_has_child_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void MarryBrief::clear_has_child_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void MarryBrief::clear_child_id() {
-  child_id_ = 0;
-  clear_has_child_id();
-}
-inline ::google::protobuf::int32 MarryBrief::child_id() const {
-  return child_id_;
-}
-inline void MarryBrief::set_child_id(::google::protobuf::int32 value) {
-  set_has_child_id();
-  child_id_ = value;
-}
-
-// optional uint64 card_buy_time = 3;
-inline bool MarryBrief::has_card_buy_time() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
-}
-inline void MarryBrief::set_has_card_buy_time() {
-  _has_bits_[0] |= 0x00000004u;
-}
-inline void MarryBrief::clear_has_card_buy_time() {
-  _has_bits_[0] &= ~0x00000004u;
-}
-inline void MarryBrief::clear_card_buy_time() {
-  card_buy_time_ = GOOGLE_ULONGLONG(0);
-  clear_has_card_buy_time();
-}
-inline ::google::protobuf::uint64 MarryBrief::card_buy_time() const {
-  return card_buy_time_;
-}
-inline void MarryBrief::set_card_buy_time(::google::protobuf::uint64 value) {
-  set_has_card_buy_time();
-  card_buy_time_ = value;
-}
-
-// optional int32 express_lv = 4;
-inline bool MarryBrief::has_express_lv() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
-}
-inline void MarryBrief::set_has_express_lv() {
-  _has_bits_[0] |= 0x00000008u;
-}
-inline void MarryBrief::clear_has_express_lv() {
-  _has_bits_[0] &= ~0x00000008u;
-}
-inline void MarryBrief::clear_express_lv() {
-  express_lv_ = 0;
-  clear_has_express_lv();
-}
-inline ::google::protobuf::int32 MarryBrief::express_lv() const {
-  return express_lv_;
-}
-inline void MarryBrief::set_express_lv(::google::protobuf::int32 value) {
-  set_has_express_lv();
-  express_lv_ = value;
-}
-
-// repeated int32 gears = 5;
-inline int MarryBrief::gears_size() const {
-  return gears_.size();
-}
-inline void MarryBrief::clear_gears() {
-  gears_.Clear();
-}
-inline ::google::protobuf::int32 MarryBrief::gears(int index) const {
-  return gears_.Get(index);
-}
-inline void MarryBrief::set_gears(int index, ::google::protobuf::int32 value) {
-  gears_.Set(index, value);
-}
-inline void MarryBrief::add_gears(::google::protobuf::int32 value) {
-  gears_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-MarryBrief::gears() const {
-  return gears_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-MarryBrief::mutable_gears() {
-  return &gears_;
-}
-
-// optional int32 buy_dup_num = 6;
-inline bool MarryBrief::has_buy_dup_num() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
-}
-inline void MarryBrief::set_has_buy_dup_num() {
-  _has_bits_[0] |= 0x00000020u;
-}
-inline void MarryBrief::clear_has_buy_dup_num() {
-  _has_bits_[0] &= ~0x00000020u;
-}
-inline void MarryBrief::clear_buy_dup_num() {
-  buy_dup_num_ = 0;
-  clear_has_buy_dup_num();
-}
-inline ::google::protobuf::int32 MarryBrief::buy_dup_num() const {
-  return buy_dup_num_;
-}
-inline void MarryBrief::set_buy_dup_num(::google::protobuf::int32 value) {
-  set_has_buy_dup_num();
-  buy_dup_num_ = value;
-}
-
-// optional int32 marry_flag = 7;
-inline bool MarryBrief::has_marry_flag() const {
-  return (_has_bits_[0] & 0x00000040u) != 0;
-}
-inline void MarryBrief::set_has_marry_flag() {
-  _has_bits_[0] |= 0x00000040u;
-}
-inline void MarryBrief::clear_has_marry_flag() {
-  _has_bits_[0] &= ~0x00000040u;
-}
-inline void MarryBrief::clear_marry_flag() {
-  marry_flag_ = 0;
-  clear_has_marry_flag();
-}
-inline ::google::protobuf::int32 MarryBrief::marry_flag() const {
-  return marry_flag_;
-}
-inline void MarryBrief::set_marry_flag(::google::protobuf::int32 value) {
-  set_has_marry_flag();
-  marry_flag_ = value;
-}
-
-// repeated int32 recved_gears = 8;
-inline int MarryBrief::recved_gears_size() const {
-  return recved_gears_.size();
-}
-inline void MarryBrief::clear_recved_gears() {
-  recved_gears_.Clear();
-}
-inline ::google::protobuf::int32 MarryBrief::recved_gears(int index) const {
-  return recved_gears_.Get(index);
-}
-inline void MarryBrief::set_recved_gears(int index, ::google::protobuf::int32 value) {
-  recved_gears_.Set(index, value);
-}
-inline void MarryBrief::add_recved_gears(::google::protobuf::int32 value) {
-  recved_gears_.Add(value);
-}
-inline const ::google::protobuf::RepeatedField< ::google::protobuf::int32 >&
-MarryBrief::recved_gears() const {
-  return recved_gears_;
-}
-inline ::google::protobuf::RepeatedField< ::google::protobuf::int32 >*
-MarryBrief::mutable_recved_gears() {
-  return &recved_gears_;
-}
-
-// optional int32 dst_recv_day = 9;
-inline bool MarryBrief::has_dst_recv_day() const {
-  return (_has_bits_[0] & 0x00000100u) != 0;
-}
-inline void MarryBrief::set_has_dst_recv_day() {
-  _has_bits_[0] |= 0x00000100u;
-}
-inline void MarryBrief::clear_has_dst_recv_day() {
-  _has_bits_[0] &= ~0x00000100u;
-}
-inline void MarryBrief::clear_dst_recv_day() {
-  dst_recv_day_ = 0;
-  clear_has_dst_recv_day();
-}
-inline ::google::protobuf::int32 MarryBrief::dst_recv_day() const {
-  return dst_recv_day_;
-}
-inline void MarryBrief::set_dst_recv_day(::google::protobuf::int32 value) {
-  set_has_dst_recv_day();
-  dst_recv_day_ = value;
-}
-
-// optional int32 dst_give_dup_num = 10;
-inline bool MarryBrief::has_dst_give_dup_num() const {
-  return (_has_bits_[0] & 0x00000200u) != 0;
-}
-inline void MarryBrief::set_has_dst_give_dup_num() {
-  _has_bits_[0] |= 0x00000200u;
-}
-inline void MarryBrief::clear_has_dst_give_dup_num() {
-  _has_bits_[0] &= ~0x00000200u;
-}
-inline void MarryBrief::clear_dst_give_dup_num() {
-  dst_give_dup_num_ = 0;
-  clear_has_dst_give_dup_num();
-}
-inline ::google::protobuf::int32 MarryBrief::dst_give_dup_num() const {
-  return dst_give_dup_num_;
-}
-inline void MarryBrief::set_dst_give_dup_num(::google::protobuf::int32 value) {
-  set_has_dst_give_dup_num();
-  dst_give_dup_num_ = value;
-}
-
-// optional int32 card_surplus_day = 11;
-inline bool MarryBrief::has_card_surplus_day() const {
-  return (_has_bits_[0] & 0x00000400u) != 0;
-}
-inline void MarryBrief::set_has_card_surplus_day() {
-  _has_bits_[0] |= 0x00000400u;
-}
-inline void MarryBrief::clear_has_card_surplus_day() {
-  _has_bits_[0] &= ~0x00000400u;
-}
-inline void MarryBrief::clear_card_surplus_day() {
-  card_surplus_day_ = 0;
-  clear_has_card_surplus_day();
-}
-inline ::google::protobuf::int32 MarryBrief::card_surplus_day() const {
-  return card_surplus_day_;
-}
-inline void MarryBrief::set_card_surplus_day(::google::protobuf::int32 value) {
-  set_has_card_surplus_day();
-  card_surplus_day_ = value;
 }
 
 // -------------------------------------------------------------------

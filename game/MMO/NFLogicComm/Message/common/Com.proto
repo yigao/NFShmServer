@@ -113,6 +113,22 @@ message LoginRoleProto
   optional RoleFacadeProto facade = 7;		// 角色外观
 }
 
+//结婚简要信息
+message MarryBrief
+{
+  optional uint64 cid = 1;			 	//玩家cid
+  optional int32 child_id = 2;		 	//幻化的孩子信息
+  optional uint64 card_buy_time = 3;   	//宝匣购买时间
+  optional int32 express_lv = 4;		 	//表白的等级
+  repeated int32 gears = 5;			 	//已购买的档位信息
+  optional int32 buy_dup_num= 6;		 	//购买副本的次数
+  optional int32 marry_flag = 7;		 	//之前是否结过婚 0:没有 1已结过婚
+  repeated int32 recved_gears	= 8;	 	//已领取过的档位奖励
+  optional int32 dst_recv_day = 9;	 	//对象领取过的宝匣天数
+  optional int32 dst_give_dup_num = 10;	//对象购买副本赠与的次数
+  optional int32 card_surplus_day = 11;	//宝匣当前剩余天数
+}
+
 message LoginSynMarry
 {
   optional int32 my_dst_recv_day = 1;	//我自己宝匣被对方使用的天数
@@ -809,6 +825,19 @@ message NotifyRoleFacadeCastRsp
   optional RoleFacadeProto facade = 2;
 }
 
+//竞技场副本结算数据
+message ArenaChallResult
+{
+  optional int32 result = 1;//竞技场结果，1-胜利， 2-失败
+  optional bool chall = 2; //true:玩家挑战别人，false:别人调整玩家
+  optional int64 time = 3; //发生的时间
+  optional bytes dst_name = 4; //	对方的名字
+  optional int32 src_rank_id = 5; //挑战前的排名
+  optional int32 dst_rank_id = 6; //挑战后的排名
+  repeated ComItem items = 7; //奖励数量
+  optional int64 dup_id = 8;
+}
+
 message FunctionUnlockInfoData
 {
   optional uint64 unlockId = 1;
@@ -1428,18 +1457,7 @@ message RecvVipCacheExpRsp
   optional int32 ret = 1;
 }
 //===================================================================================
-//竞技场副本结算数据
-message ArenaChallResult
-{
-  optional int32 result = 1;//竞技场结果，1-胜利， 2-失败
-  optional bool chall = 2; //true:玩家挑战别人，false:别人调整玩家
-  optional int64 time = 3; //发生的时间
-  optional bytes dst_name = 4; //	对方的名字
-  optional int32 src_rank_id = 5; //挑战前的排名
-  optional int32 dst_rank_id = 6; //挑战后的排名
-  repeated ComItem items = 7; //奖励数量
-  optional int64 dup_id = 8;
-}
+
 
 //竞技场每日奖励
 message DailyArenaReward
@@ -1943,21 +1961,7 @@ message ExpressLog
   optional uint64 item = 6;
 }
 
-//结婚简要信息
-message MarryBrief
-{
-  optional uint64 cid = 1;			 	//玩家cid
-  optional int32 child_id = 2;		 	//幻化的孩子信息
-  optional uint64 card_buy_time = 3;   	//宝匣购买时间
-  optional int32 express_lv = 4;		 	//表白的等级
-  repeated int32 gears = 5;			 	//已购买的档位信息
-  optional int32 buy_dup_num= 6;		 	//购买副本的次数
-  optional int32 marry_flag = 7;		 	//之前是否结过婚 0:没有 1已结过婚
-  repeated int32 recved_gears	= 8;	 	//已领取过的档位奖励
-  optional int32 dst_recv_day = 9;	 	//对象领取过的宝匣天数
-  optional int32 dst_give_dup_num = 10;	//对象购买副本赠与的次数
-  optional int32 card_surplus_day = 11;	//宝匣当前剩余天数
-}
+
 
 //婚宴DB数据(服务器用)
 message WeddingDBInfo

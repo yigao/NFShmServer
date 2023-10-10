@@ -1217,7 +1217,7 @@ int NFIBusConnection::SendBusConnectMsg(uint64_t busId, uint64_t busLength)
 {
     NFDataPackage package;
     package.mModuleId = 0;
-    package.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
+    package.nMsgId = proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
     package.nParam1 = busId;
     package.nParam2 = busLength;
     package.nSendBusLinkId = m_bindFlag.mLinkId;
@@ -1230,7 +1230,7 @@ int NFIBusConnection::SendBusConnectRspMsg(uint64_t busId, uint64_t busLength)
 {
     NFDataPackage package;
     package.mModuleId = 0;
-    package.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_RSP;
+    package.nMsgId = proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_RSP;
     package.nParam1 = busId;
     package.nParam2 = busLength;
     package.nSendBusLinkId = m_bindFlag.mLinkId;
@@ -1243,7 +1243,7 @@ int NFIBusConnection::SendBusHeartBeatMsg(uint64_t busId, uint64_t busLength)
 {
     NFDataPackage package;
     package.mModuleId = 0;
-    package.nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT;
+    package.nMsgId = proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT;
     package.nParam1 = busId;
     package.nParam2 = busLength;
     package.nSendBusLinkId = m_bindFlag.mLinkId;
@@ -1256,7 +1256,7 @@ int NFIBusConnection::SendBusHeartBeatRspMsg(uint64_t busId, uint64_t busLength)
 {
     NFDataPackage package;
     package.mModuleId = 0;
-    package.nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
+    package.nMsgId = proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
     package.nParam1 = busId;
     package.nParam2 = busLength;
     package.nSendBusLinkId = m_bindFlag.mLinkId;

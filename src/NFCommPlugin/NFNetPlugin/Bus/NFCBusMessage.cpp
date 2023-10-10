@@ -200,7 +200,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64
         {
             if (packet.mModuleId == 0)
             {
-                if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT)
+                if (packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT)
                 {
                     auto pConn = m_busConnectMap.GetElement(fromLinkId);
                     if (pConn)
@@ -216,7 +216,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64
                     }
                 }
 
-                if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)
+                if (packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT_RSP)
                 {
                     auto pConn = m_busConnectMap.GetElement(fromLinkId);
                     if (pConn)
@@ -271,7 +271,7 @@ void NFCBusMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uint64
             if (pConn)
             {
                 pConn->SetConnected(true);
-                if (packet.mModuleId == 0 && packet.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
+                if (packet.mModuleId == 0 && packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                 {
                     pConn->SendBusConnectRspMsg(m_bindConnect->GetBusId(), m_bindConnect->GetBusLength());
                     if (mEventCB)
@@ -356,7 +356,7 @@ int NFCBusMessage::ResumeConnect()
                     NFDataPackage packet;
                     packet.nSendBusLinkId = GetUnLinkId(NF_IS_BUS, serverType, flag.mBusId, 0);
                     packet.mModuleId = 0;
-                    packet.nMsgId = NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
+                    packet.nMsgId = proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_REQ;
                     packet.nParam1 = flag.mBusId;
                     packet.nParam2 = flag.mBusLength;
 

@@ -20,10 +20,10 @@ NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m
     {
         mSpecialMsgMap[i].resize(NF_NET_MAX_MSG_ID);
     }
-    RegisterSpecialMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT);
-    RegisterSpecialMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
-    RegisterSpecialMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_REQ);
-    RegisterSpecialMsg(NF_MODULE_SERVER, NF_SERVER_TO_SERVER_BUS_CONNECT_RSP);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT_RSP);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_REQ);
+    RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_RSP);
     RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
     RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_MASTER_SERVER_SEND_OTHERS_TO_SERVER);
     RegisterSpecialMsg(NF_MODULE_SERVER, proto_ff::NF_SERVER_TO_MASTER_SERVER_REPORT);

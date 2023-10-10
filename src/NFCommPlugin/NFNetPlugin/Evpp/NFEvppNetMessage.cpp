@@ -863,7 +863,7 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uin
 	{
 	    if (packet.mModuleId == 0)
         {
-            if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT)
+            if (packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT)
             {
                 NetEvppObject* pObject = GetNetObject(objectLinkId);
                 if (pObject && pObject->mIsServer)
@@ -872,7 +872,7 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uin
                     NFDataPackage packet;
 
                     packet.mModuleId = 0;
-                    packet.nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
+                    packet.nMsgId = proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT_RSP;
                     Send(pObject->GetLinkId(), packet, NULL, 0);
                     return;
                 }
@@ -881,7 +881,7 @@ void NFEvppNetMessage::OnHandleMsgPeer(eMsgType type, uint64_t serverLinkId, uin
                 }
             }
 
-            if (packet.nMsgId == NF_SERVER_TO_SERVER_HEART_BEAT_RSP)
+            if (packet.nMsgId == proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT_RSP)
             {
                 NetEvppObject* pObject = GetNetObject(objectLinkId);
                 if (pObject && pObject->mIsServer == false)
@@ -1013,7 +1013,7 @@ void  NFEvppNetMessage::SendHeartMsg()
 		{
             NFDataPackage packet;
             packet.mModuleId = 0;
-            packet.nMsgId = NF_SERVER_TO_SERVER_HEART_BEAT;
+            packet.nMsgId = proto_ff::NF_SERVER_TO_SERVER_HEART_BEAT;
 			Send(m_connectionList[i]->GetLinkId(), packet, NULL, 0);
 		}
 	}

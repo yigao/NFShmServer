@@ -186,11 +186,11 @@ void NFCBusServer::ProcessMsgLogicThread()
                         dataPacket.nMsgLen = outLen;
 
 
-                        if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
+                        if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                         {
                             m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
                         }
-                        else if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
+                        else if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
                         {
                             m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
                         }
@@ -251,11 +251,11 @@ void NFCBusServer::ProcessMsgLogicThread()
                         dataPacket.nMsgLen = outLen;
 
 
-                        if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
+                        if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_REQ)
                         {
                             m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
                         }
-                        else if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
+                        else if (dataPacket.mModuleId == 0 && dataPacket.nMsgId == proto_ff::NF_SERVER_TO_SERVER_BUS_CONNECT_RSP)
                         {
                             m_busMsgPeerCb(eMsgType_CONNECTED, dataPacket.nSendBusLinkId, dataPacket.nSendBusLinkId, dataPacket);
                         }
