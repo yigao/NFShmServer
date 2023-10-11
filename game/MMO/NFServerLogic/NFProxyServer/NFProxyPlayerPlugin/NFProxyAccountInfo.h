@@ -11,42 +11,25 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 
-class NFProxyPlayerInfo
+class NFProxyAccountInfo
 {
 public:
-    NFProxyPlayerInfo()
+    NFProxyAccountInfo()
     {
         m_linkId = 0;
         m_isLogin = false;
-        m_playerId = 0;
-        m_worldBusId = 0;
-        m_gameBusId = 0;
-        m_logicBusId = 0;
+        m_uid = 0;
         m_disconnectTime = 0;
-        mGameId = 0;
-        mRoomId = 0;
         m_online = true;
     }
 
-    virtual ~NFProxyPlayerInfo()
+    virtual ~NFProxyAccountInfo()
     {
     }
 
     uint64_t GetLinkId() const;
 
     void SetLinkId(uint64_t linkId);
-
-    uint32_t GetWorldBusId() const;
-
-    void SetWorldBusId(uint32_t worldBusId);
-
-    uint32_t GetGameBusId() const;
-
-    void SetGameBusId(uint32_t gameBusId);
-
-    uint32_t GetLogicBusId() const;
-
-    void SetLogicBusId(uint32_t logicBusId);
 
     uint64_t GetDisconnectTime() const;
 
@@ -60,33 +43,21 @@ public:
 
     void SetIsLogin(bool isLogin);
 
-    uint64_t GetPlayerId() const;
+    uint64_t GetUid() const;
 
-    void SetPlayerId(uint64_t uid);
+    void SetUid(uint64_t uid);
 
     const string &GetIpAddr() const;
 
     void SetIpAddr(const string &ipAddr);
-
-    const std::string& GetAccount() const;
-
-    void SetAccount(const std::string& account);
-
-    uint32_t GetGameId() const { return mGameId; }
-    uint32_t GetRoomId() const { return mRoomId; }
-    void SetGameId(uint32_t gameId) { mGameId = gameId; }
-    void SetRoomId(uint32_t roomId) { mRoomId = roomId; }
 private:
     uint64_t m_linkId;
     uint32_t m_worldBusId;
-    uint32_t mGameId;
-    uint32_t mRoomId;
     uint32_t m_gameBusId;
     uint32_t m_logicBusId;
     uint64_t m_disconnectTime;
     bool m_online;
     bool m_isLogin;
-    uint64_t m_playerId;
+    uint64_t m_uid;
     std::string m_ipAddr;
-    std::string m_account;
 };

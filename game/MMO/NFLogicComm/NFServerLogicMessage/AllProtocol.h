@@ -14,5 +14,8 @@
 #include "ComDefine.pb.h"
 #include "ComDefine_s.h"
 
-
+#include "ClientServerCmd.pb.h"
+#include "ServerInternalCmd.pb.h"
+#include "ServerInternal.pb.h"
+#include "ServerInternal2.pb.h"
 

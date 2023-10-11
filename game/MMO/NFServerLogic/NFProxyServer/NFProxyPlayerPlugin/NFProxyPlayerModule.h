@@ -11,7 +11,7 @@
 
 #include "NFPackageConfig.h"
 #include "NFProxySession.h"
-#include "NFProxyPlayerInfo.h"
+#include "NFProxyAccountInfo.h"
 #include "NFLogicCommon/NFMMODynamicModule.h"
 
 #define NF_PROXY_CLIENT_TIMER_ID 1
@@ -65,7 +65,7 @@ public:
      * @param pPlayerInfo
      * @return
      */
-    int NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyPlayerInfo> pPlayerInfo);
+    int NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyAccountInfo> pPlayerInfo);
 public:
     /*
      * 处理客户端连接超时
@@ -92,22 +92,6 @@ public:
     int OnHandleClientHeartBeat(uint64_t unLinkId, NFDataPackage &packet);
 public:
     /**
-     * @brief 账号登陆
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    int OnHandleAccountLoginFromClient(uint64_t unLinkId, NFDataPackage &packet);
-
-    /**
-     * @brief 账号注册
-     * @param unLinkId
-     * @param packet
-     * @return
-     */
-    int OnHandleRegisterLoginFromClient(uint64_t unLinkId, NFDataPackage &packet);
-
-    /**
      * @brief 玩家登录
      * @param unLinkId
      * @param packet
@@ -122,9 +106,16 @@ public:
      * @return
      */
     int OnHandlePlayerReconnectFromClient(uint64_t unLinkId, NFDataPackage &packet);
-
+public:
+    /**
+     * @brief 世界服通知网管，玩家掉线
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServicePlayerLeaveGame(proto_ff::NotifyGateLeaveGame2 &request, proto_ff::EmptyMessage &respone);
 private:
     NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
-    NFMapEx<uint64_t, NFProxyPlayerInfo> mPlayerLinkInfo; //playerId -- NFProxyPlayerInfo
+    NFMapEx<uint64_t, NFProxyAccountInfo> mAccountInfo; //uid -- NFProxyPlayerInfo
     NFPackageConfig m_packetConfig;
 };

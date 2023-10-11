@@ -20,11 +20,12 @@ public:
     NFProxySession()
     {
         m_linkId = 0;
-        m_playerId = 0;
+        m_uid = 0;
         m_lastHeartBeatTime = 0;
         m_port = 0;
         m_timeOut = 0;
         m_lastActiveTime = 0;
+        m_cid = 0;
     }
 
     virtual ~NFProxySession()
@@ -35,9 +36,13 @@ public:
 
     void SetLinkId(uint64_t mLinkId);
 
-    uint64_t GetPlayerId() const;
+    uint64_t GetUid() const;
 
-    void SetPlayerId(uint64_t playerId);
+    void SetUid(uint64_t uid);
+
+    uint64_t GetCid() const;
+
+    void SetCid(uint64_t cid);
 
     const string &GetIpAddr() const;
 
@@ -65,7 +70,8 @@ public:
     int AddPkgStatistic(int iMsgID, uint64_t roleID, uint64_t linkId);
 private:
     uint64_t m_linkId;
-    uint64_t m_playerId;
+    uint64_t m_uid;
+    uint64_t m_cid;
     std::string m_ipAddr;
     uint32_t m_port;
     uint64_t m_lastHeartBeatTime;
