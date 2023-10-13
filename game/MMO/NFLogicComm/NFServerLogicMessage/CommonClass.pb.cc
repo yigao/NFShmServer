@@ -29,6 +29,7 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* ItemGridCSData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   ItemGridCSData_reflection_ = NULL;
+const ::google::protobuf::EnumDescriptor* enPlayerStatus_descriptor_ = NULL;
 const ::google::protobuf::EnumDescriptor* enBagPageType_descriptor_ = NULL;
 
 }  // namespace
@@ -98,7 +99,8 @@ void protobuf_AssignDesc_CommonClass_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(ItemGridCSData));
-  enBagPageType_descriptor_ = file->enum_type(0);
+  enPlayerStatus_descriptor_ = file->enum_type(0);
+  enBagPageType_descriptor_ = file->enum_type(1);
 }
 
 namespace {
@@ -152,13 +154,17 @@ void protobuf_AddDesc_CommonClass_2eproto() {
     "\tstrong_lv\030\006 \001(\005\022\033\n\023strong_wear_quality\030"
     "\007 \001(\005\"^\n\016ItemGridCSData\022$\n\004base\030\001 \002(\0132\026."
     "proto_ff.GridItemBase\022&\n\nequip_data\030\002 \001("
-    "\0132\022.proto_ff.EquipExt*\370\001\n\renBagPageType\022"
-    "\020\n\014EN_BPT_EQUIP\020\001\022\022\n\016EN_BPT_STORAGE\020\002\022\022\n"
-    "\016EN_BPT_MATRIAL\020\003\022\017\n\013EN_BPT_PROP\020\004\022\017\n\013EN"
-    "_BPT_SKIN\020\005\022\020\n\014EN_BPT_TITLE\020\006\022\016\n\nEN_BPT_"
-    "GEM\020\007\022\030\n\024EN_BPT_PARTNER_EQUIP\020\010\022\036\n\032EN_BP"
-    "T_PARTNER_EQUIP_STONE\020\t\022\030\n\024EN_BPT_PARTNE"
-    "R_TOKEN\020\n\022\025\n\021EN_BPT_BUFF_EQUIP\020\013", 792);
+    "\0132\022.proto_ff.EquipExt*\217\001\n\016enPlayerStatus"
+    "\022\026\n\022PLAYER_STATUS_NONE\020\000\022\030\n\024PLAYER_STATU"
+    "S_ONLINE\020\001\022\031\n\025PLAYER_STATUS_OFFLINE\020\002\022\030\n"
+    "\024PLAYER_STATUS_LOGOUT\020\003\022\026\n\022PLAYER_STATUS"
+    "_DEAD\020\004*\370\001\n\renBagPageType\022\020\n\014EN_BPT_EQUI"
+    "P\020\001\022\022\n\016EN_BPT_STORAGE\020\002\022\022\n\016EN_BPT_MATRIA"
+    "L\020\003\022\017\n\013EN_BPT_PROP\020\004\022\017\n\013EN_BPT_SKIN\020\005\022\020\n"
+    "\014EN_BPT_TITLE\020\006\022\016\n\nEN_BPT_GEM\020\007\022\030\n\024EN_BP"
+    "T_PARTNER_EQUIP\020\010\022\036\n\032EN_BPT_PARTNER_EQUI"
+    "P_STONE\020\t\022\030\n\024EN_BPT_PARTNER_TOKEN\020\n\022\025\n\021E"
+    "N_BPT_BUFF_EQUIP\020\013", 938);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "CommonClass.proto", &protobuf_RegisterTypes);
   GridItemBase::default_instance_ = new GridItemBase();
@@ -176,6 +182,23 @@ struct StaticDescriptorInitializer_CommonClass_2eproto {
     protobuf_AddDesc_CommonClass_2eproto();
   }
 } static_descriptor_initializer_CommonClass_2eproto_;
+const ::google::protobuf::EnumDescriptor* enPlayerStatus_descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return enPlayerStatus_descriptor_;
+}
+bool enPlayerStatus_IsValid(int value) {
+  switch(value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
 const ::google::protobuf::EnumDescriptor* enBagPageType_descriptor() {
   protobuf_AssignDescriptorsOnce();
   return enBagPageType_descriptor_;

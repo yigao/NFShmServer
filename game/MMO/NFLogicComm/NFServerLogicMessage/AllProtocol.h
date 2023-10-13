@@ -13,6 +13,9 @@
 #include "Com_s.h"
 #include "ComDefine.pb.h"
 #include "ComDefine_s.h"
+#include "CommonClass.pb.h"
+#include "DBProxy.pb.h"
+#include "DBProxy2.pb.h"
 
 #include "ClientServerCmd.pb.h"
 #include "ServerInternalCmd.pb.h"

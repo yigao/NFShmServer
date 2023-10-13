@@ -14,16 +14,31 @@
       <config projectName="ShmNFrame" targetName="NFLuaScriptPlugin" />
       <config projectName="ShmNFrame" targetName="NFMMOCommonPlugin" />
       <config projectName="ShmNFrame" targetName="NFMMOProxyPlayerPlugin" />
+      <config projectName="ShmNFrame" targetName="evpp" />
+      <config projectName="ShmNFrame" targetName="NFMMOLogicCommon" />
+      <config projectName="ShmNFrame" targetName="NFServerMessage" />
+      <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
       <config projectName="ShmNFrame" targetName="NFLogicServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFSnsServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFPluginLoader" />
+      <config projectName="ShmNFrame" targetName="RecastNavigation" />
       <config projectName="ShmNFrame" targetName="NFRouteAgentServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFGameServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFProxyServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmPlugin" />
       <config projectName="ShmNFrame" targetName="NFShmCore" />
+      <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
       <config projectName="ShmNFrame" targetName="NFFishLoginPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFCore" />
+      <config projectName="ShmNFrame" targetName="NFProxyClientPlugin" />
+      <config projectName="ShmNFrame" targetName="NFMMODescStore" />
+      <config projectName="ShmNFrame" targetName="NFMMOWorldServerPlayerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFPluginModule" />
+      <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
+      <config projectName="ShmNFrame" targetName="NFMMOLogicMessage" />
+      <config projectName="ShmNFrame" targetName="NFServerCommon" />
+      <config projectName="ShmNFrame" targetName="NFDBPlugin" />
       <config projectName="ShmNFrame" targetName="NFExcelProcess" />
       <config projectName="ShmNFrame" targetName="NFProxyAgentServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFMasterServerPlugin" />
@@ -35,20 +50,6 @@
       <config projectName="ShmNFrame" targetName="NFLoginServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFServerCommonPlugin" />
       <config projectName="ShmNFrame" targetName="mysqlpp" />
-      <config projectName="ShmNFrame" targetName="evpp" />
-      <config projectName="ShmNFrame" targetName="NFMMOLogicCommon" />
-      <config projectName="ShmNFrame" targetName="NFServerMessage" />
-      <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
-      <config projectName="ShmNFrame" targetName="NFPluginLoader" />
-      <config projectName="ShmNFrame" targetName="RecastNavigation" />
-      <config projectName="ShmNFrame" targetName="NFWorldServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFProxyClientPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMODescStore" />
-      <config projectName="ShmNFrame" targetName="NFPluginModule" />
-      <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
-      <config projectName="ShmNFrame" targetName="NFMMOLogicMessage" />
-      <config projectName="ShmNFrame" targetName="NFServerCommon" />
-      <config projectName="ShmNFrame" targetName="NFDBPlugin" />
       <config projectName="ShmNFrame" targetName="NFWebServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginManager" />
     </generated>
@@ -60,18 +61,33 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="proto">
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO proxy">
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFMMOWorldPlayerPlugin.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFMMOWorldPlayerPlugin.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccountMgr.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccountMgr.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldSession.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldSession.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldSessionMgr.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldSessionMgr.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Sql/StoreServer.proto.ds" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Sql/StoreServer.proto.ds" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicBindRpcService.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicBindRpcService.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/CommonClass.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/CommonClass.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicShmTypeDefines.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/AllProtocol.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/AllProtocol.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerInfo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyAccountInfo.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyAccountInfo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CommonClass.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CommonClass.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CommonClass.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/CommonClass.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxySession.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxySession.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxySession.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxySession.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldSession.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/oldMMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldSession.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +107,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFGameFishPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFMMOWorldServerPlayerPlugin" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -112,7 +128,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/game/MMO/NFServerLogic&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -125,11 +141,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin" />
       <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message" />
@@ -140,11 +156,6 @@
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="NFCore" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFCore" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -215,6 +226,11 @@
       </method>
     </configuration>
     <configuration name="NFMMOProxyPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOProxyPlayerPlugin" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFMMOWorldServerPlayerPlugin" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFMMOWorldServerPlayerPlugin" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -357,6 +373,7 @@
       <item itemvalue="CMake 应用程序.NFMMOLogicMessage" />
       <item itemvalue="CMake 应用程序.RecastNavigation" />
       <item itemvalue="CMake 应用程序.NFMMOProxyPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFMMOWorldServerPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFCore" />
       <item itemvalue="CMake 应用程序.NFKernelMessage" />
       <item itemvalue="CMake 应用程序.NFPluginModule" />
@@ -459,14 +476,8 @@
       <workItem from="1696816585335" duration="19197000" />
       <workItem from="1696843176686" duration="926000" />
       <workItem from="1696898831366" duration="8569000" />
-      <workItem from="1696985529981" duration="6802000" />
-    </task>
-    <task id="LOCAL-00151" summary="fish">
-      <created>1695191343459</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1695191343459</updated>
+      <workItem from="1696985529981" duration="23316000" />
+      <workItem from="1697175271380" duration="4000" />
     </task>
     <task id="LOCAL-00152" summary="fish">
       <created>1695191997956</created>
@@ -804,7 +815,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696902102023</updated>
     </task>
-    <option name="localTasksCounter" value="200" />
+    <task id="LOCAL-00200" summary="MMO proxy">
+      <created>1697011541386</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1697011541405</updated>
+    </task>
+    <option name="localTasksCounter" value="201" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -973,7 +991,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fish user jetton" />
     <MESSAGE value="shm stl" />
     <MESSAGE value="bus connect channel" />
     <MESSAGE value="fish room" />
@@ -998,7 +1015,8 @@
     <MESSAGE value="fish loader" />
     <MESSAGE value="mmo excel" />
     <MESSAGE value="proto" />
-    <option name="LAST_COMMIT_MESSAGE" value="proto" />
+    <MESSAGE value="MMO proxy" />
+    <option name="LAST_COMMIT_MESSAGE" value="MMO proxy" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

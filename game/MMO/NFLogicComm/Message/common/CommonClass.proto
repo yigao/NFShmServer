@@ -4,6 +4,15 @@ package proto_ff;
 import "yd_fieldoptions.proto";
 import "Com.proto";
 
+enum enPlayerStatus
+{
+  PLAYER_STATUS_NONE = 0;
+  PLAYER_STATUS_ONLINE = 1;
+  PLAYER_STATUS_OFFLINE = 2;
+  PLAYER_STATUS_LOGOUT = 3;
+  PLAYER_STATUS_DEAD = 4;
+};
+
 enum    enBagPageType    // InvenrotySlotData.类型
 {
   EN_BPT_EQUIP        = 1;    // 装备     // 100

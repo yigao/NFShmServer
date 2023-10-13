@@ -114,6 +114,7 @@ public:
      * @return
      */
     int OnRpcServicePlayerLeaveGame(proto_ff::NotifyGateLeaveGame2 &request, proto_ff::EmptyMessage &respone);
+
 private:
     NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
     NFMapEx<uint64_t, NFProxyAccountInfo> mAccountInfo; //uid -- NFProxyPlayerInfo

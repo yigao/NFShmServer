@@ -40,6 +40,28 @@ class GridItemBase;
 class EquipExt;
 class ItemGridCSData;
 
+enum enPlayerStatus {
+  PLAYER_STATUS_NONE = 0,
+  PLAYER_STATUS_ONLINE = 1,
+  PLAYER_STATUS_OFFLINE = 2,
+  PLAYER_STATUS_LOGOUT = 3,
+  PLAYER_STATUS_DEAD = 4
+};
+bool enPlayerStatus_IsValid(int value);
+const enPlayerStatus enPlayerStatus_MIN = PLAYER_STATUS_NONE;
+const enPlayerStatus enPlayerStatus_MAX = PLAYER_STATUS_DEAD;
+const int enPlayerStatus_ARRAYSIZE = enPlayerStatus_MAX + 1;
+
+const ::google::protobuf::EnumDescriptor* enPlayerStatus_descriptor();
+inline const ::std::string& enPlayerStatus_Name(enPlayerStatus value) {
+  return ::google::protobuf::internal::NameOfEnum(
+    enPlayerStatus_descriptor(), value);
+}
+inline bool enPlayerStatus_Parse(
+    const ::std::string& name, enPlayerStatus* value) {
+  return ::google::protobuf::internal::ParseNamedEnum<enPlayerStatus>(
+    enPlayerStatus_descriptor(), name, value);
+}
 enum enBagPageType {
   EN_BPT_EQUIP = 1,
   EN_BPT_STORAGE = 2,
@@ -886,6 +908,10 @@ inline void ItemGridCSData::set_allocated_equip_data(::proto_ff::EquipExt* equip
 namespace google {
 namespace protobuf {
 
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::enPlayerStatus>() {
+  return ::proto_ff::enPlayerStatus_descriptor();
+}
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::proto_ff::enBagPageType>() {
   return ::proto_ff::enBagPageType_descriptor();

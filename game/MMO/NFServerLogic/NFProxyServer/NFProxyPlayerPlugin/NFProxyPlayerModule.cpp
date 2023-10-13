@@ -569,7 +569,6 @@ int NFCProxyPlayerModule::OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDat
             auto pOtherInfo = mClientLinkInfo.GetElement(pAccountInfo->GetLinkId());
             if (pOtherInfo) {
                 KickPlayer(pAccountInfo->GetLinkId());
-                pOtherInfo->SetUid(0);
             }
         }
 
@@ -591,6 +590,12 @@ int NFCProxyPlayerModule::OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDat
     cgMsg.set_ip(pLinkInfo->GetIpAddr());
     proto_ff::ClientLoginRsp rspMsg;
     int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_LOGIN_REQ>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, 0, cgMsg, rspMsg, pConfig->GetBusId(), unLinkId);
+    /**
+     * @brief 异步后需要重新查找
+     */
+    pAccountInfo = mAccountInfo.GetElement(cgMsg.uid());
+    CHECK_NULL(pAccountInfo);
+
     if (iRet != 0)
     {
         rspMsg.set_ret(iRet);
@@ -610,13 +615,8 @@ int NFCProxyPlayerModule::OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDat
         return 0;
     }
 
-    /**
-     * @brief 异步后需要重新查找
-     */
-    pAccountInfo = mAccountInfo.GetElement(cgMsg.uid());
-    CHECK_NULL(pAccountInfo);
-
     pAccountInfo->SetIsLogin(true);
+    pAccountInfo->SetUid(cgMsg.uid());
 
     NFLogError(NF_LOG_SYSTEMLOG, pAccountInfo->GetUid(), "Uid:{} Login World Success!", pAccountInfo->GetUid());
 
@@ -769,11 +769,12 @@ int NFCProxyPlayerModule::OnRpcServicePlayerLeaveGame(proto_ff::NotifyGateLeaveG
         if (leaveFlag == proto_ff::LOGOUT_REPLACE)
         {
             KickPlayer(unLinkId, leaveFlag);
-            pLinkInfo->SetUid(0);
         }
         else {
             FindModule<NFIMessageModule>()->CloseLinkId(unLinkId);
         }
+        pLinkInfo->SetUid(0);
+        pLinkInfo->SetCid(0);
     }
 
     return 0;
@@ -783,3 +784,4 @@ int NFCProxyPlayerModule::NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR
 {
     return 0;
 }
+
