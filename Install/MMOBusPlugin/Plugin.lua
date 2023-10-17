@@ -55,6 +55,8 @@ LoadPlugin =
 
 		WorkPlugins = {
 			"NFMMOCommonPlugin",
+			"NFMMOProxyPlayerPlugin",
+			"NFMMOWorldServerPlayerPlugin",
 		};
 
 		ServerType = NF_ST_NONE;

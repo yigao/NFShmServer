@@ -48,6 +48,8 @@ public:
      * @return
      */
     int OnRpcServicePlayerLogin(proto_ff::ClientLoginReq& request, proto_ff::ClientLoginRsp& respone, uint64_t proxyId, uint64_t clientId);
+
+    int SetLoginRoleProto(proto_ff::LoginRoleProto& loginRoleProto, uint64_t cid, const proto_ff::RoleDBBaseData& dbproto);
 public:
     /**
      * @brief

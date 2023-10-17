@@ -14,6 +14,7 @@
 #include "NFComm/NFCore/NFMap.hpp"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFComm/NFCore/NFServerTime.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include <NFComm/NFPluginModule/NFCheck.h>
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"

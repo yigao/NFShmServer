@@ -129,7 +129,6 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq& requ
     uint64_t oldClientId = pAccountInfo->GetClientId();
 
     NFWorldSession *pOldSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(oldClientId);
-    bool isNeedLeaveScene = false;
     if (pOldSession != NULL)
     {
         if (oldClientId == clientId)
@@ -182,9 +181,70 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq& requ
     pAccountInfo->SetIsDisconnect(false);
     pAccountInfo->SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
 
-    //FindModule<NFIServerMessageModule>()->GetRpcSelectService(NF_ST_WORLD_SERVER, NF_ST_STORE_SERVER, )
+    proto_ff::RoleDBData dbData;
+    dbData.set_uid(uid);
+    std::vector<proto_ff::RoleDBData> vecResult;
+    std::vector<std::string> vecFields;
+    vecFields.push_back("base");
+    vecFields.push_back("cid");
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectService(NF_ST_WORLD_SERVER, uid, dbData, vecResult, vecFields);
+    pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
+    CHECK_NULL(pSession);
+    pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
+    CHECK_NULL(pAccountInfo);
+    if (iRet != 0)
+    {
+        respone.set_ret(proto_ff::RET_FAIL);
+        return 0;
+    }
+
+    if (pAccountInfo->GetClientId() != clientId)
+    {
+        return 0;
+    }
+
+    respone.set_ret(proto_ff::RET_SUCCESS);
+    respone.set_unix_sec(NFServerTime::Instance()->UnixSec());
+    respone.set_unix_msec(NFServerTime::Instance()->UnixMSec());
+    respone.set_time_zone(NFServerTime::Instance()->CurTimeZone());
+    //先判断是否注册人数已满,新号，且注册人数已超，则不让进
+/*    if (vecResult.size() <= 0)
+    {
+        respone.set_ret(proto_ff::RET_ACCOUNT_FULL);
+    }*/
+
+    for(int i = 0; i < (int)vecResult.size(); i++)
+    {
+        proto_ff::RoleDBBaseData* pDBProto = vecResult[i].mutable_base();
+        for (uint32_t i = 0; i < pDBProto->mutable_facade()->growfacade_size(); ++i)
+        {
+            proto_ff::Attr64* proto = pDBProto->mutable_facade()->mutable_growfacade(i);
+            if (proto_ff::GrowType_DEITY_TYPE == proto->id())
+            {
+                proto->set_value(0);
+            }
+        }
+
+        auto pRoleProto = respone.add_role_lst();
+        if (nullptr != pRoleProto)
+        {
+            SetLoginRoleProto(*pRoleProto, vecResult[i].cid(), *pDBProto);
+        }
+    }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFCWorldPlayerModule::SetLoginRoleProto(::proto_ff::LoginRoleProto& outproto, uint64_t cid, const proto_ff::RoleDBBaseData& dbproto)
+{
+    outproto.set_cid(cid);
+    outproto.set_name(dbproto.name());
+    outproto.set_prof(dbproto.prof());
+    outproto.set_level(dbproto.level());
+    outproto.set_fight(dbproto.fight());
+    outproto.set_createtime(dbproto.createtime());
+    outproto.mutable_facade()->CopyFrom(dbproto.facade());
     return 0;
 }
 

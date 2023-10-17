@@ -11,6 +11,7 @@
 #include "NFIDynamicModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
+#include "NFComm/NFCore/NFServerTime.h"
 
 NFIDynamicModule::NFIDynamicModule(NFIPluginManager* p) : NFITimerEventModule(p)
 {

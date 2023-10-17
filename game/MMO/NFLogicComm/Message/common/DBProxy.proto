@@ -967,9 +967,9 @@ message GMADbData{
 
 message RoleDBData
 {
-  required uint64                 cid					= 1;	// role cid
-  required uint32                 zid					= 2;    // 区服ID
-  optional uint32					uid					= 3;    // UID
+  required uint64                 cid					= 1[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_PRIMARYKEY];	// role cid
+  required uint32                 zid					= 2[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];    // 区服ID
+  optional uint32					uid					= 3[(yd_fieldoptions.db_field_type) = E_FIELDTYPE_INDEX];    // UID
   optional RoleDBBaseData         base				= 4;    // 基础数据
   optional RoleDBBagData          bag				    = 5;    // 背包数据
   optional RoleDBEquipData	    equip				= 6;	// 装备数据

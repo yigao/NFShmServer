@@ -32,6 +32,7 @@ public:
 	uint64_t LastTick() { return ms_lastTick; }
 	int DeltaTick() { return ms_deltaTick; }
 	uint64_t UnixSec() { return ms_unixSec; }
+    uint64_t UnixMSec() { return ms_unixMSec; }
 	uint64_t Frames() { return ms_frames; }
 	uint64_t Secs() { return ms_secs; }
 	int      GetFPS() { return ms_fps; }
@@ -50,6 +51,7 @@ protected:
 	uint64_t ms_lastTick;         // 1 tick = 1 msec, last update tick
 	int ms_deltaTick;             // 1 tick = 1 msec, ms_curTick - ms_lastTick
 	uint64_t ms_unixSec;          // cur unix sec(cur frame is same)
+    uint64_t ms_unixMSec;         // cur unix msec
 	uint64_t ms_frames;           // frames count, from app start
 	uint64_t ms_secs;             // seconds count, from app start
 	bool     ms_perSecFirstFrame; // per sec the first frame is true

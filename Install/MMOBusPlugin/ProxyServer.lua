@@ -28,7 +28,7 @@ ProxyServer = {
             MasterIp = NF_MASTER_IP,
             MasterPort = NF_MASTER_PORT,
         },
-        Security = false,
+        Security = true,
 	};
 
     ProxyServer_4_2 = {

@@ -3324,7 +3324,7 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
                 }
 
                 std::string sql;
-                NF_FORMAT_EXPR(sql, "alter table {} add column {} {} {};", tableName, iter->first,
+                NF_FORMAT_EXPR(sql, "alter table {} add column `{}` {} {};", tableName, iter->first,
                                NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo);
 
                 if (sql.size() > 0)
@@ -3425,7 +3425,7 @@ int NFCMysqlDriver::QueryTableInfo(const std::string &dbName, const std::string 
             }
 
             std::string sql;
-            NF_FORMAT_EXPR(sql, "alter table {} add column {} {} {};", tableName, iter->first,
+            NF_FORMAT_EXPR(sql, "alter table {} add column `{}` {} {};", tableName, iter->first,
                            NFProtobufCommon::GetDBDataTypeFromPBDataType(iter->second.m_colType, iter->second.m_bufsize), otherInfo);
 
             if (sql.size() > 0)

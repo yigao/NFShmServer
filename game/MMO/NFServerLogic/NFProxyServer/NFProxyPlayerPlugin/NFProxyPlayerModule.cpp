@@ -132,7 +132,7 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
         int ret = pLinkInfo->CheckPkgRate(&m_packetConfig, packet.nMsgId, count, interval);
         if (ret != 0)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check and kick player:{| linkId:{} count:{} interval:{} ret:{} packet:{}", roleID, unLinkId, count,
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "pkg check and kick player:{} linkId:{} count:{} interval:{} ret:{} packet:{}", roleID, unLinkId, count,
                        interval, ret, packet.ToString());
             return 0;
         }
@@ -587,9 +587,12 @@ int NFCProxyPlayerModule::OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDat
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
     CHECK_NULL(pConfig);
 
+    NF_SHARE_PTR<NFServerData> pWorldServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, cgMsg.uid());
+    CHECK_NULL(pWorldServer);
+
     cgMsg.set_ip(pLinkInfo->GetIpAddr());
     proto_ff::ClientLoginRsp rspMsg;
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_LOGIN_REQ>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, 0, cgMsg, rspMsg, pConfig->GetBusId(), unLinkId);
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_LOGIN_REQ>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, pWorldServer->mServerInfo.bus_id(), cgMsg, rspMsg, pConfig->GetBusId(), unLinkId);
     /**
      * @brief 异步后需要重新查找
      */

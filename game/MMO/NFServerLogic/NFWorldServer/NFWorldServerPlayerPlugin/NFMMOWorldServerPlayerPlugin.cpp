@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFMMOWorldPlayerPlugin.h"
+#include "NFMMOWorldServerPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 
 #include "NFWorldPlayerModule.h"
@@ -21,13 +21,13 @@
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-    CREATE_PLUGIN(pm, NFMMOWorldPlayerPlugin)
+    CREATE_PLUGIN(pm, NFMMOWorldServerPlayerPlugin)
 
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-    DESTROY_PLUGIN(pm, NFMMOWorldPlayerPlugin)
+    DESTROY_PLUGIN(pm, NFMMOWorldServerPlayerPlugin)
 };
 
 #endif
@@ -35,27 +35,27 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 //////////////////////////////////////////////////////////////////////////
 
-int NFMMOWorldPlayerPlugin::GetPluginVersion()
+int NFMMOWorldServerPlayerPlugin::GetPluginVersion()
 {
 	return 0;
 }
 
-std::string NFMMOWorldPlayerPlugin::GetPluginName()
+std::string NFMMOWorldServerPlayerPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFMMOWorldPlayerPlugin);
+	return GET_CLASS_NAME(NFMMOWorldServerPlayerPlugin);
 }
 
-void NFMMOWorldPlayerPlugin::Install()
+void NFMMOWorldServerPlayerPlugin::Install()
 {
 	REGISTER_MODULE(m_pObjPluginManager, NFCWorldPlayerModule, NFCWorldPlayerModule);
 }
 
-void NFMMOWorldPlayerPlugin::Uninstall()
+void NFMMOWorldServerPlayerPlugin::Uninstall()
 {
 	UNREGISTER_MODULE(m_pObjPluginManager, NFCWorldPlayerModule, NFCWorldPlayerModule);
 }
 
-bool NFMMOWorldPlayerPlugin::InitShmObjectRegister()
+bool NFMMOWorldServerPlayerPlugin::InitShmObjectRegister()
 {
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     NF_ASSERT(pConfig);

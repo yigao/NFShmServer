@@ -36,6 +36,7 @@ bool NFServerTime::Init(int fps)
     ms_lastTick = ms_curTick;
     ms_deltaTick = 0;
     ms_unixSec = NFTime::Now().UnixSec();
+    ms_unixMSec = NFTime::Now().UnixMSec();
     ms_frames = 0;
     ms_secs = 0;
     ms_perSecFirstFrame = false;
@@ -55,6 +56,7 @@ bool NFServerTime::Update(uint64_t tick)
     ms_curTick = tick;
     ms_deltaTick = (int) (ms_curTick - ms_lastTick);
     ms_unixSec = NFTime::Now().UnixSec();
+    ms_unixMSec  = NFTime::Now().UnixMSec();
 
     ++ms_frames;
 

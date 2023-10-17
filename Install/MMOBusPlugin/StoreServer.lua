@@ -28,7 +28,7 @@ StoreServer = {
              MysqlUser = NF_MYSQL_USER,
              MysqlPassword = NF_MYSQL_PASSWORD,
              TBConfList = {
-                  --{TableName="tbFishAccountTable", TableCount=1, Cache = false},
+                  {TableName="RoleDBData", TableCount=1, Cache = false},
              },
         },
         --RedisConfig = {
