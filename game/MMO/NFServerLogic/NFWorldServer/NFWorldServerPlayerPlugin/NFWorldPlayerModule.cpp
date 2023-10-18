@@ -15,6 +15,7 @@
 #include "NFLogicCommon/NFAccountDefine.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFLogicCommon/NFSqlDefine.h"
+#include "DescStoreEx/MapDescEx.h"
 
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFMMODynamicModule(p)
@@ -33,10 +34,10 @@ bool NFCWorldPlayerModule::Awake()
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_LOGIN_REQ>(NF_ST_WORLD_SERVER, this,
-                                                                                     &NFCWorldPlayerModule::OnRpcServicePlayerLogin, true);
+                                                                              &NFCWorldPlayerModule::OnRpcServicePlayerLogin, true);
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_CREATE_ROLE_REQ>(NF_ST_WORLD_SERVER, this,
-                                                                              &NFCWorldPlayerModule::OnRpcServiceCreateRole, true);
+                                                                                    &NFCWorldPlayerModule::OnRpcServiceCreateRole, true);
 
     /////////////////////////////////server msg, player disconnect logout////////////////////////////////////////////
 
@@ -113,12 +114,16 @@ int NFCWorldPlayerModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage
     return 0;
 }
 
-int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq& request, proto_ff::ClientLoginRsp& respone, uint64_t proxyId, uint64_t clientId)
+int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq &request, proto_ff::ClientLoginRsp &respone, uint64_t proxyId, uint64_t clientId)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     uint64_t uid = request.uid();
     uint32_t loginzid = request.zid();
     uint32_t chanid = request.channel_id();
+
+    respone.set_unix_sec(NFServerTime::Instance()->UnixSec());
+    respone.set_unix_msec(NFServerTime::Instance()->UnixMSec());
+    respone.set_time_zone(NFServerTime::Instance()->CurTimeZone());
 
     NFWorldAccount *pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
     if (pAccountInfo == nullptr)
@@ -164,7 +169,7 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq& requ
         //handle the role
     }
 
-    NFWorldSession* pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
+    NFWorldSession *pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
     if (pSession == nullptr)
     {
         pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->CreateSession(clientId);
@@ -195,6 +200,8 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq& requ
     std::vector<std::string> vecFields;
     vecFields.push_back("base");
     vecFields.push_back("cid");
+    vecFields.push_back("uid");
+    vecFields.push_back("zid");
     int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectService(NF_ST_WORLD_SERVER, uid, dbData, vecResult, vecFields);
     pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
     CHECK_NULL(pSession);
@@ -212,21 +219,19 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq& requ
     }
 
     respone.set_ret(proto_ff::RET_SUCCESS);
-    respone.set_unix_sec(NFServerTime::Instance()->UnixSec());
-    respone.set_unix_msec(NFServerTime::Instance()->UnixMSec());
-    respone.set_time_zone(NFServerTime::Instance()->CurTimeZone());
+
     //先判断是否注册人数已满,新号，且注册人数已超，则不让进
 /*    if (vecResult.size() <= 0)
     {
         respone.set_ret(proto_ff::RET_ACCOUNT_FULL);
     }*/
 
-    for(int i = 0; i < (int)vecResult.size(); i++)
+    for (int i = 0; i < (int) vecResult.size(); i++)
     {
-        proto_ff::RoleDBBaseData* pDBProto = vecResult[i].mutable_base();
-        for (uint32_t i = 0; i < (uint32_t)pDBProto->mutable_facade()->growfacade_size(); ++i)
+        proto_ff::RoleDBBaseData *pDBProto = vecResult[i].mutable_base();
+        for (uint32_t i = 0; i < (uint32_t) pDBProto->mutable_facade()->growfacade_size(); ++i)
         {
-            proto_ff::Attr64* proto = pDBProto->mutable_facade()->mutable_growfacade(i);
+            proto_ff::Attr64 *proto = pDBProto->mutable_facade()->mutable_growfacade(i);
             if (proto_ff::GrowType_DEITY_TYPE == proto->id())
             {
                 proto->set_value(0);
@@ -246,7 +251,7 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq& requ
     return 0;
 }
 
-int NFCWorldPlayerModule::SetLoginRoleProto(::proto_ff::LoginRoleProto& outproto, uint64_t cid, const proto_ff::RoleDBBaseData& dbproto)
+int NFCWorldPlayerModule::SetLoginRoleProto(::proto_ff::LoginRoleProto &outproto, uint64_t cid, const proto_ff::RoleDBBaseData &dbproto)
 {
     outproto.set_cid(cid);
     outproto.set_name(dbproto.name());
@@ -267,7 +272,7 @@ int NFCWorldPlayerModule::NotifyGateLeave(uint32_t proxyId, uint64_t clientId, p
     return FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NOTIFY_GATE_LEAVE_GAME>(NF_ST_WORLD_SERVER, NF_ST_PROXY_SERVER, proxyId, notify, respone);
 }
 
-int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& request, proto_ff::ClientCreateRoleRsp& respone, uint64_t uid, uint64_t param2)
+int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &request, proto_ff::ClientCreateRoleRsp &respone, uint64_t uid, uint64_t param2)
 {
     NFWorldAccount *pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
     if (pAccountInfo == NULL)
@@ -284,11 +289,27 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& 
         return 0;
     }
 
-    int32_t name_len = (int32_t)request.name().length();
+    int32_t name_len = (int32_t) request.name().length();
     if (name_len < proto_ff::CHARACTER_NAME_MIN_LENGTH || name_len >= proto_ff::CHARACTER_NAME_MAX_LENGTH)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "role name length error...uid:{},name_len:{}, create role failed!", uid, name_len);
         respone.set_result(proto_ff::RET_LOGIN_CHARACTER_NAME_LEN_ERROR);
+        return 0;
+    }
+
+    auto pBornCfg = MapDescEx::Instance(m_pObjPluginManager)->GetBornCfg(request.prof());
+    if (nullptr == pBornCfg)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "can't find the prof's born cfg...uid:{},prof:{}, create role failed!", uid, request.prof());
+        respone.set_result(proto_ff::RET_CONFIG_ERROR);
+        return 0;
+    }
+
+    const NFPoint3<float> *pBornPos = MapDescEx::Instance(m_pObjPluginManager)->RandBornPoint(pBornCfg->m_mapid);
+    if (nullptr == pBornPos)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "can't find the prof's born map:{} cfg...uid:{},prof:{}, create role failed!", pBornCfg->m_mapid, uid, request.prof());
+        respone.set_result(proto_ff::RET_CONFIG_ERROR);
         return 0;
     }
 
@@ -307,7 +328,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& 
     auto protobase = dbData.mutable_base();
     protobase->set_name(request.name());
     protobase->set_prof(request.prof());
-    protobase->set_level(1);
+    protobase->set_level(pBornCfg->m_bornlevel);
     protobase->set_exp(0);
     protobase->set_hp(0);
     protobase->set_fight(0);
@@ -319,17 +340,17 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& 
     protobase->mutable_facade()->set_color(request.color());
     protobase->mutable_facade()->set_prof(request.prof());
 
-/*    protobase->set_enter_scene_id(pcfg->mapID);
-    protobase->set_enter_map_id(pcfg->mapID);
-    protobase->set_enterposx(pposcfg->x);
-    protobase->set_enterposy(pposcfg->y);
-    protobase->set_enterposz(pposcfg->z);
+    protobase->set_enter_scene_id(pBornCfg->m_mapid);
+    protobase->set_enter_map_id(pBornCfg->m_mapid);
+    protobase->set_enterposx(pBornPos->x);
+    protobase->set_enterposy(pBornPos->y);
+    protobase->set_enterposz(pBornPos->z);
 
-    protobase->set_lastsceneid(pcfg->mapID);
-    protobase->set_lastmapid(pcfg->mapID);
-    protobase->set_lastposx(pposcfg->x);
-    protobase->set_lastposy(pposcfg->y);
-    protobase->set_lastposz(pposcfg->z);*/
+    protobase->set_lastsceneid(pBornCfg->m_mapid);
+    protobase->set_lastmapid(pBornCfg->m_mapid);
+    protobase->set_lastposx(pBornPos->x);
+    protobase->set_lastposy(pBornPos->x);
+    protobase->set_lastposz(pBornPos->x);
 
     proto_ff::RoleDBName dbName;
     dbName.set_name(request.name());
@@ -347,7 +368,8 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& 
         respone.set_result(proto_ff::RET_FAIL);
         return 0;
     }
-    else {
+    else
+    {
         iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_WORLD_SERVER, DB_NAME_MOD, dbName);
         if (iRet != 0)
         {
@@ -384,7 +406,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& 
     pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
     CHECK_NULL(pAccountInfo);
 
-    pAccountInfo->SetRoleNum(pAccountInfo->GetRoleNum()+1);
+    pAccountInfo->SetRoleNum(pAccountInfo->GetRoleNum() + 1);
     pAccountInfo->SetCid(newCid);
 
     respone.set_result(proto_ff::RET_SUCCESS);
@@ -395,7 +417,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& 
     return 0;
 }
 
-int NFCWorldPlayerModule::SetLoginRoleProto(proto_ff::LoginRoleProto& outproto, const proto_ff::RoleDBData& dbproto)
+int NFCWorldPlayerModule::SetLoginRoleProto(proto_ff::LoginRoleProto &outproto, const proto_ff::RoleDBData &dbproto)
 {
     outproto.set_cid(dbproto.cid());
     outproto.set_name(dbproto.base().name());

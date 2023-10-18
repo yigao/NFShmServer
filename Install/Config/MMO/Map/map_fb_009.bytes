@@ -1,0 +1,10342 @@
+{
+  "Param": {
+    "Orig": [
+      0.0,
+      -3.442833,
+      0.0
+    ],
+    "TileWidth": 10.0,
+    "TileHeight": 10.0,
+    "MaxTiles": 128,
+    "MaxPolys": 32768
+  },
+  "NavMeshBuilders": [
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 2,
+        "Y": 11,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 3,
+        "MaxLinkCount": 7,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 1,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          20.0,
+          3.2539196,
+          110.0
+        ],
+        "BMax": [
+          30.0,
+          45.25392,
+          120.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        25.6,
+        23.45392,
+        120.0,
+        30.0,
+        23.45392,
+        120.0,
+        30.0,
+        23.45392,
+        117.6
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            0,
+            1,
+            2,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4259841,
+          "Next": 4294967295,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4456448,
+          "Next": 0,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 3,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            28,
+            101,
+            38
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 1,
+        "Y": 15,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 3,
+        "MaxLinkCount": 7,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 1,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          10.0,
+          3.2539196,
+          150.0
+        ],
+        "BMax": [
+          20.0,
+          45.25392,
+          160.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        20.0,
+        23.45392,
+        151.4,
+        20.0,
+        23.45392,
+        150.0,
+        18.0,
+        23.45392,
+        150.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            0,
+            1,
+            2,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            32768,
+            32774,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4292611,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4947968,
+          "Next": 0,
+          "Edge": 1,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 3,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            40,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            7
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 3,
+        "Y": 11,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 6,
+        "VertCount": 16,
+        "MaxLinkCount": 36,
+        "DetailMeshCount": 6,
+        "DetailVertCount": 0,
+        "DetailTriCount": 14,
+        "BVNodeCount": 12,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 6,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          30.0,
+          0.7213764,
+          110.0
+        ],
+        "BMax": [
+          40.0,
+          45.25392,
+          120.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        30.0,
+        23.3213768,
+        117.6,
+        30.0,
+        23.3213768,
+        120.0,
+        31.4,
+        23.3213768,
+        120.0,
+        31.6,
+        23.3213768,
+        120.0,
+        40.0,
+        23.3213768,
+        120.0,
+        40.0,
+        21.121376,
+        110.6,
+        39.4,
+        21.3213768,
+        110.6,
+        39.2,
+        21.121376,
+        110.2,
+        33.2,
+        21.121376,
+        110.2,
+        32.4,
+        21.3213768,
+        111.2,
+        31.2,
+        21.5213776,
+        111.2,
+        31.0,
+        22.3213768,
+        113.4,
+        32.0,
+        22.5213776,
+        114.0,
+        32.0,
+        23.3213768,
+        116.2,
+        32.6,
+        23.3213768,
+        117.0,
+        32.0,
+        23.3213768,
+        117.6
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 0,
+          "Verts": [
+            9,
+            10,
+            11,
+            12,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 12,
+          "Verts": [
+            0,
+            1,
+            2,
+            15,
+            0,
+            0
+          ],
+          "Neis": [
+            32772,
+            32770,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 4,
+          "Verts": [
+            8,
+            9,
+            12,
+            14,
+            6,
+            7
+          ],
+          "Neis": [
+            0,
+            1,
+            6,
+            5,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 6,
+          "Verts": [
+            15,
+            2,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            2,
+            32770,
+            5,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 13,
+          "Verts": [
+            14,
+            15,
+            3,
+            4,
+            5,
+            6
+          ],
+          "Neis": [
+            0,
+            4,
+            32770,
+            32768,
+            0,
+            3
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 9,
+          "Verts": [
+            12,
+            13,
+            14,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4259842,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259843,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259844,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259845,
+          "Next": 2,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259840,
+          "Next": 3,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259844,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259841,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259842,
+          "Next": 4294967295,
+          "Edge": 5,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259843,
+          "Next": 7,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259842,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4194304,
+          "Next": 1,
+          "Edge": 0,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4325380,
+          "Next": 8,
+          "Edge": 3,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4521984,
+          "Next": 10,
+          "Edge": 1,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4521986,
+          "Next": 11,
+          "Edge": 2,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 17,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 18,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 19,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 20,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 21,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 22,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 23,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 24,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 25,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 26,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 27,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 28,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 29,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 30,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 31,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 32,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 33,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 34,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 35,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 4,
+          "VertCount": 0,
+          "TriCount": 4
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 8,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 9,
+          "VertCount": 0,
+          "TriCount": 4
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 13,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        4,
+        0,
+        4,
+        5,
+        20,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        4,
+        0,
+        4,
+        5,
+        20,
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            102,
+            1
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": -11
+        },
+        {
+          "BMin": [
+            0,
+            102,
+            1
+          ],
+          "BMax": [
+            47,
+            113,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            5,
+            103,
+            6
+          ],
+          "BMax": [
+            12,
+            109,
+            20
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            102,
+            1
+          ],
+          "BMax": [
+            47,
+            113,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            0,
+            113,
+            38
+          ],
+          "BMax": [
+            10,
+            113,
+            50
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            10,
+            102,
+            1
+          ],
+          "BMax": [
+            47,
+            113,
+            35
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            7,
+            102,
+            3
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            7,
+            113,
+            38
+          ],
+          "BMax": [
+            10,
+            113,
+            50
+          ],
+          "I": 3
+        },
+        {
+          "BMin": [
+            8,
+            102,
+            3
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            8,
+            102,
+            3
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": 4
+        },
+        {
+          "BMin": [
+            10,
+            109,
+            20
+          ],
+          "BMax": [
+            13,
+            113,
+            35
+          ],
+          "I": 5
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 2,
+        "Y": 15,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 5,
+        "VertCount": 13,
+        "MaxLinkCount": 31,
+        "DetailMeshCount": 5,
+        "DetailVertCount": 0,
+        "DetailTriCount": 11,
+        "BVNodeCount": 10,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 5,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          20.0,
+          3.2539196,
+          150.0
+        ],
+        "BMax": [
+          30.0,
+          45.25392,
+          160.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        20.0,
+        23.45392,
+        151.4,
+        20.0,
+        23.45392,
+        152.6,
+        20.6,
+        23.45392,
+        153.4,
+        21.8,
+        23.45392,
+        153.6,
+        22.6,
+        23.45392,
+        154.6,
+        22.6,
+        23.45392,
+        155.2,
+        24.0,
+        23.45392,
+        155.8,
+        24.0,
+        23.45392,
+        157.2,
+        24.4,
+        23.45392,
+        157.6,
+        29.6,
+        23.45392,
+        160.0,
+        30.0,
+        23.45392,
+        160.0,
+        30.0,
+        23.45392,
+        150.0,
+        20.0,
+        23.45392,
+        150.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 0,
+          "Verts": [
+            4,
+            5,
+            6,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 10,
+          "Verts": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            0,
+            32770,
+            4,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 2,
+          "Verts": [
+            1,
+            2,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            4,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 11,
+          "Verts": [
+            12,
+            0,
+            3,
+            6,
+            10,
+            11
+          ],
+          "Neis": [
+            32772,
+            3,
+            5,
+            2,
+            32768,
+            32774
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 7,
+          "Verts": [
+            3,
+            4,
+            6,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            1,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4292612,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4292611,
+          "Next": 4294967295,
+          "Edge": 4,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4292611,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4292609,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4292612,
+          "Next": 3,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4292610,
+          "Next": 4,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4292611,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4292608,
+          "Next": 6,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4227072,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4423680,
+          "Next": 8,
+          "Edge": 4,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4587520,
+          "Next": 1,
+          "Edge": 3,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4980736,
+          "Next": 9,
+          "Edge": 5,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 17,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 18,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 19,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 20,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 21,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 22,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 23,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 24,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 25,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 26,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 27,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 28,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 29,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 30,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 1,
+          "VertCount": 0,
+          "TriCount": 3
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 4,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 6,
+          "VertCount": 0,
+          "TriCount": 4
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 10,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        4,
+        0,
+        4,
+        5,
+        20,
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -9
+        },
+        {
+          "BMin": [
+            13,
+            101,
+            23
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            13,
+            101,
+            23
+          ],
+          "BMax": [
+            20,
+            101,
+            29
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            20,
+            101,
+            29
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            7
+          ],
+          "BMax": [
+            9,
+            101,
+            18
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 3
+        },
+        {
+          "BMin": [
+            9,
+            101,
+            18
+          ],
+          "BMax": [
+            20,
+            101,
+            29
+          ],
+          "I": 4
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 4,
+        "Y": 11,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 6,
+        "VertCount": 12,
+        "MaxLinkCount": 28,
+        "DetailMeshCount": 6,
+        "DetailVertCount": 0,
+        "DetailTriCount": 10,
+        "BVNodeCount": 12,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 6,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          40.0,
+          0.7213764,
+          110.0
+        ],
+        "BMax": [
+          50.0,
+          45.25392,
+          120.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        40.0,
+        21.121376,
+        110.6,
+        40.0,
+        23.3213768,
+        120.0,
+        50.0,
+        23.3213768,
+        120.0,
+        50.0,
+        23.3213768,
+        119.6,
+        48.6,
+        23.3213768,
+        119.2,
+        48.2,
+        23.3213768,
+        118.6,
+        47.0,
+        23.3213768,
+        118.6,
+        46.2,
+        23.3213768,
+        117.6,
+        45.4,
+        23.3213768,
+        117.6,
+        44.8,
+        23.3213768,
+        117.0,
+        44.8,
+        21.121376,
+        110.2,
+        40.2,
+        21.121376,
+        110.2
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 11,
+          "Verts": [
+            2,
+            3,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            32768,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            4,
+            5,
+            6,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            6,
+            7,
+            8,
+            1,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            6,
+            4,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 12,
+          "Verts": [
+            2,
+            4,
+            6,
+            1,
+            0,
+            0
+          ],
+          "Neis": [
+            1,
+            2,
+            3,
+            32770,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 10,
+          "Verts": [
+            10,
+            11,
+            0,
+            1,
+            9,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            32772,
+            6,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 9,
+          "Verts": [
+            1,
+            8,
+            9,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            3,
+            0,
+            5,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4325379,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325379,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325379,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325381,
+          "Next": 2,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325378,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325377,
+          "Next": 4,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325376,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325381,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325380,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4325378,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4259844,
+          "Next": 7,
+          "Edge": 2,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4358144,
+          "Next": 0,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4653056,
+          "Next": 6,
+          "Edge": 3,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 17,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 18,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 19,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 20,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 21,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 22,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 23,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 24,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 25,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 26,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 27,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 1,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 4,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 6,
+          "VertCount": 0,
+          "TriCount": 3
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 9,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20,
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            102,
+            1
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": -11
+        },
+        {
+          "BMin": [
+            0,
+            113,
+            38
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            43,
+            113,
+            46
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            113,
+            38
+          ],
+          "BMax": [
+            43,
+            113,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            35,
+            113,
+            43
+          ],
+          "BMax": [
+            43,
+            113,
+            46
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            113,
+            38
+          ],
+          "BMax": [
+            35,
+            113,
+            50
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            0,
+            102,
+            1
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            0,
+            113,
+            43
+          ],
+          "BMax": [
+            50,
+            113,
+            50
+          ],
+          "I": 3
+        },
+        {
+          "BMin": [
+            0,
+            102,
+            1
+          ],
+          "BMax": [
+            27,
+            113,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            0,
+            102,
+            1
+          ],
+          "BMax": [
+            24,
+            113,
+            50
+          ],
+          "I": 4
+        },
+        {
+          "BMin": [
+            0,
+            113,
+            35
+          ],
+          "BMax": [
+            27,
+            113,
+            50
+          ],
+          "I": 5
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 5,
+        "Y": 11,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 3,
+        "MaxLinkCount": 7,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 1,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          50.0,
+          3.2539196,
+          110.0
+        ],
+        "BMax": [
+          60.0,
+          45.25392,
+          120.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        50.0,
+        23.45392,
+        120.0,
+        50.4,
+        23.45392,
+        120.0,
+        50.0,
+        23.45392,
+        119.6
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            0,
+            1,
+            2,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            0,
+            32772,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4325376,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4718592,
+          "Next": 0,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 3,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            48
+          ],
+          "BMax": [
+            2,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 1,
+        "Y": 12,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 3,
+        "VertCount": 8,
+        "MaxLinkCount": 16,
+        "DetailMeshCount": 3,
+        "DetailVertCount": 0,
+        "DetailTriCount": 6,
+        "BVNodeCount": 6,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 3,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          10.0,
+          3.2539196,
+          120.0
+        ],
+        "BMax": [
+          20.0,
+          45.25392,
+          130.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        17.2,
+        23.45392,
+        130.0,
+        20.0,
+        23.45392,
+        130.0,
+        20.0,
+        23.45392,
+        124.6,
+        19.6,
+        23.45392,
+        124.8,
+        19.6,
+        23.45392,
+        125.6,
+        18.6,
+        23.45392,
+        126.4,
+        18.2,
+        23.45392,
+        128.0,
+        17.2,
+        23.45392,
+        129.2
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 4,
+          "Verts": [
+            2,
+            3,
+            4,
+            1,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            32768,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 5,
+          "Verts": [
+            6,
+            7,
+            0,
+            1,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            32770,
+            3,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            4,
+            5,
+            6,
+            1,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            2,
+            1,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4390914,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4390914,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4390912,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4390913,
+          "Next": 2,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4456448,
+          "Next": 0,
+          "Edge": 3,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4751362,
+          "Next": 1,
+          "Edge": 2,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 4,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            36,
+            101,
+            23
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            48,
+            101,
+            23
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            36,
+            101,
+            28
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            36,
+            101,
+            40
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            41,
+            101,
+            28
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 3,
+        "Y": 15,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 12,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          30.0,
+          3.2539196,
+          150.0
+        ],
+        "BMax": [
+          40.0,
+          45.25392,
+          160.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        30.0,
+        23.45392,
+        160.0,
+        40.0,
+        23.45392,
+        160.0,
+        40.0,
+        23.45392,
+        150.0,
+        30.0,
+        23.45392,
+        150.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            32774,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4292611,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4489216,
+          "Next": 0,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4620293,
+          "Next": 1,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5013504,
+          "Next": 2,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 2,
+        "Y": 12,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 6,
+        "MaxLinkCount": 14,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 4,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          20.0,
+          3.2539196,
+          120.0
+        ],
+        "BMax": [
+          30.0,
+          45.25392,
+          130.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        20.0,
+        23.45392,
+        124.6,
+        20.0,
+        23.45392,
+        130.0,
+        30.0,
+        23.45392,
+        130.0,
+        30.0,
+        23.45392,
+        120.0,
+        25.6,
+        23.45392,
+        120.0,
+        23.8,
+        23.45392,
+        120.6
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            3,
+            4,
+            5,
+            0,
+            1,
+            2
+          ],
+          "Neis": [
+            32774,
+            0,
+            0,
+            32772,
+            32770,
+            32768
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4390912,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4194304,
+          "Next": 0,
+          "Edge": 0,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4521985,
+          "Next": 1,
+          "Edge": 5,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4784128,
+          "Next": 2,
+          "Edge": 4,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 4
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        4,
+        0,
+        4,
+        5,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 4,
+        "Y": 15,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 5,
+        "MaxLinkCount": 13,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 3,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          40.0,
+          3.2539196,
+          150.0
+        ],
+        "BMax": [
+          50.0,
+          45.25392,
+          160.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        40.0,
+        23.45392,
+        160.0,
+        46.4,
+        23.45392,
+        160.0,
+        50.0,
+        23.45392,
+        158.4,
+        50.0,
+        23.45392,
+        150.0,
+        40.0,
+        23.45392,
+        150.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            0
+          ],
+          "Neis": [
+            32770,
+            0,
+            32768,
+            32774,
+            32772,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4423680,
+          "Next": 4294967295,
+          "Edge": 4,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4554754,
+          "Next": 0,
+          "Edge": 2,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4685827,
+          "Next": 1,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5046272,
+          "Next": 2,
+          "Edge": 3,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 3
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 3,
+        "Y": 12,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 4,
+        "VertCount": 9,
+        "MaxLinkCount": 25,
+        "DetailMeshCount": 4,
+        "DetailVertCount": 0,
+        "DetailTriCount": 7,
+        "BVNodeCount": 8,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 4,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          30.0,
+          3.2539196,
+          120.0
+        ],
+        "BMax": [
+          40.0,
+          45.25392,
+          130.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        30.0,
+        23.45392,
+        130.0,
+        40.0,
+        23.45392,
+        130.0,
+        40.0,
+        23.45392,
+        120.0,
+        31.6,
+        23.45392,
+        120.0,
+        32.0,
+        23.45392,
+        120.6,
+        31.4,
+        23.45392,
+        121.0,
+        31.0,
+        23.45392,
+        120.4,
+        31.4,
+        23.45392,
+        120.0,
+        30.0,
+        23.45392,
+        120.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 7,
+          "Verts": [
+            6,
+            7,
+            8,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            32774,
+            2,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 6,
+          "Verts": [
+            5,
+            6,
+            8,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            1,
+            32772,
+            4,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 8,
+          "Verts": [
+            2,
+            3,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            32774,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 10,
+          "Verts": [
+            2,
+            4,
+            5,
+            0,
+            1,
+            0
+          ],
+          "Neis": [
+            3,
+            0,
+            2,
+            32770,
+            32768,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4521985,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4521987,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4521984,
+          "Next": 1,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4521987,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4521985,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4521986,
+          "Next": 4,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4456448,
+          "Next": 2,
+          "Edge": 2,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4259841,
+          "Next": 0,
+          "Edge": 1,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4259844,
+          "Next": 3,
+          "Edge": 0,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4653056,
+          "Next": 5,
+          "Edge": 4,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4816896,
+          "Next": 9,
+          "Edge": 3,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 17,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 18,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 19,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 20,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 21,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 22,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 23,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 24,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 1,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 3,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 4,
+          "VertCount": 0,
+          "TriCount": 3
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -7
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            7,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            7,
+            101,
+            2
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            7,
+            101,
+            50
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            8,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            3
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 3
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 5,
+        "Y": 15,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 3,
+        "VertCount": 8,
+        "MaxLinkCount": 16,
+        "DetailMeshCount": 3,
+        "DetailVertCount": 0,
+        "DetailTriCount": 6,
+        "BVNodeCount": 6,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 3,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          50.0,
+          3.2539196,
+          150.0
+        ],
+        "BMax": [
+          60.0,
+          45.25392,
+          160.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        50.0,
+        23.45392,
+        158.4,
+        51.6,
+        23.45392,
+        157.6,
+        52.0,
+        23.45392,
+        156.8,
+        56.8,
+        23.45392,
+        152.4,
+        56.8,
+        23.45392,
+        151.6,
+        57.4,
+        23.45392,
+        151.2,
+        57.8,
+        23.45392,
+        150.0,
+        50.0,
+        23.45392,
+        150.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 5,
+          "Verts": [
+            4,
+            5,
+            6,
+            7,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            32774,
+            3,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            0,
+            1,
+            2,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 4,
+          "Verts": [
+            2,
+            3,
+            4,
+            7,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            1,
+            32772,
+            2,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4554754,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4554754,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4554753,
+          "Next": 4294967295,
+          "Edge": 4,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4554752,
+          "Next": 2,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4489216,
+          "Next": 3,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5079042,
+          "Next": 0,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 3,
+          "VertCount": 0,
+          "TriCount": 3
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            39,
+            101,
+            42
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            39,
+            101,
+            8
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            34,
+            101,
+            42
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            34
+          ],
+          "BMax": [
+            10,
+            101,
+            42
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            34,
+            101,
+            42
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 2,
+        "Y": 16,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 3,
+        "MaxLinkCount": 7,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 1,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          20.0,
+          3.2539196,
+          160.0
+        ],
+        "BMax": [
+          30.0,
+          45.25392,
+          170.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        30.0,
+        23.45392,
+        160.4,
+        30.0,
+        23.45392,
+        160.0,
+        29.6,
+        23.45392,
+        160.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            0,
+            1,
+            2,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            32768,
+            32774,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4292609,
+          "Next": 4294967295,
+          "Edge": 1,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4620289,
+          "Next": 0,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 3,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            48,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            2
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 3,
+        "Y": 16,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 8,
+        "VertCount": 17,
+        "MaxLinkCount": 37,
+        "DetailMeshCount": 8,
+        "DetailVertCount": 0,
+        "DetailTriCount": 15,
+        "BVNodeCount": 16,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 8,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          30.0,
+          0.2764969,
+          160.0
+        ],
+        "BMax": [
+          40.0,
+          45.25392,
+          170.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        30.0,
+        23.2764969,
+        160.4,
+        31.0,
+        23.2764969,
+        161.4,
+        31.0,
+        23.2764969,
+        162.0,
+        32.0,
+        23.2764969,
+        162.4,
+        32.0,
+        23.076498,
+        163.2,
+        31.0,
+        22.6764965,
+        163.6,
+        31.0,
+        21.2764969,
+        167.2,
+        31.4,
+        21.076498,
+        167.6,
+        33.0,
+        20.8764973,
+        168.0,
+        33.2,
+        20.6764965,
+        168.4,
+        35.0,
+        20.6764965,
+        168.4,
+        35.4,
+        20.4764977,
+        169.0,
+        38.0,
+        20.4764977,
+        169.0,
+        38.6,
+        20.6764965,
+        168.4,
+        40.0,
+        20.6764965,
+        168.4,
+        40.0,
+        23.2764969,
+        160.0,
+        30.0,
+        23.2764969,
+        160.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 0,
+          "Verts": [
+            1,
+            2,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 14,
+          "Verts": [
+            16,
+            0,
+            1,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            32772,
+            0,
+            6,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 2,
+          "Verts": [
+            8,
+            9,
+            10,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 4,
+          "Verts": [
+            6,
+            7,
+            8,
+            10,
+            4,
+            5
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            7,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 5,
+          "Verts": [
+            10,
+            11,
+            12,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            7,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 15,
+          "Verts": [
+            16,
+            1,
+            3,
+            15,
+            0,
+            0
+          ],
+          "Neis": [
+            2,
+            1,
+            7,
+            32774,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 12,
+          "Verts": [
+            10,
+            12,
+            13,
+            15,
+            3,
+            4
+          ],
+          "Neis": [
+            5,
+            0,
+            8,
+            6,
+            0,
+            4
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 16,
+          "Verts": [
+            13,
+            14,
+            15,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            32768,
+            7,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4620293,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620293,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620291,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620294,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620290,
+          "Next": 3,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620294,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620294,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620288,
+          "Next": 6,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620289,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620291,
+          "Next": 4294967295,
+          "Edge": 5,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620293,
+          "Next": 9,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620295,
+          "Next": 10,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620292,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620294,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4587520,
+          "Next": 1,
+          "Edge": 0,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4423680,
+          "Next": 8,
+          "Edge": 3,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4685826,
+          "Next": 13,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 18,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 19,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 20,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 21,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 22,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 23,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 24,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 25,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 26,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 27,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 28,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 29,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 30,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 31,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 32,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 33,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 34,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 35,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 36,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 1,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 3,
+          "VertCount": 0,
+          "TriCount": 4
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 7,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 8,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 10,
+          "VertCount": 0,
+          "TriCount": 4
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 14,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        4,
+        0,
+        4,
+        5,
+        20,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        4,
+        0,
+        4,
+        5,
+        20,
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            115,
+            45
+          ],
+          "I": -15
+        },
+        {
+          "BMin": [
+            0,
+            102,
+            0
+          ],
+          "BMax": [
+            25,
+            115,
+            42
+          ],
+          "I": -7
+        },
+        {
+          "BMin": [
+            0,
+            115,
+            0
+          ],
+          "BMax": [
+            10,
+            115,
+            12
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            5,
+            115,
+            7
+          ],
+          "BMax": [
+            10,
+            115,
+            12
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            115,
+            0
+          ],
+          "BMax": [
+            5,
+            115,
+            7
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            5,
+            102,
+            16
+          ],
+          "BMax": [
+            25,
+            114,
+            42
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            15,
+            102,
+            40
+          ],
+          "BMax": [
+            25,
+            103,
+            42
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            5,
+            102,
+            16
+          ],
+          "BMax": [
+            25,
+            114,
+            42
+          ],
+          "I": 3
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            115,
+            45
+          ],
+          "I": -7
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            115,
+            45
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            25,
+            101,
+            42
+          ],
+          "BMax": [
+            40,
+            102,
+            45
+          ],
+          "I": 4
+        },
+        {
+          "BMin": [
+            0,
+            115,
+            0
+          ],
+          "BMax": [
+            50,
+            115,
+            12
+          ],
+          "I": 5
+        },
+        {
+          "BMin": [
+            10,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            115,
+            45
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            10,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            115,
+            45
+          ],
+          "I": 6
+        },
+        {
+          "BMin": [
+            43,
+            102,
+            0
+          ],
+          "BMax": [
+            50,
+            115,
+            42
+          ],
+          "I": 7
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 4,
+        "Y": 12,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 12,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          40.0,
+          3.2539196,
+          120.0
+        ],
+        "BMax": [
+          50.0,
+          45.25392,
+          130.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        40.0,
+        23.45392,
+        130.0,
+        50.0,
+        23.45392,
+        130.0,
+        50.0,
+        23.45392,
+        120.0,
+        40.0,
+        23.45392,
+        120.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            32774,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4521987,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4325379,
+          "Next": 0,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4718594,
+          "Next": 1,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4849664,
+          "Next": 2,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 4,
+        "Y": 16,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 4,
+        "VertCount": 8,
+        "MaxLinkCount": 18,
+        "DetailMeshCount": 4,
+        "DetailVertCount": 0,
+        "DetailTriCount": 6,
+        "BVNodeCount": 8,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 4,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          40.0,
+          0.4989357,
+          160.0
+        ],
+        "BMax": [
+          50.0,
+          45.25392,
+          170.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        40.0,
+        20.6989365,
+        168.4,
+        42.8,
+        20.6989365,
+        168.4,
+        43.0,
+        20.8989353,
+        168.0,
+        44.0,
+        20.8989353,
+        168.0,
+        44.8,
+        21.0989361,
+        167.4,
+        44.8,
+        23.2989368,
+        161.2,
+        46.4,
+        23.2989368,
+        160.0,
+        40.0,
+        23.2989368,
+        160.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 0,
+          "Verts": [
+            2,
+            3,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            0,
+            1,
+            2,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 6,
+          "Verts": [
+            0,
+            2,
+            4,
+            5,
+            7,
+            0
+          ],
+          "Neis": [
+            2,
+            1,
+            0,
+            4,
+            32772,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 7,
+          "Verts": [
+            5,
+            6,
+            7,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            32774,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4685826,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4685826,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4685827,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4685824,
+          "Next": 2,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4685825,
+          "Next": 3,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4685826,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4620295,
+          "Next": 4,
+          "Edge": 4,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4489216,
+          "Next": 5,
+          "Edge": 1,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 17,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 1,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 3
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 5,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20,
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            32,
+            114,
+            42
+          ],
+          "I": -7
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            37
+          ],
+          "BMax": [
+            24,
+            103,
+            42
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            15,
+            102,
+            37
+          ],
+          "BMax": [
+            24,
+            103,
+            40
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            40
+          ],
+          "BMax": [
+            15,
+            102,
+            42
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            32,
+            114,
+            42
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            24,
+            114,
+            42
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            0,
+            114,
+            0
+          ],
+          "BMax": [
+            32,
+            114,
+            6
+          ],
+          "I": 3
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 5,
+        "Y": 12,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 3,
+        "VertCount": 7,
+        "MaxLinkCount": 17,
+        "DetailMeshCount": 3,
+        "DetailVertCount": 0,
+        "DetailTriCount": 5,
+        "BVNodeCount": 6,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 3,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          50.0,
+          3.2539196,
+          120.0
+        ],
+        "BMax": [
+          60.0,
+          45.25392,
+          130.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        50.0,
+        23.45392,
+        130.0,
+        58.8,
+        23.45392,
+        130.0,
+        56.8,
+        23.45392,
+        125.8,
+        52.6,
+        23.45392,
+        121.6,
+        52.0,
+        23.45392,
+        121.6,
+        50.4,
+        23.45392,
+        120.0,
+        50.0,
+        23.45392,
+        120.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 5,
+          "Verts": [
+            4,
+            5,
+            6,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            32774,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            2,
+            3,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 6,
+          "Verts": [
+            0,
+            1,
+            2,
+            4,
+            6,
+            0
+          ],
+          "Neis": [
+            32770,
+            0,
+            2,
+            1,
+            32772,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4718594,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4718594,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4718592,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4718593,
+          "Next": 2,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4653056,
+          "Next": 3,
+          "Edge": 4,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4358144,
+          "Next": 0,
+          "Edge": 1,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4882432,
+          "Next": 4,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 1,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 3
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            44,
+            101,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            10,
+            101,
+            8
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            44,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            10,
+            101,
+            8
+          ],
+          "BMax": [
+            34,
+            101,
+            29
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            44,
+            101,
+            50
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 1,
+        "Y": 13,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 5,
+        "VertCount": 11,
+        "MaxLinkCount": 27,
+        "DetailMeshCount": 5,
+        "DetailVertCount": 0,
+        "DetailTriCount": 9,
+        "BVNodeCount": 10,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 5,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          10.0,
+          3.2539196,
+          130.0
+        ],
+        "BMax": [
+          20.0,
+          45.25392,
+          140.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        16.2,
+        23.45392,
+        134.8,
+        20.0,
+        23.45392,
+        134.8,
+        20.0,
+        23.45392,
+        130.0,
+        17.2,
+        23.45392,
+        130.0,
+        16.6,
+        23.45392,
+        130.4,
+        16.6,
+        23.45392,
+        131.6,
+        16.2,
+        23.45392,
+        131.8,
+        16.2,
+        23.45392,
+        136.4,
+        15.2,
+        23.45392,
+        137.8,
+        15.2,
+        23.45392,
+        140.0,
+        20.0,
+        23.45392,
+        140.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 0,
+          "Verts": [
+            3,
+            4,
+            5,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            5,
+            6,
+            0,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 9,
+          "Verts": [
+            2,
+            3,
+            5,
+            0,
+            1,
+            0
+          ],
+          "Neis": [
+            32774,
+            1,
+            2,
+            5,
+            32768,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 11,
+          "Verts": [
+            7,
+            8,
+            9,
+            10,
+            1,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            32770,
+            32768,
+            5,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 7,
+          "Verts": [
+            1,
+            0,
+            7,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            3,
+            0,
+            4,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4751362,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4751362,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4751364,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4751361,
+          "Next": 2,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4751360,
+          "Next": 3,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4751364,
+          "Next": 4294967295,
+          "Edge": 4,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4751363,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4751362,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4390913,
+          "Next": 4,
+          "Edge": 0,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4784128,
+          "Next": 8,
+          "Edge": 4,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4784128,
+          "Next": 5,
+          "Edge": 3,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4947969,
+          "Next": 10,
+          "Edge": 2,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 17,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 18,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 19,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 20,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 21,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 22,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 23,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 24,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 25,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 26,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 1,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 3
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 5,
+          "VertCount": 0,
+          "TriCount": 3
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 8,
+          "VertCount": 0,
+          "TriCount": 1
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20,
+        0,
+        1,
+        2,
+        21
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            26,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -9
+        },
+        {
+          "BMin": [
+            31,
+            101,
+            0
+          ],
+          "BMax": [
+            36,
+            101,
+            24
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            33,
+            101,
+            0
+          ],
+          "BMax": [
+            36,
+            101,
+            8
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            31,
+            101,
+            8
+          ],
+          "BMax": [
+            33,
+            101,
+            24
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            26,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            31,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            24
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            26,
+            101,
+            24
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            26,
+            101,
+            24
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 3
+        },
+        {
+          "BMin": [
+            31,
+            101,
+            24
+          ],
+          "BMax": [
+            50,
+            101,
+            32
+          ],
+          "I": 4
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 2,
+        "Y": 13,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 12,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          20.0,
+          3.2539196,
+          130.0
+        ],
+        "BMax": [
+          30.0,
+          45.25392,
+          140.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        20.0,
+        23.45392,
+        140.0,
+        30.0,
+        23.45392,
+        140.0,
+        30.0,
+        23.45392,
+        130.0,
+        20.0,
+        23.45392,
+        130.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 4,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            32774,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4751362,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 122
+        },
+        {
+          "Ref": 4751363,
+          "Next": 0,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 122,
+          "BMax": 255
+        },
+        {
+          "Ref": 4456448,
+          "Next": 1,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4816896,
+          "Next": 2,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4980736,
+          "Next": 3,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 3,
+        "Y": 13,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 12,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          30.0,
+          3.2539196,
+          130.0
+        ],
+        "BMax": [
+          40.0,
+          45.25392,
+          140.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        30.0,
+        23.45392,
+        140.0,
+        40.0,
+        23.45392,
+        140.0,
+        40.0,
+        23.45392,
+        130.0,
+        30.0,
+        23.45392,
+        130.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            32774,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4784128,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4521987,
+          "Next": 0,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4849664,
+          "Next": 1,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5013504,
+          "Next": 2,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 4,
+        "Y": 13,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 12,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          40.0,
+          3.2539196,
+          130.0
+        ],
+        "BMax": [
+          50.0,
+          45.25392,
+          140.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        40.0,
+        23.45392,
+        140.0,
+        50.0,
+        23.45392,
+        140.0,
+        50.0,
+        23.45392,
+        130.0,
+        40.0,
+        23.45392,
+        130.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            32774,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4816896,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4653056,
+          "Next": 0,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4882432,
+          "Next": 1,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5046272,
+          "Next": 2,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 5,
+        "Y": 13,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 6,
+        "MaxLinkCount": 14,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 4,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          50.0,
+          3.2539196,
+          130.0
+        ],
+        "BMax": [
+          60.0,
+          45.25392,
+          140.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        50.0,
+        23.45392,
+        140.0,
+        60.0,
+        23.45392,
+        140.0,
+        60.0,
+        23.45392,
+        134.6,
+        59.8,
+        23.45392,
+        131.8,
+        58.8,
+        23.45392,
+        130.0,
+        50.0,
+        23.45392,
+        130.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            2,
+            3,
+            4,
+            5,
+            0,
+            1
+          ],
+          "Neis": [
+            0,
+            0,
+            32774,
+            32772,
+            32770,
+            32768
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4849664,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4718594,
+          "Next": 0,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4915201,
+          "Next": 1,
+          "Edge": 5,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5079042,
+          "Next": 2,
+          "Edge": 4,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 4
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        4,
+        0,
+        4,
+        5,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 6,
+        "Y": 13,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 2,
+        "VertCount": 7,
+        "MaxLinkCount": 13,
+        "DetailMeshCount": 2,
+        "DetailVertCount": 0,
+        "DetailTriCount": 5,
+        "BVNodeCount": 4,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 2,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          60.0,
+          3.2539196,
+          130.0
+        ],
+        "BMax": [
+          70.0,
+          45.25392,
+          140.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        60.0,
+        23.45392,
+        140.0,
+        60.4,
+        23.45392,
+        140.0,
+        60.8,
+        23.45392,
+        139.8,
+        60.8,
+        23.45392,
+        138.2,
+        60.4,
+        23.45392,
+        138.0,
+        60.4,
+        23.45392,
+        134.8,
+        60.0,
+        23.45392,
+        134.6
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            0
+          ],
+          "Neis": [
+            32770,
+            0,
+            0,
+            0,
+            2,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 2,
+          "Verts": [
+            4,
+            5,
+            6,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            32772,
+            1,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4915201,
+          "Next": 4294967295,
+          "Edge": 4,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4915200,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4882432,
+          "Next": 1,
+          "Edge": 2,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5111808,
+          "Next": 0,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 3
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 3,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            23
+          ],
+          "BMax": [
+            4,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            40
+          ],
+          "BMax": [
+            4,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            23
+          ],
+          "BMax": [
+            2,
+            101,
+            50
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 1,
+        "Y": 14,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 2,
+        "VertCount": 7,
+        "MaxLinkCount": 15,
+        "DetailMeshCount": 2,
+        "DetailVertCount": 0,
+        "DetailTriCount": 5,
+        "BVNodeCount": 4,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 2,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          10.0,
+          3.2539196,
+          140.0
+        ],
+        "BMax": [
+          20.0,
+          45.25392,
+          150.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        18.0,
+        23.45392,
+        150.0,
+        20.0,
+        23.45392,
+        150.0,
+        20.0,
+        23.45392,
+        140.0,
+        15.2,
+        23.45392,
+        140.0,
+        15.6,
+        23.45392,
+        144.2,
+        16.6,
+        23.45392,
+        145.6,
+        16.2,
+        23.45392,
+        146.8
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 2,
+          "Verts": [
+            5,
+            6,
+            0,
+            1,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            32770,
+            2,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 4,
+          "Verts": [
+            3,
+            4,
+            5,
+            1,
+            2,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            1,
+            32768,
+            32774,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 5,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4947969,
+          "Next": 4294967295,
+          "Edge": 3,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4947968,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4227072,
+          "Next": 0,
+          "Edge": 2,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4751363,
+          "Next": 1,
+          "Edge": 4,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4980736,
+          "Next": 3,
+          "Edge": 3,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 3
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            26,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            31,
+            101,
+            28
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            26,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 2,
+        "Y": 14,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 12,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          20.0,
+          3.2539196,
+          140.0
+        ],
+        "BMax": [
+          30.0,
+          45.25392,
+          150.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        20.0,
+        23.45392,
+        150.0,
+        30.0,
+        23.45392,
+        150.0,
+        30.0,
+        23.45392,
+        140.0,
+        20.0,
+        23.45392,
+        140.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            32774,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4292611,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4947969,
+          "Next": 0,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4784128,
+          "Next": 1,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5013504,
+          "Next": 2,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 3,
+        "Y": 14,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 12,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          30.0,
+          3.2539196,
+          140.0
+        ],
+        "BMax": [
+          40.0,
+          45.25392,
+          150.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        30.0,
+        23.45392,
+        150.0,
+        40.0,
+        23.45392,
+        150.0,
+        40.0,
+        23.45392,
+        140.0,
+        30.0,
+        23.45392,
+        140.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            32774,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4423680,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4980736,
+          "Next": 0,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4816896,
+          "Next": 1,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5046272,
+          "Next": 2,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 4,
+        "Y": 14,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 12,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          40.0,
+          3.2539196,
+          140.0
+        ],
+        "BMax": [
+          50.0,
+          45.25392,
+          150.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        40.0,
+        23.45392,
+        150.0,
+        50.0,
+        23.45392,
+        150.0,
+        50.0,
+        23.45392,
+        140.0,
+        40.0,
+        23.45392,
+        140.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 3,
+          "Verts": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0
+          ],
+          "Neis": [
+            32770,
+            32768,
+            32774,
+            32772,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 4489216,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5013504,
+          "Next": 0,
+          "Edge": 3,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4849664,
+          "Next": 1,
+          "Edge": 2,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5079042,
+          "Next": 2,
+          "Edge": 1,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 8,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 5,
+        "Y": 14,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 3,
+        "VertCount": 8,
+        "MaxLinkCount": 20,
+        "DetailMeshCount": 3,
+        "DetailVertCount": 0,
+        "DetailTriCount": 6,
+        "BVNodeCount": 6,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 3,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          50.0,
+          3.2539196,
+          140.0
+        ],
+        "BMax": [
+          60.0,
+          45.25392,
+          150.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        50.0,
+        23.45392,
+        150.0,
+        57.8,
+        23.45392,
+        150.0,
+        58.8,
+        23.45392,
+        148.4,
+        58.8,
+        23.45392,
+        147.6,
+        59.4,
+        23.45392,
+        147.2,
+        60.0,
+        23.45392,
+        143.4,
+        60.0,
+        23.45392,
+        140.0,
+        50.0,
+        23.45392,
+        140.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 0,
+          "Verts": [
+            1,
+            2,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            3,
+            4,
+            5,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            0,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 3,
+          "Area": 0,
+          "Type": 0
+        },
+        {
+          "_areaAndType": 0,
+          "FirstLink": 7,
+          "Verts": [
+            1,
+            3,
+            5,
+            6,
+            7,
+            0
+          ],
+          "Neis": [
+            1,
+            2,
+            32768,
+            32774,
+            32772,
+            32770
+          ],
+          "Flags": 1,
+          "VertCount": 6,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 5079042,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 5079042,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 5079041,
+          "Next": 4294967295,
+          "Edge": 1,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 5079040,
+          "Next": 2,
+          "Edge": 0,
+          "Side": 255,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 4554752,
+          "Next": 3,
+          "Edge": 5,
+          "Side": 2,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5046272,
+          "Next": 4,
+          "Edge": 4,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4882432,
+          "Next": 5,
+          "Edge": 3,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 5111808,
+          "Next": 6,
+          "Edge": 2,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 9,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 10,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 11,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 12,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 13,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 14,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 15,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 16,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 17,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 18,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 19,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 1,
+          "VertCount": 0,
+          "TriCount": 1
+        },
+        {
+          "VertBase": 0,
+          "TriBase": 2,
+          "VertCount": 0,
+          "TriCount": 4
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        21,
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        4,
+        0,
+        3,
+        4,
+        4,
+        0,
+        4,
+        5,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -5
+        },
+        {
+          "BMin": [
+            39,
+            101,
+            38
+          ],
+          "BMax": [
+            44,
+            101,
+            50
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": -3
+        },
+        {
+          "BMin": [
+            44,
+            101,
+            17
+          ],
+          "BMax": [
+            50,
+            101,
+            38
+          ],
+          "I": 1
+        },
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            50,
+            101,
+            50
+          ],
+          "I": 2
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    {
+      "Header": {
+        "Magic": 1,
+        "Version": 1,
+        "X": 6,
+        "Y": 14,
+        "Layer": 0,
+        "UserId": 0,
+        "PolyCount": 1,
+        "VertCount": 4,
+        "MaxLinkCount": 8,
+        "DetailMeshCount": 1,
+        "DetailVertCount": 0,
+        "DetailTriCount": 2,
+        "BVNodeCount": 2,
+        "OffMeshConCount": 0,
+        "OffMeshBase": 1,
+        "WalkableHeight": 10.0,
+        "WalkableRadius": 0.0,
+        "WalkableClimb": 4.0,
+        "BMin": [
+          60.0,
+          3.2539196,
+          140.0
+        ],
+        "BMax": [
+          70.0,
+          45.25392,
+          150.0
+        ],
+        "TileRef": 0,
+        "BVQuantFactor": 5.0
+      },
+      "NavVerts": [
+        60.0,
+        23.45392,
+        143.4,
+        60.4,
+        23.45392,
+        143.2,
+        60.4,
+        23.45392,
+        140.0,
+        60.0,
+        23.45392,
+        140.0
+      ],
+      "NavPolys": [
+        {
+          "_areaAndType": 0,
+          "FirstLink": 1,
+          "Verts": [
+            1,
+            2,
+            3,
+            0,
+            0,
+            0
+          ],
+          "Neis": [
+            0,
+            32774,
+            32772,
+            0,
+            0,
+            0
+          ],
+          "Flags": 1,
+          "VertCount": 4,
+          "Area": 0,
+          "Type": 0
+        }
+      ],
+      "NavLinks": [
+        {
+          "Ref": 5079042,
+          "Next": 4294967295,
+          "Edge": 2,
+          "Side": 4,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 4915200,
+          "Next": 0,
+          "Edge": 1,
+          "Side": 6,
+          "BMin": 0,
+          "BMax": 255
+        },
+        {
+          "Ref": 0,
+          "Next": 3,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 5,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 6,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 7,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        },
+        {
+          "Ref": 0,
+          "Next": 4294967295,
+          "Edge": 0,
+          "Side": 0,
+          "BMin": 0,
+          "BMax": 0
+        }
+      ],
+      "NavDMeshes": [
+        {
+          "VertBase": 0,
+          "TriBase": 0,
+          "VertCount": 0,
+          "TriCount": 2
+        }
+      ],
+      "NavDVerts": [],
+      "NavDTris": [
+        0,
+        1,
+        2,
+        5,
+        0,
+        2,
+        3,
+        20
+      ],
+      "NavBvTree": [
+        {
+          "BMin": [
+            0,
+            101,
+            0
+          ],
+          "BMax": [
+            2,
+            101,
+            17
+          ],
+          "I": 0
+        },
+        {
+          "BMin": [
+            0,
+            0,
+            0
+          ],
+          "BMax": [
+            0,
+            0,
+            0
+          ],
+          "I": 0
+        }
+      ],
+      "OffMeshCons": []
+    },
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ]
+}

@@ -243,9 +243,9 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
 
-/*    std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
+    std::string ip = FindModule<NFIMessageModule>()->GetLinkIp(unLinkId);
 
-    NF_SHARE_PTR<NFProxySession> pLinkInfo = mClientLinkInfo.GetElement(unLinkId);
+    NF_SHARE_PTR<NFProxySession> pLinkInfo = mSessionMap.GetElement(unLinkId);
     if (pLinkInfo == nullptr)
     {
         NFLogWarning(NF_LOG_SYSTEMLOG, 0, "can't find the link, ip:{} packet:{}",
@@ -255,14 +255,14 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
         return 0;
     }
 
-    NF_SHARE_PTR<NFProxyAccountInfo> pPlayerInfo = mAccountInfo.GetElement(pLinkInfo->GetUid());
-    if (pPlayerInfo == nullptr)
+    NF_SHARE_PTR<NFProxyAccount> pAccount= mAccountMap.GetElement(pLinkInfo->GetUid());
+    if (pAccount == nullptr)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "can't find the clientId:{} 's playerId:{}, drop msg:{}", unLinkId, pLinkInfo->GetUid(), packet.ToString());
         return 0;
     }
 
-    pPlayerInfo->SetOnline(true);
+    pAccount->SetOnline(true);
 
     uint32_t msgId = packet.nMsgId;
 
@@ -277,90 +277,85 @@ int NFCProxyPlayerModule::OnHandleProxyClientOtherMessage(uint64_t unLinkId, NFD
         return 0;
     }
 
+    if (!pAccount->IsLogin())
     {
-        if (!pPlayerInfo->IsLogin())
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, 0, "the clientId:{} 's playerId:{} not login, drop msg:{}", unLinkId, pLinkInfo->GetUid(),
-                       packet.ToString());
-            return 0;
-        }
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "the clientId:{} 's uid:{} not login, drop msg:{}", unLinkId, pLinkInfo->GetUid(),
+                   packet.ToString());
+        return 0;
+    }
 
-        uint32_t serverType = FindModule<NFIProxyServerModule>()->GetClientMsgServer(msgId);
-        if (serverType == NF_ST_WORLD_SERVER)
+    uint32_t serverType = FindModule<NFIProxyServerModule>()->GetClientMsgServer(msgId);
+    if (serverType == NF_ST_WORLD_SERVER)
+    {
+        if (pAccount->GetWorldBusId() > 0)
         {
-            NF_SHARE_PTR<NFServerData> pWorldServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_PROXY_SERVER,
-                                                                                                                NF_ST_WORLD_SERVER,
-                                                                                                                pPlayerInfo->GetUid());
-            if (pWorldServer)
-            {
-                NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to world server", packet.ToString());
-                FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pWorldServer->mServerInfo.bus_id(),
-                                                                          NF_MODULE_CLIENT, msgId,
-                                                                          packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
-                                                                          0);
-            }
-            else
-            {
-                NFLogWarning(NF_LOG_SYSTEMLOG, pLinkInfo->GetUid(),
-                             "can't find the player:{} info, the cmd don't find the trans to world server, world server not exist, ip:{} packet:{}",
-                             pLinkInfo->GetUid(), ip, packet.ToString());
-            }
-        }
-        else if (serverType == NF_ST_LOGIC_SERVER)
-        {
-            if (pPlayerInfo->GetLogicBusId() > 0)
-            {
-                NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to logic server", packet.ToString());
-                FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetLogicBusId(), NF_MODULE_CLIENT,
-                                                                          msgId,
-                                                                          packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
-                                                                          0);
-            }
-            else
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv nMsgId = {}, not transfer to logic server", packet.ToString());
-            }
-        }
-        else if (serverType == NF_ST_GAME_SERVER)
-        {
-            if (pPlayerInfo->GetGameBusId() > 0)
-            {
-                NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to game server", packet.ToString());
-                FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pPlayerInfo->GetGameBusId(), NF_MODULE_CLIENT,
-                                                                          msgId,
-                                                                          packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
-                                                                          0);
-            }
-            else
-            {
-                NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv nMsgId = {}, not transfer to game server", packet.ToString());
-            }
-        }
-        else if (serverType == NF_ST_SNS_SERVER)
-        {
-            NF_SHARE_PTR<NFServerData> pSnsServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_PROXY_SERVER,
-                                                                                                              NF_ST_SNS_SERVER,
-                                                                                                              pPlayerInfo->GetUid());
-            if (pSnsServer)
-            {
-                NFLogDebug(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "recv packet = {}, transfer to sns server", packet.ToString());
-                FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pSnsServer->mServerInfo.bus_id(), NF_MODULE_CLIENT,
-                                                                          msgId,
-                                                                          packet.GetBuffer(), packet.GetSize(), pPlayerInfo->GetUid(),
-                                                                          0);
-            }
-            else
-            {
-                NFLogWarning(NF_LOG_SYSTEMLOG, pLinkInfo->GetUid(),
-                             "can't find the player:{} info, the cmd don't find the trans to sns server, sns server not exist, ip:{} packet:{}",
-                             pLinkInfo->GetUid(), ip, packet.ToString());
-            }
+            NFLogDebug(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv packet = {}, transfer to world server", packet.ToString());
+            FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pAccount->GetWorldBusId(),
+                                                                      NF_MODULE_CLIENT, msgId,
+                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetUid(),
+                                                                      0);
         }
         else
         {
-            NFLogError(NF_LOG_SYSTEMLOG, pPlayerInfo->GetUid(), "no server handle the msg, drop msg:{}", packet.ToString());
+            NFLogWarning(NF_LOG_SYSTEMLOG, pLinkInfo->GetUid(),
+                         "can't find the player:{} info, the cmd don't find the trans to world server, world server not exist, ip:{} packet:{}",
+                         pLinkInfo->GetUid(), ip, packet.ToString());
         }
-    }*/
+    }
+    else if (serverType == NF_ST_LOGIC_SERVER)
+    {
+        if (pAccount->GetLogicBusId() > 0)
+        {
+            NFLogDebug(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv packet = {}, transfer to logic server", packet.ToString());
+            FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pAccount->GetLogicBusId(), NF_MODULE_CLIENT,
+                                                                      msgId,
+                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetUid(),
+                                                                      0);
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv nMsgId = {}, not transfer to logic server", packet.ToString());
+        }
+    }
+    else if (serverType == NF_ST_GAME_SERVER)
+    {
+        if (pAccount->GetGameBusId() > 0)
+        {
+            NFLogDebug(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv packet = {}, transfer to game server", packet.ToString());
+            FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pAccount->GetGameBusId(), NF_MODULE_CLIENT,
+                                                                      msgId,
+                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetUid(),
+                                                                      0);
+        }
+        else
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv nMsgId = {}, not transfer to game server", packet.ToString());
+        }
+    }
+    else if (serverType == NF_ST_SNS_SERVER)
+    {
+        NF_SHARE_PTR<NFServerData> pSnsServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_PROXY_SERVER,
+                                                                                                          NF_ST_SNS_SERVER,
+                                                                                                          pAccount->GetUid());
+        if (pSnsServer)
+        {
+            NFLogDebug(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "recv packet = {}, transfer to sns server", packet.ToString());
+            FindModule<NFIServerMessageModule>()->SendProxyMsgByBusId(NF_ST_PROXY_SERVER, pSnsServer->mServerInfo.bus_id(), NF_MODULE_CLIENT,
+                                                                      msgId,
+                                                                      packet.GetBuffer(), packet.GetSize(), pAccount->GetUid(),
+                                                                      0);
+        }
+        else
+        {
+            NFLogWarning(NF_LOG_SYSTEMLOG, pLinkInfo->GetUid(),
+                         "can't find the player:{} info, the cmd don't find the trans to sns server, sns server not exist, ip:{} packet:{}",
+                         pLinkInfo->GetUid(), ip, packet.ToString());
+        }
+    }
+    else
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "no server handle the msg, drop msg:{}", packet.ToString());
+    }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
