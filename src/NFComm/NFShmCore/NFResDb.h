@@ -83,7 +83,58 @@
     static class_name* GetDescStore()\
     {\
         return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
+    }                                                                         \
+
+
+#define IMPL_RES_SELF_CREATE_DESC(class_name, DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
+    public:\
+    virtual int GetResNum() const override { return 0;}\
+    virtual int Initialize() override\
+    {\
+        return 0;\
     }\
+    virtual int Reload(NFResDB *pDB) override\
+    {\
+        PrepareReload();\
+        int iRetCode = Load( pDB );\
+        return iRetCode;\
+    }\
+    virtual std::string GetFileName() override\
+    {\
+        return std::string(#DESCSTORENAME);\
+    }\
+    virtual int Load(NFResDB* pDB) override;\
+    virtual int CheckWhenAllDataLoaded() override;\
+    virtual int CalcUseRatio() override\
+    {\
+        return 0;\
+    }\
+    virtual int SaveDescStore() override\
+    {\
+        return 0;\
+    }\
+    int InsertDescStore(const DESCCLASSNAME& desc)\
+    {\
+        auto pb = DESCCLASSNAME::make_pbmsg();\
+        desc.write_to_pbmsg(pb);\
+        InsertDescStoreToDB(&pb);\
+        return 0;\
+    }                                                        \
+    int DeleteDescStore(const DESCCLASSNAME& desc)\
+    {\
+        auto pb = DESCCLASSNAME::make_pbmsg();\
+        desc.write_to_pbmsg(pb);\
+        DeleteDescStoreToDB(&pb);\
+        return 0;\
+    }\
+	static class_name* DescStore()\
+    {\
+        return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
+    }\
+    static class_name* GetDescStore()\
+    {\
+        return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
+    }
 
 #define IMPL_RES_DESC_EX(DESCSTORENAME) \
     public:\

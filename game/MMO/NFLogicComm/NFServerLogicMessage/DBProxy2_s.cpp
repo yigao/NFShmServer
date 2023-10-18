@@ -228,4 +228,28 @@ void RoleEnterSceneData_s::read_from_pbmsg(const ::proto_ff::RoleEnterSceneData 
 	attr.read_from_pbmsg(temp_attr);
 }
 
+RoleDBName_s::RoleDBName_s() {
+	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+		CreateInit();
+	} else {
+		ResumeInit();
+	}
+}
+
+int RoleDBName_s::CreateInit() {
+	return 0;
+}
+
+int RoleDBName_s::ResumeInit() {
+	return 0;
+}
+
+void RoleDBName_s::write_to_pbmsg(::proto_ff::RoleDBName & msg) const {
+	msg.set_name(name.data());
+}
+
+void RoleDBName_s::read_from_pbmsg(const ::proto_ff::RoleDBName & msg) {
+	name = msg.name();
+}
+
 }

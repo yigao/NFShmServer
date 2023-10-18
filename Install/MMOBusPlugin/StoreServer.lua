@@ -29,6 +29,7 @@ StoreServer = {
              MysqlPassword = NF_MYSQL_PASSWORD,
              TBConfList = {
                   {TableName="RoleDBData", TableCount=1, Cache = false},
+                  {TableName="RoleDBName", TableCount=1, Cache = false},
              },
         },
         --RedisConfig = {

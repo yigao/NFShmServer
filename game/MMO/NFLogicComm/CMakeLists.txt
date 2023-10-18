@@ -4,7 +4,6 @@ ADD_SUBDIRECTORY("NFServerLogicMessage")
 ADD_SUBDIRECTORY("NFLogicCommon")
 ADD_SUBDIRECTORY("NFLogicCommonPlugin")
 ADD_SUBDIRECTORY("DescStore")
-ADD_SUBDIRECTORY("RecastNavigation")
 
 
 

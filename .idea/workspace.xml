@@ -18,6 +18,7 @@
       <config projectName="ShmNFrame" targetName="NFMMOLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFServerMessage" />
       <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
+      <config projectName="ShmNFrame" targetName="NFGameCommon" />
       <config projectName="ShmNFrame" targetName="NFLogicServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFSnsServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginLoader" />
@@ -62,20 +63,245 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO login">
-      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFAccountDefine.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFSqlDefine.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/NFGameCommon/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFMath.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFMath.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFPoint2.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFPoint3.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFRecastUtility.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon/NFRecastUtility.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Server/ProxyServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Server/ProxyServer.lua" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicBindRpcService.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon/NFLogicBindRpcService.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyAccountInfo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyAccount.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyAccountInfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyAccount.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccount.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccountMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldAccountMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/Config/MMO/Sql/StoreServer.proto.ds" beforeDir="false" afterPath="$PROJECT_DIR$/Install/Config/MMO/Sql/StoreServer.proto.ds" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/StoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/StoreServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/DBProxy2.proto" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/common/DBProxy2.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.cc" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2.pb.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2_s.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2_s.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2_s.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFLogicComm/NFServerLogicMessage/DBProxy2_s.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DebugUtils/Include/DebugDraw.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DebugUtils/Include/DebugDraw.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DebugUtils/Include/DetourDebugDraw.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DebugUtils/Include/DetourDebugDraw.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DebugUtils/Include/RecastDebugDraw.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DebugUtils/Include/RecastDebugDraw.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DebugUtils/Include/RecastDump.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DebugUtils/Include/RecastDump.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DebugUtils/Source/DebugDraw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DebugUtils/Source/DebugDraw.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DebugUtils/Source/DetourDebugDraw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DebugUtils/Source/DetourDebugDraw.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DebugUtils/Source/RecastDebugDraw.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DebugUtils/Source/RecastDebugDraw.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DebugUtils/Source/RecastDump.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DebugUtils/Source/RecastDump.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourAlloc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourAlloc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourAssert.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourAssert.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourCommon.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourCommon.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourMath.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourMath.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourNavMesh.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourNavMesh.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourNavMeshBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourNavMeshBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourNavMeshQuery.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourNavMeshQuery.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourNode.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourNode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Include/DetourStatus.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Include/DetourStatus.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Source/DetourAlloc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Source/DetourAlloc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Source/DetourCommon.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Source/DetourCommon.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Source/DetourNavMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Source/DetourNavMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Source/DetourNavMeshBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Source/DetourNavMeshBuilder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Source/DetourNavMeshQuery.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Source/DetourNavMeshQuery.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Detour/Source/DetourNode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Detour/Source/DetourNode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Include/DetourCrowd.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Include/DetourCrowd.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Include/DetourLocalBoundary.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Include/DetourLocalBoundary.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Include/DetourObstacleAvoidance.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Include/DetourObstacleAvoidance.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Include/DetourPathCorridor.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Include/DetourPathCorridor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Include/DetourPathQueue.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Include/DetourPathQueue.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Include/DetourProximityGrid.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Include/DetourProximityGrid.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Source/DetourCrowd.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Source/DetourCrowd.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Source/DetourLocalBoundary.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Source/DetourLocalBoundary.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Source/DetourObstacleAvoidance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Source/DetourObstacleAvoidance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Source/DetourPathCorridor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Source/DetourPathCorridor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Source/DetourPathQueue.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Source/DetourPathQueue.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourCrowd/Source/DetourProximityGrid.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourCrowd/Source/DetourProximityGrid.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourTileCache/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourTileCache/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourTileCache/Include/DetourTileCache.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourTileCache/Include/DetourTileCache.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourTileCache/Include/DetourTileCacheBuilder.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourTileCache/Include/DetourTileCacheBuilder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourTileCache/Source/DetourTileCache.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourTileCache/Source/DetourTileCache.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/DetourTileCache/Source/DetourTileCacheBuilder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/DetourTileCache/Source/DetourTileCacheBuilder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Docs/Conceptual/license_c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Docs/Conceptual/license_c.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Docs/Conceptual/mainpage_c.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Docs/Conceptual/mainpage_c.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Docs/DoxygenLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Docs/DoxygenLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Docs/Extern/Recast_api.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Docs/Extern/Recast_api.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Docs/Images/recast_intro.png" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Docs/Images/recast_intro.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Docs/Readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Docs/Readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Docs/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Docs/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Docs/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Docs/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Doxyfile" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Doxyfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/License.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/License.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Include/Recast.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Include/Recast.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Include/RecastAlloc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Include/RecastAlloc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Include/RecastAssert.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Include/RecastAssert.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/Recast.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/Recast.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastAlloc.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastAlloc.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastArea.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastContour.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastContour.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastFilter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastFilter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastLayers.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastLayers.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastMeshDetail.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastMeshDetail.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastRasterization.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastRasterization.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/Recast/Source/RecastRegion.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/Recast/Source/RecastRegion.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/DebugUtils.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/DebugUtils.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/DebugUtils.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/DebugUtils.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/Detour.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/Detour.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/Detour.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/Detour.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/DetourCrowd.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/DetourCrowd.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/DetourCrowd.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/DetourCrowd.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/DetourTileCache.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/DetourTileCache.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/DetourTileCache.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/DetourTileCache.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/DroidSans.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/DroidSans.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/Recast.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/Recast.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/Recast.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/Recast.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/RecastDemo.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/RecastDemo.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/RecastDemo.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/RecastDemo.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/RecastPluging.vcxproj" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/RecastPluging.vcxproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/RecastPluging.vcxproj.filters" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/RecastPluging.vcxproj.filters" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/Tests/movement_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/Tests/movement_test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/Tests/nav_mesh_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/Tests/nav_mesh_test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/Tests/raycast_test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/Tests/raycast_test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Build/vs2013/recastnavigation.sln" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Build/vs2013/recastnavigation.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_active.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_active.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_audio.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_audio.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_byteorder.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_byteorder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_cdrom.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_cdrom.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config.h.default" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config.h.default" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config.h.in" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config.h.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_dreamcast.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_dreamcast.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_macos.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_macos.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_macosx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_macosx.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_minimal.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_minimal.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_nds.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_nds.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_os2.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_os2.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_symbian.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_symbian.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_win32.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_config_win32.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_copying.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_copying.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_cpuinfo.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_cpuinfo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_endian.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_endian.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_error.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_error.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_events.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_events.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_getenv.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_getenv.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_joystick.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_joystick.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_keyboard.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_keyboard.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_keysym.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_keysym.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_loadso.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_loadso.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_main.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_main.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_mouse.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_mouse.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_mutex.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_mutex.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_name.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_name.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_opengl.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_opengl.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_platform.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_platform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_quit.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_quit.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_rwops.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_rwops.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_stdinc.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_stdinc.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_syswm.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_syswm.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_thread.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_thread.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_timer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_timer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_types.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_types.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_version.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_version.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_video.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/SDL_video.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/begin_code.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/begin_code.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/close_code.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/close_code.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/include/doxyfile" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/include/doxyfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/lib/x86/SDL.lib" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/lib/x86/SDL.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/lib/x86/SDLmain.lib" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/lib/x86/SDLmain.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/SDL/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/SDL/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/fastlz/README.TXT" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/fastlz/README.TXT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/fastlz/fastlz.c" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/fastlz/fastlz.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/fastlz/fastlz.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/fastlz/fastlz.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/stb_image.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/stb_image.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Contrib/stb_truetype.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Contrib/stb_truetype.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/English.lproj/InfoPlist.strings" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/English.lproj/InfoPlist.strings" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/English.lproj/MainMenu.xib" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/English.lproj/MainMenu.xib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Icon.icns" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Icon.icns" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/ChunkyTriMesh.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/ChunkyTriMesh.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/ConvexVolumeTool.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/ConvexVolumeTool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/CrowdTool.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/CrowdTool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/Filelist.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/Filelist.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/InputGeom.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/InputGeom.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/MeshHeaderDef.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/MeshHeaderDef.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/MeshLoaderObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/MeshLoaderObj.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/NavMeshPruneTool.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/NavMeshPruneTool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/NavMeshTesterTool.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/NavMeshTesterTool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/OffMeshConnectionTool.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/OffMeshConnectionTool.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/PerfTimer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/PerfTimer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/SDLMain.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/SDLMain.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/Sample.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/Sample.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/SampleInterfaces.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/SampleInterfaces.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/Sample_Debug.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/Sample_Debug.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/Sample_SoloMesh.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/Sample_SoloMesh.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/Sample_TempObstacles.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/Sample_TempObstacles.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/Sample_TileMesh.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/Sample_TileMesh.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/SlideShow.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/SlideShow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/TestCase.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/TestCase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/ValueHistory.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/ValueHistory.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/imgui.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/imgui.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Include/imguiRenderGL.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Include/imguiRenderGL.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Info.plist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/ChunkyTriMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/ChunkyTriMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/ConvexVolumeTool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/ConvexVolumeTool.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/CrowdTool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/CrowdTool.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/Filelist.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/Filelist.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/InputGeom.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/InputGeom.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/MeshLoaderObj.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/MeshLoaderObj.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/NavMeshPruneTool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/NavMeshPruneTool.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/NavMeshTesterTool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/NavMeshTesterTool.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/OffMeshConnectionTool.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/OffMeshConnectionTool.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/PerfTimer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/PerfTimer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/SDLMain.m" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/SDLMain.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/Sample.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/Sample.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/SampleInterfaces.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/SampleInterfaces.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/Sample_Debug.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/Sample_Debug.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/Sample_SoloMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/Sample_SoloMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/Sample_TempObstacles.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/Sample_TempObstacles.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/Sample_TileMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/Sample_TileMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/SlideShow.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/SlideShow.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/TestCase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/TestCase.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/ValueHistory.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/ValueHistory.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/imgui.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/imgui.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/imguiRenderGL.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/imguiRenderGL.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/Source/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/Source/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/premake4.exe" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/premake4.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/premake4.lua" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/premake4.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastDemo/screenshot.png" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastDemo/screenshot.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/ChunkyTriMesh.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/ChunkyTriMesh.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/InputGeom.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/InputGeom.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/MeshLoaderObj.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/MeshLoaderObj.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/PerfTimer.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/PerfTimer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/RecastConverter.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/RecastConverter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/RecastPluging.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/RecastPluging.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/Sample.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/Sample.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/SampleInterfaces.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/SampleInterfaces.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/Sample_TileMesh.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/Sample_TileMesh.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/stdafx.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/stdafx.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Include/targetver.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Include/targetver.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Release/all_tiles_navmesh.bin" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Release/all_tiles_navmesh.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/ChunkyTriMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/ChunkyTriMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/InputGeom.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/InputGeom.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/MeshLoaderObj.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/MeshLoaderObj.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/PerfTimer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/PerfTimer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/RecastConverter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/RecastConverter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/RecastPluging.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/RecastPluging.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/Sample.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/Sample.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/SampleInterfaces.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/SampleInterfaces.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/Sample_TileMesh.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/Sample_TileMesh.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/dllmain.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/dllmain.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/RecastPluging/Source/stdafx.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/RecastPluging/Source/stdafx.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/make.sh" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/make.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFLogicComm/RecastNavigation/make_release.sh" beforeDir="false" afterPath="$PROJECT_DIR$/game/NFGameCommon/RecastNavigation/make_release.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFConfigDefine.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFConfigDefine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFResDb.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFResDb.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +321,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFMMOWorldServerPlayerPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFGameCommon" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -107,40 +333,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;ToolWindow提交.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;CPPToolchains&quot;,
-    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "ToolWindow提交.ShowToolbar": "false",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "/home/gaoyi/NFShmServer/game/NFGameCommon/NFGameCommon",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CPPToolchains",
+    "structure.view.defaults.are.configured": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon" />
+      <recent name="$PROJECT_DIR$/game/NFGameCommon" />
+      <recent name="$PROJECT_DIR$/src/NFComm/NFPluginModule" />
+      <recent name="$PROJECT_DIR$/src/NFComm/NFCore" />
       <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFServerLogic" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message/proto_cs" />
-      <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/NFLogicCommon" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/game/NFGameCommon" />
+      <recent name="$PROJECT_DIR$/game/NFGameCommon/NFGameCommon" />
+      <recent name="$PROJECT_DIR$/thirdparty" />
+      <recent name="$PROJECT_DIR$/src/NFComm/NFPluginModule" />
       <recent name="$PROJECT_DIR$/game/MMO/NFLogicComm/Message" />
-      <recent name="$PROJECT_DIR$/game/MMO" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Desk" />
-      <recent name="$PROJECT_DIR$/game/Fish/NFServerLogic/NFGameServer/NFGameFishPlugin/Config" />
-      <recent name="$PROJECT_DIR$/src/NFServerComm/NFServerCommon" />
     </key>
   </component>
   <component name="RunManager" selected="CMake 应用程序.NFPluginLoader">
@@ -170,6 +396,11 @@
       </method>
     </configuration>
     <configuration name="NFFishRobotPlugin" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="--Server=RobotServer --ID=1.13.1.1 --Config=../../Config/Fish --Plugin=../../FishBusPlugin --restart" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" WORKING_DIR="file://$PROJECT_DIR$/Install/Bin/Dynamic_Debug" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFFishRobotPlugin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ShmNFrame" RUN_TARGET_NAME="NFPluginLoader">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NFGameCommon" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ShmNFrame" TARGET_NAME="NFGameCommon" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -364,9 +595,10 @@
       <item itemvalue="CMake 应用程序.NFMMOLogicCommon" />
       <item itemvalue="CMake 应用程序.NFMMOCommonPlugin" />
       <item itemvalue="CMake 应用程序.NFMMOLogicMessage" />
-      <item itemvalue="CMake 应用程序.RecastNavigation" />
       <item itemvalue="CMake 应用程序.NFMMOProxyPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFMMOWorldServerPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFGameCommon" />
+      <item itemvalue="CMake 应用程序.RecastNavigation" />
       <item itemvalue="CMake 应用程序.NFCore" />
       <item itemvalue="CMake 应用程序.NFKernelMessage" />
       <item itemvalue="CMake 应用程序.NFPluginModule" />
@@ -471,14 +703,7 @@
       <workItem from="1696898831366" duration="8569000" />
       <workItem from="1696985529981" duration="23316000" />
       <workItem from="1697175271380" duration="164000" />
-      <workItem from="1697528101276" duration="19043000" />
-    </task>
-    <task id="LOCAL-00154" summary="fish">
-      <created>1695195665591</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1695195665591</updated>
+      <workItem from="1697528101276" duration="25298000" />
     </task>
     <task id="LOCAL-00155" summary="fish">
       <created>1695197346363</created>
@@ -816,7 +1041,14 @@
       <option name="project" value="LOCAL" />
       <updated>1697537756635</updated>
     </task>
-    <option name="localTasksCounter" value="203" />
+    <task id="LOCAL-00203" summary="MMO login">
+      <created>1697597030796</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1697597030797</updated>
+    </task>
+    <option name="localTasksCounter" value="204" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1032,13 +1264,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp</url>
-          <line>270</line>
+          <line>271</line>
           <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFProxyServer/NFProxyPlayerPlugin/NFProxyPlayerModule.cpp</url>
-          <line>685</line>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -14,6 +14,7 @@
 #include "NFWorldAccountMgr.h"
 #include "NFLogicCommon/NFAccountDefine.h"
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
+#include "NFLogicCommon/NFSqlDefine.h"
 
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFMMODynamicModule(p)
@@ -330,7 +331,33 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& 
     protobase->set_lastposy(pposcfg->y);
     protobase->set_lastposz(pposcfg->z);*/
 
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_WORLD_SERVER, uid, dbData);
+    proto_ff::RoleDBName dbName;
+    dbName.set_name(request.name());
+
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_WORLD_SERVER, DB_NAME_MOD, dbName);
+    if (iRet == proto_ff::RET_SUCCESS)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} name:{} exist, create role failed!", uid, request.name());
+        respone.set_result(proto_ff::RET_LOGIN_CHARACTER_NAME_EXISTS);
+        return 0;
+    }
+    else if (iRet != proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "GetRpcSelectObjService failed, uid:{} name:{}, create role failed!", uid, request.name());
+        respone.set_result(proto_ff::RET_FAIL);
+        return 0;
+    }
+    else {
+        iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_WORLD_SERVER, DB_NAME_MOD, dbName);
+        if (iRet != 0)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, uid, "GetRpcInsertObjService failed, uid:{} name:{}, create role failed!", uid, request.name());
+            respone.set_result(proto_ff::RET_FAIL);
+            return 0;
+        }
+    }
+
+    iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_WORLD_SERVER, uid, dbData);
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} GetRpcInsertObjService Failed, iRet:{}, create role failed!", uid, GetErrorStr(iRet));
@@ -351,6 +378,9 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& 
     CHECK_EXPR(newDBData.cid() == newCid, proto_ff::RET_FAIL, "GetRpcSelectObjService newDBData cid error");
     CHECK_EXPR(newDBData.uid() == uid, proto_ff::RET_FAIL, "GetRpcSelectObjService newDBData uid error");
 
+    /**
+     * @brief 异步之后，重新获取指针
+     */
     pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
     CHECK_NULL(pAccountInfo);
 

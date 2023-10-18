@@ -1,4 +1,4 @@
-include_directories(Include/)
+include_directories(Include)
 
 aux_source_directory(Source _SOURCES)
 set(CODE_SOURCES ${CODE_SOURCES} ${_SOURCES})
