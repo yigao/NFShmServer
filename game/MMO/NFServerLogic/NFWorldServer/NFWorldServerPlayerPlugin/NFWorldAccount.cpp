@@ -43,6 +43,9 @@ int NFWorldAccount::CreateInit()
     m_lastLogoutTime = 0;
     m_isDisconnect = false;
     m_cid = 0;
+    m_chanId = 0;
+    m_bornZid = 0;
+    m_roleNum = 0;
     return 0;
 }
 
@@ -139,6 +142,36 @@ uint64_t NFWorldAccount::GetCid() const
 void NFWorldAccount::SetCid(uint64_t curCid)
 {
     m_cid = curCid;
+}
+
+void NFWorldAccount::SetRoleNum(uint32_t roleNum)
+{
+    m_roleNum = roleNum;
+}
+
+uint32_t NFWorldAccount::GetRoleNum() const
+{
+    return m_roleNum;
+}
+
+void NFWorldAccount::SetChanId(uint32_t chanId)
+{
+    m_chanId = chanId;
+}
+
+uint32_t NFWorldAccount::GetChanId() const
+{
+    return m_chanId;
+}
+
+void NFWorldAccount::SetBornZid(uint32_t bornZid)
+{
+    m_bornZid = bornZid;
+}
+
+uint32_t NFWorldAccount::GetBornZid() const
+{
+    return m_bornZid;
 }
 
 int NFWorldAccount::Tick()

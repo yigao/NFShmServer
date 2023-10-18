@@ -96,4 +96,5 @@ int NFWorldAccountMgr::AccountTick()
         }
         iter++;
     }
+    return 0;
 }

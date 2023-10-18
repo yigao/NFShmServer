@@ -11,19 +11,23 @@
 
 #include "NFComm/NFCore/NFPlatform.h"
 
-class NFProxyAccountInfo
+class NFProxyAccount
 {
 public:
-    NFProxyAccountInfo()
+    NFProxyAccount()
     {
         m_linkId = 0;
         m_isLogin = false;
         m_uid = 0;
+        m_cid = 0;
         m_disconnectTime = 0;
         m_online = true;
+        m_worldBusId = 0;
+        m_logicBusId = 0;
+        m_gameBusId = 0;
     }
 
-    virtual ~NFProxyAccountInfo()
+    virtual ~NFProxyAccount()
     {
     }
 
@@ -47,9 +51,25 @@ public:
 
     void SetUid(uint64_t uid);
 
+    uint64_t GetCid() const;
+
+    void SetCid(uint64_t cid);
+
     const string &GetIpAddr() const;
 
     void SetIpAddr(const string &ipAddr);
+
+    void SetWorldBusId(uint32_t busId);
+
+    uint32_t GetWorldBusId() const;
+
+    void SetGameBusId(uint32_t busId);
+
+    uint32_t GetGameBusId() const;
+
+    void SetLogicBusId(uint32_t busId);
+
+    uint32_t GetLogicBusId() const;
 private:
     uint64_t m_linkId;
     uint32_t m_worldBusId;
@@ -59,5 +79,6 @@ private:
     bool m_online;
     bool m_isLogin;
     uint64_t m_uid;
+    uint64_t m_cid;
     std::string m_ipAddr;
 };

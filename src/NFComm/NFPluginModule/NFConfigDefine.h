@@ -10,6 +10,7 @@
 #pragma once
 
 #include "NFComm/NFCore/NFPlatform.h"
+#include "NFComm/NFCore/NFServerIDUtil.h"
 #include <unordered_map>
 #include "NFComm/NFKernelMessage/proto_common_s.h"
 
@@ -74,6 +75,8 @@ public:
     std::string GetServerId() const { return ServerId; }
     std::string GetServerName() const { return ServerName; }
     uint32_t GetBusId() const { return BusId; }
+    uint32_t GetZoneId() const { return NFServerIDUtil::GetZoneID(BusId); }
+    uint32_t GetWorldId() const { return NFServerIDUtil::GetWorldID(BusId); }
     uint64_t GetServerOpenTime() const { return ServerOpenTime; }
     std::string GetDefaultDBName() const { return DefaultDBName; }
     std::string GetCrossDBName() const { return CrossDBName; }

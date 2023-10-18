@@ -11,7 +11,7 @@
 
 #include "NFPackageConfig.h"
 #include "NFProxySession.h"
-#include "NFProxyAccountInfo.h"
+#include "NFProxyAccount.h"
 #include "NFLogicCommon/NFMMODynamicModule.h"
 
 #define NF_PROXY_CLIENT_TIMER_ID 1
@@ -65,7 +65,7 @@ public:
      * @param pPlayerInfo
      * @return
      */
-    int NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyAccountInfo> pPlayerInfo);
+    int NotifyPlayerDisconnect(uint64_t unLinkId, NF_SHARE_PTR<NFProxyAccount> pPlayerInfo);
 public:
     /*
      * 处理客户端连接超时
@@ -100,6 +100,14 @@ public:
     int OnHandlePlayerLoginFromClient(uint64_t unLinkId, NFDataPackage &packet);
 
     /**
+     * @brief 创建角色
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleCreateRoleFromClient(uint64_t unLinkId, NFDataPackage &packet);
+
+    /**
      * @brief 断线重连
      * @param unLinkId
      * @param packet
@@ -116,7 +124,7 @@ public:
     int OnRpcServicePlayerLeaveGame(proto_ff::NotifyGateLeaveGame2 &request, proto_ff::EmptyMessage &respone);
 
 private:
-    NFMapEx<uint64_t, NFProxySession> mClientLinkInfo; //unlink -- NFProxySession
-    NFMapEx<uint64_t, NFProxyAccountInfo> mAccountInfo; //uid -- NFProxyPlayerInfo
+    NFMapEx<uint64_t, NFProxySession> mSessionMap; //unlink -- NFProxySession
+    NFMapEx<uint64_t, NFProxyAccount> mAccountMap; //uid -- NFProxyPlayerInfo
     NFPackageConfig m_packetConfig;
 };

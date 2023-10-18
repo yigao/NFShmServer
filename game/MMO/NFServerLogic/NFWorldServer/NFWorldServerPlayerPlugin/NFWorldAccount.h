@@ -64,11 +64,37 @@ public:
 
     void SetCid(uint64_t curCid);
 
+    void SetRoleNum(uint32_t roleNum);
+
+    uint32_t GetRoleNum() const;
+
+    void SetChanId(uint32_t chanId);
+
+    uint32_t GetChanId() const;
+
+    void SetBornZid(uint32_t bornZid);
+
+    uint32_t GetBornZid() const;
 private:
     /**
      * @brief
      */
     uint64_t m_uid;
+
+    /**
+     * @brief 渠道ID
+     */
+    uint32_t m_chanId;
+
+    /**
+     * @brief 登录的区服ID
+     */
+    uint32_t m_bornZid;
+
+    /**
+     * @brief
+     */
+    uint32_t m_roleNum;
 private:
     /**
      * @brief

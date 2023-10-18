@@ -5,13 +5,13 @@ require "Common"
 --两个消息最小间隔  min_interval 毫秒统计
 
 CLIENT_LOGIN_REQ = 1;
+CLIENT_CREATE_ROLE_REQ = 3;
 CLIENT_RECONNECT_REQ = 9;
-CLIENT_PING_REQ = 15;
 
 ProxyServer = {
     PacketMsg = {
         {cmd = CLIENT_LOGIN_REQ, upper_limit = 100, min_interval = 3000,  control_time = 10000},
         {cmd = CLIENT_RECONNECT_REQ, upper_limit = 100, min_interval = 3000,  control_time = 10000},
-        {cmd = CLIENT_PING_REQ, upper_limit = 100, min_interval = 100,  control_time = 10000},
+        {cmd = CLIENT_CREATE_ROLE_REQ, upper_limit = 100, min_interval = 3000,  control_time = 10000},
     },
 };

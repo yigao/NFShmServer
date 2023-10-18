@@ -52,6 +52,16 @@ public:
     int SetLoginRoleProto(proto_ff::LoginRoleProto& loginRoleProto, uint64_t cid, const proto_ff::RoleDBBaseData& dbproto);
 public:
     /**
+     * @brief 创建角色
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq& request, proto_ff::ClientCreateRoleRsp& respone, uint64_t uid, uint64_t param2);
+
+    int SetLoginRoleProto(proto_ff::LoginRoleProto& outproto, const proto_ff::RoleDBData& dbproto);
+public:
+    /**
      * @brief
      * @param proxyId
      * @param clientId
