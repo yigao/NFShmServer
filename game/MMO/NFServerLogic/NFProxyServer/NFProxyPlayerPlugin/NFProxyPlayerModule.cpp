@@ -34,6 +34,8 @@ bool NFCProxyPlayerModule::Awake()
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_PING_REQ);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_RECONNECT_REQ, true);
     RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_CREATE_ROLE_REQ, true);
+    RegisterClientMessage(NF_ST_PROXY_SERVER, proto_ff::CLIENT_ENTER_GAME_REQ, true);
+
 
     /////////来自Login Server返回的协议//////////////////////////////////////////////////
     /////来自World Server返回的协议////////////////////////////////////////
@@ -154,6 +156,11 @@ int NFCProxyPlayerModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage
         case proto_ff::CLIENT_CREATE_ROLE_REQ:
         {
             OnHandleCreateRoleFromClient(unLinkId, packet);
+            break;
+        }
+        case proto_ff::CLIENT_ENTER_GAME_REQ:
+        {
+            OnHandleEnterGameReq(unLinkId, packet);
             break;
         }
         case proto_ff::CLIENT_RECONNECT_REQ:
@@ -674,9 +681,6 @@ int NFCProxyPlayerModule::OnHandleCreateRoleFromClient(uint64_t unLinkId, NFData
         return 0;
     }
 
-    NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_PROXY_SERVER);
-    CHECK_NULL(pConfig);
-
     int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_CREATE_ROLE_REQ>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, pAccount->GetWorldBusId(), cgMsg, rspMsg, pAccount->GetUid());
     pSession = mSessionMap.GetElement(unLinkId);
     CHECK_NULL(pSession);
@@ -702,12 +706,88 @@ int NFCProxyPlayerModule::OnHandleCreateRoleFromClient(uint64_t unLinkId, NFData
         return 0;
     }
 
-    pAccount->SetCid(rspMsg.info().cid());
-    pSession->SetCid(rspMsg.info().cid());
-
-    NFLogError(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "Uid:{} Create Role Cid:{} Success!", pAccount->GetUid(), pAccount->GetCid());
+    NFLogError(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "Uid:{} Create Role Cid:{} Success!", pAccount->GetUid(), rspMsg.info().cid());
 
     FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_CREATE_ROLE_RSP, rspMsg);
+
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
+    return 0;
+}
+
+int NFCProxyPlayerModule::OnHandleEnterGameReq(uint64_t unLinkId, NFDataPackage &packet)
+{
+    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
+    proto_ff::ClientEnterGameReq cgMsg;
+    CLIENT_MSG_PROCESS_WITH_PRINTF(packet, cgMsg);
+
+    proto_ff::ClientEnterGameRsp rspMsg;
+    rspMsg.set_ret(proto_ff::RET_SUCCESS);
+
+    NF_SHARE_PTR<NFProxySession> pSession = mSessionMap.GetElement(unLinkId);
+    CHECK_NULL(pSession);
+
+    NF_SHARE_PTR<NFProxyAccount> pAccount = mAccountMap.GetElement(pSession->GetUid());
+    if (pAccount == NULL)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, pSession->GetUid(), "Can't find the uid:{} account info, enter game failed!", pSession->GetUid());
+        rspMsg.set_ret(proto_ff::RET_FAIL);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
+
+        KickPlayer(unLinkId);
+        return 0;
+    }
+
+    if (pAccount->GetLinkId() != unLinkId)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, pSession->GetUid(), "the uid:{} account client change, enter game failed!", pSession->GetUid());
+        rspMsg.set_ret(proto_ff::RET_FAIL);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
+
+        KickPlayer(unLinkId);
+        return 0;
+    }
+
+    if (!pAccount->IsLogin() || pAccount->GetWorldBusId() <= 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, pSession->GetUid(), "account is not login, enter game failed!", pSession->GetUid());
+        rspMsg.set_ret(proto_ff::RET_FAIL);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
+
+        KickPlayer(unLinkId);
+        return 0;
+    }
+
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, pAccount->GetWorldBusId(), cgMsg, rspMsg, pAccount->GetUid());
+    pSession = mSessionMap.GetElement(unLinkId);
+    CHECK_NULL(pSession);
+    pAccount = mAccountMap.GetElement(pSession->GetUid());
+    CHECK_NULL(pAccount);
+
+    if (iRet != 0)
+    {
+        rspMsg.set_ret(proto_ff::RET_FAIL);
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
+
+        KickPlayer(unLinkId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::CLIENT_ENTER_GAME_REQ Failed! iRet:{}", GetErrorStr(iRet));
+        return 0;
+    }
+
+    if (rspMsg.ret() != proto_ff::RET_SUCCESS)
+    {
+        FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
+
+        KickPlayer(unLinkId);
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::CLIENT_ENTER_GAME_REQ result:{}!", GetErrorStr(rspMsg.ret()));
+        return 0;
+    }
+
+    pAccount->SetCid(cgMsg.cid());
+    pSession->SetCid(cgMsg.cid());
+
+    NFLogError(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "Uid:{} Cid:{} Enter Game Success!", pAccount->GetUid(), pAccount->GetCid());
+
+    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;

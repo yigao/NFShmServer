@@ -16,6 +16,8 @@
 #include "NFWorldSessionMgr.h"
 #include "NFWorldAccount.h"
 #include "NFWorldAccountMgr.h"
+#include "NFWorldRoleMgr.h"
+#include "NFWorldRole.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -67,5 +69,8 @@ bool NFMMOWorldServerPlayerPlugin::InitShmObjectRegister()
 
     REGISTER_SHM_OBJ_WITH_HASH(NFWorldAccount, maxOnlinePlayerNum);//
     REGISTER_SINGLETON_SHM_OBJ(NFWorldAccountMgr);//
+
+    REGISTER_SHM_OBJ_WITH_HASH(NFWorldRole, maxOnlinePlayerNum);//
+    REGISTER_SINGLETON_SHM_OBJ(NFWorldRoleMgr);//
 	return true;
 }

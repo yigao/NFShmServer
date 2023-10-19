@@ -62,6 +62,16 @@ public:
     int SetLoginRoleProto(proto_ff::LoginRoleProto& outproto, const proto_ff::RoleDBData& dbproto);
 public:
     /**
+     * @brief 进入游戏
+     * @param request
+     * @param respone
+     * @param uid
+     * @param param2
+     * @return
+     */
+    int OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t uid, uint64_t param2);
+public:
+    /**
      * @brief
      * @param proxyId
      * @param clientId

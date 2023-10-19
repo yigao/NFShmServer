@@ -27,7 +27,7 @@ public:
     int ResumeInit();
 public:
     virtual int OnTimer(int timeId, int callcount);
-    int AccountTick();
+    int Tick();
 public:
 
     /**

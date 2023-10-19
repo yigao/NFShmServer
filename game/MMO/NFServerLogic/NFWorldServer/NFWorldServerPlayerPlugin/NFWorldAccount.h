@@ -13,6 +13,8 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "AllProtocol.h"
+#include "NFLogicCommon/NFAccountDefine.h"
+#include "NFComm/NFShmStl/NFShmHashSet.h"
 
 class NFWorldAccount : public NFShmObj
 {
@@ -64,9 +66,11 @@ public:
 
     void SetCid(uint64_t curCid);
 
-    void SetRoleNum(uint32_t roleNum);
-
     uint32_t GetRoleNum() const;
+
+    void AddRoleNum(uint64_t cid);
+
+    bool IsExistCid(uint64_t cid) const;
 
     void SetChanId(uint32_t chanId);
 
@@ -91,10 +95,6 @@ private:
      */
     uint32_t m_bornZid;
 
-    /**
-     * @brief
-     */
-    uint32_t m_roleNum;
 private:
     /**
      * @brief
@@ -103,7 +103,6 @@ private:
     uint64_t m_clientId;
 
 private:
-
     /**
      * @brief
      */
@@ -112,9 +111,9 @@ private:
     uint64_t m_lastDiconnectTime;
     uint64_t m_lastLogoutTime;
     bool m_isDisconnect;
-
 private:
     uint64_t m_cid;
+    NFShmHashSet<uint64_t, MAX_ROLE_NUM> m_roleSet;
 private:
 DECLARE_IDCREATE(NFWorldAccount)
 };

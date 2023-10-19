@@ -53,6 +53,8 @@ typedef enum
     EOT_WORLD_ACCOUNT_ID,
     EOT_WORLD_SESSION_ID,
     EOT_WORLD_SESSION_MGR_ID,
+    EOT_WORLD_ROLE_ID,
+    EOT_WORLD_ROLE_MGR_ID,
     ////////////////////////////world server trans/////////////////////////////
 
     ////////////////////////////world server trans/////////////////////////////

@@ -16,6 +16,8 @@
 #include "NFComm/NFPluginModule/NFIKernelModule.h"
 #include "NFLogicCommon/NFSqlDefine.h"
 #include "DescStoreEx/MapDescEx.h"
+#include "NFWorldRole.h"
+#include "NFWorldRoleMgr.h"
 
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFMMODynamicModule(p)
@@ -38,6 +40,9 @@ bool NFCWorldPlayerModule::Awake()
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_CREATE_ROLE_REQ>(NF_ST_WORLD_SERVER, this,
                                                                                     &NFCWorldPlayerModule::OnRpcServiceCreateRole, true);
+
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, this,
+                                                                                    &NFCWorldPlayerModule::OnRpcServiceEnterGame, true);
 
     /////////////////////////////////server msg, player disconnect logout////////////////////////////////////////////
 
@@ -243,9 +248,12 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq &requ
         {
             SetLoginRoleProto(*pRoleProto, vecResult[i].cid(), *pDBProto);
         }
-    }
 
-    pAccountInfo->SetRoleNum(vecResult.size());
+        if (pAccountInfo->GetRoleNum() < MAX_ROLE_NUM)
+        {
+            pAccountInfo->AddRoleNum(vecResult[i].cid());
+        }
+    }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -278,14 +286,14 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     if (pAccountInfo == NULL)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "Can't find the world account:{}, create role faile!", uid);
-        respone.set_result(proto_ff::RET_FAIL);
+        respone.set_result(proto_ff::RET_LOGIN_CHARACTER_NOT_ACCOUNT);
         return 0;
     }
 
     if (pAccountInfo->GetRoleNum() >= MAX_ROLE_NUM)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "account:{} role num >= MAX_ROLE_NUM:{}, create role faile!", uid, MAX_ROLE_NUM);
-        respone.set_result(proto_ff::RET_FAIL);
+        respone.set_result(proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT);
         return 0;
     }
 
@@ -406,8 +414,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
     CHECK_NULL(pAccountInfo);
 
-    pAccountInfo->SetRoleNum(pAccountInfo->GetRoleNum() + 1);
-    pAccountInfo->SetCid(newCid);
+    pAccountInfo->AddRoleNum(newCid);
 
     respone.set_result(proto_ff::RET_SUCCESS);
     SetLoginRoleProto(*respone.mutable_info(), newDBData);
@@ -426,6 +433,79 @@ int NFCWorldPlayerModule::SetLoginRoleProto(proto_ff::LoginRoleProto &outproto, 
     outproto.set_fight(dbproto.base().fight());
     outproto.set_createtime(dbproto.base().createtime());
     *outproto.mutable_facade() = dbproto.base().facade();
+
+    return 0;
+}
+
+int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t uid, uint64_t param2)
+{
+    uint64_t cid = request.cid();
+    NFWorldAccount *pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
+    if (pAccountInfo == NULL)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "Can't find the world account:{}, role:{} enter game faile!", uid, cid);
+        respone.set_ret(proto_ff::RET_LOGIN_CHARACTER_NOT_ACCOUNT);
+        return 0;
+    }
+
+    if (pAccountInfo->IsExistCid(cid))
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "account:{} has not role:{}, enter game faile!", uid, cid);
+        respone.set_ret(proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT);
+        return 0;
+    }
+
+    NFWorldRole* pRole = NFWorldRoleMgr::Instance(m_pObjPluginManager)->GetRole(cid);
+    if (pRole == NULL)
+    {
+        pRole = NFWorldRoleMgr::Instance(m_pObjPluginManager)->CreateRole(cid);
+        if (pRole == NULL)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, then role num than the max num, enter game faile!", uid, cid);
+            respone.set_ret(proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT);
+            return 0;
+        }
+        pRole->SetUid(uid);
+
+    }
+
+    if (pRole->GetLogicId() <= 0)
+    {
+        NF_SHARE_PTR<NFServerData> pLogicServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, cid);
+        if (pLogicServer == NULL)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, can't find the logic server, enter game faile!", uid, cid);
+            respone.set_ret(proto_ff::RET_FAIL);
+            return 0;
+        }
+
+        pRole->SetLogicId(pLogicServer->mServerInfo.bus_id());
+    }
+
+    NFServerConfig *pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
+    CHECK_NULL(pServerConfig);
+
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pRole->GetLogicId(), request, respone);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ> err:{} , enter game faile!", uid, cid, GetErrorStr(iRet));
+        respone.set_ret(proto_ff::RET_FAIL);
+        return 0;
+    }
+
+    /**
+     * @brief 异步后，重新获取指针
+     */
+    pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
+    CHECK_NULL(pAccountInfo);
+    pRole = NFWorldRoleMgr::Instance(m_pObjPluginManager)->GetRole(cid);
+    CHECK_NULL(pRole);
+
+    if (respone.ret() == proto_ff::RET_SUCCESS)
+    {
+        pRole->SetIsDisconnect(false);
+        pRole->SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
+    }
 
     return 0;
 }

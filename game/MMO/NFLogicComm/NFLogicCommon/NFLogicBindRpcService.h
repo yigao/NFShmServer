@@ -30,3 +30,8 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::CLIENT_CREATE_ROLE_REQ, proto_ff::ClientCreate
  * @brief 玩家登录rpc, world server to proxy server
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::NOTIFY_GATE_LEAVE_GAME, proto_ff::NotifyGateLeaveGame2, proto_ff::EmptyMessage)
+
+/**
+ * @brief 角色进游戏RPC
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::CLIENT_ENTER_GAME_REQ, proto_ff::ClientEnterGameReq, proto_ff::ClientEnterGameRsp)

@@ -45,7 +45,6 @@ int NFWorldAccount::CreateInit()
     m_cid = 0;
     m_chanId = 0;
     m_bornZid = 0;
-    m_roleNum = 0;
     return 0;
 }
 
@@ -144,14 +143,19 @@ void NFWorldAccount::SetCid(uint64_t curCid)
     m_cid = curCid;
 }
 
-void NFWorldAccount::SetRoleNum(uint32_t roleNum)
-{
-    m_roleNum = roleNum;
-}
-
 uint32_t NFWorldAccount::GetRoleNum() const
 {
-    return m_roleNum;
+    return m_roleSet.size();
+}
+
+void NFWorldAccount::AddRoleNum(uint64_t cid)
+{
+    m_roleSet.insert(cid);
+}
+
+bool NFWorldAccount::IsExistCid(uint64_t cid) const
+{
+    return m_roleSet.find(cid) != m_roleSet.end();
 }
 
 void NFWorldAccount::SetChanId(uint32_t chanId)
@@ -185,7 +189,7 @@ int NFWorldAccount::Tick()
 
             SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             SetLastLogoutTime(NFTime::Now().UnixSec());
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_LOGOUT", GetUid(), GetCid());
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_LOGOUT", GetUid());
         }
         break;
         case proto_ff::PLAYER_STATUS_ONLINE:
@@ -199,7 +203,7 @@ int NFWorldAccount::Tick()
 
             SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             SetLastLogoutTime(NFTime::Now().UnixSec());
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetUid(), GetCid());
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetUid());
         }
             break;
         case proto_ff::PLAYER_STATUS_LOGOUT:
@@ -209,8 +213,7 @@ int NFWorldAccount::Tick()
                 break;
 
             SetStatus(proto_ff::PLAYER_STATUS_DEAD);
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status change to PLAYER_STATUS_DEAD, will be erase from memory", GetUid(),
-                      GetCid());
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{} status change to PLAYER_STATUS_DEAD, will be erase from memory", GetUid());
         }
         break;
     }

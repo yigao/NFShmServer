@@ -46,7 +46,7 @@ int NFWorldAccountMgr::ResumeInit()
 
 NFWorldAccount *NFWorldAccountMgr::GetAccount(uint64_t uid)
 {
-    return dynamic_cast<NFWorldAccount *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_WORLD_ACCOUNT_ID, uid));
+    return NFWorldAccount::GetObjByHashKey(m_pObjPluginManager, uid);
 }
 
 NFWorldAccount *NFWorldAccountMgr::CreateAccount(uint64_t uid)
@@ -54,7 +54,7 @@ NFWorldAccount *NFWorldAccountMgr::CreateAccount(uint64_t uid)
     NFWorldAccount *pPlayer = GetAccount(uid);
     CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, uid:{}", uid);
 
-    pPlayer = dynamic_cast<NFWorldAccount *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_WORLD_ACCOUNT_ID, uid));
+    pPlayer = NFWorldAccount::CreateObjByHashKey(m_pObjPluginManager, uid);
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", uid);
 
     pPlayer->SetUid(uid);
@@ -69,18 +69,18 @@ int NFWorldAccountMgr::DeleteAccount(NFWorldAccount *pPlayer)
 
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetUid(), pPlayer->GetGlobalId());
 
-    FindModule<NFISharedMemModule>()->DestroyObj(pPlayer);
+    NFWorldAccount::DestroyObj(m_pObjPluginManager, pPlayer);
 
     return 0;
 }
 
 int NFWorldAccountMgr::OnTimer(int timeId, int callcount)
 {
-    AccountTick();
+    Tick();
     return 0;
 }
 
-int NFWorldAccountMgr::AccountTick()
+int NFWorldAccountMgr::Tick()
 {
     for(auto iter = NFWorldAccount::Begin(m_pObjPluginManager); iter != NFWorldAccount::End(m_pObjPluginManager);)
     {

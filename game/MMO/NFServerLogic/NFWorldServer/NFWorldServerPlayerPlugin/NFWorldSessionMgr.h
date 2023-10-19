@@ -25,6 +25,9 @@ public:
 
     int ResumeInit();
 public:
+    virtual int OnTimer(int timeId, int callcount);
+    int Tick();
+public:
     /**
      * @brief 通过clientId获取Seesion数据
      * @param clientId

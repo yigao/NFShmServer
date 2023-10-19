@@ -108,6 +108,14 @@ public:
     int OnHandleCreateRoleFromClient(uint64_t unLinkId, NFDataPackage &packet);
 
     /**
+     * @brief 进入游戏请求
+     * @param unLinkId
+     * @param packet
+     * @return
+     */
+    int OnHandleEnterGameReq(uint64_t unLinkId, NFDataPackage &packet);
+public:
+    /**
      * @brief 断线重连
      * @param unLinkId
      * @param packet
