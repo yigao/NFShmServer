@@ -51,6 +51,7 @@ LoadPlugin =
 			"NFSnsServerPlugin",
 			"NFLogicServerPlugin",
 			"NFWebServerPlugin",
+			"NFMatchServerPlugin",
 		};
 
 		WorkPlugins = {
@@ -73,6 +74,7 @@ LoadPlugin =
 			{Server="LogicServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_LOGIC_SERVER..".1", ServerType=NF_ST_LOGIC_SERVER},
 			{Server="SnsServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_SNS_SERVER..".1", ServerType=NF_ST_SNS_SERVER},
 			{Server="WebServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_WEB_SERVER..".1", ServerType=NF_ST_WEB_SERVER},
+			{Server="MatchServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_MATCH_SERVER..".1", ServerType=NF_ST_MATCH_SERVER},
 			--{Server="MonitorServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_MONITOR_SERVER..".1", ServerType=NF_ST_MONITOR_SERVER},
 		};
 	},
@@ -112,7 +114,7 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
-			"NFFishProxyPlayerPlugin",
+			"NFMMOProxyPlayerPlugin",
 		};
 		ServerType = NF_ST_PROXY_SERVER;
 	},
@@ -155,10 +157,7 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
-			"NFFishCommonPlugin",
-
-			"NFFishGamePlayerPlugin",
-			"NFGameFishPlugin",
+			"NFMMOCommonPlugin",
 		};
 		ServerType = NF_ST_GAME_SERVER;
 	},
@@ -181,7 +180,6 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
-			"NFFishLoginPlayerPlugin",
 		};
 		ServerType = NF_ST_LOGIN_SERVER;
 	},
@@ -204,9 +202,8 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
-			"NFFishCommonPlugin",
-
-			"NFFishWorldPlayerPlugin",
+			"NFMMOCommonPlugin",
+			"NFMMOWorldServerPlayerPlugin",
 		};
 		ServerType = NF_ST_WORLD_SERVER;
 	},
@@ -249,8 +246,7 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
-			"NFFishCommonPlugin",
-			"NFFishLogicPlayerPlugin",
+			"NFMMOCommonPlugin",
 		};
 		ServerType = NF_ST_LOGIC_SERVER;
 	},
@@ -273,8 +269,7 @@ LoadPlugin =
 		};
 
 		WorkPlugins = {
-			"NFFishCommonPlugin",
-			"NFFishSnsPlayerPlugin",
+			"NFMMOCommonPlugin",
 		};
 		ServerType = NF_ST_SNS_SERVER;
 	},
@@ -353,5 +348,27 @@ LoadPlugin =
 		WorkPlugins = {
 		};
 		ServerType = NF_ST_MONITOR_SERVER;
+	},
+
+	MatchServer = {
+		FramePlugins = {
+			-------------------------
+			-----基础框架引擎-------------
+			"NFKernelPlugin",
+			"NFNetPlugin",
+			"NFShmPlugin",
+
+			"NFServerCommonPlugin",
+			"NFDescStorePlugin",
+		};
+
+
+		ServerPlugins = {
+			"NFMatchServerPlugin",
+		};
+
+		WorkPlugins = {
+		};
+		ServerType = NF_ST_SNS_SERVER;
 	},
 }
