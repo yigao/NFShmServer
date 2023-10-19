@@ -24,9 +24,8 @@ public:
         m_connectMasterServer = true;
         m_connectRouteAgentServer = true;
         m_connectProxyAgentServer = true;
-        m_checkStoreServer = true;
+        m_checkStoreServer = false;
         m_checkWorldServer = false;
-
     }
 
     virtual ~NFWorkServerModule()

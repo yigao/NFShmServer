@@ -42,12 +42,12 @@ std::string NFMatchServerPlugin::GetPluginName()
 
 void NFMatchServerPlugin::Install()
 {
-	REGISTER_MODULE(m_pObjPluginManager, NFCMatchServerModule, NFCMatchServerModule);
+	REGISTER_MODULE(m_pObjPluginManager, NFIMatchServerModule, NFCMatchServerModule);
 }
 
 void NFMatchServerPlugin::Uninstall()
 {
-	UNREGISTER_MODULE(m_pObjPluginManager, NFCMatchServerModule, NFCMatchServerModule);
+	UNREGISTER_MODULE(m_pObjPluginManager, NFIMatchServerModule, NFCMatchServerModule);
 }
 
 bool NFMatchServerPlugin::InitShmObjectRegister()

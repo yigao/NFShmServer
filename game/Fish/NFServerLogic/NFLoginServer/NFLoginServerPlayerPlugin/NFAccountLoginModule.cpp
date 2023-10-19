@@ -9,6 +9,7 @@
 
 #include "NFAccountLoginModule.h"
 #include "NFAccountLoginMgr.h"
+#include "NFServerComm/NFServerCommon/NFILoginServerModule.h"
 
 NFCAccountLoginModule::NFCAccountLoginModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
@@ -20,6 +21,7 @@ NFCAccountLoginModule::~NFCAccountLoginModule()
 
 bool NFCAccountLoginModule::Awake()
 {
+    FindModule<NFILoginServerModule>()->SetCheckStoreServer(true);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //////来自客户端的协议////////////////////////////////////////
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_CS_MSG_AccountLoginReq>(NF_ST_LOGIN_SERVER, this,

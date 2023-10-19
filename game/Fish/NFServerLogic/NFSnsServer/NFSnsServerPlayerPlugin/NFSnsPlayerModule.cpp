@@ -10,6 +10,7 @@
 #include "NFSnsPlayerModule.h"
 #include "Cache/NFPlayerSimple.h"
 #include "Cache/NFCacheMgr.h"
+#include "NFServerComm/NFServerCommon/NFISnsServerModule.h"
 
 NFCSnsPlayerModule::NFCSnsPlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
 {
@@ -21,6 +22,7 @@ NFCSnsPlayerModule::~NFCSnsPlayerModule()
 
 bool NFCSnsPlayerModule::Awake()
 {
+    FindModule<NFISnsServerModule>()->SetCheckStoreServer(true);
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     ///////////world msg//////////////////////////////////////////////////////////

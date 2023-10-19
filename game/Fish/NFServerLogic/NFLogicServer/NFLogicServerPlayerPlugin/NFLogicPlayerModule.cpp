@@ -11,6 +11,7 @@
 #include "Player/NFPlayer.h"
 #include "Player/NFPlayerMgr.h"
 #include "DescStore/ConstantConstantDesc.h"
+#include "NFServerComm/NFServerCommon/NFILogicServerModule.h"
 
 
 NFCLogicPlayerModule::NFCLogicPlayerModule(NFIPluginManager *p) : NFFishDynamicModule(p)
@@ -24,6 +25,7 @@ NFCLogicPlayerModule::~NFCLogicPlayerModule()
 
 bool NFCLogicPlayerModule::Awake()
 {
+    FindModule<NFILogicServerModule>()->SetCheckStoreServer(true);
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::NF_WTL_PLAYER_LOGIN_REQ>(NF_ST_LOGIC_SERVER, this,

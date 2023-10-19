@@ -18,6 +18,7 @@
 #include "DescStoreEx/MapDescEx.h"
 #include "NFWorldRole.h"
 #include "NFWorldRoleMgr.h"
+#include "NFServerComm/NFServerCommon/NFIWorldServerModule.h"
 
 
 NFCWorldPlayerModule::NFCWorldPlayerModule(NFIPluginManager *p) : NFMMODynamicModule(p)
@@ -31,7 +32,7 @@ NFCWorldPlayerModule::~NFCWorldPlayerModule()
 
 bool NFCWorldPlayerModule::Awake()
 {
-
+    FindModule<NFIWorldServerModule>()->SetCheckStoreServer(true);
     ////////////////game room register//////////////////////////////
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 

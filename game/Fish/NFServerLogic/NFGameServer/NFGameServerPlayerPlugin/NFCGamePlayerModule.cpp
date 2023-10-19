@@ -11,6 +11,7 @@
 #include "Config/NFGameConfig.h"
 #include "Room/NFGameRoomMgr.h"
 #include "Player/NFGamePlayerMgr.h"
+#include "NFServerComm/NFServerCommon/NFIGameServerModule.h"
 
 #define GAME_SERVER_REGISTER_ROOM_INFO_TO_WORLD_SERVER "Game Server Register Room Info to World Server"
 
@@ -26,6 +27,7 @@ NFCGamePlayerModule::~NFCGamePlayerModule()
 
 bool NFCGamePlayerModule::Awake()
 {
+    FindModule<NFIGameServerModule>()->SetCheckWorldServer(true);
     NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     NF_ASSERT(pConfig);
 

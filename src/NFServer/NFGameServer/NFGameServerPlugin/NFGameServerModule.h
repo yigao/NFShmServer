@@ -36,9 +36,4 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
-public:
-    int OnTestProxyServerMsg(uint64_t unLinkId, NFDataPackage& packet);
-    ////////////////////////////////test send msg/////////////////////////////////////////////////
-    int TestOtherServerToWorldServer();
-    int OnHandleTestWorldServerMsg(uint64_t unLinkId, NFDataPackage& packet);
 };
