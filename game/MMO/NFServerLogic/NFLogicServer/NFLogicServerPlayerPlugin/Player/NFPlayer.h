@@ -13,16 +13,15 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "ComDefine.pb.h"
-#include "DBProto.pb.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "Trans/NFTransSaveDB.h"
-#include "NFLogicCommon/NFLoginDefine.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
-#include "NFLogicCommon/NFPlayerDefine.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "AllProtocol.h"
+#include "NFLogicCommon/NFLogicCommon.h"
+#include "NFLogicCommon/NFCharactorDefine.h"
 
 class NFPart;
 class NFPlayer : public NFShmObj, public NFSeqOP
@@ -39,7 +38,7 @@ public:
     virtual int OnTimer(int timeId, int callcount);
 
 public:
-    virtual int Init(const proto_ff::tbFishPlayerData& data, bool bCreatePlayer = false);
+    virtual int Init(const proto_ff::RoleDBData& data, bool bCreatePlayer = false);
 
     virtual int UnInit();
 
@@ -48,32 +47,26 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::tbFishPlayerData& data);
+    virtual int LoadFromDB(const proto_ff::RoleDBData& data);
 
     /**
      * @brief
      * @param data
      * @return
      */
-    virtual int SaveDB(proto_ff::tbFishPlayerData& data);
+    virtual int SaveDB(proto_ff::RoleDBData& data);
 
     /**
      * @brief
      * @return
      */
-    virtual int InitConfig(const proto_ff::tbFishPlayerData& data);
+    virtual int InitConfig(const proto_ff::RoleDBData& data);
 
     /**
      * @brief
      * @return
      */
     virtual int Update();
-
-    /**
-     * @brief 登陆入口
-     * @return
-     */
-    virtual int OnLogin(const proto_ff::Proto_WorldToLogicLoginReq& data, proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer);
 
     /**
      * @brief 登陆入口
@@ -122,32 +115,24 @@ public:
     virtual int MonthZeroUpdate();
 
 public:
-    proto_ff::PlayerStatus GetStatus() const { return m_iStatus; }
-    void SetStatus(proto_ff::PlayerStatus status) { m_iStatus = status; }
+    proto_ff::enPlayerStatus GetStatus() const { return m_iStatus; }
+    void SetStatus(proto_ff::enPlayerStatus status) { m_iStatus = status; }
     uint64_t GetLastDisconnectTime() const { return m_lastDiconnectTime; }
     void SetLastDisconnectTime(uint64_t distime) { m_lastDiconnectTime = distime; }
     uint64_t GetPlayerId() const { return m_playerId; }
     void SetPlayerId(uint64_t playerId) { m_playerId = playerId; }
     uint32_t GetProxyId() const { return m_proxyId; }
     void SetProxyId(uint32_t proxyId) { m_proxyId = proxyId; }
-    uint32_t GetGameId() const;
-    uint32_t GetRoomId() const;
     uint32_t GetGameBusId() const;
-    void SetGameId(uint32_t gameId);
     void SetGameBusId(uint32_t gameBusId);
-    void SetRoomId(uint32_t roomId);
     uint64_t GetLastLogoutTime() const { return m_lastLogoutTime; }
     void SetLastLogtouTime(uint64_t logoutTime) { m_lastLogoutTime = logoutTime; }
-
-    std::string GetNickName() const { return m_nickName.ToString(); }
-    void SetNickName(std::string nickName) { m_nickName = nickName; }
-    uint32_t GetFaceId() const { return m_faceId; }
 public:
     /**
      * @brief
      * @return
      */
-    bool IsInGaming() { return GetGameId() > 0; }
+    bool IsInGaming() { return GetGameBusId() > 0; }
 public:
     /**
      * @brief trans num
@@ -204,7 +189,6 @@ public:
      * @param errCode
      * @return
      */
-    int SendErrToClient(uint32_t nMsgId, proto_ff::Proto_CS_ErrorCode errCode);
     int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
     int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
@@ -245,7 +229,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    NFPart *CreatePart(uint32_t partType, const ::proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer);
+    NFPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBData &dbData, bool bCreatePlayer);
 
     /**
      * @brief 静态函数 创建Part
@@ -265,17 +249,10 @@ private:
 private:
     uint64_t m_playerId;
     uint32_t m_proxyId;
-    proto_ff::PlayerStatus m_iStatus;
+    proto_ff::enPlayerStatus m_iStatus;
     uint64_t m_createTime;
     uint64_t m_lastDiconnectTime;
 private:
-    NFCommonStr m_nickName;
-    NFCommonStr m_ipAddr;
-    uint32_t m_faceId;
-    uint64_t m_regDate;
-    uint32_t m_gender;
-    uint32_t m_age;
-    uint64_t m_phonenum;
     uint64_t m_lastLoginTime;
     uint64_t m_lastLogoutTime;
 private:

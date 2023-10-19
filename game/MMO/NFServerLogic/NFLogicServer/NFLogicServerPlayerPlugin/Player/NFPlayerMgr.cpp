@@ -94,29 +94,29 @@ int NFPlayerMgr::Tick()
 }
 
 
-NFPlayer *NFPlayerMgr::GetPlayer(uint64_t playerId)
+NFPlayer *NFPlayerMgr::GetPlayer(uint64_t cid)
 {
-    return dynamic_cast<NFPlayer*>(NFPlayer::GetObjByHashKey(m_pObjPluginManager, playerId));
+    return dynamic_cast<NFPlayer*>(NFPlayer::GetObjByHashKey(m_pObjPluginManager, cid));
 }
 
-NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t playerId, const proto_ff::tbFishPlayerData& dbData, bool bCreatePlayer)
+NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t cid, const proto_ff::RoleDBData& dbData, bool bCreatePlayer)
 {
-    NFPlayer *pPlayer = GetPlayer(playerId);
-    CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, palyerId:{}", playerId);
+    NFPlayer *pPlayer = GetPlayer(cid);
+    CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, palyerId:{}", cid);
 
-    pPlayer = dynamic_cast<NFPlayer *>(NFPlayer::CreateObjByHashKey(m_pObjPluginManager, playerId));
-    CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", playerId);
+    pPlayer = dynamic_cast<NFPlayer *>(NFPlayer::CreateObjByHashKey(m_pObjPluginManager, cid));
+    CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", cid);
 
-    pPlayer->SetPlayerId(playerId);
+    pPlayer->SetPlayerId(cid);
     int iRet = pPlayer->Init(dbData, bCreatePlayer);
     if (iRet != 0)
     {
         NFPlayer::DestroyObj(m_pObjPluginManager, pPlayer);
-        NFLogInfo(NF_LOG_SYSTEMLOG, playerId, "Create Player Failed,  playerId:{} Init Failed, iRet:{}", playerId, GetErrorStr(iRet));
+        NFLogInfo(NF_LOG_SYSTEMLOG, cid, "Create Player Failed,  playerId:{} Init Failed, iRet:{}", cid, GetErrorStr(iRet));
         return NULL;
     }
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Create Player Success, playerId:{} globalId:{}", playerId,
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Create Player Success, playerId:{} globalId:{}", cid,
               pPlayer->GetGlobalId());
     return pPlayer;
 }

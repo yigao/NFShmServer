@@ -17,7 +17,6 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "DBProto.pb.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "Player/NFPlayer.h"
 #include "NFPartModule.h"
@@ -43,7 +42,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer);
+    virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData, bool bCreatePlayer);
 
     /**
      * @brief 释放part资源
@@ -56,32 +55,26 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::tbFishPlayerData& data) { return 0; }
+    virtual int LoadFromDB(const proto_ff::RoleDBData& data) { return 0; }
 
     /**
      * @brief 从配置中初始化数据
      * @return
      */
-    virtual int InitConfig(const proto_ff::tbFishPlayerData& data) { return 0; }
+    virtual int InitConfig(const proto_ff::RoleDBData& data) { return 0; }
 
     /**
      * @brief 存储DB部件入口
      * @param proto
      * @return
      */
-    virtual int SaveDB(proto_ff::tbFishPlayerData &dbData) { return 0; }
+    virtual int SaveDB(proto_ff::RoleDBData &dbData) { return 0; }
 
     /**
      * @brief 登陆入口
      * @return
      */
     virtual int OnLogin() { return 0; }
-
-    /**
-     * @brief 登陆入口
-     * @return
-     */
-    virtual int OnLogin(const proto_ff::Proto_WorldToLogicLoginReq& data, proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer) { return 0; }
 
     /**
      * @brief 登出入口

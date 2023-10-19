@@ -44,7 +44,7 @@ int NFPart::ResumeInit()
     return 0;
 }
 
-int NFPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer)
+int NFPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData, bool bCreatePlayer)
 {
     CHECK_NULL(pMaster);
     m_pMaster = pMaster;

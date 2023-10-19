@@ -12,7 +12,7 @@
 
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFTransPlayerBase.h"
-#include "NFLogicCommon/NFPlayerDefine.h"
+#include "NFLogicCommon/NFCharactorDefine.h"
 
 
 class NFTransSaveDB : public NFTransPlayerBase {

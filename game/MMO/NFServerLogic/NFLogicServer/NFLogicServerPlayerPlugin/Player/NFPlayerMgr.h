@@ -11,7 +11,7 @@
 
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "DBProto.pb.h"
+#include "DBProxy.pb.h"
 #include <vector>
 
 class NFPlayer;
@@ -28,9 +28,9 @@ public:
 public:
     virtual int OnTimer(int timeId, int callcount) override;
 public:
-    NFPlayer *GetPlayer(uint64_t playerId);
+    NFPlayer *GetPlayer(uint64_t cid);
 
-    NFPlayer *CreatePlayer(uint64_t playerId, const proto_ff::tbFishPlayerData& dbData, bool bCreatePlayer);
+    NFPlayer *CreatePlayer(uint64_t cid, const proto_ff::RoleDBData& dbData, bool bCreatePlayer);
 
     int DeletePlayer(NFPlayer *pPlayer);
 public:

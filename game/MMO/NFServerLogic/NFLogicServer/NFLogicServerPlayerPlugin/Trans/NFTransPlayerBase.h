@@ -22,7 +22,7 @@ public:
 
 	int ResumeInit();
 
-	int Init(uint64_t userId, uint32_t cmd, uint32_t fromBusId = 0, uint32_t reqTransId = 0);
+	int Init(uint64_t cid, uint32_t cmd, uint32_t fromBusId = 0, uint32_t reqTransId = 0);
 	int Init(NFPlayer* pUser, uint32_t cmd, uint32_t fromBusId = 0, uint32_t reqTransId = 0);
 
     NFPlayer *GetPlayer();
@@ -31,7 +31,7 @@ public:
 	virtual int OnTransFinished(int iRunLogicRetCode);
 protected:
 	uint32_t m_cmd;
-	uint64_t m_playerId;
+	uint64_t m_cid;
 	uint32_t m_fromBusId;
 	uint32_t m_reqTransId;
 	bool m_bHasIncreasedCount;

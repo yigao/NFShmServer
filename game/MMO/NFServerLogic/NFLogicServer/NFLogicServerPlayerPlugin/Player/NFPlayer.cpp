@@ -15,8 +15,6 @@
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "Part/NFPart.h"
 #include "AllProtocol.h"
-#include "Jetton/NFJettonPart.h"
-#include "Room/NFRoomPart.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -49,11 +47,6 @@ int NFPlayer::CreateInit()
     m_iTransNum = 0;
     m_saveDBTimer = INVALID_ID;
     m_lastLoginTime = 0;
-    m_faceId = 0;
-    m_regDate = 0;
-    m_gender = 0;
-    m_age = 0;
-    m_phonenum = 0;
     m_pPart.resize(PART_MAX);
     return 0;
 }
@@ -153,7 +146,7 @@ void NFPlayer::Tick()
     }
 }
 
-int NFPlayer::Init(const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer)
+int NFPlayer::Init(const proto_ff::RoleDBData &dbData, bool bCreatePlayer)
 {
     SetStatus(proto_ff::PLAYER_STATUS_NONE);
     if (bCreatePlayer)
@@ -203,36 +196,14 @@ int NFPlayer::UnInit()
     return 0;
 }
 
-int NFPlayer::LoadFromDB(const proto_ff::tbFishPlayerData &data)
+int NFPlayer::LoadFromDB(const proto_ff::RoleDBData &data)
 {
-    m_regDate = data.regdate();
-    m_ipAddr = data.ip();
-    m_faceId = data.faceid();
-    m_gender = data.gender();
-    m_age = data.age();
-    m_phonenum = data.phonenum();
     return 0;
 }
 
-int NFPlayer::InitConfig(const proto_ff::tbFishPlayerData &data)
+int NFPlayer::InitConfig(const proto_ff::RoleDBData &data)
 {
     LoadFromDB(data);
-    return 0;
-}
-
-int NFPlayer::OnLogin(const proto_ff::Proto_WorldToLogicLoginReq& data, proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer)
-{
-    detailData.set_nick_name(m_nickName.data());
-    detailData.set_gender(m_gender);
-    detailData.set_face_id(m_faceId);
-    detailData.set_phonenum(0);
-    for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
-    {
-        if (m_pPart[i])
-        {
-            m_pPart[i]->OnLogin(data, detailData, isCreatePlayer);
-        }
-    }
     return 0;
 }
 
@@ -261,10 +232,6 @@ int NFPlayer::OnLogout()
             m_pPart[i]->OnLogout();
         }
     }
-
-    proto_ff::Proto_LTWLogoutNotify notify;
-    notify.set_player_id(m_playerId);
-    FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, proto_ff::NF_LTW_PLAYER_LOGOUT_NOTIFY, notify);
 
     SetStatus(proto_ff::PLAYER_STATUS_DEAD);
     return 0;
@@ -307,14 +274,8 @@ int NFPlayer::Update()
     return 0;
 }
 
-int NFPlayer::SaveDB(proto_ff::tbFishPlayerData &data)
+int NFPlayer::SaveDB(proto_ff::RoleDBData &data)
 {
-    data.set_regdate(m_regDate);
-    data.set_ip(m_ipAddr.ToString());
-    data.set_faceid(m_faceId);
-    data.set_gender(m_gender);
-    data.set_age(m_age);
-    data.set_phonenum(m_phonenum);
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
         if (m_pPart[i])
@@ -374,19 +335,6 @@ void NFPlayer::DecreaseTransNum()
     {
         m_iTransNum = 0;
     }
-}
-
-int NFPlayer::SendErrToClient(uint32_t nMsgId, proto_ff::Proto_CS_ErrorCode errCode)
-{
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-
-    proto_ff::Proto_CSErrorRsp rspMsg;
-    rspMsg.set_req_msg_id(nMsgId);
-    rspMsg.set_error(errCode);
-
-    SendMsgToClient(proto_ff::E_CS_ERROR, rspMsg);
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
-    return 0;
 }
 
 int NFPlayer::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
@@ -523,16 +471,6 @@ NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partT
     NFPart *pPart = NULL;
     switch (partType)
     {
-        case PART_JETTON:
-        {
-            pPart = NFJettonPart::CreateObj(pObjPluginManager);
-            break;
-        }
-        case PART_ROOM:
-        {
-            pPart = NFRoomPart::CreateObj(pObjPluginManager);
-            break;
-        }
         default:
         {
             break;
@@ -546,7 +484,7 @@ NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partT
     return pPart;
 }
 
-NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::tbFishPlayerData &dbData, bool bCreatePlayer)
+NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::RoleDBData &dbData, bool bCreatePlayer)
 {
     NFPart *pPart = CreatePart(m_pObjPluginManager, partType);
     if (pPart)
@@ -571,63 +509,4 @@ int NFPlayer::RecylePart(NFPart *pPart)
     pPart->UnInit();
     FindModule<NFISharedMemModule>()->DestroyObj(pPart);
     return 0;
-}
-
-uint32_t NFPlayer::GetGameId() const
-{
-    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
-    if (pPart)
-    {
-        return pPart->GetGameId();
-    }
-
-    return 0;
-}
-uint32_t NFPlayer::GetRoomId() const
-{
-    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
-    if (pPart)
-    {
-        return pPart->GetRoomId();
-    }
-
-    return 0;
-}
-
-uint32_t NFPlayer::GetGameBusId() const
-{
-    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
-    if (pPart)
-    {
-        return pPart->GetGameBusId();
-    }
-
-    return 0;
-}
-
-void NFPlayer::SetGameId(uint32_t gameId)
-{
-    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
-    if (pPart)
-    {
-        return pPart->SetGameId(gameId);
-    }
-}
-
-void NFPlayer::SetGameBusId(uint32_t gameBusId)
-{
-    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
-    if (pPart)
-    {
-        pPart->SetGameBusId(gameBusId);
-    }
-}
-
-void NFPlayer::SetRoomId(uint32_t roomId)
-{
-    auto pPart = GetPart<NFRoomPart>(PART_ROOM);
-    if (pPart)
-    {
-        pPart->SetRoomId(roomId);
-    }
 }

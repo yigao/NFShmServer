@@ -10,10 +10,10 @@
 #pragma once
 
 #include "Player/NFPlayerMgr.h"
-#include "NFLogicCommon/NFFishDynamicModule.h"
+#include "NFLogicCommon/NFMMODynamicModule.h"
 
 
-class NFCLogicPlayerModule : public NFFishDynamicModule
+class NFCLogicPlayerModule : public NFMMODynamicModule
 {
 public:
 	explicit NFCLogicPlayerModule(NFIPluginManager* p);
@@ -41,29 +41,4 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
 public:
-    /**
-     * @brief 玩家登录
-     * @param request
-     * @param respone
-     * @return
-     */
-    int OnRpcServicePlayerLogin(proto_ff::Proto_WorldToLogicLoginReq& request, proto_ff::Proto_LogicToWorldLoginRsp& respone);
-
-    /**
-     * @brief 玩家重连
-     * @param request
-     * @param respone
-     * @return
-     */
-    int OnRpcServicePlayerReconnect(proto_ff::WTLPlayerReconnectReq& request, proto_ff::LTWPlayerReconnectRsp& respone);
-
-    /**
-     * @brief 玩家掉线
-     * @param msgId
-     * @param packet
-     * @param param1
-     * @param param2
-     * @return
-     */
-    int OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 };

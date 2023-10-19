@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFFishLogicPlayerPlugin.h"
+#include "NFMMOLogicPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -15,21 +15,18 @@
 #include "Player/NFPlayerMgr.h"
 #include "Player/NFPlayer.h"
 #include "Part/NFPartModule.h"
-#include "Jetton/NFJettonPart.h"
-#include "NFLogicRoomModule.h"
-#include "Room/NFRoomPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-    CREATE_PLUGIN(pm, NFFishLogicPlayerPlugin)
+    CREATE_PLUGIN(pm, NFMMOLogicPlayerPlugin)
 
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-    DESTROY_PLUGIN(pm, NFFishLogicPlayerPlugin)
+    DESTROY_PLUGIN(pm, NFMMOLogicPlayerPlugin)
 };
 
 #endif
@@ -37,31 +34,29 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 //////////////////////////////////////////////////////////////////////////
 
-int NFFishLogicPlayerPlugin::GetPluginVersion()
+int NFMMOLogicPlayerPlugin::GetPluginVersion()
 {
 	return 0;
 }
 
-std::string NFFishLogicPlayerPlugin::GetPluginName()
+std::string NFMMOLogicPlayerPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFFishLogicPlayerPlugin);
+	return GET_CLASS_NAME(NFMMOLogicPlayerPlugin);
 }
 
-void NFFishLogicPlayerPlugin::Install()
+void NFMMOLogicPlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
     REGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
-    REGISTER_MODULE(m_pObjPluginManager, NFLogicRoomModule, NFLogicRoomModule);
 }
 
-void NFFishLogicPlayerPlugin::Uninstall()
+void NFMMOLogicPlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
-    UNREGISTER_MODULE(m_pObjPluginManager, NFLogicRoomModule, NFLogicRoomModule);
 }
 
-bool NFFishLogicPlayerPlugin::InitShmObjectRegister()
+bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
 {
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
     NF_ASSERT(pConfig);
@@ -69,8 +64,6 @@ bool NFFishLogicPlayerPlugin::InitShmObjectRegister()
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum();
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
-    REGISTER_SHM_OBJ(NFJettonPart, maxOnlinePlayerNum);
-    REGISTER_SHM_OBJ(NFRoomPart, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
 
     REGISTER_SHM_OBJ(NFTransPlayerBase, 1);

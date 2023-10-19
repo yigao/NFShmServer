@@ -38,7 +38,7 @@ NFTransPlayerBase::~NFTransPlayerBase()
 
 int NFTransPlayerBase::CreateInit()
 {
-    m_playerId = 0;
+    m_cid = 0;
     m_cmd = 0;
     m_fromBusId = 0;
     m_bHasIncreasedCount = false;
@@ -51,9 +51,9 @@ int NFTransPlayerBase::ResumeInit()
     return 0;
 }
 
-int NFTransPlayerBase::Init(uint64_t userId, uint32_t cmd, uint32_t fromBusId, uint32_t reqTransId)
+int NFTransPlayerBase::Init(uint64_t cid, uint32_t cmd, uint32_t fromBusId, uint32_t reqTransId)
 {
-    m_playerId = userId;
+    m_cid = cid;
     m_cmd = cmd;
     m_fromBusId = fromBusId;
     m_reqTransId = reqTransId;
@@ -74,7 +74,7 @@ int NFTransPlayerBase::Init(NFPlayer *pPlayer, uint32_t cmd, uint32_t fromBusId,
 {
     CHECK_NULL(pPlayer);
 
-    m_playerId = pPlayer->GetPlayerId();
+    m_cid = pPlayer->GetPlayerId();
     m_cmd = cmd;
     m_fromBusId = fromBusId;
     m_reqTransId = reqTransId;
@@ -89,7 +89,7 @@ int NFTransPlayerBase::Init(NFPlayer *pPlayer, uint32_t cmd, uint32_t fromBusId,
 
 NFPlayer *NFTransPlayerBase::GetPlayer()
 {
-    return NFPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(m_playerId);
+    return NFPlayerMgr::GetInstance(m_pObjPluginManager)->GetPlayer(m_cid);
 }
 
 int NFTransPlayerBase::OnTimeOut()
@@ -101,10 +101,10 @@ int NFTransPlayerBase::OnTimeOut()
         m_bHasIncreasedCount = false;
     }
 
-    SetFinished(proto_ff::ERR_CODE_SYSTEM_TIMEOUT);
+    SetFinished(proto_ff::ERR_CODE_SVR_SYSTEM_TIMEOUT);
 
-    NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "NFTransLogicUserBase timeout, playerId:{}, cmd:{}, transid:{}",
-               m_playerId, m_cmd, m_reqTransId);
+    NFLogError(NF_LOG_SYSTEMLOG, m_cid, "NFTransLogicUserBase timeout, playerId:{}, cmd:{}, transid:{}",
+               m_cid, m_cmd, m_reqTransId);
     return 0;
 }
 
@@ -113,7 +113,7 @@ int NFTransPlayerBase::OnTransFinished(int iRunLogicRetCode)
     NFPlayer *pPlayer = GetPlayer();
     if (!pPlayer)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, m_playerId, "GetPlayer Failed, this player may off line! cmd:{}", m_cmd);
+        NFLogInfo(NF_LOG_SYSTEMLOG, m_cid, "GetPlayer Failed, this player may off line! cmd:{}", m_cmd);
         return 0;
     }
 
@@ -137,11 +137,6 @@ int NFTransPlayerBase::OnTransFinished(int iRunLogicRetCode)
                    "Server should not call this function because request head uninitialized, player:{}!", pPlayer->GetPlayerId());
 
         return -1;
-    }
-
-    if (iRunLogicRetCode != 0)
-    {
-        pPlayer->SendErrToClient(m_cmd, (proto_ff::Proto_CS_ErrorCode) iRunLogicRetCode);
     }
 
     return 0;

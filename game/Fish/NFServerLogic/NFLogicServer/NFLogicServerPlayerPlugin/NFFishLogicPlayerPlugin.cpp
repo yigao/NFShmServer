@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFFishLogicPlayerPlugin.h"
+#include "NFMMOLogicPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -23,7 +23,7 @@
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-    CREATE_PLUGIN(pm, NFFishLogicPlayerPlugin)
+    CREATE_PLUGIN(pm, NFMMOLogicPlayerPlugin)
 
 };
 
@@ -37,31 +37,31 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 //////////////////////////////////////////////////////////////////////////
 
-int NFFishLogicPlayerPlugin::GetPluginVersion()
+int NFMMOLogicPlayerPlugin::GetPluginVersion()
 {
 	return 0;
 }
 
-std::string NFFishLogicPlayerPlugin::GetPluginName()
+std::string NFMMOLogicPlayerPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFFishLogicPlayerPlugin);
+	return GET_CLASS_NAME(NFMMOLogicPlayerPlugin);
 }
 
-void NFFishLogicPlayerPlugin::Install()
+void NFMMOLogicPlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
     REGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
     REGISTER_MODULE(m_pObjPluginManager, NFLogicRoomModule, NFLogicRoomModule);
 }
 
-void NFFishLogicPlayerPlugin::Uninstall()
+void NFMMOLogicPlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCLogicPlayerModule, NFCLogicPlayerModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFPartModule, NFPartModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFLogicRoomModule, NFLogicRoomModule);
 }
 
-bool NFFishLogicPlayerPlugin::InitShmObjectRegister()
+bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
 {
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
     NF_ASSERT(pConfig);

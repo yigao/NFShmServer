@@ -16,7 +16,6 @@
 #include "NFComm/NFCore/NFTime.h"
 
 #include "Player/NFPlayer.h"
-#include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFTransSaveDB, EOT_TRANS_SAVE_PLAYER, NFTransPlayerBase)
@@ -47,18 +46,17 @@ int NFTransSaveDB::ResumeInit() {
 int NFTransSaveDB::SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason)
 {
 	NFPlayer* pPlayer = GetPlayer();
-	CHECK_EXPR(pPlayer, -1, "Save Failed! Can't find player data, userId:{}", m_playerId);
+	CHECK_EXPR(pPlayer, -1, "Save Failed! Can't find player data, userId:{}", m_cid);
 	
 	m_reason = iReason;
     m_curSeq = pPlayer->GetAllSeq();
     pPlayer->SetLastSaveDBTime(NFTime::Now().UnixSec());
 
-	proto_ff::tbFishPlayerData tbData;
-    tbData.set_player_id(m_playerId);
+	proto_ff::RoleDBData tbData;
     pPlayer->SaveDB(tbData);
-	NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "Ready Save Player InTo Mysql:{}", tbData.DebugString());
+	NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "Ready Save Player InTo Mysql:{}", tbData.DebugString());
 
-    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcModifyObjService(NF_ST_LOGIC_SERVER, m_playerId, tbData, [this](int rpcRetCode) {
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcModifyObjService(NF_ST_LOGIC_SERVER, m_cid, tbData, [this](int rpcRetCode) {
         if (rpcRetCode == 0)
         {
             NFPlayer* pPlayer = GetPlayer();
