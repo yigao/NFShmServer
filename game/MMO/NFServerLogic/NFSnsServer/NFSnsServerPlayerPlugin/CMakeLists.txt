@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT(NFFishSnsPlayerPlugin)
+PROJECT(NFMMOSnsPlayerPlugin)
 include_directories( ${INCLUDE_DIR} ".")
 
 AUX_SOURCE_DIRECTORY(. SRC)
@@ -18,12 +18,12 @@ elseif(CMAKE_BUILD_TYPE STREQUAL "Debug")
 elseif (CMAKE_BUILD_TYPE STREQUAL "DynamicRelease")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Release")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME}  NFServerMessage NFServerCommon NFFishLogicMessage NFFishLogicCommon)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME}  NFServerMessage NFServerCommon NFMMOLogicMessage NFMMOLogicCommon)
 elseif(CMAKE_BUILD_TYPE STREQUAL "DynamicDebug")
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Werror")
 	SET(LIBRARY_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/Install/Bin/Dynamic_Debug")
 	ADD_LIBRARY( ${PROJECT_NAME} SHARED ${SRC} )
-	TARGET_LINK_LIBRARIES(${PROJECT_NAME}  NFServerMessage NFServerCommon NFFishLogicMessage NFFishLogicCommon)
+	TARGET_LINK_LIBRARIES(${PROJECT_NAME}  NFServerMessage NFServerCommon NFMMOLogicMessage NFMMOLogicCommon)
 endif()
 
 

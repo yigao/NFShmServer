@@ -85,9 +85,9 @@ public:
      */
     virtual int MonthZeroUpdate() { return 0; };
 public:
-    uint64_t GetPlayerId() const;
+    uint64_t GetCid() const;
 
-    void SetPlayerId(uint64_t playerId);
+    void SetCid(uint64_t cid);
 
     uint32_t GetLogicId() const;
 
@@ -100,10 +100,6 @@ public:
     uint32_t GetProxyId() const;
 
     void SetProxyId(uint32_t proxyId);
-
-    uint64_t GetClientId() const;
-
-    void SetClientId(uint64_t clientId);
 
     bool IsOnline() const;
 
@@ -124,7 +120,7 @@ public:
      * @brief 线上系统，更在线有关
      */
 
-    uint64_t m_playerId;
+    uint64_t m_cid;
 
     /**
      * @brief

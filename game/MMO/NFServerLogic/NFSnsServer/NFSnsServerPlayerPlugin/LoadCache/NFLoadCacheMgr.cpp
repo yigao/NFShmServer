@@ -489,29 +489,29 @@ int NFLoadCacheMgr::TransGetPlayerSimpleInfo(uint64_t playerId)
     return 0;
 }
 
-NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t playerId, bool bCreatePlayer)
+NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t cid, bool bCreatePlayer)
 {
     CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerSimpleInfo Must Int the Coroutine");
 
-    proto_ff::tbFishSnsPlayerSimpleData xData;
-    xData.set_player_id(playerId);
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, playerId, xData);
+    proto_ff::RoleDBSnsSimple xData;
+    xData.set_cid(cid);
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, cid, xData);
     if (iRet != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, playerId, "GetRpcSelectObjService Failed, iRet:{}", GetErrorStr(iRet));
-        return NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(playerId);
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "GetRpcSelectObjService Failed, iRet:{}", GetErrorStr(iRet));
+        return NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(cid);
     }
 
-    NFPlayerSimple* pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(playerId);
+    NFPlayerSimple* pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(cid);
     if (pPlayerSimple)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, playerId, "the player:{} simple exist after selectobj, some wrong error", playerId);
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "the player:{} simple exist after selectobj, some wrong error", cid);
     }
     else {
-        pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerSimple(playerId);
+        pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerSimple(cid);
         if (pPlayerSimple == NULL)
         {
-            NFLogError(NF_LOG_SYSTEMLOG, playerId, "NFCacheMgr CreatePlayerSimple Failed");
+            NFLogError(NF_LOG_SYSTEMLOG, cid, "NFCacheMgr CreatePlayerSimple Failed");
             return NULL;
         }
         else {
@@ -522,36 +522,36 @@ NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t playerId, bool b
         }
     }
 
-    HandleGetRoleSimpleRpcFinished(0, playerId);
+    HandleGetRoleSimpleRpcFinished(0, cid);
     return pPlayerSimple;
 }
 
-NFPlayerSimple* NFLoadCacheMgr::CreatePlayerSimpleDBDataByRpc(const proto_ff::tbFishSnsPlayerSimpleData& dbData)
+NFPlayerSimple* NFLoadCacheMgr::CreatePlayerSimpleDBDataByRpc(const proto_ff::RoleDBSnsSimple& dbData)
 {
     CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerSimpleInfo Must Int the Coroutine");
 
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_SNS_SERVER, dbData.player_id(), dbData);
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_SNS_SERVER, dbData.cid(), dbData);
     if (iRet != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, dbData.player_id(), "GetRpcInsertObjService Failed, iRet:{}", GetErrorStr(iRet));
+        NFLogError(NF_LOG_SYSTEMLOG, dbData.cid(), "GetRpcInsertObjService Failed, iRet:{}", GetErrorStr(iRet));
         return NULL;
     }
 
-    return RpcGetPlayerSimpleInfo(dbData.player_id(), true);
+    return RpcGetPlayerSimpleInfo(dbData.cid(), true);
 }
 
-NFPlayerDetail* NFLoadCacheMgr::CreatePlayerDetailDBDataByRpc(const proto_ff::tbFishSnsPlayerDetailData& dbData)
+NFPlayerDetail* NFLoadCacheMgr::CreatePlayerDetailDBDataByRpc(const proto_ff::RoleDBSnsDetail& dbData)
 {
     CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerSimpleInfo Must Int the Coroutine");
 
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_SNS_SERVER, dbData.player_id(), dbData);
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_SNS_SERVER, dbData.cid(), dbData);
     if (iRet != 0)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, dbData.player_id(), "GetRpcInsertObjService Failed, iRet:{}", GetErrorStr(iRet));
+        NFLogError(NF_LOG_SYSTEMLOG, dbData.cid(), "GetRpcInsertObjService Failed, iRet:{}", GetErrorStr(iRet));
         return NULL;
     }
 
-    return RpcGetPlayerDetailInfo(dbData.player_id(), true);
+    return RpcGetPlayerDetailInfo(dbData.cid(), true);
 }
 
 int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t time)
@@ -649,8 +649,8 @@ NFPlayerDetail* NFLoadCacheMgr::RpcGetPlayerDetailInfo(uint64_t playerId, bool b
 {
     CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerDetailInfo Must Int the Coroutine");
 
-    proto_ff::tbFishSnsPlayerDetailData xData;
-    xData.set_player_id(playerId);
+    proto_ff::RoleDBSnsDetail xData;
+    xData.set_cid(playerId);
     int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, playerId, xData);
     if (iRet != 0)
     {

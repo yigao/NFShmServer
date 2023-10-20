@@ -35,7 +35,7 @@ NFTransGetPlayerSimple::~NFTransGetPlayerSimple()
 
 int NFTransGetPlayerSimple::CreateInit()
 {
-    m_playerId = 0;
+    m_cid = 0;
     return 0;
 }
 
@@ -46,31 +46,31 @@ int NFTransGetPlayerSimple::ResumeInit()
 
 int NFTransGetPlayerSimple::QueryRole(uint64_t playerId) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    m_playerId = playerId;
+    m_cid = playerId;
 
-    if (NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(m_playerId))
+    if (NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(m_cid))
     {
         SetFinished(0);
         return 0;
     }
 
-    proto_ff::tbFishSnsPlayerSimpleData xData;
-    xData.set_player_id(m_playerId);
-    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_playerId, xData, [this](int rpcRetCode, proto_ff::tbFishSnsPlayerSimpleData &respone) {
+    proto_ff::RoleDBSnsSimple xData;
+    xData.set_cid(m_cid);
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_cid, xData, [this](int rpcRetCode, proto_ff::RoleDBSnsSimple &respone) {
         if (rpcRetCode == 0)
         {
-            NFPlayerSimple* pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
+            NFPlayerSimple* pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerSimple(m_cid);
             if (pPlayerSimple)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "the player:{} simple exist after selectobj, some wrong error", m_playerId);
+                NFLogError(NF_LOG_SYSTEMLOG, m_cid, "the player:{} simple exist after selectobj, some wrong error", m_cid);
                 SetFinished(0);
                 return;
             }
 
-            pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerSimple(m_playerId);
+            pPlayerSimple = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerSimple(m_cid);
             if (pPlayerSimple == NULL)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "NFCacheMgr CreatePlayerSimple Failed");
+                NFLogError(NF_LOG_SYSTEMLOG, m_cid, "NFCacheMgr CreatePlayerSimple Failed");
                 SetFinished(proto_ff::ERR_CODE_SVR_SYSTEM_ERROR);
                 return;
             }
@@ -96,6 +96,6 @@ int NFTransGetPlayerSimple::QueryRole(uint64_t playerId) {
 }
 
 int NFTransGetPlayerSimple::OnTransFinished(int iRunLogicRetCode) {
-    NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->HandleGetRoleSimpleTransFinished(iRunLogicRetCode, m_playerId);
+    NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->HandleGetRoleSimpleTransFinished(iRunLogicRetCode, m_cid);
     return 0;
 }

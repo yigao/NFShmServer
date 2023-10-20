@@ -45,7 +45,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer);
+    virtual int Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer);
 
     /**
      * @brief
@@ -124,26 +124,20 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData& data) { return 0; }
+    virtual int LoadFromDB(const proto_ff::RoleDBSnsDetail& data) { return 0; }
 
     /**
      * @brief
      * @return
      */
-    virtual int InitConfig(const proto_ff::tbFishSnsPlayerDetailData& data) { return 0; }
+    virtual int InitConfig(const proto_ff::RoleDBSnsDetail& data) { return 0; }
 
     /**
      * @brief 存储DB部件入口
      * @param proto
      * @return
      */
-    virtual int SaveDB(proto_ff::tbFishSnsPlayerDetailData &dbData) { return 0; }
-
-    /**
-     * @brief 登陆入口
-     * @return
-     */
-    virtual int OnLogin(proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer) { return 0; }
+    virtual int SaveDB(proto_ff::RoleDBSnsDetail &dbData) { return 0; }
 
     /**
      * @brief 登陆入口

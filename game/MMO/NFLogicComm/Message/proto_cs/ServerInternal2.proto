@@ -6,64 +6,11 @@ import "DBProxy2.proto";
 import "Com.proto";
 import "ComDefine.proto";
 
-message WorldToLogicGetRoleList
-{
-  optional uint64 uid = 1;
-  optional uint32 born_zone_id = 2;
-  optional uint64 proxy_id = 3;
-  optional uint64 client_id = 4;
-}
-
-message LogicToWorldGetRoleListRsp
-{
-  optional int32 ret_code = 1;
-  optional uint64 uid = 2;
-  optional uint32 born_zone_id = 3;
-  optional uint64 proxy_id = 4;
-  optional uint64 client_id = 5;
-  repeated RoleDBData role_info_list = 6;
-  optional uint32 register_num = 7;
-}
-
 //中心服通知网关退出游戏  NOTIFY_GATE_LEAVE_GAME
 message NotifyGateLeaveGame2
 {
   optional uint64 clientid = 1;
   optional LOGOUT_TYPE leave_flag = 3;
-}
-
-message WorldToLogicCreateRoleReq
-{
-  optional uint64 uid = 1;
-  optional uint64 cid = 2;
-  optional uint32 zid = 3;
-  optional uint32 born_zid = 4;
-  optional uint32 channel_id = 5;
-  optional uint64 zone_mid = 6;
-  optional string name = 7;
-  optional uint32 prof = 8;
-  optional uint32 level = 9;
-  optional uint32 color = 10;
-
-  optional uint64 enter_scene_id  = 11;   // 当前进入的场景Id
-  optional uint64 enter_map_id    = 12;	// 当前进入的地图ID
-  optional float enterposx        = 13;   // 当前进入的地图的X坐标
-  optional float enterposy        = 14;   // 当前进入的地图的Y坐标
-  optional float enterposz        = 15;   // 当前进入的地图的Z坐标
-
-  optional uint64 lastsceneid		= 16;    //玩家进入上个地图的场景Id
-  optional uint64 lastmapid		= 17;    //玩家进入上个地图Id
-  optional float  lastposx		= 18;    //玩家上个地图的x坐标
-  optional float  lastposy		= 19;    //玩家上个地图的y坐标
-  optional float  lastposz		= 20;    //玩家上个地图的z坐标
-}
-
-message LogicToWorldCreateRoleRsp
-{
-  optional uint32 ret_code = 1;
-  optional uint64 uid = 2;
-  optional uint64 cid = 3;
-  optional RoleDBData role_info = 4;
 }
 
 //网关通知中心服客户端掉线 NOTIFY_CENTER_DISCONNECT
@@ -91,108 +38,6 @@ message WorldToOtherServerDisconnectNotify
   optional uint32 reason = 2;
 }
 
-message WorldToLogicLoginReq
-{
-  optional uint64 uid = 1;
-  optional uint64 cid = 2;
-  optional uint32 proxy_id = 3;
-  optional uint64 client_id = 4;
-  optional uint32 zid = 5;
-  optional uint32 channel_id = 6;
-  optional uint64 map_id = 7;
-  optional uint64 scene_id = 8;
-  optional Vector3PB pos = 9;
-}
-
-message LogicToWorldLoginRsp
-{
-  optional uint32 ret_code = 1;
-  optional RoleDBSimpleData simple_data = 2;
-}
-
-message WorldToSnsLoginReq
-{
-  optional uint32 proxy_id = 1;
-  optional uint64 client_id = 2;
-  optional uint32 logic_id = 3;
-  optional RoleDBSimpleData simple_data = 4;
-}
-
-message SnsToWorldLoginRsp
-{
-  optional uint32 ret_code = 1;
-  optional uint64 uid = 2;
-  optional uint64 cid = 3;
-}
-
-message GameToWorldRegisterMapReq
-{
-  optional uint32 game_bus = 1;
-  repeated uint64 map_id = 2;
-}
-
-message WorldToGameRegisterMapRsp
-{
-  optional int32 ret_code = 1;
-}
-
-message WorldToLogicLoginFinishNotify
-{
-  optional uint64 uid = 1;
-  optional uint64 role_id = 2;
-  optional uint32 proxy_id = 3;
-  optional uint64 client_id = 4;
-  optional uint64 map_id = 5;
-  optional uint64 scene_id = 6;
-  optional Vector3PB pos = 7;
-}
-
-message LogicToWorldEnterSceneReq
-{
-  optional uint64 role_id = 1;
-  optional uint64 map_id = 2;
-  optional uint64 scene_id = 3;
-  optional Vector3PB pos = 4;
-  optional RoleEnterSceneData data = 6;
-  optional uint64 src_map_id = 7;
-  optional uint64 src_scene_id = 8;
-  optional uint64 trans_type = 9;
-}
-
-message WorldToGameEnterSceneReq
-{
-  optional uint64 role_id = 1;
-  optional uint64 map_id = 2;
-  optional uint64 scene_id = 3;
-  optional Vector3PB pos = 4;
-  optional uint32 gate_id = 6;
-  optional uint64 client_id = 7;
-  optional uint32 logic_id = 8;
-  optional RoleEnterSceneData data = 9;
-  optional uint64 src_map_id = 10;
-  optional uint64 src_scene_id = 11;
-  optional uint64 trans_type = 12;
-}
-
-message GameToWorldEnterSceneRsp
-{
-  optional int32 ret_code = 1;
-  optional uint64 role_id = 2;
-  optional uint64 map_id = 3;
-  optional uint64 scene_id = 4;
-  optional Vector3PB pos = 5;
-}
-
-message WorldToLogicEnterSceneRsp
-{
-  optional int32 ret_code = 1;
-  optional uint64 role_id = 2;
-  optional uint64 map_id = 3;
-  optional uint64 scene_id = 4;
-  optional Vector3PB pos = 5;
-  optional uint32 game_id = 6;
-}
-
 //中心服通知逻辑服退出游戏      NOTIFY_LOGIC_LEAVE_GAME_REQ
 message NotifyLogicLeaveGameReq2
 {
@@ -207,58 +52,4 @@ message NotifyLogicLeaveGameRsp2
   required uint64 cid = 1;
   required uint64 uid = 2;
   optional int32 logout_type = 3;	//登出类型
-}
-
-message LogicToWorldLeaveSceneReq
-{
-  optional uint64 role_id = 1;
-  optional uint64 map_id = 2;
-  optional uint64 scene_id = 3;
-  optional Vector3PB pos = 4;
-  optional uint32 game_id = 5;
-}
-
-message WorldToGameLeaveSceneReq
-{
-  optional uint64 role_id = 1;
-  optional uint64 map_id = 2;
-  optional uint64 scene_id = 3;
-}
-
-message GameToWorldLeaveSceneRsp
-{
-  optional int32 ret_code = 1;
-  optional uint64 role_id = 2;
-  optional uint64 map_id = 3;
-  optional uint64 scene_id = 4;
-  optional uint32 logic_id = 6;
-}
-
-message WorldToLogicLeaveSceneRsp
-{
-  optional int32 ret_code = 1;
-  optional uint64 role_id = 2;
-  optional uint64 map_id = 3;
-  optional uint64 scene_id = 4;
-  optional uint32 logic_id = 6;
-}
-
-//LOGIC_TO_WORLD_GET_MAP_INFO_REQ = 5022;
-message LogicToWorldGetMapInfoReq
-{
-  optional uint64 role_id = 1;
-  optional uint64 src_map_id = 2;
-  optional uint64 dst_map_id = 3;
-}
-
-//WORLD_TO_LOGIC_GET_MAP_INFO_RSP = 5023;
-message LogicToWorldGetMapInfoRsp
-{
-  optional int32 ret_code = 1;
-  optional uint64 role_id = 2;
-  optional uint64 src_map_id = 3;
-  optional uint32 src_game_id = 4;
-  optional uint64 dst_map_id = 5;
-  optional uint32 dst_game_id = 6;
-  optional uint32 cur_game_id = 7;
 }

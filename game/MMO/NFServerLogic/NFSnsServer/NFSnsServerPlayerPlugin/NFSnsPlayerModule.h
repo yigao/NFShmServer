@@ -10,9 +10,9 @@
 #pragma once
 
 
-#include "NFLogicCommon/NFFishDynamicModule.h"
+#include "NFLogicCommon/NFMMODynamicModule.h"
 
-class NFCSnsPlayerModule : public NFFishDynamicModule
+class NFCSnsPlayerModule : public NFMMODynamicModule
 {
 public:
     explicit NFCSnsPlayerModule(NFIPluginManager *p);
@@ -46,59 +46,4 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
-
-public:
-    /**
-     * @brief 玩家登录
-     * @param request
-     * @param respone
-     * @return
-     */
-    int OnRpcServicePlayerLogin(proto_ff::Proto_WTSLoginReq& request, proto_ff::Proto_STWLoginRsp& respone);
-
-    /**
-     * @brief 玩家重连
-     * @param request
-     * @param respone
-     * @return
-     */
-    int OnRpcServicePlayerReconnect(proto_ff::WTSPlayerReconnectReq& request, proto_ff::STWPlayerReconnectRsp& respone);
-
-    /**
-     * @brief
-     * @param request
-     * @param respone
-     * @return
-     */
-    int OnRpcServiceQueryPlayerSimpleData(proto_ff::Proto_TS_QueryPlayerSimpleDataReq& request, proto_ff::Proto_ST_QueryPlayerSimpleDataRsp& respone);
-
-    /**
-     * @brief 玩家掉线
-     * @param msgId
-     * @param packet
-     * @param param1
-     * @param param2
-     * @return
-     */
-    int OnHandlePlayerDisconnectMsg(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
-
-    /**
-     * @brief 玩家登出
-     * @param msgId
-     * @param packet
-     * @param param1
-     * @param param2
-     * @return
-     */
-    int OnHandlePlayerLogoutNotify(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
-
-    /**
-     * @brief
-     * @param msgId
-     * @param packet
-     * @param param1
-     * @param param2
-     * @return
-     */
-    int OnHandleQueryUserSimpleDataReq(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2);
 };

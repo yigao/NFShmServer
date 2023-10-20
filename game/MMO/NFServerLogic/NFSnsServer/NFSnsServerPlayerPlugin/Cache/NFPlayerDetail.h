@@ -17,12 +17,12 @@
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "AllProtocol.h"
-#include "NFLogicCommon/NFPlayerDefine.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
+#include "NFLogicCommon/NFCharactorDefine.h"
 
 class NFSnsPart;
 class NFPlayerSimple;
@@ -38,9 +38,9 @@ public:
     int ResumeInit();
 
 public:
-    uint64_t GetPlayerId() const;
+    uint64_t GetCid() const;
 
-    void SetPlayerId(uint64_t roleId);
+    void SetCid(uint64_t cid);
 
 public:
     bool IsInited() const;
@@ -59,7 +59,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer = false);
+    virtual int Init(const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer = false);
 
     /**
      * @brief
@@ -118,9 +118,9 @@ public:
     template<size_t msgId, typename RequestType, typename ResponeType>
     int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone)
     {
-        FindModule<NFICoroutineModule>()->AddUserCo(m_playerId);
-        int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(NF_ST_SNS_SERVER, dstServerType, dstBusId, request, respone, m_playerId);
-        FindModule<NFICoroutineModule>()->DelUserCo(m_playerId);
+        FindModule<NFICoroutineModule>()->AddUserCo(m_cid);
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(NF_ST_SNS_SERVER, dstServerType, dstBusId, request, respone, m_cid);
+        FindModule<NFICoroutineModule>()->DelUserCo(m_cid);
         return iRet;
     }
 public:
@@ -131,7 +131,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer);
+    NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer);
 
     /**
      * @brief 静态函数 创建Part
@@ -163,20 +163,20 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData& data);
+    virtual int LoadFromDB(const proto_ff::RoleDBSnsDetail& data);
 
     /**
      * @brief
      * @param data
      * @return
      */
-    virtual int SaveDB(proto_ff::tbFishSnsPlayerDetailData& data);
+    virtual int SaveDB(proto_ff::RoleDBSnsDetail& data);
 
     /**
      * @brief
      * @return
      */
-    virtual int InitConfig(const proto_ff::tbFishSnsPlayerDetailData& data);
+    virtual int InitConfig(const proto_ff::RoleDBSnsDetail& data);
 
     /**
      * @brief
@@ -184,11 +184,6 @@ public:
      */
     virtual int Update();
 public:
-    /**
-     * @brief 登陆入口
-     * @return
-     */
-    virtual int OnLogin(proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer);
 
     /**
      * @brief 登陆入口
@@ -244,7 +239,7 @@ private:
     /**
      * @brief
      */
-    uint64_t m_playerId;
+    uint64_t m_cid;
 private:
     /**
      * @brief 存db的时间
@@ -256,6 +251,6 @@ private:
      */
     int m_saveDBTimer;
 private:
-    NFShmVector<NFShmPtr<NFSnsPart>, PART_MAX> m_pPart;
+    NFShmVector<NFShmPtr<NFSnsPart>, SNS_PART_MAX> m_pPart;
 DECLARE_IDCREATE(NFPlayerDetail)
 };

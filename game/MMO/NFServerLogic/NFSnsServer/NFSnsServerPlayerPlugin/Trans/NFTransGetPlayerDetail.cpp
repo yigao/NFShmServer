@@ -35,7 +35,7 @@ NFTransGetPlayerDetail::~NFTransGetPlayerDetail()
 
 int NFTransGetPlayerDetail::CreateInit()
 {
-    m_playerId = 0;
+    m_cid = 0;
     return 0;
 }
 
@@ -46,9 +46,9 @@ int NFTransGetPlayerDetail::ResumeInit()
 
 int NFTransGetPlayerDetail::QueryRole(uint64_t playerId) {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
-    m_playerId = playerId;
+    m_cid = playerId;
 
-    auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_playerId);
+    auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_cid);
     if (pRoleDetail)
     {
         SetFinished(0);
@@ -58,23 +58,23 @@ int NFTransGetPlayerDetail::QueryRole(uint64_t playerId) {
     auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     CHECK_EXPR_ASSERT(pServerConfig, -1, "FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER) Failed");
 
-    proto_ff::tbFishSnsPlayerDetailData xData;
-    xData.set_player_id(m_playerId);
-    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_playerId, xData, [this](int rpcRetCode, proto_ff::tbFishSnsPlayerDetailData &respone) {
+    proto_ff::RoleDBSnsDetail xData;
+    xData.set_cid(m_cid);
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, m_cid, xData, [this](int rpcRetCode, proto_ff::RoleDBSnsDetail &respone) {
         if (rpcRetCode == 0)
         {
-            auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_playerId);
+            auto pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->GetPlayerDetail(m_cid);
             if (pRoleDetail)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "the player:{} detail exist after selectobj, some wrong error", m_playerId);
+                NFLogError(NF_LOG_SYSTEMLOG, m_cid, "the player:{} detail exist after selectobj, some wrong error", m_cid);
                 SetFinished(0);
                 return;
             }
 
-            pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerDetail(m_playerId);
+            pRoleDetail = NFCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerDetail(m_cid);
             if (pRoleDetail == NULL)
             {
-                NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "NFCacheMgr CreatePlayerDetail Failed");
+                NFLogError(NF_LOG_SYSTEMLOG, m_cid, "NFCacheMgr CreatePlayerDetail Failed");
                 SetFinished(proto_ff::ERR_CODE_SVR_SYSTEM_ERROR);
                 return;
             }
@@ -100,6 +100,6 @@ int NFTransGetPlayerDetail::QueryRole(uint64_t playerId) {
 }
 
 int NFTransGetPlayerDetail::OnTransFinished(int iRunLogicRetCode) {
-    NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->HandleGetRoleDetailTransFinished(iRunLogicRetCode, m_playerId);
+    NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->HandleGetRoleDetailTransFinished(iRunLogicRetCode, m_cid);
     return 0;
 }

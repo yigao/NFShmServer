@@ -61,30 +61,8 @@ void protobuf_AddDesc_ServerInternalCmd2_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\030ServerInternalCmd2.proto\022\010proto_ff\032\tCo"
-    "m.proto\032\017ComDefine.proto*\223\007\n\022ServerInter"
-    "nalCmd2\022\033\n\026SERVER_INTERNAL2_BEGIN\020\210\'\022%\n "
-    "WORLD_TO_LOGIC_GET_ROLE_LIST_REQ\020\211\'\022%\n L"
-    "OGIC_TO_WORLD_GET_ROLE_LIST_RSP\020\212\'\022(\n#WO"
-    "RLD_TO_LOGIC_CREATE_ROLE_INFO_REQ\020\213\'\022(\n#"
-    "LOGIC_TO_WORLD_CREATE_ROLE_INFO_RSP\020\214\'\022/"
-    "\n*WORLD_TO_PROXY_SERVER_BUS_ID_CHANGE_NO"
-    "TIFY\020\215\'\0223\n.WORLD_TO_OTHER_SERVER_NOTIFY_"
-    "PLAYER_DISCONNECT\020\216\'\022\035\n\030WORLD_TO_LOGIC_L"
-    "OGIN_REQ\020\217\'\022\035\n\030LOGIC_TO_WORLD_LOGIN_RSP\020"
-    "\220\'\022\033\n\026WORLD_TO_SNS_LOGIN_REQ\020\221\'\022\033\n\026SNS_T"
-    "O_WORLD_LOGIN_RSP\020\222\'\022#\n\036GAME_TO_WORLD_RE"
-    "GISTER_MAP_REQ\020\223\'\022\"\n\035WORLD_TO_GAME_RESIT"
-    "ER_MAP_RSP\020\224\'\022\'\n\"WORLD_TO_LOGIC_LOGIN_FI"
-    "NISH_NOTIFY\020\225\'\022#\n\036LOGIC_TO_WORLD_ENTER_S"
-    "CENE_REQ\020\226\'\022#\n\036WORLD_TO_LOGIC_ENTER_SCEN"
-    "E_RSP\020\227\'\022\"\n\035WORLD_TO_GAME_ENTER_SCENE_RE"
-    "Q\020\230\'\022\"\n\035GAME_TO_WORLD_ENTER_SCENE_RSP\020\231\'"
-    "\022#\n\036LOGIC_TO_WORLD_LEAVE_SCENE_REQ\020\232\'\022#\n"
-    "\036WORLD_TO_LOGIC_LEAVE_SCENE_RSP\020\233\'\022\"\n\035WO"
-    "RLD_TO_GAME_LEAVE_SCENE_REQ\020\234\'\022\"\n\035GAME_T"
-    "O_WORLD_LEAVE_SCENE_RSP\020\235\'\022$\n\037LOGIC_TO_W"
-    "ORLD_GET_MAP_INFO_REQ\020\236\'\022$\n\037WORLD_TO_LOG"
-    "IC_GET_MAP_INFO_RSP\020\237\'", 982);
+    "m.proto\032\017ComDefine.proto*1\n\022ServerIntern"
+    "alCmd2\022\033\n\026SERVER_INTERNAL2_BEGIN\020\210\'", 115);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd2.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd2_2eproto);
@@ -103,29 +81,6 @@ const ::google::protobuf::EnumDescriptor* ServerInternalCmd2_descriptor() {
 bool ServerInternalCmd2_IsValid(int value) {
   switch(value) {
     case 5000:
-    case 5001:
-    case 5002:
-    case 5003:
-    case 5004:
-    case 5005:
-    case 5006:
-    case 5007:
-    case 5008:
-    case 5009:
-    case 5010:
-    case 5011:
-    case 5012:
-    case 5013:
-    case 5014:
-    case 5015:
-    case 5016:
-    case 5017:
-    case 5018:
-    case 5019:
-    case 5020:
-    case 5021:
-    case 5022:
-    case 5023:
       return true;
     default:
       return false;

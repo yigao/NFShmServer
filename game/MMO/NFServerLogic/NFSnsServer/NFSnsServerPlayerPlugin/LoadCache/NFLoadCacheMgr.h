@@ -50,10 +50,10 @@ public:
 
     /**
      * @brief
-     * @param playerId
+     * @param cid
      * @return
      */
-    NFPlayerSimple* RpcGetPlayerSimpleInfo(uint64_t playerId, bool bCreatePlayer = false);
+    NFPlayerSimple* RpcGetPlayerSimpleInfo(uint64_t cid, bool bCreatePlayer = false);
 
     /**
      * @brief
@@ -76,7 +76,7 @@ public:
      * @param role_id
      * @return
      */
-    NFPlayerSimple* CreatePlayerSimpleDBDataByRpc(const proto_ff::tbFishSnsPlayerSimpleData& dbData);
+    NFPlayerSimple* CreatePlayerSimpleDBDataByRpc(const proto_ff::RoleDBSnsSimple& dbData);
 public:
     /**
      * @brief
@@ -130,7 +130,7 @@ public:
      * @param role_id
      * @return
      */
-    NFPlayerDetail* CreatePlayerDetailDBDataByRpc(const proto_ff::tbFishSnsPlayerDetailData& dbData);
+    NFPlayerDetail* CreatePlayerDetailDBDataByRpc(const proto_ff::RoleDBSnsDetail& dbData);
 private:
     int m_refreshTimer;
     int m_refreshRpcTimer;

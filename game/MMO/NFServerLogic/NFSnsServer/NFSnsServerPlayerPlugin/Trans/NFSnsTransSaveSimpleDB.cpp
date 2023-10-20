@@ -36,7 +36,7 @@ NFSnsTransSaveSimpleDB::~NFSnsTransSaveSimpleDB() {
 
 int NFSnsTransSaveSimpleDB::CreateInit() {
     m_curSeq = 0;
-    m_playerId = 0;
+    m_cid = 0;
     return 0;
 }
 
@@ -46,21 +46,21 @@ int NFSnsTransSaveSimpleDB::ResumeInit() {
 
 int NFSnsTransSaveSimpleDB::SaveDB(NFPlayerSimple* pPlayer)
 {
-    CHECK_EXPR(pPlayer, -1, "Save Failed! Can't find player data, userId:{}", m_playerId);
+    CHECK_EXPR(pPlayer, -1, "Save Failed! Can't find player data, userId:{}", m_cid);
 
-    m_playerId = pPlayer->GetPlayerId();
+    m_cid = pPlayer->GetCid();
     m_curSeq = pPlayer->GetCurSeq();
     pPlayer->SetLastSaveDBTime(NFTime::Now().UnixSec());
 
-    proto_ff::tbFishSnsPlayerSimpleData tbData;
-    tbData.set_player_id(m_playerId);
+    proto_ff::RoleDBSnsSimple tbData;
+    tbData.set_cid(m_cid);
     pPlayer->SaveDB(tbData);
-    NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "Ready Save Sns Player Simple InTo Mysql:{}", tbData.DebugString());
+    NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "Ready Save Sns Player Simple InTo Mysql:{}", tbData.DebugString());
 
-    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcModifyObjService(NF_ST_SNS_SERVER, m_playerId, tbData, [this](int rpcRetCode) {
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcModifyObjService(NF_ST_SNS_SERVER, m_cid, tbData, [this](int rpcRetCode) {
         if (rpcRetCode == 0)
         {
-            NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
+            NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_cid);
             if (pPlayer)
             {
                 pPlayer->OnSaveDB(true, m_curSeq);
@@ -80,7 +80,7 @@ int NFSnsTransSaveSimpleDB::SaveDB(NFPlayerSimple* pPlayer)
 
 int NFSnsTransSaveSimpleDB::HandleTransFinished(int iRunLogicRetCode) {
     if (iRunLogicRetCode != 0) {
-        NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
+        NFPlayerSimple* pPlayer = NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_cid);
         if (pPlayer) {
             pPlayer->OnSaveDB(false, 0);
         }

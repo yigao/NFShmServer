@@ -77,7 +77,7 @@ NFPlayerSimple *NFCacheMgr::CreatePlayerSimple(uint64_t playerId)
     pRoleSimple = NFPlayerSimple::CreateObjByHashKey(m_pObjPluginManager, playerId);
     CHECK_EXPR(pRoleSimple, NULL, "Create Role Simple Obj Failed, playerID:{}", playerId);
 
-    pRoleSimple->SetPlayerId(playerId);
+    pRoleSimple->SetCid(playerId);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "AddTrans Role Simple Success, userId:{} globalId:{}", playerId,
               pRoleSimple->GetGlobalId());
     return pRoleSimple;
@@ -87,7 +87,7 @@ int NFCacheMgr::DeletePlayerSimple(NFPlayerSimple *pRoleSimple)
 {
     CHECK_NULL(pRoleSimple);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Simple Info, RoleId:{}, gloablId:{}", pRoleSimple->GetPlayerId(), pRoleSimple->GetGlobalId());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Simple Info, RoleId:{}, gloablId:{}", pRoleSimple->GetCid(), pRoleSimple->GetGlobalId());
 
     pRoleSimple->UnInit();
     NFPlayerSimple::DestroyObj(m_pObjPluginManager, pRoleSimple);
@@ -132,12 +132,12 @@ NFPlayerSimple* NFCacheMgr::QueryPlayerSimpleByRpc(uint64_t playerId, uint64_t q
     return pSimple;
 }
 
-NFPlayerSimple* NFCacheMgr::CreatePlayerSimpleDBDataByRpc(const proto_ff::tbFishSnsPlayerSimpleData& dbData)
+NFPlayerSimple* NFCacheMgr::CreatePlayerSimpleDBDataByRpc(const proto_ff::RoleDBSnsSimple& dbData)
 {
     return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerSimpleDBDataByRpc(dbData);
 }
 
-NFPlayerDetail* NFCacheMgr::CreatePlayerDetailDBDataByRpc(const proto_ff::tbFishSnsPlayerDetailData& dbData)
+NFPlayerDetail* NFCacheMgr::CreatePlayerDetailDBDataByRpc(const proto_ff::RoleDBSnsDetail& dbData)
 {
     return NFLoadCacheMgr::GetInstance(m_pObjPluginManager)->CreatePlayerDetailDBDataByRpc(dbData);
 }
@@ -220,7 +220,7 @@ NFPlayerDetail *NFCacheMgr::CreatePlayerDetail(uint64_t playerId)
     pRoleDetail = NFPlayerDetail::CreateObjByHashKey(m_pObjPluginManager, playerId);
     CHECK_EXPR(pRoleDetail, NULL, "Create Role Detail Obj Failed, playerID:{}", playerId);
 
-    pRoleDetail->SetPlayerId(playerId);
+    pRoleDetail->SetCid(playerId);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "AddTrans Role Detail Success, userId:{} globalId:{}", playerId,
               pRoleDetail->GetGlobalId());
     return pRoleDetail;
@@ -230,7 +230,7 @@ int NFCacheMgr::DeletePlayerDetail(NFPlayerDetail *pRoleDetail)
 {
     CHECK_NULL(pRoleDetail);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleDetail->GetPlayerId(), pRoleDetail->GetGlobalId());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleDetail->GetCid(), pRoleDetail->GetGlobalId());
 
     pRoleDetail->UnInit();
     NFPlayerDetail::DestroyObj(m_pObjPluginManager, pRoleDetail);
@@ -251,7 +251,7 @@ NFPlayerOnline *NFCacheMgr::CreatePlayerOnline(uint64_t playerId)
     pPlayerOnline = NFPlayerOnline::CreateObjByHashKey(m_pObjPluginManager, playerId);
     CHECK_EXPR(pPlayerOnline, NULL, "Create Role Online Obj Failed, playerID:{}", playerId);
 
-    pPlayerOnline->SetPlayerId(playerId);
+    pPlayerOnline->SetCid(playerId);
     NFLogInfo(NF_LOG_SYSTEMLOG, 0, "AddTrans Role Online Success, userId:{} globalId:{}", playerId,
               pPlayerOnline->GetGlobalId());
     return pPlayerOnline;
@@ -261,7 +261,7 @@ int NFCacheMgr::DeletePlayerOnline(NFPlayerOnline *pRoleOnline)
 {
     CHECK_NULL(pRoleOnline);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleOnline->GetPlayerId(), pRoleOnline->GetGlobalId());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Detail Info, RoleId:{}, gloablId:{}", pRoleOnline->GetCid(), pRoleOnline->GetGlobalId());
 
     pRoleOnline->UnInit();
     NFPlayerOnline::DestroyObj(m_pObjPluginManager, pRoleOnline);

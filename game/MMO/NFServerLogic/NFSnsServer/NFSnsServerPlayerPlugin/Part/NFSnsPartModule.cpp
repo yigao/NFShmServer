@@ -10,6 +10,7 @@
 #include "NFSnsPartModule.h"
 #include "Cache/NFCacheMgr.h"
 #include "NFSnsPart.h"
+#include "NFLogicCommon/NFCharactorDefine.h"
 
 NFSnsPartModule::NFSnsPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {

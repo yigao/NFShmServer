@@ -15,9 +15,6 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFLogicCommon/NFPlayerDefine.h"
-
-
 
 
 class NFPlayerDetail;
@@ -36,6 +33,6 @@ public:
     int SaveDB(NFPlayerDetail* pPlayer);
 private:
     uint32_t m_curSeq;
-    uint32_t m_playerId;
+    uint32_t m_cid;
 DECLARE_IDCREATE(NFSnsTransSaveDetailDB)
 };

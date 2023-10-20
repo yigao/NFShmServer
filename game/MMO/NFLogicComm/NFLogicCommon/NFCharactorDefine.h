@@ -310,4 +310,18 @@ typedef enum
     TRANS_SAVEROLEDETAIL_LOGOUT = 2,
 } TRANS_SAVEROLEDETAIL_REASON;
 
+enum BattlePartType
+{
+    BATTLE_PART_NONE = 0,
+    BATTLE_PART_MOVE,
+    BATTLE_PART_MAX,
+};
+
+enum SnsPartType
+{
+    SNS_PART_NONE = 0,
+    SNS_PART_RELATION,
+    SNS_PART_MAX,
+};
+
 #pragma pack(pop)

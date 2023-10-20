@@ -13,7 +13,6 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
-#include "Jetton/NFSnsJettonPart.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
@@ -36,7 +35,7 @@ NFPlayerDetail::~NFPlayerDetail()
 
 int NFPlayerDetail::CreateInit()
 {
-    m_playerId = 0;
+    m_cid = 0;
     m_pPart.resize(SNS_PART_MAX);
     m_lastSavingDBTime = 0;
     m_saveDBTimer = INVALID_ID;
@@ -48,24 +47,24 @@ int NFPlayerDetail::ResumeInit()
     return 0;
 }
 
-uint64_t NFPlayerDetail::GetPlayerId() const
+uint64_t NFPlayerDetail::GetCid() const
 {
-    return m_playerId;
+    return m_cid;
 }
 
-void NFPlayerDetail::SetPlayerId(uint64_t roleId)
+void NFPlayerDetail::SetCid(uint64_t cid)
 {
-    m_playerId = roleId;
+    m_cid = cid;
 }
 
 bool NFPlayerDetail::CanDelete()
 {
-    if (NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(GetPlayerId()))
+    if (NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(GetCid()))
     {
         return false;
     }
 
-    if (FindModule<NFICoroutineModule>()->IsExistUserCo(GetPlayerId()))
+    if (FindModule<NFICoroutineModule>()->IsExistUserCo(GetCid()))
     {
         return false;
     }
@@ -82,10 +81,10 @@ void NFPlayerDetail::SetIsInited(bool isInited)
     m_isInited = isInited;
 }
 
-int NFPlayerDetail::Init(const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer)
+int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer)
 {
     m_isInited = true;
-    m_playerId = data.player_id();
+    m_cid = data.cid();
 
     ResetCurSeq();
     m_isInited = true;
@@ -104,7 +103,7 @@ int NFPlayerDetail::Init(const proto_ff::tbFishSnsPlayerDetailData &data, bool b
         m_pPart[i] = CreatePart(i, data, bCreatePlayer);
         if (nullptr == m_pPart[i])
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Player Init, Create Part Failed, roleId:{} part:{}", m_playerId, i);
+            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Player Init, Create Part Failed, roleId:{} part:{}", m_cid, i);
             for(int i = 0; i < (int)vec.size(); i++)
             {
                 FindModule<NFISharedMemModule>()->DestroyObj(vec[i]);
@@ -141,11 +140,6 @@ NFSnsPart* NFPlayerDetail::CreatePart(NFIPluginManager* pObjPluginManager, uint3
     NFSnsPart *pPart = NULL;
     switch (partType)
     {
-        case SNS_JETTON_PART:
-        {
-            pPart = NFSnsJettonPart::CreateObj(pObjPluginManager);
-            break;
-        }
         default:
         {
             break;
@@ -159,7 +153,7 @@ NFSnsPart* NFPlayerDetail::CreatePart(NFIPluginManager* pObjPluginManager, uint3
     return pPart;
 }
 
-NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::tbFishSnsPlayerDetailData &data, bool bCreatePlayer)
+NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer)
 {
     NFSnsPart *pPart = CreatePart(m_pObjPluginManager, partType);
     if (pPart)
@@ -204,7 +198,7 @@ NFSnsPart *NFPlayerDetail::GetPart(uint32_t partType)
 
 NFPlayerSimple *NFPlayerDetail::GetRoleSimple() const
 {
-    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_playerId);
+    return NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerSimple(m_cid);
 }
 
 int NFPlayerDetail::OnLogin()
@@ -214,18 +208,6 @@ int NFPlayerDetail::OnLogin()
         if (m_pPart[i])
         {
             m_pPart[i]->OnLogin();
-        }
-    }
-    return 0;
-}
-
-int NFPlayerDetail::OnLogin(proto_ff::Proto_UserDetailCommonData& detailData, bool isCreatePlayer)
-{
-    for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
-    {
-        if (m_pPart[i])
-        {
-            m_pPart[i]->OnLogin(detailData, isCreatePlayer);
         }
     }
     return 0;
@@ -267,14 +249,14 @@ int NFPlayerDetail::OnReconnect()
     return 0;
 }
 
-int NFPlayerDetail::LoadFromDB(const proto_ff::tbFishSnsPlayerDetailData &data)
+int NFPlayerDetail::LoadFromDB(const proto_ff::RoleDBSnsDetail &data)
 {
     return 0;
 }
 
-int NFPlayerDetail::SaveDB(proto_ff::tbFishSnsPlayerDetailData &data)
+int NFPlayerDetail::SaveDB(proto_ff::RoleDBSnsDetail &data)
 {
-    data.set_player_id(GetPlayerId());
+    data.set_cid(GetCid());
     for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
         if (m_pPart[i])
@@ -285,7 +267,7 @@ int NFPlayerDetail::SaveDB(proto_ff::tbFishSnsPlayerDetailData &data)
     return 0;
 }
 
-int NFPlayerDetail::InitConfig(const proto_ff::tbFishSnsPlayerDetailData &data)
+int NFPlayerDetail::InitConfig(const proto_ff::RoleDBSnsDetail &data)
 {
     return 0;
 }

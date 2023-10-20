@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFFishSnsPlayerPlugin.h"
+#include "NFMMOSnsPlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFSnsPlayerModule.h"
@@ -20,19 +20,18 @@
 #include "Trans/NFTransCacheBase.h"
 #include "Trans/NFSnsTransSaveSimpleDB.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
-#include "Jetton/NFSnsJettonPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-    CREATE_PLUGIN(pm, NFFishSnsPlayerPlugin)
+    CREATE_PLUGIN(pm, NFMMOSnsPlayerPlugin)
 
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-    DESTROY_PLUGIN(pm, NFFishSnsPlayerPlugin)
+    DESTROY_PLUGIN(pm, NFMMOSnsPlayerPlugin)
 };
 
 #endif
@@ -40,29 +39,29 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 //////////////////////////////////////////////////////////////////////////
 
-int NFFishSnsPlayerPlugin::GetPluginVersion()
+int NFMMOSnsPlayerPlugin::GetPluginVersion()
 {
 	return 0;
 }
 
-std::string NFFishSnsPlayerPlugin::GetPluginName()
+std::string NFMMOSnsPlayerPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFFishSnsPlayerPlugin);
+	return GET_CLASS_NAME(NFMMOSnsPlayerPlugin);
 }
 
-void NFFishSnsPlayerPlugin::Install()
+void NFMMOSnsPlayerPlugin::Install()
 {
 	REGISTER_MODULE(m_pObjPluginManager, NFCSnsPlayerModule, NFCSnsPlayerModule);
     REGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
 }
 
-void NFFishSnsPlayerPlugin::Uninstall()
+void NFMMOSnsPlayerPlugin::Uninstall()
 {
 	UNREGISTER_MODULE(m_pObjPluginManager, NFCSnsPlayerModule, NFCSnsPlayerModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFSnsPartModule, NFSnsPartModule);
 }
 
-bool NFFishSnsPlayerPlugin::InitShmObjectRegister()
+bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
 {
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     NF_ASSERT(pConfig);
@@ -76,7 +75,6 @@ bool NFFishSnsPlayerPlugin::InitShmObjectRegister()
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerDetail, maxOnlinePlayerNum);//
     REGISTER_SHM_OBJ(NFSnsPart,1);
-    REGISTER_SHM_OBJ(NFSnsJettonPart,maxOnlinePlayerNum);
 
     REGISTER_SHM_OBJ(NFTransCacheBase,1);
     REGISTER_SHM_OBJ(NFTransGetPlayerSimple, maxOnlinePlayerNum / 10);

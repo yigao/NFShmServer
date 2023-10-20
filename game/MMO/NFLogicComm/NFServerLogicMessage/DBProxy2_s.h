@@ -62,9 +62,9 @@ namespace proto_ff_s {
 	};
 	typedef struct GetRegisterNum_RoleDBData_s GetRegisterNum_RoleDBData_t;
 
-	struct RoleDBSimpleData_s : public NFDescStoreSeqOP {
-		RoleDBSimpleData_s();
-		virtual ~RoleDBSimpleData_s(){}
+	struct RoleDBSnsSimple_s : public NFDescStoreSeqOP {
+		RoleDBSnsSimple_s();
+		virtual ~RoleDBSnsSimple_s(){}
 		int CreateInit();
 		int ResumeInit();
 		uint64_t cid;//
@@ -72,12 +72,12 @@ namespace proto_ff_s {
 		uint32_t uid;//
 		struct RoleDBBaseData_s base;//
 
-		virtual void write_to_pbmsg(::proto_ff::RoleDBSimpleData & msg) const;
-		virtual void read_from_pbmsg(const ::proto_ff::RoleDBSimpleData & msg);
-		static ::proto_ff::RoleDBSimpleData* new_pbmsg(){ return new ::proto_ff::RoleDBSimpleData(); }
-		static ::proto_ff::RoleDBSimpleData make_pbmsg(){ return ::proto_ff::RoleDBSimpleData(); }
+		virtual void write_to_pbmsg(::proto_ff::RoleDBSnsSimple & msg) const;
+		virtual void read_from_pbmsg(const ::proto_ff::RoleDBSnsSimple & msg);
+		static ::proto_ff::RoleDBSnsSimple* new_pbmsg(){ return new ::proto_ff::RoleDBSnsSimple(); }
+		static ::proto_ff::RoleDBSnsSimple make_pbmsg(){ return ::proto_ff::RoleDBSnsSimple(); }
 	};
-	typedef struct RoleDBSimpleData_s RoleDBSimpleData_t;
+	typedef struct RoleDBSnsSimple_s RoleDBSnsSimple_t;
 
 	struct MyFriendInfo_s : public NFDescStoreSeqOP {
 		MyFriendInfo_s();

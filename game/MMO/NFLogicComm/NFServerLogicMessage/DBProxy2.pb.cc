@@ -26,9 +26,9 @@ const ::google::protobuf::internal::GeneratedMessageReflection*
 const ::google::protobuf::Descriptor* GetRegisterNum_RoleDBData_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   GetRegisterNum_RoleDBData_reflection_ = NULL;
-const ::google::protobuf::Descriptor* RoleDBSimpleData_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* RoleDBSnsSimple_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  RoleDBSimpleData_reflection_ = NULL;
+  RoleDBSnsSimple_reflection_ = NULL;
 const ::google::protobuf::Descriptor* MyFriendInfo_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   MyFriendInfo_reflection_ = NULL;
@@ -93,24 +93,24 @@ void protobuf_AssignDesc_DBProxy2_2eproto() {
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(GetRegisterNum_RoleDBData));
-  RoleDBSimpleData_descriptor_ = file->message_type(2);
-  static const int RoleDBSimpleData_offsets_[4] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSimpleData, cid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSimpleData, zid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSimpleData, uid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSimpleData, base_),
+  RoleDBSnsSimple_descriptor_ = file->message_type(2);
+  static const int RoleDBSnsSimple_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsSimple, cid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsSimple, zid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsSimple, uid_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsSimple, base_),
   };
-  RoleDBSimpleData_reflection_ =
+  RoleDBSnsSimple_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
-      RoleDBSimpleData_descriptor_,
-      RoleDBSimpleData::default_instance_,
-      RoleDBSimpleData_offsets_,
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSimpleData, _has_bits_[0]),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSimpleData, _unknown_fields_),
+      RoleDBSnsSimple_descriptor_,
+      RoleDBSnsSimple::default_instance_,
+      RoleDBSnsSimple_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsSimple, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RoleDBSnsSimple, _unknown_fields_),
       -1,
       ::google::protobuf::DescriptorPool::generated_pool(),
       ::google::protobuf::MessageFactory::generated_factory(),
-      sizeof(RoleDBSimpleData));
+      sizeof(RoleDBSnsSimple));
   MyFriendInfo_descriptor_ = file->message_type(3);
   static const int MyFriendInfo_offsets_[1] = {
   };
@@ -192,7 +192,7 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     GetRegisterNum_RoleDBData_descriptor_, &GetRegisterNum_RoleDBData::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-    RoleDBSimpleData_descriptor_, &RoleDBSimpleData::default_instance());
+    RoleDBSnsSimple_descriptor_, &RoleDBSnsSimple::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     MyFriendInfo_descriptor_, &MyFriendInfo::default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -210,8 +210,8 @@ void protobuf_ShutdownFile_DBProxy2_2eproto() {
   delete dbServerMgr_reflection_;
   delete GetRegisterNum_RoleDBData::default_instance_;
   delete GetRegisterNum_RoleDBData_reflection_;
-  delete RoleDBSimpleData::default_instance_;
-  delete RoleDBSimpleData_reflection_;
+  delete RoleDBSnsSimple::default_instance_;
+  delete RoleDBSnsSimple_reflection_;
   delete MyFriendInfo::default_instance_;
   delete MyFriendInfo_reflection_;
   delete RoleDBSnsDetail::default_instance_;
@@ -250,28 +250,28 @@ void protobuf_AddDesc_DBProxy2_2eproto() {
     "\030\014 \003(\0132\021.proto_ff.ComPairB\004\340\202\024\002\022.\n\006facad"
     "e\030\r \003(\0132\030.proto_ff.BestEQSlotInfoB\004\340\202\024\002\""
     "(\n\031GetRegisterNum_RoleDBData\022\013\n\003num\030\001 \001("
-    "\r\"a\n\020RoleDBSimpleData\022\013\n\003cid\030\001 \001(\004\022\013\n\003zi"
-    "d\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\004 \001(\0132\030.pro"
-    "to_ff.RoleDBBaseData\"\016\n\014MyFriendInfo\"Q\n\017"
-    "RoleDBSnsDetail\022\021\n\003cid\030\001 \001(\004B\004\300\202\024\002\022+\n\013fr"
-    "iend_info\030\002 \001(\0132\026.proto_ff.MyFriendInfo\""
-    "\207\001\n\022RoleEnterSceneData\022\013\n\003cid\030\001 \001(\004\022\013\n\003z"
-    "id\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\n \001(\0132\030.pr"
-    "oto_ff.RoleDBBaseData\022\"\n\004attr\030\013 \001(\0132\024.pr"
-    "oto_ff.AttrDBData\"8\n\nRoleDBName\022*\n\004name\030"
-    "\001 \001(\014B\034\300\202\024\002\220\301\024 \310\202\024 \272\304\023\014\350\247\222\350\211\262\345\220\215\345\255\227", 1075);
+    "\r\"f\n\017RoleDBSnsSimple\022\021\n\003cid\030\001 \001(\004B\004\300\202\024\002\022"
+    "\013\n\003zid\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\004 \001(\0132"
+    "\030.proto_ff.RoleDBBaseData\"\016\n\014MyFriendInf"
+    "o\"Q\n\017RoleDBSnsDetail\022\021\n\003cid\030\001 \001(\004B\004\300\202\024\002\022"
+    "+\n\013friend_info\030\002 \001(\0132\026.proto_ff.MyFriend"
+    "Info\"\207\001\n\022RoleEnterSceneData\022\013\n\003cid\030\001 \001(\004"
+    "\022\013\n\003zid\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\n \001(\013"
+    "2\030.proto_ff.RoleDBBaseData\022\"\n\004attr\030\013 \001(\013"
+    "2\024.proto_ff.AttrDBData\"8\n\nRoleDBName\022*\n\004"
+    "name\030\001 \001(\014B\034\300\202\024\002\220\301\024 \310\202\024 \272\304\023\014\350\247\222\350\211\262\345\220\215\345\255\227", 1080);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProxy2.proto", &protobuf_RegisterTypes);
   dbServerMgr::default_instance_ = new dbServerMgr();
   GetRegisterNum_RoleDBData::default_instance_ = new GetRegisterNum_RoleDBData();
-  RoleDBSimpleData::default_instance_ = new RoleDBSimpleData();
+  RoleDBSnsSimple::default_instance_ = new RoleDBSnsSimple();
   MyFriendInfo::default_instance_ = new MyFriendInfo();
   RoleDBSnsDetail::default_instance_ = new RoleDBSnsDetail();
   RoleEnterSceneData::default_instance_ = new RoleEnterSceneData();
   RoleDBName::default_instance_ = new RoleDBName();
   dbServerMgr::default_instance_->InitAsDefaultInstance();
   GetRegisterNum_RoleDBData::default_instance_->InitAsDefaultInstance();
-  RoleDBSimpleData::default_instance_->InitAsDefaultInstance();
+  RoleDBSnsSimple::default_instance_->InitAsDefaultInstance();
   MyFriendInfo::default_instance_->InitAsDefaultInstance();
   RoleDBSnsDetail::default_instance_->InitAsDefaultInstance();
   RoleEnterSceneData::default_instance_->InitAsDefaultInstance();
@@ -1295,28 +1295,28 @@ void GetRegisterNum_RoleDBData::Swap(GetRegisterNum_RoleDBData* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int RoleDBSimpleData::kCidFieldNumber;
-const int RoleDBSimpleData::kZidFieldNumber;
-const int RoleDBSimpleData::kUidFieldNumber;
-const int RoleDBSimpleData::kBaseFieldNumber;
+const int RoleDBSnsSimple::kCidFieldNumber;
+const int RoleDBSnsSimple::kZidFieldNumber;
+const int RoleDBSnsSimple::kUidFieldNumber;
+const int RoleDBSnsSimple::kBaseFieldNumber;
 #endif  // !_MSC_VER
 
-RoleDBSimpleData::RoleDBSimpleData()
+RoleDBSnsSimple::RoleDBSnsSimple()
   : ::google::protobuf::Message() {
   SharedCtor();
 }
 
-void RoleDBSimpleData::InitAsDefaultInstance() {
+void RoleDBSnsSimple::InitAsDefaultInstance() {
   base_ = const_cast< ::proto_ff::RoleDBBaseData*>(&::proto_ff::RoleDBBaseData::default_instance());
 }
 
-RoleDBSimpleData::RoleDBSimpleData(const RoleDBSimpleData& from)
+RoleDBSnsSimple::RoleDBSnsSimple(const RoleDBSnsSimple& from)
   : ::google::protobuf::Message() {
   SharedCtor();
   MergeFrom(from);
 }
 
-void RoleDBSimpleData::SharedCtor() {
+void RoleDBSnsSimple::SharedCtor() {
   _cached_size_ = 0;
   cid_ = GOOGLE_ULONGLONG(0);
   zid_ = 0u;
@@ -1325,38 +1325,38 @@ void RoleDBSimpleData::SharedCtor() {
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
-RoleDBSimpleData::~RoleDBSimpleData() {
+RoleDBSnsSimple::~RoleDBSnsSimple() {
   SharedDtor();
 }
 
-void RoleDBSimpleData::SharedDtor() {
+void RoleDBSnsSimple::SharedDtor() {
   if (this != default_instance_) {
     delete base_;
   }
 }
 
-void RoleDBSimpleData::SetCachedSize(int size) const {
+void RoleDBSnsSimple::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* RoleDBSimpleData::descriptor() {
+const ::google::protobuf::Descriptor* RoleDBSnsSimple::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return RoleDBSimpleData_descriptor_;
+  return RoleDBSnsSimple_descriptor_;
 }
 
-const RoleDBSimpleData& RoleDBSimpleData::default_instance() {
+const RoleDBSnsSimple& RoleDBSnsSimple::default_instance() {
   if (default_instance_ == NULL) protobuf_AddDesc_DBProxy2_2eproto();
   return *default_instance_;
 }
 
-RoleDBSimpleData* RoleDBSimpleData::default_instance_ = NULL;
+RoleDBSnsSimple* RoleDBSnsSimple::default_instance_ = NULL;
 
-RoleDBSimpleData* RoleDBSimpleData::New() const {
-  return new RoleDBSimpleData;
+RoleDBSnsSimple* RoleDBSnsSimple::New() const {
+  return new RoleDBSnsSimple;
 }
 
-void RoleDBSimpleData::Clear() {
+void RoleDBSnsSimple::Clear() {
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     cid_ = GOOGLE_ULONGLONG(0);
     zid_ = 0u;
@@ -1369,7 +1369,7 @@ void RoleDBSimpleData::Clear() {
   mutable_unknown_fields()->Clear();
 }
 
-bool RoleDBSimpleData::MergePartialFromCodedStream(
+bool RoleDBSnsSimple::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!(EXPRESSION)) return false
   ::google::protobuf::uint32 tag;
@@ -1452,7 +1452,7 @@ bool RoleDBSimpleData::MergePartialFromCodedStream(
 #undef DO_
 }
 
-void RoleDBSimpleData::SerializeWithCachedSizes(
+void RoleDBSnsSimple::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
   // optional uint64 cid = 1;
   if (has_cid()) {
@@ -1481,7 +1481,7 @@ void RoleDBSimpleData::SerializeWithCachedSizes(
   }
 }
 
-::google::protobuf::uint8* RoleDBSimpleData::SerializeWithCachedSizesToArray(
+::google::protobuf::uint8* RoleDBSnsSimple::SerializeWithCachedSizesToArray(
     ::google::protobuf::uint8* target) const {
   // optional uint64 cid = 1;
   if (has_cid()) {
@@ -1512,7 +1512,7 @@ void RoleDBSimpleData::SerializeWithCachedSizes(
   return target;
 }
 
-int RoleDBSimpleData::ByteSize() const {
+int RoleDBSnsSimple::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
@@ -1556,10 +1556,10 @@ int RoleDBSimpleData::ByteSize() const {
   return total_size;
 }
 
-void RoleDBSimpleData::MergeFrom(const ::google::protobuf::Message& from) {
+void RoleDBSnsSimple::MergeFrom(const ::google::protobuf::Message& from) {
   GOOGLE_CHECK_NE(&from, this);
-  const RoleDBSimpleData* source =
-    ::google::protobuf::internal::dynamic_cast_if_available<const RoleDBSimpleData*>(
+  const RoleDBSnsSimple* source =
+    ::google::protobuf::internal::dynamic_cast_if_available<const RoleDBSnsSimple*>(
       &from);
   if (source == NULL) {
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
@@ -1568,7 +1568,7 @@ void RoleDBSimpleData::MergeFrom(const ::google::protobuf::Message& from) {
   }
 }
 
-void RoleDBSimpleData::MergeFrom(const RoleDBSimpleData& from) {
+void RoleDBSnsSimple::MergeFrom(const RoleDBSnsSimple& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_cid()) {
@@ -1587,19 +1587,19 @@ void RoleDBSimpleData::MergeFrom(const RoleDBSimpleData& from) {
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
 
-void RoleDBSimpleData::CopyFrom(const ::google::protobuf::Message& from) {
+void RoleDBSnsSimple::CopyFrom(const ::google::protobuf::Message& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RoleDBSimpleData::CopyFrom(const RoleDBSimpleData& from) {
+void RoleDBSnsSimple::CopyFrom(const RoleDBSnsSimple& from) {
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RoleDBSimpleData::IsInitialized() const {
+bool RoleDBSnsSimple::IsInitialized() const {
 
   if (has_base()) {
     if (!this->base().IsInitialized()) return false;
@@ -1607,7 +1607,7 @@ bool RoleDBSimpleData::IsInitialized() const {
   return true;
 }
 
-void RoleDBSimpleData::Swap(RoleDBSimpleData* other) {
+void RoleDBSnsSimple::Swap(RoleDBSnsSimple* other) {
   if (other != this) {
     std::swap(cid_, other->cid_);
     std::swap(zid_, other->zid_);
@@ -1619,11 +1619,11 @@ void RoleDBSimpleData::Swap(RoleDBSimpleData* other) {
   }
 }
 
-::google::protobuf::Metadata RoleDBSimpleData::GetMetadata() const {
+::google::protobuf::Metadata RoleDBSnsSimple::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = RoleDBSimpleData_descriptor_;
-  metadata.reflection = RoleDBSimpleData_reflection_;
+  metadata.descriptor = RoleDBSnsSimple_descriptor_;
+  metadata.reflection = RoleDBSnsSimple_reflection_;
   return metadata;
 }
 

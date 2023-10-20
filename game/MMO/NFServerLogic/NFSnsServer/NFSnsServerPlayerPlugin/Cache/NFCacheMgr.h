@@ -103,7 +103,7 @@ public:
      * @param role_id
      * @return
      */
-    NFPlayerSimple* CreatePlayerSimpleDBDataByRpc(const proto_ff::tbFishSnsPlayerSimpleData& dbData);
+    NFPlayerSimple* CreatePlayerSimpleDBDataByRpc(const proto_ff::RoleDBSnsSimple& dbData);
 public:
     /**
      * @brief
@@ -153,7 +153,7 @@ public:
      * @param role_id
      * @return
      */
-    NFPlayerDetail* CreatePlayerDetailDBDataByRpc(const proto_ff::tbFishSnsPlayerDetailData& dbData);
+    NFPlayerDetail* CreatePlayerDetailDBDataByRpc(const proto_ff::RoleDBSnsDetail& dbData);
 
 public:
     std::pair<NFPlayerSimple*, NFPlayerDetail*> QueryPlayerByRpc(uint64_t playerId, uint64_t query_id);

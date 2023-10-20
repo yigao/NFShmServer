@@ -32,6 +32,6 @@ public:
 
     int OnTransFinished(int iRunLogicRetCode);
 private:
-    uint64_t m_playerId;
+    uint64_t m_cid;
 DECLARE_IDCREATE(NFTransGetPlayerSimple)
 };

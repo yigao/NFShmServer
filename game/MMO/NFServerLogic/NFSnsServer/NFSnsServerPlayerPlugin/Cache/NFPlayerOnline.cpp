@@ -43,14 +43,14 @@ int NFPlayerOnline::ResumeInit()
     return 0;
 }
 
-uint64_t NFPlayerOnline::GetPlayerId() const
+uint64_t NFPlayerOnline::GetCid() const
 {
-    return m_playerId;
+    return m_cid;
 }
 
-void NFPlayerOnline::SetPlayerId(uint64_t playerId)
+void NFPlayerOnline::SetCid(uint64_t cid)
 {
-    m_playerId = playerId;
+    m_cid = cid;
 }
 
 uint32_t NFPlayerOnline::GetProxyId() const
@@ -95,7 +95,7 @@ void NFPlayerOnline::SetIsOnline(bool isOnline)
 
 int NFPlayerOnline::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_SNS_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, m_playerId, 0);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_SNS_SERVER, m_proxyId, NF_MODULE_CLIENT, nMsgId, xData, m_cid, 0);
     return 0;
 }
 
@@ -143,16 +143,6 @@ int NFPlayerOnline::Init()
 int NFPlayerOnline::UnInit()
 {
     return 0;
-}
-
-uint64_t NFPlayerOnline::GetClientId() const
-{
-    return 0;
-}
-
-void NFPlayerOnline::SetClientId(uint64_t clientId)
-{
-
 }
 
 int NFPlayerOnline::OnLogin()

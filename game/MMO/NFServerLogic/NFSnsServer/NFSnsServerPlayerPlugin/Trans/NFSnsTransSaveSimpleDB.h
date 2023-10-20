@@ -11,7 +11,6 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFTransBase.h"
-#include "NFLogicCommon/NFPlayerDefine.h"
 
 class NFPlayerSimple;
 class NFSnsTransSaveSimpleDB : public NFTransBase {
@@ -29,6 +28,6 @@ public:
     int SaveDB(NFPlayerSimple* pPlayer);
 private:
     uint32_t m_curSeq;
-    uint32_t m_playerId;
+    uint32_t m_cid;
 DECLARE_IDCREATE(NFSnsTransSaveSimpleDB)
 };

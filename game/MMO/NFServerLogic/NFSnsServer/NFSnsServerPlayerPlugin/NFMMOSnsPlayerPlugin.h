@@ -14,10 +14,10 @@
 #include <string>
 
 //////////////////////////////////////////////////////////////////////////
-class NFFishSnsPlayerPlugin : public NFIPlugin
+class NFMMOSnsPlayerPlugin : public NFIPlugin
 {
 public:
-	explicit NFFishSnsPlayerPlugin(NFIPluginManager* p): NFIPlugin(p)
+	explicit NFMMOSnsPlayerPlugin(NFIPluginManager* p): NFIPlugin(p)
 	{
 	}
 

@@ -17,6 +17,7 @@
 #include "AllProtocol.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "DBProxy2_s.h"
 
 class NFPlayerSimple : public NFShmObj, public NFSeqOP
 {
@@ -32,15 +33,15 @@ public:
     //must be virtual
     virtual int OnTimer(int timeId, int callcount);
 public:
-    uint64_t GetPlayerId() const;
+    uint64_t GetCid() const;
 
-    void SetPlayerId(uint64_t playerId);
+    void SetCid(uint64_t cid);
 
-    const proto_ff_s::tbFishSnsPlayerSimpleData_s &GetBaseData() const;
+    const proto_ff_s::RoleDBSnsSimple_s &GetBaseData() const;
 
-    void SetBaseData(const proto_ff_s::tbFishSnsPlayerSimpleData_s &baseData);
+    void SetBaseData(const proto_ff_s::RoleDBSnsSimple_s &baseData);
 
-    void ReadFromPB(const proto_ff::tbFishSnsPlayerSimpleData &dbData);
+    void ReadFromPB(const proto_ff::RoleDBSnsSimple &dbData);
 
     bool IsInited() const;
 
@@ -52,7 +53,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData, bool bCreatePlayer = false);
+    virtual int Init(const proto_ff::RoleDBSnsSimple &dbData, bool bCreatePlayer = false);
 
     /**
      * @brief
@@ -65,20 +66,20 @@ public:
      * @param data
      * @return
      */
-    virtual int LoadFromDB(const proto_ff::tbFishSnsPlayerSimpleData& data);
+    virtual int LoadFromDB(const proto_ff::RoleDBSnsSimple& data);
 
     /**
      * @brief
      * @param data
      * @return
      */
-    virtual int SaveDB(proto_ff::tbFishSnsPlayerSimpleData& data);
+    virtual int SaveDB(proto_ff::RoleDBSnsSimple& data);
 
     /**
      * @brief
      * @return
      */
-    virtual int InitConfig(const proto_ff::tbFishSnsPlayerSimpleData& data);
+    virtual int InitConfig(const proto_ff::RoleDBSnsSimple& data);
 public:
     /**
      * @brief 登陆入口
@@ -161,19 +162,14 @@ public:
      * @return
      */
     int OnSaveDB(bool success, uint32_t seq);
+public:
 private:
     /**
      * @brief
      */
     bool m_isInited;
 public:
-    /**
-     * @brief 线上系统，更在线有关
-     */
-
-    uint64_t m_playerId;
-private:
-    proto_ff_s::tbFishSnsPlayerSimpleData_s m_simpleData;
+    proto_ff_s::RoleDBSnsSimple_s m_data;
 private:
     /**
      * @brief 存db的时间

@@ -103,7 +103,7 @@ void GetRegisterNum_RoleDBData_s::read_from_pbmsg(const ::proto_ff::GetRegisterN
 	num = msg.num();
 }
 
-RoleDBSimpleData_s::RoleDBSimpleData_s() {
+RoleDBSnsSimple_s::RoleDBSnsSimple_s() {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
 	} else {
@@ -111,18 +111,18 @@ RoleDBSimpleData_s::RoleDBSimpleData_s() {
 	}
 }
 
-int RoleDBSimpleData_s::CreateInit() {
+int RoleDBSnsSimple_s::CreateInit() {
 	cid = (uint64_t)0;
 	zid = (uint32_t)0;
 	uid = (uint32_t)0;
 	return 0;
 }
 
-int RoleDBSimpleData_s::ResumeInit() {
+int RoleDBSnsSimple_s::ResumeInit() {
 	return 0;
 }
 
-void RoleDBSimpleData_s::write_to_pbmsg(::proto_ff::RoleDBSimpleData & msg) const {
+void RoleDBSnsSimple_s::write_to_pbmsg(::proto_ff::RoleDBSnsSimple & msg) const {
 	msg.set_cid((uint64_t)cid);
 	msg.set_zid((uint32_t)zid);
 	msg.set_uid((uint32_t)uid);
@@ -130,7 +130,7 @@ void RoleDBSimpleData_s::write_to_pbmsg(::proto_ff::RoleDBSimpleData & msg) cons
 	base.write_to_pbmsg(*temp_base);
 }
 
-void RoleDBSimpleData_s::read_from_pbmsg(const ::proto_ff::RoleDBSimpleData & msg) {
+void RoleDBSnsSimple_s::read_from_pbmsg(const ::proto_ff::RoleDBSnsSimple & msg) {
 	cid = msg.cid();
 	zid = msg.zid();
 	uid = msg.uid();

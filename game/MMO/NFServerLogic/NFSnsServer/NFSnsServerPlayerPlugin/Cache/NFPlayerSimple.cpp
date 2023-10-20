@@ -36,8 +36,6 @@ NFPlayerSimple::~NFPlayerSimple()
 
 int NFPlayerSimple::CreateInit()
 {
-    m_playerId = 0;
-
     m_isInited = false;
     m_lastSavingDBTime = 0;
     m_saveDBTimer = INVALID_ID;
@@ -68,29 +66,29 @@ int NFPlayerSimple::OnTimer(int timeId, int callcount)
     return 0;
 }
 
-uint64_t NFPlayerSimple::GetPlayerId() const
+uint64_t NFPlayerSimple::GetCid() const
 {
-    return m_playerId;
+    return m_data.cid;
 }
 
-void NFPlayerSimple::SetPlayerId(uint64_t playerId)
+void NFPlayerSimple::SetCid(uint64_t cid)
 {
-    m_playerId = playerId;
+    m_data.cid = cid;
 }
 
-const proto_ff_s::tbFishSnsPlayerSimpleData_s &NFPlayerSimple::GetBaseData() const
+const proto_ff_s::RoleDBSnsSimple_s &NFPlayerSimple::GetBaseData() const
 {
-    return m_simpleData;
+    return m_data;
 }
 
-void NFPlayerSimple::SetBaseData(const proto_ff_s::tbFishSnsPlayerSimpleData_s &baseData)
+void NFPlayerSimple::SetBaseData(const proto_ff_s::RoleDBSnsSimple_s &baseData)
 {
-    m_simpleData = baseData;
+    m_data = baseData;
 }
 
-void NFPlayerSimple::ReadFromPB(const proto_ff::tbFishSnsPlayerSimpleData& dbData)
+void NFPlayerSimple::ReadFromPB(const proto_ff::RoleDBSnsSimple& dbData)
 {
-    m_simpleData.read_from_pbmsg(dbData);
+    m_data.read_from_pbmsg(dbData);
 }
 
 int NFPlayerSimple::OnLogin()
@@ -116,28 +114,23 @@ int NFPlayerSimple::OnReconnect()
 
 bool NFPlayerSimple::CanDelete()
 {
-    if (NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(GetPlayerId()))
+    if (NFCacheMgr::Instance(m_pObjPluginManager)->GetPlayerOnline(GetCid()))
     {
         return false;
     }
 
-    if (FindModule<NFICoroutineModule>()->IsExistUserCo(GetPlayerId()))
+    if (FindModule<NFICoroutineModule>()->IsExistUserCo(GetCid()))
     {
         return false;
     }
     return true;
 }
 
-int NFPlayerSimple::Init(const proto_ff::tbFishSnsPlayerSimpleData &dbData, bool bCreatePlayer)
+int NFPlayerSimple::Init(const proto_ff::RoleDBSnsSimple &dbData, bool bCreatePlayer)
 {
     m_isInited = true;
-    if (bCreatePlayer)
-    {
-        InitConfig(dbData);
-    }
-    else {
-        LoadFromDB(dbData);
-    }
+    LoadFromDB(dbData);
+    InitConfig(dbData);
 
     /**
      * @brief
@@ -188,20 +181,20 @@ int NFPlayerSimple::OnSaveDB(bool success, uint32_t seq)
     return 0;
 }
 
-int NFPlayerSimple::LoadFromDB(const proto_ff::tbFishSnsPlayerSimpleData &dbData)
+int NFPlayerSimple::LoadFromDB(const proto_ff::RoleDBSnsSimple &dbData)
 {
-    m_simpleData.read_from_pbmsg(dbData);
+    m_data.read_from_pbmsg(dbData);
     return 0;
 }
 
-int NFPlayerSimple::SaveDB(proto_ff::tbFishSnsPlayerSimpleData &dbData)
+int NFPlayerSimple::SaveDB(proto_ff::RoleDBSnsSimple &dbData)
 {
-    m_simpleData.write_to_pbmsg(dbData);
+    m_data.write_to_pbmsg(dbData);
     return 0;
 }
 
-int NFPlayerSimple::InitConfig(const proto_ff::tbFishSnsPlayerSimpleData &dbData)
+int NFPlayerSimple::InitConfig(const proto_ff::RoleDBSnsSimple &dbData)
 {
-    m_simpleData.read_from_pbmsg(dbData);
+    m_data.read_from_pbmsg(dbData);
     return 0;
 }

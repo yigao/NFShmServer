@@ -39,7 +39,7 @@ void protobuf_ShutdownFile_DBProxy2_2eproto();
 
 class dbServerMgr;
 class GetRegisterNum_RoleDBData;
-class RoleDBSimpleData;
+class RoleDBSnsSimple;
 class MyFriendInfo;
 class RoleDBSnsDetail;
 class RoleEnterSceneData;
@@ -372,14 +372,14 @@ class GetRegisterNum_RoleDBData : public ::google::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class RoleDBSimpleData : public ::google::protobuf::Message {
+class RoleDBSnsSimple : public ::google::protobuf::Message {
  public:
-  RoleDBSimpleData();
-  virtual ~RoleDBSimpleData();
+  RoleDBSnsSimple();
+  virtual ~RoleDBSnsSimple();
 
-  RoleDBSimpleData(const RoleDBSimpleData& from);
+  RoleDBSnsSimple(const RoleDBSnsSimple& from);
 
-  inline RoleDBSimpleData& operator=(const RoleDBSimpleData& from) {
+  inline RoleDBSnsSimple& operator=(const RoleDBSnsSimple& from) {
     CopyFrom(from);
     return *this;
   }
@@ -393,17 +393,17 @@ class RoleDBSimpleData : public ::google::protobuf::Message {
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const RoleDBSimpleData& default_instance();
+  static const RoleDBSnsSimple& default_instance();
 
-  void Swap(RoleDBSimpleData* other);
+  void Swap(RoleDBSnsSimple* other);
 
   // implements Message ----------------------------------------------
 
-  RoleDBSimpleData* New() const;
+  RoleDBSnsSimple* New() const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const RoleDBSimpleData& from);
-  void MergeFrom(const RoleDBSimpleData& from);
+  void CopyFrom(const RoleDBSnsSimple& from);
+  void MergeFrom(const RoleDBSnsSimple& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -456,7 +456,7 @@ class RoleDBSimpleData : public ::google::protobuf::Message {
   inline ::proto_ff::RoleDBBaseData* release_base();
   inline void set_allocated_base(::proto_ff::RoleDBBaseData* base);
 
-  // @@protoc_insertion_point(class_scope:proto_ff.RoleDBSimpleData)
+  // @@protoc_insertion_point(class_scope:proto_ff.RoleDBSnsSimple)
  private:
   inline void set_has_cid();
   inline void clear_has_cid();
@@ -482,7 +482,7 @@ class RoleDBSimpleData : public ::google::protobuf::Message {
   friend void protobuf_ShutdownFile_DBProxy2_2eproto();
 
   void InitAsDefaultInstance();
-  static RoleDBSimpleData* default_instance_;
+  static RoleDBSnsSimple* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1455,103 +1455,103 @@ inline void GetRegisterNum_RoleDBData::set_num(::google::protobuf::uint32 value)
 
 // -------------------------------------------------------------------
 
-// RoleDBSimpleData
+// RoleDBSnsSimple
 
 // optional uint64 cid = 1;
-inline bool RoleDBSimpleData::has_cid() const {
+inline bool RoleDBSnsSimple::has_cid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void RoleDBSimpleData::set_has_cid() {
+inline void RoleDBSnsSimple::set_has_cid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void RoleDBSimpleData::clear_has_cid() {
+inline void RoleDBSnsSimple::clear_has_cid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void RoleDBSimpleData::clear_cid() {
+inline void RoleDBSnsSimple::clear_cid() {
   cid_ = GOOGLE_ULONGLONG(0);
   clear_has_cid();
 }
-inline ::google::protobuf::uint64 RoleDBSimpleData::cid() const {
+inline ::google::protobuf::uint64 RoleDBSnsSimple::cid() const {
   return cid_;
 }
-inline void RoleDBSimpleData::set_cid(::google::protobuf::uint64 value) {
+inline void RoleDBSnsSimple::set_cid(::google::protobuf::uint64 value) {
   set_has_cid();
   cid_ = value;
 }
 
 // optional uint32 zid = 2;
-inline bool RoleDBSimpleData::has_zid() const {
+inline bool RoleDBSnsSimple::has_zid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void RoleDBSimpleData::set_has_zid() {
+inline void RoleDBSnsSimple::set_has_zid() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void RoleDBSimpleData::clear_has_zid() {
+inline void RoleDBSnsSimple::clear_has_zid() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void RoleDBSimpleData::clear_zid() {
+inline void RoleDBSnsSimple::clear_zid() {
   zid_ = 0u;
   clear_has_zid();
 }
-inline ::google::protobuf::uint32 RoleDBSimpleData::zid() const {
+inline ::google::protobuf::uint32 RoleDBSnsSimple::zid() const {
   return zid_;
 }
-inline void RoleDBSimpleData::set_zid(::google::protobuf::uint32 value) {
+inline void RoleDBSnsSimple::set_zid(::google::protobuf::uint32 value) {
   set_has_zid();
   zid_ = value;
 }
 
 // optional uint32 uid = 3;
-inline bool RoleDBSimpleData::has_uid() const {
+inline bool RoleDBSnsSimple::has_uid() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void RoleDBSimpleData::set_has_uid() {
+inline void RoleDBSnsSimple::set_has_uid() {
   _has_bits_[0] |= 0x00000004u;
 }
-inline void RoleDBSimpleData::clear_has_uid() {
+inline void RoleDBSnsSimple::clear_has_uid() {
   _has_bits_[0] &= ~0x00000004u;
 }
-inline void RoleDBSimpleData::clear_uid() {
+inline void RoleDBSnsSimple::clear_uid() {
   uid_ = 0u;
   clear_has_uid();
 }
-inline ::google::protobuf::uint32 RoleDBSimpleData::uid() const {
+inline ::google::protobuf::uint32 RoleDBSnsSimple::uid() const {
   return uid_;
 }
-inline void RoleDBSimpleData::set_uid(::google::protobuf::uint32 value) {
+inline void RoleDBSnsSimple::set_uid(::google::protobuf::uint32 value) {
   set_has_uid();
   uid_ = value;
 }
 
 // optional .proto_ff.RoleDBBaseData base = 4;
-inline bool RoleDBSimpleData::has_base() const {
+inline bool RoleDBSnsSimple::has_base() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
-inline void RoleDBSimpleData::set_has_base() {
+inline void RoleDBSnsSimple::set_has_base() {
   _has_bits_[0] |= 0x00000008u;
 }
-inline void RoleDBSimpleData::clear_has_base() {
+inline void RoleDBSnsSimple::clear_has_base() {
   _has_bits_[0] &= ~0x00000008u;
 }
-inline void RoleDBSimpleData::clear_base() {
+inline void RoleDBSnsSimple::clear_base() {
   if (base_ != NULL) base_->::proto_ff::RoleDBBaseData::Clear();
   clear_has_base();
 }
-inline const ::proto_ff::RoleDBBaseData& RoleDBSimpleData::base() const {
+inline const ::proto_ff::RoleDBBaseData& RoleDBSnsSimple::base() const {
   return base_ != NULL ? *base_ : *default_instance_->base_;
 }
-inline ::proto_ff::RoleDBBaseData* RoleDBSimpleData::mutable_base() {
+inline ::proto_ff::RoleDBBaseData* RoleDBSnsSimple::mutable_base() {
   set_has_base();
   if (base_ == NULL) base_ = new ::proto_ff::RoleDBBaseData;
   return base_;
 }
-inline ::proto_ff::RoleDBBaseData* RoleDBSimpleData::release_base() {
+inline ::proto_ff::RoleDBBaseData* RoleDBSnsSimple::release_base() {
   clear_has_base();
   ::proto_ff::RoleDBBaseData* temp = base_;
   base_ = NULL;
   return temp;
 }
-inline void RoleDBSimpleData::set_allocated_base(::proto_ff::RoleDBBaseData* base) {
+inline void RoleDBSnsSimple::set_allocated_base(::proto_ff::RoleDBBaseData* base) {
   delete base_;
   base_ = base;
   if (base) {
