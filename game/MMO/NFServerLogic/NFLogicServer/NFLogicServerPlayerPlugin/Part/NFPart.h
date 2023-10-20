@@ -42,7 +42,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData, bool bCreatePlayer);
+    virtual int Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData);
 
     /**
      * @brief 释放part资源

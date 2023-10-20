@@ -483,9 +483,6 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         pRole->SetLogicId(pLogicServer->mServerInfo.bus_id());
     }
 
-    NFServerConfig *pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
-    CHECK_NULL(pServerConfig);
-
     int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pRole->GetLogicId(), request, respone);
     if (iRet != 0)
     {

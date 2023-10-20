@@ -38,7 +38,7 @@ public:
     virtual int OnTimer(int timeId, int callcount);
 
 public:
-    virtual int Init(const proto_ff::RoleDBData& data, bool bCreatePlayer = false);
+    virtual int Init(const proto_ff::RoleDBData& data);
 
     virtual int UnInit();
 
@@ -54,13 +54,14 @@ public:
      * @param data
      * @return
      */
-    virtual int SaveDB(proto_ff::RoleDBData& data);
+    virtual int InitConfig(const proto_ff::RoleDBData &data);
 
     /**
      * @brief
+     * @param data
      * @return
      */
-    virtual int InitConfig(const proto_ff::RoleDBData& data);
+    virtual int SaveDB(proto_ff::RoleDBData& data);
 
     /**
      * @brief
@@ -226,10 +227,9 @@ public:
      * @brief 创建Part
      * @param partType
      * @param dbData
-     * @param bCreatePlayer
      * @return
      */
-    NFPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBData &dbData, bool bCreatePlayer);
+    NFPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBData &dbData);
 
     /**
      * @brief 静态函数 创建Part

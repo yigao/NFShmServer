@@ -99,7 +99,7 @@ NFPlayer *NFPlayerMgr::GetPlayer(uint64_t cid)
     return dynamic_cast<NFPlayer*>(NFPlayer::GetObjByHashKey(m_pObjPluginManager, cid));
 }
 
-NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t cid, const proto_ff::RoleDBData& dbData, bool bCreatePlayer)
+NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t cid, const proto_ff::RoleDBData& dbData)
 {
     NFPlayer *pPlayer = GetPlayer(cid);
     CHECK_EXPR(pPlayer == NULL, NULL, "Create player Failed, player exist, palyerId:{}", cid);
@@ -108,7 +108,7 @@ NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t cid, const proto_ff::RoleDBData& db
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", cid);
 
     pPlayer->SetPlayerId(cid);
-    int iRet = pPlayer->Init(dbData, bCreatePlayer);
+    int iRet = pPlayer->Init(dbData);
     if (iRet != 0)
     {
         NFPlayer::DestroyObj(m_pObjPluginManager, pPlayer);

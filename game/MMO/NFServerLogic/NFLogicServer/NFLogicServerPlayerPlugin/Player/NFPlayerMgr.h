@@ -30,7 +30,7 @@ public:
 public:
     NFPlayer *GetPlayer(uint64_t cid);
 
-    NFPlayer *CreatePlayer(uint64_t cid, const proto_ff::RoleDBData& dbData, bool bCreatePlayer);
+    NFPlayer *CreatePlayer(uint64_t cid, const proto_ff::RoleDBData& dbData);
 
     int DeletePlayer(NFPlayer *pPlayer);
 public:

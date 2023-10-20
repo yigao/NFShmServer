@@ -41,4 +41,13 @@ public:
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
 public:
+    /**
+     * @brief 进入游戏
+     * @param request
+     * @param respone
+     * @param proxyId
+     * @param param2
+     * @return
+     */
+    int OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t proxyId, uint64_t param2);
 };

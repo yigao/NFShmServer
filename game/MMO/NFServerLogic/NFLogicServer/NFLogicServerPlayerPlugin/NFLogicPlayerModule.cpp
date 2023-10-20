@@ -27,6 +27,8 @@ bool NFCLogicPlayerModule::Awake()
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     //////////player enter game////////////////////////////////////
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_LOGIC_SERVER, this,
+                                                                                   &NFCLogicPlayerModule::OnRpcServiceEnterGame, true);
     return true;
 }
 
@@ -91,4 +93,40 @@ int NFCLogicPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
     return 0;
 }
 
+int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t proxyId, uint64_t param2)
+{
+    uint64_t cid = request.cid();
+
+    NFPlayer* pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->GetPlayer(cid);
+    if (pPlayer == NULL)
+    {
+        proto_ff::RoleDBData dbData;
+        dbData.set_cid(cid);
+        int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_LOGIC_SERVER, cid, dbData);
+        if (iRet != 0)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, cid, "role:{}, GetRpcSelectObjService err:{} , enter game failed!", cid, GetErrorStr(iRet));
+            respone.set_ret(proto_ff::RET_FAIL);
+            return 0;
+        }
+
+        pPlayer = NFPlayerMgr::Instance(m_pObjPluginManager)->CreatePlayer(cid, dbData);
+        if (pPlayer == NULL)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, cid, "CreatePlayer:{} Failed , enter game failed!", cid, GetErrorStr(iRet));
+            respone.set_ret(proto_ff::RET_FAIL);
+            return 0;
+        }
+    }
+
+/*    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pRole->GetLogicId(), request, respone);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ> err:{} , enter game faile!", uid, cid, GetErrorStr(iRet));
+        respone.set_ret(proto_ff::RET_FAIL);
+        return 0;
+    }*/
+
+    return 0;
+}
 

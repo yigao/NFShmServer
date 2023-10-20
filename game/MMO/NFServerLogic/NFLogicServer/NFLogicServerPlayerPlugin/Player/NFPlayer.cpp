@@ -146,22 +146,15 @@ void NFPlayer::Tick()
     }
 }
 
-int NFPlayer::Init(const proto_ff::RoleDBData &dbData, bool bCreatePlayer)
+int NFPlayer::Init(const proto_ff::RoleDBData &dbData)
 {
     SetStatus(proto_ff::PLAYER_STATUS_NONE);
-    if (bCreatePlayer)
-    {
-        InitConfig(dbData);
-    }
-    else
-    {
-        LoadFromDB(dbData);
-    }
-
+    LoadFromDB(dbData);
+    InitConfig(dbData);
     std::vector<NFPart *> vec;
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
-        m_pPart[i] = CreatePart(i, dbData, bCreatePlayer);
+        m_pPart[i] = CreatePart(i, dbData);
         if (nullptr == m_pPart[i])
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Player Init, Create Part Failed, playerId:{} part:{}", m_playerId, i);
@@ -169,7 +162,7 @@ int NFPlayer::Init(const proto_ff::RoleDBData &dbData, bool bCreatePlayer)
             {
                 FindModule<NFISharedMemModule>()->DestroyObj(vec[i]);
             }
-            return -1;
+            return proto_ff::RET_FAIL;
         }
         vec.push_back(m_pPart[i].GetPoint());
     }
@@ -203,7 +196,6 @@ int NFPlayer::LoadFromDB(const proto_ff::RoleDBData &data)
 
 int NFPlayer::InitConfig(const proto_ff::RoleDBData &data)
 {
-    LoadFromDB(data);
     return 0;
 }
 
@@ -484,12 +476,12 @@ NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partT
     return pPart;
 }
 
-NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::RoleDBData &dbData, bool bCreatePlayer)
+NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::RoleDBData &dbData)
 {
     NFPart *pPart = CreatePart(m_pObjPluginManager, partType);
     if (pPart)
     {
-        int iRet = pPart->Init(this, partType, dbData, bCreatePlayer);
+        int iRet = pPart->Init(this, partType, dbData);
         if (iRet != 0)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "{}::Init Failed", pPart->GetClassName());

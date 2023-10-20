@@ -44,21 +44,15 @@ int NFPart::ResumeInit()
     return 0;
 }
 
-int NFPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData, bool bCreatePlayer)
+int NFPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBData &dbData)
 {
     CHECK_NULL(pMaster);
     m_pMaster = pMaster;
     m_playerId = pMaster->GetPlayerId();
     m_partType = partType;
 
-    if (bCreatePlayer)
-    {
-        InitConfig(dbData);
-    }
-    else
-    {
-        LoadFromDB(dbData);
-    }
+    LoadFromDB(dbData);
+    InitConfig(dbData);
     return 0;
 }
 
