@@ -44,6 +44,8 @@ class WroldToProxyChangeServerBusId;
 class WorldToOtherServerDisconnectNotify;
 class NotifyLogicLeaveGameReq2;
 class NotifyLogicLeaveGameRsp2;
+class LTSLoginReq;
+class STLLoginRsp;
 
 // ===================================================================
 
@@ -712,6 +714,202 @@ class NotifyLogicLeaveGameRsp2 : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static NotifyLogicLeaveGameRsp2* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class LTSLoginReq : public ::google::protobuf::Message {
+ public:
+  LTSLoginReq();
+  virtual ~LTSLoginReq();
+
+  LTSLoginReq(const LTSLoginReq& from);
+
+  inline LTSLoginReq& operator=(const LTSLoginReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const LTSLoginReq& default_instance();
+
+  void Swap(LTSLoginReq* other);
+
+  // implements Message ----------------------------------------------
+
+  LTSLoginReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const LTSLoginReq& from);
+  void MergeFrom(const LTSLoginReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint32 zid = 2;
+  inline bool has_zid() const;
+  inline void clear_zid();
+  static const int kZidFieldNumber = 2;
+  inline ::google::protobuf::uint32 zid() const;
+  inline void set_zid(::google::protobuf::uint32 value);
+
+  // optional uint32 uid = 3;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 3;
+  inline ::google::protobuf::uint32 uid() const;
+  inline void set_uid(::google::protobuf::uint32 value);
+
+  // optional .proto_ff.RoleDBBaseData base = 4;
+  inline bool has_base() const;
+  inline void clear_base();
+  static const int kBaseFieldNumber = 4;
+  inline const ::proto_ff::RoleDBBaseData& base() const;
+  inline ::proto_ff::RoleDBBaseData* mutable_base();
+  inline ::proto_ff::RoleDBBaseData* release_base();
+  inline void set_allocated_base(::proto_ff::RoleDBBaseData* base);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.LTSLoginReq)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_zid();
+  inline void clear_has_zid();
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_base();
+  inline void clear_has_base();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint32 zid_;
+  ::google::protobuf::uint32 uid_;
+  ::proto_ff::RoleDBBaseData* base_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static LTSLoginReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class STLLoginRsp : public ::google::protobuf::Message {
+ public:
+  STLLoginRsp();
+  virtual ~STLLoginRsp();
+
+  STLLoginRsp(const STLLoginRsp& from);
+
+  inline STLLoginRsp& operator=(const STLLoginRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const STLLoginRsp& default_instance();
+
+  void Swap(STLLoginRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  STLLoginRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const STLLoginRsp& from);
+  void MergeFrom(const STLLoginRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret = 1;
+  inline bool has_ret() const;
+  inline void clear_ret();
+  static const int kRetFieldNumber = 1;
+  inline ::google::protobuf::int32 ret() const;
+  inline void set_ret(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.STLLoginRsp)
+ private:
+  inline void set_has_ret();
+  inline void clear_has_ret();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static STLLoginRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -1098,6 +1296,140 @@ inline ::google::protobuf::int32 NotifyLogicLeaveGameRsp2::logout_type() const {
 inline void NotifyLogicLeaveGameRsp2::set_logout_type(::google::protobuf::int32 value) {
   set_has_logout_type();
   logout_type_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// LTSLoginReq
+
+// optional uint64 cid = 1;
+inline bool LTSLoginReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LTSLoginReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LTSLoginReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LTSLoginReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 LTSLoginReq::cid() const {
+  return cid_;
+}
+inline void LTSLoginReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint32 zid = 2;
+inline bool LTSLoginReq::has_zid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LTSLoginReq::set_has_zid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LTSLoginReq::clear_has_zid() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LTSLoginReq::clear_zid() {
+  zid_ = 0u;
+  clear_has_zid();
+}
+inline ::google::protobuf::uint32 LTSLoginReq::zid() const {
+  return zid_;
+}
+inline void LTSLoginReq::set_zid(::google::protobuf::uint32 value) {
+  set_has_zid();
+  zid_ = value;
+}
+
+// optional uint32 uid = 3;
+inline bool LTSLoginReq::has_uid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void LTSLoginReq::set_has_uid() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void LTSLoginReq::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void LTSLoginReq::clear_uid() {
+  uid_ = 0u;
+  clear_has_uid();
+}
+inline ::google::protobuf::uint32 LTSLoginReq::uid() const {
+  return uid_;
+}
+inline void LTSLoginReq::set_uid(::google::protobuf::uint32 value) {
+  set_has_uid();
+  uid_ = value;
+}
+
+// optional .proto_ff.RoleDBBaseData base = 4;
+inline bool LTSLoginReq::has_base() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void LTSLoginReq::set_has_base() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void LTSLoginReq::clear_has_base() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void LTSLoginReq::clear_base() {
+  if (base_ != NULL) base_->::proto_ff::RoleDBBaseData::Clear();
+  clear_has_base();
+}
+inline const ::proto_ff::RoleDBBaseData& LTSLoginReq::base() const {
+  return base_ != NULL ? *base_ : *default_instance_->base_;
+}
+inline ::proto_ff::RoleDBBaseData* LTSLoginReq::mutable_base() {
+  set_has_base();
+  if (base_ == NULL) base_ = new ::proto_ff::RoleDBBaseData;
+  return base_;
+}
+inline ::proto_ff::RoleDBBaseData* LTSLoginReq::release_base() {
+  clear_has_base();
+  ::proto_ff::RoleDBBaseData* temp = base_;
+  base_ = NULL;
+  return temp;
+}
+inline void LTSLoginReq::set_allocated_base(::proto_ff::RoleDBBaseData* base) {
+  delete base_;
+  base_ = base;
+  if (base) {
+    set_has_base();
+  } else {
+    clear_has_base();
+  }
+}
+
+// -------------------------------------------------------------------
+
+// STLLoginRsp
+
+// optional int32 ret = 1;
+inline bool STLLoginRsp::has_ret() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void STLLoginRsp::set_has_ret() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void STLLoginRsp::clear_has_ret() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void STLLoginRsp::clear_ret() {
+  ret_ = 0;
+  clear_has_ret();
+}
+inline ::google::protobuf::int32 STLLoginRsp::ret() const {
+  return ret_;
+}
+inline void STLLoginRsp::set_ret(::google::protobuf::int32 value) {
+  set_has_ret();
+  ret_ = value;
 }
 
 

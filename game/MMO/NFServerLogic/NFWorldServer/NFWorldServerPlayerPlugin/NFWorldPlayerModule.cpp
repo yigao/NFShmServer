@@ -373,7 +373,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     }
     else if (iRet != proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "GetRpcSelectObjService failed, uid:{} name:{}, create role failed!", uid, request.name());
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "GetRpcSelectObjService RoleDBName failed, uid:{} name:{}, create role failed!", uid, request.name());
         respone.set_result(proto_ff::RET_FAIL);
         return 0;
     }
@@ -382,7 +382,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
         iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_WORLD_SERVER, DB_NAME_MOD, dbName);
         if (iRet != 0)
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, uid, "GetRpcInsertObjService failed, uid:{} name:{}, create role failed!", uid, request.name());
+            NFLogInfo(NF_LOG_SYSTEMLOG, uid, "GetRpcInsertObjService RoleDBName failed, uid:{} name:{}, create role failed!", uid, request.name());
             respone.set_result(proto_ff::RET_FAIL);
             return 0;
         }
@@ -391,7 +391,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_WORLD_SERVER, uid, dbData);
     if (iRet != 0)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} GetRpcInsertObjService Failed, iRet:{}, create role failed!", uid, GetErrorStr(iRet));
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} GetRpcInsertObjService RoleDBData Failed, iRet:{}, create role failed!", uid, GetErrorStr(iRet));
         respone.set_result(proto_ff::RET_FAIL);
         return 0;
     }
@@ -401,13 +401,33 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_WORLD_SERVER, uid, newDBData);
     if (iRet != 0)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} GetRpcSelectObjService Failed, iRet:{}, create role failed!", uid, GetErrorStr(iRet));
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} GetRpcSelectObjService RoleDBData Failed, iRet:{}, create role failed!", uid, GetErrorStr(iRet));
         respone.set_result(proto_ff::RET_FAIL);
         return 0;
     }
 
     CHECK_EXPR(newDBData.cid() == newCid, proto_ff::RET_FAIL, "GetRpcSelectObjService newDBData cid error");
     CHECK_EXPR(newDBData.uid() == uid, proto_ff::RET_FAIL, "GetRpcSelectObjService newDBData uid error");
+
+    proto_ff::RoleDBSnsDetail snsDetail;
+    snsDetail.set_cid(newCid);
+    iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_WORLD_SERVER, uid, snsDetail);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} GetRpcInsertObjService RoleDBSnsDetail Failed, iRet:{}, create role failed!", uid, GetErrorStr(iRet));
+        respone.set_result(proto_ff::RET_FAIL);
+        return 0;
+    }
+
+    proto_ff::RoleDBData newSnsDetail;
+    newSnsDetail.set_cid(newCid);
+    iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_WORLD_SERVER, uid, newSnsDetail);
+    if (iRet != 0)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} GetRpcSelectObjService RoleDBSnsDetail Failed, iRet:{}, create role failed!", uid, GetErrorStr(iRet));
+        respone.set_result(proto_ff::RET_FAIL);
+        return 0;
+    }
 
     /**
      * @brief 异步之后，重新获取指针
@@ -467,7 +487,6 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
             return 0;
         }
         pRole->SetUid(uid);
-
     }
 
     if (pRole->GetLogicId() <= 0)
@@ -483,7 +502,10 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         pRole->SetLogicId(pLogicServer->mServerInfo.bus_id());
     }
 
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pRole->GetLogicId(), request, respone);
+    auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
+    CHECK_NULL(pServerConfig);
+
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pRole->GetLogicId(), request, respone, pServerConfig->GetBusId(), pAccountInfo->GetProxyId());
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ> err:{} , enter game faile!", uid, cid, GetErrorStr(iRet));

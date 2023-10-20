@@ -22,6 +22,7 @@
 #include "AllProtocol.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "NFLogicCommon/NFCharactorDefine.h"
+#include "DBProxy_s.h"
 
 class NFPart;
 class NFPlayer : public NFShmObj, public NFSeqOP
@@ -114,26 +115,39 @@ public:
      * @return
      */
     virtual int MonthZeroUpdate();
-
+public:
+    uint64_t GetCid() const { return m_cid; }
+    uint64_t Cid() const { return m_cid; }
+    void SetCid(uint64_t cid) { m_cid = cid; }
+    uint64_t GetUid() const { return m_uid; }
+    void SetUid(uint64_t uid) { m_uid = uid;}
+    uint32_t GetZid() const { return m_zid; }
+    void SetZid(uint32_t zid) { m_zid = zid; }
+    proto_ff_s::RoleDBBaseData_s* GetBaseData() { return &m_baseData; }
+    const proto_ff_s::RoleDBBaseData_s* GetBaseData() const { return &m_baseData; }
 public:
     proto_ff::enPlayerStatus GetStatus() const { return m_iStatus; }
     void SetStatus(proto_ff::enPlayerStatus status) { m_iStatus = status; }
     uint64_t GetLastDisconnectTime() const { return m_lastDiconnectTime; }
     void SetLastDisconnectTime(uint64_t distime) { m_lastDiconnectTime = distime; }
-    uint64_t GetPlayerId() const { return m_playerId; }
-    void SetPlayerId(uint64_t playerId) { m_playerId = playerId; }
-    uint32_t GetProxyId() const { return m_proxyId; }
-    void SetProxyId(uint32_t proxyId) { m_proxyId = proxyId; }
-    uint32_t GetGameBusId() const;
-    void SetGameBusId(uint32_t gameBusId);
+
     uint64_t GetLastLogoutTime() const { return m_lastLogoutTime; }
     void SetLastLogtouTime(uint64_t logoutTime) { m_lastLogoutTime = logoutTime; }
+public:
+    uint32_t GetProxyId() const { return m_proxyId; }
+    void SetProxyId(uint32_t proxyId) { m_proxyId = proxyId; }
+    uint32_t GetGameId() const { return m_gameId; }
+    void SetGameId(uint32_t gameId) { m_gameId = gameId; }
+    uint32_t GetWorldId(uint32_t worldId) const { return m_worldId; }
+    void SetWorldId(uint32_t worldId) { m_worldId = worldId; }
+    uint32_t GetSnsId() const { return m_snsId; }
+    void SetSnsId(uint32_t snsId) { m_snsId = snsId; }
 public:
     /**
      * @brief
      * @return
      */
-    bool IsInGaming() { return GetGameBusId() > 0; }
+    bool IsInGaming() { return GetGameId() > 0; }
 public:
     /**
      * @brief trans num
@@ -202,9 +216,9 @@ public:
     template<size_t msgId, typename RequestType, typename ResponeType>
     int GetRpcService(NF_SERVER_TYPES dstServerType, uint32_t dstBusId, const RequestType &request, ResponeType &respone)
     {
-        FindModule<NFICoroutineModule>()->AddUserCo(m_playerId);
-        int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(NF_ST_LOGIC_SERVER, dstServerType, dstBusId, request, respone, m_playerId);
-        FindModule<NFICoroutineModule>()->DelUserCo(m_playerId);
+        FindModule<NFICoroutineModule>()->AddUserCo(m_cid);
+        int iRet = FindModule<NFIMessageModule>()->GetRpcService<msgId>(NF_ST_LOGIC_SERVER, dstServerType, dstBusId, request, respone, m_cid);
+        FindModule<NFICoroutineModule>()->DelUserCo(m_cid);
         return iRet;
     }
 public:
@@ -245,20 +259,25 @@ public:
      */
     int RecylePart(NFPart *pPart);
 private:
+    uint64_t m_cid;
+    uint64_t m_uid;
+    uint32_t m_zid;
+    proto_ff_s::RoleDBBaseData_s m_baseData;
+private:
+    uint32_t m_gameId;
+    uint32_t m_proxyId;
+    uint32_t m_snsId;
+    uint32_t m_worldId;
+private:
     NFShmVector<NFShmPtr<NFPart>, PART_MAX> m_pPart;
 private:
-    uint64_t m_playerId;
-    uint32_t m_proxyId;
     proto_ff::enPlayerStatus m_iStatus;
     uint64_t m_createTime;
     uint64_t m_lastDiconnectTime;
-private:
-    uint64_t m_lastLoginTime;
     uint64_t m_lastLogoutTime;
 private:
     int m_iTransNum;
     uint64_t m_lastSavingDBTime;
-private:
     int m_saveDBTimer;
 DECLARE_IDCREATE(NFPlayer)
 };

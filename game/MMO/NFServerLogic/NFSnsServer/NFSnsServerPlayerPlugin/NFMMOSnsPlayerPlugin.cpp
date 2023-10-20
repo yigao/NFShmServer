@@ -20,6 +20,7 @@
 #include "Trans/NFTransCacheBase.h"
 #include "Trans/NFSnsTransSaveSimpleDB.h"
 #include "Trans/NFSnsTransSaveDetailDB.h"
+#include "Relation/NFSnsRelationPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -66,7 +67,7 @@ bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
     NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_SNS_SERVER);
     NF_ASSERT(pConfig);
 
-    uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
+    uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum*1.2;
     REGISTER_SINGLETON_SHM_OBJ(NFCacheMgr);//
     REGISTER_SINGLETON_SHM_OBJ(NFLoadCacheMgr);//
 
@@ -75,6 +76,8 @@ bool NFMMOSnsPlayerPlugin::InitShmObjectRegister()
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayerDetail, maxOnlinePlayerNum);//
     REGISTER_SHM_OBJ(NFSnsPart,1);
+    REGISTER_SHM_OBJ(NFSnsRelationPart,maxOnlinePlayerNum);
+
 
     REGISTER_SHM_OBJ(NFTransCacheBase,1);
     REGISTER_SHM_OBJ(NFTransGetPlayerSimple, maxOnlinePlayerNum / 10);

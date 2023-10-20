@@ -250,16 +250,16 @@ void protobuf_AddDesc_DBProxy2_2eproto() {
     "\030\014 \003(\0132\021.proto_ff.ComPairB\004\340\202\024\002\022.\n\006facad"
     "e\030\r \003(\0132\030.proto_ff.BestEQSlotInfoB\004\340\202\024\002\""
     "(\n\031GetRegisterNum_RoleDBData\022\013\n\003num\030\001 \001("
-    "\r\"f\n\017RoleDBSnsSimple\022\021\n\003cid\030\001 \001(\004B\004\300\202\024\002\022"
-    "\013\n\003zid\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\004 \001(\0132"
-    "\030.proto_ff.RoleDBBaseData\"\016\n\014MyFriendInf"
-    "o\"Q\n\017RoleDBSnsDetail\022\021\n\003cid\030\001 \001(\004B\004\300\202\024\002\022"
-    "+\n\013friend_info\030\002 \001(\0132\026.proto_ff.MyFriend"
-    "Info\"\207\001\n\022RoleEnterSceneData\022\013\n\003cid\030\001 \001(\004"
-    "\022\013\n\003zid\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\n \001(\013"
-    "2\030.proto_ff.RoleDBBaseData\022\"\n\004attr\030\013 \001(\013"
-    "2\024.proto_ff.AttrDBData\"8\n\nRoleDBName\022*\n\004"
-    "name\030\001 \001(\014B\034\300\202\024\002\220\301\024 \310\202\024 \272\304\023\014\350\247\222\350\211\262\345\220\215\345\255\227", 1080);
+    "\r\"`\n\017RoleDBSnsSimple\022\013\n\003cid\030\001 \001(\004\022\013\n\003zid"
+    "\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\004 \001(\0132\030.prot"
+    "o_ff.RoleDBBaseData\"\016\n\014MyFriendInfo\"Q\n\017R"
+    "oleDBSnsDetail\022\021\n\003cid\030\001 \001(\004B\004\300\202\024\002\022+\n\013fri"
+    "end_info\030\002 \001(\0132\026.proto_ff.MyFriendInfo\"\207"
+    "\001\n\022RoleEnterSceneData\022\013\n\003cid\030\001 \001(\004\022\013\n\003zi"
+    "d\030\002 \001(\r\022\013\n\003uid\030\003 \001(\r\022&\n\004base\030\n \001(\0132\030.pro"
+    "to_ff.RoleDBBaseData\022\"\n\004attr\030\013 \001(\0132\024.pro"
+    "to_ff.AttrDBData\"8\n\nRoleDBName\022*\n\004name\030\001"
+    " \001(\014B\034\300\202\024\002\220\301\024 \310\202\024 \272\304\023\014\350\247\222\350\211\262\345\220\215\345\255\227", 1074);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "DBProxy2.proto", &protobuf_RegisterTypes);
   dbServerMgr::default_instance_ = new dbServerMgr();

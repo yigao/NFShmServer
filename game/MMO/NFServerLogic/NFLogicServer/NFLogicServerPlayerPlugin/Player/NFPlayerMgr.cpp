@@ -77,7 +77,7 @@ int NFPlayerMgr::Tick()
         pPlayer->Tick();
         if (pPlayer->GetStatus() == proto_ff::PLAYER_STATUS_DEAD)
         {
-            willRemovePlayer.push_back(pPlayer->GetPlayerId());
+            willRemovePlayer.push_back(pPlayer->GetCid());
         }
     }
 
@@ -86,7 +86,7 @@ int NFPlayerMgr::Tick()
         NFPlayer* pPlayer = GetPlayer(willRemovePlayer[i]);
         if (pPlayer)
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player:{} be erase from memory", pPlayer->GetPlayerId());
+            NFLogInfo(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "player:{} be erase from memory", pPlayer->GetCid());
             DeletePlayer(pPlayer);
         }
     }
@@ -107,7 +107,7 @@ NFPlayer *NFPlayerMgr::CreatePlayer(uint64_t cid, const proto_ff::RoleDBData& db
     pPlayer = dynamic_cast<NFPlayer *>(NFPlayer::CreateObjByHashKey(m_pObjPluginManager, cid));
     CHECK_EXPR(pPlayer, NULL, "Create Player Obj Failed, playerID:{}", cid);
 
-    pPlayer->SetPlayerId(cid);
+    pPlayer->SetCid(cid);
     int iRet = pPlayer->Init(dbData);
     if (iRet != 0)
     {
@@ -125,7 +125,7 @@ int NFPlayerMgr::DeletePlayer(NFPlayer *pPlayer)
 {
     CHECK_NULL(pPlayer);
 
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetPlayerId(), pPlayer->GetGlobalId());
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Delete Player Info, playerID, gloablId:{}", pPlayer->GetCid(), pPlayer->GetGlobalId());
 
     NFPlayer::DestroyObj(m_pObjPluginManager, pPlayer);
 

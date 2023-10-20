@@ -19,6 +19,7 @@
 
 #include "ClientServerCmd.pb.h"
 #include "ServerInternalCmd.pb.h"
+#include "ServerInternalCmd2.pb.h"
 #include "ServerInternal.pb.h"
 #include "ServerInternal2.pb.h"
 

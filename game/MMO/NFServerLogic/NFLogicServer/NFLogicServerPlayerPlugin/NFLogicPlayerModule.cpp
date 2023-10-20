@@ -93,7 +93,7 @@ int NFCLogicPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
     return 0;
 }
 
-int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t proxyId, uint64_t param2)
+int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t worldId, uint64_t proxyId)
 {
     uint64_t cid = request.cid();
 
@@ -119,13 +119,43 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         }
     }
 
-/*    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pRole->GetLogicId(), request, respone);
+    pPlayer->SetProxyId(proxyId);
+    pPlayer->SetWorldId(worldId);
+
+    if (pPlayer->GetSnsId() <= 0)
+    {
+        NF_SHARE_PTR<NFServerData> pSnsServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_LOGIC_SERVER, NF_ST_SNS_SERVER, cid);
+        if (pSnsServer == NULL)
+        {
+            NFLogInfo(NF_LOG_SYSTEMLOG, cid, "role:{}, can't find the sns server, enter game faile!", cid);
+            respone.set_ret(proto_ff::RET_FAIL);
+            return 0;
+        }
+
+        pPlayer->SetSnsId(pSnsServer->mServerInfo.bus_id());
+    }
+
+    proto_ff::LTSLoginReq cgMsg;
+    cgMsg.set_cid(pPlayer->GetCid());
+    cgMsg.set_uid(pPlayer->GetUid());
+    cgMsg.set_zid(pPlayer->GetZid());
+    pPlayer->GetBaseData()->write_to_pbmsg(*cgMsg.mutable_base());
+
+    proto_ff::STLLoginRsp rspMsg;
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::LTS_LOGIN_RPC>(NF_ST_LOGIC_SERVER, NF_ST_SNS_SERVER, pPlayer->GetSnsId(), cgMsg, rspMsg);
     if (iRet != 0)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ> err:{} , enter game faile!", uid, cid, GetErrorStr(iRet));
+        NFLogInfo(NF_LOG_SYSTEMLOG, cid, "role:{}, GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ> err:{} , enter game faile!", cid, GetErrorStr(iRet));
         respone.set_ret(proto_ff::RET_FAIL);
         return 0;
-    }*/
+    }
+
+    if (rspMsg.ret() != proto_ff::RET_SUCCESS)
+    {
+        NFLogInfo(NF_LOG_SYSTEMLOG, cid, "role:{}, GetRpcService<proto_ff::LTS_LOGIN_RPC> err:{} , enter game faile!", cid, GetErrorStr(rspMsg.ret()));
+        respone.set_ret(rspMsg.ret());
+        return 0;
+    }
 
     return 0;
 }

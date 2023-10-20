@@ -53,3 +53,18 @@ message NotifyLogicLeaveGameRsp2
   required uint64 uid = 2;
   optional int32 logout_type = 3;	//登出类型
 }
+
+//LTS_LOGIN_RPC = 5001; //逻辑服登录RPC
+message LTSLoginReq
+{
+  optional uint64                 cid					= 1;	// role cid
+  optional uint32                 zid					= 2;    // 区服ID
+  optional uint32					        uid					= 3;    // UID
+  optional RoleDBBaseData         base				= 4;    // 基础数据
+}
+
+message STLLoginRsp
+{
+  optional int32 ret = 1;
+}
+

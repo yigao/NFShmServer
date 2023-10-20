@@ -48,7 +48,7 @@ int NFPart::Init(NFPlayer *pMaster, uint32_t partType, const proto_ff::RoleDBDat
 {
     CHECK_NULL(pMaster);
     m_pMaster = pMaster;
-    m_playerId = pMaster->GetPlayerId();
+    m_playerId = pMaster->GetCid();
     m_partType = partType;
 
     LoadFromDB(dbData);
@@ -73,13 +73,13 @@ int NFPart::RegisterServerMessage(uint32_t nMsgID, bool createCo)
 
 int NFPart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "client part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "client part package not handle:{}", packet.ToString());
     return 0;
 }
 
 int NFPart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 {
-    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetPlayerId(), "server part package not handle:{}", packet.ToString());
+    NFLogError(NF_LOG_SYSTEMLOG, m_pMaster->GetCid(), "server part package not handle:{}", packet.ToString());
     return 0;
 }
 

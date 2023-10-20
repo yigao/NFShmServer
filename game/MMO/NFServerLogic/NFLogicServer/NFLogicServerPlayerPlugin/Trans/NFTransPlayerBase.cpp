@@ -74,7 +74,7 @@ int NFTransPlayerBase::Init(NFPlayer *pPlayer, uint32_t cmd, uint32_t fromBusId,
 {
     CHECK_NULL(pPlayer);
 
-    m_cid = pPlayer->GetPlayerId();
+    m_cid = pPlayer->GetCid();
     m_cmd = cmd;
     m_fromBusId = fromBusId;
     m_reqTransId = reqTransId;
@@ -128,13 +128,13 @@ int NFTransPlayerBase::OnTransFinished(int iRunLogicRetCode)
         return 0;
     }
 
-    NFLogDebug(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(), "player:{} failed errcode={}, msgid={} globalid={} classtype:{}", pPlayer->GetPlayerId(),
+    NFLogDebug(NF_LOG_SYSTEMLOG, pPlayer->GetCid(), "player:{} failed errcode={}, msgid={} globalid={} classtype:{}", pPlayer->GetCid(),
                iRunLogicRetCode, m_cmd, GetGlobalId(), GetClassType());
 
     if (0 == m_cmd)
     {
-        NFLogError(NF_LOG_SYSTEMLOG, pPlayer->GetPlayerId(),
-                   "Server should not call this function because request head uninitialized, player:{}!", pPlayer->GetPlayerId());
+        NFLogError(NF_LOG_SYSTEMLOG, pPlayer->GetCid(),
+                   "Server should not call this function because request head uninitialized, player:{}!", pPlayer->GetCid());
 
         return -1;
     }

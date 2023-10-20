@@ -61,8 +61,9 @@ void protobuf_AddDesc_ServerInternalCmd2_2eproto() {
   ::proto_ff::protobuf_AddDesc_ComDefine_2eproto();
   ::google::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\030ServerInternalCmd2.proto\022\010proto_ff\032\tCo"
-    "m.proto\032\017ComDefine.proto*1\n\022ServerIntern"
-    "alCmd2\022\033\n\026SERVER_INTERNAL2_BEGIN\020\210\'", 115);
+    "m.proto\032\017ComDefine.proto*E\n\022ServerIntern"
+    "alCmd2\022\033\n\026SERVER_INTERNAL2_BEGIN\020\210\'\022\022\n\rL"
+    "TS_LOGIN_RPC\020\211\'", 135);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternalCmd2.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_ServerInternalCmd2_2eproto);
@@ -81,6 +82,7 @@ const ::google::protobuf::EnumDescriptor* ServerInternalCmd2_descriptor() {
 bool ServerInternalCmd2_IsValid(int value) {
   switch(value) {
     case 5000:
+    case 5001:
       return true;
     default:
       return false;

@@ -35,3 +35,8 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::NOTIFY_GATE_LEAVE_GAME, proto_ff::NotifyGateLe
  * @brief 角色进游戏RPC
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::CLIENT_ENTER_GAME_REQ, proto_ff::ClientEnterGameReq, proto_ff::ClientEnterGameRsp)
+
+/**
+ * @brief 逻辑服登录社交服务RPC
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::LTS_LOGIN_RPC, proto_ff::LTSLoginReq, proto_ff::STLLoginRsp)

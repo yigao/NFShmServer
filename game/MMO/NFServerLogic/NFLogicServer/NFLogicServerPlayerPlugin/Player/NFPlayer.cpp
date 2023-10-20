@@ -14,6 +14,7 @@
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "Part/NFPart.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "AllProtocol.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
@@ -37,8 +38,11 @@ NFPlayer::~NFPlayer()
 
 int NFPlayer::CreateInit()
 {
-    m_playerId = 0;
-    m_proxyId = 0;
+    m_cid = 0;
+    m_uid = 0;
+    m_zid = 0;
+
+    ///////////////////////////
     m_iStatus = proto_ff::PLAYER_STATUS_NONE;
     m_lastDiconnectTime = 0;
     m_createTime = NFTime::Now().UnixSec();
@@ -46,8 +50,13 @@ int NFPlayer::CreateInit()
     m_lastSavingDBTime = 0;
     m_iTransNum = 0;
     m_saveDBTimer = INVALID_ID;
-    m_lastLoginTime = 0;
     m_pPart.resize(PART_MAX);
+    /////////////////////////
+
+    m_gameId = 0;
+    m_proxyId = 0;
+    m_snsId = 0;
+    m_worldId = 0;
     return 0;
 }
 
@@ -74,7 +83,7 @@ void NFPlayer::Tick()
             if ((uint64_t) NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
                 break;
 
-            if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_playerId))
+            if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
             {
                 if ((uint64_t) NFTime::Now().UnixSec() - m_createTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
@@ -87,7 +96,7 @@ void NFPlayer::Tick()
             }
 
             SetStatus(proto_ff::PLAYER_STATUS_DEAD);
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetPlayerId(), "player:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_DEAD", GetPlayerId());
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetCid(), "player:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_DEAD", GetCid());
         }
             break;
         case proto_ff::PLAYER_STATUS_ONLINE:
@@ -100,7 +109,7 @@ void NFPlayer::Tick()
             if ((uint64_t) NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME)
                 break;
 
-            if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_playerId))
+            if (m_iTransNum > 0 || FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
             {
                 if ((uint64_t) NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
@@ -115,13 +124,13 @@ void NFPlayer::Tick()
             SetStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             SetLastLogtouTime(NFTime::Now().UnixSec());
             MarkDirty();
-            NFLogInfo(NF_LOG_SYSTEMLOG, GetPlayerId(), "player:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetPlayerId());
+            NFLogInfo(NF_LOG_SYSTEMLOG, GetCid(), "player:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetCid());
         }
             break;
         case proto_ff::PLAYER_STATUS_LOGOUT:
         default:
         {
-            if (FindModule<NFICoroutineModule>()->IsExistUserCo(m_playerId))
+            if (FindModule<NFICoroutineModule>()->IsExistUserCo(m_cid))
             {
                 break;
             }
@@ -157,7 +166,7 @@ int NFPlayer::Init(const proto_ff::RoleDBData &dbData)
         m_pPart[i] = CreatePart(i, dbData);
         if (nullptr == m_pPart[i])
         {
-            NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Player Init, Create Part Failed, playerId:{} part:{}", m_playerId, i);
+            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Player Init, Create Part Failed, playerId:{} part:{}", m_cid, i);
             for (int i = 0; i < (int) vec.size(); i++)
             {
                 FindModule<NFISharedMemModule>()->DestroyObj(vec[i]);
@@ -191,6 +200,10 @@ int NFPlayer::UnInit()
 
 int NFPlayer::LoadFromDB(const proto_ff::RoleDBData &data)
 {
+    m_cid = data.cid();
+    m_uid = data.uid();
+    m_zid = data.zid();
+    m_baseData.read_from_pbmsg(data.base());
     return 0;
 }
 
@@ -202,7 +215,7 @@ int NFPlayer::InitConfig(const proto_ff::RoleDBData &data)
 int NFPlayer::OnLogin()
 {
     SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
-    m_lastLoginTime = NFTime::Now().UnixSec();
+    m_baseData.loginTime = NFTime::Now().UnixSec();
     MarkDirty();
 
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
@@ -217,6 +230,7 @@ int NFPlayer::OnLogin()
 
 int NFPlayer::OnLogout()
 {
+    m_baseData.logoutTime = NFTime::Now().UnixSec();
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
         if (m_pPart[i])
@@ -268,6 +282,10 @@ int NFPlayer::Update()
 
 int NFPlayer::SaveDB(proto_ff::RoleDBData &data)
 {
+    data.set_cid(m_cid);
+    data.set_uid(m_uid);
+    data.set_zid(m_zid);
+    m_baseData.write_to_pbmsg(*data.mutable_base());
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
         if (m_pPart[i])
@@ -332,29 +350,29 @@ void NFPlayer::DecreaseTransNum()
 int NFPlayer::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
     CHECK_EXPR(m_proxyId > 0, -1, "player disconnect, SendMsgToClient msgId:{} msgData:{}", nMsgId, xData.DebugString());
-    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIC_SERVER, m_proxyId, nMsgId, xData, m_playerId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "SendMsgToClient msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
+    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIC_SERVER, m_proxyId, nMsgId, xData, m_cid);
+    NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "SendMsgToClient msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
 }
 
 int NFPlayer::SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, nMsgId, xData, m_playerId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "SendMsgToSnsServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
+    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToSnsServer(NF_ST_LOGIC_SERVER, nMsgId, xData, m_cid);
+    NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "SendMsgToSnsServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
 }
 
 int NFPlayer::SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, nMsgId, xData, m_playerId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "SendMsgToWorldServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
+    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToWorldServer(NF_ST_LOGIC_SERVER, nMsgId, xData, m_cid);
+    NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "SendMsgToWorldServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
 }
 
 int NFPlayer::SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
-    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_LOGIC_SERVER, GetGameBusId(), nMsgId, xData, m_playerId);
-    NFLogTrace(NF_LOG_SYSTEMLOG, m_playerId, "SendMsgToGameServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
+    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToGameServer(NF_ST_LOGIC_SERVER, GetGameId(), nMsgId, xData, m_cid);
+    NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "SendMsgToGameServer msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
 }
 
@@ -490,7 +508,7 @@ NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::RoleDBData &dbDa
         }
     }
     else {
-        NFLogError(NF_LOG_SYSTEMLOG, m_playerId, "Create Part Failed, partType Not Handle:{}", partType);
+        NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Create Part Failed, partType Not Handle:{}", partType);
     }
     return pPart;
 }
