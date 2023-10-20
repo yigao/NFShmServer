@@ -201,14 +201,29 @@ int NFCWorldPlayerModule::OnRpcServicePlayerLogin(proto_ff::ClientLoginReq &requ
     pAccountInfo->SetBornZid(loginzid);
 
     proto_ff::RoleDBData dbData;
-    dbData.set_uid(uid);
     std::vector<proto_ff::RoleDBData> vecResult;
     std::vector<std::string> vecFields;
     vecFields.push_back("base");
     vecFields.push_back("cid");
     vecFields.push_back("uid");
     vecFields.push_back("zid");
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectService(NF_ST_WORLD_SERVER, uid, dbData, vecResult, vecFields);
+
+    std::vector<storesvr_sqldata::storesvr_vk> vk_list;
+    storesvr_sqldata::storesvr_vk vk_uid;
+    vk_uid.set_column_name("uid");
+    vk_uid.set_column_value(NFCommon::tostr(uid));
+    vk_uid.set_cmp_operator(storesvr_sqldata::storesvr_cmp_operator::E_CMPOP_EQUAL);
+    vk_uid.set_logic_operator(storesvr_sqldata::storesvr_logic_operator::E_LOGICOP_AND);
+    vk_list.push_back(vk_uid);
+
+    storesvr_sqldata::storesvr_vk vk_zid;
+    vk_zid.set_column_name("zid");
+    vk_zid.set_column_value(NFCommon::tostr(loginzid));
+    vk_zid.set_cmp_operator(storesvr_sqldata::storesvr_cmp_operator::E_CMPOP_EQUAL);
+    vk_zid.set_logic_operator(storesvr_sqldata::storesvr_logic_operator::E_LOGICOP_NONE);
+    vk_list.push_back(vk_zid);
+
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectService(NF_ST_WORLD_SERVER, uid, dbData, vecResult, vecFields, vk_list);
     pSession = NFWorldSessionMgr::Instance(m_pObjPluginManager)->GetSession(clientId);
     CHECK_NULL(pSession);
     pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
@@ -326,7 +341,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     CHECK_NULL(pServerConfig);
 
     uint32_t zid = pServerConfig->GetZoneId();
-    uint64_t newCid = FindModule<NFIKernelModule>()->Get64UUID();
+    uint64_t newCid = FindModule<NFIKernelModule>()->Get32UUID();
 
     proto_ff::RoleDBData dbData;
     dbData.set_cid(newCid);

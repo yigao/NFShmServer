@@ -19,22 +19,21 @@
 #include <unordered_map>
 
 /*
-    63-61 3b  worldtype
-    60-49 12b worldid
-    48-45 4b  instid
-    44-33 12b seq
-    32-30 3b  checkseq
-    29-0  30b time
+    63-60 4b  worldid
+    59-48 12b zoneid
+    47-44 4b  checkseq
+    43-32 12b seq
+    31-0  32b time
 */
 enum
 {
     UNIQUE_ID_START_TIME = 1560000000, //Jun  8 21:20:00 2019
-    WORLD_TYPE_MASK = 0x07,
-    ADAPTIVE_TIME_MASK = 0x1FFFFFFF,
-    CHECK_SEQ_MASK = 0x07,
-    ONE_SECOND_SEQ_MASK = 0xFFF,
-    INSTANCE_MASK = 0x0F,
-    ZONEID_MASK = 0x0FFF,
+    WORLDID_MASK        = 0xF000000000000000,
+    ZONEID_MASK         = 0x0FFF000000000000,
+    CHECK_SEQ_MASK      = 0x0000F00000000000,
+    ONE_SECOND_SEQ_MASK = 0x00000FFF00000000,
+    ADAPTIVE_TIME_MASK  = 0x00000000FFFFFFFF,
+    ONE_SECOND_SEQ_NUM = 0xFFF,
 };
 
 class NFCKernelModule : public NFIKernelModule
@@ -71,10 +70,11 @@ protected:
 private:
 	std::string szUniqIDFile;
     uint64_t m_ullMask;
-    uint8_t m_ucCheckSeq;
-    uint16_t m_ushSequence;
-    int m_iAdaptiveTime;
-    uint32_t m_iZoneId;
+    uint64_t m_ucCheckSeq;
+    uint64_t m_ushSequence;
+    uint64_t m_iAdaptiveTime;
+    uint64_t m_iZoneId;
+    uint64_t m_iWorldId;
     uint64_t mLastGuidTimeStamp;
 };
 

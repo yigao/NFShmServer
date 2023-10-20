@@ -58,6 +58,8 @@ LoadPlugin =
 			"NFMMOCommonPlugin",
 			"NFMMOProxyPlayerPlugin",
 			"NFMMOWorldServerPlayerPlugin",
+			"NFMMOLogicPlayerPlugin",
+			"NFMMOSnsPlayerPlugin",
 		};
 
 		ServerType = NF_ST_NONE;
@@ -247,6 +249,7 @@ LoadPlugin =
 
 		WorkPlugins = {
 			"NFMMOCommonPlugin",
+			"NFMMOLogicPlayerPlugin",
 		};
 		ServerType = NF_ST_LOGIC_SERVER;
 	},
@@ -270,6 +273,7 @@ LoadPlugin =
 
 		WorkPlugins = {
 			"NFMMOCommonPlugin",
+			"NFMMOSnsPlayerPlugin",
 		};
 		ServerType = NF_ST_SNS_SERVER;
 	},

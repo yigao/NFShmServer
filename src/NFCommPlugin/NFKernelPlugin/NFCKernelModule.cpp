@@ -35,19 +35,25 @@ NFCKernelModule::NFCKernelModule(NFIPluginManager *p) : NFIKernelModule(p)
 {
     mLastGuidTimeStamp = 0;
     szUniqIDFile = m_pObjPluginManager->GetAppName() + "_" + m_pObjPluginManager->GetBusName() + ".uid";
-    uint64_t bWorldType = 0;
     uint32_t busId = m_pObjPluginManager->GetAppID();
-    //uint64_t bInstID = NFServerIDUtil::GetInstID(busId);
-    uint64_t worldID = NFServerIDUtil::GetWorldID(busId);
+    m_iWorldId = NFServerIDUtil::GetWorldID(busId);
     m_iZoneId = NFServerIDUtil::GetZoneID(busId);
     m_iAdaptiveTime = (int) NFGetSecondTime() - UNIQUE_ID_START_TIME;
     m_ushSequence = 0;
 
 
     m_ucCheckSeq = UpdateCheckSeq(szUniqIDFile);
-    m_ullMask = (((uint64_t) bWorldType & WORLD_TYPE_MASK) << 61)     /*63-61 大区类型*/
-                | (((uint64_t) worldID & INSTANCE_MASK) << 45)          /*48-45 进程ID*/
-                | (((uint64_t) m_ucCheckSeq & CHECK_SEQ_MASK) << 29);   /*31-29 校正序号*/
+
+/*
+    63-60 4b  worldid
+    59-48 12b zoneid
+    47-44 4b  checkseq
+    43-32 12b seq
+    31-0  32b time
+*/
+    m_ullMask = (((m_iWorldId << 60) & WORLDID_MASK)     /*63-60 世界ID */
+                | ((m_iZoneId << 48) & ZONEID_MASK)      /*59-48 区服ID*/
+                | ((m_ucCheckSeq << 44) & CHECK_SEQ_MASK)); /*47-44 校正序号 */
 }
 
 NFCKernelModule::~NFCKernelModule()
@@ -64,7 +70,7 @@ uint8_t NFCKernelModule::UpdateCheckSeq(const std::string &szCheckSeqFile)
         NFFileUtility::ReadFileContent(szCheckSeqFile, context);
         cCheckSeq = NFCommon::strto<uint8_t>(context);
         cCheckSeq += 1;
-        if (cCheckSeq >= 8)
+        if (cCheckSeq >= 16)
         {
             cCheckSeq = 0;
         }
@@ -112,13 +118,13 @@ bool NFCKernelModule::Finalize()
 
 int NFCKernelModule::Next(int iNowSec)
 {
-    int iNowTime = iNowSec - UNIQUE_ID_START_TIME;
+    uint64_t iNowTime = iNowSec - UNIQUE_ID_START_TIME;
 
     if (iNowTime <= m_iAdaptiveTime)
     {
         m_ushSequence++;
 
-        if (m_ushSequence >= ONE_SECOND_SEQ_MASK)
+        if (m_ushSequence >= ONE_SECOND_SEQ_NUM)
         {
             m_iAdaptiveTime++;
             m_ushSequence = 0;
@@ -133,17 +139,47 @@ int NFCKernelModule::Next(int iNowSec)
     return 0;
 }
 
+/*
+    63-60 4b  worldtype
+    59-56 4b  worldid
+    55-44 12b zoneid
+    43-41 3b  checkseq
+    40-29 12b seq
+    28-0  29b time
+*/
 uint64_t NFCKernelModule::Get64UUID()
 {
     Next(NFGetSecondTime());
 
+/*
+    63-60 4b  worldid
+    59-48 12b zoneid
+    47-44 4b  checkseq
+    43-32 12b seq
+    31-0  32b time
+*/
+/*    m_ullMask = (((m_iWorldId << 60) & WORLDID_MASK)     *//*63-60 世界ID *//*
+                 | ((m_iZoneId << 48) & ZONEID_MASK)      *//*59-48 区服ID*//*
+                 | ((m_ucCheckSeq << 44) & CHECK_SEQ_MASK)); *//*47-44 校正序号 */
+
     uint64_t ullUniqueID = (m_ullMask
-                            | (((uint64_t) m_iZoneId & ZONEID_MASK) << 53)                               /*区服ID*/
-                            | (((uint64_t) m_ushSequence & ONE_SECOND_SEQ_MASK) << 32)    /*独立序号*/
-                            | ((uint64_t) m_iAdaptiveTime & ADAPTIVE_TIME_MASK)             /*系统时间*/
-    );
+                            | ((m_ushSequence << 32) & ONE_SECOND_SEQ_MASK)    /*独立序号*/
+                            | (m_iAdaptiveTime & ADAPTIVE_TIME_MASK));          /*系统时间*/
+
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "gen uuid::{}", ullUniqueID);
+
+    uint64_t worldId = (ullUniqueID & WORLDID_MASK) >> 60;
+    uint64_t zoneId = (ullUniqueID & ZONEID_MASK) >> 48;
+    uint64_t checkSeq = (ullUniqueID & CHECK_SEQ_MASK) >> 44;
+    uint64_t seq = (ullUniqueID & ONE_SECOND_SEQ_MASK) >> 32;
+    uint64_t adaptiveTime = (ullUniqueID & ADAPTIVE_TIME_MASK);
+
+    CHECK_EXPR_MSG(worldId == m_iWorldId, "Get64UUID error, worldId:{} == m_iWorldType:{}", worldId, m_iWorldId);
+    CHECK_EXPR_MSG(zoneId == m_iZoneId, "Get64UUID error, zoneId:{} == m_iZoneId:{}", zoneId, m_iZoneId);
+    CHECK_EXPR_MSG(checkSeq == m_ucCheckSeq, "Get64UUID error, checkSeq:{} == m_ucCheckSeq:{}", checkSeq, m_ucCheckSeq);
+    CHECK_EXPR_MSG(seq == m_ushSequence, "Get64UUID error, seq:{} == m_ushSequence:{}", seq, m_ushSequence);
+    CHECK_EXPR_MSG(adaptiveTime == m_iAdaptiveTime, "Get64UUID error, adaptiveTime:{} == m_iAdaptiveTime:{}", adaptiveTime, m_iAdaptiveTime);
 
     return ullUniqueID;
 }
@@ -151,8 +187,7 @@ uint64_t NFCKernelModule::Get64UUID()
 uint64_t NFCKernelModule::Get32UUID()
 {
     Next(NFGetSecondTime());
-    uint64_t ullUniqueID = (((uint64_t) m_iAdaptiveTime & ADAPTIVE_TIME_MASK)             /*系统时间*/
-    );
+    uint64_t ullUniqueID = (((uint64_t) m_iAdaptiveTime & ADAPTIVE_TIME_MASK));
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "gen 32 uuid::{}", ullUniqueID);
 

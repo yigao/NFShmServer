@@ -260,7 +260,7 @@ int NFCMysqlDriver::ExecuteMore(const storesvr_sqldata::storesvr_execute_more &s
 int NFCMysqlDriver::ExecuteMore(const std::string &qstr, std::vector<std::map<std::string, std::string>> &valueVec,
                                 std::string &errormsg)
 {
-    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "query:{}", qstr);
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "query:{}", qstr);
 
     mysqlpp::StoreQueryResult queryResult;
     if (NFCMysqlDriver::Query(qstr, queryResult, errormsg) == 0)

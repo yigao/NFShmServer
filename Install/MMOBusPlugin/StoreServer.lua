@@ -30,6 +30,7 @@ StoreServer = {
              TBConfList = {
                   {TableName="RoleDBData", TableCount=1, Cache = false},
                   {TableName="RoleDBName", TableCount=1, Cache = false},
+                  {TableName="RoleDBSnsDetail", TableCount=1, Cache = false},
              },
         },
         --RedisConfig = {
