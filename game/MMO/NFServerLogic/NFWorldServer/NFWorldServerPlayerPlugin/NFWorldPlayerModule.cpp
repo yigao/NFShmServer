@@ -484,7 +484,7 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         return 0;
     }
 
-    if (pAccountInfo->IsExistCid(cid))
+    if (!pAccountInfo->IsExistCid(cid))
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "account:{} has not role:{}, enter game faile!", uid, cid);
         respone.set_ret(proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT);
