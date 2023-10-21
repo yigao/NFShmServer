@@ -23,6 +23,7 @@
 #include "NFLogicCommon/NFLogicCommon.h"
 #include "NFLogicCommon/NFCharactorDefine.h"
 #include "DBProxy_s.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 class NFPart;
 class NFPlayer : public NFShmObj, public NFSeqOP

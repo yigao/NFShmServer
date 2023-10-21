@@ -9,7 +9,7 @@
 
 #include "NFCollectPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFCollectPart, EOT_NFCollectPart_ID, NFPart
+IMPLEMENT_IDCREATE_WITHTYPE(NFCollectPart, EOT_LOGIC_PART_ID+PART_COLLECT, NFPart
 )
 
 NFCollectPart::NFCollectPart()

@@ -9,8 +9,7 @@
 
 #include "NFSkillPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSkillPart, EOT_NFSkillPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFSkillPart, EOT_LOGIC_PART_ID+PART_SKILL, NFPart)
 
 NFSkillPart::NFSkillPart()
 {

@@ -9,7 +9,7 @@
 
 #include "NFAncientPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFAncientPart, EOT_NFAncientPart_ID, NFPart)
+IMPLEMENT_IDCREATE_WITHTYPE(NFAncientPart, EOT_LOGIC_PART_ID+PART_ANCIENT, NFPart)
 
 NFAncientPart::NFAncientPart()
 {

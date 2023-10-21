@@ -9,8 +9,7 @@
 
 #include "NFFindTreasurePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFindTreasurePart, EOT_NFFindTreasurePart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFindTreasurePart, EOT_LOGIC_PART_ID+PART_FINDTREASURE, NFPart)
 
 NFFindTreasurePart::NFFindTreasurePart()
 {

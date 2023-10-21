@@ -11,6 +11,59 @@
 
 #include "NFComm/NFShmCore/NFTypeDefines.h"
 
+enum PartType
+{
+    PART_NONE = 0,
+    PART_VIP,				//VIP (VIP里面有权限,权限不存数据库，各模块加载要再次添加权限。所以放在前面)
+    PART_MOVE,				//移动
+    PART_FUNCTIONUNLOCK,	//功能解锁
+    PART_PACKAGE,			//背包
+    PART_GROW,				//养成
+    PART_MINI,				//杂项模块
+    PART_CHAT,				//聊天
+    PART_EQUIP,				//装备模块
+    PART_SKILL,				//技能
+    PART_BUFF,				//buff
+    PART_FACADE,            //外观
+    PART_DUP,				//副本
+    PART_MINI_ACTIVITY,     //杂项活动
+    PART_BOSS,				//boss
+    PART_MISSION,			//任务
+    PART_MOUNT,             //坐骑
+    PART_MALL,				//商城
+    PART_DEITY,            //天神
+    PART_PET,			   //宠物
+    PART_CONVOY,		   //护送
+    PART_ARMOR,			   //玄功真甲
+    PART_TITLE,            //title
+    PART_ASSIST,		   //Boss助战
+    PART_GODEVIL,		   //神魔
+    PART_OCCUPATION,        //转职
+    PART_PAY,			   //充值
+    PART_FACTION,		   //帮派
+    PART_PracticeTrue,		//修真
+    PART_BESTEQ,		   //神机装备
+    PART_COLLECT,		   //采集
+    PART_ACHIEVEMENT,      //成就系统
+    PART_PVP,			   //PVP
+    PART_ANCIENT,		   //上古神灵
+    PART_ENCYLOPEDIA,      //藏经阁
+    PART_MARRY,			   //结婚
+    PART_GVBPData,			//神谷战场
+    PART_RANK,              //排行榜
+    PART_PersonalShop,     //个人商店
+    PART_DRAGONSOUL,        //龙魂
+    PART_WELFARE,           //福利
+    PART_DAILYWELFARE,      //每日特惠
+    PART_GIFT,				//礼包
+    PART_FINDTREASURE,      //真龙寻宝
+    PART_FEST,				//节日活动
+    PART_DRAGON,			//幻世烛龙
+    PART_STAR,              //灭星辰
+    PART_GMA,				//神元区域
+    PART_TURN,				//神体
+    PART_MAX,
+};
 
 typedef enum
 {
@@ -40,52 +93,7 @@ typedef enum
 
     //////////////////////////logic part////////////////////////
     EOT_LOGIC_PART_ID,
-    EOT_NFAchievementPart_ID,
-    EOT_NFAncientPart_ID,
-    EOT_NFAssistPart_ID,
-    EOT_NFBestEQPart_ID,
-    EOT_NFBossPart_ID,
-    EOT_NFBuffPart_ID,
-    EOT_NFChatPart_ID,
-    EOT_NFCollectPart_ID,
-    EOT_NFConvoyPart_ID,
-    EOT_NFDailyWelfarePart_ID,
-    EOT_NFDeityPart_ID,
-    EOT_NFDragonPart_ID,
-    EOT_NFDragonSoulPart_ID,
-    EOT_NFDupPart_ID,
-    EOT_NFEncylopediaPart_ID,
-    EOT_NFEquipPart_ID,
-    EOT_NFFacadePart_ID,
-    EOT_NFFactionPart_ID,
-    EOT_NFFestPart_ID,
-    EOT_NFFindTreasurePart_ID,
-    EOT_NFFunctionUnlockPart_ID,
-    EOT_NFGiftPart_ID,
-    EOT_NFGmaPart_ID,
-    EOT_NFGodevilPart_ID,
-    EOT_NFGrowPart_ID,
-    EOT_NFGVBPDataPart_ID,
-    EOT_NFMallPart_ID,
-    EOT_NFMarryPart_ID,
-    EOT_NFMIniActivity_ID,
-    EOT_NFMiniPart_ID,
-    EOT_NFMissionPart_ID,
-    EOT_NFMountPart_ID,
-    EOT_NFMovePart_ID,
-    EOT_NFOccupationPart_ID,
-    EOT_NFPackagePart_ID,
-    EOT_NFPartStar_ID,
-    EOT_NFPayPart_ID,
-    EOT_NFPersonalShopPart_ID,
-    EOT_NFPetPart_ID,
-    EOT_NFPracticeTrue_ID,
-    EOT_NFRankPart_ID,
-    EOT_NFSkillPart_ID,
-    EOT_NFTitlePart_ID,
-    EOT_NFTurnPart_ID,
-    EOT_NFVipPart_ID,
-    EOT_NFWelfarePart_ID,
+    EOT_LOGIC_PART_MAX_ID=EOT_LOGIC_PART_ID+PART_MAX,
     //////////////////////////logic trans////////////////////////
     EOT_TRANS_LOGIC_USER_BASE,
     EOT_TRANS_SAVE_PLAYER,

@@ -30,6 +30,7 @@ public:
 
 	virtual uint64_t GetUUID() = 0;
 	virtual uint64_t Get64UUID() = 0;
+    virtual uint64_t Get53UUID() = 0;
     //由于客户端LUA 中 int64_t 类型最大只能表示 2的53次方，所以角色cid由原来的64位改成现在的51位表示(12位区服ID+39位序号)
 	virtual uint64_t Get32UUID() = 0;
 	virtual std::string GetMD5(const std::string& str) = 0;

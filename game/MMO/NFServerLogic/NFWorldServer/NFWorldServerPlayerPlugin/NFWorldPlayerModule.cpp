@@ -49,7 +49,7 @@ bool NFCWorldPlayerModule::Awake()
 
     //////////player enter game////////////////////////////////////
 
-
+    RegisterAppTask(NF_ST_WORLD_SERVER, APP_INIT_DESC_STORE_LOAD, "WorldServer Load Desc Store", APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
     return true;
 }
 
@@ -341,7 +341,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
     CHECK_NULL(pServerConfig);
 
     uint32_t zid = pServerConfig->GetZoneId();
-    uint64_t newCid = FindModule<NFIKernelModule>()->Get32UUID();
+    uint64_t newCid = FindModule<NFIKernelModule>()->Get53UUID();
 
     proto_ff::RoleDBData dbData;
     dbData.set_cid(newCid);

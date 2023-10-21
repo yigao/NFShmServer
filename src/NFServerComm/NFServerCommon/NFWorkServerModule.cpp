@@ -30,6 +30,14 @@ bool NFWorkServerModule::IsConnectMasterServer() const
 void NFWorkServerModule::SetConnectMasterServer(bool connectMasterServer)
 {
     m_connectMasterServer = connectMasterServer;
+    if (connectMasterServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_MASTER))
+    {
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+        CHECK_EXPR_ASSERT(pConfig, , "GetAppConfig Failed, server type:{}", m_serverType);
+
+        RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    }
 }
 
 bool NFWorkServerModule::IsConnectRouteAgentServer() const
@@ -40,6 +48,14 @@ bool NFWorkServerModule::IsConnectRouteAgentServer() const
 void NFWorkServerModule::SetConnectRouteAgentServer(bool connectRouteAgentServer)
 {
     m_connectRouteAgentServer = connectRouteAgentServer;
+    if (connectRouteAgentServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_ROUTE_AGENT_SERVER))
+    {
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+        CHECK_EXPR_ASSERT(pConfig, , "GetAppConfig Failed, server type:{}", m_serverType);
+
+        RegisterAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER,
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    }
 }
 
 bool NFWorkServerModule::IsConnectProxyAgentServer() const
@@ -50,6 +66,14 @@ bool NFWorkServerModule::IsConnectProxyAgentServer() const
 void NFWorkServerModule::SetConnectProxyAgentServer(bool connectProxyAgentServer)
 {
     m_connectProxyAgentServer = connectProxyAgentServer;
+    if (connectProxyAgentServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_PROXY_AGENT_SERVER))
+    {
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+        CHECK_EXPR_ASSERT(pConfig, , "GetAppConfig Failed, server type:{}", m_serverType);
+
+        RegisterAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER,
+                        NF_FORMAT("{} {}", pConfig->ServerName, APP_INIT_CONNECT_PROXY_AGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    }
 }
 
 bool NFWorkServerModule::IsCheckStoreServer() const
@@ -60,6 +84,33 @@ bool NFWorkServerModule::IsCheckStoreServer() const
 void NFWorkServerModule::SetCheckStoreServer(bool checkStoreServer)
 {
     m_checkStoreServer = checkStoreServer;
+    if (checkStoreServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_STORE_SERVER))
+    {
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+        CHECK_EXPR_ASSERT(pConfig, , "GetAppConfig Failed, server type:{}", m_serverType);
+
+        RegisterAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER,
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    }
+}
+
+
+bool NFWorkServerModule::IsCheckWorldServer() const
+{
+    return m_checkWorldServer;
+}
+
+void NFWorkServerModule::SetCheckWorldServer(bool checkWorldServer)
+{
+    m_checkWorldServer = checkWorldServer;
+    if (checkWorldServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_WORLD_SERVER))
+    {
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+        CHECK_EXPR_ASSERT(pConfig, , "GetAppConfig Failed, server type:{}", m_serverType);
+
+        RegisterAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER,
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    }
 }
 
 NF_SERVER_TYPES NFWorkServerModule::GetServerType() const
@@ -95,31 +146,31 @@ int NFWorkServerModule::BindServer()
     }
 
     //注册要完成的服务器启动任务
-    if (m_connectMasterServer)
+    if (m_connectMasterServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_MASTER))
     {
         RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
                                              NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
-    if (m_connectRouteAgentServer)
+    if (m_connectRouteAgentServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_ROUTE_AGENT_SERVER))
     {
         RegisterAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER,
                                              NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
-    if (m_connectProxyAgentServer)
+    if (m_connectProxyAgentServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_PROXY_AGENT_SERVER))
     {
         RegisterAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER,
                                              NF_FORMAT("{} {}", pConfig->ServerName, APP_INIT_CONNECT_PROXY_AGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
-    if (m_checkStoreServer)
+    if (m_checkStoreServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_STORE_SERVER))
     {
         RegisterAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER,
                                              NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
-    if (m_checkWorldServer)
+    if (m_checkWorldServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_WORLD_SERVER))
     {
         RegisterAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER,
                                              NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
@@ -693,15 +744,6 @@ int NFWorkServerModule::OnRegisterRouteAgentServerRspProcess(uint64_t unLinkId, 
     return 0;
 }
 
-bool NFWorkServerModule::IsCheckWorldServer() const
-{
-    return m_checkWorldServer;
-}
-
-void NFWorkServerModule::SetCheckWorldServer(bool checkWorldServer)
-{
-    m_checkWorldServer = checkWorldServer;
-}
 
 
 

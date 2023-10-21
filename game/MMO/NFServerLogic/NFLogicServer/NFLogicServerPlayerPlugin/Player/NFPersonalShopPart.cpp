@@ -9,7 +9,7 @@
 
 #include "NFPersonalShopPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPersonalShopPart, EOT_NFPersonalShopPart_ID, NFPart
+IMPLEMENT_IDCREATE_WITHTYPE(NFPersonalShopPart, EOT_LOGIC_PART_ID+PART_PersonalShop, NFPart
 )
 
 NFPersonalShopPart::NFPersonalShopPart()

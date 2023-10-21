@@ -9,8 +9,7 @@
 
 #include "NFDragonSoulPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFDragonSoulPart, EOT_NFDragonSoulPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFDragonSoulPart, EOT_LOGIC_PART_ID+PART_DRAGONSOUL, NFPart)
 
 NFDragonSoulPart::NFDragonSoulPart()
 {

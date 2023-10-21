@@ -1,17 +1,17 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFAchievementPart.cpp
+//    @FileName         :    NFPartStar.cpp
 //    @Author           :    gaoyi
 //    @Date             :    23-10-20
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFAchievementPart
+//    @Module           :    NFPartStar
 //
 // -------------------------------------------------------------------------
 
-#include "NFAchievementPart.h"
+#include "NFStarPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFAchievementPart, EOT_LOGIC_PART_ID+PART_ACHIEVEMENT, NFPart)
+IMPLEMENT_IDCREATE_WITHTYPE(NFStarPart, EOT_LOGIC_PART_ID + PART_STAR, NFPart)
 
-NFAchievementPart::NFAchievementPart()
+NFStarPart::NFStarPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -23,16 +23,16 @@ NFAchievementPart::NFAchievementPart()
     }
 }
 
-NFAchievementPart::~NFAchievementPart()
+NFStarPart::~NFStarPart()
 {
 }
 
-int NFAchievementPart::CreateInit()
+int NFStarPart::CreateInit()
 {
     return 0;
 }
 
-int NFAchievementPart::ResumeInit()
+int NFStarPart::ResumeInit()
 {
     return 0;
 }

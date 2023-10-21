@@ -9,8 +9,7 @@
 
 #include "NFConvoyPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFConvoyPart, EOT_NFConvoyPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFConvoyPart, EOT_LOGIC_PART_ID+PART_CONVOY, NFPart)
 
 NFConvoyPart::NFConvoyPart()
 {

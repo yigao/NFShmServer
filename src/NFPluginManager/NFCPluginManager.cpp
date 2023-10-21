@@ -1176,6 +1176,11 @@ bool NFCPluginManager::IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGr
     return m_appInited.IsHasAppTask(eServerType, taskGroup);
 }
 
+bool NFCPluginManager::IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup, uint32_t taskType) const
+{
+    return m_appInited.IsHasAppTask(eServerType, taskGroup, taskType);
+}
+
 void NFCPluginManager::SetIsInited(bool b) 
 { 
 	m_isInited = b; 

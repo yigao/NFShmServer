@@ -75,59 +75,7 @@ enum CreatureType
     CREATURE_MAX
 };
 
-enum PartType
-{
-    PART_NONE = 0,
-    PART_VIP,				//VIP (VIP里面有权限,权限不存数据库，各模块加载要再次添加权限。所以放在前面)
-    PART_MOVE,				//移动
-    PART_FUNCTIONUNLOCK,	//功能解锁
-    PART_PACKAGE,			//背包
-    PART_GROW,				//养成
-    PART_MINI,				//杂项模块
-    PART_CHAT,				//聊天
-    PART_EQUIP,				//装备模块
-    PART_SKILL,				//技能
-    PART_BUFF,				//buff
-    PART_FACADE,            //外观
-    PART_DUP,				//副本
-    PART_MINI_ACTIVITY,     //杂项活动
-    PART_BOSS,				//boss
-    PART_MISSION,			//任务
-    PART_MOUNT,             //坐骑
-    PART_MALL,				//商城
-    PART_DEITY,            //天神
-    PART_PET,			   //宠物
-    PART_CONVOY,		   //护送
-    PART_ARMOR,			   //玄功真甲
-    PART_TITLE,            //title
-    PART_ASSIST,		   //Boss助战
-    PART_GODEVIL,		   //神魔
-    PART_OCCUPATION,        //转职
-    PART_PAY,			   //充值
-    PART_FACTION,		   //帮派
-    PART_PracticeTrue,		//修真
-    PART_BESTEQ,		   //神机装备
-    PART_COLLECT,		   //采集
-    PART_ACHIEVEMENT,      //成就系统
-    PART_PVP,			   //PVP
-    PART_ANCIENT,		   //上古神灵
-    PART_ENCYLOPEDIA,      //藏经阁
-    PART_MARRY,			   //结婚
-    PART_GVBPData,			//神谷战场
-    PART_RANK,              //排行榜
-    PART_PersonalShop,     //个人商店
-    PART_DRAGONSOUL,        //龙魂
-    PART_WELFARE,           //福利
-    PART_DAILYWELFARE,      //每日特惠
-    PART_GIFT,				//礼包
-    PART_FINDTREASURE,      //真龙寻宝
-    PART_FEST,				//节日活动
-    PART_DRAGON,			//幻世烛龙
-    PART_STAR,              //灭星辰
-    PART_GMA,				//神元区域
-    PART_TURN,				//神体
-    PART_MAX,
-};
+
 
 //角色信息事件
 enum class ERoleEvent

@@ -39,6 +39,11 @@ public:
         return m_pObjPluginManager->RegisterAppTask(eServerType, taskType, desc, taskGroup);
     }
 
+    virtual bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup, uint32_t taskType) const
+    {
+        return m_pObjPluginManager->IsHasAppTask(eServerType, taskGroup, taskType);
+    }
+
     virtual int FinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskType,
                               uint32_t taskGroup)
     {

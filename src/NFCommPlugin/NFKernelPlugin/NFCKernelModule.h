@@ -36,6 +36,21 @@ enum
     ONE_SECOND_SEQ_NUM = 0xFFF,
 };
 
+//由于客户端LUA 中 int64_t 类型最大只能表示 2的53次方，所以角色cid由原来的64位改成现在的54位表示(4表示世界ID,12位区服ID+4checkseq(重启16次)+32位序号)
+/*
+    63-60 4b  worldid
+    59-48 12b zoneid
+    47-44 4b  checkseq
+    43-32 12b seq
+    31-0  32b time
+*/
+enum
+{
+    WORLDID_53_MASK        = 0x000F00000000000000,
+    ZONEID_53_MASK         = 0x0000FFF000000000,
+    CHECK_SEQ_53_MASK      = 0x0000000F00000000,
+};
+
 class NFCKernelModule : public NFIKernelModule
 {
 public:
@@ -59,6 +74,7 @@ public:
 	virtual std::string Base64Decode(const std::string& s) override;
 
 	virtual uint64_t Get64UUID() override;
+    virtual uint64_t Get53UUID() override;
 	virtual uint64_t Get32UUID() override;
 
     virtual int OnTimer(uint32_t nTimerID) override;
@@ -66,6 +82,7 @@ public:
     int OnKillServerProcess(uint64_t unLinkId, NFDataPackage& packet);
 protected:
     int Next(int iNowSec);
+    int Next53(int iNowSec);
     uint8_t UpdateCheckSeq(const std::string& szCheckSeqFile);
 private:
 	std::string szUniqIDFile;

@@ -17,17 +17,17 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFPartStar : public NFPart
+class NFStarPart: public NFPart
 {
 public:
-    NFPartStar();
+    NFStarPart();
 
-    virtual ~NFPartStar();
+    virtual ~NFStarPart();
 
     int CreateInit();
 
     int ResumeInit();
 
 private:
-DECLARE_IDCREATE(NFPartStar)
+DECLARE_IDCREATE(NFStarPart)
 };

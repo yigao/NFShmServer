@@ -52,8 +52,4 @@ public:
      * @return
      */
     virtual int OnHandleLogicReport(const proto_ff::ServerInfoReport& xData);
-public:
-    ////////////test server msg///////////////////////////////////////
-    int OnHandleTestOtherServerMsg(uint64_t unLinkId, NFDataPackage &packet);
-    int OnRpcServiceGetServerInfo(proto_ff::RpcRequestGetServerInfo& request, proto_ff::ServerInfoReport& respone);
 };

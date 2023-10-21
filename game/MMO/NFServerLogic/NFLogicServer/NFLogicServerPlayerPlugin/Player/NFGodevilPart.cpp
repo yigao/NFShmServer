@@ -9,8 +9,7 @@
 
 #include "NFGodevilPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGodevilPart, EOT_NFGodevilPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFGodevilPart, EOT_LOGIC_PART_ID+PART_GODEVIL, NFPart)
 
 NFGodevilPart::NFGodevilPart()
 {

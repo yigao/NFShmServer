@@ -9,8 +9,7 @@
 
 #include "NFMissionPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMissionPart, EOT_NFMissionPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFMissionPart, EOT_LOGIC_PART_ID+PART_MISSION, NFPart)
 
 NFMissionPart::NFMissionPart()
 {

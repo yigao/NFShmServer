@@ -9,8 +9,7 @@
 
 #include "NFMountPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMountPart, EOT_NFMountPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFMountPart, EOT_LOGIC_PART_ID+PART_MOUNT, NFPart)
 
 NFMountPart::NFMountPart()
 {

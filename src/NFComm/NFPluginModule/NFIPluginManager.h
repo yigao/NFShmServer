@@ -430,6 +430,8 @@ public:
 
     virtual bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const = 0;
 
+    virtual bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup, uint32_t taskType) const = 0;
+
     virtual int SendDumpInfo(const std::string &dmpInfo) = 0;
 
     virtual std::list<NFIPlugin *> GetListPlugin() = 0;

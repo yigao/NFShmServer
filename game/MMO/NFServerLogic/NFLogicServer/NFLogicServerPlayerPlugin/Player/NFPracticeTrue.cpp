@@ -9,7 +9,7 @@
 
 #include "NFPracticeTrue.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPracticeTrue, EOT_NFPracticeTrue_ID, NFPart
+IMPLEMENT_IDCREATE_WITHTYPE(NFPracticeTrue, EOT_LOGIC_PART_ID+PART_PracticeTrue, NFPart
 )
 
 NFPracticeTrue::NFPracticeTrue()

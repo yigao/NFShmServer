@@ -478,15 +478,7 @@ const NFPart *NFPlayer::GetPart(uint32_t partType) const
 
 NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType)
 {
-    NFPart *pPart = NULL;
-    switch (partType)
-    {
-        default:
-        {
-            break;
-        }
-    }
-
+    NFPart *pPart = dynamic_cast<NFPart*>(pObjPluginManager->FindModule<NFISharedMemModule>()->CreateObj(EOT_LOGIC_PART_ID+partType));
     if (pPart)
     {
         pPart->SetPartType(partType);

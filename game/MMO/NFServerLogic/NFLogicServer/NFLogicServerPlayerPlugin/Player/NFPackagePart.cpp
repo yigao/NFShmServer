@@ -9,8 +9,7 @@
 
 #include "NFPackagePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPackagePart, EOT_NFPackagePart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFPackagePart, EOT_LOGIC_PART_ID+PART_PACKAGE, NFPart)
 
 NFPackagePart::NFPackagePart()
 {

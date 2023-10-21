@@ -29,6 +29,8 @@ bool NFCLogicPlayerModule::Awake()
     //////////player enter game////////////////////////////////////
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_LOGIC_SERVER, this,
                                                                                    &NFCLogicPlayerModule::OnRpcServiceEnterGame, true);
+
+    RegisterAppTask(NF_ST_LOGIC_SERVER, APP_INIT_DESC_STORE_LOAD, "LogicServer Load Desc Store", APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
     return true;
 }
 

@@ -223,6 +223,22 @@ bool NFCAppInited::IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup)
     return m_serverTaskGroup[eServerType].m_taskGroupList[taskGroup].m_taskList.size() > 0;
 }
 
+bool NFCAppInited::IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup, uint32_t taskType) const
+{
+    CHECK_EXPR(eServerType < (uint32_t)m_serverTaskGroup.size(), false, "serverType:{} taskGroup:{}", eServerType, taskGroup);
+    CHECK_EXPR(taskGroup < (uint32_t)m_serverTaskGroup[eServerType].m_taskGroupList.size(), false, "serverType:{} taskGroup:{}", eServerType, taskGroup);
+
+    auto pTaskList = &m_serverTaskGroup[eServerType].m_taskGroupList[taskGroup].m_taskList;
+    for(auto iter = pTaskList->begin(); iter != pTaskList->end(); iter++)
+    {
+        if (iter->m_taskType == taskType)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
 void NFCAppInited::PrintTimeout()
 {
     if (NFGetSecondTime() - m_lastTime < 30)

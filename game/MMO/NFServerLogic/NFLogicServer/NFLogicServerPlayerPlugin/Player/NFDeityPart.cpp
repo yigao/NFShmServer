@@ -9,8 +9,7 @@
 
 #include "NFDeityPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFDeityPart, EOT_NFDeityPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFDeityPart, EOT_LOGIC_PART_ID+PART_DEITY, NFPart)
 
 NFDeityPart::NFDeityPart()
 {

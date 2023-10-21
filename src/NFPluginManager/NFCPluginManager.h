@@ -234,6 +234,8 @@ public:
 
     virtual bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const override;
 
+    virtual bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup, uint32_t taskType) const override;
+
     virtual int SendDumpInfo(const std::string &dmpInfo) override;
 
     virtual std::list<NFIPlugin *> GetListPlugin() override;

@@ -9,8 +9,7 @@
 
 #include "NFDailyWelfarePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFDailyWelfarePart, EOT_NFDailyWelfarePart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFDailyWelfarePart, EOT_LOGIC_PART_ID+PART_DAILYWELFARE, NFPart)
 
 NFDailyWelfarePart::NFDailyWelfarePart()
 {

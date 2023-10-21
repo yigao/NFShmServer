@@ -9,8 +9,7 @@
 
 #include "NFMovePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_NFMovePart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_LOGIC_PART_ID+PART_MOVE, NFPart)
 
 NFMovePart::NFMovePart()
 {

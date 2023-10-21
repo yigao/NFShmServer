@@ -50,7 +50,7 @@
 #include "Player/NFMovePart.h"
 #include "Player/NFOccupationPart.h"
 #include "Player/NFPackagePart.h"
-#include "Player/NFPartStar.h"
+#include "Player/NFStarPart.h"
 #include "Player/NFPayPart.h"
 #include "Player/NFPetPart.h"
 #include "Player/NFPracticeTrue.h"
@@ -61,6 +61,8 @@
 #include "Player/NFVipPart.h"
 #include "Player/NFWelfarePart.h"
 #include "Player/NFPersonalShopPart.h"
+#include "Player/NFArmorPart.h"
+#include "Player/NFPvpPart.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -148,7 +150,7 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFMovePart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFOccupationPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFPackagePart, maxOnlinePlayerNum);
-    REGISTER_SHM_OBJ(NFPartStar, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFStarPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFPayPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFPersonalShopPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFPetPart, maxOnlinePlayerNum);
@@ -159,6 +161,8 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFTurnPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFVipPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFWelfarePart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFArmorPart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFPvpPart, maxOnlinePlayerNum);
     ////////////////////////////part////////////////////////////
 
     REGISTER_SHM_OBJ(NFTransPlayerBase, 1);

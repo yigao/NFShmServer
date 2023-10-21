@@ -9,7 +9,7 @@
 
 #include "NFAssistPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFAssistPart, EOT_NFAssistPart_ID, NFPart)
+IMPLEMENT_IDCREATE_WITHTYPE(NFAssistPart, EOT_LOGIC_PART_ID+PART_ASSIST, NFPart)
 
 NFAssistPart::NFAssistPart()
 {

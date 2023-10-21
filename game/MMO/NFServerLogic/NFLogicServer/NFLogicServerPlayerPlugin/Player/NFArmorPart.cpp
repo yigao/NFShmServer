@@ -1,18 +1,17 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFPartStar.cpp
+//    @FileName         :    NFArmorPart.cpp
 //    @Author           :    gaoyi
-//    @Date             :    23-10-20
+//    @Date             :    23-10-21
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFPartStar
+//    @Module           :    NFArmorPart
 //
 // -------------------------------------------------------------------------
 
-#include "NFPartStar.h"
+#include "NFArmorPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPartStar, EOT_NFPartStar_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFArmorPart, EOT_LOGIC_PART_ID+PART_ARMOR, NFPart)
 
-NFPartStar::NFPartStar()
+NFArmorPart::NFArmorPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -24,16 +23,16 @@ NFPartStar::NFPartStar()
     }
 }
 
-NFPartStar::~NFPartStar()
+NFArmorPart::~NFArmorPart()
 {
 }
 
-int NFPartStar::CreateInit()
+int NFArmorPart::CreateInit()
 {
     return 0;
 }
 
-int NFPartStar::ResumeInit()
+int NFArmorPart::ResumeInit()
 {
     return 0;
 }

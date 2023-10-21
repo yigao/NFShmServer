@@ -9,8 +9,7 @@
 
 #include "NFFacadePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFacadePart, EOT_NFFacadePart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFacadePart, EOT_LOGIC_PART_ID+PART_FACADE, NFPart)
 
 NFFacadePart::NFFacadePart()
 {

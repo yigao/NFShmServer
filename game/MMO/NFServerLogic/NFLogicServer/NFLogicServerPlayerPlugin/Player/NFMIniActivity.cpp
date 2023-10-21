@@ -9,8 +9,7 @@
 
 #include "NFMIniActivity.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMIniActivity, EOT_NFMIniActivity_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFMIniActivity, EOT_LOGIC_PART_ID+PART_MINI_ACTIVITY, NFPart)
 
 NFMIniActivity::NFMIniActivity()
 {

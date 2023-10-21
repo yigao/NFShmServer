@@ -9,8 +9,7 @@
 
 #include "NFRankPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFRankPart, EOT_NFRankPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFRankPart, EOT_LOGIC_PART_ID+PART_RANK, NFPart)
 
 NFRankPart::NFRankPart()
 {

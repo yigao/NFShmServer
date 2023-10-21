@@ -9,8 +9,7 @@
 
 #include "NFWelfarePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWelfarePart, EOT_NFWelfarePart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFWelfarePart, EOT_LOGIC_PART_ID+PART_WELFARE, NFPart)
 
 NFWelfarePart::NFWelfarePart()
 {

@@ -9,8 +9,7 @@
 
 #include "NFMiniPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMiniPart, EOT_NFMiniPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFMiniPart, EOT_LOGIC_PART_ID+PART_MINI, NFPart)
 
 NFMiniPart::NFMiniPart()
 {

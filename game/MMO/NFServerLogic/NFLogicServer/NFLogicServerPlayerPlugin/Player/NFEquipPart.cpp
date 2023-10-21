@@ -9,8 +9,7 @@
 
 #include "NFEquipPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFEquipPart, EOT_NFEquipPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFEquipPart, EOT_LOGIC_PART_ID+PART_EQUIP, NFPart)
 
 NFEquipPart::NFEquipPart()
 {

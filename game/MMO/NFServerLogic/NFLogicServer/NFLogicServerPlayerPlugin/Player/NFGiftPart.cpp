@@ -9,8 +9,7 @@
 
 #include "NFGiftPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGiftPart, EOT_NFGiftPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFGiftPart, EOT_LOGIC_PART_ID+PART_GIFT, NFPart)
 
 NFGiftPart::NFGiftPart()
 {

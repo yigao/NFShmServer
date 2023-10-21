@@ -9,8 +9,7 @@
 
 #include "NFFunctionUnlockPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFunctionUnlockPart, EOT_NFFunctionUnlockPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFunctionUnlockPart, EOT_LOGIC_PART_ID+PART_FUNCTIONUNLOCK, NFPart)
 
 NFFunctionUnlockPart::NFFunctionUnlockPart()
 {

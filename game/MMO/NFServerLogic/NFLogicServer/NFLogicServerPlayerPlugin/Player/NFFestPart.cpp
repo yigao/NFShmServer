@@ -9,8 +9,7 @@
 
 #include "NFFestPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFestPart, EOT_NFFestPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFestPart, EOT_LOGIC_PART_ID+PART_FEST, NFPart)
 
 NFFestPart::NFFestPart()
 {

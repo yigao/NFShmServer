@@ -9,8 +9,7 @@
 
 #include "NFOccupationPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFOccupationPart, EOT_NFOccupationPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFOccupationPart, EOT_LOGIC_PART_ID+PART_OCCUPATION, NFPart)
 
 NFOccupationPart::NFOccupationPart()
 {

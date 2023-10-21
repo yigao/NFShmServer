@@ -9,8 +9,7 @@
 
 #include "NFTurnPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTurnPart, EOT_NFTurnPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFTurnPart, EOT_LOGIC_PART_ID+PART_TURN, NFPart)
 
 NFTurnPart::NFTurnPart()
 {

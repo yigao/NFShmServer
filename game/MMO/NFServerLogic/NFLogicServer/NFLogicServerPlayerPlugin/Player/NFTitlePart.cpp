@@ -9,8 +9,7 @@
 
 #include "NFTitlePart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTitlePart, EOT_NFTitlePart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFTitlePart, EOT_LOGIC_PART_ID+PART_TITLE, NFPart)
 
 NFTitlePart::NFTitlePart()
 {

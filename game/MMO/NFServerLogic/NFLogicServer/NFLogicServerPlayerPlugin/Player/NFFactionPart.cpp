@@ -9,8 +9,7 @@
 
 #include "NFFactionPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFFactionPart, EOT_NFFactionPart_ID, NFPart
-)
+IMPLEMENT_IDCREATE_WITHTYPE(NFFactionPart, EOT_LOGIC_PART_ID+PART_FACTION, NFPart)
 
 NFFactionPart::NFFactionPart()
 {

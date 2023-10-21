@@ -93,6 +93,8 @@ public:
     bool IsFinishAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const;
 
     bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup) const;
+
+    bool IsHasAppTask(NF_SERVER_TYPES eServerType, uint32_t taskGroup, uint32_t taskType) const;
 private:
     std::vector<NFCServerAppInitTaskGroup> m_serverTaskGroup;
     std::vector<bool> m_taskGroupFlag;
