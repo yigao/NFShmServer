@@ -172,11 +172,14 @@ void protobuf_AssignDesc_ServerInternal2_2eproto() {
       ::google::protobuf::MessageFactory::generated_factory(),
       sizeof(NotifyLogicLeaveGameRsp2));
   LTSLoginReq_descriptor_ = file->message_type(7);
-  static const int LTSLoginReq_offsets_[4] = {
+  static const int LTSLoginReq_offsets_[7] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTSLoginReq, cid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTSLoginReq, zid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTSLoginReq, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTSLoginReq, base_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTSLoginReq, proxy_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTSLoginReq, logic_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LTSLoginReq, game_id_),
   };
   LTSLoginReq_reflection_ =
     new ::google::protobuf::internal::GeneratedMessageReflection(
@@ -285,10 +288,12 @@ void protobuf_AddDesc_ServerInternal2_2eproto() {
     "LeaveGameReq2\022\013\n\003cid\030\001 \002(\004\022\013\n\003uid\030\002 \002(\004\022"
     "#\n\004type\030\003 \001(\0162\025.proto_ff.LOGOUT_TYPE\"I\n\030"
     "NotifyLogicLeaveGameRsp2\022\013\n\003cid\030\001 \002(\004\022\013\n"
-    "\003uid\030\002 \002(\004\022\023\n\013logout_type\030\003 \001(\005\"\\\n\013LTSLo"
-    "ginReq\022\013\n\003cid\030\001 \001(\004\022\013\n\003zid\030\002 \001(\r\022\013\n\003uid\030"
-    "\003 \001(\r\022&\n\004base\030\004 \001(\0132\030.proto_ff.RoleDBBas"
-    "eData\"\032\n\013STLLoginRsp\022\013\n\003ret\030\001 \001(\005", 753);
+    "\003uid\030\002 \002(\004\022\023\n\013logout_type\030\003 \001(\005\"\221\001\n\013LTSL"
+    "oginReq\022\013\n\003cid\030\001 \001(\004\022\013\n\003zid\030\002 \001(\r\022\013\n\003uid"
+    "\030\003 \001(\r\022&\n\004base\030\004 \001(\0132\030.proto_ff.RoleDBBa"
+    "seData\022\020\n\010proxy_id\030\005 \001(\r\022\020\n\010logic_id\030\006 \001"
+    "(\r\022\017\n\007game_id\030\007 \001(\r\"\032\n\013STLLoginRsp\022\013\n\003re"
+    "t\030\001 \001(\005", 807);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "ServerInternal2.proto", &protobuf_RegisterTypes);
   NotifyGateLeaveGame2::default_instance_ = new NotifyGateLeaveGame2();
@@ -2151,6 +2156,9 @@ const int LTSLoginReq::kCidFieldNumber;
 const int LTSLoginReq::kZidFieldNumber;
 const int LTSLoginReq::kUidFieldNumber;
 const int LTSLoginReq::kBaseFieldNumber;
+const int LTSLoginReq::kProxyIdFieldNumber;
+const int LTSLoginReq::kLogicIdFieldNumber;
+const int LTSLoginReq::kGameIdFieldNumber;
 #endif  // !_MSC_VER
 
 LTSLoginReq::LTSLoginReq()
@@ -2174,6 +2182,9 @@ void LTSLoginReq::SharedCtor() {
   zid_ = 0u;
   uid_ = 0u;
   base_ = NULL;
+  proxy_id_ = 0u;
+  logic_id_ = 0u;
+  game_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -2216,6 +2227,9 @@ void LTSLoginReq::Clear() {
     if (has_base()) {
       if (base_ != NULL) base_->::proto_ff::RoleDBBaseData::Clear();
     }
+    proxy_id_ = 0u;
+    logic_id_ = 0u;
+    game_id_ = 0u;
   }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
@@ -2284,6 +2298,54 @@ bool LTSLoginReq::MergePartialFromCodedStream(
         } else {
           goto handle_uninterpreted;
         }
+        if (input->ExpectTag(40)) goto parse_proxy_id;
+        break;
+      }
+
+      // optional uint32 proxy_id = 5;
+      case 5: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_proxy_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &proxy_id_)));
+          set_has_proxy_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(48)) goto parse_logic_id;
+        break;
+      }
+
+      // optional uint32 logic_id = 6;
+      case 6: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_logic_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &logic_id_)));
+          set_has_logic_id();
+        } else {
+          goto handle_uninterpreted;
+        }
+        if (input->ExpectTag(56)) goto parse_game_id;
+        break;
+      }
+
+      // optional uint32 game_id = 7;
+      case 7: {
+        if (::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_VARINT) {
+         parse_game_id:
+          DO_((::google::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google::protobuf::uint32, ::google::protobuf::internal::WireFormatLite::TYPE_UINT32>(
+                 input, &game_id_)));
+          set_has_game_id();
+        } else {
+          goto handle_uninterpreted;
+        }
         if (input->ExpectAtEnd()) return true;
         break;
       }
@@ -2327,6 +2389,21 @@ void LTSLoginReq::SerializeWithCachedSizes(
       4, this->base(), output);
   }
 
+  // optional uint32 proxy_id = 5;
+  if (has_proxy_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(5, this->proxy_id(), output);
+  }
+
+  // optional uint32 logic_id = 6;
+  if (has_logic_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(6, this->logic_id(), output);
+  }
+
+  // optional uint32 game_id = 7;
+  if (has_game_id()) {
+    ::google::protobuf::internal::WireFormatLite::WriteUInt32(7, this->game_id(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -2355,6 +2432,21 @@ void LTSLoginReq::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::
       WriteMessageNoVirtualToArray(
         4, this->base(), target);
+  }
+
+  // optional uint32 proxy_id = 5;
+  if (has_proxy_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(5, this->proxy_id(), target);
+  }
+
+  // optional uint32 logic_id = 6;
+  if (has_logic_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(6, this->logic_id(), target);
+  }
+
+  // optional uint32 game_id = 7;
+  if (has_game_id()) {
+    target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(7, this->game_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -2396,6 +2488,27 @@ int LTSLoginReq::ByteSize() const {
           this->base());
     }
 
+    // optional uint32 proxy_id = 5;
+    if (has_proxy_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->proxy_id());
+    }
+
+    // optional uint32 logic_id = 6;
+    if (has_logic_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->logic_id());
+    }
+
+    // optional uint32 game_id = 7;
+    if (has_game_id()) {
+      total_size += 1 +
+        ::google::protobuf::internal::WireFormatLite::UInt32Size(
+          this->game_id());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -2435,6 +2548,15 @@ void LTSLoginReq::MergeFrom(const LTSLoginReq& from) {
     if (from.has_base()) {
       mutable_base()->::proto_ff::RoleDBBaseData::MergeFrom(from.base());
     }
+    if (from.has_proxy_id()) {
+      set_proxy_id(from.proxy_id());
+    }
+    if (from.has_logic_id()) {
+      set_logic_id(from.logic_id());
+    }
+    if (from.has_game_id()) {
+      set_game_id(from.game_id());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -2465,6 +2587,9 @@ void LTSLoginReq::Swap(LTSLoginReq* other) {
     std::swap(zid_, other->zid_);
     std::swap(uid_, other->uid_);
     std::swap(base_, other->base_);
+    std::swap(proxy_id_, other->proxy_id_);
+    std::swap(logic_id_, other->logic_id_);
+    std::swap(game_id_, other->game_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

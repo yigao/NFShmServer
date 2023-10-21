@@ -489,13 +489,13 @@ int NFLoadCacheMgr::TransGetPlayerSimpleInfo(uint64_t playerId)
     return 0;
 }
 
-NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t cid, bool bCreatePlayer)
+NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t cid)
 {
     CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerSimpleInfo Must Int the Coroutine");
 
     proto_ff::RoleDBSnsSimple xData;
     xData.set_cid(cid);
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, cid, xData);
+    int iRet = FindModule<NFIServerMessageModule>()->GetRpcSelectObjService(NF_ST_SNS_SERVER, cid, xData, std::vector<std::string>(), 0, "RoleDBData");
     if (iRet != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, cid, "GetRpcSelectObjService Failed, iRet:{}", GetErrorStr(iRet));
@@ -517,41 +517,13 @@ NFPlayerSimple* NFLoadCacheMgr::RpcGetPlayerSimpleInfo(uint64_t cid, bool bCreat
         else {
             if (!pPlayerSimple->IsInited())
             {
-                pPlayerSimple->Init(xData, bCreatePlayer);
+                pPlayerSimple->Init(xData);
             }
         }
     }
 
     HandleGetRoleSimpleRpcFinished(0, cid);
     return pPlayerSimple;
-}
-
-NFPlayerSimple* NFLoadCacheMgr::CreatePlayerSimpleDBDataByRpc(const proto_ff::RoleDBSnsSimple& dbData)
-{
-    CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerSimpleInfo Must Int the Coroutine");
-
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_SNS_SERVER, dbData.cid(), dbData);
-    if (iRet != 0)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, dbData.cid(), "GetRpcInsertObjService Failed, iRet:{}", GetErrorStr(iRet));
-        return NULL;
-    }
-
-    return RpcGetPlayerSimpleInfo(dbData.cid(), true);
-}
-
-NFPlayerDetail* NFLoadCacheMgr::CreatePlayerDetailDBDataByRpc(const proto_ff::RoleDBSnsDetail& dbData)
-{
-    CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerSimpleInfo Must Int the Coroutine");
-
-    int iRet = FindModule<NFIServerMessageModule>()->GetRpcInsertObjService(NF_ST_SNS_SERVER, dbData.cid(), dbData);
-    if (iRet != 0)
-    {
-        NFLogError(NF_LOG_SYSTEMLOG, dbData.cid(), "GetRpcInsertObjService Failed, iRet:{}", GetErrorStr(iRet));
-        return NULL;
-    }
-
-    return RpcGetPlayerDetailInfo(dbData.cid(), true);
 }
 
 int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t time)
@@ -645,7 +617,7 @@ int NFLoadCacheMgr::TransGetRoleDetailInfo(uint64_t playerId)
     return 0;
 }
 
-NFPlayerDetail* NFLoadCacheMgr::RpcGetPlayerDetailInfo(uint64_t playerId, bool bCreatePlayer)
+NFPlayerDetail* NFLoadCacheMgr::RpcGetPlayerDetailInfo(uint64_t playerId)
 {
     CHECK_EXPR(FindModule<NFICoroutineModule>()->IsInCoroutine(), NULL, "Call RpcGetPlayerDetailInfo Must Int the Coroutine");
 
@@ -673,7 +645,7 @@ NFPlayerDetail* NFLoadCacheMgr::RpcGetPlayerDetailInfo(uint64_t playerId, bool b
         else {
             if (!pPlayerDetail->IsInited())
             {
-                pPlayerDetail->Init(xData, bCreatePlayer);
+                pPlayerDetail->Init(xData);
             }
         }
     }

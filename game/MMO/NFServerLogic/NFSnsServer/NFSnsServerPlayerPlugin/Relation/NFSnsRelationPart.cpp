@@ -10,7 +10,7 @@
 #include "NFSnsRelationPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSnsRelationPart, EOT_NFSnsRelationPart_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFSnsRelationPart, EOT_SNS_PART_ID+SNS_PART_RELATION, NFSnsPart)
 
 NFSnsRelationPart::NFSnsRelationPart()
 {

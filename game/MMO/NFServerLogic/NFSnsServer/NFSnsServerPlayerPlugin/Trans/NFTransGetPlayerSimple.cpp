@@ -85,7 +85,7 @@ int NFTransGetPlayerSimple::QueryRole(uint64_t playerId) {
         }
 
         SetFinished(rpcRetCode);
-    });
+    }, std::vector<std::string>(), 0, "RoleDBData");
 
     if (m_rpcId == INVALID_ID)
     {

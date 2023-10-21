@@ -46,4 +46,12 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet, uint64_t param1, uint64_t param2) override;
+public:
+    /**
+     * @brief 登录sns
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServiceLogin(proto_ff::LTSLoginReq& request, proto_ff::STLLoginRsp& respone);
 };

@@ -170,7 +170,7 @@ public:
      */
     template<typename DataType>
     int GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data,
-                               const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
+                               const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0, const std::string& tbname = "",
                                const std::string &dbname = "")
     {
         std::string tempDBName = dbname;
@@ -186,10 +186,19 @@ public:
 
 
         storesvr_sqldata::storesvr_selobj selobj;
-        std::string tbname = NFProtobufCommon::GetProtoBaseName(data);
+        std::string clsname = NFProtobufCommon::GetProtoBaseName(data);
         std::string packageName = NFProtobufCommon::GetProtoPackageName(data);
-        CHECK_EXPR(!tbname.empty(), -1, "no tbname ........");
-        NFStoreProtoCommon::storesvr_selectobj(selobj, tempDBName, tbname, mod_key, data, tbname, packageName, vecFields);
+        std::string tempTbName;
+        if (tbname.empty())
+        {
+            tempTbName = clsname;
+        }
+        else {
+            tempTbName = tbname;
+        }
+
+        CHECK_EXPR(!tempTbName.empty(), -1, "no tbname ........");
+        NFStoreProtoCommon::storesvr_selectobj(selobj, tempDBName, tempTbName, mod_key, data, clsname, packageName, vecFields);
 
         storesvr_sqldata::storesvr_selobj_res selobjRes;
         int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_STORESVR_C2S_SELECTOBJ>(eType, NF_ST_STORE_SERVER, dstBusId, selobj,
@@ -217,9 +226,9 @@ public:
     template<class DataType, typename ResponFunc>
     int64_t GetRpcSelectObjService(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &func,
                                    const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
-                                   const std::string &dbname = "")
+                                   const std::string& tbname = "", const std::string &dbname = "")
     {
-        return GetRpcSelectObjServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields, dstBusId, dbname);
+        return GetRpcSelectObjServiceInner(eType, mod_key, data, func, &ResponFunc::operator(), vecFields, dstBusId, tbname, dbname);
     }
 
     virtual int SendSelectObjTrans(NF_SERVER_TYPES eType, uint64_t mod_key, google::protobuf::Message &data, uint32_t table_id = 0, int trans_id = 0,
@@ -232,14 +241,14 @@ private:
     int64_t GetRpcSelectObjServiceInner(NF_SERVER_TYPES eType, uint64_t mod_key, DataType &data, const ResponFunc &responFunc,
                                         void (ResponFunc::*pf)(int rpcRetCode, DataType &respone) const,
                                         const std::vector<std::string> &vecFields = std::vector<std::string>(), uint32_t dstBusId = 0,
-                                        const std::string &dbname = "")
+                                        const std::string& tbname = "", const std::string &dbname = "")
     {
         int64_t iRet = FindModule<NFICoroutineModule>()->MakeCoroutine
                 ([=]()
                  {
                      DataType respone = data;
                      int rpcRetCode = GetRpcSelectObjService(eType, mod_key, respone, vecFields,
-                                                             dstBusId, dbname);
+                                                             dstBusId, tbname, dbname);
                      (responFunc.*pf)(rpcRetCode, respone);
                  });
         return iRet;

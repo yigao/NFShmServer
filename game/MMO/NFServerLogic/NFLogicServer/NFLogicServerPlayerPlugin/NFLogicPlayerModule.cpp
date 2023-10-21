@@ -11,6 +11,7 @@
 #include "Player/NFPlayer.h"
 #include "Player/NFPlayerMgr.h"
 #include "DescStore/ConstantConstantDesc.h"
+#include "NFServerComm/NFServerCommon/NFILogicServerModule.h"
 
 
 NFCLogicPlayerModule::NFCLogicPlayerModule(NFIPluginManager *p) : NFMMODynamicModule(p)
@@ -24,6 +25,7 @@ NFCLogicPlayerModule::~NFCLogicPlayerModule()
 
 bool NFCLogicPlayerModule::Awake()
 {
+    FindModule<NFILogicServerModule>()->SetCheckStoreServer(true);
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     //////////player enter game////////////////////////////////////
@@ -124,19 +126,6 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
     pPlayer->SetProxyId(proxyId);
     pPlayer->SetWorldId(worldId);
 
-    if (pPlayer->GetSnsId() <= 0)
-    {
-        NF_SHARE_PTR<NFServerData> pSnsServer = FindModule<NFIMessageModule>()->GetSuitServerByServerType(NF_ST_LOGIC_SERVER, NF_ST_SNS_SERVER, cid);
-        if (pSnsServer == NULL)
-        {
-            NFLogInfo(NF_LOG_SYSTEMLOG, cid, "role:{}, can't find the sns server, enter game faile!", cid);
-            respone.set_ret(proto_ff::RET_FAIL);
-            return 0;
-        }
-
-        pPlayer->SetSnsId(pSnsServer->mServerInfo.bus_id());
-    }
-
     proto_ff::LTSLoginReq cgMsg;
     cgMsg.set_cid(pPlayer->GetCid());
     cgMsg.set_uid(pPlayer->GetUid());
@@ -158,6 +147,8 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         respone.set_ret(rspMsg.ret());
         return 0;
     }
+
+    respone.set_ret(proto_ff::RET_SUCCESS);
 
     return 0;
 }

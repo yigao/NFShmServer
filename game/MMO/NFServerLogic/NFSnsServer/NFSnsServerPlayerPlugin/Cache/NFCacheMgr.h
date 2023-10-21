@@ -37,10 +37,10 @@ public:
 
     /**
      * @brief
-     * @param playerId
+     * @param cid
      * @return
      */
-    NFPlayerOnline *CreatePlayerOnline(uint64_t playerId);
+    NFPlayerOnline *CreatePlayerOnline(uint64_t cid);
 
     /**
      * @brief
@@ -65,10 +65,10 @@ public:
 
     /**
      * @brief
-     * @param playerId
+     * @param cid
      * @return
      */
-    NFPlayerSimple *CreatePlayerSimple(uint64_t playerId);
+    NFPlayerSimple *CreatePlayerSimple(uint64_t cid);
 
     /**
      * @brief
@@ -79,31 +79,24 @@ public:
 
     /**
      * @brief 获取角色数据，如果找不到,通过trans异步去数据库拉取数据
-     * @param role_id
+     * @param cid
      * @return
      */
-    NFPlayerSimple* QueryPlayerSimple(uint64_t role_id);
+    NFPlayerSimple* QueryPlayerSimple(uint64_t cid);
 
     /**
      * @brief 获取角色数据，如果找不到,通过rpc异步去数据库拉取数据
-     * @param role_id
+     * @param cid
      * @return
      */
-    NFPlayerSimple* QueryPlayerSimpleByRpc(uint64_t role_id);
+    NFPlayerSimple* QueryPlayerSimpleByRpc(uint64_t cid);
 
     /**
      * @brief 玩家PlayerId 查询 玩家query_id 的数据， 主要放在NFPlayerDetail以及part里使用，确保NFPlayterDetail part的生命周期在协程完成前，一直存在
      * @param role_id
      * @return
      */
-    NFPlayerSimple* QueryPlayerSimpleByRpc(uint64_t playerId, uint64_t query_id);
-
-    /**
-     * @brief 创建玩家DB数据 通过rpc异步去数据库插入数据
-     * @param role_id
-     * @return
-     */
-    NFPlayerSimple* CreatePlayerSimpleDBDataByRpc(const proto_ff::RoleDBSnsSimple& dbData);
+    NFPlayerSimple* QueryPlayerSimpleByRpc(uint64_t cid, uint64_t query_id);
 public:
     /**
      * @brief
@@ -121,10 +114,10 @@ public:
 
     /**
      * @brief
-     * @param playerId
+     * @param cid
      * @return
      */
-    NFPlayerDetail *CreatePlayerDetail(uint64_t playerId);
+    NFPlayerDetail *CreatePlayerDetail(uint64_t cid);
 
     /**
      * @brief
@@ -135,28 +128,20 @@ public:
 
     /**
      * @brief
-     * @param role_id
+     * @param cid
      * @return
      */
-    NFPlayerDetail* QueryPlayerDetailByRpc(uint64_t role_id);
+    NFPlayerDetail* QueryPlayerDetailByRpc(uint64_t cid);
 
     /**
      * @brief 玩家PlayerId 查询 玩家query_id 的数据， 主要放在NFPlayerDetail以及part里使用，确保NFPlayterDetail part的生命周期在协程完成前，一直存在
-     * @param playerId
+     * @param cid
      * @param query_id
      * @return
      */
-    NFPlayerDetail* QueryPlayerDetailByRpc(uint64_t playerId, uint64_t query_id);
-
-    /**
-     * @brief 创建玩家DB数据 通过rpc异步去数据库插入数据
-     * @param role_id
-     * @return
-     */
-    NFPlayerDetail* CreatePlayerDetailDBDataByRpc(const proto_ff::RoleDBSnsDetail& dbData);
-
+    NFPlayerDetail* QueryPlayerDetailByRpc(uint64_t cid, uint64_t query_id);
 public:
-    std::pair<NFPlayerSimple*, NFPlayerDetail*> QueryPlayerByRpc(uint64_t playerId, uint64_t query_id);
+    std::pair<NFPlayerSimple*, NFPlayerDetail*> QueryPlayerByRpc(uint64_t cid, uint64_t query_id);
 private:
 DECLARE_IDCREATE(NFCacheMgr)
 };

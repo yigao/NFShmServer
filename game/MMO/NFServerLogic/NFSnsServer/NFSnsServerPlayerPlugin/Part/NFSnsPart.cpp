@@ -43,21 +43,15 @@ int NFSnsPart::ResumeInit()
     return 0;
 }
 
-int NFSnsPart::Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer)
+int NFSnsPart::Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::RoleDBSnsDetail &data)
 {
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
     m_pMaster = pMaster;
     m_playerId = pMaster->GetCid();
     m_partType = partType;
 
-    if (bCreatePlayer)
-    {
-        InitConfig(data);
-    }
-    else
-    {
-        LoadFromDB(data);
-    }
+    LoadFromDB(data);
+    InitConfig(data);
     return 0;
 }
 

@@ -30,7 +30,7 @@ bool NFPartModule::Awake()
 {
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
-        auto pPart = NFPlayer::CreatePart(m_pObjPluginManager, i);
+        auto pPart = dynamic_cast<NFPart*>(FindModule<NFISharedMemModule>()->CreateObj(EOT_LOGIC_PART_ID+i));
         if (pPart)
         {
             pPart->RegisterMessage();

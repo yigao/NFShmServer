@@ -800,6 +800,27 @@ class LTSLoginReq : public ::google::protobuf::Message {
   inline ::proto_ff::RoleDBBaseData* release_base();
   inline void set_allocated_base(::proto_ff::RoleDBBaseData* base);
 
+  // optional uint32 proxy_id = 5;
+  inline bool has_proxy_id() const;
+  inline void clear_proxy_id();
+  static const int kProxyIdFieldNumber = 5;
+  inline ::google::protobuf::uint32 proxy_id() const;
+  inline void set_proxy_id(::google::protobuf::uint32 value);
+
+  // optional uint32 logic_id = 6;
+  inline bool has_logic_id() const;
+  inline void clear_logic_id();
+  static const int kLogicIdFieldNumber = 6;
+  inline ::google::protobuf::uint32 logic_id() const;
+  inline void set_logic_id(::google::protobuf::uint32 value);
+
+  // optional uint32 game_id = 7;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 7;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
   // @@protoc_insertion_point(class_scope:proto_ff.LTSLoginReq)
  private:
   inline void set_has_cid();
@@ -810,6 +831,12 @@ class LTSLoginReq : public ::google::protobuf::Message {
   inline void clear_has_uid();
   inline void set_has_base();
   inline void clear_has_base();
+  inline void set_has_proxy_id();
+  inline void clear_has_proxy_id();
+  inline void set_has_logic_id();
+  inline void clear_has_logic_id();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
 
   ::google::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -817,9 +844,12 @@ class LTSLoginReq : public ::google::protobuf::Message {
   ::google::protobuf::uint32 zid_;
   ::google::protobuf::uint32 uid_;
   ::proto_ff::RoleDBBaseData* base_;
+  ::google::protobuf::uint32 proxy_id_;
+  ::google::protobuf::uint32 logic_id_;
+  ::google::protobuf::uint32 game_id_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(7 + 31) / 32];
 
   friend void  protobuf_AddDesc_ServerInternal2_2eproto();
   friend void protobuf_AssignDesc_ServerInternal2_2eproto();
@@ -1404,6 +1434,72 @@ inline void LTSLoginReq::set_allocated_base(::proto_ff::RoleDBBaseData* base) {
   } else {
     clear_has_base();
   }
+}
+
+// optional uint32 proxy_id = 5;
+inline bool LTSLoginReq::has_proxy_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void LTSLoginReq::set_has_proxy_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void LTSLoginReq::clear_has_proxy_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void LTSLoginReq::clear_proxy_id() {
+  proxy_id_ = 0u;
+  clear_has_proxy_id();
+}
+inline ::google::protobuf::uint32 LTSLoginReq::proxy_id() const {
+  return proxy_id_;
+}
+inline void LTSLoginReq::set_proxy_id(::google::protobuf::uint32 value) {
+  set_has_proxy_id();
+  proxy_id_ = value;
+}
+
+// optional uint32 logic_id = 6;
+inline bool LTSLoginReq::has_logic_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void LTSLoginReq::set_has_logic_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void LTSLoginReq::clear_has_logic_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void LTSLoginReq::clear_logic_id() {
+  logic_id_ = 0u;
+  clear_has_logic_id();
+}
+inline ::google::protobuf::uint32 LTSLoginReq::logic_id() const {
+  return logic_id_;
+}
+inline void LTSLoginReq::set_logic_id(::google::protobuf::uint32 value) {
+  set_has_logic_id();
+  logic_id_ = value;
+}
+
+// optional uint32 game_id = 7;
+inline bool LTSLoginReq::has_game_id() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void LTSLoginReq::set_has_game_id() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void LTSLoginReq::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void LTSLoginReq::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 LTSLoginReq::game_id() const {
+  return game_id_;
+}
+inline void LTSLoginReq::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
 }
 
 // -------------------------------------------------------------------

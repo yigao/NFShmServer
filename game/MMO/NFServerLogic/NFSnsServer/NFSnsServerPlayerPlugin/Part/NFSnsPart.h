@@ -45,7 +45,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer);
+    virtual int Init(NFPlayerDetail *pMaster, uint32_t partType, const proto_ff::RoleDBSnsDetail &data);
 
     /**
      * @brief

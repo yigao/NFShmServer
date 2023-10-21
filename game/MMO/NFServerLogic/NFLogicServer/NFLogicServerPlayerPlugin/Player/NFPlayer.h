@@ -247,11 +247,11 @@ public:
     NFPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBData &dbData);
 
     /**
-     * @brief 静态函数 创建Part
+     * @brief 创建Part
      * @param partType
      * @return
      */
-    static NFPart* CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType);
+    NFPart* CreatePart(uint32_t partType);
 
     /**
      * @brief 释放Part

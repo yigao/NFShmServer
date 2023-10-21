@@ -23,6 +23,7 @@
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFLogicCommon/NFCharactorDefine.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 class NFSnsPart;
 class NFPlayerSimple;
@@ -59,7 +60,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer = false);
+    virtual int Init(const proto_ff::RoleDBSnsDetail &data);
 
     /**
      * @brief
@@ -131,14 +132,14 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer);
+    NFSnsPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBSnsDetail &data);
 
     /**
-     * @brief 静态函数 创建Part
+     * @brief 创建Part
      * @param partType
      * @return
      */
-    static NFSnsPart* CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType);
+    NFSnsPart* CreatePart(uint32_t partType);
 
     /**
      * @brief 释放Part

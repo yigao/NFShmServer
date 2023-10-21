@@ -126,7 +126,7 @@ bool NFPlayerSimple::CanDelete()
     return true;
 }
 
-int NFPlayerSimple::Init(const proto_ff::RoleDBSnsSimple &dbData, bool bCreatePlayer)
+int NFPlayerSimple::Init(const proto_ff::RoleDBSnsSimple &dbData)
 {
     m_isInited = true;
     LoadFromDB(dbData);

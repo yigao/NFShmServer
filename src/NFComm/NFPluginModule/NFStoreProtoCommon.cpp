@@ -62,7 +62,6 @@ void NFStoreProtoCommon::storesvr_selectobj(storesvr_sqldata::storesvr_selobj &s
                                             const std::vector<std::string> &vecFields/* = std::vector<std::string>()*/)
 {
     select.mutable_baseinfo()->set_dbname(dbname);
-    select.mutable_baseinfo()->set_tbname(tbname);
     select.mutable_baseinfo()->set_package_name(package_name);
     if (cls_name.empty())
     {
@@ -71,6 +70,13 @@ void NFStoreProtoCommon::storesvr_selectobj(storesvr_sqldata::storesvr_selobj &s
     else
     {
         select.mutable_baseinfo()->set_clname(cls_name);
+    }
+    if (tbname.empty())
+    {
+        select.mutable_baseinfo()->set_tbname(cls_name);
+    }
+    else {
+        select.mutable_baseinfo()->set_tbname(tbname);
     }
     select.set_mod_key(mod_key);
     select.set_record(msg_obj.SerializeAsString());

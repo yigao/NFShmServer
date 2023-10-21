@@ -53,7 +53,7 @@ public:
      * @param cid
      * @return
      */
-    NFPlayerSimple* RpcGetPlayerSimpleInfo(uint64_t cid, bool bCreatePlayer = false);
+    NFPlayerSimple* RpcGetPlayerSimpleInfo(uint64_t cid);
 
     /**
      * @brief
@@ -70,13 +70,6 @@ public:
      * @return
      */
     int HandleGetRoleSimpleRpcFinished(int iRunLogicRetCode, uint64_t roleId);
-
-    /**
-     * @brief 创建玩家DB数据 通过rpc异步去数据库插入数据
-     * @param role_id
-     * @return
-     */
-    NFPlayerSimple* CreatePlayerSimpleDBDataByRpc(const proto_ff::RoleDBSnsSimple& dbData);
 public:
     /**
      * @brief
@@ -107,7 +100,7 @@ public:
      * @param playerId
      * @return
      */
-    NFPlayerDetail* RpcGetPlayerDetailInfo(uint64_t playerId, bool bCreatePlayer = false);
+    NFPlayerDetail* RpcGetPlayerDetailInfo(uint64_t playerId);
 
     /**
      * @brief
@@ -124,13 +117,6 @@ public:
      * @return
      */
     int HandleGetRoleDetailRpcFinished(int iRunLogicRetCode, uint64_t roleId);
-
-    /**
-     * @brief 创建玩家DB数据 通过rpc异步去数据库插入数据
-     * @param role_id
-     * @return
-     */
-    NFPlayerDetail* CreatePlayerDetailDBDataByRpc(const proto_ff::RoleDBSnsDetail& dbData);
 private:
     int m_refreshTimer;
     int m_refreshRpcTimer;

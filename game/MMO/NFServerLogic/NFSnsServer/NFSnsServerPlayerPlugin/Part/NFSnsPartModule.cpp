@@ -11,6 +11,7 @@
 #include "Cache/NFCacheMgr.h"
 #include "NFSnsPart.h"
 #include "NFLogicCommon/NFCharactorDefine.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 NFSnsPartModule::NFSnsPartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -27,7 +28,7 @@ bool NFSnsPartModule::Awake()
 {
     for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
-        auto pPart = NFPlayerDetail::CreatePart(m_pObjPluginManager, i);
+        auto pPart = dynamic_cast<NFSnsPart*>(FindModule<NFISharedMemModule>()->CreateObj(EOT_SNS_PART_ID+i));
         if (pPart)
         {
             pPart->RegisterMessage();

@@ -14,8 +14,9 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "Part/NFSnsPart.h"
 
-class NFSnsRelationPart : public NFShmObj
+class NFSnsRelationPart : public NFSnsPart
 {
 public:
     NFSnsRelationPart();

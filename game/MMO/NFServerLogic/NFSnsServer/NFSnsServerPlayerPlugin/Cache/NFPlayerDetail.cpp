@@ -81,7 +81,7 @@ void NFPlayerDetail::SetIsInited(bool isInited)
     m_isInited = isInited;
 }
 
-int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer)
+int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail &data)
 {
     m_isInited = true;
     m_cid = data.cid();
@@ -89,18 +89,13 @@ int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail &data, bool bCreatePlay
     ResetCurSeq();
     m_isInited = true;
 
-    if (bCreatePlayer)
-    {
-        InitConfig(data);
-    }
-    else {
-        LoadFromDB(data);
-    }
+    LoadFromDB(data);
+    InitConfig(data);
 
     std::vector<NFSnsPart*> vec;
     for (uint32_t i = SNS_PART_NONE + 1; i < SNS_PART_MAX; ++i)
     {
-        m_pPart[i] = CreatePart(i, data, bCreatePlayer);
+        m_pPart[i] = CreatePart(i, data);
         if (nullptr == m_pPart[i])
         {
             NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Player Init, Create Part Failed, roleId:{} part:{}", m_cid, i);
@@ -108,7 +103,7 @@ int NFPlayerDetail::Init(const proto_ff::RoleDBSnsDetail &data, bool bCreatePlay
             {
                 FindModule<NFISharedMemModule>()->DestroyObj(vec[i]);
             }
-            return -1;
+            return proto_ff::RET_FAIL;
         }
         vec.push_back(m_pPart[i].GetPoint());
     }
@@ -135,17 +130,9 @@ int NFPlayerDetail::UnInit()
     return 0;
 }
 
-NFSnsPart* NFPlayerDetail::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType)
+NFSnsPart* NFPlayerDetail::CreatePart(uint32_t partType)
 {
-    NFSnsPart *pPart = NULL;
-    switch (partType)
-    {
-        default:
-        {
-            break;
-        }
-    }
-
+    NFSnsPart *pPart = dynamic_cast<NFSnsPart*>(FindModule<NFISharedMemModule>()->CreateObj(EOT_SNS_PART_ID+partType));
     if (pPart)
     {
         pPart->SetPartType(partType);
@@ -153,12 +140,12 @@ NFSnsPart* NFPlayerDetail::CreatePart(NFIPluginManager* pObjPluginManager, uint3
     return pPart;
 }
 
-NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::RoleDBSnsDetail &data, bool bCreatePlayer)
+NFSnsPart *NFPlayerDetail::CreatePart(uint32_t partType, const proto_ff::RoleDBSnsDetail &data)
 {
-    NFSnsPart *pPart = CreatePart(m_pObjPluginManager, partType);
+    NFSnsPart *pPart = CreatePart(partType);
     if (pPart)
     {
-        int iRet = pPart->Init(this, partType, data, bCreatePlayer);
+        int iRet = pPart->Init(this, partType, data);
         if (iRet != 0)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "{}::Init Failed", pPart->GetClassName());

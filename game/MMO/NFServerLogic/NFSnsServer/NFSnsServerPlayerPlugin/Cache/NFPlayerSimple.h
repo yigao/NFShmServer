@@ -53,7 +53,7 @@ public:
      * @param bCreatePlayer
      * @return
      */
-    virtual int Init(const proto_ff::RoleDBSnsSimple &dbData, bool bCreatePlayer = false);
+    virtual int Init(const proto_ff::RoleDBSnsSimple &dbData);
 
     /**
      * @brief

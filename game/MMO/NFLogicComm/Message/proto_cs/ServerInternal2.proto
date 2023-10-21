@@ -61,6 +61,9 @@ message LTSLoginReq
   optional uint32                 zid					= 2;    // 区服ID
   optional uint32					        uid					= 3;    // UID
   optional RoleDBBaseData         base				= 4;    // 基础数据
+  optional uint32                 proxy_id    = 5;
+  optional uint32                 logic_id    = 6;
+  optional uint32                 game_id     = 7;
 }
 
 message STLLoginRsp

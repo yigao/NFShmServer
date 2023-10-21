@@ -476,9 +476,9 @@ const NFPart *NFPlayer::GetPart(uint32_t partType) const
     return NULL;
 }
 
-NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partType)
+NFPart* NFPlayer::CreatePart(uint32_t partType)
 {
-    NFPart *pPart = dynamic_cast<NFPart*>(pObjPluginManager->FindModule<NFISharedMemModule>()->CreateObj(EOT_LOGIC_PART_ID+partType));
+    NFPart *pPart = dynamic_cast<NFPart*>(FindModule<NFISharedMemModule>()->CreateObj(EOT_LOGIC_PART_ID+partType));
     if (pPart)
     {
         pPart->SetPartType(partType);
@@ -488,7 +488,7 @@ NFPart* NFPlayer::CreatePart(NFIPluginManager* pObjPluginManager, uint32_t partT
 
 NFPart *NFPlayer::CreatePart(uint32_t partType, const proto_ff::RoleDBData &dbData)
 {
-    NFPart *pPart = CreatePart(m_pObjPluginManager, partType);
+    NFPart *pPart = CreatePart(partType);
     if (pPart)
     {
         int iRet = pPart->Init(this, partType, dbData);

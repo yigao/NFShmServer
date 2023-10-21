@@ -65,6 +65,20 @@ enum PartType
     PART_MAX,
 };
 
+enum BattlePartType
+{
+    BATTLE_PART_NONE = 0,
+    BATTLE_PART_MOVE,
+    BATTLE_PART_MAX,
+};
+
+enum SnsPartType
+{
+    SNS_PART_NONE = 0,
+    SNS_PART_RELATION,
+    SNS_PART_MAX,
+};
+
 typedef enum
 {
 	EOT_SF_BEGIN_ID = EOT_SERVER_FRAME_BEGIN_ID,
@@ -86,7 +100,7 @@ typedef enum
     EOT_SNS_TRANS_SAVE_PLAYER_DETAIL,
     ////////////////////////////sns part server/////////////////////////////
     EOT_SNS_PART_ID,
-    EOT_NFSnsRelationPart_ID,
+    EOT_SNS_MAX_ID = EOT_SNS_PART_ID+SNS_PART_MAX,
 	////////////////////////////sns server/////////////////////////////
 
 	////////////////////////////logic server/////////////////////////////
