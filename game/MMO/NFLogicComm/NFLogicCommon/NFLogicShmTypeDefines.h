@@ -83,7 +83,11 @@ typedef enum
 {
 	EOT_SF_BEGIN_ID = EOT_SERVER_FRAME_BEGIN_ID,
     ////////////////////////////server common////////////////////////////////////////////////
-
+    EOT_SERVER_COMMON_ATTR_MGR_ID,
+    EOT_SERVER_COMMON_COMFIGHT_ATTR_ID,
+    EOT_SERVER_COMMON_ROLEFIGHT_ATTR_ID,
+    EOT_SERVER_COMMON_COM_ATTR_ID,
+    EOT_SERVER_COMMON_ROLE_ATTR_ID,
     ////////////////////////////server common////////////////////////////////////////////////
 
 	////////////////////////////sns server/////////////////////////////
@@ -130,8 +134,11 @@ typedef enum
 	////////////////////////////world server/////////////////////////////
 
 	////////////////////////////game server/////////////////////////////
-    EOT_NFGamePlayer_ID,
-    EOT_NFGamePlayerMgr_ID,
+    EOT_GAME_CONFIG_ID,
+    EOT_GAME_SCENE_ID,
+    EOT_GAME_MAP_ID,
+    EOT_GAME_MAP_MGR_ID,
+    EOT_GAME_CREATURE_ID,
 	///////////////////////////////////////////////////////////
 	EOT_SF_END_ID = EOT_SERVER_FRAME_END_ID,
 } EN_SERVERFRAME_SHMOBJ_TYPE;
