@@ -437,9 +437,6 @@ bool NFAttrMgr::InitFightAttrToIndex()
     m_comNormal_IdToIndex[proto_ff::A_CAMP_ID] = comnormal_index;
     m_comNormal_IndexToId[comnormal_index++] = proto_ff::A_CAMP_ID;
 
-    m_comNormal_IdToIndex[proto_ff::A_TEMP_CAMP_ID] = comnormal_index;
-    m_comNormal_IndexToId[comnormal_index++] = proto_ff::A_TEMP_CAMP_ID;
-
     //
     if (comnormal_index > COMMON_ATTR_END)
     {
