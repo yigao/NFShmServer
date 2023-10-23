@@ -20,9 +20,9 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-#define GAME_SERVER_MAX_BATTLE_MAP_SIZE 100
+#define GAME_SERVER_MAX_BATTLE_MAP_SIZE 200
 
-class NFSTLMap;
+class NFMap;
 class NFMapMgr : public NFShmObj
 {
 public:
@@ -70,21 +70,21 @@ public:
      * @param mapId
      * @return
      */
-    NFSTLMap *GetMap(uint64_t mapId);
+    NFMap *GetMap(uint64_t mapId);
 
     /**
      * @brief
      * @param mapId
      * @return
      */
-    NFSTLMap *CreateMap(uint64_t mapId);
+    NFMap *CreateMap(uint64_t mapId);
 
     /**
      * @brief
      * @param pMap
      * @return
      */
-    int DeleteMap(NFSTLMap *pMap);
+    int DeleteMap(NFMap *pMap);
 
     /**
      * @brief

@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFMovePart.h"
+#include "NFBattleMovePart.h"
 #include "ClientServerCmd.pb.h"
 #include "Move.pb.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
@@ -25,9 +25,9 @@
 #include "NFGameCommon/NFMath.h"
 #include "DescStore/MapMapDesc.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_NFBattlePart_ID+BATTLE_PART_MOVE, NFBattlePart)
+IMPLEMENT_IDCREATE_WITHTYPE(NFBattleMovePart, EOT_NFBattlePart_ID+BATTLE_PART_MOVE, NFBattlePart)
 
-NFMovePart::NFMovePart()
+NFBattleMovePart::NFBattleMovePart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -39,11 +39,11 @@ NFMovePart::NFMovePart()
     }
 }
 
-NFMovePart::~NFMovePart()
+NFBattleMovePart::~NFBattleMovePart()
 {
 }
 
-int NFMovePart::CreateInit()
+int NFBattleMovePart::CreateInit()
 {
     m_lastclientMoveTick = 0;
     m_moveTick = 0;
@@ -53,22 +53,22 @@ int NFMovePart::CreateInit()
     return 0;
 }
 
-int NFMovePart::ResumeInit()
+int NFBattleMovePart::ResumeInit()
 {
     return 0;
 }
 
-int NFMovePart::Init(const proto_ff::RoleEnterSceneData &data)
+int NFBattleMovePart::Init(const proto_ff::RoleEnterSceneData &data)
 {
     return 0;
 }
 
-int NFMovePart::UnInit()
+int NFBattleMovePart::UnInit()
 {
     return 0;
 }
 
-int NFMovePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
+int NFBattleMovePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
 {
     switch (msgId)
     {
@@ -97,12 +97,12 @@ int NFMovePart::OnHandleClientMessage(uint32_t msgId, NFDataPackage &packet)
     return 0;
 }
 
-int NFMovePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
+int NFBattleMovePart::OnHandleServerMessage(uint32_t msgId, NFDataPackage &packet)
 {
     return NFBattlePart::OnHandleServerMessage(msgId, packet);
 }
 
-int NFMovePart::RegisterClientMessage(NFIPluginManager *pPluginManager)
+int NFBattleMovePart::RegisterClientMessage(NFIPluginManager *pPluginManager)
 {
     RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_MOVE_REQ, BATTLE_PART_MOVE);
     RegisterClientPartMsg(pPluginManager, proto_ff::CLIENT_LOAD_MAP_FINISH, BATTLE_PART_MOVE);
@@ -112,12 +112,12 @@ int NFMovePart::RegisterClientMessage(NFIPluginManager *pPluginManager)
     return 0;
 }
 
-int NFMovePart::RetisterServerMessage(NFIPluginManager *pPluginManager)
+int NFBattleMovePart::RetisterServerMessage(NFIPluginManager *pPluginManager)
 {
     return 0;
 }
 
-int NFMovePart::ClientMoveReq(uint32_t msgId, NFDataPackage &packet)
+int NFBattleMovePart::ClientMoveReq(uint32_t msgId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::MoveReq req;
@@ -202,7 +202,7 @@ int NFMovePart::ClientMoveReq(uint32_t msgId, NFDataPackage &packet)
         //停止移动的时候校验一次坐标
         NFPoint3<float> nearpos = pos;
         NFPoint3<float> rightpos = m_lastrightpos;
-        NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+        NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
         if (nullptr != pMap)
         {
             NFPoint3<float> tempos;
@@ -257,7 +257,7 @@ int NFMovePart::ClientMoveReq(uint32_t msgId, NFDataPackage &packet)
     return 0;
 }
 
-void NFMovePart::SetClientSpeed(const NFPoint3<float> &speed)
+void NFBattleMovePart::SetClientSpeed(const NFPoint3<float> &speed)
 {
     m_clientSpeed = speed;
     float len = m_clientSpeed.length();
@@ -267,8 +267,8 @@ void NFMovePart::SetClientSpeed(const NFPoint3<float> &speed)
     }
 }
 
-int NFMovePart::BroadcastMove(uint64_t cid, const NFPoint3<float> &pos, const NFPoint3<float> &speed, const NFPoint3<float> &dir,
-                              bool selfFlag/* = false*/)
+int NFBattleMovePart::BroadcastMove(uint64_t cid, const NFPoint3<float> &pos, const NFPoint3<float> &speed, const NFPoint3<float> &dir,
+                                    bool selfFlag/* = false*/)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
@@ -301,7 +301,7 @@ int NFMovePart::BroadcastMove(uint64_t cid, const NFPoint3<float> &pos, const NF
     return pMaster->BroadCast(proto_ff::MOVE_BROAD_RSP, rsp, selfFlag);
 }
 
-int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam)
+int NFBattleMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -329,7 +329,7 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
             {
                 //传送同一个场景，直接设置坐标
                 //
-                NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pScene->GetMapId());
+                NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pScene->GetMapId());
                 if (nullptr == pMap)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
@@ -397,7 +397,7 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
 }
 
 int
-NFMovePart::Teleporting(const NFPoint3<float> dstPos, int32_t type /*= (int32_t) proto_ff::MoveTeleportRsp_Type_common*/, bool checkpos /*= true*/)
+NFBattleMovePart::Teleporting(const NFPoint3<float> dstPos, int32_t type /*= (int32_t) proto_ff::MoveTeleportRsp_Type_common*/, bool checkpos /*= true*/)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -407,7 +407,7 @@ NFMovePart::Teleporting(const NFPoint3<float> dstPos, int32_t type /*= (int32_t)
     if (checkpos)
     {
         uint64_t mapId = pMaster->GetMapId();
-        NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+        NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
         if (nullptr != pMap)
         {
             if (!pMap->FindNearestPos(pos.x, pos.z, pos.y, &pos.x, &pos.z, &pos.y, nullptr))
@@ -461,7 +461,7 @@ NFMovePart::Teleporting(const NFPoint3<float> dstPos, int32_t type /*= (int32_t)
     return proto_ff::RET_SUCCESS;
 }
 
-int NFMovePart::OnTransSuccess(STransParam &transParam)
+int NFBattleMovePart::OnTransSuccess(STransParam &transParam)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, -1, "pMaster == NULL");
@@ -504,7 +504,7 @@ int NFMovePart::OnTransSuccess(STransParam &transParam)
     return 0;
 }
 
-int NFMovePart::TransSceneInLogic(NFScene *pDstScene, NFPoint3<float> transPos, STransParam &transParam)
+int NFBattleMovePart::TransSceneInLogic(NFScene *pDstScene, NFPoint3<float> transPos, STransParam &transParam)
 {
     CHECK_NULL(pDstScene);
     NFCreature *pMaster = GetMaster();
@@ -556,7 +556,7 @@ int NFMovePart::TransSceneInLogic(NFScene *pDstScene, NFPoint3<float> transPos, 
     return proto_ff::RET_SUCCESS;
 }
 
-int NFMovePart::OnTimer(int timeId, int callcount)
+int NFBattleMovePart::OnTimer(int timeId, int callcount)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -581,7 +581,7 @@ int NFMovePart::OnTimer(int timeId, int callcount)
     return 0;
 }
 
-int NFMovePart::OnMoveTimer()
+int NFBattleMovePart::OnMoveTimer()
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -625,7 +625,7 @@ int NFMovePart::OnMoveTimer()
 }
 
 //模拟客户端移动(玩家移动) intertick: 间隔时间，单位：毫秒,  stopFlag:是否停止移动
-int NFMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
+int NFBattleMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -656,7 +656,7 @@ int NFMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
         NFPoint3<float> zerospeed(0.0f, 0.0f, 0.0f);
         NFPoint3<float> newpos = curpos;
         uint64_t mapid = pMaster->GetMapId();
-        NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapid);
+        NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapid);
         if (nullptr != pMap)
         {
             if (!pMap->FindNearestPos(curpos.x, curpos.z, curpos.y, &curpos.x, &curpos.z, &curpos.y, nullptr))
@@ -701,7 +701,7 @@ int NFMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
 }
 
 //计算朝向
-NFPoint3<float> NFMovePart::CalDir(const NFPoint3<float> &dstpos, const NFPoint3<float> &srcpos)
+NFPoint3<float> NFBattleMovePart::CalDir(const NFPoint3<float> &dstpos, const NFPoint3<float> &srcpos)
 {
     NFPoint3<float> dir = dstpos - srcpos;
     dir.y = 0;
@@ -709,7 +709,7 @@ NFPoint3<float> NFMovePart::CalDir(const NFPoint3<float> &dstpos, const NFPoint3
 }
 
 //通过路径移动 intertick: 间隔时间，单位：毫秒
-int NFMovePart::MoveByPath(int64_t intertick, bool stopFlag)
+int NFBattleMovePart::MoveByPath(int64_t intertick, bool stopFlag)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -788,7 +788,7 @@ int NFMovePart::MoveByPath(int64_t intertick, bool stopFlag)
 }
 
 //根据计算单位朝向
-NFPoint3<float> NFMovePart::CalDotByDir(const NFPoint3<float> &dir)
+NFPoint3<float> NFBattleMovePart::CalDotByDir(const NFPoint3<float> &dir)
 {
     float flen = NFMath::CarmackSqrt((dir.x * dir.x + dir.z * dir.z));
     NFPoint3<float> dot; //新的朝向点
@@ -800,12 +800,12 @@ NFPoint3<float> NFMovePart::CalDotByDir(const NFPoint3<float> &dir)
 }
 
 //根据朝向点计算速度  dot:朝向点， fsec:间隔时间，单位：秒，  fspeed：速度，单位：m/s
-NFPoint3<float> NFMovePart::CalSpeedByDot(const NFPoint3<float> &dot, float fsec, float fspeed)
+NFPoint3<float> NFBattleMovePart::CalSpeedByDot(const NFPoint3<float> &dot, float fsec, float fspeed)
 {
     return (dot * fsec * fspeed);
 }
 
-int NFMovePart::ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet)
+int NFBattleMovePart::ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -843,7 +843,7 @@ int NFMovePart::ClientLoadMapFinshReq(uint32_t msgId, NFDataPackage &packet)
     return 0;
 }
 
-int NFMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
+int NFBattleMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
 {
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- begin -- ");
     proto_ff::PlayerSeatReq req;
@@ -918,7 +918,7 @@ int NFMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
 }
 
 //能否移动
-int NFMovePart::CanMove()
+int NFBattleMovePart::CanMove()
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -955,7 +955,7 @@ int NFMovePart::CanMove()
 }
 
 //移动到目标坐标，注意：这个接口只允许人物以外的生物调用，人物的移动是前端驱动的
-int NFMovePart::MoveTo(const NFPoint3<float> &dstPos)
+int NFBattleMovePart::MoveTo(const NFPoint3<float> &dstPos)
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");
@@ -982,7 +982,7 @@ int NFMovePart::MoveTo(const NFPoint3<float> &dstPos)
     }
 
     //
-    NFSTLMap *map = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pMaster->GetMapId());
+    NFMap *map = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pMaster->GetMapId());
     if (!map)
     {
         NFLogError(NF_LOG_SYSTEMLOG, cid, "MovePart::MoveTo can not find map cfg cid={}, kind:{}, cfgid:{}, scene:{}, map:{}", cid,
@@ -1077,14 +1077,14 @@ int NFMovePart::MoveTo(const NFPoint3<float> &dstPos)
 }
 
 //是否正在移动
-int NFMovePart::IsMoving() const
+int NFBattleMovePart::IsMoving() const
 {
     if (m_timerIdMove != INVALID_ID) return 0;
     return proto_ff::RET_FAIL;
 }
 
 //停止移动
-int NFMovePart::StopMove()
+int NFBattleMovePart::StopMove()
 {
     NFCreature *pMaster = GetMaster();
     CHECK_EXPR(pMaster, proto_ff::RET_FAIL, "pMaster == NULL");

@@ -25,11 +25,11 @@
 #include "NFLogicCommon/NFCharactorDefine.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-class NFSTLMap : public NFShmObj {
+class NFMap : public NFShmObj {
 public:
-    NFSTLMap();
+    NFMap();
 
-    virtual ~NFSTLMap();
+    virtual ~NFMap();
 
     int CreateInit();
 
@@ -203,5 +203,5 @@ protected:
     float m_straightPathPoints[proto_ff::MAX_NAV_POINT_VALUE];
     NFCommonStr m_name;
     dtQueryFilter *m_normalFilter;
-DECLARE_IDCREATE(NFSTLMap)
+DECLARE_IDCREATE(NFMap)
 };

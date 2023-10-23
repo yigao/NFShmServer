@@ -67,7 +67,7 @@ int NFScene::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcTyp
 
 int NFScene::Init(uint64_t mapId, uint64_t sceneId)
 {
-    NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+    NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     CHECK_EXPR(pMap, -1, "GetMap Failed, mapId:{}", mapId);
     CHECK_EXPR(pMap->GetMapCfg(), -1, "GetMap Failed, map");
 
@@ -108,11 +108,11 @@ int NFScene::UnInit()
     return 0;
 }
 
-NFSTLMap *NFScene::GetMap() const
+NFMap *NFScene::GetMap() const
 {
     if (m_mapGlobalId >= 0)
     {
-        return dynamic_cast<NFSTLMap *>(FindModule<NFISharedMemModule>()->GetObjByObjId(EOT_GAME_MAP_ID, m_mapGlobalId));
+        return dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->GetObjByObjId(EOT_GAME_MAP_ID, m_mapGlobalId));
     }
 
     return NFMapMgr::Instance(m_pObjPluginManager)->GetMap(m_mapId);
@@ -133,7 +133,7 @@ NFGrid *NFScene::GetGrid(uint32_t w, uint32_t h)
 
 bool NFScene::IsDynamic() const
 {
-    NFSTLMap* pMap = GetMap();
+    NFMap* pMap = GetMap();
     if (pMap)
     {
         return pMap->IsDynamic();
@@ -825,7 +825,7 @@ void NFScene::FindPointLstInRect(const NFPoint3<float> &center, VecPoint3 &vecPo
         return;
     }
 
-    NFSTLMap *pMap = GetMap();
+    NFMap *pMap = GetMap();
     if (nullptr == pMap)
     {
         for (int32_t i = 0; i < pointCnt; ++i)

@@ -17,9 +17,9 @@
 #include "DescStoreEx/MapDescEx.h"
 #include <float.h>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSTLMap, EOT_GAME_MAP_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE(NFMap, EOT_GAME_MAP_ID, NFShmObj)
 
-NFSTLMap::NFSTLMap() : NFShmObj()
+NFMap::NFMap() : NFShmObj()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -31,7 +31,7 @@ NFSTLMap::NFSTLMap() : NFShmObj()
     }
 }
 
-NFSTLMap::~NFSTLMap()
+NFMap::~NFMap()
 {
     if (m_navMesh)
     {
@@ -49,7 +49,7 @@ NFSTLMap::~NFSTLMap()
     }
 }
 
-int NFSTLMap::CreateInit()
+int NFMap::CreateInit()
 {
     m_mapId = 0;
     ///////////////////////////////地图信息，服务器崩溃后需要修复////////////////////////////
@@ -70,20 +70,20 @@ int NFSTLMap::CreateInit()
     return 0;
 }
 
-int NFSTLMap::ResumeInit()
+int NFMap::ResumeInit()
 {
     CreateInit();
     return 0;
 }
 
-int NFSTLMap::Init(uint64_t mapId)
+int NFMap::Init(uint64_t mapId)
 {
     m_mapId = mapId;
     Init();
     return 0;
 }
 
-int NFSTLMap::Init()
+int NFMap::Init()
 {
     int retCode = 0;
 
@@ -109,7 +109,7 @@ int NFSTLMap::Init()
     return 0;
 }
 
-int NFSTLMap::LoadNavMesh(const std::string &name)
+int NFMap::LoadNavMesh(const std::string &name)
 {
     int retCode = 0;
 
@@ -145,7 +145,7 @@ int NFSTLMap::LoadNavMesh(const std::string &name)
     return 0;
 }
 
-dtPolyRef NFSTLMap::GetNearestPoly2D(float posX, float posY, float *extents, float *nearestPt)
+dtPolyRef NFMap::GetNearestPoly2D(float posX, float posY, float *extents, float *nearestPt)
 {
     dtPolyRef nearestRef = proto_ff::INVALID_NAVMESH_POLYREF;
     float center[3];
@@ -214,55 +214,55 @@ dtPolyRef NFSTLMap::GetNearestPoly2D(float posX, float posY, float *extents, flo
     return nearestRef;
 }
 
-uint64_t NFSTLMap::GetMapId() const
+uint64_t NFMap::GetMapId() const
 {
     return m_mapId;
 }
 
-uint32_t NFSTLMap::GetWidth() const
+uint32_t NFMap::GetWidth() const
 {
     auto pCfg = GetMapCfg();
     CHECK_EXPR(pCfg, 0, "");
     return pCfg->m_mapwide;
 }
 
-uint32_t NFSTLMap::GetHeight() const
+uint32_t NFMap::GetHeight() const
 {
     auto pCfg = GetMapCfg();
     CHECK_EXPR(pCfg, 0, "");
     return pCfg->m_mapheight;
 }
 
-uint32_t NFSTLMap::GetMapType() const
+uint32_t NFMap::GetMapType() const
 {
     auto pCfg = GetMapCfg();
     CHECK_EXPR(pCfg, 0, "");
     return pCfg->m_maptype;
 }
 
-uint32_t NFSTLMap::GetMapSubType() const
+uint32_t NFMap::GetMapSubType() const
 {
     auto pCfg = GetMapCfg();
     CHECK_EXPR(pCfg, 0, "");
     return pCfg->m_mapsubtype;
 }
 
-bool NFSTLMap::IsDynamic() const
+bool NFMap::IsDynamic() const
 {
     return MapDescEx::Instance(m_pObjPluginManager)->IsDynamic(m_mapId);
 }
 
-bool NFSTLMap::IsMainCity() const
+bool NFMap::IsMainCity() const
 {
     return MapDescEx::Instance(m_pObjPluginManager)->IsMainCity(m_mapId);
 }
 
-const proto_ff_s::E_MapMap_s *NFSTLMap::GetMapCfg() const
+const proto_ff_s::E_MapMap_s *NFMap::GetMapCfg() const
 {
     return MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(m_mapId);
 }
 
-int NFSTLMap::GetNavPath(const float *srcPos, const float *dstPos, VEC_POINT3 &path, VEC_FLAGS &flags)
+int NFMap::GetNavPath(const float *srcPos, const float *dstPos, VEC_POINT3 &path, VEC_FLAGS &flags)
 {
     CHECK_NULL(srcPos);
     CHECK_NULL(dstPos);
@@ -322,7 +322,7 @@ int NFSTLMap::GetNavPath(const float *srcPos, const float *dstPos, VEC_POINT3 &p
     return true;
 }
 
-int NFSTLMap::GetIntNavPath(const float *srcPos, const float *dstPos, VEC_PATH &IntPath)
+int NFMap::GetIntNavPath(const float *srcPos, const float *dstPos, VEC_PATH &IntPath)
 {
     CHECK_NULL(srcPos);
     CHECK_NULL(dstPos);
@@ -347,7 +347,7 @@ int NFSTLMap::GetIntNavPath(const float *srcPos, const float *dstPos, VEC_PATH &
     return true;
 }
 
-dtPolyRef NFSTLMap::GetNearestPoly(float posX, float posY, float posH, float *extents, float *nearPoint)
+dtPolyRef NFMap::GetNearestPoly(float posX, float posY, float posH, float *extents, float *nearPoint)
 {
     dtPolyRef polyRef = proto_ff::INVALID_NAVMESH_POLYREF;
     float startPos[3];
@@ -367,7 +367,7 @@ dtPolyRef NFSTLMap::GetNearestPoly(float posX, float posY, float posH, float *ex
     return polyRef;
 }
 
-int NFSTLMap::FindNearestPos(float posX, float posY, float posH, float *rsPosX, float *rsPosY, float *rsPosH, dtPolyRef *rsPolyRef)
+int NFMap::FindNearestPos(float posX, float posY, float posH, float *rsPosX, float *rsPosY, float *rsPosH, dtPolyRef *rsPolyRef)
 {
     dtPolyRef polyRef = proto_ff::INVALID_NAVMESH_POLYREF;
     float extents[3] = {0.5f, 4.0f, 0.5f};
@@ -396,7 +396,7 @@ int NFSTLMap::FindNearestPos(float posX, float posY, float posH, float *rsPosX, 
     return true;
 }
 
-int NFSTLMap::Raycast(float *startPos, float dir, float length, HitWallParam *hitParam)
+int NFMap::Raycast(float *startPos, float dir, float length, HitWallParam *hitParam)
 {
     CHECK_NULL(startPos);
     CHECK_NULL(hitParam);
@@ -493,11 +493,10 @@ int NFSTLMap::Raycast(float *startPos, float dir, float length, HitWallParam *hi
     return true;
 }
 
-int NFSTLMap::GetHitWallTangentAngle(float hitX, float hitY, float hitH, float dir, float *rsTangentDir)
+int NFMap::GetHitWallTangentAngle(float hitX, float hitY, float hitH, float dir, float *rsTangentDir)
 {
     // hitX hitY 为墙上的点
 
-    bool result = false;
     bool retCode = false;
 
     dtPolyRef startRef = proto_ff::INVALID_NAVMESH_POLYREF;
@@ -564,12 +563,10 @@ int NFSTLMap::GetHitWallTangentAngle(float hitX, float hitY, float hitH, float d
         *rsTangentDir = tangenDir;
     }
 
-    result = true;
-    Exit0:
-    return result;
+    return true;
 }
 
-int NFSTLMap::GetPolyHeight(dtPolyRef polyRef, float posX, float posY, float *height)
+int NFMap::GetPolyHeight(dtPolyRef polyRef, float posX, float posY, float *height)
 {
     CHECK_NULL(height);
 
@@ -587,7 +584,7 @@ int NFSTLMap::GetPolyHeight(dtPolyRef polyRef, float posX, float posY, float *he
     return true;
 }
 
-int NFSTLMap::CheckPolyFlag(dtPolyRef polyRef, proto_ff::SamplePolyFlags flag)
+int NFMap::CheckPolyFlag(dtPolyRef polyRef, proto_ff::SamplePolyFlags flag)
 {
     unsigned short flags = 0;
 
@@ -597,12 +594,12 @@ int NFSTLMap::CheckPolyFlag(dtPolyRef polyRef, proto_ff::SamplePolyFlags flag)
     return true;
 }
 
-void NFSTLMap::GetPolyFlags(dtPolyRef ref, uint_least16_t *flags)
+void NFMap::GetPolyFlags(dtPolyRef ref, uint_least16_t *flags)
 {
     m_navMesh->getPolyFlags(ref, flags);
 }
 
-bool NFSTLMap::IsInSafeArea(NFPoint3<float> &nPos)
+bool NFMap::IsInSafeArea(NFPoint3<float> &nPos)
 {
     return false;
 }

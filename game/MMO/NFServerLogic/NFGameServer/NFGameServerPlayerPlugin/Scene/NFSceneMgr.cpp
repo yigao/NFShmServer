@@ -102,7 +102,7 @@ int NFSceneMgr::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrc
 
 NFScene *NFSceneMgr::CreateScene(uint64_t mapId, uint64_t sceneId)
 {
-    NFSTLMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+    NFMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     CHECK_EXPR(pMap, NULL, "GetMap Failed, mapId:{}", mapId);
 
     NFScene* pScene = GetScene(sceneId);
@@ -141,7 +141,7 @@ int NFSceneMgr::InitScene(const std::set<uint64_t> &mapIds)
     for(auto iter = mapIds.begin(); iter != mapIds.end(); iter++)
     {
         uint64_t mapId = *iter;
-        NFSTLMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+        NFMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
         CHECK_EXPR_CONTINUE(pMap, "GetMap Failed, mapId:{}", mapId);
 
         //启动服务器时创建 非动态场景
@@ -178,7 +178,7 @@ const NFSceneMgr::OneLayer* NFSceneMgr::GetLayerPoint(uint32_t nlayer)
 
 int NFSceneMgr::EnterScene(uint64_t roleId, uint64_t mapId, uint64_t sceneId, const NFPoint3<float>& pos)
 {
-    NFSTLMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+    NFMap* pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     if (pMap == NULL)
     {
         NFLogError(NF_LOG_SYSTEMLOG, roleId, "Can't find mapId data, mapId:{}, sceneId:{}", mapId, sceneId);

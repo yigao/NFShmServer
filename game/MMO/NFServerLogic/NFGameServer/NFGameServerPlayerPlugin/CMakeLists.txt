@@ -1,5 +1,5 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
-PROJECT(NFBattlePlugin)
+PROJECT(NFMMOGamePlayerPlugin)
 
 include_directories( ${INCLUDE_DIR} ".")
 

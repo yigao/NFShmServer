@@ -7,7 +7,7 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFBattlePlugin.h"
+#include "NFMMOGamePlayerPlugin.h"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFConfigDefine.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
@@ -24,20 +24,20 @@
 #include "Creature/NFCreatureMgr.h"
 
 #include "Part/NFBattlePart.h"
-#include "Part/NFMovePart.h"
+#include "Part/NFBattleMovePart.h"
 #include "NFLogicCommon/NFAttr.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
 {
-    CREATE_PLUGIN(pm, NFBattlePlugin)
+    CREATE_PLUGIN(pm, NFMMOGamePlayerPlugin)
 
 };
 
 NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 {
-    DESTROY_PLUGIN(pm, NFBattlePlugin)
+    DESTROY_PLUGIN(pm, NFGamePlayerPlugin)
 };
 
 #endif
@@ -45,29 +45,29 @@ NF_EXPORT void DllStopPlugin(NFIPluginManager* pm)
 
 //////////////////////////////////////////////////////////////////////////
 
-int NFBattlePlugin::GetPluginVersion()
+int NFMMOGamePlayerPlugin::GetPluginVersion()
 {
 	return 0;
 }
 
-std::string NFBattlePlugin::GetPluginName()
+std::string NFMMOGamePlayerPlugin::GetPluginName()
 {
-	return GET_CLASS_NAME(NFBattlePlugin);
+	return GET_CLASS_NAME(NFMMOGamePlayerPlugin);
 }
 
-void NFBattlePlugin::Install()
+void NFMMOGamePlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCSceneModule, NFCSceneModule);
     REGISTER_MODULE(m_pObjPluginManager, NFBattlePartModule, NFBattlePartModule);
 }
 
-void NFBattlePlugin::Uninstall()
+void NFMMOGamePlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCSceneModule, NFCSceneModule);
     UNREGISTER_MODULE(m_pObjPluginManager, NFBattlePartModule, NFBattlePartModule);
 }
 
-bool NFBattlePlugin::InitShmObjectRegister()
+bool NFMMOGamePlayerPlugin::InitShmObjectRegister()
 {
 	NFServerConfig* pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
 	NF_ASSERT(pConfig);
@@ -75,7 +75,7 @@ bool NFBattlePlugin::InitShmObjectRegister()
 	uint32_t maxOnlinePlayerNum = pConfig->MaxOnlinePlayerNum;
     REGISTER_SINGLETON_SHM_OBJ(NFGameConfig);
     REGISTER_SINGLETON_SHM_OBJ(NFMapMgr);
-    REGISTER_SHM_OBJ_WITH_HASH(NFSTLMap, GAME_SERVER_MAX_BATTLE_MAP_SIZE);
+    REGISTER_SHM_OBJ_WITH_HASH(NFMap, GAME_SERVER_MAX_BATTLE_MAP_SIZE);
     REGISTER_SINGLETON_SHM_OBJ(NFSceneMgr);
     REGISTER_SHM_OBJ_WITH_HASH(NFScene, GAME_SERVER_MAX_BATTLE_SCENE_SIZE);
 
@@ -86,6 +86,6 @@ bool NFBattlePlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ_WITH_HASH(NFBattlePlayer, maxOnlinePlayerNum);
 
     REGISTER_SHM_OBJ(NFBattlePart, 1);
-    REGISTER_SHM_OBJ(NFMovePart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFBattleMovePart, maxOnlinePlayerNum);
 	return true;
 }

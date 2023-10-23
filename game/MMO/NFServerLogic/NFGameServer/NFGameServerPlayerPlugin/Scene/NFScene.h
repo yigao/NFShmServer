@@ -24,7 +24,7 @@
 #define NF_SCENE_MAX_GRID_NUM 200
 #define NF_SCENE_MAX_CREATURE_NUM 1000
 
-class NFSTLMap;
+class NFMap;
 
 class NFScene : public NFShmObj
 {
@@ -54,7 +54,7 @@ public:
 
     bool IsDynamic() const;
 
-    NFSTLMap *GetMap() const;
+    NFMap *GetMap() const;
 public:
     /**
      * @brief

@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFBattlePlayer.h"
-#include "Part/NFMovePart.h"
+#include "Part/NFBattleMovePart.h"
 #include "Map/NFMapMgr.h"
 #include "Map/NFMap.h"
 #include "DescStore/MapMapDesc.h"
@@ -366,7 +366,7 @@ void NFBattlePlayer::GetVisibleDataToClient(proto_ff::CreatureCreateData &cvData
 
 int NFBattlePlayer::TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos, uint64_t mapId, STransParam &transParam)
 {
-    NFMovePart *pMove = dynamic_cast<NFMovePart *>(GetPart(BATTLE_PART_MOVE));
+    NFBattleMovePart *pMove = dynamic_cast<NFBattleMovePart *>(GetPart(BATTLE_PART_MOVE));
     CHECK_NULL(pMove);
     return pMove->TransScene(scenceId, dstPos, mapId, transParam);
 }
@@ -374,7 +374,7 @@ int NFBattlePlayer::TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos,
 int NFBattlePlayer::CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float> &dstPos, NFPoint3<float> &outPos, STransParam &transParam,
                              bool checkPosFlag)
 {
-    NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(dstMapId);
+    NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(dstMapId);
     if (nullptr == pMap)
     {
         NFLogError(NF_LOG_SYSTEMLOG, Cid(), "CanTrans... nullptr == pMap..cid:{}, dstscene:{}, dstmap:{}, pos:{},{},{}, transtype:{}, transval:{} ",
@@ -522,7 +522,7 @@ int NFBattlePlayer::OnLogout()
 //移动到目标坐标
 int NFBattlePlayer::MoveTo(const NFPoint3<float>& dstPos)
 {
-    NFMovePart *pMove = dynamic_cast<NFMovePart *>(GetPart(BATTLE_PART_MOVE));
+    NFBattleMovePart *pMove = dynamic_cast<NFBattleMovePart *>(GetPart(BATTLE_PART_MOVE));
     CHECK_NULL(pMove);
     return pMove->MoveTo(dstPos);
 }
@@ -530,7 +530,7 @@ int NFBattlePlayer::MoveTo(const NFPoint3<float>& dstPos)
 //停止当前移动
 int NFBattlePlayer::StopMove()
 {
-    NFMovePart *pMove = dynamic_cast<NFMovePart *>(GetPart(BATTLE_PART_MOVE));
+    NFBattleMovePart *pMove = dynamic_cast<NFBattleMovePart *>(GetPart(BATTLE_PART_MOVE));
     CHECK_NULL(pMove);
     return pMove->StopMove();
 }
@@ -538,7 +538,7 @@ int NFBattlePlayer::StopMove()
 //瞬间移动
 int NFBattlePlayer::Teleporting(const NFPoint3<float>& dstPos, int32_t type/* = proto_ff::MoveTeleportRsp_Type_common*/)
 {
-    NFMovePart *pMove = dynamic_cast<NFMovePart *>(GetPart(BATTLE_PART_MOVE));
+    NFBattleMovePart *pMove = dynamic_cast<NFBattleMovePart *>(GetPart(BATTLE_PART_MOVE));
     CHECK_NULL(pMove);
     return pMove->Teleporting(dstPos, type);
 }

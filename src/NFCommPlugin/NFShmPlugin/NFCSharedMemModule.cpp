@@ -995,7 +995,7 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(int iType, ShmObjHashKey hashKe
                 int hashRet = m_nObjSegSwapCounter[iType].m_pObjSeg->HashInsert(hashKey, iObjId);
                 if (hashRet < 0)
                 {
-                    NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID);
+                    NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{} UsedCount:{} AllCount:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
                     m_nObjSegSwapCounter[iType].m_pDestroyFn(m_pObjPluginManager, pObj);
                     pObj = NULL;
                     NF_ASSERT(false);
@@ -1005,23 +1005,23 @@ NFShmObj *NFCSharedMemModule::CreateObjByHashKey(int iType, ShmObjHashKey hashKe
                     pObj->SetHashKey(hashKey);
                 }
 
-                NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Success! hashKey:{} type:{} className:{} GlobalID:{} objId:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID, iObjId);
+                NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Success! hashKey:{} type:{} className:{} GlobalID:{} objId:{} UsedCount:{} AllCount:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID, iObjId, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
             }
             else
             {
-                NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID);
+                NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{} UsedCount:{} AllCount:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
             }
         }
         else
         {
-            NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID);
+            NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} GlobalID:{} UsedCount:{} AllCount:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, iGlobalID, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
             m_nObjSegSwapCounter[iType].m_pDestroyFn(m_pObjPluginManager, pObj);
             pObj = NULL;
             NF_ASSERT(false);
         }
     }
     else {
-        NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName);
+        NFLogDebug(NF_LOG_SYSTEMLOG, hashKey, "CreateObjByHashKey Fail! hashKey:{} type:{} className:{} UsedCount:{} AllCount:{}", hashKey, iType, m_nObjSegSwapCounter[iType].m_szClassName, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
     }
 
     return pObj;

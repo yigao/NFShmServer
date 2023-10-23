@@ -22,7 +22,7 @@
 
 class NFScene;
 
-class NFMovePart : public NFBattlePart
+class NFBattleMovePart : public NFBattlePart
 {
     enum
     {
@@ -33,9 +33,9 @@ class NFMovePart : public NFBattlePart
         INTERVAL_LOAD_MAP_TIMEOUT = 20000, //加载地图超时时间
     };
 public:
-    NFMovePart();
+    NFBattleMovePart();
 
-    virtual ~NFMovePart();
+    virtual ~NFBattleMovePart();
 
     int CreateInit();
 
@@ -182,5 +182,5 @@ private:
 public:
     int m_timerIdMove;
     int m_timerIdLoadMapTimeout;
-DECLARE_IDCREATE(NFMovePart)
+DECLARE_IDCREATE(NFBattleMovePart)
 };

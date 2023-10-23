@@ -72,23 +72,23 @@ int NFMapMgr::LoadConfig()
     for (int i = 0; i < (int) arrayMap.size(); i++)
     {
         auto &info = arrayMap[i];
-        NFSTLMap* pMap = CreateMap(info.m_mapid);
+        NFMap* pMap = CreateMap(info.m_mapid);
         CHECK_EXPR_ASSERT(pMap, -1, "CreateMap Failed, mapId:{}", info.m_mapid);
     }
     return 0;
 }
 
-NFSTLMap *NFMapMgr::GetMap(uint64_t mapId)
+NFMap *NFMapMgr::GetMap(uint64_t mapId)
 {
-    return dynamic_cast<NFSTLMap *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_GAME_MAP_ID, mapId));
+    return dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->GetObjByHashKey(EOT_GAME_MAP_ID, mapId));
 }
 
-NFSTLMap *NFMapMgr::CreateMap(uint64_t mapId)
+NFMap *NFMapMgr::CreateMap(uint64_t mapId)
 {
-    NFSTLMap *pMap = GetMap(mapId);
+    NFMap *pMap = GetMap(mapId);
     CHECK_EXPR(pMap == NULL, NULL, "CreateMap Failed, map exist, mapId:{}", mapId);
 
-    pMap = dynamic_cast<NFSTLMap *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_GAME_MAP_ID, mapId));
+    pMap = dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->CreateObjByHashKey(EOT_GAME_MAP_ID, mapId));
     CHECK_EXPR(pMap, NULL, "Create Map Obj Failed, mapId:{}", mapId);
 
     int iRet = pMap->Init(mapId);
@@ -103,7 +103,7 @@ NFSTLMap *NFMapMgr::CreateMap(uint64_t mapId)
     return pMap;
 }
 
-int NFMapMgr::DeleteMap(NFSTLMap *pMap)
+int NFMapMgr::DeleteMap(NFMap *pMap)
 {
     CHECK_NULL(pMap);
 
@@ -123,7 +123,7 @@ int NFMapMgr::ClearAllMap()
 
 NFPoint3<float> NFMapMgr::RandPosAroundPos(uint64_t mapId, const NFPoint3<float> &pos, uint32_t nRadius)
 {
-    NFSTLMap *pMap = GetMap(mapId);
+    NFMap *pMap = GetMap(mapId);
     if (pMap)
     {
         int32_t nDeltaX = NFRandInt((int32_t)0, (int32_t)nRadius) * (NFRandInt(0, 100) % 2 == 0 ? 1 : -1);

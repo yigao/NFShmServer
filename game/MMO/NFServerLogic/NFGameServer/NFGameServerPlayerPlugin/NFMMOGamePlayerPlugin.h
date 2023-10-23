@@ -14,10 +14,10 @@
 #include <string>
 
 //////////////////////////////////////////////////////////////////////////
-class NFBattlePlugin : public NFIPlugin
+class NFMMOGamePlayerPlugin : public NFIPlugin
 {
 public:
-	explicit NFBattlePlugin(NFIPluginManager* p):NFIPlugin(p)
+	explicit NFMMOGamePlayerPlugin(NFIPluginManager* p): NFIPlugin(p)
 	{
 	}
 

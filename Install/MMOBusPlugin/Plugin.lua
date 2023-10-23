@@ -61,6 +61,7 @@ LoadPlugin =
 			"NFMMOLogicPlayerPlugin",
 			"NFMMOSnsPlayerPlugin",
 			"NFMMOMatchPlayerPlugin",
+			"NFMMOGamePlayerPlugin",
 		};
 
 		ServerType = NF_ST_NONE;
@@ -154,13 +155,13 @@ LoadPlugin =
 			"NFDescStorePlugin",
 		};
 
-
 		ServerPlugins = {
 			"NFGameServerPlugin",
 		};
 
 		WorkPlugins = {
 			"NFMMOCommonPlugin",
+			"NFMMOGamePlayerPlugin",
 		};
 		ServerType = NF_ST_GAME_SERVER;
 	},
