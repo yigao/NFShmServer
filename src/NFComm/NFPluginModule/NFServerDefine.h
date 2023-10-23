@@ -110,7 +110,7 @@ enum NF_SERVER_TYPES
     NF_ST_SNS_SERVER = 11, //SNS服务器
     NF_ST_WEB_SERVER = 12, //Web服务器
     NF_ST_MONITOR_SERVER = 13, //Monitor服务器
-    NF_ST_MATCH_SERVER = 14, //match匹配服务器
+    NF_ST_CENTER_SERVER = 14, //match匹配服务器
     NF_ST_MAX = 15,
 };
 
@@ -151,6 +151,7 @@ enum
     APP_INIT_NEED_STORE_SERVER,
     APP_INIT_NEED_WORLD_SERVER,
     APP_INIT_REGISTER_WORLD_SERVER,
+    APP_INIT_REGISTER_CENTER_SERVER,
 
     //
     APP_INIT_DESC_STORE_LOAD,
@@ -181,7 +182,7 @@ const std::string gArrayServer[NF_ST_MAX] = {
         "SnsServer", //11
         "WebServer", //12
         "MonitorServer", //13
-        "MatchServer", //14
+        "CenterServer", //14
 };
 
 std::string GetServerName(NF_SERVER_TYPES serverId);

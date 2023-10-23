@@ -33,13 +33,24 @@ bool NFCSceneModule::Awake()
     CHECK_EXPR_ASSERT(pConfig, -1, "GetAppConfig Failed, server type:{}", NF_ST_GAME_SERVER);
 
     NFGameConfig::Instance(m_pObjPluginManager)->LoadConfig(m_luaModule);
-    NFMapMgr::Instance(m_pObjPluginManager)->LoadConfig();
 
+    RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_DESC_STORE_LOAD, "GameServer Load Desc Store", APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
+
+    RegisterAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_CENTER_SERVER,
+                                         NF_FORMAT("{} {}", pConfig->ServerName, "Register GameServer Map Info To CenterServer"), APP_INIT_TASK_GROUP_SERVER_REGISTER);
+
+    Subscribe(NF_ST_GAME_SERVER, proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH, proto_ff::NF_EVENT_SERVER_TYPE, APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE,
+              __FUNCTION__);
     return true;
 }
 
 int NFCSceneModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcType, uint64_t nSrcID, const google::protobuf::Message* pMessage)
 {
+    if (nEventID == proto_ff::NF_EVENT_SERVER_TASK_GROUP_FINISH && bySrcType == proto_ff::NF_EVENT_SERVER_TYPE &&
+        nSrcID == APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE)
+    {
+        NFMapMgr::Instance(m_pObjPluginManager)->LoadConfig();
+    }
     return 0;
 }
 

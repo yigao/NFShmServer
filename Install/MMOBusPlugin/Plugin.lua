@@ -51,7 +51,7 @@ LoadPlugin =
 			"NFSnsServerPlugin",
 			"NFLogicServerPlugin",
 			"NFWebServerPlugin",
-			"NFMatchServerPlugin",
+			"NFCenterServerPlugin",
 		};
 
 		WorkPlugins = {
@@ -60,7 +60,7 @@ LoadPlugin =
 			"NFMMOWorldPlayerPlugin",
 			"NFMMOLogicPlayerPlugin",
 			"NFMMOSnsPlayerPlugin",
-			"NFMMOMatchPlayerPlugin",
+			"NFMMOCenterPlayerPlugin",
 			"NFMMOGamePlayerPlugin",
 		};
 
@@ -78,7 +78,7 @@ LoadPlugin =
 			{Server="LogicServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_LOGIC_SERVER..".1", ServerType=NF_ST_LOGIC_SERVER},
 			{Server="SnsServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_SNS_SERVER..".1", ServerType=NF_ST_SNS_SERVER},
 			{Server="WebServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_WEB_SERVER..".1", ServerType=NF_ST_WEB_SERVER},
-			{Server="MatchServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_MATCH_SERVER..".1", ServerType=NF_ST_MATCH_SERVER},
+			{Server="CenterServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_CENTER_SERVER..".1", ServerType=NF_ST_CENTER_SERVER},
 			--{Server="MonitorServer", ID=NF_ST_WORLD_ID.."."..NF_ST_ZONE_ID.."."..NF_ST_MONITOR_SERVER..".1", ServerType=NF_ST_MONITOR_SERVER},
 		};
 	},
@@ -356,7 +356,7 @@ LoadPlugin =
 		ServerType = NF_ST_MONITOR_SERVER;
 	},
 
-	MatchServer = {
+	CenterServer = {
 		FramePlugins = {
 			-------------------------
 			-----基础框架引擎-------------
@@ -370,11 +370,11 @@ LoadPlugin =
 
 
 		ServerPlugins = {
-			"NFMatchServerPlugin",
+			"NFCenterServerPlugin",
 		};
 
 		WorkPlugins = {
-		    "NFMMOMatchPlayerPlugin",
+		    "NFMMOCenterPlayerPlugin",
 		};
 		ServerType = NF_ST_SNS_SERVER;
 	},

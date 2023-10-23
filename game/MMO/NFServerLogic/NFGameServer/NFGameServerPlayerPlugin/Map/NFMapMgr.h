@@ -20,7 +20,7 @@
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-#define GAME_SERVER_MAX_BATTLE_MAP_SIZE 200
+#define GAME_SERVER_MAX_BATTLE_MAP_SIZE 10
 
 class NFMap;
 class NFMapMgr : public NFShmObj

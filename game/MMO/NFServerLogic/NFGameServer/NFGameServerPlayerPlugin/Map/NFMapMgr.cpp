@@ -13,6 +13,7 @@
 #include "NFMap.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFGameConfig.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFMapMgr, EOT_GAME_MAP_MGR_ID, NFShmObj)
 
@@ -68,12 +69,12 @@ int NFMapMgr::LoadConfig()
 {
     FindModule<NFISharedMemModule>()->ClearAllObj(EOT_GAME_MAP_ID);
     CreateInit();
-    auto &arrayMap = MapMapDesc::Instance(m_pObjPluginManager)->GetResDesc();
-    for (int i = 0; i < (int) arrayMap.size(); i++)
+    auto pGameConfig = NFGameConfig::Instance(m_pObjPluginManager)->GetConfig();
+    for (int i = 0; i < (int) pGameConfig->map.size(); i++)
     {
-        auto &info = arrayMap[i];
-        NFMap* pMap = CreateMap(info.m_mapid);
-        CHECK_EXPR_ASSERT(pMap, -1, "CreateMap Failed, mapId:{}", info.m_mapid);
+        uint32_t mapId = pGameConfig->map[i];
+        NFMap* pMap = CreateMap(mapId);
+        CHECK_EXPR_ASSERT(pMap, -1, "CreateMap Failed, mapId:{}", mapId);
     }
     return 0;
 }
