@@ -10,8 +10,8 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "NFComm/NFCore/NFSTLMapEx.hpp"
-#include "NFComm/NFCore/NFSTLMap.hpp"
+#include "NFComm/NFCore/NFCommMapEx.hpp"
+#include "NFComm/NFCore/NFCommMap.hpp"
 #include "NFServer/NFCommHead/NFCommLogicHead.h"
 #include "NFComm/NFPluginModule/NFIDynamicModule.h"
 #include "NFComm/NFPluginModule/NFSystemInfo.h"

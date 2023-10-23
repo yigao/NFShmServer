@@ -78,7 +78,7 @@ ServerLinkData::CreateServerByServerId(uint32_t busId, NF_SERVER_TYPES busServer
             auto pServerMap = mDBStoreServerMap.GetElement(dbName);
             if (!pServerMap)
             {
-                pServerMap = NF_SHARE_PTR<NFConsistentHashMapEx<uint32_t, NFServerData>>(NF_NEW NFConsistentHashMapEx<uint32_t, NFServerData>());
+                pServerMap = NF_SHARE_PTR<NFConsistentCommMapEx<uint32_t, NFServerData>>(NF_NEW NFConsistentCommMapEx<uint32_t, NFServerData>());
                 mDBStoreServerMap.AddElement(dbName, pServerMap);
             }
 

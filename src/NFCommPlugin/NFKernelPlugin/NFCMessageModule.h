@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFINetModule.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
-#include "NFComm/NFCore/NFSTLMapEx.hpp"
+#include "NFComm/NFCore/NFCommMapEx.hpp"
 #include "NFServerLinkData.h"
 #include <stdint.h>
 #include <unordered_set>

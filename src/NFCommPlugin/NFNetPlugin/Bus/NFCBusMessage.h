@@ -16,7 +16,7 @@
 #include "../NFINetMessage.h"
 #include "../NFNetDefine.h"
 #include "NFComm/NFCore/NFBuffer.h"
-#include "NFComm/NFCore/NFSTLMapEx.hpp"
+#include "NFComm/NFCore/NFCommMapEx.hpp"
 #include "NFComm/NFCore/NFConcurrentQueue.h"
 #include "NFIBusConnection.h"
 #include <map>
@@ -90,6 +90,6 @@ public:
 
     virtual void CheckServerHeartBeat();
 private:
-    NFSTLMapEx<uint64_t, NFIBusConnection> m_busConnectMap;
+    NFCommMapEx<uint64_t, NFIBusConnection> m_busConnectMap;
     NF_SHARE_PTR<NFIBusConnection> m_bindConnect;
 };

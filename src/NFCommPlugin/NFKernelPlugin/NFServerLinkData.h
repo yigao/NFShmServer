@@ -12,7 +12,7 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFINetModule.h"
 #include "NFComm/NFPluginModule/NFIHttpHandle.h"
-#include "NFComm/NFCore/NFSTLMapEx.hpp"
+#include "NFComm/NFCore/NFCommMapEx.hpp"
 #include <stdint.h>
 
 struct NetRpcService
@@ -210,10 +210,10 @@ struct ServerLinkData {
         mServerListMap.resize(NF_ST_MAX);
     }
 
-    NFSTLMapEx<uint32_t, NFServerData> mServerMap;
+    NFCommMapEx<uint32_t, NFServerData> mServerMap;
     std::vector<std::vector<NF_SHARE_PTR<NFServerData>>> mServerList;
-    std::vector<NFConsistentHashMapEx<uint32_t, NFServerData>> mServerListMap;
-    NFSTLMapEx<std::string, NFConsistentHashMapEx<uint32_t, NFServerData>> mDBStoreServerMap;
+    std::vector<NFConsistentCommMapEx<uint32_t, NFServerData>> mServerListMap;
+    NFCommMapEx<std::string, NFConsistentCommMapEx<uint32_t, NFServerData>> mDBStoreServerMap;
     std::map<uint64_t, uint32_t> mLinkIdToBusIdMap; //linkid -- busid
     NFServerData m_routeData;
     NFServerData m_masterServerData;

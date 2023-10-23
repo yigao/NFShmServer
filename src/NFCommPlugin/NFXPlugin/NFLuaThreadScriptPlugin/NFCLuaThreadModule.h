@@ -18,7 +18,7 @@
 #include "NFComm/NFPluginModule/NFITaskModule.h"
 #include "NFComm/NFPluginModule/NFTask.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFCore/NFSTLMapEx.hpp"
+#include "NFComm/NFCore/NFCommMapEx.hpp"
 
 #include <vector>
 #include <atomic>

@@ -40,5 +40,6 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
+public:
 };
 

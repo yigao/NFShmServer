@@ -11,7 +11,7 @@
 #include "NFServerComm/NFServerCommon/NFIProxyServerModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
 #include <NFComm/NFPluginModule/NFEventObj.h>
-#include "NFComm/NFCore/NFSTLMap.hpp"
+#include "NFComm/NFCore/NFCommMap.hpp"
 
 
 class NFCProxyServerModule : public NFIProxyServerModule

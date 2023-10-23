@@ -11,7 +11,7 @@
 
 #include "NFServerComm/NFServerCommon/NFIProxyClientModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "NFComm/NFCore/NFSTLMap.hpp"
+#include "NFComm/NFCore/NFCommMap.hpp"
 
 class NFCProxyClientModule : public NFIProxyClientModule
 {

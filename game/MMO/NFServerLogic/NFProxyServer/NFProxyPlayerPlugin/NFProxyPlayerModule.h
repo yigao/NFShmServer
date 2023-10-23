@@ -132,7 +132,7 @@ public:
     int OnRpcServicePlayerLeaveGame(proto_ff::NotifyGateLeaveGame2 &request, proto_ff::EmptyMessage &respone);
 
 private:
-    NFSTLMapEx<uint64_t, NFProxySession> mSessionMap; //unlink -- NFProxySession
-    NFSTLMapEx<uint64_t, NFProxyAccount> mAccountMap; //uid -- NFProxyPlayerInfo
+    NFCommMapEx<uint64_t, NFProxySession> mSessionMap; //unlink -- NFProxySession
+    NFCommMapEx<uint64_t, NFProxyAccount> mAccountMap; //uid -- NFProxyPlayerInfo
     NFPackageConfig m_packetConfig;
 };

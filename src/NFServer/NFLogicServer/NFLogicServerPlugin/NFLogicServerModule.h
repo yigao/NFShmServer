@@ -10,8 +10,8 @@
 #pragma once
 
 #include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "NFComm/NFCore/NFSTLMapEx.hpp"
-#include "NFComm/NFCore/NFSTLMap.hpp"
+#include "NFComm/NFCore/NFCommMapEx.hpp"
+#include "NFComm/NFCore/NFCommMap.hpp"
 #include "NFServerComm/NFServerCommon/NFILogicServerModule.h"
 
 class NFCLogicServerModule : public NFILogicServerModule

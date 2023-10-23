@@ -12,19 +12,19 @@
 #include <string>
 #include <iostream>
 #include <typeinfo>
-#include "NFSTLMapEx.hpp"
+#include "NFCommMapEx.hpp"
 
 template <typename T, typename TD>
-class NFSTLMap
+class NFCommMap
 {
 public:
 	typedef std::map<T, TD*> NFMapOBJECT;
 
-	NFSTLMap()
+	NFCommMap()
 	{
 	};
 
-	virtual ~NFSTLMap()
+	virtual ~NFCommMap()
 	{
 		//mObjectList.clear();
 		//DeleteAllElement();
