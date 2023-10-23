@@ -335,7 +335,7 @@ bool MapDescEx::IsDynamic(int64_t mapId)
     auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
     if (pMapCfg)
     {
-        return (1 == pMapCfg->m_maptype);
+        return (1 == pMapCfg->m_isdyn);
     }
 
     return false;

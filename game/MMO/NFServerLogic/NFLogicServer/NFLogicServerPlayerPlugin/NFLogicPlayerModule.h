@@ -12,7 +12,6 @@
 #include "Player/NFPlayerMgr.h"
 #include "NFLogicCommon/NFMMODynamicModule.h"
 
-
 class NFCLogicPlayerModule : public NFMMODynamicModule
 {
 public:

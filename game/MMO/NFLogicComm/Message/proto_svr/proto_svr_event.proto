@@ -1,0 +1,103 @@
+package proto_ff;
+
+// calm 自定义的fieldoption都在该文件中
+import "yd_fieldoptions.proto";
+import "Com.proto";
+
+message FunctionUnlockEvent
+{
+  optional uint64 functionId = 1;
+}
+
+message PlayerLeveUpEvent
+{
+  optional uint64 cid = 1;  //玩家cid
+  optional uint32 level = 2;  //升级到的等级
+}
+
+message ItemUseEvent
+{
+  optional uint64 itemId = 1;
+  optional int32 num = 2;
+}
+
+//接取任务
+message AcceptTaskEvent
+{
+  optional uint64 taskId = 1;
+  optional uint64 cid = 2;
+  optional uint32 taskType = 3;
+}
+
+//完成任务
+message FinishTaskEvent
+{
+  optional uint64 taskId = 1;
+  optional uint64 cid = 2;
+  optional uint32 taskType = 3;
+  optional int32 mapGroup = 4;
+}
+
+//离开场景
+message LeaveSceneEvent
+{
+  optional uint64 cid = 1;      //生物cid
+  optional uint64 sceneid = 2;
+  optional uint64 mapid = 3;
+};
+
+//改变场景事件
+message ChgSceneEvent
+{
+  optional uint64 cid = 1;			//玩家cid
+  optional bool enterflag = 2;		//是否是进入场景
+};
+
+//进入场景事件
+message EnterSceneEvent
+{
+  optional uint64 cid = 1;      //生物id
+  optional uint32 uid = 2;
+  optional uint64 clientid = 3;
+  optional uint64 mapid = 4;	   //地图ID
+  optional int32 x = 5;
+  optional int32 y = 6;
+  optional int32 z = 7;
+  //optional STransParam transParam;	//切换地图参数
+};
+
+//同步位置
+message SyncScenePos
+{
+  optional uint64 map_id = 1;
+  optional uint64 scene_id = 2;
+  optional Vector3PB pos = 3;
+}
+
+//
+message SyncSceneState
+{
+  optional uint32 last_state = 1;
+  optional uint32 cur_state = 2;
+}
+
+message GrowPartActiveEvent
+{
+  optional int32 type = 1;
+  optional int32 id = 2;
+  optional int32 curLv = 3;
+};
+
+message GrowPartLvUpEvent
+{
+  optional int32 type = 1;
+  optional int32 id = 2;
+  optional int32 curLv = 3;
+};
+
+message GrowPartDressEvent
+{
+  optional int32 type = 1;
+  optional int32 id = 2;
+  optional int32 curLv = 3;
+};

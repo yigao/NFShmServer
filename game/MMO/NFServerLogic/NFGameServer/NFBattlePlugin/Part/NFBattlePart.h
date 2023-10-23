@@ -13,11 +13,10 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
-#include "DBProto2.pb.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
+#include "DBProxy2.pb.h"
 
 class NFCreature;
 
@@ -37,7 +36,12 @@ public:
     virtual int Init(const proto_ff::RoleEnterSceneData &data);
 
     virtual int UnInit();
-
+public:
+    /**
+     * @brief 注册要处理的消息
+     * @return
+     */
+    virtual int RegisterMessage();
 public:
     virtual uint32_t GetCurRoleDetailSeq() const;
 public:

@@ -13,21 +13,18 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFGrid.h"
 #include "NFComm/NFShmCore/NFShmOldHashMap.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFLogicCommon/NFSceneDefine.h"
-#include "NFComm/NFShmCore/NFArray.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
-#include "NFLogicCommon/NFComTypeDefine.h"
 #include "NFLogicCommon/NFSkillDefine.h"
 
 #define NF_SCENE_MAX_GRID_NUM 200
 #define NF_SCENE_MAX_CREATURE_NUM 1000
 
-class NFMap;
+class NFSTLMap;
 
 class NFScene : public NFShmObj
 {
@@ -57,7 +54,7 @@ public:
 
     bool IsDynamic() const;
 
-    NFMap *GetMap() const;
+    NFSTLMap *GetMap() const;
 public:
     /**
      * @brief

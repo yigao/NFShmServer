@@ -11,16 +11,19 @@
 #include "Scene/NFGrid.h"
 #include "Scene/NFScene.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "CSPlayer.pb.h"
 #include "ClientServerCmd.pb.h"
-#include "DescStoreEx/NFAttrMgr.h"
 #include "NFLogicCommon/NFEventDefine.h"
-#include "NFLogicCommon/NFGameMath.h"
 #include "Scene/NFSceneMgr.h"
-#include "Event.pb.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFCreatureMgr.h"
 #include "NFBattlePlayer.h"
+#include "NFLogicCommon/NFCharactorDefine.h"
+#include "NFLogicCommon/NFAttrMgr.h"
+#include "Player.pb.h"
+#include "proto_svr_event.pb.h"
+#include "NFLogicCommon/NFLogicCommon.h"
+#include "NFGameCommon/NFComTypeDefine.h"
+#include "NFGameCommon/NFMath.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFCreature, EOT_GAME_CREATURE_ID, NFShmObj)
 
@@ -160,7 +163,7 @@ void NFCreature::SetPos(const NFPoint3<float> &pos)
             proto_ff::SyncScenePos syncPos;
             syncPos.set_map_id(m_mapId);
             syncPos.set_scene_id(m_sceneId);
-            m_pos.ToProto(*syncPos.mutable_pos());
+            NFLogicCommon::NFPoint3ToProto(m_pos, *syncPos.mutable_pos());
             FireLogic(EVENT_SYNC_SCENE_POS, Kind(), GetRoleId(), syncPos);
         }
     }
@@ -943,7 +946,7 @@ void NFCreature::ReplacePVPSeeList(int relation, NFCreature *pCreature, vector<N
             NFCreature *pOther = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
             if (pOther && pOther != pCreature)
             {
-                float otherDict = point2LengthSquare(pCreature->GetPos(), pOther->GetPos());
+                float otherDict = NFMath::NFPoint2LengthSquare(pCreature->GetPos(), pOther->GetPos());
                 if (otherDict > (MAX_CHARACTER_SINGLERANGE_SQUARE / 4.0f))
                 {
                     replace = iter;
@@ -1245,7 +1248,7 @@ void NFCreature::UpdateSeeLst()
             if (pCreature)
             {
                 //这里是人跟怪的视野列表，人和怪以及怪和人是没有视野范围的，所以这里不需要计算距离
-                float dict = point2LengthSquare(GetPos(), pCreature->GetPos());
+                float dict = NFMath::NFPoint2LengthSquare(GetPos(), pCreature->GetPos());
                 if (!ViewFliter(pCreature, dict))
                 {
                     pCreature->GetVisionData().chVisionUnitType = (int8_t) EVisionFlag::ALREADY;
@@ -1288,7 +1291,7 @@ void NFCreature::UpdateSeeLst()
                 pCreature = NFCreatureMgr::Instance(m_pObjPluginManager)->GetCreature(pData->creatureCid);
                 if (pCreature && pCreature->Kind() == CREATURE_PLAYER)
                 {
-                    float dict = point2LengthSquare(GetPos(), pCreature->GetPos());
+                    float dict = NFMath::NFPoint2LengthSquare(GetPos(), pCreature->GetPos());
                     if (!ViewFliter(pCreature, dict))
                     {
                         pCreature->GetVisionData().chVisionUnitType = (int8_t) EVisionFlag::ALREADY;

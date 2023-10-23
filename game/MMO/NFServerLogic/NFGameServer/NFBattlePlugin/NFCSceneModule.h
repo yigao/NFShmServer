@@ -10,9 +10,9 @@
 #pragma once
 
 #include <ServerInternal.pb.h>
-#include "NFComm/NFPluginModule/NFIDynamicModule.h"
+#include "NFLogicCommon/NFMMODynamicModule.h"
 
-class NFCSceneModule : public NFIDynamicModule
+class NFCSceneModule : public NFMMODynamicModule
 {
 public:
     explicit NFCSceneModule(NFIPluginManager *pPluginManager);

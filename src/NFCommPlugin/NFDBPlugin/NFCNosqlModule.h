@@ -2,7 +2,7 @@
 
 #include "NFRedisDriver.h"
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFCore/NFMapEx.hpp"
+#include "NFComm/NFCore/NFSTLMapEx.hpp"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFINosqlModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"

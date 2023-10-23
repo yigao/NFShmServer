@@ -27,6 +27,11 @@ float NFMath::RadianToAngle(float radian)
     return (radian * 180.0f / MMO_PI);
 }
 
+NFPoint3<float> NFMath::AngleToDir(const NFPoint3<float> &pos, float angle)
+{
+    return NFPoint3<float>(pos.x * sinf(angle), 0, pos.z * cosf(angle));
+}
+
 double NFMath::Distance2Dpow2(NFPoint2<float>& from, NFPoint2<float>& to)
 {
     return pow((to.x - from.x), 2) + pow((to.x - from.x), 2);

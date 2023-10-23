@@ -14,8 +14,8 @@
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "NFComm/NFPluginModule/NFIBusModule.h"
-#include "NFComm/NFCore/NFMapEx.hpp"
-#include "NFComm/NFCore/NFMap.hpp"
+#include "NFComm/NFCore/NFSTLMapEx.hpp"
+#include "NFComm/NFCore/NFSTLMap.hpp"
 #include "NFComm/NFCore/NFFileUtility.h"
 #include "NFComm/NFPluginModule/NFCoroutineTask.h"
 #include "NFComm/NFPluginModule/NFIMysqlModule.h"
@@ -30,7 +30,7 @@
 #include <mutex>
 #include <atomic>
 #include "NFComm/NFPluginModule/NFProto/NFXmlMessageCodec.h"
-#include "NFComm/NFCore/NFMapEx.hpp"
+#include "NFComm/NFCore/NFSTLMapEx.hpp"
 #include "NFCommPlugin/NFNetPlugin/NFEmailSender.h"
 #include "NFComm/NFCore/NFConcurrentQueue.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"

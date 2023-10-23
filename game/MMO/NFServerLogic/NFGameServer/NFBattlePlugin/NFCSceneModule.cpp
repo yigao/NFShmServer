@@ -18,7 +18,7 @@
 #include "Creature/NFBattlePlayer.h"
 #include "Creature/NFCreatureMgr.h"
 
-NFCSceneModule::NFCSceneModule(NFIPluginManager *pPluginManager) : NFIDynamicModule(pPluginManager)
+NFCSceneModule::NFCSceneModule(NFIPluginManager *pPluginManager) : NFMMODynamicModule(pPluginManager)
 {
 
 }

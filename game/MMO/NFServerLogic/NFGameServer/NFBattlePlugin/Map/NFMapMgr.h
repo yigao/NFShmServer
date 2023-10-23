@@ -17,11 +17,12 @@
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFComm/NFShmStl/NFShmString.h"
 #include "NFNavMeshInfo.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
+#include "NFComm/NFShmStl/NFShmHashMap.h"
+#include "NFLogicCommon/NFLogicCommon.h"
 
 #define GAME_SERVER_MAX_BATTLE_MAP_SIZE 100
 
-class NFMap;
+class NFSTLMap;
 class NFMapMgr : public NFShmObj
 {
 public:
@@ -69,21 +70,21 @@ public:
      * @param mapId
      * @return
      */
-    NFMap *GetMap(uint64_t mapId);
+    NFSTLMap *GetMap(uint64_t mapId);
 
     /**
      * @brief
      * @param mapId
      * @return
      */
-    NFMap *CreateMap(uint64_t mapId);
+    NFSTLMap *CreateMap(uint64_t mapId);
 
     /**
      * @brief
      * @param pMap
      * @return
      */
-    int DeleteMap(NFMap *pMap);
+    int DeleteMap(NFSTLMap *pMap);
 
     /**
      * @brief
@@ -91,6 +92,6 @@ public:
      */
     int ClearAllMap();
 private:
-    NFShmOldHashMap<NFShmString<MAP_NAME_MAX_LENGHT>, NFNavMeshInfo, GAME_SERVER_MAX_BATTLE_MAP_SIZE> m_mapNavMesh;
+    NFShmHashMap<NFCommonStr, NFNavMeshInfo, GAME_SERVER_MAX_BATTLE_MAP_SIZE> m_mapNavMesh;
 DECLARE_IDCREATE(NFMapMgr)
 };

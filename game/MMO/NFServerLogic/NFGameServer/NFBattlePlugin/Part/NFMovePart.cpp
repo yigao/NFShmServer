@@ -13,19 +13,19 @@
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 #include "Creature/NFCreature.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFLogicCommon/NFEventDefine.h"
-#include "NFLogicCommon/NFGameMath.h"
 #include "Map/NFMap.h"
 #include "Map/NFMapMgr.h"
 #include "Scene/NFSceneMgr.h"
 #include "Scene/NFScene.h"
 #include "Scene.pb.h"
-#include "DescStoreEx/NFMapDescStoreEx.h"
 #include "DescStore/AreaAreaDesc.h"
 #include "Creature/NFBattlePlayer.h"
 #include "ClientServer.pb.h"
+#include "NFLogicCommon/NFEventDefine.h"
+#include "NFGameCommon/NFMath.h"
+#include "DescStore/MapMapDesc.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_NFMovePart_ID, NFBattlePart)
+IMPLEMENT_IDCREATE_WITHTYPE(NFMovePart, EOT_NFBattlePart_ID+BATTLE_PART_MOVE, NFBattlePart)
 
 NFMovePart::NFMovePart()
 {
@@ -202,7 +202,7 @@ int NFMovePart::ClientMoveReq(uint32_t msgId, NFDataPackage &packet)
         //停止移动的时候校验一次坐标
         NFPoint3<float> nearpos = pos;
         NFPoint3<float> rightpos = m_lastrightpos;
-        NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+        NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
         if (nullptr != pMap)
         {
             NFPoint3<float> tempos;
@@ -329,7 +329,7 @@ int NFMovePart::TransScene(uint64_t sceneId, const NFPoint3<float> &dstPos, uint
             {
                 //传送同一个场景，直接设置坐标
                 //
-                NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pScene->GetMapId());
+                NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pScene->GetMapId());
                 if (nullptr == pMap)
                 {
                     NFLogError(NF_LOG_SYSTEMLOG, pMaster->Cid(),
@@ -407,7 +407,7 @@ NFMovePart::Teleporting(const NFPoint3<float> dstPos, int32_t type /*= (int32_t)
     if (checkpos)
     {
         uint64_t mapId = pMaster->GetMapId();
-        NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+        NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
         if (nullptr != pMap)
         {
             if (!pMap->FindNearestPos(pos.x, pos.z, pos.y, &pos.x, &pos.z, &pos.y, nullptr))
@@ -656,7 +656,7 @@ int NFMovePart::MoveBySimulate(int64_t intertick, bool stopFlag /*= false*/)
         NFPoint3<float> zerospeed(0.0f, 0.0f, 0.0f);
         NFPoint3<float> newpos = curpos;
         uint64_t mapid = pMaster->GetMapId();
-        NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapid);
+        NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapid);
         if (nullptr != pMap)
         {
             if (!pMap->FindNearestPos(curpos.x, curpos.z, curpos.y, &curpos.x, &curpos.z, &curpos.y, nullptr))
@@ -790,7 +790,7 @@ int NFMovePart::MoveByPath(int64_t intertick, bool stopFlag)
 //根据计算单位朝向
 NFPoint3<float> NFMovePart::CalDotByDir(const NFPoint3<float> &dir)
 {
-    float flen = CarmackSqrt((dir.x * dir.x + dir.z * dir.z));
+    float flen = NFMath::CarmackSqrt((dir.x * dir.x + dir.z * dir.z));
     NFPoint3<float> dot; //新的朝向点
     if (flen > EPS)
     {
@@ -969,7 +969,7 @@ int NFMovePart::MoveTo(const NFPoint3<float> &dstPos)
         //当前坐标已经在目标点了
         NFLogError(NF_LOG_SYSTEMLOG, cid,
                    "MovePart::MoveTo already in position cid={}, kind:{}, cfgid:{}, scene:{}, map:{}, speed={},distance={}", cid, pMaster->Kind(),
-                   pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), pMaster->GetSpeed(), point3Length(srcPos, dstPos));
+                   pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), pMaster->GetSpeed(), NFMath::NFPoint3Length(srcPos, dstPos));
         return 0;
     }
     //
@@ -977,12 +977,12 @@ int NFMovePart::MoveTo(const NFPoint3<float> &dstPos)
     {
         NFLogError(NF_LOG_SYSTEMLOG, cid, "MovePart::MoveTo can not move cid={}, kind:{}, cfgid:{}, scene:{}, map:{}, speed={},distance={}", cid,
                    pMaster->Kind(), pMaster->GetCfgId(), pMaster->GetSceneId(), pMaster->GetMapId(), pMaster->GetSpeed(),
-                   point3Length(srcPos, dstPos));
+                   NFMath::NFPoint3Length(srcPos, dstPos));
         return proto_ff::RET_FAIL;
     }
 
     //
-    NFMap *map = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pMaster->GetMapId());
+    NFSTLMap *map = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(pMaster->GetMapId());
     if (!map)
     {
         NFLogError(NF_LOG_SYSTEMLOG, cid, "MovePart::MoveTo can not find map cfg cid={}, kind:{}, cfgid:{}, scene:{}, map:{}", cid,
@@ -1001,7 +1001,7 @@ int NFMovePart::MoveTo(const NFPoint3<float> &dstPos)
         NFLogError(NF_LOG_SYSTEMLOG, cid,
                    "MovePart::MoveTo GetNavPath failed...cid={},mapid-={},sceneid={},cid={},cfgid:{}, speed={},distance={},startpos:{},{},{}  dstpos:{},{},{} ",
                    cid, pMaster->GetMapId(), pMaster->GetSceneId(), pMaster->Cid(), pMaster->GetCfgId(), pMaster->GetSpeed(),
-                   point3Length(startPos, dstPos), startPos.x, startPos.y, startPos.z, dstPos.x, dstPos.y, dstPos.z);
+                   NFMath::NFPoint3Length(startPos, dstPos), startPos.x, startPos.y, startPos.z, dstPos.x, dstPos.y, dstPos.z);
         return proto_ff::RET_FAIL;
     }
 

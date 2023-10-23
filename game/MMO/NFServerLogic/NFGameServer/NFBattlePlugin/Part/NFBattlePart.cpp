@@ -11,6 +11,8 @@
 #include "Creature/NFCreature.h"
 #include "Creature/NFCreatureMgr.h"
 #include "NFBattlePartModule.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "DBProxy2.pb.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePart, EOT_NFBattlePart_ID, NFShmObj)
 
@@ -55,6 +57,11 @@ int NFBattlePart::Init(const proto_ff::RoleEnterSceneData &data)
 }
 
 int NFBattlePart::UnInit()
+{
+    return 0;
+}
+
+int NFBattlePart::RegisterMessage()
 {
     return 0;
 }

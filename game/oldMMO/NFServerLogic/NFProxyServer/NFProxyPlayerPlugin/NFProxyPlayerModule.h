@@ -12,7 +12,7 @@
 #include "NFPackageConfig.h"
 #include "NFServerComm/NFServerCommon/NFIProxyPlayerModule.h"
 #include "NFComm/NFPluginModule/NFServerDefine.h"
-#include "NFComm/NFCore/NFMap.hpp"
+#include "NFComm/NFCore/NFSTLMap.hpp"
 #include "NFProxySession.h"
 #include "NFProxyPlayerInfo.h"
 #include <ComDefine.pb.h>

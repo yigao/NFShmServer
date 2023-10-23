@@ -13,10 +13,9 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
-#include "NFLogicCommon/NFRoleDefine.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFLogicCommon/NFCharactorDefine.h"
 
 #define MAX_PATH_POINT_COUNT 50
 

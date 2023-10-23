@@ -5,6 +5,8 @@
 #pragma once
 
 #include "NFComm/NFShmStl/NFShmString.h"
+#include "NFGameCommon/NFPoint3.h"
+#include "Com.pb.h"
 
 #define NF_SERVER_COMMON_MAX_STRING_32 32
 #define NF_SERVER_COMMON_MAX_STRING_64 64
@@ -49,12 +51,17 @@ typedef NFShmString<NF_SERVER_COMMON_USE_STRING> NFCommonStr;
 
 #define LOGIC_SERVER_SAVE_PLAYER_TO_DB_TIME 60
 
+#define GAME_SERVER_PLAYER_CLIENT_DISCONNECT_WAITTIME  (30)
+
 class NFLogicCommon {
 public:
     NFLogicCommon();
     virtual ~NFLogicCommon();
 public:
     static std::string GetLoginToken(const std::string& account, uint64_t userId, uint64_t time, const std::string& specialStr);
+
+    static void NFPoint3ToProto(const NFPoint3<float>& pos, proto_ff::Vector3PB& proto);
+    static void NFPoint3FromProto(NFPoint3<float>& pos, const proto_ff::Vector3PB& proto);
 };
 
 

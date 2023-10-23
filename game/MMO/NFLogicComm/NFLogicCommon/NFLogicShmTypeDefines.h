@@ -139,6 +139,13 @@ typedef enum
     EOT_GAME_MAP_ID,
     EOT_GAME_MAP_MGR_ID,
     EOT_GAME_CREATURE_ID,
+    EOT_GAME_SCENE_MGR_ID,
+    EOT_GAME_CREATURE_MGR_ID,
+    EOT_GAME_NFBattlePlayer_ID,
+    ////////////////////////////sns part server/////////////////////////////
+    EOT_NFBattlePart_ID,
+    EOT_NFBattlePart_MAX_ID = EOT_NFBattlePart_ID+BATTLE_PART_MAX,
+    ////////////////////////////sns server/////////////////////////////
 	///////////////////////////////////////////////////////////
 	EOT_SF_END_ID = EOT_SERVER_FRAME_END_ID,
 } EN_SERVERFRAME_SHMOBJ_TYPE;

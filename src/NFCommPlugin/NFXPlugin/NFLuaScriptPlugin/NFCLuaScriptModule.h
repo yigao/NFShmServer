@@ -16,7 +16,7 @@
 #include "NFComm/NFCore/NFStringUtility.h"
 #include "NFComm/NFCore/NFCommon.h"
 
-#include "NFComm/NFCore/NFMapEx.hpp"
+#include "NFComm/NFCore/NFSTLMapEx.hpp"
 #include "NFCommPlugin/NFKernelPlugin/NFServerLinkData.h"
 #include "NFComm/NFPluginModule/NFObjectPool.hpp"
 #include "NFComm/NFPluginModule/NFEventObj.h"

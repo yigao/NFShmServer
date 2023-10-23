@@ -11,6 +11,7 @@
 #include "NFCreature.h"
 #include "NFBattlePlayer.h"
 #include "NFComm/NFCore/NFTime.h"
+#include "NFLogicCommon/NFCharactorDefine.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFCreatureMgr, EOT_GAME_CREATURE_MGR_ID, NFShmObj)
 
@@ -125,7 +126,7 @@ int NFCreatureMgr::Update()
                 NFBattlePlayer* pPlayer = dynamic_cast<NFBattlePlayer*>(pCreature);
                 if (pPlayer)
                 {
-                    if (pPlayer->GetPlayerStatus() == PLAYER_STATUS_DEAD)
+                    if (pPlayer->GetPlayerStatus() == proto_ff::PLAYER_STATUS_DEAD)
                     {
                         willRemove.push_back(pPlayer->Cid());
                     }

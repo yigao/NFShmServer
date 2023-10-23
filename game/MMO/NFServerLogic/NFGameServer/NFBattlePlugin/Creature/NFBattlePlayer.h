@@ -13,16 +13,14 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFCreature.h"
-#include "DBProto2.pb.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "Com_s.h"
-#include "NFLogicCommon/NFLogicCommonDefine.h"
 #include "Move.pb.h"
-#include "CSPlayer.pb.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "Player.pb.h"
+#include "CommonClass.pb.h"
 
 class NFBattlePlayer : public NFCreature, public NFSeqOP
 {
@@ -75,9 +73,9 @@ public:
 
     virtual uint32_t GetLogicId() { return m_logicId; }
 
-    PLAYER_STATUS GetPlayerStatus() const { return m_playerStatus; }
+    proto_ff::enPlayerStatus GetPlayerStatus() const { return m_playerStatus; }
 
-    void SetPlayerStatus(PLAYER_STATUS status) { m_playerStatus = status; }
+    void SetPlayerStatus(proto_ff::enPlayerStatus status) { m_playerStatus = status; }
 
     /**
      * @brief
@@ -220,7 +218,7 @@ public:
     /**
      * @brief
      */
-    PLAYER_STATUS m_playerStatus;
+    proto_ff::enPlayerStatus m_playerStatus;
 
     /**
      * @brief

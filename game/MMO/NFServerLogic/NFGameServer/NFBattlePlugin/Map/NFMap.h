@@ -25,12 +25,11 @@
 #include "NFLogicCommon/NFCharactorDefine.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-class NFMap : public NFShmObj
-{
+class NFSTLMap : public NFShmObj {
 public:
-    NFMap();
+    NFSTLMap();
 
-    virtual ~NFMap();
+    virtual ~NFSTLMap();
 
     int CreateInit();
 
@@ -43,24 +42,29 @@ public:
 
     uint32_t GetHeight() const;
 
+    uint32_t GetMapType() const;
+
+    uint32_t GetMapSubType() const;
+
     bool IsDynamic() const;
 
+    bool IsMainCity() const;
 public:
     /**
      * @brief
      * @return
      */
-    const proto_ff_s::E_MapMap_s *GetMapCfg();
+    const proto_ff_s::E_MapMap_s *GetMapCfg() const;
 
     /**
      * @brief
      * @param srcPos
      * @param dstPos
      * @param path
-     * @param flgs
+     * @param flags
      * @return
      */
-    int GetNavPath(const float *srcPos, const float *dstPos, VEC_POINT3 &path, VEC_FLAGS &flgs);
+    int GetNavPath(const float *srcPos, const float *dstPos, VEC_POINT3 &path, VEC_FLAGS &flags);
 
     /**
      * @brief
@@ -93,7 +97,8 @@ public:
      * @param rsPolyRef
      * @return
      */
-    int FindNearestPos(float posX, float posY, float posH, float *rsPosX, float *rsPosY, float *rsPosH, dtPolyRef *rsPolyRef);
+    int FindNearestPos(float posX, float posY, float posH, float *rsPosX, float *rsPosY, float *rsPosH,
+                       dtPolyRef *rsPolyRef);
 
     /**
      * @brief
@@ -191,9 +196,6 @@ protected:
 
 protected:
     uint64_t m_mapId;
-    uint32_t m_width;
-    uint32_t m_height;
-    bool m_isDynamic;
 protected:
     dtNavMesh *m_navMesh;
     dtNavMeshQuery *m_navMeshQuery;
@@ -201,5 +203,5 @@ protected:
     float m_straightPathPoints[proto_ff::MAX_NAV_POINT_VALUE];
     NFCommonStr m_name;
     dtQueryFilter *m_normalFilter;
-DECLARE_IDCREATE(NFMap)
+DECLARE_IDCREATE(NFSTLMap)
 };

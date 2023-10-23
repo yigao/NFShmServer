@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFPath.h"
-#include "NFLogicCommon/NFGameMath.h"
+#include "NFGameCommon/NFMath.h"
 
 NFPath::NFPath()
 {
@@ -94,7 +94,7 @@ bool NFPath::MapPathDistanceToPoint(float setpDistance, NFPoint3<float> &retPos)
     //
     for (; m_nextIndex < m_path.size(); m_nextIndex++)
     {
-        segmentLen = point3Length(m_path[m_nextIndex], m_path[m_nextIndex - 1]);
+        segmentLen = NFMath::NFPoint3Length(m_path[m_nextIndex], m_path[m_nextIndex - 1]);
         if (segmentLen < remaining)
         {
             remaining -= segmentLen;

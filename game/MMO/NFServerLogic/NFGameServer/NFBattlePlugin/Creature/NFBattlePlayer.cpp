@@ -8,16 +8,14 @@
 // -------------------------------------------------------------------------
 
 #include "NFBattlePlayer.h"
-#include "DescStoreEx/NFAttrMgr.h"
 #include "Part/NFMovePart.h"
 #include "Map/NFMapMgr.h"
 #include "Map/NFMap.h"
 #include "DescStore/MapMapDesc.h"
 #include "NFLogicCommon/NFEventDefine.h"
-#include "Event.pb.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "ClientServerCmd.pb.h"
-#include "CSPlayer.pb.h"
+#include "NFLogicCommon/NFAttrMgr.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePlayer, EOT_GAME_NFBattlePlayer_ID, NFCreature)
 
@@ -39,7 +37,7 @@ NFBattlePlayer::~NFBattlePlayer()
 
 int NFBattlePlayer::CreateInit()
 {
-    m_playerStatus = PLAYER_STATUS_NONE;
+    m_playerStatus = proto_ff::PLAYER_STATUS_NONE;
     m_lastDiconnectTime = 0;
     m_createTime = NFTime::Now().UnixSec();
     m_lastLogoutTime = 0;
@@ -124,21 +122,7 @@ int NFBattlePlayer::Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, c
 
 NFBattlePart *NFBattlePlayer::CreatePart(uint32_t partType, const ::proto_ff::RoleEnterSceneData &data)
 {
-    NFBattlePart *pPart = NULL;
-    switch (partType)
-    {
-        case BATTLE_PART_MOVE:
-        {
-            pPart = dynamic_cast<NFBattlePart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_NFMovePart_ID));
-            break;
-        }
-        default:
-        {
-            NFLogError(NF_LOG_SYSTEMLOG, m_cid, "Create Part Failed, partType Not Handle:{}", partType);
-            break;
-        }
-    }
-
+    NFBattlePart *pPart = dynamic_cast<NFBattlePart *>(FindModule<NFISharedMemModule>()->CreateObj(EOT_NFBattlePart_ID+partType));
     if (pPart)
     {
         pPart->InitBase(this, partType);
@@ -266,39 +250,39 @@ int NFBattlePlayer::Update(uint64_t tick)
     NFCreature::Update(tick);
     switch (m_playerStatus)
     {
-        case PLAYER_STATUS_NONE:
+        case proto_ff::PLAYER_STATUS_NONE:
         {
             if ((uint64_t) NFTime::Now().UnixSec() - m_createTime < WORLD_SERVER_PLAYER_CLIENT_DISCONNECT_WAITTIME)
                 break;
 
-            SetPlayerStatus(PLAYER_STATUS_LOGOUT);
+            SetPlayerStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             SetLastLogoutTime(NFTime::Now().UnixSec());
             NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{} status:PLAYER_STATUS_NONE change to PLAYER_STATUS_LOGOUT", GetUid());
             OnLogout();
         }
             break;
-        case PLAYER_STATUS_ONLINE:
+        case proto_ff::PLAYER_STATUS_ONLINE:
         {
         }
             break;
-        case PLAYER_STATUS_OFFLINE:
+        case proto_ff::PLAYER_STATUS_OFFLINE:
         {
             if ((uint64_t) NFTime::Now().UnixSec() - GetLastDiconnectTime() < GAME_SERVER_PLAYER_CLIENT_DISCONNECT_WAITTIME)
                 break;
 
-            SetPlayerStatus(PLAYER_STATUS_LOGOUT);
+            SetPlayerStatus(proto_ff::PLAYER_STATUS_LOGOUT);
             SetLastLogoutTime(NFTime::Now().UnixSec());
             NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "uid:{}, cid:{} status:PLAYER_STATUS_OFFLINE change to PLAYER_STATUS_LOGOUT", GetUid(),
                       GetRoleId());
             OnLogout();
         }
             break;
-        case PLAYER_STATUS_LOGOUT:
+        case proto_ff::PLAYER_STATUS_LOGOUT:
         default:
         {
             if (GetScene() == NULL)
             {
-                SetPlayerStatus(PLAYER_STATUS_DEAD);
+                SetPlayerStatus(proto_ff::PLAYER_STATUS_DEAD);
                 NFLogInfo(NF_LOG_SYSTEMLOG, GetUid(), "player:{}, cid:{} status change to PLAYER_STATUS_DEAD, will be erase from memory", GetUid(),
                           GetRoleId());
             }
@@ -390,7 +374,7 @@ int NFBattlePlayer::TransScene(uint64_t scenceId, const NFPoint3<float> &dstPos,
 int NFBattlePlayer::CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoint3<float> &dstPos, NFPoint3<float> &outPos, STransParam &transParam,
                              bool checkPosFlag)
 {
-    NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(dstMapId);
+    NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(dstMapId);
     if (nullptr == pMap)
     {
         NFLogError(NF_LOG_SYSTEMLOG, Cid(), "CanTrans... nullptr == pMap..cid:{}, dstscene:{}, dstmap:{}, pos:{},{},{}, transtype:{}, transval:{} ",
@@ -521,7 +505,7 @@ int NFBattlePlayer::OnDisconnect()
 {
     m_proxyId = 0;
     m_clientId = 0;
-    SetPlayerStatus(PLAYER_STATUS_OFFLINE);
+    SetPlayerStatus(proto_ff::PLAYER_STATUS_OFFLINE);
     SetLastDiconnectTime(NFTime::Now().UnixSec());
 
     StopMove();

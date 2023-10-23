@@ -10,10 +10,10 @@
 
 #include "NFCommPlugin/NFDBPlugin/NFRedisDriver.h"
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFCore/NFMapEx.hpp"
+#include "NFComm/NFCore/NFSTLMapEx.hpp"
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
-#include "NFComm/NFCore/NFMap.hpp"
+#include "NFComm/NFCore/NFSTLMap.hpp"
 
 class NFCNosqlDriverManager
 {
@@ -35,6 +35,6 @@ public:
 public:
     virtual NFINosqlDriver* GetNosqlDriver(const std::string& strID);
 protected:
-    NFMap<std::string, NFINosqlDriver> mxNoSqlDriver;
+    NFSTLMap<std::string, NFINosqlDriver> mxNoSqlDriver;
     int mLastCheckTime = 0;
 };

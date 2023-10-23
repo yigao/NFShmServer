@@ -14,6 +14,21 @@
 #include "NFGameCommon/NFComTypeDefine.h"
 #include <unordered_map>
 
+#define  MAP_NAME_MAX_LENGHT    64
+#define  DROP_OBJECT_MIN_WIDTH  0.5f		// 每个掉落物品占位置大小（单位：米）
+#define  REGION_DROP_FALG_MAX_WIDTH  64		// 每个region分割为64*32个0.5方块大小的标志位，记录掉落位置信息
+#define  REGION_DROP_FALG_MAX_HEIGHT  32
+#define  DROP_POS_OFFSET 10					// 掉落偏移范围
+
+
+
+#define  CREATE_SECENE_TIME 60000           //逻辑服创建场景回复时间
+#define  UPDATE_SECENE_TIME  43200000 //60000 * 60 * 12 //现有场景更新检查时间
+#define  SECENE_EXIST_TIME  86400000 //60000 * 60 * 24 //单个副本场景存在时间上限
+
+class NFCreature;
+typedef std::unordered_set<NFCreature*> SET_Creature;
+
 typedef std::vector<NFPoint3<uint32_t>> VEC_PATH;
 
 //地图主类型
@@ -111,21 +126,21 @@ struct SceneSimpleInfo
 
 
 //切场景参数
-/*
+
 struct STransParam
 {
 	uint64_t srcMapId; //源地图ID
 	int32_t transType; //传送类型，详见 ETransType枚举
 	//扩展字段可以往下面加
 	uint64_t transVal;	//传送类型值
-	Point3<float> srcPos;//源地图坐标
+	NFPoint3<float> srcPos;//源地图坐标
 	STransParam()
 	{
 		srcMapId = 0;
 		transType = 0;
 		transVal = 0;
 	}
-};*/
+};
 
 //传送门类型
 enum ETeleportType

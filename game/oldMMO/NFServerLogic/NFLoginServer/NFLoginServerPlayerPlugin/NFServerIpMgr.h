@@ -11,7 +11,7 @@
 
 #include "NFComm/NFCore/NFSingleton.hpp"
 #include "NFComm/NFKernelMessage/proto_kernel.pb.h"
-#include "NFComm/NFCore/NFMapEx.hpp"
+#include "NFComm/NFCore/NFSTLMapEx.hpp"
 #include <vector>
 
 class NFServerIpMgr : public NFSingleton<NFServerIpMgr>

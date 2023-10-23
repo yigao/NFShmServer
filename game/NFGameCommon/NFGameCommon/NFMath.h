@@ -40,6 +40,8 @@ public:
 
     static float RadianToAngle(float radian);
 
+    static NFPoint3<float> AngleToDir(const NFPoint3<float> &pos, float angle);
+
     static double Distance2Dpow2(NFPoint2<float> &from, NFPoint2<float> &to);
 
     static float Distance2D(NFPoint2<float> &from, NFPoint2<float> &to);

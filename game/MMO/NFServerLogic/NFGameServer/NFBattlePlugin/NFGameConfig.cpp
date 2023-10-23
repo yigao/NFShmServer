@@ -14,6 +14,7 @@
 #include "NFComm/NFCore/NFServerIDUtil.h"
 #include "NFComm/NFCore/NFCommon.h"
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFGameConfig, EOT_GAME_CONFIG_ID, NFShmObj)
 

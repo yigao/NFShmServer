@@ -14,11 +14,10 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFLogicCommon/NFPoint2.h"
-#include "NFLogicCommon/NFPoint3.h"
+#include "NFGameCommon/NFPoint2.h"
+#include "NFGameCommon/NFPoint3.h"
 #include "ServerInternal2.pb.h"
 
 #define GAME_SERVER_MAX_BATTLE_SCENE_SIZE 1000

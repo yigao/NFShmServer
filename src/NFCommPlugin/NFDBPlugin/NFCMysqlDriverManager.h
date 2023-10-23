@@ -9,7 +9,7 @@
 #pragma once
 
 #include "NFCMysqlDriver.h"
-#include "NFComm/NFCore/NFMap.hpp"
+#include "NFComm/NFCore/NFSTLMap.hpp"
 
 class NFCMysqlDriverManager
 {
@@ -54,7 +54,7 @@ public:
      */
     int CloseMysql(const std::string& serverID);
 protected:
-	NFMap<std::string, NFCMysqlDriver> mvMysql;
-	NFMap<std::string, NFCMysqlDriver> mvInvalidMsyql;
+	NFSTLMap<std::string, NFCMysqlDriver> mvMysql;
+	NFSTLMap<std::string, NFCMysqlDriver> mvInvalidMsyql;
 	uint64_t mnLastCheckTime;
 };

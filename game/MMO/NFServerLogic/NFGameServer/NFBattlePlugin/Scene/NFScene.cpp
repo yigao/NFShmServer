@@ -14,6 +14,9 @@
 #include "Creature/NFCreature.h"
 #include "NFSceneMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFLogicCommon/NFEventDefine.h"
+#include "proto_svr_event.pb.h"
+#include "NFGameCommon/NFMath.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFScene, EOT_GAME_SCENE_ID, NFShmObj)
 
@@ -64,7 +67,7 @@ int NFScene::OnExecute(uint32_t serverType, uint32_t nEventID, uint32_t bySrcTyp
 
 int NFScene::Init(uint64_t mapId, uint64_t sceneId)
 {
-    NFMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
+    NFSTLMap *pMap = NFMapMgr::Instance(m_pObjPluginManager)->GetMap(mapId);
     CHECK_EXPR(pMap, -1, "GetMap Failed, mapId:{}", mapId);
     CHECK_EXPR(pMap->GetMapCfg(), -1, "GetMap Failed, map");
 
@@ -105,11 +108,11 @@ int NFScene::UnInit()
     return 0;
 }
 
-NFMap *NFScene::GetMap() const
+NFSTLMap *NFScene::GetMap() const
 {
     if (m_mapGlobalId >= 0)
     {
-        return dynamic_cast<NFMap *>(FindModule<NFISharedMemModule>()->GetObjByObjId(EOT_GAME_MAP_ID, m_mapGlobalId));
+        return dynamic_cast<NFSTLMap *>(FindModule<NFISharedMemModule>()->GetObjByObjId(EOT_GAME_MAP_ID, m_mapGlobalId));
     }
 
     return NFMapMgr::Instance(m_pObjPluginManager)->GetMap(m_mapId);
@@ -130,7 +133,7 @@ NFGrid *NFScene::GetGrid(uint32_t w, uint32_t h)
 
 bool NFScene::IsDynamic() const
 {
-    NFMap* pMap = GetMap();
+    NFSTLMap* pMap = GetMap();
     if (pMap)
     {
         return pMap->IsDynamic();
@@ -419,7 +422,7 @@ int NFScene::FindDoubleSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature
                     continue;
                 }
 
-                float dict = point2LengthSquare(srcPos, pCreature->GetPos());
+                float dict = NFMath::NFPoint2LengthSquare(srcPos, pCreature->GetPos());
                 if (!pSrc->ViewFliter(pCreature, dict))
                 {
                     clist.push_back(pCreature);
@@ -454,7 +457,7 @@ int NFScene::FindSeeLstInNineGrid(NFCreature *pSrc, std::vector<NFCreature *> *c
                     continue;
                 }
 
-                float dict = point2LengthSquare(pSrc->GetPos(), pCreature->GetPos());
+                float dict = NFMath::NFPoint2LengthSquare(pSrc->GetPos(), pCreature->GetPos());
                 if (!pSrc->ViewFliter(pCreature, dict))
                 {
                     if (dict < sixteenOfSightDictSquare)
@@ -523,7 +526,7 @@ int NFScene::GridCreaturesWithCircle(LIST_UINT64 &clist, NFGrid *pGrid, const NF
 
         NFPoint3<float> dstPos = pCreature->GetPos();
 
-        if (InCircle(dstPos, srcPos, flength + pCreature->GetModelRadius()))
+        if (NFMath::InCircle(dstPos, srcPos, flength + pCreature->GetModelRadius()))
             AddRangeLstCids(clist, srcPos, pCreature, creatureCount);
     }
 
@@ -560,7 +563,7 @@ int NFScene::GridCreaturesWithCircle(SET_Creature &setcreature, NFGrid *pGrid, c
 
         NFPoint3<float> dstPos = pCreature->GetPos();
 
-        if (InCircle(dstPos, srcPos, flength + pCreature->GetModelRadius()))
+        if (NFMath::InCircle(dstPos, srcPos, flength + pCreature->GetModelRadius()))
             AddRangeLstCids(setcreature, srcPos, pCreature, creatureCount);
     }
 
@@ -602,7 +605,7 @@ int NFScene::GridCreaturesWithSector(LIST_UINT64 &clist, const NFPoint3<float> &
     {
         if (creatureCount > 0 && clist.size() >= creatureCount) return 0;
 
-        if (InSector(center, vdir, pCreature->GetPos(), cosAngle, squaredR + pCreature->GetModelRadius()))
+        if (NFMath::InSector(center, vdir, pCreature->GetPos(), cosAngle, squaredR + pCreature->GetModelRadius()))
             AddRangeLstCids(clist, center, pCreature, creatureCount);
     }
 
@@ -752,7 +755,7 @@ int NFScene::GridCreaturesWithRect(LIST_UINT64 &clist, NFGrid *pGrid, const NFPo
     {
         if (creatureCount > 0 && clist.size() >= creatureCount) return 0;
 
-        if (InRect(pCreature->GetPos(), center, flength + pCreature->GetModelRadius(), fwidth + pCreature->GetModelRadius(), dir))
+        if (NFMath::InRect(pCreature->GetPos(), center, flength + pCreature->GetModelRadius(), fwidth + pCreature->GetModelRadius(), dir))
             AddRangeLstCids(clist, center, pCreature, creatureCount);
     }
 
@@ -770,7 +773,7 @@ int NFScene::GridCreaturesWithRect(SET_Creature &setcreature, NFGrid *pGrid, con
     {
         if (creatureCount > 0 && setcreature.size() >= creatureCount) return 0;
 
-        if (InRect(pCreature->GetPos(), center, flength + pCreature->GetModelRadius(), fwidth + pCreature->GetModelRadius(), dir))
+        if (NFMath::InRect(pCreature->GetPos(), center, flength + pCreature->GetModelRadius(), fwidth + pCreature->GetModelRadius(), dir))
             AddRangeLstCids(setcreature, center, pCreature, creatureCount);
     }
     return 0;
@@ -799,7 +802,7 @@ int NFScene::FindEnemyInCircle(NFCreature *psrc, SET_Creature &setcreature, floa
 
             NFPoint3<float> dstPos = pCreature->GetPos();
             //
-            if (!InCircle(dstPos, srcPos, fradius + pCreature->GetModelRadius())) continue;
+            if (!NFMath::InCircle(dstPos, srcPos, fradius + pCreature->GetModelRadius())) continue;
 
             if (!psrc->CanAddSeeNewCreature(pCreature, 1)) continue;
 
@@ -822,7 +825,7 @@ void NFScene::FindPointLstInRect(const NFPoint3<float> &center, VecPoint3 &vecPo
         return;
     }
 
-    NFMap *pMap = GetMap();
+    NFSTLMap *pMap = GetMap();
     if (nullptr == pMap)
     {
         for (int32_t i = 0; i < pointCnt; ++i)

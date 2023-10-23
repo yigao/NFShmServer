@@ -11,7 +11,7 @@
 
 
 #include "NFComm/NFCore/NFPlatform.h"
-#include "NFComm/NFCore/NFMap.hpp"
+#include "NFComm/NFCore/NFSTLMap.hpp"
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFComm/NFCore/NFTime.h"
 #include "NFComm/NFCore/NFServerIDUtil.h"

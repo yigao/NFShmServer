@@ -9,12 +9,10 @@
 
 #include "NFBattlePartModule.h"
 #include "ClientServerCmd.pb.h"
-#include "NFLogicCommon/NFRoleDefine.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFBattlePart.h"
 #include "Creature/NFBattlePlayer.h"
 #include "Creature/NFCreatureMgr.h"
-#include "NFMovePart.h"
 
 NFBattlePartModule::NFBattlePartModule(NFIPluginManager *p) : NFIDynamicModule(p)
 {
@@ -29,8 +27,15 @@ NFBattlePartModule::~NFBattlePartModule()
 
 bool NFBattlePartModule::Awake()
 {
-    //move part
-    NFMovePart::RegisterClientMessage(m_pObjPluginManager);
+    for (uint32_t i = BATTLE_PART_NONE + 1; i < BATTLE_PART_MAX; ++i)
+    {
+        auto pPart = dynamic_cast<NFBattlePart*>(FindModule<NFISharedMemModule>()->CreateObj(EOT_NFBattlePart_ID+i));
+        if (pPart)
+        {
+            pPart->RegisterMessage();
+            FindModule<NFISharedMemModule>()->DestroyObj(pPart);
+        }
+    }
     return true;
 }
 

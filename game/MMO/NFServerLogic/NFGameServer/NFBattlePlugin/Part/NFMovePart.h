@@ -13,12 +13,12 @@
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFLogicCommon/NFServerFrameTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFSceneDefine.h"
 #include "NFBattlePart.h"
-#include "NFLogicCommon/NFPoint3.h"
 #include "NFPath.h"
 #include "Move.pb.h"
+#include "DBProxy2.pb.h"
 
 class NFScene;
 
