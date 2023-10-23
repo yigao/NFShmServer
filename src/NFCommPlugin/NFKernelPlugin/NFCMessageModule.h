@@ -153,6 +153,8 @@ public:
 
     virtual std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes) override;
 
+    virtual std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool isCrossServer = false) override;
+
     virtual std::vector<std::string> GetDBNames(NF_SERVER_TYPES eSendType) override;
 
     virtual std::set<uint32_t> GetAllMsg(NF_SERVER_TYPES eSendType, uint32_t moduleId) override;

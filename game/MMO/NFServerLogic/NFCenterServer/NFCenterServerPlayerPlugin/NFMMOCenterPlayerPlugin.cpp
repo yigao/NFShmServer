@@ -11,6 +11,8 @@
 #include "NFComm/NFPluginModule/NFIPluginManager.h"
 #include "NFCenterRegisterModule.h"
 
+#include "NFServerAddrMgr.h"
+
 #ifdef NF_DYNAMIC_PLUGIN
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
@@ -51,5 +53,6 @@ void NFMMOCenterPlayerPlugin::Uninstall()
 
 bool NFMMOCenterPlayerPlugin::InitShmObjectRegister()
 {
+    REGISTER_SINGLETON_SHM_OBJ(NFServerAddrMgr);//
     return true;
 }

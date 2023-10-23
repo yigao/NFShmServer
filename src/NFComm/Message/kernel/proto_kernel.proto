@@ -182,13 +182,14 @@ message ServerInfoReport
   optional uint32   server_type = 3;
   optional string  server_name = 4 ;
   optional string  url = 5;
-  optional string  link_mode = 6 ;
+  optional string  link_mode = 6;
   optional uint32  bus_length = 7; //NFBUS/TBUS共享内存通信大小
   optional string  server_ip = 9;
   optional uint32  server_port = 10;
   optional uint32  server_http_port = 11;
   optional string  external_server_ip = 12;
   optional uint32  external_server_port = 13;
+  optional bool is_cross_server = 14;
   optional string  route_svr = 15;
   optional uint32   server_max_online = 30;
   optional uint32   server_cur_online = 31;

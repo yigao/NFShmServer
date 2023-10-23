@@ -83,5 +83,6 @@ public:
     uint32_t GetMaxOnlinePlayerNum() const { return MaxOnlinePlayerNum; }
     uint32_t GetHeartBeatTimeout() const { return HeartBeatTimeout; }
     uint32_t GetClientKeepAliveTimeout() const { return ClientKeepAliveTimeout; }
+    bool IsCrossServer() const { return CrossServer; }
     std::unordered_map<std::string, proto_ff_s::pbTableConfig_s> mTBConfMap;
 };

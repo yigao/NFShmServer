@@ -8,6 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFCenterRegisterModule.h"
+#include "NFServerAddrMgr.h"
 
 NFCenterRegisterModule::NFCenterRegisterModule(NFIPluginManager *p) : NFMMODynamicModule(p)
 {
@@ -21,7 +22,9 @@ NFCenterRegisterModule::~NFCenterRegisterModule()
 
 bool NFCenterRegisterModule::Awake()
 {
-    return NFIModule::Awake();
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::STS_MAP_REG_RPC>(NF_ST_CENTER_SERVER, this,
+                                                                              &NFCenterRegisterModule::OnRpcServiceMapReg);
+    return true;
 }
 
 bool NFCenterRegisterModule::Execute()
@@ -41,15 +44,15 @@ int NFCenterRegisterModule::OnExecute(uint32_t serverType, uint32_t nEventID, ui
 
 int NFCenterRegisterModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited(NF_ST_WORLD_SERVER))
+    if (!m_pObjPluginManager->IsInited(NF_ST_CENTER_SERVER))
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Center Server not inited, drop client msg:{}", packet.ToString());
         return -1;
     }
 
     if (m_pObjPluginManager->IsServerStopping())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Center Server is Stopping, drop client msg:{}", packet.ToString());
         return -1;
     }
 
@@ -66,15 +69,15 @@ int NFCenterRegisterModule::OnHandleClientMessage(uint64_t unLinkId, NFDataPacka
 
 int NFCenterRegisterModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPackage &packet)
 {
-    if (!m_pObjPluginManager->IsInited(NF_ST_WORLD_SERVER))
+    if (!m_pObjPluginManager->IsInited(NF_ST_CENTER_SERVER))
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server not inited, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Center Server not inited, drop client msg:{}", packet.ToString());
         return -1;
     }
 
     if (m_pObjPluginManager->IsServerStopping())
     {
-        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "World Server is Stopping, drop client msg:{}", packet.ToString());
+        NFLogError(NF_LOG_SYSTEMLOG, packet.nParam1, "Center Server is Stopping, drop client msg:{}", packet.ToString());
         return -1;
     }
 
@@ -86,5 +89,19 @@ int NFCenterRegisterModule::OnHandleServerMessage(uint64_t unLinkId, NFDataPacka
             break;
         }
     }
+    return 0;
+}
+
+int NFCenterRegisterModule::OnRpcServiceMapReg(proto_ff::RegisterMapInfoReq& request, proto_ff::ReigsterMapInfoRsp& respone)
+{
+    uint32_t busId = request.bus_id();
+    for(int i = 0; i < (int)request.map_id_size(); i++)
+    {
+        uint32_t mapId = request.map_id(i);
+        int iRet = NFServerAddrMgr::Instance(m_pObjPluginManager)->AddMapAddr(mapId, busId);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "GameServer:{} Register Map:{} To Center Server {}", NFServerIDUtil::GetBusNameFromBusID(busId), mapId, iRet == 0 ? "Success":"Failed");
+    }
+
+    respone.set_ret_code(proto_ff::RET_SUCCESS);
     return 0;
 }

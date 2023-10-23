@@ -9,4 +9,6 @@ enum ServerInternalCmd2
   //登录
   SERVER_INTERNAL2_BEGIN = 5000;
   LTS_LOGIN_RPC = 5001;
+  STS_MAP_REG_RPC = 5002;
 };
+

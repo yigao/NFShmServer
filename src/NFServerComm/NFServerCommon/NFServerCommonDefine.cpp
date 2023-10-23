@@ -10,7 +10,7 @@ void NFServerCommon::WriteServerInfo(proto_ff::ServerInfoReport* pData, NFServer
     pData->set_server_id(pConfig->ServerId);
     pData->set_server_type(pConfig->ServerType);
     pData->set_server_name(pConfig->ServerName);
-
+    pData->set_is_cross_server(pConfig->CrossServer);
     pData->set_bus_length(pConfig->BusLength);
     pData->set_link_mode(pConfig->LinkMode);
     pData->set_url(pConfig->Url);

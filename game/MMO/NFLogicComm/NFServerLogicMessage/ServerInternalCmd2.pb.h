@@ -37,11 +37,12 @@ void protobuf_ShutdownFile_ServerInternalCmd2_2eproto();
 
 enum ServerInternalCmd2 {
   SERVER_INTERNAL2_BEGIN = 5000,
-  LTS_LOGIN_RPC = 5001
+  LTS_LOGIN_RPC = 5001,
+  STS_MAP_REG_RPC = 5002
 };
 bool ServerInternalCmd2_IsValid(int value);
 const ServerInternalCmd2 ServerInternalCmd2_MIN = SERVER_INTERNAL2_BEGIN;
-const ServerInternalCmd2 ServerInternalCmd2_MAX = LTS_LOGIN_RPC;
+const ServerInternalCmd2 ServerInternalCmd2_MAX = STS_MAP_REG_RPC;
 const int ServerInternalCmd2_ARRAYSIZE = ServerInternalCmd2_MAX + 1;
 
 const ::google::protobuf::EnumDescriptor* ServerInternalCmd2_descriptor();

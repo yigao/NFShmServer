@@ -71,3 +71,13 @@ message STLLoginRsp
   optional int32 ret = 1;
 }
 
+message RegisterMapInfoReq
+{
+  optional uint32 bus_id = 1;
+  repeated uint32 map_id = 2;
+}
+
+message ReigsterMapInfoRsp
+{
+  optional int32 ret_code = 1;
+}

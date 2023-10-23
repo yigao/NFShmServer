@@ -1537,6 +1537,13 @@ class ServerInfoReport : public ::google::protobuf::Message {
   inline ::google::protobuf::uint32 external_server_port() const;
   inline void set_external_server_port(::google::protobuf::uint32 value);
 
+  // optional bool is_cross_server = 14;
+  inline bool has_is_cross_server() const;
+  inline void clear_is_cross_server();
+  static const int kIsCrossServerFieldNumber = 14;
+  inline bool is_cross_server() const;
+  inline void set_is_cross_server(bool value);
+
   // optional string route_svr = 15;
   inline bool has_route_svr() const;
   inline void clear_route_svr();
@@ -1764,6 +1771,8 @@ class ServerInfoReport : public ::google::protobuf::Message {
   inline void clear_has_external_server_ip();
   inline void set_has_external_server_port();
   inline void clear_has_external_server_port();
+  inline void set_has_is_cross_server();
+  inline void clear_has_is_cross_server();
   inline void set_has_route_svr();
   inline void clear_has_route_svr();
   inline void set_has_server_max_online();
@@ -1816,17 +1825,19 @@ class ServerInfoReport : public ::google::protobuf::Message {
   ::google::protobuf::uint32 server_http_port_;
   ::google::protobuf::uint32 external_server_port_;
   ::std::string* route_svr_;
+  bool is_cross_server_;
   ::google::protobuf::uint32 server_max_online_;
   ::google::protobuf::uint32 server_cur_online_;
+  ::google::protobuf::uint32 server_state_;
   ::std::string* system_info_;
   ::google::protobuf::uint64 total_mem_;
   ::google::protobuf::uint64 free_mem_;
-  ::google::protobuf::uint32 server_state_;
-  ::google::protobuf::uint32 proc_thread_;
   ::google::protobuf::uint64 used_mem_;
   double proc_cpu_;
   ::google::protobuf::uint64 proc_mem_;
   ::std::string* proc_name_;
+  ::google::protobuf::uint32 proc_thread_;
+  ::google::protobuf::uint32 proc_pid_;
   ::std::string* proc_cwd_;
   ::std::string* last_date_;
   ::google::protobuf::uint64 last_time_;
@@ -1835,10 +1846,9 @@ class ServerInfoReport : public ::google::protobuf::Message {
   ::google::protobuf::RepeatedPtrField< ::std::string> db_name_list_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > msg_id_;
   ::google::protobuf::RepeatedField< ::google::protobuf::uint64 > map_id_list_;
-  ::google::protobuf::uint32 proc_pid_;
 
   mutable int _cached_size_;
-  ::google::protobuf::uint32 _has_bits_[(33 + 31) / 32];
+  ::google::protobuf::uint32 _has_bits_[(34 + 31) / 32];
 
   friend void  protobuf_AddDesc_proto_5fkernel_2eproto();
   friend void protobuf_AssignDesc_proto_5fkernel_2eproto();
@@ -4816,15 +4826,37 @@ inline void ServerInfoReport::set_external_server_port(::google::protobuf::uint3
   external_server_port_ = value;
 }
 
-// optional string route_svr = 15;
-inline bool ServerInfoReport::has_route_svr() const {
+// optional bool is_cross_server = 14;
+inline bool ServerInfoReport::has_is_cross_server() const {
   return (_has_bits_[0] & 0x00001000u) != 0;
 }
-inline void ServerInfoReport::set_has_route_svr() {
+inline void ServerInfoReport::set_has_is_cross_server() {
   _has_bits_[0] |= 0x00001000u;
 }
-inline void ServerInfoReport::clear_has_route_svr() {
+inline void ServerInfoReport::clear_has_is_cross_server() {
   _has_bits_[0] &= ~0x00001000u;
+}
+inline void ServerInfoReport::clear_is_cross_server() {
+  is_cross_server_ = false;
+  clear_has_is_cross_server();
+}
+inline bool ServerInfoReport::is_cross_server() const {
+  return is_cross_server_;
+}
+inline void ServerInfoReport::set_is_cross_server(bool value) {
+  set_has_is_cross_server();
+  is_cross_server_ = value;
+}
+
+// optional string route_svr = 15;
+inline bool ServerInfoReport::has_route_svr() const {
+  return (_has_bits_[0] & 0x00002000u) != 0;
+}
+inline void ServerInfoReport::set_has_route_svr() {
+  _has_bits_[0] |= 0x00002000u;
+}
+inline void ServerInfoReport::clear_has_route_svr() {
+  _has_bits_[0] &= ~0x00002000u;
 }
 inline void ServerInfoReport::clear_route_svr() {
   if (route_svr_ != &::google::protobuf::internal::kEmptyString) {
@@ -4888,13 +4920,13 @@ inline void ServerInfoReport::set_allocated_route_svr(::std::string* route_svr) 
 
 // optional uint32 server_max_online = 30;
 inline bool ServerInfoReport::has_server_max_online() const {
-  return (_has_bits_[0] & 0x00002000u) != 0;
+  return (_has_bits_[0] & 0x00004000u) != 0;
 }
 inline void ServerInfoReport::set_has_server_max_online() {
-  _has_bits_[0] |= 0x00002000u;
+  _has_bits_[0] |= 0x00004000u;
 }
 inline void ServerInfoReport::clear_has_server_max_online() {
-  _has_bits_[0] &= ~0x00002000u;
+  _has_bits_[0] &= ~0x00004000u;
 }
 inline void ServerInfoReport::clear_server_max_online() {
   server_max_online_ = 0u;
@@ -4910,13 +4942,13 @@ inline void ServerInfoReport::set_server_max_online(::google::protobuf::uint32 v
 
 // optional uint32 server_cur_online = 31;
 inline bool ServerInfoReport::has_server_cur_online() const {
-  return (_has_bits_[0] & 0x00004000u) != 0;
+  return (_has_bits_[0] & 0x00008000u) != 0;
 }
 inline void ServerInfoReport::set_has_server_cur_online() {
-  _has_bits_[0] |= 0x00004000u;
+  _has_bits_[0] |= 0x00008000u;
 }
 inline void ServerInfoReport::clear_has_server_cur_online() {
-  _has_bits_[0] &= ~0x00004000u;
+  _has_bits_[0] &= ~0x00008000u;
 }
 inline void ServerInfoReport::clear_server_cur_online() {
   server_cur_online_ = 0u;
@@ -4932,13 +4964,13 @@ inline void ServerInfoReport::set_server_cur_online(::google::protobuf::uint32 v
 
 // optional uint32 server_state = 32;
 inline bool ServerInfoReport::has_server_state() const {
-  return (_has_bits_[0] & 0x00008000u) != 0;
+  return (_has_bits_[0] & 0x00010000u) != 0;
 }
 inline void ServerInfoReport::set_has_server_state() {
-  _has_bits_[0] |= 0x00008000u;
+  _has_bits_[0] |= 0x00010000u;
 }
 inline void ServerInfoReport::clear_has_server_state() {
-  _has_bits_[0] &= ~0x00008000u;
+  _has_bits_[0] &= ~0x00010000u;
 }
 inline void ServerInfoReport::clear_server_state() {
   server_state_ = 0u;
@@ -4954,13 +4986,13 @@ inline void ServerInfoReport::set_server_state(::google::protobuf::uint32 value)
 
 // optional string system_info = 33;
 inline bool ServerInfoReport::has_system_info() const {
-  return (_has_bits_[0] & 0x00010000u) != 0;
+  return (_has_bits_[0] & 0x00020000u) != 0;
 }
 inline void ServerInfoReport::set_has_system_info() {
-  _has_bits_[0] |= 0x00010000u;
+  _has_bits_[0] |= 0x00020000u;
 }
 inline void ServerInfoReport::clear_has_system_info() {
-  _has_bits_[0] &= ~0x00010000u;
+  _has_bits_[0] &= ~0x00020000u;
 }
 inline void ServerInfoReport::clear_system_info() {
   if (system_info_ != &::google::protobuf::internal::kEmptyString) {
@@ -5024,13 +5056,13 @@ inline void ServerInfoReport::set_allocated_system_info(::std::string* system_in
 
 // optional uint64 total_mem = 34;
 inline bool ServerInfoReport::has_total_mem() const {
-  return (_has_bits_[0] & 0x00020000u) != 0;
+  return (_has_bits_[0] & 0x00040000u) != 0;
 }
 inline void ServerInfoReport::set_has_total_mem() {
-  _has_bits_[0] |= 0x00020000u;
+  _has_bits_[0] |= 0x00040000u;
 }
 inline void ServerInfoReport::clear_has_total_mem() {
-  _has_bits_[0] &= ~0x00020000u;
+  _has_bits_[0] &= ~0x00040000u;
 }
 inline void ServerInfoReport::clear_total_mem() {
   total_mem_ = GOOGLE_ULONGLONG(0);
@@ -5046,13 +5078,13 @@ inline void ServerInfoReport::set_total_mem(::google::protobuf::uint64 value) {
 
 // optional uint64 free_mem = 35;
 inline bool ServerInfoReport::has_free_mem() const {
-  return (_has_bits_[0] & 0x00040000u) != 0;
+  return (_has_bits_[0] & 0x00080000u) != 0;
 }
 inline void ServerInfoReport::set_has_free_mem() {
-  _has_bits_[0] |= 0x00040000u;
+  _has_bits_[0] |= 0x00080000u;
 }
 inline void ServerInfoReport::clear_has_free_mem() {
-  _has_bits_[0] &= ~0x00040000u;
+  _has_bits_[0] &= ~0x00080000u;
 }
 inline void ServerInfoReport::clear_free_mem() {
   free_mem_ = GOOGLE_ULONGLONG(0);
@@ -5068,13 +5100,13 @@ inline void ServerInfoReport::set_free_mem(::google::protobuf::uint64 value) {
 
 // optional uint64 used_mem = 36;
 inline bool ServerInfoReport::has_used_mem() const {
-  return (_has_bits_[0] & 0x00080000u) != 0;
+  return (_has_bits_[0] & 0x00100000u) != 0;
 }
 inline void ServerInfoReport::set_has_used_mem() {
-  _has_bits_[0] |= 0x00080000u;
+  _has_bits_[0] |= 0x00100000u;
 }
 inline void ServerInfoReport::clear_has_used_mem() {
-  _has_bits_[0] &= ~0x00080000u;
+  _has_bits_[0] &= ~0x00100000u;
 }
 inline void ServerInfoReport::clear_used_mem() {
   used_mem_ = GOOGLE_ULONGLONG(0);
@@ -5090,13 +5122,13 @@ inline void ServerInfoReport::set_used_mem(::google::protobuf::uint64 value) {
 
 // optional double proc_cpu = 37;
 inline bool ServerInfoReport::has_proc_cpu() const {
-  return (_has_bits_[0] & 0x00100000u) != 0;
+  return (_has_bits_[0] & 0x00200000u) != 0;
 }
 inline void ServerInfoReport::set_has_proc_cpu() {
-  _has_bits_[0] |= 0x00100000u;
+  _has_bits_[0] |= 0x00200000u;
 }
 inline void ServerInfoReport::clear_has_proc_cpu() {
-  _has_bits_[0] &= ~0x00100000u;
+  _has_bits_[0] &= ~0x00200000u;
 }
 inline void ServerInfoReport::clear_proc_cpu() {
   proc_cpu_ = 0;
@@ -5112,13 +5144,13 @@ inline void ServerInfoReport::set_proc_cpu(double value) {
 
 // optional uint64 proc_mem = 38;
 inline bool ServerInfoReport::has_proc_mem() const {
-  return (_has_bits_[0] & 0x00200000u) != 0;
+  return (_has_bits_[0] & 0x00400000u) != 0;
 }
 inline void ServerInfoReport::set_has_proc_mem() {
-  _has_bits_[0] |= 0x00200000u;
+  _has_bits_[0] |= 0x00400000u;
 }
 inline void ServerInfoReport::clear_has_proc_mem() {
-  _has_bits_[0] &= ~0x00200000u;
+  _has_bits_[0] &= ~0x00400000u;
 }
 inline void ServerInfoReport::clear_proc_mem() {
   proc_mem_ = GOOGLE_ULONGLONG(0);
@@ -5134,13 +5166,13 @@ inline void ServerInfoReport::set_proc_mem(::google::protobuf::uint64 value) {
 
 // optional uint32 proc_thread = 39;
 inline bool ServerInfoReport::has_proc_thread() const {
-  return (_has_bits_[0] & 0x00400000u) != 0;
+  return (_has_bits_[0] & 0x00800000u) != 0;
 }
 inline void ServerInfoReport::set_has_proc_thread() {
-  _has_bits_[0] |= 0x00400000u;
+  _has_bits_[0] |= 0x00800000u;
 }
 inline void ServerInfoReport::clear_has_proc_thread() {
-  _has_bits_[0] &= ~0x00400000u;
+  _has_bits_[0] &= ~0x00800000u;
 }
 inline void ServerInfoReport::clear_proc_thread() {
   proc_thread_ = 0u;
@@ -5156,13 +5188,13 @@ inline void ServerInfoReport::set_proc_thread(::google::protobuf::uint32 value) 
 
 // optional string proc_name = 40;
 inline bool ServerInfoReport::has_proc_name() const {
-  return (_has_bits_[0] & 0x00800000u) != 0;
+  return (_has_bits_[0] & 0x01000000u) != 0;
 }
 inline void ServerInfoReport::set_has_proc_name() {
-  _has_bits_[0] |= 0x00800000u;
+  _has_bits_[0] |= 0x01000000u;
 }
 inline void ServerInfoReport::clear_has_proc_name() {
-  _has_bits_[0] &= ~0x00800000u;
+  _has_bits_[0] &= ~0x01000000u;
 }
 inline void ServerInfoReport::clear_proc_name() {
   if (proc_name_ != &::google::protobuf::internal::kEmptyString) {
@@ -5226,13 +5258,13 @@ inline void ServerInfoReport::set_allocated_proc_name(::std::string* proc_name) 
 
 // optional string proc_cwd = 41;
 inline bool ServerInfoReport::has_proc_cwd() const {
-  return (_has_bits_[0] & 0x01000000u) != 0;
+  return (_has_bits_[0] & 0x02000000u) != 0;
 }
 inline void ServerInfoReport::set_has_proc_cwd() {
-  _has_bits_[0] |= 0x01000000u;
+  _has_bits_[0] |= 0x02000000u;
 }
 inline void ServerInfoReport::clear_has_proc_cwd() {
-  _has_bits_[0] &= ~0x01000000u;
+  _has_bits_[0] &= ~0x02000000u;
 }
 inline void ServerInfoReport::clear_proc_cwd() {
   if (proc_cwd_ != &::google::protobuf::internal::kEmptyString) {
@@ -5296,13 +5328,13 @@ inline void ServerInfoReport::set_allocated_proc_cwd(::std::string* proc_cwd) {
 
 // optional uint32 proc_pid = 42;
 inline bool ServerInfoReport::has_proc_pid() const {
-  return (_has_bits_[0] & 0x02000000u) != 0;
+  return (_has_bits_[0] & 0x04000000u) != 0;
 }
 inline void ServerInfoReport::set_has_proc_pid() {
-  _has_bits_[0] |= 0x02000000u;
+  _has_bits_[0] |= 0x04000000u;
 }
 inline void ServerInfoReport::clear_has_proc_pid() {
-  _has_bits_[0] &= ~0x02000000u;
+  _has_bits_[0] &= ~0x04000000u;
 }
 inline void ServerInfoReport::clear_proc_pid() {
   proc_pid_ = 0u;
@@ -5318,13 +5350,13 @@ inline void ServerInfoReport::set_proc_pid(::google::protobuf::uint32 value) {
 
 // optional string last_date = 43;
 inline bool ServerInfoReport::has_last_date() const {
-  return (_has_bits_[0] & 0x04000000u) != 0;
+  return (_has_bits_[0] & 0x08000000u) != 0;
 }
 inline void ServerInfoReport::set_has_last_date() {
-  _has_bits_[0] |= 0x04000000u;
+  _has_bits_[0] |= 0x08000000u;
 }
 inline void ServerInfoReport::clear_has_last_date() {
-  _has_bits_[0] &= ~0x04000000u;
+  _has_bits_[0] &= ~0x08000000u;
 }
 inline void ServerInfoReport::clear_last_date() {
   if (last_date_ != &::google::protobuf::internal::kEmptyString) {
@@ -5388,13 +5420,13 @@ inline void ServerInfoReport::set_allocated_last_date(::std::string* last_date) 
 
 // optional uint64 last_time = 44;
 inline bool ServerInfoReport::has_last_time() const {
-  return (_has_bits_[0] & 0x08000000u) != 0;
+  return (_has_bits_[0] & 0x10000000u) != 0;
 }
 inline void ServerInfoReport::set_has_last_time() {
-  _has_bits_[0] |= 0x08000000u;
+  _has_bits_[0] |= 0x10000000u;
 }
 inline void ServerInfoReport::clear_has_last_time() {
-  _has_bits_[0] &= ~0x08000000u;
+  _has_bits_[0] &= ~0x10000000u;
 }
 inline void ServerInfoReport::clear_last_time() {
   last_time_ = GOOGLE_ULONGLONG(0);
@@ -5410,13 +5442,13 @@ inline void ServerInfoReport::set_last_time(::google::protobuf::uint64 value) {
 
 // optional string contract_info = 45;
 inline bool ServerInfoReport::has_contract_info() const {
-  return (_has_bits_[0] & 0x10000000u) != 0;
+  return (_has_bits_[0] & 0x20000000u) != 0;
 }
 inline void ServerInfoReport::set_has_contract_info() {
-  _has_bits_[0] |= 0x10000000u;
+  _has_bits_[0] |= 0x20000000u;
 }
 inline void ServerInfoReport::clear_has_contract_info() {
-  _has_bits_[0] &= ~0x10000000u;
+  _has_bits_[0] &= ~0x20000000u;
 }
 inline void ServerInfoReport::clear_contract_info() {
   if (contract_info_ != &::google::protobuf::internal::kEmptyString) {
@@ -5480,13 +5512,13 @@ inline void ServerInfoReport::set_allocated_contract_info(::std::string* contrac
 
 // optional string machine_addr = 46;
 inline bool ServerInfoReport::has_machine_addr() const {
-  return (_has_bits_[0] & 0x20000000u) != 0;
+  return (_has_bits_[0] & 0x40000000u) != 0;
 }
 inline void ServerInfoReport::set_has_machine_addr() {
-  _has_bits_[0] |= 0x20000000u;
+  _has_bits_[0] |= 0x40000000u;
 }
 inline void ServerInfoReport::clear_has_machine_addr() {
-  _has_bits_[0] &= ~0x20000000u;
+  _has_bits_[0] &= ~0x40000000u;
 }
 inline void ServerInfoReport::clear_machine_addr() {
   if (machine_addr_ != &::google::protobuf::internal::kEmptyString) {

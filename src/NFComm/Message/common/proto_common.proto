@@ -17,7 +17,8 @@ enum NF_SERVER_TYPE {
 	NF_ST_GAME_SERVER = 10;
 	NF_ST_SNS_SERVER = 11; //SNS服务器
 	NF_ST_WEB_SERVER = 12; //Web服务器
-	NF_ST_MONITOR_SERVER = 18; //Monitor服务器
+	NF_ST_MONITOR_SERVER = 13; //Monitor服务器
+	NF_ST_CENTER_SERVER = 14; //中心服务器
 	NF_ST_MAX = 20;
 }
 
@@ -97,6 +98,7 @@ message pbNFServerConfig
 	optional uint32 HandleMsgNumPerFrame = 10; //服务器每一帧处理的消息数
 	optional uint64 ServerOpenTime = 11; //服务器开服世界
 	optional string LoadProtoDs = 12; //需要加载的pb文件
+	optional bool CrossServer = 13; //是否是跨服服务器
 
 ////////////////////////////////////////net//////////////////////////////////////////////////////////
 	optional string ServerIp = 20; //服务器监听IP

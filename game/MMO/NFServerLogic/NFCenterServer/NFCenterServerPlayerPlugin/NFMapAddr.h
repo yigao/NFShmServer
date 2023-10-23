@@ -28,7 +28,11 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
+public:
+    int AddBusId(uint32_t busId);
+    uint32_t GetMapId() const { return m_mapId; }
+    void SetMapId(uint32_t mapId) { m_mapId = mapId; }
+    bool IsExist(uint32_t mapId) { return m_serverData.find(mapId) != m_serverData.end(); }
 public:
     uint32_t m_mapId;
     NFShmHashSet<uint32_t, MAX_SERVER_NUM_OF_ONE_MAP> m_serverData;

@@ -32,6 +32,10 @@ public:
     int CreateInit();
 
     int ResumeInit();
+public:
+    int AddMapAddr(uint32_t mapId, uint32_t busId);
+    NFMapAddr* GetMapAddr(uint32_t mapId);
+    NFMapAddr* InsertMapAddr(uint32_t mapId);
 private:
     NFShmHashMap<uint32_t, NFMapAddr, MAX_MAP_ADDR_NUM> m_mapAddrMap;
     NFShmHashMap<uint32_t, NFGameServerInfo, MAX_GAME_SERVER_NUM>  m_gameServerMap;

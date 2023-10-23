@@ -18,6 +18,7 @@
 #define SERVER_CONNECT_ROUTEAGENT_SERVER "Server Connect RouteAgentServer"
 #define SERVER_CHECK_STORE_SERVER "Server Check Store Server"
 #define SERVER_CHECK_WORLD_SERVER "Server Check World Server"
+#define SERVER_CHECK_CENTER_SERVER "Server Check Center Server"
 
 #define SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID 101
 #define SERVER_SERVER_DEAD_TIMER_ID 102
@@ -103,13 +104,31 @@ bool NFWorkServerModule::IsCheckWorldServer() const
 void NFWorkServerModule::SetCheckWorldServer(bool checkWorldServer)
 {
     m_checkWorldServer = checkWorldServer;
-    if (checkWorldServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_WORLD_SERVER))
+    if (checkWorldServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_CENTER_SERVER))
     {
         NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
         CHECK_EXPR_ASSERT(pConfig, , "GetAppConfig Failed, server type:{}", m_serverType);
 
-        RegisterAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER,
+        RegisterAppTask(m_serverType, APP_INIT_NEED_CENTER_SERVER,
                         NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    }
+}
+
+bool NFWorkServerModule::IsCheckCenterServer() const
+{
+    return m_checkCenterServer;
+}
+
+void NFWorkServerModule::SetCheckCenterServer(bool checkCenterServer)
+{
+    m_checkCenterServer = checkCenterServer;
+    if (checkCenterServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_CENTER_SERVER))
+    {
+        NFServerConfig *pConfig = FindModule<NFIConfigModule>()->GetAppConfig(m_serverType);
+        CHECK_EXPR_ASSERT(pConfig, , "GetAppConfig Failed, server type:{}", m_serverType);
+
+        RegisterAppTask(m_serverType, APP_INIT_NEED_CENTER_SERVER,
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_CENTER_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 }
 
@@ -149,31 +168,37 @@ int NFWorkServerModule::BindServer()
     if (m_connectMasterServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_MASTER))
     {
         RegisterAppTask(m_serverType, APP_INIT_CONNECT_MASTER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_MASTER_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     if (m_connectRouteAgentServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_ROUTE_AGENT_SERVER))
     {
         RegisterAppTask(m_serverType, APP_INIT_CONNECT_ROUTE_AGENT_SERVER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CONNECT_ROUTEAGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     if (m_connectProxyAgentServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_CONNECT_PROXY_AGENT_SERVER))
     {
         RegisterAppTask(m_serverType, APP_INIT_CONNECT_PROXY_AGENT_SERVER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, APP_INIT_CONNECT_PROXY_AGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+                        NF_FORMAT("{} {}", pConfig->ServerName, APP_INIT_CONNECT_PROXY_AGENT_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     if (m_checkStoreServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_STORE_SERVER))
     {
         RegisterAppTask(m_serverType, APP_INIT_NEED_STORE_SERVER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_STORE_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     if (m_checkWorldServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_WORLD_SERVER))
     {
         RegisterAppTask(m_serverType, APP_INIT_NEED_WORLD_SERVER,
-                                             NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_WORLD_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
+    }
+
+    if (m_checkCenterServer && !IsHasAppTask(m_serverType, APP_INIT_TASK_GROUP_SERVER_CONNECT, APP_INIT_NEED_CENTER_SERVER))
+    {
+        RegisterAppTask(m_serverType, APP_INIT_NEED_CENTER_SERVER,
+                        NF_FORMAT("{} {}", pConfig->ServerName, SERVER_CHECK_CENTER_SERVER), APP_INIT_TASK_GROUP_SERVER_CONNECT);
     }
 
     uint64_t serverLinkId = FindModule<NFIMessageModule>()->BindServer(m_serverType, pConfig->Url, pConfig->NetThreadNum, pConfig->MaxConnectNum,
@@ -208,8 +233,7 @@ int NFWorkServerModule::OnExecute(uint32_t serverType, uint32_t nEventID, uint32
         if (nEventID == proto_ff::NF_EVENT_SERVER_DEAD_EVENT)
         {
             SetTimer(SERVER_SERVER_DEAD_TIMER_ID, 10000, 0);
-        }
-        else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
+        } else if (nEventID == proto_ff::NF_EVENT_SERVER_APP_FINISH_INITED)
         {
             RegisterMasterServer(proto_ff::EST_NARMAL);
         }
@@ -223,8 +247,7 @@ int NFWorkServerModule::OnTimer(uint32_t nTimerID)
     if (nTimerID == SERVER_REPORT_TO_MASTER_SERVER_TIMER_ID)
     {
         ServerReportToMasterServer();
-    }
-    else if (nTimerID == SERVER_SERVER_DEAD_TIMER_ID)
+    } else if (nTimerID == SERVER_SERVER_DEAD_TIMER_ID)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "kill the exe..................");
         NFSLEEP(1000);
@@ -266,8 +289,7 @@ int NFWorkServerModule::OnServerSocketEvent(eMsgType nEvent, uint64_t unLinkId)
     if (nEvent == eMsgType_CONNECTED)
     {
 
-    }
-    else if (nEvent == eMsgType_DISCONNECTED)
+    } else if (nEvent == eMsgType_DISCONNECTED)
     {
         OnHandleServerDisconnect(unLinkId);
     }
@@ -335,7 +357,8 @@ int NFWorkServerModule::RegisterMasterServer(uint32_t serverState)
         NFServerCommon::WriteServerInfo(pData, pConfig);
 
         pData->set_server_state(serverState);
-        FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_SERVER_TO_SERVER_REGISTER>(m_serverType, NF_ST_MASTER_SERVER, 0, xMsg, [this](int rpcRetCode, proto_ff::ServerInfoReportListRespne& respone){
+        FindModule<NFIMessageModule>()->GetRpcService<proto_ff::NF_SERVER_TO_SERVER_REGISTER>(m_serverType, NF_ST_MASTER_SERVER, 0, xMsg, [this](int rpcRetCode, proto_ff::ServerInfoReportListRespne &respone)
+        {
             if (rpcRetCode != 0)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, 0, "Register Master Failed......, kill the exe");
@@ -370,13 +393,11 @@ int NFWorkServerModule::OnMasterSocketEvent(eMsgType nEvent, uint64_t unLinkId)
         if (!m_pObjPluginManager->IsInited(m_serverType))
         {
             RegisterMasterServer(proto_ff::EST_INIT);
-        }
-        else
+        } else
         {
             RegisterMasterServer(proto_ff::EST_NARMAL);
         }
-    }
-    else if (nEvent == eMsgType_DISCONNECTED)
+    } else if (nEvent == eMsgType_DISCONNECTED)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} disconnect master success", pConfig->ServerName);
     }
@@ -415,6 +436,11 @@ int NFWorkServerModule::OnHandleServerReportFromMasterServer(uint64_t unLinkId, 
             case NF_SERVER_TYPES::NF_ST_WORLD_SERVER:
             {
                 OnHandleWorldServerReport(xData);
+                break;
+            }
+            case NF_SERVER_TYPES::NF_ST_CENTER_SERVER:
+            {
+                OnHandleCenterServerReport(xData);
                 break;
             }
             case NF_SERVER_TYPES::NF_ST_PROXY_AGENT_SERVER:
@@ -491,8 +517,7 @@ int NFWorkServerModule::OnHandleProxyAgentServerReport(const proto_ff::ServerInf
                                                          &NFWorkServerModule::OnProxyAgentServerSocketEvent);
         FindModule<NFIMessageModule>()->AddOtherCallBack(m_serverType, pServerData->mUnlinkId, this,
                                                          &NFWorkServerModule::OnHandleProxyAgentServerOtherMessage);
-    }
-    else
+    } else
     {
         if (pServerData->mUnlinkId > 0 && pServerData->mServerInfo.url() != xData.url())
         {
@@ -525,8 +550,7 @@ int NFWorkServerModule::OnProxyAgentServerSocketEvent(eMsgType nEvent, uint64_t 
     {
         NFLogDebug(NF_LOG_SYSTEMLOG, 0, "server:{} connect proxy agent server success!", pConfig->ServerName);
         RegisterProxyAgentServer(unLinkId);
-    }
-    else if (nEvent == eMsgType_DISCONNECTED)
+    } else if (nEvent == eMsgType_DISCONNECTED)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} disconnect proxy agent server", pConfig->ServerName);
     }
@@ -641,6 +665,20 @@ int NFWorkServerModule::OnHandleWorldServerReport(const proto_ff::ServerInfoRepo
     return 0;
 }
 
+int NFWorkServerModule::OnHandleCenterServerReport(const proto_ff::ServerInfoReport &xData)
+{
+    if (m_checkCenterServer == false)
+    {
+        return 0;
+    }
+
+    FindModule<NFIMessageModule>()->CreateServerByServerId(m_serverType, xData.bus_id(), NF_ST_CENTER_SERVER, xData);
+
+    FinishAppTask(m_serverType, APP_INIT_NEED_CENTER_SERVER, APP_INIT_TASK_GROUP_SERVER_CONNECT);
+
+    return 0;
+}
+
 int NFWorkServerModule::OnHandleRouteAgentServerReport(const proto_ff::ServerInfoReport &xData)
 {
     if (m_connectRouteAgentServer == false)
@@ -668,8 +706,7 @@ int NFWorkServerModule::OnHandleRouteAgentServerReport(const proto_ff::ServerInf
                                                          &NFWorkServerModule::OnRouteAgentServerSocketEvent);
         FindModule<NFIMessageModule>()->AddOtherCallBack(m_serverType, pRouteAgentServerData->mUnlinkId, this,
                                                          &NFWorkServerModule::OnHandleRouteAgentServerOtherMessage);
-    }
-    else
+    } else
     {
         if (pRouteAgentServerData->mUnlinkId > 0 && pRouteAgentServerData->mServerInfo.url() != xData.url())
         {
@@ -702,8 +739,7 @@ int NFWorkServerModule::OnRouteAgentServerSocketEvent(eMsgType nEvent, uint64_t 
         NFLogDebug(NF_LOG_SYSTEMLOG, 0, "server:{} connect route agent server success!", pConfig->ServerName);
 
         RegisterRouteAgentServer(unLinkId);
-    }
-    else if (nEvent == eMsgType_DISCONNECTED)
+    } else if (nEvent == eMsgType_DISCONNECTED)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "server:{} disconnect route agent server success", pConfig->ServerName);
     }

@@ -41,5 +41,12 @@ public:
      */
     virtual int OnHandleServerMessage(uint64_t unLinkId, NFDataPackage& packet) override;
 public:
+    /**
+     *
+     * @param request
+     * @param respone
+     * @return
+     */
+    int OnRpcServiceMapReg(proto_ff::RegisterMapInfoReq& request, proto_ff::ReigsterMapInfoRsp& respone);
 };
 

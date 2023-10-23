@@ -250,3 +250,17 @@ std::vector<std::string> ServerLinkData::GetDBNames()
 
     return vec;
 }
+
+std::vector<NF_SHARE_PTR<NFServerData>> ServerLinkData::GetAllServer(NF_SERVER_TYPES serverTypes, bool isCrossServer)
+{
+    std::vector<NF_SHARE_PTR<NFServerData>> vec;
+    for(auto iter = mServerList[serverTypes].begin(); iter != mServerList[serverTypes].end(); iter++)
+    {
+        NF_SHARE_PTR<NFServerData> pData = *iter;
+        if (pData && pData->mServerInfo.is_cross_server() == isCrossServer)
+        {
+            vec.push_back(pData);
+        }
+    }
+    return vec;
+}

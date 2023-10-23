@@ -40,3 +40,9 @@ DEFINE_BIND_RPC_SERVICE(proto_ff::CLIENT_ENTER_GAME_REQ, proto_ff::ClientEnterGa
  * @brief 逻辑服登录社交服务RPC
  */
 DEFINE_BIND_RPC_SERVICE(proto_ff::LTS_LOGIN_RPC, proto_ff::LTSLoginReq, proto_ff::STLLoginRsp)
+
+/**
+ * @brief 地图注册RPC
+ */
+DEFINE_BIND_RPC_SERVICE(proto_ff::STS_MAP_REG_RPC, proto_ff::RegisterMapInfoReq, proto_ff::ReigsterMapInfoRsp)
+

@@ -30,3 +30,36 @@ int NFServerAddrMgr::CreateInit() {
 int NFServerAddrMgr::ResumeInit() {
     return 0;
 }
+
+int NFServerAddrMgr::AddMapAddr(uint32_t mapId, uint32_t busId)
+{
+    NFMapAddr* pMapAddr = GetMapAddr(mapId);
+    if (pMapAddr == NULL)
+    {
+        pMapAddr = InsertMapAddr(mapId);
+        CHECK_NULL(pMapAddr);
+    }
+
+    return pMapAddr->AddBusId(busId);
+}
+
+NFMapAddr* NFServerAddrMgr::GetMapAddr(uint32_t mapId)
+{
+    auto iter = m_mapAddrMap.find(mapId);
+    if (iter != m_mapAddrMap.end())
+    {
+        return &iter->second;
+    }
+    return nullptr;
+}
+
+NFMapAddr* NFServerAddrMgr::InsertMapAddr(uint32_t mapId)
+{
+    if (m_mapAddrMap.size() >= m_mapAddrMap.max_size())
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "InsertMapAddr failed! mapId:{} space not enough", mapId);
+        return NULL;
+    }
+
+    return &m_mapAddrMap[mapId];
+}

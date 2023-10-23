@@ -268,5 +268,7 @@ struct ServerLinkData {
 
     std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer(NF_SERVER_TYPES serverTypes);
 
+    std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer(NF_SERVER_TYPES serverTypes, bool isCrossServer);
+
     std::vector<std::string> GetDBNames();
 };

@@ -741,6 +741,8 @@ public:
 
     virtual std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes) = 0;
 
+    virtual std::vector<NF_SHARE_PTR<NFServerData>> GetAllServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool isCrossServer) = 0;
+
     virtual std::vector<std::string> GetDBNames(NF_SERVER_TYPES eSendType) = 0;
 
     virtual std::set<uint32_t> GetAllMsg(NF_SERVER_TYPES eSendType, uint32_t moduleId) = 0;

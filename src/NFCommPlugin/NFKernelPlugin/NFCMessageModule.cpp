@@ -1239,6 +1239,12 @@ std::vector<NF_SHARE_PTR<NFServerData>> NFCMessageModule::GetAllServer(NF_SERVER
     return mServerLinkData[eSendType].GetAllServer(serverTypes);
 }
 
+std::vector<NF_SHARE_PTR<NFServerData>> NFCMessageModule::GetAllServer(NF_SERVER_TYPES eSendType, NF_SERVER_TYPES serverTypes, bool isCrossServer)
+{
+    CHECK_EXPR(eSendType < mServerLinkData.size(), std::vector<NF_SHARE_PTR < NFServerData>>(), "eType error:{}", (int) eSendType);
+    return mServerLinkData[eSendType].GetAllServer(serverTypes, isCrossServer);
+}
+
 std::vector<std::string> NFCMessageModule::GetDBNames(NF_SERVER_TYPES eSendType)
 {
     CHECK_EXPR(eSendType < mServerLinkData.size(), std::vector<std::string>(), "eType error:{}", (int) eSendType);

@@ -30,3 +30,18 @@ int NFMapAddr::CreateInit()
 int NFMapAddr::ResumeInit() {
     return 0;
 }
+
+int NFMapAddr::AddBusId(uint32_t busId)
+{
+    if (!IsExist(busId))
+    {
+        if (m_serverData.size() >= m_serverData.max_size())
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "add busId:{} failed, space not entough", busId);
+            return -1;
+        }
+
+        m_serverData.insert(busId);
+    }
+    return 0;
+}

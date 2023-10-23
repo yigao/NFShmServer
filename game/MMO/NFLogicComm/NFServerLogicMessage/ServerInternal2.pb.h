@@ -46,6 +46,8 @@ class NotifyLogicLeaveGameReq2;
 class NotifyLogicLeaveGameRsp2;
 class LTSLoginReq;
 class STLLoginRsp;
+class RegisterMapInfoReq;
+class ReigsterMapInfoRsp;
 
 // ===================================================================
 
@@ -940,6 +942,183 @@ class STLLoginRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static STLLoginRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class RegisterMapInfoReq : public ::google::protobuf::Message {
+ public:
+  RegisterMapInfoReq();
+  virtual ~RegisterMapInfoReq();
+
+  RegisterMapInfoReq(const RegisterMapInfoReq& from);
+
+  inline RegisterMapInfoReq& operator=(const RegisterMapInfoReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const RegisterMapInfoReq& default_instance();
+
+  void Swap(RegisterMapInfoReq* other);
+
+  // implements Message ----------------------------------------------
+
+  RegisterMapInfoReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const RegisterMapInfoReq& from);
+  void MergeFrom(const RegisterMapInfoReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint32 bus_id = 1;
+  inline bool has_bus_id() const;
+  inline void clear_bus_id();
+  static const int kBusIdFieldNumber = 1;
+  inline ::google::protobuf::uint32 bus_id() const;
+  inline void set_bus_id(::google::protobuf::uint32 value);
+
+  // repeated uint32 map_id = 2;
+  inline int map_id_size() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 map_id(int index) const;
+  inline void set_map_id(int index, ::google::protobuf::uint32 value);
+  inline void add_map_id(::google::protobuf::uint32 value);
+  inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+      map_id() const;
+  inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+      mutable_map_id();
+
+  // @@protoc_insertion_point(class_scope:proto_ff.RegisterMapInfoReq)
+ private:
+  inline void set_has_bus_id();
+  inline void clear_has_bus_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::RepeatedField< ::google::protobuf::uint32 > map_id_;
+  ::google::protobuf::uint32 bus_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(2 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static RegisterMapInfoReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ReigsterMapInfoRsp : public ::google::protobuf::Message {
+ public:
+  ReigsterMapInfoRsp();
+  virtual ~ReigsterMapInfoRsp();
+
+  ReigsterMapInfoRsp(const ReigsterMapInfoRsp& from);
+
+  inline ReigsterMapInfoRsp& operator=(const ReigsterMapInfoRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ReigsterMapInfoRsp& default_instance();
+
+  void Swap(ReigsterMapInfoRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  ReigsterMapInfoRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ReigsterMapInfoRsp& from);
+  void MergeFrom(const ReigsterMapInfoRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ReigsterMapInfoRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_code_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(1 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static ReigsterMapInfoRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -1526,6 +1705,83 @@ inline ::google::protobuf::int32 STLLoginRsp::ret() const {
 inline void STLLoginRsp::set_ret(::google::protobuf::int32 value) {
   set_has_ret();
   ret_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// RegisterMapInfoReq
+
+// optional uint32 bus_id = 1;
+inline bool RegisterMapInfoReq::has_bus_id() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RegisterMapInfoReq::set_has_bus_id() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RegisterMapInfoReq::clear_has_bus_id() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RegisterMapInfoReq::clear_bus_id() {
+  bus_id_ = 0u;
+  clear_has_bus_id();
+}
+inline ::google::protobuf::uint32 RegisterMapInfoReq::bus_id() const {
+  return bus_id_;
+}
+inline void RegisterMapInfoReq::set_bus_id(::google::protobuf::uint32 value) {
+  set_has_bus_id();
+  bus_id_ = value;
+}
+
+// repeated uint32 map_id = 2;
+inline int RegisterMapInfoReq::map_id_size() const {
+  return map_id_.size();
+}
+inline void RegisterMapInfoReq::clear_map_id() {
+  map_id_.Clear();
+}
+inline ::google::protobuf::uint32 RegisterMapInfoReq::map_id(int index) const {
+  return map_id_.Get(index);
+}
+inline void RegisterMapInfoReq::set_map_id(int index, ::google::protobuf::uint32 value) {
+  map_id_.Set(index, value);
+}
+inline void RegisterMapInfoReq::add_map_id(::google::protobuf::uint32 value) {
+  map_id_.Add(value);
+}
+inline const ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >&
+RegisterMapInfoReq::map_id() const {
+  return map_id_;
+}
+inline ::google::protobuf::RepeatedField< ::google::protobuf::uint32 >*
+RegisterMapInfoReq::mutable_map_id() {
+  return &map_id_;
+}
+
+// -------------------------------------------------------------------
+
+// ReigsterMapInfoRsp
+
+// optional int32 ret_code = 1;
+inline bool ReigsterMapInfoRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ReigsterMapInfoRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ReigsterMapInfoRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ReigsterMapInfoRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 ReigsterMapInfoRsp::ret_code() const {
+  return ret_code_;
+}
+inline void ReigsterMapInfoRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
 }
 
 

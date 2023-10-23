@@ -254,6 +254,7 @@ int pbNFServerConfig_s::CreateInit() {
 	IdleSleepUS = (uint32_t)0;
 	HandleMsgNumPerFrame = (uint32_t)0;
 	ServerOpenTime = (uint64_t)0;
+	CrossServer = (bool)0;
 	ServerPort = (uint32_t)0;
 	ExternalServerPort = (uint32_t)0;
 	HttpPort = (uint32_t)0;
@@ -286,6 +287,7 @@ void pbNFServerConfig_s::write_to_pbmsg(::proto_ff::pbNFServerConfig & msg) cons
 	msg.set_handlemsgnumperframe((uint32_t)HandleMsgNumPerFrame);
 	msg.set_serveropentime((uint64_t)ServerOpenTime);
 	msg.set_loadprotods(LoadProtoDs.data());
+	msg.set_crossserver((bool)CrossServer);
 	msg.set_serverip(ServerIp.data());
 	msg.set_serverport((uint32_t)ServerPort);
 	msg.set_externalserverip(ExternalServerIp.data());
@@ -329,6 +331,7 @@ void pbNFServerConfig_s::read_from_pbmsg(const ::proto_ff::pbNFServerConfig & ms
 	HandleMsgNumPerFrame = msg.handlemsgnumperframe();
 	ServerOpenTime = msg.serveropentime();
 	LoadProtoDs = msg.loadprotods();
+	CrossServer = msg.crossserver();
 	ServerIp = msg.serverip();
 	ServerPort = msg.serverport();
 	ExternalServerIp = msg.externalserverip();

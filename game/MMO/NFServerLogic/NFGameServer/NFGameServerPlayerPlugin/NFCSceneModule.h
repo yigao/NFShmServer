@@ -44,6 +44,12 @@ public:
      * @return
      */
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2) override;
+public:
+    /**
+     *
+     * @return
+     */
+    int RegisterMapInfo();
 private:
     /**
      * @brief NFILuaModule
