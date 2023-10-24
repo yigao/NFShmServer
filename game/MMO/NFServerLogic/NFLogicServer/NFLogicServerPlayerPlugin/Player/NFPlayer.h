@@ -36,75 +36,75 @@ class NFPlayer : public NFShmObj, public NFSeqOP
 {
 public:
     NFPlayer();
-
+    
     virtual ~NFPlayer();
-
+    
     int CreateInit();
-
+    
     int ResumeInit();
-
+    
     void Tick();
-
+    
     virtual int OnTimer(int timeId, int callcount);
 
 public:
     virtual int Init(const proto_ff::RoleDBData &data);
-
+    
     virtual int UnInit();
-
+    
     /**
      * @brief
      * @param data
      * @return
      */
     virtual int LoadFromDB(const proto_ff::RoleDBData &data);
-
+    
     /**
      * @brief
      * @param data
      * @return
      */
     virtual int InitConfig(const proto_ff::RoleDBData &data);
-
+    
     /**
      * @brief
      * @param data
      * @return
      */
     virtual int SaveDB(proto_ff::RoleDBData &data);
-
+    
     /**
      * @brief
      * @return
      */
     virtual int Update();
-
+    
     /**
      * @brief 登陆入口
      * @return
      */
     virtual int OnLogin();
-
+    
     virtual int OnLogin(proto_ff::PlayerInfoRsp &playerInfo);
-
+    
     /**
      * @brief 登出入口
      * @return
      */
     virtual int OnLogout();
-
+    
     /**
      * @brief 掉线入口
      * @return
      */
     virtual int OnDisconnect();
-
+    
     /**
      * @brief 重连入口
      * @return
      */
     virtual int OnReconnect();
-
+    
     ////////////////////////////////// 每日每周刷新接口 ///////////////////////////////////
     /**
      * @brief 每日刷新接口
@@ -112,125 +112,132 @@ public:
      * @return
      */
     virtual int DailyZeroUpdate();
-
+    
     /**
      * @brief 每周刷新接口
      * @param unixSec
      * @return
      */
     virtual int WeekZeroUpdate();
-
+    
     /**
      * @brief 每月刷新接口
      * @param unixSec
      * @return
      */
     virtual int MonthZeroUpdate();
-
+    
     /**
      * 设置外观信息
      * @param outproto
      */
     virtual void SetFacadeProto(proto_ff::RoleFacadeProto &outproto);
-
+    
     /**
      * 设置头像信息
      * @param outproto
      */
     virtual void SetHeadProto(proto_ff::RoleHeadPicProto &outproto);
-
+public:
+    //读取基础数据
+    bool ReadBaseData(const proto_ff::RoleDBData &proto);
+    void SetBaseData(proto_ff::RoleDBData &proto);
+    void SetAttrData(proto_ff::RoleDBData &proto);
+public:
+    //状态
+    uint8_t GetState();
+    void SetState(proto_ff::ECState state);
 public:
     //////////////////////////////////////////////////////////////////////////
     //增加属性 主要是为了增加虚拟物品相关的属性 costFlag:是否是扣除属性
     virtual void AddVirAttr(MAP_UINT32_INT64 &mapAttr, bool costFlag = false, SCommonSource *pSource = nullptr, bool syn = false);
-
+    
     //属性是否足够，主要是为了属性虚拟物品的判断
     virtual bool EnoughVirAttr(MAP_UINT32_INT64 &mapAttr);
-
+    
     //增加属性
     virtual bool AddAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr, bool syn = false);
-
+    
     //增加属性 不同步到客户端
     virtual bool AddAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
-
+    
     //能否增加属性
     virtual bool CanAddAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
-
+    
     //增加属性处理
     virtual void OnAddAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource *pSource = nullptr);
-
+    
     //设置属性
     virtual bool SetAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr, bool syn = false);
-
+    
     //设置属性 不同步客户端
     virtual bool SetAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
-
+    
     //能否设置属性
     virtual bool CanSetAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSource = nullptr);
-
+    
     //设置属性处理
     virtual void OnSetAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64_t newVal, SCommonSource *pSource = nullptr);
-
-
+    
     //获取该组属性值
     virtual int64_t GetAttrGroup(uint32_t attrGroup, uint32_t ANum);
-
+    
     //获取该组所有属性值
     virtual void GetAttrGroup(uint32_t attrGroup, MAP_UINT32_INT64 &mapattr);
-
+    
     //清除某一组属性
     virtual bool ClearAttrGroup(uint32_t attrGroup, SCommonSource *pSource = nullptr, bool syn = false);
-
+    
     virtual bool ClearAttrGroupCache(uint32_t attrGroup, SCommonSource *pSource = nullptr);
-
+    
     //增加属性组属性
     virtual bool AddAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr, bool syn = false);
-
+    
     virtual bool AddAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr);
-
+    
     //设置属性组属性
     virtual bool SetAttrGroup(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr, bool syn = false);
-
+    
     virtual bool SetAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t val, SCommonSource *pSource = nullptr);
-
+    
     //设置属性组所有属性
     virtual bool SetAttrGroup(uint32_t attrGroup, const MAP_UINT32_INT64 &mapattr, SCommonSource *pSource = nullptr, bool syn = false);
-
+    
     virtual bool SetAttrGroupCache(uint32_t attrGroup, const MAP_UINT32_INT64 &mapattr, SCommonSource *pSource = nullptr);
-
+    
     //计算属性
     virtual void CalcAttr(uint32_t ANum);
-
+    
     //计算属性组属性 主要是把属性组中的属性汇总到总属性中 ANum:属性组中的属性ID
     virtual void CalcAttrGroup(uint32_t attrgroup, uint32_t ANum, MAP_UINT32_INT64 &mapchg);
-
+    
     //获取属性值
     virtual int64_t GetAttr(uint32_t ANum);
-
+    
     //获取所有属性组属性之和
     virtual void GetAttrGroupTotal(MAP_UINT32_INT64 &mapattr);
-
+    
     //属性改变
     virtual void OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCommonSource *pSource = nullptr);
-
+    
     //同步属性
     virtual void SynAttrToClient();
 public:
     //检查经验值
-    void CheckExp(int64_t oldexp, SCommonSource* pSource);
+    void CheckExp(int64_t oldexp, SCommonSource *pSource);
     
     //是否是需要保存的属性
     bool IsNeeSaveAttr(uint32_t ANum);
     
     //同步属性到中心服
-    void SynAttrToSns(const proto_ff::CenterRoleProto& proto);
+    void SynAttrToSns(const proto_ff::CenterRoleProto &proto);
 public:
     /**
      * 登陆前的处理
      * @return
      */
     int OnPrevLogin();
-
+    
     /**
      * 同步角色数据给客户端
      * @return
@@ -243,7 +250,7 @@ public:
      * @return
      */
     int LoginSns();
-
+    
     /**
      * 进入游戏
      * @return
@@ -251,94 +258,64 @@ public:
     int EnterGame();
 
 public:
-    uint64_t GetCid() const
-    { return m_cid; }
-
-    uint64_t Cid() const
-    { return m_cid; }
-
-    void SetCid(uint64_t cid)
-    { m_cid = cid; }
-
-    uint64_t GetUid() const
-    { return m_uid; }
-
-    void SetUid(uint64_t uid)
-    { m_uid = uid; }
-
-    uint32_t GetZid() const
-    { return m_zid; }
-
-    void SetZid(uint32_t zid)
-    { m_zid = zid; }
-
-    proto_ff_s::RoleDBBaseData_s *GetBaseData()
-    { return &m_baseData; }
-
-    const proto_ff_s::RoleDBBaseData_s *GetBaseData() const
-    { return &m_baseData; }
-
-    std::string GetName() const
-    { return m_name.ToString(); }
+    uint64_t GetCid() const { return m_cid; }
+    
+    uint64_t Cid() const { return m_cid; }
+    
+    void SetCid(uint64_t cid) { m_cid = cid; }
+    
+    uint64_t GetUid() const { return m_uid; }
+    
+    void SetUid(uint64_t uid) { m_uid = uid; }
+    
+    uint32_t GetZid() const { return m_zid; }
+    
+    void SetZid(uint32_t zid) { m_zid = zid; }
+    
+    std::string GetName() const { return m_name.data(); }
+public:
+    proto_ff::enPlayerStatus GetStatus() const { return m_iStatus; }
+    
+    void SetStatus(proto_ff::enPlayerStatus status) { m_iStatus = status; }
+    
+    uint64_t GetLastDisconnectTime() const { return m_lastDiconnectTime; }
+    
+    void SetLastDisconnectTime(uint64_t distime) { m_lastDiconnectTime = distime; }
+    
+    uint64_t GetLastLogoutTime() const { return m_lastLogoutTime; }
+    
+    void SetLastLogtouTime(uint64_t logoutTime) { m_lastLogoutTime = logoutTime; }
 
 public:
-    proto_ff::enPlayerStatus GetStatus() const
-    { return m_iStatus; }
-
-    void SetStatus(proto_ff::enPlayerStatus status)
-    { m_iStatus = status; }
-
-    uint64_t GetLastDisconnectTime() const
-    { return m_lastDiconnectTime; }
-
-    void SetLastDisconnectTime(uint64_t distime)
-    { m_lastDiconnectTime = distime; }
-
-    uint64_t GetLastLogoutTime() const
-    { return m_lastLogoutTime; }
-
-    void SetLastLogtouTime(uint64_t logoutTime)
-    { m_lastLogoutTime = logoutTime; }
-
-public:
-    uint32_t GetProxyId() const
-    { return m_proxyId; }
-
-    void SetProxyId(uint32_t proxyId)
-    { m_proxyId = proxyId; }
-
-    uint32_t GetGameId() const
-    { return m_gameId; }
-
-    void SetGameId(uint32_t gameId)
-    { m_gameId = gameId; }
-
-    uint32_t GetWorldId(uint32_t worldId) const
-    { return m_worldId; }
-
-    void SetWorldId(uint32_t worldId)
-    { m_worldId = worldId; }
-
-    uint32_t GetSnsId() const
-    { return m_snsId; }
-
-    void SetSnsId(uint32_t snsId)
-    { m_snsId = snsId; }
+    uint32_t GetProxyId() const { return m_proxyId; }
+    
+    void SetProxyId(uint32_t proxyId) { m_proxyId = proxyId; }
+    
+    uint32_t GetGameId() const { return m_gameId; }
+    
+    void SetGameId(uint32_t gameId) { m_gameId = gameId; }
+    
+    uint32_t GetWorldId(uint32_t worldId) const { return m_worldId; }
+    
+    void SetWorldId(uint32_t worldId) { m_worldId = worldId; }
+    
+    uint32_t GetSnsId() const { return m_snsId; }
+    
+    void SetSnsId(uint32_t snsId) { m_snsId = snsId; }
 
 public:
     /**
      * @brief
      * @return
      */
-    bool IsInGaming()
-    { return GetGameId() > 0; }
+    bool IsInGaming() { return GetGameId() > 0; }
 
 public:
     /**
      * @brief trans num
      */
     void IncreaseTransNum();
-
+    
     void DecreaseTransNum();
 
 public:
@@ -346,24 +323,21 @@ public:
      * @brief save db
      * @return
      */
-    uint64_t GetLastSaveDBTime() const
-    { return m_lastSavingDBTime; }
-
-    void SetLastSaveDBTime(uint64_t saveTime)
-    { m_lastSavingDBTime = saveTime; }
-
-    bool IsInSaving()
-    { return m_lastSavingDBTime > 0 && m_lastSavingDBTime + TRANS_ACTIVE_TIMEOUT + 5 >= (uint64_t) NFTime::Now().UnixSec(); }
-
+    uint64_t GetLastSaveDBTime() const { return m_lastSavingDBTime; }
+    
+    void SetLastSaveDBTime(uint64_t saveTime) { m_lastSavingDBTime = saveTime; }
+    
+    bool IsInSaving() { return m_lastSavingDBTime > 0 && m_lastSavingDBTime + TRANS_ACTIVE_TIMEOUT + 5 >= (uint64_t) NFTime::Now().UnixSec(); }
+    
     bool IsNeedSave();
-
+    
     /**
      * @brief
      * @param iReason
      * @return
      */
     int SendTransToDB(TRANS_SAVEROLEDETAIL_REASON iReason = TRANS_SAVEROLEDETAIL_NORMAL);
-
+    
     /**
      * @brief
      * @param iReason
@@ -371,7 +345,7 @@ public:
      * @return
      */
     int SaveToDB(TRANS_SAVEROLEDETAIL_REASON iReason = TRANS_SAVEROLEDETAIL_NORMAL, bool bForce = false);
-
+    
     /**
      * @brief
      * @param success
@@ -379,13 +353,13 @@ public:
      * @return
      */
     int OnSaveDB(bool success, uint32_t seq);
-
+    
     /**
      * @brief
      * @return
      */
     uint32_t GetAllSeq();
-
+    
     /**
      * @brief
      */
@@ -399,13 +373,13 @@ public:
      * @return
      */
     int SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData);
-
+    
     int SendMsgToSnsServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-
+    
     int SendMsgToWorldServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-
+    
     int SendMsgToGameServer(uint32_t nMsgId, const google::protobuf::Message &xData);
-
+    
     /**
      * @brief 在协程里获取远程服务器的rpc服务, 这个程序必须在协程里调用，需要先创建协程
      * @return 如果你在player或part的函数里，请优先调用这个函数，而不是调用FindModule<NFIMessageModule>()->GetRpcService系统函数， 因为玩家的生命周期是不确定的
@@ -425,17 +399,17 @@ public:
     {
         return dynamic_cast<PART *>(GetPart(partType));
     }
-
+    
     template<typename PART>
     const PART *GetPart(uint32_t partType) const
     {
         return dynamic_cast<const PART *>(GetPart(partType));
     }
-
+    
     NFPart *GetPart(uint32_t partType);
-
+    
     const NFPart *GetPart(uint32_t partType) const;
-
+    
     /**
      * @brief 创建Part
      * @param partType
@@ -443,14 +417,14 @@ public:
      * @return
      */
     NFPart *CreatePart(uint32_t partType, const ::proto_ff::RoleDBData &dbData);
-
+    
     /**
      * @brief 创建Part
      * @param partType
      * @return
      */
     NFPart *CreatePart(uint32_t partType);
-
+    
     /**
      * @brief 释放Part
      * @param pPart
@@ -462,7 +436,7 @@ private:
     uint64_t m_cid;
     uint64_t m_uid;
     uint32_t m_zid;
-    proto_ff_s::RoleDBBaseData_s m_baseData;
+    uint32_t m_state;					//状态
 private:
     /**
      * 玩家场景数据
@@ -490,7 +464,7 @@ private:
     uint64_t m_logoutTime;                //上一次下线时间（UTC时间）
     uint32_t m_totalLoginDay;                //总登录天数
     uint64_t m_loginDayTime;                //总登录天数变更时间
-
+    
     proto_ff_s::RoleFacadeProto_s m_lastfacade;                //最近一次外观数据，用于和最新的外观比较
     proto_ff_s::RoleReliveProto_s m_relive;                //复活信息
     uint32_t m_dayPrestige;            //今日获得的声望
