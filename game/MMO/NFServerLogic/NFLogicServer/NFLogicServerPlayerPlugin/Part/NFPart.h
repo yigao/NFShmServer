@@ -75,6 +75,7 @@ public:
      * @return
      */
     virtual int OnLogin() { return 0; }
+    virtual int OnLogin(proto_ff::PlayerInfoRsp& playerInfo) { return 0; }
 
     /**
      * @brief 登出入口
@@ -112,6 +113,12 @@ public:
      * @return
      */
     virtual int MonthZeroUpdate() { return 0; };
+
+    /**
+     * 设置外观信息
+     * @param outproto
+     */
+    virtual int FillFacadeProto(proto_ff::RoleFacadeProto& outproto) { return 0; }
 public:
     /**
      * @brief update

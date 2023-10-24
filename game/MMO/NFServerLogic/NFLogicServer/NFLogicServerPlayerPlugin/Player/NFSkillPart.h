@@ -27,7 +27,9 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
+public:
+    //ÉúÃü¸Ä±ä
+    void OnHpChange(int64_t oldHp, int64_t curHp, int64_t maxHp);
 private:
 DECLARE_IDCREATE(NFSkillPart)
 };

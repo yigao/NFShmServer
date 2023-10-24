@@ -7,11 +7,11 @@
 //
 // -------------------------------------------------------------------------
 
-#include "NFGodevilPart.h"
+#include "NFGodEvilPart.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGodevilPart, EOT_LOGIC_PART_ID+PART_GODEVIL, NFPart)
+IMPLEMENT_IDCREATE_WITHTYPE(NFGodEvilPart, EOT_LOGIC_PART_ID + PART_GODEVIL, NFPart)
 
-NFGodevilPart::NFGodevilPart()
+NFGodEvilPart::NFGodEvilPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -23,16 +23,16 @@ NFGodevilPart::NFGodevilPart()
     }
 }
 
-NFGodevilPart::~NFGodevilPart()
+NFGodEvilPart::~NFGodEvilPart()
 {
 }
 
-int NFGodevilPart::CreateInit()
+int NFGodEvilPart::CreateInit()
 {
     return 0;
 }
 
-int NFGodevilPart::ResumeInit()
+int NFGodEvilPart::ResumeInit()
 {
     return 0;
 }

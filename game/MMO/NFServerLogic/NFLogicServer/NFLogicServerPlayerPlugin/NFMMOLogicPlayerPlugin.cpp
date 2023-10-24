@@ -38,7 +38,7 @@
 #include "Player/NFFunctionUnlockPart.h"
 #include "Player/NFGiftPart.h"
 #include "Player/NFGmaPart.h"
-#include "Player/NFGodevilPart.h"
+#include "Player/NFGodEvilPart.h"
 #include "Player/NFGVBPDataPart.h"
 #include "Player/NFGrowPart.h"
 #include "Player/NFMallPart.h"
@@ -138,7 +138,7 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
     REGISTER_SHM_OBJ(NFFunctionUnlockPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFGiftPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFGmaPart, maxOnlinePlayerNum);
-    REGISTER_SHM_OBJ(NFGodevilPart, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(NFGodEvilPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFGrowPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFGVBPDataPart, maxOnlinePlayerNum);
     REGISTER_SHM_OBJ(NFMallPart, maxOnlinePlayerNum);

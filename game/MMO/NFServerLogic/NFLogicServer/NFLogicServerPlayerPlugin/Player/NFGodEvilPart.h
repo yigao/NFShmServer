@@ -17,17 +17,22 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 
-class NFGodevilPart : public NFPart
+class NFGodEvilPart : public NFPart
 {
 public:
-    NFGodevilPart();
+    NFGodEvilPart();
 
-    virtual ~NFGodevilPart();
+    virtual ~NFGodEvilPart();
 
     int CreateInit();
 
     int ResumeInit();
 
+public:
+    void OnSetExp(int64_t &value) {}
+
+    //处理 增加神魔之息
+    void OnAddExp(int64_t &value) {}
 private:
-DECLARE_IDCREATE(NFGodevilPart)
+DECLARE_IDCREATE(NFGodEvilPart)
 };

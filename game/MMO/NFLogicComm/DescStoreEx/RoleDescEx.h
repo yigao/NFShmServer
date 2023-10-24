@@ -14,6 +14,8 @@ public:
 	virtual ~RoleDescEx();
 	int CreateInit();
 	int ResumeInit();
+public:
+    uint32_t MaxLevel() const { return 1000; }
 private:
 IMPL_RES_DESC_EX(RoleDescEx)
 DECLARE_IDCREATE(RoleDescEx)

@@ -174,6 +174,7 @@ struct SCommonSource
 
     uint64_t killerCid;		//击杀者cid,目前用于技能击杀生物时，传入击杀者的cid
     int64_t  damageVal;		//击杀者对被击者造成的伤害
+    uint64_t skillId;				//击杀者使用的技能ID
 
     bool bTips;				//是否通知客户端弹出TIPS
 

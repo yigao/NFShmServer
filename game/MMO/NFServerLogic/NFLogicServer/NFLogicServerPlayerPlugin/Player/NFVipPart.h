@@ -27,7 +27,8 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
+public:
+    void DoAttrChange(uint32_t ANum, int64_t nValue, int64_t attrValue, SCommonSource* pSource) {}
 private:
 DECLARE_IDCREATE(NFVipPart)
 };

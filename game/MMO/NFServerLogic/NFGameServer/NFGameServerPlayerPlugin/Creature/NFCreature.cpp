@@ -326,6 +326,14 @@ bool NFCreature::AddAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *p
     if (!CanAddAttr(ANum, attrValue, pSource)) return false;
     //
     int64_t oldVal = m_pAttr->GetAttr(ANum);
+    if (proto_ff::A_CUR_HP == ANum && attrValue > 0)
+    {
+        int64_t maxhp = GetAttr(proto_ff::A_MAX_HP);
+        if (oldVal >= maxhp) return true;
+        int64_t limitval = maxhp - oldVal;
+        if (attrValue > limitval) attrValue = limitval;
+        if (0 == attrValue) return true;
+    }
     bool chgflag = false;//属性值是否有改变
     bool ret = m_pAttr->AddAttr(ANum, attrValue, &chgflag);
     if (!ret) return false;
@@ -333,13 +341,14 @@ bool NFCreature::AddAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *p
     if (!chgflag) return true;
     //
     int64_t newVal = m_pAttr->GetAttr(ANum);
+
     //计算属性
     CalcAttr(ANum);
     //
     OnAddAttr(ANum, oldVal, attrValue, newVal, pSource);
     //属性改变
     OnAttrChange(ANum, oldVal, newVal, pSource);
-
+    
     return true;
 }
 
@@ -367,14 +376,18 @@ bool NFCreature::SetAttrCache(uint32_t ANum, int64_t attrValue, SCommonSource *p
 {
     if (nullptr == m_pAttr || attrValue < 0) return false;
     if (!CanSetAttr(ANum, attrValue, pSource)) return false;
-
     int64_t oldVal = m_pAttr->GetAttr(ANum);
+    if (proto_ff::A_CUR_HP == ANum)
+    {
+        int64_t maxhp = GetAttr(proto_ff::A_MAX_HP);
+        if (attrValue > maxhp) attrValue = maxhp;
+    }
     bool chgflag = false;
     bool ret = m_pAttr->SetAttr(ANum, attrValue, &chgflag);
     if (!ret) return false;
     //属性值未改变
     if (!chgflag) return true;
-
+    
     int64_t newVal = m_pAttr->GetAttr(ANum);
     //计算属性
     CalcAttr(ANum);
@@ -413,38 +426,22 @@ void NFCreature::CalcAttr(uint32_t ANum)
 //计算属性组属性 主要是把属性组中的属性汇总到总属性中 ANum:属性组中的属性ID
 void NFCreature::CalcAttrGroup(uint32_t attrgroup, uint32_t ANum, MAP_UINT32_INT64 &mapchg)
 {
-    if (nullptr == m_pFightAttr)
-    {
-        return;
-    }
-    if (attrgroup <= 0)
-    {
-        return;
-    }
+    if (nullptr == m_pFightAttr) return;
+    if (attrgroup <= 0)   return;
     if (ANum > 0)
     {
-        bool chgflag = false;
-        m_pFightAttr->CalcAttr(ANum, &chgflag);
-        if (chgflag)
-        {
-            int64_t val = GetAttr(ANum);
-            mapchg[ANum] = val;
-            if (NFAttrMgr::Instance(m_pObjPluginManager)->IsSynClient(ANum))
-                m_attrCache[ANum] = val;
-            if (NFAttrMgr::Instance(m_pObjPluginManager)->IsBroadClient(ANum))
-                m_attrBroadCache[ANum] = val;
-        }
+        m_pFightAttr->CalcAttr(ANum, mapchg);
     }
     else
     {
         m_pFightAttr->CalcAttr(mapchg);
-        for (auto &iter: mapchg)
-        {
-            if (NFAttrMgr::Instance(m_pObjPluginManager)->IsSynClient(ANum))
-                m_attrCache[iter.first] = iter.second;
-            if (NFAttrMgr::Instance(m_pObjPluginManager)->IsBroadClient(ANum))
-                m_attrBroadCache[iter.first] = iter.second;
-        }
+    }
+    for (auto& iter : mapchg)
+    {
+        if (NFAttrMgr::Instance(m_pObjPluginManager)->IsSynClient(iter.first))
+            m_attrCache[iter.first] = iter.second;
+        if (NFAttrMgr::Instance(m_pObjPluginManager)->IsBroadClient(iter.first))
+            m_attrBroadCache[iter.first] = iter.second;
     }
 }
 
@@ -454,7 +451,7 @@ void NFCreature::OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCom
 /*    if (A_CUR_HP == ANum)
     {
         BuffPart* pbuffpart = dynamic_cast<BuffPart*>(GetPart(PART_BUFF));
-        if (nullptr != pbuffpart) pbuffpart->OnHpChange(newVal, GetAttr(A_MAX_HP));
+        if (nullptr != pbuffpart) pbuffpart->OnHpChange(oldVal, newVal, GetAttr(A_MAX_HP));
     }*/
 }
 
@@ -516,12 +513,16 @@ bool NFCreature::ClearAttrGroup(uint32_t attrGroup, SCommonSource *pSource, bool
 bool NFCreature::ClearAttrGroupCache(uint32_t attrGroup, SCommonSource *pSource)
 {
     if (nullptr == m_pFightAttr) return false;
-    bool chgflag = false;
-    MAP_UINT32_INT64 mapoldchg;
-    m_pFightAttr->GetAttr(mapoldchg);
-    bool ret = m_pFightAttr->ClearAttrGroup(attrGroup, &chgflag);
+    MAP_UINT32_INT64 maptemp;
+    bool ret = m_pFightAttr->ClearAttrGroup(attrGroup, &maptemp);
     if (!ret) return false;
-    if (!chgflag) return true;
+    if (maptemp.empty()) return true;
+    //
+    MAP_UINT32_INT64 mapoldchg;
+    for (auto &itertemp : maptemp)
+    {
+        mapoldchg[itertemp.first] = m_pFightAttr->GetAttr(itertemp.first);
+    }
     //
     MAP_UINT32_INT64 mapnewchg;
     CalcAttrGroup(attrGroup, 0, mapnewchg);
@@ -589,7 +590,7 @@ bool NFCreature::SetAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t va
 {
     if (nullptr == m_pFightAttr) return false;
     bool chgflag = false;
-    int64_t oldval = m_pFightAttr->GetAttrGroup(attrGroup, ANum);
+    int64_t oldval = m_pFightAttr->GetAttr(ANum);
     bool ret = m_pFightAttr->SetAttrGroup(attrGroup, ANum, val, &chgflag);
     if (!ret) return false;
     if (!chgflag) return true;
@@ -597,10 +598,53 @@ bool NFCreature::SetAttrGroupCache(uint32_t attrGroup, uint32_t ANum, int64_t va
     MAP_UINT32_INT64 mapchg;
     CalcAttrGroup(attrGroup, ANum, mapchg);
     //
-    int64_t newval = m_pFightAttr->GetAttrGroup(attrGroup, ANum);
+    int64_t newval = m_pFightAttr->GetAttr(ANum);
     if (oldval != newval)
     {
         OnAttrChange(ANum, oldval, newval, pSource);
+    }
+    return true;
+}
+
+//设置属性组所有属性
+bool NFCreature::SetAttrGroup(uint32_t attrGroup, const MAP_UINT32_INT64& mapattr, SCommonSource* pSource, bool syn)
+{
+    if (!SetAttrGroupCache(attrGroup, mapattr, pSource))
+    {
+        return false;
+    }
+    if (syn)
+    {
+        SynAttrToClient();
+    }
+    return true;
+}
+
+bool NFCreature::SetAttrGroupCache(uint32_t attrGroup, const MAP_UINT32_INT64& mapattr, SCommonSource* pSource)
+{
+    if (nullptr == m_pFightAttr) return false;
+    MAP_UINT32_INT64 maptemp;
+    bool ret = m_pFightAttr->SetAttrGroup(attrGroup, mapattr, &maptemp);
+    if (!ret) return false;
+    if (maptemp.empty()) return true;
+    //
+    MAP_UINT32_INT64 mapold;
+    for (auto &itertemp : maptemp)
+    {
+        mapold[itertemp.first] = m_pFightAttr->GetAttr(itertemp.first);
+    }
+    MAP_UINT32_INT64 mapchg;
+    CalcAttrGroup(attrGroup, 0, mapchg);
+    //
+    for (auto &iterchg : mapchg)
+    {
+        int64_t oldval = 0;
+        auto iterold = mapold.find(iterchg.first);
+        if (iterold != mapold.end()) oldval = iterold->second;
+        if (oldval != iterchg.second)
+        {
+            OnAttrChange(iterchg.first, oldval, iterchg.second, pSource);
+        }
     }
     return true;
 }

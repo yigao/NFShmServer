@@ -28,6 +28,12 @@ public:
 
     int ResumeInit();
 
+public:
+    /**
+     * 设置头像信息
+     * @param outproto
+     */
+    virtual void FillHeadProto(proto_ff::RoleHeadPicProto &outproto) { }
 private:
 DECLARE_IDCREATE(NFGrowPart)
 };

@@ -9,7 +9,6 @@
 
 #pragma once
 
-
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
@@ -21,13 +20,14 @@ class NFPetPart : public NFPart
 {
 public:
     NFPetPart();
-
+    
     virtual ~NFPetPart();
-
+    
     int CreateInit();
-
+    
     int ResumeInit();
-
+public:
+    void OnChgAttr() {}
 private:
 DECLARE_IDCREATE(NFPetPart)
 };
