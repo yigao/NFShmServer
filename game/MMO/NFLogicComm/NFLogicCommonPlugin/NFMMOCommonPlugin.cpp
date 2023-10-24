@@ -13,6 +13,7 @@
 
 #include "DescStore/NFDescStoreHead.h"
 #include "DescStore/NFDescStoreRegister.h"
+#include "NFLogicCommon/NFAttrMgr.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -56,8 +57,8 @@ bool NFMMOCommonPlugin::InitShmObjectRegister()
 {
     ////////init excel load shm///////////////////
     EOT_DESC_STORE_ALL_REGISTER_DEFINE
-
-
+    
+    REGISTER_SINGLETON_SHM_OBJ(NFAttrMgr);//
     ///////////////////////////////////////////////
 	return true;
 }

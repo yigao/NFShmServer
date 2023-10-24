@@ -64,6 +64,7 @@
 #include "Player/NFArmorPart.h"
 #include "Player/NFPvpPart.h"
 
+
 #ifdef NF_DYNAMIC_PLUGIN
 
 NF_EXPORT void DllStartPlugin(NFIPluginManager* pm)
@@ -113,6 +114,7 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
 
     REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
+
 
     ////////////////////////////part////////////////////////////
     REGISTER_SHM_OBJ(NFAchievementPart, maxOnlinePlayerNum);
