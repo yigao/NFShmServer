@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(JinglianDescEx)
-DECLARE_IDCREATE(JinglianDescEx)
+DECLARE_IDCREATE_GLOBAL(JinglianDescEx)
 };

@@ -1,7 +1,7 @@
 #include "WelfareMonthlycardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareMonthlycardDesc, EOT_CONST_WELFARE_MONTHLYCARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareMonthlycardDesc, EOT_CONST_WELFARE_MONTHLYCARD_DESC_ID, NFShmObj)
 
 WelfareMonthlycardDesc::WelfareMonthlycardDesc():NFIDescStore()
 {

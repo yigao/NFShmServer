@@ -1,7 +1,7 @@
 #include "GuildRank_rewardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildRank_rewardDesc, EOT_CONST_GUILD_RANK_REWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildRank_rewardDesc, EOT_CONST_GUILD_RANK_REWARD_DESC_ID, NFShmObj)
 
 GuildRank_rewardDesc::GuildRank_rewardDesc():NFIDescStore()
 {

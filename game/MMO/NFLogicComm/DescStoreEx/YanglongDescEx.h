@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(YanglongDescEx)
-DECLARE_IDCREATE(YanglongDescEx)
+DECLARE_IDCREATE_GLOBAL(YanglongDescEx)
 };

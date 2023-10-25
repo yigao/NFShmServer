@@ -1,7 +1,7 @@
 #include "JinglianCostDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(JinglianCostDesc, EOT_CONST_JINGLIAN_COST_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(JinglianCostDesc, EOT_CONST_JINGLIAN_COST_DESC_ID, NFShmObj)
 
 JinglianCostDesc::JinglianCostDesc():NFIDescStore()
 {

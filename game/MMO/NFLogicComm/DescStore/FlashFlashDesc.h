@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FlashFlashDesc, proto_ff_s::E_FlashFlash_s, E_FlashFlash, MAX_FLASH_FLASH_NUM);
-DECLARE_IDCREATE(FlashFlashDesc);
+DECLARE_IDCREATE_GLOBAL(FlashFlashDesc);
 };

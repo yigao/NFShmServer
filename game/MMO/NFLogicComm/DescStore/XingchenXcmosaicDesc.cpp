@@ -1,7 +1,7 @@
 #include "XingchenXcmosaicDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXcmosaicDesc, EOT_CONST_XINGCHEN_XCMOSAIC_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXcmosaicDesc, EOT_CONST_XINGCHEN_XCMOSAIC_DESC_ID, NFShmObj)
 
 XingchenXcmosaicDesc::XingchenXcmosaicDesc():NFIDescStore()
 {

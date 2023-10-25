@@ -1,7 +1,7 @@
 #include "EncyclopediaHandbookDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EncyclopediaHandbookDesc, EOT_CONST_ENCYCLOPEDIA_HANDBOOK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EncyclopediaHandbookDesc, EOT_CONST_ENCYCLOPEDIA_HANDBOOK_DESC_ID, NFShmObj)
 
 EncyclopediaHandbookDesc::EncyclopediaHandbookDesc():NFIDescStore()
 {

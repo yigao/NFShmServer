@@ -1,6 +1,6 @@
 #include "PeractivityDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PeractivityDescEx, EOT_CONST_PERACTIVITY_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PeractivityDescEx, EOT_CONST_PERACTIVITY_DESC_EX_ID, NFShmObj)
 
 PeractivityDescEx::PeractivityDescEx():NFIDescStoreEx()
 {

@@ -1,7 +1,7 @@
 #include "BossBossDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(BossBossDesc, EOT_CONST_BOSS_BOSS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BossBossDesc, EOT_CONST_BOSS_BOSS_DESC_ID, NFShmObj)
 
 BossBossDesc::BossBossDesc():NFIDescStore()
 {

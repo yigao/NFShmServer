@@ -67,8 +67,8 @@ NFCreature* NFCreatureMgr::CreateCreature(uint32_t kindType, uint64_t cid)
             if (pCreature == NULL)
             {
                 NFLogError(NF_LOG_SYSTEMLOG, cid, "Create NFBattlePlayer failed! id:{} NFBattlePlayer: FreeCount:{} UseCount:{} ItemCount:{}", cid,
-                           NFBattlePlayer::GetFreeCount(m_pObjPluginManager), NFBattlePlayer::GetUsedCount(m_pObjPluginManager),
-                           NFBattlePlayer::GetItemCount(m_pObjPluginManager))
+                           NFBattlePlayer::GetStaticFreeCount(m_pObjPluginManager), NFBattlePlayer::GetStaticUsedCount(m_pObjPluginManager),
+                           NFBattlePlayer::GetStaticItemCount(m_pObjPluginManager))
             }
 
             NFCreature* pGetCreature = GetBattlePlayer(cid);

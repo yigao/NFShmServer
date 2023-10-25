@@ -880,7 +880,7 @@ int NFBattleMovePart::ClientSeatReq(uint32_t msgId, NFDataPackage &packet)
     }
 
     uint64_t map_id = pScene->GetMapId();
-    auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(map_id);
+    auto pMapCfg = MapMapDesc::Instance()->GetDesc(map_id);
     if (!pMapCfg)
     {
         rsp.set_ret(proto_ff::RET_FAIL);

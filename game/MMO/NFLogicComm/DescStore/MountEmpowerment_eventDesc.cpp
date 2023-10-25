@@ -1,7 +1,7 @@
 #include "MountEmpowerment_eventDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountEmpowerment_eventDesc, EOT_CONST_MOUNT_EMPOWERMENT_EVENT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountEmpowerment_eventDesc, EOT_CONST_MOUNT_EMPOWERMENT_EVENT_DESC_ID, NFShmObj)
 
 MountEmpowerment_eventDesc::MountEmpowerment_eventDesc():NFIDescStore()
 {

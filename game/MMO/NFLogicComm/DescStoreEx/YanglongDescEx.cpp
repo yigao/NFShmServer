@@ -1,6 +1,6 @@
 #include "YanglongDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(YanglongDescEx, EOT_CONST_YANGLONG_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(YanglongDescEx, EOT_CONST_YANGLONG_DESC_EX_ID, NFShmObj)
 
 YanglongDescEx::YanglongDescEx():NFIDescStoreEx()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FootprintFootprintDesc, proto_ff_s::E_FootprintFootprint_s, E_FootprintFootprint, MAX_FOOTPRINT_FOOTPRINT_NUM);
-DECLARE_IDCREATE(FootprintFootprintDesc);
+DECLARE_IDCREATE_GLOBAL(FootprintFootprintDesc);
 };

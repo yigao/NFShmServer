@@ -1,7 +1,7 @@
 #include "MarryExpressshopDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarryExpressshopDesc, EOT_CONST_MARRY_EXPRESSSHOP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarryExpressshopDesc, EOT_CONST_MARRY_EXPRESSSHOP_DESC_ID, NFShmObj)
 
 MarryExpressshopDesc::MarryExpressshopDesc():NFIDescStore()
 {

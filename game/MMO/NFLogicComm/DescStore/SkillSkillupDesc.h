@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(SkillSkillupDesc, proto_ff_s::E_SkillSkillup_s, E_SkillSkillup, MAX_SKILL_SKILLUP_NUM);
-DECLARE_IDCREATE(SkillSkillupDesc);
+DECLARE_IDCREATE_GLOBAL(SkillSkillupDesc);
 };

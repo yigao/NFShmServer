@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareInvestDesc, proto_ff_s::E_WelfareInvest_s, E_WelfareInvest, MAX_WELFARE_INVEST_NUM);
-DECLARE_IDCREATE(WelfareInvestDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareInvestDesc);
 };

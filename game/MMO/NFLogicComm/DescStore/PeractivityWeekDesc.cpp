@@ -1,7 +1,7 @@
 #include "PeractivityWeekDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PeractivityWeekDesc, EOT_CONST_PERACTIVITY_WEEK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PeractivityWeekDesc, EOT_CONST_PERACTIVITY_WEEK_DESC_ID, NFShmObj)
 
 PeractivityWeekDesc::PeractivityWeekDesc():NFIDescStore()
 {

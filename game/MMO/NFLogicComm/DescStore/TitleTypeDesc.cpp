@@ -1,7 +1,7 @@
 #include "TitleTypeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TitleTypeDesc, EOT_CONST_TITLE_TYPE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TitleTypeDesc, EOT_CONST_TITLE_TYPE_DESC_ID, NFShmObj)
 
 TitleTypeDesc::TitleTypeDesc():NFIDescStore()
 {

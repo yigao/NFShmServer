@@ -1,7 +1,7 @@
 #include "MountEmpowermenttour_debrisDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountEmpowermenttour_debrisDesc, EOT_CONST_MOUNT_EMPOWERMENTTOUR_DEBRIS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountEmpowermenttour_debrisDesc, EOT_CONST_MOUNT_EMPOWERMENTTOUR_DEBRIS_DESC_ID, NFShmObj)
 
 MountEmpowermenttour_debrisDesc::MountEmpowermenttour_debrisDesc():NFIDescStore()
 {

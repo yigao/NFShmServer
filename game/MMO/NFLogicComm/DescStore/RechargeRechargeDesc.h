@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RechargeRechargeDesc, proto_ff_s::E_RechargeRecharge_s, E_RechargeRecharge, MAX_RECHARGE_RECHARGE_NUM);
-DECLARE_IDCREATE(RechargeRechargeDesc);
+DECLARE_IDCREATE_GLOBAL(RechargeRechargeDesc);
 };

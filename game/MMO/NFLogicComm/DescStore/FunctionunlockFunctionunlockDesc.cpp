@@ -1,7 +1,7 @@
 #include "FunctionunlockFunctionunlockDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FunctionunlockFunctionunlockDesc, EOT_CONST_FUNCTIONUNLOCK_FUNCTIONUNLOCK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FunctionunlockFunctionunlockDesc, EOT_CONST_FUNCTIONUNLOCK_FUNCTIONUNLOCK_DESC_ID, NFShmObj)
 
 FunctionunlockFunctionunlockDesc::FunctionunlockFunctionunlockDesc():NFIDescStore()
 {

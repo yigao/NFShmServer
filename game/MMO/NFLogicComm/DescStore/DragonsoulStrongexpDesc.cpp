@@ -1,7 +1,7 @@
 #include "DragonsoulStrongexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonsoulStrongexpDesc, EOT_CONST_DRAGONSOUL_STRONGEXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonsoulStrongexpDesc, EOT_CONST_DRAGONSOUL_STRONGEXP_DESC_ID, NFShmObj)
 
 DragonsoulStrongexpDesc::DragonsoulStrongexpDesc():NFIDescStore()
 {

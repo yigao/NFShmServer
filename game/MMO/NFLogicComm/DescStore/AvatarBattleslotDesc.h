@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AvatarBattleslotDesc, proto_ff_s::E_AvatarBattleslot_s, E_AvatarBattleslot, MAX_AVATAR_BATTLESLOT_NUM);
-DECLARE_IDCREATE(AvatarBattleslotDesc);
+DECLARE_IDCREATE_GLOBAL(AvatarBattleslotDesc);
 };

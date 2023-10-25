@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DupPlanesDesc, proto_ff_s::E_DupPlanes_s, E_DupPlanes, MAX_DUP_PLANES_NUM);
-DECLARE_IDCREATE(DupPlanesDesc);
+DECLARE_IDCREATE_GLOBAL(DupPlanesDesc);
 };

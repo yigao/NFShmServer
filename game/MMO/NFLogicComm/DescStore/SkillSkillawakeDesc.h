@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(SkillSkillawakeDesc, proto_ff_s::E_SkillSkillawake_s, E_SkillSkillawake, MAX_SKILL_SKILLAWAKE_NUM);
-DECLARE_IDCREATE(SkillSkillawakeDesc);
+DECLARE_IDCREATE_GLOBAL(SkillSkillawakeDesc);
 };

@@ -1,7 +1,7 @@
 #include "FestivalMuban_donate_severDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_donate_severDesc, EOT_CONST_FESTIVAL_MUBAN_DONATE_SEVER_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_donate_severDesc, EOT_CONST_FESTIVAL_MUBAN_DONATE_SEVER_DESC_ID, NFShmObj)
 
 FestivalMuban_donate_severDesc::FestivalMuban_donate_severDesc():NFIDescStore()
 {

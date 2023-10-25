@@ -1,7 +1,7 @@
 #include "WelfareQifuDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareQifuDesc, EOT_CONST_WELFARE_QIFU_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareQifuDesc, EOT_CONST_WELFARE_QIFU_DESC_ID, NFShmObj)
 
 WelfareQifuDesc::WelfareQifuDesc():NFIDescStore()
 {

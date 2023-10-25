@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildTtowerDesc, proto_ff_s::E_GuildTtower_s, E_GuildTtower, MAX_GUILD_TTOWER_NUM);
-DECLARE_IDCREATE(GuildTtowerDesc);
+DECLARE_IDCREATE_GLOBAL(GuildTtowerDesc);
 };

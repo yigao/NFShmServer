@@ -1,7 +1,7 @@
 #include "FestivalMuban_turntable_taskDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_turntable_taskDesc, EOT_CONST_FESTIVAL_MUBAN_TURNTABLE_TASK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_turntable_taskDesc, EOT_CONST_FESTIVAL_MUBAN_TURNTABLE_TASK_DESC_ID, NFShmObj)
 
 FestivalMuban_turntable_taskDesc::FestivalMuban_turntable_taskDesc():NFIDescStore()
 {

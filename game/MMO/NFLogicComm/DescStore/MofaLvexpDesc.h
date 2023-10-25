@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MofaLvexpDesc, proto_ff_s::E_MofaLvexp_s, E_MofaLvexp, MAX_MOFA_LVEXP_NUM);
-DECLARE_IDCREATE(MofaLvexpDesc);
+DECLARE_IDCREATE_GLOBAL(MofaLvexpDesc);
 };

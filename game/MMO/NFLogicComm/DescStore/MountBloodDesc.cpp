@@ -1,7 +1,7 @@
 #include "MountBloodDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountBloodDesc, EOT_CONST_MOUNT_BLOOD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountBloodDesc, EOT_CONST_MOUNT_BLOOD_DESC_ID, NFShmObj)
 
 MountBloodDesc::MountBloodDesc():NFIDescStore()
 {

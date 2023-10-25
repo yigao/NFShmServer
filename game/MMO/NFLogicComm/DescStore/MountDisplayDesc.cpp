@@ -1,7 +1,7 @@
 #include "MountDisplayDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountDisplayDesc, EOT_CONST_MOUNT_DISPLAY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountDisplayDesc, EOT_CONST_MOUNT_DISPLAY_DESC_ID, NFShmObj)
 
 MountDisplayDesc::MountDisplayDesc():NFIDescStore()
 {

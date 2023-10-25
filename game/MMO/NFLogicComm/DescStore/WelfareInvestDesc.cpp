@@ -1,7 +1,7 @@
 #include "WelfareInvestDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareInvestDesc, EOT_CONST_WELFARE_INVEST_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareInvestDesc, EOT_CONST_WELFARE_INVEST_DESC_ID, NFShmObj)
 
 WelfareInvestDesc::WelfareInvestDesc():NFIDescStore()
 {

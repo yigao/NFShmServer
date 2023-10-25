@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PeractivityWeekDesc, proto_ff_s::E_PeractivityWeek_s, E_PeractivityWeek, MAX_PERACTIVITY_WEEK_NUM);
-DECLARE_IDCREATE(PeractivityWeekDesc);
+DECLARE_IDCREATE_GLOBAL(PeractivityWeekDesc);
 };

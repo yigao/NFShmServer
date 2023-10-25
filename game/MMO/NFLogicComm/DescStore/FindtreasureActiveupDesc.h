@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FindtreasureActiveupDesc, proto_ff_s::E_FindtreasureActiveup_s, E_FindtreasureActiveup, MAX_FINDTREASURE_ACTIVEUP_NUM);
-DECLARE_IDCREATE(FindtreasureActiveupDesc);
+DECLARE_IDCREATE_GLOBAL(FindtreasureActiveupDesc);
 };

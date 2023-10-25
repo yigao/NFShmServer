@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ConflateJewelry_spDesc, proto_ff_s::E_ConflateJewelry_sp_s, E_ConflateJewelry_sp, MAX_CONFLATE_JEWELRY_SP_NUM);
-DECLARE_IDCREATE(ConflateJewelry_spDesc);
+DECLARE_IDCREATE_GLOBAL(ConflateJewelry_spDesc);
 };

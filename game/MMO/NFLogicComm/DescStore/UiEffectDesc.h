@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(UiEffectDesc, proto_ff_s::E_UiEffect_s, E_UiEffect, MAX_UI_EFFECT_NUM);
-DECLARE_IDCREATE(UiEffectDesc);
+DECLARE_IDCREATE_GLOBAL(UiEffectDesc);
 };

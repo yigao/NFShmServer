@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodevilGodevilprivilegeDesc, proto_ff_s::E_GodevilGodevilprivilege_s, E_GodevilGodevilprivilege, MAX_GODEVIL_GODEVILPRIVILEGE_NUM);
-DECLARE_IDCREATE(GodevilGodevilprivilegeDesc);
+DECLARE_IDCREATE_GLOBAL(GodevilGodevilprivilegeDesc);
 };

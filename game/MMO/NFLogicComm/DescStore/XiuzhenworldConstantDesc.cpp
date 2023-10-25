@@ -1,7 +1,7 @@
 #include "XiuzhenworldConstantDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenworldConstantDesc, EOT_CONST_XIUZHENWORLD_CONSTANT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenworldConstantDesc, EOT_CONST_XIUZHENWORLD_CONSTANT_DESC_ID, NFShmObj)
 
 XiuzhenworldConstantDesc::XiuzhenworldConstantDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "EquipStrongtotalDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipStrongtotalDesc, EOT_CONST_EQUIP_STRONGTOTAL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipStrongtotalDesc, EOT_CONST_EQUIP_STRONGTOTAL_DESC_ID, NFShmObj)
 
 EquipStrongtotalDesc::EquipStrongtotalDesc():NFIDescStore()
 {

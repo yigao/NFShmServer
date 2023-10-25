@@ -1,6 +1,6 @@
 #include "TimelineDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TimelineDescEx, EOT_CONST_TIMELINE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TimelineDescEx, EOT_CONST_TIMELINE_DESC_EX_ID, NFShmObj)
 
 TimelineDescEx::TimelineDescEx():NFIDescStoreEx()
 {

@@ -4,7 +4,7 @@
 #include "XingchenXctpattDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXctpDesc, EOT_CONST_XINGCHEN_XCTP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXctpDesc, EOT_CONST_XINGCHEN_XCTP_DESC_ID, NFShmObj)
 
 XingchenXctpDesc::XingchenXctpDesc():NFIDescStore()
 {
@@ -114,15 +114,15 @@ int XingchenXctpDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_tp.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_tp[j].m_type <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_tp[j].m_type)), result, "can't find the tp:{} in the  excel:attribute sheet:attribute", pDesc->m_tp[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_tp[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_tp[j].m_type)), result, "can't find the tp:{} in the  excel:attribute sheet:attribute", pDesc->m_tp[j].m_type);
 		}
 		for(int j = 0; j < (int)pDesc->m_attr.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_attr[j] <= 0 || XingchenXctpaddiDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attr[j])), result, "can't find the attr:{} in the  excel:xingchen sheet:XcTpAddi", pDesc->m_attr[j]);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attr[j] <= 0 || XingchenXctpaddiDesc::Instance()->GetDesc(pDesc->m_attr[j])), result, "can't find the attr:{} in the  excel:xingchen sheet:XcTpAddi", pDesc->m_attr[j]);
 		}
 		for(int j = 0; j < (int)pDesc->m_tp.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_tp[j].m_value <= 0 || XingchenXctpattDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_tp[j].m_value)), result, "can't find the tp:{} in the  excel:xingchen sheet:XcTpAtt", pDesc->m_tp[j].m_value);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_tp[j].m_value <= 0 || XingchenXctpattDesc::Instance()->GetDesc(pDesc->m_tp[j].m_value)), result, "can't find the tp:{} in the  excel:xingchen sheet:XcTpAtt", pDesc->m_tp[j].m_value);
 		}
 	}
 	return result;

@@ -2,7 +2,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_play_gameDesc, EOT_CONST_FESTIVAL_MUBAN_PLAY_GAME_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_play_gameDesc, EOT_CONST_FESTIVAL_MUBAN_PLAY_GAME_DESC_ID, NFShmObj)
 
 FestivalMuban_play_gameDesc::FestivalMuban_play_gameDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int FestivalMuban_play_gameDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_rewardbox <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_rewardbox)), result, "can't find the rewardbox:{} in the  excel:box sheet:box", pDesc->m_rewardbox);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_rewardbox <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_rewardbox)), result, "can't find the rewardbox:{} in the  excel:box sheet:box", pDesc->m_rewardbox);
 	}
 	return result;
 }

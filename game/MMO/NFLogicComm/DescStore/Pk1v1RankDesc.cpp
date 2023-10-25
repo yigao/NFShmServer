@@ -1,7 +1,7 @@
 #include "Pk1v1RankDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(Pk1v1RankDesc, EOT_CONST_PK1V1_RANK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(Pk1v1RankDesc, EOT_CONST_PK1V1_RANK_DESC_ID, NFShmObj)
 
 Pk1v1RankDesc::Pk1v1RankDesc():NFIDescStore()
 {

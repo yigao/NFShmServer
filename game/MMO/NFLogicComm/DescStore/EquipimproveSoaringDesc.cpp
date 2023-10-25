@@ -1,7 +1,7 @@
 #include "EquipimproveSoaringDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipimproveSoaringDesc, EOT_CONST_EQUIPIMPROVE_SOARING_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipimproveSoaringDesc, EOT_CONST_EQUIPIMPROVE_SOARING_DESC_ID, NFShmObj)
 
 EquipimproveSoaringDesc::EquipimproveSoaringDesc():NFIDescStore()
 {

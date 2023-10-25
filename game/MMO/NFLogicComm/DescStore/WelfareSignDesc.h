@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareSignDesc, proto_ff_s::E_WelfareSign_s, E_WelfareSign, MAX_WELFARE_SIGN_NUM);
-DECLARE_IDCREATE(WelfareSignDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareSignDesc);
 };

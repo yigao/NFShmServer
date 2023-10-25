@@ -1,7 +1,7 @@
 #include "GuildPacketDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildPacketDesc, EOT_CONST_GUILD_PACKET_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildPacketDesc, EOT_CONST_GUILD_PACKET_DESC_ID, NFShmObj)
 
 GuildPacketDesc::GuildPacketDesc():NFIDescStore()
 {

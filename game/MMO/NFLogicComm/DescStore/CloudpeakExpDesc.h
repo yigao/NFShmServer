@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(CloudpeakExpDesc, proto_ff_s::E_CloudpeakExp_s, E_CloudpeakExp, MAX_CLOUDPEAK_EXP_NUM);
-DECLARE_IDCREATE(CloudpeakExpDesc);
+DECLARE_IDCREATE_GLOBAL(CloudpeakExpDesc);
 };

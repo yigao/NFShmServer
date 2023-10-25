@@ -1,7 +1,7 @@
 #include "EscortChanceDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EscortChanceDesc, EOT_CONST_ESCORT_CHANCE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EscortChanceDesc, EOT_CONST_ESCORT_CHANCE_DESC_ID, NFShmObj)
 
 EscortChanceDesc::EscortChanceDesc():NFIDescStore()
 {

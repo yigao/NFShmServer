@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MapInspireDesc, proto_ff_s::E_MapInspire_s, E_MapInspire, MAX_MAP_INSPIRE_NUM);
-DECLARE_IDCREATE(MapInspireDesc);
+DECLARE_IDCREATE_GLOBAL(MapInspireDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MapButtonDesc, proto_ff_s::E_MapButton_s, E_MapButton, MAX_MAP_BUTTON_NUM);
-DECLARE_IDCREATE(MapButtonDesc);
+DECLARE_IDCREATE_GLOBAL(MapButtonDesc);
 };

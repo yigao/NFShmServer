@@ -1,7 +1,7 @@
 #include "DragonChangeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonChangeDesc, EOT_CONST_DRAGON_CHANGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonChangeDesc, EOT_CONST_DRAGON_CHANGE_DESC_ID, NFShmObj)
 
 DragonChangeDesc::DragonChangeDesc():NFIDescStore()
 {

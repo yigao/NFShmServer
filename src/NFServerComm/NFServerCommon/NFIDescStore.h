@@ -21,19 +21,19 @@
 
 #define REGISTER_DESCSTORE(className)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
-    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, className::GetClassType(m_pObjPluginManager));\
-    REGISTER_SINGLETON_SHM_OBJ(className)      \
+    NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, className::GetStaticClassType());\
+    REGISTER_SINGLETON_SHM_OBJ_GLOBAL(className)      \
 
 #define REGISTER_DESCSTORE_WITH_DBNAME(className, dbName)  \
     assert((TIsDerived<className, NFIDescStore>::Result)); \
-    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, className::GetClassType(m_pObjPluginManager), dbName);\
-    REGISTER_SINGLETON_SHM_OBJ(className)                  \
+    NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFIDescStoreModule>()->RegisterDescStore(#className, className::GetStaticClassType(), dbName);\
+    REGISTER_SINGLETON_SHM_OBJ_GLOBAL(className)                  \
 
 
 #define REGISTER_DESCSTORE_EX(className)  \
     assert((TIsDerived<className, NFIDescStoreEx>::Result)); \
-    m_pObjPluginManager->FindModule<NFIDescStoreModule>()->RegisterDescStoreEx(#className, className::GetClassType(m_pObjPluginManager));\
-    REGISTER_SINGLETON_SHM_OBJ(className)      \
+    NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFIDescStoreModule>()->RegisterDescStoreEx(#className, className::GetStaticClassType());\
+    REGISTER_SINGLETON_SHM_OBJ_GLOBAL(className)      \
 
 class NFIDescStore : public NFShmObj
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(TasktrackerTasktrackerDesc, proto_ff_s::E_TasktrackerTasktracker_s, E_TasktrackerTasktracker, MAX_TASKTRACKER_TASKTRACKER_NUM);
-DECLARE_IDCREATE(TasktrackerTasktrackerDesc);
+DECLARE_IDCREATE_GLOBAL(TasktrackerTasktrackerDesc);
 };

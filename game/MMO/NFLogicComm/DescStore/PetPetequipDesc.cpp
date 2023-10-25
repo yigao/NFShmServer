@@ -1,7 +1,7 @@
 #include "PetPetequipDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PetPetequipDesc, EOT_CONST_PET_PETEQUIP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetPetequipDesc, EOT_CONST_PET_PETEQUIP_DESC_ID, NFShmObj)
 
 PetPetequipDesc::PetPetequipDesc():NFIDescStore()
 {

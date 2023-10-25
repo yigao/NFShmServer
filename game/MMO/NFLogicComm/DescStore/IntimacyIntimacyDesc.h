@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(IntimacyIntimacyDesc, proto_ff_s::E_IntimacyIntimacy_s, E_IntimacyIntimacy, MAX_INTIMACY_INTIMACY_NUM);
-DECLARE_IDCREATE(IntimacyIntimacyDesc);
+DECLARE_IDCREATE_GLOBAL(IntimacyIntimacyDesc);
 };

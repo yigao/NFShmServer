@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareFirstchargeDesc, proto_ff_s::E_WelfareFirstcharge_s, E_WelfareFirstcharge, MAX_WELFARE_FIRSTCHARGE_NUM);
-DECLARE_IDCREATE(WelfareFirstchargeDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareFirstchargeDesc);
 };

@@ -1,7 +1,7 @@
 #include "QypeakConstantDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(QypeakConstantDesc, EOT_CONST_QYPEAK_CONSTANT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(QypeakConstantDesc, EOT_CONST_QYPEAK_CONSTANT_DESC_ID, NFShmObj)
 
 QypeakConstantDesc::QypeakConstantDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "WelfareWishDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareWishDesc, EOT_CONST_WELFARE_WISH_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareWishDesc, EOT_CONST_WELFARE_WISH_DESC_ID, NFShmObj)
 
 WelfareWishDesc::WelfareWishDesc():NFIDescStore()
 {

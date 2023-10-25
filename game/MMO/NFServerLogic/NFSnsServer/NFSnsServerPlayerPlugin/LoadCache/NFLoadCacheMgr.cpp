@@ -118,7 +118,7 @@ int NFLoadCacheMgr::RefreshSimpleQueue()
         }
     }
 
-    while (!m_playerSimpleLoadingMap.full() && !m_playerSimpleWaitLoadMap.empty() && NFTransGetPlayerSimple::GetFreeCount(m_pObjPluginManager) > 0)
+    while (!m_playerSimpleLoadingMap.full() && !m_playerSimpleWaitLoadMap.empty() && NFTransGetPlayerSimple::GetStaticFreeCount(m_pObjPluginManager) > 0)
     {
         auto waitIter = m_playerSimpleWaitLoadMap.begin();
         auto pWaitLoadData = &waitIter->second;
@@ -177,7 +177,7 @@ int NFLoadCacheMgr::RefreshDetailQueue()
         }
     }
 
-    while (!m_playerDetailLoadingMap.full() && !m_playerDetailWaitLoadMap.empty() && NFTransGetPlayerDetail::GetFreeCount(m_pObjPluginManager) > 0)
+    while (!m_playerDetailLoadingMap.full() && !m_playerDetailWaitLoadMap.empty() && NFTransGetPlayerDetail::GetStaticFreeCount(m_pObjPluginManager) > 0)
     {
         auto waitIter = m_playerDetailWaitLoadMap.begin();
         auto pWaitLoadData = &waitIter->second;
@@ -400,7 +400,7 @@ int NFLoadCacheMgr::GetPlayerSimpleInfo(uint64_t playerId, int transId, uint64_t
     }
 
     if (!m_playerSimpleLoadingMap.full() && m_playerSimpleWaitLoadMap.empty()
-        && NFTransGetPlayerSimple::GetFreeCount(m_pObjPluginManager) > 0)
+        && NFTransGetPlayerSimple::GetStaticFreeCount(m_pObjPluginManager) > 0)
     {
         auto pRoleInfo = &m_playerSimpleLoadingMap[playerId];
         NF_ASSERT(pRoleInfo);
@@ -476,7 +476,7 @@ int NFLoadCacheMgr::TransGetPlayerSimpleInfo(uint64_t playerId)
     if (!pTrans)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, " Create Trans NFTransGetRoleSimple Failed! UsedItem:{}",
-                   NFTransGetPlayerSimple::GetUsedCount(m_pObjPluginManager));
+                   NFTransGetPlayerSimple::GetStaticUsedCount(m_pObjPluginManager));
         return -1;
     }
 
@@ -543,7 +543,7 @@ int NFLoadCacheMgr::GetPlayerDetailInfo(uint64_t roleId, int transId, uint32_t t
     }
 
     if (!m_playerDetailLoadingMap.full() && m_playerDetailWaitLoadMap.empty()
-        && NFTransGetPlayerDetail::GetFreeCount(m_pObjPluginManager) > 0)
+        && NFTransGetPlayerDetail::GetStaticFreeCount(m_pObjPluginManager) > 0)
     {
         auto pRoleInfo = &m_playerDetailLoadingMap[roleId];
         NF_ASSERT(pRoleInfo);
@@ -604,7 +604,7 @@ int NFLoadCacheMgr::TransGetRoleDetailInfo(uint64_t playerId)
     if (!pTrans)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, " Create Trans NFTransGetRoleDetail Failed! UsedItem:{}",
-                   NFTransGetPlayerDetail::GetUsedCount(m_pObjPluginManager));
+                   NFTransGetPlayerDetail::GetStaticUsedCount(m_pObjPluginManager));
         return -1;
     }
 

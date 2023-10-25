@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(IntimacyDescEx)
-DECLARE_IDCREATE(IntimacyDescEx)
+DECLARE_IDCREATE_GLOBAL(IntimacyDescEx)
 };

@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(EquipimproveDescEx)
-DECLARE_IDCREATE(EquipimproveDescEx)
+DECLARE_IDCREATE_GLOBAL(EquipimproveDescEx)
 };

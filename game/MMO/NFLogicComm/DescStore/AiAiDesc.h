@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AiAiDesc, proto_ff_s::E_AiAi_s, E_AiAi, MAX_AI_AI_NUM);
-DECLARE_IDCREATE(AiAiDesc);
+DECLARE_IDCREATE_GLOBAL(AiAiDesc);
 };

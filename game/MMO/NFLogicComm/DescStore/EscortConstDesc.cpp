@@ -1,7 +1,7 @@
 #include "EscortConstDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EscortConstDesc, EOT_CONST_ESCORT_CONST_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EscortConstDesc, EOT_CONST_ESCORT_CONST_DESC_ID, NFShmObj)
 
 EscortConstDesc::EscortConstDesc():NFIDescStore()
 {

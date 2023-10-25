@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(ConflateDescEx)
-DECLARE_IDCREATE(ConflateDescEx)
+DECLARE_IDCREATE_GLOBAL(ConflateDescEx)
 };

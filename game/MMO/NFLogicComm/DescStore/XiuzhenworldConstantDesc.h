@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenworldConstantDesc, proto_ff_s::E_XiuzhenworldConstant_s, E_XiuzhenworldConstant, MAX_XIUZHENWORLD_CONSTANT_NUM);
-DECLARE_IDCREATE(XiuzhenworldConstantDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenworldConstantDesc);
 };

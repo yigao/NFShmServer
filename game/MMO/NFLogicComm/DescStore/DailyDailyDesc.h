@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DailyDailyDesc, proto_ff_s::E_DailyDaily_s, E_DailyDaily, MAX_DAILY_DAILY_NUM);
-DECLARE_IDCREATE(DailyDailyDesc);
+DECLARE_IDCREATE_GLOBAL(DailyDailyDesc);
 };

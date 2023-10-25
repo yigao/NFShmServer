@@ -1,7 +1,7 @@
 #include "DragonDisplayDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonDisplayDesc, EOT_CONST_DRAGON_DISPLAY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonDisplayDesc, EOT_CONST_DRAGON_DISPLAY_DESC_ID, NFShmObj)
 
 DragonDisplayDesc::DragonDisplayDesc():NFIDescStore()
 {

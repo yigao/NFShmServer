@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FindtreasureFindtreasureDesc, proto_ff_s::E_FindtreasureFindtreasure_s, E_FindtreasureFindtreasure, MAX_FINDTREASURE_FINDTREASURE_NUM);
-DECLARE_IDCREATE(FindtreasureFindtreasureDesc);
+DECLARE_IDCREATE_GLOBAL(FindtreasureFindtreasureDesc);
 };

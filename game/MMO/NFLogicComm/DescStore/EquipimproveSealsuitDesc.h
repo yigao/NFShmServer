@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipimproveSealsuitDesc, proto_ff_s::E_EquipimproveSealsuit_s, E_EquipimproveSealsuit, MAX_EQUIPIMPROVE_SEALSUIT_NUM);
-DECLARE_IDCREATE(EquipimproveSealsuitDesc);
+DECLARE_IDCREATE_GLOBAL(EquipimproveSealsuitDesc);
 };

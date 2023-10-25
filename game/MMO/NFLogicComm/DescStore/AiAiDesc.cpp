@@ -1,7 +1,7 @@
 #include "AiAiDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AiAiDesc, EOT_CONST_AI_AI_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AiAiDesc, EOT_CONST_AI_AI_DESC_ID, NFShmObj)
 
 AiAiDesc::AiAiDesc():NFIDescStore()
 {

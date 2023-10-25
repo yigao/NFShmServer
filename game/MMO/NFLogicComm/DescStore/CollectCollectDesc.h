@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(CollectCollectDesc, proto_ff_s::E_CollectCollect_s, E_CollectCollect, MAX_COLLECT_COLLECT_NUM);
-DECLARE_IDCREATE(CollectCollectDesc);
+DECLARE_IDCREATE_GLOBAL(CollectCollectDesc);
 };

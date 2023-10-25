@@ -1,7 +1,7 @@
 #include "RankingDateDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RankingDateDesc, EOT_CONST_RANKING_DATE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RankingDateDesc, EOT_CONST_RANKING_DATE_DESC_ID, NFShmObj)
 
 RankingDateDesc::RankingDateDesc():NFIDescStore()
 {

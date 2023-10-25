@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildPrestigetaskDesc, proto_ff_s::E_GuildPrestigetask_s, E_GuildPrestigetask, MAX_GUILD_PRESTIGETASK_NUM);
-DECLARE_IDCREATE(GuildPrestigetaskDesc);
+DECLARE_IDCREATE_GLOBAL(GuildPrestigetaskDesc);
 };

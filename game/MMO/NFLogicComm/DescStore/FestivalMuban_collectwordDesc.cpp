@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_collectwordDesc, EOT_CONST_FESTIVAL_MUBAN_COLLECTWORD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_collectwordDesc, EOT_CONST_FESTIVAL_MUBAN_COLLECTWORD_DESC_ID, NFShmObj)
 
 FestivalMuban_collectwordDesc::FestivalMuban_collectwordDesc():NFIDescStore()
 {
@@ -95,10 +95,10 @@ int FestivalMuban_collectwordDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_exchange_id <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_exchange_id)), result, "can't find the exchange_id:{} in the  excel:item sheet:item", pDesc->m_exchange_id);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_exchange_id <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_exchange_id)), result, "can't find the exchange_id:{} in the  excel:item sheet:item", pDesc->m_exchange_id);
 		for(int j = 0; j < (int)pDesc->m_cost.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_cost[j].m_id <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_cost[j].m_id)), result, "can't find the cost:{} in the  excel:item sheet:item", pDesc->m_cost[j].m_id);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_cost[j].m_id <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_cost[j].m_id)), result, "can't find the cost:{} in the  excel:item sheet:item", pDesc->m_cost[j].m_id);
 		}
 	}
 	return result;

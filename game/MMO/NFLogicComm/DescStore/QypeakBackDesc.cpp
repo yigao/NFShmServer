@@ -1,7 +1,7 @@
 #include "QypeakBackDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(QypeakBackDesc, EOT_CONST_QYPEAK_BACK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(QypeakBackDesc, EOT_CONST_QYPEAK_BACK_DESC_ID, NFShmObj)
 
 QypeakBackDesc::QypeakBackDesc():NFIDescStore()
 {

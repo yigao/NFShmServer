@@ -406,5 +406,5 @@ private:
 private:
 IMPL_RES_DESC_EX(MapDescEx)
 
-DECLARE_IDCREATE(MapDescEx)
+DECLARE_IDCREATE_GLOBAL(MapDescEx)
 };

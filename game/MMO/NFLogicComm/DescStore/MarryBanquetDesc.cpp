@@ -1,7 +1,7 @@
 #include "MarryBanquetDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarryBanquetDesc, EOT_CONST_MARRY_BANQUET_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarryBanquetDesc, EOT_CONST_MARRY_BANQUET_DESC_ID, NFShmObj)
 
 MarryBanquetDesc::MarryBanquetDesc():NFIDescStore()
 {

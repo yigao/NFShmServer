@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(DragonDescEx)
-DECLARE_IDCREATE(DragonDescEx)
+DECLARE_IDCREATE_GLOBAL(DragonDescEx)
 };

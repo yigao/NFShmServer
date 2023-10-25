@@ -1,7 +1,7 @@
 #include "MarryConstantDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarryConstantDesc, EOT_CONST_MARRY_CONSTANT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarryConstantDesc, EOT_CONST_MARRY_CONSTANT_DESC_ID, NFShmObj)
 
 MarryConstantDesc::MarryConstantDesc():NFIDescStore()
 {

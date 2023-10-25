@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildAnswerDesc, proto_ff_s::E_GuildAnswer_s, E_GuildAnswer, MAX_GUILD_ANSWER_NUM);
-DECLARE_IDCREATE(GuildAnswerDesc);
+DECLARE_IDCREATE_GLOBAL(GuildAnswerDesc);
 };

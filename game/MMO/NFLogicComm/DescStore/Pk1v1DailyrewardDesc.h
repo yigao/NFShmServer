@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(Pk1v1DailyrewardDesc, proto_ff_s::E_Pk1v1Dailyreward_s, E_Pk1v1Dailyreward, MAX_PK1V1_DAILYREWARD_NUM);
-DECLARE_IDCREATE(Pk1v1DailyrewardDesc);
+DECLARE_IDCREATE_GLOBAL(Pk1v1DailyrewardDesc);
 };

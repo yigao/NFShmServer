@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(OfflineItemlistDesc, proto_ff_s::E_OfflineItemlist_s, E_OfflineItemlist, MAX_OFFLINE_ITEMLIST_NUM);
-DECLARE_IDCREATE(OfflineItemlistDesc);
+DECLARE_IDCREATE_GLOBAL(OfflineItemlistDesc);
 };

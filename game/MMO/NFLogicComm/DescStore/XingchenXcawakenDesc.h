@@ -77,5 +77,5 @@ public:
 private:
 	NFShmHashMap<XingchenXcawakenPositionidAwaken_quality ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCAWAKEN_POSITIONID_NUM*UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCAWAKEN_AWAKEN_QUALITY_NUM> m_PositionidAwaken_qualityComIndexMap;
 IMPL_RES_HASH_DESC(XingchenXcawakenDesc, proto_ff_s::E_XingchenXcawaken_s, E_XingchenXcawaken, MAX_XINGCHEN_XCAWAKEN_NUM);
-DECLARE_IDCREATE(XingchenXcawakenDesc);
+DECLARE_IDCREATE_GLOBAL(XingchenXcawakenDesc);
 };

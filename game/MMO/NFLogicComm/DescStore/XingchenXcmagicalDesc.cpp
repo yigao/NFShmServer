@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXcmagicalDesc, EOT_CONST_XINGCHEN_XCMAGICAL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXcmagicalDesc, EOT_CONST_XINGCHEN_XCMAGICAL_DESC_ID, NFShmObj)
 
 XingchenXcmagicalDesc::XingchenXcmagicalDesc():NFIDescStore()
 {
@@ -95,8 +95,8 @@ int XingchenXcmagicalDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_hhstar <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_hhstar)), result, "can't find the hhstar:{} in the  excel:item sheet:item", pDesc->m_hhstar);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_hhact <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_hhact)), result, "can't find the hhact:{} in the  excel:item sheet:item", pDesc->m_hhact);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_hhstar <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_hhstar)), result, "can't find the hhstar:{} in the  excel:item sheet:item", pDesc->m_hhstar);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_hhact <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_hhact)), result, "can't find the hhact:{} in the  excel:item sheet:item", pDesc->m_hhact);
 	}
 	return result;
 }

@@ -1,7 +1,7 @@
 #include "TaskTaskDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TaskTaskDesc, EOT_CONST_TASK_TASK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TaskTaskDesc, EOT_CONST_TASK_TASK_DESC_ID, NFShmObj)
 
 TaskTaskDesc::TaskTaskDesc():NFIDescStore()
 {

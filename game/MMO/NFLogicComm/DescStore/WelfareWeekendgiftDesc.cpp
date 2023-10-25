@@ -2,7 +2,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareWeekendgiftDesc, EOT_CONST_WELFARE_WEEKENDGIFT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareWeekendgiftDesc, EOT_CONST_WELFARE_WEEKENDGIFT_DESC_ID, NFShmObj)
 
 WelfareWeekendgiftDesc::WelfareWeekendgiftDesc():NFIDescStore()
 {
@@ -97,7 +97,7 @@ int WelfareWeekendgiftDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_rewards.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_rewards[j] <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_rewards[j])), result, "can't find the rewards:{} in the  excel:box sheet:box", pDesc->m_rewards[j]);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_rewards[j] <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_rewards[j])), result, "can't find the rewards:{} in the  excel:box sheet:box", pDesc->m_rewards[j]);
 		}
 	}
 	return result;

@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(FunctionunlockDescEx)
-DECLARE_IDCREATE(FunctionunlockDescEx)
+DECLARE_IDCREATE_GLOBAL(FunctionunlockDescEx)
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleSwordmaleDesc, proto_ff_s::E_RoleSwordmale_s, E_RoleSwordmale, MAX_ROLE_SWORDMALE_NUM);
-DECLARE_IDCREATE(RoleSwordmaleDesc);
+DECLARE_IDCREATE_GLOBAL(RoleSwordmaleDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetDecomposeDesc, proto_ff_s::E_PetDecompose_s, E_PetDecompose, MAX_PET_DECOMPOSE_NUM);
-DECLARE_IDCREATE(PetDecomposeDesc);
+DECLARE_IDCREATE_GLOBAL(PetDecomposeDesc);
 };

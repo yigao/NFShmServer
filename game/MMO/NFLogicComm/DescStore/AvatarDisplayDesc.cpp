@@ -3,7 +3,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AvatarDisplayDesc, EOT_CONST_AVATAR_DISPLAY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarDisplayDesc, EOT_CONST_AVATAR_DISPLAY_DESC_ID, NFShmObj)
 
 AvatarDisplayDesc::AvatarDisplayDesc():NFIDescStore()
 {
@@ -98,11 +98,11 @@ int AvatarDisplayDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_fragmentid.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_fragmentid[j] <= 0 || AvatarFragmentDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_fragmentid[j])), result, "can't find the fragmentid:{} in the  excel:avatar sheet:fragment", pDesc->m_fragmentid[j]);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_fragmentid[j] <= 0 || AvatarFragmentDesc::Instance()->GetDesc(pDesc->m_fragmentid[j])), result, "can't find the fragmentid:{} in the  excel:avatar sheet:fragment", pDesc->m_fragmentid[j]);
 		}
 		for(int j = 0; j < (int)pDesc->m_material.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_material[j].m_id <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_material[j].m_id)), result, "can't find the material:{} in the  excel:item sheet:item", pDesc->m_material[j].m_id);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_material[j].m_id <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_material[j].m_id)), result, "can't find the material:{} in the  excel:item sheet:item", pDesc->m_material[j].m_id);
 		}
 	}
 	return result;

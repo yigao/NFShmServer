@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiEquipDesc, proto_ff_s::E_ShentiEquip_s, E_ShentiEquip, MAX_SHENTI_EQUIP_NUM);
-DECLARE_IDCREATE(ShentiEquipDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiEquipDesc);
 };

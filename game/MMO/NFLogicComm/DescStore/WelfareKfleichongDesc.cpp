@@ -1,7 +1,7 @@
 #include "WelfareKfleichongDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareKfleichongDesc, EOT_CONST_WELFARE_KFLEICHONG_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareKfleichongDesc, EOT_CONST_WELFARE_KFLEICHONG_DESC_ID, NFShmObj)
 
 WelfareKfleichongDesc::WelfareKfleichongDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenworldExpmapDesc, proto_ff_s::E_XiuzhenworldExpmap_s, E_XiuzhenworldExpmap, MAX_XIUZHENWORLD_EXPMAP_NUM);
-DECLARE_IDCREATE(XiuzhenworldExpmapDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenworldExpmapDesc);
 };

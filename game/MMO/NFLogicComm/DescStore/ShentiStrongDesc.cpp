@@ -1,7 +1,7 @@
 #include "ShentiStrongDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiStrongDesc, EOT_CONST_SHENTI_STRONG_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiStrongDesc, EOT_CONST_SHENTI_STRONG_DESC_ID, NFShmObj)
 
 ShentiStrongDesc::ShentiStrongDesc():NFIDescStore()
 {

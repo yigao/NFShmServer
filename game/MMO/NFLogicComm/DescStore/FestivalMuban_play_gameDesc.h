@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_play_gameDesc, proto_ff_s::E_FestivalMuban_play_game_s, E_FestivalMuban_play_game, MAX_FESTIVAL_MUBAN_PLAY_GAME_NUM);
-DECLARE_IDCREATE(FestivalMuban_play_gameDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_play_gameDesc);
 };

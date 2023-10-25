@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(TaskdynamicTaskdynamicDesc, proto_ff_s::E_TaskdynamicTaskdynamic_s, E_TaskdynamicTaskdynamic, MAX_TASKDYNAMIC_TASKDYNAMIC_NUM);
-DECLARE_IDCREATE(TaskdynamicTaskdynamicDesc);
+DECLARE_IDCREATE_GLOBAL(TaskdynamicTaskdynamicDesc);
 };

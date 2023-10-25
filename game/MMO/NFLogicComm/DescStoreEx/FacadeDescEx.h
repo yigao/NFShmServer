@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(FacadeDescEx)
-DECLARE_IDCREATE(FacadeDescEx)
+DECLARE_IDCREATE_GLOBAL(FacadeDescEx)
 };

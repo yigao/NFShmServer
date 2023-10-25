@@ -77,5 +77,5 @@ public:
 private:
 	NFShmHashMap<TaskrewardTaskrewardTasktypeLv ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_TASKREWARD_TASKREWARD_TASKTYPE_NUM*UNIQUE_KEY_MAX_COM_INDEX_TASKREWARD_TASKREWARD_LV_NUM> m_TasktypeLvComIndexMap;
 IMPL_RES_HASH_DESC(TaskrewardTaskrewardDesc, proto_ff_s::E_TaskrewardTaskreward_s, E_TaskrewardTaskreward, MAX_TASKREWARD_TASKREWARD_NUM);
-DECLARE_IDCREATE(TaskrewardTaskrewardDesc);
+DECLARE_IDCREATE_GLOBAL(TaskrewardTaskrewardDesc);
 };

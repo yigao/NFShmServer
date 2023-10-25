@@ -1,7 +1,7 @@
 #include "XingchenZbshopDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenZbshopDesc, EOT_CONST_XINGCHEN_ZBSHOP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenZbshopDesc, EOT_CONST_XINGCHEN_ZBSHOP_DESC_ID, NFShmObj)
 
 XingchenZbshopDesc::XingchenZbshopDesc():NFIDescStore()
 {

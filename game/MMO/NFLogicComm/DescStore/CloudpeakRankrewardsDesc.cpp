@@ -1,7 +1,7 @@
 #include "CloudpeakRankrewardsDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(CloudpeakRankrewardsDesc, EOT_CONST_CLOUDPEAK_RANKREWARDS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(CloudpeakRankrewardsDesc, EOT_CONST_CLOUDPEAK_RANKREWARDS_DESC_ID, NFShmObj)
 
 CloudpeakRankrewardsDesc::CloudpeakRankrewardsDesc():NFIDescStore()
 {

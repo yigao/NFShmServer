@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AttributePowersupDesc, proto_ff_s::E_AttributePowersup_s, E_AttributePowersup, MAX_ATTRIBUTE_POWERSUP_NUM);
-DECLARE_IDCREATE(AttributePowersupDesc);
+DECLARE_IDCREATE_GLOBAL(AttributePowersupDesc);
 };

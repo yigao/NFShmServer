@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_drawpize_totalDesc, proto_ff_s::E_FestivalMuban_drawpize_total_s, E_FestivalMuban_drawpize_total, MAX_FESTIVAL_MUBAN_DRAWPIZE_TOTAL_NUM);
-DECLARE_IDCREATE(FestivalMuban_drawpize_totalDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_drawpize_totalDesc);
 };

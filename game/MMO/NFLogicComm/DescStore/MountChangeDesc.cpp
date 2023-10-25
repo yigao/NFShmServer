@@ -1,7 +1,7 @@
 #include "MountChangeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountChangeDesc, EOT_CONST_MOUNT_CHANGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountChangeDesc, EOT_CONST_MOUNT_CHANGE_DESC_ID, NFShmObj)
 
 MountChangeDesc::MountChangeDesc():NFIDescStore()
 {

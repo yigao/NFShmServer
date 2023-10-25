@@ -18,5 +18,5 @@ public:
     uint32_t MaxLevel() const { return 1000; }
 private:
 IMPL_RES_DESC_EX(RoleDescEx)
-DECLARE_IDCREATE(RoleDescEx)
+DECLARE_IDCREATE_GLOBAL(RoleDescEx)
 };

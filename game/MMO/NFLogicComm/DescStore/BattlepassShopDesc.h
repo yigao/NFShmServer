@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(BattlepassShopDesc, proto_ff_s::E_BattlepassShop_s, E_BattlepassShop, MAX_BATTLEPASS_SHOP_NUM);
-DECLARE_IDCREATE(BattlepassShopDesc);
+DECLARE_IDCREATE_GLOBAL(BattlepassShopDesc);
 };

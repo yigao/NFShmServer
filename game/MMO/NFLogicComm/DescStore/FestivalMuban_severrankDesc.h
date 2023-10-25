@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_severrankDesc, proto_ff_s::E_FestivalMuban_severrank_s, E_FestivalMuban_severrank, MAX_FESTIVAL_MUBAN_SEVERRANK_NUM);
-DECLARE_IDCREATE(FestivalMuban_severrankDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_severrankDesc);
 };

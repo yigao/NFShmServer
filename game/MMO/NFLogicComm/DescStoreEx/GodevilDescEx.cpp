@@ -1,6 +1,6 @@
 #include "GodevilDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilDescEx, EOT_CONST_GODEVIL_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilDescEx, EOT_CONST_GODEVIL_DESC_EX_ID, NFShmObj)
 
 GodevilDescEx::GodevilDescEx():NFIDescStoreEx()
 {

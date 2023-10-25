@@ -1,6 +1,6 @@
 #include "ShentiDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiDescEx, EOT_CONST_SHENTI_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiDescEx, EOT_CONST_SHENTI_DESC_EX_ID, NFShmObj)
 
 ShentiDescEx::ShentiDescEx():NFIDescStoreEx()
 {

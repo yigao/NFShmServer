@@ -1,6 +1,6 @@
 #include "AppearanceDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AppearanceDescEx, EOT_CONST_APPEARANCE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AppearanceDescEx, EOT_CONST_APPEARANCE_DESC_EX_ID, NFShmObj)
 
 AppearanceDescEx::AppearanceDescEx():NFIDescStoreEx()
 {

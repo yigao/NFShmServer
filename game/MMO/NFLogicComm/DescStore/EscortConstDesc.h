@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EscortConstDesc, proto_ff_s::E_EscortConst_s, E_EscortConst, MAX_ESCORT_CONST_NUM);
-DECLARE_IDCREATE(EscortConstDesc);
+DECLARE_IDCREATE_GLOBAL(EscortConstDesc);
 };

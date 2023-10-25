@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleSwordfemaleDesc, proto_ff_s::E_RoleSwordfemale_s, E_RoleSwordfemale, MAX_ROLE_SWORDFEMALE_NUM);
-DECLARE_IDCREATE(RoleSwordfemaleDesc);
+DECLARE_IDCREATE_GLOBAL(RoleSwordfemaleDesc);
 };

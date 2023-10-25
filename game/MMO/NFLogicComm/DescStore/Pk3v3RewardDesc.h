@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(Pk3v3RewardDesc, proto_ff_s::E_Pk3v3Reward_s, E_Pk3v3Reward, MAX_PK3V3_REWARD_NUM);
-DECLARE_IDCREATE(Pk3v3RewardDesc);
+DECLARE_IDCREATE_GLOBAL(Pk3v3RewardDesc);
 };

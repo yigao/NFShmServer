@@ -1,7 +1,7 @@
 #include "GuildAnswerDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildAnswerDesc, EOT_CONST_GUILD_ANSWER_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildAnswerDesc, EOT_CONST_GUILD_ANSWER_DESC_ID, NFShmObj)
 
 GuildAnswerDesc::GuildAnswerDesc():NFIDescStore()
 {

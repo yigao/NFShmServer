@@ -1,6 +1,6 @@
 #include "FindtreasureDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FindtreasureDescEx, EOT_CONST_FINDTREASURE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FindtreasureDescEx, EOT_CONST_FINDTREASURE_DESC_EX_ID, NFShmObj)
 
 FindtreasureDescEx::FindtreasureDescEx():NFIDescStoreEx()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareJackpotDesc, proto_ff_s::E_WelfareJackpot_s, E_WelfareJackpot, MAX_WELFARE_JACKPOT_NUM);
-DECLARE_IDCREATE(WelfareJackpotDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareJackpotDesc);
 };

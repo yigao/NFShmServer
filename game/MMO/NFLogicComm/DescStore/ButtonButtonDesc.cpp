@@ -1,7 +1,7 @@
 #include "ButtonButtonDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ButtonButtonDesc, EOT_CONST_BUTTON_BUTTON_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ButtonButtonDesc, EOT_CONST_BUTTON_BUTTON_DESC_ID, NFShmObj)
 
 ButtonButtonDesc::ButtonButtonDesc():NFIDescStore()
 {

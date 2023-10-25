@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareGoalDesc, proto_ff_s::E_WelfareGoal_s, E_WelfareGoal, MAX_WELFARE_GOAL_NUM);
-DECLARE_IDCREATE(WelfareGoalDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareGoalDesc);
 };

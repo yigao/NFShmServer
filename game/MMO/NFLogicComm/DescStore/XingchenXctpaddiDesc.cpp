@@ -2,7 +2,7 @@
 #include "AttributeAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXctpaddiDesc, EOT_CONST_XINGCHEN_XCTPADDI_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXctpaddiDesc, EOT_CONST_XINGCHEN_XCTPADDI_DESC_ID, NFShmObj)
 
 XingchenXctpaddiDesc::XingchenXctpaddiDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int XingchenXctpaddiDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_attid <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attid)), result, "can't find the attid:{} in the  excel:attribute sheet:attribute", pDesc->m_attid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_attid <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attid)), result, "can't find the attid:{} in the  excel:attribute sheet:attribute", pDesc->m_attid);
 	}
 	return result;
 }

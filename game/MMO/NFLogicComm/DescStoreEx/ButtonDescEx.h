@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(ButtonDescEx)
-DECLARE_IDCREATE(ButtonDescEx)
+DECLARE_IDCREATE_GLOBAL(ButtonDescEx)
 };

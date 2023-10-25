@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareAccruerewardDesc, proto_ff_s::E_WelfareAccruereward_s, E_WelfareAccruereward, MAX_WELFARE_ACCRUEREWARD_NUM);
-DECLARE_IDCREATE(WelfareAccruerewardDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareAccruerewardDesc);
 };

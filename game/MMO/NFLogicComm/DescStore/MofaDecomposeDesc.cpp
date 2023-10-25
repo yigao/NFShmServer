@@ -1,7 +1,7 @@
 #include "MofaDecomposeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MofaDecomposeDesc, EOT_CONST_MOFA_DECOMPOSE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MofaDecomposeDesc, EOT_CONST_MOFA_DECOMPOSE_DESC_ID, NFShmObj)
 
 MofaDecomposeDesc::MofaDecomposeDesc():NFIDescStore()
 {

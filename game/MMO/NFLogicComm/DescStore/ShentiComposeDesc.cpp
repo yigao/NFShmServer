@@ -1,7 +1,7 @@
 #include "ShentiComposeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiComposeDesc, EOT_CONST_SHENTI_COMPOSE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiComposeDesc, EOT_CONST_SHENTI_COMPOSE_DESC_ID, NFShmObj)
 
 ShentiComposeDesc::ShentiComposeDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DupBplevelDesc, proto_ff_s::E_DupBplevel_s, E_DupBplevel, MAX_DUP_BPLEVEL_NUM);
-DECLARE_IDCREATE(DupBplevelDesc);
+DECLARE_IDCREATE_GLOBAL(DupBplevelDesc);
 };

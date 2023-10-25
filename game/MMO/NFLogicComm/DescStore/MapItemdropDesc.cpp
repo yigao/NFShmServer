@@ -1,7 +1,7 @@
 #include "MapItemdropDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MapItemdropDesc, EOT_CONST_MAP_ITEMDROP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MapItemdropDesc, EOT_CONST_MAP_ITEMDROP_DESC_ID, NFShmObj)
 
 MapItemdropDesc::MapItemdropDesc():NFIDescStore()
 {

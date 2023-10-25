@@ -2,7 +2,7 @@
 #include "FestivalFestivalDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalTemplateDesc, EOT_CONST_FESTIVAL_TEMPLATE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalTemplateDesc, EOT_CONST_FESTIVAL_TEMPLATE_DESC_ID, NFShmObj)
 
 FestivalTemplateDesc::FestivalTemplateDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int FestivalTemplateDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_festivalid <= 0 || FestivalFestivalDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_festivalid)), result, "can't find the festivalid:{} in the  excel:festival sheet:festival", pDesc->m_festivalid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_festivalid <= 0 || FestivalFestivalDesc::Instance()->GetDesc(pDesc->m_festivalid)), result, "can't find the festivalid:{} in the  excel:festival sheet:festival", pDesc->m_festivalid);
 	}
 	return result;
 }

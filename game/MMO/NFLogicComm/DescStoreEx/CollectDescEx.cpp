@@ -1,6 +1,6 @@
 #include "CollectDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(CollectDescEx, EOT_CONST_COLLECT_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(CollectDescEx, EOT_CONST_COLLECT_DESC_EX_ID, NFShmObj)
 
 CollectDescEx::CollectDescEx():NFIDescStoreEx()
 {

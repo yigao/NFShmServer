@@ -1,7 +1,7 @@
 #include "MapDestroyitemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MapDestroyitemDesc, EOT_CONST_MAP_DESTROYITEM_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MapDestroyitemDesc, EOT_CONST_MAP_DESTROYITEM_DESC_ID, NFShmObj)
 
 MapDestroyitemDesc::MapDestroyitemDesc():NFIDescStore()
 {

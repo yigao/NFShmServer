@@ -1,7 +1,7 @@
 #include "AttributePowersupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AttributePowersupDesc, EOT_CONST_ATTRIBUTE_POWERSUP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AttributePowersupDesc, EOT_CONST_ATTRIBUTE_POWERSUP_DESC_ID, NFShmObj)
 
 AttributePowersupDesc::AttributePowersupDesc():NFIDescStore()
 {

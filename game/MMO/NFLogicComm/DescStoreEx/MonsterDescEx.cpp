@@ -1,6 +1,6 @@
 #include "MonsterDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MonsterDescEx, EOT_CONST_MONSTER_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MonsterDescEx, EOT_CONST_MONSTER_DESC_EX_ID, NFShmObj)
 
 MonsterDescEx::MonsterDescEx():NFIDescStoreEx()
 {

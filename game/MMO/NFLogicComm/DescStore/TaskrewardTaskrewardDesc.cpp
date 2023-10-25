@@ -1,7 +1,7 @@
 #include "TaskrewardTaskrewardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TaskrewardTaskrewardDesc, EOT_CONST_TASKREWARD_TASKREWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TaskrewardTaskrewardDesc, EOT_CONST_TASKREWARD_TASKREWARD_DESC_ID, NFShmObj)
 
 TaskrewardTaskrewardDesc::TaskrewardTaskrewardDesc():NFIDescStore()
 {

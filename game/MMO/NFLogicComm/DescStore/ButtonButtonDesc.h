@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ButtonButtonDesc, proto_ff_s::E_ButtonButton_s, E_ButtonButton, MAX_BUTTON_BUTTON_NUM);
-DECLARE_IDCREATE(ButtonButtonDesc);
+DECLARE_IDCREATE_GLOBAL(ButtonButtonDesc);
 };

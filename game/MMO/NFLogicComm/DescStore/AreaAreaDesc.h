@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AreaAreaDesc, proto_ff_s::E_AreaArea_s, E_AreaArea, MAX_AREA_AREA_NUM);
-DECLARE_IDCREATE(AreaAreaDesc);
+DECLARE_IDCREATE_GLOBAL(AreaAreaDesc);
 };

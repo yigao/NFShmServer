@@ -561,7 +561,7 @@ bool NFAttrMgr::InitFightAttrToIndex()
 bool NFAttrMgr::ProcessAttribute()
 {
     //
-    auto pResDesc = AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetResDescPtr();
+    auto pResDesc = AttributeAttributeDesc::Instance()->GetResDescPtr();
     CHECK_NULL(pResDesc);
     
     for (auto iter = pResDesc->begin(); iter != pResDesc->end(); iter++)

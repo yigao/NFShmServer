@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DragonsoulOfferexpDesc, proto_ff_s::E_DragonsoulOfferexp_s, E_DragonsoulOfferexp, MAX_DRAGONSOUL_OFFEREXP_NUM);
-DECLARE_IDCREATE(DragonsoulOfferexpDesc);
+DECLARE_IDCREATE_GLOBAL(DragonsoulOfferexpDesc);
 };

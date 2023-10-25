@@ -1,7 +1,7 @@
 #include "MallHolybeastDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MallHolybeastDesc, EOT_CONST_MALL_HOLYBEAST_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MallHolybeastDesc, EOT_CONST_MALL_HOLYBEAST_DESC_ID, NFShmObj)
 
 MallHolybeastDesc::MallHolybeastDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "TeamTeamDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TeamTeamDesc, EOT_CONST_TEAM_TEAM_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TeamTeamDesc, EOT_CONST_TEAM_TEAM_DESC_ID, NFShmObj)
 
 TeamTeamDesc::TeamTeamDesc():NFIDescStore()
 {

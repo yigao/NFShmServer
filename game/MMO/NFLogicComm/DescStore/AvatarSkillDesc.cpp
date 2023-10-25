@@ -2,7 +2,7 @@
 #include "SkillSkillDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AvatarSkillDesc, EOT_CONST_AVATAR_SKILL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarSkillDesc, EOT_CONST_AVATAR_SKILL_DESC_ID, NFShmObj)
 
 AvatarSkillDesc::AvatarSkillDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int AvatarSkillDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_skillid <= 0 || SkillSkillDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_skillid)), result, "can't find the skillid:{} in the  excel:skill sheet:skill", pDesc->m_skillid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_skillid <= 0 || SkillSkillDesc::Instance()->GetDesc(pDesc->m_skillid)), result, "can't find the skillid:{} in the  excel:skill sheet:skill", pDesc->m_skillid);
 	}
 	return result;
 }

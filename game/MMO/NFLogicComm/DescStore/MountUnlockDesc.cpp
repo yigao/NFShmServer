@@ -1,7 +1,7 @@
 #include "MountUnlockDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountUnlockDesc, EOT_CONST_MOUNT_UNLOCK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountUnlockDesc, EOT_CONST_MOUNT_UNLOCK_DESC_ID, NFShmObj)
 
 MountUnlockDesc::MountUnlockDesc():NFIDescStore()
 {

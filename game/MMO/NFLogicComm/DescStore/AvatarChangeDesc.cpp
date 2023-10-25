@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AvatarChangeDesc, EOT_CONST_AVATAR_CHANGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarChangeDesc, EOT_CONST_AVATAR_CHANGE_DESC_ID, NFShmObj)
 
 AvatarChangeDesc::AvatarChangeDesc():NFIDescStore()
 {
@@ -95,8 +95,8 @@ int AvatarChangeDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_starid <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_starid)), result, "can't find the starid:{} in the  excel:item sheet:item", pDesc->m_starid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_activationitem <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_activationitem)), result, "can't find the activationitem:{} in the  excel:item sheet:item", pDesc->m_activationitem);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_starid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_starid)), result, "can't find the starid:{} in the  excel:item sheet:item", pDesc->m_starid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_activationitem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_activationitem)), result, "can't find the activationitem:{} in the  excel:item sheet:item", pDesc->m_activationitem);
 	}
 	return result;
 }

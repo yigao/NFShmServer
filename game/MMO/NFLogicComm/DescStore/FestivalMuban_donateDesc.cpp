@@ -3,7 +3,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_donateDesc, EOT_CONST_FESTIVAL_MUBAN_DONATE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_donateDesc, EOT_CONST_FESTIVAL_MUBAN_DONATE_DESC_ID, NFShmObj)
 
 FestivalMuban_donateDesc::FestivalMuban_donateDesc():NFIDescStore()
 {
@@ -96,8 +96,8 @@ int FestivalMuban_donateDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_donatereward <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_donatereward)), result, "can't find the donatereward:{} in the  excel:box sheet:box", pDesc->m_donatereward);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_donateitem <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_donateitem)), result, "can't find the donateitem:{} in the  excel:item sheet:item", pDesc->m_donateitem);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_donatereward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_donatereward)), result, "can't find the donatereward:{} in the  excel:box sheet:box", pDesc->m_donatereward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_donateitem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_donateitem)), result, "can't find the donateitem:{} in the  excel:item sheet:item", pDesc->m_donateitem);
 	}
 	return result;
 }

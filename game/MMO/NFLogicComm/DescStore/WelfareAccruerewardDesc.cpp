@@ -3,7 +3,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareAccruerewardDesc, EOT_CONST_WELFARE_ACCRUEREWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareAccruerewardDesc, EOT_CONST_WELFARE_ACCRUEREWARD_DESC_ID, NFShmObj)
 
 WelfareAccruerewardDesc::WelfareAccruerewardDesc():NFIDescStore()
 {
@@ -96,7 +96,7 @@ int WelfareAccruerewardDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_reward <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_reward)) || (pDesc->m_reward <= 0 || EquipEquipDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_reward)), result, "can't find the reward:{} in the  excel:item sheet:item or  excel:equip sheet:equip", pDesc->m_reward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_reward <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_reward)) || (pDesc->m_reward <= 0 || EquipEquipDesc::Instance()->GetDesc(pDesc->m_reward)), result, "can't find the reward:{} in the  excel:item sheet:item or  excel:equip sheet:equip", pDesc->m_reward);
 	}
 	return result;
 }

@@ -1,7 +1,7 @@
 #include "MarryWeddingDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarryWeddingDesc, EOT_CONST_MARRY_WEDDING_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarryWeddingDesc, EOT_CONST_MARRY_WEDDING_DESC_ID, NFShmObj)
 
 MarryWeddingDesc::MarryWeddingDesc():NFIDescStore()
 {

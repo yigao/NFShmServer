@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodevilBlacksmithDesc, proto_ff_s::E_GodevilBlacksmith_s, E_GodevilBlacksmith, MAX_GODEVIL_BLACKSMITH_NUM);
-DECLARE_IDCREATE(GodevilBlacksmithDesc);
+DECLARE_IDCREATE_GLOBAL(GodevilBlacksmithDesc);
 };

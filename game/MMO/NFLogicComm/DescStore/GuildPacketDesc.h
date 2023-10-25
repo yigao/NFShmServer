@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildPacketDesc, proto_ff_s::E_GuildPacket_s, E_GuildPacket, MAX_GUILD_PACKET_NUM);
-DECLARE_IDCREATE(GuildPacketDesc);
+DECLARE_IDCREATE_GLOBAL(GuildPacketDesc);
 };

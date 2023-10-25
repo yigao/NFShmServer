@@ -1,6 +1,6 @@
 #include "ConditionDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConditionDescEx, EOT_CONST_CONDITION_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConditionDescEx, EOT_CONST_CONDITION_DESC_EX_ID, NFShmObj)
 
 ConditionDescEx::ConditionDescEx():NFIDescStoreEx()
 {

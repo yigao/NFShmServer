@@ -1,7 +1,7 @@
 #include "JinglianGmDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(JinglianGmDesc, EOT_CONST_JINGLIAN_GM_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(JinglianGmDesc, EOT_CONST_JINGLIAN_GM_DESC_ID, NFShmObj)
 
 JinglianGmDesc::JinglianGmDesc():NFIDescStore()
 {

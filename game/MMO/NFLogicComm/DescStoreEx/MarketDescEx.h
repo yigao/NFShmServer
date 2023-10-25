@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(MarketDescEx)
-DECLARE_IDCREATE(MarketDescEx)
+DECLARE_IDCREATE_GLOBAL(MarketDescEx)
 };

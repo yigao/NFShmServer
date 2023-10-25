@@ -1,7 +1,7 @@
 #include "XiuzhenworldExpmapDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenworldExpmapDesc, EOT_CONST_XIUZHENWORLD_EXPMAP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenworldExpmapDesc, EOT_CONST_XIUZHENWORLD_EXPMAP_DESC_ID, NFShmObj)
 
 XiuzhenworldExpmapDesc::XiuzhenworldExpmapDesc():NFIDescStore()
 {

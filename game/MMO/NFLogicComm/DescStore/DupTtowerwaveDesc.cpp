@@ -1,7 +1,7 @@
 #include "DupTtowerwaveDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DupTtowerwaveDesc, EOT_CONST_DUP_TTOWERWAVE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DupTtowerwaveDesc, EOT_CONST_DUP_TTOWERWAVE_DESC_ID, NFShmObj)
 
 DupTtowerwaveDesc::DupTtowerwaveDesc():NFIDescStore()
 {

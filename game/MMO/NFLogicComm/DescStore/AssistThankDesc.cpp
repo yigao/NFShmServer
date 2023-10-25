@@ -1,7 +1,7 @@
 #include "AssistThankDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AssistThankDesc, EOT_CONST_ASSIST_THANK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AssistThankDesc, EOT_CONST_ASSIST_THANK_DESC_ID, NFShmObj)
 
 AssistThankDesc::AssistThankDesc():NFIDescStore()
 {

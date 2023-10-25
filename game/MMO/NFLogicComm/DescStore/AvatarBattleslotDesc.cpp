@@ -1,7 +1,7 @@
 #include "AvatarBattleslotDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AvatarBattleslotDesc, EOT_CONST_AVATAR_BATTLESLOT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarBattleslotDesc, EOT_CONST_AVATAR_BATTLESLOT_DESC_ID, NFShmObj)
 
 AvatarBattleslotDesc::AvatarBattleslotDesc():NFIDescStore()
 {

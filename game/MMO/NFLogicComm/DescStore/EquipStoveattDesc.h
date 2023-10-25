@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipStoveattDesc, proto_ff_s::E_EquipStoveatt_s, E_EquipStoveatt, MAX_EQUIP_STOVEATT_NUM);
-DECLARE_IDCREATE(EquipStoveattDesc);
+DECLARE_IDCREATE_GLOBAL(EquipStoveattDesc);
 };

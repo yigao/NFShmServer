@@ -1,7 +1,7 @@
 #include "GuildCollegeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildCollegeDesc, EOT_CONST_GUILD_COLLEGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildCollegeDesc, EOT_CONST_GUILD_COLLEGE_DESC_ID, NFShmObj)
 
 GuildCollegeDesc::GuildCollegeDesc():NFIDescStore()
 {

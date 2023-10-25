@@ -1,7 +1,7 @@
 #include "RechargeRechargeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RechargeRechargeDesc, EOT_CONST_RECHARGE_RECHARGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RechargeRechargeDesc, EOT_CONST_RECHARGE_RECHARGE_DESC_ID, NFShmObj)
 
 RechargeRechargeDesc::RechargeRechargeDesc():NFIDescStore()
 {

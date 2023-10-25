@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AvatarValueDesc, proto_ff_s::E_AvatarValue_s, E_AvatarValue, MAX_AVATAR_VALUE_NUM);
-DECLARE_IDCREATE(AvatarValueDesc);
+DECLARE_IDCREATE_GLOBAL(AvatarValueDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(OccupationOccupationDesc, proto_ff_s::E_OccupationOccupation_s, E_OccupationOccupation, MAX_OCCUPATION_OCCUPATION_NUM);
-DECLARE_IDCREATE(OccupationOccupationDesc);
+DECLARE_IDCREATE_GLOBAL(OccupationOccupationDesc);
 };

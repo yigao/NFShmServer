@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarryCommonDesc, proto_ff_s::E_MarryCommon_s, E_MarryCommon, MAX_MARRY_COMMON_NUM);
-DECLARE_IDCREATE(MarryCommonDesc);
+DECLARE_IDCREATE_GLOBAL(MarryCommonDesc);
 };

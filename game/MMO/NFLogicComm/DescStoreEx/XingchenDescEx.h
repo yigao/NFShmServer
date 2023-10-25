@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(XingchenDescEx)
-DECLARE_IDCREATE(XingchenDescEx)
+DECLARE_IDCREATE_GLOBAL(XingchenDescEx)
 };

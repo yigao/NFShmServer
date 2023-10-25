@@ -1,7 +1,7 @@
 #include "GuildPositionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildPositionDesc, EOT_CONST_GUILD_POSITION_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildPositionDesc, EOT_CONST_GUILD_POSITION_DESC_ID, NFShmObj)
 
 GuildPositionDesc::GuildPositionDesc():NFIDescStore()
 {

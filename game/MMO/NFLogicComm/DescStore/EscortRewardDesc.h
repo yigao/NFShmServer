@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EscortRewardDesc, proto_ff_s::E_EscortReward_s, E_EscortReward, MAX_ESCORT_REWARD_NUM);
-DECLARE_IDCREATE(EscortRewardDesc);
+DECLARE_IDCREATE_GLOBAL(EscortRewardDesc);
 };

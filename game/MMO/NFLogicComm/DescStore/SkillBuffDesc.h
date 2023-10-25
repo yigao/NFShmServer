@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(SkillBuffDesc, proto_ff_s::E_SkillBuff_s, E_SkillBuff, MAX_SKILL_BUFF_NUM);
-DECLARE_IDCREATE(SkillBuffDesc);
+DECLARE_IDCREATE_GLOBAL(SkillBuffDesc);
 };

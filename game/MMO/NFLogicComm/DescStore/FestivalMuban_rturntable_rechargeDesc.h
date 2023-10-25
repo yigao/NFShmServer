@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_rturntable_rechargeDesc, proto_ff_s::E_FestivalMuban_rturntable_recharge_s, E_FestivalMuban_rturntable_recharge, MAX_FESTIVAL_MUBAN_RTURNTABLE_RECHARGE_NUM);
-DECLARE_IDCREATE(FestivalMuban_rturntable_rechargeDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_rturntable_rechargeDesc);
 };

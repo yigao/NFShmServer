@@ -1,7 +1,7 @@
 #include "FindtreasureFindtreasureDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FindtreasureFindtreasureDesc, EOT_CONST_FINDTREASURE_FINDTREASURE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FindtreasureFindtreasureDesc, EOT_CONST_FINDTREASURE_FINDTREASURE_DESC_ID, NFShmObj)
 
 FindtreasureFindtreasureDesc::FindtreasureFindtreasureDesc():NFIDescStore()
 {

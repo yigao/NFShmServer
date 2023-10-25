@@ -1,7 +1,7 @@
 #include "GodevilAdvancelvDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilAdvancelvDesc, EOT_CONST_GODEVIL_ADVANCELV_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilAdvancelvDesc, EOT_CONST_GODEVIL_ADVANCELV_DESC_ID, NFShmObj)
 
 GodevilAdvancelvDesc::GodevilAdvancelvDesc():NFIDescStore()
 {

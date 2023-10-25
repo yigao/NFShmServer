@@ -1,6 +1,6 @@
 #include "DragonsoulDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonsoulDescEx, EOT_CONST_DRAGONSOUL_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonsoulDescEx, EOT_CONST_DRAGONSOUL_DESC_EX_ID, NFShmObj)
 
 DragonsoulDescEx::DragonsoulDescEx():NFIDescStoreEx()
 {

@@ -1,7 +1,7 @@
 #include "FestivalMuban_zadanDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_zadanDesc, EOT_CONST_FESTIVAL_MUBAN_ZADAN_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_zadanDesc, EOT_CONST_FESTIVAL_MUBAN_ZADAN_DESC_ID, NFShmObj)
 
 FestivalMuban_zadanDesc::FestivalMuban_zadanDesc():NFIDescStore()
 {

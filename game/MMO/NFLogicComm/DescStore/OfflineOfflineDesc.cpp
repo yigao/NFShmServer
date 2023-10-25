@@ -1,7 +1,7 @@
 #include "OfflineOfflineDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(OfflineOfflineDesc, EOT_CONST_OFFLINE_OFFLINE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(OfflineOfflineDesc, EOT_CONST_OFFLINE_OFFLINE_DESC_ID, NFShmObj)
 
 OfflineOfflineDesc::OfflineOfflineDesc():NFIDescStore()
 {

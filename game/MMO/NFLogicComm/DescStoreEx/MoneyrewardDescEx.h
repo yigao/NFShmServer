@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(MoneyrewardDescEx)
-DECLARE_IDCREATE(MoneyrewardDescEx)
+DECLARE_IDCREATE_GLOBAL(MoneyrewardDescEx)
 };

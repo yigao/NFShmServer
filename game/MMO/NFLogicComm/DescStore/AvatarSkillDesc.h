@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AvatarSkillDesc, proto_ff_s::E_AvatarSkill_s, E_AvatarSkill, MAX_AVATAR_SKILL_NUM);
-DECLARE_IDCREATE(AvatarSkillDesc);
+DECLARE_IDCREATE_GLOBAL(AvatarSkillDesc);
 };

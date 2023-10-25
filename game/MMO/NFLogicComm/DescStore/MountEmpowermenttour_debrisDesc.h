@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountEmpowermenttour_debrisDesc, proto_ff_s::E_MountEmpowermenttour_debris_s, E_MountEmpowermenttour_debris, MAX_MOUNT_EMPOWERMENTTOUR_DEBRIS_NUM);
-DECLARE_IDCREATE(MountEmpowermenttour_debrisDesc);
+DECLARE_IDCREATE_GLOBAL(MountEmpowermenttour_debrisDesc);
 };

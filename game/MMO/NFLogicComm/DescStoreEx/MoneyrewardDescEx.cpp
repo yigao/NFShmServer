@@ -1,6 +1,6 @@
 #include "MoneyrewardDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MoneyrewardDescEx, EOT_CONST_MONEYREWARD_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MoneyrewardDescEx, EOT_CONST_MONEYREWARD_DESC_EX_ID, NFShmObj)
 
 MoneyrewardDescEx::MoneyrewardDescEx():NFIDescStoreEx()
 {

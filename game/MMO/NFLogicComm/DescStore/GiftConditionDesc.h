@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GiftConditionDesc, proto_ff_s::E_GiftCondition_s, E_GiftCondition, MAX_GIFT_CONDITION_NUM);
-DECLARE_IDCREATE(GiftConditionDesc);
+DECLARE_IDCREATE_GLOBAL(GiftConditionDesc);
 };

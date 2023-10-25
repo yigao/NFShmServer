@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AttributeAttributeDesc, proto_ff_s::E_AttributeAttribute_s, E_AttributeAttribute, MAX_ATTRIBUTE_ATTRIBUTE_NUM);
-DECLARE_IDCREATE(AttributeAttributeDesc);
+DECLARE_IDCREATE_GLOBAL(AttributeAttributeDesc);
 };

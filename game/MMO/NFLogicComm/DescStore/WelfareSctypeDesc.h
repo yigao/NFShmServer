@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareSctypeDesc, proto_ff_s::E_WelfareSctype_s, E_WelfareSctype, MAX_WELFARE_SCTYPE_NUM);
-DECLARE_IDCREATE(WelfareSctypeDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareSctypeDesc);
 };

@@ -1,6 +1,6 @@
 #include "DecorateDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DecorateDescEx, EOT_CONST_DECORATE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DecorateDescEx, EOT_CONST_DECORATE_DESC_EX_ID, NFShmObj)
 
 DecorateDescEx::DecorateDescEx():NFIDescStoreEx()
 {

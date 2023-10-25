@@ -1,7 +1,7 @@
 #include "DupBplevelDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DupBplevelDesc, EOT_CONST_DUP_BPLEVEL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DupBplevelDesc, EOT_CONST_DUP_BPLEVEL_DESC_ID, NFShmObj)
 
 DupBplevelDesc::DupBplevelDesc():NFIDescStore()
 {

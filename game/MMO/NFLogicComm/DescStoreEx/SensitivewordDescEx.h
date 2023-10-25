@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(SensitivewordDescEx)
-DECLARE_IDCREATE(SensitivewordDescEx)
+DECLARE_IDCREATE_GLOBAL(SensitivewordDescEx)
 };

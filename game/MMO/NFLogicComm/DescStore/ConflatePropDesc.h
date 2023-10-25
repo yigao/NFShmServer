@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ConflatePropDesc, proto_ff_s::E_ConflateProp_s, E_ConflateProp, MAX_CONFLATE_PROP_NUM);
-DECLARE_IDCREATE(ConflatePropDesc);
+DECLARE_IDCREATE_GLOBAL(ConflatePropDesc);
 };

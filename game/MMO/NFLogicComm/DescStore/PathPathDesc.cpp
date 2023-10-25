@@ -1,7 +1,7 @@
 #include "PathPathDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PathPathDesc, EOT_CONST_PATH_PATH_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PathPathDesc, EOT_CONST_PATH_PATH_DESC_ID, NFShmObj)
 
 PathPathDesc::PathPathDesc():NFIDescStore()
 {

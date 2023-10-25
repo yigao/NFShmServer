@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MapDestroyitemDesc, proto_ff_s::E_MapDestroyitem_s, E_MapDestroyitem, MAX_MAP_DESTROYITEM_NUM);
-DECLARE_IDCREATE(MapDestroyitemDesc);
+DECLARE_IDCREATE_GLOBAL(MapDestroyitemDesc);
 };

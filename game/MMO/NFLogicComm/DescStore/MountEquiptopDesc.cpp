@@ -1,7 +1,7 @@
 #include "MountEquiptopDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountEquiptopDesc, EOT_CONST_MOUNT_EQUIPTOP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountEquiptopDesc, EOT_CONST_MOUNT_EQUIPTOP_DESC_ID, NFShmObj)
 
 MountEquiptopDesc::MountEquiptopDesc():NFIDescStore()
 {

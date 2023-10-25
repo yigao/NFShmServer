@@ -1,6 +1,6 @@
 #include "ShenequipDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShenequipDescEx, EOT_CONST_SHENEQUIP_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShenequipDescEx, EOT_CONST_SHENEQUIP_DESC_EX_ID, NFShmObj)
 
 ShenequipDescEx::ShenequipDescEx():NFIDescStoreEx()
 {

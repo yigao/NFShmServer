@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AchievementAchievementDesc, EOT_CONST_ACHIEVEMENT_ACHIEVEMENT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AchievementAchievementDesc, EOT_CONST_ACHIEVEMENT_ACHIEVEMENT_DESC_ID, NFShmObj)
 
 AchievementAchievementDesc::AchievementAchievementDesc():NFIDescStore()
 {
@@ -97,7 +97,7 @@ int AchievementAchievementDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_itemreward.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_itemreward[j].m_id <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_itemreward[j].m_id)), result, "can't find the itemreward:{} in the  excel:item sheet:item", pDesc->m_itemreward[j].m_id);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_itemreward[j].m_id <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemreward[j].m_id)), result, "can't find the itemreward:{} in the  excel:item sheet:item", pDesc->m_itemreward[j].m_id);
 		}
 	}
 	return result;

@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(MonsterDescEx)
-DECLARE_IDCREATE(MonsterDescEx)
+DECLARE_IDCREATE_GLOBAL(MonsterDescEx)
 };

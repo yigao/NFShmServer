@@ -1,6 +1,6 @@
 #include "MarketDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarketDescEx, EOT_CONST_MARKET_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarketDescEx, EOT_CONST_MARKET_DESC_EX_ID, NFShmObj)
 
 MarketDescEx::MarketDescEx():NFIDescStoreEx()
 {

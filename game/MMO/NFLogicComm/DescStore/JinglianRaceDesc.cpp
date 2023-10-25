@@ -1,7 +1,7 @@
 #include "JinglianRaceDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(JinglianRaceDesc, EOT_CONST_JINGLIAN_RACE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(JinglianRaceDesc, EOT_CONST_JINGLIAN_RACE_DESC_ID, NFShmObj)
 
 JinglianRaceDesc::JinglianRaceDesc():NFIDescStore()
 {

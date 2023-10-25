@@ -1,7 +1,7 @@
 #include "AttributeSuppressDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AttributeSuppressDesc, EOT_CONST_ATTRIBUTE_SUPPRESS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AttributeSuppressDesc, EOT_CONST_ATTRIBUTE_SUPPRESS_DESC_ID, NFShmObj)
 
 AttributeSuppressDesc::AttributeSuppressDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipClearDesc, proto_ff_s::E_EquipClear_s, E_EquipClear, MAX_EQUIP_CLEAR_NUM);
-DECLARE_IDCREATE(EquipClearDesc);
+DECLARE_IDCREATE_GLOBAL(EquipClearDesc);
 };

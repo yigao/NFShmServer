@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(FashionDescEx)
-DECLARE_IDCREATE(FashionDescEx)
+DECLARE_IDCREATE_GLOBAL(FashionDescEx)
 };

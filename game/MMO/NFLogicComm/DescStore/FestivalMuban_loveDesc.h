@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_loveDesc, proto_ff_s::E_FestivalMuban_love_s, E_FestivalMuban_love, MAX_FESTIVAL_MUBAN_LOVE_NUM);
-DECLARE_IDCREATE(FestivalMuban_loveDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_loveDesc);
 };

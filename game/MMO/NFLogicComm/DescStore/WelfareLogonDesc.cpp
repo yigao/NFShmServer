@@ -1,7 +1,7 @@
 #include "WelfareLogonDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareLogonDesc, EOT_CONST_WELFARE_LOGON_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareLogonDesc, EOT_CONST_WELFARE_LOGON_DESC_ID, NFShmObj)
 
 WelfareLogonDesc::WelfareLogonDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetStarvalueDesc, proto_ff_s::E_PetStarvalue_s, E_PetStarvalue, MAX_PET_STARVALUE_NUM);
-DECLARE_IDCREATE(PetStarvalueDesc);
+DECLARE_IDCREATE_GLOBAL(PetStarvalueDesc);
 };

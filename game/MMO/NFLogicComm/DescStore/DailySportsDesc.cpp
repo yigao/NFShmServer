@@ -3,7 +3,7 @@
 #include "PeractivityPeractivityDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DailySportsDesc, EOT_CONST_DAILY_SPORTS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DailySportsDesc, EOT_CONST_DAILY_SPORTS_DESC_ID, NFShmObj)
 
 DailySportsDesc::DailySportsDesc():NFIDescStore()
 {
@@ -96,8 +96,8 @@ int DailySportsDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_peractivityid <= 0 || PeractivityPeractivityDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_peractivityid)), result, "can't find the peractivityid:{} in the  excel:perActivity sheet:perActivity", pDesc->m_peractivityid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_functionid <= 0 || FunctionunlockFunctionunlockDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_functionid)), result, "can't find the functionid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_peractivityid <= 0 || PeractivityPeractivityDesc::Instance()->GetDesc(pDesc->m_peractivityid)), result, "can't find the peractivityid:{} in the  excel:perActivity sheet:perActivity", pDesc->m_peractivityid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_functionid <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_functionid)), result, "can't find the functionid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionid);
 	}
 	return result;
 }

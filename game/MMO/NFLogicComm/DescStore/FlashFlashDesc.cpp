@@ -1,7 +1,7 @@
 #include "FlashFlashDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FlashFlashDesc, EOT_CONST_FLASH_FLASH_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FlashFlashDesc, EOT_CONST_FLASH_FLASH_DESC_ID, NFShmObj)
 
 FlashFlashDesc::FlashFlashDesc():NFIDescStore()
 {

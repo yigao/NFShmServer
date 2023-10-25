@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_leijiDesc, proto_ff_s::E_FestivalMuban_leiji_s, E_FestivalMuban_leiji, MAX_FESTIVAL_MUBAN_LEIJI_NUM);
-DECLARE_IDCREATE(FestivalMuban_leijiDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_leijiDesc);
 };

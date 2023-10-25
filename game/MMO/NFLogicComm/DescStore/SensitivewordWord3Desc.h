@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(SensitivewordWord3Desc, proto_ff_s::E_SensitivewordWord3_s, E_SensitivewordWord3, MAX_SENSITIVEWORD_WORD3_NUM);
-DECLARE_IDCREATE(SensitivewordWord3Desc);
+DECLARE_IDCREATE_GLOBAL(SensitivewordWord3Desc);
 };

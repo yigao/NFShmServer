@@ -2,7 +2,7 @@
 #include "AttributeAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXcguizhenDesc, EOT_CONST_XINGCHEN_XCGUIZHEN_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXcguizhenDesc, EOT_CONST_XINGCHEN_XCGUIZHEN_DESC_ID, NFShmObj)
 
 XingchenXcguizhenDesc::XingchenXcguizhenDesc():NFIDescStore()
 {
@@ -97,11 +97,11 @@ int XingchenXcguizhenDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_gz.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_gz[j].m_type <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_gz[j].m_type)), result, "can't find the gz:{} in the  excel:attribute sheet:attribute", pDesc->m_gz[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_gz[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_gz[j].m_type)), result, "can't find the gz:{} in the  excel:attribute sheet:attribute", pDesc->m_gz[j].m_type);
 		}
 		for(int j = 0; j < (int)pDesc->m_xx.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_xx[j].m_type <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_xx[j].m_type)), result, "can't find the xx:{} in the  excel:attribute sheet:attribute", pDesc->m_xx[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_xx[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_xx[j].m_type)), result, "can't find the xx:{} in the  excel:attribute sheet:attribute", pDesc->m_xx[j].m_type);
 		}
 	}
 	return result;

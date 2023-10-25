@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipGemlvDesc, proto_ff_s::E_EquipGemlv_s, E_EquipGemlv, MAX_EQUIP_GEMLV_NUM);
-DECLARE_IDCREATE(EquipGemlvDesc);
+DECLARE_IDCREATE_GLOBAL(EquipGemlvDesc);
 };

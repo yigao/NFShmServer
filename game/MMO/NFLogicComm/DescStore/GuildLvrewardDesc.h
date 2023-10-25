@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildLvrewardDesc, proto_ff_s::E_GuildLvreward_s, E_GuildLvreward, MAX_GUILD_LVREWARD_NUM);
-DECLARE_IDCREATE(GuildLvrewardDesc);
+DECLARE_IDCREATE_GLOBAL(GuildLvrewardDesc);
 };

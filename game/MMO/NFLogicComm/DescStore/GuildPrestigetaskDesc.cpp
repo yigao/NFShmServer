@@ -1,7 +1,7 @@
 #include "GuildPrestigetaskDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildPrestigetaskDesc, EOT_CONST_GUILD_PRESTIGETASK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildPrestigetaskDesc, EOT_CONST_GUILD_PRESTIGETASK_DESC_ID, NFShmObj)
 
 GuildPrestigetaskDesc::GuildPrestigetaskDesc():NFIDescStore()
 {

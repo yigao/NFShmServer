@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareLogonDesc, proto_ff_s::E_WelfareLogon_s, E_WelfareLogon, MAX_WELFARE_LOGON_NUM);
-DECLARE_IDCREATE(WelfareLogonDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareLogonDesc);
 };

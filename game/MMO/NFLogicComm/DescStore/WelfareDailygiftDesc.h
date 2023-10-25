@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareDailygiftDesc, proto_ff_s::E_WelfareDailygift_s, E_WelfareDailygift, MAX_WELFARE_DAILYGIFT_NUM);
-DECLARE_IDCREATE(WelfareDailygiftDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareDailygiftDesc);
 };

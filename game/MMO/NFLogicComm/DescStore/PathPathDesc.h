@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PathPathDesc, proto_ff_s::E_PathPath_s, E_PathPath, MAX_PATH_PATH_NUM);
-DECLARE_IDCREATE(PathPathDesc);
+DECLARE_IDCREATE_GLOBAL(PathPathDesc);
 };

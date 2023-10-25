@@ -1,7 +1,7 @@
 #include "FacadeSoulactiveDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FacadeSoulactiveDesc, EOT_CONST_FACADE_SOULACTIVE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FacadeSoulactiveDesc, EOT_CONST_FACADE_SOULACTIVE_DESC_ID, NFShmObj)
 
 FacadeSoulactiveDesc::FacadeSoulactiveDesc():NFIDescStore()
 {

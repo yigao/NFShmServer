@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DailyCultivateDesc, proto_ff_s::E_DailyCultivate_s, E_DailyCultivate, MAX_DAILY_CULTIVATE_NUM);
-DECLARE_IDCREATE(DailyCultivateDesc);
+DECLARE_IDCREATE_GLOBAL(DailyCultivateDesc);
 };

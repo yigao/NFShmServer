@@ -1,7 +1,7 @@
 #include "DragonLvvalueDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonLvvalueDesc, EOT_CONST_DRAGON_LVVALUE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonLvvalueDesc, EOT_CONST_DRAGON_LVVALUE_DESC_ID, NFShmObj)
 
 DragonLvvalueDesc::DragonLvvalueDesc():NFIDescStore()
 {

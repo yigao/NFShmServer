@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(SkillSkillgroupDesc, proto_ff_s::E_SkillSkillgroup_s, E_SkillSkillgroup, MAX_SKILL_SKILLGROUP_NUM);
-DECLARE_IDCREATE(SkillSkillgroupDesc);
+DECLARE_IDCREATE_GLOBAL(SkillSkillgroupDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleMastermaleDesc, proto_ff_s::E_RoleMastermale_s, E_RoleMastermale, MAX_ROLE_MASTERMALE_NUM);
-DECLARE_IDCREATE(RoleMastermaleDesc);
+DECLARE_IDCREATE_GLOBAL(RoleMastermaleDesc);
 };

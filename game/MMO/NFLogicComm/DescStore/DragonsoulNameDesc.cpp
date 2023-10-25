@@ -1,7 +1,7 @@
 #include "DragonsoulNameDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonsoulNameDesc, EOT_CONST_DRAGONSOUL_NAME_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonsoulNameDesc, EOT_CONST_DRAGONSOUL_NAME_DESC_ID, NFShmObj)
 
 DragonsoulNameDesc::DragonsoulNameDesc():NFIDescStore()
 {

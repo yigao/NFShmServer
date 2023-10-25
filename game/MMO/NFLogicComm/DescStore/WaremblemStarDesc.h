@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WaremblemStarDesc, proto_ff_s::E_WaremblemStar_s, E_WaremblemStar, MAX_WAREMBLEM_STAR_NUM);
-DECLARE_IDCREATE(WaremblemStarDesc);
+DECLARE_IDCREATE_GLOBAL(WaremblemStarDesc);
 };

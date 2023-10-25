@@ -1,7 +1,7 @@
 #include "UiEffectDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(UiEffectDesc, EOT_CONST_UI_EFFECT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(UiEffectDesc, EOT_CONST_UI_EFFECT_DESC_ID, NFShmObj)
 
 UiEffectDesc::UiEffectDesc():NFIDescStore()
 {

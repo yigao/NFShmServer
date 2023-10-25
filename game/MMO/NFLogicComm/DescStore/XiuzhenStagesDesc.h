@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenStagesDesc, proto_ff_s::E_XiuzhenStages_s, E_XiuzhenStages, MAX_XIUZHEN_STAGES_NUM);
-DECLARE_IDCREATE(XiuzhenStagesDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenStagesDesc);
 };

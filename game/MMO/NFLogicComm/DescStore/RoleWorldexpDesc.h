@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleWorldexpDesc, proto_ff_s::E_RoleWorldexp_s, E_RoleWorldexp, MAX_ROLE_WORLDEXP_NUM);
-DECLARE_IDCREATE(RoleWorldexpDesc);
+DECLARE_IDCREATE_GLOBAL(RoleWorldexpDesc);
 };

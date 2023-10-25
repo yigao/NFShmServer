@@ -1,7 +1,7 @@
 #include "GuildDonateDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildDonateDesc, EOT_CONST_GUILD_DONATE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildDonateDesc, EOT_CONST_GUILD_DONATE_DESC_ID, NFShmObj)
 
 GuildDonateDesc::GuildDonateDesc():NFIDescStore()
 {

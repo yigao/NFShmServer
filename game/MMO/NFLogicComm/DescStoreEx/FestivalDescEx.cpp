@@ -1,6 +1,6 @@
 #include "FestivalDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalDescEx, EOT_CONST_FESTIVAL_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalDescEx, EOT_CONST_FESTIVAL_DESC_EX_ID, NFShmObj)
 
 FestivalDescEx::FestivalDescEx():NFIDescStoreEx()
 {

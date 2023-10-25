@@ -1,6 +1,6 @@
 #include "EncyclopediaDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EncyclopediaDescEx, EOT_CONST_ENCYCLOPEDIA_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EncyclopediaDescEx, EOT_CONST_ENCYCLOPEDIA_DESC_EX_ID, NFShmObj)
 
 EncyclopediaDescEx::EncyclopediaDescEx():NFIDescStoreEx()
 {

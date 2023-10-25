@@ -1,6 +1,6 @@
 #include "RankingDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RankingDescEx, EOT_CONST_RANKING_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RankingDescEx, EOT_CONST_RANKING_DESC_EX_ID, NFShmObj)
 
 RankingDescEx::RankingDescEx():NFIDescStoreEx()
 {

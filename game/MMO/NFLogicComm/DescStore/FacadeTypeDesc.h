@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FacadeTypeDesc, proto_ff_s::E_FacadeType_s, E_FacadeType, MAX_FACADE_TYPE_NUM);
-DECLARE_IDCREATE(FacadeTypeDesc);
+DECLARE_IDCREATE_GLOBAL(FacadeTypeDesc);
 };

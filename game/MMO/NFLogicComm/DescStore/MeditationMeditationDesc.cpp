@@ -1,7 +1,7 @@
 #include "MeditationMeditationDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MeditationMeditationDesc, EOT_CONST_MEDITATION_MEDITATION_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MeditationMeditationDesc, EOT_CONST_MEDITATION_MEDITATION_DESC_ID, NFShmObj)
 
 MeditationMeditationDesc::MeditationMeditationDesc():NFIDescStore()
 {

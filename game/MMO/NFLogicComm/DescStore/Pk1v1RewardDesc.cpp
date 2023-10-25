@@ -1,7 +1,7 @@
 #include "Pk1v1RewardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(Pk1v1RewardDesc, EOT_CONST_PK1V1_REWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(Pk1v1RewardDesc, EOT_CONST_PK1V1_REWARD_DESC_ID, NFShmObj)
 
 Pk1v1RewardDesc::Pk1v1RewardDesc():NFIDescStore()
 {

@@ -1,6 +1,6 @@
 #include "EscortDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EscortDescEx, EOT_CONST_ESCORT_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EscortDescEx, EOT_CONST_ESCORT_DESC_EX_ID, NFShmObj)
 
 EscortDescEx::EscortDescEx():NFIDescStoreEx()
 {

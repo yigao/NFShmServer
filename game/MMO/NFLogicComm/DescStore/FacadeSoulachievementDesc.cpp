@@ -1,7 +1,7 @@
 #include "FacadeSoulachievementDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FacadeSoulachievementDesc, EOT_CONST_FACADE_SOULACHIEVEMENT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FacadeSoulachievementDesc, EOT_CONST_FACADE_SOULACHIEVEMENT_DESC_ID, NFShmObj)
 
 FacadeSoulachievementDesc::FacadeSoulachievementDesc():NFIDescStore()
 {

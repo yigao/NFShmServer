@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MallHolybeastDesc, proto_ff_s::E_MallHolybeast_s, E_MallHolybeast, MAX_MALL_HOLYBEAST_NUM);
-DECLARE_IDCREATE(MallHolybeastDesc);
+DECLARE_IDCREATE_GLOBAL(MallHolybeastDesc);
 };

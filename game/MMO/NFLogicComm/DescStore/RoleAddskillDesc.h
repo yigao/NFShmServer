@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleAddskillDesc, proto_ff_s::E_RoleAddskill_s, E_RoleAddskill, MAX_ROLE_ADDSKILL_NUM);
-DECLARE_IDCREATE(RoleAddskillDesc);
+DECLARE_IDCREATE_GLOBAL(RoleAddskillDesc);
 };

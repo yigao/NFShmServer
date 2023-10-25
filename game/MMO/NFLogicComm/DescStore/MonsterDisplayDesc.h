@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MonsterDisplayDesc, proto_ff_s::E_MonsterDisplay_s, E_MonsterDisplay, MAX_MONSTER_DISPLAY_NUM);
-DECLARE_IDCREATE(MonsterDisplayDesc);
+DECLARE_IDCREATE_GLOBAL(MonsterDisplayDesc);
 };

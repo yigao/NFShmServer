@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodvalleyAttributeDesc, proto_ff_s::E_GodvalleyAttribute_s, E_GodvalleyAttribute, MAX_GODVALLEY_ATTRIBUTE_NUM);
-DECLARE_IDCREATE(GodvalleyAttributeDesc);
+DECLARE_IDCREATE_GLOBAL(GodvalleyAttributeDesc);
 };

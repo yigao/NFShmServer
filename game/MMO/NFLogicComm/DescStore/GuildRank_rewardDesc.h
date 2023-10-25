@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildRank_rewardDesc, proto_ff_s::E_GuildRank_reward_s, E_GuildRank_reward, MAX_GUILD_RANK_REWARD_NUM);
-DECLARE_IDCREATE(GuildRank_rewardDesc);
+DECLARE_IDCREATE_GLOBAL(GuildRank_rewardDesc);
 };

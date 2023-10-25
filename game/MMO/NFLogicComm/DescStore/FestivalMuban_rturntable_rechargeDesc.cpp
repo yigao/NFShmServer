@@ -2,7 +2,7 @@
 #include "RechargeRechargeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_rturntable_rechargeDesc, EOT_CONST_FESTIVAL_MUBAN_RTURNTABLE_RECHARGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_rturntable_rechargeDesc, EOT_CONST_FESTIVAL_MUBAN_RTURNTABLE_RECHARGE_DESC_ID, NFShmObj)
 
 FestivalMuban_rturntable_rechargeDesc::FestivalMuban_rturntable_rechargeDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int FestivalMuban_rturntable_rechargeDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeid <= 0 || RechargeRechargeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_rechargeid)), result, "can't find the rechargeid:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeid <= 0 || RechargeRechargeDesc::Instance()->GetDesc(pDesc->m_rechargeid)), result, "can't find the rechargeid:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeid);
 	}
 	return result;
 }

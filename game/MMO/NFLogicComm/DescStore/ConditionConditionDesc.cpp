@@ -1,7 +1,7 @@
 #include "ConditionConditionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConditionConditionDesc, EOT_CONST_CONDITION_CONDITION_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConditionConditionDesc, EOT_CONST_CONDITION_CONDITION_DESC_ID, NFShmObj)
 
 ConditionConditionDesc::ConditionConditionDesc():NFIDescStore()
 {

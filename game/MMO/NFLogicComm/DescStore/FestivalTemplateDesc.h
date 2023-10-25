@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalTemplateDesc, proto_ff_s::E_FestivalTemplate_s, E_FestivalTemplate, MAX_FESTIVAL_TEMPLATE_NUM);
-DECLARE_IDCREATE(FestivalTemplateDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalTemplateDesc);
 };

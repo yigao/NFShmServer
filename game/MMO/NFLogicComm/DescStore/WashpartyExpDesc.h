@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WashpartyExpDesc, proto_ff_s::E_WashpartyExp_s, E_WashpartyExp, MAX_WASHPARTY_EXP_NUM);
-DECLARE_IDCREATE(WashpartyExpDesc);
+DECLARE_IDCREATE_GLOBAL(WashpartyExpDesc);
 };

@@ -1,7 +1,7 @@
 #include "GodevilStrongexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilStrongexpDesc, EOT_CONST_GODEVIL_STRONGEXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilStrongexpDesc, EOT_CONST_GODEVIL_STRONGEXP_DESC_ID, NFShmObj)
 
 GodevilStrongexpDesc::GodevilStrongexpDesc():NFIDescStore()
 {

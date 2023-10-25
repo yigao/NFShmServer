@@ -1,6 +1,6 @@
 #include "FunctionunlockDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FunctionunlockDescEx, EOT_CONST_FUNCTIONUNLOCK_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FunctionunlockDescEx, EOT_CONST_FUNCTIONUNLOCK_DESC_EX_ID, NFShmObj)
 
 FunctionunlockDescEx::FunctionunlockDescEx():NFIDescStoreEx()
 {

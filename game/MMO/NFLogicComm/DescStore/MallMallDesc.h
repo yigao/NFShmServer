@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MallMallDesc, proto_ff_s::E_MallMall_s, E_MallMall, MAX_MALL_MALL_NUM);
-DECLARE_IDCREATE(MallMallDesc);
+DECLARE_IDCREATE_GLOBAL(MallMallDesc);
 };

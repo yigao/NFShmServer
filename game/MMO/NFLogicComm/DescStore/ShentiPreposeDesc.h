@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiPreposeDesc, proto_ff_s::E_ShentiPrepose_s, E_ShentiPrepose, MAX_SHENTI_PREPOSE_NUM);
-DECLARE_IDCREATE(ShentiPreposeDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiPreposeDesc);
 };

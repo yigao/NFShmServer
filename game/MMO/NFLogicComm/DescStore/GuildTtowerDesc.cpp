@@ -1,7 +1,7 @@
 #include "GuildTtowerDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildTtowerDesc, EOT_CONST_GUILD_TTOWER_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildTtowerDesc, EOT_CONST_GUILD_TTOWER_DESC_ID, NFShmObj)
 
 GuildTtowerDesc::GuildTtowerDesc():NFIDescStore()
 {

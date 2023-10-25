@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DragonFragmentDesc, proto_ff_s::E_DragonFragment_s, E_DragonFragment, MAX_DRAGON_FRAGMENT_NUM);
-DECLARE_IDCREATE(DragonFragmentDesc);
+DECLARE_IDCREATE_GLOBAL(DragonFragmentDesc);
 };

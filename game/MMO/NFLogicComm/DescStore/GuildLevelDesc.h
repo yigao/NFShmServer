@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildLevelDesc, proto_ff_s::E_GuildLevel_s, E_GuildLevel, MAX_GUILD_LEVEL_NUM);
-DECLARE_IDCREATE(GuildLevelDesc);
+DECLARE_IDCREATE_GLOBAL(GuildLevelDesc);
 };

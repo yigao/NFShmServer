@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RandomnameManthirdDesc, proto_ff_s::E_RandomnameManthird_s, E_RandomnameManthird, MAX_RANDOMNAME_MANTHIRD_NUM);
-DECLARE_IDCREATE(RandomnameManthirdDesc);
+DECLARE_IDCREATE_GLOBAL(RandomnameManthirdDesc);
 };

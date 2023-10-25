@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountEmpowerment_eventDesc, proto_ff_s::E_MountEmpowerment_event_s, E_MountEmpowerment_event, MAX_MOUNT_EMPOWERMENT_EVENT_NUM);
-DECLARE_IDCREATE(MountEmpowerment_eventDesc);
+DECLARE_IDCREATE_GLOBAL(MountEmpowerment_eventDesc);
 };

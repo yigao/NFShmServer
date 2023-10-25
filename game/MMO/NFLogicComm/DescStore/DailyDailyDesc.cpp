@@ -3,7 +3,7 @@
 #include "FunctionunlockFunctionunlockDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DailyDailyDesc, EOT_CONST_DAILY_DAILY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DailyDailyDesc, EOT_CONST_DAILY_DAILY_DESC_ID, NFShmObj)
 
 DailyDailyDesc::DailyDailyDesc():NFIDescStore()
 {
@@ -96,8 +96,8 @@ int DailyDailyDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_funciontid <= 0 || FunctionunlockFunctionunlockDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_funciontid)), result, "can't find the funciontid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_funciontid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_regreward <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_regreward)), result, "can't find the regreward:{} in the  excel:box sheet:box", pDesc->m_regreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_funciontid <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_funciontid)), result, "can't find the funciontid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_funciontid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_regreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_regreward)), result, "can't find the regreward:{} in the  excel:box sheet:box", pDesc->m_regreward);
 	}
 	return result;
 }

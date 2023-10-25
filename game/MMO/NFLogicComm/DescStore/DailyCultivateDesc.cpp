@@ -2,7 +2,7 @@
 #include "AttributeAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DailyCultivateDesc, EOT_CONST_DAILY_CULTIVATE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DailyCultivateDesc, EOT_CONST_DAILY_CULTIVATE_DESC_ID, NFShmObj)
 
 DailyCultivateDesc::DailyCultivateDesc():NFIDescStore()
 {
@@ -97,7 +97,7 @@ int DailyCultivateDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_id <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_id)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_id);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_id <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_id)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_id);
 		}
 	}
 	return result;

@@ -77,5 +77,5 @@ public:
 private:
 	NFShmHashMap<XingchenXctpPositionidXcquality ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCTP_POSITIONID_NUM*UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCTP_XCQUALITY_NUM> m_PositionidXcqualityComIndexMap;
 IMPL_RES_HASH_DESC(XingchenXctpDesc, proto_ff_s::E_XingchenXctp_s, E_XingchenXctp, MAX_XINGCHEN_XCTP_NUM);
-DECLARE_IDCREATE(XingchenXctpDesc);
+DECLARE_IDCREATE_GLOBAL(XingchenXctpDesc);
 };

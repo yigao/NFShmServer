@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetDisplayDesc, proto_ff_s::E_PetDisplay_s, E_PetDisplay, MAX_PET_DISPLAY_NUM);
-DECLARE_IDCREATE(PetDisplayDesc);
+DECLARE_IDCREATE_GLOBAL(PetDisplayDesc);
 };

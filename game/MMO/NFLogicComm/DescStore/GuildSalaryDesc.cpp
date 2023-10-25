@@ -1,7 +1,7 @@
 #include "GuildSalaryDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildSalaryDesc, EOT_CONST_GUILD_SALARY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildSalaryDesc, EOT_CONST_GUILD_SALARY_DESC_ID, NFShmObj)
 
 GuildSalaryDesc::GuildSalaryDesc():NFIDescStore()
 {

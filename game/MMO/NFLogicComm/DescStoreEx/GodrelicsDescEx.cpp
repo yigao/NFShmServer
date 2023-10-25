@@ -1,6 +1,6 @@
 #include "GodrelicsDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodrelicsDescEx, EOT_CONST_GODRELICS_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodrelicsDescEx, EOT_CONST_GODRELICS_DESC_EX_ID, NFShmObj)
 
 GodrelicsDescEx::GodrelicsDescEx():NFIDescStoreEx()
 {

@@ -1,6 +1,6 @@
 #include "WashpartyDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WashpartyDescEx, EOT_CONST_WASHPARTY_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WashpartyDescEx, EOT_CONST_WASHPARTY_DESC_EX_ID, NFShmObj)
 
 WashpartyDescEx::WashpartyDescEx():NFIDescStoreEx()
 {

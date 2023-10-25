@@ -1,7 +1,7 @@
 #include "WelfareFirstchargeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareFirstchargeDesc, EOT_CONST_WELFARE_FIRSTCHARGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareFirstchargeDesc, EOT_CONST_WELFARE_FIRSTCHARGE_DESC_ID, NFShmObj)
 
 WelfareFirstchargeDesc::WelfareFirstchargeDesc():NFIDescStore()
 {

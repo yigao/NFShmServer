@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiComposeDesc, proto_ff_s::E_ShentiCompose_s, E_ShentiCompose, MAX_SHENTI_COMPOSE_NUM);
-DECLARE_IDCREATE(ShentiComposeDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiComposeDesc);
 };

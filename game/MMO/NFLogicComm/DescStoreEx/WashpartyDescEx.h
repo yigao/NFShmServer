@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(WashpartyDescEx)
-DECLARE_IDCREATE(WashpartyDescEx)
+DECLARE_IDCREATE_GLOBAL(WashpartyDescEx)
 };

@@ -1,7 +1,7 @@
 #include "AttributeAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AttributeAttributeDesc, EOT_CONST_ATTRIBUTE_ATTRIBUTE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AttributeAttributeDesc, EOT_CONST_ATTRIBUTE_ATTRIBUTE_DESC_ID, NFShmObj)
 
 AttributeAttributeDesc::AttributeAttributeDesc():NFIDescStore()
 {

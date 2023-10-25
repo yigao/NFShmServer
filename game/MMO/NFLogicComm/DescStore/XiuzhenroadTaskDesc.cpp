@@ -3,7 +3,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenroadTaskDesc, EOT_CONST_XIUZHENROAD_TASK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenroadTaskDesc, EOT_CONST_XIUZHENROAD_TASK_DESC_ID, NFShmObj)
 
 XiuzhenroadTaskDesc::XiuzhenroadTaskDesc():NFIDescStore()
 {
@@ -96,8 +96,8 @@ int XiuzhenroadTaskDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_boxid <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_boxid)), result, "can't find the boxid:{} in the  excel:box sheet:box", pDesc->m_boxid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_reward <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_reward)), result, "can't find the reward:{} in the  excel:item sheet:item", pDesc->m_reward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_boxid <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_boxid)), result, "can't find the boxid:{} in the  excel:box sheet:box", pDesc->m_boxid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_reward <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_reward)), result, "can't find the reward:{} in the  excel:item sheet:item", pDesc->m_reward);
 	}
 	return result;
 }

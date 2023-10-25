@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EncyclopediaHandbookstar_attrDesc, proto_ff_s::E_EncyclopediaHandbookstar_attr_s, E_EncyclopediaHandbookstar_attr, MAX_ENCYCLOPEDIA_HANDBOOKSTAR_ATTR_NUM);
-DECLARE_IDCREATE(EncyclopediaHandbookstar_attrDesc);
+DECLARE_IDCREATE_GLOBAL(EncyclopediaHandbookstar_attrDesc);
 };

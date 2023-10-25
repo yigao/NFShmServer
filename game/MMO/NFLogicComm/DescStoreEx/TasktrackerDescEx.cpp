@@ -1,6 +1,6 @@
 #include "TasktrackerDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TasktrackerDescEx, EOT_CONST_TASKTRACKER_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TasktrackerDescEx, EOT_CONST_TASKTRACKER_DESC_EX_ID, NFShmObj)
 
 TasktrackerDescEx::TasktrackerDescEx():NFIDescStoreEx()
 {

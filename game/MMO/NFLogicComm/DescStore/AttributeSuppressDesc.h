@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AttributeSuppressDesc, proto_ff_s::E_AttributeSuppress_s, E_AttributeSuppress, MAX_ATTRIBUTE_SUPPRESS_NUM);
-DECLARE_IDCREATE(AttributeSuppressDesc);
+DECLARE_IDCREATE_GLOBAL(AttributeSuppressDesc);
 };

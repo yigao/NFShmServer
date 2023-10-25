@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EncyclopediaEquipexpvalueDesc, proto_ff_s::E_EncyclopediaEquipexpvalue_s, E_EncyclopediaEquipexpvalue, MAX_ENCYCLOPEDIA_EQUIPEXPVALUE_NUM);
-DECLARE_IDCREATE(EncyclopediaEquipexpvalueDesc);
+DECLARE_IDCREATE_GLOBAL(EncyclopediaEquipexpvalueDesc);
 };

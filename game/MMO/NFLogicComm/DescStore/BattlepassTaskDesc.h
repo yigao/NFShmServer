@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(BattlepassTaskDesc, proto_ff_s::E_BattlepassTask_s, E_BattlepassTask, MAX_BATTLEPASS_TASK_NUM);
-DECLARE_IDCREATE(BattlepassTaskDesc);
+DECLARE_IDCREATE_GLOBAL(BattlepassTaskDesc);
 };

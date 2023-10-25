@@ -1,7 +1,7 @@
 #include "MsgPhpmsgDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MsgPhpmsgDesc, EOT_CONST_MSG_PHPMSG_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MsgPhpmsgDesc, EOT_CONST_MSG_PHPMSG_DESC_ID, NFShmObj)
 
 MsgPhpmsgDesc::MsgPhpmsgDesc():NFIDescStore()
 {

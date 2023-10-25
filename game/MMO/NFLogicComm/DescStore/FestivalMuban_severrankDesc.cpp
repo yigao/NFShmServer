@@ -3,7 +3,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_severrankDesc, EOT_CONST_FESTIVAL_MUBAN_SEVERRANK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_severrankDesc, EOT_CONST_FESTIVAL_MUBAN_SEVERRANK_DESC_ID, NFShmObj)
 
 FestivalMuban_severrankDesc::FestivalMuban_severrankDesc():NFIDescStore()
 {
@@ -96,8 +96,8 @@ int FestivalMuban_severrankDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_redpointbox <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_redpointbox)), result, "can't find the redpointbox:{} in the  excel:box sheet:box", pDesc->m_redpointbox);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_giftitemid <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_giftitemid)), result, "can't find the giftitemid:{} in the  excel:item sheet:item", pDesc->m_giftitemid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_redpointbox <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_redpointbox)), result, "can't find the redpointbox:{} in the  excel:box sheet:box", pDesc->m_redpointbox);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_giftitemid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_giftitemid)), result, "can't find the giftitemid:{} in the  excel:item sheet:item", pDesc->m_giftitemid);
 	}
 	return result;
 }

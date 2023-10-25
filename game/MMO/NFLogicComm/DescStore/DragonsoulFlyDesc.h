@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DragonsoulFlyDesc, proto_ff_s::E_DragonsoulFly_s, E_DragonsoulFly, MAX_DRAGONSOUL_FLY_NUM);
-DECLARE_IDCREATE(DragonsoulFlyDesc);
+DECLARE_IDCREATE_GLOBAL(DragonsoulFlyDesc);
 };

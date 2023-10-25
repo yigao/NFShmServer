@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ArenaFirstrankDesc, proto_ff_s::E_ArenaFirstrank_s, E_ArenaFirstrank, MAX_ARENA_FIRSTRANK_NUM);
-DECLARE_IDCREATE(ArenaFirstrankDesc);
+DECLARE_IDCREATE_GLOBAL(ArenaFirstrankDesc);
 };

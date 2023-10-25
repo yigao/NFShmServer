@@ -1,6 +1,6 @@
 #include "GodvalleyDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodvalleyDescEx, EOT_CONST_GODVALLEY_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodvalleyDescEx, EOT_CONST_GODVALLEY_DESC_EX_ID, NFShmObj)
 
 GodvalleyDescEx::GodvalleyDescEx():NFIDescStoreEx()
 {

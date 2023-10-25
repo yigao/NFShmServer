@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodevilPositionunlockDesc, proto_ff_s::E_GodevilPositionunlock_s, E_GodevilPositionunlock, MAX_GODEVIL_POSITIONUNLOCK_NUM);
-DECLARE_IDCREATE(GodevilPositionunlockDesc);
+DECLARE_IDCREATE_GLOBAL(GodevilPositionunlockDesc);
 };

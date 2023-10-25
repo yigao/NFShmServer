@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareKfleichongDesc, proto_ff_s::E_WelfareKfleichong_s, E_WelfareKfleichong, MAX_WELFARE_KFLEICHONG_NUM);
-DECLARE_IDCREATE(WelfareKfleichongDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareKfleichongDesc);
 };

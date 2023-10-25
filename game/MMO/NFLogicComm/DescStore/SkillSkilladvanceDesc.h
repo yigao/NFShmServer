@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(SkillSkilladvanceDesc, proto_ff_s::E_SkillSkilladvance_s, E_SkillSkilladvance, MAX_SKILL_SKILLADVANCE_NUM);
-DECLARE_IDCREATE(SkillSkilladvanceDesc);
+DECLARE_IDCREATE_GLOBAL(SkillSkilladvanceDesc);
 };

@@ -1,7 +1,7 @@
 #include "DragonsoulFlyexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonsoulFlyexpDesc, EOT_CONST_DRAGONSOUL_FLYEXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonsoulFlyexpDesc, EOT_CONST_DRAGONSOUL_FLYEXP_DESC_ID, NFShmObj)
 
 DragonsoulFlyexpDesc::DragonsoulFlyexpDesc():NFIDescStore()
 {

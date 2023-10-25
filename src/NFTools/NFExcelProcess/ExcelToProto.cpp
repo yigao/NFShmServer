@@ -406,7 +406,7 @@ void ExcelToProto::WriteSheetDescStoreExH()
     desc_file += "\tint ResumeInit();\n";
     desc_file += "private:\n";
     desc_file += "IMPL_RES_DESC_EX(" + NFStringUtility::Capitalize(m_excelName) + "DescEx)\n";
-    desc_file += "DECLARE_IDCREATE(" + NFStringUtility::Capitalize(m_excelName) + "DescEx)\n";
+    desc_file += "DECLARE_IDCREATE_GLOBAL(" + NFStringUtility::Capitalize(m_excelName) + "DescEx)\n";
     desc_file += "};\n";
     NFFileUtility::WriteFile(desc_file_path, desc_file);
 }
@@ -707,7 +707,7 @@ void ExcelToProto::WriteSheetDescStoreH(ExcelSheet *pSheet)
                  NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + ", MAX_" + NFStringUtility::Upper(m_excelName) +
                  "_" +
                  NFStringUtility::Upper(sheet_name) + "_NUM);\n";
-    desc_file += "DECLARE_IDCREATE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\n";
+    desc_file += "DECLARE_IDCREATE_GLOBAL(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc);\n";
     desc_file += "};\n";
 
     NFFileUtility::WriteFile(desc_file_path, desc_file);
@@ -719,7 +719,7 @@ void ExcelToProto::WriteSheetDescStoreExCPP()
     std::string desc_file_path = m_outPath + desc_file_name;
     std::string desc_file;
     desc_file += "#include \"" + NFStringUtility::Capitalize(m_excelName) + "DescEx.h\"\n\n";
-    desc_file += "IMPLEMENT_IDCREATE_WITHTYPE(" + NFStringUtility::Capitalize(m_excelName) + "DescEx, EOT_CONST_" +
+    desc_file += "IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(" + NFStringUtility::Capitalize(m_excelName) + "DescEx, EOT_CONST_" +
                  NFStringUtility::Upper(m_excelName) + "_DESC_EX_ID, NFShmObj)\n\n";
     desc_file += NFStringUtility::Capitalize(m_excelName) + "DescEx::" + NFStringUtility::Capitalize(m_excelName) +
                  "DescEx():NFIDescStoreEx()\n";
@@ -792,7 +792,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
 
     desc_file += "#include \"NFComm/NFPluginModule/NFCheck.h\"\n\n";
     desc_file +=
-            "IMPLEMENT_IDCREATE_WITHTYPE(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc, EOT_CONST_" +
+            "IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(" + NFStringUtility::Capitalize(m_excelName) + NFStringUtility::Capitalize(sheet_name) + "Desc, EOT_CONST_" +
             NFStringUtility::Upper(m_excelName) + "_" + NFStringUtility::Upper(sheet_name) + "_DESC_ID, NFShmObj)\n\n";
 //////////////////////////////////////////////////////////////
     desc_file +=
@@ -1013,7 +1013,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                         ExcelRelationDst &relationDst = relation.m_dst[i];
                         desc_file += "(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + " <= 0 || " + NFStringUtility::Capitalize(relationDst.m_excelName) +
                                      NFStringUtility::Capitalize(relationDst.m_sheetName) +
-                                     "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                                     "Desc::Instance()->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
                                      "))";
 
                         if (i != (int) relation.m_dst.size() - 1)
@@ -1040,7 +1040,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                             desc_file += "(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j] <= 0 || " +
                                          NFStringUtility::Capitalize(relationDst.m_excelName) +
                                          NFStringUtility::Capitalize(relationDst.m_sheetName) +
-                                         "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
+                                         "Desc::Instance()->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) +
                                          "[j]))";
 
                             if (i != (int) relation.m_dst.size() - 1)
@@ -1065,7 +1065,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                             desc_file += "(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + " <= 0 || " +
                                          NFStringUtility::Capitalize(relationDst.m_excelName) +
                                          NFStringUtility::Capitalize(relationDst.m_sheetName) +
-                                         "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
+                                         "Desc::Instance()->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
                                          + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColName) + "))";
 
                             if (i != (int) relation.m_dst.size() - 1)
@@ -1094,7 +1094,7 @@ void ExcelToProto::WriteSheetDescStoreCPP(ExcelSheet *pSheet)
                     desc_file += "(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName) + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + " <= 0 || " +
                                  NFStringUtility::Capitalize(relationDst.m_excelName) +
                                  NFStringUtility::Capitalize(relationDst.m_sheetName) +
-                                 "Desc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
+                                 "Desc::Instance()->GetDesc(pDesc->m_" + NFStringUtility::Lower(iter->second.m_myColName)
                                  + "[j].m_" + NFStringUtility::Lower(iter->second.m_myColSubName) + "))";
 
                     if (i != (int) relation.m_dst.size() - 1)

@@ -1,6 +1,6 @@
 #include "AvatarDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AvatarDescEx, EOT_CONST_AVATAR_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarDescEx, EOT_CONST_AVATAR_DESC_EX_ID, NFShmObj)
 
 AvatarDescEx::AvatarDescEx():NFIDescStoreEx()
 {

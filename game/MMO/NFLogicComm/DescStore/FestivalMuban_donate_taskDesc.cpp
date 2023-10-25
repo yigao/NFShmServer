@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_donate_taskDesc, EOT_CONST_FESTIVAL_MUBAN_DONATE_TASK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_donate_taskDesc, EOT_CONST_FESTIVAL_MUBAN_DONATE_TASK_DESC_ID, NFShmObj)
 
 FestivalMuban_donate_taskDesc::FestivalMuban_donate_taskDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int FestivalMuban_donate_taskDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:item sheet:item", pDesc->m_itemid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:item sheet:item", pDesc->m_itemid);
 	}
 	return result;
 }

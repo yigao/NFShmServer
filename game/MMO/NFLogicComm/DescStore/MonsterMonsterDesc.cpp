@@ -1,7 +1,7 @@
 #include "MonsterMonsterDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MonsterMonsterDesc, EOT_CONST_MONSTER_MONSTER_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MonsterMonsterDesc, EOT_CONST_MONSTER_MONSTER_DESC_ID, NFShmObj)
 
 MonsterMonsterDesc::MonsterMonsterDesc():NFIDescStore()
 {

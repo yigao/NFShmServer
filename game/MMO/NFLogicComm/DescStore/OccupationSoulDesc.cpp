@@ -1,7 +1,7 @@
 #include "OccupationSoulDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(OccupationSoulDesc, EOT_CONST_OCCUPATION_SOUL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(OccupationSoulDesc, EOT_CONST_OCCUPATION_SOUL_DESC_ID, NFShmObj)
 
 OccupationSoulDesc::OccupationSoulDesc():NFIDescStore()
 {

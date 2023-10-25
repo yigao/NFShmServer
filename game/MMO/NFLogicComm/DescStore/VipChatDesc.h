@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(VipChatDesc, proto_ff_s::E_VipChat_s, E_VipChat, MAX_VIP_CHAT_NUM);
-DECLARE_IDCREATE(VipChatDesc);
+DECLARE_IDCREATE_GLOBAL(VipChatDesc);
 };

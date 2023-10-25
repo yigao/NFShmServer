@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarryLockskillDesc, proto_ff_s::E_MarryLockskill_s, E_MarryLockskill, MAX_MARRY_LOCKSKILL_NUM);
-DECLARE_IDCREATE(MarryLockskillDesc);
+DECLARE_IDCREATE_GLOBAL(MarryLockskillDesc);
 };

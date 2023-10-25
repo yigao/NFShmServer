@@ -3,7 +3,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_bossfristkillDesc, EOT_CONST_FESTIVAL_MUBAN_BOSSFRISTKILL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_bossfristkillDesc, EOT_CONST_FESTIVAL_MUBAN_BOSSFRISTKILL_DESC_ID, NFShmObj)
 
 FestivalMuban_bossfristkillDesc::FestivalMuban_bossfristkillDesc():NFIDescStore()
 {
@@ -96,9 +96,9 @@ int FestivalMuban_bossfristkillDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_bossid <= 0 || BossBossDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_bossid)), result, "can't find the bossid:{} in the  excel:boss sheet:boss", pDesc->m_bossid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_killreward <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_killreward)), result, "can't find the killreward:{} in the  excel:box sheet:box", pDesc->m_killreward);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_fristkillreward <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_fristkillreward)), result, "can't find the fristkillreward:{} in the  excel:box sheet:box", pDesc->m_fristkillreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_bossid <= 0 || BossBossDesc::Instance()->GetDesc(pDesc->m_bossid)), result, "can't find the bossid:{} in the  excel:boss sheet:boss", pDesc->m_bossid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_killreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_killreward)), result, "can't find the killreward:{} in the  excel:box sheet:box", pDesc->m_killreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_fristkillreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_fristkillreward)), result, "can't find the fristkillreward:{} in the  excel:box sheet:box", pDesc->m_fristkillreward);
 	}
 	return result;
 }

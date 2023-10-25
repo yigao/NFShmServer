@@ -1,7 +1,7 @@
 #include "RechargeOneclickbuyDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RechargeOneclickbuyDesc, EOT_CONST_RECHARGE_ONECLICKBUY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RechargeOneclickbuyDesc, EOT_CONST_RECHARGE_ONECLICKBUY_DESC_ID, NFShmObj)
 
 RechargeOneclickbuyDesc::RechargeOneclickbuyDesc():NFIDescStore()
 {

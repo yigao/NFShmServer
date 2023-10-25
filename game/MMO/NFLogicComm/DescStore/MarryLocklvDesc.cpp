@@ -1,7 +1,7 @@
 #include "MarryLocklvDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarryLocklvDesc, EOT_CONST_MARRY_LOCKLV_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarryLocklvDesc, EOT_CONST_MARRY_LOCKLV_DESC_ID, NFShmObj)
 
 MarryLocklvDesc::MarryLocklvDesc():NFIDescStore()
 {

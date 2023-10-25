@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(TeleportTeleportDesc, proto_ff_s::E_TeleportTeleport_s, E_TeleportTeleport, MAX_TELEPORT_TELEPORT_NUM);
-DECLARE_IDCREATE(TeleportTeleportDesc);
+DECLARE_IDCREATE_GLOBAL(TeleportTeleportDesc);
 };

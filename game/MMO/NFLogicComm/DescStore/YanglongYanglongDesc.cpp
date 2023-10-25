@@ -1,7 +1,7 @@
 #include "YanglongYanglongDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(YanglongYanglongDesc, EOT_CONST_YANGLONG_YANGLONG_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(YanglongYanglongDesc, EOT_CONST_YANGLONG_YANGLONG_DESC_ID, NFShmObj)
 
 YanglongYanglongDesc::YanglongYanglongDesc():NFIDescStore()
 {

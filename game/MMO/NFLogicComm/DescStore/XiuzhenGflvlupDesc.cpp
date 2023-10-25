@@ -1,7 +1,7 @@
 #include "XiuzhenGflvlupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenGflvlupDesc, EOT_CONST_XIUZHEN_GFLVLUP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenGflvlupDesc, EOT_CONST_XIUZHEN_GFLVLUP_DESC_ID, NFShmObj)
 
 XiuzhenGflvlupDesc::XiuzhenGflvlupDesc():NFIDescStore()
 {

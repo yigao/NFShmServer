@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DupTtowerwaveDesc, proto_ff_s::E_DupTtowerwave_s, E_DupTtowerwave, MAX_DUP_TTOWERWAVE_NUM);
-DECLARE_IDCREATE(DupTtowerwaveDesc);
+DECLARE_IDCREATE_GLOBAL(DupTtowerwaveDesc);
 };

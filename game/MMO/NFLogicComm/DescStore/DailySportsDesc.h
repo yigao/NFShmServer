@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DailySportsDesc, proto_ff_s::E_DailySports_s, E_DailySports, MAX_DAILY_SPORTS_NUM);
-DECLARE_IDCREATE(DailySportsDesc);
+DECLARE_IDCREATE_GLOBAL(DailySportsDesc);
 };

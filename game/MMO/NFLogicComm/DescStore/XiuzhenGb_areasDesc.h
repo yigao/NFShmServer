@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenGb_areasDesc, proto_ff_s::E_XiuzhenGb_areas_s, E_XiuzhenGb_areas, MAX_XIUZHEN_GB_AREAS_NUM);
-DECLARE_IDCREATE(XiuzhenGb_areasDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenGb_areasDesc);
 };

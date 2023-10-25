@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildSalaryDesc, proto_ff_s::E_GuildSalary_s, E_GuildSalary, MAX_GUILD_SALARY_NUM);
-DECLARE_IDCREATE(GuildSalaryDesc);
+DECLARE_IDCREATE_GLOBAL(GuildSalaryDesc);
 };

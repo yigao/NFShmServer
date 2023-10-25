@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetWraithslvDesc, proto_ff_s::E_PetWraithslv_s, E_PetWraithslv, MAX_PET_WRAITHSLV_NUM);
-DECLARE_IDCREATE(PetWraithslvDesc);
+DECLARE_IDCREATE_GLOBAL(PetWraithslvDesc);
 };

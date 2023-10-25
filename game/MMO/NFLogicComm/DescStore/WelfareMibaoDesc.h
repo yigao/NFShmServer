@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareMibaoDesc, proto_ff_s::E_WelfareMibao_s, E_WelfareMibao, MAX_WELFARE_MIBAO_NUM);
-DECLARE_IDCREATE(WelfareMibaoDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareMibaoDesc);
 };

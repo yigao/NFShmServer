@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(BoxBoxDesc, proto_ff_s::E_BoxBox_s, E_BoxBox, MAX_BOX_BOX_NUM);
-DECLARE_IDCREATE(BoxBoxDesc);
+DECLARE_IDCREATE_GLOBAL(BoxBoxDesc);
 };

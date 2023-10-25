@@ -1,7 +1,7 @@
 #include "XingchenXcmaterialDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXcmaterialDesc, EOT_CONST_XINGCHEN_XCMATERIAL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXcmaterialDesc, EOT_CONST_XINGCHEN_XCMATERIAL_DESC_ID, NFShmObj)
 
 XingchenXcmaterialDesc::XingchenXcmaterialDesc():NFIDescStore()
 {

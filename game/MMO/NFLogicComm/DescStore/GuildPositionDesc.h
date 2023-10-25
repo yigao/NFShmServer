@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildPositionDesc, proto_ff_s::E_GuildPosition_s, E_GuildPosition, MAX_GUILD_POSITION_NUM);
-DECLARE_IDCREATE(GuildPositionDesc);
+DECLARE_IDCREATE_GLOBAL(GuildPositionDesc);
 };

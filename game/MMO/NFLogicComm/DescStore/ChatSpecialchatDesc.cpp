@@ -1,7 +1,7 @@
 #include "ChatSpecialchatDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ChatSpecialchatDesc, EOT_CONST_CHAT_SPECIALCHAT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ChatSpecialchatDesc, EOT_CONST_CHAT_SPECIALCHAT_DESC_ID, NFShmObj)
 
 ChatSpecialchatDesc::ChatSpecialchatDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "ConflateJewelry_spDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConflateJewelry_spDesc, EOT_CONST_CONFLATE_JEWELRY_SP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConflateJewelry_spDesc, EOT_CONST_CONFLATE_JEWELRY_SP_DESC_ID, NFShmObj)
 
 ConflateJewelry_spDesc::ConflateJewelry_spDesc():NFIDescStore()
 {

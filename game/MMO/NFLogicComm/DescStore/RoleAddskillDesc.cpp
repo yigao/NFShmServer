@@ -1,7 +1,7 @@
 #include "RoleAddskillDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RoleAddskillDesc, EOT_CONST_ROLE_ADDSKILL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RoleAddskillDesc, EOT_CONST_ROLE_ADDSKILL_DESC_ID, NFShmObj)
 
 RoleAddskillDesc::RoleAddskillDesc():NFIDescStore()
 {

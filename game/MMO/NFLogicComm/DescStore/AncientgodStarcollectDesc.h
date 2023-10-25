@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AncientgodStarcollectDesc, proto_ff_s::E_AncientgodStarcollect_s, E_AncientgodStarcollect, MAX_ANCIENTGOD_STARCOLLECT_NUM);
-DECLARE_IDCREATE(AncientgodStarcollectDesc);
+DECLARE_IDCREATE_GLOBAL(AncientgodStarcollectDesc);
 };

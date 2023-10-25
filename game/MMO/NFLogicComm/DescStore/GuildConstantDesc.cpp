@@ -1,7 +1,7 @@
 #include "GuildConstantDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildConstantDesc, EOT_CONST_GUILD_CONSTANT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildConstantDesc, EOT_CONST_GUILD_CONSTANT_DESC_ID, NFShmObj)
 
 GuildConstantDesc::GuildConstantDesc():NFIDescStore()
 {

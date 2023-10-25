@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenJmtypesDesc, proto_ff_s::E_XiuzhenJmtypes_s, E_XiuzhenJmtypes, MAX_XIUZHEN_JMTYPES_NUM);
-DECLARE_IDCREATE(XiuzhenJmtypesDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenJmtypesDesc);
 };

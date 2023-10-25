@@ -1,7 +1,7 @@
 #include "WelfareMibaoDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareMibaoDesc, EOT_CONST_WELFARE_MIBAO_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareMibaoDesc, EOT_CONST_WELFARE_MIBAO_DESC_ID, NFShmObj)
 
 WelfareMibaoDesc::WelfareMibaoDesc():NFIDescStore()
 {

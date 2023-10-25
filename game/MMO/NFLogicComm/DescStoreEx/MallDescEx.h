@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(MallDescEx)
-DECLARE_IDCREATE(MallDescEx)
+DECLARE_IDCREATE_GLOBAL(MallDescEx)
 };

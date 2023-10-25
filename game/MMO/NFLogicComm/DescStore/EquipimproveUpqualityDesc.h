@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipimproveUpqualityDesc, proto_ff_s::E_EquipimproveUpquality_s, E_EquipimproveUpquality, MAX_EQUIPIMPROVE_UPQUALITY_NUM);
-DECLARE_IDCREATE(EquipimproveUpqualityDesc);
+DECLARE_IDCREATE_GLOBAL(EquipimproveUpqualityDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetAttributetpyeDesc, proto_ff_s::E_PetAttributetpye_s, E_PetAttributetpye, MAX_PET_ATTRIBUTETPYE_NUM);
-DECLARE_IDCREATE(PetAttributetpyeDesc);
+DECLARE_IDCREATE_GLOBAL(PetAttributetpyeDesc);
 };

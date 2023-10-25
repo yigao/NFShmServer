@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(GodrelicsDescEx)
-DECLARE_IDCREATE(GodrelicsDescEx)
+DECLARE_IDCREATE_GLOBAL(GodrelicsDescEx)
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiAttributeDesc, proto_ff_s::E_ShentiAttribute_s, E_ShentiAttribute, MAX_SHENTI_ATTRIBUTE_NUM);
-DECLARE_IDCREATE(ShentiAttributeDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiAttributeDesc);
 };

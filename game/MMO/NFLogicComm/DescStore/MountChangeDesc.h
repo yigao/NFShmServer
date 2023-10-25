@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountChangeDesc, proto_ff_s::E_MountChange_s, E_MountChange, MAX_MOUNT_CHANGE_NUM);
-DECLARE_IDCREATE(MountChangeDesc);
+DECLARE_IDCREATE_GLOBAL(MountChangeDesc);
 };

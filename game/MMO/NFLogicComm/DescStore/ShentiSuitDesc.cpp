@@ -1,7 +1,7 @@
 #include "ShentiSuitDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiSuitDesc, EOT_CONST_SHENTI_SUIT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiSuitDesc, EOT_CONST_SHENTI_SUIT_DESC_ID, NFShmObj)
 
 ShentiSuitDesc::ShentiSuitDesc():NFIDescStore()
 {

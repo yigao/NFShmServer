@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountDisplayDesc, proto_ff_s::E_MountDisplay_s, E_MountDisplay, MAX_MOUNT_DISPLAY_NUM);
-DECLARE_IDCREATE(MountDisplayDesc);
+DECLARE_IDCREATE_GLOBAL(MountDisplayDesc);
 };

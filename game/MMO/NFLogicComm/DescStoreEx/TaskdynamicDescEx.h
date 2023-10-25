@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(TaskdynamicDescEx)
-DECLARE_IDCREATE(TaskdynamicDescEx)
+DECLARE_IDCREATE_GLOBAL(TaskdynamicDescEx)
 };

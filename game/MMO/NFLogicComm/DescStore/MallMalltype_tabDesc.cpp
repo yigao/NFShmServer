@@ -1,7 +1,7 @@
 #include "MallMalltype_tabDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MallMalltype_tabDesc, EOT_CONST_MALL_MALLTYPE_TAB_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MallMalltype_tabDesc, EOT_CONST_MALL_MALLTYPE_TAB_DESC_ID, NFShmObj)
 
 MallMalltype_tabDesc::MallMalltype_tabDesc():NFIDescStore()
 {

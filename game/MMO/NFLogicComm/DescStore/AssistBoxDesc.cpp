@@ -1,7 +1,7 @@
 #include "AssistBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AssistBoxDesc, EOT_CONST_ASSIST_BOX_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AssistBoxDesc, EOT_CONST_ASSIST_BOX_DESC_ID, NFShmObj)
 
 AssistBoxDesc::AssistBoxDesc():NFIDescStore()
 {

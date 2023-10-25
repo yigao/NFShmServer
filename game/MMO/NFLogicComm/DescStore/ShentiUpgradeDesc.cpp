@@ -1,7 +1,7 @@
 #include "ShentiUpgradeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiUpgradeDesc, EOT_CONST_SHENTI_UPGRADE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiUpgradeDesc, EOT_CONST_SHENTI_UPGRADE_DESC_ID, NFShmObj)
 
 ShentiUpgradeDesc::ShentiUpgradeDesc():NFIDescStore()
 {

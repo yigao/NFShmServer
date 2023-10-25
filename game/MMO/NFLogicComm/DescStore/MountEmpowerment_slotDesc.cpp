@@ -1,7 +1,7 @@
 #include "MountEmpowerment_slotDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountEmpowerment_slotDesc, EOT_CONST_MOUNT_EMPOWERMENT_SLOT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountEmpowerment_slotDesc, EOT_CONST_MOUNT_EMPOWERMENT_SLOT_DESC_ID, NFShmObj)
 
 MountEmpowerment_slotDesc::MountEmpowerment_slotDesc():NFIDescStore()
 {

@@ -3,7 +3,7 @@
 #include "PetDisplayDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EncyclopediaEmployDesc, EOT_CONST_ENCYCLOPEDIA_EMPLOY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EncyclopediaEmployDesc, EOT_CONST_ENCYCLOPEDIA_EMPLOY_DESC_ID, NFShmObj)
 
 EncyclopediaEmployDesc::EncyclopediaEmployDesc():NFIDescStore()
 {
@@ -96,7 +96,7 @@ int EncyclopediaEmployDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || PetDisplayDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_itemid)) || (pDesc->m_itemid <= 0 || AvatarChangeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:pet sheet:display or  excel:avatar sheet:change", pDesc->m_itemid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || PetDisplayDesc::Instance()->GetDesc(pDesc->m_itemid)) || (pDesc->m_itemid <= 0 || AvatarChangeDesc::Instance()->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:pet sheet:display or  excel:avatar sheet:change", pDesc->m_itemid);
 	}
 	return result;
 }

@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(AncientgodDescEx)
-DECLARE_IDCREATE(AncientgodDescEx)
+DECLARE_IDCREATE_GLOBAL(AncientgodDescEx)
 };

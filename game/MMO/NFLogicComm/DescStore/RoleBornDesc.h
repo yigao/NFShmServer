@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleBornDesc, proto_ff_s::E_RoleBorn_s, E_RoleBorn, MAX_ROLE_BORN_NUM);
-DECLARE_IDCREATE(RoleBornDesc);
+DECLARE_IDCREATE_GLOBAL(RoleBornDesc);
 };

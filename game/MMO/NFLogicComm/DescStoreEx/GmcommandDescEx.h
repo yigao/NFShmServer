@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(GmcommandDescEx)
-DECLARE_IDCREATE(GmcommandDescEx)
+DECLARE_IDCREATE_GLOBAL(GmcommandDescEx)
 };

@@ -1,7 +1,7 @@
 #include "BattlepassShopDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(BattlepassShopDesc, EOT_CONST_BATTLEPASS_SHOP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BattlepassShopDesc, EOT_CONST_BATTLEPASS_SHOP_DESC_ID, NFShmObj)
 
 BattlepassShopDesc::BattlepassShopDesc():NFIDescStore()
 {

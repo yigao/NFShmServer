@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FacadeFragmentDesc, proto_ff_s::E_FacadeFragment_s, E_FacadeFragment, MAX_FACADE_FRAGMENT_NUM);
-DECLARE_IDCREATE(FacadeFragmentDesc);
+DECLARE_IDCREATE_GLOBAL(FacadeFragmentDesc);
 };

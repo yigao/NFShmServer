@@ -136,7 +136,7 @@ int NFDBObjMgr::LoadFromDB(NFBaseDBObj *pObj) {
     }
 
     NFDBObjTrans* pTrans = dynamic_cast<NFDBObjTrans*>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_DB_OBJ));
-    CHECK_EXPR(pTrans, -1, "Create NFDBObjTrans:EOT_TRANS_DB_OBJ Failed! use num:{}", NFDBObjTrans::GetUsedCount(m_pObjPluginManager));
+    CHECK_EXPR(pTrans, -1, "Create NFDBObjTrans:EOT_TRANS_DB_OBJ Failed! use num:{}", NFDBObjTrans::GetStaticUsedCount(m_pObjPluginManager));
 
     int iRet = pTrans->Init(pObj->GetServerType(), pObj->GetGlobalId(), pObj->GetCurSeq());
     CHECK_EXPR(iRet == 0, -1, "Init Trans Failed!");
@@ -289,7 +289,7 @@ int NFDBObjMgr::SaveToDB(NFBaseDBObj *pObj) {
     }
 
     NFDBObjTrans* pTrans = dynamic_cast<NFDBObjTrans*>(FindModule<NFISharedMemModule>()->CreateTrans(EOT_TRANS_DB_OBJ));
-    CHECK_EXPR(pTrans, -1, "Create NFDBObjTrans:EOT_TRANS_DB_OBJ Failed! use num:{}", NFDBObjTrans::GetUsedCount(m_pObjPluginManager));
+    CHECK_EXPR(pTrans, -1, "Create NFDBObjTrans:EOT_TRANS_DB_OBJ Failed! use num:{}", NFDBObjTrans::GetStaticUsedCount(m_pObjPluginManager));
 
     int iRet = pTrans->Init(pObj->GetServerType(), pObj->GetGlobalId(), pObj->GetCurSeq());
     CHECK_EXPR(iRet == 0, -1, "Init Trans Failed!");

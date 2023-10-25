@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(EncyclopediaDescEx)
-DECLARE_IDCREATE(EncyclopediaDescEx)
+DECLARE_IDCREATE_GLOBAL(EncyclopediaDescEx)
 };

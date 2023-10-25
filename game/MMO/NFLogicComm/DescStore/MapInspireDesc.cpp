@@ -1,7 +1,7 @@
 #include "MapInspireDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MapInspireDesc, EOT_CONST_MAP_INSPIRE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MapInspireDesc, EOT_CONST_MAP_INSPIRE_DESC_ID, NFShmObj)
 
 MapInspireDesc::MapInspireDesc():NFIDescStore()
 {

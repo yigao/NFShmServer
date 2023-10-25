@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(Pk3v3ConstantDesc, proto_ff_s::E_Pk3v3Constant_s, E_Pk3v3Constant, MAX_PK3V3_CONSTANT_NUM);
-DECLARE_IDCREATE(Pk3v3ConstantDesc);
+DECLARE_IDCREATE_GLOBAL(Pk3v3ConstantDesc);
 };

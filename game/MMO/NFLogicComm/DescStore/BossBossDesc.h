@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(BossBossDesc, proto_ff_s::E_BossBoss_s, E_BossBoss, MAX_BOSS_BOSS_NUM);
-DECLARE_IDCREATE(BossBossDesc);
+DECLARE_IDCREATE_GLOBAL(BossBossDesc);
 };

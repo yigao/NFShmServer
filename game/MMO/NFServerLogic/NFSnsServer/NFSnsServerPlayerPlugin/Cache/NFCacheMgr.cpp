@@ -43,7 +43,7 @@ int NFCacheMgr::ResumeInit()
 
 int NFCacheMgr::ReleaseSimpleCount(int num)
 {
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "rolesimple release count :{} maxcount :{} usecount :{}", num, NFPlayerSimple::GetItemCount(m_pObjPluginManager), NFPlayerSimple::GetUsedCount(m_pObjPluginManager));
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "rolesimple release count :{} maxcount :{} usecount :{}", num, NFPlayerSimple::GetStaticItemCount(m_pObjPluginManager), NFPlayerSimple::GetStaticUsedCount(m_pObjPluginManager));
     NFPlayerSimple::DestroyObjAutoErase(m_pObjPluginManager, num, [](NFShmObj* pObj) -> bool {
         NFPlayerSimple *pUser = dynamic_cast<NFPlayerSimple*>(pObj);
         if (pUser)
@@ -68,10 +68,10 @@ NFPlayerSimple *NFCacheMgr::CreatePlayerSimple(uint64_t cid)
     NFPlayerSimple *pRoleSimple = GetPlayerSimple(cid);
     CHECK_EXPR(pRoleSimple == NULL, NULL, "Create Role Simple Failed, data exist, cid:{}", cid);
 
-    if (NFPlayerSimple::GetItemCount(m_pObjPluginManager) - NFPlayerSimple::GetUsedCount(m_pObjPluginManager) <=
-        NFPlayerSimple::GetItemCount(m_pObjPluginManager) * 0.1)
+    if (NFPlayerSimple::GetStaticItemCount(m_pObjPluginManager) - NFPlayerSimple::GetStaticUsedCount(m_pObjPluginManager) <=
+        NFPlayerSimple::GetStaticItemCount(m_pObjPluginManager) * 0.1)
     {
-        ReleaseSimpleCount(NFPlayerSimple::GetItemCount(m_pObjPluginManager) * 0.1);
+        ReleaseSimpleCount(NFPlayerSimple::GetStaticItemCount(m_pObjPluginManager) * 0.1);
     }
 
     pRoleSimple = NFPlayerSimple::CreateObjByHashKey(m_pObjPluginManager, cid);
@@ -176,7 +176,7 @@ NFPlayerDetail* NFCacheMgr::QueryPlayerDetailByRpc(uint64_t cid, uint64_t query_
 
 int NFCacheMgr::ReleaseDetailCount(int num)
 {
-    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "role detail release count :{} maxcount :{} usecount :{}", num, NFPlayerDetail::GetItemCount(m_pObjPluginManager), NFPlayerDetail::GetUsedCount(m_pObjPluginManager));
+    NFLogInfo(NF_LOG_SYSTEMLOG, 0, "role detail release count :{} maxcount :{} usecount :{}", num, NFPlayerDetail::GetStaticItemCount(m_pObjPluginManager), NFPlayerDetail::GetStaticUsedCount(m_pObjPluginManager));
     NFPlayerDetail::DestroyObjAutoErase(m_pObjPluginManager, num, [](NFShmObj* pObj) -> bool {
         NFPlayerDetail *pUser = dynamic_cast<NFPlayerDetail*>(pObj);
         if (pUser)
@@ -201,10 +201,10 @@ NFPlayerDetail *NFCacheMgr::CreatePlayerDetail(uint64_t cid)
     NFPlayerDetail *pRoleDetail= GetPlayerDetail(cid);
     CHECK_EXPR(pRoleDetail == NULL, NULL, "Create Role Detail Failed, data exist, cid:{}", cid);
 
-    if (NFPlayerDetail::GetItemCount(m_pObjPluginManager) - NFPlayerDetail::GetUsedCount(m_pObjPluginManager) <=
-        NFPlayerDetail::GetItemCount(m_pObjPluginManager) * 0.1)
+    if (NFPlayerDetail::GetStaticItemCount(m_pObjPluginManager) - NFPlayerDetail::GetStaticUsedCount(m_pObjPluginManager) <=
+        NFPlayerDetail::GetStaticItemCount(m_pObjPluginManager) * 0.1)
     {
-        ReleaseDetailCount(NFPlayerDetail::GetItemCount(m_pObjPluginManager) * 0.1);
+        ReleaseDetailCount(NFPlayerDetail::GetStaticItemCount(m_pObjPluginManager) * 0.1);
     }
 
     pRoleDetail = NFPlayerDetail::CreateObjByHashKey(m_pObjPluginManager, cid);

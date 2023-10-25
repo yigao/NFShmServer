@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipimproveAwakenDesc, proto_ff_s::E_EquipimproveAwaken_s, E_EquipimproveAwaken, MAX_EQUIPIMPROVE_AWAKEN_NUM);
-DECLARE_IDCREATE(EquipimproveAwakenDesc);
+DECLARE_IDCREATE_GLOBAL(EquipimproveAwakenDesc);
 };

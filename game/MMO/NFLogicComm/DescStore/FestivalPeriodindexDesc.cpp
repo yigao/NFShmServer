@@ -1,7 +1,7 @@
 #include "FestivalPeriodindexDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalPeriodindexDesc, EOT_CONST_FESTIVAL_PERIODINDEX_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalPeriodindexDesc, EOT_CONST_FESTIVAL_PERIODINDEX_DESC_ID, NFShmObj)
 
 FestivalPeriodindexDesc::FestivalPeriodindexDesc():NFIDescStore()
 {

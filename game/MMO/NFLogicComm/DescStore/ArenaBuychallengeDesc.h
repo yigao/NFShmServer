@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ArenaBuychallengeDesc, proto_ff_s::E_ArenaBuychallenge_s, E_ArenaBuychallenge, MAX_ARENA_BUYCHALLENGE_NUM);
-DECLARE_IDCREATE(ArenaBuychallengeDesc);
+DECLARE_IDCREATE_GLOBAL(ArenaBuychallengeDesc);
 };

@@ -1,7 +1,7 @@
 #include "XiuzhenPrivilegeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenPrivilegeDesc, EOT_CONST_XIUZHEN_PRIVILEGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenPrivilegeDesc, EOT_CONST_XIUZHEN_PRIVILEGE_DESC_ID, NFShmObj)
 
 XiuzhenPrivilegeDesc::XiuzhenPrivilegeDesc():NFIDescStore()
 {

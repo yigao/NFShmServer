@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(TalentTalentDesc, proto_ff_s::E_TalentTalent_s, E_TalentTalent, MAX_TALENT_TALENT_NUM);
-DECLARE_IDCREATE(TalentTalentDesc);
+DECLARE_IDCREATE_GLOBAL(TalentTalentDesc);
 };

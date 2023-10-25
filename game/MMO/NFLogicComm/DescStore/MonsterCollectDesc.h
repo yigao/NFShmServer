@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MonsterCollectDesc, proto_ff_s::E_MonsterCollect_s, E_MonsterCollect, MAX_MONSTER_COLLECT_NUM);
-DECLARE_IDCREATE(MonsterCollectDesc);
+DECLARE_IDCREATE_GLOBAL(MonsterCollectDesc);
 };

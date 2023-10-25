@@ -1,6 +1,6 @@
 #include "HeadportraitDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(HeadportraitDescEx, EOT_CONST_HEADPORTRAIT_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(HeadportraitDescEx, EOT_CONST_HEADPORTRAIT_DESC_EX_ID, NFShmObj)
 
 HeadportraitDescEx::HeadportraitDescEx():NFIDescStoreEx()
 {

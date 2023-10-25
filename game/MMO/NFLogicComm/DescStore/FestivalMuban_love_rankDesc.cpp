@@ -1,7 +1,7 @@
 #include "FestivalMuban_love_rankDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_love_rankDesc, EOT_CONST_FESTIVAL_MUBAN_LOVE_RANK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_love_rankDesc, EOT_CONST_FESTIVAL_MUBAN_LOVE_RANK_DESC_ID, NFShmObj)
 
 FestivalMuban_love_rankDesc::FestivalMuban_love_rankDesc():NFIDescStore()
 {

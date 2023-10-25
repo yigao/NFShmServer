@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MsgPhpmsgDesc, proto_ff_s::E_MsgPhpmsg_s, E_MsgPhpmsg, MAX_MSG_PHPMSG_NUM);
-DECLARE_IDCREATE(MsgPhpmsgDesc);
+DECLARE_IDCREATE_GLOBAL(MsgPhpmsgDesc);
 };

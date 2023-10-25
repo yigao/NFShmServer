@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PointPointDesc, proto_ff_s::E_PointPoint_s, E_PointPoint, MAX_POINT_POINT_NUM);
-DECLARE_IDCREATE(PointPointDesc);
+DECLARE_IDCREATE_GLOBAL(PointPointDesc);
 };

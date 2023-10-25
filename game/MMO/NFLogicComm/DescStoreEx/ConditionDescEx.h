@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(ConditionDescEx)
-DECLARE_IDCREATE(ConditionDescEx)
+DECLARE_IDCREATE_GLOBAL(ConditionDescEx)
 };

@@ -1,6 +1,6 @@
 #include "EquipimproveDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipimproveDescEx, EOT_CONST_EQUIPIMPROVE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipimproveDescEx, EOT_CONST_EQUIPIMPROVE_DESC_EX_ID, NFShmObj)
 
 EquipimproveDescEx::EquipimproveDescEx():NFIDescStoreEx()
 {

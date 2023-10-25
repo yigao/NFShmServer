@@ -8,7 +8,7 @@
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFLogicCommon/NFDupDefine.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MapDescEx, EOT_CONST_MAP_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MapDescEx, EOT_CONST_MAP_DESC_EX_ID, NFShmObj)
 
 MapDescEx::MapDescEx() : NFIDescStoreEx()
 {
@@ -47,7 +47,7 @@ int MapDescEx::Load()
 
     std::string dir = m_pObjPluginManager->GetConfigPath() + "/Json/";
 
-    auto &mapResDesc = MapMapDesc::Instance(m_pObjPluginManager)->GetResDesc();
+    auto &mapResDesc = MapMapDesc::Instance()->GetResDesc();
     for (int i = 0; i < (int) mapResDesc.size(); i++)
     {
         auto pDesc = &mapResDesc[i];
@@ -82,7 +82,7 @@ int MapDescEx::Load()
         }
     }
 
-    auto &bornResDesc = RoleBornDesc::Instance(m_pObjPluginManager)->GetResDesc();
+    auto &bornResDesc = RoleBornDesc::Instance()->GetResDesc();
     for (int i = 0; i < (int) bornResDesc.size(); i++)
     {
         auto pDesc = &bornResDesc[i];
@@ -257,7 +257,7 @@ const proto_ff_s::E_RoleBorn_s *MapDescEx::GetBornCfg(int32_t prof)
     auto iter = m_bornProfMap.find(prof);
     if (iter != m_bornProfMap.end())
     {
-        return RoleBornDesc::Instance(m_pObjPluginManager)->GetDesc(iter->second);
+        return RoleBornDesc::Instance()->GetDesc(iter->second);
     }
     return NULL;
 }
@@ -332,7 +332,7 @@ bool MapDescEx::RandPosInArea(int64_t areaid, NFPoint3<float> &outpos)
 
 bool MapDescEx::IsDynamic(int64_t mapId)
 {
-    auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pMapCfg = MapMapDesc::Instance()->GetDesc(mapId);
     if (pMapCfg)
     {
         return (1 == pMapCfg->m_isdyn);
@@ -348,7 +348,7 @@ bool MapDescEx::IsActSpecMap(int64_t mapId)
 
 bool MapDescEx::IsMainCity(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return IsMainCity(pCfg);
 }
 
@@ -360,7 +360,7 @@ bool MapDescEx::IsMainCity(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::Is1v1Ready(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return Is1v1Ready(pCfg);
 }
 
@@ -372,7 +372,7 @@ bool MapDescEx::Is1v1Ready(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::IsQyActMap(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return IsQyActMap(pCfg);
 }
 
@@ -388,7 +388,7 @@ bool MapDescEx::IsQyActMap(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::Is3v3WaitMap(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return Is3v3WaitMap(pCfg);
 }
 
@@ -404,7 +404,7 @@ bool MapDescEx::Is3v3WaitMap(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::Is3v3Map(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return Is3v3Map(pCfg);
 }
 
@@ -420,7 +420,7 @@ bool MapDescEx::Is3v3Map(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::IsXiYouReadyMap(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return IsXiYouReadyMap(pCfg);
 }
 
@@ -436,7 +436,7 @@ bool MapDescEx::IsXiYouReadyMap(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::IsXiYouKillBossMap(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return IsXiYouKillBossMap(pCfg);
 }
 
@@ -452,7 +452,7 @@ bool MapDescEx::IsXiYouKillBossMap(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::IsXiYouRouBaoZiMap(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return IsXiYouRouBaoZiMap(pCfg);
 }
 
@@ -468,7 +468,7 @@ bool MapDescEx::IsXiYouRouBaoZiMap(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::IsXiYouCaiJiMap(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return IsXiYouCaiJiMap(pCfg);
 }
 
@@ -484,7 +484,7 @@ bool MapDescEx::IsXiYouCaiJiMap(const proto_ff_s::E_MapMap_s* pCfg)
 
 bool MapDescEx::IsSafeMap(int64_t mapId)
 {
-    auto pCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(mapId);
+    auto pCfg = MapMapDesc::Instance()->GetDesc(mapId);
     return IsSafeMap(pCfg);
 }
 

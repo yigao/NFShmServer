@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(WaremblemDescEx)
-DECLARE_IDCREATE(WaremblemDescEx)
+DECLARE_IDCREATE_GLOBAL(WaremblemDescEx)
 };

@@ -1,7 +1,7 @@
 #include "DupGroupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DupGroupDesc, EOT_CONST_DUP_GROUP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DupGroupDesc, EOT_CONST_DUP_GROUP_DESC_ID, NFShmObj)
 
 DupGroupDesc::DupGroupDesc():NFIDescStore()
 {

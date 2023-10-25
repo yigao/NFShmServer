@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(YanglongZadanDesc, proto_ff_s::E_YanglongZadan_s, E_YanglongZadan, MAX_YANGLONG_ZADAN_NUM);
-DECLARE_IDCREATE(YanglongZadanDesc);
+DECLARE_IDCREATE_GLOBAL(YanglongZadanDesc);
 };

@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(TeleportDescEx)
-DECLARE_IDCREATE(TeleportDescEx)
+DECLARE_IDCREATE_GLOBAL(TeleportDescEx)
 };

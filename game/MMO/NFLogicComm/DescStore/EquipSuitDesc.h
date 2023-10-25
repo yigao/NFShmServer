@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipSuitDesc, proto_ff_s::E_EquipSuit_s, E_EquipSuit, MAX_EQUIP_SUIT_NUM);
-DECLARE_IDCREATE(EquipSuitDesc);
+DECLARE_IDCREATE_GLOBAL(EquipSuitDesc);
 };

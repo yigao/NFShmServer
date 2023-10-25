@@ -1,7 +1,7 @@
 #include "Pk3v3ExpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(Pk3v3ExpDesc, EOT_CONST_PK3V3_EXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(Pk3v3ExpDesc, EOT_CONST_PK3V3_EXP_DESC_ID, NFShmObj)
 
 Pk3v3ExpDesc::Pk3v3ExpDesc():NFIDescStore()
 {

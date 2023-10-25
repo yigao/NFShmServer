@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildShouhskillDesc, proto_ff_s::E_GuildShouhskill_s, E_GuildShouhskill, MAX_GUILD_SHOUHSKILL_NUM);
-DECLARE_IDCREATE(GuildShouhskillDesc);
+DECLARE_IDCREATE_GLOBAL(GuildShouhskillDesc);
 };

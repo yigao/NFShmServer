@@ -1,7 +1,7 @@
 #include "AreaAreaDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AreaAreaDesc, EOT_CONST_AREA_AREA_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AreaAreaDesc, EOT_CONST_AREA_AREA_DESC_ID, NFShmObj)
 
 AreaAreaDesc::AreaAreaDesc():NFIDescStore()
 {

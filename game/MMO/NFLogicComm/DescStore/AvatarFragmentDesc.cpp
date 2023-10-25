@@ -3,7 +3,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AvatarFragmentDesc, EOT_CONST_AVATAR_FRAGMENT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarFragmentDesc, EOT_CONST_AVATAR_FRAGMENT_DESC_ID, NFShmObj)
 
 AvatarFragmentDesc::AvatarFragmentDesc():NFIDescStore()
 {
@@ -98,9 +98,9 @@ int AvatarFragmentDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
 		}
-		CHECK_EXPR_MSG_RESULT((pDesc->m_item <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_item)), result, "can't find the item:{} in the  excel:item sheet:item", pDesc->m_item);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_item <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_item)), result, "can't find the item:{} in the  excel:item sheet:item", pDesc->m_item);
 	}
 	return result;
 }

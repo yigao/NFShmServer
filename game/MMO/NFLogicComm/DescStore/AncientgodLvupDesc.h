@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AncientgodLvupDesc, proto_ff_s::E_AncientgodLvup_s, E_AncientgodLvup, MAX_ANCIENTGOD_LVUP_NUM);
-DECLARE_IDCREATE(AncientgodLvupDesc);
+DECLARE_IDCREATE_GLOBAL(AncientgodLvupDesc);
 };

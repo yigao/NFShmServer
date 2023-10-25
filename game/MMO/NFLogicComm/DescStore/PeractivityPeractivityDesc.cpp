@@ -2,7 +2,7 @@
 #include "FunctionunlockFunctionunlockDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PeractivityPeractivityDesc, EOT_CONST_PERACTIVITY_PERACTIVITY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PeractivityPeractivityDesc, EOT_CONST_PERACTIVITY_PERACTIVITY_DESC_ID, NFShmObj)
 
 PeractivityPeractivityDesc::PeractivityPeractivityDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int PeractivityPeractivityDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_functionid <= 0 || FunctionunlockFunctionunlockDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_functionid)), result, "can't find the functionid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_functionid <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_functionid)), result, "can't find the functionid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionid);
 	}
 	return result;
 }

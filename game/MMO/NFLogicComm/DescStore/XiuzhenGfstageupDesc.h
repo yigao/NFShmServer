@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenGfstageupDesc, proto_ff_s::E_XiuzhenGfstageup_s, E_XiuzhenGfstageup, MAX_XIUZHEN_GFSTAGEUP_NUM);
-DECLARE_IDCREATE(XiuzhenGfstageupDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenGfstageupDesc);
 };

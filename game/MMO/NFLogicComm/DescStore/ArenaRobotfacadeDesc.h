@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ArenaRobotfacadeDesc, proto_ff_s::E_ArenaRobotfacade_s, E_ArenaRobotfacade, MAX_ARENA_ROBOTFACADE_NUM);
-DECLARE_IDCREATE(ArenaRobotfacadeDesc);
+DECLARE_IDCREATE_GLOBAL(ArenaRobotfacadeDesc);
 };

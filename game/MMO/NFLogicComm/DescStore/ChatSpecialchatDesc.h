@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ChatSpecialchatDesc, proto_ff_s::E_ChatSpecialchat_s, E_ChatSpecialchat, MAX_CHAT_SPECIALCHAT_NUM);
-DECLARE_IDCREATE(ChatSpecialchatDesc);
+DECLARE_IDCREATE_GLOBAL(ChatSpecialchatDesc);
 };

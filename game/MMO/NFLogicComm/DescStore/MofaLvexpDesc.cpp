@@ -1,7 +1,7 @@
 #include "MofaLvexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MofaLvexpDesc, EOT_CONST_MOFA_LVEXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MofaLvexpDesc, EOT_CONST_MOFA_LVEXP_DESC_ID, NFShmObj)
 
 MofaLvexpDesc::MofaLvexpDesc():NFIDescStore()
 {

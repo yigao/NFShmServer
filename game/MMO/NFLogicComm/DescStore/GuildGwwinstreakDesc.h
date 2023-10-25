@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildGwwinstreakDesc, proto_ff_s::E_GuildGwwinstreak_s, E_GuildGwwinstreak, MAX_GUILD_GWWINSTREAK_NUM);
-DECLARE_IDCREATE(GuildGwwinstreakDesc);
+DECLARE_IDCREATE_GLOBAL(GuildGwwinstreakDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiSuitDesc, proto_ff_s::E_ShentiSuit_s, E_ShentiSuit, MAX_SHENTI_SUIT_NUM);
-DECLARE_IDCREATE(ShentiSuitDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiSuitDesc);
 };

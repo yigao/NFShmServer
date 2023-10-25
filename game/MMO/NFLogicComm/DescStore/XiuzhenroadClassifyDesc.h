@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenroadClassifyDesc, proto_ff_s::E_XiuzhenroadClassify_s, E_XiuzhenroadClassify, MAX_XIUZHENROAD_CLASSIFY_NUM);
-DECLARE_IDCREATE(XiuzhenroadClassifyDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenroadClassifyDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarryChildvalueDesc, proto_ff_s::E_MarryChildvalue_s, E_MarryChildvalue, MAX_MARRY_CHILDVALUE_NUM);
-DECLARE_IDCREATE(MarryChildvalueDesc);
+DECLARE_IDCREATE_GLOBAL(MarryChildvalueDesc);
 };

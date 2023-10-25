@@ -1,7 +1,7 @@
 #include "ShentiStrengtitelDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiStrengtitelDesc, EOT_CONST_SHENTI_STRENGTITEL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiStrengtitelDesc, EOT_CONST_SHENTI_STRENGTITEL_DESC_ID, NFShmObj)
 
 ShentiStrengtitelDesc::ShentiStrengtitelDesc():NFIDescStore()
 {

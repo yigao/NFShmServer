@@ -1,7 +1,7 @@
 #include "GodevilPositionunlockDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilPositionunlockDesc, EOT_CONST_GODEVIL_POSITIONUNLOCK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilPositionunlockDesc, EOT_CONST_GODEVIL_POSITIONUNLOCK_DESC_ID, NFShmObj)
 
 GodevilPositionunlockDesc::GodevilPositionunlockDesc():NFIDescStore()
 {

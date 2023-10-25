@@ -1,7 +1,7 @@
 #include "MoneyrewardMoneyrewardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MoneyrewardMoneyrewardDesc, EOT_CONST_MONEYREWARD_MONEYREWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MoneyrewardMoneyrewardDesc, EOT_CONST_MONEYREWARD_MONEYREWARD_DESC_ID, NFShmObj)
 
 MoneyrewardMoneyrewardDesc::MoneyrewardMoneyrewardDesc():NFIDescStore()
 {

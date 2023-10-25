@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MeditationMeditationDesc, proto_ff_s::E_MeditationMeditation_s, E_MeditationMeditation, MAX_MEDITATION_MEDITATION_NUM);
-DECLARE_IDCREATE(MeditationMeditationDesc);
+DECLARE_IDCREATE_GLOBAL(MeditationMeditationDesc);
 };

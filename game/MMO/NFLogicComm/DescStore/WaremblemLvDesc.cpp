@@ -1,7 +1,7 @@
 #include "WaremblemLvDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WaremblemLvDesc, EOT_CONST_WAREMBLEM_LV_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WaremblemLvDesc, EOT_CONST_WAREMBLEM_LV_DESC_ID, NFShmObj)
 
 WaremblemLvDesc::WaremblemLvDesc():NFIDescStore()
 {

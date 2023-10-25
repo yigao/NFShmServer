@@ -1,7 +1,7 @@
 #include "GodevilGodevilskillDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilGodevilskillDesc, EOT_CONST_GODEVIL_GODEVILSKILL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilGodevilskillDesc, EOT_CONST_GODEVIL_GODEVILSKILL_DESC_ID, NFShmObj)
 
 GodevilGodevilskillDesc::GodevilGodevilskillDesc():NFIDescStore()
 {

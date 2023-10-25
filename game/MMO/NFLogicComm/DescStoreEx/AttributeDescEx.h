@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(AttributeDescEx)
-DECLARE_IDCREATE(AttributeDescEx)
+DECLARE_IDCREATE_GLOBAL(AttributeDescEx)
 };

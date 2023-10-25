@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarryLocklvDesc, proto_ff_s::E_MarryLocklv_s, E_MarryLocklv, MAX_MARRY_LOCKLV_NUM);
-DECLARE_IDCREATE(MarryLocklvDesc);
+DECLARE_IDCREATE_GLOBAL(MarryLocklvDesc);
 };

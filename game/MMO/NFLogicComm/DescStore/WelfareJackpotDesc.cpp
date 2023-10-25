@@ -1,7 +1,7 @@
 #include "WelfareJackpotDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareJackpotDesc, EOT_CONST_WELFARE_JACKPOT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareJackpotDesc, EOT_CONST_WELFARE_JACKPOT_DESC_ID, NFShmObj)
 
 WelfareJackpotDesc::WelfareJackpotDesc():NFIDescStore()
 {

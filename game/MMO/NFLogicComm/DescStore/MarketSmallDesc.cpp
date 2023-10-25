@@ -1,7 +1,7 @@
 #include "MarketSmallDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarketSmallDesc, EOT_CONST_MARKET_SMALL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarketSmallDesc, EOT_CONST_MARKET_SMALL_DESC_ID, NFShmObj)
 
 MarketSmallDesc::MarketSmallDesc():NFIDescStore()
 {

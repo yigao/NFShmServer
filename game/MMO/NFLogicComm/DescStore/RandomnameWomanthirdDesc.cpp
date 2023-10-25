@@ -1,7 +1,7 @@
 #include "RandomnameWomanthirdDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RandomnameWomanthirdDesc, EOT_CONST_RANDOMNAME_WOMANTHIRD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RandomnameWomanthirdDesc, EOT_CONST_RANDOMNAME_WOMANTHIRD_DESC_ID, NFShmObj)
 
 RandomnameWomanthirdDesc::RandomnameWomanthirdDesc():NFIDescStore()
 {

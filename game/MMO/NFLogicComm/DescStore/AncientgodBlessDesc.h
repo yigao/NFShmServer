@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AncientgodBlessDesc, proto_ff_s::E_AncientgodBless_s, E_AncientgodBless, MAX_ANCIENTGOD_BLESS_NUM);
-DECLARE_IDCREATE(AncientgodBlessDesc);
+DECLARE_IDCREATE_GLOBAL(AncientgodBlessDesc);
 };

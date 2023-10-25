@@ -1,7 +1,7 @@
 #include "ConflatePropDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConflatePropDesc, EOT_CONST_CONFLATE_PROP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConflatePropDesc, EOT_CONST_CONFLATE_PROP_DESC_ID, NFShmObj)
 
 ConflatePropDesc::ConflatePropDesc():NFIDescStore()
 {

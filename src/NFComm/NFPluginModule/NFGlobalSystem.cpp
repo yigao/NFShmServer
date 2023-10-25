@@ -15,6 +15,7 @@
 
 NFGlobalSystem::NFGlobalSystem() : m_gIsMoreServer(false), m_reloadApp(false), m_serverStopping(false), m_serverKilling(false), m_hotfixServer(false)
 {
+    m_gGlobalPluginManager = NULL;
     mSpecialMsgMap.resize(NF_MODULE_MAX);
     for(int i = 0; i < NF_MODULE_MAX; i++)
     {

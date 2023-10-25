@@ -1,7 +1,7 @@
 #include "ShentiEvolveprogressDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiEvolveprogressDesc, EOT_CONST_SHENTI_EVOLVEPROGRESS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiEvolveprogressDesc, EOT_CONST_SHENTI_EVOLVEPROGRESS_DESC_ID, NFShmObj)
 
 ShentiEvolveprogressDesc::ShentiEvolveprogressDesc():NFIDescStore()
 {

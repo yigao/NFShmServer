@@ -1,7 +1,7 @@
 #include "Pk3v3BadgeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(Pk3v3BadgeDesc, EOT_CONST_PK3V3_BADGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(Pk3v3BadgeDesc, EOT_CONST_PK3V3_BADGE_DESC_ID, NFShmObj)
 
 Pk3v3BadgeDesc::Pk3v3BadgeDesc():NFIDescStore()
 {

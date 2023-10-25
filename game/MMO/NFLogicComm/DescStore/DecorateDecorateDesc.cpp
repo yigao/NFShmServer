@@ -1,7 +1,7 @@
 #include "DecorateDecorateDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DecorateDecorateDesc, EOT_CONST_DECORATE_DECORATE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DecorateDecorateDesc, EOT_CONST_DECORATE_DECORATE_DESC_ID, NFShmObj)
 
 DecorateDecorateDesc::DecorateDecorateDesc():NFIDescStore()
 {

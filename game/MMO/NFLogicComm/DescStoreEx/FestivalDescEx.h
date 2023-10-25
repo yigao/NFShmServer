@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(FestivalDescEx)
-DECLARE_IDCREATE(FestivalDescEx)
+DECLARE_IDCREATE_GLOBAL(FestivalDescEx)
 };

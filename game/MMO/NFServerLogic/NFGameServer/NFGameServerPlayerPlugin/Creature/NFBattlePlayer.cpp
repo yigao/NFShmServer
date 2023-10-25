@@ -406,7 +406,7 @@ int NFBattlePlayer::CanTrans(uint64_t dstSceneId, uint64_t dstMapId, const NFPoi
         }
     }
 
-    auto pMapCfgInfo = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(dstMapId);
+    auto pMapCfgInfo = MapMapDesc::Instance()->GetDesc(dstMapId);
     if (nullptr == pMapCfgInfo)
     {
         NFLogError(NF_LOG_SYSTEMLOG, Cid(), "CanTrans Find Map Cfg failed..cid:{}, dstscene:{}, dstmap:{}, pos:{},{},{}, transtype:{}, transval:{} ",

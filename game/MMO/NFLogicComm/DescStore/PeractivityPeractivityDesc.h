@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PeractivityPeractivityDesc, proto_ff_s::E_PeractivityPeractivity_s, E_PeractivityPeractivity, MAX_PERACTIVITY_PERACTIVITY_NUM);
-DECLARE_IDCREATE(PeractivityPeractivityDesc);
+DECLARE_IDCREATE_GLOBAL(PeractivityPeractivityDesc);
 };

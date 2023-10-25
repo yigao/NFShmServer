@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(CloudpeakRankrewardsDesc, proto_ff_s::E_CloudpeakRankrewards_s, E_CloudpeakRankrewards, MAX_CLOUDPEAK_RANKREWARDS_NUM);
-DECLARE_IDCREATE(CloudpeakRankrewardsDesc);
+DECLARE_IDCREATE_GLOBAL(CloudpeakRankrewardsDesc);
 };

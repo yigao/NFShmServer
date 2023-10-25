@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(BoxDescEx)
-DECLARE_IDCREATE(BoxDescEx)
+DECLARE_IDCREATE_GLOBAL(BoxDescEx)
 };

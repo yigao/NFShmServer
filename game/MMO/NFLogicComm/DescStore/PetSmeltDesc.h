@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetSmeltDesc, proto_ff_s::E_PetSmelt_s, E_PetSmelt, MAX_PET_SMELT_NUM);
-DECLARE_IDCREATE(PetSmeltDesc);
+DECLARE_IDCREATE_GLOBAL(PetSmeltDesc);
 };

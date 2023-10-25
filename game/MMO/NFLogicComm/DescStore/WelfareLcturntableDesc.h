@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareLcturntableDesc, proto_ff_s::E_WelfareLcturntable_s, E_WelfareLcturntable, MAX_WELFARE_LCTURNTABLE_NUM);
-DECLARE_IDCREATE(WelfareLcturntableDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareLcturntableDesc);
 };

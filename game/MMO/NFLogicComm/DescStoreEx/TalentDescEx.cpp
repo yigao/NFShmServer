@@ -1,6 +1,6 @@
 #include "TalentDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TalentDescEx, EOT_CONST_TALENT_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TalentDescEx, EOT_CONST_TALENT_DESC_EX_ID, NFShmObj)
 
 TalentDescEx::TalentDescEx():NFIDescStoreEx()
 {

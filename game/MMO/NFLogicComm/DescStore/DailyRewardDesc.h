@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DailyRewardDesc, proto_ff_s::E_DailyReward_s, E_DailyReward, MAX_DAILY_REWARD_NUM);
-DECLARE_IDCREATE(DailyRewardDesc);
+DECLARE_IDCREATE_GLOBAL(DailyRewardDesc);
 };

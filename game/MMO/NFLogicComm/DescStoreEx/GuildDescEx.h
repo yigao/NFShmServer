@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(GuildDescEx)
-DECLARE_IDCREATE(GuildDescEx)
+DECLARE_IDCREATE_GLOBAL(GuildDescEx)
 };

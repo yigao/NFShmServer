@@ -1,7 +1,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(BoxBoxDesc, EOT_CONST_BOX_BOX_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BoxBoxDesc, EOT_CONST_BOX_BOX_DESC_ID, NFShmObj)
 
 BoxBoxDesc::BoxBoxDesc():NFIDescStore()
 {

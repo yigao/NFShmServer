@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenJmstageupDesc, proto_ff_s::E_XiuzhenJmstageup_s, E_XiuzhenJmstageup, MAX_XIUZHEN_JMSTAGEUP_NUM);
-DECLARE_IDCREATE(XiuzhenJmstageupDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenJmstageupDesc);
 };

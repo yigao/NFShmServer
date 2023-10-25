@@ -1,7 +1,7 @@
 #include "GodvalleyBattleDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodvalleyBattleDesc, EOT_CONST_GODVALLEY_BATTLE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodvalleyBattleDesc, EOT_CONST_GODVALLEY_BATTLE_DESC_ID, NFShmObj)
 
 GodvalleyBattleDesc::GodvalleyBattleDesc():NFIDescStore()
 {

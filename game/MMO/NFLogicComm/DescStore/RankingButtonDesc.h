@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RankingButtonDesc, proto_ff_s::E_RankingButton_s, E_RankingButton, MAX_RANKING_BUTTON_NUM);
-DECLARE_IDCREATE(RankingButtonDesc);
+DECLARE_IDCREATE_GLOBAL(RankingButtonDesc);
 };

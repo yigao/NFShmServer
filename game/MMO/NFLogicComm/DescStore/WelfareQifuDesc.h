@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareQifuDesc, proto_ff_s::E_WelfareQifu_s, E_WelfareQifu, MAX_WELFARE_QIFU_NUM);
-DECLARE_IDCREATE(WelfareQifuDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareQifuDesc);
 };

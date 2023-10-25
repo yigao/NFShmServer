@@ -1,7 +1,7 @@
 #include "BossLayerDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(BossLayerDesc, EOT_CONST_BOSS_LAYER_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BossLayerDesc, EOT_CONST_BOSS_LAYER_DESC_ID, NFShmObj)
 
 BossLayerDesc::BossLayerDesc():NFIDescStore()
 {

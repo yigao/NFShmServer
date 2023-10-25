@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(WelfareDescEx)
-DECLARE_IDCREATE(WelfareDescEx)
+DECLARE_IDCREATE_GLOBAL(WelfareDescEx)
 };

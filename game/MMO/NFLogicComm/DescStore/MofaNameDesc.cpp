@@ -1,7 +1,7 @@
 #include "MofaNameDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MofaNameDesc, EOT_CONST_MOFA_NAME_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MofaNameDesc, EOT_CONST_MOFA_NAME_DESC_ID, NFShmObj)
 
 MofaNameDesc::MofaNameDesc():NFIDescStore()
 {

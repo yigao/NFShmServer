@@ -1,7 +1,7 @@
 #include "DragonsoulOfferexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonsoulOfferexpDesc, EOT_CONST_DRAGONSOUL_OFFEREXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonsoulOfferexpDesc, EOT_CONST_DRAGONSOUL_OFFEREXP_DESC_ID, NFShmObj)
 
 DragonsoulOfferexpDesc::DragonsoulOfferexpDesc():NFIDescStore()
 {

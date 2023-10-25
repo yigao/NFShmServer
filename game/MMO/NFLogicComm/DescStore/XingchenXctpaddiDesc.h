@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XingchenXctpaddiDesc, proto_ff_s::E_XingchenXctpaddi_s, E_XingchenXctpaddi, MAX_XINGCHEN_XCTPADDI_NUM);
-DECLARE_IDCREATE(XingchenXctpaddiDesc);
+DECLARE_IDCREATE_GLOBAL(XingchenXctpaddiDesc);
 };

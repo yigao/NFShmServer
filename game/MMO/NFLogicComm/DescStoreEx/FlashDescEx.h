@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(FlashDescEx)
-DECLARE_IDCREATE(FlashDescEx)
+DECLARE_IDCREATE_GLOBAL(FlashDescEx)
 };

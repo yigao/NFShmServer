@@ -1,7 +1,7 @@
 #include "FashionFashionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FashionFashionDesc, EOT_CONST_FASHION_FASHION_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FashionFashionDesc, EOT_CONST_FASHION_FASHION_DESC_ID, NFShmObj)
 
 FashionFashionDesc::FashionFashionDesc():NFIDescStore()
 {

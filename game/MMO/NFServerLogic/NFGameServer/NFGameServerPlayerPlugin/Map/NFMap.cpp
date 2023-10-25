@@ -87,7 +87,7 @@ int NFMap::Init()
 {
     int retCode = 0;
 
-    auto pMapCfg = MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(m_mapId);
+    auto pMapCfg = MapMapDesc::Instance()->GetDesc(m_mapId);
     if (nullptr == pMapCfg)
     {
         NFLogError(NF_LOG_SYSTEMLOG, 0, "MapMapDesc GetDesc Failed:{}", m_mapId);
@@ -249,17 +249,17 @@ uint32_t NFMap::GetMapSubType() const
 
 bool NFMap::IsDynamic() const
 {
-    return MapDescEx::Instance(m_pObjPluginManager)->IsDynamic(m_mapId);
+    return MapDescEx::Instance()->IsDynamic(m_mapId);
 }
 
 bool NFMap::IsMainCity() const
 {
-    return MapDescEx::Instance(m_pObjPluginManager)->IsMainCity(m_mapId);
+    return MapDescEx::Instance()->IsMainCity(m_mapId);
 }
 
 const proto_ff_s::E_MapMap_s *NFMap::GetMapCfg() const
 {
-    return MapMapDesc::Instance(m_pObjPluginManager)->GetDesc(m_mapId);
+    return MapMapDesc::Instance()->GetDesc(m_mapId);
 }
 
 int NFMap::GetNavPath(const float *srcPos, const float *dstPos, VEC_POINT3 &path, VEC_FLAGS &flags)

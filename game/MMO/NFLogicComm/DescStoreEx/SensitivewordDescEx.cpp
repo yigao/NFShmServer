@@ -1,6 +1,6 @@
 #include "SensitivewordDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(SensitivewordDescEx, EOT_CONST_SENSITIVEWORD_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SensitivewordDescEx, EOT_CONST_SENSITIVEWORD_DESC_EX_ID, NFShmObj)
 
 SensitivewordDescEx::SensitivewordDescEx():NFIDescStoreEx()
 {

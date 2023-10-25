@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GiftFreeDesc, proto_ff_s::E_GiftFree_s, E_GiftFree, MAX_GIFT_FREE_NUM);
-DECLARE_IDCREATE(GiftFreeDesc);
+DECLARE_IDCREATE_GLOBAL(GiftFreeDesc);
 };

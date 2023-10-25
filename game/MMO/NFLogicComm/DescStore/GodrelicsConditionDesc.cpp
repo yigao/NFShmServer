@@ -1,7 +1,7 @@
 #include "GodrelicsConditionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodrelicsConditionDesc, EOT_CONST_GODRELICS_CONDITION_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodrelicsConditionDesc, EOT_CONST_GODRELICS_CONDITION_DESC_ID, NFShmObj)
 
 GodrelicsConditionDesc::GodrelicsConditionDesc():NFIDescStore()
 {

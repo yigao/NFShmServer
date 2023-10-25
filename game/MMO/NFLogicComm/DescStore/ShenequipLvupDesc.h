@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShenequipLvupDesc, proto_ff_s::E_ShenequipLvup_s, E_ShenequipLvup, MAX_SHENEQUIP_LVUP_NUM);
-DECLARE_IDCREATE(ShenequipLvupDesc);
+DECLARE_IDCREATE_GLOBAL(ShenequipLvupDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountEmpowerment_slotDesc, proto_ff_s::E_MountEmpowerment_slot_s, E_MountEmpowerment_slot, MAX_MOUNT_EMPOWERMENT_SLOT_NUM);
-DECLARE_IDCREATE(MountEmpowerment_slotDesc);
+DECLARE_IDCREATE_GLOBAL(MountEmpowerment_slotDesc);
 };

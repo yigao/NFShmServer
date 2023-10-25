@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenroadSkillDesc, proto_ff_s::E_XiuzhenroadSkill_s, E_XiuzhenroadSkill, MAX_XIUZHENROAD_SKILL_NUM);
-DECLARE_IDCREATE(XiuzhenroadSkillDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenroadSkillDesc);
 };

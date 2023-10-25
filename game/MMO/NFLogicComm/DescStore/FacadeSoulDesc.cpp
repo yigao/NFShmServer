@@ -1,7 +1,7 @@
 #include "FacadeSoulDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FacadeSoulDesc, EOT_CONST_FACADE_SOUL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FacadeSoulDesc, EOT_CONST_FACADE_SOUL_DESC_ID, NFShmObj)
 
 FacadeSoulDesc::FacadeSoulDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "SensitivewordWord1Desc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(SensitivewordWord1Desc, EOT_CONST_SENSITIVEWORD_WORD1_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SensitivewordWord1Desc, EOT_CONST_SENSITIVEWORD_WORD1_DESC_ID, NFShmObj)
 
 SensitivewordWord1Desc::SensitivewordWord1Desc():NFIDescStore()
 {

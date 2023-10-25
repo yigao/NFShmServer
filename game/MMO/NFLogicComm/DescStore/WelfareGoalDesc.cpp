@@ -1,7 +1,7 @@
 #include "WelfareGoalDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareGoalDesc, EOT_CONST_WELFARE_GOAL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareGoalDesc, EOT_CONST_WELFARE_GOAL_DESC_ID, NFShmObj)
 
 WelfareGoalDesc::WelfareGoalDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(JinglianSimpleDesc, proto_ff_s::E_JinglianSimple_s, E_JinglianSimple, MAX_JINGLIAN_SIMPLE_NUM);
-DECLARE_IDCREATE(JinglianSimpleDesc);
+DECLARE_IDCREATE_GLOBAL(JinglianSimpleDesc);
 };

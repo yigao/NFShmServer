@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MofaZyattDesc, proto_ff_s::E_MofaZyatt_s, E_MofaZyatt, MAX_MOFA_ZYATT_NUM);
-DECLARE_IDCREATE(MofaZyattDesc);
+DECLARE_IDCREATE_GLOBAL(MofaZyattDesc);
 };

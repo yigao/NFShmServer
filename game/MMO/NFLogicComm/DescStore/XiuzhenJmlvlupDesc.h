@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenJmlvlupDesc, proto_ff_s::E_XiuzhenJmlvlup_s, E_XiuzhenJmlvlup, MAX_XIUZHEN_JMLVLUP_NUM);
-DECLARE_IDCREATE(XiuzhenJmlvlupDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenJmlvlupDesc);
 };

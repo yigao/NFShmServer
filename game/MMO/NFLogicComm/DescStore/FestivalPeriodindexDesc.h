@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalPeriodindexDesc, proto_ff_s::E_FestivalPeriodindex_s, E_FestivalPeriodindex, MAX_FESTIVAL_PERIODINDEX_NUM);
-DECLARE_IDCREATE(FestivalPeriodindexDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalPeriodindexDesc);
 };

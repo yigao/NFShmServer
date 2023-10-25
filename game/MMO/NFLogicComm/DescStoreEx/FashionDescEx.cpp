@@ -1,6 +1,6 @@
 #include "FashionDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FashionDescEx, EOT_CONST_FASHION_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FashionDescEx, EOT_CONST_FASHION_DESC_EX_ID, NFShmObj)
 
 FashionDescEx::FashionDescEx():NFIDescStoreEx()
 {

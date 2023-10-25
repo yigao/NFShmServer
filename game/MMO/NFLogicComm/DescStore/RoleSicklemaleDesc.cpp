@@ -1,7 +1,7 @@
 #include "RoleSicklemaleDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RoleSicklemaleDesc, EOT_CONST_ROLE_SICKLEMALE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RoleSicklemaleDesc, EOT_CONST_ROLE_SICKLEMALE_DESC_ID, NFShmObj)
 
 RoleSicklemaleDesc::RoleSicklemaleDesc():NFIDescStore()
 {

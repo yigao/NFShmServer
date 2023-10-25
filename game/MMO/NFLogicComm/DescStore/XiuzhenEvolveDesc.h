@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenEvolveDesc, proto_ff_s::E_XiuzhenEvolve_s, E_XiuzhenEvolve, MAX_XIUZHEN_EVOLVE_NUM);
-DECLARE_IDCREATE(XiuzhenEvolveDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenEvolveDesc);
 };

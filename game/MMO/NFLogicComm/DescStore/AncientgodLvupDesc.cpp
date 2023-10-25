@@ -5,7 +5,7 @@
 #include "MallMallDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AncientgodLvupDesc, EOT_CONST_ANCIENTGOD_LVUP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AncientgodLvupDesc, EOT_CONST_ANCIENTGOD_LVUP_DESC_ID, NFShmObj)
 
 AncientgodLvupDesc::AncientgodLvupDesc():NFIDescStore()
 {
@@ -100,11 +100,11 @@ int AncientgodLvupDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
 		}
-		CHECK_EXPR_MSG_RESULT((pDesc->m_mallid <= 0 || MallMallDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_mallid)), result, "can't find the mallid:{} in the  excel:mall sheet:mall", pDesc->m_mallid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:item sheet:item", pDesc->m_itemid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_ancientid <= 0 || AncientgodAncientgodDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_ancientid)), result, "can't find the ancientid:{} in the  excel:ancientgod sheet:ancientgod", pDesc->m_ancientid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_mallid <= 0 || MallMallDesc::Instance()->GetDesc(pDesc->m_mallid)), result, "can't find the mallid:{} in the  excel:mall sheet:mall", pDesc->m_mallid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:item sheet:item", pDesc->m_itemid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_ancientid <= 0 || AncientgodAncientgodDesc::Instance()->GetDesc(pDesc->m_ancientid)), result, "can't find the ancientid:{} in the  excel:ancientgod sheet:ancientgod", pDesc->m_ancientid);
 	}
 	return result;
 }

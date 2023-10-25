@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareYttlgiftDesc, proto_ff_s::E_WelfareYttlgift_s, E_WelfareYttlgift, MAX_WELFARE_YTTLGIFT_NUM);
-DECLARE_IDCREATE(WelfareYttlgiftDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareYttlgiftDesc);
 };

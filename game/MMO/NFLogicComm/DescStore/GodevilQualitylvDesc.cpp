@@ -1,7 +1,7 @@
 #include "GodevilQualitylvDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilQualitylvDesc, EOT_CONST_GODEVIL_QUALITYLV_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilQualitylvDesc, EOT_CONST_GODEVIL_QUALITYLV_DESC_ID, NFShmObj)
 
 GodevilQualitylvDesc::GodevilQualitylvDesc():NFIDescStore()
 {

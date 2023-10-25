@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EncyclopediaHandbooklv_attrDesc, proto_ff_s::E_EncyclopediaHandbooklv_attr_s, E_EncyclopediaHandbooklv_attr, MAX_ENCYCLOPEDIA_HANDBOOKLV_ATTR_NUM);
-DECLARE_IDCREATE(EncyclopediaHandbooklv_attrDesc);
+DECLARE_IDCREATE_GLOBAL(EncyclopediaHandbooklv_attrDesc);
 };

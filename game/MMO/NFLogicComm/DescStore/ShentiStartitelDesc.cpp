@@ -1,7 +1,7 @@
 #include "ShentiStartitelDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiStartitelDesc, EOT_CONST_SHENTI_STARTITEL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiStartitelDesc, EOT_CONST_SHENTI_STARTITEL_DESC_ID, NFShmObj)
 
 ShentiStartitelDesc::ShentiStartitelDesc():NFIDescStore()
 {

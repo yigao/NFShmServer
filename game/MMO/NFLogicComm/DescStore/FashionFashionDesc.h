@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FashionFashionDesc, proto_ff_s::E_FashionFashion_s, E_FashionFashion, MAX_FASHION_FASHION_NUM);
-DECLARE_IDCREATE(FashionFashionDesc);
+DECLARE_IDCREATE_GLOBAL(FashionFashionDesc);
 };

@@ -1,7 +1,7 @@
 #include "ShentiAwakenDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiAwakenDesc, EOT_CONST_SHENTI_AWAKEN_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiAwakenDesc, EOT_CONST_SHENTI_AWAKEN_DESC_ID, NFShmObj)
 
 ShentiAwakenDesc::ShentiAwakenDesc():NFIDescStore()
 {

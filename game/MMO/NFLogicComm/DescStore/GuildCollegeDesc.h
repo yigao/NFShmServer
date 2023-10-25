@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildCollegeDesc, proto_ff_s::E_GuildCollege_s, E_GuildCollege, MAX_GUILD_COLLEGE_NUM);
-DECLARE_IDCREATE(GuildCollegeDesc);
+DECLARE_IDCREATE_GLOBAL(GuildCollegeDesc);
 };

@@ -1,7 +1,7 @@
 #include "GodevilGodevilprivilegeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilGodevilprivilegeDesc, EOT_CONST_GODEVIL_GODEVILPRIVILEGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilGodevilprivilegeDesc, EOT_CONST_GODEVIL_GODEVILPRIVILEGE_DESC_ID, NFShmObj)
 
 GodevilGodevilprivilegeDesc::GodevilGodevilprivilegeDesc():NFIDescStore()
 {

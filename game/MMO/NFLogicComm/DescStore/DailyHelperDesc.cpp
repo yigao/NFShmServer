@@ -1,7 +1,7 @@
 #include "DailyHelperDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DailyHelperDesc, EOT_CONST_DAILY_HELPER_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DailyHelperDesc, EOT_CONST_DAILY_HELPER_DESC_ID, NFShmObj)
 
 DailyHelperDesc::DailyHelperDesc():NFIDescStore()
 {

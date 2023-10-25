@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(TimelineDescEx)
-DECLARE_IDCREATE(TimelineDescEx)
+DECLARE_IDCREATE_GLOBAL(TimelineDescEx)
 };

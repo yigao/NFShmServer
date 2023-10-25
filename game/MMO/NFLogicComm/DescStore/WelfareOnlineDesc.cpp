@@ -2,7 +2,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareOnlineDesc, EOT_CONST_WELFARE_ONLINE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareOnlineDesc, EOT_CONST_WELFARE_ONLINE_DESC_ID, NFShmObj)
 
 WelfareOnlineDesc::WelfareOnlineDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int WelfareOnlineDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_lvreward <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_lvreward)), result, "can't find the lvreward:{} in the  excel:box sheet:box", pDesc->m_lvreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_lvreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_lvreward)), result, "can't find the lvreward:{} in the  excel:box sheet:box", pDesc->m_lvreward);
 	}
 	return result;
 }

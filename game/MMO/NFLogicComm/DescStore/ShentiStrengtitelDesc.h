@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiStrengtitelDesc, proto_ff_s::E_ShentiStrengtitel_s, E_ShentiStrengtitel, MAX_SHENTI_STRENGTITEL_NUM);
-DECLARE_IDCREATE(ShentiStrengtitelDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiStrengtitelDesc);
 };

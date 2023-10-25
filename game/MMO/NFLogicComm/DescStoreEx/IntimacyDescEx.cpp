@@ -1,6 +1,6 @@
 #include "IntimacyDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(IntimacyDescEx, EOT_CONST_INTIMACY_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(IntimacyDescEx, EOT_CONST_INTIMACY_DESC_EX_ID, NFShmObj)
 
 IntimacyDescEx::IntimacyDescEx():NFIDescStoreEx()
 {

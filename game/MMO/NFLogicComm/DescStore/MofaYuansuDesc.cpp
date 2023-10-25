@@ -1,7 +1,7 @@
 #include "MofaYuansuDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MofaYuansuDesc, EOT_CONST_MOFA_YUANSU_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MofaYuansuDesc, EOT_CONST_MOFA_YUANSU_DESC_ID, NFShmObj)
 
 MofaYuansuDesc::MofaYuansuDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ConflateEquipDesc, proto_ff_s::E_ConflateEquip_s, E_ConflateEquip, MAX_CONFLATE_EQUIP_NUM);
-DECLARE_IDCREATE(ConflateEquipDesc);
+DECLARE_IDCREATE_GLOBAL(ConflateEquipDesc);
 };

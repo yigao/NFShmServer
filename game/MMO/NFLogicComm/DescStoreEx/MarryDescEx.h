@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(MarryDescEx)
-DECLARE_IDCREATE(MarryDescEx)
+DECLARE_IDCREATE_GLOBAL(MarryDescEx)
 };

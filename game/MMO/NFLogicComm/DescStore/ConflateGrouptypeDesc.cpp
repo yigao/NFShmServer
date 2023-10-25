@@ -1,7 +1,7 @@
 #include "ConflateGrouptypeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConflateGrouptypeDesc, EOT_CONST_CONFLATE_GROUPTYPE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConflateGrouptypeDesc, EOT_CONST_CONFLATE_GROUPTYPE_DESC_ID, NFShmObj)
 
 ConflateGrouptypeDesc::ConflateGrouptypeDesc():NFIDescStore()
 {

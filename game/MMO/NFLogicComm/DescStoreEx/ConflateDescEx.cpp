@@ -1,6 +1,6 @@
 #include "ConflateDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConflateDescEx, EOT_CONST_CONFLATE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConflateDescEx, EOT_CONST_CONFLATE_DESC_EX_ID, NFShmObj)
 
 ConflateDescEx::ConflateDescEx():NFIDescStoreEx()
 {

@@ -1,7 +1,7 @@
 #include "CollectCollectDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(CollectCollectDesc, EOT_CONST_COLLECT_COLLECT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(CollectCollectDesc, EOT_CONST_COLLECT_COLLECT_DESC_ID, NFShmObj)
 
 CollectCollectDesc::CollectCollectDesc():NFIDescStore()
 {

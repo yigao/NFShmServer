@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareGoaltaskDesc, proto_ff_s::E_WelfareGoaltask_s, E_WelfareGoaltask, MAX_WELFARE_GOALTASK_NUM);
-DECLARE_IDCREATE(WelfareGoaltaskDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareGoaltaskDesc);
 };

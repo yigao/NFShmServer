@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodvalleyBattleDesc, proto_ff_s::E_GodvalleyBattle_s, E_GodvalleyBattle, MAX_GODVALLEY_BATTLE_NUM);
-DECLARE_IDCREATE(GodvalleyBattleDesc);
+DECLARE_IDCREATE_GLOBAL(GodvalleyBattleDesc);
 };

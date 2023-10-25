@@ -1,7 +1,7 @@
 #include "PetEggDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PetEggDesc, EOT_CONST_PET_EGG_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetEggDesc, EOT_CONST_PET_EGG_DESC_ID, NFShmObj)
 
 PetEggDesc::PetEggDesc():NFIDescStore()
 {

@@ -1,6 +1,6 @@
 #include "WelfareDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareDescEx, EOT_CONST_WELFARE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareDescEx, EOT_CONST_WELFARE_DESC_EX_ID, NFShmObj)
 
 WelfareDescEx::WelfareDescEx():NFIDescStoreEx()
 {

@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(TaskrewardDescEx)
-DECLARE_IDCREATE(TaskrewardDescEx)
+DECLARE_IDCREATE_GLOBAL(TaskrewardDescEx)
 };

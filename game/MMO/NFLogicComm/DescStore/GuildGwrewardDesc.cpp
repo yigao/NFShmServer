@@ -1,7 +1,7 @@
 #include "GuildGwrewardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildGwrewardDesc, EOT_CONST_GUILD_GWREWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildGwrewardDesc, EOT_CONST_GUILD_GWREWARD_DESC_ID, NFShmObj)
 
 GuildGwrewardDesc::GuildGwrewardDesc():NFIDescStore()
 {

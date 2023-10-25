@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareFraudDesc, proto_ff_s::E_WelfareFraud_s, E_WelfareFraud, MAX_WELFARE_FRAUD_NUM);
-DECLARE_IDCREATE(WelfareFraudDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareFraudDesc);
 };

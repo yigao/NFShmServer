@@ -1,7 +1,7 @@
 #include "TeleportTeleportDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TeleportTeleportDesc, EOT_CONST_TELEPORT_TELEPORT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TeleportTeleportDesc, EOT_CONST_TELEPORT_TELEPORT_DESC_ID, NFShmObj)
 
 TeleportTeleportDesc::TeleportTeleportDesc():NFIDescStore()
 {

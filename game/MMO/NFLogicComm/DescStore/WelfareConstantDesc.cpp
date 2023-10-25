@@ -2,7 +2,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareConstantDesc, EOT_CONST_WELFARE_CONSTANT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareConstantDesc, EOT_CONST_WELFARE_CONSTANT_DESC_ID, NFShmObj)
 
 WelfareConstantDesc::WelfareConstantDesc():NFIDescStore()
 {
@@ -95,9 +95,9 @@ int WelfareConstantDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_fraudreward <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_fraudreward)), result, "can't find the fraudreward:{} in the  excel:box sheet:box", pDesc->m_fraudreward);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_keyrebate <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_keyrebate)), result, "can't find the keyrebate:{} in the  excel:box sheet:box", pDesc->m_keyrebate);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_noticereward <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_noticereward)), result, "can't find the noticereward:{} in the  excel:box sheet:box", pDesc->m_noticereward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_fraudreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_fraudreward)), result, "can't find the fraudreward:{} in the  excel:box sheet:box", pDesc->m_fraudreward);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_keyrebate <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_keyrebate)), result, "can't find the keyrebate:{} in the  excel:box sheet:box", pDesc->m_keyrebate);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_noticereward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_noticereward)), result, "can't find the noticereward:{} in the  excel:box sheet:box", pDesc->m_noticereward);
 	}
 	return result;
 }

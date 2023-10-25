@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ArenaRankawardDesc, proto_ff_s::E_ArenaRankaward_s, E_ArenaRankaward, MAX_ARENA_RANKAWARD_NUM);
-DECLARE_IDCREATE(ArenaRankawardDesc);
+DECLARE_IDCREATE_GLOBAL(ArenaRankawardDesc);
 };

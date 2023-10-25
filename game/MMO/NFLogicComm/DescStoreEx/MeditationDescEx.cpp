@@ -1,6 +1,6 @@
 #include "MeditationDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MeditationDescEx, EOT_CONST_MEDITATION_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MeditationDescEx, EOT_CONST_MEDITATION_DESC_EX_ID, NFShmObj)
 
 MeditationDescEx::MeditationDescEx():NFIDescStoreEx()
 {

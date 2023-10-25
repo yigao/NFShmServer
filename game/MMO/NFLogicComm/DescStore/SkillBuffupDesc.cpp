@@ -1,7 +1,7 @@
 #include "SkillBuffupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(SkillBuffupDesc, EOT_CONST_SKILL_BUFFUP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SkillBuffupDesc, EOT_CONST_SKILL_BUFFUP_DESC_ID, NFShmObj)
 
 SkillBuffupDesc::SkillBuffupDesc():NFIDescStore()
 {

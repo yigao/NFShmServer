@@ -1,7 +1,7 @@
 #include "MarketMarketDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarketMarketDesc, EOT_CONST_MARKET_MARKET_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarketMarketDesc, EOT_CONST_MARKET_MARKET_DESC_ID, NFShmObj)
 
 MarketMarketDesc::MarketMarketDesc():NFIDescStore()
 {

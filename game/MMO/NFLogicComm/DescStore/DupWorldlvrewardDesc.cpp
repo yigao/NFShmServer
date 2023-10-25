@@ -1,7 +1,7 @@
 #include "DupWorldlvrewardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DupWorldlvrewardDesc, EOT_CONST_DUP_WORLDLVREWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DupWorldlvrewardDesc, EOT_CONST_DUP_WORLDLVREWARD_DESC_ID, NFShmObj)
 
 DupWorldlvrewardDesc::DupWorldlvrewardDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AvatarEquipsuitDesc, proto_ff_s::E_AvatarEquipsuit_s, E_AvatarEquipsuit, MAX_AVATAR_EQUIPSUIT_NUM);
-DECLARE_IDCREATE(AvatarEquipsuitDesc);
+DECLARE_IDCREATE_GLOBAL(AvatarEquipsuitDesc);
 };

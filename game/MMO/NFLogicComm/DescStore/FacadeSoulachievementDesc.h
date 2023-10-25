@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FacadeSoulachievementDesc, proto_ff_s::E_FacadeSoulachievement_s, E_FacadeSoulachievement, MAX_FACADE_SOULACHIEVEMENT_NUM);
-DECLARE_IDCREATE(FacadeSoulachievementDesc);
+DECLARE_IDCREATE_GLOBAL(FacadeSoulachievementDesc);
 };

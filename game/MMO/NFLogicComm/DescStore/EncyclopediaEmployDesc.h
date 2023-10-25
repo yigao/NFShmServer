@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EncyclopediaEmployDesc, proto_ff_s::E_EncyclopediaEmploy_s, E_EncyclopediaEmploy, MAX_ENCYCLOPEDIA_EMPLOY_NUM);
-DECLARE_IDCREATE(EncyclopediaEmployDesc);
+DECLARE_IDCREATE_GLOBAL(EncyclopediaEmployDesc);
 };

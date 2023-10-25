@@ -1,7 +1,7 @@
 #include "DragonFragmentDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonFragmentDesc, EOT_CONST_DRAGON_FRAGMENT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonFragmentDesc, EOT_CONST_DRAGON_FRAGMENT_DESC_ID, NFShmObj)
 
 DragonFragmentDesc::DragonFragmentDesc():NFIDescStore()
 {

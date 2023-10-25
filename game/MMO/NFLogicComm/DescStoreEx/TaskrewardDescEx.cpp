@@ -1,6 +1,6 @@
 #include "TaskrewardDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TaskrewardDescEx, EOT_CONST_TASKREWARD_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TaskrewardDescEx, EOT_CONST_TASKREWARD_DESC_EX_ID, NFShmObj)
 
 TaskrewardDescEx::TaskrewardDescEx():NFIDescStoreEx()
 {

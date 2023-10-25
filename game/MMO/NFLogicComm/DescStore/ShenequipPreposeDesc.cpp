@@ -1,7 +1,7 @@
 #include "ShenequipPreposeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShenequipPreposeDesc, EOT_CONST_SHENEQUIP_PREPOSE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShenequipPreposeDesc, EOT_CONST_SHENEQUIP_PREPOSE_DESC_ID, NFShmObj)
 
 ShenequipPreposeDesc::ShenequipPreposeDesc():NFIDescStore()
 {

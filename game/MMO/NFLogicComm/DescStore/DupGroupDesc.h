@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DupGroupDesc, proto_ff_s::E_DupGroup_s, E_DupGroup, MAX_DUP_GROUP_NUM);
-DECLARE_IDCREATE(DupGroupDesc);
+DECLARE_IDCREATE_GLOBAL(DupGroupDesc);
 };

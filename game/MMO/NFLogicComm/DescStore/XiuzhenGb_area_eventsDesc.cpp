@@ -1,7 +1,7 @@
 #include "XiuzhenGb_area_eventsDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenGb_area_eventsDesc, EOT_CONST_XIUZHEN_GB_AREA_EVENTS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenGb_area_eventsDesc, EOT_CONST_XIUZHEN_GB_AREA_EVENTS_DESC_ID, NFShmObj)
 
 XiuzhenGb_area_eventsDesc::XiuzhenGb_area_eventsDesc():NFIDescStore()
 {

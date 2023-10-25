@@ -1,7 +1,7 @@
 #include "ShentiAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiAttributeDesc, EOT_CONST_SHENTI_ATTRIBUTE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiAttributeDesc, EOT_CONST_SHENTI_ATTRIBUTE_DESC_ID, NFShmObj)
 
 ShentiAttributeDesc::ShentiAttributeDesc():NFIDescStore()
 {

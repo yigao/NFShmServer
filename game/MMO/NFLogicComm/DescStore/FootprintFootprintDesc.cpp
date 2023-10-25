@@ -1,7 +1,7 @@
 #include "FootprintFootprintDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FootprintFootprintDesc, EOT_CONST_FOOTPRINT_FOOTPRINT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FootprintFootprintDesc, EOT_CONST_FOOTPRINT_FOOTPRINT_DESC_ID, NFShmObj)
 
 FootprintFootprintDesc::FootprintFootprintDesc():NFIDescStore()
 {

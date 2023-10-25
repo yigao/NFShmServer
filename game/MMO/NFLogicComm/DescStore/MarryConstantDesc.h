@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarryConstantDesc, proto_ff_s::E_MarryConstant_s, E_MarryConstant, MAX_MARRY_CONSTANT_NUM);
-DECLARE_IDCREATE(MarryConstantDesc);
+DECLARE_IDCREATE_GLOBAL(MarryConstantDesc);
 };

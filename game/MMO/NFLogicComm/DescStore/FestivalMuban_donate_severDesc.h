@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_donate_severDesc, proto_ff_s::E_FestivalMuban_donate_sever_s, E_FestivalMuban_donate_sever, MAX_FESTIVAL_MUBAN_DONATE_SEVER_NUM);
-DECLARE_IDCREATE(FestivalMuban_donate_severDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_donate_severDesc);
 };

@@ -1,7 +1,7 @@
 #include "MarryExpresslanguageDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarryExpresslanguageDesc, EOT_CONST_MARRY_EXPRESSLANGUAGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarryExpresslanguageDesc, EOT_CONST_MARRY_EXPRESSLANGUAGE_DESC_ID, NFShmObj)
 
 MarryExpresslanguageDesc::MarryExpresslanguageDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "GiftFreeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GiftFreeDesc, EOT_CONST_GIFT_FREE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GiftFreeDesc, EOT_CONST_GIFT_FREE_DESC_ID, NFShmObj)
 
 GiftFreeDesc::GiftFreeDesc():NFIDescStore()
 {

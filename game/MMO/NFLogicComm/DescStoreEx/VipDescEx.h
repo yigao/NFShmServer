@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(VipDescEx)
-DECLARE_IDCREATE(VipDescEx)
+DECLARE_IDCREATE_GLOBAL(VipDescEx)
 };

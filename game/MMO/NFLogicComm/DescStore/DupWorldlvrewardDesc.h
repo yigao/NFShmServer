@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DupWorldlvrewardDesc, proto_ff_s::E_DupWorldlvreward_s, E_DupWorldlvreward, MAX_DUP_WORLDLVREWARD_NUM);
-DECLARE_IDCREATE(DupWorldlvrewardDesc);
+DECLARE_IDCREATE_GLOBAL(DupWorldlvrewardDesc);
 };

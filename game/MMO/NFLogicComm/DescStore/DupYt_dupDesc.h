@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DupYt_dupDesc, proto_ff_s::E_DupYt_dup_s, E_DupYt_dup, MAX_DUP_YT_DUP_NUM);
-DECLARE_IDCREATE(DupYt_dupDesc);
+DECLARE_IDCREATE_GLOBAL(DupYt_dupDesc);
 };

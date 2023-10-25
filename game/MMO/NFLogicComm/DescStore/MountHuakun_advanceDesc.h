@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountHuakun_advanceDesc, proto_ff_s::E_MountHuakun_advance_s, E_MountHuakun_advance, MAX_MOUNT_HUAKUN_ADVANCE_NUM);
-DECLARE_IDCREATE(MountHuakun_advanceDesc);
+DECLARE_IDCREATE_GLOBAL(MountHuakun_advanceDesc);
 };

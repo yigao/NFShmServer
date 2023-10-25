@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetFettersDesc, proto_ff_s::E_PetFetters_s, E_PetFetters, MAX_PET_FETTERS_NUM);
-DECLARE_IDCREATE(PetFettersDesc);
+DECLARE_IDCREATE_GLOBAL(PetFettersDesc);
 };

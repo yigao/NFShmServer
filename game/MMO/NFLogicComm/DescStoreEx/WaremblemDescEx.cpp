@@ -1,6 +1,6 @@
 #include "WaremblemDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WaremblemDescEx, EOT_CONST_WAREMBLEM_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WaremblemDescEx, EOT_CONST_WAREMBLEM_DESC_EX_ID, NFShmObj)
 
 WaremblemDescEx::WaremblemDescEx():NFIDescStoreEx()
 {

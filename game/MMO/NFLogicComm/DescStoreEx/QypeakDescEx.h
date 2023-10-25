@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(QypeakDescEx)
-DECLARE_IDCREATE(QypeakDescEx)
+DECLARE_IDCREATE_GLOBAL(QypeakDescEx)
 };

@@ -1,6 +1,6 @@
 #include "AncientgodDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AncientgodDescEx, EOT_CONST_ANCIENTGOD_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AncientgodDescEx, EOT_CONST_ANCIENTGOD_DESC_EX_ID, NFShmObj)
 
 AncientgodDescEx::AncientgodDescEx():NFIDescStoreEx()
 {

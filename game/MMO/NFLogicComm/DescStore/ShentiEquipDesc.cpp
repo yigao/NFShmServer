@@ -1,7 +1,7 @@
 #include "ShentiEquipDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiEquipDesc, EOT_CONST_SHENTI_EQUIP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiEquipDesc, EOT_CONST_SHENTI_EQUIP_DESC_ID, NFShmObj)
 
 ShentiEquipDesc::ShentiEquipDesc():NFIDescStore()
 {

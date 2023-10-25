@@ -1,7 +1,7 @@
 #include "PetStarvalueDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PetStarvalueDesc, EOT_CONST_PET_STARVALUE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetStarvalueDesc, EOT_CONST_PET_STARVALUE_DESC_ID, NFShmObj)
 
 PetStarvalueDesc::PetStarvalueDesc():NFIDescStore()
 {

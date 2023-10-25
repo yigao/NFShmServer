@@ -3,7 +3,7 @@
 #include "XingchenXclvattDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXinchenDesc, EOT_CONST_XINGCHEN_XINCHEN_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXinchenDesc, EOT_CONST_XINGCHEN_XINCHEN_DESC_ID, NFShmObj)
 
 XingchenXinchenDesc::XingchenXinchenDesc():NFIDescStore()
 {
@@ -98,11 +98,11 @@ int XingchenXinchenDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_type)), result, "can't find the attribute:{} in the  excel:attribute sheet:attribute", pDesc->m_attribute[j].m_type);
 		}
 		for(int j = 0; j < (int)pDesc->m_attribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_value <= 0 || XingchenXclvattDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_attribute[j].m_value)), result, "can't find the attribute:{} in the  excel:xingchen sheet:XcLvAtt", pDesc->m_attribute[j].m_value);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_attribute[j].m_value <= 0 || XingchenXclvattDesc::Instance()->GetDesc(pDesc->m_attribute[j].m_value)), result, "can't find the attribute:{} in the  excel:xingchen sheet:XcLvAtt", pDesc->m_attribute[j].m_value);
 		}
 	}
 	return result;

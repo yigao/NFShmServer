@@ -1352,7 +1352,7 @@ void NFPlayer::OnAttrChange(int32_t ANum, int64_t oldVal, int64_t newVal, SCommo
     }
     if (ANum > proto_ff::A_NONE && ANum < proto_ff::A_BASE_END && m_pFightAttr->GetFightChg())
     {
-        auto pcfg = AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(ANum);
+        auto pcfg = AttributeAttributeDesc::Instance()->GetDesc(ANum);
         if (nullptr != pcfg && pcfg->m_power > EPS)
         {
             //SetCalcFight(true);
@@ -1702,7 +1702,7 @@ void NFPlayer::CalcFight(bool sync)
     //
     for (auto &iter : mapattr)
     {
-        auto pcfg = AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(iter.first);
+        auto pcfg = AttributeAttributeDesc::Instance()->GetDesc(iter.first);
         if (nullptr == pcfg || pcfg->m_power <= EPS) continue;
         int64_t value = iter.second;
         if (nullptr != pbuffpart) value += pbuffpart->GetFightAttr(iter.first);
@@ -1740,7 +1740,7 @@ void NFPlayer::CalcPetFight(bool sync)
     m_pFightAttr->GetAttrGroup(proto_ff::EAttrGroup_Pet, mapattr);
     for (auto& iter : mapattr)
     {
-        auto pcfg = AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(iter.first);
+        auto pcfg = AttributeAttributeDesc::Instance()->GetDesc(iter.first);
         if (nullptr == pcfg || pcfg->m_power <= EPS) continue;
         int64_t value = iter.second;
         fight += (int64_t)(pcfg->m_power * value);

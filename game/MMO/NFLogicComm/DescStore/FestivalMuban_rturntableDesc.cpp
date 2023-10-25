@@ -1,7 +1,7 @@
 #include "FestivalMuban_rturntableDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_rturntableDesc, EOT_CONST_FESTIVAL_MUBAN_RTURNTABLE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_rturntableDesc, EOT_CONST_FESTIVAL_MUBAN_RTURNTABLE_DESC_ID, NFShmObj)
 
 FestivalMuban_rturntableDesc::FestivalMuban_rturntableDesc():NFIDescStore()
 {

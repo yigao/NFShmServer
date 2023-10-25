@@ -1,7 +1,7 @@
 #include "PetDecomposeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PetDecomposeDesc, EOT_CONST_PET_DECOMPOSE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetDecomposeDesc, EOT_CONST_PET_DECOMPOSE_DESC_ID, NFShmObj)
 
 PetDecomposeDesc::PetDecomposeDesc():NFIDescStore()
 {

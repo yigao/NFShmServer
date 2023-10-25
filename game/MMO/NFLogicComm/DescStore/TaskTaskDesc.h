@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(TaskTaskDesc, proto_ff_s::E_TaskTask_s, E_TaskTask, MAX_TASK_TASK_NUM);
-DECLARE_IDCREATE(TaskTaskDesc);
+DECLARE_IDCREATE_GLOBAL(TaskTaskDesc);
 };

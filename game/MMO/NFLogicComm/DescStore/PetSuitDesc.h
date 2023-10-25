@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetSuitDesc, proto_ff_s::E_PetSuit_s, E_PetSuit, MAX_PET_SUIT_NUM);
-DECLARE_IDCREATE(PetSuitDesc);
+DECLARE_IDCREATE_GLOBAL(PetSuitDesc);
 };

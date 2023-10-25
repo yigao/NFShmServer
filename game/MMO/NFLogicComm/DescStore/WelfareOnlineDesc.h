@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareOnlineDesc, proto_ff_s::E_WelfareOnline_s, E_WelfareOnline, MAX_WELFARE_ONLINE_NUM);
-DECLARE_IDCREATE(WelfareOnlineDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareOnlineDesc);
 };

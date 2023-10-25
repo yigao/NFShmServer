@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareLvrewardDesc, proto_ff_s::E_WelfareLvreward_s, E_WelfareLvreward, MAX_WELFARE_LVREWARD_NUM);
-DECLARE_IDCREATE(WelfareLvrewardDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareLvrewardDesc);
 };

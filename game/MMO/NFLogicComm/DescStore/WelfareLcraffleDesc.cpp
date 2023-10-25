@@ -1,7 +1,7 @@
 #include "WelfareLcraffleDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareLcraffleDesc, EOT_CONST_WELFARE_LCRAFFLE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareLcraffleDesc, EOT_CONST_WELFARE_LCRAFFLE_DESC_ID, NFShmObj)
 
 WelfareLcraffleDesc::WelfareLcraffleDesc():NFIDescStore()
 {

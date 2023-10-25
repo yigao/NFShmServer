@@ -1,6 +1,6 @@
 #include "JinglianDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(JinglianDescEx, EOT_CONST_JINGLIAN_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(JinglianDescEx, EOT_CONST_JINGLIAN_DESC_EX_ID, NFShmObj)
 
 JinglianDescEx::JinglianDescEx():NFIDescStoreEx()
 {

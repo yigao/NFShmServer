@@ -1,7 +1,7 @@
 #include "BattlepassBattlepassDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(BattlepassBattlepassDesc, EOT_CONST_BATTLEPASS_BATTLEPASS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BattlepassBattlepassDesc, EOT_CONST_BATTLEPASS_BATTLEPASS_DESC_ID, NFShmObj)
 
 BattlepassBattlepassDesc::BattlepassBattlepassDesc():NFIDescStore()
 {

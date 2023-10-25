@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(OfflineOfflineDesc, proto_ff_s::E_OfflineOffline_s, E_OfflineOffline, MAX_OFFLINE_OFFLINE_NUM);
-DECLARE_IDCREATE(OfflineOfflineDesc);
+DECLARE_IDCREATE_GLOBAL(OfflineOfflineDesc);
 };

@@ -1,7 +1,7 @@
 #include "MountBaby_eggDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountBaby_eggDesc, EOT_CONST_MOUNT_BABY_EGG_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountBaby_eggDesc, EOT_CONST_MOUNT_BABY_EGG_DESC_ID, NFShmObj)
 
 MountBaby_eggDesc::MountBaby_eggDesc():NFIDescStore()
 {

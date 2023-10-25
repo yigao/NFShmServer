@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipGradeDesc, proto_ff_s::E_EquipGrade_s, E_EquipGrade, MAX_EQUIP_GRADE_NUM);
-DECLARE_IDCREATE(EquipGradeDesc);
+DECLARE_IDCREATE_GLOBAL(EquipGradeDesc);
 };

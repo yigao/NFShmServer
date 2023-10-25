@@ -1,7 +1,7 @@
 #include "AvatarChangetabDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AvatarChangetabDesc, EOT_CONST_AVATAR_CHANGETAB_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarChangetabDesc, EOT_CONST_AVATAR_CHANGETAB_DESC_ID, NFShmObj)
 
 AvatarChangetabDesc::AvatarChangetabDesc():NFIDescStore()
 {

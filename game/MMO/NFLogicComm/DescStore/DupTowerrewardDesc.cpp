@@ -1,7 +1,7 @@
 #include "DupTowerrewardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DupTowerrewardDesc, EOT_CONST_DUP_TOWERREWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DupTowerrewardDesc, EOT_CONST_DUP_TOWERREWARD_DESC_ID, NFShmObj)
 
 DupTowerrewardDesc::DupTowerrewardDesc():NFIDescStore()
 {

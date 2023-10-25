@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenroadBonuspointsDesc, EOT_CONST_XIUZHENROAD_BONUSPOINTS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenroadBonuspointsDesc, EOT_CONST_XIUZHENROAD_BONUSPOINTS_DESC_ID, NFShmObj)
 
 XiuzhenroadBonuspointsDesc::XiuzhenroadBonuspointsDesc():NFIDescStore()
 {
@@ -97,7 +97,7 @@ int XiuzhenroadBonuspointsDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_totalitems.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_totalitems[j].m_id <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_totalitems[j].m_id)), result, "can't find the totalitems:{} in the  excel:item sheet:item", pDesc->m_totalitems[j].m_id);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_totalitems[j].m_id <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_totalitems[j].m_id)), result, "can't find the totalitems:{} in the  excel:item sheet:item", pDesc->m_totalitems[j].m_id);
 		}
 	}
 	return result;

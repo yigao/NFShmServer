@@ -1,7 +1,7 @@
 #include "PetRefineconversionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PetRefineconversionDesc, EOT_CONST_PET_REFINECONVERSION_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetRefineconversionDesc, EOT_CONST_PET_REFINECONVERSION_DESC_ID, NFShmObj)
 
 PetRefineconversionDesc::PetRefineconversionDesc():NFIDescStore()
 {

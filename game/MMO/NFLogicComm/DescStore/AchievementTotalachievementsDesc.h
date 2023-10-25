@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AchievementTotalachievementsDesc, proto_ff_s::E_AchievementTotalachievements_s, E_AchievementTotalachievements, MAX_ACHIEVEMENT_TOTALACHIEVEMENTS_NUM);
-DECLARE_IDCREATE(AchievementTotalachievementsDesc);
+DECLARE_IDCREATE_GLOBAL(AchievementTotalachievementsDesc);
 };

@@ -1,7 +1,7 @@
 #include "GodvalleyRewardsDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodvalleyRewardsDesc, EOT_CONST_GODVALLEY_REWARDS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodvalleyRewardsDesc, EOT_CONST_GODVALLEY_REWARDS_DESC_ID, NFShmObj)
 
 GodvalleyRewardsDesc::GodvalleyRewardsDesc():NFIDescStore()
 {

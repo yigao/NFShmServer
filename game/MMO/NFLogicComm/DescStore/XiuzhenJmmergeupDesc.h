@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenJmmergeupDesc, proto_ff_s::E_XiuzhenJmmergeup_s, E_XiuzhenJmmergeup, MAX_XIUZHEN_JMMERGEUP_NUM);
-DECLARE_IDCREATE(XiuzhenJmmergeupDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenJmmergeupDesc);
 };

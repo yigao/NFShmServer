@@ -2,7 +2,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_totalrechargeDesc, EOT_CONST_FESTIVAL_MUBAN_TOTALRECHARGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_totalrechargeDesc, EOT_CONST_FESTIVAL_MUBAN_TOTALRECHARGE_DESC_ID, NFShmObj)
 
 FestivalMuban_totalrechargeDesc::FestivalMuban_totalrechargeDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int FestivalMuban_totalrechargeDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_boxid <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_boxid)), result, "can't find the boxid:{} in the  excel:box sheet:box", pDesc->m_boxid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_boxid <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_boxid)), result, "can't find the boxid:{} in the  excel:box sheet:box", pDesc->m_boxid);
 	}
 	return result;
 }

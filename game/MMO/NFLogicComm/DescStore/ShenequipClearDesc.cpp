@@ -1,7 +1,7 @@
 #include "ShenequipClearDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShenequipClearDesc, EOT_CONST_SHENEQUIP_CLEAR_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShenequipClearDesc, EOT_CONST_SHENEQUIP_CLEAR_DESC_ID, NFShmObj)
 
 ShenequipClearDesc::ShenequipClearDesc():NFIDescStore()
 {

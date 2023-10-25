@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(TeamTeamDesc, proto_ff_s::E_TeamTeam_s, E_TeamTeam, MAX_TEAM_TEAM_NUM);
-DECLARE_IDCREATE(TeamTeamDesc);
+DECLARE_IDCREATE_GLOBAL(TeamTeamDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareInvestrewardDesc, proto_ff_s::E_WelfareInvestreward_s, E_WelfareInvestreward, MAX_WELFARE_INVESTREWARD_NUM);
-DECLARE_IDCREATE(WelfareInvestrewardDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareInvestrewardDesc);
 };

@@ -1,6 +1,6 @@
 #include "TaskdynamicDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TaskdynamicDescEx, EOT_CONST_TASKDYNAMIC_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TaskdynamicDescEx, EOT_CONST_TASKDYNAMIC_DESC_EX_ID, NFShmObj)
 
 TaskdynamicDescEx::TaskdynamicDescEx():NFIDescStoreEx()
 {

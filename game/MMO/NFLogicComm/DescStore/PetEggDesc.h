@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetEggDesc, proto_ff_s::E_PetEgg_s, E_PetEgg, MAX_PET_EGG_NUM);
-DECLARE_IDCREATE(PetEggDesc);
+DECLARE_IDCREATE_GLOBAL(PetEggDesc);
 };

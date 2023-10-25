@@ -1,7 +1,7 @@
 #include "HeadportraitHeadDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(HeadportraitHeadDesc, EOT_CONST_HEADPORTRAIT_HEAD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(HeadportraitHeadDesc, EOT_CONST_HEADPORTRAIT_HEAD_DESC_ID, NFShmObj)
 
 HeadportraitHeadDesc::HeadportraitHeadDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildConstantDesc, proto_ff_s::E_GuildConstant_s, E_GuildConstant, MAX_GUILD_CONSTANT_NUM);
-DECLARE_IDCREATE(GuildConstantDesc);
+DECLARE_IDCREATE_GLOBAL(GuildConstantDesc);
 };

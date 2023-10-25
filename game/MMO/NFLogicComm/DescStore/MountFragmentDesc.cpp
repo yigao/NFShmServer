@@ -1,7 +1,7 @@
 #include "MountFragmentDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountFragmentDesc, EOT_CONST_MOUNT_FRAGMENT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountFragmentDesc, EOT_CONST_MOUNT_FRAGMENT_DESC_ID, NFShmObj)
 
 MountFragmentDesc::MountFragmentDesc():NFIDescStore()
 {

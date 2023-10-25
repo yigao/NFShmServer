@@ -1,7 +1,7 @@
 #include "FacadeFragmentDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FacadeFragmentDesc, EOT_CONST_FACADE_FRAGMENT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FacadeFragmentDesc, EOT_CONST_FACADE_FRAGMENT_DESC_ID, NFShmObj)
 
 FacadeFragmentDesc::FacadeFragmentDesc():NFIDescStore()
 {

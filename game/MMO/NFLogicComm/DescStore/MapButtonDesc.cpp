@@ -1,7 +1,7 @@
 #include "MapButtonDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MapButtonDesc, EOT_CONST_MAP_BUTTON_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MapButtonDesc, EOT_CONST_MAP_BUTTON_DESC_ID, NFShmObj)
 
 MapButtonDesc::MapButtonDesc():NFIDescStore()
 {

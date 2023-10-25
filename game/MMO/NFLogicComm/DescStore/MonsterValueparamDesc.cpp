@@ -1,7 +1,7 @@
 #include "MonsterValueparamDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MonsterValueparamDesc, EOT_CONST_MONSTER_VALUEPARAM_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MonsterValueparamDesc, EOT_CONST_MONSTER_VALUEPARAM_DESC_ID, NFShmObj)
 
 MonsterValueparamDesc::MonsterValueparamDesc():NFIDescStore()
 {

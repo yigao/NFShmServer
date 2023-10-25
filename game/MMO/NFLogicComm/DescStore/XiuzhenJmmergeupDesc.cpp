@@ -1,7 +1,7 @@
 #include "XiuzhenJmmergeupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenJmmergeupDesc, EOT_CONST_XIUZHEN_JMMERGEUP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenJmmergeupDesc, EOT_CONST_XIUZHEN_JMMERGEUP_DESC_ID, NFShmObj)
 
 XiuzhenJmmergeupDesc::XiuzhenJmmergeupDesc():NFIDescStore()
 {

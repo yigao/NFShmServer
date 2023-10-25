@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipStrongDesc, proto_ff_s::E_EquipStrong_s, E_EquipStrong, MAX_EQUIP_STRONG_NUM);
-DECLARE_IDCREATE(EquipStrongDesc);
+DECLARE_IDCREATE_GLOBAL(EquipStrongDesc);
 };

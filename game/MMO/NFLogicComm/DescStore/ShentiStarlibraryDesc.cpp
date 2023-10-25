@@ -1,7 +1,7 @@
 #include "ShentiStarlibraryDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiStarlibraryDesc, EOT_CONST_SHENTI_STARLIBRARY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiStarlibraryDesc, EOT_CONST_SHENTI_STARLIBRARY_DESC_ID, NFShmObj)
 
 ShentiStarlibraryDesc::ShentiStarlibraryDesc():NFIDescStore()
 {

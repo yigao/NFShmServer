@@ -1,7 +1,7 @@
 #include "SkillSkilladvanceDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(SkillSkilladvanceDesc, EOT_CONST_SKILL_SKILLADVANCE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SkillSkilladvanceDesc, EOT_CONST_SKILL_SKILLADVANCE_DESC_ID, NFShmObj)
 
 SkillSkilladvanceDesc::SkillSkilladvanceDesc():NFIDescStore()
 {

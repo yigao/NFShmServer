@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiUpgradeDesc, proto_ff_s::E_ShentiUpgrade_s, E_ShentiUpgrade, MAX_SHENTI_UPGRADE_NUM);
-DECLARE_IDCREATE(ShentiUpgradeDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiUpgradeDesc);
 };

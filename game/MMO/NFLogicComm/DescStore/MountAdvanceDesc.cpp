@@ -1,7 +1,7 @@
 #include "MountAdvanceDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountAdvanceDesc, EOT_CONST_MOUNT_ADVANCE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountAdvanceDesc, EOT_CONST_MOUNT_ADVANCE_DESC_ID, NFShmObj)
 
 MountAdvanceDesc::MountAdvanceDesc():NFIDescStore()
 {

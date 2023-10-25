@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EncyclopediaBeastexpandDesc, proto_ff_s::E_EncyclopediaBeastexpand_s, E_EncyclopediaBeastexpand, MAX_ENCYCLOPEDIA_BEASTEXPAND_NUM);
-DECLARE_IDCREATE(EncyclopediaBeastexpandDesc);
+DECLARE_IDCREATE_GLOBAL(EncyclopediaBeastexpandDesc);
 };

@@ -76,14 +76,6 @@
         DeleteDescStoreToDB(&pb);\
         return 0;\
     }\
-	static class_name* DescStore()\
-    {\
-        return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
-    }\
-    static class_name* GetDescStore()\
-    {\
-        return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
-    }                                                                         \
 
 
 #define IMPL_RES_SELF_CREATE_DESC(class_name, DESCCLASSNAME, DESCSTORENAME, DESCNUM) \
@@ -127,14 +119,6 @@
         DeleteDescStoreToDB(&pb);\
         return 0;\
     }\
-	static class_name* DescStore()\
-    {\
-        return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
-    }\
-    static class_name* GetDescStore()\
-    {\
-        return (class_name *)NFGlobalSystem::Instance()->GetGlobalPluginManager()->FindModule<NFISharedMemModule>()->GetHeadObj<class_name>();\
-    }
 
 #define IMPL_RES_DESC_EX(DESCSTORENAME) \
     public:\

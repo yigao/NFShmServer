@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarryWeddingDesc, proto_ff_s::E_MarryWedding_s, E_MarryWedding, MAX_MARRY_WEDDING_NUM);
-DECLARE_IDCREATE(MarryWeddingDesc);
+DECLARE_IDCREATE_GLOBAL(MarryWeddingDesc);
 };

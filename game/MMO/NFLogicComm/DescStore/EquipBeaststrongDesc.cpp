@@ -1,7 +1,7 @@
 #include "EquipBeaststrongDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipBeaststrongDesc, EOT_CONST_EQUIP_BEASTSTRONG_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipBeaststrongDesc, EOT_CONST_EQUIP_BEASTSTRONG_DESC_ID, NFShmObj)
 
 EquipBeaststrongDesc::EquipBeaststrongDesc():NFIDescStore()
 {

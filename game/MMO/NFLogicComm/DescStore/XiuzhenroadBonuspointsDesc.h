@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenroadBonuspointsDesc, proto_ff_s::E_XiuzhenroadBonuspoints_s, E_XiuzhenroadBonuspoints, MAX_XIUZHENROAD_BONUSPOINTS_NUM);
-DECLARE_IDCREATE(XiuzhenroadBonuspointsDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenroadBonuspointsDesc);
 };

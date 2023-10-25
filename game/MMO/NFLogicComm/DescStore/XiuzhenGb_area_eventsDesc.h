@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenGb_area_eventsDesc, proto_ff_s::E_XiuzhenGb_area_events_s, E_XiuzhenGb_area_events, MAX_XIUZHEN_GB_AREA_EVENTS_NUM);
-DECLARE_IDCREATE(XiuzhenGb_area_eventsDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenGb_area_eventsDesc);
 };

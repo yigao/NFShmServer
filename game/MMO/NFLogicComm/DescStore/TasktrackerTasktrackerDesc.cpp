@@ -1,7 +1,7 @@
 #include "TasktrackerTasktrackerDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TasktrackerTasktrackerDesc, EOT_CONST_TASKTRACKER_TASKTRACKER_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TasktrackerTasktrackerDesc, EOT_CONST_TASKTRACKER_TASKTRACKER_DESC_ID, NFShmObj)
 
 TasktrackerTasktrackerDesc::TasktrackerTasktrackerDesc():NFIDescStore()
 {

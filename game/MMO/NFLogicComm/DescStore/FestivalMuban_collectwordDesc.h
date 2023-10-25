@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_collectwordDesc, proto_ff_s::E_FestivalMuban_collectword_s, E_FestivalMuban_collectword, MAX_FESTIVAL_MUBAN_COLLECTWORD_NUM);
-DECLARE_IDCREATE(FestivalMuban_collectwordDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_collectwordDesc);
 };

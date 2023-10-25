@@ -1,7 +1,7 @@
 #include "WelfareYttlgiftDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareYttlgiftDesc, EOT_CONST_WELFARE_YTTLGIFT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareYttlgiftDesc, EOT_CONST_WELFARE_YTTLGIFT_DESC_ID, NFShmObj)
 
 WelfareYttlgiftDesc::WelfareYttlgiftDesc():NFIDescStore()
 {

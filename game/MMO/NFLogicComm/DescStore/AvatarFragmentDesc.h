@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AvatarFragmentDesc, proto_ff_s::E_AvatarFragment_s, E_AvatarFragment, MAX_AVATAR_FRAGMENT_NUM);
-DECLARE_IDCREATE(AvatarFragmentDesc);
+DECLARE_IDCREATE_GLOBAL(AvatarFragmentDesc);
 };

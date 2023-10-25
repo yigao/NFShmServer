@@ -1,6 +1,6 @@
 #include "TeleportDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TeleportDescEx, EOT_CONST_TELEPORT_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TeleportDescEx, EOT_CONST_TELEPORT_DESC_EX_ID, NFShmObj)
 
 TeleportDescEx::TeleportDescEx():NFIDescStoreEx()
 {

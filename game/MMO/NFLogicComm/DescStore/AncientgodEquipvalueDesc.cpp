@@ -1,7 +1,7 @@
 #include "AncientgodEquipvalueDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AncientgodEquipvalueDesc, EOT_CONST_ANCIENTGOD_EQUIPVALUE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AncientgodEquipvalueDesc, EOT_CONST_ANCIENTGOD_EQUIPVALUE_DESC_ID, NFShmObj)
 
 AncientgodEquipvalueDesc::AncientgodEquipvalueDesc():NFIDescStore()
 {

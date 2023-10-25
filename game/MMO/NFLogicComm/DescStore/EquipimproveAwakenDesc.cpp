@@ -1,7 +1,7 @@
 #include "EquipimproveAwakenDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipimproveAwakenDesc, EOT_CONST_EQUIPIMPROVE_AWAKEN_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipimproveAwakenDesc, EOT_CONST_EQUIPIMPROVE_AWAKEN_DESC_ID, NFShmObj)
 
 EquipimproveAwakenDesc::EquipimproveAwakenDesc():NFIDescStore()
 {

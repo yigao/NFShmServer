@@ -1,7 +1,7 @@
 #include "BossRareitemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(BossRareitemDesc, EOT_CONST_BOSS_RAREITEM_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BossRareitemDesc, EOT_CONST_BOSS_RAREITEM_DESC_ID, NFShmObj)
 
 BossRareitemDesc::BossRareitemDesc():NFIDescStore()
 {

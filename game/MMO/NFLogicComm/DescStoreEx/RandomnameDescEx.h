@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(RandomnameDescEx)
-DECLARE_IDCREATE(RandomnameDescEx)
+DECLARE_IDCREATE_GLOBAL(RandomnameDescEx)
 };

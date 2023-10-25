@@ -1,6 +1,6 @@
 #include "FootprintDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FootprintDescEx, EOT_CONST_FOOTPRINT_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FootprintDescEx, EOT_CONST_FOOTPRINT_DESC_EX_ID, NFShmObj)
 
 FootprintDescEx::FootprintDescEx():NFIDescStoreEx()
 {

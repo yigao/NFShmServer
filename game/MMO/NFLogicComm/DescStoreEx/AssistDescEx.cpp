@@ -1,6 +1,6 @@
 #include "AssistDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AssistDescEx, EOT_CONST_ASSIST_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AssistDescEx, EOT_CONST_ASSIST_DESC_EX_ID, NFShmObj)
 
 AssistDescEx::AssistDescEx():NFIDescStoreEx()
 {

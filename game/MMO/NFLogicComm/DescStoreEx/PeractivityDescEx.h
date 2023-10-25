@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(PeractivityDescEx)
-DECLARE_IDCREATE(PeractivityDescEx)
+DECLARE_IDCREATE_GLOBAL(PeractivityDescEx)
 };

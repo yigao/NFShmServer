@@ -1,7 +1,7 @@
 #include "EquipGradeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipGradeDesc, EOT_CONST_EQUIP_GRADE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipGradeDesc, EOT_CONST_EQUIP_GRADE_DESC_ID, NFShmObj)
 
 EquipGradeDesc::EquipGradeDesc():NFIDescStore()
 {

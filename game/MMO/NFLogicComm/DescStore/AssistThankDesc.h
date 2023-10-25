@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AssistThankDesc, proto_ff_s::E_AssistThank_s, E_AssistThank, MAX_ASSIST_THANK_NUM);
-DECLARE_IDCREATE(AssistThankDesc);
+DECLARE_IDCREATE_GLOBAL(AssistThankDesc);
 };

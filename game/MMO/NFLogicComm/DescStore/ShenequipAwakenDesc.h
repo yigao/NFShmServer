@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShenequipAwakenDesc, proto_ff_s::E_ShenequipAwaken_s, E_ShenequipAwaken, MAX_SHENEQUIP_AWAKEN_NUM);
-DECLARE_IDCREATE(ShenequipAwakenDesc);
+DECLARE_IDCREATE_GLOBAL(ShenequipAwakenDesc);
 };

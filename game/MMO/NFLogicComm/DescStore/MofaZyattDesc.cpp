@@ -1,7 +1,7 @@
 #include "MofaZyattDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MofaZyattDesc, EOT_CONST_MOFA_ZYATT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MofaZyattDesc, EOT_CONST_MOFA_ZYATT_DESC_ID, NFShmObj)
 
 MofaZyattDesc::MofaZyattDesc():NFIDescStore()
 {

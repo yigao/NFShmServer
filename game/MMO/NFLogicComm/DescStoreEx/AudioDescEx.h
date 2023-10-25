@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(AudioDescEx)
-DECLARE_IDCREATE(AudioDescEx)
+DECLARE_IDCREATE_GLOBAL(AudioDescEx)
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DragonChangeDesc, proto_ff_s::E_DragonChange_s, E_DragonChange, MAX_DRAGON_CHANGE_NUM);
-DECLARE_IDCREATE(DragonChangeDesc);
+DECLARE_IDCREATE_GLOBAL(DragonChangeDesc);
 };

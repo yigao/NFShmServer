@@ -1,6 +1,6 @@
 #include "XiuzhenroadDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenroadDescEx, EOT_CONST_XIUZHENROAD_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenroadDescEx, EOT_CONST_XIUZHENROAD_DESC_EX_ID, NFShmObj)
 
 XiuzhenroadDescEx::XiuzhenroadDescEx():NFIDescStoreEx()
 {

@@ -1,6 +1,6 @@
 #include "CloudpeakDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(CloudpeakDescEx, EOT_CONST_CLOUDPEAK_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(CloudpeakDescEx, EOT_CONST_CLOUDPEAK_DESC_EX_ID, NFShmObj)
 
 CloudpeakDescEx::CloudpeakDescEx():NFIDescStoreEx()
 {

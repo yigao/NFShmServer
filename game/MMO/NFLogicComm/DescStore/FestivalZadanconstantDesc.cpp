@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalZadanconstantDesc, EOT_CONST_FESTIVAL_ZADANCONSTANT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalZadanconstantDesc, EOT_CONST_FESTIVAL_ZADANCONSTANT_DESC_ID, NFShmObj)
 
 FestivalZadanconstantDesc::FestivalZadanconstantDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int FestivalZadanconstantDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_costitem <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_costitem)), result, "can't find the costitem:{} in the  excel:item sheet:item", pDesc->m_costitem);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_costitem <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_costitem)), result, "can't find the costitem:{} in the  excel:item sheet:item", pDesc->m_costitem);
 	}
 	return result;
 }

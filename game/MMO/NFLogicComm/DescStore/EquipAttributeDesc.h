@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipAttributeDesc, proto_ff_s::E_EquipAttribute_s, E_EquipAttribute, MAX_EQUIP_ATTRIBUTE_NUM);
-DECLARE_IDCREATE(EquipAttributeDesc);
+DECLARE_IDCREATE_GLOBAL(EquipAttributeDesc);
 };

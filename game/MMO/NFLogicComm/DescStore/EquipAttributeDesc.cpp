@@ -1,7 +1,7 @@
 #include "EquipAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipAttributeDesc, EOT_CONST_EQUIP_ATTRIBUTE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipAttributeDesc, EOT_CONST_EQUIP_ATTRIBUTE_DESC_ID, NFShmObj)
 
 EquipAttributeDesc::EquipAttributeDesc():NFIDescStore()
 {

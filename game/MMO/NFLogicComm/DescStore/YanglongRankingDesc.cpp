@@ -1,7 +1,7 @@
 #include "YanglongRankingDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(YanglongRankingDesc, EOT_CONST_YANGLONG_RANKING_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(YanglongRankingDesc, EOT_CONST_YANGLONG_RANKING_DESC_ID, NFShmObj)
 
 YanglongRankingDesc::YanglongRankingDesc():NFIDescStore()
 {

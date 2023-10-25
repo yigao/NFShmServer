@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(LinkDescEx)
-DECLARE_IDCREATE(LinkDescEx)
+DECLARE_IDCREATE_GLOBAL(LinkDescEx)
 };

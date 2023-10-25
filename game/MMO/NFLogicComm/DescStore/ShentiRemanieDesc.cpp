@@ -1,7 +1,7 @@
 #include "ShentiRemanieDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiRemanieDesc, EOT_CONST_SHENTI_REMANIE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiRemanieDesc, EOT_CONST_SHENTI_REMANIE_DESC_ID, NFShmObj)
 
 ShentiRemanieDesc::ShentiRemanieDesc():NFIDescStore()
 {

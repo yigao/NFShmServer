@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(BackBackDesc, proto_ff_s::E_BackBack_s, E_BackBack, MAX_BACK_BACK_NUM);
-DECLARE_IDCREATE(BackBackDesc);
+DECLARE_IDCREATE_GLOBAL(BackBackDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XingchenZbshopDesc, proto_ff_s::E_XingchenZbshop_s, E_XingchenZbshop, MAX_XINGCHEN_ZBSHOP_NUM);
-DECLARE_IDCREATE(XingchenZbshopDesc);
+DECLARE_IDCREATE_GLOBAL(XingchenZbshopDesc);
 };

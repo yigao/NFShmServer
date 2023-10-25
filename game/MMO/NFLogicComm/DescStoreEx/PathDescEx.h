@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(PathDescEx)
-DECLARE_IDCREATE(PathDescEx)
+DECLARE_IDCREATE_GLOBAL(PathDescEx)
 };

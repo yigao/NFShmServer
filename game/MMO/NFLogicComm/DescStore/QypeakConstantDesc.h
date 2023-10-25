@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(QypeakConstantDesc, proto_ff_s::E_QypeakConstant_s, E_QypeakConstant, MAX_QYPEAK_CONSTANT_NUM);
-DECLARE_IDCREATE(QypeakConstantDesc);
+DECLARE_IDCREATE_GLOBAL(QypeakConstantDesc);
 };

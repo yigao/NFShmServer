@@ -1,7 +1,7 @@
 #include "FestivalMuban_rturntable_recharge_ratioDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_rturntable_recharge_ratioDesc, EOT_CONST_FESTIVAL_MUBAN_RTURNTABLE_RECHARGE_RATIO_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_rturntable_recharge_ratioDesc, EOT_CONST_FESTIVAL_MUBAN_RTURNTABLE_RECHARGE_RATIO_DESC_ID, NFShmObj)
 
 FestivalMuban_rturntable_recharge_ratioDesc::FestivalMuban_rturntable_recharge_ratioDesc():NFIDescStore()
 {

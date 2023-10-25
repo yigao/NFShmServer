@@ -1,7 +1,7 @@
 #include "WelfareFraudDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareFraudDesc, EOT_CONST_WELFARE_FRAUD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareFraudDesc, EOT_CONST_WELFARE_FRAUD_DESC_ID, NFShmObj)
 
 WelfareFraudDesc::WelfareFraudDesc():NFIDescStore()
 {

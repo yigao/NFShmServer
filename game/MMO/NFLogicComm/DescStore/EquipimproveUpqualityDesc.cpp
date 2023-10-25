@@ -1,7 +1,7 @@
 #include "EquipimproveUpqualityDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipimproveUpqualityDesc, EOT_CONST_EQUIPIMPROVE_UPQUALITY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipimproveUpqualityDesc, EOT_CONST_EQUIPIMPROVE_UPQUALITY_DESC_ID, NFShmObj)
 
 EquipimproveUpqualityDesc::EquipimproveUpqualityDesc():NFIDescStore()
 {

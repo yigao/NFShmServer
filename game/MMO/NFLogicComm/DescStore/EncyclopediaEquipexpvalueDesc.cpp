@@ -1,7 +1,7 @@
 #include "EncyclopediaEquipexpvalueDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EncyclopediaEquipexpvalueDesc, EOT_CONST_ENCYCLOPEDIA_EQUIPEXPVALUE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EncyclopediaEquipexpvalueDesc, EOT_CONST_ENCYCLOPEDIA_EQUIPEXPVALUE_DESC_ID, NFShmObj)
 
 EncyclopediaEquipexpvalueDesc::EncyclopediaEquipexpvalueDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_dailytotalrechargeDesc, proto_ff_s::E_FestivalMuban_dailytotalrecharge_s, E_FestivalMuban_dailytotalrecharge, MAX_FESTIVAL_MUBAN_DAILYTOTALRECHARGE_NUM);
-DECLARE_IDCREATE(FestivalMuban_dailytotalrechargeDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_dailytotalrechargeDesc);
 };

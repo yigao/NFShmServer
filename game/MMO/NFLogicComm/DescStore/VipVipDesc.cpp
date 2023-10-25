@@ -1,7 +1,7 @@
 #include "VipVipDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(VipVipDesc, EOT_CONST_VIP_VIP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(VipVipDesc, EOT_CONST_VIP_VIP_DESC_ID, NFShmObj)
 
 VipVipDesc::VipVipDesc():NFIDescStore()
 {

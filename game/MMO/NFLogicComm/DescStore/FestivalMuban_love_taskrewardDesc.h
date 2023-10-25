@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_love_taskrewardDesc, proto_ff_s::E_FestivalMuban_love_taskreward_s, E_FestivalMuban_love_taskreward, MAX_FESTIVAL_MUBAN_LOVE_TASKREWARD_NUM);
-DECLARE_IDCREATE(FestivalMuban_love_taskrewardDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_love_taskrewardDesc);
 };

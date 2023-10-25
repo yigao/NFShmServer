@@ -1,6 +1,6 @@
 #include "OccupationDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(OccupationDescEx, EOT_CONST_OCCUPATION_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(OccupationDescEx, EOT_CONST_OCCUPATION_DESC_EX_ID, NFShmObj)
 
 OccupationDescEx::OccupationDescEx():NFIDescStoreEx()
 {

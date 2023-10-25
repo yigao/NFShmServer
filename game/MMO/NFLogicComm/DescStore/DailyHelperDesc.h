@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DailyHelperDesc, proto_ff_s::E_DailyHelper_s, E_DailyHelper, MAX_DAILY_HELPER_NUM);
-DECLARE_IDCREATE(DailyHelperDesc);
+DECLARE_IDCREATE_GLOBAL(DailyHelperDesc);
 };

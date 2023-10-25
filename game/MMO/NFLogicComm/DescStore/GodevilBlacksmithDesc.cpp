@@ -1,7 +1,7 @@
 #include "GodevilBlacksmithDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilBlacksmithDesc, EOT_CONST_GODEVIL_BLACKSMITH_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilBlacksmithDesc, EOT_CONST_GODEVIL_BLACKSMITH_DESC_ID, NFShmObj)
 
 GodevilBlacksmithDesc::GodevilBlacksmithDesc():NFIDescStore()
 {

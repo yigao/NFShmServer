@@ -1,7 +1,7 @@
 #include "DragonsoulHoleDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonsoulHoleDesc, EOT_CONST_DRAGONSOUL_HOLE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonsoulHoleDesc, EOT_CONST_DRAGONSOUL_HOLE_DESC_ID, NFShmObj)
 
 DragonsoulHoleDesc::DragonsoulHoleDesc():NFIDescStore()
 {

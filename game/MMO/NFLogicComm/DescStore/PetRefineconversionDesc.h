@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetRefineconversionDesc, proto_ff_s::E_PetRefineconversion_s, E_PetRefineconversion, MAX_PET_REFINECONVERSION_NUM);
-DECLARE_IDCREATE(PetRefineconversionDesc);
+DECLARE_IDCREATE_GLOBAL(PetRefineconversionDesc);
 };

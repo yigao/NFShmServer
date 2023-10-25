@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(Pk1v1RankDesc, proto_ff_s::E_Pk1v1Rank_s, E_Pk1v1Rank, MAX_PK1V1_RANK_NUM);
-DECLARE_IDCREATE(Pk1v1RankDesc);
+DECLARE_IDCREATE_GLOBAL(Pk1v1RankDesc);
 };

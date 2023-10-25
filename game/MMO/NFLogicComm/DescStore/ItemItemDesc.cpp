@@ -1,7 +1,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ItemItemDesc, EOT_CONST_ITEM_ITEM_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ItemItemDesc, EOT_CONST_ITEM_ITEM_DESC_ID, NFShmObj)
 
 ItemItemDesc::ItemItemDesc():NFIDescStore()
 {

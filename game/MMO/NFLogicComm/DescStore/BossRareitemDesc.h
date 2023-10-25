@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(BossRareitemDesc, proto_ff_s::E_BossRareitem_s, E_BossRareitem, MAX_BOSS_RAREITEM_NUM);
-DECLARE_IDCREATE(BossRareitemDesc);
+DECLARE_IDCREATE_GLOBAL(BossRareitemDesc);
 };

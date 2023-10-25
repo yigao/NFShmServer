@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodevilPreposetaskDesc, proto_ff_s::E_GodevilPreposetask_s, E_GodevilPreposetask, MAX_GODEVIL_PREPOSETASK_NUM);
-DECLARE_IDCREATE(GodevilPreposetaskDesc);
+DECLARE_IDCREATE_GLOBAL(GodevilPreposetaskDesc);
 };

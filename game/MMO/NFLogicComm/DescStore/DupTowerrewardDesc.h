@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DupTowerrewardDesc, proto_ff_s::E_DupTowerreward_s, E_DupTowerreward, MAX_DUP_TOWERREWARD_NUM);
-DECLARE_IDCREATE(DupTowerrewardDesc);
+DECLARE_IDCREATE_GLOBAL(DupTowerrewardDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AssistConstDesc, proto_ff_s::E_AssistConst_s, E_AssistConst, MAX_ASSIST_CONST_NUM);
-DECLARE_IDCREATE(AssistConstDesc);
+DECLARE_IDCREATE_GLOBAL(AssistConstDesc);
 };

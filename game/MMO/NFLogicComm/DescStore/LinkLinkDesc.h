@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(LinkLinkDesc, proto_ff_s::E_LinkLink_s, E_LinkLink, MAX_LINK_LINK_NUM);
-DECLARE_IDCREATE(LinkLinkDesc);
+DECLARE_IDCREATE_GLOBAL(LinkLinkDesc);
 };

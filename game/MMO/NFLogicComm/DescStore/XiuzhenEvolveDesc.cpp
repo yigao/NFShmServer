@@ -1,7 +1,7 @@
 #include "XiuzhenEvolveDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenEvolveDesc, EOT_CONST_XIUZHEN_EVOLVE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenEvolveDesc, EOT_CONST_XIUZHEN_EVOLVE_DESC_ID, NFShmObj)
 
 XiuzhenEvolveDesc::XiuzhenEvolveDesc():NFIDescStore()
 {

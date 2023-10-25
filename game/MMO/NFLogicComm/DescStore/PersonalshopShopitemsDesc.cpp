@@ -1,7 +1,7 @@
 #include "PersonalshopShopitemsDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PersonalshopShopitemsDesc, EOT_CONST_PERSONALSHOP_SHOPITEMS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PersonalshopShopitemsDesc, EOT_CONST_PERSONALSHOP_SHOPITEMS_DESC_ID, NFShmObj)
 
 PersonalshopShopitemsDesc::PersonalshopShopitemsDesc():NFIDescStore()
 {

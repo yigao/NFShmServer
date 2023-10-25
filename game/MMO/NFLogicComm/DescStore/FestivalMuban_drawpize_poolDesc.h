@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalMuban_drawpize_poolDesc, proto_ff_s::E_FestivalMuban_drawpize_pool_s, E_FestivalMuban_drawpize_pool, MAX_FESTIVAL_MUBAN_DRAWPIZE_POOL_NUM);
-DECLARE_IDCREATE(FestivalMuban_drawpize_poolDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalMuban_drawpize_poolDesc);
 };

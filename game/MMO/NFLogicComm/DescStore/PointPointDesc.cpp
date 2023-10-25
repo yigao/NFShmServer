@@ -1,7 +1,7 @@
 #include "PointPointDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PointPointDesc, EOT_CONST_POINT_POINT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PointPointDesc, EOT_CONST_POINT_POINT_DESC_ID, NFShmObj)
 
 PointPointDesc::PointPointDesc():NFIDescStore()
 {

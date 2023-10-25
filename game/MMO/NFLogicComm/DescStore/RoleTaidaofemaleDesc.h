@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleTaidaofemaleDesc, proto_ff_s::E_RoleTaidaofemale_s, E_RoleTaidaofemale, MAX_ROLE_TAIDAOFEMALE_NUM);
-DECLARE_IDCREATE(RoleTaidaofemaleDesc);
+DECLARE_IDCREATE_GLOBAL(RoleTaidaofemaleDesc);
 };

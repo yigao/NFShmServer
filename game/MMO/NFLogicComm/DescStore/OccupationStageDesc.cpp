@@ -1,7 +1,7 @@
 #include "OccupationStageDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(OccupationStageDesc, EOT_CONST_OCCUPATION_STAGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(OccupationStageDesc, EOT_CONST_OCCUPATION_STAGE_DESC_ID, NFShmObj)
 
 OccupationStageDesc::OccupationStageDesc():NFIDescStore()
 {

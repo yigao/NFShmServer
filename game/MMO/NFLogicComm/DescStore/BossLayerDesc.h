@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(BossLayerDesc, proto_ff_s::E_BossLayer_s, E_BossLayer, MAX_BOSS_LAYER_NUM);
-DECLARE_IDCREATE(BossLayerDesc);
+DECLARE_IDCREATE_GLOBAL(BossLayerDesc);
 };

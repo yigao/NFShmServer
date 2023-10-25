@@ -1,7 +1,7 @@
 #include "GuildLevelDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildLevelDesc, EOT_CONST_GUILD_LEVEL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildLevelDesc, EOT_CONST_GUILD_LEVEL_DESC_ID, NFShmObj)
 
 GuildLevelDesc::GuildLevelDesc():NFIDescStore()
 {

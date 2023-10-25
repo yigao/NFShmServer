@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(OccupationStageDesc, proto_ff_s::E_OccupationStage_s, E_OccupationStage, MAX_OCCUPATION_STAGE_NUM);
-DECLARE_IDCREATE(OccupationStageDesc);
+DECLARE_IDCREATE_GLOBAL(OccupationStageDesc);
 };

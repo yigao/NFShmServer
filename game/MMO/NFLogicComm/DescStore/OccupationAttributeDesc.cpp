@@ -1,7 +1,7 @@
 #include "OccupationAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(OccupationAttributeDesc, EOT_CONST_OCCUPATION_ATTRIBUTE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(OccupationAttributeDesc, EOT_CONST_OCCUPATION_ATTRIBUTE_DESC_ID, NFShmObj)
 
 OccupationAttributeDesc::OccupationAttributeDesc():NFIDescStore()
 {

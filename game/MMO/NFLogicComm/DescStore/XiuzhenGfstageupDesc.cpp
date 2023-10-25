@@ -1,7 +1,7 @@
 #include "XiuzhenGfstageupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenGfstageupDesc, EOT_CONST_XIUZHEN_GFSTAGEUP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenGfstageupDesc, EOT_CONST_XIUZHEN_GFSTAGEUP_DESC_ID, NFShmObj)
 
 XiuzhenGfstageupDesc::XiuzhenGfstageupDesc():NFIDescStore()
 {

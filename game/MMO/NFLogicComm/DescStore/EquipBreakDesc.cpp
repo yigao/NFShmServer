@@ -1,7 +1,7 @@
 #include "EquipBreakDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipBreakDesc, EOT_CONST_EQUIP_BREAK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipBreakDesc, EOT_CONST_EQUIP_BREAK_DESC_ID, NFShmObj)
 
 EquipBreakDesc::EquipBreakDesc():NFIDescStore()
 {

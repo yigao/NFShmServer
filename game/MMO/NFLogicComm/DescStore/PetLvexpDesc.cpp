@@ -1,7 +1,7 @@
 #include "PetLvexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PetLvexpDesc, EOT_CONST_PET_LVEXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetLvexpDesc, EOT_CONST_PET_LVEXP_DESC_ID, NFShmObj)
 
 PetLvexpDesc::PetLvexpDesc():NFIDescStore()
 {

@@ -2,7 +2,7 @@
 #include "AncientgodAttDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AncientgodAncientgodDesc, EOT_CONST_ANCIENTGOD_ANCIENTGOD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AncientgodAncientgodDesc, EOT_CONST_ANCIENTGOD_ANCIENTGOD_DESC_ID, NFShmObj)
 
 AncientgodAncientgodDesc::AncientgodAncientgodDesc():NFIDescStore()
 {
@@ -97,7 +97,7 @@ int AncientgodAncientgodDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_fra.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_fra[j].m_attid <= 0 || AncientgodAttDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_fra[j].m_attid)), result, "can't find the fra:{} in the  excel:ancientgod sheet:att", pDesc->m_fra[j].m_attid);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_fra[j].m_attid <= 0 || AncientgodAttDesc::Instance()->GetDesc(pDesc->m_fra[j].m_attid)), result, "can't find the fra:{} in the  excel:ancientgod sheet:att", pDesc->m_fra[j].m_attid);
 		}
 	}
 	return result;

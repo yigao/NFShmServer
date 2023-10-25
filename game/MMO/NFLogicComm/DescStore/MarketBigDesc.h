@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarketBigDesc, proto_ff_s::E_MarketBig_s, E_MarketBig, MAX_MARKET_BIG_NUM);
-DECLARE_IDCREATE(MarketBigDesc);
+DECLARE_IDCREATE_GLOBAL(MarketBigDesc);
 };

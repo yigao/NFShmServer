@@ -1,7 +1,7 @@
 #include "VipChatDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(VipChatDesc, EOT_CONST_VIP_CHAT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(VipChatDesc, EOT_CONST_VIP_CHAT_DESC_ID, NFShmObj)
 
 VipChatDesc::VipChatDesc():NFIDescStore()
 {

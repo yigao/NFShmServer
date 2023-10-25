@@ -1,7 +1,7 @@
 #include "CollectAttributetpyeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(CollectAttributetpyeDesc, EOT_CONST_COLLECT_ATTRIBUTETPYE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(CollectAttributetpyeDesc, EOT_CONST_COLLECT_ATTRIBUTETPYE_DESC_ID, NFShmObj)
 
 CollectAttributetpyeDesc::CollectAttributetpyeDesc():NFIDescStore()
 {

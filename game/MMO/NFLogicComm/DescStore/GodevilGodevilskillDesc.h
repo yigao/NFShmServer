@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodevilGodevilskillDesc, proto_ff_s::E_GodevilGodevilskill_s, E_GodevilGodevilskill, MAX_GODEVIL_GODEVILSKILL_NUM);
-DECLARE_IDCREATE(GodevilGodevilskillDesc);
+DECLARE_IDCREATE_GLOBAL(GodevilGodevilskillDesc);
 };

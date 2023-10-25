@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(YanglongRankingDesc, proto_ff_s::E_YanglongRanking_s, E_YanglongRanking, MAX_YANGLONG_RANKING_NUM);
-DECLARE_IDCREATE(YanglongRankingDesc);
+DECLARE_IDCREATE_GLOBAL(YanglongRankingDesc);
 };

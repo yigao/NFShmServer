@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenLgpotionsDesc, proto_ff_s::E_XiuzhenLgpotions_s, E_XiuzhenLgpotions, MAX_XIUZHEN_LGPOTIONS_NUM);
-DECLARE_IDCREATE(XiuzhenLgpotionsDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenLgpotionsDesc);
 };

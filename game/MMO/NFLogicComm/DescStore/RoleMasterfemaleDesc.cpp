@@ -1,7 +1,7 @@
 #include "RoleMasterfemaleDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RoleMasterfemaleDesc, EOT_CONST_ROLE_MASTERFEMALE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RoleMasterfemaleDesc, EOT_CONST_ROLE_MASTERFEMALE_DESC_ID, NFShmObj)
 
 RoleMasterfemaleDesc::RoleMasterfemaleDesc():NFIDescStore()
 {

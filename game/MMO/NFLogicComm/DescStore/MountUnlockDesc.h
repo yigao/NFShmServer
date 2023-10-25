@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountUnlockDesc, proto_ff_s::E_MountUnlock_s, E_MountUnlock, MAX_MOUNT_UNLOCK_NUM);
-DECLARE_IDCREATE(MountUnlockDesc);
+DECLARE_IDCREATE_GLOBAL(MountUnlockDesc);
 };

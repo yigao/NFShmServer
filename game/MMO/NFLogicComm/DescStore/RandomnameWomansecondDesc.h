@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RandomnameWomansecondDesc, proto_ff_s::E_RandomnameWomansecond_s, E_RandomnameWomansecond, MAX_RANDOMNAME_WOMANSECOND_NUM);
-DECLARE_IDCREATE(RandomnameWomansecondDesc);
+DECLARE_IDCREATE_GLOBAL(RandomnameWomansecondDesc);
 };

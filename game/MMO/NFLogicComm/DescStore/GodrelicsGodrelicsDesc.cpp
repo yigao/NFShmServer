@@ -1,7 +1,7 @@
 #include "GodrelicsGodrelicsDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodrelicsGodrelicsDesc, EOT_CONST_GODRELICS_GODRELICS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodrelicsGodrelicsDesc, EOT_CONST_GODRELICS_GODRELICS_DESC_ID, NFShmObj)
 
 GodrelicsGodrelicsDesc::GodrelicsGodrelicsDesc():NFIDescStore()
 {

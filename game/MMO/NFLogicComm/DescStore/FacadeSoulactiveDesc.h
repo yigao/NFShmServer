@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FacadeSoulactiveDesc, proto_ff_s::E_FacadeSoulactive_s, E_FacadeSoulactive, MAX_FACADE_SOULACTIVE_NUM);
-DECLARE_IDCREATE(FacadeSoulactiveDesc);
+DECLARE_IDCREATE_GLOBAL(FacadeSoulactiveDesc);
 };

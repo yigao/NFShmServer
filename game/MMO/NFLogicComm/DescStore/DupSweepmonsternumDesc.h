@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DupSweepmonsternumDesc, proto_ff_s::E_DupSweepmonsternum_s, E_DupSweepmonsternum, MAX_DUP_SWEEPMONSTERNUM_NUM);
-DECLARE_IDCREATE(DupSweepmonsternumDesc);
+DECLARE_IDCREATE_GLOBAL(DupSweepmonsternumDesc);
 };

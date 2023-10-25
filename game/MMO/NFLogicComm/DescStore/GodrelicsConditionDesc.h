@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodrelicsConditionDesc, proto_ff_s::E_GodrelicsCondition_s, E_GodrelicsCondition, MAX_GODRELICS_CONDITION_NUM);
-DECLARE_IDCREATE(GodrelicsConditionDesc);
+DECLARE_IDCREATE_GLOBAL(GodrelicsConditionDesc);
 };

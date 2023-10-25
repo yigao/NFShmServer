@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AchievementTotalachievementsDesc, EOT_CONST_ACHIEVEMENT_TOTALACHIEVEMENTS_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AchievementTotalachievementsDesc, EOT_CONST_ACHIEVEMENT_TOTALACHIEVEMENTS_DESC_ID, NFShmObj)
 
 AchievementTotalachievementsDesc::AchievementTotalachievementsDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int AchievementTotalachievementsDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_totalitems <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_totalitems)), result, "can't find the totalitems:{} in the  excel:item sheet:item", pDesc->m_totalitems);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_totalitems <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_totalitems)), result, "can't find the totalitems:{} in the  excel:item sheet:item", pDesc->m_totalitems);
 	}
 	return result;
 }

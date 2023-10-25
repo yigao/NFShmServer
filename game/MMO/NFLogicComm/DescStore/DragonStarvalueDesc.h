@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DragonStarvalueDesc, proto_ff_s::E_DragonStarvalue_s, E_DragonStarvalue, MAX_DRAGON_STARVALUE_NUM);
-DECLARE_IDCREATE(DragonStarvalueDesc);
+DECLARE_IDCREATE_GLOBAL(DragonStarvalueDesc);
 };

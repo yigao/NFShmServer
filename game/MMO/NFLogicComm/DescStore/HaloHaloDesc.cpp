@@ -1,7 +1,7 @@
 #include "HaloHaloDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(HaloHaloDesc, EOT_CONST_HALO_HALO_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(HaloHaloDesc, EOT_CONST_HALO_HALO_DESC_ID, NFShmObj)
 
 HaloHaloDesc::HaloHaloDesc():NFIDescStore()
 {

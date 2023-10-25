@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(RankingDescEx)
-DECLARE_IDCREATE(RankingDescEx)
+DECLARE_IDCREATE_GLOBAL(RankingDescEx)
 };

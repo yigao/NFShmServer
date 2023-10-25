@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiAwakenDesc, proto_ff_s::E_ShentiAwaken_s, E_ShentiAwaken, MAX_SHENTI_AWAKEN_NUM);
-DECLARE_IDCREATE(ShentiAwakenDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiAwakenDesc);
 };

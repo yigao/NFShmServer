@@ -1,7 +1,7 @@
 #include "FacadeValueDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FacadeValueDesc, EOT_CONST_FACADE_VALUE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FacadeValueDesc, EOT_CONST_FACADE_VALUE_DESC_ID, NFShmObj)
 
 FacadeValueDesc::FacadeValueDesc():NFIDescStore()
 {

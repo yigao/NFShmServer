@@ -1,6 +1,6 @@
 #include "RandomnameDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RandomnameDescEx, EOT_CONST_RANDOMNAME_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RandomnameDescEx, EOT_CONST_RANDOMNAME_DESC_EX_ID, NFShmObj)
 
 RandomnameDescEx::RandomnameDescEx():NFIDescStoreEx()
 {

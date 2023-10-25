@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodevilAdvanceexpDesc, proto_ff_s::E_GodevilAdvanceexp_s, E_GodevilAdvanceexp, MAX_GODEVIL_ADVANCEEXP_NUM);
-DECLARE_IDCREATE(GodevilAdvanceexpDesc);
+DECLARE_IDCREATE_GLOBAL(GodevilAdvanceexpDesc);
 };

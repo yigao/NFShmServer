@@ -1,6 +1,6 @@
 #include "OfflineDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(OfflineDescEx, EOT_CONST_OFFLINE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(OfflineDescEx, EOT_CONST_OFFLINE_DESC_EX_ID, NFShmObj)
 
 OfflineDescEx::OfflineDescEx():NFIDescStoreEx()
 {

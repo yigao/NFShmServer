@@ -1,7 +1,7 @@
 #include "MapMapDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MapMapDesc, EOT_CONST_MAP_MAP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MapMapDesc, EOT_CONST_MAP_MAP_DESC_ID, NFShmObj)
 
 MapMapDesc::MapMapDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "TaskdynamicTaskdynamicDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TaskdynamicTaskdynamicDesc, EOT_CONST_TASKDYNAMIC_TASKDYNAMIC_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TaskdynamicTaskdynamicDesc, EOT_CONST_TASKDYNAMIC_TASKDYNAMIC_DESC_ID, NFShmObj)
 
 TaskdynamicTaskdynamicDesc::TaskdynamicTaskdynamicDesc():NFIDescStore()
 {

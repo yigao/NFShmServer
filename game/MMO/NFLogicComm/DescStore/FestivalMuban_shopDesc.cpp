@@ -2,7 +2,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_shopDesc, EOT_CONST_FESTIVAL_MUBAN_SHOP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_shopDesc, EOT_CONST_FESTIVAL_MUBAN_SHOP_DESC_ID, NFShmObj)
 
 FestivalMuban_shopDesc::FestivalMuban_shopDesc():NFIDescStore()
 {
@@ -95,7 +95,7 @@ int FestivalMuban_shopDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_box <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_box)), result, "can't find the box:{} in the  excel:box sheet:box", pDesc->m_box);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_box <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_box)), result, "can't find the box:{} in the  excel:box sheet:box", pDesc->m_box);
 	}
 	return result;
 }

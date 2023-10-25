@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(JinglianCostDesc, proto_ff_s::E_JinglianCost_s, E_JinglianCost, MAX_JINGLIAN_COST_NUM);
-DECLARE_IDCREATE(JinglianCostDesc);
+DECLARE_IDCREATE_GLOBAL(JinglianCostDesc);
 };

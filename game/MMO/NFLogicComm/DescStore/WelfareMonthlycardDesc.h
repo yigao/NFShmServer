@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareMonthlycardDesc, proto_ff_s::E_WelfareMonthlycard_s, E_WelfareMonthlycard, MAX_WELFARE_MONTHLYCARD_NUM);
-DECLARE_IDCREATE(WelfareMonthlycardDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareMonthlycardDesc);
 };

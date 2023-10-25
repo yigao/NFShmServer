@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiEvolveDesc, proto_ff_s::E_ShentiEvolve_s, E_ShentiEvolve, MAX_SHENTI_EVOLVE_NUM);
-DECLARE_IDCREATE(ShentiEvolveDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiEvolveDesc);
 };

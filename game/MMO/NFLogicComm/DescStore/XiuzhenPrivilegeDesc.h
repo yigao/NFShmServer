@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenPrivilegeDesc, proto_ff_s::E_XiuzhenPrivilege_s, E_XiuzhenPrivilege, MAX_XIUZHEN_PRIVILEGE_NUM);
-DECLARE_IDCREATE(XiuzhenPrivilegeDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenPrivilegeDesc);
 };

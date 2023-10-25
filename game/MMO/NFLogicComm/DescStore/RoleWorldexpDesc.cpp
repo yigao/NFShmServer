@@ -1,7 +1,7 @@
 #include "RoleWorldexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RoleWorldexpDesc, EOT_CONST_ROLE_WORLDEXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RoleWorldexpDesc, EOT_CONST_ROLE_WORLDEXP_DESC_ID, NFShmObj)
 
 RoleWorldexpDesc::RoleWorldexpDesc():NFIDescStore()
 {

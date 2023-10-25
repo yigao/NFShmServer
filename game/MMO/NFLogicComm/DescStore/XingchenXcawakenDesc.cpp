@@ -2,7 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXcawakenDesc, EOT_CONST_XINGCHEN_XCAWAKEN_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXcawakenDesc, EOT_CONST_XINGCHEN_XCAWAKEN_DESC_ID, NFShmObj)
 
 XingchenXcawakenDesc::XingchenXcawakenDesc():NFIDescStore()
 {
@@ -110,7 +110,7 @@ int XingchenXcawakenDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_awaken_item <= 0 || ItemItemDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_awaken_item)), result, "can't find the awaken_item:{} in the  excel:item sheet:item", pDesc->m_awaken_item);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_awaken_item <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_awaken_item)), result, "can't find the awaken_item:{} in the  excel:item sheet:item", pDesc->m_awaken_item);
 	}
 	return result;
 }

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodevilQualitylvDesc, proto_ff_s::E_GodevilQualitylv_s, E_GodevilQualitylv, MAX_GODEVIL_QUALITYLV_NUM);
-DECLARE_IDCREATE(GodevilQualitylvDesc);
+DECLARE_IDCREATE_GLOBAL(GodevilQualitylvDesc);
 };

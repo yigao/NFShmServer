@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DragonDisplayDesc, proto_ff_s::E_DragonDisplay_s, E_DragonDisplay, MAX_DRAGON_DISPLAY_NUM);
-DECLARE_IDCREATE(DragonDisplayDesc);
+DECLARE_IDCREATE_GLOBAL(DragonDisplayDesc);
 };

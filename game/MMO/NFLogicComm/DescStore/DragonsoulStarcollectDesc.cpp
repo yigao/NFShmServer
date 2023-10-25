@@ -1,7 +1,7 @@
 #include "DragonsoulStarcollectDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonsoulStarcollectDesc, EOT_CONST_DRAGONSOUL_STARCOLLECT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonsoulStarcollectDesc, EOT_CONST_DRAGONSOUL_STARCOLLECT_DESC_ID, NFShmObj)
 
 DragonsoulStarcollectDesc::DragonsoulStarcollectDesc():NFIDescStore()
 {

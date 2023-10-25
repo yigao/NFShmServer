@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MofaYuansuDesc, proto_ff_s::E_MofaYuansu_s, E_MofaYuansu, MAX_MOFA_YUANSU_NUM);
-DECLARE_IDCREATE(MofaYuansuDesc);
+DECLARE_IDCREATE_GLOBAL(MofaYuansuDesc);
 };

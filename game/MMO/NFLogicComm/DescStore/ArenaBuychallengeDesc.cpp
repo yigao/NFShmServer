@@ -1,7 +1,7 @@
 #include "ArenaBuychallengeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ArenaBuychallengeDesc, EOT_CONST_ARENA_BUYCHALLENGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ArenaBuychallengeDesc, EOT_CONST_ARENA_BUYCHALLENGE_DESC_ID, NFShmObj)
 
 ArenaBuychallengeDesc::ArenaBuychallengeDesc():NFIDescStore()
 {

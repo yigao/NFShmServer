@@ -1,7 +1,7 @@
 #include "ShentiStar_upDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShentiStar_upDesc, EOT_CONST_SHENTI_STAR_UP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiStar_upDesc, EOT_CONST_SHENTI_STAR_UP_DESC_ID, NFShmObj)
 
 ShentiStar_upDesc::ShentiStar_upDesc():NFIDescStore()
 {

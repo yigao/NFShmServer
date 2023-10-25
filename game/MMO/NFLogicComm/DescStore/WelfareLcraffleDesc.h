@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareLcraffleDesc, proto_ff_s::E_WelfareLcraffle_s, E_WelfareLcraffle, MAX_WELFARE_LCRAFFLE_NUM);
-DECLARE_IDCREATE(WelfareLcraffleDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareLcraffleDesc);
 };

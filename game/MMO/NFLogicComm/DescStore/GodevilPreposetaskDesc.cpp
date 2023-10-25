@@ -1,7 +1,7 @@
 #include "GodevilPreposetaskDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodevilPreposetaskDesc, EOT_CONST_GODEVIL_PREPOSETASK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilPreposetaskDesc, EOT_CONST_GODEVIL_PREPOSETASK_DESC_ID, NFShmObj)
 
 GodevilPreposetaskDesc::GodevilPreposetaskDesc():NFIDescStore()
 {

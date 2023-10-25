@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(Pk3v3BadgeDesc, proto_ff_s::E_Pk3v3Badge_s, E_Pk3v3Badge, MAX_PK3V3_BADGE_NUM);
-DECLARE_IDCREATE(Pk3v3BadgeDesc);
+DECLARE_IDCREATE_GLOBAL(Pk3v3BadgeDesc);
 };

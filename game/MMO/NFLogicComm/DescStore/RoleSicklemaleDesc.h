@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleSicklemaleDesc, proto_ff_s::E_RoleSicklemale_s, E_RoleSicklemale, MAX_ROLE_SICKLEMALE_NUM);
-DECLARE_IDCREATE(RoleSicklemaleDesc);
+DECLARE_IDCREATE_GLOBAL(RoleSicklemaleDesc);
 };

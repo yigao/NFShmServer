@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiStartitelDesc, proto_ff_s::E_ShentiStartitel_s, E_ShentiStartitel, MAX_SHENTI_STARTITEL_NUM);
-DECLARE_IDCREATE(ShentiStartitelDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiStartitelDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(HaloHaloDesc, proto_ff_s::E_HaloHalo_s, E_HaloHalo, MAX_HALO_HALO_NUM);
-DECLARE_IDCREATE(HaloHaloDesc);
+DECLARE_IDCREATE_GLOBAL(HaloHaloDesc);
 };

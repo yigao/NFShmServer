@@ -1,7 +1,7 @@
 #include "GmcommandGmcommandDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GmcommandGmcommandDesc, EOT_CONST_GMCOMMAND_GMCOMMAND_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GmcommandGmcommandDesc, EOT_CONST_GMCOMMAND_GMCOMMAND_DESC_ID, NFShmObj)
 
 GmcommandGmcommandDesc::GmcommandGmcommandDesc():NFIDescStore()
 {

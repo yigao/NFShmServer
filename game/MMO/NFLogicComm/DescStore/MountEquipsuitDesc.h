@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountEquipsuitDesc, proto_ff_s::E_MountEquipsuit_s, E_MountEquipsuit, MAX_MOUNT_EQUIPSUIT_NUM);
-DECLARE_IDCREATE(MountEquipsuitDesc);
+DECLARE_IDCREATE_GLOBAL(MountEquipsuitDesc);
 };

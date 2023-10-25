@@ -1,6 +1,6 @@
 #include "GmcommandDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GmcommandDescEx, EOT_CONST_GMCOMMAND_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GmcommandDescEx, EOT_CONST_GMCOMMAND_DESC_EX_ID, NFShmObj)
 
 GmcommandDescEx::GmcommandDescEx():NFIDescStoreEx()
 {

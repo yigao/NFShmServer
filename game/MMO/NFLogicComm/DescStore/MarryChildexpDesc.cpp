@@ -1,7 +1,7 @@
 #include "MarryChildexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MarryChildexpDesc, EOT_CONST_MARRY_CHILDEXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarryChildexpDesc, EOT_CONST_MARRY_CHILDEXP_DESC_ID, NFShmObj)
 
 MarryChildexpDesc::MarryChildexpDesc():NFIDescStore()
 {

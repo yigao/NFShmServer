@@ -3,7 +3,7 @@
 #include "SkillSkillDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AvatarAdvanceDesc, EOT_CONST_AVATAR_ADVANCE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarAdvanceDesc, EOT_CONST_AVATAR_ADVANCE_DESC_ID, NFShmObj)
 
 AvatarAdvanceDesc::AvatarAdvanceDesc():NFIDescStore()
 {
@@ -98,9 +98,9 @@ int AvatarAdvanceDesc::CheckWhenAllDataLoaded()
 		auto pDesc = &m_astDesc[i];
 		for(int j = 0; j < (int)pDesc->m_upattribute.size(); j++)
 		{
-			CHECK_EXPR_MSG_RESULT((pDesc->m_upattribute[j].m_type <= 0 || AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_upattribute[j].m_type)), result, "can't find the upattribute:{} in the  excel:attribute sheet:attribute", pDesc->m_upattribute[j].m_type);
+			CHECK_EXPR_MSG_RESULT((pDesc->m_upattribute[j].m_type <= 0 || AttributeAttributeDesc::Instance()->GetDesc(pDesc->m_upattribute[j].m_type)), result, "can't find the upattribute:{} in the  excel:attribute sheet:attribute", pDesc->m_upattribute[j].m_type);
 		}
-		CHECK_EXPR_MSG_RESULT((pDesc->m_skillid <= 0 || SkillSkillDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_skillid)), result, "can't find the skillid:{} in the  excel:skill sheet:skill", pDesc->m_skillid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_skillid <= 0 || SkillSkillDesc::Instance()->GetDesc(pDesc->m_skillid)), result, "can't find the skillid:{} in the  excel:skill sheet:skill", pDesc->m_skillid);
 	}
 	return result;
 }

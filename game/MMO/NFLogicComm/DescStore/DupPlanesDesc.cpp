@@ -1,7 +1,7 @@
 #include "DupPlanesDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DupPlanesDesc, EOT_CONST_DUP_PLANES_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DupPlanesDesc, EOT_CONST_DUP_PLANES_DESC_ID, NFShmObj)
 
 DupPlanesDesc::DupPlanesDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "WelfareLcturntableDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WelfareLcturntableDesc, EOT_CONST_WELFARE_LCTURNTABLE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareLcturntableDesc, EOT_CONST_WELFARE_LCTURNTABLE_DESC_ID, NFShmObj)
 
 WelfareLcturntableDesc::WelfareLcturntableDesc():NFIDescStore()
 {

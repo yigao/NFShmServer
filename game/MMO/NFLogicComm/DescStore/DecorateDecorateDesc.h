@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DecorateDecorateDesc, proto_ff_s::E_DecorateDecorate_s, E_DecorateDecorate, MAX_DECORATE_DECORATE_NUM);
-DECLARE_IDCREATE(DecorateDecorateDesc);
+DECLARE_IDCREATE_GLOBAL(DecorateDecorateDesc);
 };

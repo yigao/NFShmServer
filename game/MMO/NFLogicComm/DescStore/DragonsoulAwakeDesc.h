@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DragonsoulAwakeDesc, proto_ff_s::E_DragonsoulAwake_s, E_DragonsoulAwake, MAX_DRAGONSOUL_AWAKE_NUM);
-DECLARE_IDCREATE(DragonsoulAwakeDesc);
+DECLARE_IDCREATE_GLOBAL(DragonsoulAwakeDesc);
 };

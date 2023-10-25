@@ -1,7 +1,7 @@
 #include "FunctionunlockPreviewDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FunctionunlockPreviewDesc, EOT_CONST_FUNCTIONUNLOCK_PREVIEW_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FunctionunlockPreviewDesc, EOT_CONST_FUNCTIONUNLOCK_PREVIEW_DESC_ID, NFShmObj)
 
 FunctionunlockPreviewDesc::FunctionunlockPreviewDesc():NFIDescStore()
 {

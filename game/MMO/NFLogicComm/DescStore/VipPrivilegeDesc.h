@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(VipPrivilegeDesc, proto_ff_s::E_VipPrivilege_s, E_VipPrivilege, MAX_VIP_PRIVILEGE_NUM);
-DECLARE_IDCREATE(VipPrivilegeDesc);
+DECLARE_IDCREATE_GLOBAL(VipPrivilegeDesc);
 };

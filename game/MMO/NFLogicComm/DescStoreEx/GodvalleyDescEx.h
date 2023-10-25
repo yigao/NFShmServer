@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(GodvalleyDescEx)
-DECLARE_IDCREATE(GodvalleyDescEx)
+DECLARE_IDCREATE_GLOBAL(GodvalleyDescEx)
 };

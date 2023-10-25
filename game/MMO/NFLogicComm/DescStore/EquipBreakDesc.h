@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipBreakDesc, proto_ff_s::E_EquipBreak_s, E_EquipBreak, MAX_EQUIP_BREAK_NUM);
-DECLARE_IDCREATE(EquipBreakDesc);
+DECLARE_IDCREATE_GLOBAL(EquipBreakDesc);
 };

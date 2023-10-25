@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodevilPrefixnameDesc, proto_ff_s::E_GodevilPrefixname_s, E_GodevilPrefixname, MAX_GODEVIL_PREFIXNAME_NUM);
-DECLARE_IDCREATE(GodevilPrefixnameDesc);
+DECLARE_IDCREATE_GLOBAL(GodevilPrefixnameDesc);
 };

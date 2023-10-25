@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(ChatDescEx)
-DECLARE_IDCREATE(ChatDescEx)
+DECLARE_IDCREATE_GLOBAL(ChatDescEx)
 };

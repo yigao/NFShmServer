@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GmcommandGmcommandDesc, proto_ff_s::E_GmcommandGmcommand_s, E_GmcommandGmcommand, MAX_GMCOMMAND_GMCOMMAND_NUM);
-DECLARE_IDCREATE(GmcommandGmcommandDesc);
+DECLARE_IDCREATE_GLOBAL(GmcommandGmcommandDesc);
 };

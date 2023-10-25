@@ -1,7 +1,7 @@
 #include "CloudpeakExpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(CloudpeakExpDesc, EOT_CONST_CLOUDPEAK_EXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(CloudpeakExpDesc, EOT_CONST_CLOUDPEAK_EXP_DESC_ID, NFShmObj)
 
 CloudpeakExpDesc::CloudpeakExpDesc():NFIDescStore()
 {

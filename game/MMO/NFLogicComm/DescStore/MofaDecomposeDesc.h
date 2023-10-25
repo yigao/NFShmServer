@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MofaDecomposeDesc, proto_ff_s::E_MofaDecompose_s, E_MofaDecompose, MAX_MOFA_DECOMPOSE_NUM);
-DECLARE_IDCREATE(MofaDecomposeDesc);
+DECLARE_IDCREATE_GLOBAL(MofaDecomposeDesc);
 };

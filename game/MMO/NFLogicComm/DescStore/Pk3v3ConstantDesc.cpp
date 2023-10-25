@@ -1,7 +1,7 @@
 #include "Pk3v3ConstantDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(Pk3v3ConstantDesc, EOT_CONST_PK3V3_CONSTANT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(Pk3v3ConstantDesc, EOT_CONST_PK3V3_CONSTANT_DESC_ID, NFShmObj)
 
 Pk3v3ConstantDesc::Pk3v3ConstantDesc():NFIDescStore()
 {

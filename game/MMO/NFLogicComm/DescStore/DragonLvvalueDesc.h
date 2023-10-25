@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(DragonLvvalueDesc, proto_ff_s::E_DragonLvvalue_s, E_DragonLvvalue, MAX_DRAGON_LVVALUE_NUM);
-DECLARE_IDCREATE(DragonLvvalueDesc);
+DECLARE_IDCREATE_GLOBAL(DragonLvvalueDesc);
 };

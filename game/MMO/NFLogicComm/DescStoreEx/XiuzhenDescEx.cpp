@@ -1,6 +1,6 @@
 #include "XiuzhenDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenDescEx, EOT_CONST_XIUZHEN_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenDescEx, EOT_CONST_XIUZHEN_DESC_EX_ID, NFShmObj)
 
 XiuzhenDescEx::XiuzhenDescEx():NFIDescStoreEx()
 {

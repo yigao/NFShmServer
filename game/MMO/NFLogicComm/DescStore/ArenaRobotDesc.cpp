@@ -1,7 +1,7 @@
 #include "ArenaRobotDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ArenaRobotDesc, EOT_CONST_ARENA_ROBOT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ArenaRobotDesc, EOT_CONST_ARENA_ROBOT_DESC_ID, NFShmObj)
 
 ArenaRobotDesc::ArenaRobotDesc():NFIDescStore()
 {

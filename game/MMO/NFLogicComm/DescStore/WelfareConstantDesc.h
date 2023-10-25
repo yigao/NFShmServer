@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareConstantDesc, proto_ff_s::E_WelfareConstant_s, E_WelfareConstant, MAX_WELFARE_CONSTANT_NUM);
-DECLARE_IDCREATE(WelfareConstantDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareConstantDesc);
 };

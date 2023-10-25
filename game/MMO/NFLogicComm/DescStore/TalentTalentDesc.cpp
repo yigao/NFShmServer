@@ -1,7 +1,7 @@
 #include "TalentTalentDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(TalentTalentDesc, EOT_CONST_TALENT_TALENT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TalentTalentDesc, EOT_CONST_TALENT_TALENT_DESC_ID, NFShmObj)
 
 TalentTalentDesc::TalentTalentDesc():NFIDescStore()
 {

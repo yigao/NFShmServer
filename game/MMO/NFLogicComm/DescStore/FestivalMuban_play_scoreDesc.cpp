@@ -1,7 +1,7 @@
 #include "FestivalMuban_play_scoreDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(FestivalMuban_play_scoreDesc, EOT_CONST_FESTIVAL_MUBAN_PLAY_SCORE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_play_scoreDesc, EOT_CONST_FESTIVAL_MUBAN_PLAY_SCORE_DESC_ID, NFShmObj)
 
 FestivalMuban_play_scoreDesc::FestivalMuban_play_scoreDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "MountHuakun_advanceDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(MountHuakun_advanceDesc, EOT_CONST_MOUNT_HUAKUN_ADVANCE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountHuakun_advanceDesc, EOT_CONST_MOUNT_HUAKUN_ADVANCE_DESC_ID, NFShmObj)
 
 MountHuakun_advanceDesc::MountHuakun_advanceDesc():NFIDescStore()
 {

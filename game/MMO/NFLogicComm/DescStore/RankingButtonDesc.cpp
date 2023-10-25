@@ -1,7 +1,7 @@
 #include "RankingButtonDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RankingButtonDesc, EOT_CONST_RANKING_BUTTON_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RankingButtonDesc, EOT_CONST_RANKING_BUTTON_DESC_ID, NFShmObj)
 
 RankingButtonDesc::RankingButtonDesc():NFIDescStore()
 {

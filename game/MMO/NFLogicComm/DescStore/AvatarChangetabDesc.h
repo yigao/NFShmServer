@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AvatarChangetabDesc, proto_ff_s::E_AvatarChangetab_s, E_AvatarChangetab, MAX_AVATAR_CHANGETAB_NUM);
-DECLARE_IDCREATE(AvatarChangetabDesc);
+DECLARE_IDCREATE_GLOBAL(AvatarChangetabDesc);
 };

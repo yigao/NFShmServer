@@ -1,6 +1,6 @@
 #include "ButtonDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ButtonDescEx, EOT_CONST_BUTTON_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ButtonDescEx, EOT_CONST_BUTTON_DESC_EX_ID, NFShmObj)
 
 ButtonDescEx::ButtonDescEx():NFIDescStoreEx()
 {

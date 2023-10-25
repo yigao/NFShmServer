@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(Pk3v3LevelDesc, proto_ff_s::E_Pk3v3Level_s, E_Pk3v3Level, MAX_PK3V3_LEVEL_NUM);
-DECLARE_IDCREATE(Pk3v3LevelDesc);
+DECLARE_IDCREATE_GLOBAL(Pk3v3LevelDesc);
 };

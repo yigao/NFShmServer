@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ShentiRemanieDesc, proto_ff_s::E_ShentiRemanie_s, E_ShentiRemanie, MAX_SHENTI_REMANIE_NUM);
-DECLARE_IDCREATE(ShentiRemanieDesc);
+DECLARE_IDCREATE_GLOBAL(ShentiRemanieDesc);
 };

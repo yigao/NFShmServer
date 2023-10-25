@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(BattlepassDescEx)
-DECLARE_IDCREATE(BattlepassDescEx)
+DECLARE_IDCREATE_GLOBAL(BattlepassDescEx)
 };

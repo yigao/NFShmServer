@@ -1,7 +1,7 @@
 #include "DupSweepmonsternumDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DupSweepmonsternumDesc, EOT_CONST_DUP_SWEEPMONSTERNUM_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DupSweepmonsternumDesc, EOT_CONST_DUP_SWEEPMONSTERNUM_DESC_ID, NFShmObj)
 
 DupSweepmonsternumDesc::DupSweepmonsternumDesc():NFIDescStore()
 {

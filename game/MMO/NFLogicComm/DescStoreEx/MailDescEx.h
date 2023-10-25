@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(MailDescEx)
-DECLARE_IDCREATE(MailDescEx)
+DECLARE_IDCREATE_GLOBAL(MailDescEx)
 };

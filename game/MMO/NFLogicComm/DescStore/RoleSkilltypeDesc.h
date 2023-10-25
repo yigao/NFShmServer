@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RoleSkilltypeDesc, proto_ff_s::E_RoleSkilltype_s, E_RoleSkilltype, MAX_ROLE_SKILLTYPE_NUM);
-DECLARE_IDCREATE(RoleSkilltypeDesc);
+DECLARE_IDCREATE_GLOBAL(RoleSkilltypeDesc);
 };

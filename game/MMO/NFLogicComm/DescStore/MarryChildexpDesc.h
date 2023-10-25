@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarryChildexpDesc, proto_ff_s::E_MarryChildexp_s, E_MarryChildexp, MAX_MARRY_CHILDEXP_NUM);
-DECLARE_IDCREATE(MarryChildexpDesc);
+DECLARE_IDCREATE_GLOBAL(MarryChildexpDesc);
 };

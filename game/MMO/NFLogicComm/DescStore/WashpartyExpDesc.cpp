@@ -1,7 +1,7 @@
 #include "WashpartyExpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(WashpartyExpDesc, EOT_CONST_WASHPARTY_EXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WashpartyExpDesc, EOT_CONST_WASHPARTY_EXP_DESC_ID, NFShmObj)
 
 WashpartyExpDesc::WashpartyExpDesc():NFIDescStore()
 {

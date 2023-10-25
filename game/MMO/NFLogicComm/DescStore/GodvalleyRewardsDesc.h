@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GodvalleyRewardsDesc, proto_ff_s::E_GodvalleyRewards_s, E_GodvalleyRewards, MAX_GODVALLEY_REWARDS_NUM);
-DECLARE_IDCREATE(GodvalleyRewardsDesc);
+DECLARE_IDCREATE_GLOBAL(GodvalleyRewardsDesc);
 };

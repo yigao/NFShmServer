@@ -1,7 +1,7 @@
 #include "ConflateSubtypeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConflateSubtypeDesc, EOT_CONST_CONFLATE_SUBTYPE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConflateSubtypeDesc, EOT_CONST_CONFLATE_SUBTYPE_DESC_ID, NFShmObj)
 
 ConflateSubtypeDesc::ConflateSubtypeDesc():NFIDescStore()
 {

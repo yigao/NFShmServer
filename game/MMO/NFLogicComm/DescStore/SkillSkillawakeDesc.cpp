@@ -1,7 +1,7 @@
 #include "SkillSkillawakeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(SkillSkillawakeDesc, EOT_CONST_SKILL_SKILLAWAKE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SkillSkillawakeDesc, EOT_CONST_SKILL_SKILLAWAKE_DESC_ID, NFShmObj)
 
 SkillSkillawakeDesc::SkillSkillawakeDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MofaLvattDesc, proto_ff_s::E_MofaLvatt_s, E_MofaLvatt, MAX_MOFA_LVATT_NUM);
-DECLARE_IDCREATE(MofaLvattDesc);
+DECLARE_IDCREATE_GLOBAL(MofaLvattDesc);
 };

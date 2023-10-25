@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ItemItemDesc, proto_ff_s::E_ItemItem_s, E_ItemItem, MAX_ITEM_ITEM_NUM);
-DECLARE_IDCREATE(ItemItemDesc);
+DECLARE_IDCREATE_GLOBAL(ItemItemDesc);
 };

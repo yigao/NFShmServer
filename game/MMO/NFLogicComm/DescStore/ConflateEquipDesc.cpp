@@ -1,7 +1,7 @@
 #include "ConflateEquipDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConflateEquipDesc, EOT_CONST_CONFLATE_EQUIP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConflateEquipDesc, EOT_CONST_CONFLATE_EQUIP_DESC_ID, NFShmObj)
 
 ConflateEquipDesc::ConflateEquipDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "ShenequipLvupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ShenequipLvupDesc, EOT_CONST_SHENEQUIP_LVUP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShenequipLvupDesc, EOT_CONST_SHENEQUIP_LVUP_DESC_ID, NFShmObj)
 
 ShenequipLvupDesc::ShenequipLvupDesc():NFIDescStore()
 {

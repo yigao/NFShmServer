@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(SkillDescEx)
-DECLARE_IDCREATE(SkillDescEx)
+DECLARE_IDCREATE_GLOBAL(SkillDescEx)
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountValueDesc, proto_ff_s::E_MountValue_s, E_MountValue, MAX_MOUNT_VALUE_NUM);
-DECLARE_IDCREATE(MountValueDesc);
+DECLARE_IDCREATE_GLOBAL(MountValueDesc);
 };

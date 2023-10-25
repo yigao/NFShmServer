@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MapMapDesc, proto_ff_s::E_MapMap_s, E_MapMap, MAX_MAP_MAP_NUM);
-DECLARE_IDCREATE(MapMapDesc);
+DECLARE_IDCREATE_GLOBAL(MapMapDesc);
 };

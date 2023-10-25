@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MarryBanquetDesc, proto_ff_s::E_MarryBanquet_s, E_MarryBanquet, MAX_MARRY_BANQUET_NUM);
-DECLARE_IDCREATE(MarryBanquetDesc);
+DECLARE_IDCREATE_GLOBAL(MarryBanquetDesc);
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AncientgodEquipvalueDesc, proto_ff_s::E_AncientgodEquipvalue_s, E_AncientgodEquipvalue, MAX_ANCIENTGOD_EQUIPVALUE_NUM);
-DECLARE_IDCREATE(AncientgodEquipvalueDesc);
+DECLARE_IDCREATE_GLOBAL(AncientgodEquipvalueDesc);
 };

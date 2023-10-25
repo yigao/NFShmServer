@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenGftypesDesc, proto_ff_s::E_XiuzhenGftypes_s, E_XiuzhenGftypes, MAX_XIUZHEN_GFTYPES_NUM);
-DECLARE_IDCREATE(XiuzhenGftypesDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenGftypesDesc);
 };

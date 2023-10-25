@@ -1,7 +1,7 @@
 #include "BackBackDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(BackBackDesc, EOT_CONST_BACK_BACK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BackBackDesc, EOT_CONST_BACK_BACK_DESC_ID, NFShmObj)
 
 BackBackDesc::BackBackDesc():NFIDescStore()
 {

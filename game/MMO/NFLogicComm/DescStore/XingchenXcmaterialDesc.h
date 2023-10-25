@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XingchenXcmaterialDesc, proto_ff_s::E_XingchenXcmaterial_s, E_XingchenXcmaterial, MAX_XINGCHEN_XCMATERIAL_NUM);
-DECLARE_IDCREATE(XingchenXcmaterialDesc);
+DECLARE_IDCREATE_GLOBAL(XingchenXcmaterialDesc);
 };

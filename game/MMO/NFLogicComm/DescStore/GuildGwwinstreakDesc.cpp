@@ -1,7 +1,7 @@
 #include "GuildGwwinstreakDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildGwwinstreakDesc, EOT_CONST_GUILD_GWWINSTREAK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildGwwinstreakDesc, EOT_CONST_GUILD_GWWINSTREAK_DESC_ID, NFShmObj)
 
 GuildGwwinstreakDesc::GuildGwwinstreakDesc():NFIDescStore()
 {

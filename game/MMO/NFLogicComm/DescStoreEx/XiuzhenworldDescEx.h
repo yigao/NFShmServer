@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(XiuzhenworldDescEx)
-DECLARE_IDCREATE(XiuzhenworldDescEx)
+DECLARE_IDCREATE_GLOBAL(XiuzhenworldDescEx)
 };

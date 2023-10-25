@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MapItemdropDesc, proto_ff_s::E_MapItemdrop_s, E_MapItemdrop, MAX_MAP_ITEMDROP_NUM);
-DECLARE_IDCREATE(MapItemdropDesc);
+DECLARE_IDCREATE_GLOBAL(MapItemdropDesc);
 };

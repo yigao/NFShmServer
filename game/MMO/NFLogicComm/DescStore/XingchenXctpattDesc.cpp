@@ -1,7 +1,7 @@
 #include "XingchenXctpattDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XingchenXctpattDesc, EOT_CONST_XINGCHEN_XCTPATT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXctpattDesc, EOT_CONST_XINGCHEN_XCTPATT_DESC_ID, NFShmObj)
 
 XingchenXctpattDesc::XingchenXctpattDesc():NFIDescStore()
 {

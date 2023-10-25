@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(HeadportraitHeadDesc, proto_ff_s::E_HeadportraitHead_s, E_HeadportraitHead, MAX_HEADPORTRAIT_HEAD_NUM);
-DECLARE_IDCREATE(HeadportraitHeadDesc);
+DECLARE_IDCREATE_GLOBAL(HeadportraitHeadDesc);
 };

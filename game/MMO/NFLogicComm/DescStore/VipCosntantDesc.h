@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(VipCosntantDesc, proto_ff_s::E_VipCosntant_s, E_VipCosntant, MAX_VIP_COSNTANT_NUM);
-DECLARE_IDCREATE(VipCosntantDesc);
+DECLARE_IDCREATE_GLOBAL(VipCosntantDesc);
 };

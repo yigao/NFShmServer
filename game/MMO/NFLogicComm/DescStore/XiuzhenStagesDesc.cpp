@@ -1,7 +1,7 @@
 #include "XiuzhenStagesDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenStagesDesc, EOT_CONST_XIUZHEN_STAGES_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenStagesDesc, EOT_CONST_XIUZHEN_STAGES_DESC_ID, NFShmObj)
 
 XiuzhenStagesDesc::XiuzhenStagesDesc():NFIDescStore()
 {

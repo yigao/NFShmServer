@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PersonalshopShopsDesc, proto_ff_s::E_PersonalshopShops_s, E_PersonalshopShops, MAX_PERSONALSHOP_SHOPS_NUM);
-DECLARE_IDCREATE(PersonalshopShopsDesc);
+DECLARE_IDCREATE_GLOBAL(PersonalshopShopsDesc);
 };

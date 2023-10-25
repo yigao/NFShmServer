@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(JinglianGmDesc, proto_ff_s::E_JinglianGm_s, E_JinglianGm, MAX_JINGLIAN_GM_NUM);
-DECLARE_IDCREATE(JinglianGmDesc);
+DECLARE_IDCREATE_GLOBAL(JinglianGmDesc);
 };

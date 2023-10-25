@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MallMalltype_tabDesc, proto_ff_s::E_MallMalltype_tab_s, E_MallMalltype_tab, MAX_MALL_MALLTYPE_TAB_NUM);
-DECLARE_IDCREATE(MallMalltype_tabDesc);
+DECLARE_IDCREATE_GLOBAL(MallMalltype_tabDesc);
 };

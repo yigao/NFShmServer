@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(MeditationDescEx)
-DECLARE_IDCREATE(MeditationDescEx)
+DECLARE_IDCREATE_GLOBAL(MeditationDescEx)
 };

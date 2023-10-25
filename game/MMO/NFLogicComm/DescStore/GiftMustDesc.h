@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GiftMustDesc, proto_ff_s::E_GiftMust_s, E_GiftMust, MAX_GIFT_MUST_NUM);
-DECLARE_IDCREATE(GiftMustDesc);
+DECLARE_IDCREATE_GLOBAL(GiftMustDesc);
 };

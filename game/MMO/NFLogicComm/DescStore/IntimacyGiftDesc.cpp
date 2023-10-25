@@ -1,7 +1,7 @@
 #include "IntimacyGiftDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(IntimacyGiftDesc, EOT_CONST_INTIMACY_GIFT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(IntimacyGiftDesc, EOT_CONST_INTIMACY_GIFT_DESC_ID, NFShmObj)
 
 IntimacyGiftDesc::IntimacyGiftDesc():NFIDescStore()
 {

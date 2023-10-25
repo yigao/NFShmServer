@@ -127,5 +127,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(AchievementDescEx)
-DECLARE_IDCREATE(AchievementDescEx)
+DECLARE_IDCREATE_GLOBAL(AchievementDescEx)
 };

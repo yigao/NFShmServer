@@ -1,7 +1,7 @@
 #include "ArenaRankawardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ArenaRankawardDesc, EOT_CONST_ARENA_RANKAWARD_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ArenaRankawardDesc, EOT_CONST_ARENA_RANKAWARD_DESC_ID, NFShmObj)
 
 ArenaRankawardDesc::ArenaRankawardDesc():NFIDescStore()
 {

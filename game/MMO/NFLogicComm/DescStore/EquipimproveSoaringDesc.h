@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipimproveSoaringDesc, proto_ff_s::E_EquipimproveSoaring_s, E_EquipimproveSoaring, MAX_EQUIPIMPROVE_SOARING_NUM);
-DECLARE_IDCREATE(EquipimproveSoaringDesc);
+DECLARE_IDCREATE_GLOBAL(EquipimproveSoaringDesc);
 };

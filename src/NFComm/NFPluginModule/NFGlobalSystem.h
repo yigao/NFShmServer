@@ -103,7 +103,10 @@ public:
 
     void SetGlobalPluginManager(NFIPluginManager *pPluginManager)
     {
-        m_gGlobalPluginManager = pPluginManager;
+        if (m_gGlobalPluginManager == NULL)
+        {
+            m_gGlobalPluginManager = pPluginManager;
+        }
     }
 
     void AddPluginManager(NFIPluginManager *pPluginManager)

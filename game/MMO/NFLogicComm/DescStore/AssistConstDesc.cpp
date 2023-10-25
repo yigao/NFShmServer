@@ -1,7 +1,7 @@
 #include "AssistConstDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AssistConstDesc, EOT_CONST_ASSIST_CONST_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AssistConstDesc, EOT_CONST_ASSIST_CONST_DESC_ID, NFShmObj)
 
 AssistConstDesc::AssistConstDesc():NFIDescStore()
 {

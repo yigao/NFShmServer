@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(PetStoveDesc, proto_ff_s::E_PetStove_s, E_PetStove, MAX_PET_STOVE_NUM);
-DECLARE_IDCREATE(PetStoveDesc);
+DECLARE_IDCREATE_GLOBAL(PetStoveDesc);
 };

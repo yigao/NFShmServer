@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountFragmentDesc, proto_ff_s::E_MountFragment_s, E_MountFragment, MAX_MOUNT_FRAGMENT_NUM);
-DECLARE_IDCREATE(MountFragmentDesc);
+DECLARE_IDCREATE_GLOBAL(MountFragmentDesc);
 };

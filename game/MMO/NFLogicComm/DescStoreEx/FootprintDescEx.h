@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(FootprintDescEx)
-DECLARE_IDCREATE(FootprintDescEx)
+DECLARE_IDCREATE_GLOBAL(FootprintDescEx)
 };

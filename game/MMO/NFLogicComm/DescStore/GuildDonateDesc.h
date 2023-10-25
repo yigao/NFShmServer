@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(GuildDonateDesc, proto_ff_s::E_GuildDonate_s, E_GuildDonate, MAX_GUILD_DONATE_NUM);
-DECLARE_IDCREATE(GuildDonateDesc);
+DECLARE_IDCREATE_GLOBAL(GuildDonateDesc);
 };

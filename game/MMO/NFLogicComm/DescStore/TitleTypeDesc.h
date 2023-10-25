@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(TitleTypeDesc, proto_ff_s::E_TitleType_s, E_TitleType, MAX_TITLE_TYPE_NUM);
-DECLARE_IDCREATE(TitleTypeDesc);
+DECLARE_IDCREATE_GLOBAL(TitleTypeDesc);
 };

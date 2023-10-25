@@ -1,7 +1,7 @@
 #include "EquipStoveexpDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipStoveexpDesc, EOT_CONST_EQUIP_STOVEEXP_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipStoveexpDesc, EOT_CONST_EQUIP_STOVEEXP_DESC_ID, NFShmObj)
 
 EquipStoveexpDesc::EquipStoveexpDesc():NFIDescStore()
 {

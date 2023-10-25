@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountBaby_eggDesc, proto_ff_s::E_MountBaby_egg_s, E_MountBaby_egg, MAX_MOUNT_BABY_EGG_NUM);
-DECLARE_IDCREATE(MountBaby_eggDesc);
+DECLARE_IDCREATE_GLOBAL(MountBaby_eggDesc);
 };

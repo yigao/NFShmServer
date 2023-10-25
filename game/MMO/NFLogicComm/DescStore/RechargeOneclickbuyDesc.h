@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RechargeOneclickbuyDesc, proto_ff_s::E_RechargeOneclickbuy_s, E_RechargeOneclickbuy, MAX_RECHARGE_ONECLICKBUY_NUM);
-DECLARE_IDCREATE(RechargeOneclickbuyDesc);
+DECLARE_IDCREATE_GLOBAL(RechargeOneclickbuyDesc);
 };

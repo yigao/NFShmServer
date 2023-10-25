@@ -1,6 +1,6 @@
 #include "AchievementDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AchievementDescEx, EOT_CONST_ACHIEVEMENT_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AchievementDescEx, EOT_CONST_ACHIEVEMENT_DESC_EX_ID, NFShmObj)
 
 AchievementDescEx::AchievementDescEx():NFIDescStoreEx()
 {

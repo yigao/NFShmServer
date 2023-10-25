@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(XiuzhenroadTaskDesc, proto_ff_s::E_XiuzhenroadTask_s, E_XiuzhenroadTask, MAX_XIUZHENROAD_TASK_NUM);
-DECLARE_IDCREATE(XiuzhenroadTaskDesc);
+DECLARE_IDCREATE_GLOBAL(XiuzhenroadTaskDesc);
 };

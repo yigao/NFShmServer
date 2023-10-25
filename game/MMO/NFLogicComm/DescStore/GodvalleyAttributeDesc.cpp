@@ -1,7 +1,7 @@
 #include "GodvalleyAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GodvalleyAttributeDesc, EOT_CONST_GODVALLEY_ATTRIBUTE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodvalleyAttributeDesc, EOT_CONST_GODVALLEY_ATTRIBUTE_DESC_ID, NFShmObj)
 
 GodvalleyAttributeDesc::GodvalleyAttributeDesc():NFIDescStore()
 {

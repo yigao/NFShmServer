@@ -1,6 +1,6 @@
 #include "QypeakDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(QypeakDescEx, EOT_CONST_QYPEAK_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(QypeakDescEx, EOT_CONST_QYPEAK_DESC_EX_ID, NFShmObj)
 
 QypeakDescEx::QypeakDescEx():NFIDescStoreEx()
 {

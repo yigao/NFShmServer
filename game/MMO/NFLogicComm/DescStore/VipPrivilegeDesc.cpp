@@ -1,7 +1,7 @@
 #include "VipPrivilegeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(VipPrivilegeDesc, EOT_CONST_VIP_PRIVILEGE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(VipPrivilegeDesc, EOT_CONST_VIP_PRIVILEGE_DESC_ID, NFShmObj)
 
 VipPrivilegeDesc::VipPrivilegeDesc():NFIDescStore()
 {

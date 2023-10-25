@@ -1,6 +1,6 @@
 #include "ConstantDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConstantDescEx, EOT_CONST_CONSTANT_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConstantDescEx, EOT_CONST_CONSTANT_DESC_EX_ID, NFShmObj)
 
 ConstantDescEx::ConstantDescEx():NFIDescStoreEx()
 {

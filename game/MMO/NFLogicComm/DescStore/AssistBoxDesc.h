@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AssistBoxDesc, proto_ff_s::E_AssistBox_s, E_AssistBox, MAX_ASSIST_BOX_NUM);
-DECLARE_IDCREATE(AssistBoxDesc);
+DECLARE_IDCREATE_GLOBAL(AssistBoxDesc);
 };

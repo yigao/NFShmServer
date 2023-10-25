@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(EquipStoveexpDesc, proto_ff_s::E_EquipStoveexp_s, E_EquipStoveexp, MAX_EQUIP_STOVEEXP_NUM);
-DECLARE_IDCREATE(EquipStoveexpDesc);
+DECLARE_IDCREATE_GLOBAL(EquipStoveexpDesc);
 };

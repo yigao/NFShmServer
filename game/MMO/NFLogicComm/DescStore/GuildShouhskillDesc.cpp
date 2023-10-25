@@ -1,7 +1,7 @@
 #include "GuildShouhskillDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GuildShouhskillDesc, EOT_CONST_GUILD_SHOUHSKILL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildShouhskillDesc, EOT_CONST_GUILD_SHOUHSKILL_DESC_ID, NFShmObj)
 
 GuildShouhskillDesc::GuildShouhskillDesc():NFIDescStore()
 {

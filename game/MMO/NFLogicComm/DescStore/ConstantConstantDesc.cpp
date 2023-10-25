@@ -1,7 +1,7 @@
 #include "ConstantConstantDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(ConstantConstantDesc, EOT_CONST_CONSTANT_CONSTANT_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConstantConstantDesc, EOT_CONST_CONSTANT_CONSTANT_DESC_ID, NFShmObj)
 
 ConstantConstantDesc::ConstantConstantDesc():NFIDescStore()
 {

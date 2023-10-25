@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(MountAdvanceDesc, proto_ff_s::E_MountAdvance_s, E_MountAdvance, MAX_MOUNT_ADVANCE_NUM);
-DECLARE_IDCREATE(MountAdvanceDesc);
+DECLARE_IDCREATE_GLOBAL(MountAdvanceDesc);
 };

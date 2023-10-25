@@ -1,7 +1,7 @@
 #include "EquipimproveSealDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(EquipimproveSealDesc, EOT_CONST_EQUIPIMPROVE_SEAL_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipimproveSealDesc, EOT_CONST_EQUIPIMPROVE_SEAL_DESC_ID, NFShmObj)
 
 EquipimproveSealDesc::EquipimproveSealDesc():NFIDescStore()
 {

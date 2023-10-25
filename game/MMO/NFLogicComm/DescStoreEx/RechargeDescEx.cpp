@@ -1,6 +1,6 @@
 #include "RechargeDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(RechargeDescEx, EOT_CONST_RECHARGE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RechargeDescEx, EOT_CONST_RECHARGE_DESC_EX_ID, NFShmObj)
 
 RechargeDescEx::RechargeDescEx():NFIDescStoreEx()
 {

@@ -1,6 +1,6 @@
 #include "BattlepassDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(BattlepassDescEx, EOT_CONST_BATTLEPASS_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BattlepassDescEx, EOT_CONST_BATTLEPASS_DESC_EX_ID, NFShmObj)
 
 BattlepassDescEx::BattlepassDescEx():NFIDescStoreEx()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(CollectAttributetpyeDesc, proto_ff_s::E_CollectAttributetpye_s, E_CollectAttributetpye, MAX_COLLECT_ATTRIBUTETPYE_NUM);
-DECLARE_IDCREATE(CollectAttributetpyeDesc);
+DECLARE_IDCREATE_GLOBAL(CollectAttributetpyeDesc);
 };

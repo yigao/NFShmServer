@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(WelfareWishDesc, proto_ff_s::E_WelfareWish_s, E_WelfareWish, MAX_WELFARE_WISH_NUM);
-DECLARE_IDCREATE(WelfareWishDesc);
+DECLARE_IDCREATE_GLOBAL(WelfareWishDesc);
 };

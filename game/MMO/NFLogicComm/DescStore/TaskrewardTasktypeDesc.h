@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(TaskrewardTasktypeDesc, proto_ff_s::E_TaskrewardTasktype_s, E_TaskrewardTasktype, MAX_TASKREWARD_TASKTYPE_NUM);
-DECLARE_IDCREATE(TaskrewardTasktypeDesc);
+DECLARE_IDCREATE_GLOBAL(TaskrewardTasktypeDesc);
 };

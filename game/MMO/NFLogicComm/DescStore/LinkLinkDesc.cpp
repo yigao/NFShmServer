@@ -1,7 +1,7 @@
 #include "LinkLinkDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(LinkLinkDesc, EOT_CONST_LINK_LINK_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(LinkLinkDesc, EOT_CONST_LINK_LINK_DESC_ID, NFShmObj)
 
 LinkLinkDesc::LinkLinkDesc():NFIDescStore()
 {

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(ConditionConditionDesc, proto_ff_s::E_ConditionCondition_s, E_ConditionCondition, MAX_CONDITION_CONDITION_NUM);
-DECLARE_IDCREATE(ConditionConditionDesc);
+DECLARE_IDCREATE_GLOBAL(ConditionConditionDesc);
 };

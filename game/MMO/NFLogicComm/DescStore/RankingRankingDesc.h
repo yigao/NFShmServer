@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(RankingRankingDesc, proto_ff_s::E_RankingRanking_s, E_RankingRanking, MAX_RANKING_RANKING_NUM);
-DECLARE_IDCREATE(RankingRankingDesc);
+DECLARE_IDCREATE_GLOBAL(RankingRankingDesc);
 };

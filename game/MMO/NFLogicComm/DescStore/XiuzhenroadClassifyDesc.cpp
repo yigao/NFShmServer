@@ -3,7 +3,7 @@
 #include "RechargeRechargeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenroadClassifyDesc, EOT_CONST_XIUZHENROAD_CLASSIFY_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenroadClassifyDesc, EOT_CONST_XIUZHENROAD_CLASSIFY_DESC_ID, NFShmObj)
 
 XiuzhenroadClassifyDesc::XiuzhenroadClassifyDesc():NFIDescStore()
 {
@@ -96,8 +96,8 @@ int XiuzhenroadClassifyDesc::CheckWhenAllDataLoaded()
 	for(int i = 0; i < (int)m_astDesc.size(); i++)
 	{
 		auto pDesc = &m_astDesc[i];
-		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeid <= 0 || RechargeRechargeDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_rechargeid)), result, "can't find the rechargeid:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeid);
-		CHECK_EXPR_MSG_RESULT((pDesc->m_giftid <= 0 || BoxBoxDesc::Instance(m_pObjPluginManager)->GetDesc(pDesc->m_giftid)), result, "can't find the giftid:{} in the  excel:box sheet:box", pDesc->m_giftid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeid <= 0 || RechargeRechargeDesc::Instance()->GetDesc(pDesc->m_rechargeid)), result, "can't find the rechargeid:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeid);
+		CHECK_EXPR_MSG_RESULT((pDesc->m_giftid <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_giftid)), result, "can't find the giftid:{} in the  excel:box sheet:box", pDesc->m_giftid);
 	}
 	return result;
 }

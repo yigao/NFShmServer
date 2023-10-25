@@ -1,6 +1,6 @@
 #include "AttributeDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(AttributeDescEx, EOT_CONST_ATTRIBUTE_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AttributeDescEx, EOT_CONST_ATTRIBUTE_DESC_EX_ID, NFShmObj)
 
 AttributeDescEx::AttributeDescEx():NFIDescStoreEx()
 {

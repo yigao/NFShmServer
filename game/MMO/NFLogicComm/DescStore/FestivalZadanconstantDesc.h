@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FestivalZadanconstantDesc, proto_ff_s::E_FestivalZadanconstant_s, E_FestivalZadanconstant, MAX_FESTIVAL_ZADANCONSTANT_NUM);
-DECLARE_IDCREATE(FestivalZadanconstantDesc);
+DECLARE_IDCREATE_GLOBAL(FestivalZadanconstantDesc);
 };

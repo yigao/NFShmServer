@@ -1,6 +1,6 @@
 #include "PersonalshopDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(PersonalshopDescEx, EOT_CONST_PERSONALSHOP_DESC_EX_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PersonalshopDescEx, EOT_CONST_PERSONALSHOP_DESC_EX_ID, NFShmObj)
 
 PersonalshopDescEx::PersonalshopDescEx():NFIDescStoreEx()
 {

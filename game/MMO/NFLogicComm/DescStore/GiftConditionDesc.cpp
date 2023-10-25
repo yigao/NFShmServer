@@ -1,7 +1,7 @@
 #include "GiftConditionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(GiftConditionDesc, EOT_CONST_GIFT_CONDITION_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GiftConditionDesc, EOT_CONST_GIFT_CONDITION_DESC_ID, NFShmObj)
 
 GiftConditionDesc::GiftConditionDesc():NFIDescStore()
 {

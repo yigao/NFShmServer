@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(AncientgodAdvanceDesc, proto_ff_s::E_AncientgodAdvance_s, E_AncientgodAdvance, MAX_ANCIENTGOD_ADVANCE_NUM);
-DECLARE_IDCREATE(AncientgodAdvanceDesc);
+DECLARE_IDCREATE_GLOBAL(AncientgodAdvanceDesc);
 };

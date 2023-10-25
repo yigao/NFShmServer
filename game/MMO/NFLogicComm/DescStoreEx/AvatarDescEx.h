@@ -16,5 +16,5 @@ public:
 	int ResumeInit();
 private:
 IMPL_RES_DESC_EX(AvatarDescEx)
-DECLARE_IDCREATE(AvatarDescEx)
+DECLARE_IDCREATE_GLOBAL(AvatarDescEx)
 };

@@ -25,5 +25,5 @@ public:
 public:
 private:
 IMPL_RES_HASH_DESC(FunctionunlockFunctionunlockDesc, proto_ff_s::E_FunctionunlockFunctionunlock_s, E_FunctionunlockFunctionunlock, MAX_FUNCTIONUNLOCK_FUNCTIONUNLOCK_NUM);
-DECLARE_IDCREATE(FunctionunlockFunctionunlockDesc);
+DECLARE_IDCREATE_GLOBAL(FunctionunlockFunctionunlockDesc);
 };

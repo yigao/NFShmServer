@@ -1,7 +1,7 @@
 #include "XiuzhenLgtypesDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(XiuzhenLgtypesDesc, EOT_CONST_XIUZHEN_LGTYPES_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenLgtypesDesc, EOT_CONST_XIUZHEN_LGTYPES_DESC_ID, NFShmObj)
 
 XiuzhenLgtypesDesc::XiuzhenLgtypesDesc():NFIDescStore()
 {

@@ -1,7 +1,7 @@
 #include "DragonsoulAwakeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(DragonsoulAwakeDesc, EOT_CONST_DRAGONSOUL_AWAKE_DESC_ID, NFShmObj)
+IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonsoulAwakeDesc, EOT_CONST_DRAGONSOUL_AWAKE_DESC_ID, NFShmObj)
 
 DragonsoulAwakeDesc::DragonsoulAwakeDesc():NFIDescStore()
 {
