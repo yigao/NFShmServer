@@ -8,7 +8,7 @@
 // -------------------------------------------------------------------------
 
 #include "NFTimeUtil.h"
-#include "NFMagicTimeUtil.h"
+#include "NFTimeUtility.h"
 #include "NFTime.h"
 #include "NFSnprintf.h"
 #include <string.h>
@@ -498,7 +498,7 @@ unsigned short MakeShortTime(time_t tTime)
 
 bool IsSameDayByGameResetTime(time_t tCur, time_t tBefore)
 {
-    return NFMagicTimeUtil::IsSameDay(tCur,tBefore);
+    return NFTimeUtility::IsSameDay(tCur, tBefore);
 }
 
 

@@ -27,7 +27,9 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
+public:
+    //获取战力属性
+    int64_t GetFightAttr(uint32_t ANum) { return 0;}
 private:
 DECLARE_IDCREATE(NFBuffPart)
 };

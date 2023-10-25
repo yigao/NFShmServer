@@ -112,8 +112,10 @@ bool NFMMOLogicPlayerPlugin::InitShmObjectRegister()
 
     uint32_t maxOnlinePlayerNum = pConfig->GetMaxOnlinePlayerNum() * 1.2;
 
-    REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
     REGISTER_SINGLETON_SHM_OBJ(NFPlayerMgr);//
+    REGISTER_SHM_OBJ_WITH_HASH(NFPlayer, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(RoleFightAttr, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(RoleAttr, maxOnlinePlayerNum);
 
 
     ////////////////////////////part////////////////////////////

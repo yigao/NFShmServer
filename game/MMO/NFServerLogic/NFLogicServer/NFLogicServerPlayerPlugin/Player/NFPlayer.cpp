@@ -25,7 +25,11 @@
 #include "NFSkillPart.h"
 #include "NFPetPart.h"
 #include "DescStore/AttributeAttributeDesc.h"
-#include "NFComm/NFCore/NFMagicTimeUtil.h"
+#include "NFComm/NFCore/NFTimeUtility.h"
+#include "NFBuffPart.h"
+#include "NFAchievementPart.h"
+#include "NFRankPart.h"
+#include "DescStoreEx/AchievementDescEx.h"
 
 IMPLEMENT_IDCREATE_WITHTYPE(NFPlayer, EOT_LOGIC_PLAYER_ID, NFShmObj)
 
@@ -88,7 +92,11 @@ int NFPlayer::CreateInit()
     m_subpackType = 0;            //分包类型 1 小包，2 大包
     m_subpackFetch = 0;            //是否领取分包奖励 0 未领取，1 已领取
     
-    m_state = 1;
+    m_state = proto_ff::state_init;
+    
+    m_calcfight = false;        //是否需要计算战力
+    m_petFight = 0;             //宠物系统的战斗力(只是缓存在玩家身上)
+    m_calcpetfight = false;     //是否需要计算宠物系统的战斗力
     return 0;
 }
 
@@ -328,6 +336,9 @@ int NFPlayer::Update()
 
 int NFPlayer::SaveDB(proto_ff::RoleDBData &data)
 {
+    data.set_cid(GetCid());
+    data.set_uid(GetUid());
+    data.set_zid(GetZid());
     SetBaseData(data);
     for (uint32_t i = PART_NONE + 1; i < PART_MAX; ++i)
     {
@@ -562,6 +573,27 @@ int NFPlayer::EnterGame()
 
 int NFPlayer::OnPrevLogin()
 {
+    //设置一次状态
+    m_attrCache.clear();
+    m_attrBroadCache.clear();
+    SetState(proto_ff::state_normal);
+    //计算战力
+    CalcFight(false);
+    //计算宠物系统战力
+    CalcPetFight(false);
+    //计算世界等级经验加成
+    CalcWorldLvExpAdd();
+    uint64_t curTime = NFTime::Now().UnixSec();
+    if (m_loginDayTime <= 0 || !NFTimeUtility::CheckSameDay(curTime, m_loginDayTime))
+    {
+        m_loginDayTime = curTime;
+        m_totalLoginDay += 1;
+        MarkDirty();
+    }
+    //设置当前血量
+    int64_t maxhp = GetAttr(proto_ff::A_MAX_HP);
+    if (maxhp <= 0) maxhp = 1;
+    SetAttr(proto_ff::A_CUR_HP, maxhp);
     NotifyPlayerInfo();
     return 0;
 }
@@ -639,7 +671,7 @@ int NFPlayer::LoginSns()
     cgMsg.set_cid(GetCid());
     cgMsg.set_uid(GetUid());
     cgMsg.set_zid(GetZid());
-    GetBaseData()->write_to_pbmsg(*cgMsg.mutable_base());
+    SetBaseData(cgMsg.mutable_base());
     
     proto_ff::STLLoginRsp rspMsg;
     int iRet = GetRpcService<proto_ff::LTS_LOGIN_RPC>(NF_ST_SNS_SERVER, GetSnsId(), cgMsg, rspMsg);
@@ -899,13 +931,13 @@ void NFPlayer::OnAddAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64
         if (GetAttr(proto_ff::A_CUR_HP) <= 0)
         {
             //玩家死亡
-            uint64_t killerCid = 0;
+/*            uint64_t killerCid = 0;
             uint64_t skillId = 0;
             if (nullptr != pSource)
             {
                 killerCid = pSource->killerCid;
                 skillId = pSource->skillId;
-            }
+            }*/
             //
             //OnDead(killerCid, skillId,true, oldVal);
         }
@@ -1069,11 +1101,11 @@ void NFPlayer::OnSetAttr(uint32_t ANum, int64_t oldVal, int64_t attrValue, int64
         if (m_pAttr->GetAttr(proto_ff::A_CUR_HP) <= 0)
         {
             //玩家死亡
-            uint64_t killerCid = 0;
+/*            uint64_t killerCid = 0;
             if (nullptr != pSource)
             {
                 killerCid = pSource->killerCid;
-            }
+            }*/
             //
             //OnDead(killerCid, true, oldVal);
         }
@@ -1485,7 +1517,7 @@ bool NFPlayer::ReadBaseData(const proto_ff::RoleDBData &proto)
     m_dayPrestige = proto.base().day_prestige();
     m_resetPrestige = proto.base().prestige_time();
     uint64_t curtime = NFTime::Now().UnixSec();
-    if (!NFMagicTimeUtil::IsSameDayStd(curtime, m_resetPrestige))
+    if (!NFTimeUtility::IsSameDayStd(curtime, m_resetPrestige))
     {
         m_dayPrestige = 0;
         m_resetPrestige = curtime;
@@ -1520,9 +1552,8 @@ bool NFPlayer::ReadBaseData(const proto_ff::RoleDBData &proto)
     return true;
 }
 
-void NFPlayer::SetBaseData(proto_ff::RoleDBData &proto)
+void NFPlayer::SetBaseData(proto_ff::RoleDBBaseData *protobase)
 {
-    proto_ff::RoleDBBaseData *protobase =  proto.mutable_base();
     if (nullptr != protobase)
     {
         protobase->set_name(m_name.c_str());
@@ -1596,12 +1627,18 @@ void NFPlayer::SetBaseData(proto_ff::RoleDBData &proto)
     }
 }
 
+void NFPlayer::SetBaseData(proto_ff::RoleDBData &proto)
+{
+    proto_ff::RoleDBBaseData *protobase =  proto.mutable_base();
+    SetBaseData(protobase);
+}
+
 void NFPlayer::SetAttrData(proto_ff::RoleDBData &proto)
 {
 
 }
 
-uint8_t NFPlayer::GetState()
+proto_ff::ECState NFPlayer::GetState()
 {
     return m_state;
 }
@@ -1609,4 +1646,88 @@ uint8_t NFPlayer::GetState()
 void NFPlayer::SetState(proto_ff::ECState state)
 {
     m_state = state;
+}
+
+bool NFPlayer::BState(proto_ff::ECState state)
+{
+    return m_state == state;
+}
+
+//计算战力
+void NFPlayer::CalcFight(bool sync)
+{
+    int64_t fight = 0;
+    NFBuffPart* pbuffpart = dynamic_cast<NFBuffPart*>(GetPart(PART_BUFF));
+    NFSkillPart* pskillpart = dynamic_cast<NFSkillPart*>(GetPart(PART_SKILL));
+    MAP_UINT32_INT64 mapattr;
+    m_pFightAttr->GetFightAttr(mapattr);
+    //
+    for (auto &iter : mapattr)
+    {
+        auto pcfg = AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(iter.first);
+        if (nullptr == pcfg || pcfg->m_power <= EPS) continue;
+        int64_t value = iter.second;
+        if (nullptr != pbuffpart) value += pbuffpart->GetFightAttr(iter.first);
+        fight += (int64_t)(pcfg->m_power * value);
+    }
+    if (nullptr != pskillpart) fight += pskillpart->SkillFight();
+    //
+    if (fight != m_pAttr->GetAttr(proto_ff::A_FIGHT))
+    {
+        NFLogDebug(NF_LOG_SYSTEMLOG, GetCid(), "CalcFight....cid:{}, old:{}, new:{}, sync:{} ", Cid(), GetAttr(proto_ff::A_FIGHT), fight, sync);
+        SetAttr(proto_ff::A_FIGHT, fight, nullptr, sync);
+        NFAchievementPart* pAchPart = dynamic_cast<NFAchievementPart*>(GetPart(PART_ACHIEVEMENT));
+        if (pAchPart)
+        {
+            pAchPart->OnCommonFinishNumWithLess(1, fight, XIUZHENROAD_EVENT_FINISH_FIGHT_VALUE);
+        }
+        if (sync)
+        {
+            //同步到中心服
+            proto_ff::CenterRoleProto proto;
+            proto.set_fight(GetAttr(proto_ff::A_FIGHT));
+            SynAttrToSns(proto);
+        }
+    }
+    m_pFightAttr->ClearFightChg();
+    SetCalcFight(false);
+}
+
+//计算宠物系统的战斗力
+void NFPlayer::CalcPetFight(bool sync)
+{
+    SetCalcPetFight(false);
+    int64_t fight = 0;
+    MAP_UINT32_INT64 mapattr;
+    m_pFightAttr->GetAttrGroup(proto_ff::EAttrGroup_Pet, mapattr);
+    for (auto& iter : mapattr)
+    {
+        auto pcfg = AttributeAttributeDesc::Instance(m_pObjPluginManager)->GetDesc(iter.first);
+        if (nullptr == pcfg || pcfg->m_power <= EPS) continue;
+        int64_t value = iter.second;
+        fight += (int64_t)(pcfg->m_power * value);
+    }
+    if (fight != m_petFight)
+    {
+        m_petFight = fight;
+        if (sync)
+        {
+            //同步宠物系统战斗力
+            NFRankPart* pRankPart = dynamic_cast<NFRankPart*>(GetPart(PART_RANK));
+            if (pRankPart)
+            {
+                pRankPart->UpdateRank(RANK_TYPE_PET_FIGHT, m_petFight);
+            }
+        }
+    }
+}
+
+void NFPlayer::CalcWorldLvExpAdd()
+{
+
+}
+
+void NFPlayer::SyncFacade()
+{
+
 }

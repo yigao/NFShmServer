@@ -11,8 +11,90 @@
 
 #include "NFTimeUtil.h"
 
-class NFMagicTimeUtil
+class NFTimeUtility
 {
+public:
+    // 获取时差（秒数）
+    static uint32_t GetGMTSec();
+    
+    // 获取本地时间（经过的秒数）
+    static uint32_t GetLocalTime();
+    
+    // 根据秒数（UTC，GetTime()返回）计算当地天数
+    // 1970年1月1日 返回0
+    // 1970年1月2日 返回1
+    // 1970年1月3日 返回2
+    // ……依此类推
+    static uint32_t GetLocalDay();
+    static uint32_t GetLocalDay(uint64_t unixSec);
+    
+    // 计算当地周数
+    // 1970年1月1日 星期四 返回0
+    // 1970年1月4日 星期日 返回0
+    // 1970年1月5日 星期一 返回1
+    static uint32_t GetLocalWeek();
+    static uint32_t GetLocalWeek(uint64_t unixSec);
+    
+    // 计算当地月份
+    static uint32_t GetLocalMonth(uint64_t unixSec);
+    
+    // 根据当地时间，计算当前是本周的哪一天（星期几）
+    // 返回值  1 - 7(星期一到星期天）
+    static uint32_t GetLocalWeekDay();
+    
+    //根据秒数（UTC，GetTime()）返回是一周的哪一天
+    static uint32_t GetLocalWeekDay(uint64_t unixSec);
+    
+    // 根据当地时间，计算当前是本月的哪一天（几号）
+    // 返回值  1-31
+    static uint32_t GetLocalMonthDay();
+    
+    //判断闰年
+    static bool IsLeapYear(uint32_t year) { return ((0 == year % 4 && 0 != year % 100) || 0 == year % 400); }
+    // 根据当地时间，计算月有多少天
+    // 返回值  1-31
+    static uint32_t GetDaysOfMonth(int year, int month);
+    static uint32_t GetDaysOfMonth();
+    
+    // 返回格式化的本地时间，fmt格式如%Y%m%d%H%M%S等
+    static bool LocalDateFormat(const char* fmt, char* timeStr, size_t len);
+    
+    // 返回本地时间戳，格式如：20150911111926
+    static std::string GetLocalTimeStamp();
+    static std::string GetTimeStamp(uint64_t unixMSec);
+    
+    // 返回本地时间戳，格式如：2015_09_11 11:19:26
+    static std::string GetLocalTimeStampPrint();
+    static std::string GetTimeStampPrint(uint64_t unixMSec);
+    
+    // timestamp格式为：20150911111926
+    static uint64_t LocalTimeStampToUnixSec(const char* timestamp);
+    
+    // format格式如 %d-%d-%d %d:%d:%d
+    static uint64_t LocalTimeStampToUnixSec(const char* format, const char* timestamp);
+    
+    // 检查换天
+    static bool CheckDayChange(uint64_t curUnixSec, uint64_t lastUnixSec, bool* isWeekChange);
+    // 检查是否是同一周
+    static bool CheckSameWeek(uint64_t curUnixSec, uint64_t lastUnixSec);
+    // 检查是否是同一天
+    static bool CheckSameDay(uint64_t curUnixSec, uint64_t lastUnixSec);
+    // 检查是否同一个月
+    static bool CheckSameMonth(uint64_t curUnixSec, uint64_t lastUnixSec);
+    // 检查是否需要每日更新 返回值：true 需要每日更新，false 不需要每日更新
+    static bool CheckDayUpdate(uint64_t curUnixSec, uint64_t lastUnixSec);
+    //检查是否需要每周更新 返回值：true 需要每周更新，false 不需要每周更新
+    static bool CheckWeekUpdate(uint64_t curUnixSec, uint64_t lastUnixSec);
+    //通过当前时间获取每日更新的时间
+    static uint64_t GetDayUpdateTime(uint64_t curUnixSec);
+    //通过当前时间获取每周更新的时间
+    static uint64_t GetWeekUpdateTime(uint64_t curUnixSec);
+    //检查是否需要每周更新 返回值：true 需要每周更新，false 不需要每周更新
+    static bool CheckWeekUpdate(uint64_t curUnixSec, uint64_t lastUnixSec, int32_t nHour);
+    //检查是否需要每日更新 返回值：true 需要每日更新，false 不需要每日更新
+    static bool CheckDayUpdate(uint64_t curUnixSec, uint64_t lastUnixSec, int32_t nHour);
+    //判断当前时间是否落在某时间段范围内
+    static bool BetweenDate(uint32_t startDate, uint32_t endData);
 public:
     static int GetCurDate(unsigned int iCurTime, int &iYear, int &iMonth, int &iMonthDay);
     static int GetCurTime( unsigned int iCurTime, int &week, int &hour, int &minute, int &second );

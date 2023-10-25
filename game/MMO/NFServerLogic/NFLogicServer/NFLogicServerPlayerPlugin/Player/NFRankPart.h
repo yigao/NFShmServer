@@ -16,6 +16,7 @@
 #include "Part/NFPart.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFRankDefine.h"
 
 class NFRankPart : public NFPart
 {
@@ -27,7 +28,9 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
+public:
+    //发送数值到中心服更新排行榜
+    void UpdateRank(enRankType rankType, uint64_t value) { }
 private:
 DECLARE_IDCREATE(NFRankPart)
 };

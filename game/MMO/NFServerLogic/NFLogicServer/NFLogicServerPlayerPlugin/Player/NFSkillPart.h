@@ -30,6 +30,9 @@ public:
 public:
     //生命改变
     void OnHpChange(int64_t oldHp, int64_t curHp, int64_t maxHp);
+    
+    //技能总战力
+    int64_t SkillFight() { return 0; }
 private:
 DECLARE_IDCREATE(NFSkillPart)
 };

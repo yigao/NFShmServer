@@ -10,7 +10,7 @@
 #include "NFShmTimerManager.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFComm/NFCore/NFTime.h"
-#include "NFComm/NFCore/NFMagicTimeUtil.h"
+#include "NFComm/NFCore/NFTimeUtility.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
@@ -615,8 +615,8 @@ bool NFShmTimerManager::AttachTimer(NFShmTimer *timer, int64_t tick, bool isNewT
             int nmonth = 0;
             int iYear = 0, iMonth = 0, iMonthDay = 0;
 
-            NFMagicTimeUtil::GetCurDate((unsigned int) t, iYear, iMonth, iMonthDay);
-            int64_t interval = NFMagicTimeUtil::GetNextMonthDay(iYear, iMonth, iMonthDay, nmonth);
+            NFTimeUtility::GetCurDate((unsigned int) t, iYear, iMonth, iMonthDay);
+            int64_t interval = NFTimeUtility::GetNextMonthDay(iYear, iMonth, iMonthDay, nmonth);
             if (interval > 0)
             {
                 timer->SetInterval(interval);
@@ -709,7 +709,7 @@ bool NFShmTimerManager::SetDayTime(NFShmTimer *stime, int hour, int minutes, int
     time_t t = NFTime::Now().UnixSec();//SKYNET_TIMENOW();
     int nowWeek = 0, nowHour = 0, nowMinute = 0, nowSecond = 0;
 
-    NFMagicTimeUtil::GetCurTime((unsigned int) t, nowWeek, nowHour, nowMinute, nowSecond);
+    NFTimeUtility::GetCurTime((unsigned int) t, nowWeek, nowHour, nowMinute, nowSecond);
 
     diftime = ((int64_t) hour - (int64_t) nowHour) * 3600 * 1000 + ((int64_t) minutes -
                                                                     (int64_t) nowMinute) * 60 * 1000 +
@@ -742,7 +742,7 @@ bool NFShmTimerManager::SetWeekTime(NFShmTimer *stime, int weekDay, int hour, in
     time_t t = NFTime::Now().UnixSec();//SKYNET_TIMENOW();
     int nowWeek = 0, nowHour = 0, nowMinute = 0, nowSecond = 0;
 
-    NFMagicTimeUtil::GetCurTime((unsigned int) t, nowWeek, nowHour, nowMinute, nowSecond);
+    NFTimeUtility::GetCurTime((unsigned int) t, nowWeek, nowHour, nowMinute, nowSecond);
 
     diftime = ((int64_t) weekDay - (int64_t) nowWeek) * 24 * 3600 * 1000 +
               ((int64_t) hour - (int64_t) nowHour) * 3600 * 1000 +
@@ -777,13 +777,13 @@ bool NFShmTimerManager::SetMonthTime(NFShmTimer *stime, int day, int hour, int m
     int nowWeek = 0, nowHour = 0, nowMinute = 0, nowSecond = 0;
     int iYear = 0, iMonth = 0, iMonthDay = 0;
 
-    NFMagicTimeUtil::GetCurDate((unsigned int) t, iYear, iMonth, iMonthDay);
-    NFMagicTimeUtil::GetCurTime((unsigned int) t, nowWeek, nowHour, nowMinute, nowSecond);
+    NFTimeUtility::GetCurDate((unsigned int) t, iYear, iMonth, iMonthDay);
+    NFTimeUtility::GetCurTime((unsigned int) t, nowWeek, nowHour, nowMinute, nowSecond);
 
-    if (day > NFMagicTimeUtil::GetCurMonthDay(iYear, iMonth))
+    if (day > NFTimeUtility::GetCurMonthDay(iYear, iMonth))
     {
         // 如果设定的日期超过了这个月的最大天数，就设定下次有这个月天数的月为执行时间
-        diftime += NFMagicTimeUtil::GetNextMonthDay(iYear, iMonth, day, nmonth);
+        diftime += NFTimeUtility::GetNextMonthDay(iYear, iMonth, day, nmonth);
         diftime += ((int64_t) day - (int64_t) iMonthDay) * 24 * 3600 * 1000 +
                    ((int64_t) hour - (int64_t) nowHour) * 3600 * 1000 +
                    ((int64_t) minutes - (int64_t) nowMinute) * 60 * 1000 +
@@ -797,7 +797,7 @@ bool NFShmTimerManager::SetMonthTime(NFShmTimer *stime, int day, int hour, int m
                   ((int64_t) second - (int64_t) nowSecond) * 1000;
         if (diftime < 0)
         {
-            diftime += NFMagicTimeUtil::GetNextMonthDay(iYear, iMonth, day, nmonth);
+            diftime += NFTimeUtility::GetNextMonthDay(iYear, iMonth, day, nmonth);
         }
     }
 

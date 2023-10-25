@@ -386,9 +386,11 @@ IFightAttr *NFAttrMgr::MakeFightAttrObj(EAttrType type)
     IFightAttr *pattr = nullptr;
     switch (type)
     {
-        case EAttrType::common:pattr = dynamic_cast<IFightAttr *>(ComFightAttr::CreateObj(m_pObjPluginManager));
+        case EAttrType::common:
+            pattr = dynamic_cast<IFightAttr *>(ComFightAttr::CreateObj(m_pObjPluginManager));
             break;
-        case EAttrType::role:pattr = dynamic_cast<IFightAttr *>(RoleFightAttr::CreateObj(m_pObjPluginManager));
+        case EAttrType::role:
+            pattr = dynamic_cast<IFightAttr *>(RoleFightAttr::CreateObj(m_pObjPluginManager));
             break;
         default:break;
     }
@@ -405,9 +407,11 @@ IAttr *NFAttrMgr::MakeAttrObj(EAttrType type)
     IAttr *pattr = nullptr;
     switch (type)
     {
-        case EAttrType::common:pattr = dynamic_cast<IAttr *>(FindModule<NFISharedMemModule>()->CreateObj<ComAttr>());
+        case EAttrType::common:
+            pattr = dynamic_cast<IAttr *>(FindModule<NFISharedMemModule>()->CreateObj<ComAttr>());
             break;
-        case EAttrType::role:pattr = dynamic_cast<IAttr *>(FindModule<NFISharedMemModule>()->CreateObj<RoleAttr>());
+        case EAttrType::role:
+            pattr = dynamic_cast<IAttr *>(FindModule<NFISharedMemModule>()->CreateObj<RoleAttr>());
             break;
         default:break;
     }

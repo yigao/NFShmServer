@@ -142,11 +142,26 @@ public:
     //读取基础数据
     bool ReadBaseData(const proto_ff::RoleDBData &proto);
     void SetBaseData(proto_ff::RoleDBData &proto);
+    void SetBaseData(proto_ff::RoleDBBaseData *protobase);
     void SetAttrData(proto_ff::RoleDBData &proto);
 public:
     //状态
-    uint8_t GetState();
+    bool BState(proto_ff::ECState state);
+    proto_ff::ECState GetState();
     void SetState(proto_ff::ECState state);
+public:
+    //同步外观
+    virtual void SyncFacade();
+    //设置是否需要计算战力
+    virtual void SetCalcFight(bool calc) { m_calcfight = calc; }
+    //计算战力
+    virtual void CalcFight(bool sync);
+    //设置是否需要计算宠物系统的战力
+    virtual void SetCalcPetFight(bool calc) { m_petFight = calc; }
+    //计算宠物系统的战斗力
+    virtual void CalcPetFight(bool sync);
+    //计算世界等级经验加成
+    void CalcWorldLvExpAdd();
 public:
     //////////////////////////////////////////////////////////////////////////
     //增加属性 主要是为了增加虚拟物品相关的属性 costFlag:是否是扣除属性
@@ -436,7 +451,7 @@ private:
     uint64_t m_cid;
     uint64_t m_uid;
     uint32_t m_zid;
-    uint32_t m_state;					//状态
+    proto_ff::ECState m_state;                    //状态
 private:
     /**
      * 玩家场景数据
@@ -447,6 +462,10 @@ private:
     NFPoint3<float> m_lastPos;                //上个地图坐标
     uint64_t m_lastSceneId;             //上个场景ID
     uint64_t m_lastMapId;               //上个地图ID
+public:
+    bool m_calcfight;        //是否需要计算战力
+    int64_t m_petFight;      //宠物系统的战斗力(只是缓存在玩家身上)
+    bool m_calcpetfight;     //是否需要计算宠物系统的战斗力
 private:
     NFShmPtr<IFightAttr> m_pFightAttr;        //战斗属性
     NFShmPtr<IAttr> m_pAttr;                //普通属性
