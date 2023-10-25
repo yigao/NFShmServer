@@ -45,7 +45,7 @@ public:
      * @param mapIds
      * @return
      */
-    int InitScene(const std::set<uint64_t>& mapIds);
+    int InitScene(const std::unordered_set<uint64_t>& mapIds);
 
 public:
     /**

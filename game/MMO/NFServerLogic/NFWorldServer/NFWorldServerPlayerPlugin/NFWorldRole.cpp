@@ -34,6 +34,8 @@ int NFWorldRole::CreateInit()
     m_cid = 0;
     m_uid = 0;
     m_logicId = 0;
+    m_gameId = 0;
+    m_snsId = 0;
     m_status = proto_ff::PLAYER_STATUS_NONE;
     m_createTime = 0;
     m_lastDiconnectTime = 0;
@@ -75,6 +77,26 @@ uint32_t NFWorldRole::GetLogicId() const
 void NFWorldRole::SetLogicId(uint32_t logicId)
 {
     m_logicId = logicId;
+}
+
+uint32_t NFWorldRole::GetGameId() const
+{
+    return m_gameId;
+}
+
+void NFWorldRole::SetGameId(uint32_t gameId)
+{
+    m_gameId = gameId;
+}
+
+uint32_t NFWorldRole::GetSnsId() const
+{
+    return m_snsId;
+}
+
+void NFWorldRole::SetSnsId(uint32_t snsId)
+{
+    m_snsId = snsId;
 }
 
 proto_ff::enPlayerStatus NFWorldRole::GetStatus() const

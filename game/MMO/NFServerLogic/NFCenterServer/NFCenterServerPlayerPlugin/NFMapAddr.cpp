@@ -45,3 +45,18 @@ int NFMapAddr::AddBusId(uint32_t busId)
     }
     return 0;
 }
+
+uint32_t NFMapAddr::GetSuitGameId() const
+{
+    std::vector<uint32_t> vec;
+    for(auto iter = m_serverData.begin(); iter != m_serverData.end(); iter++)
+    {
+        vec.push_back(*iter);
+    }
+    std::random_shuffle(vec.begin(), vec.end());
+    if (vec.size() > 0)
+    {
+        return *vec.begin();
+    }
+    return 0;
+}

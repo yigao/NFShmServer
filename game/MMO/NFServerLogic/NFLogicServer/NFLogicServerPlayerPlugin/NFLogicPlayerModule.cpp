@@ -29,7 +29,7 @@ bool NFCLogicPlayerModule::Awake()
     ////////////proxy msg////player login,disconnect,reconnet/////////////////////
 
     //////////player enter game////////////////////////////////////
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_LOGIC_SERVER, this,
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_ENTER_GAME_RSP>(NF_ST_LOGIC_SERVER, this,
                                                                                    &NFCLogicPlayerModule::OnRpcServiceEnterGame, true);
 
     RegisterAppTask(NF_ST_LOGIC_SERVER, APP_INIT_DESC_STORE_LOAD, "LogicServer Load Desc Store", APP_INIT_TASK_GROUP_SERVER_LOAD_DESC_STORE);
@@ -97,7 +97,7 @@ int NFCLogicPlayerModule::OnHandleServerMessage(uint32_t msgId, NFDataPackage &p
     return 0;
 }
 
-int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t worldId, uint64_t proxyId)
+int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameInternalRsp& respone, uint64_t worldId, uint64_t proxyId)
 {
     uint64_t cid = request.cid();
 
@@ -110,7 +110,7 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         if (iRet != 0)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, cid, "role:{}, GetRpcSelectObjService err:{} , enter game failed!", cid, GetErrorStr(iRet));
-            respone.set_ret(proto_ff::RET_FAIL);
+            respone.set_ret_code(proto_ff::RET_FAIL);
             return 0;
         }
 
@@ -118,7 +118,7 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         if (pPlayer == NULL)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, cid, "CreatePlayer:{} Failed , enter game failed!", cid, GetErrorStr(iRet));
-            respone.set_ret(proto_ff::RET_FAIL);
+            respone.set_ret_code(proto_ff::RET_FAIL);
             return 0;
         }
     }
@@ -144,16 +144,28 @@ int NFCLogicPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
     if (iRet != 0)
     {
         NFLogError(NF_LOG_SYSTEMLOG, cid, "role:{} LoginSns Failed", cid);
-        respone.set_ret(iRet);
+        respone.set_ret_code(iRet);
         return 0;
     }
 
     /**
      * 进入游戏
      */
-    pPlayer->EnterGame();
-
-    respone.set_ret(proto_ff::RET_SUCCESS);
+    iRet = pPlayer->EnterGame();
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "role:{} Enter Game Failed", cid);
+        respone.set_ret_code(iRet);
+        return 0;
+    }
+    
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    CHECK_NULL(pConfig);
+    
+    respone.set_ret_code(proto_ff::RET_SUCCESS);
+    respone.set_game_id(pPlayer->GetGameId());
+    respone.set_logic_id(pConfig->GetBusId());
+    respone.set_sns_id(pPlayer->GetSnsId());
 
     return 0;
 }

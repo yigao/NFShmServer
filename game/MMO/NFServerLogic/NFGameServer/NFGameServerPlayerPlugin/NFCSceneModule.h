@@ -46,10 +46,12 @@ public:
     virtual int OnHandleServerMessage(uint32_t msgId, NFDataPackage& packet, uint64_t param1, uint64_t param2) override;
 public:
     /**
-     *
+     * 进入游戏
+     * @param request
+     * @param respone
      * @return
      */
-    int RegisterMapInfo();
+    int OnRpcServiceEnterScene(proto_ff::EnterSceneReq& request, proto_ff::EnterSceneRsp& respone);
 private:
     /**
      * @brief NFILuaModule

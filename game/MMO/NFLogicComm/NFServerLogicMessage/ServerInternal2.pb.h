@@ -48,6 +48,9 @@ class LTSLoginReq;
 class STLLoginRsp;
 class RegisterMapInfoReq;
 class ReigsterMapInfoRsp;
+class ClientEnterGameInternalRsp;
+class EnterSceneReq;
+class EnterSceneRsp;
 
 // ===================================================================
 
@@ -1119,6 +1122,450 @@ class ReigsterMapInfoRsp : public ::google::protobuf::Message {
   void InitAsDefaultInstance();
   static ReigsterMapInfoRsp* default_instance_;
 };
+// -------------------------------------------------------------------
+
+class ClientEnterGameInternalRsp : public ::google::protobuf::Message {
+ public:
+  ClientEnterGameInternalRsp();
+  virtual ~ClientEnterGameInternalRsp();
+
+  ClientEnterGameInternalRsp(const ClientEnterGameInternalRsp& from);
+
+  inline ClientEnterGameInternalRsp& operator=(const ClientEnterGameInternalRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const ClientEnterGameInternalRsp& default_instance();
+
+  void Swap(ClientEnterGameInternalRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  ClientEnterGameInternalRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const ClientEnterGameInternalRsp& from);
+  void MergeFrom(const ClientEnterGameInternalRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional int32 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::int32 ret_code() const;
+  inline void set_ret_code(::google::protobuf::int32 value);
+
+  // optional uint32 logic_id = 2;
+  inline bool has_logic_id() const;
+  inline void clear_logic_id();
+  static const int kLogicIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 logic_id() const;
+  inline void set_logic_id(::google::protobuf::uint32 value);
+
+  // optional uint32 game_id = 3;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 3;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // optional uint32 sns_id = 4;
+  inline bool has_sns_id() const;
+  inline void clear_sns_id();
+  static const int kSnsIdFieldNumber = 4;
+  inline ::google::protobuf::uint32 sns_id() const;
+  inline void set_sns_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.ClientEnterGameInternalRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_logic_id();
+  inline void clear_has_logic_id();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+  inline void set_has_sns_id();
+  inline void clear_has_sns_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::int32 ret_code_;
+  ::google::protobuf::uint32 logic_id_;
+  ::google::protobuf::uint32 game_id_;
+  ::google::protobuf::uint32 sns_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(4 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static ClientEnterGameInternalRsp* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EnterSceneReq : public ::google::protobuf::Message {
+ public:
+  EnterSceneReq();
+  virtual ~EnterSceneReq();
+
+  EnterSceneReq(const EnterSceneReq& from);
+
+  inline EnterSceneReq& operator=(const EnterSceneReq& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EnterSceneReq& default_instance();
+
+  void Swap(EnterSceneReq* other);
+
+  // implements Message ----------------------------------------------
+
+  EnterSceneReq* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EnterSceneReq& from);
+  void MergeFrom(const EnterSceneReq& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 cid = 1;
+  inline bool has_cid() const;
+  inline void clear_cid();
+  static const int kCidFieldNumber = 1;
+  inline ::google::protobuf::uint64 cid() const;
+  inline void set_cid(::google::protobuf::uint64 value);
+
+  // optional uint64 dst_map_id = 2;
+  inline bool has_dst_map_id() const;
+  inline void clear_dst_map_id();
+  static const int kDstMapIdFieldNumber = 2;
+  inline ::google::protobuf::uint64 dst_map_id() const;
+  inline void set_dst_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 dst_scene_id = 3;
+  inline bool has_dst_scene_id() const;
+  inline void clear_dst_scene_id();
+  static const int kDstSceneIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 dst_scene_id() const;
+  inline void set_dst_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB dst_pos = 4;
+  inline bool has_dst_pos() const;
+  inline void clear_dst_pos();
+  static const int kDstPosFieldNumber = 4;
+  inline const ::proto_ff::Vector3PB& dst_pos() const;
+  inline ::proto_ff::Vector3PB* mutable_dst_pos();
+  inline ::proto_ff::Vector3PB* release_dst_pos();
+  inline void set_allocated_dst_pos(::proto_ff::Vector3PB* dst_pos);
+
+  // optional uint64 src_map_id = 5;
+  inline bool has_src_map_id() const;
+  inline void clear_src_map_id();
+  static const int kSrcMapIdFieldNumber = 5;
+  inline ::google::protobuf::uint64 src_map_id() const;
+  inline void set_src_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 src_scene_id = 6;
+  inline bool has_src_scene_id() const;
+  inline void clear_src_scene_id();
+  static const int kSrcSceneIdFieldNumber = 6;
+  inline ::google::protobuf::uint64 src_scene_id() const;
+  inline void set_src_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB src_pos = 7;
+  inline bool has_src_pos() const;
+  inline void clear_src_pos();
+  static const int kSrcPosFieldNumber = 7;
+  inline const ::proto_ff::Vector3PB& src_pos() const;
+  inline ::proto_ff::Vector3PB* mutable_src_pos();
+  inline ::proto_ff::Vector3PB* release_src_pos();
+  inline void set_allocated_src_pos(::proto_ff::Vector3PB* src_pos);
+
+  // optional uint32 trans_type = 8;
+  inline bool has_trans_type() const;
+  inline void clear_trans_type();
+  static const int kTransTypeFieldNumber = 8;
+  inline ::google::protobuf::uint32 trans_type() const;
+  inline void set_trans_type(::google::protobuf::uint32 value);
+
+  // optional .proto_ff.RoleEnterSceneData data = 9;
+  inline bool has_data() const;
+  inline void clear_data();
+  static const int kDataFieldNumber = 9;
+  inline const ::proto_ff::RoleEnterSceneData& data() const;
+  inline ::proto_ff::RoleEnterSceneData* mutable_data();
+  inline ::proto_ff::RoleEnterSceneData* release_data();
+  inline void set_allocated_data(::proto_ff::RoleEnterSceneData* data);
+
+  // optional uint32 proxy_id = 10;
+  inline bool has_proxy_id() const;
+  inline void clear_proxy_id();
+  static const int kProxyIdFieldNumber = 10;
+  inline ::google::protobuf::uint32 proxy_id() const;
+  inline void set_proxy_id(::google::protobuf::uint32 value);
+
+  // optional uint32 logic_id = 11;
+  inline bool has_logic_id() const;
+  inline void clear_logic_id();
+  static const int kLogicIdFieldNumber = 11;
+  inline ::google::protobuf::uint32 logic_id() const;
+  inline void set_logic_id(::google::protobuf::uint32 value);
+
+  // optional uint32 sns_id = 12;
+  inline bool has_sns_id() const;
+  inline void clear_sns_id();
+  static const int kSnsIdFieldNumber = 12;
+  inline ::google::protobuf::uint32 sns_id() const;
+  inline void set_sns_id(::google::protobuf::uint32 value);
+
+  // optional uint32 world_id = 13;
+  inline bool has_world_id() const;
+  inline void clear_world_id();
+  static const int kWorldIdFieldNumber = 13;
+  inline ::google::protobuf::uint32 world_id() const;
+  inline void set_world_id(::google::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EnterSceneReq)
+ private:
+  inline void set_has_cid();
+  inline void clear_has_cid();
+  inline void set_has_dst_map_id();
+  inline void clear_has_dst_map_id();
+  inline void set_has_dst_scene_id();
+  inline void clear_has_dst_scene_id();
+  inline void set_has_dst_pos();
+  inline void clear_has_dst_pos();
+  inline void set_has_src_map_id();
+  inline void clear_has_src_map_id();
+  inline void set_has_src_scene_id();
+  inline void clear_has_src_scene_id();
+  inline void set_has_src_pos();
+  inline void clear_has_src_pos();
+  inline void set_has_trans_type();
+  inline void clear_has_trans_type();
+  inline void set_has_data();
+  inline void clear_has_data();
+  inline void set_has_proxy_id();
+  inline void clear_has_proxy_id();
+  inline void set_has_logic_id();
+  inline void clear_has_logic_id();
+  inline void set_has_sns_id();
+  inline void clear_has_sns_id();
+  inline void set_has_world_id();
+  inline void clear_has_world_id();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 cid_;
+  ::google::protobuf::uint64 dst_map_id_;
+  ::google::protobuf::uint64 dst_scene_id_;
+  ::proto_ff::Vector3PB* dst_pos_;
+  ::google::protobuf::uint64 src_map_id_;
+  ::google::protobuf::uint64 src_scene_id_;
+  ::proto_ff::Vector3PB* src_pos_;
+  ::proto_ff::RoleEnterSceneData* data_;
+  ::google::protobuf::uint32 trans_type_;
+  ::google::protobuf::uint32 proxy_id_;
+  ::google::protobuf::uint32 logic_id_;
+  ::google::protobuf::uint32 sns_id_;
+  ::google::protobuf::uint32 world_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(13 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static EnterSceneReq* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class EnterSceneRsp : public ::google::protobuf::Message {
+ public:
+  EnterSceneRsp();
+  virtual ~EnterSceneRsp();
+
+  EnterSceneRsp(const EnterSceneRsp& from);
+
+  inline EnterSceneRsp& operator=(const EnterSceneRsp& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const EnterSceneRsp& default_instance();
+
+  void Swap(EnterSceneRsp* other);
+
+  // implements Message ----------------------------------------------
+
+  EnterSceneRsp* New() const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const EnterSceneRsp& from);
+  void MergeFrom(const EnterSceneRsp& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional uint64 ret_code = 1;
+  inline bool has_ret_code() const;
+  inline void clear_ret_code();
+  static const int kRetCodeFieldNumber = 1;
+  inline ::google::protobuf::uint64 ret_code() const;
+  inline void set_ret_code(::google::protobuf::uint64 value);
+
+  // optional uint32 game_id = 2;
+  inline bool has_game_id() const;
+  inline void clear_game_id();
+  static const int kGameIdFieldNumber = 2;
+  inline ::google::protobuf::uint32 game_id() const;
+  inline void set_game_id(::google::protobuf::uint32 value);
+
+  // optional uint64 map_id = 3;
+  inline bool has_map_id() const;
+  inline void clear_map_id();
+  static const int kMapIdFieldNumber = 3;
+  inline ::google::protobuf::uint64 map_id() const;
+  inline void set_map_id(::google::protobuf::uint64 value);
+
+  // optional uint64 scene_id = 4;
+  inline bool has_scene_id() const;
+  inline void clear_scene_id();
+  static const int kSceneIdFieldNumber = 4;
+  inline ::google::protobuf::uint64 scene_id() const;
+  inline void set_scene_id(::google::protobuf::uint64 value);
+
+  // optional .proto_ff.Vector3PB pos = 5;
+  inline bool has_pos() const;
+  inline void clear_pos();
+  static const int kPosFieldNumber = 5;
+  inline const ::proto_ff::Vector3PB& pos() const;
+  inline ::proto_ff::Vector3PB* mutable_pos();
+  inline ::proto_ff::Vector3PB* release_pos();
+  inline void set_allocated_pos(::proto_ff::Vector3PB* pos);
+
+  // @@protoc_insertion_point(class_scope:proto_ff.EnterSceneRsp)
+ private:
+  inline void set_has_ret_code();
+  inline void clear_has_ret_code();
+  inline void set_has_game_id();
+  inline void clear_has_game_id();
+  inline void set_has_map_id();
+  inline void clear_has_map_id();
+  inline void set_has_scene_id();
+  inline void clear_has_scene_id();
+  inline void set_has_pos();
+  inline void clear_has_pos();
+
+  ::google::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google::protobuf::uint64 ret_code_;
+  ::google::protobuf::uint64 map_id_;
+  ::google::protobuf::uint64 scene_id_;
+  ::proto_ff::Vector3PB* pos_;
+  ::google::protobuf::uint32 game_id_;
+
+  mutable int _cached_size_;
+  ::google::protobuf::uint32 _has_bits_[(5 + 31) / 32];
+
+  friend void  protobuf_AddDesc_ServerInternal2_2eproto();
+  friend void protobuf_AssignDesc_ServerInternal2_2eproto();
+  friend void protobuf_ShutdownFile_ServerInternal2_2eproto();
+
+  void InitAsDefaultInstance();
+  static EnterSceneRsp* default_instance_;
+};
 // ===================================================================
 
 
@@ -1782,6 +2229,566 @@ inline ::google::protobuf::int32 ReigsterMapInfoRsp::ret_code() const {
 inline void ReigsterMapInfoRsp::set_ret_code(::google::protobuf::int32 value) {
   set_has_ret_code();
   ret_code_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// ClientEnterGameInternalRsp
+
+// optional int32 ret_code = 1;
+inline bool ClientEnterGameInternalRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ClientEnterGameInternalRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ClientEnterGameInternalRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ClientEnterGameInternalRsp::clear_ret_code() {
+  ret_code_ = 0;
+  clear_has_ret_code();
+}
+inline ::google::protobuf::int32 ClientEnterGameInternalRsp::ret_code() const {
+  return ret_code_;
+}
+inline void ClientEnterGameInternalRsp::set_ret_code(::google::protobuf::int32 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint32 logic_id = 2;
+inline bool ClientEnterGameInternalRsp::has_logic_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void ClientEnterGameInternalRsp::set_has_logic_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void ClientEnterGameInternalRsp::clear_has_logic_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void ClientEnterGameInternalRsp::clear_logic_id() {
+  logic_id_ = 0u;
+  clear_has_logic_id();
+}
+inline ::google::protobuf::uint32 ClientEnterGameInternalRsp::logic_id() const {
+  return logic_id_;
+}
+inline void ClientEnterGameInternalRsp::set_logic_id(::google::protobuf::uint32 value) {
+  set_has_logic_id();
+  logic_id_ = value;
+}
+
+// optional uint32 game_id = 3;
+inline bool ClientEnterGameInternalRsp::has_game_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void ClientEnterGameInternalRsp::set_has_game_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void ClientEnterGameInternalRsp::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void ClientEnterGameInternalRsp::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 ClientEnterGameInternalRsp::game_id() const {
+  return game_id_;
+}
+inline void ClientEnterGameInternalRsp::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// optional uint32 sns_id = 4;
+inline bool ClientEnterGameInternalRsp::has_sns_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void ClientEnterGameInternalRsp::set_has_sns_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void ClientEnterGameInternalRsp::clear_has_sns_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void ClientEnterGameInternalRsp::clear_sns_id() {
+  sns_id_ = 0u;
+  clear_has_sns_id();
+}
+inline ::google::protobuf::uint32 ClientEnterGameInternalRsp::sns_id() const {
+  return sns_id_;
+}
+inline void ClientEnterGameInternalRsp::set_sns_id(::google::protobuf::uint32 value) {
+  set_has_sns_id();
+  sns_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EnterSceneReq
+
+// optional uint64 cid = 1;
+inline bool EnterSceneReq::has_cid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EnterSceneReq::set_has_cid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EnterSceneReq::clear_has_cid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EnterSceneReq::clear_cid() {
+  cid_ = GOOGLE_ULONGLONG(0);
+  clear_has_cid();
+}
+inline ::google::protobuf::uint64 EnterSceneReq::cid() const {
+  return cid_;
+}
+inline void EnterSceneReq::set_cid(::google::protobuf::uint64 value) {
+  set_has_cid();
+  cid_ = value;
+}
+
+// optional uint64 dst_map_id = 2;
+inline bool EnterSceneReq::has_dst_map_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EnterSceneReq::set_has_dst_map_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EnterSceneReq::clear_has_dst_map_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EnterSceneReq::clear_dst_map_id() {
+  dst_map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_dst_map_id();
+}
+inline ::google::protobuf::uint64 EnterSceneReq::dst_map_id() const {
+  return dst_map_id_;
+}
+inline void EnterSceneReq::set_dst_map_id(::google::protobuf::uint64 value) {
+  set_has_dst_map_id();
+  dst_map_id_ = value;
+}
+
+// optional uint64 dst_scene_id = 3;
+inline bool EnterSceneReq::has_dst_scene_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EnterSceneReq::set_has_dst_scene_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EnterSceneReq::clear_has_dst_scene_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EnterSceneReq::clear_dst_scene_id() {
+  dst_scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_dst_scene_id();
+}
+inline ::google::protobuf::uint64 EnterSceneReq::dst_scene_id() const {
+  return dst_scene_id_;
+}
+inline void EnterSceneReq::set_dst_scene_id(::google::protobuf::uint64 value) {
+  set_has_dst_scene_id();
+  dst_scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB dst_pos = 4;
+inline bool EnterSceneReq::has_dst_pos() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void EnterSceneReq::set_has_dst_pos() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void EnterSceneReq::clear_has_dst_pos() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void EnterSceneReq::clear_dst_pos() {
+  if (dst_pos_ != NULL) dst_pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_dst_pos();
+}
+inline const ::proto_ff::Vector3PB& EnterSceneReq::dst_pos() const {
+  return dst_pos_ != NULL ? *dst_pos_ : *default_instance_->dst_pos_;
+}
+inline ::proto_ff::Vector3PB* EnterSceneReq::mutable_dst_pos() {
+  set_has_dst_pos();
+  if (dst_pos_ == NULL) dst_pos_ = new ::proto_ff::Vector3PB;
+  return dst_pos_;
+}
+inline ::proto_ff::Vector3PB* EnterSceneReq::release_dst_pos() {
+  clear_has_dst_pos();
+  ::proto_ff::Vector3PB* temp = dst_pos_;
+  dst_pos_ = NULL;
+  return temp;
+}
+inline void EnterSceneReq::set_allocated_dst_pos(::proto_ff::Vector3PB* dst_pos) {
+  delete dst_pos_;
+  dst_pos_ = dst_pos;
+  if (dst_pos) {
+    set_has_dst_pos();
+  } else {
+    clear_has_dst_pos();
+  }
+}
+
+// optional uint64 src_map_id = 5;
+inline bool EnterSceneReq::has_src_map_id() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void EnterSceneReq::set_has_src_map_id() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void EnterSceneReq::clear_has_src_map_id() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void EnterSceneReq::clear_src_map_id() {
+  src_map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_src_map_id();
+}
+inline ::google::protobuf::uint64 EnterSceneReq::src_map_id() const {
+  return src_map_id_;
+}
+inline void EnterSceneReq::set_src_map_id(::google::protobuf::uint64 value) {
+  set_has_src_map_id();
+  src_map_id_ = value;
+}
+
+// optional uint64 src_scene_id = 6;
+inline bool EnterSceneReq::has_src_scene_id() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void EnterSceneReq::set_has_src_scene_id() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void EnterSceneReq::clear_has_src_scene_id() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void EnterSceneReq::clear_src_scene_id() {
+  src_scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_src_scene_id();
+}
+inline ::google::protobuf::uint64 EnterSceneReq::src_scene_id() const {
+  return src_scene_id_;
+}
+inline void EnterSceneReq::set_src_scene_id(::google::protobuf::uint64 value) {
+  set_has_src_scene_id();
+  src_scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB src_pos = 7;
+inline bool EnterSceneReq::has_src_pos() const {
+  return (_has_bits_[0] & 0x00000040u) != 0;
+}
+inline void EnterSceneReq::set_has_src_pos() {
+  _has_bits_[0] |= 0x00000040u;
+}
+inline void EnterSceneReq::clear_has_src_pos() {
+  _has_bits_[0] &= ~0x00000040u;
+}
+inline void EnterSceneReq::clear_src_pos() {
+  if (src_pos_ != NULL) src_pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_src_pos();
+}
+inline const ::proto_ff::Vector3PB& EnterSceneReq::src_pos() const {
+  return src_pos_ != NULL ? *src_pos_ : *default_instance_->src_pos_;
+}
+inline ::proto_ff::Vector3PB* EnterSceneReq::mutable_src_pos() {
+  set_has_src_pos();
+  if (src_pos_ == NULL) src_pos_ = new ::proto_ff::Vector3PB;
+  return src_pos_;
+}
+inline ::proto_ff::Vector3PB* EnterSceneReq::release_src_pos() {
+  clear_has_src_pos();
+  ::proto_ff::Vector3PB* temp = src_pos_;
+  src_pos_ = NULL;
+  return temp;
+}
+inline void EnterSceneReq::set_allocated_src_pos(::proto_ff::Vector3PB* src_pos) {
+  delete src_pos_;
+  src_pos_ = src_pos;
+  if (src_pos) {
+    set_has_src_pos();
+  } else {
+    clear_has_src_pos();
+  }
+}
+
+// optional uint32 trans_type = 8;
+inline bool EnterSceneReq::has_trans_type() const {
+  return (_has_bits_[0] & 0x00000080u) != 0;
+}
+inline void EnterSceneReq::set_has_trans_type() {
+  _has_bits_[0] |= 0x00000080u;
+}
+inline void EnterSceneReq::clear_has_trans_type() {
+  _has_bits_[0] &= ~0x00000080u;
+}
+inline void EnterSceneReq::clear_trans_type() {
+  trans_type_ = 0u;
+  clear_has_trans_type();
+}
+inline ::google::protobuf::uint32 EnterSceneReq::trans_type() const {
+  return trans_type_;
+}
+inline void EnterSceneReq::set_trans_type(::google::protobuf::uint32 value) {
+  set_has_trans_type();
+  trans_type_ = value;
+}
+
+// optional .proto_ff.RoleEnterSceneData data = 9;
+inline bool EnterSceneReq::has_data() const {
+  return (_has_bits_[0] & 0x00000100u) != 0;
+}
+inline void EnterSceneReq::set_has_data() {
+  _has_bits_[0] |= 0x00000100u;
+}
+inline void EnterSceneReq::clear_has_data() {
+  _has_bits_[0] &= ~0x00000100u;
+}
+inline void EnterSceneReq::clear_data() {
+  if (data_ != NULL) data_->::proto_ff::RoleEnterSceneData::Clear();
+  clear_has_data();
+}
+inline const ::proto_ff::RoleEnterSceneData& EnterSceneReq::data() const {
+  return data_ != NULL ? *data_ : *default_instance_->data_;
+}
+inline ::proto_ff::RoleEnterSceneData* EnterSceneReq::mutable_data() {
+  set_has_data();
+  if (data_ == NULL) data_ = new ::proto_ff::RoleEnterSceneData;
+  return data_;
+}
+inline ::proto_ff::RoleEnterSceneData* EnterSceneReq::release_data() {
+  clear_has_data();
+  ::proto_ff::RoleEnterSceneData* temp = data_;
+  data_ = NULL;
+  return temp;
+}
+inline void EnterSceneReq::set_allocated_data(::proto_ff::RoleEnterSceneData* data) {
+  delete data_;
+  data_ = data;
+  if (data) {
+    set_has_data();
+  } else {
+    clear_has_data();
+  }
+}
+
+// optional uint32 proxy_id = 10;
+inline bool EnterSceneReq::has_proxy_id() const {
+  return (_has_bits_[0] & 0x00000200u) != 0;
+}
+inline void EnterSceneReq::set_has_proxy_id() {
+  _has_bits_[0] |= 0x00000200u;
+}
+inline void EnterSceneReq::clear_has_proxy_id() {
+  _has_bits_[0] &= ~0x00000200u;
+}
+inline void EnterSceneReq::clear_proxy_id() {
+  proxy_id_ = 0u;
+  clear_has_proxy_id();
+}
+inline ::google::protobuf::uint32 EnterSceneReq::proxy_id() const {
+  return proxy_id_;
+}
+inline void EnterSceneReq::set_proxy_id(::google::protobuf::uint32 value) {
+  set_has_proxy_id();
+  proxy_id_ = value;
+}
+
+// optional uint32 logic_id = 11;
+inline bool EnterSceneReq::has_logic_id() const {
+  return (_has_bits_[0] & 0x00000400u) != 0;
+}
+inline void EnterSceneReq::set_has_logic_id() {
+  _has_bits_[0] |= 0x00000400u;
+}
+inline void EnterSceneReq::clear_has_logic_id() {
+  _has_bits_[0] &= ~0x00000400u;
+}
+inline void EnterSceneReq::clear_logic_id() {
+  logic_id_ = 0u;
+  clear_has_logic_id();
+}
+inline ::google::protobuf::uint32 EnterSceneReq::logic_id() const {
+  return logic_id_;
+}
+inline void EnterSceneReq::set_logic_id(::google::protobuf::uint32 value) {
+  set_has_logic_id();
+  logic_id_ = value;
+}
+
+// optional uint32 sns_id = 12;
+inline bool EnterSceneReq::has_sns_id() const {
+  return (_has_bits_[0] & 0x00000800u) != 0;
+}
+inline void EnterSceneReq::set_has_sns_id() {
+  _has_bits_[0] |= 0x00000800u;
+}
+inline void EnterSceneReq::clear_has_sns_id() {
+  _has_bits_[0] &= ~0x00000800u;
+}
+inline void EnterSceneReq::clear_sns_id() {
+  sns_id_ = 0u;
+  clear_has_sns_id();
+}
+inline ::google::protobuf::uint32 EnterSceneReq::sns_id() const {
+  return sns_id_;
+}
+inline void EnterSceneReq::set_sns_id(::google::protobuf::uint32 value) {
+  set_has_sns_id();
+  sns_id_ = value;
+}
+
+// optional uint32 world_id = 13;
+inline bool EnterSceneReq::has_world_id() const {
+  return (_has_bits_[0] & 0x00001000u) != 0;
+}
+inline void EnterSceneReq::set_has_world_id() {
+  _has_bits_[0] |= 0x00001000u;
+}
+inline void EnterSceneReq::clear_has_world_id() {
+  _has_bits_[0] &= ~0x00001000u;
+}
+inline void EnterSceneReq::clear_world_id() {
+  world_id_ = 0u;
+  clear_has_world_id();
+}
+inline ::google::protobuf::uint32 EnterSceneReq::world_id() const {
+  return world_id_;
+}
+inline void EnterSceneReq::set_world_id(::google::protobuf::uint32 value) {
+  set_has_world_id();
+  world_id_ = value;
+}
+
+// -------------------------------------------------------------------
+
+// EnterSceneRsp
+
+// optional uint64 ret_code = 1;
+inline bool EnterSceneRsp::has_ret_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void EnterSceneRsp::set_has_ret_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void EnterSceneRsp::clear_has_ret_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void EnterSceneRsp::clear_ret_code() {
+  ret_code_ = GOOGLE_ULONGLONG(0);
+  clear_has_ret_code();
+}
+inline ::google::protobuf::uint64 EnterSceneRsp::ret_code() const {
+  return ret_code_;
+}
+inline void EnterSceneRsp::set_ret_code(::google::protobuf::uint64 value) {
+  set_has_ret_code();
+  ret_code_ = value;
+}
+
+// optional uint32 game_id = 2;
+inline bool EnterSceneRsp::has_game_id() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void EnterSceneRsp::set_has_game_id() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void EnterSceneRsp::clear_has_game_id() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void EnterSceneRsp::clear_game_id() {
+  game_id_ = 0u;
+  clear_has_game_id();
+}
+inline ::google::protobuf::uint32 EnterSceneRsp::game_id() const {
+  return game_id_;
+}
+inline void EnterSceneRsp::set_game_id(::google::protobuf::uint32 value) {
+  set_has_game_id();
+  game_id_ = value;
+}
+
+// optional uint64 map_id = 3;
+inline bool EnterSceneRsp::has_map_id() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void EnterSceneRsp::set_has_map_id() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void EnterSceneRsp::clear_has_map_id() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void EnterSceneRsp::clear_map_id() {
+  map_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_map_id();
+}
+inline ::google::protobuf::uint64 EnterSceneRsp::map_id() const {
+  return map_id_;
+}
+inline void EnterSceneRsp::set_map_id(::google::protobuf::uint64 value) {
+  set_has_map_id();
+  map_id_ = value;
+}
+
+// optional uint64 scene_id = 4;
+inline bool EnterSceneRsp::has_scene_id() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void EnterSceneRsp::set_has_scene_id() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void EnterSceneRsp::clear_has_scene_id() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void EnterSceneRsp::clear_scene_id() {
+  scene_id_ = GOOGLE_ULONGLONG(0);
+  clear_has_scene_id();
+}
+inline ::google::protobuf::uint64 EnterSceneRsp::scene_id() const {
+  return scene_id_;
+}
+inline void EnterSceneRsp::set_scene_id(::google::protobuf::uint64 value) {
+  set_has_scene_id();
+  scene_id_ = value;
+}
+
+// optional .proto_ff.Vector3PB pos = 5;
+inline bool EnterSceneRsp::has_pos() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void EnterSceneRsp::set_has_pos() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void EnterSceneRsp::clear_has_pos() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void EnterSceneRsp::clear_pos() {
+  if (pos_ != NULL) pos_->::proto_ff::Vector3PB::Clear();
+  clear_has_pos();
+}
+inline const ::proto_ff::Vector3PB& EnterSceneRsp::pos() const {
+  return pos_ != NULL ? *pos_ : *default_instance_->pos_;
+}
+inline ::proto_ff::Vector3PB* EnterSceneRsp::mutable_pos() {
+  set_has_pos();
+  if (pos_ == NULL) pos_ = new ::proto_ff::Vector3PB;
+  return pos_;
+}
+inline ::proto_ff::Vector3PB* EnterSceneRsp::release_pos() {
+  clear_has_pos();
+  ::proto_ff::Vector3PB* temp = pos_;
+  pos_ = NULL;
+  return temp;
+}
+inline void EnterSceneRsp::set_allocated_pos(::proto_ff::Vector3PB* pos) {
+  delete pos_;
+  pos_ = pos;
+  if (pos) {
+    set_has_pos();
+  } else {
+    clear_has_pos();
+  }
 }
 
 

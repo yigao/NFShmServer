@@ -159,7 +159,7 @@ int NFPlayerSimple::SaveToDB(bool bForce)
 
 int NFPlayerSimple::SendTransToDB()
 {
-    NFSnsTransSaveSimpleDB* pSave = (NFSnsTransSaveSimpleDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE);
+/*    NFSnsTransSaveSimpleDB* pSave = (NFSnsTransSaveSimpleDB*) FindModule<NFISharedMemModule>()->CreateTrans(EOT_SNS_TRANS_SAVE_PLAYER_SIMPLE);
     CHECK_EXPR(pSave, -1, "Create Trans:NFSnsTransSaveSimpleDB Failed! ");
 
     int iRet = pSave->SaveDB(this);
@@ -168,7 +168,10 @@ int NFPlayerSimple::SendTransToDB()
         pSave->SetFinished(iRet);
     }
 
-    return iRet;
+    return iRet;*/
+    m_lastSavingDBTime = 0;
+    ClearUrgent();
+    return 0;
 }
 
 int NFPlayerSimple::OnSaveDB(bool success, uint32_t seq)

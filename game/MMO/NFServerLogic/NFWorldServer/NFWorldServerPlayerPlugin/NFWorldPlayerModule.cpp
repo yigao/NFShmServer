@@ -42,7 +42,7 @@ bool NFCWorldPlayerModule::Awake()
     FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_CREATE_ROLE_REQ>(NF_ST_WORLD_SERVER, this,
                                                                                     &NFCWorldPlayerModule::OnRpcServiceCreateRole, true);
 
-    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, this,
+    FindModule<NFIMessageModule>()->AddRpcService<proto_ff::CLIENT_ENTER_GAME_RSP>(NF_ST_WORLD_SERVER, this,
                                                                                     &NFCWorldPlayerModule::OnRpcServiceEnterGame, true);
 
     /////////////////////////////////server msg, player disconnect logout////////////////////////////////////////////
@@ -298,6 +298,7 @@ int NFCWorldPlayerModule::NotifyGateLeave(uint32_t proxyId, uint64_t clientId, p
 
 int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &request, proto_ff::ClientCreateRoleRsp &respone, uint64_t uid, uint64_t param2)
 {
+    CHECK_EXPR(uid > 0, -1, "uid:{}", uid);
     NFWorldAccount *pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
     if (pAccountInfo == NULL)
     {
@@ -473,21 +474,21 @@ int NFCWorldPlayerModule::SetLoginRoleProto(proto_ff::LoginRoleProto &outproto, 
     return 0;
 }
 
-int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t uid, uint64_t param2)
+int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameInternalRsp& respone, uint64_t uid, uint64_t param2)
 {
     uint64_t cid = request.cid();
     NFWorldAccount *pAccountInfo = NFWorldAccountMgr::GetInstance(m_pObjPluginManager)->GetAccount(uid);
     if (pAccountInfo == NULL)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "Can't find the world account:{}, role:{} enter game faile!", uid, cid);
-        respone.set_ret(proto_ff::RET_LOGIN_CHARACTER_NOT_ACCOUNT);
+        respone.set_ret_code(proto_ff::RET_LOGIN_CHARACTER_NOT_ACCOUNT);
         return 0;
     }
 
     if (!pAccountInfo->IsExistCid(cid))
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "account:{} has not role:{}, enter game faile!", uid, cid);
-        respone.set_ret(proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT);
+        respone.set_ret_code(proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT);
         return 0;
     }
 
@@ -498,7 +499,7 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         if (pRole == NULL)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, then role num than the max num, enter game faile!", uid, cid);
-            respone.set_ret(proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT);
+            respone.set_ret_code(proto_ff::RET_LOGIN_CHARACTER_NUM_LIMIT);
             return 0;
         }
         pRole->SetUid(uid);
@@ -510,7 +511,7 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
         if (pLogicServer == NULL)
         {
             NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, can't find the logic server, enter game faile!", uid, cid);
-            respone.set_ret(proto_ff::RET_FAIL);
+            respone.set_ret_code(proto_ff::RET_FAIL);
             return 0;
         }
 
@@ -519,12 +520,12 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
 
     auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     CHECK_NULL(pServerConfig);
-
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pRole->GetLogicId(), request, respone, pServerConfig->GetBusId(), pAccountInfo->GetProxyId());
+    
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_RSP>(NF_ST_WORLD_SERVER, NF_ST_LOGIC_SERVER, pRole->GetLogicId(), request, respone, pServerConfig->GetBusId(), pAccountInfo->GetProxyId());
     if (iRet != 0)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "uid:{} role:{}, GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ> err:{} , enter game faile!", uid, cid, GetErrorStr(iRet));
-        respone.set_ret(proto_ff::RET_FAIL);
+        respone.set_ret_code(proto_ff::RET_FAIL);
         return 0;
     }
 
@@ -535,12 +536,19 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
     CHECK_NULL(pAccountInfo);
     pRole = NFWorldRoleMgr::Instance(m_pObjPluginManager)->GetRole(cid);
     CHECK_NULL(pRole);
-
-    if (respone.ret() == proto_ff::RET_SUCCESS)
+    
+    if (respone.ret_code() == proto_ff::RET_SUCCESS)
     {
+        pRole->SetGameId(respone.game_id());
+        pRole->SetSnsId(respone.sns_id());
+        pRole->SetLogicId(respone.logic_id());
         pRole->SetIsDisconnect(false);
         pRole->SetStatus(proto_ff::PLAYER_STATUS_ONLINE);
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "Player Enter Game Success, uid:{} cid:{}", uid, cid);
     }
-
+    else {
+        NFLogError(NF_LOG_SYSTEMLOG, cid, "Player Enter Game Failed, uid:{} cid:{}", uid, cid);
+    }
+    
     return 0;
 }

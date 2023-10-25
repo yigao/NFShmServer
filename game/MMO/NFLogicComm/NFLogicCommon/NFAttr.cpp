@@ -733,8 +733,8 @@ bool ComAttr::ValidIndex(uint16_t index)
 
 int64_t ComAttr::GetAttr(uint32_t ANum)
 {
-    if (ValidAttr(ANum))
-        return m_attr[ANum];
+    uint16_t index = NFAttrMgr::Instance(m_pObjPluginManager)->GetComIndex(ANum);
+    if (ValidIndex(index)) return m_attr[index];
     return 0;
 }
 

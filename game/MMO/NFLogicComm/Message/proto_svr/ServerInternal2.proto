@@ -81,3 +81,37 @@ message ReigsterMapInfoRsp
 {
   optional int32 ret_code = 1;
 }
+
+message ClientEnterGameInternalRsp
+{
+  optional int32 ret_code = 1;
+  optional uint32 logic_id = 2;
+  optional uint32 game_id = 3;
+  optional uint32 sns_id = 4;
+}
+
+message EnterSceneReq
+{
+  optional uint64 cid = 1;
+  optional uint64 dst_map_id = 2;
+  optional uint64 dst_scene_id = 3;
+  optional Vector3PB dst_pos = 4;
+  optional uint64 src_map_id = 5;
+  optional uint64 src_scene_id = 6;
+  optional Vector3PB src_pos = 7;
+  optional uint32 trans_type = 8;
+  optional RoleEnterSceneData data = 9;
+  optional uint32 proxy_id = 10;
+  optional uint32 logic_id = 11;
+  optional uint32 sns_id = 12;
+  optional uint32 world_id = 13;
+}
+
+message EnterSceneRsp
+{
+  optional uint64 ret_code = 1;
+  optional uint32 game_id = 2;
+  optional uint64 map_id = 3;
+  optional uint64 scene_id = 4;
+  optional Vector3PB pos = 5;
+}

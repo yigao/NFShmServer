@@ -108,3 +108,13 @@ uint32_t NFProxyAccount::GetLogicBusId() const
 {
     return m_logicBusId;
 }
+
+void NFProxyAccount::SetSnsBusId(uint32_t busId)
+{
+    m_snsBusId = busId;
+}
+
+uint32_t NFProxyAccount::GetSnsBusId() const
+{
+    return m_snsBusId;
+}

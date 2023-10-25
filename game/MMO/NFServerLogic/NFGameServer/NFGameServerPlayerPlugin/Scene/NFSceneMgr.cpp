@@ -15,6 +15,7 @@
 #include "ServerInternal2.pb.h"
 #include "NFComm/NFPluginModule/NFIConfigModule.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
+#include "NFLogicCommon/NFLogicBindRpcService.h"
 #include "ServerInternalCmd2.pb.h"
 #include "Creature/NFCreatureMgr.h"
 #include "Creature/NFBattlePlayer.h"
@@ -135,7 +136,7 @@ int NFSceneMgr::DeleteScene(NFScene *pScene)
     return 0;
 }
 
-int NFSceneMgr::InitScene(const std::set<uint64_t> &mapIds)
+int NFSceneMgr::InitScene(const std::unordered_set<uint64_t> &mapIds)
 {
     std::vector<uint64_t> vec;
     for(auto iter = mapIds.begin(); iter != mapIds.end(); iter++)
@@ -159,7 +160,41 @@ int NFSceneMgr::InitScene(const std::set<uint64_t> &mapIds)
 
     auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_GAME_SERVER);
     CHECK_NULL(pConfig);
-
+    
+    std::vector<NF_SHARE_PTR<NFServerData>> pAllCenterServer = FindModule<NFIMessageModule>()->GetAllServer(NF_ST_GAME_SERVER, NF_ST_CENTER_SERVER, pConfig->IsCrossServer());
+    CHECK_EXPR(pAllCenterServer.size() == 1, -1, "game server get the center server num is not 1........");
+    
+    uint32_t centerBusId = pAllCenterServer[0]->mServerInfo.bus_id();
+    
+    proto_ff::RegisterMapInfoReq  req;
+    req.set_bus_id(pConfig->GetBusId());
+    for(auto iter = vec.begin(); iter != vec.end(); iter++)
+    {
+        req.add_map_id(*iter);
+        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Register Map:{} to Center Server", *iter);
+    }
+    
+    int rpcRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::STS_MAP_REG_RPC>(NF_ST_GAME_SERVER, NF_ST_CENTER_SERVER, centerBusId, req, [this](int rpcRetCode, proto_ff::ReigsterMapInfoRsp &respone){
+        if (rpcRetCode != proto_ff::RET_SUCCESS)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService<proto_ff::STS_MAP_REG_RPC> failed, rpcError:{}", GetErrorStr(rpcRetCode));
+            return;
+        }
+        
+        if (respone.ret_code() != proto_ff::RET_SUCCESS)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService<proto_ff::STS_MAP_REG_RPC> failed:{}, register failed", GetErrorStr(respone.ret_code()));
+            return;
+        }
+        
+        m_pObjPluginManager->FinishAppTask(NF_ST_GAME_SERVER, APP_INIT_REGISTER_CENTER_SERVER, APP_INIT_TASK_GROUP_SERVER_REGISTER);
+    });
+    
+    if (rpcRet == INVALID_ID)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService<proto_ff::STS_MAP_REG_RPC> error");
+        return -1;
+    }
     return 0;
 }
 

@@ -12,6 +12,7 @@
 #include "NFCenterRegisterModule.h"
 
 #include "NFServerAddrMgr.h"
+#include "NFMapMatchModule.h"
 
 #ifdef NF_DYNAMIC_PLUGIN
 
@@ -44,11 +45,13 @@ std::string NFMMOCenterPlayerPlugin::GetPluginName()
 void NFMMOCenterPlayerPlugin::Install()
 {
     REGISTER_MODULE(m_pObjPluginManager, NFCenterRegisterModule, NFCenterRegisterModule);
+    REGISTER_MODULE(m_pObjPluginManager, NFMapMatchModule, NFMapMatchModule);
 }
 
 void NFMMOCenterPlayerPlugin::Uninstall()
 {
     UNREGISTER_MODULE(m_pObjPluginManager, NFCenterRegisterModule, NFCenterRegisterModule);
+    UNREGISTER_MODULE(m_pObjPluginManager, NFMapMatchModule, NFMapMatchModule);
 }
 
 bool NFMMOCenterPlayerPlugin::InitShmObjectRegister()

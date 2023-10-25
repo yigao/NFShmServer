@@ -756,8 +756,9 @@ int NFCProxyPlayerModule::OnHandleEnterGameReq(uint64_t unLinkId, NFDataPackage 
         KickPlayer(unLinkId);
         return 0;
     }
-
-    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_REQ>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, pAccount->GetWorldBusId(), cgMsg, rspMsg, pAccount->GetUid());
+    
+    proto_ff::ClientEnterGameInternalRsp respone;
+    int iRet = FindModule<NFIMessageModule>()->GetRpcService<proto_ff::CLIENT_ENTER_GAME_RSP>(NF_ST_PROXY_SERVER, NF_ST_WORLD_SERVER, pAccount->GetWorldBusId(), cgMsg, respone, pAccount->GetUid());
     pSession = mSessionMap.GetElement(unLinkId);
     CHECK_NULL(pSession);
     pAccount = mAccountMap.GetElement(pSession->GetUid());
@@ -772,8 +773,10 @@ int NFCProxyPlayerModule::OnHandleEnterGameReq(uint64_t unLinkId, NFDataPackage 
         NFLogError(NF_LOG_SYSTEMLOG, 0, "GetRpcService proto_ff::CLIENT_ENTER_GAME_REQ Failed! iRet:{}", GetErrorStr(iRet));
         return 0;
     }
+    
+    rspMsg.set_ret(respone.ret_code());
 
-    if (rspMsg.ret() != proto_ff::RET_SUCCESS)
+    if (respone.ret_code() != proto_ff::RET_SUCCESS)
     {
         FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
 
@@ -784,10 +787,13 @@ int NFCProxyPlayerModule::OnHandleEnterGameReq(uint64_t unLinkId, NFDataPackage 
 
     pAccount->SetCid(cgMsg.cid());
     pSession->SetCid(cgMsg.cid());
+    pAccount->SetLogicBusId(respone.logic_id());
+    pAccount->SetGameBusId(respone.game_id());
+    pAccount->SetSnsBusId(respone.sns_id());
 
     NFLogError(NF_LOG_SYSTEMLOG, pAccount->GetUid(), "Uid:{} Cid:{} Enter Game Success!", pAccount->GetUid(), pAccount->GetCid());
 
-    FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
+    //FindModule<NFIMessageModule>()->Send(unLinkId, proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg);
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;

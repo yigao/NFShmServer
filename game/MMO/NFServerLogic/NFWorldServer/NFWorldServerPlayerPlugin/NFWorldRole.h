@@ -39,6 +39,14 @@ public:
     uint32_t GetLogicId() const;
 
     void SetLogicId(uint32_t logicId);
+    
+    uint32_t GetGameId() const;
+    
+    void SetGameId(uint32_t gameId);
+    
+    uint32_t GetSnsId() const;
+    
+    void SetSnsId(uint32_t snsId);
 public:
     proto_ff::enPlayerStatus GetStatus() const;
 
@@ -63,6 +71,8 @@ private:
     uint64_t m_cid;
     uint64_t m_uid;
     uint32_t m_logicId;
+    uint32_t m_gameId;
+    uint32_t m_snsId;
 private:
     /**
      * @brief

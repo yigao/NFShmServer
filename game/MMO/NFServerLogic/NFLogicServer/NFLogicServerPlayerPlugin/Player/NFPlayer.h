@@ -144,6 +144,7 @@ public:
     void SetBaseData(proto_ff::RoleDBData &proto);
     void SetBaseData(proto_ff::RoleDBBaseData *protobase);
     void SetAttrData(proto_ff::RoleDBData &proto);
+    void SetEnterSceneProto(proto_ff::RoleEnterSceneData& outproto);
 public:
     //状态
     bool BState(proto_ff::ECState state);
@@ -273,6 +274,15 @@ public:
     int EnterGame();
 
 public:
+    /**
+     * 进入场景
+     * @param mapId
+     * @param sceneId
+     * @param dstPos
+     * @return
+     */
+    int EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float> &dstPos);
+public:
     uint64_t GetCid() const { return m_cid; }
     
     uint64_t Cid() const { return m_cid; }
@@ -310,7 +320,7 @@ public:
     
     void SetGameId(uint32_t gameId) { m_gameId = gameId; }
     
-    uint32_t GetWorldId(uint32_t worldId) const { return m_worldId; }
+    uint32_t GetWorldId() const { return m_worldId; }
     
     void SetWorldId(uint32_t worldId) { m_worldId = worldId; }
     
@@ -323,8 +333,25 @@ public:
      * @brief
      * @return
      */
-    bool IsInGaming() { return GetGameId() > 0; }
-
+    virtual PLAYER_SCENE_STATE GetSceneStatus() const;
+    
+    /**
+     * @brief
+     * @param status
+     */
+    virtual void SetSceneStatus(PLAYER_SCENE_STATE status);
+    
+    /**
+     * @brief
+     * @return
+     */
+    virtual bool IsInBattle();
+    
+    /**
+     *
+     * @return
+     */
+    virtual bool IsInTransSceneing();
 public:
     /**
      * @brief trans num
@@ -407,6 +434,14 @@ public:
         FindModule<NFICoroutineModule>()->DelUserCo(m_cid);
         return iRet;
     }
+    
+    int64_t MakeCoroutine(const std::function<void()> &func)
+    {
+        FindModule<NFICoroutineModule>()->AddUserCo(m_cid);
+        int64_t rpcId = FindModule<NFICoroutineModule>()->MakeCoroutine(func);
+        FindModule<NFICoroutineModule>()->DelUserCo(m_cid);
+        return rpcId;
+    }
 
 public:
     template<typename PART>
@@ -452,6 +487,7 @@ private:
     uint64_t m_uid;
     uint32_t m_zid;
     proto_ff::ECState m_state;                    //状态
+    PLAYER_SCENE_STATE m_sceneState;
 private:
     /**
      * 玩家场景数据

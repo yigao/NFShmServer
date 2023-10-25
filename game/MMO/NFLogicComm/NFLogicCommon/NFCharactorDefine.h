@@ -258,6 +258,12 @@ typedef enum
     TRANS_SAVEROLEDETAIL_LOGOUT = 2,
 } TRANS_SAVEROLEDETAIL_REASON;
 
-
+typedef enum
+{
+    PLAYER_SCENE_STATUS_NONE = 0,
+    PLAYER_SCENE_STATUS_Entering = 1,
+    PLAYER_SCENE_STATUS_Leaveing = 2,
+    PLAYER_SCENE_STATUS_Gameing = 3,
+} PLAYER_SCENE_STATE;
 
 #pragma pack(pop)

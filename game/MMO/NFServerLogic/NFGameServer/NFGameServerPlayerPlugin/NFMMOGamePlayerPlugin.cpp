@@ -84,6 +84,8 @@ bool NFMMOGamePlayerPlugin::InitShmObjectRegister()
     REGISTER_SINGLETON_SHM_OBJ(NFCreatureMgr);
     REGISTER_SHM_OBJ(NFCreature, 1);
     REGISTER_SHM_OBJ_WITH_HASH(NFBattlePlayer, maxOnlinePlayerNum);
+    REGISTER_SHM_OBJ(ComFightAttr, maxOnlinePlayerNum*10);
+    REGISTER_SHM_OBJ(ComAttr, maxOnlinePlayerNum*10);
 
     REGISTER_SHM_OBJ(NFBattlePart, 1);
     REGISTER_SHM_OBJ(NFBattleMovePart, maxOnlinePlayerNum);

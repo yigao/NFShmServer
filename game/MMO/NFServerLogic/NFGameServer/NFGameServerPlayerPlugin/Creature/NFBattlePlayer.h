@@ -34,9 +34,10 @@ public:
     int ResumeInit();
 
 public:
+    virtual int Init();
     virtual int Init(const proto_ff::RoleEnterSceneData &data);
 
-    virtual int Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data);
+    virtual int Init(uint32_t proxyId, uint32_t logicId, uint32_t worldId, uint32_t snsId, const proto_ff::RoleEnterSceneData &data);
 
     virtual int Update(uint64_t tick);
 
@@ -61,15 +62,13 @@ public:
 public:
     virtual uint64_t GetUid() { return m_uid; }
 
-    virtual uint64_t GetRoleId() { return m_roleId; }
+    virtual uint64_t GetRoleId() { return m_cid; }
 
     virtual uint32_t GetChannId() { return m_channId; }
 
     virtual uint32_t GetZid() { return m_zid; }
 
     virtual uint32_t GetProxyId() { return m_proxyId; }
-
-    virtual uint64_t GetClientId() { return m_clientId; }
 
     virtual uint32_t GetLogicId() { return m_logicId; }
 
@@ -176,11 +175,6 @@ private:
     /**
      * @brief
      */
-    uint64_t m_roleId;
-
-    /**
-     * @brief
-     */
     NFShmString<64> m_name;
 
     /**
@@ -197,8 +191,6 @@ private:
      * @brief
      */
     uint32_t m_proxyId;
-
-    uint64_t m_clientId;
 
     /**
      * @brief

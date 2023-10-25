@@ -48,5 +48,5 @@ public:
      * @param param2
      * @return
      */
-    int OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameRsp& respone, uint64_t proxyId, uint64_t param2);
+    int OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& request, proto_ff::ClientEnterGameInternalRsp& respone, uint64_t proxyId, uint64_t param2);
 };

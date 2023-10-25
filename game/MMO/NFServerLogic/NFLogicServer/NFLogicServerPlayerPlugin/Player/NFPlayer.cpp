@@ -129,7 +129,7 @@ void NFPlayer::Tick()
                     break;
             }
             
-            if (IsInGaming())
+            if (IsInBattle())
             {
                 if ((uint64_t) NFTime::Now().UnixSec() - m_lastCreateTime < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
@@ -155,7 +155,7 @@ void NFPlayer::Tick()
                     break;
             }
             
-            if (IsInGaming())
+            if (IsInBattle() || IsInTransSceneing())
             {
                 if ((uint64_t) NFTime::Now().UnixSec() - GetLastDisconnectTime() < LOGIC_PLAYER_CLIENT_DISCONNECT_WAITTIME_IN_GAME)
                     break;
@@ -239,6 +239,9 @@ int NFPlayer::UnInit()
             RecylePart(m_pPart[i]);
         }
     }
+    
+    NFAttrMgr::Instance(m_pObjPluginManager)->FreeFightAttrObj(m_pFightAttr);
+    NFAttrMgr::Instance(m_pObjPluginManager)->FreeAttrObj(m_pAttr);
     
     return 0;
 }
@@ -568,6 +571,17 @@ int NFPlayer::RecylePart(NFPart *pPart)
 
 int NFPlayer::EnterGame()
 {
+    if (FindModule<NFICoroutineModule>()->IsInCoroutine())
+    {
+        return EnterScene(m_mapId, m_sceneId, m_pos);
+    }
+    else {
+        int rpcId = MakeCoroutine([this]{
+            EnterScene(m_mapId, m_sceneId, m_pos);
+        });
+        CHECK_EXPR(rpcId != INVALID_ID, -1, "MakeCoroutine Failed");
+    }
+    
     return 0;
 }
 
@@ -594,6 +608,7 @@ int NFPlayer::OnPrevLogin()
     int64_t maxhp = GetAttr(proto_ff::A_MAX_HP);
     if (maxhp <= 0) maxhp = 1;
     SetAttr(proto_ff::A_CUR_HP, maxhp);
+    
     NotifyPlayerInfo();
     return 0;
 }
@@ -1480,6 +1495,7 @@ void NFPlayer::SynAttrToSns(const proto_ff::CenterRoleProto &proto)
 bool NFPlayer::ReadBaseData(const proto_ff::RoleDBData &proto)
 {
     m_cid = proto.cid();
+    m_uid = proto.uid();
     m_zid = proto.zid();
     //
     m_createTime = proto.base().createtime();
@@ -1635,7 +1651,29 @@ void NFPlayer::SetBaseData(proto_ff::RoleDBData &proto)
 
 void NFPlayer::SetAttrData(proto_ff::RoleDBData &proto)
 {
+    proto_ff::AttrDBData *protoattr = proto.mutable_attr();
+    if (nullptr != protoattr)
+    {
+        for (uint32_t i = proto_ff::A_NONE + 1; i < proto_ff::A_FIGHT_END; ++i)
+        {
+            int64_t val = m_pFightAttr->GetAttr(i);
+            if (0 == val) continue;
+            proto_ff::Attr64 *protoinfo = protoattr->add_attr_lst();
+            if (nullptr != protoinfo)
+            {
+                protoinfo->set_id(i);
+                protoinfo->set_value(val);
+            }
+        }
+    }
+}
 
+void NFPlayer::SetEnterSceneProto(proto_ff::RoleEnterSceneData &outproto)
+{
+    outproto.set_cid(GetCid());
+    outproto.set_uid(GetUid());
+    outproto.set_zid(GetZid());
+    SetBaseData(outproto.mutable_base());
 }
 
 proto_ff::ECState NFPlayer::GetState()
@@ -1730,4 +1768,78 @@ void NFPlayer::CalcWorldLvExpAdd()
 void NFPlayer::SyncFacade()
 {
 
+}
+
+PLAYER_SCENE_STATE NFPlayer::GetSceneStatus() const
+{
+    return m_sceneState;
+}
+
+void NFPlayer::SetSceneStatus(PLAYER_SCENE_STATE status)
+{
+    m_sceneState = status;
+}
+
+bool NFPlayer::IsInBattle()
+{
+    return BState(proto_ff::state_fight);
+}
+
+bool NFPlayer::IsInTransSceneing()
+{
+    return m_sceneState == PLAYER_SCENE_STATUS_Entering || m_sceneState == PLAYER_SCENE_STATUS_Leaveing;
+}
+
+int NFPlayer::EnterScene(uint64_t mapId, uint64_t sceneId, const NFPoint3<float> &dstPos)
+{
+    if (IsInTransSceneing())
+    {
+        return proto_ff::RET_FAIL;
+    }
+    
+    SetSceneStatus(PLAYER_SCENE_STATUS_Entering);
+    
+    proto_ff::EnterSceneReq req;
+    req.set_cid(GetCid());
+    req.set_dst_map_id(mapId);
+    req.set_dst_scene_id(sceneId);
+    NFLogicCommon::NFPoint3ToProto(dstPos, *req.mutable_dst_pos());
+    req.set_src_map_id(m_mapId);
+    req.set_src_scene_id(m_sceneId);
+    NFLogicCommon::NFPoint3ToProto(m_pos, *req.mutable_src_pos());
+    SetEnterSceneProto(*req.mutable_data());
+    
+    auto pConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_LOGIC_SERVER);
+    CHECK_NULL(pConfig);
+    
+    req.set_proxy_id(GetProxyId());
+    req.set_logic_id(pConfig->GetBusId());
+    req.set_world_id(GetWorldId());
+    req.set_sns_id(GetSnsId());
+    
+    proto_ff::EnterSceneRsp rsp;
+    int iRet = GetRpcService<proto_ff::STS_ENTER_SCENE_REQ>(NF_ST_CENTER_SERVER, 0, req, rsp);
+    SetSceneStatus(PLAYER_SCENE_STATUS_NONE);
+    if (iRet != 0)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, GetCid(), "GetRpcService<proto_ff::STS_ENTER_SCENE_REQ> rpc error:{}", GetErrorStr(iRet));
+        return iRet;
+    }
+    
+    if (rsp.ret_code() != proto_ff::RET_SUCCESS)
+    {
+        NFLogError(NF_LOG_SYSTEMLOG, GetCid(), "GetRpcService<proto_ff::STS_ENTER_SCENE_REQ> Failed, return ret_code:{}", GetErrorStr(rsp.ret_code()));
+        return rsp.ret_code();
+    }
+    
+    SetSceneStatus(PLAYER_SCENE_STATUS_Gameing);
+    
+    SetGameId(rsp.game_id());
+    m_mapId = rsp.map_id();
+    m_sceneId = rsp.scene_id();
+    NFLogicCommon::NFPoint3FromProto(m_pos, rsp.pos());
+    
+    NFLogInfo(NF_LOG_SYSTEMLOG, GetCid(), "Enter Scene Success, MapId:{} SceneId:{}", mapId, sceneId);
+    
+    return 0;
 }

@@ -31,7 +31,7 @@ int NFServerAddrMgr::ResumeInit() {
     return 0;
 }
 
-int NFServerAddrMgr::AddMapAddr(uint32_t mapId, uint32_t busId)
+int NFServerAddrMgr::AddMapAddr(uint64_t mapId, uint32_t busId)
 {
     NFMapAddr* pMapAddr = GetMapAddr(mapId);
     if (pMapAddr == NULL)
@@ -43,7 +43,7 @@ int NFServerAddrMgr::AddMapAddr(uint32_t mapId, uint32_t busId)
     return pMapAddr->AddBusId(busId);
 }
 
-NFMapAddr* NFServerAddrMgr::GetMapAddr(uint32_t mapId)
+NFMapAddr* NFServerAddrMgr::GetMapAddr(uint64_t mapId)
 {
     auto iter = m_mapAddrMap.find(mapId);
     if (iter != m_mapAddrMap.end())
@@ -53,7 +53,7 @@ NFMapAddr* NFServerAddrMgr::GetMapAddr(uint32_t mapId)
     return nullptr;
 }
 
-NFMapAddr* NFServerAddrMgr::InsertMapAddr(uint32_t mapId)
+NFMapAddr* NFServerAddrMgr::InsertMapAddr(uint64_t mapId)
 {
     if (m_mapAddrMap.size() >= m_mapAddrMap.max_size())
     {
@@ -62,4 +62,24 @@ NFMapAddr* NFServerAddrMgr::InsertMapAddr(uint32_t mapId)
     }
 
     return &m_mapAddrMap[mapId];
+}
+
+bool NFServerAddrMgr::IsStaticMapId(uint64_t mapId)
+{
+    NFMapAddr* pMapAddr = GetMapAddr(mapId);
+    if (pMapAddr)
+    {
+        return true;
+    }
+    return false;
+}
+
+uint32_t NFServerAddrMgr::GetSuitGameId(uint64_t mapId, uint64_t sceneId)
+{
+    NFMapAddr* pMapAddr = GetMapAddr(mapId);
+    if (pMapAddr)
+    {
+        return pMapAddr->GetSuitGameId();
+    }
+    return 0;
 }

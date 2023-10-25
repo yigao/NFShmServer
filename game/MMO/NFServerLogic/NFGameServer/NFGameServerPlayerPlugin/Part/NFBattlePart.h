@@ -144,7 +144,7 @@ public:
 public:
     NFCreature* GetMaster();
 protected:
-    int m_masterCid;
+    uint64_t m_masterCid;
     uint32_t m_partType;
 
 private:

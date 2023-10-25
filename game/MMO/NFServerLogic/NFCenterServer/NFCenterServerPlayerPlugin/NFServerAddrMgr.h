@@ -33,11 +33,14 @@ public:
 
     int ResumeInit();
 public:
-    int AddMapAddr(uint32_t mapId, uint32_t busId);
-    NFMapAddr* GetMapAddr(uint32_t mapId);
-    NFMapAddr* InsertMapAddr(uint32_t mapId);
+    int AddMapAddr(uint64_t mapId, uint32_t busId);
+    NFMapAddr* GetMapAddr(uint64_t mapId);
+    NFMapAddr* InsertMapAddr(uint64_t mapId);
+public:
+    bool IsStaticMapId(uint64_t mapId);
+    uint32_t GetSuitGameId(uint64_t mapId, uint64_t sceneId);
 private:
-    NFShmHashMap<uint32_t, NFMapAddr, MAX_MAP_ADDR_NUM> m_mapAddrMap;
+    NFShmHashMap<uint64_t, NFMapAddr, MAX_MAP_ADDR_NUM> m_mapAddrMap;
     NFShmHashMap<uint32_t, NFGameServerInfo, MAX_GAME_SERVER_NUM>  m_gameServerMap;
     NFShmHashMap<uint32_t, NFLogicServerInfo, MAX_LOGIC_SERVER_NUM>  m_logicServerMap;
 private:

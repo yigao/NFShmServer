@@ -43,10 +43,10 @@ public:
     /**
      * @brief
      * @param kindType
-     * @param id
+     * @param cid
      * @return
      */
-    NFCreature* CreateCreature(uint32_t kindType, uint64_t id = 0);
+    NFCreature* CreateCreature(uint32_t kindType, uint64_t cid = 0);
 
     /**
      * @brief
@@ -56,10 +56,10 @@ public:
 public:
     /**
      * @brief
-     * @param roleId
+     * @param cid
      * @return
      */
-    NFBattlePlayer* GetBattlePlayer(uint64_t roleId);
+    NFBattlePlayer* GetBattlePlayer(uint64_t cid);
 private:
     int m_creatureTickTimer;
 DECLARE_IDCREATE(NFCreatureMgr)

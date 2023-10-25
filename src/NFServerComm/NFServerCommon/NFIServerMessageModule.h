@@ -212,8 +212,11 @@ public:
             if (iRet == 0)
             {
                 iRet = selobjRes.opres().err_code();
-                NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::E_STORESVR_C2S_SELECTOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
-                           selobjRes.opres().errmsg());
+                if (iRet != proto_ff::ERR_CODE_STORESVR_ERRCODE_SELECT_EMPTY)
+                {
+                    NFLogError(NF_LOG_SYSTEMLOG, 0, "proto_ff::E_STORESVR_C2S_SELECTOBJ Failed, iRet:{} errMsg:{}", GetErrorStr(iRet),
+                               selobjRes.opres().errmsg());
+                }
             }
             else
             {

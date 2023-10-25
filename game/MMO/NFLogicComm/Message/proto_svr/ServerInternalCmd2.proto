@@ -8,7 +8,9 @@ enum ServerInternalCmd2
 {
   //登录
   SERVER_INTERNAL2_BEGIN = 5000;
-  LTS_LOGIN_RPC = 5001;
-  STS_MAP_REG_RPC = 5002;
+  LTS_LOGIN_RPC = 5001; //登陆sns
+  STS_MAP_REG_RPC = 5002; //注册地图信息
+  STS_ENTER_SCENE_REQ = 5003; //进入场景RPC
+  STS_ENTER_SCENE_RSP = 5004; //进入场景RPC
 };
 

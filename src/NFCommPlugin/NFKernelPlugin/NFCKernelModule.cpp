@@ -209,12 +209,12 @@ uint64_t NFCKernelModule::Get53UUID()
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "gen uuid::{}", ullUniqueID);
 
-    uint64_t worldId = (ullUniqueID & WORLDID_MASK) >> 48;
-    uint64_t zoneId = (ullUniqueID & ZONEID_MASK) >> 36;
-    uint64_t checkSeq = (ullUniqueID & CHECK_SEQ_MASK) >> 32;
+    uint64_t worldId = (ullUniqueID & WORLDID_53_MASK) >> 48;
+    uint64_t zoneId = (ullUniqueID & ZONEID_53_MASK) >> 36;
+    uint64_t checkSeq = (ullUniqueID & CHECK_SEQ_53_MASK) >> 32;
     uint64_t adaptiveTime = (ullUniqueID & ADAPTIVE_TIME_MASK);
 
-    CHECK_EXPR_MSG(worldId == m_iWorldId, "Get53UUID error, worldId:{} == m_iWorldType:{}", worldId, m_iWorldId);
+    CHECK_EXPR_MSG(worldId == m_iWorldId, "Get53UUID error, worldId:{} == m_iWorldId:{}", worldId, m_iWorldId);
     CHECK_EXPR_MSG(zoneId == m_iZoneId, "Get53UUID error, zoneId:{} == m_iZoneId:{}", zoneId, m_iZoneId);
     CHECK_EXPR_MSG(checkSeq == m_ucCheckSeq, "Get53UUID error, checkSeq:{} == m_ucCheckSeq:{}", checkSeq, m_ucCheckSeq);
     CHECK_EXPR_MSG(adaptiveTime == m_iAdaptiveTime, "Get53UUID error, adaptiveTime:{} == m_iAdaptiveTime:{}", adaptiveTime, m_iAdaptiveTime);

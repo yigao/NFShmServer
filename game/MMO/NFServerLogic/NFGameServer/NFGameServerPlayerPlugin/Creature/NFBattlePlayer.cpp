@@ -46,11 +46,10 @@ int NFBattlePlayer::CreateInit()
     m_kind = CREATURE_PLAYER;
     m_isInited = false;
     m_uid = 0;
-    m_roleId = 0;
+    m_cid = 0;
     m_channId = 0;
     m_zid = 0;
     m_proxyId = 0;
-    m_clientId = 0;
     m_logicId = 0;
     m_headFlag = 0;
     m_pPart.resize(m_pPart.max_size());
@@ -64,12 +63,21 @@ int NFBattlePlayer::ResumeInit()
     return 0;
 }
 
+int NFBattlePlayer::Init()
+{
+    m_pFightAttr = NFAttrMgr::Instance(m_pObjPluginManager)->MakeFightAttrObj(EAttrType::role);
+    m_pAttr = NFAttrMgr::Instance(m_pObjPluginManager)->MakeAttrObj(EAttrType::role);
+    return 0;
+}
+
 int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
 {
-    m_roleId = data.cid();
-    m_cid = m_roleId;
+    m_cid = data.cid();
     m_zid = data.zid();
     m_uid = data.uid();
+    
+    ReadBaseData(data.base());
+    ReadViewAttrData(data.attr());
 
     NFCreature::Init();
     ResetCurSeq();
@@ -97,13 +105,12 @@ int NFBattlePlayer::Init(const proto_ff::RoleEnterSceneData &data)
     return 0;
 }
 
-int NFBattlePlayer::Init(uint32_t gateId, uint64_t clientId, uint32_t logicId, const proto_ff::RoleEnterSceneData &data)
+int NFBattlePlayer::Init(uint32_t proxyId, uint32_t logicId, uint32_t worldId, uint32_t snsId, const proto_ff::RoleEnterSceneData &data)
 {
     ReadBaseData(data.base());
     ReadViewAttrData(data.attr());
 
-    m_proxyId = gateId;
-    m_clientId = clientId;
+    m_proxyId = proxyId;
     m_logicId = logicId;
     for (uint32_t i = BATTLE_PART_NONE + 1; i < BATTLE_PART_MAX; ++i)
     {
@@ -296,6 +303,12 @@ int NFBattlePlayer::Update(uint64_t tick)
 int NFBattlePlayer::ReadBaseData(const ::proto_ff::RoleDBBaseData &dbData)
 {
     m_name = dbData.name();
+    m_pAttr->SetAttr(proto_ff::A_PROF, dbData.prof());
+    m_pAttr->SetAttr(proto_ff::A_LEVEL, dbData.level());
+    m_pAttr->SetAttr(proto_ff::A_EXP, dbData.exp());
+    m_pAttr->SetAttr(proto_ff::A_CUR_HP, dbData.hp());
+    m_pAttr->SetAttr(proto_ff::A_FIGHT, dbData.fight());
+    m_pAttr->SetAttr(proto_ff::A_VIP_LEVEL, dbData.vip_level());
     m_facade.read_from_pbmsg(dbData.facade());
     SetState((proto_ff::ECState)dbData.state());
     return 0;
@@ -504,7 +517,6 @@ void NFBattlePlayer::SetIsDisconnect(bool isDisConnect)
 int NFBattlePlayer::OnDisconnect()
 {
     m_proxyId = 0;
-    m_clientId = 0;
     SetPlayerStatus(proto_ff::PLAYER_STATUS_OFFLINE);
     SetLastDiconnectTime(NFTime::Now().UnixSec());
 

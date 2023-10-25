@@ -25,6 +25,7 @@ public:
         m_worldBusId = 0;
         m_logicBusId = 0;
         m_gameBusId = 0;
+        m_snsBusId = 0;
     }
 
     virtual ~NFProxyAccount()
@@ -70,11 +71,16 @@ public:
     void SetLogicBusId(uint32_t busId);
 
     uint32_t GetLogicBusId() const;
+    
+    void SetSnsBusId(uint32_t busId);
+    
+    uint32_t GetSnsBusId() const;
 private:
     uint64_t m_linkId;
     uint32_t m_worldBusId;
     uint32_t m_gameBusId;
     uint32_t m_logicBusId;
+    uint32_t m_snsBusId;
     uint64_t m_disconnectTime;
     bool m_online;
     bool m_isLogin;
