@@ -406,7 +406,7 @@ void NFPlayer::DecreaseTransNum()
 int NFPlayer::SendMsgToClient(uint32_t nMsgId, const google::protobuf::Message &xData)
 {
     CHECK_EXPR(m_proxyId > 0, -1, "player disconnect, SendMsgToClient msgId:{} msgData:{}", nMsgId, xData.DebugString());
-    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIC_SERVER, m_proxyId, nMsgId, xData, m_cid);
+    int iRet = FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_LOGIC_SERVER, m_proxyId, nMsgId, xData, m_uid);
     NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "SendMsgToClient msgId:{} msgData:{} iRet:{}", nMsgId, xData.DebugString(), GetErrorStr(iRet));
     return iRet;
 }

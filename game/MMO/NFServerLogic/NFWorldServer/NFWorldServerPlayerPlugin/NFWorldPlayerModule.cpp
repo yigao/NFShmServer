@@ -517,7 +517,14 @@ int NFCWorldPlayerModule::OnRpcServiceEnterGame(proto_ff::ClientEnterGameReq& re
 
         pRole->SetLogicId(pLogicServer->mServerInfo.bus_id());
     }
-
+    
+    /**
+     * 客户端需要，特殊处理
+     */
+    proto_ff::ClientEnterGameRsp rspMsg;
+    rspMsg.set_ret(proto_ff::RET_SUCCESS);
+    FindModule<NFIServerMessageModule>()->SendMsgToProxyServer(NF_ST_WORLD_SERVER, pAccountInfo->GetProxyId(), proto_ff::CLIENT_ENTER_GAME_RSP, rspMsg, uid);
+    
     auto pServerConfig = FindModule<NFIConfigModule>()->GetAppConfig(NF_ST_WORLD_SERVER);
     CHECK_NULL(pServerConfig);
     
