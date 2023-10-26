@@ -224,15 +224,13 @@ void *NFShmObjSeg::AllocMemForObject()
     return pIdx->GetObjBuf();
 }
 
-void NFShmObjSeg::FreeMemForObject(void *pMem)
+int NFShmObjSeg::FreeMemForObject(void *pMem)
 {
     int iIdx = 0;
     iIdx = GetObjId((NFShmObj *) pMem);
-
-    if (iIdx >= 0)
-    {
-        DestroyIdx(iIdx);
-    }
+    CHECK_EXPR(iIdx >= 0, -1,"FreeMemForObject Failed, the pMem is no the class data");
+    DestroyIdx(iIdx);
+    return 0;
 }
 
 NFShmIdx *NFShmObjSeg::CreateIdx()

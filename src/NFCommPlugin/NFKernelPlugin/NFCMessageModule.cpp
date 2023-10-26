@@ -561,10 +561,10 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                         uint64_t useTime = NFGetMicroSecondTime() - startTime;
                         if (useTime / 1000 > 33)
                         {
-                            NFLogError(NF_LOG_SYSTEMLOG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} use time:{} ms, too long", pTrans->ClassTypeInfo(),
+                            NFLogError(NF_LOG_SYSTEMLOG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} use time:{} ms, too long", pTrans->GetStaticClassName(m_pObjPluginManager),
                                        svrPkg.msg_id(), useTime / 1000);
                         }
-                        NFLogTrace(NF_LOG_RECV_MSG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} packet:{} use time:{} us", pTrans->ClassTypeInfo(),
+                        NFLogTrace(NF_LOG_RECV_MSG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} packet:{} use time:{} us", pTrans->GetStaticClassName(m_pObjPluginManager),
                                    svrPkg.msg_id(), packet.ToString(), useTime);
                     }
                     else
@@ -606,9 +606,9 @@ int NFCMessageModule::OnReceiveNetPack(uint64_t connectionLink, uint64_t objectL
                             if (useTime / 1000 > 33)
                             {
                                 NFLogError(NF_LOG_SYSTEMLOG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{} use time:{} ms, too long",
-                                           pTrans->ClassTypeInfo(), svrPkg.store_info().cmd(), useTime / 1000);
+                                           pTrans->GetStaticClassName(m_pObjPluginManager), svrPkg.store_info().cmd(), useTime / 1000);
                             }
-                            NFLogTrace(NF_LOG_RECV_MSG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{}  use time:{} us", pTrans->ClassTypeInfo(),
+                            NFLogTrace(NF_LOG_RECV_MSG, 0, "Trans:{} ProcessDispSvrRes nMsgId:{}  use time:{} us", pTrans->GetStaticClassName(m_pObjPluginManager),
                                        svrPkg.store_info().cmd(), useTime);
                         }
                         else

@@ -783,6 +783,16 @@ NFShmObjSeg *NFCSharedMemModule::GetObjSeg(int iType)
     return NULL;
 }
 
+NFShmObjSegSwapCounter *NFCSharedMemModule::GetObjSegSwapCounter(int iType)
+{
+    if (iType >= 0 && iType < (int) m_nObjSegSwapCounter.size())
+    {
+        return &m_nObjSegSwapCounter[iType];
+    }
+    
+    return NULL;
+}
+
 int NFCSharedMemModule::GetItemCount(int iType)
 {
     NFShmObjSeg *pObjSeg = GetObjSeg(iType);
@@ -836,7 +846,11 @@ void NFCSharedMemModule::FreeMemForObject(int iType, void *pMem)
     NFShmObjSeg *pObjSeg = GetObjSeg(iType);
     if (pObjSeg)
     {
-        return pObjSeg->FreeMemForObject(pMem);
+        int iRet = pObjSeg->FreeMemForObject(pMem);
+        if (iRet != 0)
+        {
+            NFLogError(NF_LOG_SYSTEMLOG, 0, "nFreeMemForObject Failed, the pMem is no the class data, classType:{}, className:{}", iType, m_nObjSegSwapCounter[iType].m_szClassName);
+        }
     }
     NFLogError(NF_LOG_SYSTEMLOG, 0, "now FreeMemForObject iType:{} null objseg", iType);
     return;

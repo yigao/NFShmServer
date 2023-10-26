@@ -123,7 +123,7 @@ public:
 
     void *AllocMemForObject();
 
-    void FreeMemForObject(void *pMem);
+    int FreeMemForObject(void *pMem);
 
     int CreateObject();
 public:

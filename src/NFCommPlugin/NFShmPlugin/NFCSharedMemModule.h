@@ -239,6 +239,8 @@ public:
 
 public:
     virtual NFShmObjSeg *GetObjSeg(int iType);
+    
+    virtual NFShmObjSegSwapCounter *GetObjSegSwapCounter(int iType);
 
     virtual int GetItemCount(int iType) override;
 

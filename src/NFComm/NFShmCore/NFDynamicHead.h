@@ -42,7 +42,6 @@ public:\
     virtual int GetItemCount() const;\
     virtual int GetUsedCount() const;\
     virtual int GetFreeCount() const;\
-    virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}", #class_name, GetClassType());}\
     /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
     static int  RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, bool singleton = false);  \
     static void* operator new( size_t nSize,void *pBuffer) throw();\
@@ -237,7 +236,6 @@ public:\
     virtual int GetItemCount() const;\
     virtual int GetUsedCount() const;\
     virtual int GetFreeCount() const;\
-    virtual std::string ClassTypeInfo() { return NF_FORMAT("{} type:{}", #class_name, GetClassType());}\
     /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
     static int  RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount, const std::string& className, bool useHash, bool singleton = false);  \
     static void* operator new( size_t nSize,void *pBuffer) throw();\

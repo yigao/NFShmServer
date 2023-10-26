@@ -19,6 +19,7 @@
 #include "NFGameCommon/NFPoint2.h"
 #include "NFGameCommon/NFPoint3.h"
 #include "ServerInternal2.pb.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
 #define GAME_SERVER_MAX_BATTLE_SCENE_SIZE 100
 #define MAX_LAYER 5  //搜索最大层数
