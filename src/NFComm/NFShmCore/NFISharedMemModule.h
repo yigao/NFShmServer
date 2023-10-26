@@ -113,19 +113,19 @@ public:
     template<typename ShmObjType>
     ShmObjType *CreateObj()
     {
-        return dynamic_cast<ShmObjType*>(CreateObj(ShmObjType::GetStaticClassType(m_pObjPluginManager)));
+        return dynamic_cast<ShmObjType*>(CreateObj(ShmObjType::GetStaticClassType()));
     }
 
     template<typename ShmObjType>
     ShmObjType *CreateObjByHashKey(uint64_t hashKey)
     {
-        return dynamic_cast<ShmObjType*>(CreateObjByHashKey(ShmObjType::GetStaticClassType(m_pObjPluginManager), hashKey));
+        return dynamic_cast<ShmObjType*>(CreateObjByHashKey(ShmObjType::GetStaticClassType(), hashKey));
     }
 
     template<typename ShmObjType>
     ShmObjType *GetObjByHashKey(uint64_t hashKey)
     {
-        return dynamic_cast<ShmObjType*>(GetObjByHashKey(ShmObjType::GetStaticClassType(m_pObjPluginManager), hashKey));
+        return dynamic_cast<ShmObjType*>(GetObjByHashKey(ShmObjType::GetStaticClassType(), hashKey));
     }
 
     virtual NFShmObj *GetHeadObj(int iType) = 0;
@@ -133,7 +133,7 @@ public:
     template<typename ShmObjType>
     ShmObjType *GetHeadObj()
     {
-        return dynamic_cast<ShmObjType*>(GetHeadObj(ShmObjType::GetStaticClassType(m_pObjPluginManager)));
+        return dynamic_cast<ShmObjType*>(GetHeadObj(ShmObjType::GetStaticClassType()));
     }
 
     virtual NFShmObj *GetNextObj(int iType, NFShmObj *pObj) = 0;
@@ -141,7 +141,7 @@ public:
     template<typename ShmObjType>
     ShmObjType *GetNextObj(NFShmObj *pObj)
     {
-        return dynamic_cast<ShmObjType*>(GetNextObj(ShmObjType::GetStaticClassType(m_pObjPluginManager), pObj));
+        return dynamic_cast<ShmObjType*>(GetNextObj(ShmObjType::GetStaticClassType(), pObj));
     }
 
     virtual void DestroyObj(NFShmObj *pObj) = 0;
@@ -157,7 +157,7 @@ public:
     template<typename ShmObjType>
     ShmObjType *GetObjByGlobalId(int iGlobalID, int iStrongType = 1)
     {
-        return dynamic_cast<ShmObjType*>(GetObjByGlobalId(iGlobalID, ShmObjType::GetStaticClassType(m_pObjPluginManager), iStrongType));
+        return dynamic_cast<ShmObjType*>(GetObjByGlobalId(iGlobalID, ShmObjType::GetStaticClassType(), iStrongType));
     }
 
     virtual NFShmObj *GetObjByGlobalIdWithNoCheck(int iGlobalID) = 0;

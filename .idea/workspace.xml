@@ -75,6 +75,7 @@
       <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -518,7 +519,7 @@
       <workItem from="1698124434508" duration="46098000" />
       <workItem from="1698282474478" duration="868000" />
       <workItem from="1698283355590" duration="3362000" />
-      <workItem from="1698287259805" duration="8808000" />
+      <workItem from="1698287259805" duration="9317000" />
     </task>
     <task id="LOCAL-00172" summary="fish">
       <created>1695432186860</created>
@@ -863,7 +864,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697881884722</updated>
     </task>
-    <option name="localTasksCounter" value="235" />
+    <option name="localTasksCounter" value="236" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1151,6 +1152,26 @@
           <url>file://$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp</url>
           <line>520</line>
           <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.cpp</url>
+          <line>24</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h</url>
+          <line>150</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h</url>
+          <line>163</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h</url>
+          <line>170</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

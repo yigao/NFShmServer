@@ -20,7 +20,7 @@ public:\
     static int   GetStaticItemCount(NFIPluginManager* pPluginManager);\
     static int   GetStaticUsedCount(NFIPluginManager* pPluginManager);\
     static int   GetStaticFreeCount(NFIPluginManager* pPluginManager);\
-    static std::string GetStaticClassName(NFIPluginManager* pPluginManager) { return #class_name; }\
+    static std::string GetStaticClassName() { return #class_name; }\
     static iterator Begin(NFIPluginManager* pPluginManager);\
     static iterator End(NFIPluginManager* pPluginManager);\
     static reverse_iterator RBegin(NFIPluginManager* pPluginManager);\
@@ -36,7 +36,7 @@ public:\
     static int DestroyObjAutoErase(NFIPluginManager* pPluginManager,int maxNum = INVALID_ID, const DESTROY_SHM_AUTO_ERASE_FUNCTION &func = NULL);\
 	static class_name* Instance(NFIPluginManager* pPluginManager);\
 	static class_name* GetInstance(NFIPluginManager* pPluginManager);\
-    static int GetStaticClassType(NFIPluginManager* pPluginManager);      \
+    static int GetStaticClassType();      \
     virtual std::string GetClassName() const;\
     virtual int GetClassType() const;     \
     virtual int GetItemCount() const;\
@@ -116,7 +116,7 @@ public:\
 	{\
         return FindModule<NFISharedMemModule>()->GetClassName(type);\
 	}                                                 \
-    int class_name::GetStaticClassType(NFIPluginManager* pPluginManager)           \
+    int class_name::GetStaticClassType()           \
     {\
         return type;\
     }\
@@ -159,7 +159,7 @@ public:\
 		void* pVoid = pPluginManager->FindModule<NFISharedMemModule>()->AllocMemForObject(type);      \
 		if(!pVoid)\
 		{\
-			NFLogError(NF_LOG_SYSTEMLOG, 0, "ERROR: class:{}, Item:{}, Used:{}, Free:{}", GetStaticClassName(pPluginManager), GetStaticItemCount(pPluginManager), GetStaticUsedCount(pPluginManager), GetStaticFreeCount(pPluginManager)); \
+			NFLogError(NF_LOG_SYSTEMLOG, 0, "ERROR: class:{}, Item:{}, Used:{}, Free:{}", GetStaticClassName(), GetStaticItemCount(pPluginManager), GetStaticUsedCount(pPluginManager), GetStaticFreeCount(pPluginManager)); \
             return NULL;\
 		}\
         pTmp = new (pVoid) class_name();\
@@ -189,7 +189,7 @@ public:\
 	int  class_name::RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, bool singleton)\
 	{\
 		pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize,iObjCount, class_name::ResumeObjectRegisterFunction,\
-													   class_name::CreateObjectRegisterFunction,class_name::DestroyObjectRegisterFunction, parent_class::GetStaticClassType(pPluginManager),\
+													   class_name::CreateObjectRegisterFunction,class_name::DestroyObjectRegisterFunction, parent_class::GetStaticClassType(),\
 													   className, useHash, singleton);\
 		return 0;\
 	}\
@@ -383,7 +383,7 @@ public:\
 	int  class_name::RegisterClassToObjSeg(NFIPluginManager* pPluginManager, int bType, size_t siObjSize,int iObjCount,const std::string& className, bool useHash, bool singleton)\
 	{\
 		pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize,iObjCount, class_name::ResumeObjectRegisterFunction,\
-													   class_name::CreateObjectRegisterFunction,class_name::DestroyObjectRegisterFunction, parent_class::GetStaticClassType(pPluginManager),\
+													   class_name::CreateObjectRegisterFunction,class_name::DestroyObjectRegisterFunction, parent_class::GetStaticClassType(),\
 													   className, useHash, singleton);\
 		return 0;\
 	}\
