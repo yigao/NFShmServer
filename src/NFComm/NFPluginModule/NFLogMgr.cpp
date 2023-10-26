@@ -25,7 +25,10 @@ NFLogMgr::~NFLogMgr()
 
 bool NFLogMgr::Init(NFILogModule* pSpdlogModule)
 {
-	m_pLogModule = pSpdlogModule;
+    if (m_pLogModule == NULL)
+    {
+        m_pLogModule = pSpdlogModule;
+    }
 	return true;
 }
 

@@ -46,8 +46,16 @@ typedef enum
         ClassName::RegisterClassToObjSeg(m_pObjPluginManager, ClassName::GetStaticClassType(m_pObjPluginManager), sizeof(ClassName), (ObjNum), std::string(#ClassName), true);\
     }while(0)
 
+#define REGISTER_SHM_OBJ_GLOBAL(ClassName, ObjNum ) do{\
+        ClassName::RegisterClassToObjSeg(NFGlobalSystem::Instance()->GetGlobalPluginManager(), ClassName::GetStaticClassType(), sizeof(ClassName), (ObjNum), std::string(#ClassName), false);\
+    }while(0)
+
 #define REGISTER_SINGLETON_SHM_OBJ_GLOBAL(ClassName) do{\
-        ClassName::RegisterClassToObjSeg(m_pObjPluginManager, ClassName::GetStaticClassType(), sizeof(ClassName), 1, std::string(#ClassName), false, true);\
+        ClassName::RegisterClassToObjSeg(NFGlobalSystem::Instance()->GetGlobalPluginManager(), ClassName::GetStaticClassType(), sizeof(ClassName), 1, std::string(#ClassName), false, true);\
+    }while(0)
+
+#define REGISTER_SHM_OBJ_WITH_HASH_GLOBAL( ClassName, ObjNum ) do{\
+        ClassName::RegisterClassToObjSeg(NFGlobalSystem::Instance()->GetGlobalPluginManager(), ClassName::GetStaticClassType(), sizeof(ClassName), (ObjNum), std::string(#ClassName), true);\
     }while(0)
 
 

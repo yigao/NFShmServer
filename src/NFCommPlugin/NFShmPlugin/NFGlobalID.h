@@ -41,8 +41,8 @@ public:
 	static NFShmObj *ResumeObject(NFIPluginManager* pPluginManager, void *pBuffer);
     static NFShmObj * CreateObject(NFIPluginManager* pPluginManager);
     static void DestroyObject(NFIPluginManager* pPluginManager,NFShmObj *pObj);
-    static std::string GetClassName(NFIPluginManager* pPluginManager) { return "NFGlobalID"; }
-    static int GetClassType(NFIPluginManager* pPluginManager) { return EOT_GLOBAL_ID; }
+    static std::string GetStaticClassName(NFIPluginManager* pPluginManager) { return "NFGlobalID"; }
+    static int GetStaticClassType(NFIPluginManager* pPluginManager) { return EOT_GLOBAL_ID; }
 
 	int AddSecond(int iSecond) { m_iSecOffSet += iSecond; return 0; }
 	int GetSecOffset() { return m_iSecOffSet; }

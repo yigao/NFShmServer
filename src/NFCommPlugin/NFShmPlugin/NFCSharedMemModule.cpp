@@ -555,9 +555,17 @@ int NFCSharedMemModule::InitAllObjSeg()
             {
                 size_t sObjSegSize = pObjSeg->GetMemSize();
 
-                NFLogInfo(NF_LOG_SYSTEMLOG, 0, "{} count {}   --- ObjStart:{}, size:{}({}MB)", pObjSegSwapCounter->m_szClassName,
-                          pObjSegSwapCounter->m_iItemCount,
-                          (void *) pObjSeg->m_pObjs, sObjSegSize, (float) sObjSegSize / 1024.0 / 1024.0);
+                if (sObjSegSize / 1024.0 / 1024.0 >= 1.0)
+                {
+                    NFLogWarning(NF_LOG_SYSTEMLOG, 0, "{} count {}   --- ObjStart:{}, size:{}({}MB)", pObjSegSwapCounter->m_szClassName,
+                              pObjSegSwapCounter->m_iItemCount,
+                              (void *) pObjSeg->m_pObjs, sObjSegSize, (float) sObjSegSize / 1024.0 / 1024.0);
+                }
+                else {
+                    NFLogTrace(NF_LOG_SYSTEMLOG, 0, "{} count {}   --- ObjStart:{}, size:{}({}MB)", pObjSegSwapCounter->m_szClassName,
+                                 pObjSegSwapCounter->m_iItemCount,
+                                 (void *) pObjSeg->m_pObjs, sObjSegSize, (float) sObjSegSize / 1024.0 / 1024.0);
+                }
             }
         }
     }
@@ -586,6 +594,10 @@ NFCSharedMemModule::RegisterClassToObjSeg(int bType, size_t nObjSize, int iItemC
         NF_ASSERT(pCounter->m_pDestroyFn == pDestroy);
 
         NF_ASSERT(pCounter->m_iUseHash == useHash);
+        if (singleton)
+        {
+            return;
+        }
     }
     pCounter->m_nObjSize = nObjSize;
     pCounter->m_iItemCount += iItemCount;
@@ -648,7 +660,7 @@ NFCSharedMemModule::RegisterClassToObjSeg(int bType, size_t nObjSize, int iItemC
         }
         else
         {
-            NFLogInfo(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} byte count {} tablesize {} M total obj count {}", pszClassName,
+            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "class {} objsize {} byte count {} tablesize {} M total obj count {}", pszClassName,
                       pCounter->m_nObjSize, pCounter->m_iItemCount, siThisObjSegTotal / 1024.0 / 1024.0, m_iTotalObjCount);
         }
     }
@@ -1393,11 +1405,11 @@ void NFCSharedMemModule::DestroyObj(NFShmObj *pObj)
 
         if (m_nObjSegSwapCounter[iType].m_iUseHash)
         {
-            NFLogDebug(NF_LOG_SYSTEMLOG, iHashID, "DestroyObj {}, key:{} globalId:{} type:{} index:{} iHashID:{} LeftNum:{} AllNum:{}", className, iHashID, iGlobalID, iType, iIndex,
+            NFLogDebug(NF_LOG_SYSTEMLOG, iHashID, "DestroyObj {}, key:{} globalId:{} type:{} index:{} iHashID:{} UsedNum:{} AllNum:{}", className, iHashID, iGlobalID, iType, iIndex,
                        iHashID, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
         }
         else {
-            NFLogDebug(NF_LOG_SYSTEMLOG, 0, "DestroyObj {}, globalId:{} type:{} index:{} LeftNum:{} AllNum:{}", className, iGlobalID, iType, iIndex, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
+            NFLogDebug(NF_LOG_SYSTEMLOG, 0, "DestroyObj {}, globalId:{} type:{} index:{} UsedNum:{} AllNum:{}", className, iGlobalID, iType, iIndex, m_nObjSegSwapCounter[iType].m_pObjSeg->GetUsedCount(), m_nObjSegSwapCounter[iType].m_iItemCount);
         }
     }
 

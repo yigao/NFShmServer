@@ -3,6 +3,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BookmarksViewState">
+    <option name="autoscrollToSource" value="true" />
+  </component>
   <component name="CMakePresetLoader">{
   &quot;useNewFormat&quot;: true
 }</component>
@@ -12,9 +15,9 @@
   <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="ShmNFrame" targetName="NFLuaScriptPlugin" />
+      <config projectName="ShmNFrame" targetName="evpp" />
       <config projectName="ShmNFrame" targetName="NFMMOCommonPlugin" />
       <config projectName="ShmNFrame" targetName="NFMMOProxyPlayerPlugin" />
-      <config projectName="ShmNFrame" targetName="evpp" />
       <config projectName="ShmNFrame" targetName="NFMMOLogicCommon" />
       <config projectName="ShmNFrame" targetName="NFServerMessage" />
       <config projectName="ShmNFrame" targetName="NFKernelPlugin" />
@@ -33,10 +36,10 @@
       <config projectName="ShmNFrame" targetName="NFNetPlugin" />
       <config projectName="ShmNFrame" targetName="NFFishLoginPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFCore" />
-      <config projectName="ShmNFrame" targetName="NFMMOLogicPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFCenterServerPlugin" />
       <config projectName="ShmNFrame" targetName="NFProxyClientPlugin" />
       <config projectName="ShmNFrame" targetName="NFMMODescStore" />
+      <config projectName="ShmNFrame" targetName="NFMMOLogicPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFMMOCenterPlayerPlugin" />
       <config projectName="ShmNFrame" targetName="NFPluginModule" />
       <config projectName="ShmNFrame" targetName="NFRouteServerPlugin" />
@@ -67,7 +70,22 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO role attr" />
+    <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO shm obj global desc store">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/AllMoreServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/AllMoreServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/Common.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/Common.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Install/MMOBusPlugin/LogicServer.lua" beforeDir="false" afterPath="$PROJECT_DIR$/Install/MMOBusPlugin/LogicServer.lua" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFLogicServer/NFLogicServerPlayerPlugin/Player/NFPlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFWorldServer/NFWorldServerPlayerPlugin/NFWorldPlayerModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFLogMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFPluginModule/NFLogMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFTypeDefines.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFTypeDefines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCConfigModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCLogModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFKernelPlugin/NFCLogModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFGlobalID.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFGlobalID.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,7 +107,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFMMOCenterPlayerPlugin" />
+    <option name="configuration" value="0-DynamicDebug-NFMMOCommonPlugin" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -114,13 +132,13 @@
     &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/game/MMO/NFLogicComm/NFLogicCommon&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C/C++&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -507,7 +525,10 @@
       <workItem from="1698021072528" duration="6800000" />
       <workItem from="1698028164714" duration="141000" />
       <workItem from="1698028314178" duration="43224000" />
-      <workItem from="1698124434508" duration="2000" />
+      <workItem from="1698124434508" duration="46098000" />
+      <workItem from="1698282474478" duration="868000" />
+      <workItem from="1698283355590" duration="3362000" />
+      <workItem from="1698287259805" duration="3108000" />
     </task>
     <task id="LOCAL-00172" summary="fish">
       <created>1695432186860</created>
@@ -852,7 +873,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697881884722</updated>
     </task>
-    <option name="localTasksCounter" value="227" />
+    <option name="localTasksCounter" value="233" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1096,8 +1117,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="redis db" />
-    <MESSAGE value="release" />
     <MESSAGE value="xls" />
     <MESSAGE value="file copy" />
     <MESSAGE value="shm" />
@@ -1121,7 +1140,9 @@
     <MESSAGE value="MMO create role" />
     <MESSAGE value="MMO role enter game" />
     <MESSAGE value="MMO role attr" />
-    <option name="LAST_COMMIT_MESSAGE" value="MMO role attr" />
+    <MESSAGE value="MMO enter game" />
+    <MESSAGE value="MMO shm obj global desc store" />
+    <option name="LAST_COMMIT_MESSAGE" value="MMO shm obj global desc store" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1137,9 +1158,9 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFCenterServer/NFCenterServerPlayerPlugin/NFCenterRegisterModule.cpp</url>
-          <line>105</line>
-          <option name="timeStamp" value="51" />
+          <url>file://$PROJECT_DIR$/src/NFServerComm/NFDescStorePlugin/NFCDescStoreModule.cpp</url>
+          <line>520</line>
+          <option name="timeStamp" value="18" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

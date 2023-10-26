@@ -921,7 +921,7 @@ bool NFPlayer::CanAddAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSour
             return false;
         }
         
-        if (m_pAttr->GetAttr(proto_ff::A_LEVEL) >= RoleDescEx::Instance(m_pObjPluginManager)->MaxLevel())
+        if (m_pAttr->GetAttr(proto_ff::A_LEVEL) >= RoleDescEx::Instance()->MaxLevel())
         {
             return false;
         }
@@ -1088,7 +1088,7 @@ bool NFPlayer::CanSetAttr(uint32_t ANum, int64_t attrValue, SCommonSource *pSour
             return false;
         }
         
-        if (m_pAttr->GetAttr(proto_ff::A_LEVEL) >= RoleDescEx::Instance(m_pObjPluginManager)->MaxLevel())
+        if (m_pAttr->GetAttr(proto_ff::A_LEVEL) >= RoleDescEx::Instance()->MaxLevel())
         {
             return false;
         }

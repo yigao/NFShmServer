@@ -322,7 +322,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
         return 0;
     }
 
-    auto pBornCfg = MapDescEx::Instance(m_pObjPluginManager)->GetBornCfg(request.prof());
+    auto pBornCfg = MapDescEx::Instance()->GetBornCfg(request.prof());
     if (nullptr == pBornCfg)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "can't find the prof's born cfg...uid:{},prof:{}, create role failed!", uid, request.prof());
@@ -330,7 +330,7 @@ int NFCWorldPlayerModule::OnRpcServiceCreateRole(proto_ff::ClientCreateRoleReq &
         return 0;
     }
 
-    const NFPoint3<float> *pBornPos = MapDescEx::Instance(m_pObjPluginManager)->RandBornPoint(pBornCfg->m_mapid);
+    const NFPoint3<float> *pBornPos = MapDescEx::Instance()->RandBornPoint(pBornCfg->m_mapid);
     if (nullptr == pBornPos)
     {
         NFLogInfo(NF_LOG_SYSTEMLOG, uid, "can't find the prof's born map:{} cfg...uid:{},prof:{}, create role failed!", pBornCfg->m_mapid, uid, request.prof());

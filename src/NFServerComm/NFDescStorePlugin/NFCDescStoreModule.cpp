@@ -291,7 +291,7 @@ int NFCDescStoreModule::LoadDescStore(NFIDescStore *pDescStore)
 
             pDescStore->SetMD5(fileMd5.c_str());
         }
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store End Load:{}, iRet={}, fileMd5:{}", pDescStore->GetFileName(), iRet, fileMd5);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store End Load:{}, iRet={}, fileMd5:{}", pDescStore->GetFileName(), iRet, fileMd5);
     }
     else
     {
@@ -313,12 +313,12 @@ int NFCDescStoreModule::LoadFile()
 
         if (!pDescStore->IsFileLoad())
             continue;
-
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Begin Load:{}", pDescStore->GetFileName());
+        
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store Begin Load:{}", pDescStore->GetFileName());
 
         int ret = LoadDescStore(pDescStore);
         NF_ASSERT_MSG(ret == 0, "Load Desc Store:" + pDescStore->GetFileName() + " Failed!");
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Load:{} Sucess", pDescStore->GetFileName());
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store Load:{} Sucess", pDescStore->GetFileName());
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;
@@ -465,7 +465,7 @@ int NFCDescStoreModule::CheckWhenAllDataLoaded()
     int iRet = 0;
     for (auto iter = mDescStoreMap.begin(); iter != mDescStoreMap.end(); iter++)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Begin CheckWhenAllDataLoaded:{}", iter->first);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store Begin CheckWhenAllDataLoaded:{}", iter->first);
         NFIDescStore *pDescStore = iter->second;
         assert(pDescStore);
         iRet = pDescStore->CheckWhenAllDataLoaded();
@@ -473,11 +473,11 @@ int NFCDescStoreModule::CheckWhenAllDataLoaded()
         CHECK_EXPR(iRet == 0, iRet, "Desc Store:{} CheckWhenAllDataLoaded Failed!", iter->first);
 
         pDescStore->SetChecked(true);
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store End CheckWhenAllDataLoaded:{}", iter->first);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store End CheckWhenAllDataLoaded:{}", iter->first);
     }
     for (auto iter = mDescStoreExMap.begin(); iter != mDescStoreExMap.end(); iter++)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex Begin Loaded:{}", iter->first);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex Begin Loaded:{}", iter->first);
         NFIDescStoreEx *pDescStoreEx = iter->second;
         assert(pDescStoreEx);
         iRet = pDescStoreEx->Load();
@@ -485,11 +485,11 @@ int NFCDescStoreModule::CheckWhenAllDataLoaded()
         CHECK_EXPR(iRet == 0, iRet, "Desc Store Ex:{} Loaded Failed!", iter->first);
 
         pDescStoreEx->SetLoaded(true);
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex End Loaded:{}", iter->first);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex End Loaded:{}", iter->first);
     }
     for (auto iter = mDescStoreExMap.begin(); iter != mDescStoreExMap.end(); iter++)
     {
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex Begin CheckWhenAllDataLoaded:{}", iter->first);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex Begin CheckWhenAllDataLoaded:{}", iter->first);
         NFIDescStoreEx *pDescStoreEx = iter->second;
         assert(pDescStoreEx);
         iRet = pDescStoreEx->CheckWhenAllDataLoaded();
@@ -497,7 +497,7 @@ int NFCDescStoreModule::CheckWhenAllDataLoaded()
         CHECK_EXPR(iRet == 0, iRet, "Desc Store Ex:{} CheckWhenAllDataLoaded Failed!", iter->first);
 
         pDescStoreEx->SetChecked(true);
-        NFLogInfo(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex End CheckWhenAllDataLoaded:{}", iter->first);
+        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "Desc Store Ex End CheckWhenAllDataLoaded:{}", iter->first);
     }
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--- end -- ");
     return 0;

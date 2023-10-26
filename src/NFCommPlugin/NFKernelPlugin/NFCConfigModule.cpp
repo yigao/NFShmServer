@@ -150,7 +150,7 @@ bool NFCConfigModule::LoadPluginConfig()
 
         proto_ff::pbPluginConfig pbPluginConfig;
         NFProtobufCommon::LuaToProtoMessage(serverPluginRef, &pbPluginConfig);
-        NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} plugin config:\n{}", serverPluginName, pbPluginConfig.DebugString());
+        //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} plugin config:\n{}", serverPluginName, pbPluginConfig.DebugString());
 
         if (pbPluginConfig.frameplugins_size() <= 0 && pbPluginConfig.serverplugins_size() <= 0 && pbPluginConfig.workplugins_size() <= 0)
         {
@@ -236,7 +236,7 @@ bool NFCConfigModule::LoadServerConfig()
             NFProtobufCommon::LuaToProtoMessage(serverConfigRef, &tmpConfig);
 
             proto_ff::pbNFServerConfig *pPbConfig = &tmpConfig;
-            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} config:\n{}", serverName, pPbConfig->DebugString());
+            //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load server:{} config:\n{}", serverName, pPbConfig->DebugString());
 
             if (!pPbConfig->has_serverid())
             {
@@ -302,7 +302,7 @@ bool NFCConfigModule::LoadServerConfig()
                 pPbConfig->set_url(url);
             }
 
-            NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load config:{}", pPbConfig->DebugString());
+            //NFLogTrace(NF_LOG_SYSTEMLOG, 0, "load config:{}", pPbConfig->DebugString());
             NFServerConfig *pConfig = NF_NEW NFServerConfig();
             pConfig->read_from_pbmsg(*pPbConfig);
 
