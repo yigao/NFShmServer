@@ -851,6 +851,7 @@ void NFCSharedMemModule::FreeMemForObject(int iType, void *pMem)
         {
             NFLogError(NF_LOG_SYSTEMLOG, 0, "nFreeMemForObject Failed, the pMem is no the class data, classType:{}, className:{}", iType, m_nObjSegSwapCounter[iType].m_szClassName);
         }
+        return;
     }
     NFLogError(NF_LOG_SYSTEMLOG, 0, "now FreeMemForObject iType:{} null objseg", iType);
     return;

@@ -1,9 +1,9 @@
 // -------------------------------------------------------------------------
-//    @FileName         :    NFDynamicHeadEx.h
+//    @FileName         :    NFShmObjTemplate.h
 //    @Author           :    gaoyi
 //    @Date             :    23-10-26
 //    @Email			:    445267987@qq.com
-//    @Module           :    NFDynamicHeadEx
+//    @Module           :    NFShmObjTemplate
 //
 // -------------------------------------------------------------------------
 
@@ -127,16 +127,16 @@ public:
     /* 下面的函数 共享内存类系统注册函数， 不要手动调用 */\
     static int RegisterClassToObjSeg(NFIPluginManager *pPluginManager, int bType, size_t siObjSize, int iObjCount, const std::string &strClassName, bool useHash, bool singleton = false)
     {
-        pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize, iObjCount, ResumeObjectRegisterFunction,
-                                                                                CreateObjectRegisterFunction, DestroyObjectRegisterFunction, parentClassName::GetStaticClassName(pPluginManager),
+        pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(bType, siObjSize, iObjCount, className::ResumeObjectRegisterFunction,
+                                                                                className::CreateObjectRegisterFunction, className::DestroyObjectRegisterFunction, parentClassName::GetStaticClassType(pPluginManager),
                                                                                 strClassName, useHash, singleton);
         return 0;
     }
     
     static int RegisterClassToObjSeg(NFIPluginManager *pPluginManager, int iObjCount, bool useHash, bool singleton = false)
     {
-        pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(classType, sizeof(className), iObjCount, ResumeObjectRegisterFunction,
-                                                                                CreateObjectRegisterFunction, DestroyObjectRegisterFunction, parentClassName::GetStaticClassName(pPluginManager),
+        pPluginManager->FindModule<NFISharedMemModule>()->RegisterClassToObjSeg(classType, sizeof(className), iObjCount, className::ResumeObjectRegisterFunction,
+                                                                                className::CreateObjectRegisterFunction, className::DestroyObjectRegisterFunction, parentClassName::GetStaticClassType(pPluginManager),
                                                                                 GetStaticClassName(pPluginManager), useHash, singleton);
         return 0;
     }
@@ -170,7 +170,7 @@ public:
     {
         className *pTmp = NULL;
         pTmp = (className *) pObj;
-        (*pTmp).className::~class_name();
+        (*pTmp).className::~className();
         pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(classType, pTmp);
         return;
     }

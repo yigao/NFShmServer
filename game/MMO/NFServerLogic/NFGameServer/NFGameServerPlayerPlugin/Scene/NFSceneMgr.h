@@ -20,12 +20,13 @@
 #include "NFGameCommon/NFPoint3.h"
 #include "ServerInternal2.pb.h"
 #include "NFComm/NFShmCore/NFShmObjTemplate.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 #define GAME_SERVER_MAX_BATTLE_SCENE_SIZE 100
 #define MAX_LAYER 5  //搜索最大层数
 
 class NFScene;
-class NFSceneMgr : public NFShmObj
+class NFSceneMgr : public NFShmObjTemplate<NFSceneMgr, EOT_GAME_SCENE_MGR_ID, NFShmObj>
 {
 public:
     typedef NFShmVector<NFPoint2<int32_t>, (1+(MAX_LAYER-1)*2)*(1+(MAX_LAYER-1)*2)> OneLayer;
@@ -88,6 +89,4 @@ private:
     NFShmHashMap<uint64_t, uint64_t, 1000> m_delCacheMap;
     //每层映射搜索位置信息(最大5层)
     NineGridLayer m_nineGridLayer;
-private:
-DECLARE_IDCREATE(NFSceneMgr)
 };

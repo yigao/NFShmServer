@@ -20,9 +20,7 @@
 #include "Creature/NFCreatureMgr.h"
 #include "Creature/NFBattlePlayer.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSceneMgr, EOT_GAME_SCENE_MGR_ID, NFShmObj)
-
-NFSceneMgr::NFSceneMgr() : NFShmObj()
+NFSceneMgr::NFSceneMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
