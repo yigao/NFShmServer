@@ -1,8 +1,6 @@
 #include "ShentiDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiDescEx, EOT_CONST_SHENTI_DESC_EX_ID, NFShmObj)
-
-ShentiDescEx::ShentiDescEx():NFIDescStoreEx()
+ShentiDescEx::ShentiDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int ShentiDescEx::ResumeInit()
 }
 
 int ShentiDescEx::Load()
-{
-	return 0;
-}
-
-int ShentiDescEx::PrepareReload()
 {
 	return 0;
 }

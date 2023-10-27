@@ -1,8 +1,6 @@
 #include "MeditationDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MeditationDescEx, EOT_CONST_MEDITATION_DESC_EX_ID, NFShmObj)
-
-MeditationDescEx::MeditationDescEx():NFIDescStoreEx()
+MeditationDescEx::MeditationDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int MeditationDescEx::ResumeInit()
 }
 
 int MeditationDescEx::Load()
-{
-	return 0;
-}
-
-int MeditationDescEx::PrepareReload()
 {
 	return 0;
 }

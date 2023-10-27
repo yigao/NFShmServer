@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Role_s.h"
 
 #define MAX_ROLE_EXP_NUM 2048
 
-class RoleExpDesc : public NFIDescStore
+class RoleExpDesc : public NFIDescTemplate<RoleExpDesc, proto_ff_s::E_RoleExp_s, EOT_CONST_ROLE_EXP_DESC_ID, MAX_ROLE_EXP_NUM>
 {
 public:
 	RoleExpDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_RoleExp_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_RoleExp_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_RoleExp_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_RoleExp_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(RoleExpDesc, proto_ff_s::E_RoleExp_s, E_RoleExp, MAX_ROLE_EXP_NUM);
-DECLARE_IDCREATE_GLOBAL(RoleExpDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

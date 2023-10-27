@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Welfare_s.h"
 
 #define MAX_WELFARE_KFLEICHONG_NUM 16
 
-class WelfareKfleichongDesc : public NFIDescStore
+class WelfareKfleichongDesc : public NFIDescTemplate<WelfareKfleichongDesc, proto_ff_s::E_WelfareKfleichong_s, EOT_CONST_WELFARE_KFLEICHONG_DESC_ID, MAX_WELFARE_KFLEICHONG_NUM>
 {
 public:
 	WelfareKfleichongDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_WelfareKfleichong_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_WelfareKfleichong_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_WelfareKfleichong_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_WelfareKfleichong_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(WelfareKfleichongDesc, proto_ff_s::E_WelfareKfleichong_s, E_WelfareKfleichong, MAX_WELFARE_KFLEICHONG_NUM);
-DECLARE_IDCREATE_GLOBAL(WelfareKfleichongDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

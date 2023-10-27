@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Role_s.h"
 
 #define MAX_ROLE_SKILLTYPE_NUM 128
 
-class RoleSkilltypeDesc : public NFIDescStore
+class RoleSkilltypeDesc : public NFIDescTemplate<RoleSkilltypeDesc, proto_ff_s::E_RoleSkilltype_s, EOT_CONST_ROLE_SKILLTYPE_DESC_ID, MAX_ROLE_SKILLTYPE_NUM>
 {
 public:
 	RoleSkilltypeDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_RoleSkilltype_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_RoleSkilltype_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_RoleSkilltype_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_RoleSkilltype_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(RoleSkilltypeDesc, proto_ff_s::E_RoleSkilltype_s, E_RoleSkilltype, MAX_ROLE_SKILLTYPE_NUM);
-DECLARE_IDCREATE_GLOBAL(RoleSkilltypeDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

@@ -1,8 +1,6 @@
 #include "VipDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(VipDescEx, EOT_CONST_VIP_DESC_EX_ID, NFShmObj)
-
-VipDescEx::VipDescEx():NFIDescStoreEx()
+VipDescEx::VipDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int VipDescEx::ResumeInit()
 }
 
 int VipDescEx::Load()
-{
-	return 0;
-}
-
-int VipDescEx::PrepareReload()
 {
 	return 0;
 }

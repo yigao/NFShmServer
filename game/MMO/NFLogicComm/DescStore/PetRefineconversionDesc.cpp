@@ -1,9 +1,7 @@
 #include "PetRefineconversionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetRefineconversionDesc, EOT_CONST_PET_REFINECONVERSION_DESC_ID, NFShmObj)
-
-PetRefineconversionDesc::PetRefineconversionDesc():NFIDescStore()
+PetRefineconversionDesc::PetRefineconversionDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ PetRefineconversionDesc::~PetRefineconversionDesc()
 
 int PetRefineconversionDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int PetRefineconversionDesc::ResumeInit()
@@ -91,46 +89,5 @@ int PetRefineconversionDesc::Load(NFResDB *pDB)
 int PetRefineconversionDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_PetRefineconversion_s * PetRefineconversionDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_PetRefineconversion_s * PetRefineconversionDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_PetRefineconversion_s *>((static_cast<const PetRefineconversionDesc*>(this))->GetDesc(id));
-}
-
-int PetRefineconversionDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_PetRefineconversion_s * PetRefineconversionDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_PetRefineconversion_s * PetRefineconversionDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

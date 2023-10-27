@@ -1,9 +1,7 @@
 #include "MarketSmallDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarketSmallDesc, EOT_CONST_MARKET_SMALL_DESC_ID, NFShmObj)
-
-MarketSmallDesc::MarketSmallDesc():NFIDescStore()
+MarketSmallDesc::MarketSmallDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ MarketSmallDesc::~MarketSmallDesc()
 
 int MarketSmallDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int MarketSmallDesc::ResumeInit()
@@ -91,46 +89,5 @@ int MarketSmallDesc::Load(NFResDB *pDB)
 int MarketSmallDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_MarketSmall_s * MarketSmallDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_MarketSmall_s * MarketSmallDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_MarketSmall_s *>((static_cast<const MarketSmallDesc*>(this))->GetDesc(id));
-}
-
-int MarketSmallDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_MarketSmall_s * MarketSmallDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_MarketSmall_s * MarketSmallDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

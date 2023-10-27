@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Equip_s.h"
 
 #define MAX_EQUIP_GRADE_NUM 32
 
-class EquipGradeDesc : public NFIDescStore
+class EquipGradeDesc : public NFIDescTemplate<EquipGradeDesc, proto_ff_s::E_EquipGrade_s, EOT_CONST_EQUIP_GRADE_DESC_ID, MAX_EQUIP_GRADE_NUM>
 {
 public:
 	EquipGradeDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_EquipGrade_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_EquipGrade_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_EquipGrade_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_EquipGrade_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(EquipGradeDesc, proto_ff_s::E_EquipGrade_s, E_EquipGrade, MAX_EQUIP_GRADE_NUM);
-DECLARE_IDCREATE_GLOBAL(EquipGradeDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

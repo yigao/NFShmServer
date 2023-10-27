@@ -14,10 +14,12 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
 class NFCreature;
 class NFBattlePlayer;
-class NFCreatureMgr : public NFShmObj
+class NFCreatureMgr : public NFShmObjTemplate<NFCreatureMgr, EOT_GAME_CREATURE_MGR_ID, NFShmObj>
 {
 public:
     NFCreatureMgr();
@@ -62,5 +64,4 @@ public:
     NFBattlePlayer* GetBattlePlayer(uint64_t cid);
 private:
     int m_creatureTickTimer;
-DECLARE_IDCREATE(NFCreatureMgr)
 };

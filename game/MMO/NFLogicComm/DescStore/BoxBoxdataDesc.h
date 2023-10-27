@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Box_s.h"
 
 #define MAX_BOX_BOXDATA_NUM 4096
 
-class BoxBoxdataDesc : public NFIDescStore
+class BoxBoxdataDesc : public NFIDescTemplate<BoxBoxdataDesc, proto_ff_s::E_BoxBoxdata_s, EOT_CONST_BOX_BOXDATA_DESC_ID, MAX_BOX_BOXDATA_NUM>
 {
 public:
 	BoxBoxdataDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_BoxBoxdata_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_BoxBoxdata_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_BoxBoxdata_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_BoxBoxdata_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(BoxBoxdataDesc, proto_ff_s::E_BoxBoxdata_s, E_BoxBoxdata, MAX_BOX_BOXDATA_NUM);
-DECLARE_IDCREATE_GLOBAL(BoxBoxdataDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

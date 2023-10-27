@@ -1,9 +1,7 @@
 #include "PetEquipvalueDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetEquipvalueDesc, EOT_CONST_PET_EQUIPVALUE_DESC_ID, NFShmObj)
-
-PetEquipvalueDesc::PetEquipvalueDesc():NFIDescStore()
+PetEquipvalueDesc::PetEquipvalueDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ PetEquipvalueDesc::~PetEquipvalueDesc()
 
 int PetEquipvalueDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int PetEquipvalueDesc::ResumeInit()
@@ -91,46 +89,5 @@ int PetEquipvalueDesc::Load(NFResDB *pDB)
 int PetEquipvalueDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_PetEquipvalue_s * PetEquipvalueDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_PetEquipvalue_s * PetEquipvalueDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_PetEquipvalue_s *>((static_cast<const PetEquipvalueDesc*>(this))->GetDesc(id));
-}
-
-int PetEquipvalueDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_PetEquipvalue_s * PetEquipvalueDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_PetEquipvalue_s * PetEquipvalueDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

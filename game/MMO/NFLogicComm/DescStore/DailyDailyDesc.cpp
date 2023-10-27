@@ -3,9 +3,7 @@
 #include "FunctionunlockFunctionunlockDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DailyDailyDesc, EOT_CONST_DAILY_DAILY_DESC_ID, NFShmObj)
-
-DailyDailyDesc::DailyDailyDesc():NFIDescStore()
+DailyDailyDesc::DailyDailyDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -21,7 +19,7 @@ DailyDailyDesc::~DailyDailyDesc()
 
 int DailyDailyDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int DailyDailyDesc::ResumeInit()
@@ -100,46 +98,5 @@ int DailyDailyDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_regreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_regreward)), result, "can't find the regreward:{} in the  excel:box sheet:box", pDesc->m_regreward);
 	}
 	return result;
-}
-
-const proto_ff_s::E_DailyDaily_s * DailyDailyDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_DailyDaily_s * DailyDailyDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_DailyDaily_s *>((static_cast<const DailyDailyDesc*>(this))->GetDesc(id));
-}
-
-int DailyDailyDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_DailyDaily_s * DailyDailyDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_DailyDaily_s * DailyDailyDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

@@ -1,8 +1,6 @@
 #include "ConflateDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConflateDescEx, EOT_CONST_CONFLATE_DESC_EX_ID, NFShmObj)
-
-ConflateDescEx::ConflateDescEx():NFIDescStoreEx()
+ConflateDescEx::ConflateDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int ConflateDescEx::ResumeInit()
 }
 
 int ConflateDescEx::Load()
-{
-	return 0;
-}
-
-int ConflateDescEx::PrepareReload()
 {
 	return 0;
 }

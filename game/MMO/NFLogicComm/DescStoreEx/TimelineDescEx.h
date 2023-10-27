@@ -1,20 +1,21 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 
-class TimelineDescEx : public NFIDescStoreEx
+class TimelineDescEx : public NFShmObjGlobalTemplate<TimelineDescEx, EOT_CONST_TIMELINE_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
 	TimelineDescEx();
 	virtual ~TimelineDescEx();
 	int CreateInit();
 	int ResumeInit();
-private:
-IMPL_RES_DESC_EX(TimelineDescEx)
-DECLARE_IDCREATE_GLOBAL(TimelineDescEx)
+public:
+	virtual int Load() override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

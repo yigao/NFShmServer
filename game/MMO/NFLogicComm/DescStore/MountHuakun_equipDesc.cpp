@@ -1,9 +1,7 @@
 #include "MountHuakun_equipDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountHuakun_equipDesc, EOT_CONST_MOUNT_HUAKUN_EQUIP_DESC_ID, NFShmObj)
-
-MountHuakun_equipDesc::MountHuakun_equipDesc():NFIDescStore()
+MountHuakun_equipDesc::MountHuakun_equipDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ MountHuakun_equipDesc::~MountHuakun_equipDesc()
 
 int MountHuakun_equipDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int MountHuakun_equipDesc::ResumeInit()
@@ -91,46 +89,5 @@ int MountHuakun_equipDesc::Load(NFResDB *pDB)
 int MountHuakun_equipDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_MountHuakun_equip_s * MountHuakun_equipDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_MountHuakun_equip_s * MountHuakun_equipDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_MountHuakun_equip_s *>((static_cast<const MountHuakun_equipDesc*>(this))->GetDesc(id));
-}
-
-int MountHuakun_equipDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_MountHuakun_equip_s * MountHuakun_equipDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_MountHuakun_equip_s * MountHuakun_equipDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

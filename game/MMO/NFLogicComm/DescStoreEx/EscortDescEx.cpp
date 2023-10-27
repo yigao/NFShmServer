@@ -1,8 +1,6 @@
 #include "EscortDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EscortDescEx, EOT_CONST_ESCORT_DESC_EX_ID, NFShmObj)
-
-EscortDescEx::EscortDescEx():NFIDescStoreEx()
+EscortDescEx::EscortDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int EscortDescEx::ResumeInit()
 }
 
 int EscortDescEx::Load()
-{
-	return 0;
-}
-
-int EscortDescEx::PrepareReload()
 {
 	return 0;
 }

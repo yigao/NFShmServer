@@ -1,8 +1,6 @@
 #include "GmcommandDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GmcommandDescEx, EOT_CONST_GMCOMMAND_DESC_EX_ID, NFShmObj)
-
-GmcommandDescEx::GmcommandDescEx():NFIDescStoreEx()
+GmcommandDescEx::GmcommandDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int GmcommandDescEx::ResumeInit()
 }
 
 int GmcommandDescEx::Load()
-{
-	return 0;
-}
-
-int GmcommandDescEx::PrepareReload()
 {
 	return 0;
 }

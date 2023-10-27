@@ -1,9 +1,7 @@
 #include "MonsterMonsterDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MonsterMonsterDesc, EOT_CONST_MONSTER_MONSTER_DESC_ID, NFShmObj)
-
-MonsterMonsterDesc::MonsterMonsterDesc():NFIDescStore()
+MonsterMonsterDesc::MonsterMonsterDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ MonsterMonsterDesc::~MonsterMonsterDesc()
 
 int MonsterMonsterDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int MonsterMonsterDesc::ResumeInit()
@@ -91,46 +89,5 @@ int MonsterMonsterDesc::Load(NFResDB *pDB)
 int MonsterMonsterDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_MonsterMonster_s * MonsterMonsterDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_MonsterMonster_s * MonsterMonsterDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_MonsterMonster_s *>((static_cast<const MonsterMonsterDesc*>(this))->GetDesc(id));
-}
-
-int MonsterMonsterDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_MonsterMonster_s * MonsterMonsterDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_MonsterMonster_s * MonsterMonsterDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

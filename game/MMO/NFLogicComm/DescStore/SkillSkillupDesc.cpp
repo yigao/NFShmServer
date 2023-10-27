@@ -1,9 +1,7 @@
 #include "SkillSkillupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SkillSkillupDesc, EOT_CONST_SKILL_SKILLUP_DESC_ID, NFShmObj)
-
-SkillSkillupDesc::SkillSkillupDesc():NFIDescStore()
+SkillSkillupDesc::SkillSkillupDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ SkillSkillupDesc::~SkillSkillupDesc()
 
 int SkillSkillupDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int SkillSkillupDesc::ResumeInit()
@@ -91,46 +89,5 @@ int SkillSkillupDesc::Load(NFResDB *pDB)
 int SkillSkillupDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_SkillSkillup_s * SkillSkillupDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_SkillSkillup_s * SkillSkillupDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_SkillSkillup_s *>((static_cast<const SkillSkillupDesc*>(this))->GetDesc(id));
-}
-
-int SkillSkillupDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_SkillSkillup_s * SkillSkillupDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_SkillSkillup_s * SkillSkillupDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

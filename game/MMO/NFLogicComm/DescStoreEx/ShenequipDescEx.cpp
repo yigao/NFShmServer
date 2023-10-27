@@ -1,8 +1,6 @@
 #include "ShenequipDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShenequipDescEx, EOT_CONST_SHENEQUIP_DESC_EX_ID, NFShmObj)
-
-ShenequipDescEx::ShenequipDescEx():NFIDescStoreEx()
+ShenequipDescEx::ShenequipDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int ShenequipDescEx::ResumeInit()
 }
 
 int ShenequipDescEx::Load()
-{
-	return 0;
-}
-
-int ShenequipDescEx::PrepareReload()
 {
 	return 0;
 }

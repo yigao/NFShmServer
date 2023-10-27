@@ -1,8 +1,6 @@
 #include "ButtonDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ButtonDescEx, EOT_CONST_BUTTON_DESC_EX_ID, NFShmObj)
-
-ButtonDescEx::ButtonDescEx():NFIDescStoreEx()
+ButtonDescEx::ButtonDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int ButtonDescEx::ResumeInit()
 }
 
 int ButtonDescEx::Load()
-{
-	return 0;
-}
-
-int ButtonDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Taskdynamic_s.h"
 
 #define MAX_TASKDYNAMIC_TASKTEXT_NUM 32
 
-class TaskdynamicTasktextDesc : public NFIDescStore
+class TaskdynamicTasktextDesc : public NFIDescTemplate<TaskdynamicTasktextDesc, proto_ff_s::E_TaskdynamicTasktext_s, EOT_CONST_TASKDYNAMIC_TASKTEXT_DESC_ID, MAX_TASKDYNAMIC_TASKTEXT_NUM>
 {
 public:
 	TaskdynamicTasktextDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_TaskdynamicTasktext_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_TaskdynamicTasktext_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_TaskdynamicTasktext_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_TaskdynamicTasktext_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(TaskdynamicTasktextDesc, proto_ff_s::E_TaskdynamicTasktext_s, E_TaskdynamicTasktext, MAX_TASKDYNAMIC_TASKTEXT_NUM);
-DECLARE_IDCREATE_GLOBAL(TaskdynamicTasktextDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

@@ -1,8 +1,6 @@
 #include "CloudpeakDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(CloudpeakDescEx, EOT_CONST_CLOUDPEAK_DESC_EX_ID, NFShmObj)
-
-CloudpeakDescEx::CloudpeakDescEx():NFIDescStoreEx()
+CloudpeakDescEx::CloudpeakDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int CloudpeakDescEx::ResumeInit()
 }
 
 int CloudpeakDescEx::Load()
-{
-	return 0;
-}
-
-int CloudpeakDescEx::PrepareReload()
 {
 	return 0;
 }

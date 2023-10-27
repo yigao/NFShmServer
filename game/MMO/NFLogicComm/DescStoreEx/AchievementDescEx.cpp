@@ -1,8 +1,6 @@
 #include "AchievementDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AchievementDescEx, EOT_CONST_ACHIEVEMENT_DESC_EX_ID, NFShmObj)
-
-AchievementDescEx::AchievementDescEx():NFIDescStoreEx()
+AchievementDescEx::AchievementDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int AchievementDescEx::ResumeInit()
 }
 
 int AchievementDescEx::Load()
-{
-	return 0;
-}
-
-int AchievementDescEx::PrepareReload()
 {
 	return 0;
 }

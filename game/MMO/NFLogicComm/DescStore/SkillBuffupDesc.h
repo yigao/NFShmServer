@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Skill_s.h"
 
 #define MAX_SKILL_BUFFUP_NUM 512
 
-class SkillBuffupDesc : public NFIDescStore
+class SkillBuffupDesc : public NFIDescTemplate<SkillBuffupDesc, proto_ff_s::E_SkillBuffup_s, EOT_CONST_SKILL_BUFFUP_DESC_ID, MAX_SKILL_BUFFUP_NUM>
 {
 public:
 	SkillBuffupDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_SkillBuffup_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_SkillBuffup_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_SkillBuffup_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_SkillBuffup_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(SkillBuffupDesc, proto_ff_s::E_SkillBuffup_s, E_SkillBuffup, MAX_SKILL_BUFFUP_NUM);
-DECLARE_IDCREATE_GLOBAL(SkillBuffupDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

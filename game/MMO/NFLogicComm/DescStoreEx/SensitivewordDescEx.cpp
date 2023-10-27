@@ -1,8 +1,6 @@
 #include "SensitivewordDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SensitivewordDescEx, EOT_CONST_SENSITIVEWORD_DESC_EX_ID, NFShmObj)
-
-SensitivewordDescEx::SensitivewordDescEx():NFIDescStoreEx()
+SensitivewordDescEx::SensitivewordDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int SensitivewordDescEx::ResumeInit()
 }
 
 int SensitivewordDescEx::Load()
-{
-	return 0;
-}
-
-int SensitivewordDescEx::PrepareReload()
 {
 	return 0;
 }

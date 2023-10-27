@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Yanglong_s.h"
 
 #define MAX_YANGLONG_ZADAN_NUM 16
 
-class YanglongZadanDesc : public NFIDescStore
+class YanglongZadanDesc : public NFIDescTemplate<YanglongZadanDesc, proto_ff_s::E_YanglongZadan_s, EOT_CONST_YANGLONG_ZADAN_DESC_ID, MAX_YANGLONG_ZADAN_NUM>
 {
 public:
 	YanglongZadanDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_YanglongZadan_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_YanglongZadan_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_YanglongZadan_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_YanglongZadan_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(YanglongZadanDesc, proto_ff_s::E_YanglongZadan_s, E_YanglongZadan, MAX_YANGLONG_ZADAN_NUM);
-DECLARE_IDCREATE_GLOBAL(YanglongZadanDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

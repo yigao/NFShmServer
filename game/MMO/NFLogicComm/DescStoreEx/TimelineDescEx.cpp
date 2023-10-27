@@ -1,8 +1,6 @@
 #include "TimelineDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TimelineDescEx, EOT_CONST_TIMELINE_DESC_EX_ID, NFShmObj)
-
-TimelineDescEx::TimelineDescEx():NFIDescStoreEx()
+TimelineDescEx::TimelineDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int TimelineDescEx::ResumeInit()
 }
 
 int TimelineDescEx::Load()
-{
-	return 0;
-}
-
-int TimelineDescEx::PrepareReload()
 {
 	return 0;
 }

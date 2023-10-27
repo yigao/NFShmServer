@@ -1,9 +1,7 @@
 #include "MountHuakun_advanceDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountHuakun_advanceDesc, EOT_CONST_MOUNT_HUAKUN_ADVANCE_DESC_ID, NFShmObj)
-
-MountHuakun_advanceDesc::MountHuakun_advanceDesc():NFIDescStore()
+MountHuakun_advanceDesc::MountHuakun_advanceDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ MountHuakun_advanceDesc::~MountHuakun_advanceDesc()
 
 int MountHuakun_advanceDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int MountHuakun_advanceDesc::ResumeInit()
@@ -91,46 +89,5 @@ int MountHuakun_advanceDesc::Load(NFResDB *pDB)
 int MountHuakun_advanceDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_MountHuakun_advance_s * MountHuakun_advanceDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_MountHuakun_advance_s * MountHuakun_advanceDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_MountHuakun_advance_s *>((static_cast<const MountHuakun_advanceDesc*>(this))->GetDesc(id));
-}
-
-int MountHuakun_advanceDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_MountHuakun_advance_s * MountHuakun_advanceDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_MountHuakun_advance_s * MountHuakun_advanceDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

@@ -16,9 +16,7 @@
 #include "NFComm/NFPluginModule/NFProtobufCommon.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFGameConfig, EOT_GAME_CONFIG_ID, NFShmObj)
-
-NFGameConfig::NFGameConfig() : NFShmObj()
+NFGameConfig::NFGameConfig()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

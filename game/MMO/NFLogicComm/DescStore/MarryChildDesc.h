@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Marry_s.h"
 
 #define MAX_MARRY_CHILD_NUM 16
 
-class MarryChildDesc : public NFIDescStore
+class MarryChildDesc : public NFIDescTemplate<MarryChildDesc, proto_ff_s::E_MarryChild_s, EOT_CONST_MARRY_CHILD_DESC_ID, MAX_MARRY_CHILD_NUM>
 {
 public:
 	MarryChildDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_MarryChild_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_MarryChild_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_MarryChild_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_MarryChild_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(MarryChildDesc, proto_ff_s::E_MarryChild_s, E_MarryChild, MAX_MARRY_CHILD_NUM);
-DECLARE_IDCREATE_GLOBAL(MarryChildDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

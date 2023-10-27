@@ -1,8 +1,6 @@
 #include "AttributeDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AttributeDescEx, EOT_CONST_ATTRIBUTE_DESC_EX_ID, NFShmObj)
-
-AttributeDescEx::AttributeDescEx():NFIDescStoreEx()
+AttributeDescEx::AttributeDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int AttributeDescEx::ResumeInit()
 }
 
 int AttributeDescEx::Load()
-{
-	return 0;
-}
-
-int AttributeDescEx::PrepareReload()
 {
 	return 0;
 }

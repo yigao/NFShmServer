@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Xingchen_s.h"
 
 #define MAX_XINGCHEN_XCTPEXP_NUM 32
 
-class XingchenXctpexpDesc : public NFIDescStore
+class XingchenXctpexpDesc : public NFIDescTemplate<XingchenXctpexpDesc, proto_ff_s::E_XingchenXctpexp_s, EOT_CONST_XINGCHEN_XCTPEXP_DESC_ID, MAX_XINGCHEN_XCTPEXP_NUM>
 {
 public:
 	XingchenXctpexpDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_XingchenXctpexp_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_XingchenXctpexp_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_XingchenXctpexp_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_XingchenXctpexp_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(XingchenXctpexpDesc, proto_ff_s::E_XingchenXctpexp_s, E_XingchenXctpexp, MAX_XINGCHEN_XCTPEXP_NUM);
-DECLARE_IDCREATE_GLOBAL(XingchenXctpexpDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

@@ -1,8 +1,6 @@
 #include "GuildDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuildDescEx, EOT_CONST_GUILD_DESC_EX_ID, NFShmObj)
-
-GuildDescEx::GuildDescEx():NFIDescStoreEx()
+GuildDescEx::GuildDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int GuildDescEx::ResumeInit()
 }
 
 int GuildDescEx::Load()
-{
-	return 0;
-}
-
-int GuildDescEx::PrepareReload()
 {
 	return 0;
 }

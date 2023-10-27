@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Pk1v1_s.h"
 
 #define MAX_PK1V1_RANK_NUM 64
 
-class Pk1v1RankDesc : public NFIDescStore
+class Pk1v1RankDesc : public NFIDescTemplate<Pk1v1RankDesc, proto_ff_s::E_Pk1v1Rank_s, EOT_CONST_PK1V1_RANK_DESC_ID, MAX_PK1V1_RANK_NUM>
 {
 public:
 	Pk1v1RankDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_Pk1v1Rank_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_Pk1v1Rank_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_Pk1v1Rank_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_Pk1v1Rank_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(Pk1v1RankDesc, proto_ff_s::E_Pk1v1Rank_s, E_Pk1v1Rank, MAX_PK1V1_RANK_NUM);
-DECLARE_IDCREATE_GLOBAL(Pk1v1RankDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

@@ -3,9 +3,7 @@
 #include "XingchenXclvattDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXinchenDesc, EOT_CONST_XINGCHEN_XINCHEN_DESC_ID, NFShmObj)
-
-XingchenXinchenDesc::XingchenXinchenDesc():NFIDescStore()
+XingchenXinchenDesc::XingchenXinchenDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -21,7 +19,7 @@ XingchenXinchenDesc::~XingchenXinchenDesc()
 
 int XingchenXinchenDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int XingchenXinchenDesc::ResumeInit()
@@ -106,46 +104,5 @@ int XingchenXinchenDesc::CheckWhenAllDataLoaded()
 		}
 	}
 	return result;
-}
-
-const proto_ff_s::E_XingchenXinchen_s * XingchenXinchenDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_XingchenXinchen_s * XingchenXinchenDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_XingchenXinchen_s *>((static_cast<const XingchenXinchenDesc*>(this))->GetDesc(id));
-}
-
-int XingchenXinchenDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_XingchenXinchen_s * XingchenXinchenDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_XingchenXinchen_s * XingchenXinchenDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

@@ -1,8 +1,6 @@
 #include "ConditionDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConditionDescEx, EOT_CONST_CONDITION_DESC_EX_ID, NFShmObj)
-
-ConditionDescEx::ConditionDescEx():NFIDescStoreEx()
+ConditionDescEx::ConditionDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int ConditionDescEx::ResumeInit()
 }
 
 int ConditionDescEx::Load()
-{
-	return 0;
-}
-
-int ConditionDescEx::PrepareReload()
 {
 	return 0;
 }

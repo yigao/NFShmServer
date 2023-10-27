@@ -19,11 +19,13 @@
 #include "NFNavMeshInfo.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFLogicCommon/NFLogicCommon.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
 #define GAME_SERVER_MAX_BATTLE_MAP_SIZE 10
 
 class NFMap;
-class NFMapMgr : public NFShmObj
+class NFMapMgr : public NFShmObjTemplate<NFMapMgr, EOT_GAME_MAP_MGR_ID, NFShmObj>
 {
 public:
     NFMapMgr();
@@ -93,5 +95,4 @@ public:
     int ClearAllMap();
 private:
     NFShmHashMap<NFCommonStr, NFNavMeshInfo, GAME_SERVER_MAX_BATTLE_MAP_SIZE> m_mapNavMesh;
-DECLARE_IDCREATE(NFMapMgr)
 };

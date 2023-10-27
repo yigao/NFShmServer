@@ -1,8 +1,6 @@
 #include "OccupationDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(OccupationDescEx, EOT_CONST_OCCUPATION_DESC_EX_ID, NFShmObj)
-
-OccupationDescEx::OccupationDescEx():NFIDescStoreEx()
+OccupationDescEx::OccupationDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int OccupationDescEx::ResumeInit()
 }
 
 int OccupationDescEx::Load()
-{
-	return 0;
-}
-
-int OccupationDescEx::PrepareReload()
 {
 	return 0;
 }

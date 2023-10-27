@@ -140,7 +140,6 @@ public:
     
     static NFShmObj *CreateObjectRegisterFunction(NFIPluginManager *pPluginManager)
     {
-        std::string name = GetStaticClassName();
         className *pTmp = NULL;
         void *pVoid = pPluginManager->FindModule<NFISharedMemModule>()->AllocMemForObject(classType);
         if (!pVoid)

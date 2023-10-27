@@ -1,8 +1,6 @@
 #include "SetDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SetDescEx, EOT_CONST_SET_DESC_EX_ID, NFShmObj)
-
-SetDescEx::SetDescEx():NFIDescStoreEx()
+SetDescEx::SetDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int SetDescEx::ResumeInit()
 }
 
 int SetDescEx::Load()
-{
-	return 0;
-}
-
-int SetDescEx::PrepareReload()
 {
 	return 0;
 }

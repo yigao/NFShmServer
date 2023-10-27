@@ -1,9 +1,7 @@
 #include "EquipimproveUpqualityDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipimproveUpqualityDesc, EOT_CONST_EQUIPIMPROVE_UPQUALITY_DESC_ID, NFShmObj)
-
-EquipimproveUpqualityDesc::EquipimproveUpqualityDesc():NFIDescStore()
+EquipimproveUpqualityDesc::EquipimproveUpqualityDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ EquipimproveUpqualityDesc::~EquipimproveUpqualityDesc()
 
 int EquipimproveUpqualityDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int EquipimproveUpqualityDesc::ResumeInit()
@@ -91,46 +89,5 @@ int EquipimproveUpqualityDesc::Load(NFResDB *pDB)
 int EquipimproveUpqualityDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_EquipimproveUpquality_s * EquipimproveUpqualityDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_EquipimproveUpquality_s * EquipimproveUpqualityDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_EquipimproveUpquality_s *>((static_cast<const EquipimproveUpqualityDesc*>(this))->GetDesc(id));
-}
-
-int EquipimproveUpqualityDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_EquipimproveUpquality_s * EquipimproveUpqualityDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_EquipimproveUpquality_s * EquipimproveUpqualityDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

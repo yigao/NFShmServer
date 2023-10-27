@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Waremblem_s.h"
 
 #define MAX_WAREMBLEM_WAREMBLEM_NUM 64
 
-class WaremblemWaremblemDesc : public NFIDescStore
+class WaremblemWaremblemDesc : public NFIDescTemplate<WaremblemWaremblemDesc, proto_ff_s::E_WaremblemWaremblem_s, EOT_CONST_WAREMBLEM_WAREMBLEM_DESC_ID, MAX_WAREMBLEM_WAREMBLEM_NUM>
 {
 public:
 	WaremblemWaremblemDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_WaremblemWaremblem_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_WaremblemWaremblem_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_WaremblemWaremblem_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_WaremblemWaremblem_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(WaremblemWaremblemDesc, proto_ff_s::E_WaremblemWaremblem_s, E_WaremblemWaremblem, MAX_WAREMBLEM_WAREMBLEM_NUM);
-DECLARE_IDCREATE_GLOBAL(WaremblemWaremblemDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

@@ -1,9 +1,7 @@
 #include "Pk3v3RewardDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(Pk3v3RewardDesc, EOT_CONST_PK3V3_REWARD_DESC_ID, NFShmObj)
-
-Pk3v3RewardDesc::Pk3v3RewardDesc():NFIDescStore()
+Pk3v3RewardDesc::Pk3v3RewardDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ Pk3v3RewardDesc::~Pk3v3RewardDesc()
 
 int Pk3v3RewardDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int Pk3v3RewardDesc::ResumeInit()
@@ -91,46 +89,5 @@ int Pk3v3RewardDesc::Load(NFResDB *pDB)
 int Pk3v3RewardDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_Pk3v3Reward_s * Pk3v3RewardDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_Pk3v3Reward_s * Pk3v3RewardDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_Pk3v3Reward_s *>((static_cast<const Pk3v3RewardDesc*>(this))->GetDesc(id));
-}
-
-int Pk3v3RewardDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_Pk3v3Reward_s * Pk3v3RewardDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_Pk3v3Reward_s * Pk3v3RewardDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

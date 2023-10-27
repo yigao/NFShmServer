@@ -1,8 +1,6 @@
 #include "XiuzhenroadDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenroadDescEx, EOT_CONST_XIUZHENROAD_DESC_EX_ID, NFShmObj)
-
-XiuzhenroadDescEx::XiuzhenroadDescEx():NFIDescStoreEx()
+XiuzhenroadDescEx::XiuzhenroadDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int XiuzhenroadDescEx::ResumeInit()
 }
 
 int XiuzhenroadDescEx::Load()
-{
-	return 0;
-}
-
-int XiuzhenroadDescEx::PrepareReload()
 {
 	return 0;
 }

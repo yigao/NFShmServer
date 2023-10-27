@@ -2,9 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenroadBonuspointsDesc, EOT_CONST_XIUZHENROAD_BONUSPOINTS_DESC_ID, NFShmObj)
-
-XiuzhenroadBonuspointsDesc::XiuzhenroadBonuspointsDesc():NFIDescStore()
+XiuzhenroadBonuspointsDesc::XiuzhenroadBonuspointsDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -20,7 +18,7 @@ XiuzhenroadBonuspointsDesc::~XiuzhenroadBonuspointsDesc()
 
 int XiuzhenroadBonuspointsDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int XiuzhenroadBonuspointsDesc::ResumeInit()
@@ -101,46 +99,5 @@ int XiuzhenroadBonuspointsDesc::CheckWhenAllDataLoaded()
 		}
 	}
 	return result;
-}
-
-const proto_ff_s::E_XiuzhenroadBonuspoints_s * XiuzhenroadBonuspointsDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_XiuzhenroadBonuspoints_s * XiuzhenroadBonuspointsDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_XiuzhenroadBonuspoints_s *>((static_cast<const XiuzhenroadBonuspointsDesc*>(this))->GetDesc(id));
-}
-
-int XiuzhenroadBonuspointsDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_XiuzhenroadBonuspoints_s * XiuzhenroadBonuspointsDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_XiuzhenroadBonuspoints_s * XiuzhenroadBonuspointsDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

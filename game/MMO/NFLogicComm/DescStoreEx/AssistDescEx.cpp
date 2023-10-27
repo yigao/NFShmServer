@@ -1,8 +1,6 @@
 #include "AssistDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AssistDescEx, EOT_CONST_ASSIST_DESC_EX_ID, NFShmObj)
-
-AssistDescEx::AssistDescEx():NFIDescStoreEx()
+AssistDescEx::AssistDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int AssistDescEx::ResumeInit()
 }
 
 int AssistDescEx::Load()
-{
-	return 0;
-}
-
-int AssistDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -1,9 +1,7 @@
 #include "GodrelicsConditionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodrelicsConditionDesc, EOT_CONST_GODRELICS_CONDITION_DESC_ID, NFShmObj)
-
-GodrelicsConditionDesc::GodrelicsConditionDesc():NFIDescStore()
+GodrelicsConditionDesc::GodrelicsConditionDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ GodrelicsConditionDesc::~GodrelicsConditionDesc()
 
 int GodrelicsConditionDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int GodrelicsConditionDesc::ResumeInit()
@@ -91,46 +89,5 @@ int GodrelicsConditionDesc::Load(NFResDB *pDB)
 int GodrelicsConditionDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_GodrelicsCondition_s * GodrelicsConditionDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_GodrelicsCondition_s * GodrelicsConditionDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_GodrelicsCondition_s *>((static_cast<const GodrelicsConditionDesc*>(this))->GetDesc(id));
-}
-
-int GodrelicsConditionDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_GodrelicsCondition_s * GodrelicsConditionDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_GodrelicsCondition_s * GodrelicsConditionDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

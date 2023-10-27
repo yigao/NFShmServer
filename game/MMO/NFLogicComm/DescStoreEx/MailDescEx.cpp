@@ -1,8 +1,6 @@
 #include "MailDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MailDescEx, EOT_CONST_MAIL_DESC_EX_ID, NFShmObj)
-
-MailDescEx::MailDescEx():NFIDescStoreEx()
+MailDescEx::MailDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int MailDescEx::ResumeInit()
 }
 
 int MailDescEx::Load()
-{
-	return 0;
-}
-
-int MailDescEx::PrepareReload()
 {
 	return 0;
 }

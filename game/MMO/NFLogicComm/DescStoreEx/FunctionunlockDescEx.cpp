@@ -1,8 +1,6 @@
 #include "FunctionunlockDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FunctionunlockDescEx, EOT_CONST_FUNCTIONUNLOCK_DESC_EX_ID, NFShmObj)
-
-FunctionunlockDescEx::FunctionunlockDescEx():NFIDescStoreEx()
+FunctionunlockDescEx::FunctionunlockDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int FunctionunlockDescEx::ResumeInit()
 }
 
 int FunctionunlockDescEx::Load()
-{
-	return 0;
-}
-
-int FunctionunlockDescEx::PrepareReload()
 {
 	return 0;
 }

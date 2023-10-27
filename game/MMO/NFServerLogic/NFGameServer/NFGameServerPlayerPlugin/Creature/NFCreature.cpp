@@ -25,8 +25,6 @@
 #include "NFGameCommon/NFComTypeDefine.h"
 #include "NFGameCommon/NFMath.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFCreature, EOT_GAME_CREATURE_ID, NFShmObj)
-
 const uint32_t g_constSendClientCreatureNum = 50;  //每条消息最大人数数据控制,以免视野人数过多，造成消息长度大于底层控制长度
 
 bool CreatureState::EnterState(NFCreature *pCreature, proto_ff::ECState state)
@@ -50,7 +48,7 @@ bool CreatureState::EnterState(NFCreature *pCreature, proto_ff::ECState state)
     return true;
 }
 
-NFCreature::NFCreature() : NFShmObj()
+NFCreature::NFCreature()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

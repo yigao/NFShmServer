@@ -13,9 +13,7 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "NFLogicCommon/NFCharactorDefine.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFCreatureMgr, EOT_GAME_CREATURE_MGR_ID, NFShmObj)
-
-NFCreatureMgr::NFCreatureMgr() : NFShmObj()
+NFCreatureMgr::NFCreatureMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

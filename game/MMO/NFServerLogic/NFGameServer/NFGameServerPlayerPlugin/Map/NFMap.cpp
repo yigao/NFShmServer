@@ -17,9 +17,7 @@
 #include "DescStoreEx/MapDescEx.h"
 #include <float.h>
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMap, EOT_GAME_MAP_ID, NFShmObj)
-
-NFMap::NFMap() : NFShmObj()
+NFMap::NFMap()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

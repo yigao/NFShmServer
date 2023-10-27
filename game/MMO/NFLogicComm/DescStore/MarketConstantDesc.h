@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Market_s.h"
 
 #define MAX_MARKET_CONSTANT_NUM 2
 
-class MarketConstantDesc : public NFIDescStore
+class MarketConstantDesc : public NFIDescTemplate<MarketConstantDesc, proto_ff_s::E_MarketConstant_s, EOT_CONST_MARKET_CONSTANT_DESC_ID, MAX_MARKET_CONSTANT_NUM>
 {
 public:
 	MarketConstantDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_MarketConstant_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_MarketConstant_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_MarketConstant_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_MarketConstant_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(MarketConstantDesc, proto_ff_s::E_MarketConstant_s, E_MarketConstant, MAX_MARKET_CONSTANT_NUM);
-DECLARE_IDCREATE_GLOBAL(MarketConstantDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

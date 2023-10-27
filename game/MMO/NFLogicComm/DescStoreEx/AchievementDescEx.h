@@ -1,6 +1,7 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
@@ -118,14 +119,14 @@ enum XiuZhenRoadEventType
     XIUZHENROAD_EVENT_COLECT_NUM = 80, //²É¼¯X´Î
 };
 
-class AchievementDescEx : public NFIDescStoreEx
+class AchievementDescEx : public NFShmObjGlobalTemplate<AchievementDescEx, EOT_CONST_ACHIEVEMENT_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
 	AchievementDescEx();
 	virtual ~AchievementDescEx();
 	int CreateInit();
 	int ResumeInit();
-private:
-IMPL_RES_DESC_EX(AchievementDescEx)
-DECLARE_IDCREATE_GLOBAL(AchievementDescEx)
+public:
+    virtual int Load() override;
+    virtual int CheckWhenAllDataLoaded() override;
 };

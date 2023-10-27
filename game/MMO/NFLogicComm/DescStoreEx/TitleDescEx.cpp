@@ -1,8 +1,6 @@
 #include "TitleDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TitleDescEx, EOT_CONST_TITLE_DESC_EX_ID, NFShmObj)
-
-TitleDescEx::TitleDescEx():NFIDescStoreEx()
+TitleDescEx::TitleDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int TitleDescEx::ResumeInit()
 }
 
 int TitleDescEx::Load()
-{
-	return 0;
-}
-
-int TitleDescEx::PrepareReload()
 {
 	return 0;
 }

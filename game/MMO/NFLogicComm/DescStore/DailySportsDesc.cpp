@@ -3,9 +3,7 @@
 #include "PeractivityPeractivityDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DailySportsDesc, EOT_CONST_DAILY_SPORTS_DESC_ID, NFShmObj)
-
-DailySportsDesc::DailySportsDesc():NFIDescStore()
+DailySportsDesc::DailySportsDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -21,7 +19,7 @@ DailySportsDesc::~DailySportsDesc()
 
 int DailySportsDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int DailySportsDesc::ResumeInit()
@@ -100,46 +98,5 @@ int DailySportsDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_functionid <= 0 || FunctionunlockFunctionunlockDesc::Instance()->GetDesc(pDesc->m_functionid)), result, "can't find the functionid:{} in the  excel:functionunlock sheet:functionUnlock", pDesc->m_functionid);
 	}
 	return result;
-}
-
-const proto_ff_s::E_DailySports_s * DailySportsDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_DailySports_s * DailySportsDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_DailySports_s *>((static_cast<const DailySportsDesc*>(this))->GetDesc(id));
-}
-
-int DailySportsDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_DailySports_s * DailySportsDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_DailySports_s * DailySportsDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

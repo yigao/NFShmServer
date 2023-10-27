@@ -1,8 +1,6 @@
 #include "BossDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BossDescEx, EOT_CONST_BOSS_DESC_EX_ID, NFShmObj)
-
-BossDescEx::BossDescEx():NFIDescStoreEx()
+BossDescEx::BossDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int BossDescEx::ResumeInit()
 }
 
 int BossDescEx::Load()
-{
-	return 0;
-}
-
-int BossDescEx::PrepareReload()
 {
 	return 0;
 }

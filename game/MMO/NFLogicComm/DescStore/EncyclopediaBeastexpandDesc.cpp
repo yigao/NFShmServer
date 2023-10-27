@@ -1,9 +1,7 @@
 #include "EncyclopediaBeastexpandDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EncyclopediaBeastexpandDesc, EOT_CONST_ENCYCLOPEDIA_BEASTEXPAND_DESC_ID, NFShmObj)
-
-EncyclopediaBeastexpandDesc::EncyclopediaBeastexpandDesc():NFIDescStore()
+EncyclopediaBeastexpandDesc::EncyclopediaBeastexpandDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ EncyclopediaBeastexpandDesc::~EncyclopediaBeastexpandDesc()
 
 int EncyclopediaBeastexpandDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int EncyclopediaBeastexpandDesc::ResumeInit()
@@ -91,46 +89,5 @@ int EncyclopediaBeastexpandDesc::Load(NFResDB *pDB)
 int EncyclopediaBeastexpandDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_EncyclopediaBeastexpand_s * EncyclopediaBeastexpandDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_EncyclopediaBeastexpand_s * EncyclopediaBeastexpandDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_EncyclopediaBeastexpand_s *>((static_cast<const EncyclopediaBeastexpandDesc*>(this))->GetDesc(id));
-}
-
-int EncyclopediaBeastexpandDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_EncyclopediaBeastexpand_s * EncyclopediaBeastexpandDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_EncyclopediaBeastexpand_s * EncyclopediaBeastexpandDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

@@ -1,8 +1,6 @@
 #include "RoleDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RoleDescEx, EOT_CONST_ROLE_DESC_EX_ID, NFShmObj)
-
-RoleDescEx::RoleDescEx():NFIDescStoreEx()
+RoleDescEx::RoleDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int RoleDescEx::ResumeInit()
 }
 
 int RoleDescEx::Load()
-{
-	return 0;
-}
-
-int RoleDescEx::PrepareReload()
 {
 	return 0;
 }

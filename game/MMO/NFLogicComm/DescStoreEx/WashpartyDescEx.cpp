@@ -1,8 +1,6 @@
 #include "WashpartyDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WashpartyDescEx, EOT_CONST_WASHPARTY_DESC_EX_ID, NFShmObj)
-
-WashpartyDescEx::WashpartyDescEx():NFIDescStoreEx()
+WashpartyDescEx::WashpartyDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int WashpartyDescEx::ResumeInit()
 }
 
 int WashpartyDescEx::Load()
-{
-	return 0;
-}
-
-int WashpartyDescEx::PrepareReload()
 {
 	return 0;
 }

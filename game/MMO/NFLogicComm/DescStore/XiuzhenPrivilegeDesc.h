@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Xiuzhen_s.h"
 
 #define MAX_XIUZHEN_PRIVILEGE_NUM 8
 
-class XiuzhenPrivilegeDesc : public NFIDescStore
+class XiuzhenPrivilegeDesc : public NFIDescTemplate<XiuzhenPrivilegeDesc, proto_ff_s::E_XiuzhenPrivilege_s, EOT_CONST_XIUZHEN_PRIVILEGE_DESC_ID, MAX_XIUZHEN_PRIVILEGE_NUM>
 {
 public:
 	XiuzhenPrivilegeDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_XiuzhenPrivilege_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_XiuzhenPrivilege_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_XiuzhenPrivilege_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_XiuzhenPrivilege_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(XiuzhenPrivilegeDesc, proto_ff_s::E_XiuzhenPrivilege_s, E_XiuzhenPrivilege, MAX_XIUZHEN_PRIVILEGE_NUM);
-DECLARE_IDCREATE_GLOBAL(XiuzhenPrivilegeDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

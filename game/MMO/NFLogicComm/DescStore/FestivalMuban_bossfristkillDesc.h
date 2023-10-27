@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Festival_s.h"
 
 #define MAX_FESTIVAL_MUBAN_BOSSFRISTKILL_NUM 64
 
-class FestivalMuban_bossfristkillDesc : public NFIDescStore
+class FestivalMuban_bossfristkillDesc : public NFIDescTemplate<FestivalMuban_bossfristkillDesc, proto_ff_s::E_FestivalMuban_bossfristkill_s, EOT_CONST_FESTIVAL_MUBAN_BOSSFRISTKILL_DESC_ID, MAX_FESTIVAL_MUBAN_BOSSFRISTKILL_NUM>
 {
 public:
 	FestivalMuban_bossfristkillDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_FestivalMuban_bossfristkill_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_FestivalMuban_bossfristkill_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_FestivalMuban_bossfristkill_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_FestivalMuban_bossfristkill_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(FestivalMuban_bossfristkillDesc, proto_ff_s::E_FestivalMuban_bossfristkill_s, E_FestivalMuban_bossfristkill, MAX_FESTIVAL_MUBAN_BOSSFRISTKILL_NUM);
-DECLARE_IDCREATE_GLOBAL(FestivalMuban_bossfristkillDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

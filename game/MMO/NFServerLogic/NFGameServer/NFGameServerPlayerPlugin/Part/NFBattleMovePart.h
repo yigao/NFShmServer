@@ -19,10 +19,12 @@
 #include "NFPath.h"
 #include "Move.pb.h"
 #include "DBProxy2.pb.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
 class NFScene;
 
-class NFBattleMovePart : public NFBattlePart
+class NFBattleMovePart : public NFShmObjTemplate<NFBattleMovePart, EOT_NFBattlePart_ID+BATTLE_PART_MOVE, NFBattlePart>
 {
     enum
     {
@@ -182,5 +184,4 @@ private:
 public:
     int m_timerIdMove;
     int m_timerIdLoadMapTimeout;
-DECLARE_IDCREATE(NFBattleMovePart)
 };

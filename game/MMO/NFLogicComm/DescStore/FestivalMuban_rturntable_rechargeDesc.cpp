@@ -2,9 +2,7 @@
 #include "RechargeRechargeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_rturntable_rechargeDesc, EOT_CONST_FESTIVAL_MUBAN_RTURNTABLE_RECHARGE_DESC_ID, NFShmObj)
-
-FestivalMuban_rturntable_rechargeDesc::FestivalMuban_rturntable_rechargeDesc():NFIDescStore()
+FestivalMuban_rturntable_rechargeDesc::FestivalMuban_rturntable_rechargeDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -20,7 +18,7 @@ FestivalMuban_rturntable_rechargeDesc::~FestivalMuban_rturntable_rechargeDesc()
 
 int FestivalMuban_rturntable_rechargeDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int FestivalMuban_rturntable_rechargeDesc::ResumeInit()
@@ -98,46 +96,5 @@ int FestivalMuban_rturntable_rechargeDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_rechargeid <= 0 || RechargeRechargeDesc::Instance()->GetDesc(pDesc->m_rechargeid)), result, "can't find the rechargeid:{} in the  excel:recharge sheet:recharge", pDesc->m_rechargeid);
 	}
 	return result;
-}
-
-const proto_ff_s::E_FestivalMuban_rturntable_recharge_s * FestivalMuban_rturntable_rechargeDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_FestivalMuban_rturntable_recharge_s * FestivalMuban_rturntable_rechargeDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_FestivalMuban_rturntable_recharge_s *>((static_cast<const FestivalMuban_rturntable_rechargeDesc*>(this))->GetDesc(id));
-}
-
-int FestivalMuban_rturntable_rechargeDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_FestivalMuban_rturntable_recharge_s * FestivalMuban_rturntable_rechargeDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_FestivalMuban_rturntable_recharge_s * FestivalMuban_rturntable_rechargeDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

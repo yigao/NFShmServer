@@ -15,18 +15,19 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFGrid.h"
-#include "NFComm/NFShmCore/NFShmOldHashMap.h"
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFSkillDefine.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
 #define NF_SCENE_MAX_GRID_NUM 200
 #define NF_SCENE_MAX_CREATURE_NUM 1000
 
 class NFMap;
 
-class NFScene : public NFShmObj
+class NFScene : public NFShmObjTemplate<NFScene, EOT_GAME_SCENE_ID, NFShmObj>
 {
 public:
     NFScene();
@@ -220,5 +221,4 @@ private:
 private:
     NFShmNodeObjMultiList<NFCreature> m_creatureList;
     NFShmNodeObjMultiList<NFCreature> m_playerList;
-DECLARE_IDCREATE(NFScene)
 };

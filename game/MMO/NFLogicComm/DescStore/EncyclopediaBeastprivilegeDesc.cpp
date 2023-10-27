@@ -1,9 +1,7 @@
 #include "EncyclopediaBeastprivilegeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EncyclopediaBeastprivilegeDesc, EOT_CONST_ENCYCLOPEDIA_BEASTPRIVILEGE_DESC_ID, NFShmObj)
-
-EncyclopediaBeastprivilegeDesc::EncyclopediaBeastprivilegeDesc():NFIDescStore()
+EncyclopediaBeastprivilegeDesc::EncyclopediaBeastprivilegeDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ EncyclopediaBeastprivilegeDesc::~EncyclopediaBeastprivilegeDesc()
 
 int EncyclopediaBeastprivilegeDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int EncyclopediaBeastprivilegeDesc::ResumeInit()
@@ -91,46 +89,5 @@ int EncyclopediaBeastprivilegeDesc::Load(NFResDB *pDB)
 int EncyclopediaBeastprivilegeDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_EncyclopediaBeastprivilege_s * EncyclopediaBeastprivilegeDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_EncyclopediaBeastprivilege_s * EncyclopediaBeastprivilegeDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_EncyclopediaBeastprivilege_s *>((static_cast<const EncyclopediaBeastprivilegeDesc*>(this))->GetDesc(id));
-}
-
-int EncyclopediaBeastprivilegeDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_EncyclopediaBeastprivilege_s * EncyclopediaBeastprivilegeDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_EncyclopediaBeastprivilege_s * EncyclopediaBeastprivilegeDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

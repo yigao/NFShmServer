@@ -1,8 +1,6 @@
 #include "DupDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DupDescEx, EOT_CONST_DUP_DESC_EX_ID, NFShmObj)
-
-DupDescEx::DupDescEx():NFIDescStoreEx()
+DupDescEx::DupDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int DupDescEx::ResumeInit()
 }
 
 int DupDescEx::Load()
-{
-	return 0;
-}
-
-int DupDescEx::PrepareReload()
 {
 	return 0;
 }

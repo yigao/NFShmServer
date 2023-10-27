@@ -2,9 +2,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_shopDesc, EOT_CONST_FESTIVAL_MUBAN_SHOP_DESC_ID, NFShmObj)
-
-FestivalMuban_shopDesc::FestivalMuban_shopDesc():NFIDescStore()
+FestivalMuban_shopDesc::FestivalMuban_shopDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -20,7 +18,7 @@ FestivalMuban_shopDesc::~FestivalMuban_shopDesc()
 
 int FestivalMuban_shopDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int FestivalMuban_shopDesc::ResumeInit()
@@ -98,46 +96,5 @@ int FestivalMuban_shopDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_box <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_box)), result, "can't find the box:{} in the  excel:box sheet:box", pDesc->m_box);
 	}
 	return result;
-}
-
-const proto_ff_s::E_FestivalMuban_shop_s * FestivalMuban_shopDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_FestivalMuban_shop_s * FestivalMuban_shopDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_FestivalMuban_shop_s *>((static_cast<const FestivalMuban_shopDesc*>(this))->GetDesc(id));
-}
-
-int FestivalMuban_shopDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_FestivalMuban_shop_s * FestivalMuban_shopDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_FestivalMuban_shop_s * FestivalMuban_shopDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

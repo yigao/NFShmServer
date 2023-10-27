@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Occupation_s.h"
 
 #define MAX_OCCUPATION_SOUL_NUM 64
 
-class OccupationSoulDesc : public NFIDescStore
+class OccupationSoulDesc : public NFIDescTemplate<OccupationSoulDesc, proto_ff_s::E_OccupationSoul_s, EOT_CONST_OCCUPATION_SOUL_DESC_ID, MAX_OCCUPATION_SOUL_NUM>
 {
 public:
 	OccupationSoulDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_OccupationSoul_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_OccupationSoul_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_OccupationSoul_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_OccupationSoul_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(OccupationSoulDesc, proto_ff_s::E_OccupationSoul_s, E_OccupationSoul, MAX_OCCUPATION_SOUL_NUM);
-DECLARE_IDCREATE_GLOBAL(OccupationSoulDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

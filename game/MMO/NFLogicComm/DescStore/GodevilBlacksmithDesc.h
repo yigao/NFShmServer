@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Godevil_s.h"
 
 #define MAX_GODEVIL_BLACKSMITH_NUM 32
 
-class GodevilBlacksmithDesc : public NFIDescStore
+class GodevilBlacksmithDesc : public NFIDescTemplate<GodevilBlacksmithDesc, proto_ff_s::E_GodevilBlacksmith_s, EOT_CONST_GODEVIL_BLACKSMITH_DESC_ID, MAX_GODEVIL_BLACKSMITH_NUM>
 {
 public:
 	GodevilBlacksmithDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_GodevilBlacksmith_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_GodevilBlacksmith_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_GodevilBlacksmith_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_GodevilBlacksmith_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(GodevilBlacksmithDesc, proto_ff_s::E_GodevilBlacksmith_s, E_GodevilBlacksmith, MAX_GODEVIL_BLACKSMITH_NUM);
-DECLARE_IDCREATE_GLOBAL(GodevilBlacksmithDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

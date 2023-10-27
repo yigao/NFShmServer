@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Xiuzhenroad_s.h"
 
 #define MAX_XIUZHENROAD_SKILL_NUM 32
 
-class XiuzhenroadSkillDesc : public NFIDescStore
+class XiuzhenroadSkillDesc : public NFIDescTemplate<XiuzhenroadSkillDesc, proto_ff_s::E_XiuzhenroadSkill_s, EOT_CONST_XIUZHENROAD_SKILL_DESC_ID, MAX_XIUZHENROAD_SKILL_NUM>
 {
 public:
 	XiuzhenroadSkillDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_XiuzhenroadSkill_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_XiuzhenroadSkill_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_XiuzhenroadSkill_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_XiuzhenroadSkill_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(XiuzhenroadSkillDesc, proto_ff_s::E_XiuzhenroadSkill_s, E_XiuzhenroadSkill, MAX_XIUZHENROAD_SKILL_NUM);
-DECLARE_IDCREATE_GLOBAL(XiuzhenroadSkillDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

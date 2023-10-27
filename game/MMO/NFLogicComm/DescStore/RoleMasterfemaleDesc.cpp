@@ -1,9 +1,7 @@
 #include "RoleMasterfemaleDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RoleMasterfemaleDesc, EOT_CONST_ROLE_MASTERFEMALE_DESC_ID, NFShmObj)
-
-RoleMasterfemaleDesc::RoleMasterfemaleDesc():NFIDescStore()
+RoleMasterfemaleDesc::RoleMasterfemaleDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ RoleMasterfemaleDesc::~RoleMasterfemaleDesc()
 
 int RoleMasterfemaleDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int RoleMasterfemaleDesc::ResumeInit()
@@ -91,46 +89,5 @@ int RoleMasterfemaleDesc::Load(NFResDB *pDB)
 int RoleMasterfemaleDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_RoleMasterfemale_s * RoleMasterfemaleDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_RoleMasterfemale_s * RoleMasterfemaleDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_RoleMasterfemale_s *>((static_cast<const RoleMasterfemaleDesc*>(this))->GetDesc(id));
-}
-
-int RoleMasterfemaleDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_RoleMasterfemale_s * RoleMasterfemaleDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_RoleMasterfemale_s * RoleMasterfemaleDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

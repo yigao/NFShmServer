@@ -1,8 +1,6 @@
 #include "ItemDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ItemDescEx, EOT_CONST_ITEM_DESC_EX_ID, NFShmObj)
-
-ItemDescEx::ItemDescEx():NFIDescStoreEx()
+ItemDescEx::ItemDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int ItemDescEx::ResumeInit()
 }
 
 int ItemDescEx::Load()
-{
-	return 0;
-}
-
-int ItemDescEx::PrepareReload()
 {
 	return 0;
 }

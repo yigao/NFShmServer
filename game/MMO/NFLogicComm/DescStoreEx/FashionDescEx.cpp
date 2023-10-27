@@ -1,8 +1,6 @@
 #include "FashionDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FashionDescEx, EOT_CONST_FASHION_DESC_EX_ID, NFShmObj)
-
-FashionDescEx::FashionDescEx():NFIDescStoreEx()
+FashionDescEx::FashionDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int FashionDescEx::ResumeInit()
 }
 
 int FashionDescEx::Load()
-{
-	return 0;
-}
-
-int FashionDescEx::PrepareReload()
 {
 	return 0;
 }

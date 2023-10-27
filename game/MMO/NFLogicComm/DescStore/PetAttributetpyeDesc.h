@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Pet_s.h"
 
 #define MAX_PET_ATTRIBUTETPYE_NUM 128
 
-class PetAttributetpyeDesc : public NFIDescStore
+class PetAttributetpyeDesc : public NFIDescTemplate<PetAttributetpyeDesc, proto_ff_s::E_PetAttributetpye_s, EOT_CONST_PET_ATTRIBUTETPYE_DESC_ID, MAX_PET_ATTRIBUTETPYE_NUM>
 {
 public:
 	PetAttributetpyeDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_PetAttributetpye_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_PetAttributetpye_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_PetAttributetpye_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_PetAttributetpye_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(PetAttributetpyeDesc, proto_ff_s::E_PetAttributetpye_s, E_PetAttributetpye, MAX_PET_ATTRIBUTETPYE_NUM);
-DECLARE_IDCREATE_GLOBAL(PetAttributetpyeDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

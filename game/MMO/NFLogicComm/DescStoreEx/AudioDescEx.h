@@ -1,20 +1,21 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 
-class AudioDescEx : public NFIDescStoreEx
+class AudioDescEx : public NFShmObjGlobalTemplate<AudioDescEx, EOT_CONST_AUDIO_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
 	AudioDescEx();
 	virtual ~AudioDescEx();
 	int CreateInit();
 	int ResumeInit();
-private:
-IMPL_RES_DESC_EX(AudioDescEx)
-DECLARE_IDCREATE_GLOBAL(AudioDescEx)
+public:
+	virtual int Load() override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

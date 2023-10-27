@@ -2,9 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenXcawakenDesc, EOT_CONST_XINGCHEN_XCAWAKEN_DESC_ID, NFShmObj)
-
-XingchenXcawakenDesc::XingchenXcawakenDesc():NFIDescStore()
+XingchenXcawakenDesc::XingchenXcawakenDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -20,7 +18,7 @@ XingchenXcawakenDesc::~XingchenXcawakenDesc()
 
 int XingchenXcawakenDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int XingchenXcawakenDesc::ResumeInit()
@@ -113,47 +111,6 @@ int XingchenXcawakenDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_awaken_item <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_awaken_item)), result, "can't find the awaken_item:{} in the  excel:item sheet:item", pDesc->m_awaken_item);
 	}
 	return result;
-}
-
-const proto_ff_s::E_XingchenXcawaken_s * XingchenXcawakenDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_XingchenXcawaken_s * XingchenXcawakenDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_XingchenXcawaken_s *>((static_cast<const XingchenXcawakenDesc*>(this))->GetDesc(id));
-}
-
-int XingchenXcawakenDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_XingchenXcawaken_s * XingchenXcawakenDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_XingchenXcawaken_s * XingchenXcawakenDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 
 const proto_ff_s::E_XingchenXcawaken_s* XingchenXcawakenDesc::GetDescByPositionidAwaken_quality(int64_t Positionid, int64_t Awaken_quality)

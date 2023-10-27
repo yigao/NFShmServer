@@ -25,8 +25,6 @@
 #include "NFGameCommon/NFMath.h"
 #include "DescStore/MapMapDesc.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFBattleMovePart, EOT_NFBattlePart_ID+BATTLE_PART_MOVE, NFBattlePart)
-
 NFBattleMovePart::NFBattleMovePart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

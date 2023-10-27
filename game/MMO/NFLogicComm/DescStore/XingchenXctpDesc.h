@@ -1,9 +1,7 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Xingchen_s.h"
 
@@ -59,7 +57,7 @@ namespace std
 }
 
 
-class XingchenXctpDesc : public NFIDescStore
+class XingchenXctpDesc : public NFIDescTemplate<XingchenXctpDesc, proto_ff_s::E_XingchenXctp_s, EOT_CONST_XINGCHEN_XCTP_DESC_ID, MAX_XINGCHEN_XCTP_NUM>
 {
 public:
 	XingchenXctpDesc();
@@ -67,15 +65,9 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_XingchenXctp_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_XingchenXctp_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_XingchenXctp_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_XingchenXctp_s* GetDescByIndex(int index);
-public:
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 	const proto_ff_s::E_XingchenXctp_s* GetDescByPositionidXcquality(int64_t Positionid, int64_t Xcquality);
 private:
 	NFShmHashMap<XingchenXctpPositionidXcquality ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCTP_POSITIONID_NUM*UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCTP_XCQUALITY_NUM> m_PositionidXcqualityComIndexMap;
-IMPL_RES_HASH_DESC(XingchenXctpDesc, proto_ff_s::E_XingchenXctp_s, E_XingchenXctp, MAX_XINGCHEN_XCTP_NUM);
-DECLARE_IDCREATE_GLOBAL(XingchenXctpDesc);
 };

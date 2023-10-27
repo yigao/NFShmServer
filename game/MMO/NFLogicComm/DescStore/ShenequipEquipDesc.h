@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Shenequip_s.h"
 
 #define MAX_SHENEQUIP_EQUIP_NUM 64
 
-class ShenequipEquipDesc : public NFIDescStore
+class ShenequipEquipDesc : public NFIDescTemplate<ShenequipEquipDesc, proto_ff_s::E_ShenequipEquip_s, EOT_CONST_SHENEQUIP_EQUIP_DESC_ID, MAX_SHENEQUIP_EQUIP_NUM>
 {
 public:
 	ShenequipEquipDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_ShenequipEquip_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_ShenequipEquip_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_ShenequipEquip_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_ShenequipEquip_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(ShenequipEquipDesc, proto_ff_s::E_ShenequipEquip_s, E_ShenequipEquip, MAX_SHENEQUIP_EQUIP_NUM);
-DECLARE_IDCREATE_GLOBAL(ShenequipEquipDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

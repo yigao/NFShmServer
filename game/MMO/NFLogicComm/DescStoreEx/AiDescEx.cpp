@@ -1,8 +1,6 @@
 #include "AiDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AiDescEx, EOT_CONST_AI_DESC_EX_ID, NFShmObj)
-
-AiDescEx::AiDescEx():NFIDescStoreEx()
+AiDescEx::AiDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int AiDescEx::ResumeInit()
 }
 
 int AiDescEx::Load()
-{
-	return 0;
-}
-
-int AiDescEx::PrepareReload()
 {
 	return 0;
 }

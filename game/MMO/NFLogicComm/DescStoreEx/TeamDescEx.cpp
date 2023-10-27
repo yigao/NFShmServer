@@ -1,8 +1,6 @@
 #include "TeamDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TeamDescEx, EOT_CONST_TEAM_DESC_EX_ID, NFShmObj)
-
-TeamDescEx::TeamDescEx():NFIDescStoreEx()
+TeamDescEx::TeamDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int TeamDescEx::ResumeInit()
 }
 
 int TeamDescEx::Load()
-{
-	return 0;
-}
-
-int TeamDescEx::PrepareReload()
 {
 	return 0;
 }

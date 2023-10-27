@@ -1,9 +1,7 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Taskreward_s.h"
 
@@ -59,7 +57,7 @@ namespace std
 }
 
 
-class TaskrewardTaskrewardDesc : public NFIDescStore
+class TaskrewardTaskrewardDesc : public NFIDescTemplate<TaskrewardTaskrewardDesc, proto_ff_s::E_TaskrewardTaskreward_s, EOT_CONST_TASKREWARD_TASKREWARD_DESC_ID, MAX_TASKREWARD_TASKREWARD_NUM>
 {
 public:
 	TaskrewardTaskrewardDesc();
@@ -67,15 +65,9 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_TaskrewardTaskreward_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_TaskrewardTaskreward_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_TaskrewardTaskreward_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_TaskrewardTaskreward_s* GetDescByIndex(int index);
-public:
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 	const proto_ff_s::E_TaskrewardTaskreward_s* GetDescByTasktypeLv(int64_t Tasktype, int64_t Lv);
 private:
 	NFShmHashMap<TaskrewardTaskrewardTasktypeLv ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_TASKREWARD_TASKREWARD_TASKTYPE_NUM*UNIQUE_KEY_MAX_COM_INDEX_TASKREWARD_TASKREWARD_LV_NUM> m_TasktypeLvComIndexMap;
-IMPL_RES_HASH_DESC(TaskrewardTaskrewardDesc, proto_ff_s::E_TaskrewardTaskreward_s, E_TaskrewardTaskreward, MAX_TASKREWARD_TASKREWARD_NUM);
-DECLARE_IDCREATE_GLOBAL(TaskrewardTaskrewardDesc);
 };

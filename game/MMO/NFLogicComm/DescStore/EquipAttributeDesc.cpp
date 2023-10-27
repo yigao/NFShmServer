@@ -1,9 +1,7 @@
 #include "EquipAttributeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipAttributeDesc, EOT_CONST_EQUIP_ATTRIBUTE_DESC_ID, NFShmObj)
-
-EquipAttributeDesc::EquipAttributeDesc():NFIDescStore()
+EquipAttributeDesc::EquipAttributeDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ EquipAttributeDesc::~EquipAttributeDesc()
 
 int EquipAttributeDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int EquipAttributeDesc::ResumeInit()
@@ -91,46 +89,5 @@ int EquipAttributeDesc::Load(NFResDB *pDB)
 int EquipAttributeDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_EquipAttribute_s * EquipAttributeDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_EquipAttribute_s * EquipAttributeDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_EquipAttribute_s *>((static_cast<const EquipAttributeDesc*>(this))->GetDesc(id));
-}
-
-int EquipAttributeDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_EquipAttribute_s * EquipAttributeDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_EquipAttribute_s * EquipAttributeDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

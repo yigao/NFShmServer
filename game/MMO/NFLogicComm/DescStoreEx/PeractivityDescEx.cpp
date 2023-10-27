@@ -1,8 +1,6 @@
 #include "PeractivityDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PeractivityDescEx, EOT_CONST_PERACTIVITY_DESC_EX_ID, NFShmObj)
-
-PeractivityDescEx::PeractivityDescEx():NFIDescStoreEx()
+PeractivityDescEx::PeractivityDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int PeractivityDescEx::ResumeInit()
 }
 
 int PeractivityDescEx::Load()
-{
-	return 0;
-}
-
-int PeractivityDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -1,9 +1,7 @@
 #include "MountEmpowerment_slotDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountEmpowerment_slotDesc, EOT_CONST_MOUNT_EMPOWERMENT_SLOT_DESC_ID, NFShmObj)
-
-MountEmpowerment_slotDesc::MountEmpowerment_slotDesc():NFIDescStore()
+MountEmpowerment_slotDesc::MountEmpowerment_slotDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ MountEmpowerment_slotDesc::~MountEmpowerment_slotDesc()
 
 int MountEmpowerment_slotDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int MountEmpowerment_slotDesc::ResumeInit()
@@ -91,46 +89,5 @@ int MountEmpowerment_slotDesc::Load(NFResDB *pDB)
 int MountEmpowerment_slotDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_MountEmpowerment_slot_s * MountEmpowerment_slotDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_MountEmpowerment_slot_s * MountEmpowerment_slotDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_MountEmpowerment_slot_s *>((static_cast<const MountEmpowerment_slotDesc*>(this))->GetDesc(id));
-}
-
-int MountEmpowerment_slotDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_MountEmpowerment_slot_s * MountEmpowerment_slotDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_MountEmpowerment_slot_s * MountEmpowerment_slotDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

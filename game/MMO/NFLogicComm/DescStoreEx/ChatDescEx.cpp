@@ -1,8 +1,6 @@
 #include "ChatDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ChatDescEx, EOT_CONST_CHAT_DESC_EX_ID, NFShmObj)
-
-ChatDescEx::ChatDescEx():NFIDescStoreEx()
+ChatDescEx::ChatDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int ChatDescEx::ResumeInit()
 }
 
 int ChatDescEx::Load()
-{
-	return 0;
-}
-
-int ChatDescEx::PrepareReload()
 {
 	return 0;
 }

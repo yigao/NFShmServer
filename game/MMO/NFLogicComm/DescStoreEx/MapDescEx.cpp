@@ -8,9 +8,7 @@
 #include "NFLogicCommon/NFSceneDefine.h"
 #include "NFLogicCommon/NFDupDefine.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MapDescEx, EOT_CONST_MAP_DESC_EX_ID, NFShmObj)
-
-MapDescEx::MapDescEx() : NFIDescStoreEx()
+MapDescEx::MapDescEx()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
@@ -96,11 +94,6 @@ int MapDescEx::Load()
     }
 
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "--end--");
-    return 0;
-}
-
-int MapDescEx::PrepareReload()
-{
     return 0;
 }
 

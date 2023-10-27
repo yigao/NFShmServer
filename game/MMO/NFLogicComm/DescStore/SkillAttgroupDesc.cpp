@@ -1,9 +1,7 @@
 #include "SkillAttgroupDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SkillAttgroupDesc, EOT_CONST_SKILL_ATTGROUP_DESC_ID, NFShmObj)
-
-SkillAttgroupDesc::SkillAttgroupDesc():NFIDescStore()
+SkillAttgroupDesc::SkillAttgroupDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ SkillAttgroupDesc::~SkillAttgroupDesc()
 
 int SkillAttgroupDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int SkillAttgroupDesc::ResumeInit()
@@ -91,46 +89,5 @@ int SkillAttgroupDesc::Load(NFResDB *pDB)
 int SkillAttgroupDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_SkillAttgroup_s * SkillAttgroupDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_SkillAttgroup_s * SkillAttgroupDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_SkillAttgroup_s *>((static_cast<const SkillAttgroupDesc*>(this))->GetDesc(id));
-}
-
-int SkillAttgroupDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_SkillAttgroup_s * SkillAttgroupDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_SkillAttgroup_s * SkillAttgroupDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

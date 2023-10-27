@@ -1,20 +1,21 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 
-class AttributeDescEx : public NFIDescStoreEx
+class AttributeDescEx : public NFShmObjGlobalTemplate<AttributeDescEx, EOT_CONST_ATTRIBUTE_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
 	AttributeDescEx();
 	virtual ~AttributeDescEx();
 	int CreateInit();
 	int ResumeInit();
-private:
-IMPL_RES_DESC_EX(AttributeDescEx)
-DECLARE_IDCREATE_GLOBAL(AttributeDescEx)
+public:
+	virtual int Load() override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

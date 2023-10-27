@@ -15,9 +15,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFGameConfig.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFMapMgr, EOT_GAME_MAP_MGR_ID, NFShmObj)
-
-NFMapMgr::NFMapMgr() : NFShmObj()
+NFMapMgr::NFMapMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

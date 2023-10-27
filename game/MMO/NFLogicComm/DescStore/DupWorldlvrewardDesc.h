@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Dup_s.h"
 
 #define MAX_DUP_WORLDLVREWARD_NUM 32
 
-class DupWorldlvrewardDesc : public NFIDescStore
+class DupWorldlvrewardDesc : public NFIDescTemplate<DupWorldlvrewardDesc, proto_ff_s::E_DupWorldlvreward_s, EOT_CONST_DUP_WORLDLVREWARD_DESC_ID, MAX_DUP_WORLDLVREWARD_NUM>
 {
 public:
 	DupWorldlvrewardDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_DupWorldlvreward_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_DupWorldlvreward_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_DupWorldlvreward_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_DupWorldlvreward_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(DupWorldlvrewardDesc, proto_ff_s::E_DupWorldlvreward_s, E_DupWorldlvreward, MAX_DUP_WORLDLVREWARD_NUM);
-DECLARE_IDCREATE_GLOBAL(DupWorldlvrewardDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

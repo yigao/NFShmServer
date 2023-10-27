@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Mount_s.h"
 
 #define MAX_MOUNT_BABY_EGG_NUM 8
 
-class MountBaby_eggDesc : public NFIDescStore
+class MountBaby_eggDesc : public NFIDescTemplate<MountBaby_eggDesc, proto_ff_s::E_MountBaby_egg_s, EOT_CONST_MOUNT_BABY_EGG_DESC_ID, MAX_MOUNT_BABY_EGG_NUM>
 {
 public:
 	MountBaby_eggDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_MountBaby_egg_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_MountBaby_egg_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_MountBaby_egg_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_MountBaby_egg_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(MountBaby_eggDesc, proto_ff_s::E_MountBaby_egg_s, E_MountBaby_egg, MAX_MOUNT_BABY_EGG_NUM);
-DECLARE_IDCREATE_GLOBAL(MountBaby_eggDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

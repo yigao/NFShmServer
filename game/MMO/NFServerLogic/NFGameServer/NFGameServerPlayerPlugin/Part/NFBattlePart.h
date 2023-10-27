@@ -17,10 +17,12 @@
 #include "NFComm/NFShmCore/NFShmPtr.h"
 #include "NFComm/NFShmCore/NFSeqOP.h"
 #include "DBProxy2.pb.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
 class NFCreature;
 
-class NFBattlePart : public NFShmObj, public NFSeqOP
+class NFBattlePart : public NFShmObjTemplate<NFBattlePart, EOT_NFBattlePart_ID, NFShmObj>, public NFSeqOP
 {
 public:
     NFBattlePart();
@@ -146,7 +148,4 @@ public:
 protected:
     uint64_t m_masterCid;
     uint32_t m_partType;
-
-private:
-DECLARE_IDCREATE(NFBattlePart)
 };

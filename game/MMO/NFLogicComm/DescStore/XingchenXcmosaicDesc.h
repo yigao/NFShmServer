@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Xingchen_s.h"
 
 #define MAX_XINGCHEN_XCMOSAIC_NUM 16
 
-class XingchenXcmosaicDesc : public NFIDescStore
+class XingchenXcmosaicDesc : public NFIDescTemplate<XingchenXcmosaicDesc, proto_ff_s::E_XingchenXcmosaic_s, EOT_CONST_XINGCHEN_XCMOSAIC_DESC_ID, MAX_XINGCHEN_XCMOSAIC_NUM>
 {
 public:
 	XingchenXcmosaicDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_XingchenXcmosaic_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_XingchenXcmosaic_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_XingchenXcmosaic_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_XingchenXcmosaic_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(XingchenXcmosaicDesc, proto_ff_s::E_XingchenXcmosaic_s, E_XingchenXcmosaic, MAX_XINGCHEN_XCMOSAIC_NUM);
-DECLARE_IDCREATE_GLOBAL(XingchenXcmosaicDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

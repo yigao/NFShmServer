@@ -1,8 +1,6 @@
 #include "FestivalDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalDescEx, EOT_CONST_FESTIVAL_DESC_EX_ID, NFShmObj)
-
-FestivalDescEx::FestivalDescEx():NFIDescStoreEx()
+FestivalDescEx::FestivalDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int FestivalDescEx::ResumeInit()
 }
 
 int FestivalDescEx::Load()
-{
-	return 0;
-}
-
-int FestivalDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -2,9 +2,7 @@
 #include "SkillSkillDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarSkillDesc, EOT_CONST_AVATAR_SKILL_DESC_ID, NFShmObj)
-
-AvatarSkillDesc::AvatarSkillDesc():NFIDescStore()
+AvatarSkillDesc::AvatarSkillDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -20,7 +18,7 @@ AvatarSkillDesc::~AvatarSkillDesc()
 
 int AvatarSkillDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int AvatarSkillDesc::ResumeInit()
@@ -98,46 +96,5 @@ int AvatarSkillDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_skillid <= 0 || SkillSkillDesc::Instance()->GetDesc(pDesc->m_skillid)), result, "can't find the skillid:{} in the  excel:skill sheet:skill", pDesc->m_skillid);
 	}
 	return result;
-}
-
-const proto_ff_s::E_AvatarSkill_s * AvatarSkillDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_AvatarSkill_s * AvatarSkillDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_AvatarSkill_s *>((static_cast<const AvatarSkillDesc*>(this))->GetDesc(id));
-}
-
-int AvatarSkillDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_AvatarSkill_s * AvatarSkillDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_AvatarSkill_s * AvatarSkillDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

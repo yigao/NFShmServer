@@ -1,8 +1,6 @@
 #include "DailyDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DailyDescEx, EOT_CONST_DAILY_DESC_EX_ID, NFShmObj)
-
-DailyDescEx::DailyDescEx():NFIDescStoreEx()
+DailyDescEx::DailyDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int DailyDescEx::ResumeInit()
 }
 
 int DailyDescEx::Load()
-{
-	return 0;
-}
-
-int DailyDescEx::PrepareReload()
 {
 	return 0;
 }

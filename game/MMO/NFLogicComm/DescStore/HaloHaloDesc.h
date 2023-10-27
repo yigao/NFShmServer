@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Halo_s.h"
 
 #define MAX_HALO_HALO_NUM 8
 
-class HaloHaloDesc : public NFIDescStore
+class HaloHaloDesc : public NFIDescTemplate<HaloHaloDesc, proto_ff_s::E_HaloHalo_s, EOT_CONST_HALO_HALO_DESC_ID, MAX_HALO_HALO_NUM>
 {
 public:
 	HaloHaloDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_HaloHalo_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_HaloHalo_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_HaloHalo_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_HaloHalo_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(HaloHaloDesc, proto_ff_s::E_HaloHalo_s, E_HaloHalo, MAX_HALO_HALO_NUM);
-DECLARE_IDCREATE_GLOBAL(HaloHaloDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

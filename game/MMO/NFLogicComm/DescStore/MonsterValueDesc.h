@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Monster_s.h"
 
 #define MAX_MONSTER_VALUE_NUM 4096
 
-class MonsterValueDesc : public NFIDescStore
+class MonsterValueDesc : public NFIDescTemplate<MonsterValueDesc, proto_ff_s::E_MonsterValue_s, EOT_CONST_MONSTER_VALUE_DESC_ID, MAX_MONSTER_VALUE_NUM>
 {
 public:
 	MonsterValueDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_MonsterValue_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_MonsterValue_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_MonsterValue_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_MonsterValue_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(MonsterValueDesc, proto_ff_s::E_MonsterValue_s, E_MonsterValue, MAX_MONSTER_VALUE_NUM);
-DECLARE_IDCREATE_GLOBAL(MonsterValueDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

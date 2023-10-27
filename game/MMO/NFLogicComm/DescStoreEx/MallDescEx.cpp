@@ -1,8 +1,6 @@
 #include "MallDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MallDescEx, EOT_CONST_MALL_DESC_EX_ID, NFShmObj)
-
-MallDescEx::MallDescEx():NFIDescStoreEx()
+MallDescEx::MallDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int MallDescEx::ResumeInit()
 }
 
 int MallDescEx::Load()
-{
-	return 0;
-}
-
-int MallDescEx::PrepareReload()
 {
 	return 0;
 }

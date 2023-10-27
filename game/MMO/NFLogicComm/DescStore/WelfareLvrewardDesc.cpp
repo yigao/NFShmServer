@@ -3,9 +3,7 @@
 #include "VipVipDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareLvrewardDesc, EOT_CONST_WELFARE_LVREWARD_DESC_ID, NFShmObj)
-
-WelfareLvrewardDesc::WelfareLvrewardDesc():NFIDescStore()
+WelfareLvrewardDesc::WelfareLvrewardDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -21,7 +19,7 @@ WelfareLvrewardDesc::~WelfareLvrewardDesc()
 
 int WelfareLvrewardDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int WelfareLvrewardDesc::ResumeInit()
@@ -101,46 +99,5 @@ int WelfareLvrewardDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_lvreward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_lvreward)), result, "can't find the lvreward:{} in the  excel:box sheet:box", pDesc->m_lvreward);
 	}
 	return result;
-}
-
-const proto_ff_s::E_WelfareLvreward_s * WelfareLvrewardDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_WelfareLvreward_s * WelfareLvrewardDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_WelfareLvreward_s *>((static_cast<const WelfareLvrewardDesc*>(this))->GetDesc(id));
-}
-
-int WelfareLvrewardDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_WelfareLvreward_s * WelfareLvrewardDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_WelfareLvreward_s * WelfareLvrewardDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

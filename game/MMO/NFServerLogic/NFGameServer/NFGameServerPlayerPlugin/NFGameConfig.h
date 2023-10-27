@@ -15,8 +15,10 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "ServerConfig_s.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
-class NFGameConfig : public NFShmObj
+class NFGameConfig : public NFShmObjTemplate<NFGameConfig, EOT_GAME_CONFIG_ID, NFShmObj>
 {
 public:
     NFGameConfig();
@@ -48,5 +50,4 @@ public:
 
 private:
     proto_ff_s::GameExternalConfig_s m_config;
-DECLARE_IDCREATE(NFGameConfig)
 };

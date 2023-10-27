@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Mount_s.h"
 
 #define MAX_MOUNT_HUAKUN_VALUE_NUM 512
 
-class MountHuakun_valueDesc : public NFIDescStore
+class MountHuakun_valueDesc : public NFIDescTemplate<MountHuakun_valueDesc, proto_ff_s::E_MountHuakun_value_s, EOT_CONST_MOUNT_HUAKUN_VALUE_DESC_ID, MAX_MOUNT_HUAKUN_VALUE_NUM>
 {
 public:
 	MountHuakun_valueDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_MountHuakun_value_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_MountHuakun_value_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_MountHuakun_value_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_MountHuakun_value_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(MountHuakun_valueDesc, proto_ff_s::E_MountHuakun_value_s, E_MountHuakun_value, MAX_MOUNT_HUAKUN_VALUE_NUM);
-DECLARE_IDCREATE_GLOBAL(MountHuakun_valueDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

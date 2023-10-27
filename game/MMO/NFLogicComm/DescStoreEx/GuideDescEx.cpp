@@ -1,8 +1,6 @@
 #include "GuideDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GuideDescEx, EOT_CONST_GUIDE_DESC_EX_ID, NFShmObj)
-
-GuideDescEx::GuideDescEx():NFIDescStoreEx()
+GuideDescEx::GuideDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int GuideDescEx::ResumeInit()
 }
 
 int GuideDescEx::Load()
-{
-	return 0;
-}
-
-int GuideDescEx::PrepareReload()
 {
 	return 0;
 }

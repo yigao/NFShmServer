@@ -1,8 +1,6 @@
 #include "TaskdynamicDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TaskdynamicDescEx, EOT_CONST_TASKDYNAMIC_DESC_EX_ID, NFShmObj)
-
-TaskdynamicDescEx::TaskdynamicDescEx():NFIDescStoreEx()
+TaskdynamicDescEx::TaskdynamicDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int TaskdynamicDescEx::ResumeInit()
 }
 
 int TaskdynamicDescEx::Load()
-{
-	return 0;
-}
-
-int TaskdynamicDescEx::PrepareReload()
 {
 	return 0;
 }

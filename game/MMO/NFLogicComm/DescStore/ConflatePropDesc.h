@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Conflate_s.h"
 
 #define MAX_CONFLATE_PROP_NUM 512
 
-class ConflatePropDesc : public NFIDescStore
+class ConflatePropDesc : public NFIDescTemplate<ConflatePropDesc, proto_ff_s::E_ConflateProp_s, EOT_CONST_CONFLATE_PROP_DESC_ID, MAX_CONFLATE_PROP_NUM>
 {
 public:
 	ConflatePropDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_ConflateProp_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_ConflateProp_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_ConflateProp_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_ConflateProp_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(ConflatePropDesc, proto_ff_s::E_ConflateProp_s, E_ConflateProp, MAX_CONFLATE_PROP_NUM);
-DECLARE_IDCREATE_GLOBAL(ConflatePropDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

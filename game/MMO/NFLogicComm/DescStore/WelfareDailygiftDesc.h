@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Welfare_s.h"
 
 #define MAX_WELFARE_DAILYGIFT_NUM 16
 
-class WelfareDailygiftDesc : public NFIDescStore
+class WelfareDailygiftDesc : public NFIDescTemplate<WelfareDailygiftDesc, proto_ff_s::E_WelfareDailygift_s, EOT_CONST_WELFARE_DAILYGIFT_DESC_ID, MAX_WELFARE_DAILYGIFT_NUM>
 {
 public:
 	WelfareDailygiftDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_WelfareDailygift_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_WelfareDailygift_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_WelfareDailygift_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_WelfareDailygift_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(WelfareDailygiftDesc, proto_ff_s::E_WelfareDailygift_s, E_WelfareDailygift, MAX_WELFARE_DAILYGIFT_NUM);
-DECLARE_IDCREATE_GLOBAL(WelfareDailygiftDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

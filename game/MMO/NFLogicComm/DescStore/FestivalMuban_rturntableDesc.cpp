@@ -1,9 +1,7 @@
 #include "FestivalMuban_rturntableDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_rturntableDesc, EOT_CONST_FESTIVAL_MUBAN_RTURNTABLE_DESC_ID, NFShmObj)
-
-FestivalMuban_rturntableDesc::FestivalMuban_rturntableDesc():NFIDescStore()
+FestivalMuban_rturntableDesc::FestivalMuban_rturntableDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ FestivalMuban_rturntableDesc::~FestivalMuban_rturntableDesc()
 
 int FestivalMuban_rturntableDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int FestivalMuban_rturntableDesc::ResumeInit()
@@ -91,46 +89,5 @@ int FestivalMuban_rturntableDesc::Load(NFResDB *pDB)
 int FestivalMuban_rturntableDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_FestivalMuban_rturntable_s * FestivalMuban_rturntableDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_FestivalMuban_rturntable_s * FestivalMuban_rturntableDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_FestivalMuban_rturntable_s *>((static_cast<const FestivalMuban_rturntableDesc*>(this))->GetDesc(id));
-}
-
-int FestivalMuban_rturntableDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_FestivalMuban_rturntable_s * FestivalMuban_rturntableDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_FestivalMuban_rturntable_s * FestivalMuban_rturntableDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

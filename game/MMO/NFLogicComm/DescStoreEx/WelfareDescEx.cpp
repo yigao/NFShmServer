@@ -1,8 +1,6 @@
 #include "WelfareDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WelfareDescEx, EOT_CONST_WELFARE_DESC_EX_ID, NFShmObj)
-
-WelfareDescEx::WelfareDescEx():NFIDescStoreEx()
+WelfareDescEx::WelfareDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int WelfareDescEx::ResumeInit()
 }
 
 int WelfareDescEx::Load()
-{
-	return 0;
-}
-
-int WelfareDescEx::PrepareReload()
 {
 	return 0;
 }

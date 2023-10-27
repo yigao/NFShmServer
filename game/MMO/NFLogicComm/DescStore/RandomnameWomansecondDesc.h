@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Randomname_s.h"
 
 #define MAX_RANDOMNAME_WOMANSECOND_NUM 128
 
-class RandomnameWomansecondDesc : public NFIDescStore
+class RandomnameWomansecondDesc : public NFIDescTemplate<RandomnameWomansecondDesc, proto_ff_s::E_RandomnameWomansecond_s, EOT_CONST_RANDOMNAME_WOMANSECOND_DESC_ID, MAX_RANDOMNAME_WOMANSECOND_NUM>
 {
 public:
 	RandomnameWomansecondDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_RandomnameWomansecond_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_RandomnameWomansecond_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_RandomnameWomansecond_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_RandomnameWomansecond_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(RandomnameWomansecondDesc, proto_ff_s::E_RandomnameWomansecond_s, E_RandomnameWomansecond, MAX_RANDOMNAME_WOMANSECOND_NUM);
-DECLARE_IDCREATE_GLOBAL(RandomnameWomansecondDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

@@ -1,9 +1,7 @@
 #include "FestivalMuban_loveDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_loveDesc, EOT_CONST_FESTIVAL_MUBAN_LOVE_DESC_ID, NFShmObj)
-
-FestivalMuban_loveDesc::FestivalMuban_loveDesc():NFIDescStore()
+FestivalMuban_loveDesc::FestivalMuban_loveDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ FestivalMuban_loveDesc::~FestivalMuban_loveDesc()
 
 int FestivalMuban_loveDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int FestivalMuban_loveDesc::ResumeInit()
@@ -91,46 +89,5 @@ int FestivalMuban_loveDesc::Load(NFResDB *pDB)
 int FestivalMuban_loveDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_FestivalMuban_love_s * FestivalMuban_loveDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_FestivalMuban_love_s * FestivalMuban_loveDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_FestivalMuban_love_s *>((static_cast<const FestivalMuban_loveDesc*>(this))->GetDesc(id));
-}
-
-int FestivalMuban_loveDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_FestivalMuban_love_s * FestivalMuban_loveDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_FestivalMuban_love_s * FestivalMuban_loveDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

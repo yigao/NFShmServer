@@ -3,9 +3,7 @@
 #include "PetDisplayDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EncyclopediaEmployDesc, EOT_CONST_ENCYCLOPEDIA_EMPLOY_DESC_ID, NFShmObj)
-
-EncyclopediaEmployDesc::EncyclopediaEmployDesc():NFIDescStore()
+EncyclopediaEmployDesc::EncyclopediaEmployDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -21,7 +19,7 @@ EncyclopediaEmployDesc::~EncyclopediaEmployDesc()
 
 int EncyclopediaEmployDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int EncyclopediaEmployDesc::ResumeInit()
@@ -99,46 +97,5 @@ int EncyclopediaEmployDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || PetDisplayDesc::Instance()->GetDesc(pDesc->m_itemid)) || (pDesc->m_itemid <= 0 || AvatarChangeDesc::Instance()->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:pet sheet:display or  excel:avatar sheet:change", pDesc->m_itemid);
 	}
 	return result;
-}
-
-const proto_ff_s::E_EncyclopediaEmploy_s * EncyclopediaEmployDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_EncyclopediaEmploy_s * EncyclopediaEmployDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_EncyclopediaEmploy_s *>((static_cast<const EncyclopediaEmployDesc*>(this))->GetDesc(id));
-}
-
-int EncyclopediaEmployDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_EncyclopediaEmploy_s * EncyclopediaEmployDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_EncyclopediaEmploy_s * EncyclopediaEmployDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

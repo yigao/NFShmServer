@@ -1,8 +1,6 @@
 #include "IntimacyDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(IntimacyDescEx, EOT_CONST_INTIMACY_DESC_EX_ID, NFShmObj)
-
-IntimacyDescEx::IntimacyDescEx():NFIDescStoreEx()
+IntimacyDescEx::IntimacyDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int IntimacyDescEx::ResumeInit()
 }
 
 int IntimacyDescEx::Load()
-{
-	return 0;
-}
-
-int IntimacyDescEx::PrepareReload()
 {
 	return 0;
 }

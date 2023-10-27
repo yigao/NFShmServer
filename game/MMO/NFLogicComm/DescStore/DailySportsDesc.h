@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Daily_s.h"
 
 #define MAX_DAILY_SPORTS_NUM 16
 
-class DailySportsDesc : public NFIDescStore
+class DailySportsDesc : public NFIDescTemplate<DailySportsDesc, proto_ff_s::E_DailySports_s, EOT_CONST_DAILY_SPORTS_DESC_ID, MAX_DAILY_SPORTS_NUM>
 {
 public:
 	DailySportsDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_DailySports_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_DailySports_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_DailySports_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_DailySports_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(DailySportsDesc, proto_ff_s::E_DailySports_s, E_DailySports, MAX_DAILY_SPORTS_NUM);
-DECLARE_IDCREATE_GLOBAL(DailySportsDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

@@ -18,9 +18,7 @@
 #include "proto_svr_event.pb.h"
 #include "NFGameCommon/NFMath.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFScene, EOT_GAME_SCENE_ID, NFShmObj)
-
-NFScene::NFScene() : NFShmObj()
+NFScene::NFScene()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

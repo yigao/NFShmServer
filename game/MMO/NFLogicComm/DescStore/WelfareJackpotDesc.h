@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Welfare_s.h"
 
 #define MAX_WELFARE_JACKPOT_NUM 64
 
-class WelfareJackpotDesc : public NFIDescStore
+class WelfareJackpotDesc : public NFIDescTemplate<WelfareJackpotDesc, proto_ff_s::E_WelfareJackpot_s, EOT_CONST_WELFARE_JACKPOT_DESC_ID, MAX_WELFARE_JACKPOT_NUM>
 {
 public:
 	WelfareJackpotDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_WelfareJackpot_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_WelfareJackpot_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_WelfareJackpot_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_WelfareJackpot_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(WelfareJackpotDesc, proto_ff_s::E_WelfareJackpot_s, E_WelfareJackpot, MAX_WELFARE_JACKPOT_NUM);
-DECLARE_IDCREATE_GLOBAL(WelfareJackpotDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

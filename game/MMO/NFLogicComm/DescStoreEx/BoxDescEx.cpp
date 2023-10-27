@@ -1,8 +1,6 @@
 #include "BoxDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BoxDescEx, EOT_CONST_BOX_DESC_EX_ID, NFShmObj)
-
-BoxDescEx::BoxDescEx():NFIDescStoreEx()
+BoxDescEx::BoxDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int BoxDescEx::ResumeInit()
 }
 
 int BoxDescEx::Load()
-{
-	return 0;
-}
-
-int BoxDescEx::PrepareReload()
 {
 	return 0;
 }

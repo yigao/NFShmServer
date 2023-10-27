@@ -1,9 +1,7 @@
 #include "ShentiSuitDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShentiSuitDesc, EOT_CONST_SHENTI_SUIT_DESC_ID, NFShmObj)
-
-ShentiSuitDesc::ShentiSuitDesc():NFIDescStore()
+ShentiSuitDesc::ShentiSuitDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ ShentiSuitDesc::~ShentiSuitDesc()
 
 int ShentiSuitDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int ShentiSuitDesc::ResumeInit()
@@ -91,46 +89,5 @@ int ShentiSuitDesc::Load(NFResDB *pDB)
 int ShentiSuitDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_ShentiSuit_s * ShentiSuitDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_ShentiSuit_s * ShentiSuitDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_ShentiSuit_s *>((static_cast<const ShentiSuitDesc*>(this))->GetDesc(id));
-}
-
-int ShentiSuitDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_ShentiSuit_s * ShentiSuitDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_ShentiSuit_s * ShentiSuitDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

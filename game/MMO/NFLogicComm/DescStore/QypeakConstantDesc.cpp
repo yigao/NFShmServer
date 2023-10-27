@@ -1,9 +1,7 @@
 #include "QypeakConstantDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(QypeakConstantDesc, EOT_CONST_QYPEAK_CONSTANT_DESC_ID, NFShmObj)
-
-QypeakConstantDesc::QypeakConstantDesc():NFIDescStore()
+QypeakConstantDesc::QypeakConstantDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ QypeakConstantDesc::~QypeakConstantDesc()
 
 int QypeakConstantDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int QypeakConstantDesc::ResumeInit()
@@ -91,46 +89,5 @@ int QypeakConstantDesc::Load(NFResDB *pDB)
 int QypeakConstantDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_QypeakConstant_s * QypeakConstantDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_QypeakConstant_s * QypeakConstantDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_QypeakConstant_s *>((static_cast<const QypeakConstantDesc*>(this))->GetDesc(id));
-}
-
-int QypeakConstantDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_QypeakConstant_s * QypeakConstantDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_QypeakConstant_s * QypeakConstantDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

@@ -1,8 +1,6 @@
 #include "SkillDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(SkillDescEx, EOT_CONST_SKILL_DESC_EX_ID, NFShmObj)
-
-SkillDescEx::SkillDescEx():NFIDescStoreEx()
+SkillDescEx::SkillDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int SkillDescEx::ResumeInit()
 }
 
 int SkillDescEx::Load()
-{
-	return 0;
-}
-
-int SkillDescEx::PrepareReload()
 {
 	return 0;
 }

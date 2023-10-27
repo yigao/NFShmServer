@@ -1,8 +1,6 @@
 #include "AvatarDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AvatarDescEx, EOT_CONST_AVATAR_DESC_EX_ID, NFShmObj)
-
-AvatarDescEx::AvatarDescEx():NFIDescStoreEx()
+AvatarDescEx::AvatarDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int AvatarDescEx::ResumeInit()
 }
 
 int AvatarDescEx::Load()
-{
-	return 0;
-}
-
-int AvatarDescEx::PrepareReload()
 {
 	return 0;
 }

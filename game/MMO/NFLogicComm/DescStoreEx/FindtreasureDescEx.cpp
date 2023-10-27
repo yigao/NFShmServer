@@ -1,8 +1,6 @@
 #include "FindtreasureDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FindtreasureDescEx, EOT_CONST_FINDTREASURE_DESC_EX_ID, NFShmObj)
-
-FindtreasureDescEx::FindtreasureDescEx():NFIDescStoreEx()
+FindtreasureDescEx::FindtreasureDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int FindtreasureDescEx::ResumeInit()
 }
 
 int FindtreasureDescEx::Load()
-{
-	return 0;
-}
-
-int FindtreasureDescEx::PrepareReload()
 {
 	return 0;
 }

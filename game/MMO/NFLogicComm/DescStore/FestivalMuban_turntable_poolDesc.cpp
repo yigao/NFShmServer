@@ -2,9 +2,7 @@
 #include "ItemItemDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_turntable_poolDesc, EOT_CONST_FESTIVAL_MUBAN_TURNTABLE_POOL_DESC_ID, NFShmObj)
-
-FestivalMuban_turntable_poolDesc::FestivalMuban_turntable_poolDesc():NFIDescStore()
+FestivalMuban_turntable_poolDesc::FestivalMuban_turntable_poolDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -20,7 +18,7 @@ FestivalMuban_turntable_poolDesc::~FestivalMuban_turntable_poolDesc()
 
 int FestivalMuban_turntable_poolDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int FestivalMuban_turntable_poolDesc::ResumeInit()
@@ -98,46 +96,5 @@ int FestivalMuban_turntable_poolDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_itemid <= 0 || ItemItemDesc::Instance()->GetDesc(pDesc->m_itemid)), result, "can't find the itemid:{} in the  excel:item sheet:item", pDesc->m_itemid);
 	}
 	return result;
-}
-
-const proto_ff_s::E_FestivalMuban_turntable_pool_s * FestivalMuban_turntable_poolDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_FestivalMuban_turntable_pool_s * FestivalMuban_turntable_poolDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_FestivalMuban_turntable_pool_s *>((static_cast<const FestivalMuban_turntable_poolDesc*>(this))->GetDesc(id));
-}
-
-int FestivalMuban_turntable_poolDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_FestivalMuban_turntable_pool_s * FestivalMuban_turntable_poolDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_FestivalMuban_turntable_pool_s * FestivalMuban_turntable_poolDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

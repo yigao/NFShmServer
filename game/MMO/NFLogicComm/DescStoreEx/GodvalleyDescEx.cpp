@@ -1,8 +1,6 @@
 #include "GodvalleyDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodvalleyDescEx, EOT_CONST_GODVALLEY_DESC_EX_ID, NFShmObj)
-
-GodvalleyDescEx::GodvalleyDescEx():NFIDescStoreEx()
+GodvalleyDescEx::GodvalleyDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int GodvalleyDescEx::ResumeInit()
 }
 
 int GodvalleyDescEx::Load()
-{
-	return 0;
-}
-
-int GodvalleyDescEx::PrepareReload()
 {
 	return 0;
 }

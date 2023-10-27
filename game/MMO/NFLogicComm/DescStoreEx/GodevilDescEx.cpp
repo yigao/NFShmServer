@@ -1,8 +1,6 @@
 #include "GodevilDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(GodevilDescEx, EOT_CONST_GODEVIL_DESC_EX_ID, NFShmObj)
-
-GodevilDescEx::GodevilDescEx():NFIDescStoreEx()
+GodevilDescEx::GodevilDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int GodevilDescEx::ResumeInit()
 }
 
 int GodevilDescEx::Load()
-{
-	return 0;
-}
-
-int GodevilDescEx::PrepareReload()
 {
 	return 0;
 }

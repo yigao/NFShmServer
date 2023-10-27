@@ -1,8 +1,6 @@
 #include "FlashDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FlashDescEx, EOT_CONST_FLASH_DESC_EX_ID, NFShmObj)
-
-FlashDescEx::FlashDescEx():NFIDescStoreEx()
+FlashDescEx::FlashDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int FlashDescEx::ResumeInit()
 }
 
 int FlashDescEx::Load()
-{
-	return 0;
-}
-
-int FlashDescEx::PrepareReload()
 {
 	return 0;
 }

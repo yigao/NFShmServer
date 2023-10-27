@@ -1,8 +1,6 @@
 #include "WaremblemDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(WaremblemDescEx, EOT_CONST_WAREMBLEM_DESC_EX_ID, NFShmObj)
-
-WaremblemDescEx::WaremblemDescEx():NFIDescStoreEx()
+WaremblemDescEx::WaremblemDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int WaremblemDescEx::ResumeInit()
 }
 
 int WaremblemDescEx::Load()
-{
-	return 0;
-}
-
-int WaremblemDescEx::PrepareReload()
 {
 	return 0;
 }

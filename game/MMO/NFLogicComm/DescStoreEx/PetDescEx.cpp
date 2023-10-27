@@ -1,8 +1,6 @@
 #include "PetDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PetDescEx, EOT_CONST_PET_DESC_EX_ID, NFShmObj)
-
-PetDescEx::PetDescEx():NFIDescStoreEx()
+PetDescEx::PetDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int PetDescEx::ResumeInit()
 }
 
 int PetDescEx::Load()
-{
-	return 0;
-}
-
-int PetDescEx::PrepareReload()
 {
 	return 0;
 }

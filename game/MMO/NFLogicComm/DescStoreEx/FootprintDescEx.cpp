@@ -1,8 +1,6 @@
 #include "FootprintDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FootprintDescEx, EOT_CONST_FOOTPRINT_DESC_EX_ID, NFShmObj)
-
-FootprintDescEx::FootprintDescEx():NFIDescStoreEx()
+FootprintDescEx::FootprintDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int FootprintDescEx::ResumeInit()
 }
 
 int FootprintDescEx::Load()
-{
-	return 0;
-}
-
-int FootprintDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Festival_s.h"
 
 #define MAX_FESTIVAL_MUBAN_LEIJI_NUM 16
 
-class FestivalMuban_leijiDesc : public NFIDescStore
+class FestivalMuban_leijiDesc : public NFIDescTemplate<FestivalMuban_leijiDesc, proto_ff_s::E_FestivalMuban_leiji_s, EOT_CONST_FESTIVAL_MUBAN_LEIJI_DESC_ID, MAX_FESTIVAL_MUBAN_LEIJI_NUM>
 {
 public:
 	FestivalMuban_leijiDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_FestivalMuban_leiji_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_FestivalMuban_leiji_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_FestivalMuban_leiji_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_FestivalMuban_leiji_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(FestivalMuban_leijiDesc, proto_ff_s::E_FestivalMuban_leiji_s, E_FestivalMuban_leiji, MAX_FESTIVAL_MUBAN_LEIJI_NUM);
-DECLARE_IDCREATE_GLOBAL(FestivalMuban_leijiDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

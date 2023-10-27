@@ -96,7 +96,7 @@ protected:
     uint8_t m_laststate;
 };
 
-class NFCreature : public NFShmObj, public NFMultiListNodeObjWithGlobalID<NFCreature, EOT_GAME_CREATURE_ID, NF_CREATURE_NODE_LIST_MAX_TYPE_INDEX>
+class NFCreature : public NFShmObjTemplate<NFCreature, EOT_GAME_CREATURE_ID, NFShmObj>, public NFMultiListNodeObjWithGlobalID<NFCreature, EOT_GAME_CREATURE_ID, NF_CREATURE_NODE_LIST_MAX_TYPE_INDEX>
 {
 public:
     NFCreature();
@@ -425,5 +425,4 @@ protected:
     
     NFShmHashMap<uint32_t, int64_t, 100> m_attrCache;            //需要同步单个客户端属性缓存
     NFShmHashMap<uint32_t, int64_t, 100> m_attrBroadCache;        //需要广播属性缓存
-DECLARE_IDCREATE(NFCreature)
 };

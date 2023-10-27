@@ -1,8 +1,6 @@
 #include "DecorateDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DecorateDescEx, EOT_CONST_DECORATE_DESC_EX_ID, NFShmObj)
-
-DecorateDescEx::DecorateDescEx():NFIDescStoreEx()
+DecorateDescEx::DecorateDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int DecorateDescEx::ResumeInit()
 }
 
 int DecorateDescEx::Load()
-{
-	return 0;
-}
-
-int DecorateDescEx::PrepareReload()
 {
 	return 0;
 }

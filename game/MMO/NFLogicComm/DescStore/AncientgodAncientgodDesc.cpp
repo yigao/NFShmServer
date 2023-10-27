@@ -2,9 +2,7 @@
 #include "AncientgodAttDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AncientgodAncientgodDesc, EOT_CONST_ANCIENTGOD_ANCIENTGOD_DESC_ID, NFShmObj)
-
-AncientgodAncientgodDesc::AncientgodAncientgodDesc():NFIDescStore()
+AncientgodAncientgodDesc::AncientgodAncientgodDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -20,7 +18,7 @@ AncientgodAncientgodDesc::~AncientgodAncientgodDesc()
 
 int AncientgodAncientgodDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int AncientgodAncientgodDesc::ResumeInit()
@@ -101,46 +99,5 @@ int AncientgodAncientgodDesc::CheckWhenAllDataLoaded()
 		}
 	}
 	return result;
-}
-
-const proto_ff_s::E_AncientgodAncientgod_s * AncientgodAncientgodDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_AncientgodAncientgod_s * AncientgodAncientgodDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_AncientgodAncientgod_s *>((static_cast<const AncientgodAncientgodDesc*>(this))->GetDesc(id));
-}
-
-int AncientgodAncientgodDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_AncientgodAncientgod_s * AncientgodAncientgodDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_AncientgodAncientgod_s * AncientgodAncientgodDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

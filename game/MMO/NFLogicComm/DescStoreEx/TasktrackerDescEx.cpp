@@ -1,8 +1,6 @@
 #include "TasktrackerDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TasktrackerDescEx, EOT_CONST_TASKTRACKER_DESC_EX_ID, NFShmObj)
-
-TasktrackerDescEx::TasktrackerDescEx():NFIDescStoreEx()
+TasktrackerDescEx::TasktrackerDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int TasktrackerDescEx::ResumeInit()
 }
 
 int TasktrackerDescEx::Load()
-{
-	return 0;
-}
-
-int TasktrackerDescEx::PrepareReload()
 {
 	return 0;
 }

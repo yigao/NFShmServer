@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Conflate_s.h"
 
 #define MAX_CONFLATE_JEWELRY_ZL_NUM 64
 
-class ConflateJewelry_zlDesc : public NFIDescStore
+class ConflateJewelry_zlDesc : public NFIDescTemplate<ConflateJewelry_zlDesc, proto_ff_s::E_ConflateJewelry_zl_s, EOT_CONST_CONFLATE_JEWELRY_ZL_DESC_ID, MAX_CONFLATE_JEWELRY_ZL_NUM>
 {
 public:
 	ConflateJewelry_zlDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_ConflateJewelry_zl_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_ConflateJewelry_zl_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_ConflateJewelry_zl_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_ConflateJewelry_zl_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(ConflateJewelry_zlDesc, proto_ff_s::E_ConflateJewelry_zl_s, E_ConflateJewelry_zl, MAX_CONFLATE_JEWELRY_ZL_NUM);
-DECLARE_IDCREATE_GLOBAL(ConflateJewelry_zlDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

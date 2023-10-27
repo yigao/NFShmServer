@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Title_s.h"
 
 #define MAX_TITLE_TITLE_NUM 128
 
-class TitleTitleDesc : public NFIDescStore
+class TitleTitleDesc : public NFIDescTemplate<TitleTitleDesc, proto_ff_s::E_TitleTitle_s, EOT_CONST_TITLE_TITLE_DESC_ID, MAX_TITLE_TITLE_NUM>
 {
 public:
 	TitleTitleDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_TitleTitle_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_TitleTitle_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_TitleTitle_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_TitleTitle_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(TitleTitleDesc, proto_ff_s::E_TitleTitle_s, E_TitleTitle, MAX_TITLE_TITLE_NUM);
-DECLARE_IDCREATE_GLOBAL(TitleTitleDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

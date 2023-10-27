@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Guild_s.h"
 
 #define MAX_GUILD_LVREWARD_NUM 512
 
-class GuildLvrewardDesc : public NFIDescStore
+class GuildLvrewardDesc : public NFIDescTemplate<GuildLvrewardDesc, proto_ff_s::E_GuildLvreward_s, EOT_CONST_GUILD_LVREWARD_DESC_ID, MAX_GUILD_LVREWARD_NUM>
 {
 public:
 	GuildLvrewardDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_GuildLvreward_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_GuildLvreward_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_GuildLvreward_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_GuildLvreward_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(GuildLvrewardDesc, proto_ff_s::E_GuildLvreward_s, E_GuildLvreward, MAX_GUILD_LVREWARD_NUM);
-DECLARE_IDCREATE_GLOBAL(GuildLvrewardDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

@@ -1,8 +1,6 @@
 #include "MountDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountDescEx, EOT_CONST_MOUNT_DESC_EX_ID, NFShmObj)
-
-MountDescEx::MountDescEx():NFIDescStoreEx()
+MountDescEx::MountDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int MountDescEx::ResumeInit()
 }
 
 int MountDescEx::Load()
-{
-	return 0;
-}
-
-int MountDescEx::PrepareReload()
 {
 	return 0;
 }

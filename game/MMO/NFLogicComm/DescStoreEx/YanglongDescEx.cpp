@@ -1,8 +1,6 @@
 #include "YanglongDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(YanglongDescEx, EOT_CONST_YANGLONG_DESC_EX_ID, NFShmObj)
-
-YanglongDescEx::YanglongDescEx():NFIDescStoreEx()
+YanglongDescEx::YanglongDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int YanglongDescEx::ResumeInit()
 }
 
 int YanglongDescEx::Load()
-{
-	return 0;
-}
-
-int YanglongDescEx::PrepareReload()
 {
 	return 0;
 }

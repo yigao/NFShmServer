@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Pk3v3_s.h"
 
 #define MAX_PK3V3_CONSTANT_NUM 2
 
-class Pk3v3ConstantDesc : public NFIDescStore
+class Pk3v3ConstantDesc : public NFIDescTemplate<Pk3v3ConstantDesc, proto_ff_s::E_Pk3v3Constant_s, EOT_CONST_PK3V3_CONSTANT_DESC_ID, MAX_PK3V3_CONSTANT_NUM>
 {
 public:
 	Pk3v3ConstantDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_Pk3v3Constant_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_Pk3v3Constant_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_Pk3v3Constant_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_Pk3v3Constant_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(Pk3v3ConstantDesc, proto_ff_s::E_Pk3v3Constant_s, E_Pk3v3Constant, MAX_PK3V3_CONSTANT_NUM);
-DECLARE_IDCREATE_GLOBAL(Pk3v3ConstantDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

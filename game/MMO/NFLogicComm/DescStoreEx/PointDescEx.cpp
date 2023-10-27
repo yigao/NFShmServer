@@ -1,8 +1,6 @@
 #include "PointDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PointDescEx, EOT_CONST_POINT_DESC_EX_ID, NFShmObj)
-
-PointDescEx::PointDescEx():NFIDescStoreEx()
+PointDescEx::PointDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int PointDescEx::ResumeInit()
 }
 
 int PointDescEx::Load()
-{
-	return 0;
-}
-
-int PointDescEx::PrepareReload()
 {
 	return 0;
 }

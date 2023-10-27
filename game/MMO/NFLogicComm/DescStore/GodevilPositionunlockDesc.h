@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Godevil_s.h"
 
 #define MAX_GODEVIL_POSITIONUNLOCK_NUM 16
 
-class GodevilPositionunlockDesc : public NFIDescStore
+class GodevilPositionunlockDesc : public NFIDescTemplate<GodevilPositionunlockDesc, proto_ff_s::E_GodevilPositionunlock_s, EOT_CONST_GODEVIL_POSITIONUNLOCK_DESC_ID, MAX_GODEVIL_POSITIONUNLOCK_NUM>
 {
 public:
 	GodevilPositionunlockDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_GodevilPositionunlock_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_GodevilPositionunlock_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_GodevilPositionunlock_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_GodevilPositionunlock_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(GodevilPositionunlockDesc, proto_ff_s::E_GodevilPositionunlock_s, E_GodevilPositionunlock, MAX_GODEVIL_POSITIONUNLOCK_NUM);
-DECLARE_IDCREATE_GLOBAL(GodevilPositionunlockDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

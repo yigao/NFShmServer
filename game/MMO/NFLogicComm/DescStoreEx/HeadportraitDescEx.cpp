@@ -1,8 +1,6 @@
 #include "HeadportraitDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(HeadportraitDescEx, EOT_CONST_HEADPORTRAIT_DESC_EX_ID, NFShmObj)
-
-HeadportraitDescEx::HeadportraitDescEx():NFIDescStoreEx()
+HeadportraitDescEx::HeadportraitDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int HeadportraitDescEx::ResumeInit()
 }
 
 int HeadportraitDescEx::Load()
-{
-	return 0;
-}
-
-int HeadportraitDescEx::PrepareReload()
 {
 	return 0;
 }

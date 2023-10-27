@@ -1,8 +1,6 @@
 #include "MarryDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarryDescEx, EOT_CONST_MARRY_DESC_EX_ID, NFShmObj)
-
-MarryDescEx::MarryDescEx():NFIDescStoreEx()
+MarryDescEx::MarryDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int MarryDescEx::ResumeInit()
 }
 
 int MarryDescEx::Load()
-{
-	return 0;
-}
-
-int MarryDescEx::PrepareReload()
 {
 	return 0;
 }

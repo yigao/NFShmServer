@@ -1,8 +1,6 @@
 #include "BattlepassDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BattlepassDescEx, EOT_CONST_BATTLEPASS_DESC_EX_ID, NFShmObj)
-
-BattlepassDescEx::BattlepassDescEx():NFIDescStoreEx()
+BattlepassDescEx::BattlepassDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int BattlepassDescEx::ResumeInit()
 }
 
 int BattlepassDescEx::Load()
-{
-	return 0;
-}
-
-int BattlepassDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -1,8 +1,6 @@
 #include "MarketDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MarketDescEx, EOT_CONST_MARKET_DESC_EX_ID, NFShmObj)
-
-MarketDescEx::MarketDescEx():NFIDescStoreEx()
+MarketDescEx::MarketDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int MarketDescEx::ResumeInit()
 }
 
 int MarketDescEx::Load()
-{
-	return 0;
-}
-
-int MarketDescEx::PrepareReload()
 {
 	return 0;
 }

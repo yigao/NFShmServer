@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Findtreasure_s.h"
 
 #define MAX_FINDTREASURE_FINDPOOL_NUM 256
 
-class FindtreasureFindpoolDesc : public NFIDescStore
+class FindtreasureFindpoolDesc : public NFIDescTemplate<FindtreasureFindpoolDesc, proto_ff_s::E_FindtreasureFindpool_s, EOT_CONST_FINDTREASURE_FINDPOOL_DESC_ID, MAX_FINDTREASURE_FINDPOOL_NUM>
 {
 public:
 	FindtreasureFindpoolDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_FindtreasureFindpool_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_FindtreasureFindpool_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_FindtreasureFindpool_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_FindtreasureFindpool_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(FindtreasureFindpoolDesc, proto_ff_s::E_FindtreasureFindpool_s, E_FindtreasureFindpool, MAX_FINDTREASURE_FINDPOOL_NUM);
-DECLARE_IDCREATE_GLOBAL(FindtreasureFindpoolDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

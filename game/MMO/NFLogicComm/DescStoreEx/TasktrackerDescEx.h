@@ -1,20 +1,21 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 
-class TasktrackerDescEx : public NFIDescStoreEx
+class TasktrackerDescEx : public NFShmObjGlobalTemplate<TasktrackerDescEx, EOT_CONST_TASKTRACKER_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
 	TasktrackerDescEx();
 	virtual ~TasktrackerDescEx();
 	int CreateInit();
 	int ResumeInit();
-private:
-IMPL_RES_DESC_EX(TasktrackerDescEx)
-DECLARE_IDCREATE_GLOBAL(TasktrackerDescEx)
+public:
+	virtual int Load() override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

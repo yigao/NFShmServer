@@ -1,8 +1,6 @@
 #include "LinkDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(LinkDescEx, EOT_CONST_LINK_DESC_EX_ID, NFShmObj)
-
-LinkDescEx::LinkDescEx():NFIDescStoreEx()
+LinkDescEx::LinkDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int LinkDescEx::ResumeInit()
 }
 
 int LinkDescEx::Load()
-{
-	return 0;
-}
-
-int LinkDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -10,8 +10,6 @@
 #include "NFServerAddrMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFServerAddrMgr, EOT_NFMapAddrMgr_ID, NFShmObj)
-
 NFServerAddrMgr::NFServerAddrMgr() {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
         CreateInit();

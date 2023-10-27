@@ -1,9 +1,7 @@
 #include "MapButtonDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MapButtonDesc, EOT_CONST_MAP_BUTTON_DESC_ID, NFShmObj)
-
-MapButtonDesc::MapButtonDesc():NFIDescStore()
+MapButtonDesc::MapButtonDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ MapButtonDesc::~MapButtonDesc()
 
 int MapButtonDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int MapButtonDesc::ResumeInit()
@@ -91,46 +89,5 @@ int MapButtonDesc::Load(NFResDB *pDB)
 int MapButtonDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_MapButton_s * MapButtonDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_MapButton_s * MapButtonDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_MapButton_s *>((static_cast<const MapButtonDesc*>(this))->GetDesc(id));
-}
-
-int MapButtonDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_MapButton_s * MapButtonDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_MapButton_s * MapButtonDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

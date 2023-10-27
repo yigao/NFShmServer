@@ -1,8 +1,6 @@
 #include "DragonDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(DragonDescEx, EOT_CONST_DRAGON_DESC_EX_ID, NFShmObj)
-
-DragonDescEx::DragonDescEx():NFIDescStoreEx()
+DragonDescEx::DragonDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int DragonDescEx::ResumeInit()
 }
 
 int DragonDescEx::Load()
-{
-	return 0;
-}
-
-int DragonDescEx::PrepareReload()
 {
 	return 0;
 }

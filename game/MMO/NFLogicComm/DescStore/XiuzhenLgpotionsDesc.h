@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Xiuzhen_s.h"
 
 #define MAX_XIUZHEN_LGPOTIONS_NUM 32
 
-class XiuzhenLgpotionsDesc : public NFIDescStore
+class XiuzhenLgpotionsDesc : public NFIDescTemplate<XiuzhenLgpotionsDesc, proto_ff_s::E_XiuzhenLgpotions_s, EOT_CONST_XIUZHEN_LGPOTIONS_DESC_ID, MAX_XIUZHEN_LGPOTIONS_NUM>
 {
 public:
 	XiuzhenLgpotionsDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_XiuzhenLgpotions_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_XiuzhenLgpotions_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_XiuzhenLgpotions_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_XiuzhenLgpotions_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(XiuzhenLgpotionsDesc, proto_ff_s::E_XiuzhenLgpotions_s, E_XiuzhenLgpotions, MAX_XIUZHEN_LGPOTIONS_NUM);
-DECLARE_IDCREATE_GLOBAL(XiuzhenLgpotionsDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

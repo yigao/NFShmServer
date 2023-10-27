@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Achievement_s.h"
 
 #define MAX_ACHIEVEMENT_TOTALACHIEVEMENTS_NUM 16
 
-class AchievementTotalachievementsDesc : public NFIDescStore
+class AchievementTotalachievementsDesc : public NFIDescTemplate<AchievementTotalachievementsDesc, proto_ff_s::E_AchievementTotalachievements_s, EOT_CONST_ACHIEVEMENT_TOTALACHIEVEMENTS_DESC_ID, MAX_ACHIEVEMENT_TOTALACHIEVEMENTS_NUM>
 {
 public:
 	AchievementTotalachievementsDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_AchievementTotalachievements_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_AchievementTotalachievements_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_AchievementTotalachievements_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_AchievementTotalachievements_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(AchievementTotalachievementsDesc, proto_ff_s::E_AchievementTotalachievements_s, E_AchievementTotalachievements, MAX_ACHIEVEMENT_TOTALACHIEVEMENTS_NUM);
-DECLARE_IDCREATE_GLOBAL(AchievementTotalachievementsDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

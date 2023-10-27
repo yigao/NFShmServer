@@ -1,6 +1,7 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
@@ -181,7 +182,7 @@ public:
     uint64_t m_mapId;
 };
 
-class MapDescEx : public NFIDescStoreEx
+class MapDescEx : public NFShmObjGlobalTemplate<MapDescEx, EOT_CONST_MAP_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
     MapDescEx();
@@ -191,7 +192,9 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
+public:
+    virtual int Load() override;
+    virtual int CheckWhenAllDataLoaded() override;
 public:
     /**
      * @brief
@@ -403,8 +406,4 @@ private:
     uint64_t m_3v3WaitMapId;
     uint64_t m_3v3MapId;
     uint64_t m_safeMapId;
-private:
-IMPL_RES_DESC_EX(MapDescEx)
-
-DECLARE_IDCREATE_GLOBAL(MapDescEx)
 };

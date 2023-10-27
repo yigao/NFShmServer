@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Battlepass_s.h"
 
 #define MAX_BATTLEPASS_TASK_NUM 32
 
-class BattlepassTaskDesc : public NFIDescStore
+class BattlepassTaskDesc : public NFIDescTemplate<BattlepassTaskDesc, proto_ff_s::E_BattlepassTask_s, EOT_CONST_BATTLEPASS_TASK_DESC_ID, MAX_BATTLEPASS_TASK_NUM>
 {
 public:
 	BattlepassTaskDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_BattlepassTask_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_BattlepassTask_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_BattlepassTask_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_BattlepassTask_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(BattlepassTaskDesc, proto_ff_s::E_BattlepassTask_s, E_BattlepassTask, MAX_BATTLEPASS_TASK_NUM);
-DECLARE_IDCREATE_GLOBAL(BattlepassTaskDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

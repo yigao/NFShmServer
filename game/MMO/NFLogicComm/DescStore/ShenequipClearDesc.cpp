@@ -1,9 +1,7 @@
 #include "ShenequipClearDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ShenequipClearDesc, EOT_CONST_SHENEQUIP_CLEAR_DESC_ID, NFShmObj)
-
-ShenequipClearDesc::ShenequipClearDesc():NFIDescStore()
+ShenequipClearDesc::ShenequipClearDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ ShenequipClearDesc::~ShenequipClearDesc()
 
 int ShenequipClearDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int ShenequipClearDesc::ResumeInit()
@@ -91,46 +89,5 @@ int ShenequipClearDesc::Load(NFResDB *pDB)
 int ShenequipClearDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_ShenequipClear_s * ShenequipClearDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_ShenequipClear_s * ShenequipClearDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_ShenequipClear_s *>((static_cast<const ShenequipClearDesc*>(this))->GetDesc(id));
-}
-
-int ShenequipClearDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_ShenequipClear_s * ShenequipClearDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_ShenequipClear_s * ShenequipClearDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

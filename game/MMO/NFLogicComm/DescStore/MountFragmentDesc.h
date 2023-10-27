@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Mount_s.h"
 
 #define MAX_MOUNT_FRAGMENT_NUM 16
 
-class MountFragmentDesc : public NFIDescStore
+class MountFragmentDesc : public NFIDescTemplate<MountFragmentDesc, proto_ff_s::E_MountFragment_s, EOT_CONST_MOUNT_FRAGMENT_DESC_ID, MAX_MOUNT_FRAGMENT_NUM>
 {
 public:
 	MountFragmentDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_MountFragment_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_MountFragment_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_MountFragment_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_MountFragment_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(MountFragmentDesc, proto_ff_s::E_MountFragment_s, E_MountFragment, MAX_MOUNT_FRAGMENT_NUM);
-DECLARE_IDCREATE_GLOBAL(MountFragmentDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

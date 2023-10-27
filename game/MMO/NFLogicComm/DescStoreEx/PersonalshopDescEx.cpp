@@ -1,8 +1,6 @@
 #include "PersonalshopDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PersonalshopDescEx, EOT_CONST_PERSONALSHOP_DESC_EX_ID, NFShmObj)
-
-PersonalshopDescEx::PersonalshopDescEx():NFIDescStoreEx()
+PersonalshopDescEx::PersonalshopDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int PersonalshopDescEx::ResumeInit()
 }
 
 int PersonalshopDescEx::Load()
-{
-	return 0;
-}
-
-int PersonalshopDescEx::PrepareReload()
 {
 	return 0;
 }

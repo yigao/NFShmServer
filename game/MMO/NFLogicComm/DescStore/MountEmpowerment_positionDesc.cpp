@@ -1,9 +1,7 @@
 #include "MountEmpowerment_positionDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MountEmpowerment_positionDesc, EOT_CONST_MOUNT_EMPOWERMENT_POSITION_DESC_ID, NFShmObj)
-
-MountEmpowerment_positionDesc::MountEmpowerment_positionDesc():NFIDescStore()
+MountEmpowerment_positionDesc::MountEmpowerment_positionDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ MountEmpowerment_positionDesc::~MountEmpowerment_positionDesc()
 
 int MountEmpowerment_positionDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int MountEmpowerment_positionDesc::ResumeInit()
@@ -91,46 +89,5 @@ int MountEmpowerment_positionDesc::Load(NFResDB *pDB)
 int MountEmpowerment_positionDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_MountEmpowerment_position_s * MountEmpowerment_positionDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_MountEmpowerment_position_s * MountEmpowerment_positionDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_MountEmpowerment_position_s *>((static_cast<const MountEmpowerment_positionDesc*>(this))->GetDesc(id));
-}
-
-int MountEmpowerment_positionDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_MountEmpowerment_position_s * MountEmpowerment_positionDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_MountEmpowerment_position_s * MountEmpowerment_positionDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

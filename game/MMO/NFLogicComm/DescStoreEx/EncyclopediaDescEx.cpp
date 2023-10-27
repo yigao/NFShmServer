@@ -1,8 +1,6 @@
 #include "EncyclopediaDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EncyclopediaDescEx, EOT_CONST_ENCYCLOPEDIA_DESC_EX_ID, NFShmObj)
-
-EncyclopediaDescEx::EncyclopediaDescEx():NFIDescStoreEx()
+EncyclopediaDescEx::EncyclopediaDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int EncyclopediaDescEx::ResumeInit()
 }
 
 int EncyclopediaDescEx::Load()
-{
-	return 0;
-}
-
-int EncyclopediaDescEx::PrepareReload()
 {
 	return 0;
 }

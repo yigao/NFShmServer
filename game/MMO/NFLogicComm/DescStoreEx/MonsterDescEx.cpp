@@ -1,8 +1,6 @@
 #include "MonsterDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MonsterDescEx, EOT_CONST_MONSTER_DESC_EX_ID, NFShmObj)
-
-MonsterDescEx::MonsterDescEx():NFIDescStoreEx()
+MonsterDescEx::MonsterDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int MonsterDescEx::ResumeInit()
 }
 
 int MonsterDescEx::Load()
-{
-	return 0;
-}
-
-int MonsterDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Offline_s.h"
 
 #define MAX_OFFLINE_OFFLINE_NUM 2048
 
-class OfflineOfflineDesc : public NFIDescStore
+class OfflineOfflineDesc : public NFIDescTemplate<OfflineOfflineDesc, proto_ff_s::E_OfflineOffline_s, EOT_CONST_OFFLINE_OFFLINE_DESC_ID, MAX_OFFLINE_OFFLINE_NUM>
 {
 public:
 	OfflineOfflineDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_OfflineOffline_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_OfflineOffline_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_OfflineOffline_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_OfflineOffline_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(OfflineOfflineDesc, proto_ff_s::E_OfflineOffline_s, E_OfflineOffline, MAX_OFFLINE_OFFLINE_NUM);
-DECLARE_IDCREATE_GLOBAL(OfflineOfflineDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

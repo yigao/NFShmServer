@@ -1,9 +1,7 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Xingchen_s.h"
 
@@ -59,7 +57,7 @@ namespace std
 }
 
 
-class XingchenXcawakenDesc : public NFIDescStore
+class XingchenXcawakenDesc : public NFIDescTemplate<XingchenXcawakenDesc, proto_ff_s::E_XingchenXcawaken_s, EOT_CONST_XINGCHEN_XCAWAKEN_DESC_ID, MAX_XINGCHEN_XCAWAKEN_NUM>
 {
 public:
 	XingchenXcawakenDesc();
@@ -67,15 +65,9 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_XingchenXcawaken_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_XingchenXcawaken_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_XingchenXcawaken_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_XingchenXcawaken_s* GetDescByIndex(int index);
-public:
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 	const proto_ff_s::E_XingchenXcawaken_s* GetDescByPositionidAwaken_quality(int64_t Positionid, int64_t Awaken_quality);
 private:
 	NFShmHashMap<XingchenXcawakenPositionidAwaken_quality ,uint32_t, UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCAWAKEN_POSITIONID_NUM*UNIQUE_KEY_MAX_COM_INDEX_XINGCHEN_XCAWAKEN_AWAKEN_QUALITY_NUM> m_PositionidAwaken_qualityComIndexMap;
-IMPL_RES_HASH_DESC(XingchenXcawakenDesc, proto_ff_s::E_XingchenXcawaken_s, E_XingchenXcawaken, MAX_XINGCHEN_XCAWAKEN_NUM);
-DECLARE_IDCREATE_GLOBAL(XingchenXcawakenDesc);
 };

@@ -1,8 +1,6 @@
 #include "TeleportDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(TeleportDescEx, EOT_CONST_TELEPORT_DESC_EX_ID, NFShmObj)
-
-TeleportDescEx::TeleportDescEx():NFIDescStoreEx()
+TeleportDescEx::TeleportDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int TeleportDescEx::ResumeInit()
 }
 
 int TeleportDescEx::Load()
-{
-	return 0;
-}
-
-int TeleportDescEx::PrepareReload()
 {
 	return 0;
 }

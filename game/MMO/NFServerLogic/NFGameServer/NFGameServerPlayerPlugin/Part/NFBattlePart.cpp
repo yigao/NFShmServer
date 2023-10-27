@@ -14,8 +14,6 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "DBProxy2.pb.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePart, EOT_NFBattlePart_ID, NFShmObj)
-
 NFBattlePart::NFBattlePart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

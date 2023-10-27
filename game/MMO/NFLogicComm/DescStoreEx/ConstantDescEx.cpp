@@ -1,8 +1,6 @@
 #include "ConstantDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConstantDescEx, EOT_CONST_CONSTANT_DESC_EX_ID, NFShmObj)
-
-ConstantDescEx::ConstantDescEx():NFIDescStoreEx()
+ConstantDescEx::ConstantDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int ConstantDescEx::ResumeInit()
 }
 
 int ConstantDescEx::Load()
-{
-	return 0;
-}
-
-int ConstantDescEx::PrepareReload()
 {
 	return 0;
 }

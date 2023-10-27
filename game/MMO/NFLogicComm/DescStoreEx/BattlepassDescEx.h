@@ -1,20 +1,21 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 
-class BattlepassDescEx : public NFIDescStoreEx
+class BattlepassDescEx : public NFShmObjGlobalTemplate<BattlepassDescEx, EOT_CONST_BATTLEPASS_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
 	BattlepassDescEx();
 	virtual ~BattlepassDescEx();
 	int CreateInit();
 	int ResumeInit();
-private:
-IMPL_RES_DESC_EX(BattlepassDescEx)
-DECLARE_IDCREATE_GLOBAL(BattlepassDescEx)
+public:
+	virtual int Load() override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

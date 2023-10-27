@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Ancientgod_s.h"
 
 #define MAX_ANCIENTGOD_STARCOLLECT_NUM 1024
 
-class AncientgodStarcollectDesc : public NFIDescStore
+class AncientgodStarcollectDesc : public NFIDescTemplate<AncientgodStarcollectDesc, proto_ff_s::E_AncientgodStarcollect_s, EOT_CONST_ANCIENTGOD_STARCOLLECT_DESC_ID, MAX_ANCIENTGOD_STARCOLLECT_NUM>
 {
 public:
 	AncientgodStarcollectDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_AncientgodStarcollect_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_AncientgodStarcollect_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_AncientgodStarcollect_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_AncientgodStarcollect_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(AncientgodStarcollectDesc, proto_ff_s::E_AncientgodStarcollect_s, E_AncientgodStarcollect, MAX_ANCIENTGOD_STARCOLLECT_NUM);
-DECLARE_IDCREATE_GLOBAL(AncientgodStarcollectDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

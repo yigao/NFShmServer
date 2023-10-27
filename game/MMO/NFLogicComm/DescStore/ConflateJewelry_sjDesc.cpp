@@ -1,9 +1,7 @@
 #include "ConflateJewelry_sjDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(ConflateJewelry_sjDesc, EOT_CONST_CONFLATE_JEWELRY_SJ_DESC_ID, NFShmObj)
-
-ConflateJewelry_sjDesc::ConflateJewelry_sjDesc():NFIDescStore()
+ConflateJewelry_sjDesc::ConflateJewelry_sjDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ ConflateJewelry_sjDesc::~ConflateJewelry_sjDesc()
 
 int ConflateJewelry_sjDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int ConflateJewelry_sjDesc::ResumeInit()
@@ -91,46 +89,5 @@ int ConflateJewelry_sjDesc::Load(NFResDB *pDB)
 int ConflateJewelry_sjDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_ConflateJewelry_sj_s * ConflateJewelry_sjDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_ConflateJewelry_sj_s * ConflateJewelry_sjDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_ConflateJewelry_sj_s *>((static_cast<const ConflateJewelry_sjDesc*>(this))->GetDesc(id));
-}
-
-int ConflateJewelry_sjDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_ConflateJewelry_sj_s * ConflateJewelry_sjDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_ConflateJewelry_sj_s * ConflateJewelry_sjDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

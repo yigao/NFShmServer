@@ -1,8 +1,6 @@
 #include "PathDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(PathDescEx, EOT_CONST_PATH_DESC_EX_ID, NFShmObj)
-
-PathDescEx::PathDescEx():NFIDescStoreEx()
+PathDescEx::PathDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int PathDescEx::ResumeInit()
 }
 
 int PathDescEx::Load()
-{
-	return 0;
-}
-
-int PathDescEx::PrepareReload()
 {
 	return 0;
 }

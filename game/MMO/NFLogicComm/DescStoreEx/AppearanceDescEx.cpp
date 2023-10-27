@@ -1,8 +1,6 @@
 #include "AppearanceDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AppearanceDescEx, EOT_CONST_APPEARANCE_DESC_EX_ID, NFShmObj)
-
-AppearanceDescEx::AppearanceDescEx():NFIDescStoreEx()
+AppearanceDescEx::AppearanceDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int AppearanceDescEx::ResumeInit()
 }
 
 int AppearanceDescEx::Load()
-{
-	return 0;
-}
-
-int AppearanceDescEx::PrepareReload()
 {
 	return 0;
 }

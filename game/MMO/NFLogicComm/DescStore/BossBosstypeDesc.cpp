@@ -1,9 +1,7 @@
 #include "BossBosstypeDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BossBosstypeDesc, EOT_CONST_BOSS_BOSSTYPE_DESC_ID, NFShmObj)
-
-BossBosstypeDesc::BossBosstypeDesc():NFIDescStore()
+BossBosstypeDesc::BossBosstypeDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -19,7 +17,7 @@ BossBosstypeDesc::~BossBosstypeDesc()
 
 int BossBosstypeDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int BossBosstypeDesc::ResumeInit()
@@ -91,46 +89,5 @@ int BossBosstypeDesc::Load(NFResDB *pDB)
 int BossBosstypeDesc::CheckWhenAllDataLoaded()
 {
 	return 0;
-}
-
-const proto_ff_s::E_BossBosstype_s * BossBosstypeDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_BossBosstype_s * BossBosstypeDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_BossBosstype_s *>((static_cast<const BossBosstypeDesc*>(this))->GetDesc(id));
-}
-
-int BossBosstypeDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_BossBosstype_s * BossBosstypeDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_BossBosstype_s * BossBosstypeDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

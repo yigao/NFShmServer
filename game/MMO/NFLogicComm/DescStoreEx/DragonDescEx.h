@@ -1,20 +1,21 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStoreEx.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFComm/NFShmCore/NFResDb.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmStl/NFShmHashMap.h"
 #include "NFComm/NFShmStl/NFShmVector.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 
-class DragonDescEx : public NFIDescStoreEx
+class DragonDescEx : public NFShmObjGlobalTemplate<DragonDescEx, EOT_CONST_DRAGON_DESC_EX_ID, NFIDescStoreEx>
 {
 public:
 	DragonDescEx();
 	virtual ~DragonDescEx();
 	int CreateInit();
 	int ResumeInit();
-private:
-IMPL_RES_DESC_EX(DragonDescEx)
-DECLARE_IDCREATE_GLOBAL(DragonDescEx)
+public:
+	virtual int Load() override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

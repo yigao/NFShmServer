@@ -2,9 +2,7 @@
 #include "BoxBoxDesc.h"
 #include "NFComm/NFPluginModule/NFCheck.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FestivalMuban_love_taskDesc, EOT_CONST_FESTIVAL_MUBAN_LOVE_TASK_DESC_ID, NFShmObj)
-
-FestivalMuban_love_taskDesc::FestivalMuban_love_taskDesc():NFIDescStore()
+FestivalMuban_love_taskDesc::FestivalMuban_love_taskDesc()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -20,7 +18,7 @@ FestivalMuban_love_taskDesc::~FestivalMuban_love_taskDesc()
 
 int FestivalMuban_love_taskDesc::CreateInit()
 {
-	return Initialize();
+	return 0;
 }
 
 int FestivalMuban_love_taskDesc::ResumeInit()
@@ -98,46 +96,5 @@ int FestivalMuban_love_taskDesc::CheckWhenAllDataLoaded()
 		CHECK_EXPR_MSG_RESULT((pDesc->m_reward <= 0 || BoxBoxDesc::Instance()->GetDesc(pDesc->m_reward)), result, "can't find the reward:{} in the  excel:box sheet:box", pDesc->m_reward);
 	}
 	return result;
-}
-
-const proto_ff_s::E_FestivalMuban_love_task_s * FestivalMuban_love_taskDesc::GetDesc(int64_t id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		int index = iter->second;
-		CHECK_EXPR_ASSERT(index >= 0 && index < (int)m_astDesc.size(), NULL, "the index:{} of the id:{} exist error, than the m_astDesc max index:{}", index, id, m_astDesc.size());
-		return &m_astDesc[index];
-	}
-
-	return NULL;
-}
-
-proto_ff_s::E_FestivalMuban_love_task_s * FestivalMuban_love_taskDesc::GetDesc(int64_t id)
-{
-	return const_cast<proto_ff_s::E_FestivalMuban_love_task_s *>((static_cast<const FestivalMuban_love_taskDesc*>(this))->GetDesc(id));
-}
-
-int FestivalMuban_love_taskDesc::GetDescIndex(int id) const
-{
-	auto iter = m_astDescMap.find(id);
-	if (iter != m_astDescMap.end())
-	{
-		return iter->second;
-	}
-
-	return -1;
-}
-
-const proto_ff_s::E_FestivalMuban_love_task_s * FestivalMuban_love_taskDesc::GetDescByIndex(int index) const
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
-}
-
-proto_ff_s::E_FestivalMuban_love_task_s * FestivalMuban_love_taskDesc::GetDescByIndex(int index)
-{
-	CHECK_EXPR_ASSERT(index < (int)m_astDesc.size(), NULL, "the index:{} exist error, than the m_astDesc max index:{}", index, m_astDesc.size());
-	return &m_astDesc[index];
 }
 

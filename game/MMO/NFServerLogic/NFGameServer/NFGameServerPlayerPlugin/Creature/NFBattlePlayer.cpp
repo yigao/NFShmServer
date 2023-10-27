@@ -17,8 +17,6 @@
 #include "ClientServerCmd.pb.h"
 #include "NFLogicCommon/NFAttrMgr.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFBattlePlayer, EOT_GAME_NFBattlePlayer_ID, NFCreature)
-
 NFBattlePlayer::NFBattlePlayer()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

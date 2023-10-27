@@ -1,8 +1,6 @@
 #include "XiuzhenDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XiuzhenDescEx, EOT_CONST_XIUZHEN_DESC_EX_ID, NFShmObj)
-
-XiuzhenDescEx::XiuzhenDescEx():NFIDescStoreEx()
+XiuzhenDescEx::XiuzhenDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int XiuzhenDescEx::ResumeInit()
 }
 
 int XiuzhenDescEx::Load()
-{
-	return 0;
-}
-
-int XiuzhenDescEx::PrepareReload()
 {
 	return 0;
 }

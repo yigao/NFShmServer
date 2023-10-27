@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Encyclopedia_s.h"
 
 #define MAX_ENCYCLOPEDIA_BEASTEXP_NUM 256
 
-class EncyclopediaBeastexpDesc : public NFIDescStore
+class EncyclopediaBeastexpDesc : public NFIDescTemplate<EncyclopediaBeastexpDesc, proto_ff_s::E_EncyclopediaBeastexp_s, EOT_CONST_ENCYCLOPEDIA_BEASTEXP_DESC_ID, MAX_ENCYCLOPEDIA_BEASTEXP_NUM>
 {
 public:
 	EncyclopediaBeastexpDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_EncyclopediaBeastexp_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_EncyclopediaBeastexp_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_EncyclopediaBeastexp_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_EncyclopediaBeastexp_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(EncyclopediaBeastexpDesc, proto_ff_s::E_EncyclopediaBeastexp_s, E_EncyclopediaBeastexp, MAX_ENCYCLOPEDIA_BEASTEXP_NUM);
-DECLARE_IDCREATE_GLOBAL(EncyclopediaBeastexpDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

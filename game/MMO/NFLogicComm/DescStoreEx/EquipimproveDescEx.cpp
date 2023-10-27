@@ -1,8 +1,6 @@
 #include "EquipimproveDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(EquipimproveDescEx, EOT_CONST_EQUIPIMPROVE_DESC_EX_ID, NFShmObj)
-
-EquipimproveDescEx::EquipimproveDescEx():NFIDescStoreEx()
+EquipimproveDescEx::EquipimproveDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int EquipimproveDescEx::ResumeInit()
 }
 
 int EquipimproveDescEx::Load()
-{
-	return 0;
-}
-
-int EquipimproveDescEx::PrepareReload()
 {
 	return 0;
 }

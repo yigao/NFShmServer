@@ -1,8 +1,6 @@
 #include "RankingDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(RankingDescEx, EOT_CONST_RANKING_DESC_EX_ID, NFShmObj)
-
-RankingDescEx::RankingDescEx():NFIDescStoreEx()
+RankingDescEx::RankingDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int RankingDescEx::ResumeInit()
 }
 
 int RankingDescEx::Load()
-{
-	return 0;
-}
-
-int RankingDescEx::PrepareReload()
 {
 	return 0;
 }

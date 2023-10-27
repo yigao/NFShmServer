@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Festival_s.h"
 
 #define MAX_FESTIVAL_MUBAN_PLAY_NUM 2
 
-class FestivalMuban_playDesc : public NFIDescStore
+class FestivalMuban_playDesc : public NFIDescTemplate<FestivalMuban_playDesc, proto_ff_s::E_FestivalMuban_play_s, EOT_CONST_FESTIVAL_MUBAN_PLAY_DESC_ID, MAX_FESTIVAL_MUBAN_PLAY_NUM>
 {
 public:
 	FestivalMuban_playDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_FestivalMuban_play_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_FestivalMuban_play_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_FestivalMuban_play_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_FestivalMuban_play_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(FestivalMuban_playDesc, proto_ff_s::E_FestivalMuban_play_s, E_FestivalMuban_play, MAX_FESTIVAL_MUBAN_PLAY_NUM);
-DECLARE_IDCREATE_GLOBAL(FestivalMuban_playDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

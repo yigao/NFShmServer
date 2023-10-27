@@ -1,8 +1,6 @@
 #include "AreaDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AreaDescEx, EOT_CONST_AREA_DESC_EX_ID, NFShmObj)
-
-AreaDescEx::AreaDescEx():NFIDescStoreEx()
+AreaDescEx::AreaDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int AreaDescEx::ResumeInit()
 }
 
 int AreaDescEx::Load()
-{
-	return 0;
-}
-
-int AreaDescEx::PrepareReload()
 {
 	return 0;
 }

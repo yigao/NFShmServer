@@ -1,8 +1,6 @@
 #include "BackDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(BackDescEx, EOT_CONST_BACK_DESC_EX_ID, NFShmObj)
-
-BackDescEx::BackDescEx():NFIDescStoreEx()
+BackDescEx::BackDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int BackDescEx::ResumeInit()
 }
 
 int BackDescEx::Load()
-{
-	return 0;
-}
-
-int BackDescEx::PrepareReload()
 {
 	return 0;
 }

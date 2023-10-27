@@ -1,8 +1,6 @@
 #include "FacadeDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(FacadeDescEx, EOT_CONST_FACADE_DESC_EX_ID, NFShmObj)
-
-FacadeDescEx::FacadeDescEx():NFIDescStoreEx()
+FacadeDescEx::FacadeDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int FacadeDescEx::ResumeInit()
 }
 
 int FacadeDescEx::Load()
-{
-	return 0;
-}
-
-int FacadeDescEx::PrepareReload()
 {
 	return 0;
 }

@@ -1,8 +1,6 @@
 #include "AudioDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(AudioDescEx, EOT_CONST_AUDIO_DESC_EX_ID, NFShmObj)
-
-AudioDescEx::AudioDescEx():NFIDescStoreEx()
+AudioDescEx::AudioDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int AudioDescEx::ResumeInit()
 }
 
 int AudioDescEx::Load()
-{
-	return 0;
-}
-
-int AudioDescEx::PrepareReload()
 {
 	return 0;
 }

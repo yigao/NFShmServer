@@ -1,15 +1,13 @@
 #pragma once
 
 #include "NFServerComm/NFServerCommon/NFIDescStore.h"
-#include "NFComm/NFShmCore/NFShmMgr.h"
-#include "NFComm/NFShmStl/NFShmHashMap.h"
-#include "NFComm/NFShmStl/NFShmVector.h"
+#include "NFServerComm/NFServerCommon/NFIDescTemplate.h"
 #include "NFLogicCommon/NFDescStoreTypeDefines.h"
 #include "NFServerLogicMessage/E_Condition_s.h"
 
 #define MAX_CONDITION_CONDITION_NUM 32
 
-class ConditionConditionDesc : public NFIDescStore
+class ConditionConditionDesc : public NFIDescTemplate<ConditionConditionDesc, proto_ff_s::E_ConditionCondition_s, EOT_CONST_CONDITION_CONDITION_DESC_ID, MAX_CONDITION_CONDITION_NUM>
 {
 public:
 	ConditionConditionDesc();
@@ -17,13 +15,6 @@ public:
 	int CreateInit();
 	int ResumeInit();
 public:
-	const proto_ff_s::E_ConditionCondition_s* GetDesc(int64_t id) const;
-	proto_ff_s::E_ConditionCondition_s* GetDesc(int64_t id);
-	int GetDescIndex(int id) const;
-	const proto_ff_s::E_ConditionCondition_s* GetDescByIndex(int index) const;
-	proto_ff_s::E_ConditionCondition_s* GetDescByIndex(int index);
-public:
-private:
-IMPL_RES_HASH_DESC(ConditionConditionDesc, proto_ff_s::E_ConditionCondition_s, E_ConditionCondition, MAX_CONDITION_CONDITION_NUM);
-DECLARE_IDCREATE_GLOBAL(ConditionConditionDesc);
+	virtual int Load(NFResDB *pDB) override;
+	virtual int CheckWhenAllDataLoaded() override;
 };

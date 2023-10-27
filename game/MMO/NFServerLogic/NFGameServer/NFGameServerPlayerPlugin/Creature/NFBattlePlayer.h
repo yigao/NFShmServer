@@ -22,7 +22,7 @@
 #include "Player.pb.h"
 #include "CommonClass.pb.h"
 
-class NFBattlePlayer : public NFCreature, public NFSeqOP
+class NFBattlePlayer : public NFShmObjTemplate<NFBattlePlayer, EOT_GAME_NFBattlePlayer_ID, NFCreature>, public NFSeqOP
 {
 public:
     NFBattlePlayer();
@@ -235,5 +235,4 @@ public:
     int m_timerId_FightState;
 public:
     NFShmVector<int, BATTLE_PART_MAX> m_pPart;
-DECLARE_IDCREATE(NFBattlePlayer)
 };

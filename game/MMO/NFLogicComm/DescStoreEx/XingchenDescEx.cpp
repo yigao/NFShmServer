@@ -1,8 +1,6 @@
 #include "XingchenDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(XingchenDescEx, EOT_CONST_XINGCHEN_DESC_EX_ID, NFShmObj)
-
-XingchenDescEx::XingchenDescEx():NFIDescStoreEx()
+XingchenDescEx::XingchenDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int XingchenDescEx::ResumeInit()
 }
 
 int XingchenDescEx::Load()
-{
-	return 0;
-}
-
-int XingchenDescEx::PrepareReload()
 {
 	return 0;
 }

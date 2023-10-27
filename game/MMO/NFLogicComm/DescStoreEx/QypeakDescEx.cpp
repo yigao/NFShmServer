@@ -1,8 +1,6 @@
 #include "QypeakDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(QypeakDescEx, EOT_CONST_QYPEAK_DESC_EX_ID, NFShmObj)
-
-QypeakDescEx::QypeakDescEx():NFIDescStoreEx()
+QypeakDescEx::QypeakDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int QypeakDescEx::ResumeInit()
 }
 
 int QypeakDescEx::Load()
-{
-	return 0;
-}
-
-int QypeakDescEx::PrepareReload()
 {
 	return 0;
 }

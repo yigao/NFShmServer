@@ -1,8 +1,6 @@
 #include "MofaDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(MofaDescEx, EOT_CONST_MOFA_DESC_EX_ID, NFShmObj)
-
-MofaDescEx::MofaDescEx():NFIDescStoreEx()
+MofaDescEx::MofaDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int MofaDescEx::ResumeInit()
 }
 
 int MofaDescEx::Load()
-{
-	return 0;
-}
-
-int MofaDescEx::PrepareReload()
 {
 	return 0;
 }

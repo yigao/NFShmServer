@@ -1,8 +1,6 @@
 #include "JinglianDescEx.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_GLOBAL(JinglianDescEx, EOT_CONST_JINGLIAN_DESC_EX_ID, NFShmObj)
-
-JinglianDescEx::JinglianDescEx():NFIDescStoreEx()
+JinglianDescEx::JinglianDescEx()
 {
 	if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
 		CreateInit();
@@ -27,11 +25,6 @@ int JinglianDescEx::ResumeInit()
 }
 
 int JinglianDescEx::Load()
-{
-	return 0;
-}
-
-int JinglianDescEx::PrepareReload()
 {
 	return 0;
 }
