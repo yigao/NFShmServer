@@ -15,9 +15,7 @@
 #include "Cache/NFCacheMgr.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransGetPlayerSimple, EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID, NFTransBase)
-
-NFTransGetPlayerSimple::NFTransGetPlayerSimple() : NFTransBase()
+NFTransGetPlayerSimple::NFTransGetPlayerSimple()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

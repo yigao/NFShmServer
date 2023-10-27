@@ -14,8 +14,6 @@
 #include "NFSnsPartModule.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFSnsPart, EOT_SNS_PART_ID, NFShmObj)
-
 NFSnsPart::NFSnsPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

@@ -11,8 +11,6 @@
 #include "NFLogicShmTypeDefines.h"
 #include "DescStore/AttributeAttributeDesc.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFAttrMgr, EOT_SERVER_COMMON_ATTR_MGR_ID, NFShmObj)
-
 NFAttrMgr::NFAttrMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

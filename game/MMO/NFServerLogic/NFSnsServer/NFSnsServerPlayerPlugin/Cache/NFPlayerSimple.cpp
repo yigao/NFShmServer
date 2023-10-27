@@ -16,9 +16,7 @@
 #include "NFComm/NFCore/NFRandom.hpp"
 #include "NFCacheMgr.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerSimple, EOT_SNS_ROLE_SIMPLE_ID, NFShmObj)
-
-NFPlayerSimple::NFPlayerSimple() : NFShmObj()
+NFPlayerSimple::NFPlayerSimple()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

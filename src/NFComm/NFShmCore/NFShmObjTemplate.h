@@ -166,6 +166,12 @@ public:
         pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(classType, pTmp);
         return;
     }
+    
+public:
+    virtual int GetClassType() const
+    {
+        return classType;
+    }
 };
 
 template<typename className, int classType>
@@ -319,6 +325,11 @@ public:
         pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(classType, pTmp);
         return;
     }
+public:
+    virtual int GetClassType() const
+    {
+        return classType;
+    }
 };
 
 template<typename className, int classType, typename parentClassName>
@@ -471,5 +482,10 @@ public:
         (*pTmp).className::~className();
         pPluginManager->FindModule<NFISharedMemModule>()->FreeMemForObject(classType, pTmp);
         return;
+    }
+public:
+    virtual int GetClassType() const
+    {
+        return classType;
     }
 };

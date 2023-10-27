@@ -18,7 +18,7 @@
 #include "Com.pb.h"
 #include "NFAttr.h"
 
-class NFAttrMgr : public NFShmObj
+class NFAttrMgr : public NFShmObjTemplate<NFAttrMgr, EOT_SERVER_COMMON_ATTR_MGR_ID, NFShmObj>
 {
     public:
     NFAttrMgr();
@@ -180,5 +180,4 @@ class NFAttrMgr : public NFShmObj
     //配置表中的 普通属性ID 和 程序中使用的 角色普通属性数组的索引 之间的映射
     NFShmVector<uint16_t, proto_ff::A_COMMON_END> m_roleNormal_IdToIndex;
     NFShmVector<uint16_t, proto_ff::A_COMMON_END> m_roleNormal_IndexToId;
-    DECLARE_IDCREATE(NFAttrMgr)
 };

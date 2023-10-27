@@ -12,9 +12,10 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 class NFWorldSession;
-class NFWorldSessionMgr : public NFShmObj
+class NFWorldSessionMgr : public NFShmObjTemplate<NFWorldSessionMgr, EOT_WORLD_SESSION_MGR_ID, NFShmObj>
 {
 public:
     NFWorldSessionMgr();
@@ -50,6 +51,4 @@ public:
     int DeleteSession(NFWorldSession *pSession);
 
     int DeleteSession(uint64_t ClientId);
-private:
-DECLARE_IDCREATE(NFWorldSessionMgr)
 };

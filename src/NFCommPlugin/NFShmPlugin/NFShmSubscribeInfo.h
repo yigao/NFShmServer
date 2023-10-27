@@ -30,7 +30,7 @@ enum {
 /**
  *@brief 事件描述信息
  */
-class NFShmSubscribeInfo : public NFShmObj, public NFMultiListNodeObjWithGlobalID<NFShmSubscribeInfo, EOT_TYPE_SUBSCRIBEINFO_OBJ, NF_SHM_SUBSCRIBEINFO_MAX_INDEX_NUM>
+class NFShmSubscribeInfo : public NFShmObjTemplate<NFShmSubscribeInfo, EOT_TYPE_SUBSCRIBEINFO_OBJ, NFShmObj>, public NFMultiListNodeObjWithGlobalID<NFShmSubscribeInfo, EOT_TYPE_SUBSCRIBEINFO_OBJ, NF_SHM_SUBSCRIBEINFO_MAX_INDEX_NUM>
 {
 public:
     NFShmSubscribeInfo();
@@ -83,5 +83,4 @@ public:
      * @brief
      */
     int m_shmObjId;
-DECLARE_IDCREATE(NFShmSubscribeInfo)
 };

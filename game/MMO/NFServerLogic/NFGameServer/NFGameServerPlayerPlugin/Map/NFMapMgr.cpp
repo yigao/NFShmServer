@@ -65,7 +65,7 @@ NFNavMeshInfo *NFMapMgr::GetNavMeshInfo(const std::string &navName)
 
 int NFMapMgr::LoadConfig()
 {
-    FindModule<NFISharedMemModule>()->ClearAllObj(EOT_GAME_MAP_ID);
+    NFMap::ClearAllObj(m_pObjPluginManager);
     CreateInit();
     auto pGameConfig = NFGameConfig::Instance(m_pObjPluginManager)->GetConfig();
     for (int i = 0; i < (int) pGameConfig->map.size(); i++)

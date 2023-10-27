@@ -13,9 +13,7 @@
 #include "NFComm/NFCore/NFTime.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFCacheMgr, EOT_SNS_CACHE_MGR_ID, NFShmObj)
-
-NFCacheMgr::NFCacheMgr() : NFShmObj()
+NFCacheMgr::NFCacheMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

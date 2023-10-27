@@ -263,9 +263,7 @@ bool Slot::DeleteTimer(NFShmTimerManager *pTimerManager, NFShmTimer *timer, STim
     return true;
 }
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimerManager, EOT_TYPE_TIMER_MNG, NFShmObj)
-
-NFShmTimerManager::NFShmTimerManager() : NFShmObj()
+NFShmTimerManager::NFShmTimerManager()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

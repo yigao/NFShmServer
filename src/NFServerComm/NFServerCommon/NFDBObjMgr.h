@@ -15,7 +15,7 @@
 
 class NFBaseDBObj;
 class NFDBObjTrans;
-class NFDBObjMgr : public NFShmObj
+class NFDBObjMgr : public NFShmObjTemplate<NFDBObjMgr, EOT_TRANS_DB_OBJ_MGR, NFShmObj>
 {
 public:
     NFDBObjMgr();
@@ -43,5 +43,4 @@ private:
     int m_iTimer;
     NFShmStaticList<int, 1024> m_runningObjList;
     NFShmStaticList<int, 1024> m_failedObjList;
-DECLARE_IDCREATE(NFDBObjMgr)
 };

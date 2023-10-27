@@ -15,8 +15,9 @@
 #include "AllProtocol.h"
 #include "NFLogicCommon/NFAccountDefine.h"
 #include "NFComm/NFShmStl/NFShmHashSet.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFWorldAccount : public NFShmObj
+class NFWorldAccount : public NFShmObjTemplate<NFWorldAccount, EOT_WORLD_ACCOUNT_ID, NFShmObj>
 {
 public:
     NFWorldAccount();
@@ -114,6 +115,4 @@ private:
 private:
     uint64_t m_cid;
     NFShmHashSet<uint64_t, MAX_ROLE_NUM> m_roleSet;
-private:
-DECLARE_IDCREATE(NFWorldAccount)
 };

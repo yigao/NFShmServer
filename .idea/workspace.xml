@@ -72,10 +72,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b1adcfc4-cb29-4816-844f-be9c46975368" name="更改" comment="MMO shm obj global desc store">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.h" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Map/NFMapMgr.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Map/NFMapMgr.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFDynamicHead.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFDynamicHead.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/NFCommPlugin/NFShmPlugin/NFCSharedMemModule.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,9 +95,6 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
-  </component>
-  <component name="OCResolveContextSettings">
-    <option name="configuration" value="0-DynamicDebug-NFMMOCommonPlugin" />
   </component>
   <component name="ProjectApplicationVersion">
     <option name="ide" value="CLion" />
@@ -391,53 +387,53 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="CMake 应用程序.NFCenterServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFCore" />
+      <item itemvalue="CMake 应用程序.NFDBPlugin" />
+      <item itemvalue="CMake 应用程序.NFDescStorePlugin" />
+      <item itemvalue="CMake 应用程序.NFExcelProcess" />
       <item itemvalue="CMake 应用程序.NFFishRobotPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMODescStore" />
-      <item itemvalue="CMake 应用程序.NFMMOLogicCommon" />
-      <item itemvalue="CMake 应用程序.NFMMOCommonPlugin" />
-      <item itemvalue="CMake 应用程序.NFMMOLogicMessage" />
+      <item itemvalue="CMake 应用程序.NFGameCommon" />
+      <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFKernelMessage" />
+      <item itemvalue="CMake 应用程序.NFKernelPlugin" />
+      <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFLuaScriptPlugin" />
       <item itemvalue="CMake 应用程序.NFMMOCenterPlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFMMOCommonPlugin" />
+      <item itemvalue="CMake 应用程序.NFMMODescStore" />
       <item itemvalue="CMake 应用程序.NFMMOGamePlayerPlugin" />
+      <item itemvalue="CMake 应用程序.NFMMOLogicCommon" />
+      <item itemvalue="CMake 应用程序.NFMMOLogicMessage" />
       <item itemvalue="CMake 应用程序.NFMMOLogicPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFMMOProxyPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFMMOSnsPlayerPlugin" />
       <item itemvalue="CMake 应用程序.NFMMOWorldPlayerPlugin" />
-      <item itemvalue="CMake 应用程序.NFGameCommon" />
-      <item itemvalue="CMake 应用程序.RecastNavigation" />
-      <item itemvalue="CMake 应用程序.NFCore" />
-      <item itemvalue="CMake 应用程序.NFKernelMessage" />
-      <item itemvalue="CMake 应用程序.NFPluginModule" />
-      <item itemvalue="CMake 应用程序.NFShmCore" />
-      <item itemvalue="CMake 应用程序.NFDBPlugin" />
-      <item itemvalue="CMake 应用程序.NFExcelProcess" />
-      <item itemvalue="CMake 应用程序.NFKernelPlugin" />
+      <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
       <item itemvalue="CMake 应用程序.NFNetPlugin" />
-      <item itemvalue="CMake 应用程序.NFShmPlugin" />
-      <item itemvalue="CMake 应用程序.NFLuaScriptPlugin" />
       <item itemvalue="CMake 应用程序.NFPluginLoader" />
       <item itemvalue="CMake 应用程序.NFPluginManager" />
-      <item itemvalue="CMake 应用程序.NFCenterServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFGameServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFLogicServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFLoginServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFMasterServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFPluginModule" />
       <item itemvalue="CMake 应用程序.NFProxyAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyClientPlugin" />
       <item itemvalue="CMake 应用程序.NFProxyServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteAgentServerPlugin" />
       <item itemvalue="CMake 应用程序.NFRouteServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFSnsServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFStoreServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFWebServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFWorldServerPlugin" />
-      <item itemvalue="CMake 应用程序.NFDescStorePlugin" />
       <item itemvalue="CMake 应用程序.NFServerCommon" />
       <item itemvalue="CMake 应用程序.NFServerCommonPlugin" />
       <item itemvalue="CMake 应用程序.NFServerMessage" />
+      <item itemvalue="CMake 应用程序.NFShmCore" />
+      <item itemvalue="CMake 应用程序.NFShmPlugin" />
+      <item itemvalue="CMake 应用程序.NFSnsServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFStoreServerPlugin" />
       <item itemvalue="CMake 应用程序.NFTestPlugin" />
+      <item itemvalue="CMake 应用程序.NFWebServerPlugin" />
+      <item itemvalue="CMake 应用程序.NFWorldServerPlugin" />
+      <item itemvalue="CMake 应用程序.RecastNavigation" />
+      <item itemvalue="CMake 应用程序.Sqlite3" />
       <item itemvalue="CMake 应用程序.evpp" />
       <item itemvalue="CMake 应用程序.mysqlpp" />
-      <item itemvalue="CMake 应用程序.Sqlite3" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
@@ -519,7 +515,23 @@
       <workItem from="1698124434508" duration="46098000" />
       <workItem from="1698282474478" duration="868000" />
       <workItem from="1698283355590" duration="3362000" />
-      <workItem from="1698287259805" duration="9317000" />
+      <workItem from="1698287259805" duration="32229000" />
+      <workItem from="1698374359011" duration="7340000" />
+      <workItem from="1698384809524" duration="96000" />
+      <workItem from="1698384914832" duration="123000" />
+      <workItem from="1698385046990" duration="30000" />
+      <workItem from="1698385085169" duration="28000" />
+      <workItem from="1698385122883" duration="116000" />
+      <workItem from="1698385250069" duration="242000" />
+      <workItem from="1698385504285" duration="60000" />
+      <workItem from="1698385574455" duration="117000" />
+      <workItem from="1698385703615" duration="83000" />
+      <workItem from="1698385791156" duration="186000" />
+      <workItem from="1698385987096" duration="51000" />
+      <workItem from="1698386048362" duration="87000" />
+      <workItem from="1698386146809" duration="47000" />
+      <workItem from="1698386203320" duration="153000" />
+      <workItem from="1698386366159" duration="1566000" />
     </task>
     <task id="LOCAL-00172" summary="fish">
       <created>1695432186860</created>
@@ -864,7 +876,7 @@
       <option name="project" value="LOCAL" />
       <updated>1697881884722</updated>
     </task>
-    <option name="localTasksCounter" value="236" />
+    <option name="localTasksCounter" value="238" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -892,11 +904,41 @@
     </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1e4963a6-c7aa-46e6-aa25-54a0795258f7" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="1dd8d341-ef35-4408-b708-d05815b42d63">
           <value>
             <State />
+          </value>
+        </entry>
+        <entry key="1e4963a6-c7aa-46e6-aa25-54a0795258f7">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/gaoyi/NFShmServer/game/MMO/NFLogicComm/DescStoreEx" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
           </value>
         </entry>
         <entry key="48a8a772-030e-4cf3-a437-d0c93bd629b5">
@@ -1154,24 +1196,9 @@
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Scene/NFSceneMgr.cpp</url>
-          <line>24</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h</url>
-          <line>150</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h</url>
-          <line>163</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/src/NFComm/NFShmCore/NFShmObjTemplate.h</url>
-          <line>170</line>
-          <option name="timeStamp" value="28" />
+          <url>file://$PROJECT_DIR$/game/MMO/NFServerLogic/NFGameServer/NFGameServerPlayerPlugin/Map/NFMapMgr.cpp</url>
+          <line>67</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

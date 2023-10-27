@@ -13,9 +13,7 @@
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 #include "NFShmTimerManager.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFShmTimer, EOT_TYPE_TIMER_OBJ, NFShmObj)
-
-NFShmTimer::NFShmTimer() : NFShmObj()
+NFShmTimer::NFShmTimer()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

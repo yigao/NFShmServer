@@ -11,7 +11,7 @@
 
 #include "NFComm/NFShmCore/NFTransBase.h"
 
-class NFDBObjTrans : public NFTransBase
+class NFDBObjTrans : public NFShmObjTemplate<NFDBObjTrans, EOT_TRANS_DB_OBJ, NFTransBase>
 {
 public:
     NFDBObjTrans();
@@ -39,5 +39,4 @@ private:
     uint32_t m_iObjSeqOP;
     int m_iDBOP;
     NF_SERVER_TYPES m_iServerType;
-DECLARE_IDCREATE(NFDBObjTrans)
 };

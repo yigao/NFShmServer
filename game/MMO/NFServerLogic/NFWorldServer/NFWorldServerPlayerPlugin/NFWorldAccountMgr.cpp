@@ -15,9 +15,7 @@
 #include <NFComm/NFPluginModule/NFCheck.h>
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldAccountMgr, EOT_WORLD_ACCOUNT_MGR_ID, NFShmObj)
-
-NFWorldAccountMgr::NFWorldAccountMgr() : NFShmObj()
+NFWorldAccountMgr::NFWorldAccountMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

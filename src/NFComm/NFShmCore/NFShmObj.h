@@ -14,9 +14,10 @@
 #include "NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFObject.h"
 #include "NFComm/NFPluginModule/NFEventObj.h"
+#include "NFComm/NFShmCore/NFShmObjTemplate.h"
 
 class NFRawShmObj;
-class NFShmObj : public NFObject
+class NFShmObj :  public NFShmObjTemplateNoParent<NFShmObj, EOT_OBJECT>, public NFObject
 {
 public:
     NFShmObj();
@@ -98,7 +99,11 @@ public:
             return GetTypeIndexID();
         }
     }
-
+public:
+    virtual std::string GetClassName() const;
+    virtual int GetItemCount() const;
+    virtual int GetUsedCount() const;
+    virtual int GetFreeCount() const;
 public:
     /**
     * @brief 收到事件函数, 对收到的事件进行处理
@@ -227,7 +232,5 @@ public:
     int m_iObjType;
 
     bool m_bIsInRecycle;
-
-DECLARE_IDCREATE(NFShmObj)
 };
 

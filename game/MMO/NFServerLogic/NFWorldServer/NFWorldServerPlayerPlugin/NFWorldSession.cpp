@@ -13,9 +13,7 @@
 #include "NFComm/NFCore/NFServerTime.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldSession, EOT_WORLD_SESSION_ID, NFShmObj)
-
-NFWorldSession::NFWorldSession() : NFShmObj()
+NFWorldSession::NFWorldSession()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

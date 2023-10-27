@@ -13,23 +13,23 @@
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFTransPlayerBase.h"
 #include "NFLogicCommon/NFCharactorDefine.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-
-class NFTransSaveDB : public NFTransPlayerBase {
+class NFTransSaveDB : public NFShmObjTemplate<NFTransSaveDB, EOT_TRANS_SAVE_PLAYER, NFTransPlayerBase>
+{
 public:
-	NFTransSaveDB();
-
-	virtual ~NFTransSaveDB();
-
-	int CreateInit();
-
-	int ResumeInit();
-
-	virtual int HandleTransFinished(int iRunLogicRetCode);
+    NFTransSaveDB();
+    
+    virtual ~NFTransSaveDB();
+    
+    int CreateInit();
+    
+    int ResumeInit();
+    
+    virtual int HandleTransFinished(int iRunLogicRetCode);
 public:
-	int SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason = TRANS_SAVEROLEDETAIL_NORMAL);
+    int SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason = TRANS_SAVEROLEDETAIL_NORMAL);
 private:
-	TRANS_SAVEROLEDETAIL_REASON m_reason;
+    TRANS_SAVEROLEDETAIL_REASON m_reason;
     uint32_t m_curSeq;
-	DECLARE_IDCREATE(NFTransSaveDB)
 };

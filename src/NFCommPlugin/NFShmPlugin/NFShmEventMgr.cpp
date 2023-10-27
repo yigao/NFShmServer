@@ -12,9 +12,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFShmEventMgr, EOT_TYPE_EVENT_MGR, NFShmObj)
-
-NFShmEventMgr::NFShmEventMgr() : NFShmObj()
+NFShmEventMgr::NFShmEventMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

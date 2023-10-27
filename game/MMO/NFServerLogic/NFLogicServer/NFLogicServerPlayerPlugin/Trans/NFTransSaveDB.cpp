@@ -18,48 +18,52 @@
 #include "Player/NFPlayer.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransSaveDB, EOT_TRANS_SAVE_PLAYER, NFTransPlayerBase)
-
-NFTransSaveDB::NFTransSaveDB() {
-	if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT) {
-		CreateInit();
-	}
-	else {
-		ResumeInit();
-	}
+NFTransSaveDB::NFTransSaveDB()
+{
+    if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
+    {
+        CreateInit();
+    } else
+    {
+        ResumeInit();
+    }
 }
 
-NFTransSaveDB::~NFTransSaveDB() {
+NFTransSaveDB::~NFTransSaveDB()
+{
 
 }
 
-int NFTransSaveDB::CreateInit() {
+int NFTransSaveDB::CreateInit()
+{
     m_curSeq = 0;
     m_reason = TRANS_SAVEROLEDETAIL_NORMAL;
-	return 0;
+    return 0;
 }
 
-int NFTransSaveDB::ResumeInit() {
-	return 0;
+int NFTransSaveDB::ResumeInit()
+{
+    return 0;
 }
 
 int NFTransSaveDB::SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason)
 {
-	NFPlayer* pPlayer = GetPlayer();
-	CHECK_EXPR(pPlayer, -1, "Save Failed! Can't find player data, userId:{}", m_cid);
-	
-	m_reason = iReason;
+    NFPlayer *pPlayer = GetPlayer();
+    CHECK_EXPR(pPlayer, -1, "Save Failed! Can't find player data, userId:{}", m_cid);
+    
+    m_reason = iReason;
     m_curSeq = pPlayer->GetAllSeq();
     pPlayer->SetLastSaveDBTime(NFTime::Now().UnixSec());
-
-	proto_ff::RoleDBData tbData;
+    
+    proto_ff::RoleDBData tbData;
     pPlayer->SaveDB(tbData);
-	NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "Ready Save Player InTo Mysql:{}", tbData.DebugString());
-
-    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcModifyObjService(NF_ST_LOGIC_SERVER, m_cid, tbData, [this](int rpcRetCode) {
+    NFLogTrace(NF_LOG_SYSTEMLOG, m_cid, "Ready Save Player InTo Mysql:{}", tbData.DebugString());
+    
+    m_rpcId = FindModule<NFIServerMessageModule>()->GetRpcModifyObjService(NF_ST_LOGIC_SERVER, m_cid, tbData, [this](int rpcRetCode)
+    {
         if (rpcRetCode == 0)
         {
-            NFPlayer* pPlayer = GetPlayer();
+            NFPlayer *pPlayer = GetPlayer();
             if (pPlayer)
             {
                 pPlayer->OnSaveDB(true, m_curSeq);
@@ -69,26 +73,29 @@ int NFTransSaveDB::SaveDB(TRANS_SAVEROLEDETAIL_REASON iReason)
                 }
             }
         }
-
+        
         SetFinished(rpcRetCode);
     });
-
+    
     if (m_rpcId == INVALID_ID)
     {
         return proto_ff::ERR_CODE_RPC_SYSTEM_ERROR;
     }
-
-	return 0;
+    
+    return 0;
 }
 
-int NFTransSaveDB::HandleTransFinished(int iRunLogicRetCode) {
-	if (iRunLogicRetCode != 0) {
-		NFPlayer *pPlayer = GetPlayer();
-		if (pPlayer) {
+int NFTransSaveDB::HandleTransFinished(int iRunLogicRetCode)
+{
+    if (iRunLogicRetCode != 0)
+    {
+        NFPlayer *pPlayer = GetPlayer();
+        if (pPlayer)
+        {
             pPlayer->OnSaveDB(false, 0);
-		}
-		return iRunLogicRetCode;
-	}
-
-	return 0;
+        }
+        return iRunLogicRetCode;
+    }
+    
+    return 0;
 }

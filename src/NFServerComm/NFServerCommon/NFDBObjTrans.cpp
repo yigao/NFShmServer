@@ -14,21 +14,24 @@
 #include "NFComm/NFPluginModule/NFCheck.h"
 #include "NFDBObjMgr.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFDBObjTrans, EOT_TRANS_DB_OBJ, NFTransBase)
-
-NFDBObjTrans::NFDBObjTrans():NFTransBase() {
-    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode()) {
+NFDBObjTrans::NFDBObjTrans()
+{
+    if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
+    {
         CreateInit();
-    } else {
+    } else
+    {
         ResumeInit();
     }
 }
 
-NFDBObjTrans::~NFDBObjTrans() {
+NFDBObjTrans::~NFDBObjTrans()
+{
 
 }
 
-int NFDBObjTrans::CreateInit() {
+int NFDBObjTrans::CreateInit()
+{
     m_iLinkedObjID = 0;
     m_iObjSeqOP = 0;
     m_iDBOP = 0;
@@ -36,11 +39,13 @@ int NFDBObjTrans::CreateInit() {
     return 0;
 }
 
-int NFDBObjTrans::ResumeInit() {
+int NFDBObjTrans::ResumeInit()
+{
     return 0;
 }
 
-int NFDBObjTrans::Init(NF_SERVER_TYPES eType, int iObjID, uint32_t iSeqOP) {
+int NFDBObjTrans::Init(NF_SERVER_TYPES eType, int iObjID, uint32_t iSeqOP)
+{
     m_iLinkedObjID = iObjID;
     m_iObjSeqOP = iSeqOP;
     m_iServerType = eType;
@@ -48,12 +53,13 @@ int NFDBObjTrans::Init(NF_SERVER_TYPES eType, int iObjID, uint32_t iSeqOP) {
 }
 
 int NFDBObjTrans::Insert(uint32_t eTableID, const std::string &sTableName, uint64_t iModKey,
-                         google::protobuf::Message *data) {
+                         google::protobuf::Message *data)
+{
     CHECK_NULL(data);
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "InsertToDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalId(), data->DebugString());
-
+    
     m_iDBOP = proto_ff::NF_STORESVR_C2S_INSERT;
-
+    
     int iRetCode = 0;
     /*
     int iRetCode = FindModule<NFIMessageModule>()->SendTransToStoreServer(m_iServerType,
@@ -71,10 +77,11 @@ int NFDBObjTrans::Insert(uint32_t eTableID, const std::string &sTableName, uint6
 }
 
 int NFDBObjTrans::Save(uint32_t eTableID, const string &sTableName, uint64_t iModKey,
-                       google::protobuf::Message *data) {
+                       google::protobuf::Message *data)
+{
     CHECK_NULL(data);
     NFLogTrace(NF_LOG_SYSTEMLOG, 0, "SaveToDB, tableId:{} tableName:{} trans:{} ", eTableID, sTableName, GetGlobalId());
-
+    
     m_iDBOP = proto_ff::NF_STORESVR_C2S_MODIFYOBJ;
     int iRetCode = 0;
     /*
@@ -93,10 +100,11 @@ int NFDBObjTrans::Save(uint32_t eTableID, const string &sTableName, uint64_t iMo
 }
 
 int NFDBObjTrans::Load(uint32_t eTableID, const string &sTableName, uint64_t iModKey,
-                       google::protobuf::Message *data) {
+                       google::protobuf::Message *data)
+{
     CHECK_NULL(data);
     NFLogDebug(NF_LOG_SYSTEMLOG, 0, "LoadFromDB, tableId:{} tableName:{} trans:{} msg:{}", eTableID, sTableName, GetGlobalId(), data->DebugString());
-
+    
     m_iDBOP = proto_ff::NF_STORESVR_C2S_SELECTOBJ;
     int iRetCode = 0;
     /*
@@ -114,8 +122,10 @@ int NFDBObjTrans::Load(uint32_t eTableID, const string &sTableName, uint64_t iMo
     return iRetCode;
 }
 
-int NFDBObjTrans::OnTimeOut() {
-    switch (m_iDBOP) {
+int NFDBObjTrans::OnTimeOut()
+{
+    switch (m_iDBOP)
+    {
         case proto_ff::NF_STORESVR_C2S_SELECTOBJ:
         {
             return NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, proto_ff::ERR_CODE_STORESVR_ERRCODE_BUSY, NULL);
@@ -141,13 +151,14 @@ int NFDBObjTrans::OnTimeOut() {
     return 0;
 }
 
-int NFDBObjTrans::HandleTransFinished(int iRunLogicRetCode) {
+int NFDBObjTrans::HandleTransFinished(int iRunLogicRetCode)
+{
     if (iRunLogicRetCode == 0)
     {
         return 0;
     }
-
-    switch(m_iDBOP)
+    
+    switch (m_iDBOP)
     {
         case proto_ff::NF_STORESVR_C2S_SELECTOBJ:
         {
@@ -165,27 +176,27 @@ int NFDBObjTrans::HandleTransFinished(int iRunLogicRetCode) {
             break;
         }
     }
-
+    
     return 0;
 }
 
 int
 NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_t cmd, uint32_t table_id, uint32_t seq,
-                             int32_t err_code) {
+                             int32_t err_code)
+{
     int iRet = 0;
-    switch(cmd)
+    switch (cmd)
     {
         case proto_ff::NF_STORESVR_S2C_SELECTOBJ:
         {
             if (!pSSMsgRes)
             {
-                iRet  = NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, NULL);
-            }
-            else
+                iRet = NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, NULL);
+            } else
             {
-                const storesvr_sqldata::storesvr_selobj_res* pRes = dynamic_cast<const storesvr_sqldata::storesvr_selobj_res*>(pSSMsgRes);
+                const storesvr_sqldata::storesvr_selobj_res *pRes = dynamic_cast<const storesvr_sqldata::storesvr_selobj_res *>(pSSMsgRes);
                 CHECK_NULL(pRes);
-                iRet  = NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, &pRes->record());
+                iRet = NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataLoaded(m_iLinkedObjID, err_code, &pRes->record());
             }
             break;
         }
@@ -194,8 +205,7 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
             if (err_code == proto_ff::ERR_CODE_SVR_OK)
             {
                 NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataInserted(this, true);
-            }
-            else
+            } else
             {
                 NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataInserted(this, false);
             }
@@ -206,8 +216,7 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
             if (err_code == proto_ff::ERR_CODE_SVR_OK)
             {
                 NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, true);
-            }
-            else
+            } else
             {
                 NFDBObjMgr::Instance(m_pObjPluginManager)->OnDataSaved(this, false);
             }
@@ -219,7 +228,7 @@ NFDBObjTrans::HandleDBMsgRes(const google::protobuf::Message *pSSMsgRes, uint32_
             break;
         }
     }
-
+    
     SetFinished(0);
     return iRet;
 }

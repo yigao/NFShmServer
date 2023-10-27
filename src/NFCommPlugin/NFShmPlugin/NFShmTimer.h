@@ -21,7 +21,7 @@ enum NFTimerRetType {
     eTimerNotTrigger = 2, // 没有触发
 };
 
-class NFShmTimer : public NFShmObj, public NFListNodeObjWithGlobalID<NFShmTimer, EOT_TYPE_TIMER_OBJ>
+class NFShmTimer : public NFShmObjTemplate<NFShmTimer, EOT_TYPE_TIMER_OBJ, NFShmObj>, public NFListNodeObjWithGlobalID<NFShmTimer, EOT_TYPE_TIMER_OBJ>
 {
 public:
     enum NFShmTimerType
@@ -140,6 +140,4 @@ private:
     int m_slotIndex;        // 槽id
     bool m_waitDel;            // 等待删除标记
     int m_listIndex;        // 绑定的list的序号，当为-1时，代表已经脱离绑定
-
-DECLARE_IDCREATE(NFShmTimer)
 };

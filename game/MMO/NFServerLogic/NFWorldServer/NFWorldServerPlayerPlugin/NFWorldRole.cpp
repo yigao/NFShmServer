@@ -11,8 +11,6 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldRole, EOT_WORLD_ROLE_ID, NFShmObj)
-
 NFWorldRole::NFWorldRole()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())

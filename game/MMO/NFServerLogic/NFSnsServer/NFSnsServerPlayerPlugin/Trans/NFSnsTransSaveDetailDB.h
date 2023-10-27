@@ -9,30 +9,29 @@
 
 #pragma once
 
-
 #include "NFComm/NFCore/NFPlatform.h"
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
-
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 class NFPlayerDetail;
-class NFSnsTransSaveDetailDB : public NFTransBase {
+class NFSnsTransSaveDetailDB : public NFShmObjTemplate<NFSnsTransSaveDetailDB, EOT_SNS_TRANS_SAVE_PLAYER_DETAIL, NFTransBase>
+{
 public:
     NFSnsTransSaveDetailDB();
-
+    
     virtual ~NFSnsTransSaveDetailDB();
-
+    
     int CreateInit();
-
+    
     int ResumeInit();
-
+    
     virtual int HandleTransFinished(int iRunLogicRetCode);
 public:
-    int SaveDB(NFPlayerDetail* pPlayer);
+    int SaveDB(NFPlayerDetail *pPlayer);
 private:
     uint32_t m_curSeq;
     uint32_t m_cid;
-DECLARE_IDCREATE(NFSnsTransSaveDetailDB)
 };

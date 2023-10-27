@@ -16,8 +16,9 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "storesvr_sqldata.pb.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFTransGetPlayerSimple : public NFTransBase
+class NFTransGetPlayerSimple : public NFShmObjTemplate<NFTransGetPlayerSimple, EOT_SNS_TRANS_GET_ROLE_SIMPLE_ID, NFTransBase>
 {
 public:
     NFTransGetPlayerSimple();
@@ -33,5 +34,4 @@ public:
     int OnTransFinished(int iRunLogicRetCode);
 private:
     uint64_t m_cid;
-DECLARE_IDCREATE(NFTransGetPlayerSimple)
 };

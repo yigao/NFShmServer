@@ -15,9 +15,7 @@
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransGetPlayerDetail, EOT_SNS_TRANS_GET_ROLE_DETAIL_ID, NFTransBase)
-
-NFTransGetPlayerDetail::NFTransGetPlayerDetail() : NFTransBase()
+NFTransGetPlayerDetail::NFTransGetPlayerDetail()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

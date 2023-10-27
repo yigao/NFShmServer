@@ -17,7 +17,7 @@
 #include "NFPlayerDetail.h"
 #include "NFPlayerOnline.h"
 
-class NFCacheMgr : public NFShmObj
+class NFCacheMgr : public NFShmObjTemplate<NFCacheMgr, EOT_SNS_CACHE_MGR_ID, NFShmObj>
 {
 public:
     NFCacheMgr();
@@ -142,6 +142,4 @@ public:
     NFPlayerDetail* QueryPlayerDetailByRpc(uint64_t cid, uint64_t query_id);
 public:
     std::pair<NFPlayerSimple*, NFPlayerDetail*> QueryPlayerByRpc(uint64_t cid, uint64_t query_id);
-private:
-DECLARE_IDCREATE(NFCacheMgr)
 };

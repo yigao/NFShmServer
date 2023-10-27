@@ -41,8 +41,6 @@ int64_t AddVal(int64_t oldval, int64_t val)
 
 
 //------------------------------------------   ComFightAttr --------------------------------------------
-IMPLEMENT_IDCREATE_WITHTYPE(ComFightAttr, EOT_SERVER_COMMON_COMFIGHT_ATTR_ID, NFShmObj)
-
 ComFightAttr::ComFightAttr()
 {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
@@ -257,8 +255,6 @@ bool ComFightAttr::ValidAttrGroup(uint32_t groupid)
 
 
 //------------------------------------------   RoleFightAttr --------------------------------------------
-IMPLEMENT_IDCREATE_WITHTYPE(RoleFightAttr, EOT_SERVER_COMMON_ROLEFIGHT_ATTR_ID, NFShmObj)
-
 RoleFightAttr::RoleFightAttr()
 {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
@@ -691,8 +687,6 @@ bool RoleFightAttr::UnLock(MAP_UINT32_INT64 &mapchg)
 
 
 // ------------------------------------------- ComAttr -------------------------------------
-IMPLEMENT_IDCREATE_WITHTYPE(ComAttr, EOT_SERVER_COMMON_COM_ATTR_ID, NFShmObj)
-
 ComAttr::ComAttr()
 {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
@@ -761,8 +755,6 @@ bool ComAttr::SetAttr(uint32_t ANum, int64_t val, bool *chgflag)
 }
 
 //------------------------------------------------- RoleAttr ---------------------------------------
-IMPLEMENT_IDCREATE_WITHTYPE(RoleAttr, EOT_SERVER_COMMON_ROLE_ATTR_ID, NFShmObj)
-
 RoleAttr::RoleAttr()
 {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)

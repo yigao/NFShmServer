@@ -12,9 +12,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "NFComm/NFPluginModule/NFLogMgr.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFShmSubscribeInfo, EOT_TYPE_SUBSCRIBEINFO_OBJ, NFShmObj)
-
-NFShmSubscribeInfo::NFShmSubscribeInfo(): NFShmObj()
+NFShmSubscribeInfo::NFShmSubscribeInfo()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

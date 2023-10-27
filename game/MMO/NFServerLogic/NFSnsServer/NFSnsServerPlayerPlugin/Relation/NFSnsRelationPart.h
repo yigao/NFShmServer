@@ -16,7 +16,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Part/NFSnsPart.h"
 
-class NFSnsRelationPart : public NFSnsPart
+class NFSnsRelationPart : public NFShmObjTemplate<NFSnsRelationPart, EOT_SNS_PART_ID+SNS_PART_RELATION, NFSnsPart>
 {
 public:
     NFSnsRelationPart();
@@ -26,7 +26,4 @@ public:
     int CreateInit();
 
     int ResumeInit();
-
-private:
-DECLARE_IDCREATE(NFSnsRelationPart)
 };

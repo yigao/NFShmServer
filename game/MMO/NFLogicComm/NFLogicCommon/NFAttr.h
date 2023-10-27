@@ -15,6 +15,7 @@
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "Com.pb.h"
 #include "NFGameCommon/NFComTypeDefine.h"
+#include "NFLogicShmTypeDefines.h"
 #include <unordered_map>
 
 #pragma pack(push)
@@ -111,7 +112,7 @@ public:
 };
 
 //通用战斗属性
-class ComFightAttr : public IFightAttr
+class ComFightAttr : public NFShmObjTemplate<ComFightAttr, EOT_SERVER_COMMON_COMFIGHT_ATTR_ID, IFightAttr>
 {
 public:
     ComFightAttr();
@@ -166,11 +167,10 @@ public:
 private:
     //战斗属性, ID为0的属性组表示总属性
     int64_t m_attr[COMMON_FIGHT_ATTR_GROUP_END][COMMON_FIGHT_ATTR_END];
-DECLARE_IDCREATE(ComFightAttr)
 };
 
 //角色战斗属性
-class RoleFightAttr : public IFightAttr
+class RoleFightAttr : public NFShmObjTemplate<RoleFightAttr, EOT_SERVER_COMMON_ROLEFIGHT_ATTR_ID, IFightAttr>
 {
 public:
     RoleFightAttr();
@@ -234,7 +234,6 @@ private:
     bool m_fightchg;
     //是否锁定总属性
     bool m_lock = false;
-DECLARE_IDCREATE(RoleFightAttr)
 };
 
 class IAttr : public NFShmObj
@@ -261,7 +260,7 @@ public:
 };
 
 //通用属性
-class ComAttr : public IAttr
+class ComAttr : public NFShmObjTemplate<ComAttr, EOT_SERVER_COMMON_COM_ATTR_ID, IAttr>
 {
 public:
     ComAttr();
@@ -286,11 +285,10 @@ public:
 
 private:
     int64_t m_attr[COMMON_ATTR_END];
-DECLARE_IDCREATE(ComAttr)
 };
 
 //角色属性
-class RoleAttr : public IAttr
+class RoleAttr : public NFShmObjTemplate<RoleAttr, EOT_SERVER_COMMON_ROLE_ATTR_ID, IAttr>
 {
 public:
     RoleAttr();
@@ -315,7 +313,6 @@ public:
 
 private:
     int64_t m_attr[ROLE_ATTR_END];
-DECLARE_IDCREATE(RoleAttr)
 };
 
 #pragma pack(pop)

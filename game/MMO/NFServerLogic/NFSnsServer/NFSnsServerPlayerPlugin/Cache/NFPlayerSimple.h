@@ -18,8 +18,9 @@
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFComm/NFCore/NFTime.h"
 #include "DBProxy2_s.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFPlayerSimple : public NFShmObj, public NFSeqOP
+class NFPlayerSimple : public NFShmObjTemplate<NFPlayerSimple, EOT_SNS_ROLE_SIMPLE_ID, NFShmObj>, public NFSeqOP
 {
 public:
     NFPlayerSimple();
@@ -179,5 +180,4 @@ private:
      * @brief
      */
     int m_saveDBTimer;
-DECLARE_IDCREATE(NFPlayerSimple)
 };

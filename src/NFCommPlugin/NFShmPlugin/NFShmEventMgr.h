@@ -24,7 +24,7 @@
 #define NF_SHM_EVENT_KEY_MAX_NUM 50000
 #define NF_SHM_OBJ_MAX_EVENT_NUM 100
 
-class NFShmEventMgr : public NFShmObj
+class NFShmEventMgr : public NFShmObjTemplate<NFShmEventMgr, EOT_TYPE_EVENT_MGR, NFShmObj>
 {
 public:
     NFShmEventMgr();
@@ -126,5 +126,4 @@ private:
      * @brief
      */
     int32_t m_nFireLayer;
-DECLARE_IDCREATE(NFShmEventMgr)
 };

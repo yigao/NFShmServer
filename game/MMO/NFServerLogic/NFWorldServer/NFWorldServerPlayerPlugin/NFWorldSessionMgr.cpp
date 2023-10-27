@@ -16,9 +16,7 @@
 #include "NFWorldAccountMgr.h"
 #include "NFWorldAccount.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldSessionMgr, EOT_WORLD_SESSION_MGR_ID, NFShmObj)
-
-NFWorldSessionMgr::NFWorldSessionMgr():NFShmObj()
+NFWorldSessionMgr::NFWorldSessionMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

@@ -19,9 +19,7 @@
 #include "NFComm/NFPluginModule/NFError.h"
 #include "NFComm/NFPluginModule/NFICoroutineModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFTransBase, EOT_TRANS_BASE, NFShmObj)
-
-NFTransBase::NFTransBase() : NFShmObj()
+NFTransBase::NFTransBase()
 {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
     {

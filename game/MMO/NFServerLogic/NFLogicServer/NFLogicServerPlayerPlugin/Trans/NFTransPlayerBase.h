@@ -10,30 +10,31 @@
 #pragma once
 
 #include "NFComm/NFShmCore/NFTransBase.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 class NFPlayer;
-class NFTransPlayerBase : public NFTransBase {
+class NFTransPlayerBase : public NFShmObjTemplate<NFTransPlayerBase, EOT_TRANS_LOGIC_USER_BASE, NFTransBase>
+{
 public:
-	NFTransPlayerBase();
-
-	virtual ~NFTransPlayerBase();
-
-	int CreateInit();
-
-	int ResumeInit();
-
-	int Init(uint64_t cid, uint32_t cmd, uint32_t fromBusId = 0, uint32_t reqTransId = 0);
-	int Init(NFPlayer* pUser, uint32_t cmd, uint32_t fromBusId = 0, uint32_t reqTransId = 0);
-
+    NFTransPlayerBase();
+    
+    virtual ~NFTransPlayerBase();
+    
+    int CreateInit();
+    
+    int ResumeInit();
+    
+    int Init(uint64_t cid, uint32_t cmd, uint32_t fromBusId = 0, uint32_t reqTransId = 0);
+    int Init(NFPlayer *pUser, uint32_t cmd, uint32_t fromBusId = 0, uint32_t reqTransId = 0);
+    
     NFPlayer *GetPlayer();
-
-	virtual int OnTimeOut();
-	virtual int OnTransFinished(int iRunLogicRetCode);
+    
+    virtual int OnTimeOut();
+    virtual int OnTransFinished(int iRunLogicRetCode);
 protected:
-	uint32_t m_cmd;
-	uint64_t m_cid;
-	uint32_t m_fromBusId;
-	uint32_t m_reqTransId;
-	bool m_bHasIncreasedCount;
-	DECLARE_IDCREATE(NFTransPlayerBase)
+    uint32_t m_cmd;
+    uint64_t m_cid;
+    uint32_t m_fromBusId;
+    uint32_t m_reqTransId;
+    bool m_bHasIncreasedCount;
 };

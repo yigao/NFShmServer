@@ -27,7 +27,7 @@
 
 class NFSnsPart;
 class NFPlayerSimple;
-class NFPlayerDetail : public NFShmObj, public NFSeqOP
+class NFPlayerDetail : public NFShmObjTemplate<NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj>, public NFSeqOP
 {
 public:
     NFPlayerDetail();
@@ -253,5 +253,4 @@ private:
     int m_saveDBTimer;
 private:
     NFShmVector<NFShmPtr<NFSnsPart>, SNS_PART_MAX> m_pPart;
-DECLARE_IDCREATE(NFPlayerDetail)
 };

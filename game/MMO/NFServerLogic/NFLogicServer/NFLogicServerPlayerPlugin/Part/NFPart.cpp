@@ -13,9 +13,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFPartModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPart, EOT_LOGIC_PART_ID, NFShmObj)
-
-NFPart::NFPart() : NFShmObj()
+NFPart::NFPart()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

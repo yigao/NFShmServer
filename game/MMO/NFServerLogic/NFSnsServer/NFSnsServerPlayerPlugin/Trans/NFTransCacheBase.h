@@ -14,9 +14,10 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFTransBase.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFQueryRole.h"
 
-class NFTransCacheBase : public NFTransBase
+class NFTransCacheBase : public NFShmObjTemplate<NFTransCacheBase, EOT_SNS_TRANS_CACHE_BASE_ID, NFTransBase>
 {
 public:
     NFTransCacheBase();
@@ -127,5 +128,4 @@ protected:
     bool m_bNotify;
     int m_reqTrans;
     bool m_bGetDetail;
-DECLARE_IDCREATE(NFTransCacheBase)
 };

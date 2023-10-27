@@ -37,7 +37,7 @@ public :\
     eDealWithLoadFailed DealWithFailed() { return failed_op; } \
     virtual google::protobuf::Message* CreateTempProtobufData() { return new proto_ff::db_name; }
 
-class NFBaseDBObj : public NFShmObj, public NFSeqOP
+class NFBaseDBObj : public NFShmObjTemplate<NFBaseDBObj, EOT_BASE_DB_OBJ, NFShmObj>, public NFSeqOP
 {
 public:
     NFBaseDBObj();
@@ -81,5 +81,4 @@ private:
     int      m_iRetryTimes;
     bool     m_bNeedInsertDB;
     NF_SERVER_TYPES m_iServerType;
-DECLARE_IDCREATE(NFBaseDBObj)
 };

@@ -13,8 +13,9 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFWorldSession : public NFShmObj
+class NFWorldSession : public NFShmObjTemplate<NFWorldSession, EOT_WORLD_SESSION_ID, NFShmObj>
 {
 public:
     NFWorldSession();
@@ -45,6 +46,4 @@ private:
     uint64_t m_clientId;
     uint64_t m_uid;
     uint64_t m_cid;
-private:
-DECLARE_IDCREATE(NFWorldSession)
 };

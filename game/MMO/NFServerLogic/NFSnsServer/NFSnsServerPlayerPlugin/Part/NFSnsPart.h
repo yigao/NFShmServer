@@ -26,7 +26,7 @@
 
 class NFPlayerSimple;
 class NFPlayerOnline;
-class NFSnsPart : public NFShmObj, public NFSeqOP
+class NFSnsPart : public NFShmObjTemplate<NFSnsPart, EOT_SNS_PART_ID, NFShmObj>, public NFSeqOP
 {
 public:
     NFSnsPart();
@@ -207,6 +207,4 @@ protected:
     NFShmPtr<NFPlayerDetail> m_pMaster;
     uint64_t m_playerId;
     uint32_t m_partType;
-private:
-DECLARE_IDCREATE(NFSnsPart)
 };

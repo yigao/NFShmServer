@@ -14,8 +14,9 @@
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
 #include "CommonClass.pb.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
-class NFWorldRole : public NFShmObj
+class NFWorldRole : public NFShmObjTemplate<NFWorldRole, EOT_WORLD_ROLE_ID, NFShmObj>
 {
 public:
     NFWorldRole();
@@ -82,6 +83,4 @@ private:
     uint64_t m_lastDiconnectTime;
     uint64_t m_lastLogoutTime;
     bool m_isDisconnect;
-private:
-DECLARE_IDCREATE(NFWorldRole)
 };

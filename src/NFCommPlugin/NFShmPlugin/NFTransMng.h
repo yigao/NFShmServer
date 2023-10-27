@@ -15,7 +15,7 @@
 #define MAX_TOTAL_TRANS_NUM 10000
 
 class NFTransBase;
-class NFTransMng : public NFShmObj, public NFTickByRunIndexOP
+class NFTransMng : public NFShmObjTemplate<NFTransMng, EOT_TRANS_MNG, NFShmObj>, public NFTickByRunIndexOP
 {
 public:
     NFTransMng();
@@ -40,7 +40,6 @@ protected:
     int m_iTotalTransNum;
     int m_aiTransObjIDList[MAX_TOTAL_TRANS_NUM];
     NFTransBase* m_apTransObjList[MAX_TOTAL_TRANS_NUM];
-DECLARE_IDCREATE(NFTransMng)
 };
 
 

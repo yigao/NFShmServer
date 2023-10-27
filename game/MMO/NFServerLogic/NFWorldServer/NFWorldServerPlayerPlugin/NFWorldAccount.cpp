@@ -13,9 +13,7 @@
 #include "NFLogicCommon/NFLogicShmTypeDefines.h"
 #include "NFLogicCommon/NFLogicCommon.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFWorldAccount, EOT_WORLD_ACCOUNT_ID, NFShmObj)
-
-NFWorldAccount::NFWorldAccount(): NFShmObj()
+NFWorldAccount::NFWorldAccount()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

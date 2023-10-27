@@ -15,8 +15,6 @@
 #include "NFComm/NFPluginModule/NFIEventModule.h"
 #include "NFComm/NFPluginModule/NFIMessageModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE_NOPARENT(NFShmObj, 0)
-
 NFShmObj::NFShmObj() : NFObject(NFShmMgr::Instance()->m_pTempPluginManager)
 {
     if (NFShmMgr::Instance()->GetCreateMode() == EN_OBJ_MODE_INIT)
@@ -83,6 +81,24 @@ int NFShmObj::CreateInit()
     m_bIsInRecycle = false;
 
     return 0;
+}
+
+std::string NFShmObj::GetClassName() const
+{
+    return FindModule<NFISharedMemModule>()->GetClassName(GetClassType());
+}
+
+int NFShmObj::GetItemCount() const
+{
+    return FindModule<NFISharedMemModule>()->GetItemCount(GetClassType());
+}
+int NFShmObj::GetUsedCount() const
+{
+    return FindModule<NFISharedMemModule>()->GetUsedCount(GetClassType());
+}
+int NFShmObj::GetFreeCount() const
+{
+    return FindModule<NFISharedMemModule>()->GetFreeCount(GetClassType());
 }
 
 int NFShmObj::OnTimer(int timeId, int callcount)

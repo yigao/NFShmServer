@@ -14,9 +14,10 @@
 #include "NFComm/NFShmCore/NFShmObj.h"
 #include "NFComm/NFShmCore/NFShmMgr.h"
 #include "NFComm/NFShmCore/NFISharedMemModule.h"
+#include "NFLogicCommon/NFLogicShmTypeDefines.h"
 
 class NFWorldRole;
-class NFWorldRoleMgr : public NFShmObj
+class NFWorldRoleMgr : public NFShmObjTemplate<NFWorldRoleMgr, EOT_WORLD_ROLE_MGR_ID, NFShmObj>
 {
 public:
     NFWorldRoleMgr();
@@ -50,6 +51,4 @@ public:
      * @return
      */
     int DeleteRole(NFWorldRole *pRole);
-private:
-DECLARE_IDCREATE(NFWorldRoleMgr)
 };

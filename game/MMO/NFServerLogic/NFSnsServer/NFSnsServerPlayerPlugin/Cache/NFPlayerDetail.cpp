@@ -15,9 +15,7 @@
 #include "Trans/NFSnsTransSaveDetailDB.h"
 #include "NFComm/NFCore/NFRandom.hpp"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFPlayerDetail, EOT_SNS_ROLE_DETAIL_ID, NFShmObj)
-
-NFPlayerDetail::NFPlayerDetail() : NFShmObj()
+NFPlayerDetail::NFPlayerDetail()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {

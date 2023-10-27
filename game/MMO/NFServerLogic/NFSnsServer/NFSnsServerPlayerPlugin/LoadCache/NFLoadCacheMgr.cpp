@@ -19,9 +19,7 @@
 #include "Trans/NFTransCacheBase.h"
 #include "NFServerComm/NFServerCommon/NFIServerMessageModule.h"
 
-IMPLEMENT_IDCREATE_WITHTYPE(NFLoadCacheMgr, EOT_SNS_LOAD_CACHE_MGR_ID, NFShmObj)
-
-NFLoadCacheMgr::NFLoadCacheMgr() : NFShmObj()
+NFLoadCacheMgr::NFLoadCacheMgr()
 {
     if (EN_OBJ_MODE_INIT == NFShmMgr::Instance()->GetCreateMode())
     {
